@@ -4,10 +4,10 @@
       "docset_name": "AzureStack",
       "build_source_folder": "azure-stack",
       "build_output_subfolder": "AzureStack",
-      "locale": "zh-CN",
+      "locale": "zh-cn",
       "monikers": [],
       "moniker_ranges": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
@@ -20,11 +20,11 @@
   "notification_subscribers": [],
   "sync_notification_subscribers": [],
   "branches_to_filter": [
-    "live-sxs",
+    "live",
     "master-sxs"
   ],
-  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-stack-docs",
-  "git_repository_branch_open_to_public_contributors": "master",
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-stack-docs.zh-cn",
+  "git_repository_branch_open_to_public_contributors": "live",
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
@@ -32,13 +32,7 @@
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft.zh-CN",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "_themes.pdf",
-      "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+      "url": "https://github.com/Microsoft/templates.docs.msft.zh-cn",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -51,25 +45,5 @@
         "master": "master"
       }
     }
-  ],
-  "branch_target_mapping": {
-    "live": [
-      "Publish",
-      "PDF"
-    ],
-    "master": [
-      "Publish",
-      "PDF"
-    ],
-    "release-stack-migration": [
-      "Publish",
-      "PDF"
-    ]
-  },
-  "need_generate_pdf_url_template": true,
-  "targets": {
-    "Pdf": {
-      "template_folder": "_themes.pdf"
-    }
-  }
+  ]
 }
