@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Stack 合作伙伴文档
+metadata:
+  document_id: null
+  title: Azure Stack 合作伙伴文档 - 教程、API 参考
+  description: 了解如何验证硬件是否可以用来承载 Azure Stack。 作为一项服务的验证是本机 Azure 服务设计为供解决方案合作伙伴共同工程与 Microsoft Azure Stack 产品/服务。
+  services: azure-stack
+  author: mattbriggs
+  manager: femila
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/25/2018
+  ms.author: mabrigg
+  ms.reviewer: johnhas
+abstract:
+  description: 可以使用作为服务的验证检查您的硬件与 Azure Stack 配合使用。 该服务是本机 Azure 服务设计为供解决方案合作伙伴共同工程与 Microsoft Azure Stack 产品/服务。
+sections:
+  - title: 5 分钟快速入门
+    items:
+      - type: paragraph
+        text: 了解如何使用验证与服务门户来计划测试您的硬件上。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/i_account-management.svg
+            text: 用于验证的服务门户，作为计划第一次测试
+            href: azure-stack-vaas-schedule-test-pass.md
+  - title: 分步教程
+    items:
+      - type: paragraph
+        text: 了解如何验证 Azure Stack 硬件。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">验证新的 Azure Stack 解决方案</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">验证 OEM 程序包</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">验证来自 Microsoft 的软件更新</a>

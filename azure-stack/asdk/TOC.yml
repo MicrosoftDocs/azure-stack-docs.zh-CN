@@ -1,0 +1,73 @@
+- name: Azure Stack 开发工具包文档
+  href: index.yml
+- name: 概述
+  expanded: true
+  items:
+    - name: 什么是 ASDK?
+      href: asdk-what-is.md
+    - name: ASDK 发行说明
+      href: asdk-release-notes.md
+- name: 概念
+  items:
+    - name: 部署规划注意事项
+      href: asdk-deploy-considerations.md
+    - name: 开发工具包体系结构
+      href: asdk-architecture.md
+    - name: ASDK 管理基础知识
+      href: asdk-admin-basics.md
+    - name: 高级评估任务
+      href: asdk-advanced-eval.md
+- name: 如何
+  items:
+    - name: 设置 ASDK
+      items:
+        - name: 下载并提取开发工具包
+          href: asdk-download.md
+        - name: 准备 ASDK 主机
+          href: asdk-prepare-host.md
+        - name: 部署 ASDK - 安装程序
+          href: asdk-install.md
+        - name: 部署 ASDK - PowerShell
+          href: asdk-deploy-powershell.md
+        - name: 部署后配置
+          href: asdk-post-deploy.md
+        - name: 重新部署 ASDK
+          href: asdk-redeploy.md
+    - name: 注册 ASDK
+      href: asdk-register.md
+    - name: 配置 Azure Stack 遥测设置
+      href: asdk-telemetry.md
+    - name: 启动和停止 ASDK
+      href: asdk-start-stop.md
+    - name: 验证 Azure Stack 备份
+      href: asdk-validate-backup.md
+    - name: 连接到 ASDK
+      href: asdk-connect.md
+    - name: 故障排除
+      href: asdk-troubleshooting.md
+- name: 参考
+  items:
+    - name: Azure Stack PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    - name: Azure Stack CLI
+      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: 相关内容
+  items:
+    - name: Azure Stack 操作员文档
+      href: /azure-stack/operator
+    - name: Azure Stack 用户文档
+      href: /azure-stack/user/
+- name: 资源
+  items:
+    - name: Azure Stack 路线图
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack MSDN 论坛
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure Stack 文档反馈
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: 定价信息
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: 堆栈溢出
+      href: 'https://stackoverflow.com/questions/tagged/azure-stack'
+    - name: 培训和认证
+      href: /azure-stack/operator/azure-stack-train-and-cert
