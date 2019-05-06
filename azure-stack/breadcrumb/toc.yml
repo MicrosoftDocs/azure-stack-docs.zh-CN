@@ -1,0 +1,31 @@
+- name: 文档
+  tocHref: /
+  topicHref: /
+  items:
+    - name: Azure Stack
+      tocHref: /azure-stack/
+      topicHref: /azure-stack/operator/index
+      items:
+        - name: ASDK
+          tocHref: /azure-stack/asdk/
+          topicHref: /azure-stack/asdk/index
+        - name: 运算符
+          tocHref: /azure-stack/operator/
+          topicHref: /azure-stack/operator/index
+          items:
+            - name: 操作方法指南/备份 Azure Stack
+              tocHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
+              topicHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
+              items:
+                - name: 在 Azure Stack 上备份文件和应用程序
+                  tocHref: /azure/backup/backup-mabs-files-applications-azure-stack
+                  topicHref: /azure/backup/backup-mabs-files-applications-azure-stack
+                - name: 将 Azure Stack VM 复制到 Azure
+                  tocHref: /azure/site-recovery/azure-stack-site-recovery
+                  topicHref: /azure/site-recovery/azure-stack-site-recovery
+        - name: 合作伙伴
+          tocHref: /azure-stack/partner/
+          topicHref: /azure-stack/partner/index
+        - name: 用户
+          tocHref: /azure-stack/user/
+          topicHref: /azure-stack/user/index
