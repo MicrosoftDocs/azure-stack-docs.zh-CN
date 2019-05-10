@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 05/07/2019
 ms.author: sethm
-ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: eb3649beb2acc56663988d2710c633d7032262ba
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: ab5b0b5ac0e67a2a625285bd37a04b084fa8da0f
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985926"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65386602"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -104,7 +104,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 | Diffie-Hellman 组 | DHGroup   | PFSGroup      | 密钥长度    |
 |----------------------|-----------|---------------|---------------|
-| 1                    | DHGroup1  | PFS1          | 768 位 MODP  |
+| 第                    | DHGroup1  | PFS1          | 768 位 MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024 位 MODP |
 | 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | 2048 位 MODP |
 | 19                   | ECP256    | ECP256        | 256 位 ECP   |

@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 02/08/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 7a78a5101e37ee1deeef3cb5923009bc08f26751
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2e260145b2e17dd4475d81f576d84e0145fbc199
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983804"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172389"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>从命令行部署 ASDK
 ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Azure Stack 功能和服务。 若要启动并运行该工具包，需要准备环境硬件并运行一些脚本（这将需要几个小时）。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
@@ -65,7 +65,7 @@ ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Az
 > 确保可以直接通过物理方式或 KVM 方式访问开发工具包主机，然后再重启它。 VM 在第一次启动时会提示你完成 Windows Server 设置。 提供的管理员凭据是用来登录到开发工具包主机的凭据。 
 
 ### <a name="prepare-the-development-kit-host-using-powershell"></a>使用 PowerShell 准备开发工具包主机 
-在开发工具包主机成功启动到 CloudBuilder.vhdx 映像中以后，请使用登录到开发工具包主机时使用过的本地管理员凭据（也是当主机从 VHD 启动时你在完成 Windows Server 设置过程中提供的凭据）登录。 
+在开发工具包主机后将启动到 CloudBuilder.vhdx 映像中，使用成功登录相同的本地管理员凭据用来登录到开发工具包主机 （和完成 Windows Server 的一部分提供安装程序时从 VHD 启动主计算机）。 
 
 > [!NOTE]
 > 也可在安装 ASDK 之前配置 [Azure Stack 遥测设置](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry)。
@@ -93,7 +93,7 @@ ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Az
 
 进行 ASDK 安装后数分钟，系统会提示输入 Azure AD 凭据。 必须提供 Azure AD 租户的全局管理员凭据。 
 
-部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 你可以暂时重新使用该帐户的全局管理员权限或使用单独的全局管理员帐户的所有者*默认提供商订阅*。
+部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>使用 AD FS 部署 Azure Stack 
 若要**使用 AD FS 作为标识提供者**来部署开发工具包，请运行以下 PowerShell 命令（只需添加 -UseADFS 参数）： 
@@ -145,9 +145,9 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 |InfraAzureDirectoryTenantName|需要|设置租户目录。 使用此参数指定一个具体的目录，使 AAD 帐户有权在其中管理多个目录。 AAD Directory 租户中的格式的完整。 onmicrosoft.com 或 Azure AD 验证的自定义域名。|
 |TimeServer|需要|使用此参数指定具体的时间服务器。 必须以有效的时间服务器 IP 地址的形式提供此参数。 服务器名称不受支持。|
 |InfraAzureDirectoryTenantAdminCredential|可选|设置 Azure Active Directory 用户名和密码。 这些 Azure 凭据必须是组织 ID。|
-|InfraAzureEnvironment|可选|选择 Azure 环境，以便将此 Azure Stack 部署注册到其中。 选项包括“公共 Azure”、“Azure - 中国”、“Azure - 美国政府”。|
+|InfraAzureEnvironment|可选|选择 Azure 环境，以便将此 Azure Stack 部署注册到其中。 选项包括全局 Azure，Azure，Azure-中国、 美国政府版。|
 |DNSForwarder|可选|在 Azure Stack 部署过程中会创建 DNS 服务器。 若要允许解决方案中的计算机解析标记外部的名称，请提供现有的基础结构 DNS 服务器。 标记内 DNS 服务器将未知的名称解析请求转发至此服务器。|
-|重新运行|可选|使用此标志重新运行部署。 将使用所有以前的输入。 不支持重新输入以前提供的数据，因为已生成多个唯一的值并将其用于部署。|
+|重新运行|可选|使用此标志重新运行部署。 将使用所有以前的输入。 不支持重新输入以前提供的数据，因为生成及部署使用多个唯一值。|
 
 
 ## <a name="perform-post-deployment-configurations"></a>执行部署后配置
@@ -166,7 +166,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 **[将 Azure Stack 注册到 Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>后续步骤
-祝贺你！ 完成这些步骤后，您必须开发工具包环境中的两个[管理员](https://adminportal.local.azurestack.external)并[用户](https://portal.local.azurestack.external)门户。 
+恭喜! 完成这些步骤后，您必须开发工具包环境中的两个[管理员](https://adminportal.local.azurestack.external)并[用户](https://portal.local.azurestack.external)门户。 
 
 [安装 ASDK 后的配置任务](asdk-post-deploy.md)
 

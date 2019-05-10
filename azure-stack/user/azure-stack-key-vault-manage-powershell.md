@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 05/09/2019
 ms.author: sethm
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 5fcf6f4db84a0421c508ac151e3c2f446a963f4c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: 613fec37e1677698e72ff09d3ffdc35502a57de5
+ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986119"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506092"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中的 Key Vault
 
@@ -43,29 +43,27 @@ ms.locfileid: "64986119"
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>启用适用于 Key Vault 操作的租户订阅
 
-在对某个密钥保管库发出任何操作之前，需确保租户订阅可以进行保管库操作。 若要验证保管库操作是否已启用，请运行以下命令：
+你可以发出针对密钥保管库的任何操作之前，必须确保你的租户订阅可用于保管库操作。 若要验证保管库操作是否已启用，请运行以下命令：
 
 ```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
-**输出**
-
-如果订阅可以进行保管库操作，则输出会显示某个密钥保管库的所有资源类型的“RegistrationState”为“已注册”。
+如果为保管库操作启用你的订阅，则输出会显示**RegistrationState**是**已注册**的密钥保管库的所有资源类型。
 
 ![密钥保管库注册状态](media/azure-stack-key-vault-manage-powershell/image1.png)
 
-如果未启用保管库操作，则请调用以下命令，以便注册订阅中的 Key Vault 服务：
+如果未启用保管库操作，请发出以下命令以在订阅中注册密钥保管库服务：
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
-**输出**
-
 如果注册成功，则返回以下输出：
 
-![注册](media/azure-stack-key-vault-manage-powershell/image2.png) 调用密钥保管库密钥时，可能会遇到错误，例如“该订阅未注册为使用命名空间 'Microsoft.KeyVault'。”如果遇到错误，请确认已按以前提到过的说明启用 Key Vault 资源提供程序。
+![注册](media/azure-stack-key-vault-manage-powershell/image2.png)
+
+当您调用密钥保管库密钥时，可能会收到错误，例如"该订阅未注册为使用命名空间 'microsoft.keyvault '。"如果遇到错误，确认你已按照前面的说明启用密钥保管库资源提供程序。
 
 ## <a name="create-a-key-vault"></a>创建 key vault
 
@@ -73,10 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 ```powershell
 New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
-
 ```
-
-**输出**
 
 ![新建资源组](media/azure-stack-key-vault-manage-powershell/image3.png)
 
@@ -88,11 +83,9 @@ New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
-**输出**
-
 ![新的密钥保管库](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-此命令的输出会显示创建的密钥保管库的属性。 当应用程序访问此保管库时，它必须使用**保管库 URI**属性，它是"https:\//vault01.vault.local.azurestack.external"在此示例中。
+此命令的输出会显示创建的密钥保管库的属性。 当应用程序访问此保管库时，它必须使用**保管库 URI**属性，它是`https://vault01.vault.local.azurestack.external`在此示例中。
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Active Directory 联合身份验证服务 (AD FS) 部署
 
@@ -109,11 +102,11 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName
 
 ## <a name="manage-keys-and-secrets"></a>管理密钥和机密
 
-创建保管库后，使用以下步骤来创建并管理保管库中的密钥和机密。
+创建保管库后，使用以下步骤来创建和管理保管库中密钥和机密。
 
 ### <a name="create-a-key"></a>创建密钥
 
-使用 **Add-AzureKeyVaultKey** 命令在密钥保管库中创建或导入受软件保护的密钥。
+使用**Add-azurekeyvaultkey**命令以创建或导入密钥保管库中受软件保护的密钥：
 
 ```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
@@ -121,18 +114,16 @@ Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination So
 
 可以使用 **Destination** 参数来指出密钥是受软件保护的。 成功创建密钥后，此命令会输出已创建密钥的详细信息。
 
-**输出**
-
 ![新建密钥](media/azure-stack-key-vault-manage-powershell/image5.png)
 
-现在可以通过已创建密钥的 URI 来引用该密钥。 如果创建或导入的密钥的名称与现有密钥相同，则会使用新密钥中指定的值来更新原始密钥。 可以使用密钥的特定于版本的 URI 来访问以前的版本。 例如：
+现在可以通过已创建密钥的 URI 来引用该密钥。 如果创建或导入的密钥的名称与现有密钥相同，则会使用新密钥中指定的值来更新原始密钥。 可以使用密钥的特定于版本的 URI 来访问以前的版本。 例如:
 
-* 使用"https:\//vault10.vault.local.azurestack.external:443/keys/key01"若要始终获得最新版本。
-* 使用"https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a"若要获取此特定版本。
+* 使用`https://vault10.vault.local.azurestack.external:443/keys/key01`可以始终获取最新版本。
+* 使用`https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a`可获取此特定版本。
 
 ### <a name="get-a-key"></a>获取密钥
 
-使用 **Get-AzureKeyVaultKey** 命令读取密钥及其详细信息。
+使用**Get-azurekeyvaultkey**命令要读取的键和其详细信息：
 
 ```powershell
 Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
@@ -140,20 +131,18 @@ Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 
 ### <a name="create-a-secret"></a>创建机密
 
-使用 **Set-AzureKeyVaultSecret** 命令创建或更新保管库中的机密。 如果尚不存在，则创建机密。 如果已经存在机密，则会创建新版机密。
+使用 **Set-AzureKeyVaultSecret** 命令创建或更新保管库中的机密。 如果尚不存在，则创建机密。 如果已存在，则创建新版本的机密：
 
 ```powershell
 $secretvalue = ConvertTo-SecureString "User@123" -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secretvalue
 ```
 
-**输出**
-
 ![创建机密](media/azure-stack-key-vault-manage-powershell/image6.png)
 
 ### <a name="get-a-secret"></a>获取机密
 
-使用 **Get-AzureKeyVaultSecret** 命令读取密钥保管库中的机密。 此命令可以返回所有版本或特定版本的机密。
+使用 **Get-AzureKeyVaultSecret** 命令读取密钥保管库中的机密。 此命令可以返回所有或特定版本的机密：
 
 ```powershell
 Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
@@ -164,6 +153,7 @@ Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 ## <a name="authorize-an-application-to-use-a-key-or-secret"></a>授权应用程序使用密钥或机密
 
 使用 **Set-AzureRmKeyVaultAccessPolicy** 命令授权应用程序访问密钥保管库中的密钥或机密。
+
 在以下示例中，保管库名称为 *ContosoKeyVault*，要授权的应用程序的客户端 ID 为 *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*。 若要授权此应用程序，请运行以下命令。 也可指定 **PermissionsToKeys** 参数，为用户、应用程序或安全组设置权限。
 
 ```powershell

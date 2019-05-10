@@ -3,25 +3,24 @@ title: 部署工作表适用于 Azure Stack 集成系统 |Microsoft Docs
 description: 了解如何安装和部署工作表工具用于部署 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: wamota
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/19/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/19/2019
+ms.author: wamota
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: eb904e022ec9e9645c45c313a27b5fdc4c82b195
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d75915f110b6316f4621f66b1f91b010f735d165
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292856"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172672"
 ---
 # <a name="deployment-worksheet-for-azure-stack-integrated-systems"></a>部署 Azure Stack 集成系统的工作表
 
@@ -48,7 +47,7 @@ Azure Stack 部署工作表是聚合了所有必需的部署信息和在一个�
 2. 在 PowerShell 窗口中，安装的模块[PowerShell 库](https://www.powershellgallery.com/packages/Azs.Deployment.Worksheet/):
 
    ```PowerShell
-   Install-Module -Name Azs.Deployment.Worksheet -RequiredVersion 1.1902.TBD.1 -Repository PSGallery
+   Install-Module -Name Azs.Deployment.Worksheet -Repository PSGallery
    ```
 
 如果你将收到有关不受信任的存储库中安装，请按**Y**才能继续安装。

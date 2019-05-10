@@ -27,7 +27,8 @@
           href: azure-stack-subscribe-services.md
         - name: 从模板创建 VM
           href: azure-stack-create-vm-template.md
-    - name: 混合云模式
+    - name: 混合云应用
+      href: azure-stack-hybrid-cloud-patterns.md
       items:
         - name: 将应用部署到 Azure 和 Azure Stack
           href: azure-stack-solution-pipeline.md
@@ -39,7 +40,7 @@
           href: azure-stack-solution-staged-data-analytics.md
         - name: 使用 Azure 创建跨云缩放解决方案
           href: azure-stack-solution-cloud-burst.md
-        - name: 创建异地分布式应用解决方案
+        - name: 创建异地分布式应用程序解决方案
           href: azure-stack-solution-geo-distributed.md
         - name: 部署混合云解决方案
           href: azure-stack-solution-hybrid-cloud.md
@@ -185,7 +186,7 @@
                   href: azure-stack-version-profiles-java.md
                 - name: Azure CLI
                   href: azure-stack-version-profiles-azurecli2.md
-                - name: Go
+                - name: 转到
                   href: azure-stack-version-profiles-go.md
                 - name: Ruby
                   href: azure-stack-version-profiles-ruby.md
@@ -222,6 +223,8 @@
               href: azure-stack-deploy-template-portal.md
             - name: 使用 PowerShell 进行部署
               href: azure-stack-deploy-template-powershell.md
+            - name: 使用 CLI 进行部署
+              href: azure-stack-deploy-template-command-line.md
             - name: 使用 Visual Studio 进行部署
               href: azure-stack-deploy-template-visual-studio.md
     - name: 启用云服务提供商

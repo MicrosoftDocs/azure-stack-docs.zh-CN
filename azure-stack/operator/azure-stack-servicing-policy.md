@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9cfb61f5aca9d3e00f5ad6e07151e62fb4a70a60
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c4c77cc08b1452c34ca7eba123a38b9d20001645
+ms.sourcegitcommit: 20becab55ac2bd4b7a974ed3928238412a22a4a6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984712"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65030535"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 
@@ -66,9 +66,9 @@ Microsoft 偶尔会提供 Azure Stack 的修补程序（通常是预防性或时
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
 
-必须不断更新 Azure Stack 部署才能持续获得支持。 更新的延期策略是：为了确保 Azure Stack 部署始终获得支持，必须运行最近发布的更新版本，或者运行以前发布的两个更新版本之一。 修补程序不属于主要更新版本。 如果缺少至少两个更新，Azure Stack 云会被视为不合规，必须至少更新到最低的受支持版本才能获得支持。
+必须不断更新 Azure Stack 部署才能持续获得支持。 更新的延期策略是： 为了使 Azure Stack 部署始终获得支持，它必须运行最近发布的更新版本，或运行前面的两个更新版本之一。 修补程序不属于主要更新版本。 如果缺少至少两个更新，Azure Stack 云会被视为不合规，必须至少更新到最低的受支持版本才能获得支持。
 
-例如，如果最新发布的更新版本为 1805，在此之前的两个更新包为版本 1804 和 1803，则 1803 和 1804 仍受支持， 但 1802 不受支持。 即使最近一到两个月没有发布任何版本，此策略也有效。 例如，如果最新版本为 1805，但没有版本 1804，则此前的两个更新包（1803 和 1802）仍可获得支持。
+例如，如果最新的可用的更新版本是 1904，则此前的两个更新包的版本 1903年和 1902年，1902年和 1903年仍支持。 但是，1901年不受支持。 即使最近一到两个月没有发布任何版本，此策略也有效。 例如，如果当前版本是 1807年，但没有 1806年版本，前面两个更新包 1805年和 1804年仍支持。
 
 Microsoft 软件更新包是非累积性的，其先决条件是需要前一个更新包或修补程序。 如果决定延后一个或多个更新，则要使用最新版本，请考虑整体运行时。
 

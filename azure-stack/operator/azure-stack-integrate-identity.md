@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 67149ffa1d602cb0bbab020f0af3f317cb0aac4d
-ms.sourcegitcommit: 91c5056cb6d9bbd852132bebfbefa05b6b4d6cb3
+ms.openlocfilehash: ec0a4b0dc020d9c2c977c7b75b1785cfc98446f6
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64988156"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097106"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 
@@ -55,10 +55,10 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 需要使用以下信息作为自动化参数的输入：
 
-|参数|描述|示例|
-|---------|---------|---------|
-|`CustomADGlobalCatalog`|要与之集成的目标 Active Directory<br>林的 FQDN|Contoso.com|
-|`CustomADAdminCredentials`|拥有 LDAP“读取”权限的用户|YOURDOMAIN\graphservice|
+|参数|部署工作表参数|描述|示例|
+|---------|---------|---------|---------|
+|`CustomADGlobalCatalog`|ADFS 林 FQDN|要与之集成的目标 Active Directory<br>林的 FQDN|Contoso.com|
+|`CustomADAdminCredentials`| |拥有 LDAP“读取”权限的用户|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>配置 Active Directory 站点
 
@@ -127,10 +127,10 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 
 以下信息是作为自动化参数的输入所必需的：
 
-|参数|描述|示例|
-|---------|---------|---------|
-|CustomAdfsName|声明提供程序的名称。<br>AD FS 登录页上会显示此名称。|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|联合元数据链接| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|参数|部署工作表参数|描述|示例|
+|---------|---------|---------|---------|
+|CustomAdfsName|ADFS 提供程序名称|声明提供程序的名称。<br>AD FS 登录页上会显示此名称。|Contoso|
+|CustomAD<br>FSFederationMetadataEndpointUri|ADFS 元数据 URI|联合元数据链接| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>触发自动化以便在 Azure Stack 中配置声明提供程序信任

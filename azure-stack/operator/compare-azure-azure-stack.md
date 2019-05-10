@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/29/2019
+ms.date: 05/03/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: fb8b3e2cd973fc2e42540cd7ba45392829f605f8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: d604175cede436dc7d07020271d61c19f2fd542a
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984445"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097145"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>全局 Azure，Azure Stack 和 Azure Stack HCI 之间的差异
 
@@ -32,7 +32,7 @@ Microsoft 提供了 Azure 和 Azure 生态系统中的服务的 Azure Stack 系�
 
 ![Azure 生态系统概述](./media/compare-azure-azure-stack/azure-family.png)
 
-## <a name="global-azure"></a>全球 Azure
+## <a name="global-azure"></a>全局 Azure
 
 Microsoft Azure 是一个不断扩展的云服务集合，它可以帮助组织应对各种商业挑战。 它是可以自由地构建、 管理和使用你最喜爱的工具和框架的全球性的大规模网络上部署应用程序。
 
@@ -48,7 +48,7 @@ Azure Stack 是云的 Azure 提供了灵活的扩展和创新计算到您的本�
 - Azure Web 应用和函数
 - Azure 密钥保管库
 - Azure 资源管理器
-- Azure 市场
+- Azure Marketplace
 - 容器
 - Azure IoT 中心与事件中心
 - 管理工具 (计划、 产品/服务，RBAC，等等。)
@@ -60,7 +60,7 @@ Azure Stack 的 PaaS 功能是可选的因为 Azure Stack 不由 Microsoft 运�
 - Service Fabric
 - Kubernetes 容器服务
 - IoT 中心和事件中心
-- Etherium 区块链
+- 以太坊区块链
 - Cloud Foundry
 
 ### <a name="example-use-cases-for-azure-stack"></a>Azure Stack 的示例用例：
@@ -71,7 +71,7 @@ Azure Stack 的 PaaS 功能是可选的因为 Azure Stack 不由 Microsoft 运�
 - 零售 assortment 优化
 - 供应链优化
 - 工业 IoT
-- 预见性维护
+- 预防性维护
 - 智能城市
 - 公民参与度
 

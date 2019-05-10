@@ -3,8 +3,8 @@ title: 横向扩展应用服务中的辅助角色 - Azure Stack | Microsoft Docs
 description: Azure Stack 应用服务伸缩详细指南
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2010
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/06/2019
+ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d693a7f6a5cbe7d818dedcc664cc8846bcebc11c
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64294924"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172475"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack 上的应用服务：添加更多基础结构或辅助角色
 
@@ -114,5 +113,3 @@ ms.locfileid: "64294924"
 ### <a name="next-steps"></a>后续步骤
 
 [配置部署源](azure-stack-app-service-configure-deployment-sources.md)
-
-<!-- Update_Description: wording update -->

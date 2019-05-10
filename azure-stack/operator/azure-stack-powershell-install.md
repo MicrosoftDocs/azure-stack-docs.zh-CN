@@ -3,25 +3,24 @@ title: 安装适用于 Azure Stack 的 PowerShell | Microsoft Docs
 description: 了解如何安装适用于 Azure Stack 的 PowerShell。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 04/13/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 05/09/2019
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 04/13/2019
-ms.openlocfilehash: d523e981663218f39815e3bfe3911f8c8f4c363f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: a1923c06d31ff32e1c7e5d50e3b70330d16d25c5
+ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293758"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506129"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
@@ -29,7 +28,7 @@ ms.locfileid: "64293758"
 
 要使用云，必须安装与 Azure Stack 兼容的 PowerShell 模块。 可通过名为“API 配置文件”的功能来实现兼容性。
 
-API 配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack 支持特定的配置文件版本，例如 **2018-03-01-hybrid**。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。 配置文件用于 1811年或更早版本的 Azure Stack 版本。 有关 Azure Stack 版本 1901年或更高版本，开发人员可以使用 AzureRM 模块**2.4.0**安装正确的 Azure 资源管理器 PowerShell 模块。
+API 配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack 支持特定的配置文件版本，例如 **2018-03-01-hybrid**。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。
 
 可在已连接到 Internet、部分联网或离线场景中安装与 Azure Stack 兼容的 PowerShell 模块。 本文将引导您完成这些方案的详细说明。
 
@@ -97,7 +96,19 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 运行以下 PowerShell 脚本，在开发工作站上安装这些模块：
 
-- Azure Stack 版本 1901年或更高版本，仅安装下面的两个模块：
+- 1904 版本或更高版本：
+
+    ```powershell  
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+    
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Get-AzureRMProfile -Update
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.7.2
+    ```
+  
+- Azure Stack 版本 1903年或更早版本，仅安装下面的两个模块：
 
     ```powershell  
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -123,21 +134,6 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
-
-- Azure Stack 1810 或更早版本，安装配置文件使用**AzureRM.Bootstrapper**:
-
-    ```powershell  
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRM.BootStrapper
-
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0
-    ```
-
-> [!Note]  
-> 若要将 Azure PowerShell 从 **2017-03-09-profile** 升级到 **2018-03-01-hybrid**，请参阅[迁移指南](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md)。
 
 ### <a name="enable-additional-storage-features"></a>启用其他存储功能
 

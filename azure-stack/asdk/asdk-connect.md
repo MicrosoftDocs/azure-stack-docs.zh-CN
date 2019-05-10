@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 027ecdee933a7f63be506f93b108071cabc34b71
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f9678374d07dfad78b7d8fe0cf66c02ea1ccd5be
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983822"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172415"
 ---
 # <a name="connect-to-the-asdk"></a>连接到 ASDK
 
@@ -101,7 +101,7 @@ Add-AzsVpnConnection `
 
 ```
 
-如果设置成功，**azurestack** 将出现在 VPN 连接列表中。
+如果安装成功， **Azure Stack**将出现在 VPN 连接列表。
 
 ![网络连接](media/asdk-connect/vpn.png)  
 
@@ -116,7 +116,7 @@ Add-AzsVpnConnection `
       -Password $Password
     ```
 
-  * 在本地计算机上，选择“网络设置” > “VPN” > “azurestack” > “连接”。 在登录提示符下，输入用户名 (**AzureStack\AzureStackAdmin**) 和密码。
+  * 在本地计算机上，选择**网络设置** > **VPN** > **Azure Stack** > **连接**. 在登录提示符下，输入用户名 (**AzureStack\AzureStackAdmin**) 和密码。
 
 第一次连接时，将会提示您安装的 Azure Stack 根证书**AzureStackCertificateAuthority**本地计算机的证书存储区中。 此步骤将 ASDK 证书颁发机构 (CA) 添加到受信任的主机列表。 单击“是”以安装证书。
 

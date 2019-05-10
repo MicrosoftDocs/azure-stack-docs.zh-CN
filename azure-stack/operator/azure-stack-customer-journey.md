@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 55439e1af1a5244c265572bfe6d01b26800312db
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: b68618bf1755310471901e89b8b154e34e3c0794
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985419"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172718"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Azure Stack 数据中心集成
 
@@ -33,7 +33,7 @@ Azure Stack 客户应该为以下阶段做好准备：
 |-----|-----|-----|-----|-----|-----|-----|
 |**Microsoft**|与合作伙伴洽谈以提供售前支持。|准备所需的软件许可与合同。|为客户提供所需的工具用于收集数据中心集成要求和文档。|每月提供最新的基线版本和工具链更新。|不适用|Microsoft 支持工程师帮助进行任何部署问题。|
 |**合作伙伴**|根据客户要求建议解决方案选项。<br><br>根据需要提议概念证明 (POC)。<br><br>建立业务关系。<br><br>确定支持级别。|准备好与客户签署的必要合同。<br><br>创建客户采购订单。<br><br>确定交付时间表。<br><br>如有必要，请与 Microsoft 联系客户。|为客户提供必要的培训，确保客户了解所有部署先决条件和数据中心集成选项。<br><br>帮助客户验证所收集的数据，以确保完整性和准确性。|应用最后一个已验证的基线版本。<br><br>应用所需的 Microsoft 部署工具包。|将硬件寄送到客户所在地。|由现场工程师处理部署。<br><br>机架和堆栈。<br><br>硬件生命周期主机 (HLH) 部署。<br><br>Azure Stack 部署。<br><br>移交给客户。|
-|**客户**|描述预期用例，并指定要求。|确定要使用的计费模型，并审查和审批合同。|完成部署工作表，确保满足所有部署先决条件，并且已准备好进行部署。|不适用|准备数据中心：确保已准备好所有必要的电源和散热设备、边界连接，并满足其他必要的数据中心集成要求。|可在部署期间提供订阅凭据，并在所提供的数据有疑问时提供支持。|
+|**客户**|描述预期用例，并指定要求。|确定要使用的计费模型，并审查和审批合同。|完成[部署工作表](azure-stack-deployment-worksheet.md)，并确保所有部署先决条件都都满足并准备好进行部署。|不适用|准备数据中心：确保已准备好所有必要的电源和散热设备、边界连接，并满足其他必要的数据中心集成要求。|可在部署期间提供订阅凭据，并在所提供的数据有疑问时提供支持。|
 | | | | | | | |
 
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
-ms.reviewer: unknown
+ms.reviewer: prchint
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 56a17ed2bf6d7dbcb03c955c8c2ed14649ca2970
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 505aa6dea47c4694b5f432da8421b51265f4d9bf
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984859"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172684"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 故障排除
 

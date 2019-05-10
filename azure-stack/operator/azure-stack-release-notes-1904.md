@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1904 更新 |Microsoft Docs
+title: Azure Stack 1904 发行说明 |Microsoft Docs
 description: 了解有关 Azure Stack 集成系统，包括最新内容、 1904年更新的已知的问题，以及下载更新的位置。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: fd93ba34b712d5f6c4dc71c226e176f44a7bc6dc
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/06/2019
+ms.openlocfilehash: 7047c44ec4828c07eeaefdf29bcfef3762942b21
+ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987625"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65453731"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 
@@ -48,6 +48,8 @@ Azure Stack 1904 更新内部版本号是**1.1904.0.36**。
 ### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
+
+- 1904 更新负载包含哪些主机 Azure Stack 不包括基础操作系统的 Azure Stack 组件的更新。 这使某些更新，确定其作用范围。 因此，预期时间它花费的 1904年更新完成小于 （大约 16 个小时，但确切的时间而异）。 运行时此下降是类似于 1903年更新。 但是，后续更新可能包含操作系统，这意味着不同的运行时的更新。 将来的更新将在更新完成，具体取决于有效负载包含所需的预期时间上提供类似的指导。
 
 - 重大改进具有已对 1904年中软件定义网络 (SDN) 堆栈。 这些改进增加的总体服务和 Azure Stack 中的 SDN 堆栈的可靠性。
 
@@ -159,6 +161,9 @@ Azure Stack 的此更新不包括对基础操作系统承载 Azure Stack 的安�
 - [已知问题](azure-stack-release-notes-known-issues-1904.md)
 - [安全更新](azure-stack-release-notes-security-updates-1904.md)
 - [活动之前和之后应用更新的清单](azure-stack-release-notes-checklist.md)
+
+> [!NOTE]
+> 请确保使用最新版[Azure Stack 容量规划器](https://aka.ms/azstackcapacityplanner) 工具执行规划和选型工作负荷。 最新版本包含 bug 修复，并提供已发布的新功能与每个 Azure Stack 更新。
 
 ## <a name="download-the-update"></a>下载更新
 

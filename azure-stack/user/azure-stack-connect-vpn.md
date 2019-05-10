@@ -16,12 +16,12 @@ ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 981e16fdcf636f6fbe587896f45c31bf4ac59900
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: cfa4ec1209e78d8e7281048b6d6685ac5488734d
+ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985646"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65097065"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 连接到 Azure
 
@@ -50,7 +50,7 @@ ms.locfileid: "64985646"
 |---------|---------|---------|
 |虚拟网络名称     |Azs-VNet|AzureVNet |
 |虚拟网络地址空间 |10.1.0.0/16|10.100.0.0/16|
-|子网名称     |FrontEnd|FrontEnd|
+|子网名称     |前端|前端|
 |子网地址范围|10.1.0.0/24 |10.100.0.0/24 |
 |网关子网     |10.1.1.0/24|10.100.1.0/24|
 
@@ -233,7 +233,7 @@ ms.locfileid: "64985646"
 6. 提供“订阅”、“资源组”和“位置”，并选择“确定”。
 7. 在“大小”部分，为此实例选择一种虚拟机大小，然后选择“选择”。
 8. 在“设置”部分接受默认值。 务必选择 **Azs-VNet** 虚拟网络。 确认子网已设置为 **10.1.0.0/24**。 然后选择“确定”。
-9. 在“摘要”部分中，查看设置并选择“确定”。***
+9. 在“摘要”部分中，查看设置并选择“确定”。
 
 ## <a name="test-the-connection"></a>测试连接
 

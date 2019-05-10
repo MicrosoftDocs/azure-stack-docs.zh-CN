@@ -10,26 +10,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 0ede2889c77b1d48cf1456652e8fcfa4c7a5d9c3
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
-ms.translationtype: MT
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 2e73e6e00503171aafea4ae254af0427a3e245ac
+ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985707"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212317"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
-可以在本文中找到 Azure Stack 使用的每个 API 配置文件的资源提供程序和版本号。 本文中的表格列出了每个资源提供程序支持的版本以及配置文件的 API 版本。 每个资源提供程序包含一组资源类型和特定的版本号。
+可以查找资源提供程序以及本文中列出的每个使用 Azure Stack 的 API 配置文件的版本号。 本文中的表格列出了每个资源提供程序支持的版本以及配置文件的 API 版本。 每个资源提供程序包含一组资源类型和特定的版本号。
 
 API 配置文件使用三个命名约定：
 
- - **latest**
- - **yyyy-mm-dd-hybrid**
- - **yyyy-mm-dd-profile**
+- **latest**
+- **yyyy-mm-dd-hybrid**
+- **yyyy-mm-dd-profile**
 
 有关 Azure Stack 的 API 配置文件和版本发布频率的说明，请参阅[在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)。
 
@@ -97,7 +97,7 @@ API 配置文件使用三个命名约定：
 | 位置/操作 | 2016-03-30 |
 | 位置/发布者 | 2016-03-30 |
 | 位置/使用情况 | 2016-03-30 |
-| 位置/VM 大小 | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | 操作 | 2016-03-30 |
 | 虚拟机 | 2016-03-30 |
 | 虚拟机/扩展 | 2016-03-30 |
@@ -125,13 +125,12 @@ API 配置文件使用三个命名约定：
 | 资源类型 | API 版本 |
 |--------------------|--------------------|
 | 操作 | 2015-04-01 |
-| 活动类型 | 2015-04-01 |
+| 事件类型 | 2015-04-01 |
 | 事件类别 | 2015-04-01 |
 | 指标定义 | 2018-01-01 |
 | 度量值 | 2018-01-01 |
 | 诊断设置 | 2017-05-01-preview |
 | 诊断设置类别 | 2017-05-01-preview |
-
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -155,13 +154,13 @@ API 配置文件使用三个命名约定：
 | 负载均衡器 | 2015-06-15 |
 | 本地网络网关 | 2015-06-15 |
 | 位置 | 2016-04-01 |
-| 位置/操作结果 | 2016-04-01 |
+| Location/operationResults | 2016-04-01 |
 | 位置/操作 | 2016-04-01 |
 | 位置/使用情况 | 2016-04-01 |
 | 网络接口 | 2015-06-15 |
 | 网络安全组 | 2015-06-15 |
 | 操作 | 2015-06-15 |
-| 公共 IP 地址 | 2015-06-15 |
+| 公用 IP 地址 | 2015-06-15 |
 | 路由表 | 2015-06-15 |
 | 虚拟网络网关 | 2015-06-15 |
 | 虚拟网络 | 2015-06-15 |
@@ -176,13 +175,13 @@ API 配置文件使用三个命名约定：
 | 检查资源名称 | 2016-09-01 |
 | 委托的提供程序 | 2015-01-01 |
 | 委托的提供程序/产品（服务） | 2015-01-01 |
-| 委托的提供程序/产品（服务）/估算价格 | 2015-01-01 |
+| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | 部署 | 2016-09-01 |
 | 部署/操作 | 2016-09-01 |
 | 扩展元数据 | 2015-01-01 |
 | 链接 | 2016-09-01 |
 | 位置 | 2015-01-01 |
-| 产品 | 2015-01-01 |
+| 套餐 | 2015-01-01 |
 | 操作 | 2015-01-01 |
 | 提供程序 | 2017-08-01 |
 | 资源组 | 2016-09-01 |
@@ -192,13 +191,13 @@ API 配置文件使用三个命名约定：
 | 订阅/操作结果 | 2016-09-01 |
 | 订阅/提供程序 | 2017-08-01 |
 | 订阅/资源组 | 2016-09-01 |
-| 订阅/资源组/资源 | 2016-09-01 |
+| Subscriptions/resourceGroups/resources | 2016-09-01 |
 | 订阅/资源 | 2016-09-01 |
-| 订阅/标记名称 | 2016-09-01 |
-| 订阅/标记名称/标记值 | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | 租户 | 2017-08-01 |
 
-### <a name="microsoftstorage"></a>Microsoft.Storage 
+### <a name="microsoftstorage"></a>Microsoft.Storage
 
 使用存储资源提供程序 (SRP) 可通过编程方式管理存储帐户和密钥。 有关详细信息，请参阅 [Azure Storage Resource Provider REST API reference](/rest/api/storagerp/)（Azure 存储资源提供程序 REST API 参考）。
 
@@ -209,7 +208,7 @@ API 配置文件使用三个命名约定：
 | 位置/配额 | 2016-01-01 |
 | 操作 | 2016-01-01 |
 | 存储帐户 | 2016-01-01 |
-| 用途 | 2016-01-01 |
+| 使用情况 | 2016-01-01 |
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-hybrid 的详细信息
 
@@ -235,7 +234,7 @@ API 配置文件使用三个命名约定：
 | 位置/操作 | 2016-03-30 |
 | 位置/发布者 | 2016-03-30 |
 | 位置/使用情况 | 2016-03-30 |
-| 位置/VM 大小 | 2016-03-30 |
+| Locations/vmSizes | 2016-03-30 |
 | 操作 | 2016-03-30 |
 | 虚拟机 | 2016-03-30 |
 | 虚拟机/扩展 | 2016-03-30 |
@@ -254,13 +253,13 @@ API 配置文件使用三个命名约定：
 | 负载均衡器 | 2015-06-15 |
 | 本地网络网关 | 2015-06-15 |
 | 位置 | 2016-04-01 |
-| 位置/操作结果 | 2016-04-01 |
+| Location/operationResults | 2016-04-01 |
 | 位置/操作 | 2016-04-01 |
 | 位置/使用情况 | 2016-04-01 |
 | 网络接口 | 2015-06-15 |
 | 网络安全组 | 2015-06-15 |
 | 操作 | 2015-06-15 |
-| 公共 IP 地址 | 2015-06-15 |
+| 公用 IP 地址 | 2015-06-15 |
 | 路由表 | 2015-06-15 |
 | 虚拟网络网关 | 2015-06-15 |
 | 虚拟网络 | 2015-06-15 |
@@ -273,13 +272,13 @@ API 配置文件使用三个命名约定：
 | 检查资源名称 | 2016-09-01 |
 | 委托的提供程序 | 2015-01-01 |
 | 委托的提供程序/产品（服务） | 2015-01-01 |
-| 委托的提供程序/产品（服务）/估算价格 | 2015-01-01 |
+| DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | 部署 | 2016-09-01 |
 | 部署/操作 | 2016-09-01 |
 | 扩展元数据 | 2015-01-01 |
 | 链接 | 2016-09-01 |
 | 位置 | 2015-01-01 |
-| 产品 | 2015-01-01 |
+| 套餐 | 2015-01-01 |
 | 操作 | 2015-01-01 |
 | 提供程序 | 2017-08-01 |
 | 资源组 | 2016-09-01 |
@@ -289,10 +288,10 @@ API 配置文件使用三个命名约定：
 | 订阅/操作结果 | 2016-09-01 |
 | 订阅/提供程序 | 2017-08-01 |
 | 订阅/资源组 | 2016-09-01 |
-| 订阅/资源组/资源 | 2016-09-01 |
+| Subscriptions/resourceGroups/resources | 2016-09-01 |
 | 订阅/资源 | 2016-09-01 |
-| 订阅/标记名称 | 2016-09-01 |
-| 订阅/标记名称/标记值 | 2016-09-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
 | 租户 | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
@@ -304,9 +303,9 @@ API 配置文件使用三个命名约定：
 | 位置/配额 | 2016-01-01 |
 | 操作 | 2016-01-01 |
 | 存储帐户 | 2016-01-01 |
-| 用途 | 2016-01-01 |
+| 使用情况 | 2016-01-01 |
 
 ## <a name="next-steps"></a>后续步骤
 
-* [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)
-* [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
+- [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)
+- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  

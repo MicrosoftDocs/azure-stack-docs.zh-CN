@@ -3,24 +3,24 @@ title: 在 Azure Stack 上删除 MySQL 资源提供程序 | Microsoft Docs
 description: 了解如何从 Azure Stack 部署中删除 MySQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
-author: WenJason
-manager: digimobile
+author: jeffgilb
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/20/2018
-ms.date: 12/31/2018
-ms.author: v-jay
+ms.date: 05/06/2019
+ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 41b89e5239d72954de7202b87aaf02a2bdf90fd1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 11/20/2018
+ms.openlocfilehash: 69624d94be7742256b1adf6ed22100a6d3b826d8
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64291679"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172326"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序
 
@@ -60,5 +60,3 @@ Azure Stack 操作员负责执行以下清理任务：
 ## <a name="next-steps"></a>后续步骤
 
 [提供应用服务作为 PaaS](azure-stack-app-service-overview.md)
-
-<!-- Update_Description: wording update -->

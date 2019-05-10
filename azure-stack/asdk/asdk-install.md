@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: aad953cdc210a213e0a3dd2ddc8a983d71ca53cf
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f0aef7d1699065664f2013076ed2b12b24a06d4d
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984046"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172445"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安装 Azure Stack 开发工具包 (ASDK)
 [准备 ASDK 主机](asdk-prepare-host.md)后，可以使用本文中的以下步骤将 ASDK 部署到 CloudBuilder.vhdx 映像中。
@@ -42,7 +42,7 @@ ms.locfileid: "64984046"
 
     ![](media/asdk-install/2.PNG) 
   
-   如果选择 Azure 订阅的标识提供程序，需要建立 internet 连接，Azure AD 的完整名称的窗体中的目录租户*domainname*。 onmicrosoft.com 或 Azure AD 验证的自定义域名，且全局指定的目录的管理员凭据。<br><br>部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 你可以暂时重新使用该帐户的全局管理员权限或使用单独的全局管理员帐户的所有者*默认提供商订阅*。<br><br>使用 AD FS 作为标识提供者时，将使用默认标记目录服务。 登录时使用的默认帐户是 azurestackadmin@azurestack.local，要使用的密码是在设置过程中提供的。
+   如果选择 Azure 订阅的标识提供程序，需要建立 internet 连接，Azure AD 的完整名称的窗体中的目录租户*domainname*。 onmicrosoft.com 或 Azure AD 验证的自定义域名，且全局指定的目录的管理员凭据。<br><br>部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。<br><br>使用 AD FS 作为标识提供者时，将使用默认标记目录服务。 登录时使用的默认帐户是 azurestackadmin@azurestack.local，要使用的密码是在设置过程中提供的。
 
    > [!NOTE]
    > 为获得最佳结果，即使你要使用离线 Azure Stack 环境并使用 AD FS 作为标识提供者，也最好是在连接到 Internet 的情况下安装 ASDK。 这样就可以在部署时激活开发工具包安装版随附的 Windows Server 2016 评估版。

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: a511983f7a658f42149a22d549b534ca1790109c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 04cec74873869f19c7bd762753f7fe89f51c184d
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984574"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65386749"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新
 
@@ -118,7 +118,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 用户门户仪表板中，当你尝试在单击时**反馈**磁贴中，将打开一个空的浏览器选项卡。 作为一种解决方法，你可以使用[Azure Stack 用户之声](https://aka.ms/azurestackuservoice)提交用户语音请求。
 
 <!-- 2930820 - IS ASDK -->
-- 在管理员门户和用户门户中，如果搜索“Docker”，则此项无法正确返回。 它在 Azure Stack 中不可用。 如果尝试创建它，则会显示一个边栏选项卡，其中包含表明存在错误的内容。
+- 在管理员门户和用户门户中，如果搜索“Docker”，则此项无法正确返回。 不是 Azure Stack 中提供。 如果尝试创建它，则会显示一个边栏选项卡，其中包含表明存在错误的内容。
 
 <!-- 2931230 - IS  ASDK -->
 - 即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 该计划将一直保留，直到引用附加计划的订阅也被删除。
@@ -164,10 +164,10 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 <!-- TBD - IS ASDK -->
 - 更新应用 1903年后，部署包含托管磁盘的 Vm 时，您可能会遇到以下问题：
 
-   - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
+   - 如果 1808年更新，使用托管磁盘部署 VM 之前创建的订阅可能会失败并显示内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次选择“资源提供程序”、“Microsoft.Compute”、“重新注册”。
       2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
-   - 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
+   - 如果已配置多租户环境中，在与来宾目录关联的订阅中部署虚拟机内部的错误消息可能会失败。 若要解决此错误，请按照中的步骤[这篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)重新配置每个来宾目录。
 
 - 启用 SSH 授权与创建的 Ubuntu 18.04 VM 将不允许要使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
 
@@ -183,6 +183,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
    ```
+
+- 无法删除规模集从**虚拟机规模集**边栏选项卡。 解决方法是，选择的小数位数设置你想要删除，然后单击**删除**按钮从**概述**窗格。
 
 ### <a name="networking"></a>网络
 

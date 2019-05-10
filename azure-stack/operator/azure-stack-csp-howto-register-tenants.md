@@ -3,25 +3,24 @@ title: 将租户添加到 Azure Stack 以获取用量和计费信息 | Microsoft
 description: 将最终用户添加到云服务提供商 (CSP) 管理的 Azure Stack 所要执行的步骤。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 05/07/2019
+ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 8e177944a5f57c9475287325b705fac34ec513c0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
+ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293142"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212296"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -33,34 +32,36 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 下图演示了 CSP 需要执行哪些步骤才能让新客户使用 Azure Stack，并针对客户设置用量跟踪。 添加最终用户还可以管理 Azure Stack 中的资源。 可通过两个选项来管理这些资源：
 
-1. 可以保留最终客户，并向最终客户提供本地 Azure Stack 订阅的凭据。  
-2. 最终客户可以在本地使用其订阅，并将 CSP 添加为拥有所有者权限的来宾。  
+- 可以保留最终客户，并向最终客户提供本地 Azure Stack 订阅的凭据。  
+- 最终客户可以在本地使用其订阅，并将 CSP 添加为拥有所有者权限的来宾。  
 
-## <a name="steps-to-add-an-end-customer"></a>添加最终客户的步骤
+## <a name="add-an-end-customer"></a>添加最终客户
+
+执行以下步骤以添加最终客户，如下图所示在下图中：
 
 ![设置云服务提供程序以进行用量跟踪，以及管理最终客户帐户](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>在合作伙伴中心创建新客户
 
-在合作伙伴中心，为客户创建新的 Azure 订阅。 有关说明，请参阅[添加新客户](https://msdn.microsoft.com/partner-center/add-a-new-customer)。
+在合作伙伴中心，为客户创建新的 Azure 订阅。 有关说明，请参阅[添加新客户](/partner-center/add-a-new-customer)。
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>为最终客户创建 Azure 订阅
 
-在合作伙伴中心创建客户记录后，可向客户销售目录中产品的订阅。 有关说明，请参阅[创建、暂停或取消客户订阅](https://msdn.microsoft.com/partner-center/create-a-new-subscription)。
+在合作伙伴中心创建客户记录后，可向客户销售目录中产品的订阅。 有关说明，请参阅[创建、暂停或取消客户订阅](/partner-center/create-a-new-subscription)。
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>在最终客户目录中创建来宾用户
 
-如果最终客户管理自己的帐户，请在其目录中创建一个来宾用户，并向其发送信息。 然后，最终用户将会添加来宾，并将来宾权限提升为 Azure Stack CSP 帐户的**所有者**。
+如果最终客户管理自己的帐户，请在其目录中创建一个来宾用户，并向其发送信息。 最终用户，然后添加来宾，并可将来宾权限提升**所有者**Azure Stack CSP 帐户。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>更新最终客户订阅中的注册
 
-更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心的客户标识来报告客户的用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用户用量跟踪和计费。
+更新在最终客户订阅中的注册 Azure 报告使用合作伙伴中心客户标识客户的使用情况。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用户用量跟踪和计费。
 
 > [!NOTE]  
-> 若要执行此步骤，必须[注册 Azure Stack](azure-stack-registration.md )。
+> 若要执行此步骤，必须[注册 Azure Stack](azure-stack-registration.md)。
 
 1. 使用权限提升的提示符打开 Windows PowerShell，并运行：  
-    `Add-AzureRmAccount -EnvironmentName AzureChinaCloud`
+    `Add-AzureRmAccount`
 2. 键入 Azure 凭据。
 3. 在 PowerShell 会话中运行：
 

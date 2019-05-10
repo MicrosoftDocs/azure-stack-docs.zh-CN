@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8c77441f458e87a3b8da60541261338abb78057c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 59e86e15289833d63b85314a84d0bb9e60dc5da8
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985421"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172570"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
 
@@ -40,10 +40,10 @@ ms.locfileid: "64985421"
    /Contoso.TodoList/DeploymentTemplates/
    ```
 
-3. [创建 Azure 资源管理器模板]((/azure/azure-resource-manager/resource-group-authoring-templates) 或从 GitHub 中选择一个模板。 市场项使用此模板来创建资源。
+3. [创建一个 Azure 资源管理器模板](/azure/azure-resource-manager/resource-group-authoring-templates)或从 GitHub 中选择一个模板。 市场项使用此模板来创建资源。
 
-    > [!Note]  
-    > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 存储中的所有机密 [密钥 Vault]((/azure/azure-resource-manager/resource-manager-keyvault-parameter) 并调用它们从模板中。
+    > [!NOTE]  
+    > 永远不会硬编码如产品密钥、 密码或在 Azure 资源管理器模板中的任何客户身份信息的任何机密。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
 
 4. 若要确保可以成功部署资源，测试与 Microsoft Azure Stack Api 的模板。
 5. 如果你的模板依赖于虚拟机映像，请按照说明[向 Azure Stack 中添加虚拟机映像](azure-stack-add-vm-image.md)。
@@ -54,6 +54,7 @@ ms.locfileid: "64985421"
    > 为正确生成市场项，需要全部四个图标大小（small、medium、large、wide）。
    >
    >
+
 8. 在 **Manifest.json** 文件中，将 **name** 更改为你的市场项的名称。 另外，将 **publisher** 更改为你的公司的名称。
 9. 在 **artifacts** 下，将 **name** 和 **path** 更改为你包括的 Azure 资源管理器模板的正确信息：
 
@@ -84,11 +85,11 @@ ms.locfileid: "64985421"
     ```
 
     > [!NOTE]
-    > 输出包的完整路径必须存在。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，则文件夹 C:\MarketPlaceItem 必须存在。
+    > 输出包的完整路径必须存在。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，文件夹**C:\MarketPlaceItem**必须存在。
     >
     >
 
-## <a name="publish-a-marketplace-item"></a>发布市场项
+## <a name="publish-a-marketplace-item"></a>发布市场项目
 
 1. 使用 PowerShell 或 Azure 存储资源管理器将市场项 (.azpkg) 上传到 Azure Blob 存储。 可以上传到本地 Azure Stack 存储或上传到 Azure 存储，即包的临时位置。 请确保 blob 可公开访问。
 2. 在客户端虚拟机在 Microsoft Azure Stack 环境中，确保使用你的服务管理员凭据设置 PowerShell 会话。 可以在[使用 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)中找到有关如何在 Azure Stack 中对 PowerShell 进行身份验证的说明。
@@ -108,13 +109,14 @@ ms.locfileid: "64985421"
 4. 转到门户。 你现在可以作为操作员或用户在门户中查看市场项。 包可能需要过几分钟才会出现。
 
 5. 你的市场项现在已保存到 Azure Stack 市场。 你可以选择从 Blob 存储位置中将其删除。
-    > [!Caution]  
+
+    > [!CAUTION]  
     > 现在，无需身份验证，即可通过以下 URL 访问所有默认的库项目和自定义库项目：  
 `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
 
-6. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如：
+6. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如:
 
    ```powershell
    Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  -Verbose
@@ -132,19 +134,19 @@ ms.locfileid: "64985421"
 | 名称 | 需要 | Type | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
 | 名称 |X |String |[A-Za-z0-9]+ | |
-| 发布者 |X |String |[A-Za-z0-9]+ | |
+| 发布服务器 |X |String |[A-Za-z0-9]+ | |
 | Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>元数据
 
 | 名称 | 需要 | Type | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法美观地显示项名称。 |
-| PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法美观地显示发布者名称。 |
+| 显示名称 |X |String |建议不要超过 80 个字符 |如果它的长度大于 80 个字符，门户不可能正确显示项名称。 |
+| PublisherDisplayName |X |String |建议不要超过 30 个字符 |门户可能超过 30 个字符是否正确显示发布者名称。 |
 | PublisherLegalName |X |String |最多 256 个字符 | |
 | 摘要 |X |String |60 到 100 个字符 | |
 | LongSummary |X |String |140 到 256 个字符 |在 Azure Stack 中尚不适用。 |
-| 描述 |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 到 5,000 个字符 | |
+| 描述 |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 到 5,000 个字符 | |
 
 ### <a name="images"></a>映像
 
@@ -153,14 +155,14 @@ ms.locfileid: "64985421"
 | 名称 | 宽度 | 高度 | 说明 |
 | --- | --- | --- | --- |
 | 宽型 |255 px |115 px |始终必需 |
-| 大型 |115 px |115 px |始终必需 |
+| 大 |115 px |115 px |始终必需 |
 | 中型 |90 px |90 px |始终必需 |
-| 小型 |40 px |40 px |始终必需 |
+| 小 |40 px |40 px |始终必需 |
 | 屏幕快照 |533 px |32 px |可选 |
 
 ### <a name="categories"></a>Categories
 
-应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack 中的现有类别之一（计算、数据 + 存储，等等），也可以选择新建一个。
+应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以在 Azure Stack 中选择一个现有类别 (**计算**，**数据 + 存储**等)，或选择新的密码。
 
 ### <a name="links"></a>链接
 
@@ -168,7 +170,7 @@ ms.locfileid: "64985421"
 
 | 名称 | 需要 | Type | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |最多 64 个字符 | |
+| 显示名称 |X |String |最大为 64 个字符。 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>其他属性
@@ -177,12 +179,12 @@ ms.locfileid: "64985421"
 
 | 名称 | 需要 | Type | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |最多 25 个字符 | |
-| 值 |X |String |最多 30 个字符 | |
+| 显示名称 |X |String |最多 25 个字符。 | |
+| 值 |X |String |最大为 30 个字符。 | |
 
 ### <a name="html-sanitization"></a>HTML 清理
 
-对于允许使用 HTML 的任何字段，将允许使用以下元素和属性：
+允许使用 HTML，以下任何字段[元素和属性允许](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization):
 
 `h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i`
 
@@ -197,3 +199,8 @@ ms.locfileid: "64985421"
 ### <a name="marketplace-item-details-blade"></a>市场项详细信息边栏选项卡
 
 ![市场项详细信息边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+
+## <a name="next-steps"></a>后续步骤
+
+* [Azure Stack 市场概述](azure-stack-marketplace.md)
+* [下载市场项](azure-stack-download-azure-marketplace-item.md)

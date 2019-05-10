@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 05/06/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 113760a1c2fbbb024aee50904c14509398d9e24b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3a5b506cdb7441ef60d4731718cafa8aa267c078
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983860"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172435"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署规划注意事项
 在部署 Azure Stack 开发工具包 (ASDK) 之前，请确保开发工具包主机满足本文中所述的要求。
@@ -90,15 +90,15 @@ ms.locfileid: "64983860"
    
    | **Azure Active Directory 帐户** | **支持？** |
    | --- | --- |
-   | 具有有效的公共 Azure 订阅的工作或学校帐户 |是 |
-   | 具有有效的公共 Azure 订阅的 Microsoft 帐户 |是 |
-   | 具有有效的中国区 Azure 订阅的工作或学校帐户 |是 |
-   | 具有有效的美国政府版 Azure 订阅的工作或学校帐户 |是 |
+   | 具有有效的全局 Azure 订阅的工作或学校帐户 |“是” |
+   | 具有有效的全局 Azure 订阅的 Microsoft 帐户 |“是” |
+   | 具有有效的中国区 Azure 订阅的工作或学校帐户 |“是” |
+   | 具有有效的美国政府版 Azure 订阅的工作或学校帐户 |“是” |
 
-部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 你可以暂时重新使用该帐户的全局管理员权限或使用单独的全局管理员帐户的所有者*默认提供商订阅*。
+部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 
 ## <a name="network"></a>网络
-### <a name="switch"></a>Switch
+### <a name="switch"></a>切换
 交换机上的一个可用于开发工具包计算机的端口。  
 
 开发工具包计算机支持连接到交换机访问端口或 Trunk 端口。 交换机上不要求使用专用功能。 若要使用 Trunk 端口，或者需要配置 VLAN ID，则需以部署参数的形式提供 VLAN ID。

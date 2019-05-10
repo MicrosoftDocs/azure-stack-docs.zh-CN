@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: f7e912b3fdc6409a847b6a157161298ed3ee3b0b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: e89a2fc4adbe4a9d399cec67608c1c63748692e7
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984603"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65387128"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -170,7 +170,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
    请注意，即使使用 AD FS 支持 Kubernetes 群集的部署需要 internet 访问权限。
 
-- 在安装 Azure Stack 的更新或修补程序之后，可以引入新的功能，这需要将新权限授予一个或多个标识应用程序。 授予这些权限需要主目录的管理访问权限，因此无法自动完成授权。 例如：
+- 在安装 Azure Stack 的更新或修补程序之后，可以引入新的功能，这需要将新权限授予一个或多个标识应用程序。 授予这些权限需要主目录的管理访问权限，因此无法自动完成授权。 例如:
 
    ```powershell
    $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
@@ -190,7 +190,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ## <a name="common-vulnerabilities-and-exposures"></a>常见漏洞和风险
 
-此更新安装以下安全更新：  
+此更新将安装以下安全更新：  
 
 - [CVE-2018-8477](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8477)
 - [CVE-2018-8514](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2018-8514)
@@ -241,7 +241,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 ### <a name="portal"></a>门户
 
 <!-- 2930820 - IS ASDK --> 
-- 在管理员门户和用户门户中，如果搜索“Docker”，则此项无法正确返回。 它在 Azure Stack 中不可用。 如果尝试创建它，则会显示一个边栏选项卡，其中包含表明存在错误的内容。 
+- 在管理员门户和用户门户中，如果搜索“Docker”，则此项无法正确返回。 不是 Azure Stack 中提供。 如果尝试创建它，则会显示一个边栏选项卡，其中包含表明存在错误的内容。 
 
 <!-- 2931230 - IS  ASDK --> 
 - 即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 该计划将一直保留，直到引用附加计划的订阅也被删除。 
@@ -266,17 +266,19 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
    如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。 若要解决此问题，请使用以前所用的同一名称重新创建存储帐户。
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- 虚拟机规模集 (VMSS) 创建体验提供基于 CentOS 的 7.2 作为部署选项。 由于该映像在 Azure Stack 上不可用，因此请为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。  
+- 虚拟机规模集 (VMSS) 创建体验提供了基于 CentOS 7.2，作为一个选项来部署。 由于该映像在 Azure Stack 上不可用，因此请为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。  
 
 <!-- TBD - IS ASDK --> 
 - 应用 1901 更新后，在部署包含托管磁盘的 VM 时可能会遇到以下问题：
 
-   - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
+   - 如果 1808年更新，使用托管磁盘部署 VM 之前创建的订阅可能会失败并显示内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次选择“资源提供程序”、“Microsoft.Compute”、“重新注册”。
       2. 在同一订阅下，转到“访问控制(IAM)”，检查“AzureStack-DiskRP-Client”是否已列出。
-   - 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
+   - 如果已配置多租户环境中，在与来宾目录关联的订阅中部署虚拟机内部的错误消息可能会失败。 若要解决此错误，请按照中的步骤[这篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)重新配置每个来宾目录。
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
+
+- 无法删除规模集从**虚拟机规模集**边栏选项卡。 解决方法是，选择的小数位数设置你想要删除，然后单击**删除**按钮从**概述**窗格。
 
 ### <a name="networking"></a>网络  
 

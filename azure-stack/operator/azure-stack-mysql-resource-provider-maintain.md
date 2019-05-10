@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 05/06/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: da765333932bfb22a54ea03db3a577d697c39446
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 24e1e315a9b52693cb2b9ff26bf424ee8e9d4f3f
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985015"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172318"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>MySQL 资源提供程序维护操作
 

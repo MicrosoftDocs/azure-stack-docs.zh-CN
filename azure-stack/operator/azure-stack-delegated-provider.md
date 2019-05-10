@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 68ba971ada087bed31a65db037963b601953f1c6
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 476ffeaf7712e5cee22befbc822545382f808de5
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296596"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65386625"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>在 Azure Stack 中委托套餐
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 操作员经常需要委托他人来注册用户和创建订阅。 例如，服务提供商可能需要经销商来代表他们注册和管理客户。 或者，如果你是企业的中心 IT 小组的成员，则可能需要委托其他 IT 工作人员来注册用户。
+Azure Stack 操作员，你可能想要注册用户并创建订阅委托他人。 例如，服务提供商可能需要经销商来代表他们注册和管理客户。 或者，如果你是企业的中心 IT 小组的成员，则可能需要委托其他 IT 工作人员来注册用户。
 
 如下图所示，使用委托可以更轻松地接触和管理超过你可以直接接触和管理的用户数量。
 
@@ -34,9 +34,7 @@ Azure Stack 操作员经常需要委托他人来注册用户和创建订阅。 �
 
 借助委托，委托的提供商可以管理套餐（委托的套餐），最终客户可获取该套餐中的订阅，而无需系统管理员介入。
 
-## <a name="understand-delegation-roles-and-steps"></a>了解委托角色和步骤
-
-### <a name="delegation-roles"></a>委托角色
+## <a name="delegation-roles"></a>委托角色
 
 以下角色是委托的一部分：
 
@@ -46,7 +44,7 @@ Azure Stack 操作员经常需要委托他人来注册用户和创建订阅。 �
 
 * 用户可以注册并使用产品/服务来管理其工作负荷、创建 VM、存储数据，等等。
 
-### <a name="delegation-steps"></a>委托步骤
+## <a name="delegation-steps"></a>委托步骤
 
 设置委托的过程包括两个基本步骤：
 
@@ -58,7 +56,7 @@ Azure Stack 操作员经常需要委托他人来注册用户和创建订阅。 �
 
 ![创建委托的提供商，并允许其注册用户](media/azure-stack-delegated-provider/image2.png)
 
-#### <a name="delegated-provider-requirements"></a>委托的提供商要求
+### <a name="delegated-provider-requirements"></a>委托的提供商要求
 
 若要充当委托的提供商，用户需要通过创建订阅来与主要提供商建立关系。 此订阅表明委托的提供商有权代表主提供商提供委托的套餐。
 
