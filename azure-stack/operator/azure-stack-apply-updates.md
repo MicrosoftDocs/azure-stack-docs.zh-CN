@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 124dc554e18f6d387a3e41d37809d43276094879
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 147e6b7555d67b562b44102bfd022e954a87e0ae
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490127"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521226"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中应用更新
 
@@ -68,14 +68,14 @@ ms.locfileid: "64490127"
 
 当适用于 Azure Stack 的 Microsoft 或 OEM 更新包可用时，将该包下载到可从 Azure Stack 访问的位置，并查看包内容。 更新包通常包含以下文件：
 
-- 一个自解压缩 `<PackageName>.exe` 文件。 此文件包含更新的有效负载，例如，Windows Server 的最新累积更新。
+- 一个自解压缩 `<PackageName>.zip` 文件。 此文件包含更新的有效负载，例如，Windows Server 的最新累积更新。
 
-- 对应的 `<PackageName>.bin` 文件。 这些文件为与 *PackageName*.exe 文件关联的有效负载提供压缩。
+- 对应的 `<PackageName>.bin` 文件。 这些文件提供了与之关联的有效负载的压缩*PackageName*.zip 文件。
 
 - 一个 `Metadata.xml` 文件。 此文件包含有关更新的基本信息，例如发布者、名称、先决条件、大小和支持路径 URL。
 
 > [!IMPORTANT]  
-> 应用 Azure Stack 1901 更新包后，Azure Stack 更新包的打包格式将从.exe、.bin(s)，和.zip(s).xml 格式和.xml 格式。 已连接阵列的 Azure Stack 操作员不受影响。 已断开连接的 Azure Stack 操作员只需使用如下所述的同一过程导入 .xml 和 .zip 文件。
+> 应用 Azure Stack 1901 更新包后，Azure Stack 更新包的打包格式将从.zip、.bin(s)，和.zip(s).xml 格式和.xml 格式。 已连接阵列的 Azure Stack 操作员不受影响。 已断开连接的 Azure Stack 操作员只需使用如下所述的同一过程导入 .xml 和 .zip 文件。
 
 ## <a name="import-and-install-updates"></a>导入并安装更新
 
@@ -102,13 +102,14 @@ ms.locfileid: "64490127"
  
     ![显示如何上传包文件](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
-6. 在“上传 blob”下，单击文件夹图标，浏览到更新包的 .exe 文件，然后在文件资源管理器窗口中单击“打开”。
+6. 下**上传 blob**，单击文件夹图标，浏览到更新包的.zip 文件，然后单击**打开**文件资源管理器窗口中。
   
 7. 在“上传 blob”下，单击“上传”。
   
     ![显示上传每个包文件的位置](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. 对于 *PackageName*.bin 和 Metadata.xml 文件，重复步骤 6 和步骤 7。 不要导入 Supplemental Notice.txt 文件（如果已包含）。
+8. 对于 *PackageName*.bin 和 Metadata.xml 文件，重复步骤 6 和步骤 7。 不要导入 Supplemental Notice.txt 文件（如果已包含）。 请注意将开始 1901年的.zip 文件而不是.bin 和.zip-继续导入.xml 像往常一样。
+
 9. 完成后，可以查看通知（在门户右上角的钟形图标）。 通知应指示已完成上传。
 10. 导航回仪表板上的“更新”磁贴。 该磁贴应指示有可用更新。 单击该磁贴可查看新添加的更新包。
 11. 若要安装更新，请选择标记为“就绪”的包，然后右键单击该包并选择“立即更新”，或者单击顶部附近的“立即更新”操作。

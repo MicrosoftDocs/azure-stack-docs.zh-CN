@@ -3,26 +3,25 @@ title: Azure Stack 的标识体系结构 | Microsoft Docs
 description: 了解可与 Azure Stack 配合使用的标识体系结构。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: PatAltimore
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/11/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 05/09/2019
+ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 9ae8a55d04c34ec65d964927fd25c3bc01adeae4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: e09451c1bf49a2de075388f555cb7b80e70db63f
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297696"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532318"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的标识体系结构
 
@@ -35,16 +34,16 @@ ms.locfileid: "64297696"
 
 |功能或方案        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|连接到 Internet     |是       |可选|
-|对多租户的支持     |是       |否      |
-|在市场中提供商品 |是       |可以。 需要使用[脱机市场联合](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)工具。|
-|对 Active Directory 身份验证库 (ADAL) 的支持 |是 |是|
-|支持 Azure CLI、Visual Studio 和 PowerShell 等工具  |是 |是|
-|通过 Azure 门户创建服务主体     |是 |否|
-|使用证书创建服务主体      |是 |是|
-|使用机密（密钥）创建服务主体    |是 |否|
-|应用程序可以使用 Graph 服务           |是 |否|
-|应用程序可以将标识提供程序用于登录 |是 |是的。 要求应用程序与本地 AD FS 实例联合。 |
+|连接到 Internet     |“是”       |可选|
+|对多租户的支持     |“是”       |“否”      |
+|在市场中提供商品 |“是”       |可以。 需要使用[脱机市场联合](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)工具。|
+|对 Active Directory 身份验证库 (ADAL) 的支持 |“是” |“是”|
+|支持 Azure CLI、Visual Studio 和 PowerShell 等工具  |“是” |“是”|
+|通过 Azure 门户创建服务主体     |“是” |“否”|
+|使用证书创建服务主体      |“是” |“是”|
+|使用机密（密钥）创建服务主体    |“是” |“是”|
+|应用程序可以使用 Graph 服务           |“是” |“否”|
+|应用程序可以将标识提供程序用于登录 |“是” |可以。 要求应用程序与本地 AD FS 实例联合。 |
 
 ## <a name="topologies"></a>拓扑
 以下部分介绍可用的各种标识拓扑。
@@ -101,4 +100,3 @@ ms.locfileid: "64297696"
 ## <a name="next-steps"></a>后续步骤
 - [标识概述](azure-stack-identity-overview.md)   
 - [数据中心集成 - 标识](azure-stack-integrate-identity.md)
-<!-- Update_Description: link update -->

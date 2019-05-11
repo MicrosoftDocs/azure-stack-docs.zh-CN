@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 04cec74873869f19c7bd762753f7fe89f51c184d
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: fad8c68683b965c6716e600d2ea171c7e508d203
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65386749"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532334"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新
 
@@ -97,6 +97,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 <!-- ## Common vulnerabilities and exposures -->
 
 ## <a name="known-issues-with-the-update-process"></a>更新过程的已知问题
+
+- 在尝试安装 Azure Stack 更新时，更新的状态可能失败，并将状态更改为**PreparationFailed**。 这被引起更新资源提供程序 (URP) 无法正确地将文件传输从存储容器到处理的内部基础结构共享。 从版本 1901 (1.1901.0.95) 开始，你可以解决此问题通过单击**立即更新**再次 (不**恢复**)。 URP 然后清理文件从上一次尝试，并重新开始下载。
 
 - 运行 [Test-AzureStack](azure-stack-diagnostic-test.md) 时，会显示基板管理控制器 (BMC) 中的一条警告消息。 可以放心地忽略此警告。
 

@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 7db00c7ec295f64255dcd378030a68c68f81219d
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: d225e113a19dc62ce66df49d89273d00e2e35683
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506130"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521120"
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>使用命令行在 Azure Stack 中部署模板
 

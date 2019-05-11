@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 44a510b8110bacbb51b987a0393f1bc04c594fcd
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3b98714a6cbc3601f98d5f9dfcb26edb5182cfa4
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985769"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521242"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>教程：将应用部署到 Azure 和 Azure Stack
 
@@ -94,7 +94,7 @@ ms.locfileid: "64985769"
 ### <a name="developer-tool-requirements"></a>开发人员工具要求
 
 * 创建[工作区中 Azure DevOps 服务](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces)。 注册过程将创建名为 **MyFirstProject** 的项目。
-* [安装 Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio)并[登录到 Azure DevOps 服务](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)。
+* [安装 Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)并[登录到 Azure DevOps 服务](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)。
 * 连接到项目并[将其克隆到本地](https://www.visualstudio.com/docs/git/gitquickstart)。
 
   > [!Note]
@@ -118,7 +118,7 @@ Azure DevOps 服务进行身份验证针对 Azure 资源管理器使用服务主
 请参阅[服务主体创建](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)说明创建服务主体。 选择**Web 应用 /API**为应用程序类型或[使用 PowerShell 脚本](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5)文章中所述[创建与现有服务的 Azure 资源管理器服务连接主体](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal)。
 
  > [!Note]  
- > 如果使用脚本创建 Azure Stack Azure 资源管理器终结点，则需要传递 **-azureStackManagementURL**参数和 **-environmentName**参数。 例如：  
+ > 如果使用脚本创建 Azure Stack Azure 资源管理器终结点，则需要传递 **-azureStackManagementURL**参数和 **-environmentName**参数。 例如:  
 > `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>创建访问密钥
@@ -163,7 +163,7 @@ Azure DevOps 服务作为服务终结点配置的一部分，需要**租户 ID**
 
 3. 复制“目录 ID”。 此值即为租户 ID。
 
-    ![Directory ID](media/azure-stack-solution-hybrid-pipeline/000_09.png)
+    ![目录 ID](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>授予在 Azure Stack 订阅中部署资源的服务主体权限
 

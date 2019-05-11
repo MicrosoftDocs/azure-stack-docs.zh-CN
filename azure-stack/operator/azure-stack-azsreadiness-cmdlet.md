@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2018
+ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 03efa5e8e0dbb3ec29748383914d3d0361bc124b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: 1f8d7573d9d3da54ddb5fa7aae85ba15d1db4c3c
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986159"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521256"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet 参考
 
@@ -209,7 +209,7 @@ $PaaSCertificates = @{
     'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
 }
-Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates - RegionName east -FQDN azurestack.contoso.com
+Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com
 ```
 
 此示例使用每个 PaaS 证书的路径和密码构造了哈希表。 可以省略证书。 `Start-AzsReadinessChecker` 检查是否每个 PFX 路径存在，并对其使用的区域进行验证**东部**和外部 FQDN **azurestack.contoso.com**。
@@ -241,7 +241,7 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Azur
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>示例： 验证部署数据 （部署支持） 与 Azure 标识
 
-```PowerSHell
+```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
@@ -278,7 +278,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 在此示例中，PFX 密码是安全的要求。 Ssl.pfx 文件是导入到本地计算机证书存储中，使用相同的密码，重新导出并保存为 Ssl_new.pfx。 私钥不具有证书验证标记时使用此过程**本地计算机**属性集，证书链已中断、 不相关的证书是否存在在 PFX 中，或证书链按错误的顺序。
 
-### <a name="example-view-validation-report-deployment-support"></a>示例： 查看验证报告 （部署支持）
+### <a name="example-view-validation-report-deployment-and-support"></a>示例： 查看验证报告 （的部署和支持）
 
 ```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json

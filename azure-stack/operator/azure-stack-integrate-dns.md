@@ -11,12 +11,12 @@ ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: 294c811b9ddf86455b91f180663aa4b3814a7b34
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: a0b41e88fb7c56eec83b4e9e60f30d4f2f16cb4f
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506152"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521324"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
 
@@ -55,17 +55,17 @@ Azure Stack 部署和终结点的完全限定域名 (FQDN) 是区域参数和外
 
 ### <a name="dns-name-labels"></a>DNS 名称标签
 
-Azure Stack 支持添加 DNS 名称标签到公共 IP 地址以允许公共 IP 地址的名称解析。 这可以是用户来访问应用程序和服务托管在 Azure Stack 中按名称的简便方法。 DNS 名称标签使用基础结构终结点比略有不同的命名空间。 遵循上述示例中命名空间，DNS 名称标签的命名空间如下所示：
+Azure Stack 支持添加 DNS 名称标签到公共 IP 地址以允许公共 IP 地址的名称解析。 这可以是用户来访问应用程序和服务托管在 Azure Stack 中按名称的简便方法。 DNS 名称标签使用基础结构终结点比略有不同的命名空间。 遵循上一示例中命名空间，DNS 名称标签的命名空间如下所示：
 
 `*.east.cloudapp.cloud.fabrikam.com`
 
-因此，如果租户表示值，该值**Myapp**中的公共 IP 地址资源的 DNS 名称标签字段，它创建 A 记录， **myapp**区域中**east.cloudapp.cloud.fabrikam.com** Azure Stack 外部 DNS 服务器上。 生成的 FQDN 如下所示：
+因此，如果租户表示值，该值**Myapp**中的公共 IP 地址资源的 DNS 名称标签字段，它创建 A 记录， **myapp**区域中**east.cloudapp.cloud.fabrikam.com** Azure Stack 外部 DNS 服务器上。 生成完全限定的域的名称出现，如下所示：
 
 `myapp.east.cloudapp.cloud.fabrikam.com`
 
-如果你想要利用此功能并使用此命名空间，必须集成使用托管想要使用以及父区域的 DNS 服务器为 Azure Stack 托管外部 DNS 区域的 DNS 服务器。 这是比 Azure Stack 服务终结点的命名空间不同的命名空间，因此需要 cerate 其他委派或条件性转发规则对此。
+如果你想要利用此功能并使用此命名空间，必须集成使用托管想要使用以及父区域的 DNS 服务器为 Azure Stack 托管外部 DNS 区域的 DNS 服务器。 这是比 Azure Stack 服务终结点的命名空间不同的命名空间，因此你必须创建其他委派或条件性转发规则。
 
-有关 DNS 名称标签的工作原理的详细信息，请参阅[Azure Stack 中使用的 DNS](../user/azure-stack-dns.md)。 
+有关 DNS 名称标签的工作原理的详细信息，请参阅[Azure Stack 中使用的 DNS](../user/azure-stack-dns.md)。
 
 ## <a name="resolution-and-delegation"></a>解析和委托
 

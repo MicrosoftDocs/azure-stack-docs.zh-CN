@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: e89a2fc4adbe4a9d399cec67608c1c63748692e7
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: 1fcdcdc4f592056ce3da5074b2371fde91b47c85
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65387128"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532389"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -221,6 +221,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 有关这些漏洞的详细信息，请单击上述链接，或者查看 Microsoft 知识库文章 [4480977](https://support.microsoft.com/en-us/help/4480977)。
 
 ## <a name="known-issues-with-the-update-process"></a>更新过程的已知问题
+
+- 在尝试安装 Azure Stack 更新时，更新的状态可能失败，并将状态更改为**PreparationFailed**。 这被引起更新资源提供程序 (URP) 无法正确地将文件传输从存储容器到处理的内部基础结构共享。 从版本 1901 (1.1901.0.95) 开始，你可以解决此问题通过单击**立即更新**再次 (不**恢复**)。 URP 然后清理文件从上一次尝试，并重新开始下载。
 
 - 运行 [Test-AzureStack](azure-stack-diagnostic-test.md) 时，如果 **AzsInfraRoleSummary** 或 **AzsPortalApiSummary** 测试失败，系统会提示你结合 `-Repair` 标志运行 **Test-AzureStack**。  如果运行此命令，它会失败并显示以下错误消息：`Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
 

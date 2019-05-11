@@ -15,12 +15,12 @@ ms.date: 05/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: a1923c06d31ff32e1c7e5d50e3b70330d16d25c5
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: 1c555f39bdf37314bae05666d39daca50cde2c4e
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506129"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532238"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
@@ -96,7 +96,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 运行以下 PowerShell 脚本，在开发工作站上安装这些模块：
 
-- 1904 版本或更高版本：
+- 对于 Azure Stack 1904 或更高版本：
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -180,7 +180,18 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ### <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell
 
-- Azure Stack 1901 或更高版本。
+- Azure Stack 1904 或更高版本。
+
+    ```powershell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
+    ```
+
+- Azure Stack 1903 或更早版本。
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop

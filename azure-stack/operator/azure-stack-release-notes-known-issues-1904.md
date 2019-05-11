@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4438fdb5b97a4e08632b9c4f55fc03c91ef3aa97
-ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
+ms.lastreviewed: 05/10/2019
+ms.openlocfilehash: f2e20377a976c5dba7a63d9f8cf8b3e2d100e060
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65453715"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532265"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
 
@@ -29,6 +29,13 @@ ms.locfileid: "65453715"
 
 > [!IMPORTANT]  
 > 在应用更新之前查看此部分。
+
+## <a name="update-process"></a>更新过程
+
+- 适用：此问题适用于所有支持的版本。
+- 原因：在尝试安装 Azure Stack 更新时，更新的状态可能失败，并将状态更改为**PreparationFailed**。 这被引起更新资源提供程序 (URP) 无法正确地将文件传输从存储容器到处理的内部基础结构共享。
+- 补救措施：从版本 1901 (1.1901.0.95) 开始，你可以解决此问题通过单击**立即更新**再次 (不**恢复**)。 URP 然后清理文件从上一次尝试，并重新开始下载。
+- 发生次数：通用
 
 ## <a name="portal"></a>门户
 
@@ -139,15 +146,14 @@ ms.locfileid: "65453715"
 - 补救措施：使用 VM 访问 for Linux 扩展预配后，实现 SSH 密钥或使用基于密码的身份验证。
 - 发生次数：通用
 
-## <a name="infrastructure-backup"></a>基础结构备份
-
-<!--Bug 3615401 - scheduler config lost; new issue in YYMM;  hectorl-->
-启用自动备份后，计划程序服务会意外进入已禁用状态。 备份控制器服务将检测到自动备份已禁用，并在管理员门户中引发警告。 禁用自动备份时预期会发出此警告。
+### <a name="compute-host-agent-alert"></a>计算主机代理警报
 
 - 适用：这是版本 1904年新问题。
-- 原因：此问题的原因是服务中的 bug 导致计划程序配置丢失。 此 bug 不会更改存储位置、用户名、密码或加密密钥。
-- 补救措施：若要缓解此问题，请在基础结构备份资源提供程序中打开备份控制器设置边栏选项卡，然后选择“启用自动备份”。 请务必设置所需的频率和保留期。
-- 发生次数：低
+- 原因："计算主机代理"警告显示缩放单位中重新启动节点之后。 在重新启动更改计算主机代理服务的默认启动设置。
+- 补救措施：
+  - 可以忽略此警报。 代理未响应并没有对运算符和用户操作或用户应用程序造成任何影响。 警报在 24 小时后将重新出现如果已手动关闭。
+  - Microsoft 支持部门可以通过更改服务的启动设置修正此问题。 这需要开一个支持票证。 如果再次重新启动节点，将显示新的警报。
+- 发生次数：通用
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
