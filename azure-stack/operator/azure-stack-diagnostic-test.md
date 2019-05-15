@@ -2,7 +2,7 @@
 title: 使用 Azure Stack 验证工具 | Microsoft Docs
 description: 如何收集日志文件以在 Azure Stack 中进行诊断。
 services: azure-stack
-author: jeffgilb
+author: mattbriggs
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 04/20/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ab775e89d22099b5448115e63e05284df60df7a9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 90a3b35675a8197694d04395f51ef85f7a8fee14
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296816"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617948"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 

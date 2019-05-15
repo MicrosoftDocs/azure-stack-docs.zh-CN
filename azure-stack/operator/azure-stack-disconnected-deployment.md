@@ -3,7 +3,7 @@ title: Azure Stack 集成系统的 Azure 断开连接部署决策 | Microsoft Do
 description: 确定多节点 Azure Stack Azure 连接部署的部署计划决策。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 239e2f1ad0ee75a7342c3092521e3604d4bc97ae
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: df0989886d34581950eca04ebe63104d477d003f
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985535"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618024"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 断开连接部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
@@ -49,7 +49,7 @@ Azure Stack 设计为连接到 Azure，因此务必要注意的是，被削弱�
 |引用联机修正指南的警报修正/缓解|不可用的任何警报修正链接的使用 Internet URL 不起作用。|
 |市场 - 直接从 Azure 市场中选择并添加库包的能力|被削弱-在 Azure Stack 部署在断开连接模式下 （不带任何 Internet 连接） 时，不能使用 Azure Stack 门户下载 marketplace 项。 但是，可以使用[市场联合工具](azure-stack-download-azure-marketplace-item.md)将市场项下载到有 Internet 连接的计算机，然后再将这些项转移到 Azure Stack 环境。|
 |使用 Azure Active Directory 联合身份验证帐户管理 Azure Stack 部署|不可用 - 此功能要求连接到 Azure。 必须改用具有本地 Active Directory 实例的 AD FS。|
-|应用服务|被损坏 - WebApps 可能需要访问 Internet 以获取更新的内容。|
+|应用程序服务|被损坏 - WebApps 可能需要访问 Internet 以获取更新的内容。|
 |命令行接口 (CLI)|被削弱 - CLI 在对服务主体进行身份验证和预配方面的功能已减弱。|
 |Visual Studio - Cloud discovery|被削弱 - Cloud Discovery 将发现不同的云或根本不工作。|
 |Visual Studio - AD FS|被削弱 - 只有 Visual Studio Enterprise 支持 AD FS。

@@ -3,25 +3,24 @@ title: Azure Stack 上的 MySQL 宿主服务器 | Microsoft Docs
 description: 如何添加 MySQL 实例以通过 MySQL 适配器资源提供程序进行预配
 services: azure-stack
 documentationCenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/26/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 03/26/2019
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: b563bc542c970fa71b9718ac070e2258abb80930
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 00469e3dedca4609b26e1d4e967837ff0925cb9c
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293879"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618561"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>为 MySQL 资源提供程序添加托管服务器
 
@@ -108,5 +107,3 @@ ms.locfileid: "64293879"
 ## <a name="next-steps"></a>后续步骤
 
 [创建 MySQL 数据库](azure-stack-mysql-resource-provider-databases.md)
-
-<!-- Update_Description: wording update -->

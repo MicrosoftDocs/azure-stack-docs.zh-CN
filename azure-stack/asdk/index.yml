@@ -6,14 +6,14 @@ metadata:
   title: Azure Stack 开发工具包文档 - 教程和 API 参考
   description: 了解如何部署和使用 Azure Stack 开发工具包。
   services: azure-stack
-  author: jeffgilb
+  author: mattbriggs
   manager: femila
   ms.service: azure-stack
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/13/2018
-  ms.author: jeffgilb
+  ms.author: mabrigg
 abstract:
   description: Azure Stack 开发工具包 (ASDK) 用于对 Azure Stack 进行单节点部署，可以免费下载和使用。 ASDK 旨在提供一个特定的环境，方便你在其中评估 Azure Stack 并开发现代应用程序，所使用的 API 和工具与非生产环境中的 Azure 一致。 <br/><br/>如果你是 Azure Stack 操作员，想要管理集成系统基础结构并提供服务，请参阅<a href="/azure-stack/operator">操作员文档</a>。<br/><br/>如果你是使用 Azure Stack 或为 Azure Stack 开发应用的用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。
 sections:

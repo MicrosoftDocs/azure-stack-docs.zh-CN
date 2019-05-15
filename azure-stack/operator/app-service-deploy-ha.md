@@ -3,7 +3,7 @@ title: 在高可用性配置中部署 Azure Stack 应用服务 | Microsoft Docs
 description: 了解如何使用高可用性配置在 Azure Stack 中部署应用服务。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a5311427e15fb690d70aca1da570d2c717e6176c
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 78476afd09d6c85fbe5790568dd46366beaf1991
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477223"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618359"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
@@ -171,7 +171,7 @@ ms.locfileid: "64477223"
     ![预期错误对话框](media/app-service-deploy-ha/08.png)
 
     如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理门户中的 WorkersNsg 并添加包含以下属性的出站安全规则：
-    - 源：任意
+    - 源:任意
     - 源端口范围：*
     - 目标：IP 地址
     - 目标 IP 地址范围：文件服务器的 IP 范围
@@ -210,7 +210,7 @@ ms.locfileid: "64477223"
     |管理角色|第|3|
     |发布者角色|第|3|
     |前端角色|第|3|
-    |共享辅助角色|1|10|
+    |共享辅助角色|第|10|
     |     |     |     |
 
     ![基础结构角色实例值](media/app-service-deploy-ha/12.png)

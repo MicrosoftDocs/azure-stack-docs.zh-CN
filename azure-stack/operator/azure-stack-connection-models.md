@@ -3,7 +3,7 @@ title: Azure Stack 集成系统连接模型 | Microsoft Docs
 description: 确定多节点 Azure Stack 的部署规划决策。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 3c37ef0ea2262a52696a0bdf765eae36a37a4194
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: da48a9a04c9daaf2d7a29bc2d4b300563bebd6e5
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986254"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618968"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 集成系统连接模型
 如果有兴趣购买 Azure Stack 集成系统，您需要了解[多个数据中心集成注意事项](azure-stack-datacenter-integration.md)为 Azure Stack 部署确定系统将如何适应你的数据中心。 此外，还需要确定如何将 Azure Stack 集成到混合云环境。 本文概述了这些主要决策，包括 Azure 连接决策、标识存储决策和计费模型决策。

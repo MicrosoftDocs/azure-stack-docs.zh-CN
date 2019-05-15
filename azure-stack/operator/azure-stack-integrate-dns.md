@@ -2,21 +2,21 @@
 title: Azure Stack 数据中心集成 - DNS
 description: 了解如何将 Azure Stack DNS 与数据中心 DNS 集成
 services: azure-stack
-author: jeffgilb
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
 ms.date: 05/09/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: a0b41e88fb7c56eec83b4e9e60f30d4f2f16cb4f
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: bf1aed6c8140f0c0753f49195082dfd71737868a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521324"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618671"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
 

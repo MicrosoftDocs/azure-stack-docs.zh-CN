@@ -3,7 +3,7 @@ title: 在 Azure Stack 中使用 MySQL 数据库 | Microsoft Docs
 description: 了解如何在 Azure Stack 中部署 MySQL 数据库即服务，并通过便捷的步骤部署 MySQL Server 资源提供程序适配器。
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 9b2fb5f6ae1fef29801f7decc6adfbd7e68abd0c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 197c5002378be8229a6ec60fc0f3d7659b7c56b9
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64294066"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618148"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 资源提供程序
 
@@ -100,8 +100,8 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
 | **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | 否 |
-| **DebugMode** | 防止在失败时自动清除。 | 否 |
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | “否” |
+| **DebugMode** | 防止在失败时自动清除。 | “否” |
 | **AcceptLicense** | 跳过接受 GPL 许可条款的提示。  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 MySQL 资源提供程序

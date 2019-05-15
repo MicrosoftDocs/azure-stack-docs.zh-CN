@@ -3,7 +3,7 @@ title: Azure Stack 集成系统的 Azure 注册 | Microsoft Docs
 description: 介绍多节点 Azure Stack Azure 连接部署的 Azure 注册过程。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 6e3fc019c43f3c8cae90f401b550c5791932d65d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: b70cd30653b8b324ae4d11a4a3e8aafe47d9a179
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984880"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618011"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 

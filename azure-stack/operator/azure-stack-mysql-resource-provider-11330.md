@@ -3,7 +3,7 @@ title: Azure Stack MySQL 资源提供程序 1.1.30.0 发行说明 | Microsoft Do
 description: 了解 Azure Stack MySQL 资源提供程序最新更新版的信息，包括任何已知问题和下载位置。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 020fc2f56fe73ab87212ee61496722e8c179e17a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b5e649768f075f4e448520c648a77aa64351842a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64294044"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618086"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL 资源提供程序 1.1.33.0 发行说明
 

@@ -3,7 +3,7 @@ title: 在 Azure Stack 上部署应用服务之前 | Microsoft Docs
 description: 在 Azure Stack 上部署应用服务之前需要完成的步骤
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 2728a37811e67de52dda2d259f692593fbcc270c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9b9e624abb23ef5c1bd0ae80e2338fdc0b1469ab
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290843"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618270"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 
@@ -76,7 +76,7 @@ Azure Stack 上的 Azure 应用服务需要自定义脚本扩展 v1.9.1。  开�
 
 *Create-AppServiceCerts.ps1* 脚本配合 Azure Stack 证书颁发机构运行，创建应用服务所需的四个证书。
 
-| 文件名 | 用途 |
+| 文件名 | 使用 |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | 应用服务默认 SSL 证书 |
 | api.appservice.local.azurestack.external.pfx | 应用服务 API SSL 证书 |

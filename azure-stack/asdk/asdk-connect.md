@@ -3,7 +3,7 @@ title: 连接到 Azure Stack | Microsoft Docs
 description: 了解如何连接到 ASDK。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: f9678374d07dfad78b7d8fe0cf66c02ea1ccd5be
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 39814c48af0a362bd62f7d7276a32d886628317b
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172415"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617584"
 ---
 # <a name="connect-to-the-asdk"></a>连接到 ASDK
 

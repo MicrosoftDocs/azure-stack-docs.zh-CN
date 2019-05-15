@@ -3,7 +3,7 @@ title: 在 Azure Stack 中使用管理门户 | Microsoft Docs
 description: 向 Azure Stack 操作员介绍管理门户的用法。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: 02b761531546b621cf35ac357ebc61114ccb6310
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 71932642d8c44d2043fe185eab3ebda25be7bb3f
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985169"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618617"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>快速入门：使用 Azure Stack 管理门户
 

@@ -3,7 +3,7 @@ title: 在 Azure Stack 中提供服务 | Microsoft Docs
 description: 作为云操作员，可以向用户提供服务。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 3282464bf1df7fcbbdb532735c8d4b1dabfa0401
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 18451de91427242986a824fab968d11f6a3fd734
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985036"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618518"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>在 Azure Stack 中提供服务概述
 
