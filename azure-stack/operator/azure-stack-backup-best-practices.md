@@ -3,7 +3,7 @@ title: Azure Stack 的基础结构备份服务最佳做法 | Microsoft Docs
 description: 在数据中心内部署和管理 Azure Stack 时可以遵守一套最佳做法，以便在发生灾难性故障时帮助减轻数据损失。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d2f62fd7a3a6253a077ad4cce2030b5165dc76cd
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64291360"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618340"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 
@@ -83,7 +83,7 @@ FQDN：contoso.com
 
 MASBackup 文件夹是 Azure Stack 存储其备份数据的地方。 不应使用此文件夹来存储你自己的数据。 OEM 也不应使用此文件夹来存储任何备份数据。 
 
-建议 OEM 将其组件的备份数据存储在区域文件夹下。 每台网络交换机、硬件生命周期主机 (HLH) 等等可以存储在其自己的子文件夹中。 例如：
+建议 OEM 将其组件的备份数据存储在区域文件夹下。 每台网络交换机、硬件生命周期主机 (HLH) 等等可以存储在其自己的子文件夹中。 例如:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches

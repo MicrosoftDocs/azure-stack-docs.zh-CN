@@ -3,7 +3,7 @@ title: 在 Azure Stack 上使用 SQL Adapter 资源提供程序提供的数据�
 description: 如何创建和管理使用 SQL 适配器资源提供程序预配的 SQL 数据库
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: ad02e37faf9d4f22cb8fe8d58a203c46ae758b52
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 2b177f14fc787c05c0a7c1f654e8bcfaf8638b93
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64295859"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618187"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 

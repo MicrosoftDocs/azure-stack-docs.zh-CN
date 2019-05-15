@@ -3,8 +3,8 @@ title: 启动和停止 Azure Stack 开发工具包 (ASDK) | Microsoft Docs
 description: 了解如何启动和关闭 Azure Stack 开发工具包 (ASDK)。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/14/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 02/14/2019
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a18584086f74788710d31777939e99d35748344c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 8335782ee8f310fa5d975c746e94651a92a54642
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290062"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617541"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>启动和停止 Azure Stack 开发工具包 (ASDK)
 建议不要仅仅重启 ASDK 主机。 而是应该遵循本文中的过程正确关闭再重启 ASDK 服务。 

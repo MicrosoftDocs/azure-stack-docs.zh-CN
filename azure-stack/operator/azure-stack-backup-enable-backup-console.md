@@ -3,7 +3,7 @@ title: 从管理门户为 Azure Stack 启用备份 | Microsoft Docs
 description: 通过管理门户启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 829516e145e56ca9e0409494052f64f5cc059fc8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: adda9ec9052c11e412c7bd251482e1e3a5c09223
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296277"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618181"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>从管理门户为 Azure Stack 启用备份
 通过管理门户启用基础结构备份服务，以便 Azure Stack 可以生成基础结构备份。 出现[灾难性故障](./azure-stack-backup-recover-data.md)时，硬件合作伙伴可以通过云恢复使用这些备份还原环境。 云恢复的目的是为了确保操作员和用户在恢复完成后可以重新登录回门户。 用户将恢复其订阅，包括基于角色的访问权限和角色、原始计划、套餐以及先前定义的计算、存储、网络配额和 Key Vault 机密。

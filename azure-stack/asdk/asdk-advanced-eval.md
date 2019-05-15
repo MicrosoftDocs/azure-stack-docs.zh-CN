@@ -3,8 +3,8 @@ title: 高级 Azure Stack 评估任务 | Microsoft Docs
 description: 本文介绍高级 Azure Stack 评估任务。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 04a1dbb28c55fff15d1087bc85ca65e5dcc7b8c0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a0b42a600036cca90741cd64517a86e8ae3a7344
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290315"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65615823"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>高级 Azure Stack 开发工具包评估任务
 在熟悉 Azure Stack 开发工具包 (ASDK) 服务的基本功能后，可以通过测试更高级的方案，来进一步加深对 Azure Stack 的了解。 Azure Stack 操作员文档中全面阐述了这些更高级的评估任务。

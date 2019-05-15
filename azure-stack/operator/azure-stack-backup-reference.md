@@ -3,7 +3,7 @@ title: Azure Stack 基础结构备份服务参考 | Microsoft Docs
 description: 本文包含 Azure Stack 基础结构备份服务的参考资料。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 890eb9a6f5b817c3bf77e18ce7019b9e99709d49
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 7b95dba4b3462b2c0e36aa1464faf217fccd7a6a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983611"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617799"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务参考
 
@@ -142,7 +142,7 @@ Azure Stack 由许多服务构成，其中包括门户、Azure 资源管理器�
 | 最大并发备份作业数                                   | 第            | 备份控制器的每个实例仅支持一个活动备份作业。                                                                  |
 | 网络交换机配置                                     | 不在范围内 | 管理员必须使用 OEM 工具备份网络交换机配置。 请参阅每个 OEM 供应商提供的 Azure Stack 文档。 |
 | 硬件生命周期主机                                          | 不在范围内 | 管理员必须使用 OEM 工具备份硬件生命周期主机。 请参阅每个 OEM 供应商提供的 Azure Stack 文档。      |
-| 最大文件共享数                                    | 1            | 只能使用一个文件共享来存储备份数据                                                                                        |
+| 最大文件共享数                                    | 第            | 只能使用一个文件共享来存储备份数据                                                                                        |
 | 备份应用服务、函数、SQL、mysql 资源提供程序数据 | 不在范围内 | 请参阅已发布的用于部署和管理由 Microsoft 创建的增值 RP 的指南。                                                  |
 | 备份第三方资源提供程序                              | 不在范围内 | 请参阅已发布的用于部署和管理由第三方供应商创建的增值 RP 的指南。                                          |
 

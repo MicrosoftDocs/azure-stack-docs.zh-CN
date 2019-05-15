@@ -3,7 +3,7 @@ title: 更新 Azure Stack SQL 资源提供程序 | Microsoft Docs
 description: 了解如何更新 Azure Stack SQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 5238c60493820fe6d784049da9862b4347e563c4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 558853309faecbf2955a08d7a8f629d83a38dbd1
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292207"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617828"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
@@ -63,8 +63,8 @@ ms.locfileid: "64292207"
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
 | **RetryDuration** |每两次重试的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源。 | 否 |
-| **DebugMode** | 防止在失败时自动清除。 | 否 |
+| **卸载** | 删除资源提供程序和所有关联的资源。 | “否” |
+| **DebugMode** | 防止在失败时自动清除。 | “否” |
 
 ## <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
 下面是 *UpdateSQLProvider.ps1* 脚本的使用示例，该脚本可以通过提升的 PowerShell 控制台来运行。 请务必根据需要更改变量信息和密码：  

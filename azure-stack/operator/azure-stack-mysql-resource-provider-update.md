@@ -3,7 +3,7 @@ title: 更新 Azure Stack MySQL 资源提供程序 | Microsoft Docs
 description: 了解如何更新 Azure Stack MySQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 976c05449704b0ecbc48ee5bd4799f300fcac0aa
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a81b1f0dae233adc29437bc88a82e4560fc36f10
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293978"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617899"
 ---
 # <a name="update-the-mysql-resource-provider"></a>更新 MySQL 资源提供程序 
 
@@ -59,8 +59,8 @@ ms.locfileid: "64293978"
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ | 
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 | 
 | **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 | 
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | 否 | 
-| **DebugMode** | 防止在失败时自动清除。 | 否 | 
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | “否” | 
+| **DebugMode** | 防止在失败时自动清除。 | “否” | 
 | **AcceptLicense** | 跳过接受 GPL 许可条款的提示。  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>更新脚本示例

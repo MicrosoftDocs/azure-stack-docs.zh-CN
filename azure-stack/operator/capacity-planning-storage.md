@@ -3,7 +3,7 @@ title: Azure Stack 的存储容量规划 | Microsoft Docs
 description: 了解适用于 Azure Stack 部署的存储容量规划。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: prchint
 ms.lastreviewed: 02/20/2019
-ms.openlocfilehash: 1d111d56d58869121f6833fe5c7ea15664883aaa
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 549428b7a47065dfcb0bdb55ff100332b066f4bc
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984477"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618902"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack 存储容量规划
 以下部分提供 Azure Stack 存储容量规划信息，帮助你针对解决方案的存储需求进行规划。

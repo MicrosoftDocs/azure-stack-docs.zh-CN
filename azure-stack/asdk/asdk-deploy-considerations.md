@@ -3,7 +3,7 @@ title: Azure Stack 开发工具包 (ASDK) 部署先决条件 | Microsoft Docs
 description: 查看 Azure Stack 开发工具包 (ASDK) 的环境和硬件要求。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2018
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3a5b506cdb7441ef60d4731718cafa8aa267c078
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 85484e7428c4b384c2081d4f55af5e79259cc9d8
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172435"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617508"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署规划注意事项
 在部署 Azure Stack 开发工具包 (ASDK) 之前，请确保开发工具包主机满足本文中所述的要求。

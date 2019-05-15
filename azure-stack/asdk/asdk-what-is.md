@@ -3,7 +3,7 @@ title: Azure Stack 开发工具包 (ASDK) 简介 | Microsoft Docs
 description: 介绍 ASDK 的新增和评估 Microsoft Azure Stack 的常见用例。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 02/08/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: edde001bece869e1398ee13fbcc7b3fa32616cfa
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 08f5d51eb4ded47d1e52ec53d4c75903d13c8815
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290018"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617683"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>什么是 Azure Stack 开发工具包？
 [Microsoft Azure Stack 集成系统](../operator/azure-stack-overview.md)范围从 4 到 16 节点的大小，由硬件合作伙伴和 Microsoft 共同提供支持。 使用 Azure Stack集成系统为自己的生产工作负荷实现新方案。 如果你是 Azure Stack 操作员，想要管理集成系统基础结构并提供服务，请参阅[操作员文档](/azure-stack/operator)。

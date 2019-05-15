@@ -3,7 +3,7 @@ title: Azure Stack 遥测 | Microsoft Docs
 description: 介绍如何使用 PowerShell 配置 Azure Stack 遥测设置。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: ce77e27cf6d7be70cb3ff4b9be0e0366beca0498
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: edd242251cac89029eab7b45f06bb08f4db8a6a3
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984901"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618740"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 

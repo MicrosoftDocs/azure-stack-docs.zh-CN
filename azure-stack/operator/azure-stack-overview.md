@@ -3,7 +3,7 @@ title: 什么是 Azure Stack？ | Microsoft Docs
 description: 了解 Azure Stack 如何使你能够在你的数据中心中运行 Azure 服务。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/29/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 382fc49caf12a578584c8680edb30a321e82ea00
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f8206c658170a16e517e64a328d188c015b9e394
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985048"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618063"
 ---
 # <a name="azure-stack-overview"></a>Azure Stack 概述
 
@@ -75,7 +75,7 @@ Azure Stack 提供两个部署选项，以满足您的需求，生产环境中�
 
 > 有关详细信息，请参阅有关的注意事项[连接](azure-stack-connected-deployment.md)并[断开连接](azure-stack-disconnected-deployment.md)部署模型。 
 
-### <a name="identity-provider"></a>标识提供者 
+### <a name="identity-provider"></a>标识提供程序 
 Azure Stack 使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供程序来建立 Azure Stack 的标识。 
 
 > [!IMPORTANT]

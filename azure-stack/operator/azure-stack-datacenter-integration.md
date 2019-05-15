@@ -3,7 +3,7 @@ title: 有关 Azure Stack 集成系统的一般数据中心集成注意事项 | 
 description: 了解可以执行哪些工作来为数据中心与多节点 Azure Stack 的集成做好规划与准备。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 9aa8ec8bbbda1548088ad9dfeb389d292a0e1fbb
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 53289e46a2f29a03535958b76743db107f6ecf64
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985379"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617781"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>有关 Azure Stack 集成系统的数据中心集成注意事项
 如果您感兴趣的 Azure Stack 集成系统，您应该了解有关部署和系统如何融入数据中心的重要规划注意事项。 本文提供这些注意事项的综合概述，帮助你在 Azure Stack 多节点系统方面做出重要的基础结构决策。 配合 OEM 硬件供应商将 Azure Stack 部署到数据中心时，了解这些注意事项会有所帮助。  
@@ -135,9 +135,9 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 | 场景 | 连接方法 | 优点 | 缺点 | 适用范围 |
 | -- | -- | --| -- | --|
 | 单租户 Azure Stack、Intranet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 易于实施；不需要网关。 | 不加密流量；堆栈外部无隔离或加密。 | 同等信任所有租户的企业部署。<br><br>与 Azure 之间建立了 Azure ExpressRoute 线路的企业。 |
-| 多租户 Azure Stack、Intranet 部署 | 站点到站点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 必须避免其他租户访问其部分租户流量的企业部署。 |
+| 多租户 Azure Stack、Intranet 部署 | 点对点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 必须避免其他租户访问其部分租户流量的企业部署。 |
 | 单租户 Azure Stack、Internet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 | 不加密流量；堆栈外部无隔离或加密。 | 托管方案，其中的租户获取自身的 Azure Stack 部署，并与 Azure Stack 环境之间建立专用线路。 例如，ExpressRoute 和多重协议标签交换 (MPLS)。
-| 多租户 Azure Stack、Internet 部署 | 站点到站点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 托管的提供商需要提供多租户云的方案，其中租户不信任彼此和流量必须进行加密。
+| 多租户 Azure Stack、Internet 部署 | 点对点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 托管的提供商需要提供多租户云的方案，其中租户不信任彼此和流量必须进行加密。
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>使用 ExpressRoute

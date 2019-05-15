@@ -3,8 +3,8 @@ title: Azure Stack 管理基础知识 | Microsoft Docs
 description: 了解对 Azure Stack 进行管理需要知道哪些知识。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -12,16 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 8449770d7fa3d42afa8aad790878b29c95be773e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 83c4295c5f14cb89122aca096b7e90cfd44d8d4a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292218"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618595"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基础知识
 如果不熟悉 Azure Stack 管理，则需要了解几项事情。 本文概述了 Azure Stack 操作员角色，以及需要告知用户哪些东西才能让他们快速提高工作效率。

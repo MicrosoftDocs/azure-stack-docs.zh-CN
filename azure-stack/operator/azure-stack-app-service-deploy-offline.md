@@ -3,7 +3,7 @@ title: 在 Azure Stack 离线环境中部署应用服务 | Microsoft Docs
 description: 有关如何在受 AD FS 保护且已断开连接的 Azure Stack 环境中部署应用服务的详细指南。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d65489d0c401158b83ac20f4314fe6bdae886107
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 1dfe1cba366d9b30c53a43724741c9a9e0f65819
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983817"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618527"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 
@@ -125,7 +125,7 @@ ms.locfileid: "64983817"
 
 11. 对于三个证书文件框的每一个框，单击“浏览”并导航到相应的证书文件。 必须为每个证书提供密码。 这些证书是在[创建所需证书步骤](azure-stack-app-service-before-you-get-started.md#get-certificates)中创建的。 输入所有信息后，单击“下一步”。
 
-    | Box | 证书文件名示例 |
+    | 框 | 证书文件名示例 |
     | --- | --- |
     | **应用服务默认 SSL 证书文件** | \_.appservice.local.AzureStack.external.pfx |
     | **应用服务 API SSL 证书文件** | api.appservice.local.AzureStack.external.pfx |
@@ -163,10 +163,10 @@ ms.locfileid: "64983817"
 
     | 角色 | 最小实例数 | 最小 SKU | 说明 |
     | --- | --- | --- | --- |
-    | 控制器 | 1 | Standard_A2 -（2 个 vCPU，3584 MB） | 管理和维护应用服务云的运行状况。 |
+    | 控制器 | 第 | Standard_A2 -（2 个 vCPU，3584 MB） | 管理和维护应用服务云的运行状况。 |
     | 管理 | 第 | Standard_A2 -（2 vCPU，3584 MB） | 管理应用服务 Azure 资源管理器和 API 终结点、门户扩展（管理员门户、租户门户、Functions 门户）和数据服务。 为了支持故障转移，已将建议的实例数增加到 2 个。 |
-    | 发布者 | 第 | Standard_A1 -（1 vCPU，1792 MB） | 通过 FTP 和 Web 部署发布内容。 |
-    | FrontEnd | 1 | Standard_A1 -（1 vCPU，1792 MB） | 将请求路由到应用服务应用程序。 |
+    | 发布服务器 | 第 | Standard_A1 -（1 vCPU，1792 MB） | 通过 FTP 和 Web 部署发布内容。 |
+    | 前端 | 第 | Standard_A1 -（1 vCPU，1792 MB） | 将请求路由到应用服务应用程序。 |
     | 共享辅助角色 | 第 | Standard_A1 -（1 vCPU，1792 MB） | 托管 Web 应用程序或 API 应用程序和 Azure Functions 应用。 可能需要添加更多实例。 作为操作员，可以定义产品/服务，并选择任何 SKU 层。 这些层必须至少具有一个 vCPU。 |
 
     ![应用服务安装程序][14]
@@ -211,7 +211,7 @@ ms.locfileid: "64983817"
 
 > [!NOTE]
 > 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
-> * 源：任意
+> * 源:任意
 > * 源端口范围：*
 > * 目标：IP 地址
 > * 目标 IP 地址范围：文件服务器的 IP 范围

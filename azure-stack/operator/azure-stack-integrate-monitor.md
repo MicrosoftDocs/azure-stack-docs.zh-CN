@@ -3,7 +3,7 @@ title: 将外部监视解决方案与 Azure Stack 集成 | Microsoft Docs
 description: 了解如何将 Azure Stack 与数据中心内的外部监视解决方案集成。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 02/06/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 98fdd9c1d69b8c4199987123517f2edefba0d6e2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2871b5183833830368307c5d2b5152e3909fd3ea
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985237"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618831"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>将外部监视解决方案与 Azure Stack 集成
 
@@ -87,7 +87,7 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 | *User_name* | 操作员订阅用户名 | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | 操作员订阅密码 | mypassword |
 | *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Azure Stack 区域名称 | local |
+| *region* |  Azure Stack 区域名称 | 本地 |
 |  |  |
 
 * 提供的 PowerShell GUID 是通用的。 可对每个部署使用它。

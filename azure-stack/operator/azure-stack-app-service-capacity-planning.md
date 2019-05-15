@@ -3,7 +3,7 @@ title: 针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计�
 description: 针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: d85a707bcea91505afbfa2c2c79936943350b677
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 762e506f6e6f4e56eabbfdcb3e95dcb351e37aa7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986002"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618475"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划
 
@@ -38,7 +38,7 @@ ms.locfileid: "64986002"
 | 控制器 | 2 | A1 |
 | 前端 | 2 | A1 |
 | 管理 | 2 | A3 |
-| 发布者 | 2 | A1 |
+| 发布服务器 | 2 | A1 |
 | Web 辅助角色 - 共享 | 2 | A1 |
 | Web 辅助角色 - 专用 | 每层 2 个 | A1 |
 

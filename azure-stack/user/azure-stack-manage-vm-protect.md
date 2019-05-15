@@ -3,7 +3,7 @@ title: 保护在 Azure Stack 上部署的 VM | Microsoft Docs
 description: 有关如何保护在 Azure Stack 上部署的虚拟机的指南。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 23eb807b8ce1930a0eac30603eae74af87b6ee2c
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 73d1408a62feaacbc8f50fb72b1c00edf6e82869
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172709"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617420"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的虚拟机
 

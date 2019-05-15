@@ -3,7 +3,7 @@ title: 比较 Azure Stack 与全球 Azure |Microsoft Docs
 description: 了解 Microsoft 如何提供 Azure 和 Azure 生态系统中的服务的 Azure Stack 系列
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/03/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: d604175cede436dc7d07020271d61c19f2fd542a
-ms.sourcegitcommit: 61de365c93eb7435891867f9808ec37486882d7f
+ms.openlocfilehash: 768d4bd9ad2d70878e9794b1ba315559e76884df
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65097145"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618752"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>全局 Azure，Azure Stack 和 Azure Stack HCI 之间的差异
 

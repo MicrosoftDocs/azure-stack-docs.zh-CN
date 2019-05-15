@@ -3,25 +3,24 @@ title: 在 Azure Stack 上使用 MySQL Adapter RP 提供的数据库 | Microsoft
 description: 如何创建和管理使用 MySQL 适配器资源提供程序预配的 MySQL 数据库
 services: azure-stack
 documentationCenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6eaba728b794c0102ec4e28791b218efa28b51b5
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 4cf406461c7a231617d40c50d2b5491bb4427b63
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296222"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618634"
 ---
 # <a name="create-mysql-databases"></a>创建 MySQL 数据库
 订阅了包含 MySQL 数据库服务的产品/服务的 Azure Stack 用户可以在用户门户中创建和管理自助式 MySQL 数据库。
@@ -68,5 +67,3 @@ ms.locfileid: "64296222"
 ## <a name="next-steps"></a>后续步骤
 
 [更新 MySQL 资源提供程序](azure-stack-mysql-resource-provider-update.md)
-
-<!-- Update_Description: wording update -->

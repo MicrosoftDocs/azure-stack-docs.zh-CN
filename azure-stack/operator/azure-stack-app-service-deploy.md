@@ -3,7 +3,7 @@ title: 部署应用程序服务：Azure Stack | Microsoft Docs
 description: 在 Azure Stack 中部署应用服务的详细指南
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 2a5fc0a9fdfd68d2dd693695b7ffec2cfe8a7e77
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 6db643e1123a27fe1716aeeb5ec97d6497764632
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64982265"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618956"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -122,7 +122,7 @@ ms.locfileid: "64982265"
 
 10. 对于三个证书文件框的每一个框，请选择“浏览”并导航到相应的证书文件。 必须为每个证书提供密码。 这些证书是在[创建所需证书步骤](azure-stack-app-service-before-you-get-started.md#get-certificates)中创建的。 输入所有信息后，选择“下一步”。
 
-    | Box | 证书文件名示例 |
+    | 框 | 证书文件名示例 |
     | --- | --- |
     | **应用服务默认 SSL 证书文件** | \_.appservice.local.AzureStack.external.pfx |
     | **应用服务 API SSL 证书文件** | api.appservice.local.AzureStack.external.pfx |
@@ -144,10 +144,10 @@ ms.locfileid: "64982265"
     | 角色 | 最小实例数 | 最小 SKU | 说明 |
     | --- | --- | --- | --- |
     | 控制器 | 第 | Standard_A2 -（2 个 vCPU，3584 MB） | 管理和维护应用服务云的运行状况。 |
-    | 管理 | 1 | Standard_A2 -（2 vCPU，3584 MB） | 管理应用服务 Azure 资源管理器和 API 终结点、门户扩展（管理员门户、租户门户、Functions 门户）和数据服务。 为了支持故障转移，已将建议的实例数增加到 2 个。 |
-    | 发布者 | 1 | Standard_A1 -（1 vCPU，1792 MB） | 通过 FTP 和 Web 部署发布内容。 |
-    | FrontEnd | 第 | Standard_A1 -（1 vCPU，1792 MB） | 将请求路由到应用服务应用程序。 |
-    | 共享辅助角色 | 1 | Standard_A1 -（1 vCPU，1792 MB） | 托管 Web 应用程序或 API 应用程序和 Azure Functions 应用。 可能需要添加更多实例。 作为操作员，可以定义产品/服务，并选择任何 SKU 层。 这些层必须至少具有一个 vCPU。 |
+    | 管理 | 第 | Standard_A2 -（2 vCPU，3584 MB） | 管理应用服务 Azure 资源管理器和 API 终结点、门户扩展（管理员门户、租户门户、Functions 门户）和数据服务。 为了支持故障转移，已将建议的实例数增加到 2 个。 |
+    | 发布服务器 | 第 | Standard_A1 -（1 vCPU，1792 MB） | 通过 FTP 和 Web 部署发布内容。 |
+    | 前端 | 第 | Standard_A1 -（1 vCPU，1792 MB） | 将请求路由到应用服务应用程序。 |
+    | 共享辅助角色 | 第 | Standard_A1 -（1 vCPU，1792 MB） | 托管 Web 应用程序或 API 应用程序和 Azure Functions 应用。 可能需要添加更多实例。 作为操作员，可以定义产品/服务，并选择任何 SKU 层。 这些层必须至少具有一个 vCPU。 |
 
     ![应用服务安装程序][13]
 
@@ -199,7 +199,7 @@ ms.locfileid: "64982265"
 
     如果部署到现有虚拟网络并使用内部 IP 地址连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
 
-    - 源：任意
+    - 源:任意
     - 源端口范围：*
     - 目标：IP 地址
     - 目标 IP 地址范围：文件服务器的 IP 范围
