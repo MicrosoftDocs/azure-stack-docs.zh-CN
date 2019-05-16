@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 7047c44ec4828c07eeaefdf29bcfef3762942b21
-ms.sourcegitcommit: 405075e7826ba2fa545dbf5498160219ef8d2db5
+ms.openlocfilehash: 78a42d458f77385114c476bd810cea89380423fa
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65453731"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706303"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 
@@ -149,6 +149,8 @@ Azure Stack 1904 更新内部版本号是**1.1904.0.36**。
 - 修复了在其中用户参与者角色分配到订阅，但未显式提供的读取权限，如果生成了错误的问题的读取 **...客户端somelogonaccount@domain.com使用对象 ID {GUID} 不会执行操作...** 尝试将更改保存到资源时。
 
 - 修复了在其中 marketplace 管理屏幕处于空如果脱机联合工具用来上传的图像，并且其中任何一个文件缺少 URI(s) 的图标。
+
+- 修复了阻止未能从正在删除在 marketplace 管理下载的产品的问题。
 
 ### <a name="security-updates"></a>安全更新
 

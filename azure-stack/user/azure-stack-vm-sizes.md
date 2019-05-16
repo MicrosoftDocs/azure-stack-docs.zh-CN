@@ -3,24 +3,23 @@ title: Azure Stack 中支持的虚拟机大小 | Microsoft Docs
 description: 适用于 Azure Stack 中支持的虚拟机大小的引用。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/02/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/02/2019
+ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d2507fd649e10cd442af86195a731caaf467e8d9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ab8c6c32a21afffd590a6f98359e051c7208b6ec
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300424"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712275"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的虚拟机大小
 
@@ -43,16 +42,16 @@ ms.locfileid: "64300424"
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |第    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |第   |
 |**A1\Basic_A1**  |第    |1.75 GB  | 40 GB   |300  | 300  |2 / 2x300  |第   |
-|**A2\Basic_A2**  |2    |3.5 GB   | 60 GB   |300  | 300  |4 / 4x300  |1   |
+|**A2\Basic_A2**  |2    |3.5 GB   | 60 GB   |300  | 300  |4 / 4x300  |第   |
 |**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8x300  |第   |
 |**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |第   |
 
 ### <a name="standard-a"></a>标准 A 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |    
 |----------------|--|------|----|----|----|-------|---------|
-|**Standard_A0** |1 |0.768 |20  |500 |500 |1x500  |第 |
-|**Standard_A1** |第 |1.75  |70  |500 |500 |2x500  |1 |
-|**Standard_A2** |2 |3.5   |135 |500 |500 |4x500  |1 |
+|**Standard_A0** |第 |0.768 |20  |500 |500 |1x500  |第 |
+|**Standard_A1** |第 |1.75  |70  |500 |500 |2x500  |第 |
+|**Standard_A2** |2 |3.5   |135 |500 |500 |4x500  |第 |
 |**Standard_A3** |4 |7     |285 |500 |500 |8x500  |2 |
 |**Standard_A4** |8 |14    |605 |500 |500 |16x500 |4 |
 |**Standard_A5** |2 |14    |135 |500 |500 |4x500  |2 |
@@ -64,7 +63,7 @@ ms.locfileid: "64300424"
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
 |-----------------|----|----|-----|-----|------|--------------|---------|
-|**Standard_A1_v2**  |1   |2   |10   |500 |1000  |2/2x500   |2 |
+|**Standard_A1_v2**  |第   |2   |10   |500 |1000  |2/2x500   |2 |
 |**Standard_A2_v2**  |2   |4   |20   |500 |2000  |4/4x500   |2 |
 |**Standard_A4v2**   |4   |8   |40   |500 |4000  |8/8x500   |4 |
 |**Standard_A8_v2**  |8   |16  |80   |500 |8000  |16/16x500 |8 |
@@ -84,7 +83,7 @@ ms.locfileid: "64300424"
 ### <a name="ds-series"></a>DS 系列
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
 |-----------------|----|----|-----|-----|------|-------------|---------|
-|**Standard_DS1** |第   |3.5 |7    |1000 |4000  |4 / 4x2300   |1 |
+|**Standard_DS1** |第   |3.5 |7    |1000 |4000  |4 / 4x2300   |第 |
 |**Standard_DS2** |2   |7   |14   |1000 |8000  |8 / 8x2300   |2 |
 |**Standard_DS3** |4   |14  |28   |1000 |16000 |16 / 16x2300 |4 |
 |**Standard_DS4** |8   |28  |56   |1000 |32000 |32 / 32x2300 |8 |
@@ -92,7 +91,7 @@ ms.locfileid: "64300424"
 ### <a name="dv2-series"></a>Dv2 系列
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
 |-------------------|----|----|-----|----|------|------------|---------|
-|**Standard_D1_v2** |第   |3.5 |50   |500 |3000  |4/4x500   |第 |
+|**Standard_D1_v2** |第   |3.5 |50   |500 |3000  |4/4x500   |2 |
 |**Standard_D2_v2** |2   |7   |100  |500 |6000  |8/8x500   |2 |
 |**Standard_D3_v2** |4   |14  |200  |500 |12000 |16/16x500 |4 |
 |**Standard_D4_v2** |8   |28  |400  |500 |24000 |32/32x500 |8 |
@@ -101,14 +100,14 @@ ms.locfileid: "64300424"
 ### <a name="dsv2-series"></a>DSv2-series
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
 |--------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_DS1_v2** |1   |3.5 |7   |1000 |4000  |4 / 4x2300   |第 |
+|**Standard_DS1_v2** |第   |3.5 |7   |1000 |4000  |4 / 4x2300   |第 |
 |**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8 / 8x2300   |2 |
 |**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16 / 16x2300 |4 |
 |**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 |
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 |
 
 
-## <a name="compute-optimized"></a>计算优化
+## <a name="compute-optimized"></a>优化计算
 ### <a name="f-series"></a>F 系列
 *需要 Azure Stack 1804 或更高版本*
 
@@ -146,7 +145,7 @@ ms.locfileid: "64300424"
 |**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |8 |
 
 
-## <a name="memory-optimized"></a>内存优化
+## <a name="memory-optimized"></a>优化内存
 
 内存优化 VM 大小提供适用于关系数据库服务器、中到大型缓存和内存中分析的高内存 CPU 比率。
 
@@ -187,5 +186,3 @@ ms.locfileid: "64300424"
 ## <a name="next-steps"></a>后续步骤
 
 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)
-
-<!-- Update_Description: wording update -->

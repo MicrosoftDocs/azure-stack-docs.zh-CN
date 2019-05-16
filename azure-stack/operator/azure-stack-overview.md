@@ -16,13 +16,13 @@ ms.date: 03/29/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
-ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: f8206c658170a16e517e64a328d188c015b9e394
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 05/14/2019
+ms.openlocfilehash: b98be2ae02e65fea9356f35f2d2554e57dfb5628
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618063"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706284"
 ---
 # <a name="azure-stack-overview"></a>Azure Stack 概述
 
@@ -76,17 +76,17 @@ Azure Stack 提供两个部署选项，以满足您的需求，生产环境中�
 > 有关详细信息，请参阅有关的注意事项[连接](azure-stack-connected-deployment.md)并[断开连接](azure-stack-disconnected-deployment.md)部署模型。 
 
 ### <a name="identity-provider"></a>标识提供程序 
-Azure Stack 使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供程序来建立 Azure Stack 的标识。 
+Azure Stack 使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 提供的标识。 Azure AD 是 Microsoft 的基于云的多租户标识提供者。 使用连接到 internet 的部署使用 Azure AD 作为标识存储的大多数混合方案。 
+
+对于 Azure Stack 的断开连接部署，您需要使用 Active Directory 联合身份验证服务 (AD FS)。 Azure Stack 资源提供程序和其他应用程序工作原理类似与 AD FS 或 Azure AD。 Azure Stack 包含自身的 Active Directory 实例，另外还包含 Active Directory 图形 API。
 
 > [!IMPORTANT]
-> 这是关键决策点！ 选择 Azure AD 或 AD FS 作为标识提供程序是在部署时必须进行的一次性决定。 您以后无法更改此无需重新部署整个系统。
-
-Azure AD 是 Microsoft 的基于云的多租户标识提供者。 使用连接到 internet 的部署使用 Azure AD 作为标识存储的大多数混合方案。 但是，您可以选择使用断开连接部署的 Azure Stack 的 Active Directory 联合身份验证服务 (AD FS)。 Azure Stack、资源提供者和其他应用程序使用 AD FS 的方式与它们使用 Azure AD 的方式非常类似。 Azure Stack 包含自身的 Active Directory 实例，另外还包含 Active Directory 图形 API。 
+> 部署后，不能更改标识提供程序。 若要使用不同的标识提供程序，需要重新部署 Azure Stack。
 
 > 了解在 Azure Stack 标识注意事项[的 Azure Stack 的标识概述](azure-stack-identity-overview.md)。
 
 ## <a name="how-is-azure-stack-managed"></a>如何管理 Azure Stack？
-Azure Stack 部署中的集成的系统部署或 ASDK 安装后，与 Azure Stack 交互的主要方法包括管理门户、 用户门户和 PowerShell。 每个 Azure Stack 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack 操作员**使用管理门户来管理 Azure Stack 和执行操作，例如创建租户产品/服务，并维护集成系统的运行状况和监视状态。 用户门户（也称为租户门户）提供自助服务体验让用户使用云资源，例如虚拟机、存储帐户和 Web 应用。 
+你可以使用管理门户中，用户门户中，管理 Azure Stack 或[PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1)。 每个 Azure Stack 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack 操作员**使用管理门户来管理 Azure Stack 和执行操作，例如创建租户产品/服务，并维护集成系统的运行状况和监视状态。 用户门户 （也称为租户门户） 提供的虚拟机、 存储帐户和 web 应用等云资源使用自助服务体验。 
 
 > 有关管理 Azure Stack 使用管理门户的详细信息，请参阅使用[Azure Stack 管理门户快速入门](azure-stack-manage-portals.md)。
 
@@ -102,17 +102,17 @@ Azure Stack 配置时， **Azure Stack 用户**（也称为租户） 使用运�
 资源提供程序是 web 服务，构成的基础，所有 Azure Stack IaaS 和 PaaS 服务。 Azure 资源管理器依赖于不同的资源提供程序提供对服务的访问。 每个资源提供程序可帮助你配置和控制其各自的资源。 服务管理员还可以添加新的自定义资源提供程序。 
 
 ### <a name="foundational-resource-providers"></a>基础资源提供程序 
-有三个基本的 IaaS 资源提供程序：计算、 网络和存储：
+有三个基本的 IaaS 资源提供程序： 
 
-- **计算**。 计算资源提供程序允许 Azure Stack 租户创建他们自己的虚拟机。 计算资源提供程序包括创建虚拟机以及虚拟机扩展的能力。 虚拟机扩展服务可帮助提供适用于 Windows 和 Linux 虚拟机的 IaaS 功能。  例如，可以使用计算资源提供程序来预配 Linux 虚拟机并在要配置的 VM 部署期间运行 Bash 脚本。
+- **计算**。 计算资源提供程序允许 Azure Stack 租户创建他们自己的虚拟机。 计算资源提供程序包括创建虚拟机以及虚拟机扩展的能力。 虚拟机扩展服务可帮助提供适用于 Windows 和 Linux 虚拟机的 IaaS 功能。 例如，可以使用计算资源提供程序来预配 Linux 虚拟机并在要配置的 VM 部署期间运行 Bash 脚本。
 - **网络资源提供程序**。 网络资源提供程序提供了一系列的私有云软件定义网络 (SDN) 和网络功能虚拟化 (NFV) 功能。 网络资源提供程序可用于创建软件负载均衡器、 公共 Ip、 网络安全组和虚拟网络等资源。
-- **存储资源提供程序**。 存储资源提供程序提供了四个 Azure 一致的存储服务： [blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage)，[队列](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage)，[表](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage)，并提供了管理的密钥保管库帐户管理和审核的机密，如密码和证书。 存储资源提供程序还提供存储云管理服务，用于简化 Azure 一致的存储服务的服务提供程序管理。 Azure 存储可为存储和检索大量非结构化数据提供弹性，例如 Azure Blob 的文档与媒体文件，以及具有 Azure 表的结构化 NoSQL 数据。 
+- **存储资源提供程序**。 存储资源提供程序提供了四个 Azure 一致的存储服务： [blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage)，[队列](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage)，[表](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage)，以及[KeyVault](https://docs.microsoft.com/azure/key-vault/)帐户管理提供了管理和审核的机密，如密码和证书。 存储资源提供程序还提供存储云管理服务，用于简化 Azure 一致的存储服务的服务提供程序管理。 Azure 存储可为存储和检索大量非结构化数据提供弹性，例如 Azure Blob 的文档与媒体文件，以及具有 Azure 表的结构化 NoSQL 数据。 
 
 ### <a name="optional-resource-providers"></a>可选资源提供程序
-有三个可选 PaaS 资源提供程序可以部署和与 Azure Stack 配合使用：应用服务、 SQL Server 和 MySQL Server 资源提供程序：
+有三个可选 PaaS 资源提供程序可以部署和与 Azure Stack 配合使用： 
 
 - **应用服务**。 [Azure Stack 上的 azure 应用服务](azure-stack-app-service-overview.md)是 Microsoft Azure 的平台-作为-服务 (PaaS) 产品可用于 Azure Stack。 该服务可让你的内部或外部客户为任何平台或设备创建 Web 应用、API 应用和 Azure Functions 应用程序。 
-- **SQL Server**。 使用[SQL Server 资源提供程序](azure-stack-sql-resource-provider.md)以提供了 SQL 数据库提供作为 Azure Stack 的服务。 安装资源提供程序，并将其连接到一个或多个 SQL Server 实例后，你和你的用户可以创建数据库，云原生应用、 网站，使用 SQL，并使用 SQL 的其他工作负荷。
+- **SQL Server**。 使用[SQL Server 资源提供程序](azure-stack-sql-resource-provider.md)以提供了 SQL 数据库提供作为 Azure Stack 的服务。 安装资源提供程序并将其连接到一个或多个 SQL Server 实例后，你和你的用户可以创建数据库，云原生应用、 网站，使用 SQL，并使用 SQL 的其他工作负荷。
 - **MySQL Server**。 使用[MySQL Server 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)作为 Azure Stack 服务公开 MySQL 数据库。 MySQL 资源提供程序以服务的形式在 Windows Server 2016 Server Core 虚拟机 (VM) 上运行。
 
 ## <a name="providing-high-availability"></a>提供高可用性
@@ -120,7 +120,7 @@ Azure Stack 配置时， **Azure Stack 用户**（也称为租户） 使用运�
 
 在发生硬件故障时，虽然 Azure Stack 的基础结构已具备故障还原能力，但基础技术（故障转移群集功能）的局限仍会导致受影响物理服务器上的 VM 出现停机。 为了与 Azure 保持一致，Azure Stack 支持的可用性集最多有三个容错域。
 
-- **容错域**。 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack 节点）中。 出现硬件故障时，发生故障的容错域中的 VM 会在其他容错域中重启，但在将其置于容错域中时，会尽可能让其与同一可用性集中的其他 VM 隔离。 当硬件重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。 
+- **容错域**。 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack 节点）中。 如果硬件故障，将在其他容错域中，重新启动故障的容错域中的 Vm，但在同一可用性集中，如有可能从其他 Vm 保留在单独的容错域。 当硬件重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。 
  
 - **更新域**。 更新域是另一可以在可用性集中提供高可用性的 Azure 概念。 更新域是可以同时维护的基础硬件逻辑组。 同一个更新域中的 VM 会在计划内维护期间一起重启。 当租户在可用性集内创建 VM 时，Azure 平台会自动将 VM 分布到这些更新域。 在 Azure Stack 中，VM 会先跨群集中的其他联机主机进行实时迁移，然后其基础主机才会进行更新。 由于在主机更新期间不会造成租户停机，因此 Azure Stack 上存在更新域功能只是为了确保与 Azure 实现模板兼容。 
 
@@ -132,7 +132,7 @@ Azure Stack RBAC 有三个适用于所有资源类型的基本角色：所有者
 > 请参阅[管理基于角色的访问控制](azure-stack-manage-permissions.md)有关详细信息。 
 
 ## <a name="reporting-usage-data"></a>报告使用情况数据
-Microsoft Azure Stack 收集和聚合所有资源提供程序的用量数据并将其传输到 Azure 以进行处理 Azure 商业组件。 可以通过 REST API 查看 Azure Stack 中收集的用量数据。 可以使用 Azure 一致的租户 API 以及提供程序和委派提供程序 API 从所有租户订阅获取使用情况数据。 可以使用这些数据来集成外部工具或服务，以实现计费或费用分摊。 用量经 Azure 商业组件处理后，可以在 Azure 计费门户中查看。
+Azure Stack 从所有资源提供程序收集聚合用量数据，并将其传输到 Azure 供 Azure 商业组件进行处理。 可以通过 REST API 查看 Azure Stack 中收集的用量数据。 可以使用 Azure 一致的租户 API 以及提供程序和委派提供程序 API 从所有租户订阅获取使用情况数据。 可以使用这些数据来集成外部工具或服务，以实现计费或费用分摊。 用量经 Azure 商业组件处理后，可以在 Azure 计费门户中查看。
 
 > 详细了解如何[向 Azure 报告 Azure Stack 用量数据](azure-stack-usage-reporting.md)。
 

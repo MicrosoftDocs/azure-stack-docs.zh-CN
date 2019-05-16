@@ -1,5 +1,5 @@
 ---
-title: 使用 SQL Server 最佳实践，并增加 Azure Stack 虚拟机中的性能 |Microsoft Docs
+title: SQL Server 最佳做法来优化 Azure Stack 中的性能。 | Microsoft Docs
 description: 本文提供了 SQL server 最佳实践来帮助提高性能和优化 Azure Stack Vm 中的 SQL Server。
 services: azure-stack
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 77e7e994e382e5e359ba133ccc9e5a9b35a74153
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 628e7bcb994c92bd00425b4ba11a45ebd1ff8f54
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985589"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712352"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>SQL server 最佳做法来优化 Azure Stack 中的性能
 
-本文提供了 SQL server 最佳实践以优化 SQL Server 并改进 Microsoft Azure Stack 虚拟机中的性能。 在 Azure Stack 虚拟机中运行 SQL Server 时，请使用适用于本地服务器环境中的 SQL Server 的相同数据库性能优化选项。 关系数据库在 Azure Stack 云中的性能取决于许多因素， 其中包括虚拟机的系列大小和数据磁盘的配置。
+本文提供了 SQL server 最佳实践以优化 SQL Server 并改进 Microsoft Azure Stack 虚拟机中的性能。 在 Azure Stack 虚拟机中运行 SQL Server 时，请使用适用于本地服务器环境中的 SQL Server 的相同数据库性能优化选项。 在 Azure Stack 云关系数据库的性能取决于许多因素，包括系列虚拟机的大小和数据磁盘的配置。
 
 创建 SQL Server 映像时，[请考虑在 Azure Stack 门户中预配虚拟机](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)。 在 Azure Stack 管理门户中下载来自市场管理的 SQL IaaS 扩展，并下载所选的 SQL 虚拟机虚拟硬盘驱动器 (VHD)。 其中包括 SQL2014SP2、SQL2016SP1 和 SQL2017。
 
@@ -51,7 +51,7 @@ ms.locfileid: "64985589"
 |特定于功能|直接备份到 Blob 存储（如果受正在使用的 SQL Server 版本支持）。|
 |||
 
-有关如何和为何进行这些优化的详细信息，请参阅以下部分提供的详细信息与指南。
+有关详细信息*如何*并*为什么*若要使这些优化，请查看详细信息和以下各节中提供的指南。
 
 ## <a name="virtual-machine-size-guidance"></a>虚拟机大小指南
 
@@ -61,7 +61,7 @@ ms.locfileid: "64985589"
 
 - **SQL Server Standard 版本和 Web 版本：** DS2 或更高
 
-使用 Azure Stack 时，DS 和 DS_v2 虚拟机系列没有性能差异。
+使用 Azure Stack DS 和 DS_v2 虚拟机系列序列之间没有性能差异。
 
 ## <a name="storage-guidance"></a>存储指导原则
 
@@ -72,7 +72,7 @@ ms.locfileid: "64985589"
 > [!NOTE]  
 > 至于生产型工作负荷，请选择可以在操作系统磁盘和数据磁盘上提供最大可能 IOPS 的 DS 系列或 DSv2 系列的虚拟机。
 
-在 Azure Stack 中创建存储帐户时，异地复制选项无效，因为此功能在 Azure Stack 中不可用。
+在 Azure Stack 中创建存储帐户时, 的异地复制选项没有任何作用，因为此功能不是 Azure Stack 中提供。
 
 ## <a name="disks-guidance"></a>磁盘指导原则
 
@@ -92,13 +92,13 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
 
 ### <a name="temporary-disk"></a>临时磁盘
 
-不保留标记为 **D** 驱动器的临时存储驱动器。 请勿在 **D** 驱动器中存储不能丢失的数据，例如用户数据库文件或用户事务日志文件。
+临时存储驱动器，标记为**D**驱动器、 本地不具有持久性。 不要将您是愿意上会丢失任何数据存储**D**驱动器。 这包括用户数据库文件和用户事务日志文件。
 
 建议将 TempDB 存储在数据磁盘上，因为每个数据磁盘提供高达 2,300 的 IOPS。
 
 ### <a name="data-disks"></a>数据磁盘数
 
-- **将数据磁盘用于数据和日志文件。** 如果不使用磁盘条带化，请使用支持高级存储的虚拟机中的两个数据磁盘，一个磁盘包含日志文件，另一个包含数据和 TempDB 文件。 每个数据磁盘均提供可观的 IOPS 和带宽（MB/秒），具体取决于虚拟机系列，如 [Azure Stack 中支持的虚拟机大小](azure-stack-vm-sizes.md)中所述。 如果使用磁盘条带化方法（例如存储空间），请将所有数据文件和日志文件（包括 TempDB）放在同一驱动器上。 此配置可以为你提供最大数目的 IOPS 供 SQL Server 使用，不管哪个文件在特定时刻需要它们。
+- **将数据磁盘用于数据和日志文件。** 如果您不使用磁盘条带化，使用两个数据磁盘从虚拟机支持高级存储，其中一个磁盘包含日志文件，另一个包含数据和 TempDB 文件。 每个数据磁盘均提供可观的 IOPS 和带宽（MB/秒），具体取决于虚拟机系列，如 [Azure Stack 中支持的虚拟机大小](azure-stack-vm-sizes.md)中所述。 如果正在使用磁盘条带化方法，例如存储空间，放置在同一驱动器 （包括 TempDB） 的所有数据和日志文件。 此配置可以为你提供最大数目的 IOPS 供 SQL Server 使用，不管哪个文件在特定时刻需要它们。
 
 > [!NOTE]  
 > 在门户中预配 SQL Server 虚拟机时，可以编辑存储配置。 Azure Stack 根据配置来配置一个或多个磁盘。 多个磁盘会组合成一个存储池。 数据文件和日志文件一起位于此配置中。
@@ -121,8 +121,8 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
        ```
 
 - 根据负载预期确定与你的存储池相关联的磁盘数。 请记住，不同的虚拟机大小允许不同数量的附加数据磁盘。 有关详细信息，请参阅 [Azure Stack 中支持的虚拟机大小](azure-stack-vm-sizes.md)。
-- 若要获取针对数据磁盘的最大可能 IOPS，建议添加[虚拟机大小](azure-stack-vm-sizes.md)支持的最大数量的数据磁盘并使用磁盘条带化。
-- **NTFS 分配单元大小：** 格式化数据磁盘时，建议为数据和日志文件以及 TempDB 使用 64-KB 分配单元大小。
+- 若要获取数据磁盘的最大 IOPS，建议将添加支持的数据磁盘的最大数目你[虚拟机大小](azure-stack-vm-sizes.md)，并使用磁盘条带化。
+- **NTFS 分配单元大小：** 当格式化数据磁盘，我们建议为数据和日志文件以及 TempDB 使用 64-KB 分配单元大小。
 - **磁盘管理做法：** 删除数据磁盘时，请在更改过程中停止 SQL Server 服务。 另外，请勿更改磁盘上的缓存设置，因为这样做不会改进性能。
 
 > [!WARNING]  
@@ -130,10 +130,10 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
 
 ## <a name="io-guidance"></a>I/O 指导原则
 
-- 请考虑启用即时文件初始化以减少初始文件分配所需的时间。 若要利用即时文件初始化，请将 **SE_MANAGE_VOLUME_NAME** 授予 SQL Server (MSSQLSERVER) 服务帐户并将其添加到“执行卷维护任务”安全策略。 如果你使用用于 Azure 的 SQL Server 平台映像，默认服务帐户 (**NT Service\MSSQLSERVER**) 不会添加到**执行卷维护任务**安全策略。 换而言之，在 SQL Server Azure 平台映像中不启用即时文件初始化。 将 SQL Server 服务帐户添加到**执行卷维护任务**安全策略后，请重新启动 SQL Server 服务。 使用此功能可能有一些安全注意事项。 有关详细信息，请参阅[数据库文件初始化](https://msdn.microsoft.com/library/ms175935.aspx)。
-- **自动增长**是非预期增长的偶发情况。 自动增长不管理数据和记录每天的增长。 如果使用自动增长，请使用“大小”开关预先增长文件。
+- 请考虑启用即时文件初始化以减少初始文件分配所需的时间。 若要利用即时文件初始化，请将 **SE_MANAGE_VOLUME_NAME** 授予 SQL Server (MSSQLSERVER) 服务帐户并将其添加到“执行卷维护任务”安全策略。 如果使用 azure SQL Server 平台映像，默认服务帐户 (**NT Service\MSSQLSERVER**) 不会添加到**执行卷维护任务**安全策略。 换而言之，在 SQL Server Azure 平台映像中未启用即时文件初始化。 将 SQL Server 服务帐户添加到**执行卷维护任务**安全策略后，请重新启动 SQL Server 服务。 使用此功能可能有一些安全注意事项。 有关详细信息，请参阅[数据库文件初始化](https://msdn.microsoft.com/library/ms175935.aspx)。
+- **自动增长**是非预期增长的偶发情况。 不管理您在日常工作中使用自动增长的数据和日志增长。 如果使用自动增长，请使用“大小”开关预先增长文件。
 - 请确保禁用**自动收缩**以避免可能对性能产生负面影响的不必要开销。
-- 设置默认的备份和数据库文件位置。 使用本文中的建议，并在“服务器属性”窗口中进行更改。 有关说明，请参阅 [View or Change the Default Locations for Data and Log Files (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx)（查看或更改数据和日志文件的默认位置 (SQL Server Management Studio)）。 以下屏幕截图演示了在哪些位置进行这些更改：
+- 设置默认的备份和数据库文件位置。 使用本文中的建议，并在“服务器属性”窗口中进行更改。 有关说明，请参阅 [View or Change the Default Locations for Data and Log Files (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx)（查看或更改数据和日志文件的默认位置 (SQL Server Management Studio)）。 下面的屏幕截图显示了进行这些更改的位置：
 
     > ![查看或更改默认配置](./media/sql-server-vm-considerations/image1.png)
 
@@ -145,13 +145,12 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
 
 某些部署可以使用更高级的配置技术，获得更多的性能好处。 以下列表主要介绍可能有助于改进性能的一些 SQL Server 功能：
 
-- **备份到 Azure** **存储。** 为在 Azure Stack 虚拟机中运行的 SQL Server 执行备份时，可以使用“SQL Server 备份到 URL”。 此功能是从 SQL Server 2012 SP1 CU2 开始提供的，在备份到附加数据磁盘时建议使用。
+- **备份到 Azure** **存储。** 当在 Azure Stack 虚拟机中运行的 SQL Server 中进行备份，可以使用 SQL Server 备份到 URL。 此功能是从 SQL Server 2012 SP1 CU2 开始提供的，在备份到附加数据磁盘时建议使用。
 
-    当备份或还原使用 Azure 存储中，按照中提供的建议[SQL Server 备份到 URL 最佳实践和故障排除](https://msdn.microsoft.com/library/jj919149.aspx)和[还原从备份存储在 Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). 此外还可以使用 [Azure 虚拟机中 SQL Server 的自动备份](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)自动执行这些备份。
+    在备份或还原使用 Azure 存储，请遵循中提供的建议[SQL Server 备份到 URL 最佳实践和故障排除](https://msdn.microsoft.com/library/jj919149.aspx)和[还原从备份存储在 Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). 此外还可以使用 [Azure 虚拟机中 SQL Server 的自动备份](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)自动执行这些备份。
 
--   **备份到 Azure Stack 存储。** 可以备份到 Azure Stack 存储，所用方式类似于备份到 Azure 存储。 在 SQL Server Management Studio (SSMS) 中创建备份时，需手动输入配置信息。 不能使用 SSMS 创建存储容器或共享访问签名。 SSMS 仅连接到 Azure 订阅，不连接到 Azure Stack 订阅。 只需通过 Azure Stack 门户或 PowerShell 创建存储帐户、容器和共享访问签名。
+-   **备份到 Azure Stack 存储。** 可以备份到 Azure Stack 存储，所用方式类似于备份到 Azure 存储。 在 SQL Server Management Studio (SSMS) 中创建备份时，需手动输入配置信息。 SSMS 不能用于创建存储容器或共享访问签名。 SSMS 仅连接到 Azure 订阅，不连接到 Azure Stack 订阅。 只需通过 Azure Stack 门户或 PowerShell 创建存储帐户、容器和共享访问签名。
 
-    将信息置于“SQL Server 备份”对话框中时：
 
     ![SQL Server 备份](./media/sql-server-vm-considerations/image3.png)
 

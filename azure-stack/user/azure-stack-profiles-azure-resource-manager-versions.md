@@ -14,16 +14,16 @@ ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 0d088dcfaf97173d267a1f4638751650b7befba2
-ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
+ms.openlocfilehash: 36fd25897e2d45d454f8e1f956f5e72991d45059
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473801"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706265"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
-可以在本文中找到 Azure Stack 使用的每个 API 配置文件的资源提供程序和版本号。 本文中的表格列出了每个资源提供程序支持的版本以及配置文件的 API 版本。 每个资源提供程序包含一组资源类型和特定的版本号。 
+可以在本文中找到 Azure Stack 使用的每个 API 配置文件的资源提供程序和版本号。 本文中的表格列出了每个资源提供程序支持的版本以及配置文件的 API 版本。 每个资源提供程序包含一组资源类型和特定的版本号。
 
 API 配置文件使用三个命名约定：
 
@@ -33,10 +33,10 @@ API 配置文件使用三个命名约定：
 
 有关 Azure Stack 的 API 配置文件和版本发布频率的说明，请参阅[在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)。
 
-> [!Note]  
+> [!Note]
 > **最新** API 配置文件包含最新版资源提供程序 API，未在本文中列出。
 
-## <a name="overview-of-2019---03-01-hybrid"></a>2019-03-01-混合的概述
+## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>2019-03-01-混合配置文件的概述
 
 | 资源提供程序 | Api-version |
 |-----------------------------------------------|-----------------------------------------------------|
@@ -50,9 +50,9 @@ API 配置文件使用三个命名约定：
 | Microsoft.Authorization （策略操作） | 2016-09-01 |
 | Microsoft.Insights | 2018-01-01 |
 
-API 配置文件中的提供程序每种资源类型的版本的列表，请参阅[2019年-03-01-混合的详细信息](#details-for-the-2019-03-01-hybrid)配置文件。
+API 配置文件中的提供程序每种资源类型的版本的列表，请参阅[2019年-03-01-混合配置文件的详细信息](#details-for-the-2019-03-01-hybrid-profile)。
 
-## <a name="details-for-the-2019-03-01-hybrid"></a>2019年-03-01-混合的详细信息
+## <a name="details-for-the-2019-03-01-hybrid-profile"></a>2019-03-01-混合配置文件的详细信息
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 

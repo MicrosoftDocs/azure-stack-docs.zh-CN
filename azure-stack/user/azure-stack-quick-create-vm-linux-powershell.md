@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机 | Microsoft Docs
-description: 在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机。
+title: 创建 Linux 虚拟机在 Azure Stack 中使用 PowerShell |Microsoft Docs
+description: 创建 Linux 虚拟机在 Azure Stack 中使用 PowerShell。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 95b81f6af8caa3e0f4dd7639614bed1b78915539
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 55f1395d66262b268b9107f196528270c1546bba
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477403"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712281"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Linux 服务器虚拟机
+# <a name="quickstart-create-a-linux-server-virtual-machine-using-powershell-in-azure-stack"></a>快速入门：创建 Linux server 虚拟机在 Azure Stack 中使用 PowerShell
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -40,13 +40,16 @@ ms.locfileid: "64477403"
 
 * Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](../operator/azure-stack-powershell-install.md) PowerShell 的步骤。
 
-* 设置 Azure Stack PowerShell 后，将需要连接到 Azure Stack 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
+* 使用 Azure Stack PowerShell 设置，你将需要连接到 Azure Stack 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
 * Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[如何使用 SSH 公钥](azure-stack-dev-start-howto-ssh-public-key.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack 资源。 在开发工具包或 Azure Stack 集成系统中，运行以下代码块创建资源组。 本文档中为所有变量都分配了值，你可以使用这些值或分配新值。
+资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack 资源。 在开发工具包或 Azure Stack 集成系统中，运行以下代码块创建资源组。 
+
+> [!NOTE]
+> 有关代码示例中的所有变量分配值。 但是，如果愿意，也可以分配新值。
 
 ```powershell  
 # Create variables to store the location and resource group names.
@@ -206,7 +209,7 @@ New-AzureRmVM `
 ## <a name="quick-create-virtual-machine---full-script"></a>快速创建虚拟机 - 完整脚本
 
 > [!NOTE]
-> 它或多或少是上面合并的代码，但使用密码而不是 SSH 密钥进行身份验证。
+> 这是实质上是上面的代码合并在一起，但使用密码而不是 SSH 密钥进行身份验证。
 
 ```powershell
 ## Create a resource group
@@ -374,13 +377,13 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
 
-部署虚拟机后，为虚拟机配置一个 SSH 连接。 使用 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 命令返回虚拟机的公共 IP 地址。
+部署虚拟机后，为虚拟机配置一个 SSH 连接。 使用[Get-azurermpublicipaddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)命令来获取虚拟机的公共 IP 地址。
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-从安装有 SSH 的客户端系统中，使用以下命令连接到虚拟机。 如果在 Windows 上操作，可以使用 [Putty](https://www.putty.org/) 创建连接。
+从安装有 SSH 的客户端系统中，使用以下命令连接到虚拟机。 如果您从事 Windows 上，则可以使用[Putty](https://www.putty.org/)以创建连接。
 
 ```
 ssh <Public IP Address>
@@ -404,7 +407,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>查看 NGINX 欢迎页
 
-在虚拟机上安装 NGINX 并打开端口 80 后，可通过虚拟机的公共 IP 地址访问 Web 服务器。 打开 Web 浏览器，并浏览到 ```http://<public IP address>```。
+在虚拟机上安装 NGINX 并打开端口 80 后，可通过虚拟机的公共 IP 地址访问 Web 服务器。 打开 web 浏览器并转到```http://<public IP address>```。
 
 ![NGINX Web 服务器欢迎页](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 

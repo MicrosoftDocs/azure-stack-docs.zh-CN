@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: fad8c68683b965c6716e600d2ea171c7e508d203
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532334"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712325"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新
 
@@ -216,7 +216,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 ### <a name="app-service"></a>应用服务
 
 <!-- 2352906 - IS ASDK -->
-- 在订阅中创建第一个 Azure 函数之前，必须先注册存储资源提供程序。
+- 在订阅中创建第一个 Azure 函数之前，租户必须注册存储资源提供程序。
+- 某些租户门户的用户体验中 1903; 已断开由于与门户框架不兼容主要，UX 部署槽的测试生产站点和站点扩展中。 若要解决此问题，请使用[Azure 应用服务 PowerShell 模块](/azure/app-service/deploy-staging-slots#automate-with-powershell)或[Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest)。 门户体验会在即将发布的 Azure Stack 1.6 (更新 6) 上的 Azure 应用服务中还原。
 
 <!-- ### Usage -->
 

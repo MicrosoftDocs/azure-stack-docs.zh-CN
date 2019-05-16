@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f2e20377a976c5dba7a63d9f8cf8b3e2d100e060
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.lastreviewed: 05/15/2019
+ms.openlocfilehash: 86817d0d22854bf2bb0d2372f2a25e15a3de7c48
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532265"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712298"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
 
@@ -69,10 +69,18 @@ ms.locfileid: "65532265"
 
 ### <a name="marketplace-management"></a>市场管理
 
-- 适用：此问题适用于 1904年。
-- 原因：登录到管理员门户时，marketplace 管理屏幕不可见。
+- 适用：这是版本 1904年新问题。
+- 原因：在登录到管理员门户时，将不可见 marketplace 管理屏幕。
 - 补救措施：刷新浏览器。
 - 发生次数：间歇性
+
+### <a name="marketplace-management"></a>市场管理
+
+- 适用：此问题适用于 1904年。
+- 原因：在管理员门户中的 Marketplace 管理选项卡中的"从 Azure 添加"边栏选项卡上的结果进行筛选，您可能会看到不正确的筛选的结果。 
+- 补救措施：将更正排序结果按名称列和结果。 
+- 发生次数：间歇性
+
 
 ### <a name="upload-blob"></a>上传 blob
 
@@ -89,14 +97,14 @@ ms.locfileid: "65532265"
 
 - 适用：此问题适用于所有支持的版本。
 - 原因：在用户门户中，如果尝试添加**后端池**到**负载均衡器**，则操作将失败并显示错误消息**未能更新负载均衡器...**.
-- 补救措施：使用 PowerShell、 CLI 或 Resource Manager 模板以将后端池与一个负载均衡器资源相关联。
+- 补救措施：使用 PowerShell、 CLI 或 Azure 资源管理器模板与负载均衡器资源关联的后端池。
 - 发生次数：通用
 
 #### <a name="create-inbound-nat"></a>创建入站的 NAT
 
 - 适用：此问题适用于所有支持的版本。
 - 原因：在用户门户中，如果您尝试创建**入站 NAT 规则**有关**负载均衡器**，则操作将失败并显示错误消息**未能更新负载均衡器...**.
-- 补救措施：使用 PowerShell、 CLI 或 Resource Manager 模板以将后端池与一个负载均衡器资源相关联。
+- 补救措施：使用 PowerShell、 CLI 或 Azure 资源管理器模板与负载均衡器资源关联的后端池。
 - 发生次数：通用
 
 #### <a name="create-load-balancer"></a>创建负载均衡器
@@ -110,7 +118,7 @@ ms.locfileid: "65532265"
 
 - 适用：此问题适用于所有支持的版本。
 - 原因：在用户门户中，**创建公共 IP 地址**窗口将显示一个选项以创建**标准**SKU。 **标准**SKU 不支持在 Azure Stack 中。
-- 补救措施：公共 IP 地址改为使用基本 SKU。
+- 补救措施：使用**基本**SKU 改为公共 IP 地址。
 - 发生次数：通用
 
 ## <a name="compute"></a>计算
@@ -149,15 +157,19 @@ ms.locfileid: "65532265"
 ### <a name="compute-host-agent-alert"></a>计算主机代理警报
 
 - 适用：这是版本 1904年新问题。
-- 原因："计算主机代理"警告显示缩放单位中重新启动节点之后。 在重新启动更改计算主机代理服务的默认启动设置。
+- 原因：一个**计算主机代理**缩放单位中重新启动节点之后会出现警告。 在重新启动更改计算主机代理服务的默认启动设置。
 - 补救措施：
   - 可以忽略此警报。 代理未响应并没有对运算符和用户操作或用户应用程序造成任何影响。 警报在 24 小时后将重新出现如果已手动关闭。
   - Microsoft 支持部门可以通过更改服务的启动设置修正此问题。 这需要开一个支持票证。 如果再次重新启动节点，将显示新的警报。
 - 发生次数：通用
 
+## <a name="app-service"></a>应用服务
+
+- 在订阅中创建第一个 Azure 函数之前，租户必须注册存储资源提供程序。
+- 某些租户门户的用户体验中 1903; 已断开由于与门户框架不兼容主要，UX 部署槽的测试生产站点和站点扩展中。 若要解决此问题，请使用[Azure 应用服务 PowerShell 模块](/azure/app-service/deploy-staging-slots#automate-with-powershell)或[Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest)。 门户体验会在即将发布的 Azure Stack 1.6 (更新 6) 上的 Azure 应用服务中还原。
+
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
-<!-- ## App Service -->
 <!-- ## Usage -->
 <!-- ### Identity -->
 <!-- ### Marketplace -->

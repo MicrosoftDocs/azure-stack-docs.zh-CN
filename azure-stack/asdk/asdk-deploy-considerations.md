@@ -12,33 +12,36 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 05/13/2019
 ms.author: mabrigg
 ms.reviewer: misainat
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 85484e7428c4b384c2081d4f55af5e79259cc9d8
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 05/13/2019
+ms.openlocfilehash: 9cb349ec19edd493ca994b406b9311fe27bed242
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617508"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712238"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署规划注意事项
+
 在部署 Azure Stack 开发工具包 (ASDK) 之前，请确保开发工具包主机满足本文中所述的要求。
 
-
 ## <a name="hardware"></a>硬件
+
 | 组件 | 最小值 | 建议 |
 | --- | --- | --- |
 | 磁盘驱动器：操作系统 |1 个操作系统磁盘，至少 200 GB 用于系统分区（SSD 或 HDD） |1 块 OS 磁盘，至少 200 GB 用于系统分区（SSD 或 HDD） |
 | 磁盘驱动器：常规开发工具包数据<sup>*</sup>  |4 块磁盘。 每个磁盘提供至少 240 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |4 块磁盘。 每个磁盘提供至少 400 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |
 | 计算：CPU |双插槽：16 个物理核心（总计） |双插槽：20 个物理核心（总计） |
-| 计算：内存 |192 GB RAM |256 GB RAM |
+| 计算：内存 |192-GB RAM |256-GB RAM |
 | 计算：BIOS |Hyper-V 已启用（提供 SLAT 支持） |Hyper-V 已启用（提供 SLAT 支持） |
 | 网络：NIC |Windows Server 2012 R2 认知。 不要求使用专用功能 |Windows Server 2012 R2 认知。 不要求使用专用功能 |
 | 硬件徽标认证 |[针对 Windows Server 2012 R2 的认证](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016 认证](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup>如果计划从 Azure 添加多个[市场项](../operator/azure-stack-create-and-publish-marketplace-item.md)，则需要的容量比这个建议的容量要大。
+
+### <a name="hardware-notes"></a>硬件说明
 
 **数据磁盘驱动器配置：** 所有数据驱动器的类型都必须相同（全部为 SAS、全部为 SATA 或全部为 NVMe）且容量也必须相同。 如果使用 SAS 磁盘驱动器，则这些磁盘驱动器必须通过单个路径来附加（不提供 MPIO 多路径支持）。
 
@@ -63,6 +66,22 @@ ms.locfileid: "65617508"
 **示例 HBA**：LSI 9207-8i、LSI-9300-8i 或 LSI-9265-8i（在直通模式下）
 
 提供了示例 OEM 配置。
+
+### <a name="storage-resiliency-for-the-asdk"></a>对于 asdk 来说存储复原能力
+
+为单个节点系统，ASDK 的用途不是验证生产冗余的 Azure Stack 集成系统。 但是，可以提高 ASDK 通过 HDD 和 SSD 驱动器的最佳组合的基础存储冗余的级别。 你可以部署一个双向镜像配置的类似于 RAID1，而不是一个简单的复原能力配置，这类似于 RAID0。 基础存储空间直通配置为使用足够的容量、 类型和驱动器数目。
+
+要用于存储复原能力的双向镜像配置：
+
+- 在系统中的大于 2 千吉字节 HDD 容量。
+- 如果在 ASDK 中，不包含 Ssd，则需要至少为八个 Hdd 为双向镜像配置。
+- 如果 Ssd 在 ASDK 中，以及 Hdd，您将需要至少五个 Hdd。 但是，建议使用六个 Hhd。 为六个 Hdd，它还建议在系统中具有相应至少三个 Ssd，以便您具有一个缓存磁盘 (SSD) 提供两个容量驱动器 (HDD)。
+
+双向镜像的示例配置：
+
+- 八个 Hdd
+- 三个 SSD / 六个 HDD
+- 四个 SSD / 八个 HDD
 
 ## <a name="operating-system"></a>操作系统
 |  | **要求** |
@@ -126,4 +145,7 @@ Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明�
 
 
 ## <a name="next-steps"></a>后续步骤
-[下载 ASDK 部署包](asdk-download.md)
+
+- [下载 ASDK 部署包](asdk-download.md)
+- 若要了解有关存储空间直通的详细信息，请参阅[存储空间直通概述](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)。
+
