@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 04/15/2019
-ms.openlocfilehash: 3098381f13835cc2062df36a967412bf98a4547f
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/14/2019
+ms.openlocfilehash: 4b758cce6741440f5b6a4c00de045e9a4fc8f530
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984697"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706332"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -34,7 +34,7 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 
 - **外部机密**
 
-面向外部的基础结构服务证书服务提供的 Azure Stack 操作员。 外部机密包括以下服务的证书：
+对外服务的基础结构服务证书，由 Azure Stack 操作员提供。 外部机密包括以下服务的证书：
 
 - 管理员门户
 - 公共门户
@@ -64,13 +64,13 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 |已安装的证书 CA|要轮换到的 CA|支持|支持的 Azure Stack 版本|
 |-----|-----|-----|-----|
 |从自签名|到企业|支持|1903 和更高版本|
-|从自签名|到自签名|不支持||
+|从自签名|到自签名|不受支持||
 |从自签名|到公共<sup>*</sup>|支持|1803 和更高版本|
 |从企业|到企业|。 从 1803年 1903年： 支持，只要客户使用的同一个企业 CA，因为在部署时使用|1803 和更高版本|
-|从企业|到自签名|不支持||
+|从企业|到自签名|不受支持||
 |从企业|到公共<sup>*</sup>|支持|1803 和更高版本|
 |从公共<sup>*</sup>|到企业|支持|1903 和更高版本|
-|从公共<sup>*</sup>|到自签名|不支持||
+|从公共<sup>*</sup>|到自签名|不受支持||
 |从公共<sup>*</sup>|到公共<sup>*</sup>|支持|1803 和更高版本|
 
 <sup>*</sup>指示公共证书颁发机构属于 Windows 受信任根计划。 可在以下文章中找到完整列表：[Microsoft 受信任根证书计划：参与者（截至 2017 年 6 月 27 日）](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
@@ -135,10 +135,10 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 > 同样重要的是，文件共享文件夹结构以 **Certificates** 文件夹开头，否则验证时也会失败。
 > 文件共享装入点应该类似于 **\\\\\<IP 地址>\\\<共享名称>\\**，并且应该包含文件夹 **Certificates\AAD** 或 **Certificates\ADFS**。
 >
-> 例如：
-> - Fileshare = **\\\\\<IP 地址>\\\<共享名称>\\**
+> 例如:
+> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath = **\\\\\<IP 地址>\\\<共享名称>\Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
 ## <a name="rotating-external-secrets"></a>轮换外部机密
 
@@ -371,7 +371,7 @@ Remove-PSSession -Session $PEPSession
 
 1. 遵照 OEM 说明在 Azure Stack 的物理服务器上更新 BMC。 用户名称和你的环境中每个 BMC 的密码必须相同。 请注意，BMC 用户名不能超过 16 个字符。
 2. 在 Azure Stack 会话中打开特权终结点。 有关说明，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
-3. 在 PowerShell 提示符更改为 **[IP 地址或 ERCS VM 名称]:PS>** 或 **[azs-ercs01]:PS>**（具体取决于环境）后，通过运行 `Invoke-Command` 来运行 `Set-BmcCredential`。 将特权终结点会话变量作为参数传递。 例如：
+3. 在 PowerShell 提示符更改为 **[IP 地址或 ERCS VM 名称]:PS>** 或 **[azs-ercs01]:PS>**（具体取决于环境）后，通过运行 `Invoke-Command` 来运行 `Set-BmcCredential`。 将特权终结点会话变量作为参数传递。 例如:
 
     ```powershell
     # Interactive Version
