@@ -10,29 +10,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 1c096428bca07f557d62d0984ca1da1f428e9c28
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: d2b7ec8beedcc0ffbcf881dd09d513d3e0b61426
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290436"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782220"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基础结构备份服务对 Azure Stack 进行备份和数据恢复
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用基础结构备份服务备份和还原配置和服务数据。 每个 Azure Stack 安装均包含该服务的实例。 可以使用该服务创建的备份重新部署 Azure Stack 云，以还原标识、安全性和 Azure 资源管理器数据。 
+可以使用基础结构备份服务备份和还原配置和服务数据。 每个 Azure Stack 安装均包含该服务的实例。 通过重新部署 Azure Stack 云的服务创建的备份可用于还原标识、 安全性和 Azure 资源管理器数据。 
 
 准备好将云投入生产后，可以启用备份。 如果计划执行测试和验证很长时间，则不要启用备份。
 
 在启用备份服务之前，请确保已[符合要求](#verify-requirements-for-the-infrastructure-backup-service)。
 
 > [!Note]  
-> 基础结构备份服务不包括用户数据和应用程序。 有关如何保护基于 IaaS VM 的应用程序的详细信息，请参阅[保护部署在 Azure Stack 上的 VM](../user/azure-stack-manage-vm-protect.md)。 有关如何保护 Azure Stack 上的应用程序的全面地理解，请参阅[业务连续性和灾难恢复白皮书的 Azure Stack 注意事项](https://aka.ms/azurestackbcdrconsiderationswp)。
+> 基础结构备份服务不包括用户数据和应用程序。 有关详细信息，请参阅[保护在 Azure Stack 上部署的 Vm](../user/azure-stack-manage-vm-protect.md)详细了解如何保护 IaaS VM 基于应用程序。 有关如何保护 Azure Stack 上的应用程序的全面地理解，请参阅[业务连续性和灾难恢复白皮书的 Azure Stack 注意事项](https://aka.ms/azurestackbcdrconsiderationswp)。
 
 ## <a name="the-infrastructure-backup-service"></a>基础结构备份服务
 

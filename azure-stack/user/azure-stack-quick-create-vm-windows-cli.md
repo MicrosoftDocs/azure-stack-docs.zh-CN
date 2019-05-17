@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ccc0590248ead0d01d2ce5b4e5af8f8140638bf2
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 090ad90f15056d614e5f61b848e5c8c248889ef2
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712379"
+ms.locfileid: "65782633"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>快速入门：创建在 Azure Stack 中使用 Azure CLI 为 Windows Server 虚拟机
 

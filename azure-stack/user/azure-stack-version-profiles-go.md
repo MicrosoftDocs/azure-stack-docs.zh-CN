@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/26/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: b5a72619bf8bbe21ef6c0238a26f3de2a559935d
-ms.sourcegitcommit: 24d5c16132d4c40a760ad6f631739af86188a09f
+ms.lastreviewed: 05/26/2019
+ms.openlocfilehash: 33fc05de4bf0107c8090badb77872082790aa087
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64910052"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782561"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Go 配合使用
 

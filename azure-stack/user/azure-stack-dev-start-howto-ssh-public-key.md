@@ -9,12 +9,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 0f4133052022963e1ed0457dd479a00bcc5bb749
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: ca8d81e9d0baf08adde257340b2a8ac3bffd6c36
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490063"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783189"
 ---
 # <a name="how-to-use-an-ssh-public-key"></a>如何使用 SSH 公钥
 
@@ -22,7 +22,7 @@ ms.locfileid: "64490063"
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>在 Windows 上创建 SSH 公钥
 
-在本部分中，您将使用的 PuTTY 密钥生成器来创建 SSH 公钥和私钥对在 Azure Stack 上创建安全连接到 Linux 计算机时要使用。 PuTTY SSH 和 Telnet 的 Windows 和 Unix 平台的免费实现是连同`xterm`终端仿真程序。
+在本部分中，您将使用的 PuTTY 密钥生成器来创建 SSH 公钥和私钥对在 Azure Stack 上创建安全连接到 Linux 计算机时要使用。 PuTTY 是一个免费的终端仿真程序，可允许你连接到通过 SSH 和 Telnet 服务器。
 
 1. [下载并安装 PuTTY 适用于你的计算机。](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
@@ -59,12 +59,6 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 
 时使用的公钥，您复制并粘贴为值的文本框的整个上下文，当应用程序要求提供密钥。
 
-<!-- 
-## Create an SSH public key on Linux
-
-ToDo: I need to write this section.
-
--->
 ## <a name="connect-with-ssh-using-putty"></a>使用 SSH 使用 PuTTY 进行连接
 
 如果已安装 PuTTY，可以密钥生成器以及 SSH 客户端。 打开 SSH 客户端，PuTTY、 配置你的连接值和 SSH 密钥，和如果要在 Azure Stack 与同一网络上，连接到 VM。

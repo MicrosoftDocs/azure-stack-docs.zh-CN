@@ -9,18 +9,16 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: c0cef076522e77a6d0fdafbd8848d5e9bb8a90a8
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: f24970c334073928b2a74a1b0b349cafb8f093b1
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64481914"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782978"
 ---
 # <a name="how-to-deploy-a-go-web-app-to-a-vm-in-azure-stack"></a>如何将转到 web 应用部署到 Azure Stack 中的 VM
 
 可以创建用于承载转到 Web 应用在 Azure Stack 中的虚拟机。 本文探讨您需要在设置服务器、 配置服务器来托管转到 web 应用，然后部署应用程序中遵循的步骤。
-
-Go 是表达性、 简洁、 清理和高效。 它的并发机制轻松地编写程序，充分利用多核和联网的计算机，而其类型系统允许灵活和模块化程序构造。 若要了解 Go 编程语言，并找到适用于 GO 的其他资源，请参阅[Golang.org](https://golang.org)。
 
 ## <a name="create-a-vm"></a>创建 VM
 
@@ -28,13 +26,13 @@ Go 是表达性、 简洁、 清理和高效。 它的并发机制轻松地编�
 
 2. 在 VM 网络的边栏选项卡，确保以下端口可访问：
 
-    | 端口 | Protocol | 描述 |
+    | Port | Protocol | 描述 |
     | --- | --- | --- |
-    | 80 | HTTP | 超文本传输协议 (HTTP) 是分布式、 协作式和超媒体信息系统应用程序协议。 客户端将连接到 web 应用使用的公共 IP 或 DNS 名称的 VM。 |
-    | 443 | HTTPS | 安全超文本传输协议 (HTTPS) 是一个扩展的超文本传输协议 (HTTP)。 它用于通过计算机网络的安全通信。 客户端将连接到 web 应用使用的公共 IP 或 DNS 名称的 VM。 |
-    | 22 | SSH | 安全外壳 (SSH) 是加密的网络协议进行安全地运行网络服务，通过不安全的网络。 要将此连接用于 SSH 客户端将 VM 配置和部署应用。 |
+    | 80 | HTTP | 超文本传输协议 (HTTP) 是用于从服务器提供网页的协议。 客户端通过 HTTP 进行连接的 DNS 名称或 IP 地址。 |
+    | 443 | HTTPS | 超文本传输协议安全 (HTTPS) 是 HTTP 的一个安全的需要的安全证书，并允许加密传输信息版本。  |
+    | 22 | SSH | 安全外壳 (SSH) 是安全通信的加密的网络协议。 要将此连接用于 SSH 客户端将 VM 配置和部署应用。 |
     | 3389 | RDP | 可选。 远程桌面协议允许使用图形用户界面的远程桌面连接你的计算机。   |
-    | 3000 | “自定义” | 转到 web 框架开发中使用端口 3000。 对于生产服务器，要在通过路由流量 80 和 443。 |
+    | 3000 | 自定义 | 转到 web 框架开发中使用端口 3000。 对于生产服务器，要在通过路由流量 80 和 443。 |
 
 ## <a name="install-go"></a>安装 GO
 
@@ -96,3 +94,4 @@ Go 是表达性、 简洁、 清理和高效。 它的并发机制轻松地编�
 
 - 了解有关如何对[开发适用于 Azure Stack](azure-stack-dev-start.md)
 - 了解如何[IaaS 作为 Azure Stack 的常见部署](azure-stack-dev-start-deploy-app.md)。
+- 若要了解 Go 编程语言，并找到适用于 GO 的其他资源，请参阅[Golang.org](https://golang.org)。

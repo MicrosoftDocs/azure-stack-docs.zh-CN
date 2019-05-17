@@ -17,12 +17,12 @@ ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 768d4bd9ad2d70878e9794b1ba315559e76884df
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 20199e927498d0590ae32f68eb02b0a47c8c2b3e
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618752"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782286"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>全局 Azure，Azure Stack 和 Azure Stack HCI 之间的差异
 
@@ -59,7 +59,6 @@ Azure Stack 的 PaaS 功能是可选的因为 Azure Stack 不由 Microsoft 运�
 
 - Service Fabric
 - Kubernetes 容器服务
-- IoT 中心和事件中心
 - 以太坊区块链
 - Cloud Foundry
 

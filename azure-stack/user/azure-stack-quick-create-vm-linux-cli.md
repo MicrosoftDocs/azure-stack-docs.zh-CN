@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d31ee453dda8bb83ff24c07902d7a1250490bb08
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 19c856bdf981775b0b3a8ee923046b51e6ef79ca
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712394"
+ms.locfileid: "65782773"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-using-azure-cli-in-azure-stack"></a>快速入门：创建在 Azure Stack 中使用 Azure CLI 为 Linux server 虚拟机
 

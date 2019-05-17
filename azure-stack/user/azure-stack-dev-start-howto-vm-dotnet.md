@@ -9,18 +9,16 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b41c64d64a2c2abe6d1f145f11c2d4d84686b207
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 14baf5d5ca411e7c32cbfcf4a6138193a2215b0a
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617698"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783082"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>部署C#ASP.NET web 应用到 Azure Stack 中的 VM
 
 可以创建虚拟机 (VM) 以托管应用C#在 Azure Stack 中的 ASP.NET web 应用。 本文讨论在设置您的服务器时应遵循的说明将其配置为承载在C#ASP.NET web 应用，然后将部署应用程序直接从 Visual Studio。
-
-C#是通用的多模式编程语言包含强类型化、 从词法上限定了作用域、 命令式、 声明性、 功能、 泛型、 面向对象的和面向组件的编程领域。 若要了解C#编程语言和查找的其他资源C#，请参阅[C#指南](https://docs.microsoft.com/dotnet/csharp/)。
 
 本文使用C#6.0 使用 ASP.NET Core 2.2 Windows 2016 服务器上运行的应用。
 
@@ -59,10 +57,11 @@ C#是通用的多模式编程语言包含强类型化、 从词法上限定了�
 
     | Port | Protocol | 描述 |
     | --- | --- | --- |
-    | 80 | HTTP | 超文本传输协议 (HTTP) 是分布式、 协作式和超媒体信息系统应用程序协议。 客户端将连接到 web 应用使用的公共 IP 或 DNS 名称的 VM。 |
-    | 443 | HTTPS | 安全超文本传输协议 (HTTPS) 是一个扩展的超文本传输协议 (HTTP)。 它用于通过计算机网络的安全通信。 客户端将连接到 web 应用使用的公共 IP 或 DNS 名称的 VM。 |
-    | 22 | SSH | 安全外壳 (SSH) 是加密的网络协议进行安全地运行网络服务，通过不安全的网络。 使用 SSH 客户端使用此连接，将 VM 配置和部署应用。 |
-    | 3389 | RDP | 可选。 远程桌面协议 (RDP) 允许与你的计算机使用的图形用户界面的远程桌面连接。   |
+    | 80 | HTTP | 超文本传输协议 (HTTP) 是用于从服务器提供网页的协议。 客户端通过 HTTP 进行连接的 DNS 名称或 IP 地址。 |
+    | 443 | HTTPS | 超文本传输协议安全 (HTTPS) 是 HTTP 的一个安全的需要的安全证书，并允许加密传输信息版本。  |
+    | 22 | SSH | 安全外壳 (SSH) 是安全通信的加密的网络协议。 要将此连接用于 SSH 客户端将 VM 配置和部署应用。 |
+    | 3389 | RDP | 可选。 远程桌面协议允许使用图形用户界面的远程桌面连接你的计算机。   |
+    | 8080 | 自定义 | Apache Tomcat 服务的默认端口为 8080。 对于生产服务器，要在通过路由流量 80 和 443。 |
 
     对于每个端口：
 
@@ -131,7 +130,7 @@ C#是通用的多模式编程语言包含强类型化、 从词法上限定了�
 1. 选择“发布”。
 1. 请转到新服务器。 应会看到正在运行的 web 应用程序。
 
-    ```HTTP  
+    ```http  
         mywebapp.local.cloudapp.azurestack.external
     ```
 
@@ -139,3 +138,4 @@ C#是通用的多模式编程语言包含强类型化、 从词法上限定了�
 
 - 了解如何[设置 Azure Stack 中的开发环境](azure-stack-dev-start.md)。
 - 了解如何[IaaS 作为 Azure Stack 的常见部署](azure-stack-dev-start-deploy-app.md)。
+- 若要了解C#编程语言和查找的其他资源C#，请参阅[C#指南](https://docs.microsoft.com/dotnet/csharp/)

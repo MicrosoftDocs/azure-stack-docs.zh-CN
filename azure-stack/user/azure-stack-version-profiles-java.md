@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: 175c684d8f92355c5669c0e37ff5a4dfb993ea61
-ms.sourcegitcommit: 24d5c16132d4c40a760ad6f631739af86188a09f
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: 90c4665b1519e078015f9a6096417c2d97425da9
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64910080"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782744"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Java 配合使用
 
@@ -96,7 +96,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 | 租户 ID                 | AZURE_TENANT_ID            | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。                                                          |
 | 客户端 ID                 | AZURE_CLIENT_ID             | 服务主体应用程序 ID 保存在上一部分中创建服务主体时。                                                                                              |
 | 订阅 ID           | AZURE_SUBSCRIPTION_ID      | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。                |
-| 客户端机密             | AZURE_CLIENT_SECRET        | 创建服务主体时保存的服务主体应用程序机密。                                                                                                                                   |
+| 客户端密钥             | AZURE_CLIENT_SECRET        | 创建服务主体时保存的服务主体应用程序机密。                                                                                                                                   |
 | 资源管理器终结点 | ARM_ENDPOINT              | 请参阅[Azure Stack 资源管理器终结点](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
 | Location                  | RESOURCE_LOCATION    | **本地**适用于 Azure Stack。                                                                                                                                                                                                |
 

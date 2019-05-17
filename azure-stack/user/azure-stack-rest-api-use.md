@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 1773083a5d02f3bb988ac3e5cef6528a5d49b94e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a471e23232be3fc1dae6788003d5f3e3f437471d
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300600"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782767"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -168,7 +168,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 ## <a name="api-queries"></a>API 查询
 
-获取访问令牌后，需将其作为标头添加到每个 API 请求。 为此，需要创建值为 `Bearer <access token>` 的标头**授权**。 例如：
+获取访问令牌后，需将其作为标头添加到每个 API 请求。 为此，需要创建值为 `Bearer <access token>` 的标头**授权**。 例如:
 
 请求：
 

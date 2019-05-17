@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: e51dd3a467bcba9eaf36fc729e37780cf7b626dd
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3ca7624627ff02cc3ef230a510038f2db5ff5247
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985076"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782307"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公钥基础结构证书要求
 
@@ -118,4 +118,3 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 
 ## <a name="next-steps"></a>后续步骤
 [标识集成](azure-stack-integrate-identity.md)
-

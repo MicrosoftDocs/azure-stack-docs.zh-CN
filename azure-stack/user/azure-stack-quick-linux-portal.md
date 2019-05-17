@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 37ff24258b12c9b042c7b0dc5a113a62d1d1ec60
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 2c0997599b8da1f77f61e0953eb56f834f718efb
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477350"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782836"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Linux 服务器虚拟机
 
@@ -49,7 +49,7 @@ ms.locfileid: "64477350"
 
 需要一个 SSH 密钥对来完成本文中的所有步骤。 如果有现成的 SSH 密钥对，则可跳过此步骤。
 
-1. 导航到 PuTTY 安装文件夹（默认位置为 ```C:\Program Files\PuTTY```）并运行 ```puttygen.exe```。
+1. 导航到 PuTTY 安装文件夹（默认位置为 `C:\Program Files\PuTTY`）并运行 `puttygen.exe`。
 2. 在“PuTTY 密钥生成器”窗口中，确保“要生成的密钥类型”已设置为 **RSA**，并且“所生成密钥中的位数”已设置为 **2048**。 准备就绪时，单击“生成”。
 
    ![PuTTY 密钥生成器配置](media/azure-stack-quick-linux-portal/Putty01.PNG)
@@ -106,7 +106,7 @@ ms.locfileid: "64477350"
    ![连接虚拟机](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. 在“类别”窗口中向上滚动，然后单击“会话”。
-5. 在“主机名(或 IP 地址)”框中，粘贴 Azure Stack 门户中显示的连接字符串。 在本示例中，该字符串为 ```asadmin@192.168.102.34```。
+5. 在“主机名(或 IP 地址)”框中，粘贴 Azure Stack 门户中显示的连接字符串。 在本示例中，该字符串为 `asadmin@192.168.102.34`。
 
    ![PuTTY 配置连接字符串](media/azure-stack-quick-linux-portal/Putty04.PNG)
 
@@ -145,7 +145,7 @@ sudo apt-get -y install nginx
 
 在虚拟机上安装 NGINX 并打开端口 80 后，可通过虚拟机的公共 IP 地址访问 Web 服务器。 （该公用 IP 地址显示在虚拟机的“概述”页上。）
 
-打开 Web 浏览器，并浏览到 ```http://<public IP address>```。
+打开 Web 浏览器，并浏览到 `http://<public IP address>`。
 
 ![NGINX Web 服务器欢迎页](media/azure-stack-quick-linux-portal/linux-05.PNG)
 

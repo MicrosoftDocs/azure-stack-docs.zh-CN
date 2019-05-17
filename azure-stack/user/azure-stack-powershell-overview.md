@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b28a90ceca59e5cd072018b217d81d101c1b0853
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 0cef39147fdbc62fe0652b1e387aa23f5ecb8487
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490046"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782892"
 ---
 # <a name="get-started-with-powershell-on-azure-stack"></a>开始使用 Azure Stack 上的 PowerShell
 
@@ -45,13 +45,13 @@ PowerShell 用于从命令行管理资源。 当你想要生成使用 Azure 资�
 
 ![Azure Stack Powershell](media/azure-stack-powershell-overview/Azure-Stack-PowerShell.png)
 
-### <a name="global-azure"></a>全球 Azure
+### <a name="global-azure"></a>全局 Azure
 
-Azure PowerShell 提供了一组用于管理 Azure 资源使用 Azure 资源管理器模型的当前版本的 cmdlet。 Azure PowerShell 使用了 .NET Standard，这使得它可用于 Windows、macOS 和 Linux。 还可以在 Azure Cloud Shell 中使用 Azure PowerShell。 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
+Azure PowerShell 包含一组使用的当前版本的 Azure 资源管理器中使用 Azure 资源的 cmdlet。 Azure PowerShell 使用.NET Standard。 这意味着您可以使用 PowerShell 的版本与 Windows、 macOS 和 Linux。 还可以在 Azure Cloud Shell 中使用 Azure PowerShell。 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 
 ### <a name="azure-stack-resource-manager"></a>Azure Stack Resource Manager
 
-Azure Stack PowerShell 提供了一组在 Azure Stack 中使用早期版本的 Azure 资源管理器资源提供程序与兼容的 cmdlet。 在 Azure Stack 中的每个资源提供程序使用全球 Azure 中找到的提供程序的较旧版本。 为了帮助你协调 Azure Stack 支持的每个提供程序的版本，可以使用 API 配置文件。 Azure Stack PowerShell 使用 PowerShell 5.1，并在 Windows 上才可用。 有关详细信息，请参阅[在 Azure Stack 中的管理 API 版本配置文件](azure-stack-version-profiles.md)。
+Azure Stack PowerShell 提供了一组使用以前版本的 Azure 资源管理器中的 cmdlet。 这些 cmdlet 可以在 Azure Stack 中的资源提供程序与兼容。 在 Azure Stack 中的每个资源提供程序使用全球 Azure 中找到的提供程序的较旧版本。 为了帮助你协调 Azure Stack 支持的每个提供程序的版本，可以使用 API 配置文件。 Azure Stack PowerShell 使用 PowerShell 5.1，并在 Windows 上才可用。 有关详细信息，请参阅[在 Azure Stack 中的管理 API 版本配置文件](azure-stack-version-profiles.md)。
 
 ### <a name="azure-stack-administrator"></a>Azure Stack 管理员
 

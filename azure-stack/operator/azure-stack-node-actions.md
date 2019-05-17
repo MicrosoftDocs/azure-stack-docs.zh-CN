@@ -3,25 +3,24 @@ title: Azure Stack 中的缩放单元节点操作 | Microsoft Docs
 description: 了解如何在 Azure Stack 集成系统中查看节点状态，以及使用开机、关机、禁用和恢复节点操作。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 01/22/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa0292419a228fcf9bbfef2bbfc2503f4ba5a702
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293252"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782341"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 
@@ -72,7 +71,7 @@ ms.locfileid: "64293252"
  - 启动和停止（取决于当前电源状态）
  - 禁用和恢复（取决于操作状态）
  - 修复
- - 关机
+ - 关闭
 
 节点的工作状态确定了哪些选项可用。
 
@@ -86,7 +85,7 @@ ms.locfileid: "64293252"
 
 若要运行停止操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -94,13 +93,13 @@ ms.locfileid: "64293252"
 
 有关详细信息，请参阅 [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)。
 
-## <a name="start"></a>开始
+## <a name="start"></a>启动
 
 “启动”操作会打开节点。 它的作用如同按下电源按钮。 
  
 若要运行启动操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -119,19 +118,19 @@ ms.locfileid: "64293252"
 
 若要运行清空操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
 有关详细信息，请参阅 [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)。
 
-## <a name="resume"></a>恢复
+## <a name="resume"></a>继续
 
 “恢复”操作恢复已禁用的节点，并将其标记为活动，可用于放置工作负荷。 之前在节点上运行的工作负荷不会故障回复。 （如果在节点上使用清空操作，请务必关机。 将节点重新开机时，系统不会将它标记为可放置工作负荷的活动状态。 准备就绪后，必须使用恢复操作将节点标记为活动。）
 
 若要运行恢复操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -150,11 +149,11 @@ ms.locfileid: "64293252"
 
 若要运行修复操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
-## <a name="shutdown"></a>关机
+## <a name="shutdown"></a>关闭
 
 “关闭”操作会先将所有活动工作负荷移到同一缩放单元中的其余节点。 然后该操作会正常关闭缩放单元节点。
 
@@ -164,7 +163,7 @@ ms.locfileid: "64293252"
 
 若要运行关闭操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

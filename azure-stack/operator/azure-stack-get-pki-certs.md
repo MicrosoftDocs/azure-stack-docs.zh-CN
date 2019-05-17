@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: e0556eb5cc3d0f140067a4e3b4a9054a47b91417
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1c342b1edb86629fff95dc04735fd5b6d98fc70a
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64291778"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782275"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 证书签名请求生成
 
@@ -54,7 +54,7 @@ ms.locfileid: "64291778"
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. 将**使用者**声明为有序字典。 例如：
+2. 将**使用者**声明为有序字典。 例如:
 
     ```powershell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
@@ -63,7 +63,7 @@ ms.locfileid: "64291778"
     > [!note]  
     > 如果提供公用名 (CN)，此值将被证书请求的第一个 DNS 名称覆盖。
 
-3. 声明已存在的输出目录。 例如：
+3. 声明已存在的输出目录。 例如:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"

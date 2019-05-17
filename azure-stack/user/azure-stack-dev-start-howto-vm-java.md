@@ -9,22 +9,18 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: e788be6315078fccee020fefe6ad79a20485c382
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: dbf6083ff81d045d92d488eda5cfab757093bb7e
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64482101"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782891"
 ---
 # <a name="how-to-deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>如何将 Java web 应用部署到 Azure Stack 中的 VM
 
 可以创建用于托管在 Azure Stack 中的将 Python Web 应用的虚拟机。 本文探讨您需要在设置服务器、 配置服务器来托管 Python web 应用，然后部署应用程序中遵循的步骤。
 
-Java 是一种通用的计算机编程语言，并且并发、 基于类的、 面向对象的设计能够尽可能少的实现依赖关系。 它旨在让应用程序开发人员"一次编写，随处运行"，编译的 Java 代码可以运行所有平台，而无需重新编译支持 Java 的含义。 若要了解 Java 编程语言，并找到适用于 Java 的其他资源，请参阅[Java.com](https://www.java.com)。
-
-本文将引导完成安装和配置 Azure Stack 中的 Linux VM 上的 Apache Tomcat 服务器以及然后将 Java Web 应用程序资源 (WAR) 文件加载到服务器。 WAR 文件用于将分发的 JAR 文件、 JavaServer 页、 Java Servlet、 Java 类、 XML 文件、 标记库、 静态网页 （HTML 和相关的文件） 和其他资源，它们共同构成的 web 应用程序集合。
-
-Apache Tomcat，通常称为 Tomcat 服务器是由 Apache Software Foundation 开发的开源 Java Servlet 容器。 Tomcat 实现几个 Java EE 规范包括 Java Servlet 和 JavaServer 页、 Java EL 和 WebSocket，并提供的 Java 代码可以运行的"纯 Java"HTTP web 服务器环境。
+本文将引导完成安装和配置 Azure Stack 中的 Linux VM 上的 Apache Tomcat 服务器以及然后将 Java Web 应用程序资源 (WAR) 文件加载到服务器。 WAR 文件用于将分发的 JAR 文件中，集合包含 Java 资源，例如类、 文本、 图像、 XML 和 HTML，并使用提供的 web 应用程序的其他资源的压缩文件。
 
 ## <a name="create-a-vm"></a>创建 VM
 
@@ -32,13 +28,13 @@ Apache Tomcat，通常称为 Tomcat 服务器是由 Apache Software Foundation �
 
 2. 在 VM 网络的边栏选项卡，确保以下端口可访问：
 
-    | 端口 | Protocol | 描述 |
+    | Port | Protocol | 描述 |
     | --- | --- | --- |
-    | 80 | HTTP | 超文本传输协议 (HTTP) 是分布式、 协作式和超媒体信息系统应用程序协议。 客户端将连接到 web 应用使用的公共 IP 或 DNS 名称的 VM。 |
-    | 443 | HTTPS | 安全超文本传输协议 (HTTPS) 是一个扩展的超文本传输协议 (HTTP)。 它用于通过计算机网络的安全通信。 客户端将连接到 web 应用使用的公共 IP 或 DNS 名称的 VM。 |
-    | 22 | SSH | 安全外壳 (SSH) 是加密的网络协议进行安全地运行网络服务，通过不安全的网络。 要将此连接用于 SSH 客户端将 VM 配置和部署应用。 |
+    | 80 | HTTP | 超文本传输协议 (HTTP) 是用于从服务器提供网页的协议。 客户端通过 HTTP 进行连接的 DNS 名称或 IP 地址。 |
+    | 443 | HTTPS | 超文本传输协议安全 (HTTPS) 是 HTTP 的一个安全的需要的安全证书，并允许加密传输信息版本。  |
+    | 22 | SSH | 安全外壳 (SSH) 是安全通信的加密的网络协议。 要将此连接用于 SSH 客户端将 VM 配置和部署应用。 |
     | 3389 | RDP | 可选。 远程桌面协议允许使用图形用户界面的远程桌面连接你的计算机。   |
-    | 8080 | “自定义” | Apache Tomcat 服务的默认端口为 8080。 对于生产服务器，要在通过路由流量 80 和 443。 |
+    | 8080 | 自定义 | Apache Tomcat 服务的默认端口为 8080。 对于生产服务器，要在通过路由流量 80 和 443。 |
 
 ## <a name="install-java"></a>安装 Java
 
@@ -65,7 +61,7 @@ Apache Tomcat，通常称为 Tomcat 服务器是由 Apache Software Foundation �
             sudo groupadd tomcat
         ```
      
-    - 其次，创建一个新的 Tomcat 用户并使此用户的主目录与 tomcat 组的成员`/opt/tomcat`，这是将安装 Tomcat 中，以及使用的 shell `/bin/false` （因此，没有人可以登录到的帐户）：
+    - 其次，创建一个 Tomcat 用户。 将此用户添加到的主目录的 tomcat 组`/opt/tomcat`。 要将 Tomcat 部署到此目录：
         ```bash  
             sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
         ```
@@ -79,7 +75,7 @@ Apache Tomcat，通常称为 Tomcat 服务器是由 Apache Software Foundation �
             curl -O <URL for the tar for the latest version of Tomcat 8>
         ```
 
-    - 第三，安装到 Tomcat`/opt/tomcat`目录。 创建目录，然后解压缩存档文件使用以下命令：
+    - 第三，安装到 Tomcat`/opt/tomcat`目录。 创建文件夹。  打开存档：
 
         ```bash  
             sudo mkdir /opt/tomcat
@@ -97,7 +93,7 @@ Apache Tomcat，通常称为 Tomcat 服务器是由 Apache Software Foundation �
 
 5. 创建`systemd`服务文件。 以便可以作为一项服务来运行 Tomcat。
 
-    - Tomcat 需要知道已安装 Java。 此路径通常称为**JAVA_HOME**。 通过运行中找到的位置：
+    - 需要知道 Java 安装 tomcat。 此路径通常称为**JAVA_HOME**。 通过运行中找到的位置：
 
         ```bash  
             sudo update-java-alternatives -l
@@ -280,7 +276,7 @@ Apache Tomcat，通常称为 Tomcat 服务器是由 Apache Software Foundation �
     - 清除`TOMCAT_HOME/webapps`。
     - 添加到 WAR ` TOMCAT_HOME/webapps`，例如`/opt/tomcat/webapps/`。
 
-4.  Tomcat 自动扩展和部署应用程序。 您可以查看它使用先前创建的 DNS 名称。 例如：
+4.  Tomcat 自动扩展和部署应用程序。 您可以查看它使用先前创建的 DNS 名称。 例如:
 
     ```HTTP  
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
@@ -289,3 +285,4 @@ Apache Tomcat，通常称为 Tomcat 服务器是由 Apache Software Foundation �
 
 - Learn more about how to [Develop for Azure Stack](azure-stack-dev-start.md)
 - Learn about [common deployments for Azure Stack as IaaS](azure-stack-dev-start-deploy-app.md).
+- To learn the Java programming language and find additional resources for Java, see [Java.com](https://www.java.com).

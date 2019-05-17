@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
+ms.reviewer: thoroet
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 893f3ef3f6b7d98d781d05982d243d44ada1411e
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 797e49f82938888776b2685ab44add281b730943
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984733"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782415"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>更换 Azure Stack 中的物理磁盘
 
@@ -35,7 +36,7 @@ ms.locfileid: "64984733"
 ## <a name="review-disk-alert-information"></a>查看磁盘警报信息
 当磁盘发生故障时，你会收到通知你物理磁盘已丢失的警报。
 
- ![显示物理磁盘连接丢失的警报](media/azure-stack-replace-disk/DiskAlert.png)
+![显示物理磁盘连接丢失的警报](media/azure-stack-replace-disk/DiskAlert.png)
 
 如果打开该警报，警报说明包含必须更换之磁盘的缩放单元节点和确切物理插槽位置。 Azure Stack 会使用 LED 指示器功能来进一步帮助你确定发生故障的磁盘。
 

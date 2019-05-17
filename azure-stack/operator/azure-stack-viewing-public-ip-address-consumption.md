@@ -3,24 +3,24 @@ title: 查看 Azure Stack 中的公共 IP 地址使用情况 | Microsoft Docs
 description: 管理员可以查看区域中公共 IP 地址的使用情况
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 01/14/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 05/16/2019
+ms.author: mabrigg
+ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2cb1dde60f8d8aa76e0b678347df9be120c39e7c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 35dc40fc3539038ab3c44318374e8c1fb327e6e4
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64294913"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782433"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>查看 Azure Stack 中的公共 IP 地址使用情况
 
@@ -64,14 +64,12 @@ ms.locfileid: "64294913"
 
 | **公共 IP 地址分配案例** | **显示在用量摘要中** | **显示在租户公共 IP 地址列表中** |
 | --- | --- | --- |
-| 尚未分配给 NIC 或负载均衡器（暂时性）的动态公共 IP 地址 |否 |是 |
-| 已分配给 NIC 或负载均衡器的动态公共 IP 地址。 |是 |是 |
-| 已分配给租户 NIC 或负载均衡器的静态公共 IP 地址。 |是 |是 |
-| 已分配给结构基础结构服务终结点的静态公共 IP 地址。 |是 |否 |
-| 为 IaaS VM 实例隐式创建的、在虚拟网络上用于出站 NAT 的公共 IP 地址。 每当租户创建 VM 实例，使 VM 能够将信息发送到 Internet 时，将在幕后创建这些地址。 |是 |否 |
+| 尚未分配给 NIC 或负载均衡器（暂时性）的动态公共 IP 地址 |“否” |“是” |
+| 已分配给 NIC 或负载均衡器的动态公共 IP 地址。 |“是” |“是” |
+| 已分配给租户 NIC 或负载均衡器的静态公共 IP 地址。 |“是” |“是” |
+| 已分配给结构基础结构服务终结点的静态公共 IP 地址。 |“是” |“否” |
+| 为 IaaS VM 实例隐式创建的、在虚拟网络上用于出站 NAT 的公共 IP 地址。 每当租户创建 VM 实例，使 VM 能够将信息发送到 Internet 时，将在幕后创建这些地址。 |“是” |“否” |
 
 ## <a name="next-steps"></a>后续步骤
 
 [管理 Azure Stack 中的存储帐户](azure-stack-manage-storage-accounts.md)
-
-<!-- Update_Description: wording update -->

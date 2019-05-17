@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
+ms.reviewer: thoroet
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 739e15b2cc95384a164f91f1b1267be256380a43
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 72449e25bf1787f686da786bc587b57a2a28254c
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984870"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782370"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>更换 Azure Stack 集成系统上的缩放单元节点
 

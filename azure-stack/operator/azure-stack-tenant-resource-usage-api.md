@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 745b22310dcd2231c5bb823bd58daffa6c323d59
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2378bef2457b29271f048ec213ccf4b79454dd95
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984944"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782209"
 ---
 # <a name="tenant-resource-usage-api"></a>租户资源用量 API
 
@@ -78,8 +78,8 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 | **参数** | **说明** |
 | --- | --- |
 | *id* |用量聚合的唯一 ID。 |
-| name |用量聚合的名称。 |
-| type |资源定义 |
+| *name* |用量聚合的名称。 |
+| *type* |资源定义 |
 | *subscriptionId* |Azure 用户的订阅标识符 |
 | *usageStartTime* |此用量聚合所属的用量存储桶 UTC 开始时间。 |
 | *usageEndTime* |此用量聚合所属的用量存储桶 UTC 结束时间。 |

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96708a3c88b593f0d423b227d43c356ef38c1515
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8c6881ebcb07f2ca922bcd7d8fbfb07f395c9007
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985196"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782361"
 ---
 # <a name="manage-role-based-access-control"></a>管理基于角色的访问控制
 
@@ -50,5 +50,5 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 4. 在“角色”边栏选项卡中，单击“添加”即可添加通用组 Active Directory 组的权限。
 
 ## <a name="next-steps"></a>后续步骤
-[添加 Azure Stack 租户](azure-stack-add-new-user-aad.md)
 
+[添加 Azure Stack 租户](azure-stack-add-new-user-aad.md)

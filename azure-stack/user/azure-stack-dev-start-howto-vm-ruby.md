@@ -9,18 +9,18 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 7744d1adcdcb1dde53c6ef887498a9a3978f4513
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 24774e122be0c4088c4d5841f71318d266bad78f
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64481936"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782682"
 ---
 # <a name="how-to-deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>如何将 Ruby web 应用部署到 Azure Stack 中的 VM
 
 可以创建用于承载 Ruby Web 应用在 Azure Stack 中的虚拟机。 本文探讨您需要在设置服务器、 配置服务器以托管 Ruby web 应用，然后部署应用程序中遵循的步骤。
 
-Ruby 是一种语言的小心平衡。 其创建者，Yukihiro"Matz"Matsumoto 混合他最喜欢的语言 （Perl、 Smalltalk、 Eiffel、 Ada 和 Lisp） 形成一种新语言平衡函数编程和命令式编程的部分。 若要了解 Ruby 编程语言，并查找用于 Python 的其他资源，请参阅[Ruby lang.org](https://www.ruby-lang.org)。
+
 
 本文将 on Rails web 框架中使用 Ruby 和 Ruby。
 
@@ -30,13 +30,13 @@ Ruby 是一种语言的小心平衡。 其创建者，Yukihiro"Matz"Matsumoto �
 
 2. 在 VM 网络的边栏选项卡，确保以下端口可访问：
 
-    | 端口 | Protocol | 描述 |
+    | Port | Protocol | 描述 |
     | --- | --- | --- |
-    | 80 | HTTP | 超文本传输协议 (HTTP) 是分布式、 协作式和超媒体信息系统应用程序协议。 客户端将连接到 web 应用使用的公共 IP 或 DNS 名称的 VM。 |
-    | 443 | HTTPS | 安全超文本传输协议 (HTTPS) 是一个扩展的超文本传输协议 (HTTP)。 它用于通过计算机网络的安全通信。 客户端将连接到 web 应用使用的公共 IP 或 DNS 名称的 VM。 |
-    | 22 | SSH | 安全外壳 (SSH) 是加密的网络协议进行安全地运行网络服务，通过不安全的网络。 要将此连接用于 SSH 客户端将 VM 配置和部署应用。 |
+    | 80 | HTTP | 超文本传输协议 (HTTP) 是用于从服务器提供网页的协议。 客户端通过 HTTP 进行连接的 DNS 名称或 IP 地址。 |
+    | 443 | HTTPS | 超文本传输协议安全 (HTTPS) 是 HTTP 的一个安全的需要的安全证书，并允许加密传输信息版本。  |
+    | 22 | SSH | 安全外壳 (SSH) 是安全通信的加密的网络协议。 要将此连接用于 SSH 客户端将 VM 配置和部署应用。 |
     | 3389 | RDP | 可选。 远程桌面协议允许使用图形用户界面的远程桌面连接你的计算机。   |
-    | 3000 | “自定义” | Ruby 上 rails web 框架开发中使用端口 3000。 对于生产服务器，要在通过路由流量 80 和 443。 |
+    | 3000 | 自定义 | Ruby 上 rails web 框架开发中使用端口 3000。 对于生产服务器，要在通过路由流量 80 和 443。 |
 
 ## <a name="install-ruby"></a>安装 Ruby
 
@@ -103,3 +103,4 @@ Ruby 是一种语言的小心平衡。 其创建者，Yukihiro"Matz"Matsumoto �
 
 - 了解有关如何对[开发适用于 Azure Stack](azure-stack-dev-start.md)
 - 了解如何[IaaS 作为 Azure Stack 的常见部署](azure-stack-dev-start-deploy-app.md)。
+- 若要了解 Ruby 编程语言，并查找用于 Python 的其他资源，请参阅[Ruby lang.org](https://www.ruby-lang.org)。
