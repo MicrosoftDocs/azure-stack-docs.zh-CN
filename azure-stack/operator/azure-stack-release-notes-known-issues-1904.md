@@ -16,12 +16,12 @@ ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 86817d0d22854bf2bb0d2372f2a25e15a3de7c48
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 48136220e2d784a61b3275ca9f79b82e0e8bfb69
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712298"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855354"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
 
@@ -77,10 +77,16 @@ ms.locfileid: "65712298"
 ### <a name="marketplace-management"></a>市场管理
 
 - 适用：此问题适用于 1904年。
-- 原因：在管理员门户中的 Marketplace 管理选项卡中的"从 Azure 添加"边栏选项卡上的结果进行筛选，您可能会看到不正确的筛选的结果。 
-- 补救措施：将更正排序结果按名称列和结果。 
+- 原因：筛选结果中的时**从 Azure 添加**边栏选项卡在管理员门户中 Marketplace 管理选项卡中，可能会看到不正确的筛选的结果。 
+- 补救措施：将更正的名称列的排序结果和结果。 
 - 发生次数：间歇性
 
+### <a name="marketplace-management"></a>市场管理
+
+- 适用：此问题适用于 1904年。
+- 原因：在 Marketplace 管理管理员门户中的结果进行筛选，会看到重复的发布者名称下发布服务器下拉列表。 
+- 补救措施：选择具有下该发布者提供的所有 Marketplace 产品的正确列表的所有重复项。 
+- 发生次数：间歇性
 
 ### <a name="upload-blob"></a>上传 blob
 

@@ -14,12 +14,12 @@ ms.date: 04/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3fc50d068eb07d7da2d55d855b2ea8ea758ca6b1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 3860f8dcc99f3505fe2f838e75f5e8f09b78aefe
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64300611"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855375"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
 
@@ -64,10 +64,12 @@ ms.locfileid: "64300611"
 若要为应用程序创建服务主体，请执行以下操作：
 
 1. 通过 [Azure 门户](https://portal.azure.com)登录到 Azure 帐户。
-2. 选择**Azure Active Directory** > **应用注册** > **新注册**。
-3. 提供一个名称。
-4. 选择**支持的帐户类型**。
-5.  添加应用程序的 URI。 选择**Web**为你想要创建的应用程序的类型。 设置这些值后, 选择**注册**。
+2. 选择“Azure Active Directory” > “应用注册” > “新建注册”。
+3. 提供名称。
+4. 选择“支持的帐户类型”。
+5.  添加应用程序的 URI。 选择“Web”作为要创建的应用程序的类型。 设置这些值后，选择“注册”。
+
+已为应用程序创建服务主体。
 
 ### <a name="get-credentials"></a>获取凭据
 
@@ -78,13 +80,13 @@ ms.locfileid: "64300611"
 2. 复制“应用程序 ID”并将其存储在应用程序代码中。 在引用“应用程序 ID”时，示例应用程序中的应用程序使用“客户端 ID”。
 
      ![应用程序的应用程序 ID](./media/azure-stack-create-service-principals/image12.png)
-3. 若要生成身份验证密钥，请选择**证书和机密**。
+3. 若要生成身份验证密钥，请选择“证书和机密”。
 
 4. 选择“新建客户端机密”。
 
-5. 提供密钥的说明，选择持续时间的键，然后选择**添加**。 
+5. 提供密钥说明，选择密钥持续时间，然后选择“添加”。 
 
-6. 完成后，显示机密的值。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
+6. 完成后就会显示机密的值。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
 
 ![有关已保存的密钥的密钥值警告。](./media/azure-stack-create-service-principals/image15.png)
 

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/17/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 62626240c59c9f78c0b0d21553e8c6ffeb0367a0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301964"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855393"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>将 Kubernetes 部署到 Azure Stack 使用 Azure Active Directory
 
@@ -61,25 +61,21 @@ ms.locfileid: "64301964"
 
 1. 创建 Azure AD 应用程序。
 
-    a. 选择“Azure Active Directory” > “+ 应用注册” > “新建应用程序注册”。
-
-    b. 输入应用程序的“名称”。
-
-    c. 选择“Web 应用/API”。
-
-    d. 输入 `http://localhost` 作为“登录 URL”。
-
-    c. 单击**创建**。
+    a. 通过 [Azure 门户](https://portal.azure.com)登录到 Azure 帐户。  
+    b. 选择“Azure Active Directory” > “应用注册” > “新建注册”。  
+    c. 为应用提供名称和 URL。  
+    d. 选择“支持的帐户类型”。  
+    e.  添加`http://localhost`为应用程序的 URI。 选择“Web”作为要创建的应用程序的类型。 设置这些值后，选择“注册”。
 
 1. 请记下**应用程序 ID**。 在创建群集时需要此 ID。 此 ID 称为“服务主体客户端 ID”。
 
-1. 选择“设置” > “密钥”。
+1. 服务主体的边栏选项卡，选择**新的客户端机密**。 **设置** > **密钥**。 您需要生成的服务主体身份验证密钥。
 
     a. 输入“说明”。
 
     b. 对于“过期”这一项，请选择“永不过期”。
 
-    c. 选择“保存”。 记下密钥字符串。 在创建群集时需要此密钥字符串。 此密钥称为“服务主体客户端机密”。
+    c. 选择 **添加** 。 记下密钥字符串。 在创建群集时需要此密钥字符串。 此密钥称为“服务主体客户端机密”。
 
 ## <a name="give-the-service-principal-access"></a>为服务主体提供访问权限
 
@@ -107,7 +103,7 @@ ms.locfileid: "64301964"
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-### <a name="1-basics"></a>1.基础
+### <a name="1-basics"></a>1.基本
 
 1. 在“创建 Kubernetes 群集”中选择“基本信息”。
 
