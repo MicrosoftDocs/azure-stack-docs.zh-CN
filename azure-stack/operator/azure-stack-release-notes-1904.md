@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 78a42d458f77385114c476bd810cea89380423fa
-ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
+ms.openlocfilehash: 99906760e51c87a7403eabfb94a64b74b999aab5
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65706303"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941189"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 
@@ -49,7 +49,7 @@ Azure Stack 1904 更新内部版本号是**1.1904.0.36**。
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- 1904 更新负载包含哪些主机 Azure Stack 不包括基础操作系统的 Azure Stack 组件的更新。 这使某些更新，确定其作用范围。 因此，预期时间它花费的 1904年更新完成小于 （大约 16 个小时，但确切的时间而异）。 运行时此下降是类似于 1903年更新。 但是，后续更新可能包含操作系统，这意味着不同的运行时的更新。 将来的更新将在更新完成，具体取决于有效负载包含所需的预期时间上提供类似的指导。
+- 1904 更新负载包含哪些主机 Azure Stack 不包括基础操作系统的 Azure Stack 组件的更新。 这样就可以实现限定范围的特定更新。 因此，预期时间它花费的 1904年更新完成小于 （大约 16 个小时，但确切的时间而异）。 运行时此下降是类似于 1903年更新。 但是，后续更新可能包含操作系统，这意味着不同的运行时的更新。 将来的更新会根据包含的有效负载，提供有关完成更新预期所需时间的指导。
 
 - 重大改进具有已对 1904年中软件定义网络 (SDN) 堆栈。 这些改进增加的总体服务和 Azure Stack 中的 SDN 堆栈的可靠性。
 
@@ -112,7 +112,9 @@ Azure Stack 1904 更新内部版本号是**1.1904.0.36**。
 
   - "硬"的严重警报显示在门户中显示为"最新的更新失败。 Microsoft 建议尽可能快地打开服务请求。 Test-azurestack 是执行，并且基于更新过程的一部分，我们在输出上生成最合适的警报。 在这种情况下，Test-azurestack 也失败。"
 
-- 更新的 Azure Linux 代理版本 2.2.38.0。 此支持，客户可以维护 Azure 和 Azure Stack 之间一致的 Linux 映像。
+- 更新的 Azure Linux 代理版本 2.2.38.0。 此项支持可让客户在 Azure 与 Azure Stack 之间保持一致的 Linux 映像。
+
+- 运营商门户中的日志对更新的更改。 请求来检索成功更新日志将不再可用。 失败的更新日志，因为它们是可操作诊断，是仍可供下载。
 
 ### <a name="fixes"></a>修复项
 
@@ -165,7 +167,7 @@ Azure Stack 的此更新不包括对基础操作系统承载 Azure Stack 的安�
 - [活动之前和之后应用更新的清单](azure-stack-release-notes-checklist.md)
 
 > [!NOTE]
-> 请确保使用最新版[Azure Stack 容量规划器](https://aka.ms/azstackcapacityplanner) 工具执行规划和选型工作负荷。 最新版本包含 bug 修复，并提供已发布的新功能与每个 Azure Stack 更新。
+> 请确保使用最新版[Azure Stack 容量规划器](https://aka.ms/azstackcapacityplanner) 工具执行规划和选型工作负荷。 最新版本包含 bug 修复，并提供与每个 Azure Stack 更新一起发布的新功能。
 
 ## <a name="download-the-update"></a>下载更新
 

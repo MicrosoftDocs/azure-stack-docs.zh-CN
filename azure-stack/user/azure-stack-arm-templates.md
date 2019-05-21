@@ -16,12 +16,12 @@ ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 37e5ef80462f7e31d18972de007303b12b5a3108
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: fb39928b50e6cce35d5c35c33a95fc2c6b82c160
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712259"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941134"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 资源管理器模板
 
@@ -32,6 +32,7 @@ ms.locfileid: "65712259"
 可以使用 Microsoft Azure Stack 门户、 PowerShell、 命令行和 Visual Studio 部署这些模板。
 
 [GitHub](https://aka.ms/azurestackgithub) 中提供了以下快速入门模板：
+
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>部署 SharePoint Server（非高可用性部署）
 
@@ -82,4 +83,6 @@ ms.locfileid: "65712259"
 ## <a name="next-steps"></a>后续步骤
 
 * [通过门户部署模板](azure-stack-deploy-template-portal.md)
+* [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
+* [通过 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
 * [Azure 资源管理器概述](/azure/azure-resource-manager/resource-group-overview)

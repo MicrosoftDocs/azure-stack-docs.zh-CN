@@ -6,16 +6,16 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 88aabfc6ba054bc78612e6fa6f59b50fd1b4df76
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 33a7522994c23e20dddf587c2374c24e664e3171
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297861"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941149"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虚拟机简介
 
@@ -25,20 +25,17 @@ Azure Stack 以按需可缩放的计算资源的形式提供虚拟机 (VM)。 �
 
 Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个计算机。 不过，仍然需要通过执行任务（例如，配置、修补和安装在 VM 上运行的软件）来维护 VM。
 
-可通过多种方式使用 Azure Stack 虚拟机。 例如：
+可通过多种方式使用 Azure Stack 虚拟机。 例如:
 
-- **开发和测试**  
-    Azure Stack VM 可让你使用编写和测试应用程序所需的特定配置创建计算机。
+- **开发和测试**:Azure Stack VM 可让你使用编写和测试应用程序所需的特定配置创建计算机。
 
-- **云中的应用程序**  
-    由于应用程序的需求会不断变化，在 Azure Stack 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
+- **云中的应用程序**:由于应用程序的需求会不断变化，在 Azure Stack 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
 
-- **扩展的数据中心**  
-    Azure Stack 虚拟网络中的虚拟机可以连接到组织的网络或 Azure。
+- **扩展的数据中心**:Azure Stack 虚拟网络中的虚拟机可以连接到组织的网络或 Azure。
 
 可以根据需要，将应用程序使用的 VM 纵向或横向扩展为任意数目。
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>在创建 VM 之前需要考虑的因素
+## <a name="before-creating-a-vm"></a>创建 VM 之前
 
 在 Azure Stack 中构建应用程序基础结构时，始终要考虑设计注意事项。 在开始创建基础结构之前，必须考虑到 VM 的以下重要方面：
 
@@ -65,7 +62,7 @@ Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个�
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 
-虚拟机使用虚拟硬盘 (VHD) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 Azure Stack 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、套餐、SKU 和版本（通常指定为**最新**版本）标识。
+虚拟机使用虚拟硬盘 (VHD) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 Azure Stack 提供一个市场，适用于各种版本和类型的操作系统。 Marketplace 映像由映像发布者、 产品/服务、 SKU 和版本 (通常为指定的版本**最新**)。
 
 下表显示了如何查找映像的信息：
 
@@ -82,14 +79,11 @@ Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个�
 VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 可以使用扩展完成以下常见任务：
 
-- **运行自定义脚本**  
-    预配 VM 时，自定义脚本扩展可以通过运行脚本，帮助在 VM 上配置工作负荷。
+- **运行自定义脚本**:预配 VM 时，自定义脚本扩展可以通过运行脚本，帮助在 VM 上配置工作负荷。
 
-- **部署和管理配置**  
-    可以借助 PowerShell Desired State Configuration (DSC) 扩展在 VM 上设置用于管理配置和环境的 DSC。
+- **部署和管理配置**:可以借助 PowerShell Desired State Configuration (DSC) 扩展在 VM 上设置用于管理配置和环境的 DSC。
 
-- **收集诊断数据**  
-    Azure 诊断扩展可帮助你配置 VM 来收集诊断数据，用于监视应用程序的运行状况。
+- **收集诊断数据**:Azure 诊断扩展可帮助你配置 VM 来收集诊断数据，用于监视应用程序的运行状况。
 
 ### <a name="related-resources"></a>相关资源
 
@@ -97,12 +91,12 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 
 |资源|需要|描述|
 |---------|---------|---------|
-|资源组|是|VM 必须包含在资源组中。|
-|存储帐户|否|如果使用托管磁盘，则 VM 不需要存储帐户来存储其虚拟硬盘。 <br>如果使用非托管磁盘，则 VM 确实需要存储帐户来存储其虚拟硬盘。|
-|虚拟网络|是|VM 必须是虚拟网络的成员。|
-|公共 IP 地址|否|可以向 VM 分配一个公共 IP 地址，以便远程访问它。|
-|网络接口|是|VM 需要使用网络接口在网络中通信。|
-|数据磁盘数|否|VM 可以包含数据磁盘，以便扩展存储功能。|
+|资源组|“是”|VM 必须包含在资源组中。|
+|存储帐户|“否”|VM 不需要的存储帐户来存储其虚拟硬盘，如果使用托管的磁盘。 <br>如果使用非托管磁盘，则 VM 确实需要存储帐户来存储其虚拟硬盘。|
+|虚拟网络|“是”|VM 必须是虚拟网络的成员。|
+|公用 IP 地址|“否”|可以向 VM 分配一个公共 IP 地址，以便远程访问它。|
+|网络接口|“是”|VM 需要使用网络接口在网络中通信。|
+|数据磁盘数|“否”|VM 可以包含数据磁盘，以便扩展存储功能。|
 
 ## <a name="create-your-first-vm"></a>创建第一个 VM
 
@@ -130,7 +124,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 
 |方法|描述|
 |---------|---------|
-|Azure Stack 门户|在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。 在 VM 的页面上，可以访问概述信息、设置值以及监视指标。|
+|Azure Stack 门户|在中心菜单中，单击“虚拟机”，并从列表中选择 VM。 在 VM 的页面上，可以访问概述信息、设置值以及监视指标。|
 |Azure PowerShell|在 Azure 和 Azure Stack 中，管理 VM 的方法很相似。 有关使用 PowerShell 的详细信息，请参阅以下 Azure 主题：<br>[使用 Azure PowerShell 模块创建和管理 Windows VM](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |客户端 SDK|在 Azure 和 Azure Stack 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅以下 Azure 主题：<br>[在 Azure 中使用 C# 创建和管理 Windows VM](/azure/virtual-machines/windows/csharp)|
 

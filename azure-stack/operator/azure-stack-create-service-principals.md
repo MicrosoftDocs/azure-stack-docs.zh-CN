@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 05/17/2019
 ms.author: sethm
-ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 8d6548ada50a25350f622d7bc7460005f4abc401
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 1bb07c1725d5c8ed81ec4b8ccc546a4d41dc64e0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64295122"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855327"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>向应用程序提供 Azure Stack 的访问权限
 
@@ -52,8 +52,10 @@ ms.locfileid: "64295122"
 在本部分中，将在 Azure AD 中创建表示你的应用程序的应用程序（服务主体）。
 
 1. 通过 [Azure 门户](https://portal.azure.com)登录到 Azure 帐户。
-2. 选择“Azure Active Directory” > “应用注册” > “新建应用程序注册”
-3. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 设置这些值后，选择“创建”。
+2. 选择“Azure Active Directory” > “应用注册” > “新建注册”。
+3. 为应用提供名称和 URL。 
+4. 选择“支持的帐户类型”。
+5.  添加应用程序的 URI。 选择“Web”作为要创建的应用程序的类型。 设置这些值后，选择“注册”。
 
 已为应用程序创建服务主体。
 
@@ -61,18 +63,17 @@ ms.locfileid: "64295122"
 
 以编程方式登录时，需要使用应用程序、Web 应用/API 的 ID 和身份验证密钥。 若要获取这些值，请使用以下步骤：
 
-1. 从 Active Directory 中的“应用注册”，选择应用程序。
+1. 选择“Azure Active Directory” > “应用注册”。 选择自己的应用程序。
 
 2. 复制“应用程序 ID”并将其存储在应用程序代码中。 “示例应用程序”部分的应用程序引用此值作为客户端 ID。
 
-     ![客户端 ID](./media/azure-stack-create-service-principal/image12.png)
-3. 若要为 Web 应用/API 生成身份验证密钥，请选择“设置” > “密钥”。 
+3. 若要生成的 Web 应用的身份验证密钥 / API 中，选择**证书和机密**。 选择“新建客户端机密”。
 
-4. 提供密钥说明和密钥持续时间。 完成后，选择“保存”。
+4. 提供密钥说明和密钥持续时间。 完成后，选择**添加**。
 
 保存密钥后, 会显示密钥的值。 将此值复制到记事本或其他某个临时位置，因为以后无法检索该密钥。 提供密钥值及应用程序 ID 登录为该应用程序。 将密钥值存储在应用程序可检索的位置。
 
-![保存的密钥](./media/azure-stack-create-service-principal/image15.png)
+![保存的密钥](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
 完成后，可为应用程序分配角色。
 
@@ -80,7 +81,7 @@ ms.locfileid: "64295122"
 
 如果在使用 Active Directory 联合身份验证服务 (AD FS) 作为标识管理服务的情况下部署了 Azure Stack，请使用 PowerShell 创建服务主体，分配用于进行访问的角色，然后使用该标识登录。
 
-可以使用两种方法之一通过 AD FS 创建服务主体。 可以：
+可以使用两种方法之一通过 AD FS 创建服务主体。 可以:
  - [使用证书创建服务主体](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate)
  - [使用客户端机密创建服务主体](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret)
 
@@ -180,7 +181,7 @@ ms.locfileid: "64295122"
 
 2. 自动化完成后，它将显示使用该 SPN 所需的详细信息。 建议存储该输出以供稍后使用。
 
-   例如：
+   例如:
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
