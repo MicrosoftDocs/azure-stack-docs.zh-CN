@@ -3,24 +3,23 @@ title: Azure Stack - 在 Key Vault 中存储服务主体凭据 | Microsoft Docs
 description: 了解 Key Vault 如何存储 Azure Stack 上的服务主体凭据
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/16/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 05/21/2019
+ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d4bc560a1c607d4a12cfb3d08ffeacf9b5d2196a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1a9fc71f6e57621dba4488821ea2ca8b1e119e48
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299852"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991308"
 ---
 # <a name="store-service-principal-credentials-in-key-vault"></a>在 Key Vault 中存储服务主体凭据
 
@@ -43,7 +42,7 @@ Azure Stack 中的 Key Vault 可帮助保护云应用程序和服务使用的加
 
 2. 在仪表板中，依次选择“+ 创建资源”、“安全 + 标识”、“Key Vault”。
 
-   ![创建 Key Vault](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
+   ![创建密钥保管库](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
 3. 在“创建密钥保管库”窗格中，为保管库分配**名称**。 保管库名称只能包含字母数字字符和连字符 (-)， 不能以数字开头。
 

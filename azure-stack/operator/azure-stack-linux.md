@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 2f7f0c55f02fd99a419619d878be8300d7326303
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 40a60c5207494ae70ccdfd051c8a223493b704c5
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296783"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991106"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>将 Linux 映像添加到 Azure Stack
 
@@ -30,25 +30,26 @@ ms.locfileid: "64296783"
 
 ## <a name="marketplace-management"></a>市场管理
 
-若要从 Azure 市场下载 Linux 映像，请使用[将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md) 一文中的过程。 选择要在 Azure Stack 上提供给用户的 Linux 映像。 
+若要从 Azure 市场下载 Linux 映像，请使用[将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md) 一文中的过程。 选择要在 Azure Stack 上提供给用户的 Linux 映像。
 
-请注意，这些映像频繁更新，因此请经常查看市场管理以保持最新。
+频繁地更新这些映像，因此请查看 Marketplace 管理通常以保持最新状态。
 
 ## <a name="prepare-your-own-image"></a>准备自己的映像
 
-请尽可能通过“市场管理”下载已针对 Azure Stack准备就绪并进行了测试的可用映像。
+如有可能，下载通过 Marketplace 管理可用的映像。 这些映像已准备好并针对 Azure Stack 进行测试。
 
 ### <a name="azure-linux-agent"></a>Azure Linux 代理
-Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需的，并非所有代理版本都可以在 Azure Stack 上正常工作。 在 Azure Stack 上不支持 2.2.20 和 2.2.35 之间的版本。 若要使用以上 2.2.35 最新的代理版本，请应用 1901年修补程序/1902年修补程序或更新 Azure Stack，到 1903年版本 （或更高版本）。 请注意，目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
 
-| Azure Stack 内部版本 | Azure Linux 代理版本 |
+Azure Linux 代理 (通常称为`WALinuxAgent`或`walinuxagent`) 是必需的并不是所有版本的 Azure Stack 上的代理工作。 Azure Stack 不支持 2.2.20 和 2.2.35 之间的版本。 若要使用以上 2.2.35 最新的代理版本，应用 1901年修补程序/1902年修补程序，或更新 Azure Stack，到 1903年版本 （或更高版本）。 请注意，目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
+
+| Azure Stack 内部版本 | Azure Linux 代理内部版本 |
 | ------------- | ------------- |
-| 1.1901.0.99 或更早版本 | 2.2.20 |
+| 1.1901.0.99 或更低版本 | 2.2.20 |
 | 1.1902.0.69  | 2.2.20  |
 |  1.1901.3.105   | 2.2.35 或更高版本 |
 | 1.1902.2.73  | 2.2.35 或更高版本 |
 | 1.1903.0.35  | 2.2.35 或更高版本 |
-| 不支持 | 2.2.21-2.2.34 |
+| 不受支持 | 2.2.21-2.2.34 |
 
 可以按照以下说明准备自己的 Linux 映像：
 
@@ -66,7 +67,5 @@ Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需�
 
 ## <a name="next-steps"></a>后续步骤
 
-有关详细信息，请参阅以下文章：
-
-- [将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)
-- [Azure Stack 市场概述](azure-stack-marketplace.md)
+* [将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)
+* [Azure Stack 市场概述](azure-stack-marketplace.md)

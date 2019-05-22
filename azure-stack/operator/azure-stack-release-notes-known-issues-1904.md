@@ -16,12 +16,12 @@ ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 48136220e2d784a61b3275ca9f79b82e0e8bfb69
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
+ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855354"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969844"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
 
@@ -38,13 +38,6 @@ ms.locfileid: "65855354"
 - 发生次数：通用
 
 ## <a name="portal"></a>门户
-
-### <a name="add-on-plans"></a>附加计划
-
-- 适用：此问题适用于所有支持的版本。
-- 原因：即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 计划将保留之前引用的附加计划的订阅也会被删除。
-- 补救措施：没有缓解措施。
-- 发生次数：通用
 
 ### <a name="administrative-subscriptions"></a>管理订阅
 

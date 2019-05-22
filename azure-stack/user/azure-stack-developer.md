@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 2f0d311851abe1c0fb01ec08dc82626805b35eb1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 4273326001dc79abb7ea522c3bd4c01e46bceb2b
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64298587"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991279"
 ---
 # <a name="develop-for-azure-stack"></a>为 Azure Stack 进行开发
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-即使没有 Azure Stack 环境的访问权限，也可以立即开始开发应用程序。 由于 Azure Stack 交付在数据中心中运行的 Microsoft Azure 服务，可以使用类似的工具和流程以开发针对 Azure Stack，就像使用 Azure。
+即使没有 Azure Stack 环境的访问权限，也可以立即开始开发应用程序。 由于 Azure Stack 交付在数据中心中运行的 Microsoft Azure 服务，可以使用类似的工具和流程开发在 Azure Stack 上，就像使用 Azure。
 
 ## <a name="development-considerations"></a>开发注意事项
 

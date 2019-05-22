@@ -1,10 +1,10 @@
-- name: 文档
+- name: Docs
   tocHref: /
   topicHref: /
   items:
     - name: Azure Stack
       tocHref: /azure-stack/
-      topicHref: /azure-stack/operator/index
+      topicHref: /azure-stack/
       items:
         - name: ASDK
           tocHref: /azure-stack/asdk/
@@ -13,7 +13,7 @@
           tocHref: /azure-stack/operator/
           topicHref: /azure-stack/operator/index
           items:
-            - name: 操作方法指南/备份 Azure Stack
+            - name: 操作指南/备份 Azure Stack
               tocHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
               topicHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
               items:

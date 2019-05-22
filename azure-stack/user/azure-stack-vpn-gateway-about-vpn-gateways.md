@@ -3,25 +3,24 @@ title: 关于 Azure Stack 的 VPN 网关 | Microsoft Docs
 description: 了解和配置用于 Azure Stack 的 VPN 网关。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/15/2019
-ms.date: 03/04/2019
-ms.author: v-jay
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 83d5215049976b67d22e29c2e4b75ec63a505b36
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.topic: conceptual
+ms.date: 05/21/2019
+ms.author: sethm
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301414"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991300"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>关于 Azure Stack 的 VPN 网关
 
@@ -35,14 +34,15 @@ VPN 网关是一种虚拟网络网关，可以通过公共连接发送加密的�
 
 每个虚拟网络可以使用两个虚拟网络网关，但每种类型的网关只能有一个网关。 根据选择的设置，可与一个 VPN 网关建立多个连接。 一个示例是多站点连接配置。
 
-在为 Azure Stack 创建和配置 VPN 网关之前，请查看 [Azure Stack 网络的注意事项](azure-stack-network-differences.md)，以了解 Azure Stack 的配置与 Azure 的不同之处。
+创建和配置 Azure Stack 的 VPN 网关之前，请查看[Azure Stack 网络注意事项](azure-stack-network-differences.md)若要了解与 Azure 的 Azure Stack 配置有何区别。
 
 >[!NOTE]
 >在 Azure 中，所选 VPN 网关 SKU 的带宽吞吐量必须分配给连接到网关的所有连接。 但在 Azure Stack 中，VPN 网关 SKU 的带宽值会应用于连接到网关的每个连接资源。
 >
-> 例如：
+> 例如:
+>
 > * 在 Azure 中，基本 VPN 网关 SKU 可以容纳大约 100 Mbps 的聚合吞吐量。 如果对该 VPN 网关创建两个连接，而且其中一个连接使用 50 Mbps 的带宽，则 50 Mbps 可供另一个连接使用。
-> * 在 Azure Stack 中，基本 VPN 网关 SKU 的每个连接可分配到 100 Mbps 的吞吐量。
+> * 在 Azure Stack**每个连接**到基本 VPN 网关 SKU 分配 100 Mbps 的吞吐量。
 
 ## <a name="configuring-a-vpn-gateway"></a>配置 VPN 网关
 
@@ -52,7 +52,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 为每个资源选择的设置对于创建成功的连接至关重要。
 
-有关 VPN 网关的各个资源和设置的信息，请参阅[关于 Azure Stack 的 VPN 网关设置](azure-stack-vpn-gateway-settings.md)。 本文将会介绍：
+有关 VPN 网关的各个资源和设置的信息，请参阅[关于 Azure Stack 的 VPN 网关设置](azure-stack-vpn-gateway-settings.md)。 本文可帮助你了解：
 
 * 网关类型、VPN 类型和连接类型。
 * 网关子网、本地网络网关和可能需要考虑的其他资源设置。
@@ -108,11 +108,11 @@ Azure Stack 不支持专门搭配 Express Route 使用的超性能网关 SKU。
 
 下表显示网关类型和预计的网关 SKU 聚合吞吐量：
 
-|   | VPN 网关吞吐量 *(1)* | VPN 网关最大 IPsec 隧道数 *(2)* |
+|| VPN 网关吞吐量 *(1)* | VPN 网关最大 IPsec 隧道数 *(2)* |
 |-------|-------|-------|
-|**基本 SKU** ***(3)***    | 100 Mbps  | 20    |
-|**标准 SKU**       | 100 Mbps  | 20    |
-|**高性能 SKU** | 200 Mbps    | 10    |
+|**基本 SKU** ***(3)*** | 100 Mbps | 20 |
+|**标准 SKU** | 100 Mbps | 20 |
+|**高性能 SKU** | 200 Mbps | 10 |
 
 **表格注释：**
 
@@ -125,4 +125,4 @@ Azure Stack 不支持专门搭配 Express Route 使用的超性能网关 SKU。
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 的 VPN 网关配置设置](azure-stack-vpn-gateway-settings.md)
+* [Azure Stack 的 VPN 网关配置设置](azure-stack-vpn-gateway-settings.md)
