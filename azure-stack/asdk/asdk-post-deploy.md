@@ -16,16 +16,16 @@ ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 308edbc351b52d94842a1a96602371f6edb8ff5d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: dd16d08e2e262b9aa31a1d59cb8ed59868608fbb
+ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617519"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66174342"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
-之后[安装 Azure Stack 开发工具包 (ASDK)](asdk-install.md)，应进行一些推荐的安装后配置更改在 ASDK 主机计算机上，以 azurestack\azurestackadmin 身份登录。 
+之后[安装 Azure Stack 开发工具包 (ASDK)](asdk-install.md)，应进行一些推荐的安装后配置更改在 ASDK 主机计算机上，以 azurestack\azurestackadmin 身份登录。
 
 ## <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell
 
@@ -37,7 +37,7 @@ ms.locfileid: "65617519"
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-可以使用 API 版本配置文件来指定与 Azure Stack 兼容的 AzureRM 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本 AzureRM PowerShell 模块。 可通过 PowerShell 库获得的 **AzureRM.Bootstrapper** 模块会提供使用 API 版本配置文件所需的 PowerShell cmdlet。
+可以使用 API 版本配置文件来指定与 Azure Stack 兼容的 AzureRM 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本 AzureRM PowerShell 模块。 **AzureRM.BootStrapper**可通过 PowerShell 库的模块提供了使用 API 版本配置文件所需的 PowerShell cmdlet。
 
 无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
 
@@ -46,34 +46,33 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 - **已从 ASDK 主机建立 Internet 连接**。 运行以下 PowerShell 脚本，在开发工具包安装中安装以下模块：
 
-- 1904 版本或更高版本：
+  - 1904 版本或更高版本：
 
     ```powershell  
       # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
       Install-Module -Name AzureRM.BootStrapper
-      
+
       # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-      Get-AzureRMProfile -Update
       Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
       Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
 
-- Azure Stack 版本 1903年或更早版本，仅安装下面的两个模块：
+  - Azure Stack 版本 1903年或更早版本，仅安装下面的两个模块：
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack 模块版本 1.7.1 是一项重大更改。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
+    > Azure Stack 模块版本 1.7.1 是一项中断性变更。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
 
   - Azure Stack 1811：
 
     ``` PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-    Install-Module -Name AzureRm.BootStrapper
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet.
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -119,12 +118,12 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
   # Enforce usage of TLSv1.2 to download the Azure Stack tools archive from GitHub
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  invoke-webrequest `
-    https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  Invoke-WebRequest `
+    -Uri https://github.com/Azure/AzureStack-Tools/archive/master.zip `
     -OutFile master.zip
 
   # Expand the downloaded files.
-  expand-archive master.zip -DestinationPath . -Force
+  Expand-Archive -Path master.zip -DestinationPath . -Force
 
   # Change to the tools directory.
   cd AzureStack-Tools-master
@@ -145,7 +144,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 如果失败，请遵循故障排除步骤来获取帮助。
 
-## <a name="reset-the-password-expiration-policy"></a>重置密码过期策略 
+## <a name="reset-the-password-expiration-policy"></a>重置密码过期策略
 
 若要确保开发工具包主机的密码不在评估期结束之前过期，请在部署 ASDK 之后执行以下步骤。
 

@@ -15,12 +15,12 @@ ms.date: 05/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 38a7398b157ad74f7f8849a3fa84b0cee82b80ad
-ms.sourcegitcommit: 95576d0cd780f3a200b2e98b6e9f031f5172f8c0
+ms.openlocfilehash: 9d05a218b9a93b19cdc694c49bde281dab1f91e9
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65814930"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66042962"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
@@ -30,7 +30,7 @@ ms.locfileid: "65814930"
 
 API 配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack 支持特定的配置文件版本，例如 **2018-03-01-hybrid**。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。
 
-可在已连接到 Internet、部分联网或离线场景中安装与 Azure Stack 兼容的 PowerShell 模块。 本文将引导您完成这些方案的详细说明。
+可在已连接到 Internet、部分联网或离线场景中安装与 Azure Stack 兼容的 PowerShell 模块。 本文将引导你完成适用于这些场景的详细说明。
 
 ## <a name="1-verify-your-prerequisites"></a>1.验证先决条件
 
@@ -78,13 +78,13 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
     ```
 
-    如果遇到错误如模块已在使用，关闭正在使用的模块，然后重新运行上述脚本的 PowerShell 会话。
+    如果遇到任何错误（例如“模块已在使用中”），请关闭正在使用模块的 PowerShell 会话，然后重新运行上述脚本。
 
 2. 从 `C:\Program Files\WindowsPowerShell\Modules` 和 `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` 文件夹中删除以 `Azure` 或 `Azs.` 开头的所有文件夹。 删除这些文件夹会删除任何现有的 PowerShell 模块。
 
 ## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4.已联网：在已建立 Internet 连接的情况下安装适用于 Azure Stack 的 PowerShell
 
-使用 Azure Stack 版本 1901年或更高版本 AzureRM 版本 2.4.0。 此外，与 AzureRM 模块，安装 Azure Stack 特定 PowerShell 模块。 你需要的 API 版本配置文件和 Azure Stack PowerShell 模块将取决于你运行的 Azure Stack 版本。
+对于 Azure Stack 版本 1901 或更高版本，请使用 AzureRM 版本 2.4.0。 除了 AzureRM 模块以外，还应安装 Azure Stack 特定的 PowerShell 模块。 你需要的 API 版本配置文件和 Azure Stack PowerShell 模块将取决于你运行的 Azure Stack 版本。
 
 安装分为三步：
 
@@ -101,9 +101,8 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRM.BootStrapper
-    
+
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Get-AzureRmProfile -Update
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
@@ -118,12 +117,12 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
     ```
 
     > [!Note]  
-    > - Azure Stack 模块版本 1.7.1 是重大更改的版本。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
-    > - AzureRm 模块版本 2.4.0 包含对 cmdlet Remove-AzureRmStorageAccount 的中断性变更。 此 cmdlet 需要-Force 参数来指定有关删除存储帐户，而无需确认。
-    > - 无需安装**AzureRM.Bootstrapper**安装 Azure stack 版本 1901年或更高版本的模块。
-    > - 不要安装除了 1901年或更高版本的 Azure Stack 版本上使用更高版本的 AzureRM 模块的 2018年-03-01-混合配置文件。
+    > - Azure Stack 模块版本 1.7.1 是一个包含中断性变更的版本。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
+    > - 版本的 AzureRM 模块 2.4.0 附带 Remove-azurermstorageaccount 该 cmdlet 的重大更改。 此 cmdlet 要求指定 -Force 参数，这样就可以在不确认的情况下删除存储帐户。
+    > - 无需安装**AzureRM.BootStrapper**安装 1901年或更高版本的 Azure Stack 版本的模块。
+    > - 如果在 Azure Stack 版本 1901 或更高版本上使用以上 AzureRM 模块，请勿安装 2018-03-01-hybrid 配置文件。
 
-- Azure Stack 版本 1811，安装配置文件使用**AzureRM.Bootstrapper**，除了指示 cmdlet 中的版本：
+- Azure Stack 版本 1811，安装配置文件使用**AzureRM.BootStrapper**，除了指示 cmdlet 中的版本：
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -143,7 +142,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 # Install the Azure.Storage module version 4.5.0
 Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
 
-# Install the AzureRm.Storage module version 5.0.4
+# Install the AzureRM.Storage module version 5.0.4
 Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
 
 # Remove incompatible storage module installed by AzureRM.Storage
@@ -169,7 +168,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 在离线场景中，必须先将 PowerShell 模块下载到已建立 Internet 连接的计算机，然后将其传送到 Azure Stack 开发工具包进行安装。
 
-在具有 Internet 连接登录到计算机并使用以下脚本来下载 Azure 资源管理器和 Azure Stack 的程序包，具体取决于你的 Azure Stack 版本。
+登录到已建立 Internet 连接的计算机，并根据 Azure Stack 的版本，使用以下脚本下载 Azure 资源管理器和 Azure Stack 程序包。
 
 安装分为四步：
 
@@ -203,7 +202,7 @@ Get-Module -Name "Azs*" -ListAvailable
     ```
 
     > [!Note]  
-    > Azure Stack 模块版本 1.7.1 是一项重大更改。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)。
+    > Azure Stack 模块版本 1.7.1 是一项中断性变更。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)。
 
   - Azure Stack 1811 或更低版本。
 
@@ -228,7 +227,7 @@ Get-Module -Name "Azs*" -ListAvailable
     ```
 
     > [!NOTE]
-    > 在没有 Internet 连接的计算机上，建议执行以下 cmdlet 以禁用遥测数据收集功能。 但不能禁用遥测数据收集，可能会遇到性能下降的 cmdlet。 这仅适用于没有 Internet 连接的计算机。
+    > 在没有 Internet 连接的计算机上，建议执行以下 cmdlet 以禁用遥测数据收集功能。 在不禁用遥测数据收集功能的情况下，可能会遇到 cmdlet 性能降级的问题。 这仅适用于没有 Internet 连接的计算机。
     > ```powershell
     > Disable-AzureRmDataCollection
     > ```
@@ -240,7 +239,7 @@ Get-Module -Name "Azs*" -ListAvailable
 ```powershell
 $Path = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM.Storage -Path $Path -Force -RequiredVersion 5.0.4
 ```
 
 ### <a name="add-your-packages-to-your-workstation"></a>将包添加到工作站

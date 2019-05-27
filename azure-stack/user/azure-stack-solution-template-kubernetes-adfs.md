@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: ca0dd74a08ce1abe454cb497a2569aae0b958d7c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 367053882e9e44ba983d5df552929c65222fcafc
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301645"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197353"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>将 Kubernetes 部署到 Azure Stack 使用 Active Directory 联合身份验证服务
 
@@ -83,7 +83,7 @@ ms.locfileid: "64301645"
        | 密钥保管库名称 | 在保管库的名称。<br> 正则表达式模式： `^[a-zA-Z0-9-]{3,24}$` |
        | 资源组位置 | 资源组的位置。 这是为 Azure Stack 安装选择的区域。 |
 
-   - 使用提升的提示符下打开 PowerShell 并[连接到 Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs)。 使用更新为你的值的参数运行以下脚本：
+   - 使用提升的提示符下打开 PowerShell 并[连接到 Azure Stack](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs)。 使用更新为你的值的参数运行以下脚本：
 
    ```powershell  
        $armEndpoint="<Azure Resource Manager Endpoint>"
@@ -124,7 +124,7 @@ ms.locfileid: "64301645"
        | Azure 资源管理器终结点 | 在 Azure Stack 开发工具包 (ASDK) 的终结点是： `https://management.local.azurestack.external/`<br>集成系统中的终结点是： `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
        | 你的订阅 ID | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
 
-   - 使用提升的提示符下打开 PowerShell 并[连接到 Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs)。 使用更新为你的值的参数运行以下脚本：
+   - 使用提升的提示符下打开 PowerShell 并[连接到 Azure Stack](azure-stack-powershell-configure-user.md#connect-to-azure-stack-with-ad-fs)。 使用更新为你的值的参数运行以下脚本：
 
     ```powershell
         
@@ -163,7 +163,7 @@ ms.locfileid: "64301645"
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-### <a name="1-basics"></a>1.基础
+### <a name="1-basics"></a>1.基本
 
 1. 在“创建 Kubernetes 群集”中选择“基本信息”。
 

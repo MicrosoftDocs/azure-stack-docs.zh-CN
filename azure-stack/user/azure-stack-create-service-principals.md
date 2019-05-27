@@ -1,6 +1,6 @@
 ---
 title: 创建 Azure Stack 的服务主体 | Microsoft Docs
-description: 介绍了如何创建服务主体，并在 Azure 资源管理器中将此服务主体与基于角色的访问控制配合使用以管理对资源的访问权限。
+description: 了解如何创建服务主体，若要使用基于角色的访问控制 Azure 资源管理器中用于管理对资源的访问。
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 04/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3860f8dcc99f3505fe2f838e75f5e8f09b78aefe
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.openlocfilehash: 1f2502a7b0b89bc8c1786e1fdf0392b245308ed0
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855375"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197297"
 ---
-# <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
+# <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>创建服务主体以授予应用程序访问 Azure Stack 资源
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -30,7 +30,7 @@ ms.locfileid: "65855375"
 应当为应用程序使用服务主体，这是一种最佳做法。 与使用自己的凭据运行应用相比，使用服务主体更优，原因如下：
 
 * 可以向服务主体分配不同于自己的帐户权限的权限。 通常情况下，服务主体的权限仅限于应用需执行的确切操作。
-* 角色或职责变化时，无需更改应用的凭据。
+* 您无需更改应用的凭据，如果您的角色或职责发生更改。
 * 运行无人参与的脚本时，可以使用证书自动执行身份验证。
 
 ## <a name="example-scenario"></a>示例方案
@@ -50,7 +50,7 @@ ms.locfileid: "65855375"
 * 创建适用于 [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) 的服务主体。
 * 创建适用于 [Active Directory 联合身份验证服务 (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) 的服务主体。
 
-将服务主体分配到角色的步骤对于 Azure AD 和 AD FS 是相同的。 创建服务主体后，可以通过将其分配到某个角色来[委派权限](azure-stack-create-service-principals.md)。
+将服务主体分配到角色的步骤是相同的 Azure AD 和 AD FS。 创建服务主体后，可以通过将其分配给角色来委托权限。
 
 ## <a name="create-service-principal-for-azure-ad"></a>为 Azure AD 创建服务主体
 
@@ -69,7 +69,7 @@ ms.locfileid: "65855375"
 4. 选择“支持的帐户类型”。
 5.  添加应用程序的 URI。 选择“Web”作为要创建的应用程序的类型。 设置这些值后，选择“注册”。
 
-已为应用程序创建服务主体。
+你已为应用程序创建服务主体。
 
 ### <a name="get-credentials"></a>获取凭据
 

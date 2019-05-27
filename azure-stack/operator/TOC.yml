@@ -92,7 +92,7 @@
               href: azure-stack-validate-identity.md
             - name: 验证 ADFS 集成
               href: azure-stack-validate-adfs.md
-            - name: 验证图形集成
+            - name: 验证 graph 集成
               href: azure-stack-validate-graph.md
         - name: Azure Stack 部署 PKI 要求
           href: azure-stack-pki-certs.md
@@ -234,7 +234,7 @@
           href: azure-stack-add-vm-image.md
         - name: 提供虚拟机规模集
           href: azure-stack-compute-add-scalesets.md
-        - name: 市场中的 Windows Server 常见问题解答
+        - name: Marketplace 常见问题解答中的 Windows Server
           href: azure-stack-windows-server-faq.md
         - name: 提供 Linux 虚拟机
           href: azure-stack-linux.md
@@ -321,7 +321,7 @@
               href: azure-stack-app-service-release-notes-update-two.md
             - name: 基于 Azure Stack 的应用服务 Update 3 发行说明
               href: azure-stack-app-service-release-notes-update-three.md
-            - name: 基于 Azure Stack 的应用服务 Update 4 发行说明
+            - name: 应用服务在 Azure Stack update 4 发行说明
               href: azure-stack-app-service-release-notes-update-four.md
             - name: 基于 Azure Stack 的应用服务 Update 5 发行说明
               href: azure-stack-app-service-release-notes-update-five.md
@@ -384,14 +384,18 @@
           href: azure-stack-backup-best-practices.md
         - name: 备份参考
           href: azure-stack-backup-reference.md
-    - name: 故障排除
+    - name: 获取帮助
       items:
-        - name: 已知问题
-          href: azure-stack-troubleshooting.md
-        - name: Azure Stack 中的诊断
-          href: azure-stack-diagnostics.md
-        - name: Azure Stack 验证
-          href: azure-stack-diagnostic-test.md
+        - name: 帮助和支持
+          href: azure-stack-help-and-support.md
+        - name: 排除故障
+          items:
+            - name: 已知问题
+              href: azure-stack-troubleshooting.md
+            - name: Azure Stack 中的诊断
+              href: azure-stack-diagnostics.md
+            - name: Azure Stack 验证
+              href: azure-stack-diagnostic-test.md
 - name: 参考
   items:
     - name: Azure Stack PowerShell

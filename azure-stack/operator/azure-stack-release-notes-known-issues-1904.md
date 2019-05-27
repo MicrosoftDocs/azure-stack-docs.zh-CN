@@ -16,12 +16,12 @@ ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
-ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
-ms.translationtype: MT
+ms.openlocfilehash: 207b784db9e916ff2cc04ebd884c05fa9a7b4aeb
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969844"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043154"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
 
@@ -156,7 +156,17 @@ ms.locfileid: "65969844"
 ### <a name="compute-host-agent-alert"></a>计算主机代理警报
 
 - 适用：这是版本 1904年新问题。
-- 原因：一个**计算主机代理**缩放单位中重新启动节点之后会出现警告。 在重新启动更改计算主机代理服务的默认启动设置。
+- 原因：一个**计算主机代理**缩放单位中重新启动节点之后会出现警告。 在重新启动更改计算主机代理服务的默认启动设置。 此警报类似于下面：名称  
+计算主机代理未响应的调用。
+SEVERITY  
+警告状态  
+活动的创建时间  
+5/16/2019，上午 10:08:23 更新时间  
+2019 年 5/22/，12:27:27 PM 组件  
+M # # #-NODE02 说明  
+无法与节点上运行的计算主机代理进行通信：M # # #-NODE02 修正  
+请禁用计算主机代理功能标志和收集日志供将来诊断。
+
 - 补救措施：
   - 可以忽略此警报。 代理未响应并没有对运算符和用户操作或用户应用程序造成任何影响。 警报在 24 小时后将重新出现如果已手动关闭。
   - Microsoft 支持部门可以通过更改服务的启动设置修正此问题。 这需要开一个支持票证。 如果再次重新启动节点，将显示新的警报。

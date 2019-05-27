@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: d32d7d8d484d6e9819440fc9261bae52d6395ae2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: aca01d65df454f03f5726db67b3eaa766339bb77
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985900"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043006"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异与注意事项
 
@@ -71,64 +71,65 @@ Azure Stack 托管磁盘支持以下 API 版本：
 可以使用以下脚本将当前预配的 VM 从非托管磁盘转换为托管磁盘。 将占位符替换成自己的值：
 
 ```powershell
-$subscriptionId = 'subid'
+$SubscriptionId = "SubId"
 
 # The name of your resource group where your VM to be converted exists
-$resourceGroupName ='rgmgd'
+$ResourceGroupName ="MyResourceGroup"
 
-# The name of the managed disk
-$diskName = 'unmgdvm'
+# The name of the managed disk to be created.
+$DiskName = "mngddisk"
 
-# The size of the disks in GB. It should be greater than the VHD file size.
-$diskSize = '50'
+# The size of the disks in GiB. It should be greater than the VHD file size.
+$DiskSize = "50"
 
 # The URI of the VHD file that will be used to create the managed disk.
 # The VHD file can be deleted as soon as the managed disk is created.
-$vhdUri = 'https://rgmgddisks347.blob.local.azurestack.external/vhds/unmgdvm20181109013817.vhd' 
+$VhdUri = "https://rgmgddisks347.blob.local.azurestack.external/vhds/unmngdvm20181109013817.vhd"
 
-# The storage type for the managed disk; PremiumLRS or StandardLRS.
-$accountType = 'StandardLRS'
+# The storage type for the managed disk: PremiumLRS or StandardLRS.
+$AccountType = "StandardLRS"
 
 # The Azure Stack location where the managed disk will be located.
 # The location should be the same as the location of the storage account in which VHD file is stored.
 # Configure the new managed VM point to the old unmanaged VM's configuration (network config, vm name, location).
-$location = 'local'
-$virtualMachineName = 'mgdvm'
-$virtualMachineSize = 'Standard_D1'
-$pipname = 'unmgdvm-ip'
-$virtualNetworkName = 'rgmgd-vnet'
-$nicname = 'unmgdvm295'
+$Location = "local"
+$VirtualMachineName = "unmngdvm"
+$VirtualMachineSize = "Standard_D1"
+$PIpName = "unmngdvm-ip"
+$VirtualNetworkName = "unmngdrg-vnet"
+$NicName = "unmngdvm"
 
 # Set the context to the subscription ID in which the managed disk will be created
 Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
-#Delete old VM, but keep the OS disk
-Remove-AzureRmVm -Name $virtualMachineName -ResourceGroupName $resourceGroupName
+# Delete old VM, but keep the OS disk
+Remove-AzureRmVm -Name $VirtualMachineName -ResourceGroupName $ResourceGroupName
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $accountType  -Location $location -DiskSizeGB $diskSize -SourceUri $vhdUri -CreateOption Import
+# Create the managed disk configuration
+$DiskConfig = New-AzureRmDiskConfig -AccountType $AccountType -Location $Location -DiskSizeGB $DiskSize -SourceUri $VhdUri -CreateOption Import
 
 # Create managed disk
-New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
-$disk = get-azurermdisk -DiskName $diskName -ResourceGroupName $resourceGroupName
-$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+New-AzureRmDisk -DiskName $DiskName -Disk $DiskConfig -ResourceGroupName $resourceGroupName
+$Disk = Get-AzureRmDisk -DiskName $DiskName -ResourceGroupName $ResourceGroupName
+$VirtualMachine = New-AzureRmVMConfig -VMName $VirtualMachineName -VMSize $VirtualMachineSize
 
 # Use the managed disk resource ID to attach it to the virtual machine.
-# Change the OS type to Linux if the OS disk has Linux OS.
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $disk.Id -CreateOption Attach -Linux
+# Change the OS type to "-Windows" if the OS disk has Windows OS.
+$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $Disk.Id -CreateOption Attach -Linux
 
 # Create a public IP for the VM
-$publicIp = Get-AzureRmPublicIpAddress -Name $pipname -ResourceGroupName $resourceGroupName 
+$PublicIp = Get-AzureRmPublicIpAddress -Name $PIpName -ResourceGroupName $ResourceGroupName 
 
 # Get the virtual network where the virtual machine will be hosted
-$vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+$VNet = Get-AzureRmVirtualNetwork -Name $VirtualNetworkName -ResourceGroupName $ResourceGroupName
 
 # Create NIC in the first subnet of the virtual network
-$nic = Get-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $resourceGroupName
+$Nic = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName
 
-$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Nic.Id
 
 # Create the virtual machine with managed disk
-New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $ResourceGroupName -Location $Location
 ```
 
 ## <a name="managed-images"></a>托管映像
@@ -167,52 +168,52 @@ Azure Stack PowerShell 模块 1.6.0 或更低版本：
 
 ```powershell
 # Variables for common values
-$resourceGroup = "myResourceGroup"
-$location = "redmond"
-$vmName = "myVM"
-$imagerg = "managedlinuxrg"
-$imagename = "simplelinuxvmm-image-2019122"
+$ResourceGroupName = "MyResourceGroup"
+$Location = "local"
+$VirtualMachineName = "MyVM"
+$ImageRG = "managedlinuxrg"
+$ImageName = "simplelinuxvmm-image-2019122"
 
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+# Create credential object
+$Cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
 # Create a resource group
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "MySubnet" -AddressPrefix "192.168.1.0/24"
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
-  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$VNet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
+  -Name "MyVNet" -AddressPrefix "192.168.0.0/16" -Subnet $SubnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+$PIp = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
 # Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+$NsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name "MyNetworkSecurityGroupRuleRDP"  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 3389 -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $Location `
+  -Name "MyNetworkSecurityGroup" -SecurityRules $NsgRuleRDP
 
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
-  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+$Nic = New-AzureRmNetworkInterface -Name "MyNic" -ResourceGroupName $ResourceGroupName -Location $Location `
+  -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $PIp.Id -NetworkSecurityGroupId $Nsg.Id
 
-$image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+$Image = Get-AzureRmImage -ResourceGroupName $ImageRG -ImageName $ImageName
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
-Set-AzureRmVMSourceImage -Id $image.Id | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
+$VmConfig = New-AzureRmVMConfig -VMName $VirtualMachineName -VMSize "Standard_D1" | `
+Set-AzureRmVMOperatingSystem -Linux -ComputerName $VirtualMachineName -Credential $Cred | `
+Set-AzureRmVMSourceImage -Id $Image.Id | `
+Add-AzureRmVMNetworkInterface -Id $Nic.Id
 
 # Create a virtual machine
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmConfig
 ```
 
 也可以使用门户基于托管映像创建 VM。 有关详细信息，请参阅 Azure 托管映像文章：[在 Azure 中创建通用化 VM 的托管映像](/azure/virtual-machines/windows/capture-image-resource)和[从托管映像创建 VM](/azure/virtual-machines/windows/create-vm-generalized-managed)。
