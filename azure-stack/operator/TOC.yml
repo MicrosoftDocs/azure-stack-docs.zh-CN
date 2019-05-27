@@ -293,6 +293,8 @@
       items:
         - name: 应用服务容量规划
           href: azure-stack-app-service-capacity-planning.md
+        - name: 应用服务计费常见问题解答
+          href: app-service-billing-faq.md
         - name: 准备工作
           href: azure-stack-app-service-before-you-get-started.md
         - name: 部署应用服务

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/22/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 207b784db9e916ff2cc04ebd884c05fa9a7b4aeb
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
-ms.translationtype: HT
+ms.lastreviewed: 05/22/2019
+ms.openlocfilehash: bd7262e5c298715f846e1d8372d76b6f44f22972
+ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043154"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66186525"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
 
@@ -70,15 +70,15 @@ ms.locfileid: "66043154"
 ### <a name="marketplace-management"></a>市场管理
 
 - 适用：此问题适用于 1904年。
-- 原因：筛选结果中的时**从 Azure 添加**边栏选项卡在管理员门户中 Marketplace 管理选项卡中，可能会看到不正确的筛选的结果。 
-- 补救措施：将更正的名称列的排序结果和结果。 
+- 原因：筛选结果中的时**从 Azure 添加**边栏选项卡在管理员门户中 Marketplace 管理选项卡中，可能会看到不正确的筛选的结果。
+- 补救措施：将更正的名称列的排序结果和结果。
 - 发生次数：间歇性
 
 ### <a name="marketplace-management"></a>市场管理
 
 - 适用：此问题适用于 1904年。
 - 原因：在 Marketplace 管理管理员门户中的结果进行筛选，会看到重复的发布者名称下发布服务器下拉列表。 
-- 补救措施：选择具有下该发布者提供的所有 Marketplace 产品的正确列表的所有重复项。 
+- 补救措施：选择具有下该发布者提供的所有 Marketplace 产品的正确列表的所有重复项。
 - 发生次数：间歇性
 
 ### <a name="upload-blob"></a>上传 blob
@@ -156,21 +156,37 @@ ms.locfileid: "66043154"
 ### <a name="compute-host-agent-alert"></a>计算主机代理警报
 
 - 适用：这是版本 1904年新问题。
-- 原因：一个**计算主机代理**缩放单位中重新启动节点之后会出现警告。 在重新启动更改计算主机代理服务的默认启动设置。 此警报类似于下面：名称  
-计算主机代理未响应的调用。
-SEVERITY  
-警告状态  
-活动的创建时间  
-5/16/2019，上午 10:08:23 更新时间  
-2019 年 5/22/，12:27:27 PM 组件  
-M # # #-NODE02 说明  
-无法与节点上运行的计算主机代理进行通信：M # # #-NODE02 修正  
-请禁用计算主机代理功能标志和收集日志供将来诊断。
+- 原因：一个**计算主机代理**缩放单位中重新启动节点之后会出现警告。 在重新启动更改计算主机代理服务的默认启动设置。 此警报看起来类似于下面的示例：
+
+   ```shell
+   NAME  
+   Compute Host Agent is not responding to calls.
+   SEVERITY  
+   Warning
+   STATE  
+   Active
+   CREATED TIME  
+   5/16/2019, 10:08:23 AM
+   UPDATED TIME  
+   5/22/2019, 12:27:27 PM
+   COMPONENT  
+   M#####-NODE02
+   DESCRIPTION  
+   Could not communicate with the Compute Host Agent running on node: M#####-NODE02
+   REMEDIATION  
+   Please disable Compute Host Agent feature flag and collect logs for further diagnosis.
+   ```
 
 - 补救措施：
   - 可以忽略此警报。 代理未响应并没有对运算符和用户操作或用户应用程序造成任何影响。 警报在 24 小时后将重新出现如果已手动关闭。
   - Microsoft 支持部门可以通过更改服务的启动设置修正此问题。 这需要开一个支持票证。 如果再次重新启动节点，将显示新的警报。
 - 发生次数：通用
+
+## <a name="storage"></a>存储
+
+- 适用：此问题适用于所有支持的版本。
+- 原因：[Convertto-azurermvmmanageddisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk)不支持在 Azure Stack 中，会创建具有磁盘 **$null** id。 这会防止执行在 VM 中，如启动和停止操作。 磁盘不会显示在 UI 中，也不会出现通过 API。 VM 在该点不能修复，必须删除。
+- 补救措施：若要正确转换你的磁盘，请按照[将转换为托管的磁盘指南](../user/azure-stack-managed-disk-considerations.md#convert-to-managed-disks)。
 
 ## <a name="app-service"></a>应用服务
 

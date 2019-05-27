@@ -16,20 +16,20 @@ ms.date: 05/21/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 5121170e50e75674777cee9560c5f28443fd262f
-ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
-ms.translationtype: HT
+ms.openlocfilehash: 816a7a54d90c9cdcc41052be5c56bce58a7cf68f
+ms.sourcegitcommit: a07baf606cec51b437ecfccdf871d5f00f173f63
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66193498"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66220965"
 ---
 # <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack 帮助和支持
 
-1905 版开始，Azure Stack**帮助 + 支持**改进使其更容易运营商如何研究问题、 获得专家帮助，或了解有关 Azure Stack 的详细信息。 
+从 1905年的版本中，Azure Stack**帮助 + 支持**改进使其更容易运营商如何研究问题、 获得专家帮助，或了解有关 Azure Stack 的详细信息。 
 
 ## <a name="research-an-issue"></a>研究问题
 
-在顶部**帮助 + 支持**是自助服务的链接了解更多有关问题，获取有关帐单信息或查看可用的支持选项。 
+在顶部**帮助 + 支持**是链接以阅读更多有关问题，获取有关帐单信息或查看可用的支持选项。 
 
 ![自助服务支持](media/azure-stack-help-and-support/get-support-tiles.png)
 
@@ -41,15 +41,18 @@ ms.locfileid: "66193498"
 
 ## <a name="get-expert-help"></a>获取专家帮助 
 
-此外可以从 Microsoft 客户支持和 MSDN 论坛中的专家那里获取帮助或参加在线培训并提高您自己的技能。 
+如果您运行 Azure Stack 集成系统，可以使用 Azure Stack 与相关的任何问题与 Microsoft 客户支持服务以寻求专家帮助打开一种情况。  
+
+![对于集成系统获得专家帮助](media/azure-stack-help-and-support/get-support-integrated.png)
+
+如果运行 Azure Stack 开发工具包 (ASDK)，您可以从内的专家社区获取帮助[Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)。
+
+![获取专家帮助对于 ASDK](media/azure-stack-help-and-support/get-support-asdk.png)
+
+并可以联系到任何问题，MSDN 论坛或参加在线培训，提高您自己的技能。 
 
 ![获取专家帮助](media/azure-stack-help-and-support/get-support-cards.png)
 
-- **支持**。 案例与 Microsoft 客户支持服务的专家的帮助与 Azure Stack 与相关的任何问题。
-
-- **社区**。 [Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)是 Azure Stack 专家帮助回答的问题和解决问题的社区。
-
-- **学习**。 若要帮助您培养技能用于配置和运行 Azure Stack 的在线课程。 
 
 ## <a name="get-up-to-speed-with-azure-stack"></a>使用 Azure Stack 快速入门
 
