@@ -3,7 +3,7 @@ title: 使用 Azure 和 Azure Stack 部署混合云 | Microsoft Docs
 description: 了解如何使用 Azure 和 Azure Stack 部署混合云。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 4a77221ac9fcb365966435ed828ab743dd8e1034
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985821"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252060"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 部署混合云解决方案
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
 
 本教程介绍如何部署使用 Azure 公有云和 Azure Stack 私有云的混合云解决方案。
 
@@ -76,23 +76,23 @@ ms.locfileid: "64985821"
 
 1. 登录到 Azure Stack 用户门户。
 
-2. 在“仪表板”中选择“市场”。
+2. 在“仪表板”中选择“市场”。  
 
     ![Azure Stack 市场](media/azure-stack-solution-hybrid-cloud/image1.png)
 
-3. 在“市场”中选择“计算”，然后选择“更多”。 在“更多”下面，选择“免费 SQL Server 许可证:Windows Server 上的 SQL Server 2017 Developer”映像。
+3. 在“市场”中选择“计算”，然后选择“更多”。    在“更多”下面，选择“免费 SQL Server 许可证:   Windows Server 上的 SQL Server 2017 Developer”映像。
 
     ![选择虚拟机映像](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. 在“免费 SQL Server 许可证:Windows Server 上的 SQL Server 2017 Developer”中，选择“创建”。
+4. 在“免费 SQL Server 许可证:   Windows Server 上的 SQL Server 2017 Developer”中，选择“创建”。
 
-5. 在“基本信息”>“配置基本设置”中，提供虚拟机 (VM) 的**名称**、SQL Server SA 的**用户名**，以及 SA 的**密码**。  在“订阅”下拉列表中，选择要部署到的订阅。 对于“资源组”，请使用“选择现有项”，并将 VM 放到 Azure Stack Web 应用所在的同一资源组中。
+5. 在“基本信息”>“配置基本设置”中，提供虚拟机 (VM) 的**名称**、SQL Server SA 的**用户名**，以及 SA 的**密码**。   在“订阅”下拉列表中，选择要部署到的订阅。  对于“资源组”，请使用“选择现有项”，并将 VM 放到 Azure Stack Web 应用所在的同一资源组中。  
 
     ![配置 VM 的基本设置](media/azure-stack-solution-hybrid-cloud/image3.png)
 
-6. 在“大小”下面，选择 VM 的大小。 对于本教程，建议使用 A2_Standard 或 DS2_V2_Standard。
+6. 在“大小”下面，选择 VM 的大小。  对于本教程，建议使用 A2_Standard 或 DS2_V2_Standard。
 
-7. 在“设置”>“配置可选功能”下面配置以下设置：
+7. 在“设置”>“配置可选功能”下面配置以下设置： 
 
    - **存储帐户**： 根据需要创建新帐户。
    - **虚拟网络**
@@ -104,27 +104,27 @@ ms.locfileid: "64985821"
    - **网络安全组** (NSG)。 创建新 NSG。
    - **扩展和监视**。 保留默认设置。
    - **诊断存储帐户**。 根据需要创建新帐户。
-   - 选择“确定”以保存配置。
+   - 选择“确定”以保存配置。 
 
      ![配置可选功能](media/azure-stack-solution-hybrid-cloud/image4.png)
 
-1. 在“SQL Server 设置”下面配置以下设置：
-   - 对于“SQL 连接”，请选择“公共(Internet)”。
-   - 对于“端口”，请保留默认值 **1433**。
-   - 对于“SQL 身份验证”，请选择“启用”。
+1. 在“SQL Server 设置”下面配置以下设置： 
+   - 对于“SQL 连接”，请选择“公共(Internet)”。  
+   - 对于“端口”，请保留默认值 **1433**。 
+   - 对于“SQL 身份验证”，请选择“启用”。  
 
      > [!Note]  
-     > 启用 SQL 身份验证时，应会自动填充在“基本信息”中配置的“SQLAdmin”信息。
+     > 启用 SQL 身份验证时，应会自动填充在“基本信息”中配置的“SQLAdmin”信息。 
 
-   - 对于剩余的设置，请保留默认值。 选择“确定”。
+   - 对于剩余的设置，请保留默认值。 选择“确定”  。
 
      ![配置 SQL Server 设置](media/azure-stack-solution-hybrid-cloud/image5.png)
 
-9. 在“摘要”中检查虚拟机配置，然后选择“确定”开始部署。
+9. 在“摘要”中检查虚拟机配置，然后选择“确定”开始部署。  
 
     ![配置摘要](media/azure-stack-solution-hybrid-cloud/image6.png)
 
-10. 创建新 VM 需要花费一段时间。 可以在“虚拟机”中查看 VM 的状态。
+10. 创建新 VM 需要花费一段时间。 可以在“虚拟机”中查看 VM 的状态。 
 
     ![虚拟机](media/azure-stack-solution-hybrid-cloud/image7.png)
 
@@ -156,20 +156,20 @@ Azure Stack 上的应用服务必须可从公共 Internet 进行路由，使用�
 
 在混合网络中，Azure 端的虚拟网络网关必须允许点到站点连接，以便与 Azure 应用服务集成。
 
-1. 在 Azure 中，导航到虚拟网络网关页。 在“设置”下面，选择“点到站点配置”。
+1. 在 Azure 中，导航到虚拟网络网关页。 在“设置”下面，选择“点到站点配置”。  
 
     ![“点到站点”选项](media/azure-stack-solution-hybrid-cloud/image8.png)
 
-2. 选择“立即配置”以配置点到站点连接。
+2. 选择“立即配置”以配置点到站点连接。 
 
     ![开始进行点到站点配置](media/azure-stack-solution-hybrid-cloud/image9.png)
 
-3. 在“点到站点”配置页上的“地址池”中，输入要使用的专用 IP 地址范围。
+3. 在“点到站点”配置页上的“地址池”中，输入要使用的专用 IP 地址范围。  
 
    > [!Note]  
    > 请确保指定的范围不与任何已使用全局 Azure 或 Azure Stack 的混合网络组件中的子网的地址范围重叠。
 
-   在“隧道类型”下面，取消选中“IKEv2 VPN”。 选择“保存”完成点到站点配置。
+   在“隧道类型”下面，取消选中“IKEv2 VPN”。   选择“保存”完成点到站点配置。 
 
    ![“点到站点”设置](media/azure-stack-solution-hybrid-cloud/image10.png)
 
@@ -177,15 +177,15 @@ Azure Stack 上的应用服务必须可从公共 Internet 进行路由，使用�
 
 1. 若要将应用程序连接到 Azure VNet，请遵照[启用 VNet 集成](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#enabling-vnet-integration)中的说明操作。
 
-2. 导航到托管 Web 应用程序的应用服务计划的“设置”。 在“设置”中，选择“网络”。
+2. 导航到托管 Web 应用程序的应用服务计划的“设置”。  在“设置”中，选择“网络”。  
 
     ![配置网络](media/azure-stack-solution-hybrid-cloud/image11.png)
 
-3. 在“VNET 集成”中，选择“单击此处进行管理”。
+3. 在“VNET 集成”中，选择“单击此处进行管理”。  
 
     ![管理 VNET 集成](media/azure-stack-solution-hybrid-cloud/image12.png)
 
-4. 选择要配置的 VNET。 在“路由到 VNET 的 IP 地址”下面，输入 Azure VNet、Azure Stack VNet 和点到站点地址空间的 IP 地址范围。 选择“保存”以验证并保存这些设置。
+4. 选择要配置的 VNET。 在“路由到 VNET 的 IP 地址”下面，输入 Azure VNet、Azure Stack VNet 和点到站点地址空间的 IP 地址范围。  选择“保存”以验证并保存这些设置。 
 
     ![路由的 IP 地址范围](media/azure-stack-solution-hybrid-cloud/image13.png)
 
@@ -195,11 +195,11 @@ Azure Stack 上的应用服务必须可从公共 Internet 进行路由，使用�
 
 需将 Azure Stack 虚拟网络中的本地网络网关配置为路由来自应用服务点到站点地址范围的流量。
 
-1. 在 Azure Stack 中，导航到“本地网络网关”。 在“设置”下，选择“配置”。
+1. 在 Azure Stack 中，导航到“本地网络网关”。  在“设置”下，选择“配置”   。
 
     ![网关配置选项](media/azure-stack-solution-hybrid-cloud/image14.png)
 
-2. 在“地址空间”中，输入 Azure 虚拟网络网关的点到站点地址范围。选择“保存”以验证并保存此配置。
+2. 在“地址空间”中，输入 Azure 虚拟网络网关的点到站点地址范围。选择“保存”以验证并保存此配置。  
 
     ![点到站点地址空间](media/azure-stack-solution-hybrid-cloud/image15.png)
 
@@ -239,9 +239,9 @@ Azure Stack 上的应用服务必须可从公共 Internet 进行路由，使用�
 
 1. 确保获取的 SSL 证书对于所创建的子域有效。 （也可以使用通配符证书。）
 
-2. 在 Azure 中，遵照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)一文的“准备 Web 应用”和“绑定 SSL 证书”部分的说明操作。 为“SSL 类型”选择“基于 SNI 的 SSL”。
+2. 在 Azure 中，遵照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)一文的“准备 Web 应用”和“绑定 SSL 证书”部分的说明操作。   为“SSL 类型”选择“基于 SNI 的 SSL”。  
 
-3. 将所有流量重定向到 HTTPS 端口。 遵照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)一文的“强制实施 HTTPS”部分的说明操作。
+3. 将所有流量重定向到 HTTPS 端口。 遵照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)一文的“强制实施 HTTPS”部分的说明操作。 
 
 将 SSL 添加到 Azure Stack：
 
@@ -301,73 +301,73 @@ Web 应用程序的每个实例将使用另一种方法来连接到 SQL 数据�
 
 ### <a name="enable-automatic-scale-out"></a>启用自动横向扩展
 
-1. 在 Azure 中，找到要横向扩展的站点的应用服务计划，然后选择“横向扩展(应用服务计划)”。
+1. 在 Azure 中，找到要横向扩展的站点的应用服务计划，然后选择“横向扩展(应用服务计划)”。 
 
     ![横向扩展](media/azure-stack-solution-hybrid-cloud/image16.png)
 
-2. 选择“启用自动缩放”。
+2. 选择“启用自动缩放”。 
 
     ![启用自动缩放](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. 在“自动缩放设置名称”中输入名称。 对于“默认”自动缩放规则，请选择“基于指标缩放”。 将“实例限制”设置为“最小值:1”、“最大值:10”和“默认值:1”。
+3. 在“自动缩放设置名称”中输入名称。  对于“默认”自动缩放规则，请选择“基于指标缩放”。   将“实例限制”设置为“最小值:   1”、“最大值:  10”和“默认值:  1”。
 
     ![配置自动缩放](media/azure-stack-solution-hybrid-cloud/image18.png)
 
-4. 选择“+添加规则”。
+4. 选择“+添加规则”  。
 
-5. 在“指标源”中，选择“当前资源”。 对规则使用以下条件和操作。
+5. 在“指标源”中，选择“当前资源”。   对规则使用以下条件和操作。
 
 **条件**
 
-1. 在“时间聚合”下面，选择“平均”。
+1. 在“时间聚合”下面，选择“平均”。  
 
-2. 在“指标名称”下面，选择“CPU 百分比”。
+2. 在“指标名称”下面，选择“CPU 百分比”。  
 
-3. 在“运算符”下面，选择“大于”。
+3. 在“运算符”下面，选择“大于”。  
 
-   - 将“阈值”设置为 **50**。
-   - 将“持续时间”设置为 **10**。
+   - 将“阈值”设置为 **50**。 
+   - 将“持续时间”设置为 **10**。 
 
 **Action**
 
-1. 在“操作”下面，选择“计数增量”。
+1. 在“操作”下面，选择“计数增量”。  
 
-2. 将“实例计数”设置为 **2**。
+2. 将“实例计数”设置为 **2**。 
 
-3. 将“冷却时间”设置为 **5**。
+3. 将“冷却时间”设置为 **5**。 
 
 4. 选择 **添加** 。
 
-5. 选择“+添加规则”。
+5. 选择“+添加规则”  。
 
-6. 在“指标源”中，选择“当前资源”。
+6. 在“指标源”中，选择“当前资源”。  
 
    > [!Note]  
-   > 当前资源将包含应用服务计划的名称/GUID，“资源类型”和“资源”下拉列表将会灰显。
+   > 当前资源将包含应用服务计划的名称/GUID，“资源类型”和“资源”下拉列表将会灰显。  
 
 ### <a name="enable-automatic-scale-in"></a>启用自动横向缩减
 
 当流量减少时，Azure Web 应用程序可以自动减少活动实例的数目，以降低成本。 此操作的力度不如横向扩展，旨在尽量降低对应用程序用户造成的影响。
 
-1. 导航到“默认”横向扩展条件，选择“+ 添加规则”。 对规则使用以下条件和操作。
+1. 导航到“默认”横向扩展条件，选择“+ 添加规则”。   对规则使用以下条件和操作。
 
 **条件**
 
-1. 在“时间聚合”下面，选择“平均”。
+1. 在“时间聚合”下面，选择“平均”。  
 
-2. 在“指标名称”下面，选择“CPU 百分比”。
+2. 在“指标名称”下面，选择“CPU 百分比”。  
 
-3. 在“运算符”下面，选择“小于”。
+3. 在“运算符”下面，选择“小于”。  
 
-   - 将“阈值”设置为 **30**。
-   - 将“持续时间”设置为 **10**。
+   - 将“阈值”设置为 **30**。 
+   - 将“持续时间”设置为 **10**。 
 
 **Action**
 
-1. 在“操作”下面，选择“计数减量”。
+1. 在“操作”下面，选择“计数减量”。  
 
-   - 将“实例计数”设置为 **1**。
-   - 将“冷却时间”设置为 **5**。
+   - 将“实例计数”设置为 **1**。 
+   - 将“冷却时间”设置为 **5**。 
 
 2. 选择 **添加** 。
 
@@ -377,17 +377,17 @@ Web 应用程序的每个实例将使用另一种方法来连接到 SQL 数据�
 
 ### <a name="create-traffic-manager-profile"></a>创建流量管理器配置文件
 
-1. 选择“创建资源”
-2. 选择“网络”
-3. 选择“流量管理器配置文件”并进行以下配置：
+1. 选择“创建资源” 
+2. 选择“网络” 
+3. 选择“流量管理器配置文件”并进行以下配置： 
 
-   - 在“名称”中，输入配置文件的名称。 此名称**必须**trafficmanager.net 区域中是唯一的用于创建新的 DNS 名称 (例如，northwindstore.trafficmanager.net)。
-   - 对于“路由方法”，请选择“加权”。
-   - 对于“订阅”，请选择要在其中创建此配置文件的订阅。
-   - 在“资源组”中，为此配置文件创建新的资源组。
+   - 在“名称”中，输入配置文件的名称。  此名称**必须**trafficmanager.net 区域中是唯一的用于创建新的 DNS 名称 (例如，northwindstore.trafficmanager.net)。
+   - 对于“路由方法”，请选择“加权”。  
+   - 对于“订阅”，请选择要在其中创建此配置文件的订阅。 
+   - 在“资源组”中，为此配置文件创建新的资源组。 
    - 在**资源组位置**中，选择资源组的位置。 此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。
 
-4. 选择“创建”。
+4. 选择“创建”  。
 
     ![创建流量管理器配置文件](media/azure-stack-solution-hybrid-cloud/image19.png)
 
@@ -397,37 +397,37 @@ Web 应用程序的每个实例将使用另一种方法来连接到 SQL 数据�
 
 1. 搜索创建的流量管理器配置文件。 （如果已导航到配置文件的资源组，请选择该配置文件。）
 
-2. 在“流量管理器配置文件”中的“设置”下面，选择“终结点”。
+2. 在“流量管理器配置文件”中的“设置”下面，选择“终结点”    。
 
 3. 选择 **添加** 。
 
-4. 在“添加终结点”中，对 Azure Stack 使用以下设置：
+4. 在“添加终结点”中，对 Azure Stack 使用以下设置： 
 
-   - 对于“类型”，请选择“外部终结点”。
+   - 对于“类型”，请选择“外部终结点”。  
    - 输入此终结点的**名称**。
-   - 对于“完全限定的域名(FQDN)或 IP”，请输入 Azure Stack Web 应用的外部 URL。
-   - 对于“权重”，请保留默认值 **1**。 如果此终结点处于正常状态，此权重会使所有流量转到此终结点。
-   - 将“添加为已禁用”保持未选中状态。
+   - 对于“完全限定的域名(FQDN)或 IP”，请输入 Azure Stack Web 应用的外部 URL。 
+   - 对于“权重”，请保留默认值 **1**。  如果此终结点处于正常状态，此权重会使所有流量转到此终结点。
+   - 将“添加为已禁用”保持未选中状态。 
 
-5. 选择“确定”保存 Azure Stack 终结点。
+5. 选择“确定”保存 Azure Stack 终结点。 
 
 接下来将配置 Azure 终结点。
 
-1. 在“流量管理器配置文件”中选择“终结点”。
-2. 选择“+添加”。
-3. 在“添加终结点”中，对 Azure 使用以下设置：
+1. 在“流量管理器配置文件”中选择“终结点”。  
+2. 选择“+添加”  。
+3. 在“添加终结点”中，对 Azure 使用以下设置： 
 
-   - 对于“类型”，请选择“Azure 终结点”。
+   - 对于“类型”，请选择“Azure 终结点”。  
    - 输入此终结点的**名称**。
-   - 对于“目标资源类型”，请选择“应用服务”。
-   - 对于“目标资源”，请选择“选择应用服务”以查看同一订阅中的 Web 应用列表。
-   - 在“资源”中，选取要添加为第一个终结点的应用服务。
-   - 对于“权重”，请选择 **2**。 如果主要终结点不正常，或者触发的某个规则/警报会重定向流量，则此权重会使所有流量转到此终结点。
-   - 将“添加为已禁用”保持未选中状态。
+   - 对于“目标资源类型”，请选择“应用服务”。  
+   - 对于“目标资源”，请选择“选择应用服务”以查看同一订阅中的 Web 应用列表。  
+   - 在“资源”  中，选取要添加为第一个终结点的应用服务。
+   - 对于“权重”，请选择 **2**。  如果主要终结点不正常，或者触发的某个规则/警报会重定向流量，则此权重会使所有流量转到此终结点。
+   - 将“添加为已禁用”保持未选中状态。 
 
-4. 选择“确定”保存 Azure 终结点。
+4. 选择“确定”保存 Azure 终结点。 
 
-配置这两个终结点之后，选择“终结点”时，它们会列在“流量管理器配置文件”中。 以下屏幕截图中的示例显示了两个终结点及其状态和配置信息。
+配置这两个终结点之后，选择“终结点”时，它们会列在“流量管理器配置文件”中。   以下屏幕截图中的示例显示了两个终结点及其状态和配置信息。
 
 ![终结点](media/azure-stack-solution-hybrid-cloud/image20.png)
 
@@ -447,8 +447,8 @@ Azure Application Insights 可以监视你的应用程序以及发送警报根�
 
 ### <a name="create-the-scale-out-alert"></a>创建横向扩展警报
 
-1. 下**配置**，选择**警报 （经典）**。
-2. 选择“添加指标警报(经典)”。
+1. 下**配置**，选择**警报 （经典）** 。
+2. 选择“添加指标警报(经典)”  。
 3. 在中**添加规则**，配置以下各项：
 
    - 有关**名称**，输入**迸发到 Azure 云**。
@@ -462,14 +462,14 @@ Azure Application Insights 可以监视你的应用程序以及发送警报根�
 7. 有关**期**，选择**过去 5 分钟内**。
 8. 下**通过通知**:
    - 选中的复选框**电子邮件所有者、 参与者和读者**。
-   - 输入的电子邮件地址**其他管理员 email(s)**。
+   - 输入的电子邮件地址**其他管理员 email(s)** 。
 
 9. 在菜单栏上，选择**保存**。
 
 ### <a name="create-the-scale-in-alert"></a>在警报中创建规模
 
-1. 下**配置**，选择**警报 （经典）**。
-2. 选择“添加指标警报(经典)”。
+1. 下**配置**，选择**警报 （经典）** 。
+2. 选择“添加指标警报(经典)”  。
 3. 在中**添加规则**，配置以下各项：
 
    - 有关**名称**，输入**恢复到 Azure Stack 缩放**。
@@ -483,13 +483,13 @@ Azure Application Insights 可以监视你的应用程序以及发送警报根�
 7. 有关**期**，选择**过去 5 分钟内**。
 8. 下**通过通知**:
    - 选中的复选框**电子邮件所有者、 参与者和读者**。
-   - 输入的电子邮件地址**其他管理员 email(s)**。
+   - 输入的电子邮件地址**其他管理员 email(s)** 。
 
 9. 在菜单栏上，选择**保存**。
 
 以下屏幕截图显示了向外扩展和缩小的警报。
 
-   ![警报（经典）](media/azure-stack-solution-hybrid-cloud/image22.png)
+   ![警报(经典)](media/azure-stack-solution-hybrid-cloud/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack"></a>在 Azure 与 Azure Stack 之间重定向流量
 
@@ -503,14 +503,14 @@ Azure Application Insights 可以监视你的应用程序以及发送警报根�
 
     ![流量管理器终结点](media/azure-stack-solution-hybrid-cloud/image20.png)
 
-2. 选择“终结点”。
-3. 选择“Azure 终结点”。
-4. 在“状态”下面，依次选择“已启用”、“保存”。
+2. 选择“终结点”。 
+3. 选择“Azure 终结点”。 
+4. 在“状态”下面，依次选择“已启用”、“保存”。   
 
     ![启用 Azure 终结点](media/azure-stack-solution-hybrid-cloud/image23.png)
 
-5. 在流量管理器配置文件的“终结点”中，选择“外部终结点”。
-6. 在“状态”下面，依次选择“已禁用”、“保存”。
+5. 在流量管理器配置文件的“终结点”中，选择“外部终结点”。  
+6. 在“状态”下面，依次选择“已禁用”、“保存”。   
 
     ![禁用 Azure Stack 终结点](media/azure-stack-solution-hybrid-cloud/image24.png)
 

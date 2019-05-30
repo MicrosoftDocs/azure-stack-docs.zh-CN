@@ -3,7 +3,7 @@ title: Microsoft Azure Stack 故障排除 |Microsoft Docs
 description: Azure Stack 故障排除。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 653113e11a91fda0d3447e5627f6755e116ffbb1
-ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
+ms.openlocfilehash: 9b78a7ee9af9dde3cbb40b52268cb4cbfc0a6dcc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66186519"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268240"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 故障排除
 
@@ -63,10 +63,10 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 
 另外还可能发现，在重新启动 Azure Stack 开发工具包主机之后，租户 VM 不会自动启动。 这是一个已知问题，只需执行几个手动步骤就能让它们联机：
 
-1.  在 Azure Stack 开发工具包主机上，从“开始”菜单启动“故障转移群集管理器”。
-2.  选择群集“S-Cluster.azurestack.local”。
-3.  选择“角色”。
-4.  租户 VM 显示为“已保存”状态。 所有基础结构 VM 运行后，右键单击租户 VM，并选择“启动”以恢复该 VM。
+1.  在 Azure Stack 开发工具包主机上，从“开始”菜单启动“故障转移群集管理器”。 
+2.  选择群集“S-Cluster.azurestack.local”。 
+3.  选择“角色”  。
+4.  租户 VM 显示为“已保存”状态。  所有基础结构 VM 运行后，右键单击租户 VM，并选择“启动”以恢复该 VM。 
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>我已删除某些虚拟机，但仍在磁盘上看到 VHD 文件。 这是预期行为吗？
 是的，这是预期的行为。 设计此行为的原因如下：

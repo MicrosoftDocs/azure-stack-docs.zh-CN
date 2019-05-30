@@ -2,7 +2,7 @@
 title: 使用 Azure Stack 验证工具 | Microsoft Docs
 description: 如何收集日志文件以在 Azure Stack 中进行诊断。
 services: azure-stack
-author: mattbriggs
+author: justinha
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 04/20/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 90a3b35675a8197694d04395f51ef85f7a8fee14
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 3ec925406ad3553c0beb073d39d84ae20f5bc472
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617948"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268645"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 
@@ -48,7 +48,7 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 
    有关详细信息，请参阅[参数注意事项](azure-stack-diagnostic-test.md#parameter-considerations)和[用例](azure-stack-diagnostic-test.md#use-case-examples)部分。
 
-3. 如果有任何测试报告了“失败”，请运行：
+3. 如果有任何测试报告了“失败”  ，请运行：
 
    ```powershell
    Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
@@ -115,7 +115,7 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 
 - **List** 参数可用于显示所有可用的测试类别。
 
-- **Include** 和 **Ignore** 参数可用于包含或排除测试类别。 请参阅以下部分的信息与这些自变量一起使用的详细信息。
+- **Include** 和 **Ignore** 参数可用于包含或排除测试类别。 请参阅以下部分，详细了解要与这些参数配合使用的信息。
 
   ```powershell
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
@@ -131,8 +131,8 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 
 - 如[用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，在测试基础结构备份设置时，需使用 **BackupSharePath** 和 **BackupShareCredential**。
 
-- **DetailedResults**可用于获取每个测试，以及整体运行的通过/失败/警告信息。 未指定时， **Test-azurestack**返回 **$true**是否存在任何故障，并 **$false**如果发生故障。
-- **TimeoutSeconds**可用于设置特定的时间才能完成每个组。
+- **DetailedResults** 可用于获取每个测试以及整个运行的通过/失败/警告信息。 如果未指定此参数，未发生失败时，**Test-AzureStack** 将返回 **$true**，否则返回 **$false**。
+- **TimeoutSeconds** 可用于设置每个组完成的特定时间。
 
 - 验证工具还支持常用的 PowerShell 参数：Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer、PipelineVariable 和 OutVariable。 有关详细信息，请参阅[有关通用参数](https://go.microsoft.com/fwlink/?LinkID=113216)。  
 
@@ -167,10 +167,10 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 ### <a name="groups"></a>组
 
-以改善运算符体验**组**启用参数同时运行多个测试类别。 目前，有 3 个组定义：**默认值**， **UpdateReadiness**并**SecretRotationReadiness**。
+为了改善操作员体验，已启用 **Group** 参数以同时运行多个测试类别。 目前定义了 3 个组：**Default**、**UpdateReadiness** 和 **SecretRotationReadiness**。
 
-- **默认**：标准运行被视为**Test-azurestack**。 如果未不选择任何其他组，此组是默认情况下运行。
-- **UpdateReadiness**:检查以查看是否可以更新标记。 当**UpdateReadiness**运行组时，警告显示为控制台输出中的错误，并且应视为阻塞程序的更新。 以下类别属于**UpdateReadiness**组：
+- **默认**：被视为 **Test-AzureStack** 的标准运行。 如果未选择其他组，则默认会运行此组。
+- **UpdateReadiness**：检查是否可以更新戳记。 当 **UpdateReadiness** 组已运行时，警告将作为错误显示在控制台输出中，应将其视为更新的阻碍。 以下类别属于 **UpdateReadiness** 组：
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -181,7 +181,7 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
   - **AzsSFRoleSummary**
   - **AzsStoreSummary**
 
-- **SecretRotationReadiness**:检查以查看是否在戳中的机密轮换可以运行。 当**SecretRotationReadiness**运行组时，警告显示为控制台输出中的错误，并且应视为机密轮换的阻塞程序。 以下类别是 SecretRotationReadiness 组的一部分：
+- **SecretRotationReadiness**：检查戳记是否位于可以运行机密轮换的组中。 当 **SecretRotationReadiness** 组已运行时，警告将作为错误显示在控制台输出中，应将其视为机密轮换的阻碍。 以下类别属于 SecretRotationReadiness 组：
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -193,15 +193,15 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
   - **AzsStorageSvcsSummary**
   - **AzsStoreSummary**
 
-#### <a name="group-parameter-example"></a>组参数示例
+#### <a name="group-parameter-example"></a>Group 参数示例
 
-下面的示例运行**Test-azurestack**若要安装的更新或修补程序使用之前测试系统准备**组**。 在开始安装更新或修补程序之前，应运行**Test-azurestack**检查 Azure Stack 的状态：
+在使用 **Group** 安装更新或修补程序之前，以下示例会运行 **Test-AzureStack** 来测试系统就绪状态。 在开始安装更新或修补程序之前，应运行 **Test-AzureStack** 来检查 Azure Stack 的状态：
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-但是，如果在 Azure Stack 正在运行的版本低于 1811年，使用以下 PowerShell 命令来运行**Test-azurestack**:
+但是，如果 Azure Stack 运行的版本低于 1811，请使用以下 PowerShell 命令来运行 **Test-AzureStack**：
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -210,14 +210,14 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>运行验证工具以测试基础结构备份设置
 
-在配置基础结构备份之前，可以使用 **AzsBackupShareAccessibility** 测试来测试备份共享路径和凭据。 
+在配置基础结构备份之前，可以使用 **AzsBackupShareAccessibility** 测试来测试备份共享路径和凭据。  
 
   ```powershell
   New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
   ```
 
-配置备份之后，可以运行 **AzsBackupShareAccessibility** 来验证是否可以从 ERCS 访问共享：
+配置备份之后，可以运行 **AzsBackupShareAccessibility** 来验证是否可以从 ERCS 访问共享： 
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 

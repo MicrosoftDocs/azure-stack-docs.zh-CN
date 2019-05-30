@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/22/2019
-ms.openlocfilehash: bd7262e5c298715f846e1d8372d76b6f44f22972
-ms.sourcegitcommit: 715a2688a11fae2555dac8371631430f7ecb1c0f
-ms.translationtype: MT
+ms.lastreviewed: 05/28/2019
+ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66186525"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268337"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
 
@@ -60,6 +60,13 @@ ms.locfileid: "66186525"
 - 补救措施：使用[PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：通用
 
+
+### <a name="docker-extension"></a>Docker 扩展
+- 适用：此问题适用于所有支持的版本。
+- 原因：门户管理员和用户门户，如果搜索"Docker"返回的项是不正确。 不是 Azure Stack 中提供。 如果尝试创建它，则会显示一个边栏选项卡，其中包含表明存在错误的内容。
+- 补救措施：没有缓解措施。
+- 发生次数：通用
+
 ### <a name="marketplace-management"></a>市场管理
 
 - 适用：这是版本 1904年新问题。
@@ -81,6 +88,13 @@ ms.locfileid: "66186525"
 - 补救措施：选择具有下该发布者提供的所有 Marketplace 产品的正确列表的所有重复项。
 - 发生次数：间歇性
 
+### <a name="docker-extension"></a>Docker 扩展
+
+- 适用：此问题适用于所有支持的版本。
+- 原因：管理员和用户门户网站，如果搜索中**Docker**，错误地返回的项。 不是 Azure Stack 中提供。 如果您尝试创建它，将显示错误。
+- 补救措施：没有缓解措施。
+- 发生次数：通用
+
 ### <a name="upload-blob"></a>上传 blob
 
 - 适用：此问题适用于所有支持的版本。
@@ -95,14 +109,14 @@ ms.locfileid: "66186525"
 #### <a name="add-backend-pool"></a>添加后端池
 
 - 适用：此问题适用于所有支持的版本。
-- 原因：在用户门户中，如果尝试添加**后端池**到**负载均衡器**，则操作将失败并显示错误消息**未能更新负载均衡器...**.
+- 原因：在用户门户中，如果尝试添加**后端池**到**负载均衡器**，则操作将失败并显示错误消息**未能更新负载均衡器...** .
 - 补救措施：使用 PowerShell、 CLI 或 Azure 资源管理器模板与负载均衡器资源关联的后端池。
 - 发生次数：通用
 
 #### <a name="create-inbound-nat"></a>创建入站的 NAT
 
 - 适用：此问题适用于所有支持的版本。
-- 原因：在用户门户中，如果您尝试创建**入站 NAT 规则**有关**负载均衡器**，则操作将失败并显示错误消息**未能更新负载均衡器...**.
+- 原因：在用户门户中，如果您尝试创建**入站 NAT 规则**有关**负载均衡器**，则操作将失败并显示错误消息**未能更新负载均衡器...** .
 - 补救措施：使用 PowerShell、 CLI 或 Azure 资源管理器模板与负载均衡器资源关联的后端池。
 - 发生次数：通用
 
@@ -179,7 +193,7 @@ ms.locfileid: "66186525"
 
 - 补救措施：
   - 可以忽略此警报。 代理未响应并没有对运算符和用户操作或用户应用程序造成任何影响。 警报在 24 小时后将重新出现如果已手动关闭。
-  - Microsoft 支持部门可以通过更改服务的启动设置修正此问题。 这需要开一个支持票证。 如果再次重新启动节点，将显示新的警报。
+  - 在最新版本中已修复问题[1904年的 Azure Stack 修补程序](https://support.microsoft.com/help/4505688)。
 - 发生次数：通用
 
 ## <a name="storage"></a>存储
@@ -191,7 +205,7 @@ ms.locfileid: "66186525"
 ## <a name="app-service"></a>应用服务
 
 - 在订阅中创建第一个 Azure 函数之前，租户必须注册存储资源提供程序。
-- 某些租户门户的用户体验中 1903; 已断开由于与门户框架不兼容主要，UX 部署槽的测试生产站点和站点扩展中。 若要解决此问题，请使用[Azure 应用服务 PowerShell 模块](/azure/app-service/deploy-staging-slots#automate-with-powershell)或[Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest)。 门户体验会在即将发布的 Azure Stack 1.6 (更新 6) 上的 Azure 应用服务中还原。
+- 某些租户门户的用户体验中 1903; 已断开由于与门户框架不兼容主要，UX 部署槽的测试生产站点和站点扩展中。 若要解决此问题，请使用[Azure 应用服务 PowerShell 模块](/azure/app-service/deploy-staging-slots#automate-with-powershell)或[Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest)。 在即将发布的基于 Azure Stack 1.6 (Update 6) 的 Azure 应用服务中，将还原门户体验。
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

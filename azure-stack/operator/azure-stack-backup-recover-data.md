@@ -3,7 +3,7 @@ title: 使用基础结构备份服务在 Azure Stack 中发生灾难性数据丢
 description: 当灾难性故障导致 Azure Stack 失败后，在重新建立 Azure Stack 部署时可以还原基础结构数据。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: f459804d33871ec97bf50e55ed01685001dcbfc7
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: d7b38d2eb0e840a35729879211934e470bec6dfe
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617921"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268962"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 

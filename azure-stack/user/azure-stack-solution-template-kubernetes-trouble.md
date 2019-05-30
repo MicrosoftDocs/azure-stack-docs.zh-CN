@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 0e02489bc9750183754b27887fa701d1dd1a8567
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 33eed0b574ad28c5fc0d1fb44f1c9b5a1ad37bb7
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712433"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269395"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes 部署到 Azure Stack 故障排除
 
@@ -45,14 +45,14 @@ ms.locfileid: "65712433"
 1. 从市场项收集输入参数。
 
     输入设置 Kubernetes 群集所需的值，包括：
-    -  **用户名**：构成 Kubernetes 群集和 DVM 的 Linux 虚拟机的用户名。
+    -  **用户名**：用户属于的 Kubernetes 群集和 DVM Linux 虚拟机 (Vm) 的名称。
     -  **SSH 公钥**：用于向所有作为 Kubernetes 群集和 DVM 的一部分创建的 Linux 计算机授权的密钥。
     -  **服务主体**：供 Kubernetes Azure 云提供商使用的 ID。 创建服务主体时标识为应用程序 ID 的客户端 ID。 
     -  **客户端机密**：您创建密钥时创建服务主体。
 
 2. 创建部署 VM 和自定义脚本扩展。
     -  使用市场 Linux 映像 **Ubuntu Server 16.04 LTS** 创建部署 Linux VM。
-    -  下载并运行从 marketplace 的自定义脚本扩展。 该脚本是“用于 Linux 2.0 的自定义脚本”。
+    -  下载并运行从 marketplace 的自定义脚本扩展。 该脚本是“用于 Linux 2.0 的自定义脚本”  。
     -  运行 DVM 自定义脚本。 该脚本执行以下任务：
         1. 从 Azure 资源管理器元数据终结点获取库终结点。
         2. 从 Azure 资源管理器元数据终结点获取 Active Directory 资源 ID。
@@ -102,8 +102,8 @@ ms.locfileid: "65712433"
 部署 Kubernetes 群集时，可以查看部署状态以检查任何问题。
 
 1. 打开 [Azure Stack 门户](https://portal.local.azurestack.external)。
-2. 选择“资源组”，然后选择在部署 Kubernetes 群集时使用的资源组名称。
-3. 依次选择“部署”、“部署名称”。
+2. 选择“资源组”  ，然后选择在部署 Kubernetes 群集时使用的资源组名称。
+3. 依次选择“部署”  、“部署名称”  。
 
     ![对 Kubernetes 进行故障排除： 选择部署](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
@@ -111,7 +111,7 @@ ms.locfileid: "65712433"
     
     | 属性 | 描述 |
     | ----     | ----        |
-    | 资源 | 资源的名称。 |
+    | Resource | 资源的名称。 |
     | Type | 资源提供程序和资源的类型。 |
     | 状态 | 项状态。 |
     | 时间戳 | 时间的 UTC 时间戳。 |
@@ -121,7 +121,7 @@ ms.locfileid: "65712433"
 
 ## <a name="review-deployment-logs"></a>查看部署日志
 
-如果在 Azure Stack 门户未提供足够的信息，以便进行故障排除或克服部署失败下, 一步是深入到群集日志。 若要手动检索部署日志，通常需要连接到群集的主虚拟机之一。 更简单的另一种方法是下载并运行以下[Bash 脚本](https://aka.ms/AzsK8sLogCollectorScript)Azure Stack 团队提供的。 此脚本连接到此 DVM 和群集的虚拟机、 收集相关的系统和群集日志，并将它们下载到工作站。
+如果在 Azure Stack 门户未提供足够的信息，以便进行故障排除或克服部署失败下, 一步是深入到群集日志。 若要手动检索部署日志，通常需要连接到群集的主 Vm 之一。 更简单的另一种方法是下载并运行以下[Bash 脚本](https://aka.ms/AzsK8sLogCollectorScript)Azure Stack 团队提供的。 此脚本连接到此 DVM 和群集的虚拟机、 收集相关的系统和群集日志，并将它们下载到工作站。
 
 ### <a name="prerequisites"></a>必备组件
 
@@ -146,10 +146,10 @@ ms.locfileid: "65712433"
 
     | 参数           | 描述                                                                                                      | 示例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host      | 公共 IP 或此 DVM 的完全限定的域名 (FQDN)。 虚拟机名称开头`vmd-`。 | IP:192.168.102.38<br>DNS: vmd myk8s.local.cloudapp.azurestack.external |
+    | -d, --vmd-host      | 公共 IP 或此 DVM 的完全限定的域名 (FQDN)。 该 VM 名称以 `vmd-` 开头。 | IP：192.168.102.38<br>DNS: vmd myk8s.local.cloudapp.azurestack.external |
     | -h、--help  | 打印命令的用法。 | |
     | -i、--identity-file | 创建 Kubernetes 群集时，RSA 私钥文件传递到 marketplace 项。 需要远程连接到 Kubernetes 节点中。 | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -m, --master-host   | 公共 IP 或 Kubernetes 主节点的完全限定的域名 (FQDN)。 虚拟机名称开头`k8s-master-`。 | IP:192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -m, --master-host   | 公共 IP 或 Kubernetes 主节点的完全限定的域名 (FQDN)。 该 VM 名称以 `k8s-master-` 开头。 | IP：192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u、--user          | 创建 Kubernetes 群集时，用户名将传递给 marketplace 项。 需要远程连接到 Kubernetes 节点中。 | azureuser （默认值） |
 
 
@@ -159,7 +159,7 @@ ms.locfileid: "65712433"
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. 在几分钟后，该脚本将输出到一个名为目录收集的日志`KubernetesLogs_{{time-stamp}}`。 那里您会发现每个虚拟机属于群集的一个目录。
+4. 在几分钟后，该脚本将输出到一个名为目录收集的日志`KubernetesLogs_{{time-stamp}}`。 那里您会发现每个 VM 属于群集的一个目录。
 
     日志收集器脚本还将在日志文件中查找错误并包括故障排除步骤，如果它找到一个已知的问题。 请确保正在运行的脚本，以提高查找已知的问题的可能性的最新版本。
 

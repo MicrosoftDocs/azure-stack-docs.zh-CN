@@ -3,7 +3,7 @@ title: 从管理门户为 Azure Stack 启用备份 | Microsoft Docs
 description: 通过管理门户启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: adda9ec9052c11e412c7bd251482e1e3a5c09223
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: eefd393fa12814260711590f028c9a787811d8af
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618181"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269033"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>从管理门户为 Azure Stack 启用备份
 通过管理门户启用基础结构备份服务，以便 Azure Stack 可以生成基础结构备份。 出现[灾难性故障](./azure-stack-backup-recover-data.md)时，硬件合作伙伴可以通过云恢复使用这些备份还原环境。 云恢复的目的是为了确保操作员和用户在恢复完成后可以重新登录回门户。 用户将恢复其订阅，包括基于角色的访问权限和角色、原始计划、套餐以及先前定义的计算、存储、网络配额和 Key Vault 机密。
@@ -38,7 +38,7 @@ ms.locfileid: "65618181"
 ## <a name="enable-or-reconfigure-backup"></a>启用或重新配置备份
 
 1. 打开 [Azure Stack 管理门户](azure-stack-manage-portals.md)。
-2. 选择“所有服务”，然后在“管理”类别下选择“基础结构备份”。 在“基础结构备份”边栏选项卡中选择“配置”。
+2. 选择“所有服务”  ，然后在“管理”  类别下选择“基础结构备份”  。 在“基础结构备份”  边栏选项卡中选择“配置”  。
 3. 键入**备份存储位置**的路径。 使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 对于服务，可以使用 IP 地址。 若要确保备份数据在发生灾难后的可用性，设备应放置在单独的位置。
 
     > [!Note]  
@@ -47,8 +47,8 @@ ms.locfileid: "65618181"
 4. 使用具有足够访问权限的域和用户名输入**用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser`。
 5. 键入用户的**密码**。
 6. 再次键入密码以**确认密码**。
-7. “频率(小时)”决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。 
-8. “保留期(天)”决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。
+7. “频率(小时)”  决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。 
+8. “保留期(天)”  决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。
 
     > [!Note]  
     > 如果希望对超过保留期的备份进行存档，请确保在计划程序删除备份之前对这些文件进行备份。 如果减小备份保留期（例如从 7 天到 5 天），则计划程序将删除超过新的保留期的所有备份。 在更新此值之前，请确保删除备份没有问题。 
@@ -72,38 +72,38 @@ ms.locfileid: "65618181"
    > 
    > **1811 或更早版本**：Azure Stack 接受使用对称密钥来加密基础结构备份数据。 使用 [New-AzsEncryptionKey64 cmdlet 来创建密钥](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)。 从 1811 升级到 1901 以后，备份设置会保留加密密钥。 建议更新备份设置，以便使用证书。 加密密钥支持现在已弃用。 将至少有 3 个版本需要更新设置才能使用证书。 
 
-10. 选择“确定”以保存备份控制器设置。
+10. 选择“确定”  以保存备份控制器设置。
 
 ![Azure Stack - 备份控制器设置](media/azure-stack-backup/backup-controller-settings-certificate.png)
 
 
 ## <a name="start-backup"></a>启动备份
-若要启动备份，请单击“立即备份”以启动按需备份。 按需备份不会修改已计划的下次备份的时间。 任务完成后，可以在“概要”中确认设置：
+若要启动备份，请单击“立即备份”  以启动按需备份。 按需备份不会修改已计划的下次备份的时间。 任务完成后，可以在“概要”  中确认设置：
 
 ![Azure Stack - 按需备份](media/azure-stack-backup/scheduled-backup.png)
 
 还可以在 Azure Stack 管理计算机上运行 PowerShell cmdlet **Start-AzsBackup**。 有关详细信息，请参阅[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md)。
 
 ## <a name="enable-or-disable-automatic-backups"></a>启用或禁用自动备份
-在启用备份时会自动计划备份。 可以在“概要”中检查下一次计划备份时间。 
+在启用备份时会自动计划备份。 可以在“概要”中检查下一次计划备份时间。  
 
 ![Azure Stack - 按需备份](media/azure-stack-backup/on-demand-backup.png)
 
-如果需要禁用将来的已计划备份，请单击“禁用自动备份”。 禁用自动备份将保留所配置的备份设置，并将保留备份计划。 此操作只是告知计划程序跳过将来的备份。 
+如果需要禁用将来的已计划备份，请单击“禁用自动备份”  。 禁用自动备份将保留所配置的备份设置，并将保留备份计划。 此操作只是告知计划程序跳过将来的备份。 
 
 ![Azure Stack - 禁用计划的备份](media/azure-stack-backup/disable-auto-backup.png)
 
-在“概要”中确认已禁用了将来的已计划备份：
+在“概要”  中确认已禁用了将来的已计划备份：
 
 ![Azure Stack - 确认备份已禁用](media/azure-stack-backup/confirm-disable.png)
 
-单击“启用自动备份”以告知计划程序在计划的时间启动将来的备份。 
+单击“启用自动备份”  以告知计划程序在计划的时间启动将来的备份。 
 
 ![Azure Stack - 启用计划的备份](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  
-> 如果在更新到 1807 之前配置了基础结构备份，则将禁用自动备份。 这样，由 Azure Stack 启动的备份不会与由外部任务计划引擎启动的备份冲突。 在禁用任何外部任务计划程序后，请单击“启用自动备份”。
+> 如果在更新到 1807 之前配置了基础结构备份，则将禁用自动备份。 这样，由 Azure Stack 启动的备份不会与由外部任务计划引擎启动的备份冲突。 在禁用任何外部任务计划程序后，请单击“启用自动备份”  。
 
 ## <a name="update-backup-settings"></a>更新备份设置
 从 1901 版本开始，将弃用对加密密钥的支持。 在 1901 版本中首次配置备份时，必须使用证书。 仅当密钥是在更新到 1901 版本之前配置的时，Azure Stack 才支持加密密钥。 后向兼容性模式仍适用于三个版本。 三个版本发布之后，将不再支持加密密钥。 

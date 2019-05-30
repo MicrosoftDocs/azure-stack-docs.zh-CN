@@ -3,7 +3,7 @@ title: 使用 CLI 连接到 Azure Stack | Microsoft Docs
 description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack 上的资源
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 69eb6e676fb8c134e0184d4df7df95ba0c75e854
-ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
+ms.openlocfilehash: 996dacc1c95a172ffa09247c56a12a5afd00e086
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473874"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269530"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 配合使用
 
@@ -43,12 +43,21 @@ ms.locfileid: "65473874"
 
 导出 PEM 格式的 ASDK 根证书：
 
-1. [在 Azure Stack 上创建 Windows VM](azure-stack-quick-windows-portal.md)。
+1. 获取在 Azure Stack 根证书名称：
+    - 登录到 Azure Stack 租户或管理员门户。
+    - 单击"安全"附近的地址栏。
+    - 在弹出窗口中，单击"有效"。
+    - 在证书窗口中，单击"证书路径"选项卡。 
+    - 请记下你的 Azure Stack 根证书的名称。
 
-2. 登录到计算机，打开权限提升的 PowerShell 提示符，然后运行以下脚本：
+    ![Azure Stack 根证书](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
+
+2. [在 Azure Stack 上创建 Windows VM](azure-stack-quick-windows-portal.md)。
+
+3. 登录到计算机，打开权限提升的 PowerShell 提示符，然后运行以下脚本：
 
     ```powershell  
-      $label = "AzureStackSelfSignedRootCert"
+      $label = "<the name of your azure stack root cert from Step 1>"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
       if (-not $root)
@@ -64,7 +73,7 @@ ms.locfileid: "65473874"
     certutil -encode root.cer root.pem
     ```
 
-3. 将证书复制到本地计算机。
+4. 将证书复制到本地计算机。
 
 
 ### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>设置虚拟机别名终结点
@@ -104,9 +113,9 @@ ms.locfileid: "65473874"
 
 如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 不需要对集成系统进行此操作。
 
-若要信任 Azure Stack CA 根证书，请将其追加到现有的 Python 证书与 Azure CLI 一起安装的 Python 版本。 您可能运行你自己的 Python 的实例。 Azure CLI 包括其自己的 Python 的版本。
+若要信任 Azure Stack CA 根证书，请将其追加到现有的 Python 证书存储用于使用 Azure CLI 安装的 Python 版本。 您可能运行你自己的 Python 的实例。 Azure CLI 包括其自己的 Python 的版本。
 
-1. 在计算机上找到证书位置。  您可以通过运行命令找到的位置`az --version`。
+1. 查找你的计算机上的证书存储位置。  您可以通过运行命令找到的位置`az --version`。
 
 2. 导航到包含你的文件夹是 CLI Python 应用程序。 想要运行此版本的 python。 如果已在系统路径中设置 Python，运行 Python 将执行自己的 Python 版本。 相反，想要运行使用 CLI 的版本并将证书添加到该版本。 例如，CLI Python 可能有： `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`。
 
@@ -188,11 +197,11 @@ ms.locfileid: "65473874"
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
+    >如果正在运行的 Azure Stack 1808 生成前的版本，则必须使用 API 版本配置文件**2017年-03-09-profile**而不是 API 版本配置文件**2019年-03-01-混合**。 需要使用最新版本的 Azure CLI。
  
 1. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
-   - 以用户身份登录： 
+   - 以用户  身份登录： 
 
      可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
 
@@ -203,7 +212,7 @@ ms.locfileid: "65473874"
      > [!NOTE]
      > 如果用户帐户已启用多重身份验证，则可以使用不带 `-u` 参数的 `az login` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
 
-   - 以服务主体身份登录： 
+   - 以服务主体  身份登录： 
     
      在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
 
@@ -304,26 +313,26 @@ az group create -n MyResourceGroup -l local
 1. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
 
     ```azurecli
-    az cloud update --profile 2018-03-01-hybrid
+    az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
+    >如果正在运行的 Azure Stack 1808 生成前的版本，则必须使用 API 版本配置文件**2017年-03-09-profile**而不是 API 版本配置文件**2019年-03-01-混合**。 需要使用最新版本的 Azure CLI。
 
 1. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
-   - 以用户身份登录：
+   - 以用户  身份登录：
 
      可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
 
      ```azurecli
-     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
      > 如果用户帐户已启用多重身份验证，则可以使用不带 `-u` 参数的 `az login` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
 
-   - 以服务主体身份登录： 
+   - 以服务主体  身份登录： 
     
      准备要用于服务主体登录的 .pem 文件。
 
@@ -420,15 +429,15 @@ az group create -n MyResourceGroup -l local
 4. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
+    >如果正在运行的 Azure Stack 1808 生成前的版本，则必须使用 API 版本配置文件**2017年-03-09-profile**而不是 API 版本配置文件**2019年-03-01-混合**。 需要使用最新版本的 Azure CLI。
 
 5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
-   * 以用户身份登录：
+   * 以用户  身份登录：
 
      可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
 
@@ -441,7 +450,7 @@ az group create -n MyResourceGroup -l local
      > [!NOTE]
      > 如果用户帐户已启用多重身份验证，则可以使用不带 `-u` 参数的 `az login` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
    
-   * 以服务主体身份登录
+   * 以服务主体身份登录 
     
      在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
 
@@ -531,11 +540,11 @@ az group create -n MyResourceGroup -l local
 4. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
+    >如果正在运行的 Azure Stack 1808 生成前的版本，则必须使用 API 版本配置文件**2017年-03-09-profile**而不是 API 版本配置文件**2019年-03-01-混合**。 需要使用最新版本的 Azure CLI。
 
 5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 

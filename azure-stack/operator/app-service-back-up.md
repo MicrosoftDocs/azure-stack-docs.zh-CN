@@ -3,7 +3,7 @@ title: 备份 Azure Stack 上的应用服务 | Microsoft Docs
 description: 有关 Azure Stack 应用服务备份的详细指导。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
-ms.author: mabrigg
-ms.reviewer: apwestgarth
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: dff128ad86de23aae0bf8fe4848d256510a80d85
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 8e8e866efe8de4d4c5d116339edbe81082c6545e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618334"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269275"
 ---
 # <a name="back-up-app-service-on-azure-stack"></a>备份 Azure Stack 上的应用服务
 
@@ -45,13 +45,13 @@ ms.locfileid: "65618334"
 
 1. 以服务管理员身份登录到 Azure Stack 管理门户。
 
-2. 浏览到“应用服务” -> “机密”。 
+2. 浏览到“应用服务” -> “机密”。   
 
-3. 选择“下载机密”。
+3. 选择“下载机密”。 
 
    ![下载机密](./media/app-service-back-up/download-secrets.png)
 
-4. 准备好下载机密时，单击“保存”，并将应用服务机密 (**SystemSecrets.JSON**) 文件存储到安全位置。 
+4. 准备好下载机密时，单击“保存”，并将应用服务机密 (**SystemSecrets.JSON**) 文件存储到安全位置。  
 
    ![保存机密](./media/app-service-back-up/save-secrets.png)
 

@@ -3,7 +3,7 @@ title: 在 Azure Stack 中将 API 版本配置文件与 GO 配合使用 | Micros
 description: 了解如何在 Azure Stack 中将 API 版本配置文件与 GO 配合使用。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 33fc05de4bf0107c8090badb77872082790aa087
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
+ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782561"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66373018"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Go 配合使用
 
@@ -32,10 +32,10 @@ ms.locfileid: "65782561"
 - 通过锁定到特定的 API 版本提供应用程序稳定性。
 - 提供应用程序与 Azure Stack 和区域性 Azure 数据中心的兼容性。
 
-在 Go SDK 中，配置文件在 profiles 路径下提供，其版本采用 **YYYY-MM-DD** 格式。 目前，最新的 Azure Stack API 配置文件版本为 **2017-03-09**。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要从 **2017-03-09** 配置文件导入**计算**服务，请使用以下代码：
+在 Go SDK 中，配置文件在 profiles 路径下提供，其版本采用 **YYYY-MM-DD** 格式。 现在，最新的 Azure Stack API 配置文件版本是**2019年-03-01**。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要导入**计算**服务从**2019年-03-01**配置文件，请使用以下代码：
 
 ```go
-import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
+import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 ```
 
 ## <a name="install-azure-sdk-for-go"></a>安装 Azure SDK for Go
@@ -86,13 +86,13 @@ Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源�
 
 3. 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关创建订阅的信息，请参阅[在 Azure Stack 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 
-4. 创建具有“订阅”范围和“所有者”角色的服务主体。 保存服务主体的 ID 和机密。 有关为 Azure Stack 创建服务主体的信息，请参阅[创建服务主体](azure-stack-create-service-principals.md)。 现已设置 Azure Stack 环境。
+4. 创建具有“订阅”范围和“所有者”角色的服务主体。   保存服务主体的 ID 和机密。 有关为 Azure Stack 创建服务主体的信息，请参阅[创建服务主体](azure-stack-create-service-principals.md)。 现已设置 Azure Stack 环境。
 
-5. 在代码中从 Go SDK 配置文件导入服务模块。 最新版本的 Azure Stack 配置文件为 **2017-03-09**。 例如，若要从 **2017-03-09** 配置文件类型导入网络模块，请使用以下代码：
+5. 在代码中从 Go SDK 配置文件导入服务模块。 Azure Stack 配置文件的当前版本是**2019年-03-01**。 例如，若要导入网络模块从**2019年-03-01**配置文件类型，请使用以下代码：
 
    ```go
    package main
-    import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+    import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    ```
 
 6. 在函数中，使用 **New** 客户端函数调用创建客户端并对其进行身份验证。 若要创建虚拟网络客户端，可使用以下代码：  
@@ -100,7 +100,7 @@ Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源�
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
 
    func main() {
       vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
@@ -116,7 +116,7 @@ Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源�
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    func main() {
    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
    vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
@@ -183,7 +183,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 本示例演示用于在 Azure Stack 中创建虚拟网络的 Go 代码示例。 有关 Go SDK 的完整示例，请参阅 [Azure Go SDK 示例存储库](https://github.com/Azure-Samples/azure-sdk-for-go-samples)。 可从该存储库的服务文件夹中的 hybrid 路径下获取 Azure Stack 示例。
 
 > [!NOTE]  
-> 若要运行此示例中的代码，请验证使用的订阅是否具有列为“已注册”的“网络”资源提供程序。 若要验证，请在 Azure Stack 门户中找到该订阅，然后选择“资源提供程序”。
+> 若要运行此示例中的代码，请验证使用的订阅是否具有列为“已注册”的“网络”资源提供程序。   若要验证，请在 Azure Stack 门户中找到该订阅，然后选择“资源提供程序”。 
 
 1. 在代码中导入所需的包。 使用 Azure Stack 上最新的可用配置文件来导入网络模块。
 
@@ -193,7 +193,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    import (
        "context"
        "fmt"
-       "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+       "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
        "github.com/Azure/go-autorest/autorest"
        "github.com/Azure/go-autorest/autorest/adal"
        "github.com/Azure/go-autorest/autorest/to"
@@ -239,7 +239,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    import (
       "context"
       "fmt"
-      "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+      "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
       "github.com/Azure/go-autorest/autorest"
       "github.com/Azure/go-autorest/autorest/adal"
       "github.com/Azure/go-autorest/autorest/to"
@@ -292,14 +292,17 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
                   },
               },
           })
-      err := future.WaitForCompletion(context.Background(), vnetClient.Client)
+      err := future.WaitForCompletionRef(context.Background(), vnetClient.Client)
       if err != nil {
           fmt.Printf(err.Error())
           return
       }
    }
    ```
-
+下面是一些可用于 Azure Stack 使用 Go SDK 的代码示例：
+- [创建虚拟机](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)。
+- [存储数据平面](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)。
+- [使用托管磁盘](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks)、 （示例使用 2019年-03-01 配置文件的目标的最新的 API 版本支持的 Azure Stack）
 ## <a name="next-steps"></a>后续步骤
 
 - [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)

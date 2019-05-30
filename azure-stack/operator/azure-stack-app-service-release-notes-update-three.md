@@ -3,8 +3,8 @@ title: 基于 Azure Stack 的应用服务 Update 3 发行说明 | Microsoft Docs
 description: 了解基于 Azure Stack 的应用服务 Update 3 的功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: bryanla
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/25/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.reviewer: sethm
+ms.date: 03/25/2019
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 5ea711d3d4ffff72279e745290c1c8d9d854298e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 4397fbbc570972fb7a041f583d81115e28fe70ce
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64291063"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269104"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>基于 Azure Stack 的应用服务 Update 3 发行说明
 
@@ -57,12 +56,12 @@ ms.locfileid: "64291063"
 
 - 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 
-- 更新**Azure Functions 运行时**到**v1.0.11820**。
+- 将 **Azure Functions 运行时**更新到 **v1.0.11820**。
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
 - **针对以下应用程序框架和工具的更新**：
-  - 添加了的 ASP.NET Core 2.1.2
+  - 添加了 ASP.NET Core 2.1.2
   - 添加了 NodeJS 10.0.0
   - 添加了 Zulu OpenJDK 8.30.0.1
   - 添加了 Tomcat 8.5.31 和 9.0.8
@@ -188,7 +187,7 @@ ms.locfileid: "64291063"
 - 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。  在 Azure Stack 部署文档的 Azure 应用服务中也提到了这一点。
 
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
- * 源：任意
+ * 源:任意
  * 源端口范围：*
  * 目标：IP 地址
  * 目标 IP 地址范围：文件服务器的 IP 范围

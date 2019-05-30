@@ -3,7 +3,7 @@ title: Azure Stack 遥测 | Microsoft Docs
 description: 介绍如何使用 PowerShell 配置 Azure Stack 遥测设置。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 78ca05eb15570022e6eb25a7023d91c5ff8b817f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 24948fb53ed4c5bdbbe0490f581daff7c66c33bc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617346"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267431"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -81,9 +81,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 遥测级别可累积，分类为四个级别 (0-3)：
 
-**0（安全）**。 仅限安全数据。 安全帮助保护操作系统所需的信息，包括有关互连用户体验与遥测组件设置和 Windows Defender 的数据。 在此级别不会发出任何 Azure Stack 特定的遥测数据。
+**0（安全）** 。 仅限安全数据。 安全帮助保护操作系统所需的信息，包括有关互连用户体验与遥测组件设置和 Windows Defender 的数据。 在此级别不会发出任何 Azure Stack 特定的遥测数据。
 
-**1（基本）**。 安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自安全级别的数据。 将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
+**1（基本）** 。 安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自安全级别的数据。 将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
 
 - **基本设备信息**，帮助了解生态系统中本机和虚拟化 Windows Server 2016 实例的类型与配置，其中包括：
   - 计算机属性，例如 OEM、型号。
@@ -94,9 +94,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 - **质量相关的信息**，帮助 Microsoft 初步了解 Azure Stack 的运行情况。 示例是针对特定硬件配置发出的严重警报计数。
 - **兼容性数据**，帮助了解系统和虚拟机上已安装哪些资源提供程序，以及识别潜在的兼容性问题。
 
-**2（增强）**。 其他见解，包括：操作系统和其他 Azure Stack 服务的用法、工作原理、高级可靠性数据，以及来自“基本”和“安全”级别的数据。
+**2（增强）** 。 其他见解，包括：操作系统和其他 Azure Stack 服务的用法、工作原理、高级可靠性数据，以及来自“基本”和“安全”级别的数据。
 
-**3（完整）**。 识别及帮助解决问题所需的全部数据，加上来自“安全”、“基本”和“增强”级别的数据。
+**3（完整）** 。 识别及帮助解决问题所需的全部数据，加上来自“安全”、“基本”和“增强”级别的数据。   
 
 > [!NOTE]
 > 默认遥测级别值为 2（增强）。

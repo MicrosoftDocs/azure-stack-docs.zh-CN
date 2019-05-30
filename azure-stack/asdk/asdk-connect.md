@@ -3,7 +3,7 @@ title: 连接到 Azure Stack | Microsoft Docs
 description: 了解如何连接到 ASDK。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 39814c48af0a362bd62f7d7276a32d886628317b
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 9a16201db137e7f34b42a0b12bbe802d3b10bdff
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617584"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267221"
 ---
 # <a name="connect-to-the-asdk"></a>连接到 ASDK
 
@@ -40,7 +40,7 @@ ms.locfileid: "65617584"
 
 1. 打开远程桌面连接 (mstc.exe)，然后使用有权远程登录到 ASDK 主机的帐户连接到开发工具包主机 IP 地址。 默认情况下，**AzureStack\AzureStackAdmin** 有权远程登录到 ASDK 主机。  
 
-2. 在开发工具包主机上，打开服务器管理器 (ServerManager.exe)。 选择“本地服务器”，禁用“IE 增强的安全配置”，然后关闭服务器管理器。
+2. 在开发工具包主机上，打开服务器管理器 (ServerManager.exe)。 选择“本地服务器”，禁用“IE 增强的安全配置”，然后关闭服务器管理器。  
 
 3. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 操作员凭据登录到管理门户。 ASDK 管理门户地址为 [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)。
 
@@ -57,7 +57,7 @@ ms.locfileid: "65617584"
 Azure AD 部署和 Active Directory 联合身份验证服务 (AD FS) 部署都支持 VPN 连接。
 
 > [!NOTE]
-> 使用 VPN 无法连接到 Azure Stack VM。 通过 VPN 建立连接时，无法使用 RDP 连接到 Azure Stack VM。
+> 使用 VPN 无法连接到 Azure Stack VM。  通过 VPN 建立连接时，无法使用 RDP 连接到 Azure Stack VM。
 
 ### <a name="prerequisites"></a>必备组件
 在设置 ASDK 的 VPN 连接之前，请确保符合以下先决条件。
@@ -118,7 +118,7 @@ Add-AzsVpnConnection `
 
   * 在本地计算机上，选择**网络设置** > **VPN** > **Azure Stack** > **连接**. 在登录提示符下，输入用户名 (**AzureStack\AzureStackAdmin**) 和密码。
 
-第一次连接时，将会提示您安装的 Azure Stack 根证书**AzureStackCertificateAuthority**本地计算机的证书存储区中。 此步骤将 ASDK 证书颁发机构 (CA) 添加到受信任的主机列表。 单击“是”以安装证书。
+第一次连接时，将会提示您安装的 Azure Stack 根证书**AzureStackCertificateAuthority**本地计算机的证书存储区中。 此步骤将 ASDK 证书颁发机构 (CA) 添加到受信任的主机列表。 单击“是”以安装证书。 
 
 ![根证书](media/asdk-connect/cert.png)  
   

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中支持的虚拟机大小 | Microsoft Docs
-description: 适用于 Azure Stack 中支持的虚拟机大小的引用。
+title: Azure Stack 中支持的 VM 大小 |Microsoft Docs
+description: Azure Stack 中支持的 VM 大小参考。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,29 +14,29 @@ ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ab8c6c32a21afffd590a6f98359e051c7208b6ec
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: a7ec54d88a259b883f72c2396ab572118ba96a23
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712275"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269444"
 ---
-# <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的虚拟机大小
+# <a name="vm-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的 VM 大小
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本文列出了可在 Azure Stack 中的虚拟机大小。
+本文列出了 Azure Stack 中可用的虚拟机 (VM) 大小。
 
-磁盘 IOPS （输入/输出操作每秒） 在 Azure Stack 是一个函数而不是磁盘类型的虚拟机 (VM) 大小。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。 施加的 IOPS 限制是一种上限（最大可能值），目的是防止邻域干扰。 它不是你会在特定 VM 大小上获得的 IOPS 的保证。
+Azure Stack 上的磁盘 IOPS（每秒输入/输出操作次数）是与 VM 大小相关的函数，与磁盘类型无关。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。 施加的 IOPS 限制是一种上限（最大可能值），目的是防止邻域干扰。 它不会在特定 VM 大小的 IOPS 保证。
 
-## <a name="virtual-machine-general-purpose"></a>虚拟机常规用途
+## <a name="vm-general-purpose"></a>常规用途 VM
 
-常规用途 VM 大小提供均衡的 CPU 与内存之比。 它们用于测试和开发小到中型数据库和低到中等流量 Web 服务器。 对于高级 VM 大小，每个数据磁盘是 2300 IOPS，基本 A 系列除外。 对于基本 A 系列，数据磁盘大小为 500 IOPS。
+常规用途 VM 大小提供均衡的 CPU 与内存之比。 它们的用途测试和开发、 小到中型数据库和低到中等流量 web 服务器。 对于高级 VM 大小，每个数据磁盘是 2300 IOPS，基本 A 系列除外。 对于基本 A 系列，数据磁盘大小为 500 IOPS。
 
 ### <a name="basic-a"></a>基本 A
 
 > [!NOTE]
-> 通过门户[创建虚拟机规模集](../operator/azure-stack-compute-add-scalesets.md) (VMSS) 时，不再使用“基本 A”虚拟机大小。 若要按照此大小来创建 VMSS，请使用 PowerShell 或模板。
+> *基本 A* VM 大小的已停用[创建虚拟机规模集](../operator/azure-stack-compute-add-scalesets.md)(VMSS) 通过门户。 若要按照此大小来创建 VMSS，请使用 PowerShell 或模板。
 
 |大小 - 大小\名称 |vCPU     |内存 | 最大临时磁盘大小 | 最大 OS 磁盘吞吐量：(IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘吞吐量 (IOPS) | 最大 NIC 数 |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
@@ -185,4 +185,4 @@ ms.locfileid: "65712275"
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)
+[Azure Stack VM 功能](azure-stack-vm-considerations.md)

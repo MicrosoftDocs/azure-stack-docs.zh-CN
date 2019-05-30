@@ -3,7 +3,7 @@ title: 准备 Azure Stack 开发工具包 (ASDK) 主机 | Microsoft Docs
 description: 介绍如何准备用于 ASDK 安装的 Azure Stack 开发工具包 (ASDK) 主机。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: b15a5b7e77f0b8fc4361af669cc9099753ad201d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 3352df80a64bb259320a49729e42c02cb19fca58
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617457"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267609"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>准备 ASDK 主机
 在主计算机上安装 ASDK 之前，必须先准备好用于安装的 ASDK 主机。 准备好开发工具包主机之后，该主机会从 CloudBuilder.vhdx 虚拟机硬盘启动，以开始进行 ASDK 部署。
@@ -47,29 +47,29 @@ ms.locfileid: "65617457"
    Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
    ```
 
-4. 从提升了权限的 PowerShell 控制台启动 **C:\AzureStack_Installer\asdk-installer.ps1** 脚本，然后单击“准备环境”。
+4. 从提升了权限的 PowerShell 控制台启动 **C:\AzureStack_Installer\asdk-installer.ps1** 脚本，然后单击“准备环境”。 
 
     ![](media/asdk-prepare-host/1.PNG) 
 
-5. 在安装程序的“选择 Cloudbuilder vhdx”页上浏览到 **cloudbuilder.vhdx** 文件并将其选中，该文件是在[前述步骤](asdk-download.md)中下载并提取的。 如果需要向开发工具包主机添加其他驱动程序，则也可选择在此页上启用“添加驱动程序”复选框。 单击“下一步”。  
+5. 在安装程序的“选择 Cloudbuilder vhdx”页上浏览到 **cloudbuilder.vhdx** 文件并将其选中，该文件是在[前述步骤](asdk-download.md)中下载并提取的。  如果需要向开发工具包主机添加其他驱动程序，则也可选择在此页上启用“添加驱动程序”复选框。  单击“下一步”。   
 
     ![](media/asdk-prepare-host/2.PNG)
 
-6. 在“可选设置”页上，提供开发工具包主机 的本地管理员帐户信息，然后单击“下一步”。<br><br>如果在此步骤中未提供本地管理员凭据，则在设置开发工具包过程中重启计算机后，需要直接访问或通过 KVM 访问主机。
+6. 在“可选设置”页上，提供开发工具包主机 的本地管理员帐户信息，然后单击“下一步”。  <br><br>如果在此步骤中未提供本地管理员凭据，则在设置开发工具包过程中重启计算机后，需要直接访问或通过 KVM 访问主机。
 
    ![](media/asdk-prepare-host/3.PNG)
 
     还可以提供以下可选设置的值：
     - **计算机名**：此选项设置开发工具包主机的名称。 名称必须符合 FQDN 要求，且长度不得超过 15 个字符。 默认值是由 Windows 生成的随机计算机名称。
     - **静态 IP 配置**：将部署设置为使用静态 IP 地址。 否则，当安装程序重启到 cloudbuilder.vhdx 中时，会使用 DHCP 来配置网络接口。 如果选择使用静态 IP 配置，还会显示其他选项，你还必须：
-      - 选择网络适配器。 确保可以连接到该适配器，然后单击“下一步”。
-      - 确保显示的 **IP 地址**、**网关**和 **DNS** 值是正确的，然后单击“下一步”。
-13. 单击“下一步”，启动准备过程。
-14. 但准备过程指示“已完成”时，单击“下一步”。
+      - 选择网络适配器。 确保可以连接到该适配器，然后单击“下一步”  。
+      - 确保显示的 **IP 地址**、**网关**和 **DNS** 值是正确的，然后单击“下一步”  。
+13. 单击“下一步”  ，启动准备过程。
+14. 但准备过程指示“已完成”时，  单击“下一步”  。
 
     ![](media/asdk-prepare-host/4.PNG)
 
-15. 单击“立即重新启动”，将开发工具包主机启动到 cloudbuilder.vhdx 中，然后[继续部署过程](asdk-install.md)。
+15. 单击“立即重新启动”，  将开发工具包主机启动到 cloudbuilder.vhdx 中，然后[继续部署过程](asdk-install.md)。
 
     ![](media/asdk-prepare-host/5.PNG)
 

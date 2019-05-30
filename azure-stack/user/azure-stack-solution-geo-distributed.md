@@ -3,7 +3,7 @@ title: 使用 Azure 和 Azure Stack 创建异地分布式应用解决方案 | Mi
 description: 了解如何使用 Azure 和 Azure Stack 创建异地分布式应用解决方案。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 81dfc9c7571bc191582425962d1e7b37c2ed05cd
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: eee89c90113187b51418801a46720f49e07fa533
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64304923"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252121"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 创建异地分布式应用解决方案
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
 
 了解如何根据各种指标，使用异地分布式应用模式将流量定向到特定的终结点。 使用基于地理位置的路由和终结点配置创建流量管理器配置文件可确保根据区域要求、企业与国际法规和数据需求将信息路由到终结点。
 
@@ -123,7 +123,7 @@ ms.locfileid: "64304923"
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>在这两个云中创建 Web 应用部署
 
-1.  编辑 **WebApplication.csproj** 文件：选择“Runtimeidentifier”并添加 **win10-x64**。 （请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。）
+1.  编辑 **WebApplication.csproj** 文件：选择“Runtimeidentifier”并添加 **win10-x64**。  （请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。）
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -154,11 +154,11 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image5.png)
 
-1. 在 Visual Studio Online (VSO) 的“生成和发布”页的“发布”选项卡下，选择**加号**按钮以添加新的发布。
+1. 在 Visual Studio Online (VSO) 的“生成和发布”页的“发布”选项卡下，选择**加号**按钮以添加新的发布。 
 
    ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
 
-2. 应用“Azure 应用服务部署”模板。
+2. 应用“Azure 应用服务部署”模板。 
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image7.png)
 
@@ -166,7 +166,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image8.png)
 
-4. 在“管道”选项卡下选择环境的“阶段和任务”链接，并设置 Azure 云环境值。
+4. 在“管道”选项卡下选择环境的“阶段和任务”链接，并设置 Azure 云环境值。 
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image9.png)
 
@@ -204,7 +204,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image18.png)
 
-13. 在“任务”选项卡下找到 Azure Stack 环境。
+13. 在“任务”选项卡下找到 Azure Stack 环境。 
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image19.png)
 
@@ -216,7 +216,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image21.png)
 
-16. 选择“Azure Stack 代理”。
+16. 选择“Azure Stack 代理”。 
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image22.png)
 
@@ -226,15 +226,15 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image24.png)
 
-18. 在“变量”选项卡下添加名为 `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` 的变量，将其值设置为 `true`，将范围设置为 `Azure Stack`。
+18. 在“变量”选项卡下添加名为 `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` 的变量，将其值设置为 `true`，将范围设置为 `Azure Stack`。 
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image25.png)
 
-19. 选择两个项目中的“持续”部署触发器图标，并启用“持续”部署触发器。
+19. 选择两个项目中的“持续”部署触发器图标，并启用“持续”部署触发器。  
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image26.png)
 
-20. 选择 Azure Stack 环境中的“部署前”条件图标，并将触发器设置为“发布后”。
+20. 选择 Azure Stack 环境中的“部署前”条件图标，并将触发器设置为“发布后”。  
 
 21. 保存所有更改。
 
@@ -248,10 +248,10 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 ![Alt text](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
-> - 将现有的自定义 DNS 名称映射到 Azure Web 应用
+> - 将现有自定义 DNS 名称映射到 Azure Web 应用
 > - 使用 **CNAME 记录或 **A 记录**将自定义 DNS 名称映射到应用服务。
 
-### <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>将现有的自定义 DNS 名称映射到 Azure Web 应用
+### <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>将现有自定义 DNS 名称映射到 Azure Web 应用
 
 > [!Note]  
 >  对除根域（例如 northwind.com）以外的所有自定义 DNS 名称使用 CNAME。
@@ -278,7 +278,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 > [!Note]  
 >  可使用购买的域名[Azure 门户](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)。  
-> 若要映射自定义 DNS 名称到 Web 应用，Web 应用的[应用服务计划](https://azure.microsoft.com/pricing/details/app-service/)必须位于付费层（“共享”、“基本”、“标准”或“高级”）。
+> 若要映射自定义 DNS 名称到 Web 应用，Web 应用的[应用服务计划](https://azure.microsoft.com/pricing/details/app-service/)必须位于付费层（“共享”、“基本”、“标准”或“高级”）。    
 
 
 
@@ -291,15 +291,15 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 1.  登录到域提供商的网站。
 
-2.  查找管理 DNS 记录的页面。 每个域提供商都有其自己的 DNS 记录界面。 查找站点中标记为“域名”、“DNS”或“名称服务器管理”的区域。
+2.  查找管理 DNS 记录的页面。 每个域提供商都有其自己的 DNS 记录界面。 查找站点中标记为“域名”、“DNS”或“名称服务器管理”的区域。   
 
-可以在“我的域”中查看 DNS 记录页。 找到命名为“区域文件”、“DNS 记录”或“高级配置”的链接。
+可以在“我的域”中查看 DNS 记录页。  找到命名为“区域文件”、“DNS 记录”或“高级配置”的链接。   
 
 以下屏幕截图是 DNS 记录页的一个示例：
 
 ![示例 DNS 记录页](media/azure-stack-solution-geo-distributed/image28.png)
 
-1. 在“域名注册机构”中，选择“添加或创建”以创建记录。 某些提供商提供了不同的链接来添加不同的记录类型。 查阅提供商的文档。
+1. 在“域名注册机构”中，选择“添加或创建”以创建记录。  某些提供商提供了不同的链接来添加不同的记录类型。 查阅提供商的文档。
 
 2. 添加一条 CNAME 记录来将子域映射到应用的默认主机名。
 
@@ -317,37 +317,37 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 3. 选择 Web 应用。
 
-4. 在 Azure 门户中的应用页左侧导航窗格中，选择“自定义域”。
+4. 在 Azure 门户中的应用页左侧导航窗格中，选择“自定义域”  。
 
-5. 选择“添加主机名”旁边的 **+** 图标。
+5. 选择“添加主机名”  旁边的 **+** 图标。
 
 1. 键入完全限定的域名，例如 `www.northwindcloud.com`。
 
-2. 选择“验证”。
+2. 选择“验证”  。
 
 3. 如有出现提示，请将其他类型的记录（`A` 或 `TXT`）添加到域名注册机构 DNS 记录。 Azure 将提供这些记录的值和类型：
 
-   a.  要映射到应用 IP 地址的 A 记录。
+   a.  要映射到应用 IP 地址的 A  记录。
 
    b.  一个**TXT**记录映射到应用的默认主机名 < a p p _ >。 azurewebsites.net。 应用服务仅在配置时使用此记录来验证自定义域所有权。 验证后，删除 TXT 记录。
 
-4. 在域注册机构选项卡中完成此任务并重新验证，直到“添加主机名”按钮激活为止。
+4. 在域注册机构选项卡中完成此任务并重新验证，直到“添加主机名”按钮激活为止。 
 
-5. 确保“**主机名记录类型”设置为“CNAME (www.example.com 或任何子域)”。
+5. 确保“**主机名记录类型”设置为“CNAME (www.example.com 或任何子域)”。 
 
-6. 选择“添加主机名”。
+6. 选择“添加主机名”  。
 
 7. 键入完全限定的域名，例如 `northwindcloud.com`。
 
-8. 选择“验证”。
+8. 选择“验证”  。
 
-9. “添加”按钮将会激活。
+9. “添加”按钮将会激活。 
 
-10. 确保“**主机名记录类型”设置为“A 记录(example.com)”。
+10. 确保“**主机名记录类型”设置为“A 记录(example.com)”。 
 
 11. **添加主机名**。
 
-    新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
+    新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。  请尝试刷新浏览器来更新数据。
   
     ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
   
@@ -397,33 +397,33 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 #### <a name="prepare-the-web-app"></a>准备 Web 应用
 
-若要将自定义 SSL 证书绑定到 Web 应用，[应用服务计划](https://azure.microsoft.com/pricing/details/app-service/)必须位于“基本”、“标准”或“高级”层。
+若要将自定义 SSL 证书绑定到 Web 应用，[应用服务计划](https://azure.microsoft.com/pricing/details/app-service/)必须位于“基本”、“标准”或“高级”层。   
 
 #### <a name="sign-in-to-azure"></a>登录 Azure
 
 1.  打开 [Azure 门户](https://portal.azure.com/)并导航到 Web 应用。
 
-2.  在左侧菜单中选择“应用服务”，然后选择 Web 应用名称。
+2.  在左侧菜单中选择“应用服务”，然后选择 Web 应用名称。 
 
 ![选择 Web 应用](media/azure-stack-solution-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>检查定价层
 
-1.  在 Web 应用页面的左侧导航窗格中，向下滚动到“设置”部分，然后选择“纵向扩展(应用服务计划)”。
+1.  在 Web 应用页面的左侧导航窗格中，向下滚动到“设置”部分，然后选择“纵向扩展(应用服务计划)”。  
 
     ![扩展菜单](media/azure-stack-solution-geo-distributed/image34.png)
 
-1.  确保 Web 应用不在“免费”或“共享”层中。 深蓝色的框突出显示了 Web 应用的当前层。
+1.  确保 Web 应用不在“免费”或“共享”层中。   深蓝色的框突出显示了 Web 应用的当前层。
 
     ![检查定价层](media/azure-stack-solution-geo-distributed/image35.png)
 
-“免费”或“共享”层不支持自定义 SSL。 若要纵向扩展，请遵循下一部分中的步骤，或者关闭“选择定价层”页面并跳到[上传和绑定 SSL 证书](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)。
+“免费”  或“共享”  层不支持自定义 SSL。 若要纵向扩展，请遵循下一部分中的步骤，或者关闭“选择定价层”页面并跳到[上传和绑定 SSL 证书](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)。 
 
 #### <a name="scale-up-your-app-service-plan"></a>纵向扩展应用服务计划
 
-1.  选择“基本”、“标准”或“高级”层。
+1.  选择“基本”、“标准”或“高级”层。   
 
-2.  选择“选择”。
+2.  选择“选择”  。
 
 ![选择定价层](media/azure-stack-solution-geo-distributed/image36.png)
 
@@ -437,7 +437,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 1. 在文本编辑器中**打开收到的每个证书**。
 
-2. 创建名为 mergedcertificate.crt 的合并证书文件。 在文本编辑器中，将每个证书的内容复制到此文件。 证书的顺序应遵循证书链中的顺序，以你的证书开头，以根证书结尾， 如以下示例所示：
+2. 创建名为 mergedcertificate.crt  的合并证书文件。 在文本编辑器中，将每个证书的内容复制到此文件。 证书的顺序应遵循证书链中的顺序，以你的证书开头，以根证书结尾， 如以下示例所示：
 
     ```Text
 
@@ -470,7 +470,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 使用证书生成的私钥导出已合并的 SSL 证书。
 
-私钥文件是通过 OpenSSL 创建的。 若要将证书导出为 PFX，请运行以下命令，替换占位符*\<私有密钥文件 >* 并*\<合并证书文件 >* 专用密钥路径和合并的证书文件。
+私钥文件是通过 OpenSSL 创建的。 若要将证书导出为 PFX，请运行以下命令（将占位符 *\<private-key-file>* 和 *\<merged-certificate-file>* 分别替换为私钥路径与合并的证书文件）。
 
 ```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
@@ -482,42 +482,42 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 #### <a name="upload-the-ssl-certificate"></a>上传 SSL 证书
 
-1. 在 Web 应用的左侧导航窗格中选择“SSL 设置”。
+1. 在 Web 应用的左侧导航窗格中选择“SSL 设置”。 
 
-2. 选择“上传证书”。
+2. 选择“上传证书”。 
 
-3. 在“PFX 证书文件”中选择 PFX 文件。
+3. 在“PFX 证书文件”中选择 PFX 文件。 
 
-4. 1. 在“证书密码”中，键入导出 PFX 文件时创建的密码。
+4. 1. 在“证书密码”中，键入导出 PFX 文件时创建的密码。 
 
-5. 选择 **“上传”**。
+5. 选择 **“上传”** 。
 
 ![上传证书](media/azure-stack-solution-geo-distributed/image38.png)
 
-应用服务上传完证书后，该证书会显示在“SSL 设置”页面中。
+应用服务上传完证书后，该证书会显示在“SSL 设置”页面中。 
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>绑定 SSL 证书
 
-1.  在“SSL 绑定”部分选择“添加绑定”。
+1.  在“SSL 绑定”部分选择“添加绑定”。  
 
     > [!Note]  
-    >  如果证书已上传，但未显示在“主机名”下拉列表中的域名内，请尝试刷新浏览器页面。
+    >  如果证书已上传，但未显示在“主机名”下拉列表中的域名内，请尝试刷新浏览器页面。 
 
-1.  在“添加 SSL 绑定”页面中，使用下拉列表选择要保护的域名，然后选择要使用的证书。
+1.  在“添加 SSL 绑定”页面中，使用下拉列表选择要保护的域名，然后选择要使用的证书。 
 
-2.  在“SSL 类型”中，选择是要使用[**服务器名称指示 (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) 还是使用基于 IP 的 SSL。
+2.  在“SSL 类型”中，选择是要使用[**服务器名称指示 (SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication) 还是使用基于 IP 的 SSL。 
 
 -   **基于 SNI 的 SSL** - 可添加多个基于 SNI 的 SSL 绑定。 选择此选项可以使用多个 SSL 证书来保护同一 IP 地址上的多个域。 大多数新式浏览器（包括 Internet Explorer、Chrome、Firefox 和 Opera）都支持 SNI（在[服务器名称指示](https://wikipedia.org/wiki/Server_Name_Indication)中了解更全面的浏览器支持信息）。
 
 -   **基于 IP 的 SSL** - 只能添加一个基于 IP 的 SSL 绑定。 选择此选项只能使用一个 SSL 证书来保护专用公共 IP 地址。 若要保护多个域，请使用同一个 SSL 证书来保护所有这些域。 这是 SSL 绑定的传统选项。
 
-    1.  选择“添加绑定”。
+    1.  选择“添加绑定”。 
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image40.png)
 
-应用服务上传完证书后，该证书将显示在“SSL 绑定”部分。
+应用服务上传完证书后，该证书将显示在“SSL 绑定”部分。 
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image41.png)
 
@@ -529,7 +529,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 将 A 记录映射到 Web 应用后，必须使用该专用 IP 地址更新域注册表。
 
-“自定义域”页面将会更新，显示新的专用 IP 地址。 复制[此 IP 地址](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)，然后将 [A 记录](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)重新映射到此新 IP 地址。
+“自定义域”页面将会更新，显示新的专用 IP 地址。  复制[此 IP 地址](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)，然后将 [A 记录](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)重新映射到此新 IP 地址。
 
 #### <a name="test-https"></a>测试 HTTPS
 
@@ -540,15 +540,15 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 > [!Note]  
 > 如果发生证书验证错误，原因可能是自签名证书所致，或者在导出到 PFX 文件时遗漏了中间证书。
 
-#### <a name="enforce-https"></a>实施 HTTPS
+#### <a name="enforce-https"></a>强制使用 HTTPS
 
 默认情况下，任何人可以使用 HTTP 访问 Web 应用。 可将所有 HTTP 请求重定向到 HTTPS 端口。
 
-在 Web 应用页面中，选择“SL 设置”。 然后，在“仅 HTTPS”中，选择“启用”。
+在 Web 应用页面中，选择“SL 设置”。  然后，在“仅 HTTPS”  中，选择“启用”  。
 
-![实施 HTTPS](media/azure-stack-solution-geo-distributed/image43.png)
+![强制使用 HTTPS](media/azure-stack-solution-geo-distributed/image43.png)
 
-该操作完成后，将导航到指向应用的任一 HTTP URL。 例如：
+该操作完成后，将导航到指向应用的任一 HTTP URL。 例如:
 
 -   https://<app_name>.azurewebsites.net
 -   https://northwindcloud.com
@@ -558,29 +558,29 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 应用默认允许 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0，但行业标准（例如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)）不再将此协议视为安全。 若要强制实施更高的 TLS 版本，请按照下列步骤操作：
 
-1.  在 Web 应用页面的左侧导航窗格中，选择“SSL 设置”。
+1.  在 Web 应用页面的左侧导航窗格中，选择“SSL 设置”  。
 
-2.  在“TLS 版本”中，选择最低的 TLS 版本。
+2.  在“TLS 版本”中，选择最低的 TLS 版本。 
 
 ![强制实施 TLS 1.1 或 1.2](media/azure-stack-solution-geo-distributed/image44.png)
 
 ### <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 
-1.  选择“创建资源” > “网络” > “流量管理器配置文件” > “创建”。
+1.  选择“创建资源” > “网络” > “流量管理器配置文件” > “创建”     。
 
-2.  在“创建流量管理器配置文件”中，按如下所示完成操作：
+2.  在“创建流量管理器配置文件”  中，按如下所示完成操作：
 
-    1.  在“名称”中提供配置文件的名称。 此名称必须在 trafficmanager.net 区域中唯一，并将生成用于访问流量管理器配置文件的 DNS 名称 trafficmanager.net。
+    1.  在“名称”中提供配置文件的名称。  此名称必须在 trafficmanager.net 区域中唯一，并将生成用于访问流量管理器配置文件的 DNS 名称 trafficmanager.net。
 
-    2.  在“路由方法”中，选择“地理路由方法”。
+    2.  在“路由方法”中，选择“地理路由方法”。  
 
-    3.  在“订阅”中，选择要在其中创建此配置文件的订阅。
+    3.  在“订阅”中，选择要在其中创建此配置文件的订阅。 
 
     4.  在**资源组**中，创建新的资源组，以在其下放置此配置文件。
 
     5.  在**资源组位置**中，选择资源组的位置。 此设置指的是资源组的位置，对将全局部署的流量管理器配置文件没有影响。
 
-    6.  选择“创建”。
+    6.  选择“创建”  。
 
     7.  流量管理器配置文件的全局部署完成后，它会在相应的资源组中作为资源之一列出。
 
@@ -590,13 +590,13 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 1. 在门户的搜索栏中，搜索在前面部分创建的**流量管理器配置文件**名称，并在显示的结果中选择该流量管理器配置文件。
 
-2. 在“流量管理器配置文件”的“设置”部分，选择“终结点”。
+2. 在“流量管理器配置文件”  的“设置”  部分，选择“终结点”  。
 
 3. 选择 **添加** 。
 
 4. 添加 Azure Stack 终结点。
 
-5. 对于“类型”，请选择“外部终结点”。
+5. 对于“类型”，请选择“外部终结点”。  
 
 6. 提供此终结点的**名称**，最好是 Azure Stack 的名称。
 
@@ -606,32 +606,32 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 9. 在国家/地区下拉列表显示，下选择将应用到此终结点，例如，国家/地区**德国**。
 
-10. 使“添加为已禁用”保持未选中状态。
+10. 使“添加为已禁用”  保持未选中状态。
 
-11. 选择“确定”。
+11. 选择“确定”  。
 
 12. 添加 Azure 终结点：
 
-    1.  对于“类型”，请选择“Azure 终结点”。
+    1.  对于“类型”，请选择“Azure 终结点”。  
 
     2.  提供此终结点的**名称**。
 
-    3.  对于“目标资源类型”，请选择“应用服务”。
+    3.  对于“目标资源类型”，请选择“应用服务”。  
 
-    4.  对于“目标资源”，请选择“选择应用服务”以显示同一订阅下的 Web 应用列表。 在“资源”中，选取要用作第一个终结点的应用服务。
+    4.  对于“目标资源”，请选择“选择应用服务”以显示同一订阅下的 Web 应用列表。   在“资源”中，选取要用作第一个终结点的应用服务。 
 
 13. 在异地映射下选择资源所在的位置，例如，一个区域/大陆  **/中美 America/加勒比海地区。**
 
 14. 在国家/地区下拉列表显示，将其留空以选择所有上述区域分组。
 
-15. 使“添加为已禁用”保持未选中状态。
+15. 使“添加为已禁用”  保持未选中状态。
 
-16. 选择“确定”
+16. 选择“确定” 
 
     > [!Note]  
     >  创建至少一个地理范围为“全部(全球)”的终结点，作为资源的默认终结点。
 
-1. 添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”中，并且其监视状态为“联机”。
+1. 添加完这两个终结点后，这两个终结点会显示在“流量管理器配置文件”  中，并且其监视状态为“联机”  。
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
 

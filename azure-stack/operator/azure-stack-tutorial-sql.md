@@ -3,7 +3,7 @@ title: 提供在 Azure Stack 中高度可用的 SQL 数据库 |Microsoft Docs
 description: 了解如何使用 Azure Stack 主机计算机和高可用性 SQL AlwaysOn 数据库创建 SQL Server 资源提供程序。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: cf957fd69cf581d1ca63d1331f8ea407b24394ad
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: e21819fc6475161e63fcdb99a723847c5d7fbbad
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617730"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268396"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>教程：提供高度可用的 SQL 数据库
 
@@ -67,7 +67,7 @@ Azure Stack 操作员，可以配置承载 SQL Server 数据库服务器 Vm。 S
 1. 
    [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. 选择“\+ 创建资源” > “自定义”，然后选择“模板部署”。
+2. 选择“\+ 创建资源” > “自定义”，然后选择“模板部署”。    
 
    ![自定义模板部署](media/azure-stack-tutorial-sqlrp/1.png)
 
@@ -83,7 +83,7 @@ Azure Stack 操作员，可以配置承载 SQL Server 数据库服务器 Vm。 S
     
    [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "编辑自定义部署参数")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
-5. 上**自定义部署**边栏选项卡，选择要使用和创建新的资源组的订阅，或选择现有资源组的自定义部署。<br><br> 接下来，选择资源组的位置（对于 ASDK 安装，请选择“本地”），然后单击“创建”。 将验证自定义部署设置，然后将启动部署。
+5. 上**自定义部署**边栏选项卡，选择要使用和创建新的资源组的订阅，或选择现有资源组的自定义部署。<br><br> 接下来，选择资源组的位置（对于 ASDK 安装，请选择“本地”），然后单击“创建”。   将验证自定义部署设置，然后将启动部署。
 
     [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "创建自定义部署")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
@@ -137,7 +137,7 @@ Azure Stack 操作员，可以配置承载 SQL Server 数据库服务器 Vm。 S
 ## <a name="create-an-azure-stack-sql-hosting-server"></a>创建 Azure Stack SQL 宿主服务器
 已创建，并正确配置 SQL Server AlwayOn 可用性组后，Azure Stack 操作员必须创建 Azure Stack SQL 宿主服务器以使更多的容量可供用户创建数据库。 
 
-确保 SQL 负载均衡器的公共 IP 之前记录创建 SQL AlwaysOn 可用性组的资源组时使用的公共 ip 地址或完整的 FQDN (**SQLPIPsql\<资源组名称\>**). 此外，您需要知道 SQL Server 身份验证凭据用于访问 AlwaysOn 可用性组中的 SQL 实例。
+确保 SQL 负载均衡器的公共 IP 之前记录创建 SQL AlwaysOn 可用性组的资源组时使用的公共 ip 地址或完整的 FQDN (**SQLPIPsql\<资源组名称\>** ). 此外，您需要知道 SQL Server 身份验证凭据用于访问 AlwaysOn 可用性组中的 SQL 实例。
 
 > [!NOTE]
 > 通过 Azure Stack 操作员，必须从 Azure Stack 管理门户运行此步骤。
@@ -158,7 +158,7 @@ Azure Stack 操作员，可以配置承载 SQL Server 数据库服务器 Vm。 S
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. 选择**\+** **创建资源** > **数据\+存储**，然后**SQL 数据库**。<br><br>提供所需的数据库属性的信息包括名称、 排序规则、 最大大小和订阅、 资源组和位置以用于部署。 
+2. 选择 **\+** **创建资源** > **数据\+存储**，然后**SQL 数据库**。<br><br>提供所需的数据库属性的信息包括名称、 排序规则、 最大大小和订阅、 资源组和位置以用于部署。 
 
    ![创建 SQL 数据库](./media/azure-stack-tutorial-sqlrp/createdb1.png)
 

@@ -3,7 +3,7 @@ title: 为 Azure Stack 验证 Azure 标识 | Microsoft Docs
 description: 使用 Azure Stack 就绪性检查器来验证 Azure 标识。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2019
-ms.author: sethm
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 876ed83e06d7daa9d2f9b513b3cb398a8e69072b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: e8a52b1d3a111ee425276eab427c290c1ed2455e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984260"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267900"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识
 
@@ -45,30 +45,30 @@ ms.locfileid: "64984260"
 **运行该工具的计算机：**
 
 - Windows 10 或 Windows Server 2016，具有 Internet 连接。
-- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：  
+- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：    
 
   ```powershell
   $PSVersionTable.PSVersion
   ```
 
 - [为 Azure Stack 配置的 PowerShell](azure-stack-powershell-install.md)。
-- 最新版[Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
+- 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 
 **Azure Active Directory 环境：**
 
-- 标识要用于 Azure Stack，并确保它是 Azure Active Directory 全局管理员的 Azure AD 帐户。
+- 标识将用于 Azure Stack 的 Azure AD 帐户并确保它是 Azure Active Directory 全局管理员。
 - 标识你的 Azure AD 租户名称。 租户名称必须是 Azure Active Directory; 的主域名例如， **contoso.onmicrosoft.com**。
-- 确定将使用在 Azure 环境。 支持的环境名称参数值为**AzureCloud**， **AzureChinaCloud**，或**AzureUSGovernment**，取决于您使用的 Azure 订阅。
+- 标识你将使用的 Azure 环境。 支持的环境名称参数值为**AzureCloud**， **AzureChinaCloud**，或**AzureUSGovernment**，取决于您使用的 Azure 订阅。
 
 ## <a name="steps-to-validate-azure-identity"></a>验证 Azure 标识的步骤
 
-1. 在满足先决条件的计算机上, 打开提升的 PowerShell 命令提示符，，然后运行以下命令以安装**AzsReadinessChecker**:  
+1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 命令提示符，然后运行以下命令来安装 **AzsReadinessChecker**：  
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. 从 PowerShell 提示符处，运行以下命令以设置 **$serviceAdminCredential**作为服务管理员核实你的 Azure AD 租户。  替换**serviceadmin\@contoso.onmicrosoft.com**与你的帐户和租户名称：
+2. 从 PowerShell 提示符下，运行以下命令将 **$serviceAdminCredential** 设置为你的 Azure AD 租户的服务管理员。  替换**serviceadmin\@contoso.onmicrosoft.com**与你的帐户和租户名称：
 
    ```powershell
    $serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter credentials for service administrator of Azure Active Directory tenant"
@@ -83,7 +83,7 @@ ms.locfileid: "64984260"
    Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com
    ```
 
-4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”。 成功的验证如下图所示：
+4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”  。 成功的验证如下图所示：
 
    ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
@@ -135,9 +135,9 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsAzureIdentityValidation Completed
 ```
 
-**原因**-因为密码已过期，或者是临时帐户无法登录。
+**原因** - 因为密码已过期或者是临时的，所以帐户无法登录。
 
-**解析**-在 PowerShell 中运行以下命令，然后按照提示操作以重置密码：
+**解决方法** - 在 PowerShell 中运行以下命令，然后根据提示来重置密码：
 
 ```powershell
 Login-AzureRMAccount
@@ -191,7 +191,7 @@ Invoke-AzsAzureIdentityValidation Completed
 
 **原因** - 虽然帐户可以成功登录，但帐户不是 Azure Active Directory (**AADDirectoryTenantName**) 的管理员。  
 
-**解决方法** - 以帐户所有者身份登录到 [Azure 门户](https://portal.azure.com)，转到“Azure Active Directory”、“用户”，单击“选择用户”、“目录角色”，然后确保该用户为**全局管理员**。 如果帐户是“用户”，请转到“Azure Active Directory” > “自定义域名”，并确认你为 **AADDirectoryTenantName** 提供的名称已标记为此目录的主域名。 在此示例中，这是**contoso.onmicrosoft.com**。
+**解决方法** - 以帐户所有者身份登录到 [Azure 门户](https://portal.azure.com)，转到“Azure Active Directory”、“用户”，单击“选择用户”、“目录角色”，然后确保该用户为**全局管理员**。     如果帐户是“用户”，请转到“Azure Active Directory” > “自定义域名”，并确认你为 **AADDirectoryTenantName** 提供的名称已标记为此目录的主域名。    在此示例中，这是**contoso.onmicrosoft.com**。
 
 Azure Stack 要求域名是主域名。
 

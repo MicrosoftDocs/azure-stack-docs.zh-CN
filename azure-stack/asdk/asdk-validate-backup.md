@@ -2,21 +2,21 @@
 title: 使用 ASDK 验证 Azure Stack 备份 | Microsoft Docs
 description: 如何使用 ASDK 验证 Azure Stack 集成系统备份。
 services: azure-stack
-author: mattbriggs
+author: justinha
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 ms.date: 02/15/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 6d300c54044f2eb22eac8efe6f9434660d0b6fb8
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 38c4de35b4d2b5eac16b8586aa6933b18c62b14a
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617318"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267330"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 在部署 Azure Stack 并预配用户资源（例如套餐、计划、配额、订阅）以后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 计划并运行定期基础结构备份可确保在硬件或服务出现灾难性故障时基础结构管理数据不会丢失。
@@ -114,19 +114,19 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
     ![ASDK 安装程序脚本](media/asdk-validate-backup/1.PNG) 
 
-3. 在标识提供者和凭据页上，输入 Azure AD 目录信息（可选）和 ASDK 主机的本地管理员密码。 单击“下一步”。
+3. 在标识提供者和凭据页上，输入 Azure AD 目录信息（可选）和 ASDK 主机的本地管理员密码。 单击“下一步”。 
 
     ![标识和凭据页](media/asdk-validate-backup/2.PNG) 
 
-4. 选择 ASDK 主机使用的网络适配器，然后单击“下一步”。 在 ASDK 安装期间，将禁用其他所有网络接口。 
+4. 选择 ASDK 主机使用的网络适配器，然后单击“下一步”。  在 ASDK 安装期间，将禁用其他所有网络接口。 
 
     ![网络适配器接口](media/asdk-validate-backup/3.PNG) 
 
-5. 在“网络配置”页上，提供有效的时间服务器和 DNS 转发站 IP 地址。 单击“下一步”。
+5. 在“网络配置”页上，提供有效的时间服务器和 DNS 转发站 IP 地址。 单击“下一步”。 
 
     ![“网络配置”页](media/asdk-validate-backup/4.PNG) 
 
-6. 检查网络接口卡的属性后，单击“下一步”。 
+6. 检查网络接口卡的属性后，单击“下一步”。  
 
     ![网卡设置检查](media/asdk-validate-backup/5.PNG) 
 
@@ -134,7 +134,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
    ![“备份设置”页](media/asdk-validate-backup/6.PNG) 
 
-8. 在“摘要”页上查看用于部署 ASDK 的部署脚本。 单击“部署”以开始部署。 
+8. 在“摘要”页上查看用于部署 ASDK 的部署脚本。 单击“部署”以开始部署。  
 
     ![“摘要”页](media/asdk-validate-backup/7.PNG) 
 

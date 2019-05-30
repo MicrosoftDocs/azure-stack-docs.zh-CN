@@ -3,8 +3,8 @@ title: 基于 Azure Stack 的应用服务 Update 1 发行说明 | Microsoft Docs
 description: 了解基于 Azure Stack 的 Update 1 的功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digmobile
+author: bryanla
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/25/2018
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.reviewer: sethm
+ms.date: 03/25/2019
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 86eb23e57516bc108557bbdc4f2d131153f5e855
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b9b884377e35b43670943f4cf94a24b5216bf233
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290524"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269111"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>基于 Azure Stack 的应用服务 Update 1 发行说明
 
@@ -58,10 +57,10 @@ ms.locfileid: "64290524"
 
 - 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 
-- 更新**Azure Functions 运行时**到**v1.0.11388**。
+- 将 **Azure Functions 运行时**更新到 **v1.0.11388**。
 
 - **针对以下应用程序框架和工具的更新**：
-    - 添加 **.NET Core 2.0**支持
+    - 增加了 **.NET Core 2.0** 支持
     - 增加了 **Node.JS** 版本：
         - 6.11.2
         - 6.11.5
@@ -88,7 +87,7 @@ ms.locfileid: "64290524"
     - 已将**适用于 Windows 的 Git** 更新到 v2.14.1
     - 已将 **Mercurial** 更新到 v4.5.0
 
-  - 增加了对“仅限 HTTPS”功能的支持，该功能位于应用服务租户门户的“自定义域”功能中。 
+  - 增加了对“仅限 HTTPS”  功能的支持，该功能位于应用服务租户门户的“自定义域”功能中。 
 
   - 增加了在 Azure Functions 的自定义存储选取器中对存储连接进行验证的功能 
 
@@ -151,7 +150,7 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. 浏览到 Azure Stack 管理员门户中“虚拟机”下的 **CN0-VM**，单击“连接”，以便通过控制器实例打开远程桌面会话。 使用在部署应用服务期间指定的凭据。
+2. 浏览到 Azure Stack 管理员门户中“虚拟机”下的 **CN0-VM**，单击“连接”，以便通过控制器实例打开远程桌面会话。  使用在部署应用服务期间指定的凭据。
 3. 以管理员身份启动 **PowerShell** 并执行以下脚本
 
     ```powershell
@@ -206,7 +205,7 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
 
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
 
-- 源：任意
+- 源:任意
 - 源端口范围：*
 - 目标：IP 地址
 - 目标 IP 地址范围：文件服务器的 IP 范围
@@ -224,5 +223,3 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
 
 - 有关 Azure 应用服务的概述，请参阅[基于 Azure Stack 的 Azure 应用服务概述](azure-stack-app-service-overview.md)。
 - 若要详细了解如何完成基于 Azure Stack 的应用服务的部署准备，请参阅[基于 Azure Stack 的应用服务的准备工作](azure-stack-app-service-before-you-get-started.md)。
-
-<!-- Update_Description: wording update -->

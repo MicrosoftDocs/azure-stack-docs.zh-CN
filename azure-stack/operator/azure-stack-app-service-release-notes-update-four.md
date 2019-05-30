@@ -3,8 +3,8 @@ title: Azure Stack 上的应用服务 Update 4 发行说明 | Microsoft Docs
 description: 了解 Azure Stack 上的应用服务 Update 4 的功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: bryanla
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,21 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/25/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 03/25/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: fb9a6b88832dde48c47ce6361e090a7508e42332
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b65e7c3b1cf381db3e36567c9f9ccf71a2150cd7
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290447"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269138"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Azure Stack 上的应用服务 Update 4 发行说明
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
 
 本发行说明介绍 Azure Stack 上的 Azure 应用服务 Update 4 中的改进和修复，以及任何已知问题。 已知问题分为与部署、更新过程直接相关的问题，以及内部版本（安装后）的问题。
 
@@ -66,7 +65,7 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
 
 - 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 
-- 更新**Azure Functions 运行时**到**v1.0.11959**。
+- 将 **Azure Functions 运行时**更新到 **v1.0.11959**。
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
@@ -213,7 +212,7 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
 - 如 Azure Stack 上的 Azure 应用服务部署文档中所述，当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
- * 源：任意
+ * 源:任意
  * 源端口范围：*
  * 目标：IP 地址
  * 目标 IP 地址范围：文件服务器的 IP 范围

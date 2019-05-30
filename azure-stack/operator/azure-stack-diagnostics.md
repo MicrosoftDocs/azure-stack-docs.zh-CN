@@ -2,21 +2,21 @@
 title: Azure Stack 中的诊断
 description: 如何收集日志文件以在 Azure Stack 中进行诊断
 services: azure-stack
-author: mattbriggs
+author: justinha
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 ms.date: 04/30/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: c2f552035fdffebbb24fbd64e5c416179853c51e
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: bc5710e0994480d7aa8b0496509ad2755bc9c9ac
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618037"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268629"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
@@ -73,9 +73,9 @@ if($s)
 }
 ```
 
-### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>在 Azure Stack 开发工具包 (ASDK) 的系统上运行 Get-azurestacklog
+### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>在 Azure Stack 开发工具包 (ASDK) 系统上运行 Get-AzureStackLog
 
-使用以下步骤来运行`Get-AzureStackLog`ASDK 主机计算机上。
+使用以下步骤在 ASDK 主机上运行 `Get-AzureStackLog`。
 
 1. 以 **AzureStack\CloudAdmin** 身份登录到 ASDK 主机。
 2. 以管理员身份打开一个新的 PowerShell 窗口。
@@ -134,7 +134,7 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   6. 右键单击新的容器，然后单击**获取共享访问签名**。
   7. 选择一个有效**开始时间**并**结束时间**，取决于您的要求。
   8. 对于所需的权限，请选择**读**，**编写**，并**列表**。
-  9. 选择“创建”。
+  9. 选择“创建”  。
   10. 将获取共享访问签名。 复制的 URL 部分中，并提供到`-OutputSasUri`参数。
 ```powershell
 Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
@@ -170,7 +170,7 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
   |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
   |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
-  |ACSMonitoringService  |域                         |KeyVaultInternalDataPlane      |SeedRingServices|
+  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
   |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
@@ -189,17 +189,17 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 
 * 此命令需要一些时间来运行，具体取决于日志收集的角色。 影响因素还包括指定用于日志收集的时限，以及 Azure Stack 环境中的节点数。
 * 当日志收集运行时，请查看在 **OutputSharePath** 参数（在命令中指定）中创建的新文件夹。
-* 每个角色的日志位于单个 zip 文件中。 根据所收集日志的大小，一个角色可以包含其日志的拆分为多个 zip 文件。 对于此类角色，如果需要将所有日志文件解压缩到单个文件夹中，请使用可以批量解压缩的工具（例如 7zip）。 选择角色的所有压缩文件，然后选择“解压缩到此处”。 这样就会将该角色的所有日志文件解压缩到单个合并的文件夹中。
+* 每个角色的日志位于单个 zip 文件中。 根据所收集日志的大小，一个角色的日志可能会拆分成多个 zip 文件。 对于此类角色，如果需要将所有日志文件解压缩到单个文件夹中，请使用可以批量解压缩的工具（例如 7zip）。 选择角色的所有压缩文件，然后选择“解压缩到此处”。  这样就会将该角色的所有日志文件解压缩到单个合并的文件夹中。
 * 在压缩的日志文件所在的文件夹中，还会创建名为 **Get-AzureStackLog_Output.log** 的文件。 此文件是一个命令输出日志，可以用来排查日志收集过程中的问题。 有时，日志文件包含 `PS>TerminatingError` 条目，除非运行日志收集后缺少预期的日志文件，否则可以放心忽略这些条目。
 * 调查某个特定的故障时，可能需要多个组件中的日志。
 
-  * 在收集系统和事件日志中的所有基础结构 Vm **VirtualMachines**角色。
-  * 在收集系统和事件日志中的所有主机**BareMetal**角色。
-  * 故障转移群集和 HYPER-V 事件日志收集在**存储**角色。
-  * ACS 日志收集在“存储”角色和 **ACS** 角色中。
+  * 所有基础结构 VM 的系统和事件日志收集在 **VirtualMachines** 角色中。
+  * 所有主机的系统和事件日志收集在 **BareMetal** 角色中。
+  * 故障转移群集和 Hyper-V 事件日志收集在“存储”  角色中。
+  * ACS 日志收集在“存储”角色  和 **ACS** 角色中。
 
 > [!NOTE]
-> 会对收集的日志强制实施大小和保留时间限制，因为必须确保对存储空间进行有效的利用，从而确保该空间不会充斥着日志。 但是，在诊断问题时，有时可能需要某些日志，但这些日志可能因为这些限制而不再存在了。 因此，它是**强烈建议**，您将日志卸载到外部存储空间 （在 Azure 中，本地存储设备等其他存储帐户） 每隔 8 到 12 个小时并在该处保留 1-3 个月，具体取决于你系统要求。 另外，请确保该存储位置已加密。
+> 会对收集的日志强制实施大小和保留时间限制，因为必须确保对存储空间进行有效的利用，从而确保该空间不会充斥着日志。 但是，在诊断问题时，有时可能需要某些日志，但这些日志可能因为这些限制而不再存在了。 因此，**强烈建议**每隔 8 到 12 小时就将日志卸载到外部存储空间（Azure 中的存储帐户、其他本地存储设备，等等）并在该处保留 1 - 3 月，具体取决于你的要求。 另外，请确保该存储位置已加密。
 
 ### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 

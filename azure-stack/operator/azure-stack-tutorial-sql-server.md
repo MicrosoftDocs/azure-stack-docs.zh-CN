@@ -3,7 +3,7 @@ title: 将 SQL 数据库提供给 Azure Stack 用户使用 | Microsoft Docs
 description: 有关安装 SQL Server 资源提供程序并创建套餐，使 Azure Stack 用户能够创建 SQL 数据库的教程。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: e65bebf5b6126455ef1294fabeb1450f91689d5d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: cc3af256adbcea8e6055b237945dc2286762437e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618382"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267999"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>教程：将 SQL 数据库提供给 Azure Stack 用户使用
 
@@ -43,13 +43,13 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 S
 
 ## <a name="create-an-offer"></a>创建产品
 
-1.  [设置配额](azure-stack-plan-offer-quota-overview.md )并将其命名为 *SQLServerQuota*。 在“命名空间”字段中选择“Microsoft.SQLAdapter”。
-2.  [创建计划](azure-stack-create-plan.md)。 将计划命名为 *TestSQLServerPlan*，并选择“Microsoft.SQLAdapter”服务和“SQLServerQuota”配额。
+1.  [设置配额](azure-stack-plan-offer-quota-overview.md )并将其命名为 *SQLServerQuota*。 在“命名空间”字段中选择“Microsoft.SQLAdapter”。  
+2.  [创建计划](azure-stack-create-plan.md)。 将计划命名为 *TestSQLServerPlan*，并选择“Microsoft.SQLAdapter”服务和“SQLServerQuota”配额。  
 
     > [!NOTE]
     > 若要让用户创建其他应用，可能需要在计划中包含其他服务。 例如，Azure Functions 要求计划中必须包含 **Microsoft.Storage** 服务，而 Wordpress 则要求包含 **Microsoft.MySQLAdapter**。
 
-3.  [创建套餐](azure-stack-create-offer.md)，将其命名为 **TestSQLServerOffer**，然后选择“TestSQLServerPlan”计划。
+3.  [创建套餐](azure-stack-create-offer.md)，将其命名为 **TestSQLServerOffer**，然后选择“TestSQLServerPlan”计划。 
 
 ## <a name="test-the-offer"></a>测试产品/服务
 
@@ -58,22 +58,22 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 S
 ### <a name="subscribe-to-the-offer"></a>订阅套餐
 
 1. 以租户身份登录到 Azure Stack 门户 (https://portal.local.azurestack.external)。
-2. 选择“获取订阅”，然后在“显示名称”下输入 **TestSQLServerSubscription**。
-3. 选择“选择套餐” > “TestSQLServerOffer” > “创建”。
-4. 选择“所有服务” > “订阅” > “TestSQLServerSubscription” > “资源提供程序”。
-5. 选择“Microsoft.SQLAdapter”提供程序旁边的“注册”。
+2. 选择“获取订阅”，然后在“显示名称”下输入 **TestSQLServerSubscription**。  
+3. 选择“选择套餐” > “TestSQLServerOffer” > “创建”。   
+4. 选择“所有服务” > “订阅” > “TestSQLServerSubscription” > “资源提供程序”。    
+5. 选择“Microsoft.SQLAdapter”提供程序旁边的“注册”。  
 
 ### <a name="create-a-sql-database"></a>创建 SQL 数据库
 
-1. 选择“+” > “数据 + 存储” > “SQL 数据库”。
+1. 选择“+” > “数据 + 存储” > “SQL 数据库”。   
 2. 保留默认值，或者对以下字段使用以下示例值：
     - **数据库名称**：SQLdb
-    - **最大大小(MB)**：100
+    - **最大大小(MB)** ：100
     - **订阅**：TestSQLOffer
     - **资源组**：SQL-RG
-3. 选择“登录设置”，输入数据库的凭据，然后选择“确定”。
-4. 选择“SKU”，选择为 SQL 宿主服务器创建的 SQL SKU，然后选择“确定”。
-5. 选择“创建”。
+3. 选择“登录设置”，输入数据库的凭据，然后选择“确定”。  
+4. 选择“SKU”，选择为 SQL 宿主服务器创建的 SQL SKU，然后选择“确定”。  
+5. 选择“创建”  。
 
 ## <a name="next-steps"></a>后续步骤
 

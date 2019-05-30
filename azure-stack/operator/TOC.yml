@@ -327,6 +327,8 @@
               href: azure-stack-app-service-release-notes-update-four.md
             - name: 基于 Azure Stack 的应用服务 Update 5 发行说明
               href: azure-stack-app-service-release-notes-update-five.md
+            - name: 应用服务的 Azure Stack 更新 6 发行说明
+              href: azure-stack-app-service-release-notes-update-six.md
     - name: 创建计划、套餐和配额
       items:
         - name: 计划、套餐、配额和订阅概述

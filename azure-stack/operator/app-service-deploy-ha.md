@@ -3,7 +3,7 @@ title: 在高可用性配置中部署 Azure Stack 应用服务 | Microsoft Docs
 description: 了解如何使用高可用性配置在 Azure Stack 中部署应用服务。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2019
-ms.author: mabrigg
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 78476afd09d6c85fbe5790568dd46366beaf1991
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: dc4cb3e7931b456de6e807d9f7b691f9bfb71a33
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618359"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269517"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
@@ -56,24 +56,24 @@ ms.locfileid: "65618359"
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. 选择“\+ 创建资源” > “自定义”，然后选择“模板部署”。
+2. 选择“\+ 创建资源” > “自定义”，然后选择“模板部署”。    
 
    ![自定义模板部署](media/app-service-deploy-ha/1.png)
 
 
-3. 在“自定义部署”边栏选项卡上，选择“编辑模板” > “快速入门模板”，在可用自定义模板下拉列表中选择“appservice-fileshare-sqlserver-ha”模板，单击“确定”，然后单击“保存”。
+3. 在“自定义部署”边栏选项卡上，选择“编辑模板” > “快速入门模板”，在可用自定义模板下拉列表中选择“appservice-fileshare-sqlserver-ha”模板，单击“确定”，然后单击“保存”。      
 
    ![选择 appservice-fileshare-sqlserver-ha 快速入门模板](media/app-service-deploy-ha/2.png)
 
-4. 在“自定义部署”边栏选项卡上选择“编辑参数”，然后向下滚动以查看默认模板值。 根据需要修改这些值以提供全部所需的参数信息，然后单击“确定”。<br><br> 最起码需要为 ADMINPASSWORD、FILESHAREOWNERPASSWORD、FILESHAREUSERPASSWORD、SQLSERVERSERVICEACCOUNTPASSWORD 和 SQLLOGINPASSWORD 参数提供复杂密码。
+4. 在“自定义部署”边栏选项卡上选择“编辑参数”，然后向下滚动以查看默认模板值。   根据需要修改这些值以提供全部所需的参数信息，然后单击“确定”。 <br><br> 最起码需要为 ADMINPASSWORD、FILESHAREOWNERPASSWORD、FILESHAREUSERPASSWORD、SQLSERVERSERVICEACCOUNTPASSWORD 和 SQLLOGINPASSWORD 参数提供复杂密码。
     
    ![编辑自定义部署参数](media/app-service-deploy-ha/3.png)
 
-5. 在“自定义部署”边栏选项卡上，确保选择“默认提供程序订阅”作为要使用的订阅，然后为自定义部署创建新的资源组或选择现有的资源组。<br><br> 接下来，选择资源组的位置（对于 ASDK 安装，请选择“本地”），然后单击“创建”。 在模板部署开始之前，系统将验证自定义部署设置。
+5. 在“自定义部署”边栏选项卡上，确保选择“默认提供程序订阅”作为要使用的订阅，然后为自定义部署创建新的资源组或选择现有的资源组。  <br><br> 接下来，选择资源组的位置（对于 ASDK 安装，请选择“本地”），然后单击“创建”。   在模板部署开始之前，系统将验证自定义部署设置。
 
     ![创建自定义部署](media/app-service-deploy-ha/4.png)
 
-6. 在管理门户中选择“资源组”，然后选择针对自定义部署创建的资源组名称（在本示例中为 **app-service-ha**）。 查看部署状态，确保所有部署已成功完成。
+6. 在管理门户中选择“资源组”，然后选择针对自定义部署创建的资源组名称（在本示例中为 **app-service-ha**）。  查看部署状态，确保所有部署已成功完成。
 
    > [!NOTE]
    > 模板部署大约需要一小时才能完成。
@@ -95,13 +95,13 @@ ms.locfileid: "65618359"
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. 在管理门户中选择“资源组”，然后选择针对自定义部署创建的资源组名称（在本示例中为 **app-service-ha**）。 
+2. 在管理门户中选择“资源组”，然后选择针对自定义部署创建的资源组名称（在本示例中为 **app-service-ha**）。  
 
-3. 单击“部署”，然后选择“Microsoft.Template”。
+3. 单击“部署”，然后选择“Microsoft.Template”。  
 
     ![Microsoft.Template 部署](media/app-service-deploy-ha/6.png)
 
-4. 选择“Microsoft.Template”部署后，选择“输出”并记下模板参数输出。 部署应用服务时需要此信息。
+4. 选择“Microsoft.Template”部署后，选择“输出”并记下模板参数输出。   部署应用服务时需要此信息。
 
     ![参数输出](media/app-service-deploy-ha/7.png)
 
@@ -138,15 +138,15 @@ ms.locfileid: "65618359"
 
 1. 在可以访问“Azure Stack 管理”Azure 资源管理终结点的计算机上，以管理员身份运行前面下载的应用服务安装程序 (**appservice.exe**)。
 
-2. 选择“部署应用服务或升级到最新版本”。
+2. 选择“部署应用服务或升级到最新版本”。 
 
     ![部署或升级](media/app-service-deploy-ha/01.png)
 
-3. 接受 Microsoft 许可条款，然后单击“下一步”。
+3. 接受 Microsoft 许可条款，然后单击“下一步”。 
 
     ![Microsoft 许可条款](media/app-service-deploy-ha/02.png)
 
-4. 接受非 Microsoft 许可条款，然后单击“下一步”。
+4. 接受非 Microsoft 许可条款，然后单击“下一步”。 
 
     ![非 Microsoft 许可条款](media/app-service-deploy-ha/03.png)
 
@@ -158,15 +158,15 @@ ms.locfileid: "65618359"
 
     ![连接到 Azure Stack 订阅](media/app-service-deploy-ha/05.png)
 
-7. 选择“使用现有 VNet 和子网”，并选择用于部署高可用性模板的资源组的“资源组名称”。<br><br>接下来，选择在模板部署过程中创建的虚拟网络，然后从下拉列表选项中选择相应的角色子网。 
+7. 选择“使用现有 VNet 和子网”，并选择用于部署高可用性模板的资源组的“资源组名称”。  <br><br>接下来，选择在模板部署过程中创建的虚拟网络，然后从下拉列表选项中选择相应的角色子网。 
 
     ![VNet 选择](media/app-service-deploy-ha/06.png)
 
-8. 提供前面记下的文件共享路径和文件共享所有者参数的模板输出信息。 完成后，单击“下一步”。
+8. 提供前面记下的文件共享路径和文件共享所有者参数的模板输出信息。 完成后，单击“下一步”。 
 
     ![文件共享输出信息](media/app-service-deploy-ha/07.png)
 
-9. 由于用于安装应用服务的计算机与用于托管应用服务文件共享的文件服务器不在同一 VNet 上，因此无法解析名称。 **这是预期行为**。<br><br>验证为文件共享 UNC 路径和帐户信息输入的信息是否正确，然后在警报对话框中按“是”以继续安装应用服务。
+9. 由于用于安装应用服务的计算机与用于托管应用服务文件共享的文件服务器不在同一 VNet 上，因此无法解析名称。 **这是预期行为**。<br><br>验证为文件共享 UNC 路径和帐户信息输入的信息是否正确，然后在警报对话框中按“是”以继续安装应用服务。 
 
     ![预期错误对话框](media/app-service-deploy-ha/08.png)
 
@@ -181,13 +181,13 @@ ms.locfileid: "65618359"
     - 优先级：700
     - 姓名：Outbound_Allow_SMB445
 
-10. 提供标识应用程序 ID 以及标识证书的路径和密码，然后单击“下一步”：
+10. 提供标识应用程序 ID 以及标识证书的路径和密码，然后单击“下一步”： 
     - 标识应用程序证书（格式为 **sso.appservice.local.azurestack.external.pfx**）
     - Azure 资源管理器根证书 (**AzureStackCertificationAuthority.cer**)
 
     ![ID 应用程序证书和根证书](media/app-service-deploy-ha/008.png)
 
-10. 接下来，提供以下证书的剩余所需信息，然后单击“下一步”：
+10. 接下来，提供以下证书的剩余所需信息，然后单击“下一步”： 
     - 默认的 Azure Stack SSL 证书（格式为 **_.appservice.local.azurestack.external.pfx**）
     - API SSL 证书（格式为 **api.appservice.local.azurestack.external.pfx**）
     - 发布者证书（格式为 **ftp.appservice.local.azurestack.external.pfx**） 
@@ -198,11 +198,11 @@ ms.locfileid: "65618359"
 
     ![SQL Server 连接信息](media/app-service-deploy-ha/10.png)
 
-12. 由于用于安装应用服务的计算机与用于托管应用服务数据库的 SQL Server 不在同一 VNet 上，因此无法解析名称。  **这是预期行为**。<br><br>验证为 SQL Server 名称和帐户信息输入的信息是否正确，然后按“是”以继续安装应用服务。 单击“下一步”。
+12. 由于用于安装应用服务的计算机与用于托管应用服务数据库的 SQL Server 不在同一 VNet 上，因此无法解析名称。  **这是预期行为**。<br><br>验证为 SQL Server 名称和帐户信息输入的信息是否正确，然后按“是”以继续安装应用服务。  单击“下一步”。 
 
     ![SQL Server 连接信息](media/app-service-deploy-ha/11.png)
 
-13. 接受默认角色配置值或更改为建议的值，然后单击“下一步”。<br><br>对于高可用性配置，我们建议对应用服务基础结构角色实例的默认值做出如下所示的更改：
+13. 接受默认角色配置值或更改为建议的值，然后单击“下一步”。 <br><br>对于高可用性配置，我们建议对应用服务基础结构角色实例的默认值做出如下所示的更改：
 
     |角色|默认|高可用性建议|
     |-----|-----|-----|
@@ -218,19 +218,19 @@ ms.locfileid: "65618359"
     > [!NOTE]
     > 将默认值更改为本教程中建议的值会提高安装应用服务所要满足的硬件要求。 总共需要提供 26 个核心和 46,592 MB 的 RAM 来支持建议的 21 个 VM，而不是提供 18 个核心和 32,256 MB 的 RAM 来支持 15 个 VM。
 
-14. 选择用于安装应用服务基础结构 VM 的平台映像，然后单击“下一步”：
+14. 选择用于安装应用服务基础结构 VM 的平台映像，然后单击“下一步”： 
 
     ![平台映像选择](media/app-service-deploy-ha/13.png)
 
-15. 提供要使用的应用服务基础结构角色凭据信息，然后单击“下一步”：
+15. 提供要使用的应用服务基础结构角色凭据信息，然后单击“下一步”： 
 
     ![基础结构角色凭据](media/app-service-deploy-ha/14.png)
 
-16. 查看用于部署应用服务的信息，然后单击“下一步”开始部署。 
+16. 查看用于部署应用服务的信息，然后单击“下一步”开始部署。  
 
     ![查看安装摘要](media/app-service-deploy-ha/15.png)
 
-17. 查看应用服务部署进度。 这可能需要一小时以上，具体取决于部署配置和硬件。 安装程序成功完成后，选择“退出”。
+17. 查看应用服务部署进度。 这可能需要一小时以上，具体取决于部署配置和硬件。 安装程序成功完成后，选择“退出”。 
 
     ![安装完成](media/app-service-deploy-ha/16.png)
 

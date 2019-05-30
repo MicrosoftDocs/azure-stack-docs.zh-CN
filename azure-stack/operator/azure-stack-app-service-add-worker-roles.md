@@ -3,7 +3,7 @@ title: 横向扩展应用服务中的辅助角色 - Azure Stack | Microsoft Docs
 description: Azure Stack 应用服务伸缩详细指南
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0d783e8383dc8b46371812a55300e92063a5d1f8
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: c7dcb31c74ac08f3045425d246e17376808a5b98
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618252"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269302"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack 上的应用服务：添加更多基础结构或辅助角色
 
@@ -79,23 +79,23 @@ ms.locfileid: "65618252"
 
 1. 以服务管理员身份登录到 Azure Stack 管理门户。
 
-2. 浏览到“应用服务”。
+2. 浏览到“应用服务”  。
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. 单击“角色”。 在这里会看到所有已部署的应用服务角色的明细。
+3. 单击“角色”。  在这里会看到所有已部署的应用服务角色的明细。
 
-4. 右键单击要缩放的类型所在的行，然后单击“ScaleSet”。
+4. 右键单击要缩放的类型所在的行，然后单击“ScaleSet”。 
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. 单击“缩放”，选择要缩放到的实例数，然后单击“保存”。
+5. 单击“缩放”，  选择要缩放到的实例数，然后单击“保存”。 
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
 6. 基于 Azure Stack 的应用服务此时会添加其他 VM，对其进行配置，安装所有必需的软件，并在此过程完成后将其标记为“就绪”。 此过程可能需要大约 80 分钟。
 
-7. 可以监视新角色就绪标记操作的进度，只需在“角色”边栏选项卡中查看辅助角色即可。
+7. 可以监视新角色就绪标记操作的进度，只需在“角色”边栏选项卡中查看辅助角色即可。 
 
 ## <a name="result"></a>结果
 

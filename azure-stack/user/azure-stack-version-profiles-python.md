@@ -3,7 +3,7 @@ title: 在 Azure Stack 中将 API 版本配置文件与 Python 配合使用 | Mi
 description: 了解如何在 Azure Stack 中将 API 版本配置文件与 Python 配合使用。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: ee5906e825af59e3b67792e8370cc5d26901ff2b
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 98014cfa015f839e1801ffae95d08f3cbd00c986
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782598"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269494"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Python 配合使用
 
@@ -32,8 +32,10 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 
 - **latest**  
     此配置文件以 Azure 平台中所有服务提供程序的最新 API 版本为目标。
-- **2018-03-01-hybrid**     
+- **2019-03-01-hybrid**  
     此配置文件以 Azure Stack 平台中所有资源提供程序的最新 API 版本为目标。
+- **2018-03-01-hybrid**  
+    此配置文件以在 Azure Stack 平台中的所有资源提供程序为都目标的最兼容的 API 版本。
 - **2017-03-09-profile**  
     此配置文件以 Azure Stack 支持的资源提供程序的大多数兼容 API 版本为目标。
 
@@ -72,7 +74,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
       python -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书存储位置。 例如，*~/lib/python3.5/site-packages/certifi/cacert.pem*。 具体的路径取决于安装的 Python 的 OS 和版本。
+    记下证书存储位置。 例如， *~/lib/python3.5/site-packages/certifi/cacert.pem*。 具体的路径取决于安装的 Python 的 OS 和版本。
 
 2. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
 
@@ -117,7 +119,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 
 - [管理资源和资源组](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)。
 - [管理存储帐户](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)。
-- [管理虚拟机](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)。
+- [管理虚拟机](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)。 （使用 2019年-03-01-混合针对 Azure Stack 支持的最新 API 版本的示例）
 
 ## <a name="python-manage-virtual-machine-sample"></a>使用 Python 管理虚拟机的示例
 

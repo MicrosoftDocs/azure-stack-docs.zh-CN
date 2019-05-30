@@ -3,7 +3,7 @@ title: 用量 API 相关的常见问题解答 | Microsoft Docs
 description: Azure Stack 计量器列表、与 Azure 用量 API 的比较、使用时间和报告时间、错误代码。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 847aa1723413b098219ea68ed541ed33b0c3103d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 52613c394d7a1caeef42a85f1dd4d5b645f5e8e4
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984073"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267943"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
 
@@ -360,9 +360,9 @@ ms.locfileid: "64984073"
   
 ### <a name="custom-worker-tiers"></a>自定义辅助角色层   
   
-**计量 ID**：自定义辅助角色层  
+**计量 ID**：  自定义辅助角色层  
 **计量名称**：自定义辅助角色层  
-**单元**：小时  
+**单元**：小时数  
 **注释**：确定性计量 ID 根据 SKU 和自定义辅助角色层名称来创建。 此计量 ID 对每个自定义辅助角色层来说都是唯一的。  
   
 **计量 ID**：264ACB47-AD38-47F8-ADD3-47F01DC4F473  
@@ -399,7 +399,7 @@ ms.locfileid: "64984073"
 
 你可能会发现，特定用量事件的“使用时间”与“报告时间”值有差异。 在任何环境中，延迟可能长达数小时。
 
-目前，只能按“报告时间”查询。
+目前，只能按“报告时间”查询。 
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>这些用量 API 错误代码的含义是什么？
 | **HTTP 状态代码** | **错误代码** | **说明** |

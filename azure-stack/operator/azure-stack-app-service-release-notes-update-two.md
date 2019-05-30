@@ -3,7 +3,7 @@ title: 基于 Azure Stack 的应用服务 Update 2 发行说明 | Microsoft Docs
 description: 了解基于 Azure Stack 的应用服务 Update 2 的功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
+author: bryanla
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
-ms.reviewer: sethm
+ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 790f01583d589cdea226133d3ded9693cdf68af0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b56c90d9bac8039d428b7ee06a384956924e94f5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290480"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269053"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>基于 Azure Stack 的应用服务 Update 2 发行说明
 
@@ -53,7 +53,7 @@ ms.locfileid: "64290480"
 
 - 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 
-- 更新**Azure Functions 运行时**到**v1.0.11612**。
+- 将 **Azure Functions 运行时**更新到 **v1.0.11612**。
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
@@ -66,7 +66,7 @@ ms.locfileid: "64290480"
     - NodeJS 8.11.1
   - 增加了 **NPM** 版本：
     - 5.6.0
-  - 更新的.NET Core 的组件与 Azure 应用服务的公有云保持一致。
+  - 更新了 .NET Core 组件，使其与公有云中的 Azure 应用服务保持一致。
   - 更新了 Kudu
 
 - 启用了部署槽位自动交换功能 - [配置自动交换](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
@@ -86,7 +86,7 @@ ms.locfileid: "64290480"
 - 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
-* 源：任意
+* 源:任意
 * 源端口范围：*
 * 目标：IP 地址
 * 目标 IP 地址范围：文件服务器的 IP 范围

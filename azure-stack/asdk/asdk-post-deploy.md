@@ -3,7 +3,7 @@ title: Azure Stack 开发工具包 (ASDK) 的部署后配置 | Microsoft Docs
 description: 介绍在安装 Azure Stack 开发工具包 (ASDK) 之后建议做出的配置更改。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: dd16d08e2e262b9aa31a1d59cb8ed59868608fbb
-ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
+ms.openlocfilehash: 3d6b7ff0d52874fcbb058e87a737d7510aecc5db
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66174342"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267568"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
@@ -158,11 +158,11 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ### <a name="to-change-the-password-expiration-policy-manually"></a>手动更改密码过期策略
 
-1. 在开发工具包主机上打开“组策略管理”(GPMC.MMC)，然后导航到“组策略管理” - “林: azurestack.local” - “域” - “azurestack.local”。
-2. 右键单击“默认域策略”，然后单击“编辑”。
-3. 在组策略管理编辑器中，导航到“计算机配置” - “策略” - “Windows 设置” - “安全设置” - “帐户策略” - “密码策略”。
-4. 在右窗格中，双击“密码最长期限”。
-5. 在“密码最长期限属性”对话框中，将“密码有效天数”值更改为 **180**，然后单击“确定”。
+1. 在开发工具包主机上打开“组策略管理”(GPMC.MMC)，然后导航到  “组策略管理”   -   “林: azurestack.local” -   “域” -   “azurestack.local”。
+2. 右键单击“默认域策略”，然后单击“编辑”。  
+3. 在组策略管理编辑器中，导航到“计算机配置”   -   “策略” -   “Windows 设置” -   “安全设置” -   “帐户策略” -   “密码策略”。
+4. 在右窗格中，双击“密码最长期限”。 
+5. 在“密码最长期限属性”对话框中，将“密码有效天数”值更改为 **180**，然后单击“确定”。   
 
 ![组策略管理控制台](media/asdk-post-deploy/gpmc.png)
 

@@ -3,8 +3,8 @@ title: Azure Stack 上的应用服务 Update 5 发行说明 | Microsoft Docs
 description: 了解 Azure Stack 上的应用服务 Update 5 的功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: bryanla
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/25/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.reviewer: ''
-ms.openlocfilehash: 44ecf4df7effe330463a611f66ebb6465f9019f0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.date: 03/25/2019
+ms.author: anwestg
+ms.reviewer: anwestg
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: e0801ecdce5ddeffd3bcae43d999121c62d3e052
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64290260"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269171"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>基于 Azure Stack 的应用服务 Update 5 发行说明
 
@@ -60,14 +60,14 @@ Azure Stack 上的 Azure 应用服务 Update 5 包含以下改进和修复：
 
 - 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 
-- 更新**Azure Functions 运行时**到**v1.0.12205**。
+- 将 **Azure Functions 运行时**更新到 **v1.0.12205**。
 
 - 更新到 **Kudu 工具**即可解决操作**断开连接的** Azure Stack 的客户的样式设置和功能方面的问题。 
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
 - **针对以下应用程序框架和工具的更新**：
-  - 添加了的 ASP.NET Core 2.1.6 及 2.2.0
+  - 添加了 ASP.NET Core 2.1.6 和 2.2.0
   - 增加了 NodeJS 10.14.1
   - 增加了 NPM 6.4.1
   - 已将 Kudu 更新到 79.20129.3767
@@ -78,7 +78,7 @@ Azure Stack 上的 Azure 应用服务 Update 5 包含以下改进和修复：
 ### <a name="post-deployment-steps"></a>部署后步骤
 
 > [!IMPORTANT]  
-> 如果使用 SQL Alwayson 实例提供了应用服务资源提供程序必须[appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)和同步数据库以避免造成任何损失数据库故障转移时的服务。
+> 如果已经为应用服务资源提供程序提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)并同步数据库，以免在进行数据库故障转移时丢失服务。
 
 ### <a name="post-update-steps"></a>更新后步骤
 
@@ -189,7 +189,7 @@ Azure Stack 上的 Azure 应用服务 Update 5 包含以下改进和修复：
 - 如 Azure Stack 上的 Azure 应用服务部署文档中所述，当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
- * 源：任意
+ * 源:任意
  * 源端口范围：*
  * 目标：IP 地址
  * 目标 IP 地址范围：文件服务器的 IP 范围

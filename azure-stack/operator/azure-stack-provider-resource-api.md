@@ -3,7 +3,7 @@ title: 提供者资源使用情况 API | Microsoft Docs
 description: 资源使用情况 API 的参考，该 API 用于检索 Azure Stack 使用情况信息
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: b6e026732e75b3271053a00946c2b72accc85b0d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8b9a8f403fbc4ca80bb7ce179547d5b7f8954525
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985142"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268283"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 
-“提供者”一词适用于服务管理员和任何委派的提供者。 Azure Stack 操作员和委派的提供者可使用提供者使用情况 API，查看其直接租户的使用情况。 例如，如图中所示，P0 可以调用提供者 API，以获取 P1 和 P2 直接使用的使用情况信息；而 P1 可以调用以获取 P3 和 P4 的使用情况信息。
+“提供者”  一词适用于服务管理员和任何委派的提供者。 Azure Stack 操作员和委派的提供者可使用提供者使用情况 API，查看其直接租户的使用情况。 例如，如图中所示，P0 可以调用提供者 API，以获取 P1 和 P2 直接使用的使用情况信息；而 P1 可以调用以获取 P3 和 P4 的使用情况信息。
 
 ![提供者层次结构的概念模型](media/azure-stack-provider-resource-api/image1.png)
 
@@ -85,8 +85,8 @@ meterID1",
 | **参数** | **说明** |
 | --- | --- |
 | *id* |使用情况聚合的唯一 ID。 |
-| name |使用情况聚合的名称。 |
-| type |资源定义。 |
+| *name* |使用情况聚合的名称。 |
+| *type* |资源定义。 |
 | *subscriptionId* |Azure Stack 用户的订阅标识符。 |
 | *usageStartTime* |此使用情况聚合所属的使用情况存储桶 UTC 开始时间。|
 | *usageEndTime* |此使用情况聚合所属的使用情况存储桶 UTC 结束时间。 |

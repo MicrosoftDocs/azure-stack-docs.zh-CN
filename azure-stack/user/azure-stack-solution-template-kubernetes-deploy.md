@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 55db30efd648c76938d71bc2067c7c68e6693f88
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 672528f05a4fb3214e9a97e78922eeb12739c44f
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712348"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269537"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>部署 Kubernetes Azure Stack 中使用容器
 
@@ -33,7 +33,7 @@ ms.locfileid: "65712348"
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 和容器
 
-你可以安装 Kubernetes 中通过 Azure 资源管理器模板在 Azure Stack 上 AKS 引擎生成的。 [Kubernetes](https://kubernetes.io) 是一个开源系统，可以自动部署、缩放和管理容器中的应用程序。 一个[容器](https://www.docker.com/what-container)是图像中。 容器映像是类似于 VM，但是，与 VM 不同，容器仅包含运行应用程序，例如代码，运行时执行代码、 特定的库和设置所需的资源。
+你可以安装 Kubernetes 中通过 Azure 资源管理器模板在 Azure Stack 上 AKS 引擎生成的。 [Kubernetes](https://kubernetes.io) 是一个开源系统，可以自动部署、缩放和管理容器中的应用程序。 一个[容器](https://www.docker.com/what-container)是图像中。 容器映像是类似于虚拟机 (VM)，但是，与 VM 不同，容器仅包含运行应用程序，例如代码，运行时执行代码、 特定的库和设置所需的资源。
 
 可以使用 Kubernetes 执行以下操作：
 

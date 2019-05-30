@@ -3,7 +3,7 @@ title: 提供了高度可用的 MySQL 数据库，在 Azure Stack 中提供 |Mic
 description: 了解如何使用 Azure Stack 主机计算机和高可用性的 MySQL 数据库创建 MySQL Server 资源提供程序。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 1b1ebd27f87030b34b132eb31c4b4ae83f13a3b0
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 61d839e0f34de9387023b272aff32cf69ad9ae13
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618228"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268483"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>教程：提供高可用性的 MySQL 数据库
 
@@ -69,7 +69,7 @@ Azure Stack 操作员，可以配置承载 MySQL Server 数据库服务器 Vm。
 1. 
    [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. 选择**\+** **创建资源** > **计算**，，然后**MySQL 复制**。
+2. 选择 **\+** **创建资源** > **计算**，，然后**MySQL 复制**。
 
    ![自定义模板部署](media/azure-stack-tutorial-mysqlrp/1.png)
 
@@ -130,7 +130,7 @@ Azure Stack 操作员，可以配置承载 MySQL Server 数据库服务器 Vm。
 
    ![检查服务](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
 
-3. 创建用于通过 Azure Stack MySQL 宿主服务器以连接到 MySQL，然后退出 SSH 客户端的远程访问用户帐户。<br><br>运行以下命令以 root 身份，使用之前创建的根密码登录到 MySQL 并创建新的管理员用户，请替换*\<用户名\>* 并*\<密码\>* 根据需要为您的环境。 在此示例中，用户要创建名为**sqlsa**和使用强密码：
+3. 创建用于通过 Azure Stack MySQL 宿主服务器以连接到 MySQL，然后退出 SSH 客户端的远程访问用户帐户。<br><br>运行以下命令以 root 身份，使用之前创建的根密码登录到 MySQL 并创建新的管理员用户，请替换 *\<用户名\>* 并 *\<密码\>* 根据需要为您的环境。 在此示例中，用户要创建名为**sqlsa**和使用强密码：
 
    ```mysql
    mysql -u root -p
@@ -170,7 +170,7 @@ MySQL 群集创建、 配置，并由 Azure Stack 操作员添加为 Azure Stack
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. 选择**\+** **创建资源** > **数据\+存储**，然后**MySQL 数据库**.<br><br>提供所需的数据库属性的信息包括名称、 排序规则、 订阅以使用和要使用的部署位置。 
+2. 选择 **\+** **创建资源** > **数据\+存储**，然后**MySQL 数据库**.<br><br>提供所需的数据库属性的信息包括名称、 排序规则、 订阅以使用和要使用的部署位置。 
 
    ![创建 MySQL 数据库](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 

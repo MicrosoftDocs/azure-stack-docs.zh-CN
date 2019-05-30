@@ -3,7 +3,7 @@ title: 创建 Azure Stack 的服务主体 | Microsoft Docs
 description: 了解如何创建服务主体，若要使用基于角色的访问控制 Azure 资源管理器中用于管理对资源的访问。
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: PatAltimore
 manager: femila
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
-ms.author: mabrigg
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 1f2502a7b0b89bc8c1786e1fdf0392b245308ed0
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: 8b3d0ad1f0854f7028e9dfff2d9114df141394a6
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197297"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269608"
 ---
 # <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>创建服务主体以授予应用程序访问 Azure Stack 资源
 
@@ -64,10 +64,10 @@ ms.locfileid: "66197297"
 若要为应用程序创建服务主体，请执行以下操作：
 
 1. 通过 [Azure 门户](https://portal.azure.com)登录到 Azure 帐户。
-2. 选择“Azure Active Directory” > “应用注册” > “新建注册”。
+2. 选择“Azure Active Directory” > “应用注册” > “新建注册”。   
 3. 提供名称。
-4. 选择“支持的帐户类型”。
-5.  添加应用程序的 URI。 选择“Web”作为要创建的应用程序的类型。 设置这些值后，选择“注册”。
+4. 选择“支持的帐户类型”。 
+5.  添加应用程序的 URI。 选择“Web”  作为要创建的应用程序的类型。 设置这些值后，选择“注册”  。
 
 你已为应用程序创建服务主体。
 
@@ -75,16 +75,16 @@ ms.locfileid: "66197297"
 
 以编程方式登录时，需要使用应用程序的 ID 和身份验证密钥。 若要获取这些值：
 
-1. 从 Active Directory 中的“应用注册”，选择应用程序。
+1. 从 Active Directory 中的“应用注册”  ，选择应用程序。
 
-2. 复制“应用程序 ID”并将其存储在应用程序代码中。 在引用“应用程序 ID”时，示例应用程序中的应用程序使用“客户端 ID”。
+2. 复制“应用程序 ID”  并将其存储在应用程序代码中。 在引用“应用程序 ID”时，示例应用程序中的应用程序使用“客户端 ID”。  
 
      ![应用程序的应用程序 ID](./media/azure-stack-create-service-principals/image12.png)
-3. 若要生成身份验证密钥，请选择“证书和机密”。
+3. 若要生成身份验证密钥，请选择“证书和机密”  。
 
-4. 选择“新建客户端机密”。
+4. 选择“新建客户端机密”。 
 
-5. 提供密钥说明，选择密钥持续时间，然后选择“添加”。 
+5. 提供密钥说明，选择密钥持续时间，然后选择“添加”。  
 
 6. 完成后就会显示机密的值。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
 
@@ -111,21 +111,21 @@ ms.locfileid: "66197297"
 
 请使用以下步骤作为指南来为服务主体分配角色。
 
-1. 在 Azure Stack 门户中，导航到要将应用程序分配到的作用域级别。 例如，若要在订阅范围内分配角色，选择“订阅”。
+1. 在 Azure Stack 门户中，导航到要将应用程序分配到的作用域级别。 例如，若要在订阅范围内分配角色，选择“订阅”  。
 
 2. 选择要将应用程序分配到的订阅。 在此示例中，该订阅是 Visual Studio Enterprise。
 
      ![选择 Visual Studio Enterprise 订阅用于分配](./media/azure-stack-create-service-principals/image16.png)
 
-3. 选择该订阅的“访问控制(标识和访问管理)”。
+3. 选择该订阅的“访问控制(标识和访问管理)”。 
 
-4. 选择“添加角色分配”。
+4. 选择“添加角色分配”  。
 
 5. 选择要分配到应用程序的角色。
 
 6. 搜索你的应用程序，并选择它。
 
-7. 选择“确定”完成角色分配。 该应用程序将显示在分配到该作用域的某个角色的用户列表中。
+7. 选择“确定”  完成角色分配。 该应用程序将显示在分配到该作用域的某个角色的用户列表中。
 
 现在，你已创建了服务主体并分配了角色，你的应用程序可以访问 Azure Stack 资源了。
 

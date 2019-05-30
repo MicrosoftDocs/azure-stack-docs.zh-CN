@@ -3,7 +3,7 @@ title: 使用 Azure 和 Azure Stack 创建临时数据分析解决方案 | Micro
 description: 了解如何使用 Azure 和 Azure Stack 创建临时数据分析解决方案。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 2c2b06db3bb6144620b5fce1a7e3e76fdd06589a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9359c1393229709fc77ee08216a80a26de9135dc
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64303273"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252010"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 创建临时数据分析解决方案 
 
@@ -76,9 +76,9 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
 存储帐户和 Blob 容器将存储本地活动生成的所有原始数据，包括计算机活动和员工活动、设施数据、生产指标以及其他报告内容。
 
-1.  登录到 [Azure Stack 门户](https://portal.local.azurestack.external/)。
+1.  登录到 [  Azure Stack 门户](https://portal.local.azurestack.external/)。
 
-2.  在 Azure Stack 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。 向下滚动到“存储”，选择“存储帐户”。 在“存储帐户”窗口中，选择“添加”。
+2.  在 Azure Stack 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。  向下滚动到“存储”  ，选择“存储帐户”  。 在“存储帐户”窗口中，选择“添加”。 
 
 3.  使用下述适用于帐户的信息：
 
@@ -102,15 +102,15 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
     j.  配置虚拟网络：**已禁用**
 
-4.  选择“创建”以创建存储帐户。
+4.  选择“创建”  以创建存储帐户。
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  创建后，选择存储帐户的名称。
 
-6.  在帐户边栏选项卡的“Blob 服务”标题下，选择“容器”。
+6.  在帐户边栏选项卡的“Blob 服务”标题下，选择“容器”。  
 
-7.  在边栏选项卡的顶部，选择 **+ 容器。** 然后选择**容器**。
+7.  在边栏选项卡顶部，选择“+ 容器”  。 然后选择“容器”。 
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
@@ -118,7 +118,7 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
 9.  公共访问级别：**容器**(对容器和 Blob 进行匿名读取访问)
 
-10.  选择“确定”。
+10.  选择“确定”  。
 
 ## <a name="create-an-azure-stack-function"></a>创建 Azure Stack 函数
 
@@ -127,8 +127,8 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 ### <a name="create-the-azure-stack-function-app"></a>创建 Azure Stack 函数应用
 
 1. 登录到 [Azure Stack 门户](https://portal.local.azurestack.external)。
-2. 选择“所有服务”。
-3. 在“Web + 移动”组中选择“Function App”。
+2. 选择“所有服务”  。
+3. 在“Web + 移动”组中选择“Function App”。  
 
 4.  使用图像下面的表中指定的设置创建函数应用。
 
@@ -149,23 +149,23 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
     ![定义新的函数应用设置](media/azure-stack-solution-staged-data-analytics/image6.png)
 
-5.  选择“创建”以预配和部署函数应用。
+5.  选择“创建”  以预配和部署函数应用。
 
-6.  选择门户右上角的“通知”图标，留意是否显示“部署成功”消息。
+6.  选择门户右上角的“通知”图标，留意是否显示“部署成功”消息。 
 
     ![定义新的函数应用设置](media/azure-stack-solution-staged-data-analytics/image7.png)
 
-7.  选择“转到资源”，查看新的函数应用。
+7.  选择“转到资源”  ，查看新的函数应用。
 
 ![已成功创建 Function App。](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>将函数添加到 Azure Stack 函数应用
 
-1.  创建新的函数，方法是：单击“函数”，然后单击“+新建函数”按钮。
+1.  创建新的函数，方法是：单击“函数”  ，然后单击“+新建函数”按钮。 
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image3.png)
 
-2.  选择“计时器触发器”。
+2.  选择“计时器触发器”。 
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image4.png)
 
@@ -175,9 +175,9 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
 ## <a name="create-a-blob-storage-triggered-function"></a>创建 Blob 存储触发的函数
 
-1. 展开函数应用，选择“函数”旁边的 + 按钮。
+1. 展开函数应用，选择“函数”旁边的 + 按钮   。
 
-2. 在搜索栏中键入 `blob`，然后选择需要用于“Blob 触发器”模板的语言。
+2. 在搜索栏中键入 `blob`，然后选择需要用于“Blob 触发器”模板的语言。 
 
    ![选择 Blob 存储触发器模板。](media/azure-stack-solution-staged-data-analytics/image10.png)
 
@@ -193,19 +193,19 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
    ![创建 Blob 存储触发的函数。](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4. 选择“创建”创建该函数。
+4. 选择“创建”  创建该函数。
 
 ### <a name="test-the-function"></a>测试函数
 
-1.  在 Azure 门户中，浏览到该函数。 展开页面底部的“日志”，确保日志流式处理未暂停。
+1.  在 Azure 门户中，浏览到该函数。 展开页面底部的“日志”  ，确保日志流式处理未暂停。
 
 2.  打开存储资源管理器，连接到在此部分开头创建的存储帐户。
 
-3.  展开存储帐户、“Blob 容器”以及此前创建的 Blob。 选择“上传”，然后选择“上传文件”。
+3.  展开存储帐户、“Blob 容器”以及此前创建的 Blob。  选择“上传”  ，然后选择“上传文件”  。
 
     ![将文件上传到 blob 容器。](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  在“上传文件”对话框中，选择“文件”字段。 浏览到本地计算机上的文件（如图像文件），将其选中，然后依次选择“打开”和“上传”。
+4.  在“上传文件”对话框中，选择“文件”字段。 浏览到本地计算机上的文件（如图像文件），将其选中，然后依次选择“打开”  和“上传”  。
 
 5.  返回到函数日志并验证是否已读取 Blob。
 
@@ -227,11 +227,11 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
 
 1.  使用上述步骤和设置访问新的存储帐户。
 
-2.  在“存储帐户概览”部分，选择“队列”。
+2.  在“存储帐户概览”部分，选择“队列”。 
 
-3.  选择“+ 队列”，填充“名称”字段，为新队列填充一个名称。
+3.  选择“+ 队列”  ，填充“名称”字段，为新队列填充一个名称。 
 
-4.  选择“确定”。
+4.  选择“确定”  。
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image14.png)
 
@@ -249,19 +249,19 @@ Azure Functions 和存储解决方案可以通过缩放来满足数据量和处�
     | 路径 | \<上述存储位置的路径> | 所监视的存储中的位置。 队列的文件名作为 name 参数在绑定中传入。 |
     | 存储帐户连接 | 函数应用连接 | 可以使用函数应用已在使用的存储帐户连接，也可以创建一个新的存储帐户连接。 |
 
-3.  选择“创建”创建该函数。
+3.  选择“创建”  创建该函数。
 
 ## <a name="test-the-queue-triggered-function"></a>测试队列触发的函数
 
-1. 在 Azure Stack 门户中，浏览到该函数。 展开页面底部的“日志”，确保日志流式处理未暂停。
+1. 在 Azure Stack 门户中，浏览到该函数。 展开页面底部的“日志”  ，确保日志流式处理未暂停。
 
 2. 打开存储资源管理器，连接到在此部分开头创建的存储帐户。
 
-3. 展开存储帐户、“Blob 容器”以及此前创建的 Blob。 选择“上传”，然后选择“上传文件”。
+3. 展开存储帐户、“Blob 容器”以及此前创建的 Blob。  选择“上传”  ，然后选择“上传文件”  。
 
    ![将文件上传到 blob 容器。](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4. 在“上传文件”对话框中，选择“文件”字段。 浏览到本地计算机上的文件（如图像文件），将其选中，然后依次选择“打开”和“上传”。
+4. 在“上传文件”对话框中，选择“文件”字段。 浏览到本地计算机上的文件（如图像文件），将其选中，然后依次选择“打开”  和“上传”  。
 
 5. 返回到函数日志并验证是否已读取 Blob。
 

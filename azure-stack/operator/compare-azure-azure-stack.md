@@ -3,7 +3,7 @@ title: 比较 Azure Stack 与全球 Azure |Microsoft Docs
 description: 了解 Microsoft 如何提供 Azure 和 Azure 生态系统中的服务的 Azure Stack 系列
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/03/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 20199e927498d0590ae32f68eb02b0a47c8c2b3e
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: eefe72aaf3e82c80d26a2963e0d8b4b921d9acf6
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782286"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267531"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>全局 Azure，Azure Stack 和 Azure Stack HCI 之间的差异
 
@@ -103,4 +103,4 @@ Azure Stack HCI 提供经验证的 HCI 解决方案由 HYPER-V 和存储空间�
 
 [Azure Stack 管理基础知识](azure-stack-manage-basics.md)
 
-[快速入门： 使用 Azure Stack 管理门户](azure-stack-manage-portals.md)
+[快速入门：使用 Azure Stack 管理门户](azure-stack-manage-portals.md)
