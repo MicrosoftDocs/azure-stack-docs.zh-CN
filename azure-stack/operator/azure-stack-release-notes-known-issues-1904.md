@@ -16,12 +16,12 @@ ms.date: 05/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
-ms.translationtype: HT
+ms.openlocfilehash: 615add67cb27f24831eb3fdfec0510f4ac2dc34e
+ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268337"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66373022"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
 
@@ -43,7 +43,7 @@ ms.locfileid: "66268337"
 
 - 适用：此问题适用于所有支持的版本。
 - 原因：不应使用与版本 1804年引入了两个管理订阅。 订阅类型是**计量**订阅，并**消耗**订阅。
-- 补救措施：第一页为 1905年和最终删除，这些订阅将被挂起。 如果您有以下两个订阅上运行的资源，重新在 1905年之前用户订阅中创建它们。
+- 补救措施：第一页为 1906年和最终删除，这些订阅将被挂起。 如果您有以下两个订阅上运行的资源，重新在 1906年之前用户订阅中创建它们。
 - 发生次数：通用
 
 ### <a name="subscription-resources"></a>订阅资源
@@ -60,10 +60,10 @@ ms.locfileid: "66268337"
 - 补救措施：使用[PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：通用
 
-
 ### <a name="docker-extension"></a>Docker 扩展
+
 - 适用：此问题适用于所有支持的版本。
-- 原因：门户管理员和用户门户，如果搜索"Docker"返回的项是不正确。 不是 Azure Stack 中提供。 如果尝试创建它，则会显示一个边栏选项卡，其中包含表明存在错误的内容。
+- 原因：管理员和用户门户网站，如果搜索中**Docker**，错误地返回的项。 不是 Azure Stack 中提供。 如果您尝试创建它，将显示错误。
 - 补救措施：没有缓解措施。
 - 发生次数：通用
 
@@ -205,7 +205,7 @@ ms.locfileid: "66268337"
 ## <a name="app-service"></a>应用服务
 
 - 在订阅中创建第一个 Azure 函数之前，租户必须注册存储资源提供程序。
-- 某些租户门户的用户体验中 1903; 已断开由于与门户框架不兼容主要，UX 部署槽的测试生产站点和站点扩展中。 若要解决此问题，请使用[Azure 应用服务 PowerShell 模块](/azure/app-service/deploy-staging-slots#automate-with-powershell)或[Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest)。 在即将发布的基于 Azure Stack 1.6 (Update 6) 的 Azure 应用服务中，将还原门户体验。
+- 某些租户门户的用户体验中 1903; 已断开由于与门户框架不兼容主要，UX 部署槽的测试生产站点和站点扩展中。 若要解决此问题，请使用[Azure 应用服务 PowerShell 模块](/azure/app-service/deploy-staging-slots#automate-with-powershell)或[Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest)。 通过升级的部署，将还原的门户体验[到 1.6 版 (更新 6) 的 Azure Stack 上的 Azure 应用服务](azure-stack-app-service-release-notes-update-six.md)。
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
