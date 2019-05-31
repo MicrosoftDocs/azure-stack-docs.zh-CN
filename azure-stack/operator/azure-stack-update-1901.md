@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 1fcdcdc4f592056ce3da5074b2371fde91b47c85
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 1fa0eda3e7967ac32621f3d152e16a4c3d27a540
+ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532389"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66411649"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -31,6 +31,10 @@ ms.locfileid: "65532389"
 
 > [!IMPORTANT]  
 > 此更新包仅适用于 Azure Stack 集成系统。 请勿将此更新包应用于 Azure Stack 开发工具包。
+
+## <a name="archived-release-notes"></a>已存档的发行说明
+
+您可以看到[较旧版本的 Azure Stack 发行 TechNet 库中的说明](http://aka.ms/azsarchivedrelnotes)。 这些存档的发行说明提供仅供参考，并不表示对这些版本的支持。 进一步的帮助，请联系 Microsoft 客户支持服务。
 
 ## <a name="build-reference"></a>内部版本参考
 
@@ -56,7 +60,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack 修补程序
 
-如果已有 1901年和尚未安装任何修补程序，你可以[直接安装 1902年](azure-stack-update-1902.md)，而不必首先安装 1901年修补程序。
+如果已经有 1901 但尚未安装任何修补程序，则可[直接安装 1902](azure-stack-update-1902.md)，不需先安装 1901 修补程序。
 
 - **1811**：当前没有修补程序可用。
 - **1901**：[KB 4500636-Azure Stack 修补程序 1.1901.5.109](https://support.microsoft.com/help/4500636)
@@ -64,7 +68,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 ## <a name="prerequisites"></a>必备组件
 
 > [!IMPORTANT]
-> 在更新到 1901 之前，请先安装 1811 的[最新 Azure Stack 修补程序](#azure-stack-hotfixes)（如果有）。 如果你已有 1901年并且你尚未安装任何修补程序，您可以直接安装 1902年不首先安装 1901年修补程序。
+> 在更新到 1901 之前，请先安装 1811 的[最新 Azure Stack 修补程序](#azure-stack-hotfixes)（如果有）。 如果已经有 1901 但尚未安装任何修补程序，则可直接安装 1902，不需先安装 1901 修补程序。
 
 - 在开始安装此更新之前，请使用以下参数运行 [Test-AzureStack](azure-stack-diagnostic-test.md)，以验证 Azure Stack 的状态并解决发现的所有操作问题，包括所有警告和故障。 另外，请查看活动警报，并解决所有需要采取措施的警报。
 
@@ -94,7 +98,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
    * **AzureRm.Insights**  
          AzureRm 汇总模块现在包含已发布的 5.1.5 版，支持适用于指标、指标定义资源类型的 **api-version 2018-01-01**。
 
-- **AzureStack 1.7.1**这一项重大更改的释放。 有关中断性变更的详细信息，请参阅 https://aka.ms/azspshmigration171
+- **AzureStack 1.7.1** 这是一个有中断性变更的版本。 有关中断性变更的详细信息，请参阅 https://aka.ms/azspshmigration171
    * **Azs.Backup.Admin 模块**  
          重大更改：备份对基于证书的加密模式的更改。 已弃用对对称密钥的支持。  
    * **Azs.Fabric.Admin 模块**  
@@ -114,7 +118,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 修复了以下问题：门户显示了创建基于策略的 VPN 网关的选项，但该选项在 Azure Stack 中不受支持。 已从门户中删除此选项。
 
 <!-- 16523695 - IS, ASDK -->
-- 修复了以下问题：在将虚拟网络的 DNS 设置从“使用 Azure Stack DNS”更新为“自定义 DNS”之后，不使用新设置更新实例。
+- 修复了以下问题：在将虚拟网络的 DNS 设置从“使用 Azure Stack DNS”更新为“自定义 DNS”之后，不使用新设置更新实例。  
 
 - <!-- 3235634 - IS, ASDK -->
   修复了以下问题：部署其大小包含 **v2** 后缀的 VM（例如 **Standard_A2_v2**）时，需要将后缀指定为 **Standard_A2_v2**（小写 v）。 使用全球 Azure 时，现在可以使用 **Standard_A2_V2**（大写 V）。
@@ -153,13 +157,13 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 修复了自动备份中计划程序服务意外进入禁用状态的问题。 
 
 <!--2850083, IS ASDK -->
-- 已从 Azure Stack 门户中删除“重置网关”按钮，以前在单击该按钮时会引发错误。 此按钮在 Azure Stack 中不起任何作用，因为 Azure Stack 包含多租户网关，而不为每个租户 VPN 网关提供专用的 VM 实例，因此已将其删除以避免混淆。 
+- 已从 Azure Stack 门户中删除“重置网关”按钮，以前在单击该按钮时会引发错误。  此按钮在 Azure Stack 中不起任何作用，因为 Azure Stack 包含多租户网关，而不为每个租户 VPN 网关提供专用的 VM 实例，因此已将其删除以避免混淆。 
 
 <!-- 3209594, IS ASDK -->
-- 已从“网络属性”边栏选项卡中删除“有效安全规则”链接，因为此功能在 Azure Stack 中不受支持。 显示该链接会让人觉得此功能受支持，但其实它并不起作用。 为了避免混淆，我们已删除该链接。
+- 已从“网络属性”边栏选项卡中删除“有效安全规则”链接，因为此功能在 Azure Stack 中不受支持。   显示该链接会让人觉得此功能受支持，但其实它并不起作用。 为了避免混淆，我们已删除该链接。
 
 <!-- 3139614 | IS -->
-- 修复了以下问题：将更新从 OEM 应用到 Azure Stack 之后，“有可用的更新”通知不显示在 Azure Stack 管理员门户中。
+- 修复了以下问题：将更新从 OEM 应用到 Azure Stack 之后，“有可用的更新”通知不显示在 Azure Stack 管理员门户中。 
 
 ## <a name="changes"></a>更改
 
@@ -170,7 +174,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
    请注意，即使使用 AD FS 支持 Kubernetes 群集的部署需要 internet 访问权限。
 
-- 在安装 Azure Stack 的更新或修补程序之后，可以引入新的功能，这需要将新权限授予一个或多个标识应用程序。 授予这些权限需要主目录的管理访问权限，因此无法自动完成授权。 例如:
+- 在安装 Azure Stack 的更新或修补程序之后，可以引入新的功能，这需要将新权限授予一个或多个标识应用程序。 授予这些权限需要主目录的管理访问权限，因此无法自动完成授权。 例如：
 
    ```powershell
    $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
@@ -249,7 +253,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 该计划将一直保留，直到引用附加计划的订阅也被删除。 
 
 <!-- TBD - IS ASDK --> 
-- 不应使用版本 1804 中引入的两种管理订阅类型。 这两种订阅类型为“计量订阅”和“消耗订阅”。 从版本 1804 开始，这些订阅类型会在新的 Azure Stack 环境中显示，但尚不可用。 请继续使用“默认提供程序”订阅类型。
+- 不应使用版本 1804 中引入的两种管理订阅类型。 这两种订阅类型为“计量订阅”和“消耗订阅”。   从版本 1804 开始，这些订阅类型会在新的 Azure Stack 环境中显示，但尚不可用。 请继续使用“默认提供程序”订阅类型。 
 
 <!-- 3557860 - IS ASDK --> 
 - 删除用户订阅生成孤立的资源。 解决方法是先删除用户资源或整个资源组，然后再删除用户订阅。
@@ -274,8 +278,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 应用 1901 更新后，在部署包含托管磁盘的 VM 时可能会遇到以下问题：
 
    - 如果 1808年更新，使用托管磁盘部署 VM 之前创建的订阅可能会失败并显示内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
-      1. 在租户门户中转到“订阅”，找到相应订阅。 依次选择“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-      2. 在同一订阅下，转到“访问控制(IAM)”，检查“AzureStack-DiskRP-Client”是否已列出。
+      1. 在租户门户中转到“订阅”，找到相应订阅。  依次选择“资源提供程序”、“Microsoft.Compute”、“重新注册”。   
+      2. 在同一订阅下，转到“访问控制(IAM)”，检查“AzureStack-DiskRP-Client”是否已列出。  
    - 如果已配置多租户环境中，在与来宾目录关联的订阅中部署虚拟机内部的错误消息可能会失败。 若要解决此错误，请按照中的步骤[这篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)重新配置每个来宾目录。
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
@@ -292,13 +296,13 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
     可以放心忽略此消息；即使 VM 实例未重启，IP 地址也会更改。
 
 <!-- 3632798 - IS, ASDK -->
-- 在门户中，如果添加入站安全规则并选择“服务标记”作为源，“服务标记”列表中会显示多个不适用于 Azure Stack 的选项。 在 Azure Stack 中有效的选项仅限以下几个：
+- 在门户中，如果添加入站安全规则并选择“服务标记”作为源，“服务标记”列表中会显示多个不适用于 Azure Stack 的选项。   在 Azure Stack 中有效的选项仅限以下几个：
 
   - **Internet**
   - **VirtualNetwork**
   - **AzureLoadBalancer**
   
-    在 Azure Stack 中，不支持将其他选项用作源标记。 同样，如果添加出站安全规则并选择“服务标记”作为目标，则显示与“源标记”相同的选项列表。 仅有的有效选项与“源标记”的有效选项相同，如以上列表中所述。
+    在 Azure Stack 中，不支持将其他选项用作源标记。 同样，如果添加出站安全规则并选择“服务标记”作为目标，则显示与“源标记”相同的选项列表。   仅有的有效选项与“源标记”的有效选项相同，如以上列表中所述。 
 
 - 网络安全组 (NSG) 无法像在全球 Azure 中一样在 Azure Stack 中运行。 在 Azure 中，可以在一个 NSG 规则中设置多个端口（使用门户、PowerShell 和资源管理器模板）。 但是，在 Azure Stack 中，无法通过门户在一个 NSG 规则中设置多个端口。 若要解决此问题，请使用资源管理器模板或 PowerShell 设置这些附加的规则。
 
@@ -321,7 +325,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ### <a name="syslog"></a>Syslog
 
-- Syslog 配置不会保留通过更新循环，导致 syslog 客户端会丢失其配置以及要停止正在转发的 syslog 消息。 Syslog 客户端 (1809) 正式发布以来，此问题适用于所有版本的 Azure Stack。 若要解决此问题，请重新应用 Azure Stack 更新后配置 syslog 客户端。
+- syslog 配置不会在整个更新周期中保留，导致 syslog 客户端丢失其配置，并停止转发 syslog 消息。 此问题适用于自 syslog 客户端正式版 (1809) 发布以来的所有 Azure Stack 版本。 若要解决此问题，请在应用 Azure Stack 更新之后重新配置 syslog 客户端。
 
 ## <a name="download-the-update"></a>下载更新
 

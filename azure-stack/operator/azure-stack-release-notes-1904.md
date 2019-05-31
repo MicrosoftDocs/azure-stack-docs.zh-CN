@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 1904 发行说明 |Microsoft Docs
-description: 了解有关 Azure Stack 集成系统，包括最新内容、 1904年更新的已知的问题，以及下载更新的位置。
+description: 了解有关 Azure Stack 集成系统，包括最新内容、 1904年更新的已知的问题，以及在何处下载的更新和已存档的 Azure Stack 发行说明。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/22/2019
-ms.openlocfilehash: 3bb69c9817eaa12f2a6fab0f20bc79f510a3c251
-ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 770d3bc462750816e55f1c224496d9dde01f5a36
+ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66174350"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66411634"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 
@@ -34,6 +34,10 @@ ms.locfileid: "66174350"
 
 > [!IMPORTANT]  
 > 此更新包仅适用于 Azure Stack 集成系统。 请勿将此更新包应用于 Azure Stack 开发工具包。
+
+## <a name="archived-release-notes"></a>已存档的发行说明
+
+您可以看到[较旧版本的 Azure Stack 发行 TechNet 库中的说明](http://aka.ms/azsarchivedrelnotes)。 这些存档的发行说明提供仅供参考，并不表示对这些版本的支持。 进一步的帮助，请联系 Microsoft 客户支持服务。
 
 ## <a name="build-reference"></a>内部版本参考
 
@@ -144,7 +148,7 @@ Azure Stack 1904 更新内部版本号是**1.1904.0.36**。
 
 - 修复了在 Marketplace 管理隐藏所有下载的产品，如果注册过期或被删除。
 
-- 修复了在哪些颁发**集 AzureRmVirtualNetworkGatewayConnection**在 PowerShell 中的现有虚拟网络网关连接到的命令失败，错误消息**无效共享配置密钥...**.
+- 修复了在哪些颁发**集 AzureRmVirtualNetworkGatewayConnection**在 PowerShell 中的现有虚拟网络网关连接到的命令失败，错误消息**无效共享配置密钥...** .
 
 - 修复了导致网络资源提供程序 (NRP) 与网络控制器，从而导致所请求的重复资源同步问题。 在某些情况下，这会导致父资源处于错误状态。
 
