@@ -11,23 +11,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/30/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 10fd52a85dd46002e40061c197641a716afa3230
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 6a636a1ed7b2426649afbe163b15780bfc4e9f0e
+ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267694"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428707"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 注册
+
 可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Microsoft 报告商务数据的功能。 需要注册才能支持完整的 Azure Stack 功能，包括市场联合。 需要注册才能测试重要的 Azure Stack 功能，如市场联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
 
 如果未注册 ASDK，则可能会看到“需要激活”  警告警报，建议注册 Azure Stack 开发工具包。 此行为是预期的行为。
 
 ## <a name="prerequisites"></a>必备组件
+
 在遵照这些说明将 ASDK 注册到 Azure 之前，请确保已安装 Azure Stack PowerShell，并已下载[部署后配置](asdk-post-deploy.md)一文中所述的 Azure Stack 工具。
 
 此外，在用于向 Azure 注册 ASDK 的计算机上，PowerShell 语言模式必须设置为 **FullLanguageMode**。 若要验证当前的语言模式是否设置为 Full，请打开权限提升的 PowerShell 窗口，并运行以下 PowerShell 命令：
@@ -41,6 +43,7 @@ $ExecutionContext.SessionState.LanguageMode
 用于注册的 Azure AD 帐户需要有权访问 Azure 订阅，并且有权在与该订阅关联的目录中创建标识应用程序和服务主体。 我们建议通过[创建用于注册的服务帐户](../operator/azure-stack-registration-role.md)以使用最低特权管理将 Azure Stack 注册到 Azure，而不要使用全局管理员凭据。
 
 ## <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
+
 遵循以下步骤将 ASDK 注册到 Azure。
 
 > [!NOTE]
@@ -48,7 +51,15 @@ $ExecutionContext.SessionState.LanguageMode
 
 1. 以管理员身份打开 PowerShell 控制台。  
 
-2. 运行以下 PowerShell 命令，将 ASDK 安装注册到 Azure。 需要同时登录到 Azure 计费订阅 ID 和本地 ASDK 安装。 如果没有 Azure 计费的订阅 ID，但你可以[创建免费的 Azure 帐户此处](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。<br><br>在运行 **Set-AzsRegistration** cmdlet 时设置适用于注册的唯一名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，该脚本会失败。
+2. 在 ASDK 主机计算机上打开该文件**C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1**在编辑器中使用提升的权限。
+
+3. 在行 1249年中，添加`-TimeoutInSeconds 1800`结束时参数。 这是必需的以防服务主体超时，运行注册脚本时。 1249 行现在应如下显示：
+
+   ```powershell
+   $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+   ```
+
+4. 运行以下 PowerShell 命令，将 ASDK 安装注册到 Azure。 需要同时登录到 Azure 计费订阅 ID 和本地 ASDK 安装。 如果没有 Azure 尚未计费的订阅 ID，则可以[创建免费的 Azure 帐户此处](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。<br><br>在运行 **Set-AzsRegistration** cmdlet 时设置适用于注册的唯一名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，该脚本会失败。
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
@@ -75,18 +86,20 @@ $ExecutionContext.SessionState.LanguageMode
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. 该脚本完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。 
+
+5. 该脚本完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。 
 
     ![环境现已注册](media/asdk-register/1.PNG)
 
-
 ## <a name="register-in-disconnected-environments"></a>在离线环境中注册
+
 若要在离线环境（未建立 Internet 连接）中注册 Azure Stack，需要从 Azure Stack 环境获取注册令牌，然后在可连接到 Azure 的计算机上使用该令牌，并为 ASDK 环境创建激活资源。
- 
+
  > [!IMPORTANT]
  > 在遵照这些说明注册 Azure Stack 之前，请确保根据[部署后的配置](asdk-post-deploy.md)一文中所述，在 ASDK 主机以及可访问 Internet 的、用于连接到 Azure 和注册的计算机上，安装适用于 Azure Stack 的 PowerShell 并下载 Azure Stack 工具。
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>从 Azure Stack 环境获取注册令牌
+
 在 ASDK 主机上，以管理员身份启动 PowerShell，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用以下 PowerShell 命令导入 **RegisterWithAzure.psm1** 模块，然后使用 **Get-AzsRegistrationToken** cmdlet 获取注册令牌：  
 
    ```powershell  
@@ -108,6 +121,7 @@ $ExecutionContext.SessionState.LanguageMode
 保存此注册令牌，以便在连接到 Internet 的计算机上使用。 可以从通过 $FilePathForRegistrationToken 参数创建的文件复制文件或文本。
 
 ### <a name="connect-to-azure-and-register"></a>连接到 Azure 并注册
+
 在已连接到 Internet 的计算机上，使用以下 PowerShell 命令导入 **RegisterWithAzure.psm1** 模块，然后通过 **Register-AzsEnvironment** cmdlet 并使用刚才创建的注册令牌和唯一的注册名称来注册到 Azure：  
 
   ```powershell  
@@ -158,7 +172,7 @@ $ExecutionContext.SessionState.LanguageMode
 注册完成后，应当会看到类似于以下内容的消息：**现在已经向 Azure 注册了你的 Azure Stack 环境。**
 
 > [!IMPORTANT]
-> 不要关闭 PowerShell 窗口。 
+> 不要关闭 PowerShell 窗口。
 
 保存注册令牌和注册资源名称，供以后参考。
 
@@ -175,6 +189,7 @@ $ExecutionContext.SessionState.LanguageMode
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
   -KeyOutputFilePath $KeyOutputFilePath
   ```
+
 ### <a name="create-an-activation-resource-in-azure-stack"></a>在 Azure Stack 中创建激活资源
 
 使用 **Get-AzsActivationKey** 从创建的激活密钥中获取文件或文本后，返回到 Azure Stack 环境。 运行以下 PowerShell 命令，使用该激活密钥在 Azure Stack 中创建激活资源：   

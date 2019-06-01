@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: eefe72aaf3e82c80d26a2963e0d8b4b921d9acf6
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 8badb1fbcabc6f1a3ffbef0b8489dea0f06e649c
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267531"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453434"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>全局 Azure，Azure Stack 和 Azure Stack HCI 之间的差异
 
@@ -32,7 +32,7 @@ Microsoft 提供了 Azure 和 Azure 生态系统中的服务的 Azure Stack 系�
 
 ![Azure 生态系统概述](./media/compare-azure-azure-stack/azure-family.png)
 
-## <a name="global-azure"></a>全局 Azure
+## <a name="global-azure"></a>全球 Azure
 
 Microsoft Azure 是一个不断扩展的云服务集合，它可以帮助组织应对各种商业挑战。 它是可以自由地构建、 管理和使用你最喜爱的工具和框架的全球性的大规模网络上部署应用程序。
 
@@ -48,7 +48,7 @@ Azure Stack 是云的 Azure 提供了灵活的扩展和创新计算到您的本�
 - Azure Web 应用和函数
 - Azure 密钥保管库
 - Azure 资源管理器
-- Azure Marketplace
+- Azure 市场
 - 容器
 - Azure IoT 中心与事件中心
 - 管理工具 (计划、 产品/服务，RBAC，等等。)
@@ -70,15 +70,15 @@ Azure Stack 的 PaaS 功能是可选的因为 Azure Stack 不由 Microsoft 运�
 - 零售 assortment 优化
 - 供应链优化
 - 工业 IoT
-- 预防性维护
+- 预见性维护
 - 智能城市
 - 公民参与度
 
 详细了解在 Azure Stack[什么是 Azure Stack](azure-stack-overview.md)。
 
-## <a name="azure-stack-hci"></a>Azure Stack HCI 
+## <a name="azure-stack-hci"></a>Azure Stack HCI
 
-Azure Stack HCI 解决方案，可运行本地虚拟机，并使用超聚合基础结构 (HCI) 解决方案轻松地连接到 Azure。 使用一致的 Azure 本地服务生成和运行云应用程序，以满足法规或技术要求。 除了虚拟化应用程序本地运行，Azure Stack HCI，可替换和合并老化服务器基础结构和使用 Windows Admin Center 为云服务连接到 Azure。
+[Azure Stack HCI](azure-stack-hci-overview.md)解决方案可将虚拟机内部运行并使用超聚合基础结构 (HCI) 解决方案轻松地连接到 Azure。 使用一致的 Azure 本地服务生成和运行云应用程序，以满足法规或技术要求。 除了虚拟化应用程序本地运行，Azure Stack HCI，可替换和合并老化服务器基础结构和使用 Windows Admin Center 为云服务连接到 Azure。
 
 Azure Stack HCI 提供经验证的 HCI 解决方案由 HYPER-V 和存储空间直通与 Windows Server 2019 软件定义数据中心 (SDDC) 提供支持。 Windows Admin Center 被用来管理和集成访问 Azure 服务，如：
 

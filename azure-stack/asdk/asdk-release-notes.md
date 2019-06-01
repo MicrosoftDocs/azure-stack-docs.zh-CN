@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/01/2019
-ms.openlocfilehash: 935f144ebbb40da66ac43fc8e9d5dfc7c3e3d0b6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
+ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983599"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428680"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
@@ -38,15 +38,24 @@ ms.locfileid: "64983599"
 
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
+- 由于服务主体超时时运行注册脚本，以便[注册 ASDK](asdk-register.md)成功，则必须编辑**RegisterWithAzure.psm1** PowerShell 脚本。 请执行以下操作：
+
+  1. 在 ASDK 主机计算机上打开该文件**C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1**在编辑器中使用提升的权限。
+  2. 在行 1249年中，添加`-TimeoutInSeconds 1800`结束时参数。 运行注册脚本时，这是必需的原因是服务主体超时。 1249 行现在应如下显示：
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
+
 - 修复了识别的 VPN 连接问题[在这里，版本中的 1902年](#known-issues)。
 
 - 此版本中修复其他 Azure Stack 问题的列表，请参阅[本节](../operator/azure-stack-release-notes-1904.md#fixes)Azure Stack 的发行说明。
 - 有关已知问题的列表，请参阅[这篇文章](../operator/azure-stack-release-notes-known-issues-1904.md)。
 - 请注意，[发布的 Azure Stack 修补程序](../operator/azure-stack-release-notes-1904.md#hotfixes)不适用于 Azure Stack ASDK。
 
-## <a name="build-1903"></a>生成 1903
+## <a name="build-1903"></a>内部版本 1903
 
-1903 有效负载不包括 ASDK 发行。
+1903 有效负载不包括 ASDK 发行版。
 
 ## <a name="build-11902069"></a>内部版本 1.1902.0.69
 

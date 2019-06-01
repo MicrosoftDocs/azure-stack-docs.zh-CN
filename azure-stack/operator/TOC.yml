@@ -4,6 +4,8 @@
   items:
     - name: 什么是 Azure Stack？
       href: azure-stack-overview.md
+    - name: 什么是 Azure Stack HCI？
+      href: azure-stack-hci-overview.md
     - name: 比较 Azure 生态系统
       href: compare-azure-azure-stack.md
     - name: 发行说明
@@ -381,18 +383,14 @@
           href: azure-stack-backup-best-practices.md
         - name: 备份参考
           href: azure-stack-backup-reference.md
-    - name: 获取帮助
+    - name: 故障排除
       items:
-        - name: 帮助 + 支持
-          href: azure-stack-help-and-support.md
-        - name: 故障排除
-          items:
-            - name: 已知问题
-              href: azure-stack-troubleshooting.md
-            - name: Azure Stack 中的诊断
-              href: azure-stack-diagnostics.md
-            - name: Azure Stack 验证
-              href: azure-stack-diagnostic-test.md
+        - name: 已知问题
+          href: azure-stack-troubleshooting.md
+        - name: Azure Stack 中的诊断
+          href: azure-stack-diagnostics.md
+        - name: Azure Stack 验证
+          href: azure-stack-diagnostic-test.md
 - name: 参考
   items:
     - name: Azure Stack PowerShell

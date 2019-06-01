@@ -171,6 +171,8 @@
               maintainContext: true
             - name: 使用 Docker 来运行 PowerShell
               href: azure-stack-powershell-user-docker.md
+            - name: 使用 Azure 帐户扩展进行连接
+              href: azure-stack-dev-start-vscode-azure.md
             - name: 安装 Visual Studio
               href: azure-stack-install-visual-studio.md
             - name: 使用 SSH 公钥
@@ -186,7 +188,7 @@
                   href: azure-stack-version-profiles-java.md
                 - name: Azure CLI
                   href: azure-stack-version-profiles-azurecli2.md
-                - name: 转到
+                - name: Go
                   href: azure-stack-version-profiles-go.md
                 - name: Ruby
                   href: azure-stack-version-profiles-ruby.md
