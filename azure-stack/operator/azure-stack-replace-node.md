@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 72449e25bf1787f686da786bc587b57a2a28254c
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 78fe71768b83082e152685f7fe4c7cc606ae5b3c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782370"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469198"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>更换 Azure Stack 集成系统上的缩放单元节点
 
@@ -47,7 +47,7 @@ ms.locfileid: "65782370"
 
 ![缩放单元节点关闭的警报列表](media/azure-stack-replace-node/nodedownalerts.png)
 
-如果开启“缩放单元节点已脱机”警报，警报说明会包含不可访问的缩放单元节点。 也可能会在硬件生命周期主机上运行的 OEM 特定的监视解决方案中收到其他警报。
+如果开启“缩放单元节点已脱机”  警报，警报说明会包含不可访问的缩放单元节点。 也可能会在硬件生命周期主机上运行的 OEM 特定的监视解决方案中收到其他警报。
 
 ![节点脱机警报的详细信息](media/azure-stack-replace-node/nodeoffline.png)
 
@@ -69,7 +69,7 @@ ms.locfileid: "65782370"
 
 4. 更换物理计算机。 通常，这由 OEM 硬件供应商来完成。
 5. 使用[修复](azure-stack-node-actions.md#repair)操作将新的物理计算机添加到缩放单元。
-6. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
+6. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
 7. 修复操作完成后，验证是否已自动关闭所有活动警报。
 
 ## <a name="next-steps"></a>后续步骤

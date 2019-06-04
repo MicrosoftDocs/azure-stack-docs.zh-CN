@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: ea316ebdba51ea80fcd02382023ccb46447a8cc0
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 0e1f379b651d022b2c698777a7d8708ff33bf76f
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984833"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469154"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>更换 Azure Stack 缩放单元节点上的硬件组件
 
@@ -70,7 +70,7 @@ Azure Stack 运行状况和监视系统会跟踪存储空间直通所控制的�
 4. 更换损坏的硬件组件。 OEM 硬件供应商是否执行组件更换可能会根据支持合同而有所不同。  
 5. 更新固件。 请使用硬件生命周期主机按照供应商特定的固件更新过程进行操作，以确保替换的硬件组件已应用批准的固件级别。 OEM 硬件供应商是否执行此步骤可能会根据支持合同而有所不同。  
 6. 使用[修复](azure-stack-node-actions.md#scale-unit-node-actions)操作将缩放单元节点恢复到缩放单元。
-7. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
+7. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
 8. 修复操作完成后，验证是否已自动关闭所有活动警报。
 
 ## <a name="next-steps"></a>后续步骤

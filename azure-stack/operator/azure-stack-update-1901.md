@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 1fa0eda3e7967ac32621f3d152e16a4c3d27a540
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: 71984d89bf98b93af28c51aef6599f5df176f8da
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411649"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469092"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -272,7 +272,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
    如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。 若要解决此问题，请使用以前所用的同一名称重新创建存储帐户。
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- 虚拟机规模集 (VMSS) 创建体验提供了基于 CentOS 7.2，作为一个选项来部署。 由于该映像在 Azure Stack 上不可用，因此请为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。  
+- 虚拟机规模集创建体验提供了基于 CentOS 7.2，作为一个选项来部署。 由于该映像在 Azure Stack 上不可用，因此请为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。  
 
 <!-- TBD - IS ASDK --> 
 - 应用 1901 更新后，在部署包含托管磁盘的 VM 时可能会遇到以下问题：

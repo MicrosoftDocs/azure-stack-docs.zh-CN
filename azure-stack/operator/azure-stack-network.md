@@ -12,25 +12,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: a839faa7ec5a93a506ad967f3449ee1788f1a21a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: e9c373ebaa6452c57acad866c66c8b3d5ab0c5ed
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618491"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469171"
 ---
 # <a name="network-connectivity"></a>网络连接
 本文提供 Azure Stack 网络基础架构信息，可帮助你确定如何以最佳方式将 Azure Stack 集成到现有的网络环境。 
 
 > [!NOTE]
-> 若要解决从 Azure Stack 外部 DNS 名称 (例如，www\.bing.com)，你需要提供 DNS 服务器来转发 DNS 请求。 有关 Azure Stack DNS 要求的详细信息，请参阅 [Azure Stack 数据中心集成 - DNS](azure-stack-integrate-dns.md)。
+> 若要从 Azure Stack 解析外部 DNS 名称（例如 www\.bing.com），必须提供 DNS 服务器来转发 DNS 请求。 有关 Azure Stack DNS 要求的详细信息，请参阅 [Azure Stack 数据中心集成 - DNS](azure-stack-integrate-dns.md)。
 
 ## <a name="physical-network-design"></a>物理网络设计
-Azure Stack 解决方案需要一个可复原且具有高可用性的物理基础设施来支持其操作和服务。 从 ToR 到边界交换机的上行链路仅限于 SFP+ 或 SFP28 介质以及 1 GB、10 GB 或 25 GB 的速度。 请咨询原始设备制造商 (OEM) 硬件供应商以了解可用性。 下图显示了建议的设计：
+Azure Stack 解决方案需要一个可复原且具有高可用性的物理基础设施来支持其操作和服务。 从 ToR 到边界交换机的上行仅限于 SFP + 或 SFP28 媒体和 1 GB，10 GB 或 25 GB 的速度。 请咨询原始设备制造商 (OEM) 硬件供应商以了解可用性。 下图显示了建议的设计：
 
 ![建议的 Azure Stack 网络设计](media/azure-stack-network/recommended-design.png)
 
@@ -78,12 +78,28 @@ HLH 也托管部署 VM (DVM)。 此 DVM 在 Azure Stack 部署期间使用，在
 此 /29（6 个主机 IP）网络专用于连接交换机的管理端口。 其允许带外访问，以完成部署、管理和故障排除。 它是从上述交换机基础结构网络计算而来的。
 
 ## <a name="publish-azure-stack-services"></a>发布 Azure Stack 服务
-需将 Azure Stack 服务提供给 Azure Stack 外部的用户使用。 Azure Stack 将为其基础结构角色设置不同的终结点。 这些终结点是公共 IP 地址池中分配的 VIP。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。 例如，将为用户门户分配 DNS 主机条目 portal.*&lt;region>.&lt;fqdn>*。
+需将 Azure Stack 服务提供给 Azure Stack 外部的用户使用。 Azure Stack 将为其基础结构角色设置不同的终结点。 这些终结点是公共 IP 地址池中分配的 VIP。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。 例如，将为用户门户分配 DNS 主机条目 portal. *&lt;region>.&lt;fqdn>* 。
 
 ### <a name="ports-and-urls"></a>端口和 URL
 若要使 Azure Stack 服务（例如门户、Azure 资源管理器、DNS 等）可供外部网络使用，必须允许特定 URL、端口和协议的入站流量发往这些终结点。
  
 如果部署中的透明代理上行链接到传统的代理服务器，则必须允许特定的端口和 URL，以便能够进行[入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)和[出站](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)通信。 这包括用于标识、市场、修补和更新、注册和使用情况数据的端口与 URL。
+
+### <a name="mac-address-pool"></a>MAC 地址池
+
+Azure Stack 使用静态 MAC 地址池自动生成并将 MAC 地址分配给虚拟机。
+此 MAC 地址池在部署期间自动生成，并使用以下范围：
+
+- StartMacAddress:00-1D-D8-B7-00-00
+- EndMacAddress:00-1D-D8-F4-FF-FF
+
+> [!Note]  
+> 此 MAC 地址池每个 Azure Stack 系统中是相同，并且不可配置。
+
+具体取决于如何使用现有的公司网络连接虚拟网络，会按预期虚拟机的重复的 MAC 的地址。
+
+有关使用 cmdlet 的 MAC 地址池利用率可以找到更多信息[Get AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) Azure Stack 管理员 PowerShell 模块中。
+
 
 ## <a name="next-steps"></a>后续步骤
 [边界连接](azure-stack-border-connectivity.md)

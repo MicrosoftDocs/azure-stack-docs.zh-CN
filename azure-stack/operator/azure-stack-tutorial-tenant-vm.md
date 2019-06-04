@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: b39eaf4365f74e59c6dd60db67fdadf1162cb91d
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3719019ebdbc6edad17c523a937d77d4f11bb02a
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268134"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469214"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>教程：将虚拟机提供给 Azure Stack 用户使用
 
@@ -41,7 +41,7 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
 
 ![订阅、套餐和计划](media/azure-stack-key-features/image4.png)
 
-有关详细信息，请参阅 [Azure Stack 中的重要功能和概念](azure-stack-overview.md)。
+若要了解详细信息，请参阅[计划、 产品/服务、 配额和订阅概述](azure-stack-plan-offer-quota-overview.md)。
 
 ## <a name="create-an-offer"></a>创建产品
 
@@ -53,7 +53,7 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
 
 1. 在“新建套餐”中，输入“显示名称”和“资源名称”，然后选择新的或现有的**资源组**。    “显示名称”是套餐的友好名称。 只有云操作员可以看到资源名称，管理员可以使用该名称将套餐作为 Azure 资源管理器资源处理。
 
-   ![显示名称](media/azure-stack-tutorial-tenant-vm/image02.png)
+   ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
 
 1. 选择“基本计划”，在“计划”部分选择“添加”，将新计划添加到套餐。   
 

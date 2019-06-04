@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: ea733bab465a8ca40be69ba26b8c6786b223993a
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: e2560fd1e6418c9669f94f23ea1f6867e9c907a3
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453463"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469080"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新
 
@@ -192,7 +192,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 - 无法删除规模集从**虚拟机规模集**边栏选项卡。 解决方法是，选择的小数位数设置你想要删除，然后单击**删除**按钮从**概述**窗格。
 
-- 在 3 个容错域的可用性集中创建 Vm 和创建 VMSS 实例失败，出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**过程上 4 节点 Azure Stack 环境的更新过程中出错。 可以在可用性集的 2 个容错域已成功创建单个 Vm。 但是，在 4 节点 Azure Stack 上的更新过程期间创建 VMSS 实例是仍不可用。
+- 在 3 个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例失败，并**FabricVmPlacementErrorUnsupportedFaultDomainSize**过程 4 节点 Azure Stack 上的更新过程中出错环境。 可以在可用性集的 2 个容错域已成功创建单个 Vm。 但是，在 4 节点 Azure Stack 上的更新过程中创建规模集实例是仍不可用。
 
 ### <a name="networking"></a>网络
 

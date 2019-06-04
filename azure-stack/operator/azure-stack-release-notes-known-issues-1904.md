@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 0bc2b209303cceda30d5997d080c4c6061f20da3
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453476"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469132"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
 
@@ -149,7 +149,7 @@ ms.locfileid: "66453476"
 #### <a name="centos"></a>CentOS
 
 - 适用：此问题适用于所有支持的版本。
-- 原因：虚拟机规模集 (VMSS) 创建体验提供了基于 CentOS 7.2，作为一个选项来部署。 CentOS 7.2 不是可在 Azure Stack 上的。
+- 原因：虚拟机规模集创建体验提供了基于 CentOS 7.2，作为一个选项来部署。 CentOS 7.2 不是可在 Azure Stack 上的。
 - 补救措施：选择另一个适用于你的部署，或使用指定另一个已从 marketplace 部署前运算符所下载的 CentOS 映像的 Azure 资源管理器模板。
 - 发生次数：常见
 
@@ -160,11 +160,11 @@ ms.locfileid: "66453476"
 - 补救措施：选择的小数位数设置你想要删除，然后单击**删除**按钮从**概述**窗格。
 - 发生次数：常见
 
-#### <a name="vmvmss-create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>VM/VMSS 在修补和更新在 4 节点 Azure Stack 环境的过程中创建失败
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>在修补和更新在 4 节点 Azure Stack 环境的过程中创建失败
 
 - 适用：此问题适用于所有支持的版本。
-- 原因：在 3 个容错域的可用性集中创建 Vm 和创建 VMSS 实例失败，出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**过程上 4 节点 Azure Stack 环境的更新过程中出错。
-- 补救措施：可以在可用性集的 2 个容错域已成功创建单个 Vm。 但是，在 4 节点 Azure Stack 上的更新过程期间创建 VMSS 实例是仍不可用。
+- 原因：在 3 个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例失败，并**FabricVmPlacementErrorUnsupportedFaultDomainSize**过程 4 节点 Azure Stack 上的更新过程中出错环境。
+- 补救措施：可以在可用性集的 2 个容错域已成功创建单个 Vm。 但是，在 4 节点 Azure Stack 上的更新过程中创建规模集实例是仍不可用。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH 访问
 
@@ -202,11 +202,11 @@ ms.locfileid: "66453476"
   - 在最新版本中已修复问题[1904年的 Azure Stack 修补程序](https://support.microsoft.com/help/4505688)。
 - 发生次数：常见
 
-### <a name="vmss-instance-view"></a>VMSS 实例视图
+### <a name="virtual-machine-scale-set-instance-view"></a>虚拟机规模集实例视图
 
 - 适用：此问题适用于 1904年和 1905年版本。
 - 原因：规模集实例视图边栏选项卡位于 Azure Stack 门户中**仪表板** > **虚拟机规模集** >  **AnyScaleSet-实例** > **AnyScaleSetInstance**加载失败。
-- 补救措施：目前尚无修正，我们正在努力修复程序。 在此之前，请使用 CLI cmdlet`az vmss get-instance-view`获取 VMSS 的实例视图。
+- 补救措施：目前尚无修正，我们正在努力修复程序。 在此之前，请使用 CLI cmdlet`az vmss get-instance-view`获取虚拟机规模集实例视图。
 
 ## <a name="storage"></a>存储
 

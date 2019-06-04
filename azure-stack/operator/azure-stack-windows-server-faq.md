@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 3f177ea0c261771b67e6434215df67211452b767
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64292009"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459065"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack 市场中的 Windows Server 常见问题解答
+# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack marketplace 常见问题解答中的 Windows Server
 
-本文解答有关 [Azure Stack 市场](azure-stack-marketplace.md)中 Windows Server 映像的常见问题。
+本文回答了一些有关 Windows Server 映像中的常见问题[Azure Stack marketplace](azure-stack-marketplace.md)。
 
 ## <a name="marketplace-items"></a>市场项
 
@@ -32,22 +32,22 @@ ms.locfileid: "64292009"
 
 首先，请确定是否有任何 Azure 资源管理器模板引用了特定的版本。 如果有，请更新这些模板，或保留旧的映像版本。 最好是使用 **version: latest**。
 
-接下来，如果有任何虚拟机规模集引用特定的版本，则应考虑将来是否要缩放它们，并确定是否要保留旧版本。 如果上述两个条件都不适用，请先在市场中删除旧映像，然后下载新映像。 如果原始映像是使用“市场管理”下载的，请继续这样做。 然后下载新版本。
+接下来，如果任何虚拟机规模集引用的特定版本，您应考虑这些是否会更高版本，扩展并决定是否要保留较旧版本。 如果上述条件均不适用，请下载较新的之前删除旧映像 marketplace 中。 使用 marketplace 管理来删除它们，如果下载原始的方式。 然后下载新版本。
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Azure Stack 上的 Windows Server 市场映像有哪些许可选项？
 
-Microsoft 通过 Azure Stack 市场提供两种版本的 Windows Server 映像：
+Microsoft 提供了两个版本的 Windows Server 映像，通过 Azure Stack marketplace:
 
 - **即用即付**：这些映像运行全价 Windows 计量器。
-   适合对象：使用消耗量计费模型的企业协议 (EA) 客户、不想要使用 SPLA 许可的 CSP。
-- **自带许可证 (BYOL)**：这些映像运行基本计量器。
+   适合对象：使用消耗量计费模型的企业协议 (EA) 客户、不想要使用 SPLA 许可的 CSP。 
+- **自带许可证 (BYOL)** ：这些映像运行基本计量器。
    适合对象：具有 Windows Server 许可证的 EA 客户、使用 SPLA 许可的 CSP。
 
 Azure Stack 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”模型获取许可证的客户必须使用 BYOL 映像。 如果你正在使用 Azure Stack 开发工具包 (ASDK) 进行测试，则可以使用上述任一选项。
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>如果下载了错误的版本并将其提供给租户/用户，该怎么办？
 
-请先通过“市场管理”删除错误的版本。 等待删除操作完全完成（请查看完成通知，而不要查看“市场管理”边栏选项卡）。 然后下载正确的版本。
+请先通过“市场管理”删除错误的版本。 等待它完成完全 (不看看是否已完成，通知**Marketplace 管理**边栏选项卡)。 然后下载正确的版本。
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>如果我的用户在旧版 Windows 生成中错误地选中了“我有许可证”框，但他们其实并没有许可证，该怎么办？
 
@@ -70,7 +70,7 @@ Azure Stack 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”模�
 若要在 Azure Stack 上激活 Windows Server 虚拟机，必须满足以下条件：
 
 - OEM 已在 Azure Stack 上的每个主机系统上设置相应的 BIOS 标记。
-- Windows Server 2012 R2 和 Windows Server 2016 必须使用[自动虚拟机激活](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))。 Azure Stack 不支持密钥管理服务 (KMS) 和其他激活服务。
+- Windows Server 2012 R2 和 Windows Server 2016 必须使用[自动虚拟机激活](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))。 Azure Stack 不支持密钥管理服务 (KMS) 和其他激活服务。
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>如何验证虚拟机是否已激活？
 
@@ -90,7 +90,7 @@ slmgr /dlv
 slmgr /ipk <AVMA key>
 ```
 
-请参阅[自动虚拟机激活](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))一文，获取映像使用的密钥。
+请参阅[自动虚拟机激活](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))一文，获取映像使用的密钥。
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>我自行创建了 Windows Server 映像，如何确保它们使用 AVMA？
 
@@ -106,7 +106,7 @@ slmgr /ipk <AVMA key>
 
 ### <a name="what-about-earlier-versions-of-windows-server"></a>对于早期版本的 Windows Server，如何激活？
 
-早期版本的 Windows Server 不支持[自动虚拟机激活](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))。 必须手动激活这些 VM。
+早期版本的 Windows Server 不支持[自动虚拟机激活](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))。 你必须手动激活 Vm。
 
 ## <a name="next-steps"></a>后续步骤
 

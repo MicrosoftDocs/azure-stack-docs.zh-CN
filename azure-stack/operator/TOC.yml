@@ -48,7 +48,15 @@
 - name: 概念
   items:
     - name: 容量规划
-      href: capacity-planning.md
+      items:
+        - name: 概述
+          href: azure-stack-capacity-planning-overview.md
+        - name: 计算
+          href: azure-stack-capacity-planning-compute.md
+        - name: 存储
+          href: azure-stack-capacity-planning-storage.md
+        - name: Azure Stack Capacity Planner
+          href: azure-stack-capacity-planner.md
     - name: 数据中心集成
       href: azure-stack-customer-journey.md
       items:
@@ -374,9 +382,9 @@
         - name: 备份 Azure Stack
           href: azure-stack-backup-back-up-azure-stack.md
         - name: 在 Azure Stack 上备份文件和应用程序
-          href: /azure/backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
         - name: 将 Azure Stack VM 复制到 Azure
-          href: /azure/site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
         - name: 在发生灾难性数据丢失后进行恢复
           href: azure-stack-backup-recover-data.md
         - name: 备份最佳做法

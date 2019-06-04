@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bd58611e08bf0b0de6808c9719311f904ea682ba
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f57ded9df4fe799a5795ee541f7a03e650202aab
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985261"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459052"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的标识概述
 
@@ -45,9 +45,9 @@ Azure Stack 要求使用 Active Directory 所支持的 Azure Active Directory (A
 
 ### <a name="directory-tenants-and-organizations"></a>目录租户和组织
 
-目录是保留用户、应用程序、组和服务主体相关信息的容器。
+目录是保留用户、应用程序、组和服务主体相关信息的容器。    
 
-目录租户是一个组织，例如 Microsoft 或你自己的公司。
+目录租户是一个组织，例如 Microsoft 或你自己的公司。 
 
 - Azure AD 支持多个租户，并且它可以支持多个组织，每个都在其自己的目录中。 如果使用 Azure AD 并且有多个租户，则可以授权应用程序和用户从一个租户访问同一目录中的其他租户。
 - AD FS 仅支持单个租户，因此仅支持单个组织。
@@ -60,12 +60,12 @@ Azure Stack 要求使用 Active Directory 所支持的 Azure Active Directory (A
 
 在 Azure Stack 中，用户帐户：
 
-- 在中创建*用户名\@域*格式。 尽管 AD FS 可将用户帐户映射到 Active Directory 实例，但 AD FS 不支持使用 *\\\<域>\\\<别名>* 格式。
+- 以 *username\@domain* 格式创建。 尽管 AD FS 可将用户帐户映射到 Active Directory 实例，但 AD FS 不支持使用 *\\\<域>\\\<别名>* 格式。
 - 可以设置为使用多重身份验证。
 - 限制为它们首先注册到的目录，即其组织的目录。
 - 可从本地目录导入。 如需详细信息，请参阅[将本地目录与 Azure Active Directory 集成](/azure/active-directory/connect/active-directory-aadconnect)。
 
-当登录到你组织的租户门户时，使用*https:\//portal.local.azurestack.external* URL。 从用于注册 Azure Stack 的域以外的域登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果 Azure Stack 注册 fabrikam.onmicrosoft.com 和中的日志记录的用户帐户是admin@contoso.com，用于使用登录到用户门户的 url 将为： https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com。
+登录到组织的租户门户时，请使用 *https:\//portal.local.azurestack.external* URL。 从用于注册 Azure Stack 的域以外的域登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果 Azure Stack 注册 fabrikam.onmicrosoft.com 和中的日志记录的用户帐户是admin@contoso.com，用于使用登录到用户门户的 url 将为： https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com。
 
 ### <a name="guest-users"></a>来宾用户
 
@@ -107,7 +107,7 @@ Azure Stack 要求使用 Active Directory 所支持的 Azure Active Directory (A
 
 ### <a name="service-principals"></a>服务主体
 
-服务主体是应用程序或服务的一组凭据，可授予 Azure Stack 中资源的访问权限。 使用服务主体可将应用程序权限与应用程序用户权限区分开来。
+服务主体是应用程序或服务的一组凭据，可授予 Azure Stack 中资源的访问权限。  使用服务主体可将应用程序权限与应用程序用户权限区分开来。
 
 服务主体是在使用应用程序的每个租户中创建的。 服务主体建立的标识用于登录和访问受该租户保护的资源（例如用户）。
 
@@ -145,9 +145,9 @@ Azure Stack 的标识包括用户帐户、组和服务主体。
 
 |层    |各层之间的身份验证  |
 |---------|---------|
-|工具与客户端，例如管理门户     | 为了访问或修改 Azure Stack 中的资源，工具和客户端将使用 [JSON Web 令牌](/azure/active-directory/develop/active-directory-token-and-claims)来调用 Azure 资源管理器。 <br>Azure 资源管理器验证 JSON Web 令牌并扫视所颁发令牌中的声明，以评估用户或服务主体在 Azure Stack 中的授权级别。 |
-|Azure 资源管理器及其核心服务     |Azure 资源管理器与资源提供程序通信，以传输用户的通信。 <br> 传输通过 [Azure 资源管理器模板](/azure-stack/user/azure-stack-arm-templates)使用直接命令式调用或声明式调用。|
-|资源提供程序     |传递给资源提供程序的调用通过基于证书的身份验证进行保护。 <br>随后，Azure 资源管理器和资源提供程序持续通过 API 通信。 对于从 Azure 资源管理器 收到的每个调用，资源提供程序使用该证书来验证调用。|
+|工具与客户端，例如管理门户     | 为了访问或修改 Azure Stack 中的资源，工具和客户端将使用 [JSON Web 令牌](/azure/active-directory/develop/active-directory-token-and-claims)来调用 Azure 资源管理器。 <br>Azure 资源管理器验证 JSON Web 令牌并扫视所颁发令牌中的声明，以评估用户或服务主体在 Azure Stack 中的授权级别。  |
+|Azure 资源管理器及其核心服务     |Azure 资源管理器与资源提供程序通信，以传输用户的通信。 <br> 传输通过 [Azure 资源管理器模板](/azure-stack/user/azure-stack-arm-templates)使用直接命令式调用或声明式调用。  |
+|资源提供程序     |调用传递给资源提供程序进行基于证书的身份验证保护。 <br>随后，Azure 资源管理器和资源提供程序持续通过 API 通信。 对于从 Azure 资源管理器 收到的每个调用，资源提供程序使用该证书来验证调用。|
 |基础结构和业务逻辑     |资源提供程序使用所选的身份验证模式与业务逻辑和基础结构通信。 Azure Stack 随附的默认资源提供程序使用 Windows 身份验证来保护此通信。|
 
 ![身份验证所需的信息](media/azure-stack-identity-overview/authentication.png)
