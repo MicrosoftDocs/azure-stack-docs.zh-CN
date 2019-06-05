@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 770d3bc462750816e55f1c224496d9dde01f5a36
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: 8d9603184e824bff5efc2536b3c4a89fdd87d685
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411634"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506350"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 
@@ -212,4 +212,4 @@ Azure Stack 的 1904年版本必须应用于 1903年发布与以下修补程序�
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
 - 若要查看 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态，请参阅 [Azure Stack 服务策略](azure-stack-servicing-policy.md)。  
 - 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](azure-stack-monitor-update.md)。  
-- 填写调查，以提供[发行说明在反馈](https://forms.microsoft.com)。
+

@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: e2560fd1e6418c9669f94f23ea1f6867e9c907a3
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469080"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506285"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新
 
@@ -39,6 +39,10 @@ ms.locfileid: "66469080"
 ## <a name="build-reference"></a>内部版本参考
 
 Azure Stack 1903 更新内部版本号为 **1.1903.0.35**。
+
+### <a name="update-type"></a>更新类型
+
+Azure Stack 1903 更新生成类型是**Express**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。 1903 更新完成所需的预期的时间大约为 16 个小时，但确切的时间可能不同。 此运行时逼真地模拟特定于 1903年更新，不应与其他 Azure Stack 更新进行比较。
 
 > [!IMPORTANT]
 > 1903 有效负载不包括 ASDK 发行版。
@@ -60,8 +64,6 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - **1903**：[KB 4500638-Azure Stack 修补程序 1.1903.2.39](https://support.microsoft.com/help/4500638)
 
 ## <a name="improvements"></a>改进
-
-- 1903 更新有效负载包含对 Azure Stack 组件的更新，这些组件不包括用于托管 Azure Stack 的底层操作系统。 这样就可以实现限定范围的特定更新。 因此，完成 1903 更新预期所需的时间较短（约 16 个小时，但确切的时间不定）。 这种运行时下降特定于 1903 更新，后续的更新可能包含对操作系统的更新，这意味着运行时会有所不同。 将来的更新会根据包含的有效负载，提供有关完成更新预期所需时间的指导。
 
 - 修复了以下网络 bug：阻止“公共 IP 地址”的“空闲超时(分钟)”值更改生效。   以前，对此值的更改将被忽略，因此，不管做出哪种更改，该值始终默认为 4 分钟。 此设置控制在不依赖客户端发送保持连接消息的情况下，TCP 连接持续打开的分钟数。 请注意，此 bug 仅影响实例级公共 IP，而不影响分配给负载均衡器的公共 IP。
 

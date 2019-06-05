@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 67e0981d5fbd1d6872c9115b8becd2d5ec8b5d8e
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469117"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506294"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 更新
 
@@ -39,6 +39,10 @@ ms.locfileid: "66469117"
 ## <a name="build-reference"></a>内部版本参考
 
 Azure Stack 1902 更新内部版本号为 **1.1902.0.69**。
+
+### <a name="update-type"></a>更新类型
+
+Azure Stack 1902 更新生成类型是**完整**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。
 
 ## <a name="hotfixes"></a>修补程序
 

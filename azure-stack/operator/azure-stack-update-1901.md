@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 71984d89bf98b93af28c51aef6599f5df176f8da
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: afa011ca40ea0ca7cbd899f8d3f15fb0512a6811
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469092"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506338"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -46,6 +46,10 @@ Azure Stack 1901 更新内部版本号为 **1.1901.0.95**（在 2019 年 2 月 2
 > 系统会在管理员门户中为使用 1811 的已连接客户自动显示新的已发布的 1901 (1.1901.0.99) 包，该包在做好准备的情况下即可安装。 断开连接的客户可以根据[此处所述](azure-stack-apply-updates.md)的相同过程下载和导入新的 1901 包。
 >
 > 不管使用哪一个版本的 1901，客户在安装下一个完整的包或修补程序包时都不会受影响。
+
+### <a name="update-type"></a>更新类型
+
+Azure Stack 1901 更新生成类型是**完整**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。
 
 ## <a name="hotfixes"></a>修补程序
 

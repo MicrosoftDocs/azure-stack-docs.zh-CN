@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 83ece8d508e9fe6fa37d6711d5fb1c43fc2fd7b5
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 3f577ebd5a57b271a449b5db262ea70779ebdb3d
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64302811"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506369"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>教程：创建和测试订阅
 
@@ -43,18 +43,18 @@ ms.locfileid: "64302811"
 
 若要以用户身份订阅套餐，请登录到 Azure Stack 用户门户，以发现 Azure Stack 操作员提供的服务。
 
-1. 登录到用户门户，并选择“获取订阅”。
+1. 登录到用户门户，并选择“获取订阅”。 
 
    ![获取订阅](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. 在“显示名称”字段中，键入订阅的名称。 然后选择“套餐”，在“选择套餐”部分选择某个可用套餐。 然后选择“创建”。
+2. 在“显示名称”字段中，键入订阅的名称。  然后选择“套餐”，在“选择套餐”部分选择某个可用套餐。   然后选择“创建”  。
 
    ![创建产品](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
    > 现在，必须刷新用户门户以开始使用该订阅。
 
-3. 若要查看已创建的订阅，请选择“所有服务”。 然后，在“常规”类别下选择“订阅”，然后选择新订阅。 订阅套餐之后，请刷新门户，以查看新服务是否已包含为新订阅的一部分。 在本示例中，我们已添加**虚拟机**。
+3. 若要查看已创建的订阅，请选择“所有服务”  。 然后，在“常规”  类别下选择“订阅”  ，然后选择新订阅。 订阅套餐之后，请刷新门户，以查看新服务是否已包含为新订阅的一部分。 在本示例中，我们已添加**虚拟机**。
 
    ![查看订阅](media/azure-stack-subscribe-services/view-subscription.png)
 
@@ -67,17 +67,17 @@ ms.locfileid: "64302811"
 
 1. 登录到用户门户。
 
-2. 在用户门户中，依次选择“虚拟机”、“添加”、“Windows Server 2016 Datacenter”，然后单击“创建”。
+2. 在用户门户中，依次选择“虚拟机”、“添加”、“Windows Server 2016 Datacenter”，然后单击“创建”。    
 
-3. 在“基本信息”部分，输入“名称”、“用户名”和“密码”，选择“订阅”，创建一个**资源组**，然后选择“确定”。
+3. 在“基本信息”部分，输入“名称”、“用户名”和“密码”，选择“订阅”，创建一个**资源组**，然后选择“确定”。      
 
-4. 在“选择大小”部分选择“A1 标准”，然后单击“选择”。  
+4. 在“选择大小”部分选择“A1 标准”，然后单击“选择”。     
 
-5. 在“设置”边栏选项卡中接受默认值，然后选择“确定”。
+5. 在“设置”边栏选项卡中接受默认值，然后选择“确定”。  
 
-6. 在“摘要”部分，单击“确定”创建虚拟机。  
+6. 在“摘要”部分，单击“确定”创建虚拟机。    
 
-7. 若要查看新虚拟机，请选择“虚拟机”，然后搜索新虚拟机并单击其名称。
+7. 若要查看新虚拟机，请选择“虚拟机”，然后搜索新虚拟机并单击其名称。 
 
     ![所有资源](media/azure-stack-subscribe-services/view-vm.png)
 
