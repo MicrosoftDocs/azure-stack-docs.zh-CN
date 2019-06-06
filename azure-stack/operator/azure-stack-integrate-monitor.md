@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/06/2019
-ms.author: mabrigg
+ms.date: 06/05/2019
+ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 2871b5183833830368307c5d2b5152e3909fd3ea
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 06/05/2019
+ms.openlocfilehash: e0c3c4740a1bc8073e827ff9809cf1aafa029792
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618831"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691694"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>将外部监视解决方案与 Azure Stack 集成
 
@@ -30,7 +30,7 @@ ms.locfileid: "65618831"
 - 物理计算机可以通过基板管理控制器 (BMC) 提供运行状况和警报信息。
 - 物理网络设备可以通过 SNMP 协议提供运行状况和警报信息。
 
-每个 Azure Stack 解决方案随附硬件生命周期主机。 此主机运行原始设备制造商 (OEM) 硬件供应商的物理服务器和网络设备监视软件。 请咨询 OEM 提供商，如果其监视解决方案可与你的数据中心现有监视解决方案集成。
+每个 Azure Stack 解决方案随附硬件生命周期主机。 此主机运行原始设备制造商 (OEM) 硬件供应商的物理服务器和网络设备监视软件。 请咨询 OEM 提供商，看其监视解决方案能否与数据中心现有的监视解决方案集成。
 
 > [!IMPORTANT]
 > 使用的外部监视解决方案必须无代理。 不能在 Azure Stack 组件内部安装第三方代理。
@@ -40,7 +40,7 @@ ms.locfileid: "65618831"
 ![显示 Azure Stack、监视与票证解决方案之间的流量的示意图。](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> 直接与物理服务器的外部监视集成不是允许的和主动阻止的访问控制列表 (Acl)。  支持直接与物理网络设备的外部监视集成，请咨询 OEM 提供商，如何启用此功能。
+> 不允许直接与物理服务器进行外部监视集成，访问控制列表 (ACL) 会主动阻止这种集成。  支持直接与物理网络设备进行外部监视集成，请咨询 OEM 提供商，了解如何启用此功能。
 
 本文介绍如何将 Azure Stack 与外部监视解决方案（例如 System Center Operations Manager 和 Nagios）集成。 此外，还介绍如何使用 PowerShell 或 REST API 调用以编程方式处理警报。
 
@@ -69,28 +69,138 @@ ms.locfileid: "65618831"
 
 ## <a name="integrate-with-nagios"></a>与 Nagios 集成
 
+您可以设置和配置适用于 Microsoft Azure Stack 的 Nagios 插件。
+
 Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，根据 MIT（麻省理工学院）的宽松免费软件许可条款提供。
 
 该插件以 Python 编写，利用运行状况资源提供程序 REST API。 它提供在 Azure Stack 中检索和关闭警报的基本功能。 与 System Center 管理包一样，它可以让你添加多个 Azure Stack 部署以及发送通知。
 
-该插件可与 Nagios Enterprise 和 Nagios Core 配合使用。 可以在[此处](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)下载。 下载站点还包含安装和配置详细信息。
+使用版本 1.2 Azure Stack-Nagios 插件利用 Microsoft ADAL 库，并支持与机密或证书使用服务主体进行身份验证。 此外，配置已使用新参数的单个配置文件得到简化。 它现在支持使用 AAD 和 ADFS 作为标识系统的 Azure Stack 部署。
 
-### <a name="plugin-parameters"></a>插件参数
+该插件适用与 Nagios 4 x 和 XI。 可以在[此处](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)下载。 下载站点还包含安装和配置详细信息。
 
-使用以下参数来配置插件文件"Azurestack_plugin.py":
+### <a name="requirements-for-nagios"></a>Nagios 的要求
 
-| 参数 | 描述 | 示例 |
-|---------|---------|---------|
-| *arm_endpoint* | Azure 资源管理器（管理员）终结点 | https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure 资源管理器（管理员）终结点  | https://adminmanagement.local.azurestack.external |
-| *Tenant_id* | 管理员订阅 ID | 通过管理员门户或 PowerShell 检索 |
-| *User_name* | 操作员订阅用户名 | operator@myazuredirectory.onmicrosoft.com |
-| *User_password* | 操作员订阅密码 | mypassword |
-| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Azure Stack 区域名称 | 本地 |
-|  |  |
+1.  Nagios 的最低版本为 4.x
 
-* 提供的 PowerShell GUID 是通用的。 可对每个部署使用它。
+2.  Microsoft Azure Active Directory Python 库。 此功能可以使用 Python PIP 安装。
+
+```bash  
+sudo pip install adal pyyaml six
+```
+
+### <a name="install-plugin"></a>安装插件
+
+本部分介绍如何安装 Azure Stack 插件假设 Nagios 的默认安装。
+
+插件包中包含以下文件：
+
+```
+  azurestack_plugin.py
+  azurestack_handler.sh
+  samples/etc/azurestack.cfg
+  samples/etc/azurestack_commands.cfg
+  samples/etc/azurestack_contacts.cfg
+  samples/etc/azurestack_hosts.cfg
+  samples/etc/azurestack_services.cfg
+```
+
+1.  复制该插件`azurestack_plugin.py`到以下目录`/usr/local/nagios/libexec`。
+
+2.  复制该处理程序`azurestack_handler.sh`到以下目录`/usr/local/nagios/libexec/eventhandlers`。
+
+3.  请设置为可执行文件的插件
+
+    ```bash
+      sudo cp azurestack_plugin.py <PLUGINS_DIR>
+      sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
+    ```
+
+### <a name="configure-plugin"></a>配置插件
+
+可以使用 azurestack.cfg 文件中配置以下参数。 以粗体显示的参数需要配置独立于您选择的身份验证模型。
+
+详细的信息介绍了如何创建一个 SPN[此处](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)。
+
+| 参数 | 描述 | Authentication |
+| --- | --- | --- |
+| * * External_domain_fqdn * * | 外部域 FQDN |    |
+| * * 区域: * * | 区域名称 |    |
+| * * tenant_id: * * | 租户 ID\* |    |
+| client_id: | 客户端 ID | 使用机密的 SPN |
+| client_secret: | 客户端密码 | 使用机密的 SPN |
+| client_cert\*\*: | 证书的路径 | 使用证书的 SPN |
+| client_cert_thumbprint\*\*: | 证书指纹 | 使用证书的 SPN |
+
+\*租户 ID 不是使用 ADFS 的 Azure Stack 部署所必需的。
+
+\*\* 客户端机密和客户端证书是互相排斥。
+
+其他配置文件包含可选的配置设置，因为它们可以同时配置 Nagios 中。
+
+> [!Note]  
+> 检查在 azurestack_hosts.cfg 和 azurestack_services.cfg 位置目标。
+
+| 配置 | 描述 |
+| --- | --- |
+| azurestack_commands.cfg | 处理程序配置无更改 |
+| azurestack_contacts.cfg | 通知设置 |
+| azurestack_hosts.cfg | Azure Stack 部署命名 |
+| azurestack_services.cfg | 服务的配置 |
+
+### <a name="setup-steps"></a>设置步骤
+
+1.  修改配置文件
+
+2.  将修改后的配置文件复制到以下文件夹`/usr/local/nagios/etc/objects`。
+
+### <a name="update-nagios-configuration"></a>更新 Nagios 配置
+
+Nagios 配置需要更新，以确保 Azure Stack – Nagios 插件加载。
+
+1.  打开以下文件
+
+```bash  
+/usr/local/nagios/etc/nagios.cfg
+```
+
+1.  添加以下条目
+
+```bash  
+  #load the Azure Stack Plugin Configuration
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+```
+
+1.  重新加载 Nagios
+
+```bash  
+sudo service nagios reload
+```
+
+### <a name="manually-close-active-alerts"></a>手动关闭的活动警报
+
+可以在使用自定义通知功能的 Nagios 内关闭的活动警报。 必须为自定义通知：
+
+```
+  /close-alert <ALERT_GUID>
+```
+
+此外可以使用终端使用以下命令关闭警报：
+
+```bash
+  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
+```
+
+### <a name="troubleshooting"></a>故障排除
+
+故障排除的插件可能会在终端中手动调用插件来完成。 使用以下方法：
+
+```bash
+  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
+```
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>使用 PowerShell 监视运行状况和警报
 

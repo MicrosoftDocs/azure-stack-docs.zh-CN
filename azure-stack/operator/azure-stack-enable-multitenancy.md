@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: bryanr
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: a35b16d2c862547ffed340f3e06dc769e373eb85
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0932c1eb5f064d40841d9b056d869927e1144527
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64296673"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691650"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多租户
 
@@ -110,7 +110,7 @@ Register-AzSWithMyDirectoryTenant `
 
 现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。  Fabrikam 用户 （即，具有 fabrikam.onmicrosoft.com 后缀的用户） 登录，请访问 https://portal.local.azurestack.external。  
 
-Mary 将指导任何 [外 principals]((/azure/role-based-access-control/rbac-and-directory-admin-roles) Fabrikam 目录 （即，如果没有 fabrikam.onmicrosoft.com 后缀，Fabrikam 目录中的用户） 中使用登录 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  如果他们未使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
+Mary 将指导任何[外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles)Fabrikam 目录 （即，如果没有 fabrikam.onmicrosoft.com 后缀，Fabrikam 目录中的用户） 中使用登录 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com。  如果他们未使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
 
 ## <a name="disable-multi-tenancy"></a>禁用多租户
 

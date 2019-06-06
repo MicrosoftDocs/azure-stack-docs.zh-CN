@@ -16,16 +16,16 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 5b35e69a5308589223d9b5987dd3de2e8bb49cc7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 5b90bc5014d0f8ebfaed8532f62b7c4f3aee8667
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985464"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691861"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将市场项从 Azure 下载到 Azure Stack
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
 
 可以云操作员的身份从 Azure 市场下载项，并使其适用于 Azure Stack。 可以选择的项来自 Azure 市场项的有序列表，这些项已预先经过测试，支持与 Azure Stack 配合使用。 其他项会不断地添加到此列表中，因此请不时地返回查看新内容。 
 
@@ -62,13 +62,13 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
     ![市场列表](media/azure-stack-download-azure-marketplace-item/image03.PNG)
 
-4. 选择所需的项，然后选择“下载”。 下载时间会有差异。
+4. 选择所需的项，然后选择“下载”  。 下载时间会有差异。
 
     ![下载消息](media/azure-stack-download-azure-marketplace-item/image04.png)
 
     下载完成后，可以 Azure Stack 操作员或用户的身份部署新市场项。
 
-5. 若要部署下载的项，请选择“+ 创建资源”，在类别中搜索该新市场项。 接下来，选择该项以开始部署过程。 该过程根据市场项的不同而异。 
+5. 若要部署下载的项，请选择“+ 创建资源”，在类别中搜索该新市场项。  接下来，选择该项以开始部署过程。 该过程根据市场项的不同而异。 
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>离线场景或部分联网场景
 
@@ -92,7 +92,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
 - 在执行第一个过程期间，将下载市场联合工具。 
 
-- 你可以安装 [AzCopy]((/azure/storage/common/storage-use-azcopy) 为获得最佳下载性能，但这不是必需的。
+- 可以安装 [AzCopy](/azure/storage/common/storage-use-azcopy) 以获得最佳下载性能，但此工具不是必需的。
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>使用市场联合工具下载市场项
 
@@ -133,17 +133,17 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
-   请注意，`Export-AzSOfflineMarketplaceItem`具有一个额外`-cloud`标志指定的云环境。 默认情况下，它是**azurecloud**。
+   请注意，`Export-AzSOfflineMarketplaceItem` 有一个额外的 `-cloud` 标志，用于指定云环境。 默认为 **azurecloud**。
 
 6. 运行工具后，应会看到下图所示的屏幕，其中列出了可用的市场项：
 
    [![Azure 市场项弹出窗口](media/azure-stack-download-azure-marketplace-item/image05.png "Azure 市场项")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. 选择要下载的项，并记下版本。 可以按住 *Ctrl* 键选择多个映像。 在下一过程中导入项时，将要引用该版本。 
+7. 选择要下载的项，并记下版本。  可以按住 *Ctrl* 键选择多个映像。 在下一过程中导入项时，将要引用该版本。  
    
-   也可通过“添加条件”选项来筛选映像的列表。
+   也可通过“添加条件”选项来筛选映像的列表。 
 
-8. 选择“确定”，然后查看并接受法律条款。 
+8. 选择“确定”，然后查看并接受法律条款。  
 
 9. 所需的下载时间取决于项的大小。 下载完成后，该项会出现在脚本中指定的文件夹内。 下载内容中包括一个 VHD 文件（适用于虚拟机）或 .zip 文件（适用于虚拟机扩展）。 其中还可能包含一个 *.azpkg* 格式的库包（只是一个 .zip 文件）。
 
@@ -188,17 +188,17 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 2. 使用管理员门户将市场项包（.azpkg 文件）和虚拟硬盘映像（.vhd 文件）上传到 Azure Stack Blob 存储。 上传该包和磁盘文件会使其可供 Azure Stack 使用，以便稍后能够将该项发布到 Azure Stack 市场。
 
    需要有一个包含可公开访问的容器的存储帐户才能完成上传（请参阅此场景的先决条件）。  
-   1. 在 Azure Stack 管理门户中，转到“所有服务”，然后在“数据 + 存储”类别中，选择“存储帐户”。  
+   1. 在 Azure Stack 管理门户中，转到“所有服务”  ，然后在“数据 + 存储”  类别中，选择“存储帐户”  。  
    
-   2. 从订阅中选择一个存储帐户，然后在“BLOB 服务”下选择“容器”。  
+   2. 从订阅中选择一个存储帐户，然后在“BLOB 服务”下选择“容器”。    
       [![Blob 服务](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob 服务")](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
-   3. 选择要使用的容器，然后选择“上传”打开“上传 Blob”窗格。  
+   3. 选择要使用的容器，然后选择“上传”打开“上传 Blob”窗格。    
       [![容器](media/azure-stack-download-azure-marketplace-item/container.png "容器")](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. 在“上传 Blob”窗格中，浏览到要加载到存储中的包和磁盘文件，然后选择“上传”：[![上传](media/azure-stack-download-azure-marketplace-item/uploadsm.png "上传")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. 在“上传 Blob”窗格中，浏览到要加载到存储中的包和磁盘文件，然后选择“上传”：  [![上传](media/azure-stack-download-azure-marketplace-item/uploadsm.png "上传")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
-   5. 上传的文件会显示在容器窗格中。 选择一个文件，然后复制“Blob 属性”窗格的 URL。 在下一步骤中将市场项导入 Azure Stack 时，将要使用此 URL。  在下图中，容器为 *blob-test-storage*，文件为 *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*。  文件 URL 为 *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*。  
+   5. 上传的文件会显示在容器窗格中。 选择一个文件，然后复制“Blob 属性”窗格的 URL。  在下一步骤中将市场项导入 Azure Stack 时，将要使用此 URL。  在下图中，容器为 *blob-test-storage*，文件为 *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*。  文件 URL 为 *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg* 。  
       [![Blob 属性](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob 属性")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. 使用 **Add-AzsPlatformimage** cmdlet 将 VHD 映像导入到 Azure Stack。 使用此 cmdlet 时，请将 *publisher*、*offer* 和其他参数值替换为要导入的映像的值。 
@@ -225,7 +225,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
    
    **关于扩展：** 使用虚拟机映像扩展时，请使用以下参数：
    - *发布者*
-   - 类型
+   - 类型 
    - *版本*  
 
    不要将*套餐*用于扩展。   
@@ -237,7 +237,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      -Verbose
     ```
-5. 发布库项后，它现已可使用。 若要确认发布库项，请转到“所有服务”，然后在“常规”类别下，选择“市场”。  如果下载内容是解决方案模板，请确保为该解决方案模板添加任何依赖的 VHD 映像。  
+5. 发布库项后，它现已可使用。 若要确认发布库项，请转到“所有服务”  ，然后在“常规”  类别下，选择“市场”  。  如果下载内容是解决方案模板，请确保为该解决方案模板添加任何依赖的 VHD 映像。  
   [![查看市场](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "查看市场")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
 现在，可以使用 Azure Stack PowerShell 1.3.0 版添加虚拟机扩展。 例如：

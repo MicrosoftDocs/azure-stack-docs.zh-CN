@@ -11,22 +11,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
-ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: 2ca85da5d9fde42fb06eef149e7304ab08bc32ee
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428680"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691199"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
 本文介绍了 Azure Stack 开发工具包 (ASDK) 中的更改、修复和已知问题。 如果不确定所运行的版本，可以[使用门户检查版本](../operator/azure-stack-updates.md#determine-the-current-version)。
 
 及时了解什么是 ASDK 中的新增功能通过订阅[ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS 源](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)。
+
+## <a name="build-11905040"></a>生成 1.1905.0.40
+
+<!-- ### Changes -->
+
+### <a name="new-features"></a>新增功能
+
+- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1905.md#whats-in-this-update)。
+
+### <a name="fixed-and-known-issues"></a>修复的和已知的问题
+
+- 由于服务主体超时时运行注册脚本，以便[注册 ASDK](asdk-register.md)成功，则必须编辑**RegisterWithAzure.psm1** PowerShell 脚本。 请执行以下操作：
+
+  1. 在 ASDK 主机计算机上打开该文件**C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1**在编辑器中使用提升的权限。
+  2. 在行 1249年中，添加`-TimeoutInSeconds 1800`结束时参数。 运行注册脚本时，这是必需的原因是服务主体超时。 1249 行现在应如下显示：
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
+
+- 此版本中修复其他 Azure Stack 问题的列表，请参阅[本节](../operator/azure-stack-release-notes-1905.md#fixes)Azure Stack 的发行说明。
+- 有关已知问题的列表，请参阅[这篇文章](../operator/azure-stack-release-notes-known-issues-1905.md)。
+- 请注意，[发布的 Azure Stack 修补程序](../operator/azure-stack-release-notes-1905.md#hotfixes)不适用于 Azure Stack ASDK。
 
 ## <a name="build-11904036"></a>生成 1.1904.0.36
 
@@ -118,23 +141,3 @@ ms.locfileid: "66428680"
   netsh interface ipv4 set sub "hostnic" mtu=1660
   netsh interface ipv4 set sub "management" mtu=1660
   ```
-
-## <a name="build-11901095"></a>内部版本 1.1901.0.95
-
-请参阅 [Azure Stack 发行说明中的重要版本信息](../operator/azure-stack-update-1901.md#build-reference)。
-
-### <a name="changes"></a>更改
-
-此内部版本包含对 Azure Stack 的以下改进：
-
-- BGP 和 NAT 组件现在部署在物理主机上。 这样就不需要通过两个公共的或公司的 IP 地址来部署 ASDK，同时也简化了部署。
-- Azure Stack 集成系统备份现在可以通过 **asdk-installer.ps1** PowerShell 脚本进行[验证](asdk-validate-backup.md)。
-
-### <a name="new-features"></a>新增功能
-
-- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-update-1901.md#new-features)。
-
-### <a name="fixed-and-known-issues"></a>修复的和已知的问题
-
-- 如需此版本中已修复问题的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-update-1901.md#fixed-issues)。 如需已知问题的列表，请参阅[此部分](../operator/azure-stack-update-1901.md#known-issues-post-installation)。
-- 请注意，[发布的 Azure Stack 修补程序](../operator/azure-stack-update-1901.md#azure-stack-hotfixes)不适用于 Azure Stack ASDK。

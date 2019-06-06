@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: a039830e01b85ec5e8d9c66a0c815a38d9c694f8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985732"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691637"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "64985732"
 
 Azure ExpressRoute，可将本地网络扩展到 Microsoft 云，通过连接提供商提供的专用连接。 ExpressRoute 不是通过公共 internet 的 VPN 连接。
 
-有关 Azure ExpressRoute 的详细信息，请参阅 [ExpressRoute overview]((/azure/expressroute/expressroute-introduction)。
+有关 Azure ExpressRoute 的详细信息，请参阅 [ExpressRoute 概述](/azure/expressroute/expressroute-introduction)。
 
 ### <a name="assumptions"></a>假设
 
@@ -47,7 +47,7 @@ Azure ExpressRoute，可将本地网络扩展到 Microsoft 云，通过连接提
 
 若要使用 ExpressRoute 连接 Azure Stack 和 Azure，必须满足以下要求：
 
-* [连接 provider]((/azure/expressroute/expressroute-locations) 通过预配 [ExpressRoute circuit]((/azure/expressroute/expressroute-circuit-peerings)。
+* 通过[连接提供商](/azure/expressroute/expressroute-locations)预配的 [ExpressRoute 线路](/azure/expressroute/expressroute-circuit-peerings)。
 * 一个用于在 Azure 中创建 ExpressRoute 线路和 VNet 的 Azure 订阅。
 * 满足以下要求的路由器：
   * 支持在其 LAN 接口与 Azure Stack 多租户共享网关之间建立站点到站点 VPN 连接。
@@ -98,60 +98,60 @@ Azure ExpressRoute，可将本地网络扩展到 Microsoft 云，通过连接提
 
 1. 使用用户（租户）帐户登录到用户门户。
 
-2. 在门户中，选择“+ 创建资源”。
+2. 在门户中，选择“+ 创建资源”。 
 
-3. 在“Azure 市场”下，选择“网络”。
+3. 在“Azure 市场”下，选择“网络”。  
 
-4. 在“特色”下，选择“虚拟网络”。
+4. 在“特色”下，选择“虚拟网络”。  
 
-5. 在“创建虚拟网络”下，将下表中显示的值输入相应字段中：
+5. 在“创建虚拟网络”下，将下表中显示的值输入相应字段中： 
 
    |字段  |值  |
    |---------|---------|
-   |名称     |Tenant1VNet1         |
+   |Name     |Tenant1VNet1         |
    |地址空间     |10.1.0.0/16|
    |子网名称     |Tenant1-Sub1|
    |子网地址范围     |10.1.1.0/24|
 
-6. 此时会看到此前创建的订阅填充到“订阅”字段中。 对于其余字段：
+6. 此时会看到此前创建的订阅填充到“订阅”字段中。  对于其余字段：
 
-    * 在“资源组”下，选择“新建”以创建新资源组；如果已有一个资源组，请选择“使用现有项”。
-    * 确认默认“位置”。
+    * 在“资源组”下，选择“新建”以创建新资源组；如果已有一个资源组，请选择“使用现有项”。   
+    * 确认默认“位置”。 
     * 单击**创建**。
-    * （可选）单击“固定到仪表板”。
+    * （可选）单击“固定到仪表板”  。
 
 #### <a name="create-the-gateway-subnet"></a>创建网关子网
 
-1. 在“虚拟网络”下，选择“Tenant1VNet1”。
-1. 在“设置”下选择“子网”。
-1. 选择“+ 网关子网”，将网关子网添加到虚拟网络。
+1. 在“虚拟网络”下，选择“Tenant1VNet1”。  
+1. 在“设置”下选择“子网”。  
+1. 选择“+ 网关子网”，将网关子网添加到虚拟网络。 
 1. 默认情况下，子网的名称设置为 **GatewaySubnet**。 网关子网很特殊，必须使用此名称才能正常运行。
-1. 确认“地址范围”是否为 **10.1.0.0/24**。
-1. 单击“确定”创建网关子网。
+1. 确认“地址范围”是否为 **10.1.0.0/24**。 
+1. 单击“确定”  创建网关子网。
 
 #### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure Stack 用户门户中，单击“+ 创建资源”。
-1. 在“Azure 市场”下，选择“网络”。
-1. 从网络资源列表中选择“虚拟网关”。
-1. 在“名称”字段中，输入 **GW1**。
-1. 选择“虚拟网络”。
-1. 从下拉列表中选择“Tenant1VNet1”。
-1. 依次选择“公共 IP 地址”、“选择公共 IP 地址”，然后单击“新建”。
-1. 在“名称”字段中键入 **GW1-PiP**，然后单击“确定”。
-1. 默认情况下，应已选择“基于路由”作为“VPN 类型”。 保留该设置。
-1. 验证“订阅”和“位置”是否正确。 单击**创建**。
+1. 在 Azure Stack 用户门户中，单击“+ 创建资源”。 
+1. 在“Azure 市场”下，选择“网络”。  
+1. 从网络资源列表中选择“虚拟网关”。 
+1. 在“名称”字段中，输入 **GW1**。 
+1. 选择“虚拟网络”  。
+1. 从下拉列表中选择“Tenant1VNet1”。 
+1. 依次选择“公共 IP 地址”、“选择公共 IP 地址”，然后单击“新建”。   
+1. 在“名称”字段中键入 **GW1-PiP**，然后单击“确定”。  
+1. 默认情况下，应已选择“基于路由”作为“VPN 类型”。   保留该设置。
+1. 验证“订阅”和“位置”是否正确。   单击**创建**。
 
 #### <a name="create-the-local-network-gateway"></a>创建本地网关
 
 本地网络网关资源识别位于 VPN 连接另一端的远程网关。 在本示例中，连接的远程端是 ExpressRoute 路由器的 LAN 子接口。 对于图 2 中所示的租户 1，远程地址为 10.60.3.255。
 
-1. 使用用户帐户登录到 Azure Stack 用户门户，然后选择“+ 创建资源”。
-1. 在“Azure 市场”下，选择“网络”。
-1. 从资源列表中选择“本地网关”。
-1. 在“名称”字段中，键入 **ER-Router-GW**。
-1. 对于“IP 地址”字段，请参阅图示 2。 对于租户 1，ExpressRoute 路由器的 LAN 子接口 IP 地址是 10.60.3.255。 根据自己的环境，输入路由器对应接口的 IP 地址。
-1. 在“地址空间”字段中，输入 Azure 中要连接到的 VNet 的地址空间。 *图 2* 中租户 1 的子网如下：
+1. 使用用户帐户登录到 Azure Stack 用户门户，然后选择“+ 创建资源”。 
+1. 在“Azure 市场”下，选择“网络”。  
+1. 从资源列表中选择“本地网关”。 
+1. 在“名称”字段中，键入 **ER-Router-GW**。 
+1. 对于“IP 地址”字段，请参阅图示 2。  对于租户 1，ExpressRoute 路由器的 LAN 子接口 IP 地址是 10.60.3.255。 根据自己的环境，输入路由器对应接口的 IP 地址。
+1. 在“地址空间”字段中，输入 Azure 中要连接到的 VNet 的地址空间。  *图 2* 中租户 1 的子网如下：
 
    * 192.168.2.0/24 是 Azure 中的中心 VNet。
    * 10.100.0.0/16 是 Azure 中的分支 VNet。
@@ -159,53 +159,53 @@ Azure ExpressRoute，可将本地网络扩展到 Microsoft 云，通过连接提
    > [!IMPORTANT]
    > 对于 Azure Stack 网关和 ExpressRoute 路由器之间的站点到站点 VPN 连接，本示例假设使用静态路由。
 
-1. 确认“订阅”、“资源组”和“位置”正确无误。 然后选择“创建”。
+1. 确认“订阅”、“资源组”和“位置”正确无误。    然后选择“创建”  。
 
 #### <a name="create-the-connection"></a>创建连接
 
-1. 在 Azure Stack 用户门户中，选择“+ 创建资源”。
-1. 在“Azure 市场”下，选择“网络”。
-1. 从资源列表中选择“连接”。
-1. 在“基本设置”下，选择“站点到站点(IPSec)”作为“连接类型”。
-1. 选择“订阅”、“资源组”和“位置”。 单击“确定”。
-1. 在“设置”下，依次选择“虚拟网络网关”、“GW1”。
-1. 依次选择“本地网络网关”、“ER Router GW”。
-1. 在“连接名称”字段中，输入 **ConnectToAzure**。
-1. 在“共享密钥(PSK)”字段中，输入 **abc123** 并选择“确定”。
-1. 在“摘要”下，选择“确定”。
+1. 在 Azure Stack 用户门户中，选择“+ 创建资源”。 
+1. 在“Azure 市场”下，选择“网络”。  
+1. 从资源列表中选择“连接”。 
+1. 在“基本设置”下，选择“站点到站点(IPSec)”作为“连接类型”。   
+1. 选择“订阅”、“资源组”和“位置”    。 单击“确定”。 
+1. 在“设置”下，依次选择“虚拟网络网关”、“GW1”。   
+1. 依次选择“本地网络网关”、“ER Router GW”。  
+1. 在“连接名称”字段中，输入 **ConnectToAzure**。 
+1. 在“共享密钥(PSK)”字段中，输入 **abc123** 并选择“确定”。  
+1. 在“摘要”下，选择“确定”。  
 
 #### <a name="get-the-virtual-network-gateway-public-ip-address"></a>获取虚拟网络网关的公共 IP 地址
 
 创建虚拟网络网关后，可以获取该网关的公共 IP 地址。 请记下此地址，因为稍后需要在部署中使用。 根据部署，此地址将用作**内部 IP 地址**。
 
-1. 在 Azure Stack 用户门户中，选择“所有资源”。
-1. 在“所有资源”下选择虚拟网络网关（在本示例中为 **GW1**）。
-1. 在“虚拟网络网关”下，从资源列表中选择“概述”。 或者，可以选择“属性”。
-1. 要记下的 IP 地址列在“公共 IP 地址”下。 对于示例配置，此地址为 192.68.102.1。
+1. 在 Azure Stack 用户门户中，选择“所有资源”。 
+1. 在“所有资源”下选择虚拟网络网关（在本示例中为 **GW1**）。 
+1. 在“虚拟网络网关”下，从资源列表中选择“概述”。   或者，可以选择“属性”。 
+1. 要记下的 IP 地址列在“公共 IP 地址”下。  对于示例配置，此地址为 192.68.102.1。
 
 #### <a name="create-a-virtual-machine"></a>创建虚拟机
 
 若要通过 VPN 连接测试数据流量，需要使用虚拟机在 Azure Stack VNet 中发送和接收数据。 请创建一个虚拟机，并将其部署到虚拟网络的 VM 子网。
 
-1. 在 Azure Stack 用户门户中，选择“+ 创建资源”。
-1. 在“Azure 市场”下，选择“计算”。
-1. 在虚拟机映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。
+1. 在 Azure Stack 用户门户中，选择“+ 创建资源”。 
+1. 在“Azure 市场”下，选择“计算”。  
+1. 在虚拟机映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。 
 
    >[!NOTE]
    >如果用于本文的映像不可用，请让 Azure Stack 运营商提供不同的 Windows Server 映像。
 
-1. 在“创建虚拟机”中选择“基本信息”，然后键入 **VM01** 作为**名称**。
+1. 在“创建虚拟机”中选择“基本信息”，然后键入 **VM01** 作为**名称**。  
 1. 输入有效的用户名和密码。 创建 VM 后，将使用此帐户登录到该 VM。
-1. 提供“订阅”、“资源组”和“位置”。 选择“确定”。
-1. 在“选择大小”下，为此实例选择一种虚拟机大小，然后选择“选择”。
-1. 在“设置”下，确认：
+1. 提供“订阅”、“资源组”和“位置”    。 选择“确定”  。
+1. 在“选择大小”下，为此实例选择一种虚拟机大小，然后选择“选择”。  
+1. 在“设置”下，确认： 
 
    * 虚拟网络为 **Tenant1VNet1**。
    * 子网已设置为 **10.1.1.0/24**。
 
-   使用默认设置，并单击“确定”。
+   使用默认设置，并单击“确定”  。
 
-1. 在“摘要”下检查 VM 配置，然后单击“确定”。
+1. 在“摘要”下检查 VM 配置，然后单击“确定”。  
 
 若要添加更多租户，请重复以下部分中执行的步骤：
 
@@ -245,8 +245,8 @@ Azure Stack 开发工具包是自主性的，与部署物理主机的网络相�
 
 1. 若要配置 NAT，请复制并编辑以下 PowerShell 脚本。 编辑脚本，将 `External BGPNAT address` 和 `Internal IP address` 替换为以下示例值：
 
-   * 对于“外部 BGPNAT 地址”，请使用 10.10.0.62
-   * 对于“内部 IP 地址”，请使用 192.168.102.1
+   * 对于“外部 BGPNAT 地址”，请使用 10.10.0.62 
+   * 对于“内部 IP 地址”，请使用 192.168.102.1 
 
    在权限提升的 PowerShell ISE 中运行以下脚本：
 
@@ -324,29 +324,29 @@ Azure Stack 开发工具包是自主性的，与部署物理主机的网络相�
 
 ### <a name="configure-an-expressroute-circuit"></a>配置 ExpressRoute 线路
 
-1. 查看 [ExpressRoute 先决条件和 checklist]((/azure/expressroute/expressroute-prerequisites) 中 ExpressRoute 先决条件。
+1. 查看 [ExpressRoute 先决条件和查检表](/azure/expressroute/expressroute-prerequisites)中的 ExpressRoute 先决条件。
 
-1. 按照中的步骤 [创建和修改 ExpressRoute circuit]((/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) 若要创建使用你的 Azure 订阅的 ExpressRoute 线路。
+1. 根据[创建和修改 ExpressRoute 线路](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)中的步骤，使用 Azure 订阅创建 ExpressRoute 线路。
 
    >[!NOTE]
    >将线路的服务密钥提供给服务提供商，使提供商能够在他们一端设置 ExpressRoute 线路。
 
-1. 按照中的步骤 [创建和修改 ExpressRoute circuit]((/azure/expressroute/expressroute-howto-routing-portal-resource-manager) 配置专用对等互连 ExpressRoute 线路的对等互连。
+1. 根据[创建和修改 ExpressRoute 线路的对等互连](/azure/expressroute/expressroute-howto-routing-portal-resource-manager)中的步骤，在 ExpressRoute 线路上配置专用对等互连。
 
 ### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
-按照 [配置使用 PowerShell]((/azure/expressroute/expressroute-howto-add-gateway-resource-manager) 在中心 VNet 中为 ExpressRoute 创建虚拟网络网关为 ExpressRoute 的虚拟网络网关。
+根据[使用 PowerShell 配置 ExpressRoute 的虚拟网络网关](/azure/expressroute/expressroute-howto-add-gateway-resource-manager)中的步骤，在中心 VNet 中为 ExpressRoute 创建虚拟网络网关。
 
 ### <a name="create-the-connection"></a>创建连接
 
-若要链接到中心 VNet 的 ExpressRoute 线路，请按照 [连接到 ExpressRoute circuit]((/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager) 虚拟网络。
+若要将 ExpressRoute 线路链接到中心 VNet，请遵循[将虚拟网络连接到 ExpressRoute 线路](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)中的步骤。
 
 ### <a name="peer-the-vnets"></a>将 VNet 对等互连
 
 根据[使用 Azure 门户创建虚拟网络对等互连](/azure/virtual-network/virtual-networks-create-vnetpeering-arm-portal)中的步骤，在中心与分支 VNet 之间建立对等互连。 配置 VNet 对等互连时，请务必使用以下选项：
 
-* 从中心到分支：“允许网关传输”。
-* 从分支到中心：“使用远程网关”。
+* 从中心到分支：“允许网关传输”。 
+* 从分支到中心：“使用远程网关”。 
 
 ### <a name="create-a-virtual-machine"></a>创建虚拟机
 
@@ -612,7 +612,7 @@ New-NetFirewallRule `
 
 1. 找到创建的虚拟机，并选择该虚拟机。
 
-1. 选择“连接”。
+1. 选择“连接”  。
 
 1. 在权限提升的 Windows 或 PowerShell 命令提示符下，输入 **ipconfig /all**。 记下输出中返回的 IPv4 地址。
 
@@ -624,10 +624,10 @@ New-NetFirewallRule `
 
 若要了解有多少流量通过连接，可以在 Azure Stack 用户门户中查找此信息。 此信息也很适合用于确认 ping 测试数据是否通过了 VPN 和 ExpressRoute 连接：
 
-1. 使用租户帐户登录到 Azure Stack 用户门户，并选择“所有资源”。
-1. 导航到 VPN 网关的资源组，然后选择“连接”对象类型。
-1. 从列表中选择“ConnectToAzure”连接。
-1. 在“连接” > “概述”下，可以看到“传入数据”和“传出数据”的统计信息。应会看到一些非零值。
+1. 使用租户帐户登录到 Azure Stack 用户门户，并选择“所有资源”。 
+1. 导航到 VPN 网关的资源组，然后选择“连接”对象类型。 
+1. 从列表中选择“ConnectToAzure”连接。 
+1. 在“连接” > “概述”下，可以看到“传入数据”和“传出数据”的统计信息。     应会看到一些非零值。
 
    ![“传入数据”和“传出数据”](media/azure-stack-connect-expressroute/DataInDataOut.png)
 

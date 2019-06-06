@@ -1,6 +1,6 @@
 ---
-title: 允许云服务提供商管理 Azure Stack 订阅 | Microsoft Docs
-description: 允许云服务提供商访问 Azure Stack 中的订阅。
+title: 允许云服务提供商管理 Azure Stack 订阅 |Microsoft Docs
+description: 了解如何让管理 Azure Stack 订阅为你在云服务提供程序 (CSP)。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: 209a0da31d4bd5b519771f68f4bddcbb833284fa
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: 0dc162dd1d4021323f1bf80ad4f89fc721e575a9
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941209"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691978"
 ---
-# <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>允许云服务提供商管理 Azure Stack 订阅
+# <a name="let-your-cloud-service-provider-manage-your-azure-stack-subscription"></a>允许云服务提供商管理 Azure Stack 订阅
 
 *适用于：Azure Stack 集成系统*
 
@@ -32,22 +32,24 @@ ms.locfileid: "65941209"
 * 确保服务提供商可以管理你的服务。
 
 > [!NOTE]
-> 如果 CSP 没有管理你的帐户，并且你跳过以下步骤，则 CSP 将无法为你管理 Azure Stack 订阅。
+> 如果 CSP 不管理你的帐户，并且你跳过以下步骤，CSP 不能管理你的 Azure Stack 订阅。
 
 ## <a name="manage-your-subscription-with-a-cloud-service-provider"></a>使用云服务提供商管理订阅
 
 将 CSP 作为**用户**添加到你的订阅。
 
-1. 将 CSP 作为具有的来宾用户**用户**到你的租户目录角色。 有关添加用户的步骤，请参阅[将新用户添加到 Azure Active Directory](/azure/active-directory/add-users-azure-active-directory)
-2. CSP 将为你创建本地 Azure Stack 订阅。 你就可以开始使用 Azure Stack。
+1. 将 CSP 作为具有的来宾用户**用户**到你的租户目录角色。 将用户添加的帮助，请参阅[将新用户添加到 Azure Active Directory](/azure/active-directory/add-users-azure-active-directory)。
+
+2. CSP 将为你创建本地 Azure Stack 订阅。 准备好开始使用 Azure Stack 时。
 3. CSP 应在你的订阅中创建资源，以确认他们还可以管理你的资源。 例如，他们可以[使用 Azure Stack 门户创建 Windows 虚拟机](azure-stack-quick-windows-portal.md)。
 
-## <a name="enable-the-cloud-service-provider-to-manage-your-subscription-using-rbac-rights"></a>允许云服务提供商使用 RBAC 权限管理你的订阅
+## <a name="let-the-cloud-service-provider-manage-your-subscription-using-rbac-rights"></a>允许云服务提供商管理你的订阅使用 RBAC 权限
 
 将 CSP 作为**所有者**添加到你的订阅。
 
-1. 将 CSP 作为来宾用户添加到你的租户目录。 若要将用户添加的步骤，请参阅[将新用户添加到 Azure Active Directory](/azure/active-directory/add-users-azure-active-directory)。
-2. 将“所有者”角色添加到 CSP 来宾用户。 有关将 CSP 用户添加到订阅的步骤，请参阅[使用基于角色的访问控制管理对 Azure 订阅资源的访问权限](/azure/role-based-access-control/role-assignments-portal)。 CSP 将为你创建本地 Azure Stack 订阅。 你就可以开始使用 Azure Stack。
+1. 将 CSP 作为来宾用户添加到你的租户目录。 将用户添加的帮助，请参阅[将新用户添加到 Azure Active Directory](/azure/active-directory/add-users-azure-active-directory)。
+
+2. 将“所有者”  角色添加到 CSP 来宾用户。 有关将 CSP 用户添加到你的订阅的帮助，请参阅[使用基于角色的访问控制管理对 Azure 订阅资源的访问](/azure/role-based-access-control/role-assignments-portal)。 CSP 将为你创建本地 Azure Stack 订阅。 准备好开始使用 Azure Stack 时。
 3. CSP 应在你的订阅中创建资源，以确认他们可以管理你的资源。
 
 ## <a name="next-steps"></a>后续步骤

@@ -16,12 +16,12 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 83a927cd0198798b4b1beaf8b84ed0b7ad2a11a0
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.openlocfilehash: 70151d7793ef1f58b544517cecb7aa53bf5b3041
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043111"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691400"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中添加新的 Azure Stack 租户帐户
 
@@ -32,24 +32,24 @@ ms.locfileid: "66043111"
 必须具有 Azure 订阅才能使用 Azure 门户。
 
 1. 登录到 [Azure](https://portal.azure.com)。
-2. 在左侧导航栏中，选择“Active Directory”并切换到要用于 Azure Stack 的目录，或者创建一个新目录。
-3. 选择“Azure Active Directory” > “用户” > “新建用户”。
+2. 在左侧导航栏中，选择“Active Directory”  并切换到要用于 Azure Stack 的目录，或者创建一个新目录。
+3. 选择“Azure Active Directory” > “用户” > “新建用户”。   
 
     ![用户 - 突出显示新用户的所有用户页面](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
-4. 在“用户”页中，填写必填信息。
+4. 在“用户”页中，填写必填信息  。
 
     ![添加新用户，具有用户信息的用户页](media/azure-stack-add-new-user-aad/new-user-user.png)
 
    - **名称（必需）。** 新用户的姓氏和名字。 例如，Mary Parker。
    - **用户名（必需）。** 新用户的用户名。 例如，mary@contoso.com。
-       用户名的域名部分必须是初始默认域名“<yourdomain name>.onmicrosoft.com”，或自定义域名（例如“contoso.com”）。 有关如何创建自定义域名的详细信息，请参阅 [如何将自定义域名添加到 Azure Active Directory]((/azure/active-directory/fundamentals/add-custom-domain)。
-   - **配置文件。** （可选）可添加有关用户的详细信息。 也可稍后添加用户信息。 若要详细了解如何添加用户信息，请参阅[如何添加或更改用户个人资料信息]((/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal)。
-   - **目录角色。**  选择“用户”。
+       用户名的域名部分必须是初始默认域名“<yourdomain name>.onmicrosoft.com”，或自定义域名（例如“contoso.com”）  。 若要了解有关如何创建自定义域名的详细信息，请参阅[如何将自定义域名添加到 Azure Active Directory](/azure/active-directory/fundamentals/add-custom-domain)。
+   - **配置文件。** （可选）可添加有关用户的详细信息。 也可稍后添加用户信息。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户配置文件信息](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal)。
+   - **目录角色。**  选择“用户”  。
 
-5. 选中“显示密码”并复制“密码”框中提供的自动生成的密码。 在初始登录过程中需要此密码。
+5. 选中“显示密码”  并复制“密码”  框中提供的自动生成的密码。 在初始登录过程中需要此密码。
 
-6. 选择“创建”。
+6. 选择“创建”  。
 
     用户已创建并添加到 Azure AD 租户。
 

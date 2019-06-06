@@ -15,7 +15,13 @@
         - name: 有关应用更新的清单
           href: azure-stack-release-notes-checklist.md
         - name: 安全更新
-          href: azure-stack-release-notes-security-updates-1904.md
+          href: azure-stack-release-notes-security-updates-1905.md
+        - name: 1905 更新
+          items:
+            - name: 发行说明
+              href: azure-stack-release-notes-1905.md
+            - name: 已知问题
+              href: azure-stack-release-notes-known-issues-1905.md
         - name: 1904 更新
           items:
             - name: 发行说明
@@ -26,8 +32,6 @@
           href: azure-stack-update-1903.md
         - name: 1902 更新
           href: azure-stack-update-1902.md
-        - name: 1901 更新
-          href: azure-stack-update-1901.md
 - name: 快速入门
   expanded: true
   items:
@@ -391,14 +395,18 @@
           href: azure-stack-backup-best-practices.md
         - name: 备份参考
           href: azure-stack-backup-reference.md
-    - name: 故障排除
+    - name: 获取支持
       items:
-        - name: 已知问题
-          href: azure-stack-troubleshooting.md
-        - name: Azure Stack 中的诊断
-          href: azure-stack-diagnostics.md
-        - name: Azure Stack 验证
-          href: azure-stack-diagnostic-test.md
+        - name: 帮助和支持
+          href: azure-stack-help-and-support-overview.md
+        - name: 故障排除
+          items:
+            - name: 已知问题
+              href: azure-stack-troubleshooting.md
+            - name: Azure Stack 中的诊断
+              href: azure-stack-diagnostics.md
+            - name: Azure Stack 验证
+              href: azure-stack-diagnostic-test.md
 - name: 参考
   items:
     - name: Azure Stack PowerShell

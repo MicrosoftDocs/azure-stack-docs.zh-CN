@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: fcf2e977bbfebeab579d330c6228cc73f05d2307
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 4ae72e7f75147fc3891731da48ee210fc546bd97
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269156"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692051"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 上的应用服务概述
 
@@ -42,8 +42,8 @@ Azure Stack 上的 azure 应用服务是一种可用于 Azure Stack 的 Microsof
 
 应用服务提供多种应用类型，每种类型负责托管特定的工作负荷：
 
-- [Web 应用程序](（/azure/应用程序的服务/概述） 来托管网站和 web 应用程序。
-- [API 应用程序](（/azure/应用程序的服务/概述） 托管 REST Api。
+- [Web 应用](/azure/app-service/overview)用于托管网站和 Web 应用程序。
+- [API 应用](/azure/app-service/overview)用于托管 REST API。
 - Azure Functions 用于托管事件驱动的无服务器工作负荷。
 
 “应用”一词是指专用于运行工作负荷的托管资源。  以 Web 应用为例，你可能习惯于将 Web 应用视为计算资源和应用程序代码，二者共同向浏览器提供功能。  在应用服务中，Web 应用是 Azure Stack 提供的用于托管应用程序代码的计算资源。
@@ -55,7 +55,7 @@ Azure Stack 上的 azure 应用服务是一种可用于 Azure Stack 的 Microsof
 
    [![使用监视数据的应用服务概述](media/azure-stack-app-service-overview/image01.png "使用监视数据的应用服务概述")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
-## <a name="what-is-an-app-service-plan"></a>什么是应用服务计划?
+## <a name="what-is-an-app-service-plan"></a>什么是应用服务计划？
 
 应用服务资源提供程序使用 Azure 应用服务所用的相同代码，因此两者具有一些共同的概念。 在应用服务中，应用程序的定价容器称为应用服务计划。  它表示一组用来保存应用的专用虚拟机。 在一个给定订阅中，你可以有多个应用服务计划。
 

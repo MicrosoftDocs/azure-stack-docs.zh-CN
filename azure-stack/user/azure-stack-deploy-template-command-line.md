@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中使用命令行部署模板 | Microsoft Docs
+title: 使用 Azure Stack 中的命令行部署模板 |Microsoft Docs
 description: 了解如何使用跨平台命令行接口 (CLI) 将模板部署到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d225e113a19dc62ce66df49d89273d00e2e35683
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 92c9189f8144804f36e551ab89d8b4fc4c1f8598
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521120"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691369"
 ---
-# <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>使用命令行在 Azure Stack 中部署模板
+# <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>使用 Azure Stack 中的命令行部署模板
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -35,7 +35,7 @@ ms.locfileid: "65521120"
 
 ## <a name="deploy-template"></a>部署模板
 
-导航到这些文件下载到的文件夹，并运行以下命令来部署模板：
+导航到下载这些文件并将其运行以下命令将模板部署到其中的文件夹：
 
 ```azurecli
 az group create "cliRG" "local" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json

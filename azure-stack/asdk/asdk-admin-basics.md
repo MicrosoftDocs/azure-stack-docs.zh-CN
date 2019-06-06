@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cff86ea851b2be030faf0c42a91fed60ac17634d
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: a375cc83410214f56eb38f676bf45cf529641972
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267032"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691093"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 管理基础知识 
 如果你不熟悉 Azure Stack 开发工具包 (ASDK) 的管理，请参考本文。 本指南概述评估环境中 Azure Stack 操作员的角色，以及如何确保测试用户快速提高工作效率。
@@ -60,7 +60,9 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 - 更换有故障的开发工具包主机硬件 
 
 ## <a name="where-to-get-support"></a>从何处获取支持
-对于开发工具包，唯一的支持选项是提出的在技术支持相关的问题[Microsoft Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)。 单击管理员门户右上角的“帮助和支持”图标（问号），然后单击“新建支持请求”，则会直接打开论坛网站。  我们会定期关注这些论坛。 
+为 Azure Stack 开发工具包 (ASDK)，可以提出与支持相关问题[Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)。 
+
+可以单击**帮助**（问号） 中的管理员门户，然后单击右上角**帮助 + 支持**以打开帮助 + 支持**概述**，其中包含链接到论坛。 定期监视 MSDN 论坛。  
 
 > [!IMPORTANT]
 > 由于 ASDK 是一个评估环境，因此我们不会通过 Microsoft 客户支持服务 (CSS) 提供官方支持。

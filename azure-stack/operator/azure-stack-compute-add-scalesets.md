@@ -7,16 +7,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2cca789487803124e1a7b24efa199d7f68760fb6
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 98aae8378e4bd516181cae95b153e6ee445ce4bf
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453405"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692001"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机规模集
 
@@ -29,14 +29,14 @@ ms.locfileid: "66453405"
 Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 有关详细信息，请参阅以下视频：
 
 * [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)（Mark Russinovich 谈论 Azure 规模集）
-* [Guy Bowerman 介绍虚拟机规模集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+* [虚拟机规模集 Guy bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 在 Azure Stack 上，虚拟机规模集不支持自动缩放。 可以使用资源管理器模板、CLI 或 PowerShell 将更多实例添加到规模集。
 
 ## <a name="prerequisites"></a>必备组件
 
 * **市场：** 将 Azure Stack 注册到全球 Azure 以启用市场中项目的可用性。 请遵照[将 Azure Stack 注册到 Azure](azure-stack-registration.md) 中的说明操作。
-* **操作系统映像：** 可以创建虚拟机规模集之前，你必须下载用于从 VMSS 中的 VM 映像[Azure Stack marketplace](azure-stack-download-azure-marketplace-item.md)。 必须已存在映像，然后用户才能创建新的 VMSS。
+* **操作系统映像：** 可以创建虚拟机规模集之前，你必须下载在规模集从中使用的 VM 映像[Azure Stack marketplace](azure-stack-download-azure-marketplace-item.md)。 映像必须已经存在之前用户可以创建新的规模集。
 
 ## <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
 

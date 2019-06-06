@@ -16,12 +16,12 @@ ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c4c77cc08b1452c34ca7eba123a38b9d20001645
-ms.sourcegitcommit: 20becab55ac2bd4b7a974ed3928238412a22a4a6
+ms.openlocfilehash: bcf499b0b3e7cd58d4b938b4be64c19eecf649e2
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030535"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691491"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 
@@ -31,9 +31,9 @@ ms.locfileid: "65030535"
 
 Microsoft 会发布完整的每月更新包和修补程序包来解决特定问题。
 
-每月更新包托管在安全的 Azure 终结点中。 可以使用 [Azure Stack 更新下载程序工具](https://aka.ms/azurestackupdatedownload)手动下载它们。 如果缩放单元已连接，更新会以“有可用更新”消息的形式自动显示在管理员门户中。 完整的每月更新包在每次发布时都会详细地进行记录。 有关每次发布的详细信息，可以单击本文[更新包发布频率](#update-package-release-cadence)部分的任何发布。
+每月更新包托管在安全的 Azure 终结点中。 可以使用 [Azure Stack 更新下载程序工具](https://aka.ms/azurestackupdatedownload)手动下载它们。 如果缩放单元已连接，更新会以“有可用更新”消息的形式自动显示在管理员门户中。  完整的每月更新包在每次发布时都会详细地进行记录。 有关每次发布的详细信息，可以单击本文[更新包发布频率](#update-package-release-cadence)部分的任何发布。
 
-修补程序更新包托管在同一个安全的 Azure 终结点中。 可以使用每篇相应的修补程序 KB 文章（例如，[Azure Stack 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)）中的嵌入式链接手动下载它们。 Azure Stack 操作员可以按照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的过程下载 .xml、.bin 和 .exe 文件并将其导入，这与操作完整的每月更新包类似。 使用已连接缩放单元的 Azure Stack 操作员会看到修补程序自动出现在管理员门户中，并会看到消息“有可用更新”。
+修补程序更新包托管在同一个安全的 Azure 终结点中。 可以使用每篇相应的修补程序 KB 文章（例如，[Azure Stack 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)）中的嵌入式链接手动下载它们。 Azure Stack 操作员可以按照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的过程下载 .xml、.bin 和 .exe 文件并将其导入，这与操作完整的每月更新包类似。 使用已连接缩放单元的 Azure Stack 操作员会看到修补程序自动出现在管理员门户中，并会看到消息“有可用更新”。 
 
 如果在缩放单元未连接的情况下希望获得每个修补程序版本的通知，请订阅每个版本中注明的 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) 源。  
 
@@ -53,10 +53,10 @@ Microsoft 预期每月发布软件更新包。 但是，很可能有多个，或
 
 有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明：
 
+- [Azure Stack 1905 更新](azure-stack-release-notes-1905.md)
 - [Azure Stack 1904 更新](azure-stack-release-notes-1904.md)
 - [Azure Stack 1903 更新](azure-stack-update-1903.md)
 - [Azure Stack 1902 更新](azure-stack-update-1902.md)
-- [Azure Stack 1901 更新](azure-stack-update-1901.md)
 
 ## <a name="hotfixes"></a>修补程序
 
@@ -66,7 +66,7 @@ Microsoft 偶尔会提供 Azure Stack 的修补程序（通常是预防性或时
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
 
-必须不断更新 Azure Stack 部署才能持续获得支持。 更新的延期策略是： 为了使 Azure Stack 部署始终获得支持，它必须运行最近发布的更新版本，或运行前面的两个更新版本之一。 修补程序不属于主要更新版本。 如果缺少至少两个更新，Azure Stack 云会被视为不合规，必须至少更新到最低的受支持版本才能获得支持。
+必须不断更新 Azure Stack 部署才能持续获得支持。 更新的延期策略是： 为了使 Azure Stack 部署始终获得支持，它必须运行最近发布的更新版本，或运行前面的两个更新版本之一。 修补程序不属于主要更新版本。 如果缺少至少两个更新，  Azure Stack 云会被视为不合规，必须至少更新到最低的受支持版本才能获得支持。
 
 例如，如果最新的可用的更新版本是 1904，则此前的两个更新包的版本 1903年和 1902年，1902年和 1903年仍支持。 但是，1901年不受支持。 即使最近一到两个月没有发布任何版本，此策略也有效。 例如，如果当前版本是 1807年，但没有 1806年版本，前面两个更新包 1805年和 1804年仍支持。
 

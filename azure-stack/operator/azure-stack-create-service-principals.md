@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: patricka
 ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: 57c5547c37fee58b37f8386983d43556ed0fd515
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b08d2b59653b099b0cd0a314347ea2667fa42ca8
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268796"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691297"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>向应用程序提供 Azure Stack 的访问权限
 
@@ -45,7 +45,7 @@ ms.locfileid: "66268796"
 
 ## <a name="manage-service-principal-for-azure-ad"></a>管理 Azure AD 的服务主体
 
-如果在使用 Azure Active Directory (Azure AD) 作为标识管理服务的情况下部署了 Azure Stack，可以像在 Azure 中那样创建服务主体。 本部分演示如何通过门户执行这些步骤。 检查你是否有 [必需在开始之前的 Azure AD permissions]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
+如果在使用 Azure Active Directory (Azure AD) 作为标识管理服务的情况下部署了 Azure Stack，可以像在 Azure 中那样创建服务主体。 本部分演示如何通过门户执行这些步骤。 在开始之前，请检查是否具有[所需的 Azure AD 权限](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
 
 ### <a name="create-service-principal"></a>创建服务主体
 
@@ -81,7 +81,7 @@ ms.locfileid: "66268796"
 
 如果在使用 Active Directory 联合身份验证服务 (AD FS) 作为标识管理服务的情况下部署了 Azure Stack，请使用 PowerShell 创建服务主体，分配用于进行访问的角色，然后使用该标识登录。
 
-可以使用两种方法之一通过 AD FS 创建服务主体。 可以:
+可以使用两种方法之一通过 AD FS 创建服务主体。 可以：
  - [使用证书创建服务主体](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate)
  - [使用客户端机密创建服务主体](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret)
 
@@ -117,7 +117,7 @@ ms.locfileid: "66268796"
 
 |参数|描述|示例|
 |---------|---------|---------|
-|名称|SPN 帐户的名称|MyAPP|
+|Name|SPN 帐户的名称|MyAPP|
 |ClientCertificates|证书对象的数组|X509 证书|
 |ClientRedirectUris<br>(可选)|应用程序重定向 URI|-|
 
@@ -181,7 +181,7 @@ ms.locfileid: "66268796"
 
 2. 自动化完成后，它将显示使用该 SPN 所需的详细信息。 建议存储该输出以供稍后使用。
 
-   例如:
+   例如：
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -204,7 +204,7 @@ ms.locfileid: "66268796"
 
 |参数|描述|示例|
 |---------|---------|---------|
-|名称|SPN 帐户的名称|MyAPP|
+|Name|SPN 帐户的名称|MyAPP|
 |ApplicationIdentifier|唯一标识符|S-1-5-21-1634563105-1224503876-2692824315-2119|
 |ClientCertificate|证书对象的数组|X509 证书|
 
@@ -362,7 +362,7 @@ ms.locfileid: "66268796"
 
 ## <a name="assign-a-role"></a>分配角色
 
-要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用的角色信息，请参阅 [RBAC:内置的 Roles]((/azure/role-based-access-control/built-in-roles)。
+要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](/azure/role-based-access-control/built-in-roles)。
 
 可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域将继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
 

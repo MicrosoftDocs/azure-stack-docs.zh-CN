@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 53b33c7eb0dc71a65113ef8807de1c5b3c3c4c80
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506294"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691385"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 更新
 
@@ -63,7 +63,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 ## <a name="prerequisites"></a>必备组件
 
 > [!IMPORTANT]
-> 可以直接从 [1.1901.0.95 或 1.1901.0.99](azure-stack-update-1901.md#build-reference) 版本安装 1902，而无需首先安装任何 1901 修补程序。 但是，如果已安装旧版 **1901.2.103** 修补程序，则必须先安装新版 [1901.3.105 修补程序](https://support.microsoft.com/help/4495662)才能继续安装 1902。
+> 可以直接从安装 1902年**1.1901.0.95**或**1.1901.0.99**释放时，不首先安装任何 1901年修补程序。 但是，如果已安装旧版 **1901.2.103** 修补程序，则必须先安装新版 [1901.3.105 修补程序](https://support.microsoft.com/help/4495662)才能继续安装 1902。
 
 - 在开始安装此更新之前，请使用以下参数运行 [Test-AzureStack](azure-stack-diagnostic-test.md)，以验证 Azure Stack 的状态并解决发现的所有操作问题，包括所有警告和故障。 另外，请查看活动警报，并解决所有需要采取措施的警报。
 

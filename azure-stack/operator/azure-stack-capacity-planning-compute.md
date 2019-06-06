@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: e549413798ffc3c06c95bfbcf50ab4929ffeaf63
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 6005196fe98f83c11b9d87ff713e290bad9ef384
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66461021"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692031"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack 计算
 
@@ -50,12 +50,14 @@ Azure Stack 方法旨在保持运行已成功预配的 Vm。 例如，如果主�
 
 ![物理内存容量](media/azure-stack-capacity-planning/physical-memory-capacity.png)
 
-已用的内存由多个组件组成。 以下组件使用的内存的使用部分中的饼图。  
+已用的内存由多个组件组成。 以下组件使用的内存的使用部分中的饼图：  
 
-- 主机操作系统使用情况或保留 – 这在使用操作系统 (OS) 的内存主机、 虚拟内存页表、 主机 OS 和空间直通的内存缓存运行的进程。 
-- 基础结构服务 – 这些是构成 Azure Stack Vm 的基础结构。 从 Azure Stack 1902年发布版本，这需要占用 242 GB 的 31 Vm + (4 GB x 节点数)。 这种内部服务结构允许在将来引入新开发的基础结构服务。
-- 复原能力保留-Azure Stack 保留了一部分内存允许的租户可用性在单个主机发生故障期间以及修补和更新期间允许成功的实时迁移的 Vm。 
-- 租户 Vm – 这些是租户的 Azure Stack 用户创建的 Vm。 除了运行虚拟机，使用的构造已经到达了任何虚拟机的内存。 这意味着，中的 Vm **Creating**或**失败**状态或关闭的情况下从来宾内 Vm 将会占用内存。 但是，Vm 已解除分配使用停止解除分配选项不会使用从 Azure Stack 的内存。 
+ -  主机操作系统使用情况或保留 – 这在使用操作系统 (OS) 的内存主机、 虚拟内存页表、 主机 OS 和空间直通的内存缓存运行的进程。 由于此值是依赖于不同主机上运行的 HYPER-V 过程使用的内存，它可以节省成本。
+ - 基础结构服务 – 这些是构成 Azure Stack Vm 的基础结构。 从 Azure Stack 1904年发行版本，这涉及到 ~ 31 Vm 占用 242 GB + (4 GB x 的节点) 的内存。 改变基础结构服务组件的内存使用率，因为我们正在努力使我们的基础结构服务更具可缩放和复原。
+ - 复原能力保留-Azure Stack 保留了一部分内存允许的租户可用性在单个主机发生故障期间以及修补和更新期间允许成功的实时迁移的 Vm。
+ - 租户 Vm – 这些是租户的 Azure Stack 用户创建的 Vm。 除了运行虚拟机，使用的构造已经到达了任何虚拟机的内存。 这意味着在"创建"或"失败"状态下，Vm 或 Vm 关闭的情况下从来宾内将会占用内存。 但是，Vm 已解除分配使用停止解除分配选项从门户/powershell/cli 不会使用从 Azure Stack 的内存。
+ - 外接程序 RPs – 部署外接程序 RPs，如 SQL、 MySQL、 应用服务等的 Vm
+
 
 了解在门户上的内存使用情况的最佳方式是使用[Azure Stack 容量规划器](https://aka.ms/azstackcapacityplanner)了解各种工作负荷的影响。 以下计算是由规划器使用的相同。
 
@@ -78,6 +80,23 @@ Azure Stack 方法旨在保持运行已成功预配的 Vm。 例如，如果主�
 
 
 值 V（缩放单元中的最大 VM）是动态变化的，具体取决于最大的租户 VM 内存大小。 例如，最大 VM 值可能是 7 GB 或 112 GB，或者是 Azure Stack 解决方案中任何其他受支持的 VM 内存大小。 更改 Azure Stack fabric 上的最大 VM 将导致保留除 VM 本身的内存中增加的复原能力的增加。 
+
+## <a name="frequently-asked-questions"></a>常见问题
+
+问：我的租户部署新的 VM 时，多长时间将需要在管理门户上功能图表来显示剩余的容量？
+答：在容量边栏选项卡每 15 分钟刷新，因此请考虑此问题。
+
+问：未更改我的 Azure Stack 上部署的 Vm 数，但我容量有波动。 为什么？
+答：可用内存的 VM 放置具有多个依赖关系，其中之一是主机操作系统预留。 此值是依赖于使用不是常量值的主机上运行的不同的 HYPER-V 进程的内存。
+
+问：何种状态租户 Vm 是否处于占用的内存？
+答：除了运行虚拟机，使用的构造已经到达了任何虚拟机的内存。 这意味着会在"创建"、"失败"或 Vm 关闭从来宾内的 Vm，将停止解除分配从门户/powershell/cli 而不消耗内存。
+
+
+问：我有 4 个主机 Azure Stack。 我的租户具有使用 56 GB RAM (D5_v2) 每个的 3 个 Vm。 一个 Vm 的大小调整为 112 GB RAM (D14_v2)，仪表板上报告的可用内存的峰值容量边栏选项卡上的 168 GB 使用情况。 后续重设大小的其他两个 D5_v2 Vm 到 D14_v2，导致只有 56 GB 的 RAM 增加。 为什么这是这样吗？
+
+答：可用内存是由 Azure Stack 维护的复原能力保留一个函数。 保留的复原能力是在 Azure Stack 标记上的最大 VM 大小的函数。 首先，在标记上的最大 VM 是 56 GB 内存。 VM 已重设大小时，在标记上的最大 VM 变得 112 GB 内存，这不仅能增加该租户 VM 使用的内存，但还增加了保留的复原能力。 这会导致 56 GB (112 GB 租户 VM 内存增加到 56 GB) 的增加 + 112 GB 复原保留内存增加。 后续 Vm 已重设大小时，最大 VM 大小保持为 112 GB 的 VM，因此未生成复原保留增加。 内存消耗提高的感觉租户 VM 内存增加 (56 GB)。 
+
 
 > [!NOTE]
 > 网络方面的容量规划要求很少，因为能够配置的只有公共 VIP 的大小。 有关如何将多个公共 IP 地址添加到 Azure Stack 的信息，请参阅[添加公共 IP 地址](azure-stack-add-ips.md)。
