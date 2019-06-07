@@ -16,12 +16,12 @@ ms.date: 02/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 69a0a9f84e0c4a5d0cb51eb8d48b3c9ca88b9cfc
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: aca2517a49936296f73c34392ab4c5439909872f
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477342"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748970"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 支持的来宾操作系统
 
@@ -34,6 +34,7 @@ Azure Stack 支持下表中列出的 Windows 来宾操作系统：
 | 操作系统 | 描述 | 在市场中可用 |
 | --- | --- | --- |
 | Windows Server，版本 1709 | 64 位 | 包含容器的核心 |
+| Windows Server 2019 | 64 位 |  数据中心、数据中心核心、包含容器的数据中心 |
 | Windows Server 2016 | 64 位 |  数据中心、数据中心核心、包含容器的数据中心 |
 | Windows Server 2012 R2 | 64 位 |  数据中心 |
 | Windows Server 2012 | 64 位 |  数据中心 |
@@ -50,22 +51,23 @@ Datacenter 版本可在市场中下载；客户可以自带包含其他版本的
 
 ## <a name="linux"></a>Linux
 
-在 Marketplace 中列出为可用的 Linux 发行版包括必要 Windows Azure Linux 代理 (WALA)。 如果将自己的映像带到 Azure Stack，请遵循[将 Linux 映像添加到 Azure Stack](azure-stack-linux.md) 中的指导。
+市场中列为可用的 Linux 发行版包括必要的 Windows Azure Linux 代理 (WALA)。 如果将自己的映像带到 Azure Stack，请遵循[将 Linux 映像添加到 Azure Stack](azure-stack-linux.md) 中的指导。
 
 > [!NOTE]
-> 应使用的最新公共 WALA 版本 （在 1903 azure stack 内部版本和上面或 1901年/1902年修补程序） 构建自定义映像或版本 2.2.20。 前面 2.2.20 以及 2.2.20 2.2.35 （独占） 之间的版本在 Azure Stack 上可能无法正常工作。 
+> 自定义映像应该使用最新的公共 WALA 版本（基于 1903 azure stack 及更高版本，或者包含 1901/1902 修补程序）或 2.2.20 版本生成。 2.2.20 之前的版本以及介于 2.2.20 和 2.2.35 之间（排他）的版本在 Azure Stack 上可能无法正常运行。 
 >
 > 目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
 
 | 分发 | 描述 | 发布者 | 市场 |
 | --- | --- | --- | --- |
 | 基于 CentOS 的 6.9 | 64 位 | Rogue Wave | 是 |
-| 基于 CentOS 的 7.4 | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的 7.5 | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的 7.3 | 64 位 | Rogue Wave | 是 |
 | ClearLinux | 64 位 | ClearLinux.org | 是 |
 | 容器 Linux |  64 位 | CoreOS | Stable |
 | Debian 8 "Jessie" | 64 位 | credativ |  是 |
 | Debian 9“Stretch” | 64 位 | credativ | 是 |
-| Red Hat Enterprise Linux 7.1 （及更高版本） | 64 位 | Red Hat |自带映像 |
+| Red Hat Enterprise Linux 7.1（及更高版本） | 64 位 | Red Hat | 自带映像 |
 | SLES 11SP4 | 64 位 | SUSE | 是 |
 | SLES 12SP3 | 64 位 | SUSE | 是 |
 | Ubuntu 14.04-LTS | 64 位 | Canonical | 是 |

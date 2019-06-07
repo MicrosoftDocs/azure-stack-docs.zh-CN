@@ -16,23 +16,23 @@ ms.date: 03/20/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 6726e8ff261565691e2e9e3c01827e8e056db139
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fc5466880c7340f5e9a79b7ece79663d12c9a598
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618818"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749018"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack VM 更新和管理
 以下 Azure 自动化解决方案功能可用于管理 Windows 和 Linux Vm 使用 Azure Stack 部署：
 
-- **[更新管理](https://docs.microsoft.com/azure/automation/automation-update-management)**。 使用更新管理解决方案中，可以快速评估所有代理计算机上的可用更新的状态和管理这些 Windows 和 Linux Vm 中安装所需的更新的过程。
+- **[更新管理](https://docs.microsoft.com/azure/automation/automation-update-management)** 。 使用更新管理解决方案中，可以快速评估所有代理计算机上的可用更新的状态和管理这些 Windows 和 Linux Vm 中安装所需的更新的过程。
 
-- **[更改跟踪](https://docs.microsoft.com/azure/automation/automation-change-tracking)**。 对已安装的软件、 Windows 服务、 Windows 注册表和文件，并受监视服务器上的 Linux 守护程序的更改发送到云中的 Azure Monitor 服务进行处理。 逻辑应用于接收的数据，云服务则记录数据。 通过使用“更改跟踪”仪表板上的信息，可以轻松查看服务器基础结构中所做的更改。
+- **[更改跟踪](https://docs.microsoft.com/azure/automation/automation-change-tracking)** 。 对已安装的软件、 Windows 服务、 Windows 注册表和文件，并受监视服务器上的 Linux 守护程序的更改发送到云中的 Azure Monitor 服务进行处理。 逻辑应用于接收的数据，云服务则记录数据。 通过使用“更改跟踪”仪表板上的信息，可以轻松查看服务器基础结构中所做的更改。
 
-- **[库存](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**。 库存跟踪为 Azure Stack 虚拟机提供了用于设置和配置清单收集的基于浏览器的用户界面。
+- **[库存](https://docs.microsoft.com/azure/automation/automation-vm-inventory)** 。 库存跟踪为 Azure Stack 虚拟机提供了用于设置和配置清单收集的基于浏览器的用户界面。
 
-- **[适用于 Vm 的 azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)**。 适用于 Vm 的 azure 监视器监视 Azure 和 Azure Stack 虚拟机 (VM) 和规模的虚拟机规模集。 它分析 Windows 和 Linux VM 的性能和运行状况，并监视它们的进程及其对其他资源和外部进程的依赖关系。 
+- **[适用于 Vm 的 azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)** 。 适用于 Vm 的 azure 监视器监视 Azure 和 Azure Stack 虚拟机 (VM) 和规模的虚拟机规模集。 它分析 Windows 和 Linux VM 的性能和运行状况，并监视它们的进程及其对其他资源和外部进程的依赖关系。 
 
 > [!IMPORTANT]
 > 这些解决方案都与用于管理 Azure Vm 的相同。 Azure 和 Azure Stack Vm 进行管理相同的方式，从相同的接口，使用相同的工具。 Azure Stack Vm 与 Azure Stack 配合使用更新管理、 更改跟踪、 清单和 Azure 监视虚拟机解决方案时还进行定价与 Azure Vm 相同。
@@ -74,7 +74,7 @@ ms.locfileid: "65618818"
 
 3. 依赖项映射：显示来自各种资源组和订阅的 VM 的互连组件。
 
-创建 Log Analytics 工作区后，将需要在 Linux 和 Windows Vm 上的集合的工作区中启用性能计数器，以及安装和启用工作区中的 ServiceMap 和 InfrastructureInsights 解决方案。 中介绍该过程[部署 Vm 的 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#deploy-azure-monitor-for-vms)指南。
+创建 Log Analytics 工作区后，将需要在 Linux 和 Windows Vm 上的集合的工作区中启用性能计数器，以及安装和启用工作区中的 ServiceMap 和 InfrastructureInsights 解决方案。 中介绍该过程[部署 Vm 的 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview)指南。
 
 ### <a name="in-the-azure-stack-administration-portal"></a>在 Azure Stack 管理门户
 启用后在 Azure 门户中的 Azure 自动化解决方案，接下来需要登录到云管理员在 Azure Stack 管理门户并下载**Azure Monitor、 更新和配置管理**和**Azure Monitor、 更新和适用于 Linux 的配置管理**扩展 Azure Stack marketplace 项。 

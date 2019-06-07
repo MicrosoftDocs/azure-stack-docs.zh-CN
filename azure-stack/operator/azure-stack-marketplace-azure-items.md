@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 43554f5659f3068657feda2997f90736a7be8495
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: 714ffd213ce88ca58cf4b04c649857239f6deacf
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252138"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749054"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure 市场项
 
@@ -31,7 +31,7 @@ ms.locfileid: "66252138"
 
 只要有所用虚拟机 (VM) 扩展的更新，就应下载它们。 随产品一起提供的扩展不会在普通的修补和更新过程中更新，因此请经常查看更新。 其他扩展只能通过市场管理获取。
 
-|  | 项名称 | 描述 | 发布服务器 | OS 类型 |
+|  | 项名称 | 描述 | 发布者 | OS 类型 |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS 扩展](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 扩展](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **下载此扩展以部署任何“Windows 上的 SQL Server”市场项 - 此扩展是必需的。** | Microsoft | Windows |
 |![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png) | [自定义脚本扩展](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **请下载此更新，此更新针对用于 Windows 的自定义脚本扩展的内置版本。** | Microsoft | Windows |
@@ -52,7 +52,7 @@ ms.locfileid: "66252138"
 
 Microsoft Azure Stack 支持以下 Azure Marketplace 虚拟机和解决方案模板。 请根据说明单独下载任何依赖项。 SQL Server 和 Machine Learning Server 之类的应用程序需要适当的许可，除非已标记为“免费”或“试用”。
 
-|  | 项名称 | 描述 | 发布服务器 |
+|  | 项名称 | 描述 | 发布者 |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | 企业级解决方案，部署简单，经济高效，以应用程序和用户为中心。 这些映像会定期更新，发布最新修补程序。 **重要信息：必须删除 2018 年 1 月 18 日之前下载的映像并将其替换为最新版本。** | Microsoft |
 | ![SharePoint Server 2013 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 试用版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 试用版 Windows Server 2012 Datacenter 和 Visual Studio 2019 社区版上。 | Microsoft |
@@ -80,11 +80,11 @@ Microsoft Azure Stack 支持以下 Azure Marketplace 虚拟机和解决方案模
 
 ## <a name="linux-distributions"></a>Linux 发行版
 
-|  | 项名称 | 描述 | 发布服务器 |
+|  | 项名称 | 描述 | 发布者 |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | 一个针对 Intel 体系结构优化的参考性 Linux 发行版 | Clear Linux Project |
 | ![CoreOS 提供的 Container Linux](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS 提供的 Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux 是一种新式的最小型 Linux 发行版，可以方便地运行容器、管理群集以及无缝地更新服务器 - 所有组件都启用了仓库规模的计算。 | CoreOS |
-| ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server 是全球流行的 Linux 云环境。 | 规范 |
+| ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server 是全球流行的 Linux 云环境。 | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8“Jessie”](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux 是最流行的 Linux 分发版之一。 | credativ |
 | ![基于 CentOS 的 6.8](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 6.8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic）  |
 | ![基于 CentOS 的 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic）  |
@@ -97,7 +97,7 @@ Microsoft Azure Stack 支持以下 Azure Marketplace 虚拟机和解决方案模
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>第三方 BYOL 版、免费版和试用版映像以及解决方案模板
 
-|  | 项名称 | 描述 | 发布服务器 |
+|  | 项名称 | 描述 | 发布者 |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | A10 网络 vThunder 适用于 Microsoft Azure 应用程序传送控制器专为高性能、 灵活性，并轻松部署应用程序交付和服务器负载平衡和优化，可在 Azure 云中以本机方式运行。 | A10 Networks |
 | ![Arista vEOS 路由器](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS 路由器](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS 路由器是功能丰富的多云，并使企业和云提供商生成一致的、 高度安全的多虚拟机监控程序虚拟路由器和可扩展的混合网络。 | Arista Networks |
@@ -116,7 +116,7 @@ Microsoft Azure Stack 支持以下 Azure Marketplace 虚拟机和解决方案模
 | ![Cassandra 群集](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Apache Cassandra 是一种开源分布式数据库管理系统，旨在处理多个商品服务器的大量数据 ，可确保高可用性，不会造成单点故障。 **此解决方案模板还需要 Debian 8 以及适用于 Linux 2.0 扩展的自定义脚本。** | Bitnami |
 | ![CiviCRM](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.civicrm) | 简单的基于 Web 的关系管理系统。 | Bitnami |
 | ![CMS Made Simple](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [CMS Made Simple](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cmsmadesimple) | 快速轻松地创建和管理网站。 | Bitnami |
-| ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.codiad) | 占用空间最小的开源云 IDE。 | Bitnami |
+| ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps?search=codiad) | 占用空间最小的开源云 IDE。 | Bitnami |
 | ![Concrete5](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.concrete5) | 轻松部署 Web 应用程序、网站、存储和论坛。 | Bitnami |
 | ![Coppermine](media/azure-stack-marketplace-azure-items/coppermine.png) | [Coppermine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.coppermine) | 完备的多用途 Web 库。 | Bitnami |
 | ![CouchDB](media/azure-stack-marketplace-azure-items/couchdb.png) | [CouchDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.couchdb) | 易用的开源数据库系统。 | Bitnami |
@@ -224,7 +224,7 @@ Microsoft Azure Stack 支持以下 Azure Marketplace 虚拟机和解决方案模
 | ![WebMail Pro PHP](media/azure-stack-marketplace-azure-items/webmailprophp.png) | [WebMail Pro PHP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.webmailpro) | 带企业版功能的 Webmail 系统。 | Bitnami |
 | ![WildFly](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | 包括 Apache、WildFly、MySQL 和 Java 在内的应用程序服务器。 | Bitnami |
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | 最常用且已准备就绪的 CMS。 | Bitnami |
-| ![X2Engine Sales CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | 紧凑的营销、销售和客户服务应用程序。 | Bitnami |
+| ![X2Engine Sales CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps?search=x2engine%20sales%20crm) | 紧凑的营销、销售和客户服务应用程序。 | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS 和 Web 门户程序，适用于创建动态网站。 | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 开源 CRM 系统：移动、 社交和 Gamified。 | Bitnami |
 | ![Check Point vSEC Security Management](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC Security Management](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC 提供高级的多层威胁防护，可以保护客户在 Azure 中的资产免受恶意软件和复杂威胁的损害。 **下载两种 Check Point vSEC 市场项。** | 检查点 |

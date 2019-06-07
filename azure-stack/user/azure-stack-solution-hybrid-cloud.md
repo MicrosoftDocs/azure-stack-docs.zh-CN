@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252060"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749025"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 部署混合云解决方案
 
@@ -32,7 +32,7 @@ ms.locfileid: "66252060"
 
 ## <a name="overview-and-assumptions"></a>概述和假设
 
-可以遵循本教程设置工作流，让开发人员将相同的 Web 应用程序部署到公有云和私有云。 此应用程序可以访问私有云中托管的、无法通过 Internet 路由的网络。 监视这些 web 应用程序和程序时在流量出现峰值，修改要将流量重定向到公有云的 DNS 记录。 如果流量下降到高峰出现之前的水平，则流量将路由回到私有云。
+可以遵循本教程设置工作流，让开发人员将相同的 Web 应用程序部署到公有云和私有云。 此应用程序可以访问私有云中托管的、无法通过 Internet 路由的网络。 这些 Web 应用程序受到监视；出现流量高峰时，某个程序会修改 DNS 记录，以将流量重定向到公有云。 如果流量下降到高峰出现之前的水平，则流量将路由回到私有云。
 
 本教程涵盖以下任务：
 
@@ -65,7 +65,7 @@ ms.locfileid: "66252060"
   - Windows Server 2016 映像
   - 包含 Microsoft SQL Server 映像的 Windows Server 2016
   - 相应的计划和产品/服务
-  - Web 应用程序的域名。 如果没有域名称可以购买来自如 GoDaddy、 Bluehost 和 InMotion 域提供程序。
+  - Web 应用程序的域名。 如果没有域名，可以从 GoDaddy、Bluehost 和 InMotion 等域提供商购买。
 - 受信任的证书颁发机构（例如 LetsEncrypt）为域颁发的 SSL 证书。
 - 与 SQL Server 数据库通信且支持 Application Insights 的 Web 应用程序。 可以从 GitHub 下载 [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) 示例应用。
 - Azure 虚拟网络与 Azure Stack 虚拟网络之间的混合网络。 有关详细说明，请参阅[使用 Azure 和 Azure Stack 配置混合云连接](azure-stack-solution-hybrid-connectivity.md)。
@@ -130,7 +130,7 @@ ms.locfileid: "66252060"
 
 ## <a name="create-web-apps-in-azure-and-azure-stack"></a>在 Azure 和 Azure Stack 中创建 Web 应用
 
-Azure 应用服务简化了运行和管理 Web 应用程序的过程。 由于 Azure Stack 与 Azure 相一致，因此，应用服务可在这两个环境中运行。 将使用应用服务来托管应用程序。
+Azure 应用服务简化了运行和管理 Web 应用程序的过程。 由于 Azure Stack 与 Azure 相一致，因此，应用服务可在这两个环境中运行。 你将使用应用服务来托管应用程序。
 
 ### <a name="create-web-apps"></a>创建 Web 应用
 
@@ -255,7 +255,7 @@ Azure Stack 上的应用服务必须可从公共 Internet 进行路由，使用�
 
 1. 在 Microsoft Visual Studio 中打开 web 应用程序。
 
-2. [添加 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core#add-application-insights-telemetry)到项目中以传输用于创建警报时 web 流量增加或减少 Application Insights 的遥测数据。
+2. [添加 Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications)到项目中以传输用于创建警报时 web 流量增加或减少 Application Insights 的遥测数据。
 
 ### <a name="configure-dynamic-connection-strings"></a>配置动态连接字符串
 
@@ -489,7 +489,7 @@ Azure Application Insights 可以监视你的应用程序以及发送警报根�
 
 以下屏幕截图显示了向外扩展和缩小的警报。
 
-   ![警报(经典)](media/azure-stack-solution-hybrid-cloud/image22.png)
+   ![警报（经典）](media/azure-stack-solution-hybrid-cloud/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack"></a>在 Azure 与 Azure Stack 之间重定向流量
 

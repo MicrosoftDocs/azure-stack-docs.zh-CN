@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ed3dfda57bc544bd61efcc52ef7588a553ac634
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9ad15342a8c0116f928b416f26e64b08563a5c14
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297619"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748950"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>教程：设置验证为服务资源
 
@@ -58,8 +58,8 @@ ms.locfileid: "64297619"
 
    1. 登录到 [Azure 门户](https://portal.azure.com)。
    2. 选择**所有服务** > **Azure Active Directory**下**标识**部分。
-   3. 选择“企业应用程序” > “Azure Stack 验证服务”应用程序。
-   4. 选择“用户和组”。 “Azure Stack 验证服务 - 用户和组”边栏选项卡会列出有权使用应用程序的用户。
+   3. 选择“企业应用程序”   >   “Azure Stack 验证服务”应用程序。
+   4. 选择“用户和组”  。 “Azure Stack 验证服务 - 用户和组”边栏选项卡会列出有权使用应用程序的用户。 
    5. 选择 **+ 添加用户**若要从你的租户添加用户并分配角色。
 
       如果你想要隔离 VaaS 资源和组织内不同的组的操作，可以创建多个 Azure AD 租户目录。
@@ -74,7 +74,7 @@ ms.locfileid: "64297619"
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | 组织名称 | 官方组织名称。 |
     | Azure AD 租户目录名称 | 正在注册的 Azure AD 租户目录名称。 |
-    | Azure AD 租户目录 ID | Azure AD 租户目录与目录关联的 GUID。 有关如何查找你的 Azure AD 租户目录 ID 的信息，请参阅[获取租户 ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id)。 |
+    | Azure AD 租户目录 ID | Azure AD 租户目录与目录关联的 GUID。 有关如何查找你的 Azure AD 租户目录 ID 的信息，请参阅[获取租户 ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in)。 |
 
 2. 等待来自 Azure Stack 验证团队来检查你的租户可以使用 VaaS 门户确认。
 
@@ -84,7 +84,7 @@ ms.locfileid: "64297619"
 
 1. 使用租户的全局管理员凭据登录到 [VaaS 门户](https://azurestackvalidation.com/)。 
 
-2. 选择“我的帐户”。
+2. 选择“我的帐户”。 
 
 3 接受条款才能继续操作时提示你授予 VaaS 列出 Azure AD 的权限。
 
@@ -109,12 +109,12 @@ ms.locfileid: "64297619"
 6. 将设置保留为默认值除外**帐户类型**:
 
     - **部署模型**字段设置为**资源管理器**默认情况下。
-    - “性能”字段默认设置为“标准”。
+    - “性能”  字段默认设置为“标准”  。
     - 选择**帐户类型**字段作为**Blob 存储**。
     - **复制字段**设置为**本地冗余存储 (LRS)** 默认情况下。
-    - “访问层”默认设置为“热”。
+    - “访问层”  默认设置为“热”  。
 
-7. 选择“查看+创建”可查看存储帐户设置并创建帐户。
+7. 选择“查看+创建”  可查看存储帐户设置并创建帐户。
 
 ## <a name="next-steps"></a>后续步骤
 

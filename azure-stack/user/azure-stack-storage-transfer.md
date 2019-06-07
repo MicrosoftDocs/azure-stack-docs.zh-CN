@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 087b7b8a5b307c5be56774024c99369286ae321d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: bdbf30a0913aeb4839d31e68c84a4b1b7965bf85
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986184"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748982"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 存储的数据传输工具
 
@@ -67,7 +67,7 @@ AzCopy 是一个命令行实用工具，用于向 / 从简单的命令使用具�
  - **Linux 上的 AzCopy**
 
     - 可以采用与 Azure 一样的方式在 Azure Stack 上安装和使用 AzCopy。 有关详细信息，请参阅 [Linux 上的 AzCopy](/azure/storage/common/storage-use-azcopy-linux)。
-    - 对于以前的版本（1802 到 1809 更新），请参阅 [AzCopy 7.1 和更低版本的安装步骤](/azure/storage/common/storage-use-azcopy-linux#installation-steps-for-azcopy-71-and-earlier-versions)。
+    - 对于以前的版本（1802 到 1809 更新），请参阅 [AzCopy 7.1 和更低版本的安装步骤](/azure/storage/common/storage-use-azcopy-v10#use-the-previous-version-of-azcopy)。
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>针对数据传输的 AzCopy 命令示例
 
@@ -134,7 +134,7 @@ azcopy \
 
  - 在文件存储上执行的任何 AzCopy 操作都不可用，因为文件存储在 Azure Stack 中不可用。
  - 不支持在 Azure 存储和 Azure Stack 之间进行异步数据传输。 可以使用 **/SyncCopy** 选项来指定传输，以便复制数据。
- - Azcopy 的 Linux 版本仅支持 1802 更新或更高版本。 并且它不支持表服务。
+ - Azcopy 的 Linux 版本仅支持 1802 更新或更高版本。 它不支持表服务。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -150,7 +150,7 @@ Azure PowerShell 是一个模块，它提供的 cmdlet 用于管理 Azure 和 Az
 
 1. 安装 [Azure Stack 兼容的 Azure PowerShell 模块](../operator/azure-stack-powershell-install.md)。
 2. 下载[使用 Azure Stack 所需的工具](../operator/azure-stack-powershell-download.md)。
-3. 打开 **Windows PowerShell ISE**，选择“以管理员身份运行”，然后单击“文件” > “新建”以创建新的脚本文件。
+3. 打开 **Windows PowerShell ISE**，选择“以管理员身份运行”，  然后单击“文件”   >   “新建”以创建新的脚本文件。
 4. 复制下面的脚本并将其粘贴到新的脚本文件。
 5. 根据配置设置更新脚本变量。
    > [!NOTE]
@@ -223,7 +223,7 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 ### <a name="powershell-known-issues"></a>PowerShell 已知问题
 
-目前兼容的 Azure Stack 的 Azure PowerShell 模块版本为 1.2.11，用于用户操作。 它是不同的最新版本的 Azure PowerShell。 这种差异影响存储服务操作：
+目前兼容的 Azure Stack 的 Azure PowerShell 模块版本为 1.2.11，用于用户操作。 它不同于最新版本的 Azure PowerShell。 这种差异影响存储服务操作：
 
 在版本 1.2.11 中，`Get-AzureRmStorageAccountKey` 的返回值格式有两个属性：`Key1` 和 `Key2`，而当前的 Azure 版本返回的数组包含所有帐户密钥。
 
@@ -314,7 +314,7 @@ Microsoft Azure 存储资源管理器是 Microsoft 的一款独立应用。 它�
 
 对于 Azure Stack，在装载准备步骤中配置存储帐户凭据时，除了 accountName、accountKey/sasToken、containerName 之外，还需要指定 **blobEndpoint**。 
 
-在 Azure Stack 开发工具包中，blobEndpoint 应当为 `myaccount.blob.local.azurestack.external`。 在 Azure Stack 集成系统中，请联系您的云管理员，如果你不确定你的终结点。 
+在 Azure Stack 开发工具包中，blobEndpoint 应当为 `myaccount.blob.local.azurestack.external`。 在 Azure Stack 集成系统中，如果不确定你的终结点，请与云管理员联系。 
 
 请注意，accountKey 和 sasToken 一次只能配置一个。 提供存储帐户密钥时，凭据配置文件采用以下格式： 
 

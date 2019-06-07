@@ -15,12 +15,12 @@ ms.date: 03/26/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a56e1e8c3c5109c638432652adf9260f59f6a467
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 04ae974148d47bde1e3131aeca45e8bddc9e6109
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618453"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748995"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>为 SQL 资源提供程序添加托管服务器
 
@@ -56,7 +56,7 @@ ms.locfileid: "65618453"
 可以使用其他选项部署 SQL VM，包括 [Azure Stack 快速入门库](https://github.com/Azure/AzureStack-QuickStart-Templates)中的模板。
 
 > [!NOTE]
-> 必须通过用户订阅而不是默认的提供程序订阅创建安装在多节点 Azure Stack 上的任何宿主服务器。 必须通过用户门户或者使用相应的登录名通过 PowerShell 会话来创建这些服务器。 所有宿主服务器都是可计费的 VM，并且必须具有相应的 SQL 许可证。 服务管理员可以是订阅的所有者。
+> 必须通过用户订阅而不是默认的提供程序订阅创建安装在多节点 Azure Stack 上的任何宿主服务器。 必须通过用户门户或者使用相应的登录名通过 PowerShell 会话来创建这些服务器。 所有宿主服务器都是可计费的 VM，并且必须具有相应的 SQL 许可证。 服务管理员可以是订阅的所有者。 
 
 ### <a name="required-privileges"></a>所需的特权
 
@@ -72,8 +72,8 @@ ms.locfileid: "65618453"
 以下信息提供了其他安全指导：
 
 * 使用 BitLocker 加密所有 Azure Stack 存储，因此 Azure Stack 上的任何 SQL 实例都将使用加密的 Blob 存储。
-* SQL 资源提供程序完全支持 TLS 1.2。 确保通过 SQL RP 管理的任何 SQL Server 仅针对 TLS 1.2 进行配置，并且 RP 默认使用该配置。 支持的所有 SQL Server 版本都支持 TLS 1.2，具体请参阅 [Microsoft SQL Server 的 TLS 1.2 支持](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server)。
-* 使用 SQL Server 配置管理器设置 **ForceEncryption** 选项，确保与 SQL Server 之间的所有通信始终经过加密。 请参阅[将服务器配置为强制加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections)。
+* SQL 资源提供程序完全支持 TLS 1.2。 确保通过 SQL RP 管理的任何 SQL Server 仅针对 TLS 1.2 进行配置，并且 RP 默认使用该配置。  支持的所有 SQL Server 版本都支持 TLS 1.2，具体请参阅 [Microsoft SQL Server 的 TLS 1.2 支持](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server)。
+* 使用 SQL Server 配置管理器设置 **ForceEncryption** 选项，确保与 SQL Server 之间的所有通信始终经过加密。 请参阅[将服务器配置为强制加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections)。
 * 确保任何客户端应用程序也通过加密的连接进行通信。
 * RP 配置为信任 SQL Server 实例使用的证书。
 
@@ -85,27 +85,27 @@ ms.locfileid: "65618453"
 
 1. 以服务管理员的身份登录到 Azure Stack 操作员门户。
 
-2. 选择“所有服务”&gt;“管理资源”&gt;“SQL 宿主服务器”。
+2. 选择“所有服务”  &gt;“管理资源”  &gt;“SQL 宿主服务器”  。
 
    ![SQL 宿主服务器](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   下**SQL 宿主服务器**，可以将 SQL 资源提供程序连接到将充当资源提供程序的后端的 SQL Server 的实例。
+   在“SQL 宿主服务器”下，可将 SQL 资源提供程序连接到将充当资源提供程序后端的 SQL Server 实例。 
 
    ![SQL 适配器仪表板](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. 单击“添加”，然后在“添加 SQL 宿主服务器”边栏选项卡上提供 SQL Server 实例的连接详细信息。
+3. 单击“添加”  ，然后在“添加 SQL 宿主服务器”  边栏选项卡上提供 SQL Server 实例的连接详细信息。
 
    ![添加 SQL 宿主服务器](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
     （可选）提供实例名称；如果实例未分配到默认端口 1433，请指定端口号。
 
    > [!NOTE]
-   > 只要用户和管理员 Azure 资源管理器可以访问 SQL 实例，资源提供程序就能控制此实例。 必须专门将 SQL 实例分配给资源提供程序。
+   > 只要用户和管理员 Azure 资源管理器可以访问 SQL 实例，资源提供程序就能控制此实例。 必须专门将 SQL 实例分配给资源提供程序。 
 
-4. 添加服务器时，必须将其分配到现有的 SKU，或创建新的 SKU。 在“添加宿主服务器”下，选择“SKU”。
+4. 添加服务器时，必须将其分配到现有的 SKU，或创建新的 SKU。 在“添加宿主服务器”下，选择“SKU”。  
 
-   * 若要使用现有 SKU，请选择可用的 SKU，然后选择“创建”。
-   * 若要创建 SKU，请选择“+ 创建新 SKU”。 在“创建 SKU”中输入所需的信息，然后选择“确定”。
+   * 若要使用现有 SKU，请选择可用的 SKU，然后选择“创建”。 
+   * 若要创建 SKU，请选择“+ 创建新 SKU”。  在“创建 SKU”中输入所需的信息，然后选择“确定”。  
 
      ![创建 SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -117,7 +117,7 @@ ms.locfileid: "65618453"
 * [Always On 可用性组 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
-> SQL 适配器资源提供程序仅支持适用于 Always On 可用性组的 SQL 2016 SP1 企业版或更高版本的实例。 此适配器配置需要新的 SQL 功能，例如自动种子设定。
+> SQL 适配器资源提供程序仅支持适用于 Always On 可用性组的 SQL 2016 SP1 企业版或更高版本的实例。  此适配器配置需要新的 SQL 功能，例如自动种子设定。
 
 ### <a name="automatic-seeding"></a>自动种子设定
 
@@ -158,9 +158,9 @@ ms.locfileid: "65618453"
 
 1. 以服务管理员的身份登录到 Azure Stack 管理门户。
 
-2. 选择“浏览”&gt;“管理资源”&gt;“SQL 宿主服务器”&gt;“+添加”。
+2. 选择“浏览”&gt;“管理资源”&gt;“SQL 宿主服务器”&gt;“+添加”。    
 
-   下**SQL 宿主服务器**，你可以连接到充当资源提供程序的后端的实际实例的 SQL Server 的 SQL Server 资源提供程序。
+   在“SQL 宿主服务器”下，可将 SQL Server 资源提供程序连接到充当资源提供程序后端的实际 SQL Server 实例。 
 
 3. 在表单中填写 SQL Server 实例的连接详细信息。 确保使用 Always On 侦听器的 FQDN 地址（以及可选的端口号和实例名称）。 提供使用 sysadmin 特权配置的帐户的信息。
 
@@ -186,19 +186,19 @@ ms.locfileid: "65618453"
 
 SKU 最长可能需要在一小时后才显示在门户中。 在完全创建 SKU 之前，用户无法创建数据库。
 
-若要编辑某个 SKU，请转到“所有服务” > “SQL 适配器” > “SKU”。 选择要修改的 SKU，进行任何必要的更改，然后单击“保存”以保存更改。 
+若要编辑某个 SKU，请转到“所有服务” > “SQL 适配器” > “SKU”。    选择要修改的 SKU，进行任何必要的更改，然后单击“保存”  以保存更改。 
 
-若要删除不再需要的 SKU，请转到“所有服务” > “SQL 适配器” > “SKU”。 右键单击 SKU 名称，然后选择“删除”将其删除。
+若要删除不再需要的 SKU，请转到“所有服务” > “SQL 适配器” > “SKU”。    右键单击 SKU 名称，然后选择“删除”  将其删除。
 
 > [!IMPORTANT]
-> 它可能需要一小时新 Sku，以便在用户门户中提供的时间。
+> 可能需要长达一小时的时间新的 SKU 才会在用户门户中可用。
 
 ## <a name="make-sql-databases-available-to-users"></a>将 SQL 数据库提供给用户使用
 
 创建计划和套餐，使用户能够使用 SQL 数据库。 将 **Microsoft.SqlAdapter** 服务添加到计划，并创建新配额。
 
 > [!IMPORTANT]
-> 可能需要新的配额，可在用户门户中或之前已更改的配额强制执行最多两个小时。
+> 在用户门户中出现可用的新配额或者强制实施更改的配额可能需要长达两小时的时间。
 
 ## <a name="next-steps"></a>后续步骤
 

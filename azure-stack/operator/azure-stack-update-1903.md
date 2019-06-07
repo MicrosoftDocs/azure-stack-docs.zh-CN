@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 7f335a6ad59d6f27c8e402863849d21c87f1cee2
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506285"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748893"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新
 
@@ -60,8 +60,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack 修补程序
 
-- **1902**：[KB 4500637-Azure Stack 修补程序 1.1902.3.75](https://support.microsoft.com/help/4500637)
-- **1903**：[KB 4500638-Azure Stack 修补程序 1.1903.2.39](https://support.microsoft.com/help/4500638)
+- **1902**：[KB 4500637 - Azure Stack 修补程序 1.1902.3.75](https://support.microsoft.com/help/4500637)
+- **1903**：[KB 4500638 - Azure Stack 修补程序 1.1903.2.39](https://support.microsoft.com/help/4500638)
 
 ## <a name="improvements"></a>改进
 
@@ -71,7 +71,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 - 改进了磁盘空间不足情况的检测和补救措施。
 
-- Azure Stack 现在支持 Windows Azure Linux 代理版本 2.2.35 比更高版本。 此项支持可让客户在 Azure 与 Azure Stack 之间保持一致的 Linux 映像。 它已添加为 1901 和 1902 修补程序的一部分。
+- Azure Stack 现在支持 2.2.35 版以上的 Windows Azure Linux 代理。 此项支持可让客户在 Azure 与 Azure Stack 之间保持一致的 Linux 映像。 它已添加为 1901 和 1902 修补程序的一部分。
 
 ### <a name="secret-management"></a>机密管理
 
@@ -104,12 +104,12 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ## <a name="known-issues-with-the-update-process"></a>更新过程的已知问题
 
-- 在尝试安装 Azure Stack 更新时，更新的状态可能失败，并将状态更改为**PreparationFailed**。 这被引起更新资源提供程序 (URP) 无法正确地将文件传输从存储容器到处理的内部基础结构共享。 从版本 1901 (1.1901.0.95) 开始，你可以解决此问题通过单击**立即更新**再次 (不**恢复**)。 URP 然后清理文件从上一次尝试，并重新开始下载。
+- 尝试安装 Azure Stack 更新时，更新状态可能会显示失败并更改为 **PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。 从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。
 
 - 运行 [Test-AzureStack](azure-stack-diagnostic-test.md) 时，会显示基板管理控制器 (BMC) 中的一条警告消息。 可以放心地忽略此警告。
 
 <!-- 2468613 - IS -->
-- 此更新的安装期间，可能会看到警报标题**错误-FaultType UserAccounts 的模板。** New 的模板”。 可以放心地忽略这些警报。 完成此更新的安装后，这些警报会自动关闭。
+- 在安装此更新期间，可能会出现标题如下的警报：“错误 - 缺少 FaultType UserAccounts.  New 的模板”。 可以放心地忽略这些警报。 完成此更新的安装后，这些警报会自动关闭。
 
 ## <a name="post-update-steps"></a>更新后步骤
 
@@ -167,7 +167,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
    如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。 若要解决此问题，请使用以前所用的同一名称重新创建存储帐户。
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- 虚拟机规模集创建体验提供基于 CentOS 的 7.2 作为部署选项。 由于该映像在 Azure Stack 上不可用，因此请为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。
+- 虚拟机规模集创建体验提供基于 CentOS 的 7.2 作为部署选项。 因为该映像在 Azure Stack Marketplace 上不可用，请选择另一个适用于你的部署，或使用指定另一个已从 marketplace 部署前下载的 CentOS 映像的 Azure 资源管理器模板通过运算符。
 
 <!-- TBD - IS ASDK -->
 - 应用 1903 更新后，在部署包含托管磁盘的 VM 时可能会遇到以下问题：
@@ -179,7 +179,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
 
-- 如果不具有硬件生命周期主机 (HLH): 在之前生成 1902年，您必须将组策略设置**计算机配置 \windows 设置 \ 安全设置 \ 本地策略 \ 安全选项**到**发送 LM 和 NTLM-如果协商使用 NTLMv2 会话安全**。 从版本 1902 开始，必须将此策略保持为“未定义”，或将其设置为“仅发送 NTLMv2 响应”（默认值）。   否则无法建立 PowerShell 远程会话，并且会看到“拒绝访问”错误： 
+- 如果没有硬件生命周期主机 (HLH)：在版本 1902 之前，必须将组策略“计算机配置\Windows 设置\安全设置\本地策略\安全选项”设置为“发送 LM 和 NTLM - 如果已协商，则使用 NTLMv2 会话安全”。   从版本 1902 开始，必须将此策略保持为“未定义”，或将其设置为“仅发送 NTLMv2 响应”（默认值）。   否则无法建立 PowerShell 远程会话，并且会看到“拒绝访问”错误： 
 
    ```powershell
    $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint -Credential $Cred
@@ -192,7 +192,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
    ```
 
-- 无法删除规模集从**虚拟机规模集**边栏选项卡。 解决方法是，选择的小数位数设置你想要删除，然后单击**删除**按钮从**概述**窗格。
+- 无法从“虚拟机规模集”边栏选项卡中删除规模集。  解决方法是，选择要删除的规模集，然后在“概述”窗格中单击“删除”按钮。  
 
 - 在 3 个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例失败，并**FabricVmPlacementErrorUnsupportedFaultDomainSize**过程 4 节点 Azure Stack 上的更新过程中出错环境。 可以在可用性集的 2 个容错域已成功创建单个 Vm。 但是，在 4 节点 Azure Stack 上的更新过程中创建规模集实例是仍不可用。
 
