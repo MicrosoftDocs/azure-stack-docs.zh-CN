@@ -16,23 +16,25 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 6005196fe98f83c11b9d87ff713e290bad9ef384
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 6afaca6e9bad806f432cf56b79dca5881bb76455
+ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692031"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66810222"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack 计算
 
-[VM 大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)Azure Stack 支持的是那些在 Azure 上受支持的子集。 Azure 在多方面施加资源限制，以避免资源（服务器本地和服务级别）的过度消耗。 如果未对租户使用资源施加一些限制，则当一些租户过度使用资源时，另一些租户的体验就会变差。 VM 的网络出口在 Azure Stack 上有与 Azure 限制一致的带宽上限。 对于存储资源，存储 IOPS 限制已经实现了在 Azure Stack，以避免资源过度的存储访问的租户。
+[VM 大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)Azure Stack 支持的是那些在 Azure 上受支持的子集。 Azure 在多方面施加资源限制，以避免资源（服务器本地和服务级别）的过度消耗。 如果未对租户使用资源施加一些限制，则当一些租户过度使用资源时，另一些租户的体验就会变差。 VM 的网络出口在 Azure Stack 上有与 Azure 限制一致的带宽上限。 对于 Azure Stack 上的存储资源，存储 IOPS 限制，而避免基本租户为了访问存储资源的消耗。
 
 >[!IMPORTANT]
 >[Azure Stack 容量规划器](https://aka.ms/azstackcapacityplanner)不会考虑或保证 IOPS 性能。
 
 ## <a name="vm-placement"></a>VM 放置
 
-在 Azure Stack 中，租户 VM 放置是通过自动放置引擎个可用主机。 放置 Vm 时的只有两个注意事项是该 VM 类型的主机上是否有足够的内存和虚拟机属于[可用性集](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)或是[虚拟机规模集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)。  
+Azure Stack 放置引擎会将所有可用主机的租户 Vm。
+
+放置 Vm 时，azure Stack 使用两个注意事项。 之一，是足够的内存的 VM 类型的主机上。 两个，是的 Vm 的一部分[可用性集](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)或是[虚拟机规模集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)。
 
 若要实现高可用性的 Azure Stack 中的多 VM 生产系统，需要将 Vm 分散到多个容错域的可用性集放置。 在可用性集中的容错域定义为缩放单位中的单个节点。 为了与 Azure 保持一致，Azure Stack 支持的可用性集最多有三个容错域。 放置在可用性集中的虚拟机将通过跨多个容错域，即，Azure Stack 主机尽可能均匀地分布它们物理上彼此隔离。 出现硬件故障时，发生故障的容错域中的 VM 会在其他容错域中重启，但在将其置于容错域中时，会尽可能让其与同一可用性集中的其他 VM 隔离。 当主机重新联机后时，Vm 将重新平衡，以维持高可用性。  
 
@@ -56,7 +58,7 @@ Azure Stack 方法旨在保持运行已成功预配的 Vm。 例如，如果主�
  - 基础结构服务 – 这些是构成 Azure Stack Vm 的基础结构。 从 Azure Stack 1904年发行版本，这涉及到 ~ 31 Vm 占用 242 GB + (4 GB x 的节点) 的内存。 改变基础结构服务组件的内存使用率，因为我们正在努力使我们的基础结构服务更具可缩放和复原。
  - 复原能力保留-Azure Stack 保留了一部分内存允许的租户可用性在单个主机发生故障期间以及修补和更新期间允许成功的实时迁移的 Vm。
  - 租户 Vm – 这些是租户的 Azure Stack 用户创建的 Vm。 除了运行虚拟机，使用的构造已经到达了任何虚拟机的内存。 这意味着在"创建"或"失败"状态下，Vm 或 Vm 关闭的情况下从来宾内将会占用内存。 但是，Vm 已解除分配使用停止解除分配选项从门户/powershell/cli 不会使用从 Azure Stack 的内存。
- - 外接程序 RPs – 部署外接程序 RPs，如 SQL、 MySQL、 应用服务等的 Vm
+ - 外接程序 RPs-如 SQL、 MySQL、 应用服务等外接程序 RPs Vm 的部署。
 
 
 了解在门户上的内存使用情况的最佳方式是使用[Azure Stack 容量规划器](https://aka.ms/azstackcapacityplanner)了解各种工作负荷的影响。 以下计算是由规划器使用的相同。
