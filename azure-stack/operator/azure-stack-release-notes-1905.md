@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/10/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: d06c57ad73076f8b55099648aef8151574041261
-ms.sourcegitcommit: 31e93196aae5af5c46037b9169d119bb6d20c990
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 018c5e2a6e099fb0a0ed7bc164ef26728a9d8ed3
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66717912"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828232"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新
 
 *适用于：Azure Stack 集成系统*
 
-本文介绍 1905年更新包的内容。 此更新包括新增功能改进和修复对于此版本的 Azure Stack。 本文包含以下信息：
+本文介绍 1905年更新包的内容。 此更新包括新的改进，以及此 Azure Stack 版本的修复。 本文包含以下信息：
 
-- [新增功能的说明，改进、 修复程序和安全更新](#whats-in-this-update)
+- [新增功能、增强功能、修复和安全更新的说明](#whats-in-this-update)
 - [更新规划](#update-planning)
 
 > [!IMPORTANT]  
@@ -43,7 +43,7 @@ Azure Stack 1905 更新内部版本号是**1.1905.0.40**。
 
 Azure Stack 1905 更新生成类型是**完整**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。
 
-## <a name="whats-in-this-update"></a>什么是此更新中
+## <a name="whats-in-this-update"></a>此更新的内容
 
 <!-- The current theme (if any) of this release. -->
 
@@ -67,7 +67,7 @@ Azure Stack 1905 更新生成类型是**完整**。 有关更新的详细信息�
 
   请下载这些版本的扩展立即，以便在将来的版本中强制实施 TLS 1.2，扩展的新部署不会失败。 始终设置**autoupdateminorversion = true** ，以便自动执行次要版本更新到扩展 (例如，1.8 到 1.9)。
 
-- 一个新**帮助和支持概述**中 Azure Stack 门户轻松地运算符以查看其支持选项、 获得专家帮助和了解有关 Azure Stack 的详细信息。 在集成系统上支持请求进行预填充时间戳来帮助 Microsoft 客户支持服务 (CSS) 进行的解决方法有关的信息。 我们强烈建议客户使用这种体验来提交票证，而不是使用公共 Azure 门户。 有关详细信息，请参阅[Azure Stack 帮助和支持](azure-stack-help-and-support-overview.md)。
+- 一个新**帮助和支持概述**中 Azure Stack 门户轻松地运算符以查看其支持选项、 获得专家帮助和了解有关 Azure Stack 的详细信息。 在集成系统上创建支持请求将预先选择 Azure Stack 服务。 我们强烈建议客户使用这种体验来提交票证，而不是使用公共 Azure 门户。 有关详细信息，请参阅[Azure Stack 帮助和支持](azure-stack-help-and-support-overview.md)。
 - 当多个 Azure Active 目录会加入 (通过[此过程](azure-stack-enable-multitenancy.md))，则可以忽略了某些更新发生时，或对 AAD 服务主体授权的更改而导致发生权限为时重新运行脚本缺少。 这会导致各种问题，从被阻止访问某些功能，到多个离散故障很难进行跟踪回原来的问题。 若要防止此情况，1905年引入了一项新功能，这些权限检查时发现某些配置问题时创建警报。 此验证运行每隔一小时，并显示解决该问题所需的修正操作。 所有租户都都处于正常状态后，将关闭警报。
 
 - 改进的基础结构服务在故障转移期间的备份操作的可靠性。 
@@ -110,11 +110,11 @@ Azure Stack 的此更新中的安全更新的信息，请参阅[Azure Stack 的�
 
 ## <a name="update-planning"></a>更新规划
 
-更新前，请务必查看以下信息：
+应用更新之前，请务必查看以下信息：
 
 - [已知问题](azure-stack-release-notes-known-issues-1905.md)
 - [安全更新](azure-stack-release-notes-security-updates-1905.md)
-- [活动之前和之后应用更新的清单](azure-stack-release-notes-checklist.md)
+- [应用更新之前和之后的活动清单](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>下载更新
 
@@ -142,7 +142,7 @@ Azure Stack 的 1905年版本必须应用于 1904年发布与以下修补程序�
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
-与系统，可从基础结构网络访问 internet 的客户将看到**可用更新**运营商门户中的消息。 如果没有 internet 连接的系统可以下载并导入包含相应的.xml 的.zip 文件。
+其系统可从基础结构网络访问 Internet 的客户在操作员门户中会看到“有可用的更新”消息。  无法访问 Internet 的系统可以下载并导入包含相应 .xml 的 .zip 文件。
 
 > [!TIP]  
 > 订阅下述 *RSS* 或 *Atom* 源，了解 Azure Stack 修补程序的最新信息：

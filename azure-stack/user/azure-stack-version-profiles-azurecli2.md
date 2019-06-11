@@ -14,12 +14,12 @@ ms.date: 05/08/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 996dacc1c95a172ffa09247c56a12a5afd00e086
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7dba3d791a2ce19429506699ae538c747ed37dbd
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269530"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821786"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 配合使用
 
@@ -100,9 +100,9 @@ ms.locfileid: "66269530"
 
     应会看到 Azure CLI 的版本，以及计算机上安装的其他依赖库。
 
-    ![Azure CLI 在 Azure Stack Python 位置](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
+    ![Azure Stack Python 位置上的 Azure CLI](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-2. 记下 CLI 的 Python 位置。 如果运行 ASDK，您将需要到此位置添加证书。
+2. 记下 CLI 的 Python 位置。 如果正在运行 ASDK，则需要在此位置添加证书。
 
 
 ## <a name="windows-azure-ad"></a>Windows (Azure AD)
@@ -113,11 +113,11 @@ ms.locfileid: "66269530"
 
 如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 不需要对集成系统进行此操作。
 
-若要信任 Azure Stack CA 根证书，请将其追加到现有的 Python 证书存储用于使用 Azure CLI 安装的 Python 版本。 您可能运行你自己的 Python 的实例。 Azure CLI 包括其自己的 Python 的版本。
+若要信任 Azure Stack CA 根证书，请将其追加到现有的 Python 证书存储用于使用 Azure CLI 安装的 Python 版本。 你可能正在运行自己的 Python 实例。 Azure CLI 包括其自己的 Python 版本。
 
-1. 查找你的计算机上的证书存储位置。  您可以通过运行命令找到的位置`az --version`。
+1. 查找你的计算机上的证书存储位置。  可以通过运行命令 `az --version` 查找位置。
 
-2. 导航到包含你的文件夹是 CLI Python 应用程序。 想要运行此版本的 python。 如果已在系统路径中设置 Python，运行 Python 将执行自己的 Python 版本。 相反，想要运行使用 CLI 的版本并将证书添加到该版本。 例如，CLI Python 可能有： `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`。
+2. 导航到包含 CLI Python 应用程序的文件夹。 你将希望运行此版本的 python。 如果已在系统 PATH 中设置了 Python，则运行 Python 将执行你自己的 Python 版本。 但是，你将希望运行 CLI 使用的版本并将证书添加到该版本。 例如，CLI Python 可能位于：`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`。
 
     使用以下命令：
 
@@ -126,7 +126,7 @@ ms.locfileid: "66269530"
     .\python -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书位置。 例如，`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`。 你的特定路径取决于您的操作系统和 CLI 安装。
+    记下证书位置。 例如，`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`。 你的特定路径将取决于你的操作系统和 CLI 安装。
 
 2. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
 
@@ -177,7 +177,7 @@ ms.locfileid: "66269530"
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
     | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
-    | 密钥保管库后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
+    | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
     | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 文档的 URI，其中包含虚拟机映像别名。 有关详细信息，请参阅 [### 设置虚拟机别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
 
     ```azurecli  
@@ -297,7 +297,7 @@ az group create -n MyResourceGroup -l local
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
     | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
-    | 密钥保管库后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
+    | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
     | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 文档的 URI，其中包含虚拟机映像别名。 有关详细信息，请参阅 [### 设置虚拟机别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
 
     ```azurecli  
@@ -373,7 +373,7 @@ az group create -n MyResourceGroup -l local
 
 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
 
-1. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 需要具有 pip 和 certifi 模块安装。 可在 bash 提示符下使用以下 Python 命令：
+1. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 需要安装 pip 和 certifi 模块。 可在 bash 提示符下使用以下 Python 命令：
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -402,8 +402,8 @@ az group create -n MyResourceGroup -l local
 1. 运行 `az cloud register` 命令注册 Azure Stack 环境。 在某些情况下，直接出站 Internet 连接通过代理或防火墙进行路由，从而强制进行 SSL 拦截。 在这些情况下，`az cloud register` 命令可能会失败并显示错误，如“无法从云中获取终结点”。 若要解决此错误，可以设置以下环境变量：
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
@@ -413,7 +413,7 @@ az group create -n MyResourceGroup -l local
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
     | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
-    | 密钥保管库后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
+    | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
     | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 文档的 URI，其中包含虚拟机映像别名。 有关详细信息，请参阅 [### 设置虚拟机别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
 
     ```azurecli  
@@ -484,7 +484,7 @@ az group create -n MyResourceGroup -l local
 
 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
 
-1. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 需要具有 pip 和 certifi 模块安装。 可在 bash 提示符下使用以下 Python 命令：
+1. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 需要安装 pip 和 certifi 模块。 可在 bash 提示符下使用以下 Python 命令：
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -513,8 +513,8 @@ az group create -n MyResourceGroup -l local
 1. 运行 `az cloud register` 命令注册 Azure Stack 环境。 在某些情况下，直接出站 Internet 连接通过代理或防火墙进行路由，从而强制进行 SSL 拦截。 在这些情况下，`az cloud register` 命令可能会失败并显示错误，如“无法从云中获取终结点”。 若要解决此错误，可以设置以下环境变量：
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
@@ -524,7 +524,7 @@ az group create -n MyResourceGroup -l local
     | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 如果对集成系统终结点有疑问，请与云操作员联系。 |
     | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
-    | 密钥保管库后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
+    | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，需使用适用于系统的终结点。  |
     | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 文档的 URI，其中包含虚拟机映像别名。 有关详细信息，请参阅 [### 设置虚拟机别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
 
     ```azurecli  

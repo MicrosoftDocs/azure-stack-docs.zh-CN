@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: c8f132d67b701cf0aa2961158205bad470220c7b
-ms.sourcegitcommit: fbd6a7fed4f064113647540329a768347a6cf261
+ms.openlocfilehash: f5ea9823f41624038416d91cef9efcb9e16dad63
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66810242"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821767"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 已知问题
 
@@ -67,6 +67,13 @@ ms.locfileid: "66810242"
 - 原因：无法使用 Azure Stack 门户查看订阅的权限。
 - 补救措施：使用 [PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
+
+### <a name="marketplace-management"></a>市场管理
+
+- 适用于：此问题适用于 1904年和 1905
+- 原因：在登录到管理员门户时，将不可见 marketplace 管理屏幕。
+- 补救措施：刷新浏览器或转至**设置**，并选择选项**重置为默认设置**。
+- 发生次数：间歇性
 
 ### <a name="docker-extension"></a>Docker 扩展
 

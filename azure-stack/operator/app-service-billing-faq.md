@@ -4,7 +4,7 @@ description: 有关如何在 Azure Stack 上的 Azure 应用服务是计量和�
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
-manager: femila
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 7b11f00c98c6433ad035b6190789276ea5aa6fa7
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: fa3bc647d11bca915c58aa1bd948881628405776
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66213014"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828377"
 ---
 # <a name="azure-app-service-on-azure-stack-billing-overview-and-faq"></a>在 Azure Stack 计费概述和常见问题的 azure 应用服务
 
@@ -37,7 +37,7 @@ Azure Stack 云操作员选择到其 Azure Stack 模具上部署 Azure Stack 上
 
 - 控制器
 - 管理角色
-- 发布服务器
+- 发布者
 - 前端
 
 辅助角色层包含两种主要类型： 共享和专用。 工作线程使用情况计费到根据以下条件的云操作员。
@@ -72,6 +72,22 @@ SQL 和文件服务器基础结构，所需的 Azure 应用服务资源提供程
 ### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>租户指标，但不是在哪里找到它们这些指标的价格，列出了使用情况常见问题
 
 云操作员可以自由地应用自己的定价模型添加到其最终客户。 使用率服务提供了用量计量，云操作员然后必须使用测定仪数量要向其客户基于它们所确定的定价模型收取费用。 具有此功能以设置定价启用运算符来区分从其他 Azure Stack 操作员。
+
+### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-trial-the-service"></a>作为 CSP 如何我提供免费的共享 Sku 供客户试用版服务
+
+云操作员将产生产品/服务免费和共享 Sku 的费用，因为我们在 Azure 执行操作，因为它们托管在共享辅助角色。  为了最小化成本，可以选择纵向缩减到最低限度的共享辅助角色层。  例如，产品/服务免费和共享应用服务计划 Sku 并提供基于消费的函数需要有一个最少为 1 个 A1 实例可用。  共享辅助角色都是多租户，因此他们可以托管多个客户应用程序，每个单独隔离和保护的应用服务沙盒。  通过以这种方式扩展共享辅助角色层，可以限制在开支 1vCPU 每月的成本。
+
+此外你然后可以选择创建配额，用于计划，它仅提供了免费的共享 Sku，可以创建您的客户的免费和共享应用服务计划的数量限制。
+
+## <a name="sample-scripts-to-assist-with-billing"></a>示例脚本来帮助进行计费
+
+Azure 应用服务团队创建的示例 PowerShell 脚本来帮助进行查询 Azure Stack 使用情况服务，以帮助云操作员可以准备为其租户自己计费。  示例脚本可在[Azure Stack 工具存储库](https://github.com/Azure/AzureStack-tools)在 GitHub 和应用服务脚本位于[使用率下的 AppService 文件夹](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService)。
+
+可用的示例脚本是：
+
+- [Get AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1) -此示例中提取 Azure 应用服务在 Azure Stack 上账单记录从 Azure Stack 使用情况 API
+- [Get AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1) -此示例计算每个订阅的 Azure Stack 使用情况数量上的 Azure 应用服务。  此脚本计算基于使用情况 API 和由云操作员提供每个计量的价格中的数据的使用情况数量。
+- [挂起 UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1) -此示例将挂起或启用订阅基于云操作员所指定的使用情况限制。
 
 ## <a name="next-steps"></a>后续步骤
 

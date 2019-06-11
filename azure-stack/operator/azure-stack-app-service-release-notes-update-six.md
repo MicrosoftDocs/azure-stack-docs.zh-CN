@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d280ffacf9cb74c519857ebafc907debc915ec21
-ms.sourcegitcommit: 85367001c332ed53fba0d2294eae3c06e8578070
+ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307839"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828312"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>应用服务的 Azure Stack 更新 6 发行说明
 
@@ -89,7 +89,7 @@ Azure Stack 更新 6 上的 azure 应用服务包括以下改进和修补程序�
 - 如 Azure Stack 上的 Azure 应用服务部署文档中所述，当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
- * 源:任意
+ * 源：任意
  * 源端口范围：*
  * 目标：IP 地址
  * 目标 IP 地址范围：文件服务器的 IP 范围
@@ -102,6 +102,16 @@ Azure Stack 更新 6 上的 azure 应用服务包括以下改进和修补程序�
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>云管理员在操作基于 Azure Stack 的 Azure 应用服务时的已知问题
 
 中的文档，请参阅[Azure Stack 1904 发行说明](azure-stack-release-notes-1904.md)
+
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>租户部署 Azure Stack 上的 Azure 应用服务上的应用程序的已知的问题
+
+- 部署中心灰显
+
+租户尚不能进行的部署中心，这是一项功能，在 2018 年底发布在公有云中使用。  租户仍可使用通过门户、 CLI 和 PowerShell 的标准部署方法 （FTP、 Web 部署、 Git 等）。
+
+- 部署选项 （经典） 的用户体验和部署凭据门户选项不可用
+
+要达到的部署选项和部署凭据的用户体验在 Azure Stack 部署中，租户应访问门户使用此 URL 格式- https://portal.&lt;*区域*&gt;。&lt;*FQDN*&gt;/？ websitesExtension_oldvsts = true-这是对于 asdk 来说[ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) ，然后正常情况下导航到其应用程序。
 
 ## <a name="next-steps"></a>后续步骤
 

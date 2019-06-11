@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
-ms.author: PatAltimore
+ms.date: 06/10/2019
+ms.author: patricka
 ms.reviewer: chengwei
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: e0b62c9f9519e1b77211327c4f9b48d4b53cf99a
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 9da7ced492a86cb97a1b90a2224383d834073423
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985876"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828349"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack 日志和客户数据处理 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*  
 
-范围内 Microsoft 是处理器或与 Azure Stack 的个人数据的 subprocessor，Microsoft 向所有客户，有效 2018 年 5 月 25 日，承诺会使在 (a) 在"处理的个人数据;"数据保护条款"部分中的 GDPR"预配[在线服务条款](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551078818&sdata=cpWsfZTBHpqEFr50DWQOryq342U8shgeFgMXVPQz5ug%3D&reserved=0)和 (b) 在欧盟一般数据保护条例中的条款的 4 个进行附件[联机服务条款](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551088813&sdata=bv1CBiaCnYmjiv6S0dFCbWEd4fNCkPBjBwgylNa%2FNt0%3D&reserved=0)。 
+范围内 Microsoft 是处理器或与 Azure Stack 的个人数据的 subprocessor，Microsoft 向所有客户，有效 2018 年 5 月 25 日，承诺会使在 (a) 在"处理的个人数据;"数据保护条款"部分中的 GDPR"预配[在线服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)和 (b) 在欧盟一般数据保护条例中的条款的 4 个进行附件[联机服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)。 
 
 因为 Azure Stack 驻留在客户数据中心，Microsoft 是单独的与 Microsoft 通过共享的数据的数据控制器[诊断](azure-stack-diagnostics.md)，[遥测](azure-stack-telemetry.md)，和[计费](azure-stack-usage-reporting.md).  
 
 ## <a name="data-access-controls"></a>数据访问控制 
-Microsoft 员工，分配要调查特定的支持案例，将授予只读访问加密数据。 Microsoft 员工也有权访问可用于删除数据，如果所需的工具。 对客户数据的所有访问都会受到审核和记录。  
+Microsoft 员工，分配要调查特定的支持案例，将授予只读访问加密数据。 Microsoft 员工也有权访问用于删除数据，如果所需的工具。 对客户数据的所有访问都会受到审核和记录。  
 
 数据访问控制：
 1.  在结案后，数据最多只会保留 90 天。
@@ -43,7 +43,7 @@ Microsoft 员工，分配要调查特定的支持案例，将授予只读访问�
 前面曾提到，Microsoft 才支持每个客户请求删除按需数据。 客户可以请求我们支持工程师在客户的选择，永久清除数据之前的任何时间删除其给定用例的所有日志。  
 
 ### <a name="does-microsoft-notify-customers-when-the-data-is-deleted"></a>删除数据时，没有 Microsoft 通知客户？
-对于自动化数据删除操作（结案后的 90 天内），我们不会主动联系客户并发出删除通知。 
+对于自动化的数据删除操作 （90 天后情况下关闭），我们执行不进行主动与客户联系并通知他们有关删除。 
 
 对于按需数据删除操作，Microsoft 支持工程师有权访问其中他们可以启动按需数据删除和他们可以提供确认在手机上与客户在完成时使用的工具。
 

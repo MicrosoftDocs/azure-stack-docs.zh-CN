@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
-ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 0c1da66104d37c97e3cf8176a859d0ca35243542
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 50c15403ec4bf41f7513af30d2dca53310d45298
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691629"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828254"
 ---
 # <a name="create-a-custom-role-for-azure-stack-registration"></a>创建 Azure Stack 注册的自定义角色
 

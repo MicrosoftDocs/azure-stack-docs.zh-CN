@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: a34d070e5e26113216fe8a5fd598b0b5e27687f2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 75943b3259db736a3dfcd4b30b76f434eaf19111
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984543"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828443"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>验证 Azure Stack 的 Graph 集成
 
@@ -30,7 +30,7 @@ ms.locfileid: "64984543"
 就绪性检查器会验证下列项：
 
 * 为 Graph 集成创建的服务帐户的凭据具有相应的权限，可以查询 Active Directory。
-* 全局目录可以解析并可访问。
+* 全局目录可以解析并可访问。 
 * KDC 可以解析并可访问。
 * 已建立必要的网络连接。
 
@@ -47,7 +47,7 @@ ms.locfileid: "64984543"
 **运行该工具的计算机：**
 
 * 已建立域连接的 Windows 10 或 Windows Server 2016。
-* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：  
+* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：    
    > `$PSVersionTable.PSVersion`
 * Active Directory PowerShell 模块。
 * 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
@@ -95,7 +95,7 @@ ms.locfileid: "64984543"
     Invoke-AzsGraphValidation Completed
     ```
 
-在生产环境中，从操作员工作站测试网络连接无法完全指示 Azure Stack 可用的连接。 Azure Stack 戳记的公共 VIP 网络需要执行身份集成 LDAP 流量连接。
+在生产环境中，从操作员工作站测试网络连接无法完全指示 Azure Stack 可用的连接。 Azure Stack 标记的公共 VIP 网络需要 LDAP 流量的连接才能执行标识集成。
 
 ## <a name="report-and-log-file"></a>报表和日志文件
 

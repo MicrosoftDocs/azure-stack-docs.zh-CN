@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
-ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: b6863a86a5307375ea13f67c349da9f87b797fe5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: cb57d43306b69c3698441b9bb7b01c0c292bd704
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268448"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821748"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>快速入门：使用 Azure Stack 管理门户
 
@@ -86,7 +86,7 @@ Azure Stack 中有两种门户：管理门户和用户门户（有时称作租�
 
 ### <a name="quick-access-to-help-and-support"></a>快速访问帮助和支持内容
 
-如果选择管理员门户右上角的“帮助和支持”图标（问号），然后选择“新建支持请求”，则会出现以下结果之一： 
+如果在管理员门户右上角单击帮助图标 （问号），请单击**帮助 + 支持**，然后单击**新建支持请求**下**支持**，将发生以下结果之一：
 
 - 如果使用的是集成系统，此操作会打开一个站点，可在其中直接向 Microsoft 客户支持服务 (CSS) 创建支持票证。 若要了解何时应该获取 Microsoft 支持或原始设备制造商 (OEM) 硬件供应商支持，请参阅[在何处获取支持](azure-stack-manage-basics.md#where-to-get-support)。
 - 如果使用 ASDK，此操作将打开[Azure Stack 论坛站点](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack)直接。 我们会定期关注这些论坛。 由于 ASDK 是一个评估环境，因此我们不会通过 Microsoft CSS 提供官方支持。

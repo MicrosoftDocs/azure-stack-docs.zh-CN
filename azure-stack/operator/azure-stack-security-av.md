@@ -2,21 +2,20 @@
 title: 在 Azure Stack上更新 Windows Defender 防病毒
 description: 有关防病毒功能如何在 Azure Stack 上保持最新的详细信息
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: PatAltimore
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 01/14/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 06/10/2019
+ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7899f235853991160e4d8b2c2c832d9a77171e83
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 6e9c4a5334ce44da777126f09ca0ecf578ccfcbd
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293659"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828114"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack"></a>在 Azure Stack上更新 Windows Defender 防病毒
 

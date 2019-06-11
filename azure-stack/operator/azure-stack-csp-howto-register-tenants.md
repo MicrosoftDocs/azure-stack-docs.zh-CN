@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: edc6fc17e426e5e391eb61d510097101ddcfce58
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212296"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828341"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -37,7 +37,7 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 ## <a name="add-an-end-customer"></a>添加最终客户
 
-执行以下步骤以添加最终客户，如下图所示在下图中：
+执行以下步骤以添加最终客户，如下图所示：
 
 ![设置云服务提供程序以进行用量跟踪，以及管理最终客户帐户](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
@@ -51,11 +51,11 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>在最终客户目录中创建来宾用户
 
-如果最终客户管理自己的帐户，请在其目录中创建一个来宾用户，并向其发送信息。 最终用户，然后添加来宾，并可将来宾权限提升**所有者**Azure Stack CSP 帐户。
+默认情况下，为 CSP，不会有权访问最终用户的 Azure Stack 订阅。 但是，如果您的客户希望您能够管理其资源，它们可以将你的帐户作为所有者/参与者到其 Azure Stack 订阅。 为了做到这一点，他们将需要将你的帐户作为来宾用户添加到其 AAD 租户。 建议使用 Azure CSP 帐户不同的帐户来管理客户的 Azure Stack 订阅，以确保不失去对客户的 Azure 订阅的访问权限。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>更新最终客户订阅中的注册
 
-更新在最终客户订阅中的注册 Azure 报告使用合作伙伴中心客户标识客户的使用情况。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用户用量跟踪和计费。
+更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心的客户标识来报告客户用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用户用量跟踪和计费。
 
 > [!NOTE]  
 > 若要执行此步骤，必须[注册 Azure Stack](azure-stack-registration.md)。

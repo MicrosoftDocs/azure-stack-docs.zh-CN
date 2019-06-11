@@ -3,25 +3,24 @@ title: 了解 Azure Stack 的安全控制措施
 description: 向服务管理员介绍应用于 Azure Stack 的安全控制措施
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: PatAltimore
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/14/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 06/10/2019
+ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: efa97c18a63954239475338c85f2145b8c6c6ac6
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: db73f0b787b9b163f39d5af89e260ca6a30855bd
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293527"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828129"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 
@@ -36,9 +35,9 @@ ms.locfileid: "64293527"
 Azure Stack 的安全局势功能旨在防范新式威胁，为符合主要合规标准的要求而构建。 因此，Azure Stack 基础结构的安全局势构建在两个支柱之上：
 
  - **假想入侵**  
-我们从假设系统已被入侵的情况出发，将重点放在检测入侵并限制其影响上，而不只是尽量防止攻击。 
+我们从假设系统已被入侵的情况出发，将重点放在检测入侵并限制其影响上，而不只是尽量防止攻击。  
  - **默认强化**  
-由于基础结构在妥善定义的硬件和软件中运行，因此 Azure Stack 会在默认情况下启用、配置和验证所有安全功能。
+由于基础结构在妥善定义的硬件和软件中运行，因此 Azure Stack 会在默认情况下启用、配置和验证所有安全功能。 
 
 由于 Azure Stack 是以集成系统的形式交付的，因此 Azure Stack 基础结构的安全局势由 Microsoft 定义。 如同在 Azure 中一样，租户需负责定义其租户工作负荷的安全局势。 本文档提供有关 Azure Stack 基础结构安全局势的基础知识。
 
@@ -78,7 +77,7 @@ Azure Stack 中的管理通过三个入口点进行控制，每个入口点都�
 2. Azure 资源管理器通过 PowerShell 和 Azure CLI 使用的 REST API 公开管理员门户的所有管理操作。 
 3. 对于特定的低级操作（例如数据中心集成或支持方案），Azure Stack 公开一个称作[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。
 
-## <a name="network-controls"></a>网络控制
+## <a name="network-controls"></a>网络控制措施
 Azure Stack 基础结构附带了多个网络访问控制列表 (ACL) 层。 ACL 可防止用户对基础结构组件进行未经授权的访问，并将基础结构通信限制为基础结构在运行时需要访问的路径。 
 
 在三个层中实施网络 ACL：

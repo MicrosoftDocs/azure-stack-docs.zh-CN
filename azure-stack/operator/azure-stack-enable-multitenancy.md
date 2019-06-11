@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: bryanr
-ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 0932c1eb5f064d40841d9b056d869927e1144527
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 8547c1aea70d7b72538b5a681e7c8dd4b4d10a02
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691650"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828304"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多租户
 

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 06/10/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 9360e8e5f4db14fbebba2642ed11ca2e3830bdf1
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297927"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828396"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>作为一项服务验证的发行说明
 
@@ -29,18 +29,25 @@ ms.locfileid: "64297927"
 
 ## <a name="version-405"></a>版本 4.0.5
 
+2019 年 6 月 7日
+
+- 在包验证工作流中的云模拟引擎已更新，以加快验证时间：  
+    运行的时：时间段缩短到 6 小时  
+    版本：5.1.13.0 -> 5.1.22.0  
+
+
 2019 年 1 月 17日
 
-- 更新地址存储池不一致的磁盘标识测试。 版本:5.1.14.0 -> 5.1.15.0
-- Azure Stack 每月更新验证更新地址为已批准的软件和内容验证不一致。 版本:5.1.14.0 -> 5.1.17.0
-- OEM 扩展包验证更新，以执行在 Azure Stack 更新步骤之前必要的检查。 版本:5.1.14.0 -> 5.1.16.0
+- 更新地址存储池不一致的磁盘标识测试。 版本：5.1.14.0 -> 5.1.15.0
+- Azure Stack 每月更新验证更新地址为已批准的软件和内容验证不一致。 版本：5.1.14.0 -> 5.1.17.0
+- OEM 扩展包验证更新，以执行在 Azure Stack 更新步骤之前必要的检查。 版本：5.1.14.0 -> 5.1.16.0
 - 内部的 bug 修复
 
 ## <a name="version-402"></a>版本 4.0.2
 
 2019 年 1 月 7日
 
-如果运行 Azure Stack 每月更新验证工作流和 OEM 更新包的版本不是 1810年或更高版本，一旦到达 OEM 更新步骤您将收到错误。 这是一个 bug。 正在开发了修复程序。缓解步骤如下所示：
+如果运行 Azure Stack 每月更新验证工作流和 OEM 更新包的版本不是 1810年或更高版本，一旦到达 OEM 更新步骤您将收到错误。 这是一个 bug。 正在开发了修复程序。 缓解步骤如下所示：
 
 1. OEM 更新作为正常运行。
 2. 在包的成功的应用程序后执行 Test-azurestack 并保存输出。

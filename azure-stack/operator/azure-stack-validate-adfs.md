@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 09aa51c329f7f4fd7004312092ff09c9ceb091d7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: dcc473d270d0a72b2ebf5f31c67fffa6827c9ecc
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984089"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828415"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>验证 Azure Stack 的 AD FS 集成
 
@@ -29,9 +29,9 @@ ms.locfileid: "64984089"
 
 就绪性检查器会验证下列项：
 
-* 联合元数据包含用于联合身份验证的有效 XML 元素。
-* 可以检索 AD FS SSL 证书，并可以生成信任链。 堆栈上的 AD FS 必须信任 SSL 证书链。 证书必须由签署 Azure Stack 部署证书的同一证书颁发机构签名，或者由受信任的根颁发机构合作伙伴签名。 有关受信任根颁发机构合作伙伴的完整列表，请参阅 [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
-* AD FS 签名证书受信任且不会在近期过期。
+* 联合元数据包含用于联合身份验证的有效 XML 元素。 
+* 可以检索 AD FS SSL 证书，并可以生成信任链。  堆栈上的 AD FS 必须信任 SSL 证书链。 证书必须由签署 Azure Stack 部署证书的同一证书颁发机构  签名，或者由受信任的根颁发机构合作伙伴签名。 有关受信任根颁发机构合作伙伴的完整列表，请参阅 [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
+* AD FS 签名证书受信任且不会在近期过期。 
 
 有关 Azure Stack 数据中心集成的详细信息，请参阅 [Azure Stack 数据中心集成 - 标识](azure-stack-integrate-identity.md)。
 
@@ -46,7 +46,7 @@ ms.locfileid: "64984089"
 **运行该工具的计算机：**
 
 * 已建立域连接的 Windows 10 或 Windows Server 2016。
-* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：  
+* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：    
    > `$PSVersionTable.PSVersion`
 * 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 
@@ -90,7 +90,7 @@ ms.locfileid: "64984089"
     Invoke-AzsADFSValidation Completed
     ```
 
-在生产环境中，从操作员工作站测试证书信任链无法完全指示 Azure Stack 基础结构中的 PKI 信任状态。 Azure Stack 戳记的公共 VIP 网络需要 PKI 基础结构连接到 CRL。
+在生产环境中，从操作员工作站测试证书信任链无法完全指示 Azure Stack 基础结构中的 PKI 信任状态。 Azure Stack 标记的公共 VIP 网络需要与 PKI 基础结构的 CRL 建立连接。
 
 ## <a name="report-and-log-file"></a>报表和日志文件
 

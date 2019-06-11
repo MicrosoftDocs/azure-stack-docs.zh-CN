@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 2d6943cc88712c0706054103383c436419cecd85
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 4649866a020a9ddc3d359dcb69e8d4165a00a88d
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693895"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828391"
 ---
 # <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack 帮助和支持
 
@@ -43,7 +43,7 @@ ms.locfileid: "66693895"
 
 对于集成系统，Microsoft 和其原始设备制造商 (OEM) 硬件合作伙伴之间已经建立了协作的问题升级和解决流程。
 
-如果存在云服务问题，请通过 Microsoft 客户支持服务 (CSS) 寻求支持。 可以单击**帮助**（问号） 中的管理员门户，然后单击右上角**帮助 + 支持**以打开**帮助 + 支持概述**和提交新支持请求。 支持请求预填充时间戳来帮助 Microsoft 客户支持服务 (CSS) 进行的解决方法有关的信息。 我们强烈建议客户使用这种体验来提交票证，而不是使用公共 Azure 门户。 
+如果存在云服务问题，请通过 Microsoft 客户支持服务 (CSS) 寻求支持。 可以单击**帮助**（问号） 中的管理员门户，然后单击右上角**帮助 + 支持**以打开**帮助 + 支持概述**和提交新支持请求。 创建支持请求，将预先选择 Azure Stack 服务。 我们强烈建议客户使用这种体验来提交票证，而不是使用公共 Azure 门户。 
 
 如果存在部署问题、修补和更新问题、硬件（包括现场可更换部件）问题，以及任何硬件品牌软件（例如在硬件生命周期主机上运行的软件）问题，请首先联系 OEM 硬件供应商。 至于其他问题，请联系 Microsoft CSS。
 
