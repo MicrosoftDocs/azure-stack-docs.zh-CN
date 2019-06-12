@@ -16,21 +16,22 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 1b15dac6649e49463b128de75015a8f39bd52020
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 49d56793f7ce104582abd807b8b894ec11933268
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693818"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836687"
 ---
 # <a name="azure-stack-security-updates"></a>Azure Stack 安全更新
 
-本文列出了 Azure Stack 的最后四个更新中的所有安全更新。 出于参考目的提供此信息。
+本文列出了 Azure Stack 最近四个更新中的所有安全更新。 提供此信息仅供参考之用。
 
 ## <a name="1905-update"></a>1905 更新
 
 1905 更新将安装以下安全更新：
 
+- [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)
 - [CVE-2019-0707](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0707)
 - [CVE-2019-0725](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0725)
 - [CVE-2019-0727](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0727)
@@ -123,15 +124,15 @@ ms.locfileid: "66693818"
 
 ## <a name="1904-update"></a>1904 更新
 
-Azure Stack 的此更新不包括对基础操作系统承载 Azure Stack 的安全更新。
+Azure Stack 的此更新不包括托管 Azure Stack 的底层操作系统的安全更新。
 
 ## <a name="1903-update"></a>1903 更新
 
-Azure Stack 的此更新不包括对基础操作系统承载 Azure Stack 的安全更新。  
+Azure Stack 的此更新不包括托管 Azure Stack 的底层操作系统的安全更新。  
 
 ## <a name="1902-update"></a>1902 更新
 
-1902 更新将安装以下安全更新：  
+1902 更新安装以下安全更新：  
 
 - [ADV190005](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190006)
 - [CVE-2019-0595](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0595)
@@ -168,5 +169,5 @@ Azure Stack 的此更新不包括对基础操作系统承载 Azure Stack 的安�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [查看更新活动核对清单](azure-stack-release-notes-checklist.md)
+- [查看更新活动清单](azure-stack-release-notes-checklist.md)
 - [查看已知问题列表](azure-stack-release-notes-known-issues-1905.md)

@@ -14,12 +14,12 @@ ms.date: 04/20/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 3ec925406ad3553c0beb073d39d84ae20f5bc472
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: f95dcf44c2d9d30bc6ba40facbecff97ff26bf49
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268645"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836696"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 
@@ -48,13 +48,9 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 
    有关详细信息，请参阅[参数注意事项](azure-stack-diagnostic-test.md#parameter-considerations)和[用例](azure-stack-diagnostic-test.md#use-case-examples)部分。
 
-3. 如果有任何测试报告了“失败”  ，请运行：
+3. 如果任何测试报告**失败**，请运行`Get-AzureStackLog`。 在集成系统中的说明，请参阅[集成系统在 Azure Stack 上运行 Get-azurestacklog](/azure-stack-diagnostics#to-run-get-azurestacklog-on-azure-stack-integrated-systems)，或在 ASDK 中，请参阅[运行 Get-azurestacklog Azure Stack 开发工具包 (ASDK) 系统上](/azure-stack-diagnostics#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
 
-   ```powershell
-   Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
-   ```
-
-   该 cmdlet 收集 Test-AzureStack 生成的日志。 有关诊断日志的详细信息，请参阅 [Azure Stack 诊断工具](azure-stack-diagnostics.md)。 如果测试报告 **WARN**（警告），则不应收集日志或联系 CSS。
+   该 cmdlet 收集 Test-AzureStack 生成的日志。 如果测试报告 **WARN**（警告），则不应收集日志或联系 CSS。
 
 4. 如果 CSS 已指示你运行验证工具，CSS 代表将会请求提供收集的日志，以便继续排查问题。
 

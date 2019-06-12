@@ -16,16 +16,16 @@ ms.date: 05/08/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 6d930c99890f8cf0be7b2a47199772c58a10b34d
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: aac9bb8edce4b15d3d058cdb3b6cc6e23aa58493
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411484"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835011"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
-之后[安装 Azure Stack 开发工具包 (ASDK)](asdk-install.md)，应进行一些推荐的安装后配置更改在 ASDK 主机计算机上，以 azurestack\azurestackadmin 身份登录。
+[安装 Azure Stack 开发工具包 (ASDK)](asdk-install.md) 之后，当你在 ASDK 主计算机上以 AzureStack\AzureStackAdmin 身份登录时，应进行一些建议的安装后配置更改。
 
 ## <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell
 
@@ -46,7 +46,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 - **已从 ASDK 主机建立 Internet 连接**。 运行以下 PowerShell 脚本，在开发工具包安装中安装以下模块：
 
-  - 1904 版本或更高版本：
+  - 对于 1904 版本或更高版本：
 
     ```powershell  
       Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
@@ -60,7 +60,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
       Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
 
-  - Azure Stack 版本 1903年或更早版本，仅安装下面的两个模块：
+  - Azure Stack 版本 1903 或更低版本仅安装以下两个模块：
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -146,28 +146,6 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 如果失败，请遵循故障排除步骤来获取帮助。
-
-## <a name="reset-the-password-expiration-policy"></a>重置密码过期策略
-
-若要确保开发工具包主机的密码不在评估期结束之前过期，请在部署 ASDK 之后执行以下步骤。
-
-### <a name="to-change-the-password-expiration-policy-from-powershell"></a>通过 Powershell 更改密码过期策略
-
-在提升权限的 Powershell 控制台中，运行以下命令：
-
-```powershell
-Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
-```
-
-### <a name="to-change-the-password-expiration-policy-manually"></a>手动更改密码过期策略
-
-1. 在开发工具包主机上打开“组策略管理”(GPMC.MMC)，然后导航到  “组策略管理”   -   “林: azurestack.local” -   “域” -   “azurestack.local”。
-2. 右键单击“默认域策略”，然后单击“编辑”。  
-3. 在组策略管理编辑器中，导航到“计算机配置”   -   “策略” -   “Windows 设置” -   “安全设置” -   “帐户策略” -   “密码策略”。
-4. 在右窗格中，双击“密码最长期限”。 
-5. 在“密码最长期限属性”对话框中，将“密码有效天数”值更改为 **180**，然后单击“确定”。   
-
-![组策略管理控制台](media/asdk-post-deploy/gpmc.png)
 
 ## <a name="enable-multi-tenancy"></a>启用多租户
 

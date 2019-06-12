@@ -3,31 +3,30 @@ title: 如何更新 Azure Stack 套餐和计划 | Microsoft Docs
 description: 本文介绍如何查看和修改现有的 Azure Stack 套餐和计划。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.custom: mvc
-origin.date: 03/07/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 00bb17eadfee32e9b0d006ac76bb8e1cd614f13e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: 54c6c44d6ab5d03819ba07ca1d34269e7a87ee77
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64301733"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836812"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack 附加计划
 
-希望提供附加服务或将“计算机”、“存储”或“网络”配额的范围扩展到基本计划初始套餐之外时，Azure Stack 操作员可以创建附加计划来修改[基本计划](azure-stack-create-plan.md)。 附加计划对基本计划进行修改，是用户可以选择订阅的可选扩展。
+希望提供附加服务或将“计算机”、“存储”或“网络”配额的范围扩展到基本计划初始套餐之外时，Azure Stack 操作员可以创建附加计划来修改[基本计划](azure-stack-create-plan.md)。    附加计划对基本计划进行修改，是用户可以选择订阅的可选扩展。
 
 有些情况下，将所有内容组合到单个计划中是最好的。 另一些情况下，你可能希望使用基本计划，然后通过使用附加计划来提供附加服务。 例如，可以通过基本计划提供 IaaS 服务，通过附加计划提供所有 PaaS 服务。
 
@@ -44,15 +43,15 @@ ms.locfileid: "64301733"
 
 1. 以云管理员身份登录到 Azure Stack 管理员门户。
 2. 遵循[创建基本计划](azure-stack-create-plan.md)的步骤，创建此前尚未提供的新计划套餐服务。
-3. 在管理员门户中单击“套餐”，然后选择需使用附加计划更新的套餐。
+3. 在管理员门户中单击“套餐”，然后选择需使用附加计划更新的套餐。 
 
    ![创建附加计划](media/create-add-on-plan/add-on1.png)
 
-4. 滚动到套餐属性的底部，选择“附加计划”。 单击“添加”。
+4. 在产品/服务属性的底部，选择**加载项计划**。 单击“添加”  。
 
     ![创建附加计划](media/create-add-on-plan/add-on2.png)
 
-5. 选择要添加的计划（ 在此示例中，计划名为“20-storageaccounts”。 选择计划后，单击“选择”将计划添加到套餐。 系统会发送通知，告知你计划已成功添加到套餐中。
+5. 选择要添加的计划（ 在此示例中，计划名为“20-storageaccounts”。  选择计划后，单击“选择”将计划添加到套餐。  系统会发送通知，告知你计划已成功添加到套餐中。
 
     ![创建附加计划](media/create-add-on-plan/add-on3.png)
 
@@ -64,15 +63,15 @@ ms.locfileid: "64301733"
 
 1. 以云管理员身份登录到 Azure Stack 管理员门户。
 2. 遵循[创建基本计划](azure-stack-create-plan.md)的步骤，创建此前尚未提供的新计划套餐服务。 在此示例中，Key Vault (**Microsoft.KeyVault**) 服务将包含在新计划中。
-3. 在管理员门户中单击“套餐”，然后选择需使用附加计划更新的套餐。
+3. 在管理员门户中单击“套餐”，然后选择需使用附加计划更新的套餐。 
 
    ![创建附加计划](media/create-add-on-plan/1.PNG)
 
-4. 滚动到套餐属性的底部，选择“附加计划”。 单击“添加”。
+4. 滚动到套餐属性的底部，选择“附加计划”。  单击“添加”  。
 
     ![创建附加计划](media/create-add-on-plan/2.PNG)
 
-5. 选择要添加的计划（ 在此示例中，计划名为“密钥保管库计划”。 选择计划后，单击“选择”将计划添加到套餐。 系统会发送通知，告知你计划已成功添加到套餐中。
+5. 选择要添加的计划（ 在此示例中，计划名为“密钥保管库计划”。  选择计划后，单击“选择”将计划添加到套餐。  系统会发送通知，告知你计划已成功添加到套餐中。
 
     ![创建附加计划](media/create-add-on-plan/3.PNG)
 

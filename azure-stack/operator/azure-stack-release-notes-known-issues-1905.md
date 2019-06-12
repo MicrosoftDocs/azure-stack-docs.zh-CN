@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: f5ea9823f41624038416d91cef9efcb9e16dad63
-ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
+ms.openlocfilehash: 38c7ec337ba8cdb73925b1c07f77331c05b25d8a
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66821767"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836655"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 已知问题
 
@@ -33,13 +33,14 @@ ms.locfileid: "66821767"
 ## <a name="update-process"></a>更新过程
 
 ### <a name="host-node-update-prerequisite-failure"></a>主机节点更新先决条件失败
--   适用于：此问题适用于 1905年更新。
--   原因：尝试安装时 1905 Azure Stack 更新，由于主机节点更新必备更新的状态可能会失败。 这通常是由于主机节点具有足够的可用磁盘空间所致。 
--   补救措施：请联系 Azure Stack 支持来获得帮助清除主机节点上的磁盘空间。
--   发生次数：不常见
 
+- 适用于：此问题适用于 1905年更新。
+- 原因：在尝试安装 1905 Azure Stack 更新时，更新的状态可能会因失败**主机节点更新先决条件**。 这通常是由于主机节点具有足够的可用磁盘空间所致。
+- 补救措施：请联系 Azure Stack 支持来获得帮助清除主机节点上的磁盘空间。
+- 发生次数：不常见
 
 ### <a name="preparation-failed"></a>准备失败
+
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在尝试安装 1905 Azure Stack 更新时，更新的状态可能失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。 1905 更新包大于上一个更新包，这可能会使更有可能发生此问题。
 - 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   URP 然后清理文件从上一次尝试，并重新启动下载。 如果问题仍然存在，我们建议按照以下更新程序包手动上传[导入和安装更新部分](azure-stack-apply-updates.md#import-and-install-updates)。

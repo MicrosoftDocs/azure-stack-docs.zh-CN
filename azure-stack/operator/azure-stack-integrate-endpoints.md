@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 885568035070bc4f74b94cddff200302fccfbb72
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 7ee47a5dc7344628561521f067a8310a0c8d3347
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618106"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835089"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -28,39 +28,42 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 
 ## <a name="ports-and-protocols-inbound"></a>端口和协议（入站）
 
-将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。 “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 请参阅特定资源提供程序部署文档，了解需要其他资源提供程序（例如 SQL 资源提供程序）的终结点。
+将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。  “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 请参阅特定资源提供程序部署文档，了解需要其他资源提供程序（例如 SQL 资源提供程序）的终结点。
 
-因为它们不需要发布 Azure stack，未列出内部基础结构 Vip。
+此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。
 
 > [!Note]  
 > 用户 VIP 是动态的，由用户自己定义，而不受 Azure Stack 操作员的控制。
 
-> [!Note]
+> [!Note]  
+> IKEv2 VPN。 IKEv2 VPN 是一个基于标准的 IPsec VPN 解决方案，它使用 UDP 端口 500 和 4500 以及 IP 协议号 50。 防火墙并非始终打开这些端口，因此，IKEv2 VPN 有可能无法穿过代理和防火墙。
+
+> [!Note]  
 > 自 1811 更新起，由于添加了[扩展主机](azure-stack-extension-host-prepare.md)，因此不再需要打开 12495-30015 范围内的端口。
 
 |终结点 (VIP)|DNS 主机 A 记录|Protocol|端口|
 |---------|---------|---------|---------|
-|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|门户（管理员）|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|门户（管理员）|Adminportal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure 资源管理器（管理员）|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|门户（用户）|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Azure 资源管理器（用户）|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|图形|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|证书吊销列表|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
-|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 和 UDP|53|
-|托管 | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Key Vault（用户）|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Key Vault（管理员）|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|存储队列|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|存储表|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|存储 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|SQL 资源提供程序|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL 资源提供程序|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|应用服务|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
-|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300（Azure 资源管理器）|
-|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP、UDP|21、1021、10001-10100 (FTP)<br>990 (FTPS)|
+|Azure 资源管理器（管理员）|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|门户（用户）|Portal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure 资源管理器（用户）|Management. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|图形|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|证书吊销列表|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;. *&lt;region>.&lt;fqdn>*|TCP 和 UDP|53|
+|宿主 | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
+|Key Vault（用户）|&#42;.vault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault（管理员）|&#42;.adminvault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|存储队列|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|存储表|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|存储 Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL 资源提供程序|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL 资源提供程序|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|应用服务|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300（Azure 资源管理器）|
+|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP、UDP|21、1021、10001-10100 (FTP)<br>990 (FTPS)|
 |VPN 网关|     |     |[请参阅 VPN 网关常见问题解答](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability)。|
 |     |     |     |     |
 
@@ -89,8 +92,9 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 |AD FS|为 AD FS 集成提供的 AD FS 元数据终结点|TCP|443|公共 VIP - /27|
 |     |     |     |     |     |
 
-> [!Note]  
-> 使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 使用负载平衡的 Url，Microsoft 可以更新和更改后端终结点而不会影响客户。 Microsoft 不共享 IP 地址的列表，为负载平衡 Url。 应使用支持按 URL 而不是按 IP 筛选的设备。
+使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 使用负载平衡的 Url，Microsoft 可以更新和更改后端终结点而不会影响客户。 Microsoft 不共享 IP 地址的列表，为负载平衡 Url。 应使用支持按 URL 而不是按 IP 筛选的设备。
+
+出站 DNS 是需要在所有情况下，什么变化都是查询的外部 DNS 和选择何种标识集成的源。 如果这是已连接的方案，在部署期间此 DVM 在 BMC 网络中，位于需要该出站访问权限，但在部署后将移动到一个内部组件，将发送查询通过公共 VIP 的 DNS 服务。 此时，可以删除通过 BMC 网络出站 DNS 访问权限，但必须保持对该 DNS 服务器的公共 VIP 访问权限，否则身份验证将失败。
 
 ## <a name="next-steps"></a>后续步骤
 

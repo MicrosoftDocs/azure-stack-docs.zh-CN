@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991300"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836828"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>关于 Azure Stack 的 VPN 网关
 
@@ -39,7 +39,7 @@ VPN 网关是一种虚拟网络网关，可以通过公共连接发送加密的�
 >[!NOTE]
 >在 Azure 中，所选 VPN 网关 SKU 的带宽吞吐量必须分配给连接到网关的所有连接。 但在 Azure Stack 中，VPN 网关 SKU 的带宽值会应用于连接到网关的每个连接资源。
 >
-> 例如:
+> 例如：
 >
 > * 在 Azure 中，基本 VPN 网关 SKU 可以容纳大约 100 Mbps 的聚合吞吐量。 如果对该 VPN 网关创建两个连接，而且其中一个连接使用 50 Mbps 的带宽，则 50 Mbps 可供另一个连接使用。
 > * 在 Azure Stack**每个连接**到基本 VPN 网关 SKU 分配 100 Mbps 的吞吐量。
@@ -75,13 +75,13 @@ VPN 网关连接可以使用不同的配置。 确定哪种配置最适合自己
 
 ### <a name="site-to-site"></a>站点到站点
 
-站点到站点 (S2S) VPN 网关连接是通过 IPsec/IKE (IKEv2) VPN 隧道建立的连接。 此类连接需要一个位于本地的 VPN 设备，并需要为此类连接分配公共 IP 地址。 此设备不能位于 NAT 之后。 S2S 连接可以用于跨界和混合配置。
+站点到站点 (S2S) VPN 网关连接是通过 IPsec/IKE (IKEv2) VPN 隧道建立的连接。  此类连接需要一个位于本地的 VPN 设备，并需要为此类连接分配公共 IP 地址。 此设备不能位于 NAT 之后。 S2S 连接可以用于跨界和混合配置。
 
 ![站点到站点 VPN 连接配置示例](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
 ### <a name="multi-site"></a>多站点
 
-多站点连接是站点到站点连接的变体。 可从虚拟网络网关创建多个 VPN 连接（通常是连接到多个本地站点）。 使用多个连接时，必须使用基于路由的 VPN 类型（使用经典 VNet 时称为动态网关）。 由于每个虚拟网络只能有一个 VPN 网关，因此通过网关的所有连接都共享可用带宽。
+多站点连接是站点到站点连接的变体。  可从虚拟网络网关创建多个 VPN 连接（通常是连接到多个本地站点）。 使用多个连接时，必须使用基于路由的 VPN 类型（使用经典 VNet 时称为动态网关）。 由于每个虚拟网络只能有一个 VPN 网关，因此通过网关的所有连接都共享可用带宽。
 
 ![Azure VPN 网关多站点连接示例](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-multisite-connection-diagram.png)
 
@@ -102,7 +102,6 @@ Azure Stack 不支持专门搭配 Express Route 使用的超性能网关 SKU。
 * Azure Stack 不支持基于策略的网关。
 * 基本 SKU 不支持边界网关协议 (BGP)。
 * Azure Stack 不支持 ExpressRoute-VPN 网关共存配置。
-* 主动-主动 S2S VPN 网关连接只能在 HighPerformance SKU 上配置。
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>按 SKU 列出的估计聚合吞吐量
 

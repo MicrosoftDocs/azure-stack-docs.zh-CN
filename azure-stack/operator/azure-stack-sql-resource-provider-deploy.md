@@ -15,12 +15,12 @@ ms.date: 03/29/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 7cc05316222f7652e8c5eecbad6a02eee901e697
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1e4b8bddaa5bfa164e413ee7a20071fe6a0cc831
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617950"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835065"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 资源提供程序
 
@@ -41,8 +41,8 @@ ms.locfileid: "65617950"
   |最低 Azure Stack 版本|SQL RP 版本|
   |-----|-----|
   |版本 1808 (1.1808.0.97)|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |版本 1808 (1.1808.0.97)|[SQL RP 版本 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-  |版本 1804 (1.0.180513.1)|[SQL RP 版本 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
+  |版本 1808 (1.1808.0.97)|[SQL RP 版本 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
+  |版本 1804 (1.0.180513.1)|[SQL RP 版本 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
   |     |     |
 
 - 请确保满足数据中心集成先决条件：
@@ -50,8 +50,8 @@ ms.locfileid: "65617950"
     |先决条件|参考|
     |-----|-----|
     |正确设置了条件性 DNS 转发。|[Azure Stack 数据中心集成 - DNS](azure-stack-integrate-dns.md)|
-    |资源提供程序的入站端口处于打开状态。|[Azure Stack 数据中心集成 - 发布终结点](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |正确设置了 PKI 证书使用者和 SAN。|[Azure Stack 部署必备 PKI 先决条件](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack 部署 PaaS 证书先决条件](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |资源提供程序的入站端口处于打开状态。|[Azure Stack 数据中心集成-端口和协议的入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |正确设置了 PKI 证书使用者和 SAN。|[Azure Stack 部署必备 PKI 先决条件](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack 部署 PaaS 证书先决条件](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>证书
@@ -90,12 +90,12 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 | **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
 | **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称**AzureCloud**， **AzureUSGovernment**，或使用中国 Azure Active Directory，如果**AzureChinaCloud**。 | AzureCloud |
-| **DependencyFilesLocalPath** | 对于集成系统，必须将证书 .pfx 文件放在此目录中。 还可以在此处复制一个 Windows Update MSU 包。 | _可选_（对于集成系统为强制的） |
+| **DependencyFilesLocalPath** | 对于集成系统，必须将证书 .pfx 文件放在此目录中。 还可以在此处复制一个 Windows Update MSU 包。 | _可选_（对于集成系统为强制的  ） |
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
 | **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | “否” |
-| **DebugMode** | 防止在失败时自动清除。 | “否” |
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | 否 |
+| **DebugMode** | 防止在失败时自动清除。 | 否 |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 SQL 资源提供程序
 
@@ -162,11 +162,11 @@ Clear-AzureRMContext -Scope Process -Force
 可以使用以下步骤来验证是否已成功部署 SQL 资源提供程序。
 
 1. 以服务管理员身份登录到管理门户。
-2. 选择“资源组”。
-3. 选择“system.\<位置\>.sqladapter”资源组。
+2. 选择“资源组”  。
+3. 选择“system.\<位置\>.sqladapter”资源组。 
 4. 在资源组概述摘要页上，应当没有失败的部署。
       ![验证 SQL 资源提供程序的部署](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-5. 最后，在管理门户中选择“虚拟机”，以验证 SQL 资源提供程序 VM 是否已成功创建且正在运行。
+5. 最后，在管理门户中选择“虚拟机”  ，以验证 SQL 资源提供程序 VM 是否已成功创建且正在运行。
 
 ## <a name="next-steps"></a>后续步骤
 

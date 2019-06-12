@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: dc4cb3e7931b456de6e807d9f7b691f9bfb71a33
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 2d2aab654f2283cf019e609e9de14790ed44a76a
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269517"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837043"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
@@ -118,7 +118,7 @@ ms.locfileid: "66269517"
 在运行应用服务安装程序之前，需要执行[开始使用 Azure Stack 上的应用服务之前](azure-stack-app-service-before-you-get-started.md)一文中所述的几个步骤：
 
 > [!TIP]
-> 并非所有的步骤中所述在开始之前，因为模板部署会为你配置基础结构 Vm 所需的文章。 
+> 不一定要执行“准备工作”一文中所述的所有步骤，因为模板部署会自动配置基础结构 VM。 
 
 - [下载应用服务安装程序与帮助器脚本](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)。
 - [将最新的自定义脚本扩展下载到 Azure Stack 市场](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)。
@@ -171,7 +171,7 @@ ms.locfileid: "66269517"
     ![预期错误对话框](media/app-service-deploy-ha/08.png)
 
     如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理门户中的 WorkersNsg 并添加包含以下属性的出站安全规则：
-    - 源:任意
+    - 源：任意
     - 源端口范围：*
     - 目标：IP 地址
     - 目标 IP 地址范围：文件服务器的 IP 范围
@@ -234,8 +234,9 @@ ms.locfileid: "66269517"
 
     ![安装完成](media/app-service-deploy-ha/16.png)
 
-
 ## <a name="next-steps"></a>后续步骤
+
+[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)如果使用 SQL Alwayson 实例提供了应用服务资源提供程序。 同步数据库以防止数据库故障转移时的服务的任何损失。
 
 [横向扩展应用服务](azure-stack-app-service-add-worker-roles.md)。 你可能需要添加更多的应用服务基础结构辅助角色，以满足环境中的预期应用程序需求。 基于 Azure Stack 的应用服务默认支持免费的和共享的辅助角色层。 若要添加其他辅助角色层，需添加更多的辅助角色。
 
