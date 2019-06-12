@@ -46,7 +46,7 @@ ms.locfileid: "66197324"
 - **Azure AD 租户名称**  
   你用于管理 Azure Stack 的 Azure AD 租户的名称。 例如，yourdirectory.onmicrosoft.com。
 - **Azure 资源管理器终结点**  
-  对于 Azure Stack 开发工具包，此值设置为 https://management.local.azurestack.external。 若要为 Azure Stack 集成系统获取此值，请与服务提供商联系。
+  对于 Azure Stack 开发工具包，此值设置为 [https://management.local.azurestack.external](https://management.local.azurestack.external) 。 若要为 Azure Stack 集成系统获取此值，请与服务提供商联系。
 
 ## <a name="connect-to-azure-stack-with-azure-ad"></a>使用 Azure AD 连接到 Azure Stack
 
