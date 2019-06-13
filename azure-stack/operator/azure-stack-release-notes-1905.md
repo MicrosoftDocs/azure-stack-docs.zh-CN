@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 018c5e2a6e099fb0a0ed7bc164ef26728a9d8ed3
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: f46fde5b0c978b315d73d86a5cee3fa1f977295e
+ms.sourcegitcommit: e90db57ffe509162aff5c879f061a1f8371179e8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828232"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034239"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新
 
@@ -68,6 +68,7 @@ Azure Stack 1905 更新生成类型是**完整**。 有关更新的详细信息�
   请下载这些版本的扩展立即，以便在将来的版本中强制实施 TLS 1.2，扩展的新部署不会失败。 始终设置**autoupdateminorversion = true** ，以便自动执行次要版本更新到扩展 (例如，1.8 到 1.9)。
 
 - 一个新**帮助和支持概述**中 Azure Stack 门户轻松地运算符以查看其支持选项、 获得专家帮助和了解有关 Azure Stack 的详细信息。 在集成系统上创建支持请求将预先选择 Azure Stack 服务。 我们强烈建议客户使用这种体验来提交票证，而不是使用公共 Azure 门户。 有关详细信息，请参阅[Azure Stack 帮助和支持](azure-stack-help-and-support-overview.md)。
+
 - 当多个 Azure Active 目录会加入 (通过[此过程](azure-stack-enable-multitenancy.md))，则可以忽略了某些更新发生时，或对 AAD 服务主体授权的更改而导致发生权限为时重新运行脚本缺少。 这会导致各种问题，从被阻止访问某些功能，到多个离散故障很难进行跟踪回原来的问题。 若要防止此情况，1905年引入了一项新功能，这些权限检查时发现某些配置问题时创建警报。 此验证运行每隔一小时，并显示解决该问题所需的修正操作。 所有租户都都处于正常状态后，将关闭警报。
 
 - 改进的基础结构服务在故障转移期间的备份操作的可靠性。 
