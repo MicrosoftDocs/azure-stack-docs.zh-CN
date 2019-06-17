@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: edd242251cac89029eab7b45f06bb08f4db8a6a3
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 136dee8980860bb463da14fda0dcd9aff84d3803
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618740"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131420"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -37,7 +37,7 @@ Azure Stack 遥测通过互连用户体验将系统数据自动上传到 Microso
 Azure Stack 遥测基于 Windows Server 2016 互连用户体验与遥测组件，该组件使用 [Windows 事件跟踪 (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) 跟踪日志记录技术来收集和存储事件与数据。 Azure Stack 组件使用相同的技术，发布使用公共操作系统事件日志记录和跟踪 API 收集的事件与数据。 这些 Azure Stack 组件的示例包括以下提供程序：网络资源、存储资源、监视资源和更新资源。 互连用户体验与遥测组件使用 SSL 加密数据，并使用证书关联通过 HTTPS 将数据传输到 Microsoft 数据管理服务。
 
 > [!IMPORTANT]
-> 若要启用遥测数据流，必须在网络中开放端口 443 (HTTPS)。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 https://v10.vortex-win.data.microsoft.com）。 互连用户体验与遥测组件还连接到 https://settings-win.data.microsoft.com 来下载配置信息。
+> 若要启用遥测数据流，必须在网络中开放端口 443 (HTTPS)。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 https://v10.vortex-win.data.microsoft.com ）。 互连用户体验与遥测组件还连接到 https://settings-win.data.microsoft.com 来下载配置信息。
 
 ## <a name="privacy-considerations"></a>隐私注意事项
 
@@ -76,10 +76,10 @@ Microsoft 无意收集敏感数据，例如信用卡号、用户名和密码、�
 遥测设置分为四个累积级别 (0-3)，其分类如下：
 
 **0（安全）**</br>
-仅限安全数据。 保护操作系统所需的信息。 这包括有关互连用户体验和遥测组件设置以及 Windows Defender 的数据。 在此级别不会发出任何特定于 Azure Stack 的遥测数据。
+仅限安全数据。 确保操作系统安全所需的信息。 这包括有关互连用户体验和遥测组件设置以及 Windows Defender 的数据。 在此级别不会发出任何特定于 Azure Stack 的遥测数据。
 
 **1（基本）**</br>
-安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。 将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
+安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。  将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
 
 - *基本设备信息*：提供生态系统中本机和虚拟 Windows Server 2016 实例的类型与配置相关的信息。 这包括：
 
@@ -93,13 +93,13 @@ Microsoft 无意收集敏感数据，例如信用卡号、用户名和密码、�
 - *兼容性数据*，帮助了解系统和虚拟机上已安装哪些资源提供程序。 此数据用于识别潜在的兼容性问题。
 
 **2（增强）**</br>
-其他见解，包括：操作系统和 Azure Stack 服务的用法、工作原理、高级可靠性数据，以及来自“安全”和“基本”级别的数据。
+其他见解，包括：操作系统和 Azure Stack 服务的用法、工作原理、高级可靠性数据，以及来自“安全”和“基本”级别的数据。  
 
 > [!NOTE]
 > 这是默认的遥测设置。
 
 **3（完整）**</br>
-识别及帮助解决问题所需的全部数据，加上来自“安全”、“基本”和“增强”级别的数据。
+识别及帮助解决问题所需的全部数据，加上来自“安全”、“基本”和“增强”级别的数据。   
 
 > [!IMPORTANT]
 > 这些遥测级别仅适用于 Microsoft Azure Stack 组件。 Azure Stack 硬件合作伙伴在硬件生命周期主机中运行的非 Microsoft 软件组件和服务可能与这些遥测级别以外的云服务通信。 应该咨询 Azure Stack 硬件解决方案提供商，以了解其遥测策略，以及如何启用或禁用。

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 09fa7b503f0c594d2af0c6f16a6d4618cec0fac3
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 983f3821bc618101937d08e6304c768d04e12cfb
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64294429"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131394"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>将 Kubernetes 添加到 Azure Stack 市场
 
@@ -43,11 +43,11 @@ ms.locfileid: "64294429"
 
 1. 创建套餐。 有关说明，请参阅[在 Azure Stack 中创建套餐](azure-stack-create-offer.md)。
 
-1. 选择“套餐”，并找到你创建的套餐。
+1. 选择“套餐”  ，并找到你创建的套餐。
 
-1. 选择“套餐”边栏选项卡中的“概述”。
+1. 选择“套餐”边栏选项卡中的“概述”。 
 
-1. 选择“更改状态”。 选择“公共”。
+1. 选择“更改状态”。  选择“公共”。 
 
 1. 选择 **+ 创建资源** > **提供了和计划** > **订阅**创建订阅。
 
@@ -57,9 +57,9 @@ ms.locfileid: "64294429"
 
     c. **提供商说明**
 
-    d. 将“目录租户”设置为你的 Azure Stack 的 Azure AD 租户。 
+    d. 将“目录租户”  设置为你的 Azure Stack 的 Azure AD 租户。 
 
-    e. 选择“套餐”。 选择你创建的套餐的名称。 记下订阅 ID。
+    e. 选择“套餐”。  选择你创建的套餐的名称。 记下订阅 ID。
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>在 AD FS 中创建服务主体和凭据
 
@@ -193,9 +193,9 @@ ms.locfileid: "64294429"
 
 1. 登录到[管理门户](https://adminportal.local.azurestack.external)。
 
-1. 选择“所有服务”，然后在“管理”类别下，选择“市场管理”。
+1. 选择“所有服务”  ，然后在“管理”  类别下，选择“市场管理”  。
 
-1. 选择“+ 从 Azure 添加”。
+1. 选择“+ 从 Azure 添加”。 
 
 1. 输入 `Ubuntu Server` 。
 
@@ -205,7 +205,7 @@ ms.locfileid: "64294429"
     - **版本**：16.04.201806120 （或最新版本）
     - **SKU**：16.04-LTS
 
-1. 选择“下载”。
+1. 选择“下载”  。
 
 ## <a name="add-a-custom-script-for-linux"></a>添加适用于 Linux 的自定义脚本
 
@@ -213,9 +213,9 @@ ms.locfileid: "64294429"
 
 1. 打开[管理门户](https://adminportal.local.azurestack.external)。
 
-1. 选择“所有服务”，然后在“管理”类别下，选择“市场管理”。
+1. 选择“所有服务”  ，然后在“管理”  类别下，选择“市场管理”  。
 
-1. 选择“+ 从 Azure 添加”。
+1. 选择“+ 从 Azure 添加”。 
 
 1. 输入 `Custom Script for Linux` 。
 
@@ -227,22 +227,22 @@ ms.locfileid: "64294429"
      > [!Note]  
      > 可能会列出适用于 Linux 的自定义脚本的多个版本。 你将需要添加的项的最后一个版本。
 
-1. 选择“下载”。
+1. 选择“下载”  。
 
 
 ## <a name="add-kubernetes-to-the-marketplace"></a>将 Kubernetes 添加到市场
 
 1. 打开[管理门户](https://adminportal.local.azurestack.external)。
 
-1. 选择“所有服务”，然后在“管理”类别下，选择“市场管理”。
+1. 选择“所有服务”  ，然后在“管理”  类别下，选择“市场管理”  。
 
-1. 选择“+ 从 Azure 添加”。
+1. 选择“+ 从 Azure 添加”。 
 
 1. 输入 `Kubernetes` 。
 
 1. 选择 `Kubernetes Cluster`。
 
-1. 选择“下载”。
+1. 选择“下载”  。
 
     > [!note]  
     > 市场项可能需要花费五分钟才会出现在市场中。

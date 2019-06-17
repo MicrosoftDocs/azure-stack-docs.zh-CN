@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6a636a1ed7b2426649afbe163b15780bfc4e9f0e
-ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: c512e7a9ac4cb5a7d864a315dc55d01a39a029ea
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428707"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145210"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 注册
 
@@ -51,15 +51,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 1. 以管理员身份打开 PowerShell 控制台。  
 
-2. 在 ASDK 主机计算机上打开该文件**C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1**在编辑器中使用提升的权限。
-
-3. 在行 1249年中，添加`-TimeoutInSeconds 1800`结束时参数。 这是必需的以防服务主体超时，运行注册脚本时。 1249 行现在应如下显示：
-
-   ```powershell
-   $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-   ```
-
-4. 运行以下 PowerShell 命令，将 ASDK 安装注册到 Azure。 需要同时登录到 Azure 计费订阅 ID 和本地 ASDK 安装。 如果没有 Azure 尚未计费的订阅 ID，则可以[创建免费的 Azure 帐户此处](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。<br><br>在运行 **Set-AzsRegistration** cmdlet 时设置适用于注册的唯一名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，该脚本会失败。
+2. 运行以下 PowerShell 命令，将 ASDK 安装注册到 Azure。 需要同时登录到 Azure 计费订阅 ID 和本地 ASDK 安装。 如果没有 Azure 尚未计费的订阅 ID，则可以[创建免费的 Azure 帐户此处](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。<br><br>在运行 **Set-AzsRegistration** cmdlet 时设置适用于注册的唯一名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，该脚本会失败。
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
@@ -87,7 +79,7 @@ $ExecutionContext.SessionState.LanguageMode
     -UsageReportingEnabled:$true
     ```
 
-5. 该脚本完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。 
+3. 该脚本完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。 
 
     ![环境现已注册](media/asdk-register/1.PNG)
 

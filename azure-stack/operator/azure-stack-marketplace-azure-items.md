@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 3c962f0ef9fccdf814ccfaf0a432b1c303a63368
-ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
+ms.openlocfilehash: 448af01e935165ea974c22c23bd73c7a02ac3935
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66835112"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145285"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure 市场项
 
@@ -249,4 +249,5 @@ Microsoft Azure Stack 支持以下 Azure Marketplace 虚拟机和解决方案模
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | 备份、 复制和恢复一个易于使用的软件解决方案中，统一了高级数据保护的快速恢复。 | Quest Software |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | 同类最佳开源基础结构管理。 | SUSE |
 | ![CipherTrust 云密钥管理器](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust 云密钥管理器](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | 利用 Microsoft Azure 和其他云提供商将你自己的密钥 (BYOK) Api，CipherTrust 云密钥管理器可减少密钥管理的复杂性和运营成本向您提供的加密密钥的余地生命周期控制集中式管理和可见性。 | Thales 网络安全 |
+| ![Veeam 备份和复制](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam 备份和复制](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam® 备份和 Replication™ 可帮助企业实现对所有工作负荷的全面的数据保护 — 虚拟、 物理和基于云的。 通过单一控制台中，可以实现快速、 灵活且可靠的备份、 恢复和复制的所有应用程序和数据。 | Veeam 软件 |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Business Continuity as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® 软件技术提供了企业对其业务连续性通过其公司数据的持续访问权限，即服务 (BCaaS)™ 体系结构、 保护应用程序和事务，如果网络中断会发生，通常会会削弱企业。 | ZeroDown Software |

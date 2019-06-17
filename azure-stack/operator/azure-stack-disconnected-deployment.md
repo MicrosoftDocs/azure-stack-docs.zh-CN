@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: df0989886d34581950eca04ebe63104d477d003f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: a3986bcdff911fb70957dcb7529a07f77b586c0a
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131513"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 断开连接部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
@@ -31,25 +31,25 @@ ms.locfileid: "65618024"
 适合选择此选项的情况如下所述：
 - 如果存在要求你在未连接到 Internet 的环境中部署 Azure Stack 的安全性或其他限制。
 - 如果希望阻止将数据（包括使用情况数据）发送到 Azure。
-- 想要使用 Azure Stack 用作部署到公司 Intranet，且不感兴趣的混合方案的私有云解决方案。
+- 如果希望单纯将 Azure Stack 用作部署到公司 Intranet 的私有云解决方案，并且不考虑在混合方案中使用。
 
 > [!TIP]
-> 有时候，这种类型的环境也称为“潜艇方案”。
+> 有时候，这种类型的环境也称为“潜艇方案”  。
 
-离线部署不会限制你以后将 Azure Stack 实例连接到 Azure 以实现混合租户 VM 方案。 这意味着您在部署期间未连接到 Azure 或不想使用 Azure AD 作为标识存储。
+离线部署不会限制你以后将 Azure Stack 实例连接到 Azure 以实现混合租户 VM 方案。 它只意味着在部署期间不连接到 Azure，或者不希望使用 Azure AD 作为标识存储。
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>在断开连接部署中被削弱或不可用的功能 
-Azure Stack 设计为连接到 Azure，因此务必要注意的是，被削弱或完全在断开连接模式下不可用一些特性和功能时效果最佳。 
+Azure Stack 设计为在连接到 Azure 的情况下功能最佳，因此请务必注意，在离线模式下，有些功能被损坏或完全不可用。 
 
 |Feature|断开连接模式的影响|
 |-----|-----|
 |VM 部署（带有用于配置 VM 后期部署的 DSC 扩展）|被削弱 - DSC 扩展从 Internet 查找最新 WMF。|
 |VM 部署（带有用于运行 Docker 命令的 Docker 扩展）|被削弱 - Docker 将检查 Internet 来查找最新版本并且此检查将失败。|
-|Azure Stack 门户中的文档链接|不可用-链接，例如提供反馈，帮助，快速入门中，Internet URL 不起作用的使用。|
-|引用联机修正指南的警报修正/缓解|不可用的任何警报修正链接的使用 Internet URL 不起作用。|
-|市场 - 直接从 Azure 市场中选择并添加库包的能力|被削弱-在 Azure Stack 部署在断开连接模式下 （不带任何 Internet 连接） 时，不能使用 Azure Stack 门户下载 marketplace 项。 但是，可以使用[市场联合工具](azure-stack-download-azure-marketplace-item.md)将市场项下载到有 Internet 连接的计算机，然后再将这些项转移到 Azure Stack 环境。|
+|Azure Stack 门户中的文档链接|不可用 - 诸如“提供反馈”、“帮助”、“快速入门”之类的使用 Internet URL 的链接将不起作用。|
+|引用联机修正指南的警报修正/缓解|不可用 - 使用 Internet URL 的任何警报修正链接都不起作用。|
+|市场 - 直接从 Azure 市场中选择并添加库包的能力|被损坏 - 在离线模式下（没有任何 Internet 连接）部署 Azure Stack 时，不能通过 Azure Stack 门户下载市场项。 但是，可以使用[市场联合工具](azure-stack-download-azure-marketplace-item.md)将市场项下载到有 Internet 连接的计算机，然后再将这些项转移到 Azure Stack 环境。|
 |使用 Azure Active Directory 联合身份验证帐户管理 Azure Stack 部署|不可用 - 此功能要求连接到 Azure。 必须改用具有本地 Active Directory 实例的 AD FS。|
-|应用程序服务|被损坏 - WebApps 可能需要访问 Internet 以获取更新的内容。|
+|应用服务|被损坏 - WebApps 可能需要访问 Internet 以获取更新的内容。|
 |命令行接口 (CLI)|被削弱 - CLI 在对服务主体进行身份验证和预配方面的功能已减弱。|
 |Visual Studio - Cloud discovery|被削弱 - Cloud Discovery 将发现不同的云或根本不工作。|
 |Visual Studio - AD FS|被削弱 - 只有 Visual Studio Enterprise 支持 AD FS。

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 672528f05a4fb3214e9a97e78922eeb12739c44f
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 5ab223800e70bf5f942c42c51e2870fe0dac0a4d
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269537"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131602"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>部署 Kubernetes Azure Stack 中使用容器
 

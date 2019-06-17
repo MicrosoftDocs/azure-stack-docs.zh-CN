@@ -11,12 +11,12 @@ ms.date: 05/29/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 98ad556bf1b0b5f0297cb7964cd9911a50145496
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 58d06d20da6890474969318b3a7450975848c84a
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691757"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138871"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
@@ -107,7 +107,7 @@ if($s)
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* 收集日志并将其存储在指定的 Azure 存储 blob 容器。 此操作的常规语法如下所示：
+* 收集日志并将其存储在指定的 Azure 存储 blob 容器中。 此操作的常规语法如下所示：
 
   ```powershell
   Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
@@ -122,23 +122,23 @@ if($s)
   > [!NOTE]
   > 打开与 Microsoft 支持部门的一种情况并需要将日志上传时，此过程非常有用。 即使 ERCS VM 不具有 internet 访问权限并不一定能够从 ERCS VM 访问的 SMB 共享，您可以传输日志，在 Azure Stack 上创建 blob 存储帐户，然后使用您的客户端检索这些日志并将其上载到 Microsoft。  
 
-  若要生成的存储帐户的 SAS 令牌，都需要以下权限：
+  若要为存储帐户生成 SAS 令牌，需要以下权限：
 
-  * Blob 存储服务的访问权限
-  * 容器资源类型的访问权限
+  * 对 Blob 存储服务的访问权限
+  * 对容器资源类型的访问权限
 
-  若要生成 SAS Uri 值要用于`-OutputSasUri`参数，请执行以下步骤：
+  若要生成要用于 `-OutputSasUri` 参数的 SAS URI 值，请执行以下步骤：
 
-  1. 创建存储帐户中的步骤[这篇文章中](/azure/storage/common/storage-quickstart-create-account)。
+  1. 按照[本文中](/azure/storage/common/storage-quickstart-create-account)的步骤创建存储帐户。
   2. 打开 Azure 存储资源管理器的实例。
   3. 连接到在步骤 1 中创建的存储帐户。
-  4. 导航到**Blob 容器**中**存储服务**。
-  5. 选择**创建一个新容器**。
-  6. 右键单击新的容器，然后单击**获取共享访问签名**。
-  7. 选择一个有效**开始时间**并**结束时间**，取决于您的要求。
-  8. 对于所需的权限，请选择**读**，**编写**，并**列表**。
+  4. 在**存储服务**中导航到 **Blob 容器**。
+  5. 选择“新建容器”  。
+  6. 右键单击新容器，然后单击“获取共享访问签名”。 
+  7. 根据需求，选择有效的**开始时间**和**结束时间**。
+  8. 根据所需的权限，选择“读取”  、“写入”  和“列表”  。
   9. 选择“创建”  。
-  10. 将获取共享访问签名。 复制的 URL 部分中，并提供到`-OutputSasUri`参数。
+  10. 你将获得共享访问签名。 复制 URL 部分，并将其提供给 `-OutputSasUri` 参数。
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK 系统和集成系统的参数考虑事项
 
@@ -164,7 +164,8 @@ if($s)
 
   |   |   |   |    |
   | - | - | - | -  |
-  |ACS                   |CacheService                   |IBC                            |OEM|
+  |ACS                   |CA                             |HRP                            |OboService|
+  |ACSBlob               |CacheService                   |IBC                            |OEM|
   |ACSDownloadService    |计算                        |InfraServiceController         |OnboardRP|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
@@ -182,7 +183,6 @@ if($s)
   |AzureMonitor          |网关                        |NC                             |WAS|
   |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
   |BRP                   |HintingServiceV2               |NRP                            |   |
-  |CA                    |HRP                            |OboService                     |   |
   |   |   |   |    |
 
 ### <a name="additional-considerations"></a>其他注意事项
@@ -203,9 +203,9 @@ if($s)
 
 ### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
-可以使用**Invoke AzureStackOnDemandLog** cmdlet 来生成按需日志对于某些角色 （请参阅本部分末尾的列表）。 此 cmdlet 生成的日志中不存在默认情况下接收在执行日志捆绑**Get-azurestacklog** cmdlet。 此外，建议收集这些日志，仅当请求由 Microsoft 支持团队。
+可以使用 **Invoke-AzureStackOnDemandLog** cmdlet 为某些角色生成按需日志（请参阅本部分末尾的列表）。 默认情况下，执行 **Get-AzureStackLog** cmdlet 时收到的日志捆绑包中不存在此 cmdlet 生成的日志。 此外，建议收集这些日志，仅当请求由 Microsoft 支持团队。
 
-目前，可以使用`-FilterByRole`参数按以下角色筛选日志收集：
+目前，可以使用 `-FilterByRole` 参数按以下角色筛选日志收集：
 
 * OEM
 * NC

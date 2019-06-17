@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7a2ba164c5d35bc1f5b52d3ff68c18b7b3e47dcd
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 56dbc301c87e819b241d9dd6e801544df4afa152
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618939"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131199"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>在 Azure Stack 中添加更多的缩放单元节点
 
@@ -53,18 +53,18 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 3. 根据 OEM 提供的文档，在基础板管理控制器 (BMC) 中配置正确的 IP 地址，并应用所有 BIOS 设置。
 4. 使用硬件制造商提供的在 HLH 上运行的工具，将当前的固件基线应用于所有组件。
 5. 在 Azure Stack 管理员门户中运行“添加节点”操作。
-6. 验证“添加节点”操作是否成功。 为此，请查看[缩放单元的“状态”](#monitor-add-node-operations)。 
+6. 验证“添加节点”操作是否成功。 为此，请查看[缩放单元的“状态”  ](#monitor-add-node-operations)。 
 
 ## <a name="add-the-node"></a>添加节点
 
-可以使用管理员门户或 PowerShell 来添加新节点。 “添加节点”操作首先将新的缩放单元节点添加为可用计算容量，然后自动扩展存储容量。 容量之所以可以自动扩展，是因为 Azure Stack 是一个超聚合的系统，其中的计算和存储是一起缩放的。
+可以使用管理员门户或 PowerShell 来添加新节点。 “添加节点”操作首先将新的缩放单元节点添加为可用计算容量，然后自动扩展存储容量。 容量之所以可以自动扩展，是因为 Azure Stack 是一个超聚合的系统，其中的计算和存储是一起缩放的。  
 
 ### <a name="use-the-admin-portal"></a>使用管理员门户
 
 1. 以 Azure Stack 操作员身份登录到 Azure Stack 管理员门户。
-2. 导航到“+ 创建资源” > “容量” > “缩放单元节点”。
+2. 导航到“+ 创建资源”   > “容量”   > “缩放单元节点”  。
    ![缩放单元节点](media/azure-stack-add-scale-node/select-node1.png)
-3. 在“添加节点”窗格中选择“区域”，然后选择要向其添加节点的“缩放单元”。 另请指定要添加的缩放单元节点的“BMC IP 地址”。 一次只能添加一个节点。
+3. 在“添加节点”窗格中选择“区域”，然后选择要向其添加节点的“缩放单元”。    另请指定要添加的缩放单元节点的“BMC IP 地址”。  一次只能添加一个节点。
    ![添加节点详细信息](media/azure-stack-add-scale-node/select-node2.png)
  
 
@@ -89,7 +89,7 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 可以使用管理员门户或 PowerShell 来获取“添加节点”操作的状态。 “添加节点”操作可能需要数小时或数天来完成。
 
 ### <a name="use-the-admin-portal"></a>使用管理员门户 
-若要监视添加新节点的操作，请在管理员门户中查看缩放单元或缩放单元节点对象。 为此，请转到“区域管理” > “缩放单元”。 接下来，选择要查看的缩放单元或缩放单元节点。 
+若要监视添加新节点的操作，请在管理员门户中查看缩放单元或缩放单元节点对象。 为此，请转到“区域管理”   >   “缩放单元”。 接下来，选择要查看的缩放单元或缩放单元节点。 
 
 ### <a name="use-powershell"></a>使用 PowerShell
 缩放单元和缩放单元节点的状态可以使用 PowerShell 来检索，如下所示：
@@ -128,7 +128,7 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 ## <a name="troubleshooting"></a>故障排除
 下面是添加节点时的常见问题。 
 
-**场景 1：**“添加缩放单元节点”操作失败，但一个或多个节点在列出时其状态为“已停止”。  
+**场景 1：** “添加缩放单元节点”操作失败，但一个或多个节点在列出时其状态为“已停止”。  
 - 补救措施：使用修复操作来修复一个或多个节点。 一次只能运行一个修复操作。
 
 **场景 2：** 添加了一个或多个缩放单元节点，但存储扩展失败。 在这种情况下，缩放单元节点对象报告的状态为“正在运行”，但“配置存储”任务未启动。  

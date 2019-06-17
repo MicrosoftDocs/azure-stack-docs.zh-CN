@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ef82c50a8150f10fdbe2b38acf77b5539c575b51
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: e4163921662b88cbd62f77eedc92d3a7db4bf491
+ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67041971"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>使用存储在 Azure Stack 密钥保管库中的安全密码创建虚拟机
 
@@ -32,7 +32,7 @@ ms.locfileid: "65782795"
 
 可以将密码等值作为机密存储在 Azure Stack 密钥保管库中。 创建机密后，可以在 Azure 资源管理器模板中引用它。 通过资源管理器使用机密提供以下好处：
 
-* 您无需每次部署资源时手动输入机密。
+* 每次部署资源时不必手动输入机密。
 * 可以指定哪些用户或服务主体可以访问机密。
 
 ## <a name="prerequisites"></a>必备组件

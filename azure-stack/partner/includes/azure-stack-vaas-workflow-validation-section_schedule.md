@@ -2,16 +2,16 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 03/04/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: e9d59fadb9cbfeb7463f799bdab2e6da49208fe9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 6cb45b58122c3e1c56098a90e294a3d67e9eb843
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64299060"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133383"
 ---
 验证工作流中**安排**测试使用工作流创建期间指定的工作流级别公用参数 (请参阅[工作流通用参数作为服务AzureStack验证](../azure-stack-vaas-parameters.md)). 如果任何测试参数值变得无效，您必须 resupply 它们中所述[修改工作流参数](../azure-stack-vaas-monitor-test.md#change-workflow-parameters)。
 

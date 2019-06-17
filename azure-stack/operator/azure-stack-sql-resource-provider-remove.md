@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 06/13/2018
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: d7b512315eb1631d37ed51a2dcb83015fad197be
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 0d31496b29bfd86ba8c781685f839cd7926967f5
+ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618410"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67042044"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 

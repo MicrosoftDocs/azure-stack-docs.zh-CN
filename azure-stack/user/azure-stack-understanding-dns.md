@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 841d8607999f4135a86e0cd6668c79dddb80bd83
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 41119ef008234b4226ce7cf2fb5070904becc493
+ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67042010"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>适用于 Azure Stack 的 iDNS 简介
 
@@ -36,7 +36,7 @@ iDNS 是一种 Azure Stack 网络功能，可用于解析外部 DNS 名称（例
 - 适用于租户虚拟网络内的名称解析和 DNS 注册的权威 DNS 服务。
 - 从租户 VM 解析 Internet 名称的递归 DNS 服务。 租户不再需要指定自定义 DNS 条目，就可以解析 Internet 名称（例如，www.bing.com）。
 
-你仍然可以沿用自己的 DNS，也可以使用自定义 DNS 服务器。 但是，通过使用 Idn，可以解析 Internet DNS 名称和连接到同一虚拟网络中的其他 Vm，无需创建自定义 DNS 条目。
+你仍然可以沿用自己的 DNS，也可以使用自定义 DNS 服务器。 但是，通过使用 iDNS，你可以解析 Internet DNS 名称并连接到同一虚拟网络中的其他 VM，而无需创建自定义 DNS 条目。
 
 ## <a name="what-doesnt-idns-do"></a>iDNS 不做什么？
 

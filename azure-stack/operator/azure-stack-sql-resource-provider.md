@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 12815bff535e45f42481d17029467227650e8aea
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 2ac09cede3efe356a6534ae4d5986a87d5619ff2
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131131"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure Stack 上使用 SQL 数据库
 
@@ -36,7 +36,7 @@ ms.locfileid: "65618420"
 
 该资源提供程序由以下三个组件构成：
 
-- **SQL 资源提供程序适配器虚拟机 (VM)**，这是运行提供程序服务的 Windows Server VM。
+- **SQL 资源提供程序适配器虚拟机 (VM)** ，这是运行提供程序服务的 Windows Server VM。
 - **资源提供程序**，它处理请求并访问数据库资源。
 - **托管 SQL 服务器的服务器**，为称作宿主服务器的数据库提供容量。
 

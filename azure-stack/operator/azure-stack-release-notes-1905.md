@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: f46fde5b0c978b315d73d86a5cee3fa1f977295e
-ms.sourcegitcommit: e90db57ffe509162aff5c879f061a1f8371179e8
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 7669ee310e4262a72d90c478500d7e06919b43bc
+ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034239"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67145188"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新
 
@@ -41,7 +41,7 @@ Azure Stack 1905 更新内部版本号是**1.1905.0.40**。
 
 ### <a name="update-type"></a>更新类型
 
-Azure Stack 1905 更新生成类型是**完整**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。
+Azure Stack 1905 更新生成类型是**完整**。 因此，1905年更新具有更长的运行时版本低于 1903年和 1904年等快速更新。 执行完全更新的确切运行时通常取决于节点数，将 Azure Stack 实例包含，租户工作负荷，系统的网络连接 （如果连接到 internet），你的系统上使用的容量和系统硬件配置。 1905 更新已在我们的内部测试以下预期的运行时：4 个节点的 35 小时、 8 个节点-45 小时、 12 个节点-55 小时、 16 个节点的 70 多个小时。 1905 运行时持续时间比预期这些值并不少见，不需要执行操作由 Azure Stack 操作员除非更新失败。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)。
 
 ## <a name="whats-in-this-update"></a>此更新的内容
 
@@ -71,7 +71,7 @@ Azure Stack 1905 更新生成类型是**完整**。 有关更新的详细信息�
 
 - 当多个 Azure Active 目录会加入 (通过[此过程](azure-stack-enable-multitenancy.md))，则可以忽略了某些更新发生时，或对 AAD 服务主体授权的更改而导致发生权限为时重新运行脚本缺少。 这会导致各种问题，从被阻止访问某些功能，到多个离散故障很难进行跟踪回原来的问题。 若要防止此情况，1905年引入了一项新功能，这些权限检查时发现某些配置问题时创建警报。 此验证运行每隔一小时，并显示解决该问题所需的修正操作。 所有租户都都处于正常状态后，将关闭警报。
 
-- 改进的基础结构服务在故障转移期间的备份操作的可靠性。 
+- 改进的基础结构服务在故障转移期间的备份操作的可靠性。
 
 - 新版[Azure Stack Nagios 插件](azure-stack-integrate-monitor.md#integrate-with-nagios)是使用可用[Azure Active Directory 身份验证库](/azure/active-directory/develop/active-directory-authentication-libraries)(ADAL) 进行身份验证。 该插件现在还支持 Azure Stack 的 Azure Active Directory (AAD) 和 Active Directory 联合身份验证服务 (ADFS) 部署。 有关详细信息，请参阅[Nagios 插件 exchange](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)站点。
 
@@ -79,6 +79,22 @@ Azure Stack 1905 更新生成类型是**完整**。 有关更新的详细信息�
 
 - [Node.js SDK](https://www.npmjs.com/search?q=2019-03-01-hybrid)现在支持 API 配置文件。 包的支持**2019年-03-01-混合**发布配置文件。
 
+- 1905 Azure Stack 更新时添加了两个新的基础结构角色，以改进平台可靠性和可支持性：
+
+  - **基础结构环**:将来，基础结构环将托管现有基础结构角色 – 例如，xrp-目前都需要自己指定的基础结构 Vm 的容器化的的版本。 这将提高平台可靠性并降低基础结构 Vm 的 Azure Stack 需要数。 随后，这减少了总体资源消耗的 Azure Stack 基础结构角色在将来。
+  - **支持环**:在将来支持环将用于处理为客户增强的支持方案。  
+
+  此外，我们添加了额外的域控制器 VM 的更佳的可用性，此角色的实例。
+
+  这些更改将按以下方式增加 Azure Stack 基础结构的资源消耗：
+  
+    | Azure Stack SKU | 增加计算消耗 | 增加内存消耗 |
+    | -- | -- | -- |
+    |4 个节点|22 个 vCPU|28 GB|
+    |8 个节点|38 个 vCPU|44 GB|
+    |12 个节点|54 vCPU|60 GB|
+    |16 个节点|70 个 vCPU|76 GB|
+  
 - 现在是适用于 Visual Studio Code 的 Azure Stack 扩展。 使用**Azure 帐户**扩展，开发人员可以通过 Azure Stack，通过中的日志记录并查看订阅，以及许多其他服务。 Azure 帐户扩展适用于 AAD 环境以及 ADFS 环境，并只需稍微进行更改的用户设置中的 Visual Studio Code 进行输入 Azure Stack 元数据值。 有关详细信息[请参阅此处的文档](../user/azure-stack-dev-start-vscode-azure.md)。
 
 ### <a name="changes"></a>更改

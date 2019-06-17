@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 20ec9e6ea8831e6667a282074ba28b16da3180f9
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 59858d5538552fb04ddf41de0ad59cf77dcd7783
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131073"
 ---
 # <a name="about-deployment-network-traffic"></a>关于部署网络流量
 了解 Azure Stack 部署过程中的网络流量对确保成功部署是如何的重要。 本文详述了部署过程中的预期网络流量，方便用户了解预期会发生的情况。
@@ -57,9 +57,9 @@ DVM 配置了一个来自 BMC 网络的 IP，要求对 Internet 进行网络访�
 
 Azure Stack 交换机上的网络配置包含访问控制列表 (ACL)，用于限制特定网络源和目标之间的流量。 DVM 是访问不受限的唯一组件；即使 HLH 也受到很大限制。 可以向 OEM 询问自定义选项，以便更容易地从网络进行管理和访问。 由于存在这些 ACL，因此必须确保在部署时不更改 DNS 和 NTP 服务器地址， 否则需重新配置解决方案的所有交换机。
 
-部署完成后，将继续直接使用通过系统的组件提供的 DNS 和 NTP 服务器地址。 例如，如果在部署完成以后查看 DNS 请求，会发现源从 DVM IP 更改为外部网络范围中的某个地址。
+部署完成以后，提供的 DNS 和 NTP 服务器地址将继续供系统的组件直接使用。 例如，如果在部署完成以后查看 DNS 请求，会发现源从 DVM IP 更改为外部网络范围中的某个地址。
 
-部署完成后，将继续由通过 SDN 使用外部网络的系统的组件提供的 DNS 和 NTP 服务器地址。 例如，如果在部署完成以后查看 DNS 请求，会发现源从 DVM IP 更改为公共 VIP。
+部署完成后，系统的组件将继续使用外部网络通过 SDN 使用提供的 DNS 和 NTP 服务器地址。 例如，如果在部署完成以后查看 DNS 请求，会发现源从 DVM IP 更改为公共 VIP。
 
 ## <a name="next-steps"></a>后续步骤
 [验证 Azure 注册](azure-stack-validate-registration.md)
