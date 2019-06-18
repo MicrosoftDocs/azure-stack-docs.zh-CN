@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 5b90bc5014d0f8ebfaed8532f62b7c4f3aee8667
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: ef9406c8332eb983e20decb64ead723234aa8faa
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691861"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152570"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将市场项从 Azure 下载到 Azure Stack
 
@@ -31,8 +31,8 @@ ms.locfileid: "66691861"
 
 Azure 市场有两种连接场景： 
 
-- **已连接的方案**-需要在 Azure Stack 环境以连接到 internet。 使用 Azure Stack 门户查找和下载项。 
-- **断开连接或部分连接方案**-需要访问 Internet 使用 Marketplace 联合工具下载 Marketplace 项。 然后，将下载内容传输到离线 Azure Stack 安装中。 此场景使用 PowerShell。
+- **联网场景** - 需将 Azure Stack 环境连接到 Internet。 使用 Azure Stack 门户查找和下载项。 
+- **离线场景或部分联网场景** - 需要使用市场联合工具访问 Internet，以下载市场项。 然后，将下载内容传输到离线 Azure Stack 安装中。 此场景使用 PowerShell。
 
 有关可下载的市场项的列表，请参阅 [Azure Stack 的 Azure 市场项](azure-stack-marketplace-azure-items.md)。
 
@@ -48,17 +48,17 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
   
 1. 登录到 Azure Stack 管理员门户。
 
-2.  下载市场项之前，查看可用的存储空间。 稍后在选择要下载的项时，可将下载大小与可用存储容量进行比较。 如果容量有限，请考虑使用[管理可用空间](azure-stack-manage-storage-shares.md#manage-available-space)的选项。 
+2. 下载市场项之前，查看可用的存储空间。 稍后在选择要下载的项时，可将下载大小与可用存储容量进行比较。 如果容量有限，请考虑使用[管理可用空间](azure-stack-manage-storage-shares.md#manage-available-space)的选项。 
 
-    若要查看可用空间中**区域管理**选择你想要浏览，然后转到的区域**资源提供程序** > **存储**:
+    若要查看可用空间，请在“区域管理”中选择要浏览的区域，然后转到“资源提供程序” > “存储”：   
 
     ![查看存储空间](media/azure-stack-download-azure-marketplace-item/storage.png)
 
-3. 打开 Azure Stack 市场并连接到 Azure。 若要执行此操作，请选择**Marketplace 项**，然后选择**从 Azure 添加**:
+3. 打开 Azure Stack 市场并连接到 Azure。 为此，请依次选择“市场项”、“从 Azure 中添加”：  
 
     ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
-    门户将显示可从 Azure 市场下载的项的列表。 您可以筛选按名称、 发布服务器和/或类型的产品的产品。 此外可以单击每个项以查看其说明和其他信息，包括其下载大小：
+    门户将显示可从 Azure 市场下载的项的列表。 可以按名称、发布者和/或产品类型筛选产品。 还可以单击每个项查看其说明和附加信息，包括其下载大小：
 
     ![市场列表](media/azure-stack-download-azure-marketplace-item/image03.PNG)
 
@@ -98,7 +98,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
-2. 添加已经用来注册过 Azure Stack 的 Azure 帐户。 若要添加帐户，请在 PowerShell 中不结合任何参数运行 `Add-AzureRmAccount`。 系统会提示你输入 Azure 帐户凭据，您可能必须使用双重身份验证，具体情况视你的帐户的配置。
+2. 添加已经用来注册过 Azure Stack 的 Azure 帐户。 若要添加帐户，请在 PowerShell 中不结合任何参数运行 `Add-AzureRmAccount`。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
 3. 如果有多个订阅，请运行以下命令，选择已经用于注册的那个订阅：  
 

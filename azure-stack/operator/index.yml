@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/16/2018
+  ms.date: 06/17/2019
   ms.author: mabrigg
 abstract:
   description: Microsoft Azure Stack 是一种混合云平台，通过它可从数据中心提供 Azure 服务。 了解如何管理 Azure Stack 集成系统基础结构以及如何使用我们的快速入门和教程提供服务。<br/><br/>如果你是使用 Azure Stack 或为 Azure Stack 开发应用的用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。<br/><br/>如果你是对 Azure Stack 开发工具包 (ASDK) 感兴趣的 Azure Stack 操作员，可以免费下载和使用 Azure Stack 的单节点部署，请参阅我们的 <a href="/azure-stack/asdk">ASDK 文档</a>。
@@ -20,14 +20,14 @@ sections:
   - title: 快速入门
     items:
       - type: paragraph
-        text: 设置硬件和部署 Azure Stack 开发工具包。
+        text: 了解如何使用管理门户进行日常管理。
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: 部署 Azure Stack 开发工具包
-            href: ../asdk/asdk-download.md
+            text: 使用 Azure Stack 管理门户
+            href: azure-stack-manage-portals.md
   - title: 分步教程
     items:
       - type: paragraph

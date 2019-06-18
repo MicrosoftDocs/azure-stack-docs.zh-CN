@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 61ad09591bce8c01f6f4a5c2dfa43a74d8a44bc2
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.openlocfilehash: d3a50288464b81104ddd1dd032f93128fde43eae
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145231"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152523"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 

@@ -2,21 +2,20 @@
 title: Azure Stack 中的静态数据加密
 description: 了解 Azure Stack 如何使用静态加密来保护数据
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: PatAltimore
 ms.service: azure-stack
 ms.topic: article
-origin.date: 12/06/2018
-ms.date: 01/14/2019
-ms.author: v-jay
+ms.date: 06/17/2019
+ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
 keywords: ''
-ms.openlocfilehash: 018b8f6cf4fc5d3cd380535fca71a038b7fd4208
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0e21808ad82a61014b69cb26958a0c13518af13a
+ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64291657"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166504"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack"></a>Azure Stack 中的静态数据加密
 
@@ -46,7 +45,6 @@ Get-AzsRecoveryKeys
 | 参数 | 描述 | Type | 需要 |
 |---------|---------|---------|---------|
 |*raw* | 返回每个加密卷的恢复密钥、计算机名与密码 ID 之间的映射原始数据  | 开关 | 否（专用于支持方案）|
-
 
 ## <a name="troubleshoot-issues"></a>排查问题
 

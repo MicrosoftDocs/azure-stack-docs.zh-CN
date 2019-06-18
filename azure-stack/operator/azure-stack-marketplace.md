@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 70a1e1223accda5dfb273372da486588fb030afc
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: d00f7f90f05eddaeb52555a1759187b8282aaf1a
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172754"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152499"
 ---
 # <a name="azure-stack-marketplace-overview"></a>Azure Stack 市场概述
 
@@ -34,7 +34,7 @@ Azure Stack 操作员可以确定要添加（发布）到市场的项。 可以�
 > [!CAUTION]  
 > 将所有库项项目（包括映像和 JSON 文件）发布到 Azure Stack 市场后，无需身份验证即可访问这些项目。 有关发布自定义市场项时的其他注意事项，请参阅[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)。
 
-若要打开市场，请在管理员门户中选择“+ 创建资源”。
+若要打开市场，请在管理员门户中选择“+ 创建资源”  。
 
 ![市场](media/azure-stack-marketplace/marketplace1.png)
 
@@ -48,7 +48,7 @@ Azure Stack 市场项是用户可下载并使用的服务、应用程序或资�
 * 元数据，例如字符串、图标和其他营销材料。
 * 有关在门户中显示该项的格式信息。
 
-发布到市场的每个项使用 Azure 库包 (.azpkg) 格式。 添加部署或运行时资源 （代码、 软件或虚拟机映像的.zip 文件） 到 Azure Stack 分别不作为 Marketplace 项的一部分。
+发布到市场的每个项使用 Azure 库包 (.azpkg) 格式。 请单独地将部署或运行时资源（代码、包含软件的 .zip 文件或虚拟机映像）添加到 Azure Stack，而不要将其作为市场项的一部分添加。
 
 在 1803 和更高版本中，从 Azure 下载映像或上传自定义映像时，Azure Stack 会将映像转换为稀疏文件。 此过程会在添加映像时延长时间，但可节省空间并加速这些映像的部署。 转换仅适用于新映像。 现有映像不会更改。
 

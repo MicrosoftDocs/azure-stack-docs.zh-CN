@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 7669ee310e4262a72d90c478500d7e06919b43bc
-ms.sourcegitcommit: 427b534634d902b164e7d54dfd97b63c31563084
+ms.openlocfilehash: 4c7e48804b4336c658376b1c3f611dbe75cf8c1f
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67145188"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152471"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新
 
@@ -67,7 +67,7 @@ Azure Stack 1905 更新生成类型是**完整**。 因此，1905年更新具有
 
   请下载这些版本的扩展立即，以便在将来的版本中强制实施 TLS 1.2，扩展的新部署不会失败。 始终设置**autoupdateminorversion = true** ，以便自动执行次要版本更新到扩展 (例如，1.8 到 1.9)。
 
-- 一个新**帮助和支持概述**中 Azure Stack 门户轻松地运算符以查看其支持选项、 获得专家帮助和了解有关 Azure Stack 的详细信息。 在集成系统上创建支持请求将预先选择 Azure Stack 服务。 我们强烈建议客户使用这种体验来提交票证，而不是使用公共 Azure 门户。 有关详细信息，请参阅[Azure Stack 帮助和支持](azure-stack-help-and-support-overview.md)。
+- 一个新**帮助和支持概述**中 Azure Stack 门户轻松地运算符以查看其支持选项、 获得专家帮助和了解有关 Azure Stack 的详细信息。 在集成系统上创建支持请求将预先选择 Azure Stack 服务。 我们强烈建议客户使用这种体验来提交票证，而不是无需使用全局 Azure 门户。 有关详细信息，请参阅[Azure Stack 帮助和支持](azure-stack-help-and-support-overview.md)。
 
 - 当多个 Azure Active 目录会加入 (通过[此过程](azure-stack-enable-multitenancy.md))，则可以忽略了某些更新发生时，或对 AAD 服务主体授权的更改而导致发生权限为时重新运行脚本缺少。 这会导致各种问题，从被阻止访问某些功能，到多个离散故障很难进行跟踪回原来的问题。 若要防止此情况，1905年引入了一项新功能，这些权限检查时发现某些配置问题时创建警报。 此验证运行每隔一小时，并显示解决该问题所需的修正操作。 所有租户都都处于正常状态后，将关闭警报。
 
@@ -135,7 +135,7 @@ Azure Stack 的此更新中的安全更新的信息，请参阅[Azure Stack 的�
 
 ## <a name="download-the-update"></a>下载更新
 
-可以从 Azure Stack 1905 更新包下载[Azure Stack 下载页](https://aka.ms/azurestackupdatedownload)。
+可以从 Azure Stack 1905 更新包下载[Azure Stack 下载页](https://aka.ms/azurestackupdatedownload)。 使用程序下载程序工具时，请务必使用最新版本并不是从下载目录的缓存的副本。
 
 ## <a name="hotfixes"></a>修补程序
 

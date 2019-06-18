@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: e21819fc6475161e63fcdb99a723847c5d7fbbad
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: c78a1e1be525d67576665e7e8099489ae4eb05d8
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268396"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152443"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>教程：提供高度可用的 SQL 数据库
 
@@ -43,7 +43,7 @@ Azure Stack 操作员，可以配置承载 SQL Server 数据库服务器 Vm。 S
 > [!IMPORTANT]
 > 要使用的 Azure Stack 快速入门模板需要以下所有内容。
 
-- [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) marketplace 映像。
+- [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) marketplace 映像。
 - SQL Server 2016 SP1 或 SP2 （企业版、 标准版或开发人员） 在 Windows Server 2016 server 映像上。 本教程使用[Windows Server 2016 上的 SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) marketplace 映像。
 - [SQL Server IaaS 扩展](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)1.2.30 版本或更高版本。 SQL IaaS 扩展安装所需的所有 Windows 版本的 Marketplace SQL Server 项目的必需组件。 这样，SQL 虚拟机上配置特定于 SQL 的设置。 如果不在本地应用商店中安装该扩展，预配的 SQL 将失败。
 - [适用于 Windows 的自定义脚本扩展](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension)版本 1.9.1 或更高版本。 自定义脚本扩展是一种工具，可用于自动启动部署后 VM 自定义任务。

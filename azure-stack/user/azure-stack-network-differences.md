@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: de39645d1414fc852b98036e7071befcf5262cb1
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 742869344c89609ca9eb07c4a84186ee8302a02a
+ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469193"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166478"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 网络注意事项
 
@@ -35,6 +35,7 @@ Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部
 |  | 每个订阅的 DNS 区域数 | 100（默认值）<br>可以请求增加。 | 100 |
 |  | 每个区域的 DNS 记录集数 | 5000（默认值）<br>可以请求增加。 | 5000 |
 |  | 用于区域委派的名称服务器 | Azure 为创建的每个用户（租户）区域提供四个名称服务器。 | Azure Stack 为创建的每个用户（租户）区域提供两个名称服务器。 |
+| Azure 防火墙 | 网络安全服务 | Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚拟网络资源。 | 尚不支持。 |
 | 虚拟网络 | 虚拟网络对等互连 | 通过 Azure 主干网络连接同一区域中的两个虚拟网络。 | 尚不支持 |
 |  | IPv6 地址 | 可以分配 IPv6 地址作为[网络接口配置](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)的一部分。 | 仅支持 IPv4。 |
 |  | DDoS 防护计划 | 支持 | 尚不支持。 |

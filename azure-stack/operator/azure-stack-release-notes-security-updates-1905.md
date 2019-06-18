@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 49d56793f7ce104582abd807b8b894ec11933268
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 569089bd2e208cd980accd6c35a7402b45170c09
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836687"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152396"
 ---
 # <a name="azure-stack-security-updates"></a>Azure Stack 安全更新
 

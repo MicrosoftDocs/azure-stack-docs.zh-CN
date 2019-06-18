@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: db2ceabfdd49ed113a467923a3772423ab1ca65a
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749025"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152560"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 部署混合云解决方案
 
@@ -175,7 +175,7 @@ Azure Stack 上的应用服务必须可从公共 Internet 进行路由，使用�
 
 ### <a name="integrate-the-azure-app-service-application-with-the-hybrid-network"></a>将 Azure 应用服务应用程序与混合网络集成
 
-1. 若要将应用程序连接到 Azure VNet，请遵照[启用 VNet 集成](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#enabling-vnet-integration)中的说明操作。
+1. 若要连接到 Azure VNet 的应用程序，按照中的说明[网关所需的 VNet 集成](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration)。
 
 2. 导航到托管 Web 应用程序的应用服务计划的“设置”。  在“设置”中，选择“网络”。  
 
