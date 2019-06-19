@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 742869344c89609ca9eb07c4a84186ee8302a02a
-ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
+ms.openlocfilehash: a59b716df7e8bf7c9a76abbfcdbe6b300c985c9f
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166478"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198814"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 网络注意事项
 
@@ -55,7 +55,7 @@ Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部
 |  | BGP 设置 | Azure 支持配置“BGP 对等互连地址”和“对等互连权重”。 | “BGP 对等互连地址”和“对等互连权重”在 Azure Stack 中自动配置。 用户无法使用自己的值来配置这些设置。 |
 |  | 默认网关站点 | Azure 支持为强制隧道配置默认站点。 | 尚不支持。 |
 |  | 网关大小调整 | Azure 支持在部署后调整网关大小。 | 不支持调整大小。 |
-|  | 主动/主动配置 | 支持 | 尚不支持。 |
+|  | 可用性配置 | 主动/主动 | 主动/被动 |
 |  | UsePolicyBasedTrafficSelectors | Azure 支持将基于策略的流量选择器与基于路由的网关连接配合使用。 | 尚不支持。 |
 | 负载均衡 | SKU | 支持基本和标准负载均衡器。 | 仅支持基本负载均衡器。  不支持 SKU 属性。 |
 |  | 区域 | 支持可用性区域。 | 尚不支持 |

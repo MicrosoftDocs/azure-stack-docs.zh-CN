@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
-ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
+ms.openlocfilehash: 9b5273da44db26f9a98eab4147350c35214b128c
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66373018"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198687"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Go 配合使用
 
@@ -32,7 +32,7 @@ ms.locfileid: "66373018"
 - 通过锁定到特定的 API 版本提供应用程序稳定性。
 - 提供应用程序与 Azure Stack 和区域性 Azure 数据中心的兼容性。
 
-在 Go SDK 中，配置文件在 profiles 路径下提供，其版本采用 **YYYY-MM-DD** 格式。 现在，最新的 Azure Stack API 配置文件版本是**2019年-03-01**。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要导入**计算**服务从**2019年-03-01**配置文件，请使用以下代码：
+在 Go SDK 中，配置文件在 profiles 路径下提供，其版本采用 **YYYY-MM-DD** 格式。 现在，最新的 Azure Stack API 配置文件版本是**2019年-03-01**戳版本 1904年或更高版本。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要导入**计算**服务从**2019年-03-01**配置文件，请使用以下代码：
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"

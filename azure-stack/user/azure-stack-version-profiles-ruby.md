@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 625ddb8341b58c98e47b37701547de5d6acea45b
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3c897300dc2130b2c75449829304d4bd58b21898
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269326"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198668"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -90,8 +90,8 @@ gem install 'azure_sdk'
 | 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。 |
 | 客户端 ID | AZURE_CLIENT_ID | 在本文档上一部分创建服务主体时保存的服务主体应用程序 ID。  |
 | 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
-| 客户端密钥 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
-| 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](#the-azure-stack-resource-manager-endpoint)。  |
+| 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
+| 资源管理器终结点 | ARM_ENDPOINT | 请参阅[的 Azure Stack 资源管理器终结点](#the-azure-stack-resource-manager-endpoint)。  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack 资源管理器终结点
 
@@ -130,10 +130,10 @@ Microsoft Azure 资源管理器是一种管理框架，允许管理员部署、 
 
 Azure_sdk 汇总 gem 包含以下三个配置文件：
 
-1. **V2019_03_01_Hybrid**构建适用于 Azure Stack 配置文件。 使用此配置文件可以利用 Azure Stack 中提供的所有最新版服务。
-2. **V2017_03_09**  
-  为 Azure Stack 生成的配置文件。 请将此配置文件用于会与 Azure Stack 最兼容的服务。
-3. **最新**  
+1. **V2019_03_01_Hybrid**构建适用于 Azure Stack 配置文件。 使用此配置文件以便利用的服务提供的 Azure Stack 戳版本 1904年或更高版本的所有最新版本。
+1. **V2017_03_09**  
+  为 Azure Stack 生成的配置文件。 使用服务的此配置文件是最符合 Azure Stack 戳版本 1808年或更早版本。
+1. **最新**  
   配置文件包含所有服务的最新版本。 使用所有服务的最新版本。
 
 有关 Azure Stack 和 API 配置文件的详细信息，请参阅 [API 配置文件的摘要](azure-stack-version-profiles.md#summary-of-api-profiles)。
@@ -244,7 +244,7 @@ end
    - export AZURE_CLIENT_ID={你的客户端 ID}
    - export AZURE_CLIENT_SECRET={你的客户端机密}
    - export AZURE_SUBSCRIPTION_ID={你的订阅 ID}
-   - export ARM_ENDPOINT={你的 AzureStack 资源管理器 URL}
+   - export ARM_ENDPOINT={你的 Azure Stack 资源管理器 URL}
 
    > [!NOTE]  
    > 在 Windows 上，请使用 set 而不是 export。

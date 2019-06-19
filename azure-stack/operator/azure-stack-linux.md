@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 40a60c5207494ae70ccdfd051c8a223493b704c5
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: 8e9617974984afac55c2b1542065ea0455da0acc
+ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991106"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67197145"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>将 Linux 映像添加到 Azure Stack
 
@@ -49,7 +49,8 @@ Azure Linux 代理 (通常称为`WALinuxAgent`或`walinuxagent`) 是必需的并
 |  1.1901.3.105   | 2.2.35 或更高版本 |
 | 1.1902.2.73  | 2.2.35 或更高版本 |
 | 1.1903.0.35  | 2.2.35 或更高版本 |
-| 不受支持 | 2.2.21-2.2.34 |
+| 1903 后生成 | 2.2.35 或更高版本 |
+| 不支持 | 2.2.21-2.2.34 |
 
 可以按照以下说明准备自己的 Linux 映像：
 

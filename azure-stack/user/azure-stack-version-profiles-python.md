@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 98014cfa015f839e1801ffae95d08f3cbd00c986
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 18884a4570f5c90d00b8e17e42fe8bc1b3c073c2
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269494"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198603"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Python 配合使用
 
@@ -33,7 +33,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 - **latest**  
     此配置文件以 Azure 平台中所有服务提供程序的最新 API 版本为目标。
 - **2019-03-01-hybrid**  
-    此配置文件以 Azure Stack 平台中所有资源提供程序的最新 API 版本为目标。
+    此配置文件以戳版本 1904年或更高版本的 Azure Stack 平台中的所有资源提供程序为都目标的最新的 API 版本。
 - **2018-03-01-hybrid**  
     此配置文件以在 Azure Stack 平台中的所有资源提供程序为都目标的最兼容的 API 版本。
 - **2017-03-09-profile**  
@@ -58,7 +58,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 | 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。 |
 | 客户端 ID | AZURE_CLIENT_ID | 在本文上一部分创建服务主体时保存的服务主体应用程序 ID。 |
 | 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。 |
-| 客户端密钥 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
+| 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
 | 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
 | 资源位置 | AZURE_RESOURCE_LOCATION | Azure Stack 环境的资源位置。
 

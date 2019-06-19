@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 0df791c6eb9a898c5263b2c628899b512d49601c
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836828"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198645"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>关于 Azure Stack 的 VPN 网关
 
@@ -102,6 +102,14 @@ Azure Stack 不支持专门搭配 Express Route 使用的超性能网关 SKU。
 * Azure Stack 不支持基于策略的网关。
 * 基本 SKU 不支持边界网关协议 (BGP)。
 * Azure Stack 不支持 ExpressRoute-VPN 网关共存配置。
+
+## <a name="gateway-availability"></a>网关可用性
+
+只能上配置高可用性方案**高性能网关**连接 SKU。 与 Azure 不同，提供了通过主动/主动和主动/被动配置的可用性，Azure Stack 仅支持主动/被动配置。 
+
+### <a name="failover"></a>故障转移
+
+有 3 个多租户网关基础结构在 Azure Stack 中的 Vm。 在主动模式下，这些虚拟机的两个是和第三个是冗余的模式下。 活动的虚拟机启用 VPN 连接的用户、 创建和冗余 VM 只接受 VPN 连接发生故障转移。 如果活动网关 VM 变得不可用，VPN 连接故障转移到冗余 VM 连接丢失在短时间 （几秒钟）。
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>按 SKU 列出的估计聚合吞吐量
 

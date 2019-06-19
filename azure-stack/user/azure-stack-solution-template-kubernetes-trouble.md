@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 04/02/2019
+ms.date: 06/18/2019
 ms.reviewer: waltero
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 33eed0b574ad28c5fc0d1fb44f1c9b5a1ad37bb7
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: dbc3f495a8f3a2912e2b8a4a0de1058a2eaa4df0
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269395"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198793"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes 部署到 Azure Stack 故障排除
 
@@ -146,9 +146,9 @@ ms.locfileid: "66269395"
 
     | 参数           | 描述                                                                                                      | 示例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host      | 公共 IP 或此 DVM 的完全限定的域名 (FQDN)。 该 VM 名称以 `vmd-` 开头。 | IP：192.168.102.38<br>DNS: vmd myk8s.local.cloudapp.azurestack.external |
+    | -d, --vmd-host      | 公共 IP 或此 DVM 的完全限定的域名称 (FQDN)。 该 VM 名称以 `vmd-` 开头。 | IP：192.168.102.38<br>DNS: vmd myk8s.local.cloudapp.azurestack.external |
     | -h、--help  | 打印命令的用法。 | |
-    | -i、--identity-file | 创建 Kubernetes 群集时，RSA 私钥文件传递到 marketplace 项。 需要远程连接到 Kubernetes 节点中。 | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | -i、--identity-file | 创建 Kubernetes 群集时，RSA 私钥文件的路径传递给 marketplace 项。 需要远程连接到 Kubernetes 节点中。 | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
     | -m, --master-host   | 公共 IP 或 Kubernetes 主节点的完全限定的域名 (FQDN)。 该 VM 名称以 `k8s-master-` 开头。 | IP：192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u、--user          | 创建 Kubernetes 群集时，用户名将传递给 marketplace 项。 需要远程连接到 Kubernetes 节点中。 | azureuser （默认值） |
 
