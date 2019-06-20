@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 4c7e48804b4336c658376b1c3f611dbe75cf8c1f
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: e44dd6880de77ff063cbe6593a448020a154d1e8
+ms.sourcegitcommit: 507d2fdb0c1322a0bd07741f92c05a6322a80a44
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152471"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67237414"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新
 
@@ -65,7 +65,7 @@ Azure Stack 1905 更新生成类型是**完整**。 因此，1905年更新具有
   - microsoft.dsc-arm-2.77.0.0
   - microsoft.vmaccessforlinux-1.5.2
 
-  请下载这些版本的扩展立即，以便在将来的版本中强制实施 TLS 1.2，扩展的新部署不会失败。 始终设置**autoupdateminorversion = true** ，以便自动执行次要版本更新到扩展 (例如，1.8 到 1.9)。
+  请下载这些版本的扩展立即，以便在将来的版本中强制实施 TLS 1.2，扩展的新部署不会失败。 始终设置**autoUpgradeMinorVersion = true** ，以便自动执行次要版本更新到扩展 (例如，1.8 到 1.9)。
 
 - 一个新**帮助和支持概述**中 Azure Stack 门户轻松地运算符以查看其支持选项、 获得专家帮助和了解有关 Azure Stack 的详细信息。 在集成系统上创建支持请求将预先选择 Azure Stack 服务。 我们强烈建议客户使用这种体验来提交票证，而不是无需使用全局 Azure 门户。 有关详细信息，请参阅[Azure Stack 帮助和支持](azure-stack-help-and-support-overview.md)。
 
