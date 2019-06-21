@@ -16,12 +16,12 @@ ms.date: 06/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 38c7ec337ba8cdb73925b1c07f77331c05b25d8a
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 48a97beac6b43e95b52d8b23f20369318e53ebee
+ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836655"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67297992"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 已知问题
 
@@ -155,10 +155,10 @@ ms.locfileid: "66836655"
 - 补救措施：可以在可用性集的 2 个容错域已成功创建单个 Vm。 但是，在 4 节点 Azure Stack 上的更新过程中创建规模集实例是仍不可用。
 
 #### <a name="vmss-instance-view-blade-doesnt-load"></a>VMSS 实例视图边栏选项卡不会加载
- 
+
 - 适用于：此问题适用于 1904年和 1905年版。
-- 原因：规模集位于 Azure Stack 门户的实例视图边栏选项卡-> 仪表板-> 虚拟机规模集-> AnyScaleSet-实例-> 加载的云 AnyScaleSetInstance 失败。
-- 补救措施：目前尚无修正，我们正在努力修复程序。 在此之前，请使用 CLI 命令 az vmss 获取实例视图以获取 VMSS 实例视图
+- 原因：规模集位于 Azure Stack 门户的实例视图边栏选项卡-> 仪表板-> 虚拟机规模集-> AnyScaleSet-实例-> AnyScaleSetInstance 无法加载，并显示 crying 云映像。
+- 补救措施：目前尚无修正，我们正在努力修复程序。 在此之前，请使用 CLI 命令`az vmss get-instance-view`获取规模集实例视图。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH 访问
 
