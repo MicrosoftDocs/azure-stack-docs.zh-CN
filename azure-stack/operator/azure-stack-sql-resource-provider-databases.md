@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1036f5b418af330e0acfd940137f7ae2effecc25
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: a8ebc50be9b1c3e1eaae491b6d8f8916f900e500
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131224"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308461"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 

@@ -15,19 +15,19 @@ ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: aa196c5dfb56e6b3bbad5e4f6f112e855298dc02
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: c6d96a24866f4371dcca8aa953137288f94ac7ff
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298087"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308487"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>将 Kubernetes 部署到 Azure Stack 使用 Azure Active Directory
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。 [AKS 引擎](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)可用于生产。
+> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。
 
 可以按照在本文中部署和 Kubernetes，使用 Azure Active Directory (Azure AD)，如在标识管理服务，在单个协调操作时的资源设置的步骤。
 

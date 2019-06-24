@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: justinha
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: c78a1e1be525d67576665e7e8099489ae4eb05d8
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: fa9577bf0a620f8911ee6cf5238b55f460076883
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152443"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316308"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>教程：提供高度可用的 SQL 数据库
 

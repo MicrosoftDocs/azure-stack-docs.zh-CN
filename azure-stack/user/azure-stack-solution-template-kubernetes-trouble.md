@@ -14,19 +14,19 @@ ms.author: mabrigg
 ms.date: 06/18/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 4c875f46762d6dac5608869b0bb36606f01f9747
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: 89138601d1049f192946473d0a1fdb2c21df3e4c
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298050"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308723"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes 部署到 Azure Stack 故障排除
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。 [AKS 引擎](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)可用于生产。
+> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。
 
 这篇文章介绍如何排查 Kubernetes 群集。 若要开始故障排除，请查看部署所需的元素。 可能需要从 Azure Stack 或托管 Kubernetes 的 Linux VM 收集部署日志。 若要从管理终结点检索日志，请联系你的 Azure Stack 管理员。
 

@@ -14,12 +14,12 @@ ms.date: 04/15/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 8b3d0ad1f0854f7028e9dfff2d9114df141394a6
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 543e4befb23fe714cfe472f180647a976f6f3af4
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269608"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316227"
 ---
 # <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>创建服务主体以授予应用程序访问 Azure Stack 资源
 
@@ -65,7 +65,7 @@ ms.locfileid: "66269608"
 
 1. 通过 [Azure 门户](https://portal.azure.com)登录到 Azure 帐户。
 2. 选择“Azure Active Directory” > “应用注册” > “新建注册”。   
-3. 提供名称。
+3. 提供一个名称。
 4. 选择“支持的帐户类型”。 
 5.  添加应用程序的 URI。 选择“Web”  作为要创建的应用程序的类型。 设置这些值后，选择“注册”  。
 
@@ -88,7 +88,7 @@ ms.locfileid: "66269608"
 
 6. 完成后就会显示机密的值。 请记下此值，因为以后无法检索密钥。 将密钥值存储在应用程序可检索的位置。
 
-![有关已保存的密钥的密钥值警告。](./media/azure-stack-create-service-principals/image15.png)
+     ![有关已保存的密钥的密钥值警告。](./media/azure-stack-create-service-principals/image15.png)
 
 最后一步是[将应用程序分配到某个角色](azure-stack-create-service-principals.md)。
 
@@ -100,7 +100,7 @@ ms.locfileid: "66269608"
 * 将服务主体分配到某个角色。
 * 使用服务主体的标识进行登录。
 
-有关如何创建服务主体的详细信息，请参阅[为 AD FS 创建服务主体](../operator/azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)。
+有关如何创建服务主体的详细信息，请参阅[管理 AD FS 服务主体](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
 
 ## <a name="assign-the-service-principal-to-a-role"></a>将服务主体分配到某个角色
 

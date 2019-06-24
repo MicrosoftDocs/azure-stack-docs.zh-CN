@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 2ac09cede3efe356a6534ae4d5986a87d5619ff2
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 4913ff049b9c3bbc0869aa6cbc14d677e1946e54
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131131"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308411"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure Stack 上使用 SQL 数据库
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 0d31496b29bfd86ba8c781685f839cd7926967f5
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: 1f943daaebd368230fdc0257bbf719bef959dfb5
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67042044"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308395"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 

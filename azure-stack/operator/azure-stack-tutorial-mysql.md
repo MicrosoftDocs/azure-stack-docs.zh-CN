@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: justinha
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 61d839e0f34de9387023b272aff32cf69ad9ae13
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: e62e78705d6ca1ec8fa7d839b70eda3f147f82ab
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268483"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316293"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>教程：提供高可用性的 MySQL 数据库
 
@@ -110,11 +110,11 @@ Azure Stack 操作员，可以配置承载 MySQL Server 数据库服务器 Vm。
 
 1. 在管理员门户中，导航到部署 MySQL 群集时创建的资源组，并选择网络安全组 (**默认子网 sg**):
 
-   ![打开](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![开门](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. 选择**入站安全规则**，然后单击**添加**。<br><br>输入**3306**中**目标端口范围**并选择性地提供中的说明**名称**并**说明**字段。 单击添加以关闭入站的安全规则对话框。
 
-   ![打开](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![开门](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>配置 MySQL 群集外部访问
 可以作为 Azure Stack MySQL 服务器的主机添加 MySQL 群集之前，必须启用外部访问。

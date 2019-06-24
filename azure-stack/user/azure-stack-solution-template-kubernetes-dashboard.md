@@ -15,18 +15,18 @@ ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e3105e8c7129f4eef6a5b6fd601f955a8f44f337
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: ecd0d3c79edc2359cf82aa9c52fb9021d7fc7a6f
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298014"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308673"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>访问 Azure Stack 中的 Kubernetes 仪表板 
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包* 
 > [!Note]   
-> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。 [AKS 引擎](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)可用于生产。
+> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。
 
 Kubernetes 包括可用于基本的管理操作的 web 仪表板。 使用此仪表板，可以查看应用程序的基本运行状况状态和指标，创建并部署服务，以及编辑现有应用程序。 本文介绍如何设置 Azure Stack 上的 Kubernetes 仪表板。
 

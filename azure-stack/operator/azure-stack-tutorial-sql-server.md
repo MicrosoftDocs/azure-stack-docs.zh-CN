@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: justinha
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: cc3af256adbcea8e6055b237945dc2286762437e
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7198b48eef8ceb2cd802fb81e8ab835f4e254e04
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267999"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308448"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>教程：将 SQL 数据库提供给 Azure Stack 用户使用
 
@@ -57,7 +57,7 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 S
 
 ### <a name="subscribe-to-the-offer"></a>订阅套餐
 
-1. 以租户身份登录到 Azure Stack 门户 (https://portal.local.azurestack.external)。
+1. 以租户身份登录到 Azure Stack 门户 (https://portal.local.azurestack.external) 。
 2. 选择“获取订阅”，然后在“显示名称”下输入 **TestSQLServerSubscription**。  
 3. 选择“选择套餐” > “TestSQLServerOffer” > “创建”。   
 4. 选择“所有服务” > “订阅” > “TestSQLServerSubscription” > “资源提供程序”。    

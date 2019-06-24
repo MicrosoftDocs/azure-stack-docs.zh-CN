@@ -12,7 +12,7 @@
       items:
         - name: 最新更新
           href: azure-stack-servicing-policy.md
-        - name: 有关应用更新的清单
+        - name: 应用更新的清单
           href: azure-stack-release-notes-checklist.md
         - name: 安全更新
           href: azure-stack-release-notes-security-updates-1905.md
@@ -213,7 +213,7 @@
               href: azure-stack-add-new-user-aad.md
             - name: 为 AD FS 添加用户
               href: azure-stack-add-users-adfs.md
-            - name: 创建服务主体
+            - name: 使用应用程序标识来访问资源
               href: Azure-stack-create-service-principals.md
             - name: 启用多租户
               href: azure-stack-enable-multitenancy.md

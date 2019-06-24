@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: fa8bd58d856f7a502e28beddb3d1c32f13dc18b7
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 4f2e7a77af14c71c2b3231436d723c6e721ceca9
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131477"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308621"
 ---
 # <a name="create-mysql-databases"></a>创建 MySQL 数据库
 订阅了包含 MySQL 数据库服务的产品/服务的 Azure Stack 用户可以在用户门户中创建和管理自助式 MySQL 数据库。

@@ -15,19 +15,19 @@ ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 386af98fa505c627a7e4c5f9fa05f305fbed9316
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: 16bbd9b7554eb9e42bac2b0f5694f148589b94ed
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298007"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308696"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>部署 Kubernetes Azure Stack 中使用容器
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。 [AKS 引擎](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)可用于生产。
+> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。
 
 可以按照这篇文章来部署和在单个协调的操作中设置 Kubernetes 资源中的步骤。 步骤使用 Azure 资源管理器解决方案模板。 你将需要有关 Azure Stack 安装，收集所需的信息生成模板，并随后部署到你的云。 Azure Stack 模板不使用全球 Azure 中提供的相同托管的 AKS 服务。
 

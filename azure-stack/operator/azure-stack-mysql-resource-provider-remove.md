@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: e26553193d0310101f928efe454844a06da7b0e6
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: d44d60495ad4820277b6fdb7532404fb9aa42b09
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617930"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308585"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序
 

@@ -15,19 +15,19 @@ ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 65ffa6cc2a9c2d08e5be6733db06a4235829838a
-ms.sourcegitcommit: 759a01b566597a71b18fca25902cacc983a5a63b
+ms.openlocfilehash: 61d2739475a0593671e7a363671dd2859a6e6f24
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67298039"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316253"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>将 Kubernetes 添加到 Azure Stack 市场
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!note]  
-> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。 [AKS 引擎](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md)可用于生产。
+> Azure Stack 上的 Kubernetes 现为预览版。 在预览目前不支持 Azure Stack 离线的场景。 仅使用 marketplace 项进行开发和测试方案。
 
 可以将 Kubernetes 作为市场项提供给用户。 然后，用户可以将 Kubernetes 部署在单个协调的操作。
 
@@ -63,7 +63,7 @@ ms.locfileid: "67298039"
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>在 AD FS 中创建服务主体和凭据
 
-如果您使用 Active Directory 联合身份验证服务 (AD FS) 标识管理服务，需要创建服务主体的用户部署 Kubernetes 群集。 创建服务主体使用的客户端机密。 有关说明，请参阅[创建服务主体使用的客户端机密](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret)。
+如果您使用 Active Directory 联合身份验证服务 (AD FS) 标识管理服务，需要创建服务主体的用户部署 Kubernetes 群集。 创建服务主体使用的客户端机密。 有关说明，请参阅[创建服务主体使用的客户端机密](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)。
 
 ## <a name="add-an-ubuntu-server-image"></a>添加 Ubuntu 服务器映像
 
