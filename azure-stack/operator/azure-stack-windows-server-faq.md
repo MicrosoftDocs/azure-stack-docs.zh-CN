@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 0896ea921408d651a4b8e072c3d66ab4e333ebd6
+ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459065"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67334434"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack marketplace 常见问题解答中的 Windows Server
 
@@ -36,7 +36,7 @@ ms.locfileid: "66459065"
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Azure Stack 上的 Windows Server 市场映像有哪些许可选项？
 
-Microsoft 提供了两个版本的 Windows Server 映像，通过 Azure Stack marketplace:
+Microsoft 提供了两个版本的 Windows Server 映像，通过 Azure Stack marketplace。 可以在 Azure Stack 环境中使用此图像的只有一个版本。  
 
 - **即用即付**：这些映像运行全价 Windows 计量器。
    适合对象：使用消耗量计费模型的企业协议 (EA) 客户、不想要使用 SPLA 许可的 CSP。 
@@ -47,7 +47,9 @@ Azure Stack 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”模�
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>如果下载了错误的版本并将其提供给租户/用户，该怎么办？
 
-请先通过“市场管理”删除错误的版本。 等待它完成完全 (不看看是否已完成，通知**Marketplace 管理**边栏选项卡)。 然后下载正确的版本。
+通过 marketplace 管理首先删除不正确的版本。 等待它完成 (看看是否已完成，通知未**Marketplace 管理**边栏选项卡)。 然后下载正确的版本。
+
+如果您下载这两个版本，只有最新版本是映像的对 marketplace 库中的最终客户可见。
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>如果我的用户在旧版 Windows 生成中错误地选中了“我有许可证”框，但他们其实并没有许可证，该怎么办？
 
