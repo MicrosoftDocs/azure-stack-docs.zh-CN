@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: Howto
-ms.date: 05/31/2019
+ms.date: 06/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 8e64a570ab45e57e3cf58639bc2ec23d9b9bd81b
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.lastreviewed: 06/25/2019
+ms.openlocfilehash: 4e7dd18267060f632e2d059b0a7b0d9158b2e260
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453490"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387754"
 ---
 # <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>连接到 Azure Stack 在 Visual Studio Code 中使用 Azure 帐户扩展
 
@@ -34,9 +34,15 @@ VS Code 是构建和调试 web 和云应用程序的轻型编辑器。 它使用
 
 ## <a name="steps-to-connect-to-azure-stack"></a>若要连接到 Azure Stack 的步骤
 
-1. 打开 VS Code。
+1. 运行**标识**从 Azure Stack 工具 GitHub 中的脚本。
 
-2. 选择**扩展**左侧角。
+    - 在运行该脚本之前，需要已安装并为您的环境配置 PowerShell。 有关说明，请参阅[安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)。
+
+    - 有关**标识**脚本的说明和脚本，请参阅[AzureStack-工具/标识](https://github.com/Azure/AzureStack-Tools/tree/master/Identity)。
+
+2. 打开 VS Code。
+
+3. 选择**扩展**左侧角。
 
 3. 在搜索框中输入 `Azure Account`。
 
@@ -55,7 +61,7 @@ VS Code 是构建和调试 web 和云应用程序的轻型编辑器。 它使用
 
     例如，若要检索你的 Azure 资源管理器终结点的元数据的 URL 可能如下所示： `https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
 
-    记下返回的 JSON。 你将需要的值`loginEndpoint`和`loginEndgraphEndpointpoint`属性。
+    记下返回的 JSON。 你将需要的值`loginEndpoint`和`audiences`属性。
 
 7. 按**Ctrl + Shift + P** ，然后选择**首选项：打开用户设置 (JSON)** 。
 
@@ -67,7 +73,7 @@ VS Code 是构建和调试 web 和云应用程序的轻型编辑器。 它使用
         | --- | --- |
         | `tenant-ID` | Azure Stack [租户 ID](../operator/azure-stack-identity-overview.md) 的值。 |
         | `activeDirectoryEndpointUrl` | 这是从 loginEndpoint 属性的 URL。 |
-        | `activeDirectoryResourceId` | 这是从 loginEndgraphEndpointpoint 属性的 URL。
+        | `activeDirectoryResourceId` | 这是从受众属性的 URL。
         | `resourceManagerEndpointUrl` | 这是根 URL 的 Azure 资源管理器为 Azure Stack。 | 
 
     - JSON 代码片段：
@@ -76,15 +82,15 @@ VS Code 是构建和调试 web 和云应用程序的轻型编辑器。 它使用
       "azure.tenant": "tenant-ID",
       "azure.ppe": {
           "activeDirectoryEndpointUrl": "Login endpoint",
-          "activeDirectoryResourceId": "graph audience",
-          "resourceManagerEndpointUrl": "Management Endpoint",
+          "activeDirectoryResourceId": "This is the URL from the audiences property.",
+          "resourceManagerEndpointUrl": "Aure Resource Management Endpoint",
       },
       "azure.cloud": "AzurePPE"
       ```
 
-8. 保存用户设置，并使用**Ctrl + Shift + P**再一次。 选择**Azure:登录到 Azure 云**。 新的选项， **AzurePPE**，将出现在目标列表。
+9. 保存用户设置，并使用**Ctrl + Shift + P**再一次。 选择**Azure:登录到 Azure 云**。 新的选项， **AzurePPE**，将出现在目标列表。
 
-9. 选择**AzurePPE**。 在浏览器中加载身份验证页面。 登录到你的终结点。
+10. 选择**AzurePPE**。 在浏览器中加载身份验证页面。 登录到你的终结点。
 
 11. 若要测试你已成功登录到 Azure Stack 订阅，请使用**Ctrl + Shift + P** ，然后选择**Azure:选择订阅**和查看是否有你的订阅。
 

@@ -1,6 +1,6 @@
 ---
-title: 已知问题的 azure Stack 1904 |Microsoft Docs
-description: 了解 Azure Stack 1904 中的已知问题。
+title: Azure Stack 1904 的已知问题 | Microsoft Docs
+description: 了解 Azure Stack 1904 的已知问题。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,90 +16,83 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: 70d6cfae2eb6e9508e2141aa59c6986ec8817d11
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469132"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387715"
 ---
-# <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 年的已知问题
+# <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 的已知问题
 
-本文列出了 1904年版本的 Azure Stack 中的已知的问题。 在发现新的问题后，更新列表。
+本文列出了 Azure Stack 版本 1904 中的已知问题。 每当发现新的问题，此列表就会更新。
 
 > [!IMPORTANT]  
-> 在应用更新之前查看此部分。
+> 在应用更新之前，请先查看本部分。
 
 ## <a name="update-process"></a>更新过程
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：在尝试安装 Azure Stack 更新时，更新的状态可能失败，并将状态更改为**PreparationFailed**。 这被引起更新资源提供程序 (URP) 无法正确地将文件传输从存储容器到处理的内部基础结构共享。
-- 补救措施：从版本 1901 (1.1901.0.95) 开始，你可以解决此问题通过单击**立即更新**再次 (不**恢复**)。 URP 然后清理文件从上一次尝试，并重新开始下载。
+- 适用于：此问题适用于所有支持的版本。
+- 原因：尝试安装 Azure Stack 更新时，更新状态可能会显示失败并更改为 **PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
+- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。
 - 发生次数：常见
 
 ## <a name="portal"></a>门户
 
-### <a name="administrative-subscriptions"></a>管理订阅
-
-- 适用：此问题适用于所有支持的版本。
-- 原因：不应使用与版本 1804年引入了两个管理订阅。 订阅类型是**计量**订阅，并**消耗**订阅。
-- 补救措施：第一页为 1906年和最终删除，这些订阅将被挂起。 如果您有以下两个订阅上运行的资源，重新在 1906年之前用户订阅中创建它们。
-- 发生次数：常见
-
 ### <a name="subscription-resources"></a>订阅资源
 
-- 适用：此问题适用于所有支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：删除用户订阅生成孤立的资源。
-- 补救措施：首先删除用户资源或整个资源组，然后再删除用户订阅。
+- 补救措施：先删除用户资源或整个资源组，然后再删除用户订阅。
 - 发生次数：常见
 
-### <a name="subscription-permissions"></a>订阅的权限
+### <a name="subscription-permissions"></a>订阅权限
 
-- 适用：此问题适用于所有支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：无法使用 Azure Stack 门户查看订阅的权限。
-- 补救措施：使用[PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
+- 补救措施：使用 [PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
 
 ### <a name="docker-extension"></a>Docker 扩展
 
-- 适用：此问题适用于所有支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：管理员和用户门户网站，如果搜索中**Docker**，错误地返回的项。 不是 Azure Stack 中提供。 如果您尝试创建它，将显示错误。
-- 补救措施：没有缓解措施。
+- 补救措施：无缓解措施。
 - 发生次数：常见
 
 ### <a name="marketplace-management"></a>市场管理
 
-- 适用：这是版本 1904年新问题。
+- 适用于：这是版本 1904 中的一个新问题。
 - 原因：在登录到管理员门户时，将不可见 marketplace 管理屏幕。
 - 补救措施：刷新浏览器。
 - 发生次数：间歇性
 
 ### <a name="marketplace-management"></a>市场管理
 
-- 适用：此问题适用于 1904年。
+- 适用于：此问题适用于版本 1904。
 - 原因：筛选结果中的时**从 Azure 添加**边栏选项卡在管理员门户中 Marketplace 管理选项卡中，可能会看到不正确的筛选的结果。
 - 补救措施：将更正的名称列的排序结果和结果。
 - 发生次数：间歇性
 
 ### <a name="marketplace-management"></a>市场管理
 
-- 适用：此问题适用于 1904年。
+- 适用于：此问题适用于版本 1904。
 - 原因：在 Marketplace 管理管理员门户中的结果进行筛选，会看到重复的发布者名称下发布服务器下拉列表。 
 - 补救措施：选择具有下该发布者提供的所有 Marketplace 产品的正确列表的所有重复项。
 - 发生次数：间歇性
 
 ### <a name="docker-extension"></a>Docker 扩展
 
-- 适用：此问题适用于所有支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：管理员和用户门户网站，如果搜索中**Docker**，错误地返回的项。 不是 Azure Stack 中提供。 如果您尝试创建它，将显示错误。
-- 补救措施：没有缓解措施。
+- 补救措施：无缓解措施。
 - 发生次数：常见
 
 ### <a name="upload-blob"></a>上传 blob
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：用户门户中，当您尝试使用 OAuth(preview) 选项，将 blob 上传任务将失败并显示错误消息。
-- 补救措施：上传的 blob 使用 SAS 选项。
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户中尝试使用“OAuth(preview)”选项上传 Blob 时，任务将会失败并出现错误消息。
+- 补救措施：使用 SAS 选项上传 Blob。
 - 发生次数：常见
 
 ## <a name="networking"></a>网络
@@ -108,29 +101,29 @@ ms.locfileid: "66469132"
 
 #### <a name="add-backend-pool"></a>添加后端池
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：在用户门户中，如果尝试添加**后端池**到**负载均衡器**，则操作将失败并显示错误消息**未能更新负载均衡器...** .
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户尝试将**后端池**添加到**负载均衡器**时，该操作失败并出现错误消息“无法更新负载均衡器...”。 
 - 补救措施：使用 PowerShell、 CLI 或 Azure 资源管理器模板与负载均衡器资源关联的后端池。
 - 发生次数：常见
 
 #### <a name="create-inbound-nat"></a>创建入站的 NAT
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：在用户门户中，如果您尝试创建**入站 NAT 规则**有关**负载均衡器**，则操作将失败并显示错误消息**未能更新负载均衡器...** .
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户尝试为**负载均衡器**创建**入站 NAT 规则**时，该操作失败并出现错误消息“无法更新负载均衡器...”。 
 - 补救措施：使用 PowerShell、 CLI 或 Azure 资源管理器模板与负载均衡器资源关联的后端池。
 - 发生次数：常见
 
 #### <a name="create-load-balancer"></a>创建负载均衡器
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：在用户门户中，**创建负载均衡器**窗口将显示一个选项以创建**标准**负载均衡器 SKU。 在 Azure Stack 中不支持此选项。
-- 补救措施：改为使用基本负载均衡器选项。
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户中，**创建负载均衡器**窗口将显示一个选项以创建**标准**负载均衡器 SKU。 Azure Stack 不支持此选项。
+- 补救措施：改用“基本”负载均衡器选项。
 - 发生次数：常见
 
 #### <a name="public-ip-address"></a>公共 IP 地址
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：在用户门户中，**创建公共 IP 地址**窗口将显示一个选项以创建**标准**SKU。 **标准**SKU 不支持在 Azure Stack 中。
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户中，“创建公共 IP 地址”窗口显示一个用于创建“标准”SKU 的选项。   Azure Stack 不支持“标准”SKU。 
 - 补救措施：使用**基本**SKU 改为公共 IP 地址。
 - 发生次数：常见
 
@@ -138,45 +131,45 @@ ms.locfileid: "66469132"
 
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：创建新的 Windows 虚拟机 (VM) 时，可能会显示以下错误：**未能启动虚拟机 vm-name。错误：未能更新 VM vm-name 的串行输出设置**。
-如果 VM 上启用启动诊断，但删除启动诊断存储帐户后，将发生此错误。
-- 补救措施：重新创建以前使用的相同名称的存储帐户。
+- 适用于：此问题适用于所有支持的版本。
+- 原因：创建新的 Windows 虚拟机 (VM) 时，可能会显示以下错误：**无法启动虚拟机 'vm-name'。错误：无法更新 VM 'vm-name' 的串行输出设置**。
+如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
+- 补救措施：使用以前所用的相同名称重新创建存储帐户。
 - 发生次数：常见
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
 
 #### <a name="centos"></a>CentOS
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：虚拟机规模集创建体验提供了基于 CentOS 7.2，作为一个选项来部署。 CentOS 7.2 不是可在 Azure Stack 上的。
-- 补救措施：选择另一个适用于你的部署，或使用指定另一个已从 marketplace 部署前运算符所下载的 CentOS 映像的 Azure 资源管理器模板。
+- 适用于：此问题适用于所有支持的版本。
+- 原因：虚拟机规模集创建体验提供了基于 CentOS 7.2，作为一个选项来部署。 Azure Stack 不提供 CentOS 7.2。
+- 补救措施：为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。
 - 发生次数：常见
 
 #### <a name="remove-scale-set"></a>删除规模集
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：无法删除规模集从**虚拟机规模集**边栏选项卡。
-- 补救措施：选择的小数位数设置你想要删除，然后单击**删除**按钮从**概述**窗格。
+- 适用于：此问题适用于所有支持的版本。
+- 原因：无法从“虚拟机规模集”边栏选项卡中删除规模集。 
+- 补救措施：选择要删除的规模集，然后在“概述”窗格中单击“删除”按钮。  
 - 发生次数：常见
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>在修补和更新在 4 节点 Azure Stack 环境的过程中创建失败
 
-- 适用：此问题适用于所有支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：在 3 个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例失败，并**FabricVmPlacementErrorUnsupportedFaultDomainSize**过程 4 节点 Azure Stack 上的更新过程中出错环境。
 - 补救措施：可以在可用性集的 2 个容错域已成功创建单个 Vm。 但是，在 4 节点 Azure Stack 上的更新过程中创建规模集实例是仍不可用。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH 访问
 
-- 适用：此问题适用于所有支持的版本。
-- 原因：创建具有 SSH 授权启用的 Ubuntu 18.04 VM 不允许您可以使用 SSH 密钥登录。
-- 补救措施：使用 VM 访问 for Linux 扩展预配后，实现 SSH 密钥或使用基于密码的身份验证。
+- 适用于：此问题适用于所有支持的版本。
+- 原因：如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。
+- 补救措施：在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
 - 发生次数：常见
 
 ### <a name="compute-host-agent-alert"></a>计算主机代理警报
 
-- 适用：这是版本 1904年新问题。
-- 原因：一个**计算主机代理**缩放单位中重新启动节点之后会出现警告。 在重新启动更改计算主机代理服务的默认启动设置。 此警报看起来类似于下面的示例：
+- 适用于：这是版本 1904 中的一个新问题。
+- 原因：一个**计算主机代理**缩放单位中重新启动节点之后会出现警告。 重启操作会更改计算主机代理服务的默认启动设置。 此警报看起来类似于下面的示例：
 
    ```shell
    NAME  
@@ -198,19 +191,19 @@ ms.locfileid: "66469132"
    ```
 
 - 补救措施：
-  - 可以忽略此警报。 代理未响应并没有对运算符和用户操作或用户应用程序造成任何影响。 警报在 24 小时后将重新出现如果已手动关闭。
+  - 可以忽略此警报。 代理无响应并不会影响操作员和用户的操作或用户应用程序。 如果手动关闭此警报，它会在 24 小时后再次出现。
   - 在最新版本中已修复问题[1904年的 Azure Stack 修补程序](https://support.microsoft.com/help/4505688)。
 - 发生次数：常见
 
 ### <a name="virtual-machine-scale-set-instance-view"></a>虚拟机规模集实例视图
 
-- 适用：此问题适用于 1904年和 1905年版本。
+- 适用于：此问题适用于 1904年和 1905年版本。
 - 原因：规模集实例视图边栏选项卡位于 Azure Stack 门户中**仪表板** > **虚拟机规模集** >  **AnyScaleSet-实例** > **AnyScaleSetInstance**加载失败。
 - 补救措施：目前尚无修正，我们正在努力修复程序。 在此之前，请使用 CLI cmdlet`az vmss get-instance-view`获取虚拟机规模集实例视图。
 
 ## <a name="storage"></a>存储
 
-- 适用：此问题适用于所有支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：[Convertto-azurermvmmanageddisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk)不支持在 Azure Stack 中，会创建具有磁盘 **$null** id。 这会防止执行在 VM 中，如启动和停止操作。 磁盘不会显示在 UI 中，也不会出现通过 API。 VM 在该点不能修复，必须删除。
 - 补救措施：若要正确转换你的磁盘，请按照[将转换为托管的磁盘指南](../user/azure-stack-managed-disk-considerations.md#convert-to-managed-disks)。
 
@@ -227,5 +220,5 @@ ms.locfileid: "66469132"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [查看更新活动核对清单](azure-stack-release-notes-checklist.md)
+- [查看更新活动清单](azure-stack-release-notes-checklist.md)
 - [查看安全更新列表](azure-stack-release-notes-security-updates-1904.md)

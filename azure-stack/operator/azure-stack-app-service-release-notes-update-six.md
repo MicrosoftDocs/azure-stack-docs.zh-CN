@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
+ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828312"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67348724"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>应用服务的 Azure Stack 更新 6 发行说明
 
@@ -111,7 +111,11 @@ Azure Stack 更新 6 上的 azure 应用服务包括以下改进和修补程序�
 
 - 部署选项 （经典） 的用户体验和部署凭据门户选项不可用
 
-要达到的部署选项和部署凭据的用户体验在 Azure Stack 部署中，租户应访问门户使用此 URL 格式- https://portal.&lt;*区域*&gt;。&lt;*FQDN*&gt;/？ websitesExtension_oldvsts = true-这是对于 asdk 来说[ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) ，然后正常情况下导航到其应用程序。
+要达到的部署选项和部署凭据的用户体验在 Azure Stack 部署中，租户应访问门户使用此 URL 格式- https://portal.&lt ;*区域*&gt; 。&lt;*FQDN*&gt; /？ websitesExtension_oldvsts = true-这是对于 asdk 来说[ https://portal.local.azurestack.external/?websitesExtension_oldvsts=true ](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) ，然后正常情况下导航到其应用程序。
+
+- Azure 函数监视不断地在门户中显示"正在加载"
+
+当尝试监视各个函数，在租户门户中，您将看到没有调用日志、 成功计数或错误计数。  若要重新启用此功能，请转到您**Function App**，请转到**平台功能**，并转到**应用程序设置**。  添加新的应用程序设置-命名**AzureWebJobsDashboard**并将值设置为按照中的 AzureWebJobsStorage 相同的值。  然后转到你的函数上的监视器视图，您将看到监视信息。
 
 ## <a name="next-steps"></a>后续步骤
 

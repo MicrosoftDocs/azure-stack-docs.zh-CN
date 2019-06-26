@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2019
+ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: b115bacc0c05eeede7a3ba8e424c8a6ed70774ee
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 2e7737033b0f94473f4b794e452c9239f275c8f8
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67315894"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387727"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异与注意事项
 
@@ -67,6 +67,9 @@ Azure Stack 托管磁盘支持以下 API 版本：
 - 2017-12-01
 
 ## <a name="convert-to-managed-disks"></a>转换为托管磁盘
+
+> [!NOTE]  
+> Azure PowerShell cmdlet **Convertto-azurermvmmanageddisk**不能用于将非托管的磁盘转换为 Azure Stack 中的托管磁盘。 Azure Stack 尚不支持此 cmdlet。
 
 可以使用以下脚本将当前预配的 VM 从非托管磁盘转换为托管磁盘。 将占位符替换成自己的值：
 
