@@ -54,12 +54,12 @@
       href: azure-stack-use-portal.md
     - name: 使用 PowerShell 连接
       href: azure-stack-powershell-configure-user.md
-    - name: 安全性和遵从性
+    - name: 安全、符合性和标识
       items:
         - name: 使用基于角色的访问控制
           href: azure-stack-manage-permissions.md
-        - name: 使用服务主体
-          href: Azure-stack-create-service-principals.md
+        - name: 使用应用程序标识来访问资源
+          href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: 使用服务
       items:
         - name: 计算

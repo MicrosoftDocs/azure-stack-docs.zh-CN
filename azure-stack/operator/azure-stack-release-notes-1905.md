@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: e44dd6880de77ff063cbe6593a448020a154d1e8
-ms.sourcegitcommit: 507d2fdb0c1322a0bd07741f92c05a6322a80a44
+ms.openlocfilehash: 6f178d0208f5111a7ae60d23e1d914fcf8e3aba5
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67237414"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397272"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新
 
@@ -155,7 +155,7 @@ Azure Stack 的 1905年版本必须应用于 1904年发布与以下修补程序�
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- 没有可用于 1905年的修补程序。
+- [Azure Stack hotfix 1.1905.3.48](https://support.microsoft.com/help/4510078)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 

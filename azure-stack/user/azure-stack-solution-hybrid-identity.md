@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ed85055c04e068ad614a406caf113555601bd620
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.lastreviewed: 06/26/2019
+ms.openlocfilehash: 712aa506cf9209b123d3fafcfd6324d58575ae54
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252045"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406966"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教程：为 Azure 和 Azure Stack 应用程序配置混合云标识
 
@@ -52,11 +52,11 @@ ms.locfileid: "66252045"
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>在门户中创建适用于 Azure AD 的服务主体
 
-如果已使用 Azure AD 部署 Azure Stack 作为标识存储，则可以创建服务主体，就像对 Azure 所做的那样。 [创建服务主体](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad)一文介绍了如何通过门户执行这些步骤。 在开始之前，请检查是否拥有[所需的 Azure AD 权限](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)。
+如果在部署 Azure Stack 使用 Azure AD 作为标识存储，可以创建服务主体就像 Azure。 [使用应用程序标识来访问资源](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal)演示如何通过门户执行步骤。 请确保您拥有[所需的 Azure AD 权限](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)然后再开始。
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>使用 PowerShell 创建适用于 AD FS 的服务主体
 
-如果已使用 AD FS 部署 Azure Stack，则可以使用 PowerShell 创建服务主体、为角色分配访问权限以及使用该标识从 PowerShell 登录。 [创建 AD FS 的服务主体](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)介绍了如何使用 PowerShell 执行所需的步骤。
+如果部署使用 AD FS 的 Azure Stack 时，可以使用 PowerShell 创建服务主体、 分配角色的访问权限，并从 PowerShell 中使用该标识登录。 [使用应用程序标识来访问资源](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)演示如何执行所需的步骤使用 PowerShell。
 
 ## <a name="using-the-azure-stack-api"></a>使用 Azure Stack API
 

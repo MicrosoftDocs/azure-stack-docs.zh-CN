@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: ab5b0b5ac0e67a2a625285bd37a04b084fa8da0f
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: d6944fefeb55c1b2a109964271c84daafb8b8ff8
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65386602"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397303"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -30,7 +30,7 @@ ms.locfileid: "65386602"
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>VPN 网关的 IPsec 和 IKE 策略参数
 
-IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若要查看 Azure Stack 支持的参数，请参阅可帮助满足合规或安全要求的  [IPsec/IKE 参数](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)。
+IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若要查看 Azure Stack 支持的参数，请参阅可帮助满足合规或安全要求的 [IPsec/IKE 参数](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)。
 
 本文说明如何创建和配置 IPsec/IKE 策略，并将其应用到新的或现有的连接。
 
@@ -38,9 +38,9 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 使用这些策略时，请注意以下重要事项：
 
-- IPsec/IKE 策略仅适用于“标准”和“高性能”（基于路由）网关 SKU。  ** 
+- IPsec/IKE 策略仅适用于“标准”和“高性能”（基于路由）网关 SKU。  
 
-- 对于一个给定的连接，只能指定 **一个**策略组合。 
+- 一个给定的连接只能指定一个策略组合。 
 
 - 必须指定 IKE（主模式）和 IPsec（快速模式）的所有算法和参数。 不允许指定部分策略。
 
@@ -111,7 +111,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 | 20                   | ECP384    | ECP384        | 384 位 ECP   |
 | 24                   | DHGroup24 | PFS24         | 2048 位 MODP |
 
-有关详细信息，请参阅  [RFC3526](https://tools.ietf.org/html/rfc3526) 和  [RFC5114](https://tools.ietf.org/html/rfc5114)。
+有关详细信息，请参阅 [RFC3526](https://tools.ietf.org/html/rfc3526) 和 [RFC5114](https://tools.ietf.org/html/rfc5114)。
 
 ## <a name="part-3---create-a-new-site-to-site-vpn-connection-with-ipsecike-policy"></a>第 3 部分 - 新建采用 IPsec/IKE 策略的站点到站点 VPN 连接
 
@@ -119,15 +119,15 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 ![site-to-site-policy](media/azure-stack-vpn-s2s/site-to-site.png)
 
-有关创建站点到站点 VPN 连接的详细分步说明，请参阅 [创建站点到站点 VPN 连接](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)。
+有关创建站点到站点 VPN 连接的详细分步说明，请参阅[创建站点到站点 VPN 连接](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)。
 
 ### <a name="prerequisites"></a>必备组件
 
 在开始之前，请确保满足以下先决条件：
 
-- Azure 订阅。 如果还没有 Azure 订阅，则可以激活您 [MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，或注册 [免费帐户](https://azure.microsoft.com/pricing/free-trial/)。
+- Azure 订阅。 如果还没有 Azure 订阅，则可以激活您[MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，或注册[免费帐户](https://azure.microsoft.com/pricing/free-trial/)。
 
-- Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)。 
+- Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)。
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>步骤 1 - 创建虚拟网络、VPN 网关和本地网关
 
@@ -161,7 +161,7 @@ $LNGIP6 = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2.连接到订阅并创建新资源组
 
-确保切换到 PowerShell 模式，以便使用Resource Manager cmdlet。 有关详细信息，请参阅 [以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
+确保切换到 PowerShell 模式，以便使用Resource Manager cmdlet。 有关详细信息，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
 打开 PowerShell 控制台并连接到帐户。 使用下面的示例来帮助连接：
 
@@ -239,7 +239,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 3. 删除连接的 IPsec/IKE 策略
 
 > [!NOTE]
-> IPsec/IKE 策略仅受基于路由的“标准”和“高性能”VPN 网关的支持。 **  **  它不适用于“基本”网关 SKU。
+> IPsec/IKE 策略仅受标准 VPN 网关和基于路由的高性能 VPN 网关支持   。 它不适用于“基本”网关 SKU。 
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.显示连接的 IPsec/IKE 策略
 
@@ -305,7 +305,7 @@ PfsGroup : None
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3.删除连接的 IPsec/IKE 策略
 
-从连接中删除自定义策略后，Azure VPN 网关将还原为 [默认的 IPsec/IKE 提议](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)，并再次与本地 VPN 设备协商。
+从连接中删除自定义策略后，Azure VPN 网关将还原为[默认的 IPsec/IKE 提议](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)，并再次与本地 VPN 设备协商。
 
 ```powershell
 $RG1 = "TestPolicyRG1"

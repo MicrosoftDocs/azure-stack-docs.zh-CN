@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 27e70df453678bf2f6d3a9427a5a692b3cc62d8d
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.openlocfilehash: a76676c5f4fd1e23a20df04622dafb450e162448
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387790"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406896"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 存储的数据传输工具
 
@@ -57,7 +57,7 @@ AzCopy 是一个命令行实用工具，用于向 / 从简单的命令使用具�
 
 ### <a name="download-and-install-azcopy"></a>下载并安装 AzCopy
 
-* 适用于 1811年的更新或较新版本[下载 AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy)。
+* 适用于 1811年的更新或较新版本[下载 AzCopy V10 +](/azure/storage/common/storage-use-azcopy-v10#download-azcopy)。
 * 对于以前的版本（1802 到 1809 更新），请[下载 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。
 
 ### <a name="accopy-101-configuration-and-limits"></a>AcCopy 10.1 配置和限制
@@ -75,7 +75,7 @@ AzCopy 10.1 现可将配置为使用旧的 API 版本。 这使对 Azure Stack �
 
 | Feature | 支持的操作 |
 | --- | --- |
-|管理容器|创建容器<br>列出容器
+|管理容器|创建容器<br>容器的列表内容
 |管理作业|显示作业<br>恢复作业
 |删除 blob|删除单个 blob<br>删除整个或部分的虚拟目录
 |上传文件|上传文件<br>上传目录<br>上传目录的内容
@@ -84,7 +84,7 @@ AzCopy 10.1 现可将配置为使用旧的 API 版本。 这使对 Azure Stack �
 
    > [!NOTE]
    > * Azure Stack 不支持通过使用 Azure Active Directory (AD) 到 AzCopy 提供的授权凭据。 你必须访问使用共享访问签名 (SAS) 令牌的 Azure Stack 上的存储对象。
-   > * Azure Stack 不支持两个 Azure Stack blob 位置之间以及 Azure 存储和 Azure Stack 之间进行异步数据传输。 不能使用"azcopy cp"将数据从 Azure Stack 到 Azure 存储 （或相反的方式） 直接与 AzCopy 10.1。
+   > * Azure Stack 不支持两个 Azure Stack blob 位置之间以及 Azure 存储和 Azure Stack 之间同步数据传输。 不能使用"azcopy cp"将数据从 Azure Stack 到 Azure 存储 （或相反的方式） 直接与 AzCopy 10.1。
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>针对数据传输的 AzCopy 命令示例
 

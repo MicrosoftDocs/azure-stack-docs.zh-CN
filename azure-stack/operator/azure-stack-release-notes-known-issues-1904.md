@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 70d6cfae2eb6e9508e2141aa59c6986ec8817d11
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.openlocfilehash: 68a0d80f02e84affa551b296548a09768eba7e1a
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387715"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406799"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 的已知问题
 
@@ -142,7 +142,7 @@ ms.locfileid: "67387715"
 #### <a name="centos"></a>CentOS
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：虚拟机规模集创建体验提供了基于 CentOS 7.2，作为一个选项来部署。 Azure Stack 不提供 CentOS 7.2。
+- 原因：虚拟机规模集创建体验提供了基于 CentOS 7.2，作为一个选项来部署。 CentOS 7.2 在 Azure Stack Marketplace，这将会导致部署失败调用找不到图像上不可用。
 - 补救措施：为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。
 - 发生次数：常见
 

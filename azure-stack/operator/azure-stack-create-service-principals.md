@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2019
+ms.date: 06/25/2019
 ms.author: bryanla
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 0fb7f605ff392e0d3fbbe57024eb27f5e5eaab04
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 8c27948185df5f98926a3500db0981a1ccddc321
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67315925"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397311"
 ---
 # <a name="use-an-app-identity-to-access-resources"></a>使用应用程序标识来访问资源
 
@@ -336,7 +336,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 1. 登录到相应的门户中，基于在 Azure Stack 时所指定的目录 （Azure AD 中，在 Azure 门户或适用于 AD FS，例如在 Azure Stack 用户门户） 的安装。 在此示例中，我们显示用户登录到 Azure Stack 用户门户。
 
    > [!NOTE]
-   > 若要添加给定的资源的角色分配，你的用户帐户必须属于角色声明`Microsoft.Authorization/roleAssignments/write`权限。 例如，可以[所有者](/azure/role-based-access-control/built-in-roles.md#owner)或[用户访问管理员](/azure/role-based-access-control/built-in-roles.md#user-access-administrator)内置角色。  
+   > 若要添加给定的资源的角色分配，你的用户帐户必须属于角色声明`Microsoft.Authorization/roleAssignments/write`权限。 例如，可以[所有者](/azure/role-based-access-control/built-in-roles#owner)或[用户访问管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)内置角色。  
 2. 导航到你想要允许服务主体访问资源。 在此示例中，服务主体向角色分配订阅范围内，通过选择**订阅**，然后特定订阅。 可改为选择资源组或对特定资源，例如虚拟机。 
 
      ![选择要分配的订阅](./media/azure-stack-create-service-principal/select-subscription.png)
