@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 6fb879dc49197b52133750d65aadf96b601bda69
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.openlocfilehash: de2c0c2181025b7dbbc01691b72b0756fa201274
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043231"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419509"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 
@@ -103,11 +103,11 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
    > [!IMPORTANT]
    > 等待凭据弹出（特权终结点不支持 Get-Credential），然后输入 Graph 服务帐户凭据。
 
-3. **寄存器目录**cmdlet 具有可选参数，您可以使用在某些情况下未通过现有的 Active Directory 验证。 执行此 cmdlet 时，它验证提供的域是根级域中，可以访问全局编录服务器，并且所提供的帐户授予读取访问权限。
+3. **Register-DirectoryService** cmdlet 具有可选参数，你可以在现有 Active Directory 验证失败的某些情况下使用这些参数。 执行此 cmdlet 时，它将验证提供的域是否为根域，是否可以访问全局编录服务器，并且提供的帐户授予读取访问权限。
 
    |参数|描述|
    |---------|---------|
-   |`-SkipRootDomainValidation`|指定必须要使用的子域，而不是建议的根域。|
+   |`-SkipRootDomainValidation`|指定必须使用子域，而不是建议的根域。|
    |`-Force`|绕过所有验证检查。|
 
 #### <a name="graph-protocols-and-ports"></a>Graph 协议和端口
@@ -131,6 +131,7 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 |---------|---------|---------|---------|
 |CustomAdfsName|ADFS 提供程序名称|声明提供程序的名称。<br>AD FS 登录页上会显示此名称。|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|ADFS 元数据 URI|联合元数据链接| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|SigningCertificateRevocationCheck|NA|可选参数跳过 CRL 检查|无|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>触发自动化以便在 Azure Stack 中配置声明提供程序信任
@@ -161,7 +162,7 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 从版本 1807 开始，如果符合以下任一条件，则可以使用此方法：
 
 - AD FS 的证书链不同于 Azure Stack 中的其他所有终结点。
-- 没有网络连接到现有的 AD FS 服务器从 Azure Stack 的 AD FS 实例。
+- 未在 Azure Stack 的 AD FS 实例与现有 AD FS 服务器之间建立网络连接。
 
 以下信息是作为自动化参数的输入所必需的：
 

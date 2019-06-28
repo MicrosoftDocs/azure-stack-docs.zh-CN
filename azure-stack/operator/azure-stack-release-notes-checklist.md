@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e079121fda268e9892648fca99da34de04f08101
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.lastreviewed: 06/27/2019
+ms.openlocfilehash: c5108dc8b24fec7569d54964217f146a5cefa5e6
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152491"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419570"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新活动清单
 
@@ -31,13 +31,13 @@ ms.locfileid: "67152491"
 
 | activities              | 详细信息                                                                          |
 |-----------------------|----------------------------------------------------------------------------------|
-| 查看已知问题   | [已知问题列表](azure-stack-release-notes-known-issues-1905.md)。                |
-| 查看安全更新 | [安全更新列表](azure-stack-release-notes-security-updates-1905.md)。      |
+| 查看已知问题   | [已知问题列表](azure-stack-release-notes-known-issues-1906.md)。                |
+| 查看安全更新 | [安全更新列表](azure-stack-release-notes-security-updates-1906.md)。      |
 | Run Test-AzureStack   | 运行 `Test-AzureStack -Group UpdateReadiness` 确定操作问题。      |
 | 解决问题        | 解决 **Test-AzureStack** 确定的任何操作问题。                |
 | 应用最新修补程序 | 应用适用于当前安装版本的最新修补程序。         |
 | 运行 Capacity Planner 工具 | 请确保使用最新版本的 [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner)  工具来执行工作负荷规划和大小调整。 最新版本包含 bug 修复，并提供与每个 Azure Stack 更新一起发布的新功能。 |
-| 可用更新       | 只有在联网场景中，Azure Stack 部署才会定期检查安全的终结点，并在已发布云更新的情况下自动通知你。 断开连接的客户可以下载并导入新 1905年包使用[进程此处所述](azure-stack-apply-updates.md)。               |
+| 可用更新       | 只有在联网场景中，Azure Stack 部署才会定期检查安全的终结点，并在已发布云更新的情况下自动通知你。 断开连接的客户可以下载并导入新 1906年包使用[进程此处所述](azure-stack-apply-updates.md)。               |
 
 ## <a name="during-azure-stack-update"></a>在 Azure Stack 更新期间
 
@@ -59,5 +59,5 @@ ms.locfileid: "67152491"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [查看已知问题列表](azure-stack-release-notes-known-issues-1905.md)
-- [查看安全更新列表](azure-stack-release-notes-security-updates-1905.md)
+- [查看已知问题列表](azure-stack-release-notes-known-issues-1906.md)
+- [查看安全更新列表](azure-stack-release-notes-security-updates-1906.md)

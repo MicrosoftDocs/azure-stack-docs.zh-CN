@@ -15,12 +15,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: db73f0b787b9b163f39d5af89e260ca6a30855bd
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 437fb7c62436c0565945b851f0a70550a228d54c
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828129"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419529"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 
@@ -99,6 +99,7 @@ Azure Stack 已通过了由第三方独立的审核公司执行的正式评估�
 
 ## <a name="next-steps"></a>后续步骤
 
+- [配置 Azure Stack 的安全控制](azure-stack-security-configuration.md)
 - [了解如何在 Azure Stack 中轮换机密](azure-stack-rotate-secrets.md)
 - [适用于 Azure Stack 的 PCI-DSS 和 CSA-CCM 文档](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
 - [适用于 Azure Stack 的 DoD 和 NIST 文档](https://servicetrust.microsoft.com/ViewPage/Blueprint)

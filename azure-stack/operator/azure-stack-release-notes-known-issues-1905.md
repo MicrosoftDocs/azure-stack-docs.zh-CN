@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e90c829edc8c1c5c82068c2eb380123e537994a9
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387777"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419559"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 已知问题
 
@@ -47,13 +47,6 @@ ms.locfileid: "67387777"
 - 发生次数：常见
 
 ## <a name="portal"></a>门户
-
-### <a name="administrative-subscriptions"></a>管理订阅
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：不应使用版本 1804 中引入的两个管理订阅。 这两种订阅类型为“计量订阅”和“消耗订阅”。  
-- 补救措施：第一页为 1906年和最终删除，这些订阅将被挂起。 如果您有以下两个订阅上运行的资源，重新在 1906年之前用户订阅中创建它们。
-- 发生次数：常见
 
 ### <a name="subscription-resources"></a>订阅资源
 
@@ -88,6 +81,13 @@ ms.locfileid: "67387777"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中尝试使用“OAuth(preview)”选项上传 Blob 时，任务将会失败并出现错误消息。 
 - 补救措施：使用 SAS 选项上传 Blob。
+- 发生次数：常见
+
+### <a name="template"></a>模板
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户中，模板部署 UI 不会填充模板名称以"_"（下划线字符） 开头的参数。
+- 补救措施：从模板名称中删除"_"（下划线字符）。
 - 发生次数：常见
 
 ## <a name="networking"></a>网络
@@ -130,6 +130,13 @@ ms.locfileid: "67387777"
 - 原因：在创建新的 Windows 虚拟机 (VM) 时，可能会显示以下错误：**无法启动虚拟机 'vm-name'。错误：无法更新 VM 'vm-name' 的串行输出设置**。
 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
 - 补救措施：使用以前所用的相同名称重新创建存储帐户。
+- 发生次数：常见
+
+### <a name="vm-resize"></a>VM 重设大小
+
+- 适用于：此问题适用于 1905年版。
+- 原因：无法成功地调整托管的磁盘 VM 的大小。 尝试调整 VM 大小，将生成与"代码"错误："InternalOperationError", "message":"出现内部错误出现在该操作。"
+- 补救措施：我们正在努力修正此问题中的下一个版本。 目前，必须重新创建新的 VM 大小的 VM。
 - 发生次数：常见
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集

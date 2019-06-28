@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 68a0d80f02e84affa551b296548a09768eba7e1a
-ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
+ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406799"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419592"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 的已知问题
 
@@ -38,6 +38,13 @@ ms.locfileid: "67406799"
 - 发生次数：常见
 
 ## <a name="portal"></a>门户
+
+### <a name="administrative-subscriptions"></a>管理订阅
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：不应使用版本 1804 中引入的两个管理订阅。 这两种订阅类型为“计量订阅”和“消耗订阅”。  
+- 补救措施：如果您有以下两个订阅上运行的资源，重新在用户订阅中创建它们。
+- 发生次数：常见
 
 ### <a name="subscription-resources"></a>订阅资源
 
@@ -93,6 +100,13 @@ ms.locfileid: "67406799"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中尝试使用“OAuth(preview)”选项上传 Blob 时，任务将会失败并出现错误消息。
 - 补救措施：使用 SAS 选项上传 Blob。
+- 发生次数：常见
+
+### <a name="template"></a>模板
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户中，模板部署 UI 不会填充模板名称以"_"（下划线字符） 开头的参数。
+- 补救措施：从模板名称中删除"_"（下划线字符）。
 - 发生次数：常见
 
 ## <a name="networking"></a>网络
