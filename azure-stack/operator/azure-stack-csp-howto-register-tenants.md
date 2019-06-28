@@ -15,12 +15,12 @@ ms.date: 06/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: edc6fc17e426e5e391eb61d510097101ddcfce58
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: e69000eb862411dd0c8b415ab1f0ad7c8573f046
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828341"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419543"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -94,6 +94,6 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要查看注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes)。
+- 若要在注册过程中触发，请查看错误消息，请参阅[租户注册错误消息](azure-stack-registration-errors.md)。
 - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](azure-stack-billing-and-chargeback.md)。
 - 若要了解最终客户如何将你添加为 CSP 或其 Azure Stack 租户的管理员，请参阅[让云服务提供程序管理 Azure Stack 订阅](../user/azure-stack-csp-enable-billing-usage-tracking.md)。
