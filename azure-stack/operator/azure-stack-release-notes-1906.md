@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: db1611557d07ec31ec53edbb5e8356b520256be5
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 233ae3329ad382942c48b0a658ce019ccd214233
+ms.sourcegitcommit: f5d7b3ff34cfc1c7092087a4fa6efd4cf2b4b981
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419864"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465272"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新
 
@@ -83,6 +83,8 @@ Azure Stack 1906 更新生成类型是**Express**。 有关更新的详细信息
 ### <a name="changes"></a>更改
 
 - 创建存储帐户体验现已与 Azure 一致。
+
+- 更改将触发警报的内部机密过期：
   - 机密到期之前 90 天现在引发警告警报。
   - 现在引发关键警报的机密到期前 30 天。
 

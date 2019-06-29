@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 1fc07dfd86767f39627e97e42a8dc6de3b7f59b4
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.lastreviewed: 06/28/2019
+ms.openlocfilehash: 4b9162eb662336b3a1acae69660ff86f5f3a0995
+ms.sourcegitcommit: 87da3ab028f39a3fdc90f58f0258c266198a94bc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419432"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67470958"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
@@ -33,6 +33,10 @@ ms.locfileid: "67419432"
 ### <a name="new-features"></a>新增功能
 
 - 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1906.md#whats-in-this-update)。
+
+### <a name="changes"></a>更改
+
+- 添加**AzS SRNG01**支持环 VM 托管于 Azure Stack 的日志集合服务。 有关详细信息，请参阅[虚拟机角色](asdk-architecture.md)。
 
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
