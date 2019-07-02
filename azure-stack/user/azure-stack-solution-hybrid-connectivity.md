@@ -15,43 +15,43 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 00f7c3b990e9930571ace8adec9a33d0c9105be6
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: 94554162cc91ddc4e9be7f24f9c7fafc32051e3c
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252036"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492400"
 ---
-# <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 配置混合云连接
+# <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>教程：配置与 Azure 和 Azure Stack 的混合云连接
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以使用混合连接模式在公有云 Azure 和 Azure Stack 中安全地访问资源。
 
-在本教程中，我们将构建一个示例环境来完成以下任务：
+在本教程中，你将生成到一个示例环境：
 
 > [!div class="checklist"]
-> - 按照隐私或法规要求将数据存储在本地，但同时可以访问公有云 Azure 资源。
+> - 将数据保留在本地满足隐私或法规要求，但保留对全局 Azure 资源的访问权限。
 > - 在公有云 Azure 中使用云规模的应用部署和资源的同时，保留旧版系统。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
+> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到您的本地环境中，启用唯一的混合云，可用于生成和部署混合应用任意位置。  
 > 
-> 白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾了设计、部署和运行混合应用程序所需的软件质量的要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
+> 本白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾的软件质量 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 进行设计、 部署和操作的支柱混合应用程序。 设计注意事项，帮助您优化混合应用程序设计，最大程度减少在生产环境中的挑战。
 
 
 ## <a name="prerequisites"></a>必备组件
 
-生成混合连接部署需要一些组件。 这其中的某些组件需要时间来准备，因此必须进行相应的计划。
+生成混合连接部署需要一些组件。 其中某些组件需要时间准备，因此请相应地规划。
 
 **Azure Stack**
 
-Azure OEM/硬件合作伙伴可以部署生产型 Azure Stack，所有用户都可以部署 Azure Stack 开发工具包 (ASDK)。
+Azure 的 OEM 硬件合作伙伴可以部署 Azure Stack 中，生产和所有用户可以都部署 Azure Stack 开发工具包 (ASDK)。
 
 **Azure Stack 组件**
 
-Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建租户订阅，并添加 Windows Server 2016 映像。 如果已经有其中的某些组件，请确保它们符合要求，然后开始本教程。
+Azure Stack 操作员必须部署应用服务、 创建计划和产品/服务、 创建租户订阅，并添加 Windows Server 2016 映像。 如果已有这些组件，请确保在开始本教程前满足要求。
 
 本教程假设你对 Azure 和 Azure Stack 有一些基本的了解。 若要在开始本教程之前了解更多信息，请阅读以下文章：
 
@@ -61,7 +61,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 ### <a name="azure"></a>Azure
 
  - 如果还没有 Azure 订阅，可以在开始前创建一个 [免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
- - 在 Azure 中创建  [Web 应用](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts)。 请记下 Web 应用 URL，因为需在本教程中使用它。
+ - 创建 [web 应用](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts)在 Azure 中。 记下的 web 应用 URL，因为你将在本教程中需要它。
 
 ### <a name="azure-stack"></a>Azure Stack
 
@@ -77,22 +77,22 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 
 在开始配置混合云连接之前，请验证自己是否符合以下条件：
 
- - 需要一个用于 VPN 设备的面向外部的公共 IPv4 地址。 此 IP 地址不得位于 NAT 之后。
+ - 需要一个用于 VPN 设备的面向外部的公共 IPv4 地址。 此 IP 地址不能位于 NAT （网络地址转换）。
  - 所有资源都部署在同一区域/位置。
 
 #### <a name="tutorial-example-values"></a>教程示例值
 
-本教程中的示例使用以下值。 可使用这些值创建测试环境，或根据这些值来更好地理解示例。 有关常规 VPN 网关设置的详细信息，请参阅 [关于 VPN 网关设置](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)。
+本教程中的示例使用以下值。 可使用这些值创建测试环境，或根据这些值来更好地理解示例。 详细了解 VPN 网关设置一般情况下，请参阅 [关于 VPN 网关设置](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)。
 
 连接规范：
 
- - **VPN 类型**： 基于路由的
- - **连接类型**： 站点到站点(IPsec)
+ - **VPN 类型**： 基于路由
+ - **连接类型**： 站点到站点 (IPsec)
  - **网关类型**： VPN
  - **Azure 连接名称**： Azure-Gateway-AzureStack-S2SGateway（门户会自动填充此值）
  - **Azure Stack 连接名称**： AzureStack-Gateway-Azure-S2SGateway（门户会自动填充此值）
- - **共享密钥**： 任何与 VPN 硬件兼容且在连接的两端都有匹配值的共享密钥
- - **订阅**： 任何首选订阅
+ - **共享的密钥**： 有匹配的值连接的两面上的 VPN 硬件与任何兼容
+ - **订阅**： 任何首选订阅
  - **资源组**：Test-Infra
 
 网络和子网 IP 地址：
@@ -112,7 +112,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>在公有云 Azure 和 Azure Stack 中创建虚拟网络
 
-请执行以下步骤，以便通过门户创建虚拟网络。 如果将本文用作教程，则可使用这些 [示例值](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) 。 但是，如果根据本文来配置生产型环境，请将示例设置替换为你自己的值。
+请执行以下步骤，以便通过门户创建虚拟网络。 您可以使用这些 [示例值](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) 如果作为本教程仅使用这篇文章。 如果使用本文来配置生产环境中，替换你自己的值的示例设置。
 
 > [!IMPORTANT]
 > 必须确保在 Azure 或 Azure Stack vNet 地址空间中没有 IP 地址重叠现象。
@@ -120,7 +120,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 若要在 Azure 中创建 VNet，请执行以下操作：
 
 1. 使用浏览器连接到 [Azure 门户](https://portal.azure.com/) 并使用 Azure 帐户进行登录。
-2. 选择“创建资源”。 **** 在“在市场中搜索”字段中输入 `virtual network`。 ****   在结果列表中找到“虚拟网络”，然后选择“虚拟网络”。 ****   ****
+2. 选择“创建资源”。 **** 在中 **在 marketplace 中搜索** 字段中，输入虚拟网络。 选择**虚拟网络**从结果中。
 3. 从“选择部署模型”列表中选择“资源管理器”，然后选择“创建”。    ****  ****
 4. 在“创建虚拟网络”中  配置 VNet 设置。 必填字段名称带有红色星号前缀。  输入有效值时，该星号变为绿色复选标记。
 
@@ -154,7 +154,7 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 
    - **SKU**：基本
    - **虚拟网络**：选择此前创建的虚拟网络。 已创建的网关子网会自动选中。
-   - **第一个 IP 配置**：这是网关的公共 IP。
+   - **第一个 IP 配置**：在网关的公共 IP。
      - 选择“创建网关 IP 配置”，然后就会转到“选择公共 IP 地址”页。  
      - 选择“+新建”，打开“创建公共 IP 地址”页   。
      - 输入公共 IP 地址的“名称”。  将“SKU”保留为“基本”，然后选择“确定”，以便保存所做的更改。  
@@ -183,13 +183,13 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
   >如果之后本地网络发生了更改，或需要更改 VPN 设备的公共 IP 地址，可轻松更新这些值。
 
 1. 在门户中，选择“+创建资源”。 ****
-2. 在搜索框中输入“本地网关”，然后按 **Enter** 进行搜索。 **** 这会返回一个结果列表。
+2. 在搜索框中输入“本地网关”，然后按 **Enter** 进行搜索。 **** 将显示结果的列表。
 3. 选择“本地网关”，然后选择“创建”，打开“创建本地网关”页。 ****    ****  
 4. 使用**教程示例值**，在“创建本地网关”上指定本地网关的值  。 包括以下其他值。
 
-    - **IP 地址**： 这是想要 Azure 或 Azure Stack 连接到的 VPN 设备的公共 IP 地址。 指定一个有效的不在 NAT 后面的公共 IP 地址，这样 Azure 就能访问该地址。 如果目前没有 IP 地址，可以使用示例中显示的作为占位符的值，但是需要返回来将占位符替换为 VPN 设备的公共 IP 地址。 除非提供有效的地址，否则 Azure 无法连接到设备。
-    - **地址空间**： 这是此本地网络所代表的网络的地址范围。 可以添加多个地址空间范围。 请确保指定的范围没有与要连接到的其他网络的范围重叠。 Azure 会将指定的地址范围路由到本地 VPN 设备 IP 地址。 如果需要连接到本地站点，请使用自己的值而不是示例值。
-    - **配置 BGP 设置**： 仅在配置 BGP 时使用。 否则，不选择此项。
+    - **IP 地址**： 你想要连接到 Azure 或 Azure Stack 的 VPN 设备公共 IP 地址。 指定一个有效的不在 NAT 后面的公共 IP 地址，这样 Azure 就能访问该地址。 如果目前没有 IP 地址，可以使用示例中显示的作为占位符的值，但是需要返回来将占位符替换为 VPN 设备的公共 IP 地址。 除非提供有效的地址，否则 Azure 无法连接到设备。
+    - **地址空间**： 此本地网络代表网络的地址范围。 可以添加多个地址空间范围。 请确保指定的范围没有与要连接到的其他网络的范围重叠。 Azure 会将指定的地址范围路由到本地 VPN 设备 IP 地址。 如果需要连接到本地站点，请使用自己的值而不是示例值。
+    - **配置 BGP 设置**： 仅在配置 BGP 时使用。 否则，不选择此选项。
     - **订阅**： 确保显示正确的订阅。
     - **资源组**： 选择要使用的资源组。 可以创建新的资源组或选择已创建的资源组。
     - **位置**： 选择将在其中创建此对象的位置。 可选择 VNet 所在的位置，但这不是必须的。
@@ -198,12 +198,12 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 
 ## <a name="configure-your-connection"></a>配置连接
 
-通过站点到站点连接连接到本地网络需要 VPN 设备。 配置的 VPN 设备称为“连接”。 若要配置连接，需提供：
+在本地网络与站点到站点连接需要 VPN 设备。 配置的 VPN 设备称为“连接”。 若要配置连接，需提供：
 
-- 共享密钥。 此共享密钥就是在创建站点到站点 VPN 连接时指定的共享密钥。 在示例中，我们使用基本的共享密钥。 建议生成更复杂的可用密钥。
-- 虚拟网关的“公共 IP 地址”。 可以通过 Azure 门户、PowerShell 或 CLI 查看公共 IP 地址。 若要使用 Azure 门户查找 VPN 网关的公共 IP 地址，请导航到“虚拟网关”，然后选择网关的名称。
+- 共享密钥。 此密钥是在创建站点到站点 VPN 连接时指定的同一个共享的密钥。 在示例中，我们使用基本的共享密钥。 建议生成更复杂的可用密钥。
+- 虚拟网络网关公共 IP 地址。 可以通过 Azure 门户、PowerShell 或 CLI 查看公共 IP 地址。 若要查找 VPN 网关使用 Azure 门户的公共 IP 地址，请导航到虚拟网络网关，然后选择你的网关的名称。
 
-执行以下步骤，在虚拟网关和本地 VPN 设备之间创建站点到站点 VPN 连接。
+使用以下步骤创建虚拟网络网关和本地 VPN 设备之间的站点到站点 VPN 连接。
 
 1. 在 Azure 门户中，选择“+创建资源”。 ****
 2. 搜索**连接**。
@@ -211,12 +211,12 @@ Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建�
 4. 在“连接”上选择“创建”。  
 5. 在“创建连接”  上配置以下设置：
 
-    - **连接类型**： 选择“站点到站点(IPSec)”。
+    - **连接类型**： 选择站点到站点 (IPSec)。
     - **资源组**：选择你的测试资源组。
-    - **虚拟网络网关**：选择已创建的虚拟网络网关。
-    - **本地网络网关**：选择已创建的本地网络网关。
-    - **连接名称**：系统会使用两个网关的值自动填充此项。
-    - **共享密钥**： 此值必须与用于本地 VPN 设备的值匹配。 教程示例使用“abc123”，但可以（而且应该）使用更复杂的。 重要的是，此值必须与配置 VPN 设备时指定的值相同。
+    - **虚拟网络网关**：选择你创建的虚拟网络网关。
+    - **本地网络网关**：选择你创建的本地网络网关。
+    - **连接名称**：此名称是使用来自两个网关的值自动填充。
+    - **共享密钥**： 此值必须匹配你对你的本地 VPN 设备使用的值。 本教程的示例使用 abc123，但应使用更复杂。 重要的是，此值必须与配置 VPN 设备时指定的值相同。
     - “订阅”、“资源组”和“位置”值是固定的    。
 
 6. 选择“确定”以创建连接  。

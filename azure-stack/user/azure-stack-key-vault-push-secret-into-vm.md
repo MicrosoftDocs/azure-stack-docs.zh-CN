@@ -1,5 +1,5 @@
 ---
-title: 使用安全地存放在 Azure Stack 上的证书部署虚拟机 | Microsoft Docs
+title: 使用 Azure Stack 上的安全地存储证书部署 VM |Microsoft Docs
 description: 了解如何在 Azure Stack 中部署虚拟机，并使用密钥保管库将证书推送到该虚拟机
 services: azure-stack
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: f9d4716751a03da1b67881e315abc2f6603428d3
-ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
+ms.openlocfilehash: 9403931d91756e744dcdb6c34adb26e8281f6d28
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67028225"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492387"
 ---
-# <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>创建虚拟机，并安装从 Azure Stack 密钥保管库检索到的证书
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>使用 Azure Stack 上的安全地存储证书部署 VM 
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本文介绍如何创建 Azure Stack 虚拟机 (VM) 安装的密钥保管库证书。
+本文介绍如何部署 Azure Stack 虚拟机 (VM) 通过安装的密钥保管库证书。
 
 ## <a name="overview"></a>概述
 
@@ -38,14 +38,14 @@ ms.locfileid: "67028225"
 
 ## <a name="process-description"></a>过程说明
 
-以下步骤说明将证书推送到虚拟机所需的过程：
+以下步骤介绍需将证书推送到 VM 的过程：
 
-1. 创建 Key Vault 机密。
+1. 创建密钥保管库机密。
 2. 更新**azuredeploy.parameters.json**文件。
 3. 部署模板。
 
 > [!NOTE]
-> 如果通过 VPN 建立连接，可以使用以下步骤从 Azure Stack 开发工具包 (ASDK)，或者从外部客户端。
+> 如果你已通过 VPN 连接，可以使用以下步骤从 Azure Stack 开发工具包 (ASDK)，或者从外部客户端。
 
 ## <a name="prerequisites"></a>必备组件
 
@@ -53,7 +53,7 @@ ms.locfileid: "67028225"
 * [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)。
 * [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
 
-## <a name="create-a-key-vault-secret"></a>创建 Key Vault 机密
+## <a name="create-a-key-vault-secret"></a>创建密钥保管库机密
 
 以下脚本会创建 .pfx 格式的证书、创建密钥保管库，并将该证书作为机密存储在密钥保管库中。
 
@@ -119,9 +119,9 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-当运行此脚本时，输出会包括机密 URI。 请记下此 URI。 您必须引用在它[将证书推送到 Windows 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)。 将 [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 模板文件夹下载到开发计算机。 此文件夹包含**azuredeploy.json**并**azuredeploy.parameters.json**中的以下步骤所需的文件。
+当运行此脚本时，输出会包括机密 URI。 请记下的此 URI，因为必须引用在[将证书推送到 Windows 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)。 将 [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 模板文件夹下载到开发计算机。 此文件夹包含**azuredeploy.json**并**azuredeploy.parameters.json**中的以下步骤所需的文件。
 
-修改**azuredeploy.parameters.json**根据环境值的文件。 特别值得关注的参数是保管库名称、 保管库资源组和机密 URI （如由前面的脚本生成）。 以下部分显示参数文件的示例。
+修改**azuredeploy.parameters.json**根据环境值的文件。 重要参数是保管库名称、 保管库资源组和机密 URI （如由前面的脚本生成）。 以下部分显示参数文件的示例。
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>更新 azuredeploy.parameters.json 文件
 
@@ -177,7 +177,7 @@ New-AzureRmResourceGroupDeployment `
 
 ![模板部署结果](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-在部署期间，Azure Stack 会将证书推送到虚拟机。 证书位置取决于 VM 的操作系统：
+在部署过程中，azure Stack 将到 VM 推送证书。 证书位置取决于 VM 的操作系统：
 
 * 在 Windows 中，系统会利用用户提供的证书存储，将证书添加到 **LocalMachine** 证书位置。
 * 在 Linux 中，将证书置于下 **/var/lib/waagent 中获得**目录下，文件名**UppercaseThumbprint.crt** x509 证书文件和**UppercaseThumbprint.prv**私钥。

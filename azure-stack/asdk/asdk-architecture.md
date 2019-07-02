@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: efb77c054bbd3e0c1f46a6bb10aef34ae043216c
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/28/2019
+ms.openlocfilehash: 4cd20ed4c76b062ea2fcfdf3d314ef2bcdecaff0
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267063"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492351"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack 开发工具包体系结构
 Azure Stack 开发工具包 (ASDK) 是在单个主计算机上运行的 Azure Stack 的单节点部署。 边缘路由组件安装在主计算机上，为 Azure Stack 提供 NAT 和 VPN 功能。 Azure Stack 基础结构角色在物理主计算机的 Hyper-V 层中运行。
@@ -30,7 +30,7 @@ Azure Stack 开发工具包 (ASDK) 是在单个主计算机上运行的 Azure St
 ## <a name="virtual-machine-roles"></a>虚拟机角色
 ASDK 提供的服务使用托管在开发工具包主机上的以下 VM：
 
-| 名称 | 描述 |
+| Name | 描述 |
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack 存储服务。|
 | **AzS-ADFS01** | Active Directory 联合身份验证服务 (ADFS)。  |
@@ -44,7 +44,7 @@ ASDK 提供的服务使用托管在开发工具包主机上的以下 VM：
 | **AzS-WAS01** | Azure Stack 管理门户和 Azure 资源管理器服务。|
 | **AzS-WASP01**| Azure Stack 用户（租户）门户和 Azure 资源管理器服务。|
 | **AzS-XRP01** | Microsoft Azure Stack 的基础结构管理控制器，包括计算、网络和存储资源提供程序。|
-
+| **AzS-SRNG01** | 支持托管于 Azure Stack 的日志集合服务环 VM。 |
 
 ## <a name="next-steps"></a>后续步骤
 [了解基本的 ASDK 管理任务](asdk-admin-basics.md)

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 3927412b89ad9db919018832f1205d0f8eae3c6d
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.lastreviewed: 06/28/2019
+ms.openlocfilehash: 56b0ce3d905f64d6ef1678a5c59cfe4985e24764
+ms.sourcegitcommit: 06b06a719d42012f7be82b4e8623041211c51a86
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419820"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67499596"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 已知问题
 
@@ -210,4 +210,4 @@ ms.locfileid: "67419820"
 ## <a name="next-steps"></a>后续步骤
 
 - [查看更新活动清单](azure-stack-release-notes-checklist.md)
-- [查看安全更新列表](azure-stack-release-notes-security-updates-1905.md)
+- [查看安全更新列表](azure-stack-release-notes-security-updates-1906.md)

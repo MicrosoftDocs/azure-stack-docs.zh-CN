@@ -1,6 +1,6 @@
 ---
-title: 为 Azure 和 Azure Stack 应用程序配置混合云标识 | Microsoft Docs
-description: 了解如何为 Azure 和 Azure Stack 应用程序配置混合云标识。
+title: 配置混合云标识与 Azure 和 Azure Stack 的应用程序 |Microsoft Docs
+description: 了解如何使用 Azure 和 Azure Stack 的应用程序中配置混合云标识。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,27 +15,27 @@ ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 712aa506cf9209b123d3fafcfd6324d58575ae54
-ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
+ms.openlocfilehash: 074d971c1f951797b5dc2d53a62eef56d0b7249f
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406966"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492331"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教程：为 Azure 和 Azure Stack 应用程序配置混合云标识
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-了解如何为 Azure 和 Azure Stack 应用程序配置混合云标识。
+了解如何配置你的 Azure 和 Azure Stack 应用的混合云标识。
 
-有两个选项可用来向全球 Azure 和 Azure Stack 中的应用程序授予访问权限。
+有两个选项用于授予对在全球 Azure 和 Azure Stack 中应用的访问。
 
- * 当 Azure Stack 与 Internet 建立了不间断的连接时，可以使用 Azure Active Directory (Azure AD)。
- * 当 Azure Stack 从 Internet 断开了连接时，可以使用 Azure Directory 联合身份验证服务 (AD FS)。
+ * 当 Azure Stack 具有持续连接到 internet 时，可以使用 Azure Active Directory (Azure AD)。
+ * 当 Azure Stack 从 internet 断开连接时，可以使用 Azure Directory 联合身份验证服务 (AD FS)。
 
-使用服务主体向 Azure Stack 应用程序授予访问权限，以便在 Azure Stack 中使用 Azure 资源管理器进行部署或配置。
+使用服务主体向 Azure Stack 应用程序以部署或配置 Azure Stack 中使用 Azure 资源管理器授予访问权限。
 
-在本教程中，我们将构建一个示例环境来完成以下任务：
+在本教程中，你将生成到一个示例环境：
 
 > [!div class="checklist"]
 > - 在全球 Azure 和 Azure Stack 中建立一个混合标识
@@ -45,9 +45,9 @@ ms.locfileid: "67406966"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
+> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到您的本地环境中，启用唯一的混合云，可用于生成和部署混合应用任意位置。  
 > 
-> 白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾了设计、部署和运行混合应用程序所需的软件质量的要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
+> 本白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾的软件质量 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 进行设计、 部署和操作的支柱混合应用程序。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>在门户中创建适用于 Azure AD 的服务主体
@@ -68,7 +68,7 @@ ms.locfileid: "67406966"
 
 ### <a name="prerequisites"></a>必备组件
 
-一个通过你可以访问的订阅连接到 Azure Active Directory 的 Azure Stack 安装。 如果没有 Azure Stack 安装，可以使用这些说明来设置[Azure Stack 开发工具包](../asdk/asdk-install.md)。
+需要连接到 Azure Active Directory 与订阅可以访问 Azure Stack 安装。 如果没有 Azure Stack 安装，可以使用这些说明来设置[Azure Stack 开发工具包](../asdk/asdk-install.md)。
 
 #### <a name="connect-to-azure-stack-using-code"></a>使用代码连接到 Azure Stack
 

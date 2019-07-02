@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 07/01/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 233ae3329ad382942c48b0a658ce019ccd214233
-ms.sourcegitcommit: f5d7b3ff34cfc1c7092087a4fa6efd4cf2b4b981
+ms.lastreviewed: 07/01/2019
+ms.openlocfilehash: 0ed50a370fd3a47c6721777b07faa9146cea16b1
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465272"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492366"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新
 
@@ -38,7 +38,7 @@ Azure Stack 1906 更新内部版本号是**1.1906.0.30**。
 
 ### <a name="update-type"></a>更新类型
 
-Azure Stack 1906 更新生成类型是**Express**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。
+Azure Stack 1906 更新生成类型是**Express**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。 1906 更新完成所需的预期的时间为大约 10 个小时。 确切的更新运行时通常取决于租户工作负荷，系统网络连接 （如果连接到 internet），你的系统上使用的容量和您的系统硬件配置。 持续时间比预期值的运行时并不少见，不需要执行操作由 Azure Stack 操作员除非更新失败。 此运行时逼真地模拟特定于 1906年更新，不应与其他 Azure Stack 更新进行比较。
 
 ## <a name="whats-in-this-update"></a>此更新的内容
 
@@ -72,6 +72,8 @@ Azure Stack 1906 更新生成类型是**Express**。 有关更新的详细信息
 
 - 一个新的参数是可用于**寄存器 CustomAdfs** cmdlet 中，正在跳过证书吊销列表检查配置 AD FS 的联合信任时的特权终结点。
 
+- 1906 版本引入更多更新进度，这样可以确保更新不暂停。 这会导致更新步骤所示为中的运算符的总数的增加**更新**边栏选项卡。 您可能还注意到的详细信息更新比在以前的更新的同时发生的步骤。
+
 #### <a name="networking-updates"></a>网络更新
 
 - 已更新的租用时间设置中 DHCP 响应程序为与 Azure 一致。
@@ -102,7 +104,7 @@ Azure Stack 1906 更新生成类型是**Express**。 有关更新的详细信息
 
 - 修复了在其中更新历史记录选项卡中的更新持续时间会剪裁的第一位如果更新已运行超过 99 小时。
 
-- 修复了在**更新**边栏选项卡： 现在包括**恢复**失败的更新的选项。
+- **更新**边栏选项卡包含**恢复**失败的更新的选项。
 
 - 中的管理员和用户无法使门户，在 marketplace 中的 Docker 扩展未正确从返回的搜索，但不是执行进一步的操作中修复的问题，因为它不是 Azure Stack 中提供。
 
@@ -142,7 +144,7 @@ Azure Stack 的 1906年版本必须应用 1905年版本具有以下修补程序�
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- 没有可用于 1906年的修补程序。
+- [Azure Stack hotfix 1.1906.1.35](https://support.microsoft.com/help/4511259)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
