@@ -15,12 +15,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 4b9162eb662336b3a1acae69660ff86f5f3a0995
-ms.sourcegitcommit: 87da3ab028f39a3fdc90f58f0258c266198a94bc
+ms.openlocfilehash: ba3ad4bf5e5d7f76d5d29e7967944be72e989c27
+ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67470958"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67511287"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
@@ -40,6 +40,7 @@ ms.locfileid: "67470958"
 
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
+- 创建使用某些 Marketplace 映像的虚拟机资源时，您可能不能完成部署。 解决此问题，可以单击**下载模板和参数**中的链接**摘要**页上，然后单击**部署**按钮**模板**边栏选项卡。 
 - Azure Stack 问题此版本中修复的列表，请参阅[本节](../operator/azure-stack-release-notes-1906.md#fixes)Azure Stack 的发行说明。
 - 如需已知问题的列表，请参阅[此文](../operator/azure-stack-release-notes-known-issues-1906.md)。
 - 请注意，[发布的 Azure Stack 修补程序](../operator/azure-stack-release-notes-1906.md#hotfixes)不适用于 Azure Stack ASDK。

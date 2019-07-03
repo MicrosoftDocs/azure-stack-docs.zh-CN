@@ -16,12 +16,12 @@ ms.date: 07/01/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/01/2019
-ms.openlocfilehash: 0ed50a370fd3a47c6721777b07faa9146cea16b1
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: cc348bba064ddb003bbe6a2a06d2694714ad7894
+ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492366"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67511283"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新
 
@@ -38,7 +38,7 @@ Azure Stack 1906 更新内部版本号是**1.1906.0.30**。
 
 ### <a name="update-type"></a>更新类型
 
-Azure Stack 1906 更新生成类型是**Express**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。 1906 更新完成所需的预期的时间为大约 10 个小时。 确切的更新运行时通常取决于租户工作负荷，系统网络连接 （如果连接到 internet），你的系统上使用的容量和您的系统硬件配置。 持续时间比预期值的运行时并不少见，不需要执行操作由 Azure Stack 操作员除非更新失败。 此运行时逼真地模拟特定于 1906年更新，不应与其他 Azure Stack 更新进行比较。
+Azure Stack 1906 更新生成类型是**Express**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。 若要完成的 1906年更新所需的预期的时间是大约 10 小时，而不考虑在 Azure Stack 环境中的物理节点数。 确切的更新运行时通常取决于租户工作负荷，系统网络连接 （如果连接到 internet），你的系统上使用的容量和您的系统硬件要求。 持续时间比预期值的运行时并不少见，不需要执行操作由 Azure Stack 操作员除非更新失败。 此运行时逼真地模拟特定于 1906年更新，不应与其他 Azure Stack 更新进行比较。
 
 ## <a name="whats-in-this-update"></a>此更新的内容
 
@@ -144,7 +144,7 @@ Azure Stack 的 1906年版本必须应用 1905年版本具有以下修补程序�
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hotfix 1.1906.1.35](https://support.microsoft.com/help/4511259)
+- [Azure Stack hotfix 1.1906.2.37](https://support.microsoft.com/help/4511282)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
