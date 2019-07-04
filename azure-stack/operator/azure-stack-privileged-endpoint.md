@@ -15,18 +15,18 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 850d99232b408aa9264caf0d928231ed229e5c23
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: b66354baa30bb6bf9ec4b8cb39cab0b9def763f6
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782421"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557897"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-作为 Azure Stack 操作员，你应当使用管理员门户、PowerShell 或 Azure 资源管理器 API 执行大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。 PEP 是预配置的远程 PowerShell 控制台，可提供恰到好处的功能来帮助执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 无需管理员帐户。 为了提高安全性，不允许使用脚本。
+作为 Azure Stack 操作员，你应当使用管理员门户、PowerShell 或 Azure 资源管理器 API 执行大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。  PEP 是预配置的远程 PowerShell 控制台，可提供恰到好处的功能来帮助执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 无需管理员帐户。 为了提高安全性，不允许使用脚本。
 
 使用 PEP 可以执行如下所述的任务：
 
@@ -41,7 +41,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 ## <a name="access-the-privileged-endpoint"></a>访问特权终结点
 
-可在托管 PEP 的虚拟机上通过远程 PowerShell 会话来访问 PEP。 在 ASDK 中，此虚拟机名为 **AzS-ERCS01**。 如果您使用的是集成的系统，有三个 PEP，每个运行实例虚拟机内部 (*前缀*-ERCS01、*前缀*-ERCS02 或*前缀*-ERCS03) 复原能力的不同主机上。 
+可在托管 PEP 的虚拟机上通过远程 PowerShell 会话来访问 PEP。 在 ASDK 中，此虚拟机名为 **AzS-ERCS01**。 如果使用集成系统，则有三个 PEP 实例，每个实例在不同主机上的虚拟机中运行（Prefix  -ERCS01、Prefix  -ERCS02 或 Prefix  -ERCS03），以提供复原能力。 
 
 在开始针对集成系统执行此过程之前，请确保可以通过 IP 地址或 DNS 访问 PEP。 完成 Azure Stack 的初始部署之后，只能通过 IP 地址来访问 PEP，因为尚未设置 DNS 集成。 OEM 硬件供应商将提供名为 **AzureStackStampDeploymentInfo** 的 JSON 文件，其中包含 PEP IP 地址。
 
@@ -56,7 +56,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - 如果您运行 ASDK，登录到开发工具包主机。
+    - 如果运行的是 ASDK，请登录到开发工具包主机。
 
 2. 在硬件生命周期主机或特权工作站上运行的强化虚拟机中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
  
@@ -68,7 +68,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
      `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
-   - 如果您运行 ASDK:
+   - 如果运行的是 ASDK：
      
      ```powershell
        $cred = Get-Credential
@@ -84,7 +84,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
      > [!NOTE]
      > 如果无法连接到 ERCS 终结点，请使用尚未尝试连接到的 ERCS VM 的 IP 地址重试步骤 1 和 2。
 
-3. 在连接后，提示符将更改为 **[*IP 地址或 ERCS VM 名称*]:PS>** 或 **[azs-ercs01]:PS>**，具体取决于环境。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
+3. 在连接后，提示符将更改为 **[*IP 地址或 ERCS VM 名称*]:PS>** 或 **[azs-ercs01]:PS>** ，具体取决于环境。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
 
    其中的许多 cmdlet 仅供集成系统环境使用（例如与数据中心集成相关的 cmdlet）。 在 ASDK 中，以下 cmdlet 已经过验证：
 
@@ -128,7 +128,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - 如果您运行 ASDK，登录到开发工具包主机。
+    - 如果运行的是 ASDK，请登录到开发工具包主机。
 
 2. 在硬件生命周期主机或特权工作站上运行的强化虚拟机中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
  
@@ -140,7 +140,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
      `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
-   - 如果您运行 ASDK:
+   - 如果运行的是 ASDK：
      
      ```powershell
       $cred = Get-Credential
@@ -167,10 +167,16 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 关闭终结点会话：
 
 1. 创建 PEP 可访问的外部文件共享。 在开发工具包环境中，只能在开发工具包主机上创建文件共享。
-2. 运行 `Close-PrivilegedEndpoint` cmdlet。 
-3. 系统会提示输入脚本日志文件的存储路径。 使用 &#92;&#92;*servername*&#92;*sharename* 指定前面创建的文件共享。 如果不指定路径，该 cmdlet 失败并且会话保持打开状态。 
+2. 运行 cmdlet 
+    ```powershell
+    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+    ```
+其中
+| 参数 | 描述 | Type | 需要 |
+|---------|---------|---------|---------|
+| *TranscriptsPathDestination* | 定义为"fileshareIP\sharefoldername"的外部文件共享路径 | String | 是|
+| *凭据* | 若要访问文件共享的凭据 | SecureString |  是 |
 
-    ![Close-PrivilegedEndpoint cmdlet 输出，其中显示了脚本目标的指定路径](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
 将脚本日志文件成功传送到文件共享后，它们会自动从 PEP 中删除。 
 

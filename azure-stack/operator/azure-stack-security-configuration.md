@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: c82ba5ca0de27ece5d3bf0ef260efa8d182ad9bf
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: b36a6d826dc7249f10b4785b27511096e45923a9
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419765"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557855"
 ---
 # <a name="configure-azure-stack-security-controls"></a>配置 Azure Stack 的安全控制
 
@@ -31,7 +31,7 @@ Azure Stack 体系结构基于两个安全原则支柱： 假设性违规和默�
 因为 TLS 1.0 和 1.1 版以增量方式被弃用或禁止组织和符合性标准，从 1906年更新开始，你现在可以配置 TLS 策略在 Azure Stack 中。 您可以强制执行 TLS 1.2 唯一策略其中建立与版本低于 1.2 的 TLS 会话的任何尝试进行不允许和拒绝。
 
 > [!IMPORTANT]
-> 使用 TLS 1.2 策略仅适用于生产环境。
+> Microsoft 建议用于 Azure Stack 生产环境中使用 TLS 1.2 唯一的策略。
 
 ## <a name="get-tls-policy"></a>获取 TLS 策略
 
