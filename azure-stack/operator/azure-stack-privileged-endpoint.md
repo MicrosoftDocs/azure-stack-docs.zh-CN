@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b66354baa30bb6bf9ec4b8cb39cab0b9def763f6
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: c9e796a4ece453c3cd74bbf9a2fb6996757a0b4e
+ms.sourcegitcommit: 44f1bf6e0bfa85ee14819cad27c9b1de65d375df
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557897"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67596085"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
@@ -172,6 +172,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
     ```
 其中
+
 | 参数 | 描述 | Type | 需要 |
 |---------|---------|---------|---------|
 | *TranscriptsPathDestination* | 定义为"fileshareIP\sharefoldername"的外部文件共享路径 | String | 是|
