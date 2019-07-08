@@ -50,14 +50,14 @@ Azure 技术内容假定要开发用于 Azure 服务和不是 Azure Stack 应用
 | 由谁运营？ | Microsoft | 你的组织或服务提供商。|
 | 寻求支持的联系对象是谁？ | Microsoft | 对于集成环境，请联系你的组织或服务提供商的 Azure Stack 运营商来获取支持。<br><br>如需获取 Azure Stack 开发工具包的支持，请访问 [Microsoft 论坛](https://social.msdn.microsoft.com/Forums/home?forum=azurestack)。 由于开发工具包是一个评估环境，没有通过 Microsoft 客户支持服务 (CSS) 提供官方支持。
 | 可用服务 | 参阅 [Azure 产品](https://azure.microsoft.com/services/?b=17.04b)列表。 可用服务因 Azure 区域而异。 | Azure Stack 支持部分 Azure 服务。 实际服务因你的组织或服务提供商选择提供的服务而异。
-| Azure 资源管理器终结点* | https://management.azure.com | 对于 Azure Stack 集成系统，请使用 Azure Stack 运营商提供的终结点。<br><br>对于开发工具包，请使用： https://management.local.azurestack.external。
-| 门户 URL* | [https://portal.azure.com](https://portal.azure.com) | 对于 Azure Stack 集成系统，请使用 Azure Stack 运营商提供的 URL。<br><br>对于开发工具包，请使用： https://portal.local.azurestack.external。
+| Azure 资源管理器终结点* | https://management.azure.com | 对于 Azure Stack 集成系统，请使用 Azure Stack 运营商提供的终结点。<br><br>对于开发工具包，请使用： [https://management.local.azurestack.external](https://management.local.azurestack.external )。
+| 门户 URL* | [https://portal.azure.com](https://portal.azure.com) | 对于 Azure Stack 集成系统，请使用 Azure Stack 运营商提供的 URL。<br><br>对于开发工具包，请使用： [https://portal.local.azurestack.external](https://portal.local.azurestack.external )。
 | 区域 | 可以选择要部署到的区域。 | 对于 Azure Stack 集成系统，请使用系统中可用的区域。<br><br>对于开发工具包，区域始终为**本地**。
 | 资源组 | 资源组可以跨区域。 | 对于集成的系统和开发工具包，没有只有一个区域。
 |支持的命名空间、资源类型和 API 版本 | 最新 （或未弃用的早期版本）。 | Azure Stack 支持特定的版本。 请参阅本文的[版本要求](#version-requirements)部分。
 | | |
 
-* 如果你是 Azure Stack 操作员，请参阅[使用管理员门户](../operator/azure-stack-manage-portals.md)并[管理基础知识](../operator/azure-stack-manage-basics.md)有关详细信息。
+\* 如果你是 Azure Stack 操作员，请参阅[使用管理员门户](../operator/azure-stack-manage-portals.md)并[管理基础知识](../operator/azure-stack-manage-basics.md)有关详细信息。
 
 ## <a name="helpful-tools-and-best-practices"></a>有用的工具和最佳做法
 

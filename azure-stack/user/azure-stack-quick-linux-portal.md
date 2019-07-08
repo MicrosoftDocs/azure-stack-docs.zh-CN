@@ -70,7 +70,7 @@ ms.locfileid: "66394444"
 
 Azure Stack 门户的地址取决于要连接到的 Azure Stack 产品：
 
-* 对于 ASDK 中，请转到 https://portal.local.azurestack.external。
+* 对于 ASDK 中，请转到 [https://portal.local.azurestack.external](https://portal.local.azurestack.external )。
 
 * 对于 Azure Stack 集成系统，请转到 Azure Stack 运营商提供的 URL。
 
