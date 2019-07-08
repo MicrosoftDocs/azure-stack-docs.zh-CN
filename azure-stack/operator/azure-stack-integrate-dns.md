@@ -80,7 +80,7 @@ Azure Stack 包括权威 DNS 服务器和递归 DNS 服务器。 递归服务器
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>通过 Azure Stack 解析外部 DNS 名称
 
-若要解析 Azure Stack 外部的终结点（例如：[www.bing.com]\(www.bing.com)）的 DNS 名称，需提供可供 Azure Stack 用来转发 DNS 请求的 DNS 服务器（Azure Stack 对这些请求来说并不权威）。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。
+若要解析 Azure Stack 外部的终结点（例如：www.bing.com）的 DNS 名称，需提供可供 Azure Stack 用来转发 DNS 请求的 DNS 服务器（Azure Stack 对这些请求来说并不权威）。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。
 
 ### <a name="configure-conditional-dns-forwarding"></a>配置条件性 DNS 转发
 
