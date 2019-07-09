@@ -208,9 +208,9 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
   [NuGet 包管理器说明]: https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager
   [在 Azure Stack 中创建套餐的订阅]: ../operator/azure-stack-subscribe-plan-provision-vm.md
   [提供对 Azure Stack 的应用程序访问权限]: ../operator/azure-stack-create-service-principals.md
-  [**租户 ID]: ../operator/azure-stack-identity-overview.md
-  [**订阅 ID]: ../operator/azure-stack-plan-offer-quota-overview.md#subscriptions
-  [Azure Stack 资源管理器终结点**]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
+  [*租户 ID*]: ../operator/azure-stack-identity-overview.md
+  [*订阅 ID*]: ../operator/azure-stack-plan-offer-quota-overview.md#subscriptions
+  [*Azure Stack 资源管理器终结点*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
   [API 配置文件的摘要]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
   [Use Azure PowerShell to create a service principal with a certificate]: ../operator/azure-stack-create-service-principals.md
