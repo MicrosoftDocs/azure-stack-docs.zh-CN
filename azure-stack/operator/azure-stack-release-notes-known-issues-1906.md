@@ -16,12 +16,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: d1d3b3c33652811964b16a35686df3e3a24eb59a
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557868"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648045"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 已知问题
 
@@ -71,6 +71,13 @@ ms.locfileid: "67557868"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中尝试使用“OAuth(preview)”选项上传 Blob 时，任务将会失败并出现错误消息。 
 - 补救措施：使用 SAS 选项上传 Blob。
+- 发生次数：常见
+
+### <a name="template"></a>模板
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户中，模板部署用户界面不会填充参数的模板名称以 _ （下划线字符）。
+- 补救措施：从模板名称中删除 _ （下划线字符）。
 - 发生次数：常见
 
 ## <a name="networking"></a>网络

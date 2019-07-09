@@ -16,12 +16,12 @@ ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2e7737033b0f94473f4b794e452c9239f275c8f8
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.openlocfilehash: 9ea7c3de75be447870d0506cebbbbe8af0f2ffe9
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387727"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648095"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异与注意事项
 
@@ -45,7 +45,7 @@ ms.locfileid: "67387727"
 |高级磁盘 IOPS  |取决于磁盘大小  |每个磁盘 2300 IOPS |
 |高级磁盘吞吐量 |取决于磁盘大小 |每个磁盘 145 MB/秒 |
 |磁盘大小  |Azure 高级磁盘：P4 (32 GiB) 到 P80 (32 TiB)<br>Azure 标准 SSD 磁盘：E10 (128 GiB) 到 E80 (32 TiB)<br>Azure 标准 HDD 磁盘：S4 (32 GiB) 到 S80 (32 TiB) |M4：32 GiB<br>M6：64 GiB<br>M10：128 GiB<br>M15：256 GiB<br>M20：512 GiB<br>M30：1024 GiB |
-|磁盘快照复制|支持附加到正在运行的 VM 的快照 Azure 托管磁盘|尚不支持 |
+|磁盘快照复制|支持附加到正在运行的 VM 的快照 Azure 托管磁盘|快照 Azure 托管磁盘附加到正在运行 VM 尚不支持 |
 |磁盘性能分析 |支持的聚合指标和每磁盘指标 |尚不支持 |
 |迁移      |提供从现有非托管 Azure 资源管理器 VM 迁移的工具，而无需重新创建 VM  |尚不支持 |
 

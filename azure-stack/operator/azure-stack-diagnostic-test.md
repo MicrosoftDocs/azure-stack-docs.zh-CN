@@ -14,22 +14,22 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 25280d1f5465776aedf2e3e0dfd84118e866a944
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: f1c846b6d429fa323e1081d96cbca8bd10f877b5
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397273"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648070"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 操作员必须能够按需确定系统的运行状况和状态，这一点至关重要。 Azure Stack 验证工具 (**Test-AzureStack**) 是一个 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果有）。 您通常需要在运行此工具，[特权的终结点 (PEP)](azure-stack-privileged-endpoint.md)与 Microsoft 客户服务支持 (CSS) 联系出问题。 使用现有的系统范围运行状况和状态信息，CSS 可以收集和分析详细的日志，专注于发生错误的区域，并与你一起解决问题。
+Azure Stack 操作员必须能够按需确定系统的运行状况和状态，这一点至关重要。 Azure Stack 验证工具 (**Test-AzureStack**) 是一个 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果有）。 在向 Microsoft 客户服务支持 (CSS) 咨询问题时，通常会要求你通过[特权终结点 (PEP)](azure-stack-privileged-endpoint.md) 来运行此工具。 使用现有的系统范围运行状况和状态信息，CSS 可以收集和分析详细的日志，专注于发生错误的区域，并与你一起解决问题。
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>运行验证工具并访问结果
 
-如前所述，验证工具是通过 PEP 运行的。 每项测试在 PowerShell 窗口中返回 **PASS/FAIL**（通过/失败）状态。 此外，会创建一份详细的 HTML 报告，稍后在[日志收集](azure-stack-diagnostics.md)期间可以访问该报告。 下面概述了端到端的验证测试过程： 
+如前所述，验证工具是通过 PEP 运行的。 每项测试在 PowerShell 窗口中返回 **PASS/FAIL**（通过/失败）状态。 下面概述了端到端的验证测试过程： 
 
 1. 访问特权终结点 (PEP)。 运行以下命令建立 PEP 会话：
 
