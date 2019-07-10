@@ -10,7 +10,7 @@
       href: compare-azure-azure-stack.md
     - name: 发行说明
       items:
-        - name: 最新更新
+        - name: 更新和服务策略
           href: azure-stack-servicing-policy.md
         - name: 应用更新的清单
           href: azure-stack-release-notes-checklist.md
