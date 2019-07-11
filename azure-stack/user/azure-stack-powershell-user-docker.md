@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 42ed9766b43ce3c0c1c455d8ea286a5b453df325
-ms.sourcegitcommit: 2ee75ded704e8cfb900d9ac302d269c54a5dd9a3
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: 27f2b4c1817c28cf5d345f5aa9387a26cd18316b
+ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394377"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725751"
 ---
 # <a name="use-docker-to-run-powershell-in-azure-stack"></a>使用 Docker 在 Azure Stack 中运行 PowerShell
 
@@ -28,12 +28,12 @@ ms.locfileid: "66394377"
 
 ## <a name="docker-prerequisites"></a>Docker 先决条件
 
-1. 安装[Docker](https://docs.docker.com/install/)。
+1. 安装 [Docker](https://docs.docker.com/install/)。
 
 1. 在命令行程序，例如 Powershell 或 Bash，输入：
 
     ```bash
-        Docker -version
+        Docker --version
     ```
 
 1. 您需要使用 Windows 容器需要 Windows 10 运行 Docker。 在运行 Docker 时，切换到 Windows 容器。
@@ -54,7 +54,7 @@ Dockerfile 将打开的 Microsoft 映像*microsoft/windowsservercore*，其中�
 
 1. [Azure stack powershell 存储库下载](https://github.com/mattbriggs/azure-stack-powershell)作为 ZIP 文件或克隆存储库。
 
-2. 从你的终端中打开存储库文件夹。
+2. 从终端打开存储库文件夹。
 
 3. 在存储库中，打开一个命令行接口，然后输入以下命令：
 
@@ -68,7 +68,7 @@ Dockerfile 将打开的 Microsoft 映像*microsoft/windowsservercore*，其中�
         docker run -it azure-stack-powershell powershell
     ```
 
-5. 在 shell 便可供你 cmdlet。
+5. 可以将此 shell 用于 cmdlet 了。
 
     ```bash
     Windows PowerShell
@@ -77,7 +77,7 @@ Dockerfile 将打开的 Microsoft 映像*microsoft/windowsservercore*，其中�
     PS C:\>
     ```
 
-6. 使用服务主体连接到 Azure Stack 实例。 现在在 Docker 中使用 PowerShell 提示符。 
+6. 使用服务主体连接到 Azure Stack 实例。 现在使用 Docker 中的 PowerShell 提示符。 
 
     ```powershell
     $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
@@ -85,7 +85,7 @@ Dockerfile 将打开的 Microsoft 映像*microsoft/windowsservercore*，其中�
     Connect-AzureRmAccount -ServicePrincipal -Credential $pscredential -TenantId <TenantID>
     ```
 
-   PowerShell 将返回你帐户的对象：
+   PowerShell 返回帐户对象：
 
     ```powershell  
     Account    SubscriptionName    TenantId    Environment
@@ -93,7 +93,7 @@ Dockerfile 将打开的 Microsoft 映像*microsoft/windowsservercore*，其中�
     <AccountID>    <SubName>       <TenantID>  AzureCloud
     ```
 
-7. 通过在 Azure Stack 中创建资源组中测试你的连接。
+7. 通过在 Azure Stack 中创建资源组，测试连接性。
 
     ```powershell  
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
@@ -104,4 +104,4 @@ Dockerfile 将打开的 Microsoft 映像*microsoft/windowsservercore*，其中�
 -  阅读的概述[在 Azure Stack 中的 Azure Stack PowerShell](azure-stack-powershell-overview.md)。
 - 阅读有关[API 配置文件适用于 PowerShell](azure-stack-version-profiles.md) Azure Stack 中。
 - 安装[Azure Stack Powershell](../operator/azure-stack-powershell-install.md)。
-- 了解如何创建[Azure 资源管理器模板](azure-stack-develop-templates.md)云保持一致。
+- 了解如何创建 [Azure 资源管理器模板](azure-stack-develop-templates.md)以实现云一致性。

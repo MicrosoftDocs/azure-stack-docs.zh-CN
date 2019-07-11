@@ -11,22 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: c0f680aec95c23db2567100b47a341a5d3fb9dad
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: d22b1df33f4fc57cf9f823f620054a6baa6bb5d3
+ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197172"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725768"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-要使用云，必须安装与 Azure Stack 兼容的 PowerShell 模块。 可通过名为“API 配置文件”的功能来实现兼容性。 
+Azure PowerShell 提供了一组用于管理 Azure Stack 资源使用 Azure 资源管理器模型的 cmdlet。
+
+要使用云，必须安装与 Azure Stack 兼容的 PowerShell 模块。 Azure Stack 使用**AzureRM**模块，而较新**AzureAZ**在全球 Azure 中使用的模块。 此外，你将需要使用*API 配置文件*Azure Stack 资源提供程序指定兼容的终结点。
 
 API 配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack 支持特定的配置文件版本等**2019年-03-01-混合**。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。
 
@@ -138,7 +140,8 @@ Get-Module -Name "Azs*" -ListAvailable
 1. 将 Azure Stack PowerShell 安装到连接的计算机
 2. 启用其他存储功能
 3. 将 PowerShell 包传输到已断开连接的工作站
-4. 确认已安装 PowerShell
+4. 手动启动 NuGet 提供程序在连接断开的工作站上。
+4. 确认 PowerShell 的安装
 
 ### <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell
 
@@ -179,7 +182,9 @@ Get-Module -Name "Azs*" -ListAvailable
 
 2. 登录到已断开连接的工作站，将包从 USB 设备复制到工作站中的某个位置。
 
-3. 现在，将此位置注册为默认存储库，并从此存储库安装 AzureRM 和 AzureStack 模块：
+3. 手动启动 NuGet 提供程序在连接断开的工作站上。 有关说明，请参阅[手动启动 NuGet 提供程序未连接到 Internet 的计算机上](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)。
+
+4. 现在，将此位置注册为默认存储库，并从此存储库安装 AzureRM 和 AzureStack 模块：
 
    ```powershell
    # requires -Version 5

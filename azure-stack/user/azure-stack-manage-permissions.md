@@ -1,6 +1,6 @@
 ---
 title: 管理 Azure Stack 中每个用户对资源的权限 | Microsoft Docs
-description: 作为服务管理员或租户，了解如何管理 RBAC 权限。
+description: 作为服务管理员或租户，了解如何管理基于角色的访问控制 (RBAC) 权限。
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 0f6cae1604c6635f7eb401ed4db16a9a967e1ab9
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 20bf709cb3c2026910a1283fb0b39ba80c719390
+ms.sourcegitcommit: 7f441f246242fa42147ab5aa69ddc8766ba293e3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985687"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67791351"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 基于角色的访问控制管理对资源的访问权限
 
@@ -39,7 +39,7 @@ Azure Stack 有三个可应用于所有资源类型的基本角色：
 
 * **所有者**可以管理所有内容，包括对资源的访问权限。
 * **参与者**可以管理除了对资源的访问权限以外的所有内容。
-* **读取器**可以查看所有内容，但不能进行任何更改。
+* **读者**可以查看所有内容，但不能进行任何更改。
 
 ### <a name="resource-hierarchy-and-inheritance"></a>资源层次结构和继承
 
@@ -68,18 +68,18 @@ Azure [角色分配](https://docs.microsoft.com/azure/role-based-access-control/
 以下步骤介绍了如何为用户配置权限。
 
 1. 使用对要管理的资源具有所有者权限的帐户登录。
-2. 在左侧导航窗格中，选择“资源组”。
+2. 在左侧导航窗格中，选择“资源组”  。
 3. 选择要针对其设置权限的资源组的名称。
-4. 在资源组的导航窗格中，选择“访问控制(标识和访问管理)”。 “角色分配”视图会列出对该资源组具有访问权限的项。 可以对结果进行筛选和分组。
-5. 在“访问控制”菜单栏上，选择“添加”。
-6. 在“添加权限”窗格上：
+4. 在资源组的导航窗格中，选择“访问控制(标识和访问管理)”  。 **角色分配**视图将列出有权访问的资源组的项。 可以筛选并对结果进行分组。
+5. 在“访问控制”  菜单栏上，选择“添加”  。
+6. 在“添加权限”  窗格上：
 
-   * 从“角色”下拉列表中选择要分配的角色。
-   * 从“将访问权限分配到”下拉列表中选择要分配的资源。
+   * 从“角色”下拉列表中选择要分配的角色。 
+   * 从“将访问权限分配到”下拉列表中选择要分配的资源。 
    * 在你想要授予访问权限的目录中选择用户、组或应用程序。 可以通过显示名称、电子邮件地址和对象标识符搜索该目录。
 
-7. 选择“保存”。
+7. 选择“保存”。 
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建服务主体](azure-stack-create-service-principals.md)
+[创建服务主体](../operator/azure-stack-create-service-principals.md)
