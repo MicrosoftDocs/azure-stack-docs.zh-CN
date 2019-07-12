@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 网络的差异和注意事项 | Microsoft Docs
+title: Azure Stack 网络差异 |Microsoft Docs
 description: 了解 Azure Stack 中网络的差异和用法注意事项。
 services: azure-stack
 keywords: ''
@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: a59b716df7e8bf7c9a76abbfcdbe6b300c985c9f
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 06b61bf80b2c123413425fc3abdcda12961d096c
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198814"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816214"
 ---
-# <a name="considerations-for-azure-stack-networking"></a>Azure Stack 网络注意事项
+# <a name="differences-and-considerations-for-azure-stack-networking"></a>差异和 Azure Stack 网络注意事项
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部署 Azure Stack 网络之前，你应该了解一些关键区别。
 
@@ -28,7 +28,7 @@ Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部
 
 ## <a name="cheat-sheet-networking-differences"></a>速查表：网络差异
 
-| 服务 | Feature | Azure（公有云） | Azure Stack |
+| 服务 | 功能 | Azure（公有云） | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | 多租户 DNS | 支持 | 尚不支持 |
 |  | DNS AAAA 记录 | 支持 | 不支持 |
@@ -49,23 +49,23 @@ Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部
 |  | 应用程序安全组 | 支持 | 尚不支持。 |
 | 虚拟网络网关 | 点到站点 VPN 网关 | 支持 | 尚不支持。 |
 |  | VNet 到 VNet 网关 | 支持 | 尚不支持。 |
-|  | 虚拟网络网关类型 | Azure 支持 VPN<br> Express Route <br> Hyper Net | Azure Stack 目前仅支持 VPN 类型。 |
+|  | 虚拟网络网关类型 | Azure 支持 VPN<br> Express Route <br> 超 Net。 | Azure Stack 目前仅支持 VPN 类型。 |
 |  | VPN 网关 SKU | 支持基本、GW1、GW2、GW3、标准高性能、超高性能 SKU。 | 支持基本、标准和高性能 SKU。 |
-|  | VPN 类型 | Azure 支持“基于策略”和“基于路由”。 | Azure Stack 仅支持“基于路由”。 |
-|  | BGP 设置 | Azure 支持配置“BGP 对等互连地址”和“对等互连权重”。 | “BGP 对等互连地址”和“对等互连权重”在 Azure Stack 中自动配置。 用户无法使用自己的值来配置这些设置。 |
+|  | VPN 类型 | 基于策略的和基于路由的 azure 支持。 | Azure Stack 支持基于路由的仅。 |
+|  | BGP 设置 | Azure 支持配置“BGP 对等互连地址”和“对等互连权重”。 | “BGP 对等互连地址”和“对等互连权重”在 Azure Stack 中自动配置。 没有任何方式，供用户使用他们自己的值配置这些设置。 |
 |  | 默认网关站点 | Azure 支持为强制隧道配置默认站点。 | 尚不支持。 |
-|  | 网关大小调整 | Azure 支持在部署后调整网关大小。 | 不支持调整大小。 |
+|  | 网关大小调整 | Azure 支持在部署后调整网关大小。 | 调整大小不受支持。 |
 |  | 可用性配置 | 主动/主动 | 主动/被动 |
 |  | UsePolicyBasedTrafficSelectors | Azure 支持将基于策略的流量选择器与基于路由的网关连接配合使用。 | 尚不支持。 |
-| 负载均衡 | SKU | 支持基本和标准负载均衡器。 | 仅支持基本负载均衡器。  不支持 SKU 属性。 |
+| 负载均衡 | SKU | 基本和标准负载均衡器支持。 | 仅支持基本负载均衡器。  不支持 SKU 属性。 |
 |  | 区域 | 支持可用性区域。 | 尚不支持 |
-|  | 服务终结点的入站 NAT 规则支持 | Azure 支持为入站 NAT 规则指定服务终结点。 | Azure Stack 尚不支持服务终结点，因此无法指定这些设置。 |
-|  | Protocol | Azure 支持指定 GRE 或 ESP。 | Azure Stack 中不支持协议类。 |
-| 公共 IP 地址 | 公共 IP 地址版本 | Azure 支持 IPv6 和 IPv4 | 仅支持 IPv4。 |
+|  | 服务终结点的入站 NAT 规则支持 | Azure 支持为入站 NAT 规则指定服务终结点。 | Azure Stack 尚不支持服务终结点，因此不能指定这些。 |
+|  | Protocol | Azure 支持指定 GRE 或 ESP。 | 在 Azure Stack 中不支持协议类。 |
+| 公共 IP 地址 | 公共 IP 地址版本 | Azure 支持 IPv6 和 IPv4。 | 仅支持 IPv4。 |
 | 网络接口 | 获取有效路由表 | 支持 | 尚不支持。 |
 |  | 获取有效 ACL | 支持 | 尚不支持。 |
 |  | 启用加速网络 | 支持 | 尚不支持。 |
-|  | IP 转发 | 默认已禁用。  可启用。 | 不支持切换此设置。  默认已启用。 |
+|  | IP 转发 | 默认已禁用。  可以启用。 | 切换此设置不受支持。  默认已启用。 |
 |  | 应用程序安全组 | 支持 | 尚不支持。 |
 |  | 内部 DNS 名称标签 | 支持 | 尚不支持。 |
 |  | 专用 IP 地址版本 | 支持 IPv6 和 IPv4。 | 仅支持 IPv4。 |
