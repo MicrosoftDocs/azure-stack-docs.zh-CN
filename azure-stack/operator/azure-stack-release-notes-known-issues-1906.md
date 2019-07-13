@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
-ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
+ms.openlocfilehash: ff64a04731f32934c676ece8e29860bbb9acda3f
+ms.sourcegitcommit: 0bb2fdeccda3183d0bf4572819a28af8ca5f244a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67648045"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863154"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 已知问题
 
@@ -73,12 +73,12 @@ ms.locfileid: "67648045"
 - 补救措施：使用 SAS 选项上传 Blob。
 - 发生次数：常见
 
-### <a name="template"></a>模板
+### <a name="update"></a>Update
 
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中，模板部署用户界面不会填充参数的模板名称以 _ （下划线字符）。
-- 补救措施：从模板名称中删除 _ （下划线字符）。
-- 发生次数：常见
+- 适用于：此问题适用于 1906年版。
+- 原因：运营商门户中，在修补程序的更新状态显示更新的状态不正确。 初始状态指示，更新安装失败，即使它仍在进行中。
+- 补救措施：刷新门户，然后状态将更新为"正在进行"。
+- 发生次数：间歇性
 
 ## <a name="networking"></a>网络
 

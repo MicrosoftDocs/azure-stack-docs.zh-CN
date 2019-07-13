@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 9c263b97deb12a199f2941be7ea4ae05a048837b
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 7c46d2b576f8927ff0da438091a6c1094ae15ddf
+ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131622"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67851786"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack 计算
 
@@ -41,6 +41,13 @@ Azure Stack 放置引擎会将所有可用主机的租户 Vm。
 虚拟机规模集使用可用性集背面结束，并确保每个虚拟机规模集实例位于不同的容错域中。 这意味着它们使用单独的 Azure Stack 基础结构节点。 例如，在 4 节点 Azure Stack 系统，可能有其中的 3 个实例的虚拟机规模集将在 3 个单独的 Azure Stack 节点上放置 3 个虚拟机规模集实例的 4 节点容量所致的创建失败的情况。 此外，Azure Stack 节点可以在不同级别之前尝试放置, 填满中。 
 
 Azure Stack 不超量使用内存。 但是，允许一个过度提交的物理内核数。 由于现有的虚拟与物理内核作为一个因素的过度预配之比不查看放置算法，每个主机可能具有不同的比。 作为 Microsoft，我们不提供指南上的物理到虚拟内核比由于工作负荷和服务级别要求。 
+
+## <a name="consideration-for-total-number-of-vms"></a>考虑因素的 Vm 总数 
+
+准确规划 Azure Stack 容量时需要考虑一个新的因素。 使用 1901年更新 （和今后的每个更新），是现在可以创建虚拟机的总数限制。 此限制是暂时性的，目的是避免解决方案不稳定。 进行寻址的源的稳定性问题，更多的 Vm，但尚未确定具体的时间表以提高补救。 现在有了每个服务器限制 60 台虚拟机的总体解决方案限制为 700。 例如，8 个服务器的 Azure Stack VM 数目限制是 480 (8 * 60)。 对于 Azure Stack 解决方案的 12 到 16 个服务器上，限制为 700。 已创建此限制，请记住所有计算资源容量注意事项，例如保留的复原能力和 CPU 虚拟与物理运算符想要在标记上维护的比率。 有关详细信息，请参阅新版容量规划器。 
+
+如果达到了 VM 规模限制，将返回以下错误代码：VMsPerScaleUnitLimitExceeded、VMsPerScaleUnitNodeLimitExceeded。
+
 
 ## <a name="azure-stack-memory"></a>Azure Stack 内存 
 

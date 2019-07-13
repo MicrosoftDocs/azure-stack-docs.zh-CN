@@ -240,6 +240,18 @@
           href: azure-stack-rest-api-use.md
     - name: 启用云服务提供商
       href: azure-stack-csp-enable-billing-usage-tracking.md
+- name: 概念
+  items:
+    - name: 混合云模式
+      items:
+        - name: 混合云模式概述
+          href: azure-stack-edge-pattern-overview.md
+        - name: 跨云缩放
+          href: azure-stack-edge-pattern-cross-cloud-scaling.md
+        - name: DevOps (混合 CI/CD)
+          href: azure-stack-edge-pattern-hybrid-ci-cd.md
+        - name: 异地分布式应用程序
+          href: azure-stack-edge-pattern-geo-distribution.md
 - name: 参考
   items:
     - name: Azure Stack PowerShell
