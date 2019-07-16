@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/17/2019
+ms.date: 07/10/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
-ms.reviewer: scottnap
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 06b61bf80b2c123413425fc3abdcda12961d096c
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.reviewer: wamota
+ms.lastreviewed: 07/10/2019
+ms.openlocfilehash: 7e0f533c10e8dae0566284ffb09cfa7281213002
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816214"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229438"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>差异和 Azure Stack 网络注意事项
 
@@ -57,7 +57,7 @@ Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部
 |  | 网关大小调整 | Azure 支持在部署后调整网关大小。 | 调整大小不受支持。 |
 |  | 可用性配置 | 主动/主动 | 主动/被动 |
 |  | UsePolicyBasedTrafficSelectors | Azure 支持将基于策略的流量选择器与基于路由的网关连接配合使用。 | 尚不支持。 |
-| 负载均衡 | SKU | 基本和标准负载均衡器支持。 | 仅支持基本负载均衡器。  不支持 SKU 属性。 |
+| 负载均衡 | SKU | 支持基本和标准负载均衡器。 | 仅支持基本负载均衡器。<br>不支持 SKU 属性。<br>基本 SKU 负载均衡器 /path/ 不能有 5 个以上的前端 IP 配置。  |
 |  | 区域 | 支持可用性区域。 | 尚不支持 |
 |  | 服务终结点的入站 NAT 规则支持 | Azure 支持为入站 NAT 规则指定服务终结点。 | Azure Stack 尚不支持服务终结点，因此不能指定这些。 |
 |  | Protocol | Azure 支持指定 GRE 或 ESP。 | 在 Azure Stack 中不支持协议类。 |

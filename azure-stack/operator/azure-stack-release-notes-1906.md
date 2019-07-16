@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 07/11/2019
-ms.openlocfilehash: bd116e2e04f93b96655a32eb50f0057f0d5784ec
-ms.sourcegitcommit: 0bb2fdeccda3183d0bf4572819a28af8ca5f244a
+ms.lastreviewed: 07/15/2019
+ms.openlocfilehash: 5330136bd1d4950ace26fa3f232be039c90ab144
+ms.sourcegitcommit: 12aef286fc14ab27ed737a17e2761c38f054b9b3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67863182"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67885353"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新
 
@@ -137,14 +137,14 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 Azure Stack 的 1906年版本必须应用 1905年版本具有以下修补程序：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hotfix 1.1905.3.48](https://support.microsoft.com/help/4510078)
+- [Azure Stack 修补程序 1.1905.3.48](https://support.microsoft.com/help/4510078)
 
 ### <a name="after-successfully-applying-the-1906-update"></a>已成功应用 1906年后更新
 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hotfix 1.1906.9.49](https://support.microsoft.com/help/4512794)
+- [Azure Stack 修补程序 1.1906.11.52](https://support.microsoft.com/help/4513119)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
