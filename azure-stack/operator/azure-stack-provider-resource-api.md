@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: c1333d088cf00b5e909ba5c4ced409bec7538189
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 631d6764ca7947ddafd70ec57b607df1ea5a4ab5
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198486"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286684"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 
@@ -108,10 +108,10 @@ meterID1",
 
 1. [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 2. [配置 Azure Stack 用户](../user/azure-stack-powershell-configure-user.md)或[Azure Stack 操作员](azure-stack-powershell-configure-admin.md)PowerShell 环境。
-3. 若要检索使用情况数据，请使用 [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet：
+3. 若要检索使用情况数据，请调用[Get AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) PowerShell cmdlet:
 
    ```powershell
-   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
    ```
 
 ### <a name="rest-api"></a>REST API

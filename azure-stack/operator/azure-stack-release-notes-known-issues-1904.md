@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 3a92a142181b9e2268948d430b0a62d6ffa189d8
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419592"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239444"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 的已知问题
 
@@ -214,6 +214,11 @@ ms.locfileid: "67419592"
 - 适用于：此问题适用于 1904年和 1905年版本。
 - 原因：规模集实例视图边栏选项卡位于 Azure Stack 门户中**仪表板** > **虚拟机规模集** >  **AnyScaleSet-实例** > **AnyScaleSetInstance**加载失败。
 - 补救措施：目前尚无修正，我们正在努力修复程序。 在此之前，请使用 CLI cmdlet`az vmss get-instance-view`获取虚拟机规模集实例视图。
+
+### <a name="user-image-service"></a>用户映像服务
+- 适用于：此问题适用于所有支持的版本。
+- 原因：失败的用户映像创建将放入错误的状态的用户映像服务。 用户映像创建和删除操作将启动失败。 用户映像删除可能会失败，错误："错误：内部磁盘管理时出错。"
+- 补救措施：无缓解措施。 与 Microsoft 开具支持票证。
 
 ## <a name="storage"></a>存储
 

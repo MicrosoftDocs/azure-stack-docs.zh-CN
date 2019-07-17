@@ -2,6 +2,8 @@
   href: index.yml
 - name: 概述
   items:
+    - name: 使用 Azure Stack 构建解决方案
+      href: azure-stack-hybrid-cloud-patterns.md
     - name: 重要注意事项
       href: azure-stack-considerations.md
 - name: 快速入门
@@ -21,14 +23,203 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: 教程
   items:
-    - name: 常见任务
+    - name: 从模板创建 VM
+      href: azure-stack-create-vm-template.md
+- name: 操作指南
+  items:
+    - name: 开始构建混合云解决方案
       items:
         - name: 订阅产品
           href: azure-stack-subscribe-services.md
-        - name: 从模板创建 VM
-          href: azure-stack-create-vm-template.md
-    - name: 混合云应用概述
-      href: azure-stack-hybrid-cloud-patterns.md
+        - name: 启用云服务提供商
+          href: azure-stack-csp-enable-billing-usage-tracking.md
+        - name: 使用 Azure Stack 门户
+          href: azure-stack-use-portal.md
+        - name: 配置客户端
+          items:
+            - name: 设置开发环境
+              href: azure-stack-dev-start.md
+            - name: 使用 PowerShell 和 Azure Stack
+              items:
+                - name: Azure Stack PowerShell 概述
+                  href: azure-stack-powershell-overview.md
+                - name: 安装 Azure Stack PowerShell
+                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: 使用 PowerShell 连接
+                  href: azure-stack-powershell-configure-user.md
+                - name: 下载 Azure Stack 工具
+                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: 使用 Docker 运行 PowerShell
+                  href: azure-stack-powershell-user-docker.md
+                - name: 使用 Azure Stack 策略模块
+                  href: azure-stack-policy-module.md
+            - name: 使用 Azure CLI 和 Azure Stack
+              href: azure-stack-version-profiles-azurecli2.md
+            - name: 使用 Visual Studio Code
+              href: azure-stack-dev-start-vscode-azure.md
+            - name: 使用 Visual Studio
+              href: azure-stack-install-visual-studio.md
+            - name: 使用安全外壳
+              href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: 在 API 中使用 REST 客户端
+              href: azure-stack-rest-api-use.md
+        - name: 使用 Azure Stack 资源管理器模板
+          items:
+            - name: 模板概述
+              href: azure-stack-arm-templates.md
+            - name: 模板注意事项
+              href: azure-stack-develop-templates.md
+            - name: 开发在 Azure 中的模板
+              href: azure-stack-developer.md
+            - name: 检查模板
+              href: azure-stack-validate-templates.md
+            - name: 使用门户进行部署
+              href: azure-stack-deploy-template-portal.md
+            - name: 使用 PowerShell 进行部署
+              href: azure-stack-deploy-template-powershell.md
+            - name: 使用 CLI 进行部署
+              href: azure-stack-deploy-template-command-line.md
+            - name: 使用 Visual Studio 进行部署
+              href: azure-stack-deploy-template-visual-studio.md
+        - name: 使用 API 版本配置文件
+          items:
+            - name: 概述
+              href: azure-stack-version-profiles.md
+            - name: .NET
+              href: azure-stack-version-profiles-net.md
+            - name: Java
+              href: azure-stack-version-profiles-java.md
+            - name: Go
+              href: azure-stack-version-profiles-go.md
+            - name: Ruby
+              href: azure-stack-version-profiles-ruby.md
+            - name: Python
+              href: azure-stack-version-profiles-python.md
+            - name: 配置文件支持的资源提供程序 API
+              href: azure-stack-profiles-azure-resource-manager-versions.md
+    - name: 使用资源提供程序
+      items:
+        - name: 安全、 合规性和标识
+          items:
+            - name: 使用基于角色的访问控制
+              href: azure-stack-manage-permissions.md
+            - name: 使用应用程序标识来访问资源
+              href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 使用服务
+          items:
+            - name: 计算
+              items:
+                - name: 概述
+                  href: azure-stack-compute-overview.md
+                - name: VM 注意事项
+                  href: azure-stack-vm-considerations.md
+                - name: VM 大小
+                  href: azure-stack-vm-sizes.md
+                - name: 管理 VM 磁盘
+                  href: azure-stack-manage-vm-disks.md
+                - name: 托管磁盘注意事项
+                  href: azure-stack-managed-disk-considerations.md
+                - name: 保护 VM
+                  href: azure-stack-manage-vm-protect.md
+                - name: VM 更新和管理
+                  href: vm-update-management.md
+                - name: SQL Server VM 注意事项
+                  href: azure-stack-sql-server-vm-considerations.md
+            - name: 存储
+              items:
+                - name: 概述
+                  href: azure-stack-storage-overview.md
+                - name: 存储注意事项
+                  href: azure-stack-acs-differences.md
+                - name: 存储开发工具
+                  href: azure-stack-storage-dev.md
+                - name: 数据传输工具
+                  href: azure-stack-storage-transfer.md
+                - name: 连接存储资源管理器
+                  href: azure-stack-storage-connect-se.md
+            - name: 网络
+              items:
+                - name: 概述
+                  href: azure-stack-network-overview.md
+                - name: 网络注意事项
+                  href: azure-stack-network-differences.md
+                - name: VPN 网关
+                  items:
+                    - name: 使用 VPN 进行连接
+                      href: azure-stack-connect-vpn.md
+                    - name: 关于 VPN 网关
+                      href: azure-stack-vpn-gateway-about-vpn-gateways.md
+                    - name: 配置 IPsec/IKE 连接策略
+                      href: azure-stack-vpn-s2s.md
+                    - name: VPN 网关设置
+                      href: azure-stack-vpn-gateway-settings.md
+                - name: 用于 Azure Stack 的 iDNS
+                  href: azure-stack-understanding-dns.md
+                - name: Azure Stack 中的 DNS
+                  href: azure-stack-dns.md
+            - name: Key Vault
+              items:
+                - name: 概述
+                  href: azure-stack-key-vault-intro.md
+                - name: 使用门户进行管理
+                  href: azure-stack-key-vault-manage-portal.md
+                - name: 使用 PowerShell 进行管理
+                  href: azure-stack-key-vault-manage-powershell.md
+                - name: 使用机密创建 VM
+                  href: azure-stack-key-vault-deploy-vm-with-secret.md
+                - name: 使用证书创建 VM
+                  href: azure-stack-key-vault-push-secret-into-vm.md
+                - name: 在 Key Vault 中存储凭据
+                  href: azure-stack-key-vault-store-credentials.md
+                - name: KeyVault 示例应用
+                  href: azure-stack-key-vault-sample-app.md
+            - name: Azure Monitor
+              href: azure-stack-metrics-azure-data.md
+              items:
+                - name: 支持的指标
+                  href: azure-stack-metrics-supported.md
+                - name: 使用 Azure 监视数据
+                  href: azure-stack-metrics-monitor.md
+        - name: 使用解决方案模板
+          items:
+            - name: 部署 Ethereum
+              href: azure-stack-ethereum.md
+            - name: 部署 Service Fabric 群集
+              href: azure-stack-solution-template-service-fabric-cluster.md
+            - name: 部署 Kubernetes 群集
+              href: azure-stack-solution-template-kubernetes-deploy.md
+              items:
+                - name: 部署使用 Azure AD 的 Kubernetes
+                  href: azure-stack-solution-template-kubernetes-azuread.md
+                - name: 部署使用 AD FS 的 Kubernetes
+                  href: azure-stack-solution-template-kubernetes-adfs.md
+                - name: 启用 Kubernetes 仪表板
+                  href: azure-stack-solution-template-kubernetes-dashboard.md
+                - name: 对 Kubernetes 群集进行故障排除
+                  href: azure-stack-solution-template-kubernetes-trouble.md
+            - name: 部署认知服务
+              href: azure-stack-solution-template-cognitive-services.md
+    - name: 将应用部署
+      items:
+        - name: '部署C#web 应用到 Windows VM'
+          href: azure-stack-dev-start-howto-vm-dotnet.md
+        - name: 将 web 应用部署到 Linux VM
+          items:
+            - name: 部署适用于 Web 应用的 Linux VM
+              href: azure-stack-dev-start-howto-deploy-linux.md
+            - name: Java web 应用部署
+              href: azure-stack-dev-start-howto-vm-java.md
+            - name: 转到 web 应用部署
+              href: azure-stack-dev-start-howto-vm-go.md
+            - name: Ruby web 应用部署
+              href: azure-stack-dev-start-howto-vm-ruby.md
+            - name: 部署 Python Web 应用
+              href: azure-stack-dev-start-howto-vm-python.md
+            - name: NodeJS web 应用部署
+              href: azure-stack-dev-start-howto-vm-nodejs.md
+    - name: 部署混合云模式
       items:
         - name: 将应用部署到 Azure 和 Azure Stack
           href: azure-stack-solution-pipeline.md
@@ -48,198 +239,6 @@
           href: azure-stack-solution-mongodb-ha.md
         - name: 部署高可用性 SQL Server 2016
           href: azure-stack-solution-sql-ha.md
-- name: 操作指南
-  items:
-    - name: 使用 Azure Stack 门户
-      href: azure-stack-use-portal.md
-    - name: 使用 PowerShell 连接
-      href: azure-stack-powershell-configure-user.md
-    - name: 安全、符合性和标识
-      items:
-        - name: 使用基于角色的访问控制
-          href: azure-stack-manage-permissions.md
-        - name: 使用应用程序标识来访问资源
-          href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: 使用服务
-      items:
-        - name: 计算
-          items:
-            - name: 概述
-              href: azure-stack-compute-overview.md
-            - name: VM 注意事项
-              href: azure-stack-vm-considerations.md
-            - name: VM 大小
-              href: azure-stack-vm-sizes.md
-            - name: 管理 VM 磁盘
-              href: azure-stack-manage-vm-disks.md
-            - name: 托管磁盘注意事项
-              href: azure-stack-managed-disk-considerations.md
-            - name: 保护 VM
-              href: azure-stack-manage-vm-protect.md
-            - name: VM 更新和管理
-              href: vm-update-management.md
-            - name: SQL Server VM 注意事项
-              href: azure-stack-sql-server-vm-considerations.md
-        - name: 存储
-          items:
-            - name: 概述
-              href: azure-stack-storage-overview.md
-            - name: 存储注意事项
-              href: azure-stack-acs-differences.md
-            - name: 存储开发工具
-              href: azure-stack-storage-dev.md
-            - name: 数据传输工具
-              href: azure-stack-storage-transfer.md
-            - name: 连接存储资源管理器
-              href: azure-stack-storage-connect-se.md
-        - name: 网络
-          items:
-            - name: 概述
-              href: azure-stack-network-overview.md
-            - name: 网络注意事项
-              href: azure-stack-network-differences.md
-            - name: VPN 网关
-              items:
-                - name: 使用 VPN 进行连接
-                  href: azure-stack-connect-vpn.md
-                - name: 关于 VPN 网关
-                  href: azure-stack-vpn-gateway-about-vpn-gateways.md
-                - name: 配置 IPsec/IKE 连接策略
-                  href: azure-stack-vpn-s2s.md
-                - name: VPN 网关设置
-                  href: azure-stack-vpn-gateway-settings.md
-            - name: 用于 Azure Stack 的 iDNS
-              href: azure-stack-understanding-dns.md
-            - name: Azure Stack 中的 DNS
-              href: azure-stack-dns.md
-        - name: Key Vault
-          items:
-            - name: 概述
-              href: azure-stack-key-vault-intro.md
-            - name: 使用门户进行管理
-              href: azure-stack-key-vault-manage-portal.md
-            - name: 使用 PowerShell 进行管理
-              href: azure-stack-key-vault-manage-powershell.md
-            - name: 使用机密创建 VM
-              href: azure-stack-key-vault-deploy-vm-with-secret.md
-            - name: 使用证书创建 VM
-              href: azure-stack-key-vault-push-secret-into-vm.md
-            - name: 在 Key Vault 中存储凭据
-              href: azure-stack-key-vault-store-credentials.md
-            - name: KeyVault 示例应用
-              href: azure-stack-key-vault-sample-app.md
-        - name: Azure Monitor
-          href: azure-stack-metrics-azure-data.md
-          items:
-            - name: 支持的指标
-              href: azure-stack-metrics-supported.md
-            - name: 使用 Azure 监视数据
-              href: azure-stack-metrics-monitor.md
-        - name: 解决方案模板
-          items:
-            - name: 部署 Ethereum
-              href: azure-stack-ethereum.md
-            - name: 部署 Service Fabric 群集
-              href: azure-stack-solution-template-service-fabric-cluster.md
-            - name: 部署 Kubernetes 群集
-              href: azure-stack-solution-template-kubernetes-deploy.md
-              items:
-                - name: 部署使用 Azure AD 的 Kubernetes
-                  href: azure-stack-solution-template-kubernetes-azuread.md
-                - name: 部署使用 AD FS 的 Kubernetes
-                  href: azure-stack-solution-template-kubernetes-adfs.md
-                - name: 启用 Kubernetes 仪表板
-                  href: azure-stack-solution-template-kubernetes-dashboard.md
-                - name: 对 Kubernetes 群集进行故障排除
-                  href: azure-stack-solution-template-kubernetes-trouble.md
-            - name: 部署认知服务
-              href: azure-stack-solution-template-cognitive-services.md
-    - name: 使用 Azure Stack 资源管理器
-      items:
-        - name: 配置客户端
-          items:
-            - name: Azure SDK 客户端
-              href: azure-stack-dev-start.md
-            - name: Azure Stack PowerShell 客户端
-              items:
-                - name: Azure Stack PowerShell 概述
-                  href: azure-stack-powershell-overview.md
-                - name: 安装 Azure Stack PowerShell
-                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                  maintainContext: true
-                - name: 使用 PowerShell 连接
-                  href: azure-stack-powershell-configure-user.md
-                - name: 下载 Azure Stack 工具
-                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                  maintainContext: true
-                - name: 使用 Docker 运行 PowerShell
-                  href: azure-stack-powershell-user-docker.md
-            - name: Visual Studio Code 客户端
-              href: azure-stack-dev-start-vscode-azure.md
-            - name: Visual Studio 客户端
-              href: azure-stack-install-visual-studio.md
-            - name: 安全外壳客户端
-              href: azure-stack-dev-start-howto-ssh-public-key.md
-            - name: 使用 API 版本配置文件
-              items:
-                - name: 概述
-                  href: azure-stack-version-profiles.md
-                - name: .NET
-                  href: azure-stack-version-profiles-net.md
-                - name: Java
-                  href: azure-stack-version-profiles-java.md
-                - name: Azure CLI
-                  href: azure-stack-version-profiles-azurecli2.md
-                - name: Go
-                  href: azure-stack-version-profiles-go.md
-                - name: Ruby
-                  href: azure-stack-version-profiles-ruby.md
-                - name: Python
-                  href: azure-stack-version-profiles-python.md
-                - name: 配置文件支持的资源提供程序 API
-                  href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: 部署 VM 和 web 应用
-          items:
-            - name: '部署C#web 应用到 Windows VM'
-              href: azure-stack-dev-start-howto-vm-dotnet.md
-            - name: 将 web 应用部署到 Linux VM
-              items:
-                - name: 部署适用于 Web 应用的 Linux VM
-                  href: azure-stack-dev-start-howto-deploy-linux.md
-                - name: Java web 应用部署
-                  href: azure-stack-dev-start-howto-vm-java.md
-                - name: 转到 web 应用部署
-                  href: azure-stack-dev-start-howto-vm-go.md
-                - name: Ruby web 应用部署
-                  href: azure-stack-dev-start-howto-vm-ruby.md
-                - name: 部署 Python Web 应用
-                  href: azure-stack-dev-start-howto-vm-python.md
-                - name: NodeJS web 应用部署
-                  href: azure-stack-dev-start-howto-vm-nodejs.md
-        - name: 使用 Azure Stack 策略模块
-          href: azure-stack-policy-module.md
-        - name: 使用模板
-          items:
-            - name: 模板概述
-              href: azure-stack-arm-templates.md
-            - name: 模板注意事项
-              href: azure-stack-develop-templates.md
-            - name: 开发在 Azure 中的模板
-              href: azure-stack-developer.md
-            - name: 检查模板
-              href: azure-stack-validate-templates.md
-            - name: 使用门户进行部署
-              href: azure-stack-deploy-template-portal.md
-            - name: 使用 PowerShell 进行部署
-              href: azure-stack-deploy-template-powershell.md
-            - name: 使用 CLI 进行部署
-              href: azure-stack-deploy-template-command-line.md
-            - name: 使用 Visual Studio 进行部署
-              href: azure-stack-deploy-template-visual-studio.md
-        - name: 使用 REST 来访问资源
-          href: azure-stack-rest-api-use.md
-    - name: 启用云服务提供商
-      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: 概念
   items:
     - name: 混合云模式

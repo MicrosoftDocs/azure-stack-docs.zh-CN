@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 074d971c1f951797b5dc2d53a62eef56d0b7249f
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 3ed0c109e0253fe6d710801dbc30de04c0b5a6e5
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492331"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286832"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教程：为 Azure 和 Azure Stack 应用程序配置混合云标识
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>为 Azure 和 Azure Stack 应用程序配置混合云标识
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -35,19 +35,19 @@ ms.locfileid: "67492331"
 
 使用服务主体向 Azure Stack 应用程序以部署或配置 Azure Stack 中使用 Azure 资源管理器授予访问权限。
 
-在本教程中，你将生成到一个示例环境：
+在此解决方案中，你将生成到一个示例环境：
 
 > [!div class="checklist"]
 > - 在全球 Azure 和 Azure Stack 中建立一个混合标识
 > - 检索用于访问 Azure Stack API 的令牌。
 
-必须拥有 Azure Stack 操作员权限才能完成本教程中的步骤。
+在此解决方案中，必须具有 Azure Stack 操作员权限的步骤。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到您的本地环境中，启用唯一的混合云，可用于生成和部署混合应用任意位置。  
+> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到在本地环境中，启用唯一的混合云，可用于生成和部署混合应用任意位置。  
 > 
-> 本白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾的软件质量 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 进行设计、 部署和操作的支柱混合应用程序。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
+> 文章[混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)的设计、 部署和操作混合评审 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 的软件质量的构成要素应用程序。 设计注意事项，帮助您优化混合应用程序设计，最大程度减少在生产环境中的挑战。
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>在门户中创建适用于 Azure AD 的服务主体
@@ -60,13 +60,13 @@ ms.locfileid: "67492331"
 
 ## <a name="using-the-azure-stack-api"></a>使用 Azure Stack API
 
-[Azure Stack API](azure-stack-rest-api-use.md) 教程演练了检索令牌来访问 Azure Stack API 的过程。
+[Azure Stack API](azure-stack-rest-api-use.md)解决方案将指导你完成检索用于访问 Azure Stack API 的令牌的过程。
 
 ## <a name="connect-to-azure-stack-using-powershell"></a>使用 Powershell 连接到 Azure Stack
 
 [在 Azure Stack 中使用 PowerShell 启动并运行](../operator/azure-stack-powershell-install.md)快速入门演练了安装 Azure PowerShell 并连接到 Azure Stack 安装所要执行的步骤。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>系统必备
 
 需要连接到 Azure Active Directory 与订阅可以访问 Azure Stack 安装。 如果没有 Azure Stack 安装，可以使用这些说明来设置[Azure Stack 开发工具包](../asdk/asdk-install.md)。
 

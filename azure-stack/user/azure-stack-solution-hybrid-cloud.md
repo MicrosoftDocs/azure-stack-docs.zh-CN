@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 97869ef7659cb5619ff962fc4b3bc8facbc599ed
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 73fc9559e639973b07c576f8590c756032db0c3e
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492449"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286925"
 ---
-# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 部署混合云解决方案
+# <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>使用 Azure 和 Azure Stack 部署混合云解决方案
 
-适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本教程介绍如何部署使用 Azure 公有云和 Azure Stack 私有云的混合云解决方案。
+此方案演示了如何部署使用 Azure 公有云与 Azure Stack 私有云的混合云解决方案。
 
 使用混合云解决方案，可以结合私有云在合规性方面的优势与公有云的可伸缩性。 此外，您的开发人员可以充分利用 Microsoft 开发人员生态系统，并将他们的技能应用到在本地和云环境。
 
@@ -46,6 +46,12 @@ ms.locfileid: "67492449"
 > - 针对增大的流量设置 Application Insights 监视和警报。
 > - 配置全球 Azure 与 Azure Stack 之间的自动流量切换。
 
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到在本地环境中，启用唯一的混合云，可用于生成和部署混合应用任意位置。  
+> 
+> 文章[混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)的设计、 部署和操作混合评审 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 的软件质量的构成要素应用程序。 设计注意事项，帮助您优化混合应用程序设计，最大程度减少在生产环境中的挑战。
+
 ### <a name="assumptions"></a>假设
 
 本教程假设你对全球 Azure 和 Azure Stack 有基本的了解。 若要在开始本教程之前了解详细信息，请查看以下文章：
@@ -55,9 +61,9 @@ ms.locfileid: "67492449"
 
 本教程还假设你有一个 Azure 订阅。 如果你没有订阅，则可以[创建一个免费帐户](https://azure.microsoft.com/free/)在开始之前。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
-在开始本教程之前，请确保满足以下要求：
+在开始此解决方案之前，请确保满足以下要求：
 
 - Azure Stack 开发工具包 (ASDK)，或 Azure Stack 集成系统的订阅。 若要部署 Azure Stack 开发工具包，请遵照[使用安装程序部署 ASDK](../asdk/asdk-install.md) 中的说明操作。
 - Azure Stack 安装中应包含以下组件：

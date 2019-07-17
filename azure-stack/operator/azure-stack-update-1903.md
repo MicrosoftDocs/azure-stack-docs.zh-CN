@@ -16,16 +16,16 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 7f335a6ad59d6f27c8e402863849d21c87f1cee2
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: fa8c8b43b354b3f63dfed87cc45baf39fa18652b
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748893"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239479"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新
 
-*适用于：Azure Stack 集成系统*
+适用对象：*Azure Stack 集成系统*
 
 本文介绍 1903 更新包的内容。 该更新包含此版 Azure Stack 的改进、修复和新功能。 本文还描述了此版本中的已知问题，并包含一个用于下载该更新的链接。 已知问题分为与更新过程直接相关的问题，以及内部版本（安装后）的问题。
 
@@ -79,7 +79,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 - 1903 包含机密轮换的性能改进，可以减少执行内部机密轮换所需的时间。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
 > 在更新到 1903 之前，请先安装 1902 的[最新 Azure Stack 修补程序](#azure-stack-hotfixes)（如果有）。
@@ -195,6 +195,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 无法从“虚拟机规模集”边栏选项卡中删除规模集。  解决方法是，选择要删除的规模集，然后在“概述”窗格中单击“删除”按钮。  
 
 - 在 3 个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例失败，并**FabricVmPlacementErrorUnsupportedFaultDomainSize**过程 4 节点 Azure Stack 上的更新过程中出错环境。 可以在可用性集的 2 个容错域已成功创建单个 Vm。 但是，在 4 节点 Azure Stack 上的更新过程中创建规模集实例是仍不可用。
+
+- 失败的用户映像创建将放入错误的状态的用户映像服务。 用户映像创建和删除操作将启动失败。 用户映像删除可能会失败，错误："错误：内部磁盘管理时出错。"
 
 ### <a name="networking"></a>网络
 

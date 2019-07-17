@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Stack 的混合云模式 |Microsoft Docs
+title: 适用于 Azure Stack 的混合云设计模式 |Microsoft Docs
 description: 用于混合云和智能边缘，并且将 Azure Stack 的模式的概述
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 07/17/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: e390e43b02d93690c1e233279d52d03665414bf7
-ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
+ms.openlocfilehash: 339f0dda56f8f0974e9bf9cd2e0cb8cac1668f0a
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856405"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286880"
 ---
 # <a name="hybrid-cloud-design-patterns-for-azure-stack"></a>适用于 Azure Stack 的混合云设计模式
 
@@ -79,7 +79,7 @@ Microsoft Azure 是唯一的一致混合云。 它，可以重复使用你的开
 
 ### <a name="table-2-pillars"></a>表 2。 要点
 
-| **Pillar** | **说明** |
+| **支柱** | **说明** |
 | ----------- | --------------------------------------------------------- |
 | 放置  | 混合应用程序中的组件的战略位置。 |
 | 可伸缩性  | 系统处理增加的负载的能力。 |

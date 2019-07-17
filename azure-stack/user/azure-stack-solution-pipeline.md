@@ -1,5 +1,5 @@
 ---
-title: 教程&#58;将应用部署到 Azure 和 Azure Stack |Microsoft Docs
+title: 将应用部署到 Azure 和 Azure Stack |Microsoft Docs
 description: 了解如何使用混合 CI/CD 管道将应用部署到 Azure 和 Azure Stack。
 services: azure-stack
 documentationcenter: ''
@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 03/11/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 9f0f25e5810fc4c9a27d3607defbaca9dcfc0388
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 9fbadb923452fc2420d1f8626a69d377c4d72e12
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692085"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286965"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>教程：将应用部署到 Azure 和 Azure Stack
+# <a name="deploy-apps-to-azure-and-azure-stack"></a>将应用部署到 Azure 和 Azure Stack
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 了解如何将应用部署到 Azure 和 Azure Stack 使用混合持续集成/持续交付 (CI/CD) 管道。
 
-在本教程中，需创建一个示例环境来完成以下任务：
+在此解决方案中，你将创建为一个示例环境：
 
 > [!div class="checklist"]
 > * 启动基于 Azure DevOps 服务存储库的代码提交的新生成。
@@ -51,11 +51,11 @@ ms.locfileid: "66692085"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到您的本地环境。 它是唯一的混合云，可用于生成和部署混合应用任意位置。  
+> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到在本地环境中，启用唯一的混合云，可用于生成和部署混合应用任意位置。  
 > 
-> 白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾的软件质量 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 进行设计、 部署和操作的支柱混合应用程序。 设计注意事项，帮助您优化混合应用程序设计的最大程度减少在生产环境中的挑战。
+> 文章[混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)的设计、 部署和操作混合评审 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 的软件质量的构成要素应用程序。 设计注意事项，帮助您优化混合应用程序设计，最大程度减少在生产环境中的挑战。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>系统必备
 
 需要准备好组件才能生成混合 CI/CD 管道。 以下组件的准备需要一定的时间：
 
@@ -63,9 +63,9 @@ ms.locfileid: "66692085"
 * Azure Stack 操作员必须完成以下各项： 部署应用服务、 创建计划和产品/服务、 创建租户订阅，并添加 Windows Server 2016 映像。
 
 >[!NOTE]
->如果你已有一些部署这些组件，请确保在开始本教程之前满足所有要求。
+>如果你已有一些部署这些组件，请确保它们在开始此解决方案之前满足所有要求。
 
-本教程假设你对 Azure 和 Azure Stack 有一些基本的了解。 若要在开始本教程之前了解更多信息，请阅读以下文章：
+本方案假定你具有 Azure 和 Azure Stack 的一些基本知识。 若要了解详细信息之前启动解决方案，请阅读以下文章：
 
 * [Azure 简介](https://azure.microsoft.com/overview/what-is-azure/)
 * [Azure Stack 的重要概念](../operator/azure-stack-overview.md)
@@ -73,12 +73,12 @@ ms.locfileid: "66692085"
 ### <a name="azure-requirements"></a>Azure 要求
 
 * 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
-* 在 Azure 中创建 [Web 应用](https://docs.microsoft.com/azure/app-service/overview)。 记下需在本教程中使用的 Web 应用 URL。
+* 在 Azure 中创建 [Web 应用](https://docs.microsoft.com/azure/app-service/overview)。 请注意的 Web 应用 URL，需要在解决方案中使用。
 
 ### <a name="azure-stack-requirements"></a>Azure Stack 要求
 
 * 使用 Azure Stack 集成系统，或部署 Azure Stack 开发工具包 (ASDK)。 若要部署 ASDK，请遵循以下要求：
-  * [教程：使用安装程序部署 ASDK](../asdk/asdk-install.md)本文将详细的部署说明。
+  * [解决方案：使用安装程序部署 ASDK](../asdk/asdk-install.md)本文将详细的部署说明。
   * 使用 [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell 脚本自动完成 ASDK 部署后步骤。
 
     > [!Note]
@@ -102,7 +102,7 @@ ms.locfileid: "66692085"
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>准备 Azure DevOps 服务集成的专用 Azure 管道代理
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>先决条件
 
 Azure DevOps 服务进行身份验证针对 Azure 资源管理器使用服务主体。 Azure DevOps 服务必须具有**参与者**Azure Stack 订阅中预配资源的角色。
 
@@ -147,7 +147,7 @@ Azure DevOps 服务进行身份验证针对 Azure 资源管理器使用服务主
 
     保存密钥后，将显示密钥**值**。 请复制此值，因为以后无法获取此值。 你提供**键值**与**应用程序 ID**登录的应用。 存储您的应用程序可在其中检索密钥值。
 
-    ![Key VALUE - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_06.png)
+    ![键值-Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_06.png)
 
 ### <a name="get-the-tenant-id"></a>获取租户 ID
 
@@ -163,7 +163,7 @@ Azure DevOps 服务作为服务终结点配置的一部分，需要**租户 ID**
 
 3. 复制“目录 ID”  。 此值即为租户 ID。
 
-    ![Directory ID - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_09.png)
+    ![目录 ID-Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>授予在 Azure Stack 订阅中部署资源的服务主体权限
 
@@ -177,7 +177,7 @@ Azure DevOps 服务作为服务终结点配置的一部分，需要**租户 ID**
 
 2. 在“订阅”中选择“Visual Studio Enterprise”。 
 
-    ![Visual Studio Enterprise - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_11.png)
+    ![Visual Studio Enterprise-Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
 3. 在 Visual Studio Enterprise 中选择“访问控制(IAM)”  。
 
@@ -304,7 +304,7 @@ Azure DevOps 的最新更新，可以创建使用服务主体使用证书进行�
 
 可以创建服务连接，使用以下映射：
 
-| Name | 示例 | 描述 |
+| 名称 | 示例 | 描述 |
 | --- | --- | --- |
 | 连接名称 | Azure Stack ADFS | 连接的名称。 |
 | 环境 | AzureStack | 你的环境的名称。 |
@@ -324,7 +324,7 @@ Azure DevOps 的最新更新，可以创建使用服务主体使用证书进行�
 
 ## <a name="develop-your-application-build"></a>开发应用程序生成
 
-本教程的此部分介绍以下操作：
+在此解决方案的一部分，你将：
 
 * 将代码添加到 Azure DevOps 服务项目。
 * 创建独立的 Web 应用部署。

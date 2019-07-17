@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 39b0078345c16b7931f41cd2394476f8258d92dd
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 4565615caf4e4c13bda84e6596e23d523225d888
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308867"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286898"
 ---
-# <a name="tutorial-deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>教程：将 SQL Server 2016 可用性组部署到 Azure 和 Azure Stack
+# <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack"></a>将 SQL Server 2016 可用性组部署到 Azure 和 Azure Stack
 
 本文将逐步引导您基本高可用性 (HA) SQL Server 2016 Enterprise 群集与异步灾难恢复 (DR) 站点的自动部署在两个 Azure Stack 环境。 若要了解有关 SQL Server 2016 和高可用性的详细信息，请参阅[Always On 可用性组： 高可用性和灾难恢复解决方案](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016)。
 
-在本教程中，我们将构建一个示例环境来完成以下任务：
+在此解决方案中，你将生成到一个示例环境：
 
 > [!div class="checklist"]
 > - 协调跨两个 Azure stack 订阅的部署
@@ -35,13 +35,13 @@ ms.locfileid: "67308867"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 将的敏捷性和创新的云计算到您的本地环境，并且实现唯一的混合云，可用于生成和部署混合应用任意位置。  
+> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到在本地环境中，启用唯一的混合云，可用于生成和部署混合应用任意位置。  
 > 
-> 本白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾的软件质量 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 进行设计、 部署和操作的支柱混合应用程序。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
+> 文章[混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)的设计、 部署和操作混合评审 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 的软件质量的构成要素应用程序。 设计注意事项，帮助您优化混合应用程序设计，最大程度减少在生产环境中的挑战。
 
 ## <a name="architecture-for-sql-server-2016"></a>适用于 SQL Server 2016 的体系结构
 
-![SQL Server 2016 SQL HA Azure Stack](media/azure-stack-solution-sql-ha/image1.png)
+![SQL Server 2016 SQL 高可用性 Azure Stack](media/azure-stack-solution-sql-ha/image1.png)
 
 ## <a name="prerequisites-for-sql-server-2016"></a>SQL Server 2016 的先决条件
 
@@ -109,7 +109,7 @@ ms.locfileid: "67308867"
 
 7.  检查部署，方法是在每个 Azure Stack 门户中查看资源。 连接到其中一个 SQL 实例上的高可用性环境并检查可用性组通过 SQL Server Management Studio (SSMS)。
 
-![SQL Server 2016 SQL HA](media/azure-stack-solution-sql-ha/image2.png)
+![SQL Server 2016 SQL 高可用性](media/azure-stack-solution-sql-ha/image2.png)
 
 ## <a name="next-steps"></a>后续步骤
 

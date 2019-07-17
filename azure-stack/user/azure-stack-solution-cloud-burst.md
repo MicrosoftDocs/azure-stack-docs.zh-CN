@@ -10,27 +10,27 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: eb5815a55e5e2c60ce61f9c4af96ee58a1aa684b
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: 1bbe22bdc78f28aa172c90770cd5d2857878d2c3
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138949"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286915"
 ---
-# <a name="tutorial-create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 中创建跨云缩放应用程序解决方案
+# <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>使用 Azure 和 Azure Stack 中创建跨云缩放应用程序解决方案
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 了解如何创建一个跨云解决方案来手动触发的过程提供从 Azure Stack 托管 web 应用程序切换到 Azure 托管 web 应用自动缩放通过流量管理器。 此过程可确保负载下的灵活且可缩放的云实用程序。
 
 使用此模式时，你的租户可能不是准备好在公有云中运行你的应用。 但是，要让企业在本地环境中保持用于处理应用需求高峰的容量，在经济上似乎不切实际。 你的租户可使用公有云与本地解决方案的灵活性。
 
-在本教程中，你将生成到一个示例环境：
+在此解决方案中，你将生成到一个示例环境：
 
 > [!div class="checklist"]
 > - 创建多节点 web 应用。
@@ -43,9 +43,9 @@ ms.locfileid: "67138949"
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到在本地环境中，启用唯一的混合云，可用于生成和部署混合应用任意位置。  
 > 
-> 本白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾的软件质量 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 进行设计、 部署和操作的支柱混合应用程序。 设计注意事项，帮助您优化混合应用程序设计，最大程度减少在生产环境中的挑战。
+> 文章[混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)的设计、 部署和操作混合评审 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 的软件质量的构成要素应用程序。 设计注意事项，帮助您优化混合应用程序设计，最大程度减少在生产环境中的挑战。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 -   Azure 订阅。 如果需要创建[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)然后再开始。
 
