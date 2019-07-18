@@ -11,12 +11,12 @@ ms.date: 05/29/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 58d06d20da6890474969318b3a7450975848c84a
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: b37c9599028cef0cc8d85bcd8004c5290604c1a3
+ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138871"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68303124"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
@@ -53,23 +53,22 @@ Azure Stack 是一个大型集合，其中的组件可以一起工作并互相�
 若要在集成系统上运行日志收集工具，需访问特权终结点 (PEP)。 下面是一个可以通过 PEP 来运行的示例脚本，用于在集成系统上收集日志：
 
 ```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+$ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+$password = ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object -TypeName System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $password)
 
 $shareCred = Get-Credential
 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+$session = New-PSSession -ComputerName $ipAddress -ConfigurationName PrivilegedEndpoint -Credential $cred
 
 $fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+$toDate = (Get-Date).AddHours(-2) # Provide the time that includes the period for your issue
 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $session { Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
-if($s)
-{
-    Remove-PSSession $s
+if ($session) {
+    Remove-PSSession -Session $session
 }
 ```
 
@@ -120,7 +119,7 @@ if($s)
   ```
 
   > [!NOTE]
-  > 打开与 Microsoft 支持部门的一种情况并需要将日志上传时，此过程非常有用。 即使 ERCS VM 不具有 internet 访问权限并不一定能够从 ERCS VM 访问的 SMB 共享，您可以传输日志，在 Azure Stack 上创建 blob 存储帐户，然后使用您的客户端检索这些日志并将其上载到 Microsoft。  
+  > 当使用 Microsoft 支持部门打开案例并要求上载日志时, 此过程非常有用。 即使你的 ERCS VM 中没有可访问的 SMB 共享, 并且 ERCS VM 无法访问 internet, 你也可以在 Azure Stack 上创建 blob 存储帐户来传输日志, 然后使用客户端检索这些日志, 并将其上载到 Microsoft。  
 
   若要为存储帐户生成 SAS 令牌，需要以下权限：
 
@@ -203,7 +202,7 @@ if($s)
 
 ### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
-可以使用 **Invoke-AzureStackOnDemandLog** cmdlet 为某些角色生成按需日志（请参阅本部分末尾的列表）。 默认情况下，执行 **Get-AzureStackLog** cmdlet 时收到的日志捆绑包中不存在此 cmdlet 生成的日志。 此外，建议收集这些日志，仅当请求由 Microsoft 支持团队。
+可以使用 **Invoke-AzureStackOnDemandLog** cmdlet 为某些角色生成按需日志（请参阅本部分末尾的列表）。 默认情况下，执行 **Get-AzureStackLog** cmdlet 时收到的日志捆绑包中不存在此 cmdlet 生成的日志。 此外, 建议仅在 Microsoft 支持团队请求时收集这些日志。
 
 目前，可以使用 `-FilterByRole` 参数按以下角色筛选日志收集：
 
@@ -215,28 +214,25 @@ if($s)
 #### <a name="example-of-collecting-on-demand-logs"></a>收集按需日志的示例
 
 ```powershell
-$ip = "<IP address of the PEP VM>" # You can also use the machine name instead of IP here.
+$ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
 
-$pwd= ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<domain name>\CloudAdmin", $pwd)
+$password = ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object -TypeName System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $password)
 
 $shareCred = Get-Credential
 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+$session = New-PSSession -ComputerName $ipAddress -ConfigurationName PrivilegedEndpoint -Credential $cred
 
 $fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+$toDate = (Get-Date).AddHours(-2) # Provide the time that includes the period for your issue
 
-Invoke-Command -Session $s
-{
-   Invoke-AzureStackOnDemandLog -Generate -FilterByRole "<on-demand role name>" #Provide the supported on-demand role name : OEM, NC, SLB , Gateway
-   Get-AzureStackLog -OutputSharePath "<external share address>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate
-
+Invoke-Command -Session $session {
+   Invoke-AzureStackOnDemandLog -Generate -FilterByRole "<on-demand role name>" # Provide the supported on-demand role name e.g. OEM, NC, SLB, Gateway
+   Get-AzureStackLog -OutputSharePath "<external share address>" -OutputShareCredential $using:shareCred -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate
 }
 
-if($s)
-{
-   Remove-PSSession $s
+if ($session) {
+   Remove-PSSession -Session $session
 }
 ```
 

@@ -10,26 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 7dba3d791a2ce19429506699ae538c747ed37dbd
-ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
+ms.openlocfilehash: 788d0fd6479ab054568d549af2f7a4306a963d3b
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66821786"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299445"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 配合使用
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以按照本文中的步骤设置 Azure 命令行接口 (CLI)，以从 Linux、Mac 和 Windows 客户端平台管理 Azure Stack 开发工具包 (ASDK) 资源。
 
 ## <a name="prepare-for-azure-cli"></a>准备 Azure CLI
 
-需要提供 Azure Stack 的 CA 根证书才能在开发计算机上使用 Azure CLI。 该证书用于通过 CLI 管理资源。
+如果使用 Azure Stack 开发工具包, 则需要用于 Azure Stack 的 CA 根证书, 以便在开发计算机上使用 Azure CLI。 该证书用于通过 CLI 管理资源。
 
  - 如果从 ASDK 外部的工作站使用 CLI，则必须准备好 **Azure Stack CA 根证书**。  
 
@@ -43,12 +43,12 @@ ms.locfileid: "66821786"
 
 导出 PEM 格式的 ASDK 根证书：
 
-1. 获取在 Azure Stack 根证书名称：
-    - 登录到 Azure Stack 租户或管理员门户。
-    - 单击"安全"附近的地址栏。
-    - 在弹出窗口中，单击"有效"。
-    - 在证书窗口中，单击"证书路径"选项卡。 
-    - 请记下你的 Azure Stack 根证书的名称。
+1. 获取 Azure Stack 根证书的名称:
+    - 登录到 Azure Stack 租户或管理门户。
+    - 单击地址栏附近的 "安全"。
+    - 在弹出窗口中, 单击 "有效"。
+    - 在 "证书" 窗口中, 单击 "证书路径" 选项卡。 
+    - 记下 Azure Stack 根证书的名称。
 
     ![Azure Stack 根证书](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
 
@@ -102,7 +102,7 @@ ms.locfileid: "66821786"
 
     ![Azure Stack Python 位置上的 Azure CLI](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-2. 记下 CLI 的 Python 位置。 如果正在运行 ASDK，则需要在此位置添加证书。
+2. 记下 CLI 的 Python 位置。 如果运行的是 ASDK, 则需要使用此位置添加证书。
 
 
 ## <a name="windows-azure-ad"></a>Windows (Azure AD)
@@ -113,9 +113,9 @@ ms.locfileid: "66821786"
 
 如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 不需要对集成系统进行此操作。
 
-若要信任 Azure Stack CA 根证书，请将其追加到现有的 Python 证书存储用于使用 Azure CLI 安装的 Python 版本。 你可能正在运行自己的 Python 实例。 Azure CLI 包括其自己的 Python 版本。
+若要信任 Azure Stack CA 根证书, 请将其附加到随 Azure CLI 一起安装的 Python 版本的现有 Python 证书存储中。 你可能正在运行自己的 Python 实例。 Azure CLI 包括其自己的 Python 版本。
 
-1. 查找你的计算机上的证书存储位置。  可以通过运行命令 `az --version` 查找位置。
+1. 查找计算机上的证书存储位置。  可以通过运行命令 `az --version` 查找位置。
 
 2. 导航到包含 CLI Python 应用程序的文件夹。 你将希望运行此版本的 python。 如果已在系统 PATH 中设置了 Python，则运行 Python 将执行你自己的 Python 版本。 但是，你将希望运行 CLI 使用的版本并将证书添加到该版本。 例如，CLI Python 可能位于：`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`。
 
@@ -126,7 +126,7 @@ ms.locfileid: "66821786"
     .\python -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书位置。 例如，`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`。 你的特定路径将取决于你的操作系统和 CLI 安装。
+    记下证书位置。 例如， `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem` 。 你的特定路径将取决于你的操作系统和 CLI 安装。
 
 2. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
 
@@ -197,7 +197,7 @@ ms.locfileid: "66821786"
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 1808 生成前的版本，则必须使用 API 版本配置文件**2017年-03-09-profile**而不是 API 版本配置文件**2019年-03-01-混合**。 需要使用最新版本的 Azure CLI。
+    >如果在1808版本之前运行版本的 Azure Stack, 则必须使用 API 版本配置文件**2017-03-09-配置**文件, 而不是 api 版本配置文件**2019-03-01-混合**。 需要使用最新版本的 Azure CLI。
  
 1. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
@@ -246,7 +246,7 @@ az group create -n MyResourceGroup -l local
       python -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书位置。 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem`。 具体的路径取决于安装的 Python 的 OS 和版本。
+    记下证书位置。 例如， `~/lib/python3.5/site-packages/certifi/cacert.pem` 。 具体的路径取决于安装的 Python 的 OS 和版本。
 
 2. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
 
@@ -317,7 +317,7 @@ az group create -n MyResourceGroup -l local
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 1808 生成前的版本，则必须使用 API 版本配置文件**2017年-03-09-profile**而不是 API 版本配置文件**2019年-03-01-混合**。 需要使用最新版本的 Azure CLI。
+    >如果在1808版本之前运行版本的 Azure Stack, 则必须使用 API 版本配置文件**2017-03-09-配置**文件, 而不是 api 版本配置文件**2019-03-01-混合**。 需要使用最新版本的 Azure CLI。
 
 1. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
@@ -433,7 +433,7 @@ az group create -n MyResourceGroup -l local
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 1808 生成前的版本，则必须使用 API 版本配置文件**2017年-03-09-profile**而不是 API 版本配置文件**2019年-03-01-混合**。 需要使用最新版本的 Azure CLI。
+    >如果在1808版本之前运行版本的 Azure Stack, 则必须使用 API 版本配置文件**2017-03-09-配置**文件, 而不是 api 版本配置文件**2019-03-01-混合**。 需要使用最新版本的 Azure CLI。
 
 5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
@@ -544,7 +544,7 @@ az group create -n MyResourceGroup -l local
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 1808 生成前的版本，则必须使用 API 版本配置文件**2017年-03-09-profile**而不是 API 版本配置文件**2019年-03-01-混合**。 需要使用最新版本的 Azure CLI。
+    >如果在1808版本之前运行版本的 Azure Stack, 则必须使用 API 版本配置文件**2017-03-09-配置**文件, 而不是 api 版本配置文件**2019-03-01-混合**。 需要使用最新版本的 Azure CLI。
 
 5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 

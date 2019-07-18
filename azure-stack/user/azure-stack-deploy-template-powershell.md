@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 中使用 PowerShell 部署模板 |Microsoft Docs
-description: 部署模板在 Azure Stack 中使用 PowerShell。
+description: 在 Azure Stack 中使用 PowerShell 部署模板。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 07/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: be325c41023c859ee70b8ee932673db75f41ec4b
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 6824e6bfd0b6c824783c82041fb1a51ba8f5213f
+ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691445"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68303122"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>在 Azure Stack 中使用 Powershell 部署模板
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以使用 PowerShell 将 Azure 资源管理器模板部署到 Azure Stack。 本文介绍如何使用 PowerShell 部署模板。
 
@@ -38,7 +38,7 @@ ms.locfileid: "66691445"
 
 1. 浏览 [AzureStackGitHub 存储库](https://aka.ms/AzureStackGitHub)，找到 **101-simple-windows-vm** 模板。 将模板保存到此位置：`C:\templates\azuredeploy-101-simple-windows-vm.json`。
 2. 打开权限提升的 PowerShell 命令提示符。
-3. 将以下脚本中的 `username` 和 `password` 替换为你的用户名和密码，然后运行脚本：
+3. 将`username`以下`password`脚本中的和替换为用户名和密码, 然后运行该脚本:
 
     ```powershell
     # Set deployment variables
