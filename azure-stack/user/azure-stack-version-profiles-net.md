@@ -73,9 +73,9 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 | 值                     | 环境变量   | 说明                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| 租户 ID                 | AZURE_TENANT_ID       | Azure Stack [  租户 ID][] 的值。                                                                          |
+| 租户 ID                 | AZURE_TENANT_ID       | Azure Stack [*租户 ID*][] 的值。                                                                          |
 | 客户端 ID                 | AZURE_CLIENT_ID       | 在本文上一部分创建服务主体时保存的服务主体应用程序 ID。 |
-| 订阅 ID           | AZURE_SUBSCRIPTION_ID | [  订阅 ID][] 用于访问 Azure Stack 中的套餐。                                                      |
+| 订阅 ID           | AZURE_SUBSCRIPTION_ID | [*订阅 ID*][] 用于访问 Azure Stack 中的套餐。                                                      |
 | 客户端机密             | AZURE_CLIENT_SECRET   | 创建服务主体时保存的服务主体应用程序机密。                                      |
 | 资源管理器终结点 | ARM_ENDPOINT           | 请参阅 [*Azure Stack 资源管理器终结点*][]。                                                                    |
 | Location                  | RESOURCE_LOCATION     | Azure Stack 的位置。
