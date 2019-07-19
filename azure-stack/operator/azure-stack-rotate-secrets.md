@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 4b758cce6741440f5b6a4c00de045e9a4fc8f530
-ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
+ms.lastreviewed: 07/15/2019
+ms.openlocfilehash: 681daffabda3525effc1815e6aa6657c9c7c526c
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65706332"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229455"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
-这些说明仅适用于 Azure Stack 集成系统 1803 和更高版本。请勿在低于 1802 的 Azure Stack 版本上尝试使用机密轮换
+这些说明仅适用于 Azure Stack 集成系统 1803 和更高版本。  请勿在低于 1802 的 Azure Stack 版本上尝试使用机密轮换
 
 Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务之间的安全通信。
 
@@ -64,13 +64,13 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 |已安装的证书 CA|要轮换到的 CA|支持|支持的 Azure Stack 版本|
 |-----|-----|-----|-----|
 |从自签名|到企业|支持|1903 和更高版本|
-|从自签名|到自签名|不受支持||
+|从自签名|到自签名|不支持||
 |从自签名|到公共<sup>*</sup>|支持|1803 和更高版本|
-|从企业|到企业|。 从 1803年 1903年： 支持，只要客户使用的同一个企业 CA，因为在部署时使用|1803 和更高版本|
-|从企业|到自签名|不受支持||
+|从企业|到企业|。 从 1803-1903：只要客户使用与在部署时使用的相同的企业 CA，就可以支持|1803 和更高版本|
+|从企业|到自签名|不支持||
 |从企业|到公共<sup>*</sup>|支持|1803 和更高版本|
 |从公共<sup>*</sup>|到企业|支持|1903 和更高版本|
-|从公共<sup>*</sup>|到自签名|不受支持||
+|从公共<sup>*</sup>|到自签名|不支持||
 |从公共<sup>*</sup>|到公共<sup>*</sup>|支持|1803 和更高版本|
 
 <sup>*</sup>指示公共证书颁发机构属于 Windows 受信任根计划。 可在以下文章中找到完整列表：[Microsoft 受信任根证书计划：参与者（截至 2017 年 6 月 27 日）](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
@@ -88,7 +88,7 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 > [!Note]
 > 在 1811 之前版本的 Azure Stack 环境中，可能会看到内部证书挂起或机密过期的警报。
 > 这些警报并不正确，应将其忽略，且不运行内部机密轮换。
-> 不准确的内部机密到期警报是在中解析 1811年-内部机密将过期，除非环境保持活动状态的两年的已知的问题。
+> 不正确的内部机密过期警报是 1811 中解决的已知问题 - 除非环境处于活动状态的时间已达两年，否则内部机密不会过期。
 
 ## <a name="pre-steps-for-secret-rotation"></a>机密轮换前的步骤
 
@@ -102,7 +102,7 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
     > [!Note] 
     > 对于 1811 之前的版本，无需轮换机密即可添加扩展主机证书。 应该遵照[准备 Azure Stack 的扩展主机](azure-stack-extension-host-prepare.md)一文中的说明添加扩展主机证书。
 
-2. 在 Azure Stack 机密轮换期间，操作员可能会注意到警报打开并自动关闭。  此行为是预期行为，可以忽略警报。  操作员可以运行 **Test-AzureStack** 来验证这些警报的有效性。  对于运算符使用 System Center Operations Manager 来监视 Azure Stack 系统、 系统置于维护模式将阻止这些警报到达其 ITSM 系统，但将继续以发出警报的 Azure Stack 系统变得无法访问。
+2. 在 Azure Stack 机密轮换期间，操作员可能会注意到警报打开并自动关闭。  此行为是预期行为，可以忽略警报。  操作员可以运行 **Test-AzureStack** 来验证这些警报的有效性。  对于使用 System Center Operations Manager 监视 Azure Stack 系统的操作人员来说，将系统置于维护模式将阻止这些警报到达其 ITSM 系统，但如果 Azure Stack 系统无法访问，则将继续发出警报。
 
 3. 在执行任何维护操作之前通知用户。 将普通的维护时间段尽量安排在非营业时间。 维护操作可能会同时影响用户工作负荷和门户操作。
 
@@ -133,9 +133,9 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 > 在 Microsoft AzureStack 就绪状态检查器 - [PublicCertHelper 模块](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)中可以找到详细信息
 >
 > 同样重要的是，文件共享文件夹结构以 **Certificates** 文件夹开头，否则验证时也会失败。
-> 文件共享装入点应该类似于 **\\\\\<IP 地址>\\\<共享名称>\\**，并且应该包含文件夹 **Certificates\AAD** 或 **Certificates\ADFS**。
+> 文件共享装入点应该类似于 **\\\\\<IP 地址>\\\<共享名称>\\** ，并且应该包含文件夹 **Certificates\AAD** 或 **Certificates\ADFS**。
 >
-> 例如:
+> 例如：
 > - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
 > - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
@@ -192,7 +192,7 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
     > [!IMPORTANT]  
     > 请勿输入会话，而是将会话存储为变量。
 
-3. 运行 **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)**。 将特权终结点 PowerShell 会话变量作为 **Session** 参数传递。
+3. 运行 **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** 。 将特权终结点 PowerShell 会话变量作为 **Session** 参数传递。
 
 4. 结合以下参数运行 **Start-SecretRotation**：
     - **PfxFilesPath**  
@@ -242,7 +242,7 @@ Remove-PSSession -Session $PEPSession
 > 仅当你怀疑内部机密已受到恶意实体的危害，或者收到指出内部证书即将过期的警报（在内部版本 1811 或更高版本上）时，才应该执行内部机密轮换。
 > 在 1811 之前版本的 Azure Stack 环境中，可能会看到内部证书挂起或机密过期的警报。
 > 这些警报并不正确，应将其忽略，且不运行内部机密轮换。
-> 不准确的内部机密到期警报是在中解析 1811年-内部机密将过期，除非环境保持活动状态的两年的已知的问题。
+> 不正确的内部机密过期警报是 1811 中解决的已知问题 - 除非环境处于活动状态的时间已达两年，否则内部机密不会过期。
 
 1. 创建具有[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 会话。
 2. 在特权终结点会话中，运行 **Start-SecretRotation -Internal**。
@@ -296,9 +296,9 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 **Start-SecretRotation** cmdlet 轮换 Azure Stack 系统的基础结构机密。 默认情况下，它只轮换所有外部网络基础结构终结点的证书。 如果与 -Internal 标志配合使用，则会轮换内部基础结构机密。 轮换外部网络基础结构终结点时，应结合 **Invoke-Command** 脚本块，并结合以 **Session** 参数形式传入的 Azure Stack 环境特权终结点会话，来运行 **Start-SecretRotation**。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parameters
 
-| 参数 | Type | 需要 | 位置 | 默认 | 描述 |
+| 参数 | 类型 | 必填 | 位置 | 默认 | 描述 |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | String  | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享路径。 仅当轮换外部机密时才需要。 结尾目录必须是 **\Certificates**。 |
 | `CertificatePassword` | SecureString | False  | 名为  | 无  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则是必需的值。 |
@@ -344,7 +344,7 @@ Remove-PSSession -Session $PEPSession
 > [!IMPORTANT]
 > 此命令仅适用于 Azure Stack **1811 以前**的版本，因为轮换将会针对内部和外部证书分开进行。
 >
-> **在 1811 以上的版本中，不再能够同时轮换内部和外部证书！**
+> **在 1811 以上的版本中，不再能够同时轮换内部和外部证书！** 
 
 ```powershell
 # Create a PEP Session
@@ -369,9 +369,13 @@ Remove-PSSession -Session $PEPSession
 
 基板管理控制器 (BMC) 监视服务器的物理状态。 有关更新 BMC 用户帐户名和密码的规范和说明会根据原始设备制造商 (OEM) 硬件供应商而有所不同。 应定期更新 Azure Stack 组件的密码。
 
-1. 遵照 OEM 说明在 Azure Stack 的物理服务器上更新 BMC。 用户名称和你的环境中每个 BMC 的密码必须相同。 请注意，BMC 用户名不能超过 16 个字符。
+1. 遵照 OEM 说明在 Azure Stack 的物理服务器上更新 BMC。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名称不能超过 16 个字符。
+
+    > [!Note]  
+    > 首先需更新基板管理控制器的物理服务器; 上的 BMC 凭据否则 Azure Stack 命令将在验证过程失败。
+
 2. 在 Azure Stack 会话中打开特权终结点。 有关说明，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
-3. 在 PowerShell 提示符更改为 **[IP 地址或 ERCS VM 名称]:PS>** 或 **[azs-ercs01]:PS>**（具体取决于环境）后，通过运行 `Invoke-Command` 来运行 `Set-BmcCredential`。 将特权终结点会话变量作为参数传递。 例如:
+3. 在 PowerShell 提示符更改为 **[IP 地址或 ERCS VM 名称]:PS>** 或 **[azs-ercs01]:PS>** （具体取决于环境）后，通过运行 `Invoke-Command` 来运行 `Set-BmcCredential`。 将特权终结点会话变量作为参数传递。 例如：
 
     ```powershell
     # Interactive Version
