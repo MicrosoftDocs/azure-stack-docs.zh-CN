@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/18/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 7ee47a5dc7344628561521f067a8310a0c8d3347
-ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
+ms.lastreviewed: 07/18/2019
+ms.openlocfilehash: 81115a0bb82792a246d191c1cf68a99f44030e12
+ms.sourcegitcommit: cb2376ed76c784e475b99352a024eaa7a148f42f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66835089"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68328747"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -74,13 +74,13 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 > [!Note]  
 > Azure Stack 不支持使用 ExpressRoute 访问下表中列出的 Azure 服务。
 
-|目的|目标 URL|Protocol|端口|源网络|
+|用途|目标 URL|Protocol|端口|源网络|
 |---------|---------|---------|---------|---------|
-|标识|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
+|标识|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
 |市场联合|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|公共 VIP - /27|
 |修补程序和更新|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP - /27|
 |注册|https:\//management.azure.com|HTTPS|443|公共 VIP - /27|
-|使用情况|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|公共 VIP - /27|
+|用法|https://*.trafficmanager.net |HTTPS|443|公共 VIP - /27|
 |Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
 |NTP|（为部署提供的 NTP 服务器的 IP）|UDP|123|公共 VIP - /27|
 |DNS|（为部署提供的 DNS 服务器的 IP）|TCP<br>UDP|53|公共 VIP - /27|
@@ -90,11 +90,12 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 |LDAP GC|为 Graph 集成提供的 Active Directory 林|TCP|3268|公共 VIP - /27|
 |LDAP GC SSL|为 Graph 集成提供的 Active Directory 林|TCP|3269|公共 VIP - /27|
 |AD FS|为 AD FS 集成提供的 AD FS 元数据终结点|TCP|443|公共 VIP - /27|
+|诊断日志收集服务|Azure 存储提供的 Blob SAS URL|HTTPS|443|公共 VIP - /27|
 |     |     |     |     |     |
 
-使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 使用负载平衡的 Url，Microsoft 可以更新和更改后端终结点而不会影响客户。 Microsoft 不共享 IP 地址的列表，为负载平衡 Url。 应使用支持按 URL 而不是按 IP 筛选的设备。
+使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 通过负载均衡的 Url, Microsoft 可以更新和更改后端终结点, 而不会影响客户。 Microsoft 不会共享负载平衡的 Url 的 IP 地址列表。 应使用支持按 URL 而不是按 IP 筛选的设备。
 
-出站 DNS 是需要在所有情况下，什么变化都是查询的外部 DNS 和选择何种标识集成的源。 如果这是已连接的方案，在部署期间此 DVM 在 BMC 网络中，位于需要该出站访问权限，但在部署后将移动到一个内部组件，将发送查询通过公共 VIP 的 DNS 服务。 此时，可以删除通过 BMC 网络出站 DNS 访问权限，但必须保持对该 DNS 服务器的公共 VIP 访问权限，否则身份验证将失败。
+所有情况下都需要出站 DNS, 这不同于源查询外部 DNS 和所选的标识集成。 如果这是一个连接方案, 则在部署过程中, DVM 位于 BMC 网络上时, 需要出站访问权限, 但在部署后, DNS 服务会移动到将通过公共 VIP 发送查询的内部组件。 此时, 可以删除通过 BMC 网络进行的出站 DNS 访问, 但必须保留对该 DNS 服务器的公共 VIP 访问权限, 否则身份验证将失败。
 
 ## <a name="next-steps"></a>后续步骤
 

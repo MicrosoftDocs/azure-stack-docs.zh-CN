@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 07/18/2019
 ms.author: mabrigg
-ms.reviewer: ppacent
-ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: fa0292419a228fcf9bbfef2bbfc2503f4ba5a702
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.reviewer: thoroet
+ms.lastreviewed: 07/18/2019
+ms.openlocfilehash: e7d6ac6d025fb6e6e087eb19db8ba1d5c944ea72
+ms.sourcegitcommit: cb2376ed76c784e475b99352a024eaa7a148f42f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782341"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68328724"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 
@@ -37,10 +37,10 @@ ms.locfileid: "65782341"
 
 若要查看缩放单元的状态，请执行以下操作：
 
-1. 在“区域管理”磁贴中选择区域。
-2. 在左侧的“基础结构资源”下，选择“缩放单元”。
+1. 在“区域管理”磁贴中选择区域。 
+2. 在左侧的“基础结构资源”下，选择“缩放单元”。  
 3. 在结果中选择缩放单元。
-4. 从左侧的“常规”下面，选择“节点”。
+4. 从左侧的“常规”下面，选择“节点”。  
 
    查看以下信息：
 
@@ -71,7 +71,7 @@ ms.locfileid: "65782341"
  - 启动和停止（取决于当前电源状态）
  - 禁用和恢复（取决于操作状态）
  - 修复
- - 关闭
+ - 关机
 
 节点的工作状态确定了哪些选项可用。
 
@@ -79,7 +79,7 @@ ms.locfileid: "65782341"
 
 ## <a name="stop"></a>停止
 
-“停止”操作会关闭节点。 它的作用如同按下电源按钮。 它不会向操作系统发送关机信号。 对于计划的停止操作，请始终先尝试关闭操作。 
+“停止”操作会关闭节点。  它的作用如同按下电源按钮。 它不会向操作系统发送关机信号。 对于计划的停止操作，请始终先尝试关闭操作。 
 
 当节点处于挂起状态，不再响应请求时，通常使用此操作。
 
@@ -93,9 +93,9 @@ ms.locfileid: "65782341"
 
 有关详细信息，请参阅 [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)。
 
-## <a name="start"></a>启动
+## <a name="start"></a>Start
 
-“启动”操作会打开节点。 它的作用如同按下电源按钮。 
+“启动”操作会打开节点。  它的作用如同按下电源按钮。 
  
 若要运行启动操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
@@ -109,7 +109,7 @@ ms.locfileid: "65782341"
 
 ## <a name="drain"></a>清空
 
-“清空”操作将所有活动工作负荷移到该特定缩放单元中的剩余节点。
+“清空”操作将所有活动工作负荷移到该特定缩放单元中的剩余节点。 
 
 在现场更换组件期间（例如，更换整个节点），通常使用此操作。
 
@@ -124,9 +124,9 @@ ms.locfileid: "65782341"
 
 有关详细信息，请参阅 [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)。
 
-## <a name="resume"></a>继续
+## <a name="resume"></a>恢复
 
-“恢复”操作恢复已禁用的节点，并将其标记为活动，可用于放置工作负荷。 之前在节点上运行的工作负荷不会故障回复。 （如果在节点上使用清空操作，请务必关机。 将节点重新开机时，系统不会将它标记为可放置工作负荷的活动状态。 准备就绪后，必须使用恢复操作将节点标记为活动。）
+“恢复”操作恢复已禁用的节点，并将其标记为活动，可用于放置工作负荷。  之前在节点上运行的工作负荷不会故障回复。 （如果在节点上使用清空操作，请务必关机。 将节点重新开机时，系统不会将它标记为可放置工作负荷的活动状态。 准备就绪后，必须使用恢复操作将节点标记为活动。）
 
 若要运行恢复操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
@@ -138,7 +138,20 @@ ms.locfileid: "65782341"
 
 ## <a name="repair"></a>修复
 
-“修复”操作可修复节点。 请只在出现以下情况时才使用此操作：
+> [!CAUTION]  
+> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程或阻止 Azure Stack 自动化来部署操作系统。 在更换硬件时, 请始终查阅硬件合作伙伴的文档, 以确保应用的固件与[Azure Stack 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。
+
+| 硬件伙伴 | 区域 | URL |
+|------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cisco | All | [https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | All | [https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Fujitsu | 日本 | [https://eservice.fujitsu.com/supportdesk-web/](https://eservice.fujitsu.com/supportdesk-web/) |
+|  | 欧洲、中东和非洲 | [https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+|  |  | [https://support.ts.fujitsu.com/IndexMySupport.asp](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+| HPE | All | [http://www.hpe.com/info/MASupdates](http://www.hpe.com/info/MASupdates) |
+| Lenovo |  | [https://datacentersupport.lenovo.com/us/en/solutions/ht505122](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
+
+“修复”操作可修复节点。  请只在出现以下情况时才使用此操作：
  - 更换整个节点（不管是否包含新数据磁盘）时
  - 硬件组件发生故障并予以更换之后（如果现场可更换单元 (FRU) 文档中建议更换）。
 
@@ -153,9 +166,9 @@ ms.locfileid: "65782341"
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
-## <a name="shutdown"></a>关闭
+## <a name="shutdown"></a>关机
 
-“关闭”操作会先将所有活动工作负荷移到同一缩放单元中的其余节点。 然后该操作会正常关闭缩放单元节点。
+“关闭”  操作会先将所有活动工作负荷移到同一缩放单元中的其余节点。 然后该操作会正常关闭缩放单元节点。
 
 启动已关闭的节点后，需要运行“[恢复](#resume)”操作。 之前在节点上运行的工作负荷不会故障回复。
 

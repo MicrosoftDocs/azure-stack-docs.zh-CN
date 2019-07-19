@@ -11,21 +11,34 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
-ms.author: mabrigg
-ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 0e1f379b651d022b2c698777a7d8708ff33bf76f
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.date: 07/18/2019
+ms.author: thoroet
+ms.lastreviewed: 07/18/2019
+ms.openlocfilehash: 4c20ab2b007c78aee201ec0a294900fab18a934c
+ms.sourcegitcommit: cb2376ed76c784e475b99352a024eaa7a148f42f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469154"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68328772"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>更换 Azure Stack 缩放单元节点上的硬件组件
 
-*适用于：Azure Stack 集成系统*
+适用对象：*Azure Stack 集成系统*
 
-本文介绍更换非热插拔硬件组件的一般过程。 实际的更换步骤将因原始设备制造商 (OEM) 硬件供应商而异。 请参阅供应商的现场可更换部件 (fru) 文档的详细步骤，特定于 Azure Stack 集成系统。
+本文介绍更换非热插拔硬件组件的一般过程。 实际的更换步骤将因原始设备制造商 (OEM) 硬件供应商而异。 有关 Azure Stack 集成系统特有的详细步骤，请参阅供应商的现场可更换部件 (FRU) 文档。
+
+> [!CAUTION]  
+> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程或阻止 Azure Stack 自动化来部署操作系统。 在更换硬件时, 请始终查阅硬件合作伙伴的文档, 以确保应用的固件与[Azure Stack 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。
+
+| 硬件伙伴 | 区域 | URL |
+|------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cisco | All | [https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | All | [https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Fujitsu | 日本 | [https://eservice.fujitsu.com/supportdesk-web/](https://eservice.fujitsu.com/supportdesk-web/) |
+|  | 欧洲、中东和非洲 | [https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+|  |  | [https://support.ts.fujitsu.com/IndexMySupport.asp](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+| HPE | All | [http://www.hpe.com/info/MASupdates](http://www.hpe.com/info/MASupdates) |
+| Lenovo |  | [https://datacentersupport.lenovo.com/us/en/solutions/ht505122](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 非热插拔组件包括以下项：
 
@@ -37,7 +50,7 @@ ms.locfileid: "66469154"
 - 操作系统磁盘*
 - 数据驱动器（不支持热插拔的驱动器，例如 PCI-e 外接卡）*
 
-*这些组件可能支持热插拔，但因供应商实施情况而有所不同。 请参阅 OEM 供应商的 FRU 文档有关的详细步骤。
+*这些组件可能支持热插拔，但因供应商实施情况而有所不同。 有关详细步骤，请参阅 OEM 供应商的 FRU 文档。
 
 以下流程图显示更换非热插拔硬件组件的一般 FRU 过程。
 
