@@ -15,12 +15,12 @@ ms.date: 07/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: e7d6ac6d025fb6e6e087eb19db8ba1d5c944ea72
-ms.sourcegitcommit: cb2376ed76c784e475b99352a024eaa7a148f42f
+ms.openlocfilehash: 7ac25e86be91cf6a2e8384c88c79fe3022b3f00d
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68328724"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380466"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 
@@ -71,7 +71,7 @@ ms.locfileid: "68328724"
  - 启动和停止（取决于当前电源状态）
  - 禁用和恢复（取决于操作状态）
  - 修复
- - 关机
+ - 关闭
 
 节点的工作状态确定了哪些选项可用。
 
@@ -124,7 +124,7 @@ ms.locfileid: "68328724"
 
 有关详细信息，请参阅 [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)。
 
-## <a name="resume"></a>恢复
+## <a name="resume"></a>继续
 
 “恢复”操作恢复已禁用的节点，并将其标记为活动，可用于放置工作负荷。  之前在节点上运行的工作负荷不会故障回复。 （如果在节点上使用清空操作，请务必关机。 将节点重新开机时，系统不会将它标记为可放置工作负荷的活动状态。 准备就绪后，必须使用恢复操作将节点标记为活动。）
 
@@ -139,17 +139,18 @@ ms.locfileid: "68328724"
 ## <a name="repair"></a>修复
 
 > [!CAUTION]  
-> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程或阻止 Azure Stack 自动化来部署操作系统。 在更换硬件时, 请始终查阅硬件合作伙伴的文档, 以确保应用的固件与[Azure Stack 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。
+> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程或阻止 Azure Stack 自动化来部署操作系统。 在更换硬件时, 请始终查阅硬件合作伙伴的文档, 以确保应用的固件与[Azure Stack 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。<br>
+有关详细信息和合作伙伴文档的链接, 请参阅[替换硬件组件](azure-stack-replace-component.md)。
 
-| 硬件伙伴 | 区域 | URL |
+| 硬件伙伴 | 地区 | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | All | [https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | All | [https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
-| Fujitsu | 日本 | [https://eservice.fujitsu.com/supportdesk-web/](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | 欧洲、中东和非洲 | [https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-|  |  | [https://support.ts.fujitsu.com/IndexMySupport.asp](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | All | [http://www.hpe.com/info/MASupdates](http://www.hpe.com/info/MASupdates) |
-| Lenovo |  | [https://datacentersupport.lenovo.com/us/en/solutions/ht505122](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
+| Cisco | 全部 | [适用于 Microsoft Azure Stack 操作指南的 Cisco 集成系统](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[适用于 Microsoft Azure Stack 的 Cisco 集成系统的发行说明](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | 全部 | [适用于 Microsoft Azure Stack 14G 的云 (需要帐户和登录)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 13G 的云 (需要帐户和登录)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Fujitsu | 日本 | [Fujitsu 托管服务支持人员 (要求提供帐户和登录名)](https://eservice.fujitsu.com/supportdesk-web/) |
+|  | 欧洲、中东和非洲 | [Fujitsu 支持 IT 产品和系统](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+|  |  | [Fujitsu MySupport (需要帐户和登录名)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+| HPE | 全部 | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | 全部 | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 “修复”操作可修复节点。  请只在出现以下情况时才使用此操作：
  - 更换整个节点（不管是否包含新数据磁盘）时
@@ -166,7 +167,7 @@ ms.locfileid: "68328724"
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
-## <a name="shutdown"></a>关机
+## <a name="shutdown"></a>关闭
 
 “关闭”  操作会先将所有活动工作负荷移到同一缩放单元中的其余节点。 然后该操作会正常关闭缩放单元节点。
 

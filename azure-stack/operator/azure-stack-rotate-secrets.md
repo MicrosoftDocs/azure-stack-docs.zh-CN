@@ -15,12 +15,12 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 681daffabda3525effc1815e6aa6657c9c7c526c
-ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
+ms.openlocfilehash: fb49649227cf17356c7d383e6505dd3e1c2c5648
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68229455"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380414"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -64,13 +64,13 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 |已安装的证书 CA|要轮换到的 CA|支持|支持的 Azure Stack 版本|
 |-----|-----|-----|-----|
 |从自签名|到企业|支持|1903 和更高版本|
-|从自签名|到自签名|不支持||
+|从自签名|到自签名|不受支持||
 |从自签名|到公共<sup>*</sup>|支持|1803 和更高版本|
 |从企业|到企业|。 从 1803-1903：只要客户使用与在部署时使用的相同的企业 CA，就可以支持|1803 和更高版本|
-|从企业|到自签名|不支持||
+|从企业|到自签名|不受支持||
 |从企业|到公共<sup>*</sup>|支持|1803 和更高版本|
 |从公共<sup>*</sup>|到企业|支持|1903 和更高版本|
-|从公共<sup>*</sup>|到自签名|不支持||
+|从公共<sup>*</sup>|到自签名|不受支持||
 |从公共<sup>*</sup>|到公共<sup>*</sup>|支持|1803 和更高版本|
 
 <sup>*</sup>指示公共证书颁发机构属于 Windows 受信任根计划。 可在以下文章中找到完整列表：[Microsoft 受信任根证书计划：参与者（截至 2017 年 6 月 27 日）](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
@@ -254,7 +254,7 @@ Remove-PSSession -Session $PEPSession
 
 机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。**
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
@@ -271,13 +271,13 @@ Start-SecretRotation -Internal -ReRun
 #### <a name="for-external-secret-rotation"></a>对于外部机密轮换
 
 ```powershell
-Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
+Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>对于内部机密轮换
 
 ```powershell
-Start-SecretRotation [-Internal]  
+Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>对于外部机密轮换 rerun
@@ -294,17 +294,17 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="description"></a>描述
 
-**Start-SecretRotation** cmdlet 轮换 Azure Stack 系统的基础结构机密。 默认情况下，它只轮换所有外部网络基础结构终结点的证书。 如果与 -Internal 标志配合使用，则会轮换内部基础结构机密。 轮换外部网络基础结构终结点时，应结合 **Invoke-Command** 脚本块，并结合以 **Session** 参数形式传入的 Azure Stack 环境特权终结点会话，来运行 **Start-SecretRotation**。
+**Start-SecretRotation** cmdlet 轮换 Azure Stack 系统的基础结构机密。 默认情况下，它只轮换所有外部网络基础结构终结点的证书。 如果与 -Internal 标志配合使用，则会轮换内部基础结构机密。 轮换外部网络基础结构终结点时，应结合 **Invoke-Command** 脚本块，并结合以 **Session** 参数形式传入的 Azure Stack 环境特权终结点会话，来运行 **Start-SecretRotation**。
 
 ### <a name="parameters"></a>Parameters
 
-| 参数 | 类型 | 必填 | 位置 | 默认 | 描述 |
+| 参数 | type | 必填 | 位置 | 默认 | 描述 |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享路径。 仅当轮换外部机密时才需要。 结尾目录必须是 **\Certificates**。 |
-| `CertificatePassword` | SecureString | False  | 名为  | 无  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则是必需的值。 |
+| `PfxFilesPath` | String  | False  | 名为  | None  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享路径。 仅当轮换外部机密时才需要。 结尾目录必须是 **\Certificates**。 |
+| `CertificatePassword` | SecureString | False  | 名为  | 无  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则是必需的值。 |
 | `Internal` | String | False | 名为 | 无 | 每当 Azure Stack 操作员想要轮换内部基础结构机密时，都必须使用 Internal 标志。 |
-| `PathAccessCredential` | PSCredential | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享的 PowerShell 凭据。 仅当轮换外部机密时才需要。  |
-| `ReRun` | SwitchParameter | False  | 名为  | 无  | 每当尝试失败后重新尝试机密轮换时，都必须使用 ReRun。 |
+| `PathAccessCredential` | PSCredential | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享的 PowerShell 凭据。 仅当轮换外部机密时才需要。  |
+| `ReRun` | SwitchParameter | False  | 名为  | None  | 每当尝试失败后重新尝试机密轮换时，都必须使用 ReRun。 |
 
 ### <a name="examples"></a>示例
 
@@ -313,12 +313,12 @@ Start-SecretRotation [-ReRun] [-Internal]
 必须通过 Azure Stack [环境的特权终结点](azure-stack-privileged-endpoint.md)运行。
 
 ```powershell
-PS C:\> Start-SecretRotation -Internal
+PS C:\> Start-SecretRotation -Internal
 ```
 
 此命令轮换向 Azure Stack 内部网络公开的所有基础结构机密。
 
-#### <a name="rotate-only-external-infrastructure-secrets"></a>仅轮换外部基础结构机密  
+#### <a name="rotate-only-external-infrastructure-secrets"></a>仅轮换外部基础结构机密  
 
 ```powershell
 # Create a PEP Session
@@ -363,16 +363,16 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-此命令轮换向 Azure Stack 内部网络公开的所有基础结构机密，以及用于 Azure Stack 外部网络基础结构终结点的 TLS 证书。 Start-SecretRotation 轮换堆栈生成的所有机密，由于提供了证书，因此也会轮换外部终结点证书。  
+此命令轮换向 Azure Stack 内部网络公开的所有基础结构机密，以及用于 Azure Stack 外部网络基础结构终结点的 TLS 证书。 Start-SecretRotation 轮换堆栈生成的所有机密，由于提供了证书，因此也会轮换外部终结点证书。  
 
 ## <a name="update-the-baseboard-management-controller-bmc-credential"></a>更新基板管理控制器 (BMC) 凭据
 
 基板管理控制器 (BMC) 监视服务器的物理状态。 有关更新 BMC 用户帐户名和密码的规范和说明会根据原始设备制造商 (OEM) 硬件供应商而有所不同。 应定期更新 Azure Stack 组件的密码。
 
-1. 遵照 OEM 说明在 Azure Stack 的物理服务器上更新 BMC。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名称不能超过 16 个字符。
+1. 遵照 OEM 说明在 Azure Stack 的物理服务器上更新 BMC。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名不能超过16个字符。
 
     > [!Note]  
-    > 首先需更新基板管理控制器的物理服务器; 上的 BMC 凭据否则 Azure Stack 命令将在验证过程失败。
+    > 首先, 在物理服务器的基本板管理控制器上更新 BMC 凭据;否则, Azure Stack 命令将在验证过程中失败。
 
 2. 在 Azure Stack 会话中打开特权终结点。 有关说明，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
 3. 在 PowerShell 提示符更改为 **[IP 地址或 ERCS VM 名称]:PS>** 或 **[azs-ercs01]:PS>** （具体取决于环境）后，通过运行 `Invoke-Command` 来运行 `Set-BmcCredential`。 将特权终结点会话变量作为参数传递。 例如：

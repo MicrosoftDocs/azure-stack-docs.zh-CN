@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 07/22/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 81115a0bb82792a246d191c1cf68a99f44030e12
-ms.sourcegitcommit: cb2376ed76c784e475b99352a024eaa7a148f42f
+ms.lastreviewed: 07/22/2019
+ms.openlocfilehash: 85022f074dd494978780d67db8cc14e4c243a49c
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68328747"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380459"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -77,7 +77,7 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 |用途|目标 URL|Protocol|端口|源网络|
 |---------|---------|---------|---------|---------|
 |标识|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
-|市场联合|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|公共 VIP - /27|
+|市场联合|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net|HTTPS|443|公共 VIP - /27|
 |修补程序和更新|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP - /27|
 |注册|https:\//management.azure.com|HTTPS|443|公共 VIP - /27|
 |用法|https://*.trafficmanager.net |HTTPS|443|公共 VIP - /27|
