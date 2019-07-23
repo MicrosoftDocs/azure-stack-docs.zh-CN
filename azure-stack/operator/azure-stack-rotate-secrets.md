@@ -24,7 +24,7 @@ ms.locfileid: "68380414"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
-这些说明仅适用于 Azure Stack 集成系统 1803 和更高版本。  请勿在低于 1802 的 Azure Stack 版本上尝试使用机密轮换
+这些说明仅适用于 Azure Stack 集成系统 1803 和更高版本。请勿在低于 1802 的 Azure Stack 版本上尝试使用机密轮换
 
 Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务之间的安全通信。
 
@@ -344,7 +344,7 @@ Remove-PSSession -Session $PEPSession
 > [!IMPORTANT]
 > 此命令仅适用于 Azure Stack **1811 以前**的版本，因为轮换将会针对内部和外部证书分开进行。
 >
-> **在 1811 以上的版本中，不再能够同时轮换内部和外部证书！** 
+> **在 1811 以上的版本中，不再能够同时轮换内部和外部证书！**
 
 ```powershell
 # Create a PEP Session
