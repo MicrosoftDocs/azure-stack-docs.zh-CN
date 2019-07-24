@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: b9b1e862df288d599e9bd17cba09430372be0ce2
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: 4cb8da451743bc6a8e15c57aacf28f0aa83258c9
+ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380437"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413147"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>更换 Azure Stack 缩放单元节点上的硬件组件
 
@@ -39,6 +39,7 @@ ms.locfileid: "68380437"
 |  | EU | [Fujitsu MySupport (需要帐户和登录名)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
 | HPE | 全部 | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
 | Lenovo | 全部 | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+| Wortmann |  | [OEM/固件包](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[terra Azure Stack 文档 (包括 FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
 
 非热插拔组件包括以下项：
 

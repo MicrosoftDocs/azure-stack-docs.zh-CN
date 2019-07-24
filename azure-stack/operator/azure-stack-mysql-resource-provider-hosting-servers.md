@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 9469904ddcb27d5526e35a33091e0ea3e54600f8
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 4af1f2b163d2ae8eec952b451f21ea88b63e15d1
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308607"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417645"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>为 MySQL 资源提供程序添加托管服务器
 
@@ -36,34 +36,34 @@ ms.locfileid: "67308607"
 确保已准备好拥有管理特权的帐户的凭据。 若要添加宿主服务器，请执行以下步骤：
 
 1. 以服务管理员的身份登录到 Azure Stack 操作员门户。
-2. 选择“所有服务”  。
-3. 在“管理资源”  类别中，选择“MySQL 宿主服务器”   > “+添加”  。 此时会打开“添加 MySQL 宿主服务器”对话框，如以下屏幕捕获所示。 
+2. 选择“所有服务”。
+3. 在“管理资源”类别中，选择“MySQL 宿主服务器” > “+添加”。 此时会打开“添加 MySQL 宿主服务器”对话框，如以下屏幕捕获所示。
 
    ![配置宿主服务器](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 4. 提供 MySQL 服务器实例的连接详细信息。
 
-   * 对于“MySQL 宿主服务器名称”，  请提供完全限定域名 (FQDN) 或有效的 IPv4 地址。 请勿使用短 VM 名称。
+   * 对于“MySQL 宿主服务器名称”，请提供完全限定域名 (FQDN) 或有效的 IPv4 地址。 请勿使用短 VM 名称。
    * Azure Stack 市场中提供的 Bitnami MySQL 映像的默认管理员**用户名**为 *root*。 
    * 如果不知道 root 的**密码**，请参阅 [Bitnami 文档](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)，了解如何获取它。 
-   * 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。  输入接近数据库服务器容量的大小。
-   * 保留“订阅”的默认设置。 
-   * 对于“资源组”  ，请创建新组或使用现有组。
+   * 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。 输入接近数据库服务器容量的大小。
+   * 保留“订阅”的默认设置。
+   * 对于“资源组”，请创建新组或使用现有组。
 
    > [!NOTE]
    > 如果租户和管理 Azure 资源管理器可以访问 MySQL 实例，则可让资源提供程序控制此实例。 但是，**必须**专门将 SQL 实例分配给资源提供程序。
 
-5. 选择“SKU”，打开“创建 SKU”对话框。  
+5. 选择“SKU”，打开“创建 SKU”对话框。
 
    ![创建 MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
    SKU **名称**应反映 SKU 的属性，这样用户就能将其数据库部署到适当的 SKU。
 
-6. 选择“确定”  以创建 SKU。
+6. 选择“确定”以创建 SKU。
    > [!NOTE]
    > SKU 最长可能需要在一小时后才显示在门户中。 在部署并运行 SKU 之前，无法创建数据库。
 
-7. 在“添加 MySQL 宿主服务器”下，选择“创建”。  
+7. 在“添加 MySQL 宿主服务器”下，选择“创建”。
 
 添加服务器时，请将它们分配给新的或现有的 SKU，以区分服务套餐。 例如，可以通过一个 MySQL 企业实例来提供增加的数据库和自动备份。 可以将此高性能服务器保留给组织中的不同部门。
 
@@ -90,9 +90,9 @@ ms.locfileid: "67308607"
 
 无法将 SKU 分配到特定的用户或组。
 
-若要编辑某个 SKU，请转到“所有服务” > “MySQL 适配器” > “SKU”。    选择要修改的 SKU，进行任何必要的更改，然后单击“保存”  以保存更改。 
+若要编辑某个 SKU，请转到“所有服务” > “MySQL 适配器” > “SKU”。 选择要修改的 SKU，进行任何必要的更改，然后单击“保存”以保存更改。 
 
-若要删除不再需要的 SKU，请转到“所有服务” > “MySQL 适配器” > “SKU”。    右键单击 SKU 名称，然后选择“删除”  将其删除。
+若要删除不再需要的 SKU，请转到“所有服务” > “MySQL 适配器” > “SKU”。 右键单击 SKU 名称，然后选择“删除”将其删除。
 
 > [!IMPORTANT]
 > 可能需要长达一小时的时间新的 SKU 才会在用户门户中可用。

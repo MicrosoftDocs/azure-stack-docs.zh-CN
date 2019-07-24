@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 03/15/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: fa4013c00cd9d496b6c8bb479d9fe6cbfe113575
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: f0195ecf033454763b757f6b8edb03ee4e8e9e49
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316214"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418199"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作员身份使用 PowerShell 连接到 Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "67316214"
 
 可以将 Azure Stack 配置为使用 PowerShell 来管理资源，例如创建套餐、计划、配额以及警报。 本主题有助于配置操作员环境
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>系统必备
 
 如果已[通过 VPN 连接到 ASDK](../asdk/asdk-connect.md#connect-with-vpn)，请通过[开发工具包](../asdk/asdk-connect.md#connect-with-rdp)或基于 Windows 的外部客户端运行以下先决条件操作。 
 
@@ -71,11 +71,11 @@ ms.locfileid: "67316214"
   ```
 
 > [!Note]  
-> AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 设置服务主体与 Azure Stack 和 AD FS 作为标识管理服务的详细信息，请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
+> AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 有关使用 Azure Stack 和 AD FS 作为标识管理服务设置服务主体的详细信息, 请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
 
 ## <a name="test-the-connectivity"></a>测试连接
 
-完成所有设置后，请使用 PowerShell 在 Azure Stack 中创建资源。 例如，可以为应用程序创建资源组并添加虚拟机。 使用以下命令创建名为“MyResourceGroup”  的资源组。
+完成所有设置后，请使用 PowerShell 在 Azure Stack 中创建资源。 例如，可以为应用程序创建资源组并添加虚拟机。 使用以下命令创建名为“MyResourceGroup”的资源组。
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

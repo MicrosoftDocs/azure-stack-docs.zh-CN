@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: c4d6b4ade21363a28dd37802d2c9bebc3c676c9b
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: 6b6ab8ac8292f8d548b49331cf5d2e2ae100e68f
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376854"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418450"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>使用 Azure Stack 存储中的数据传输工具
 

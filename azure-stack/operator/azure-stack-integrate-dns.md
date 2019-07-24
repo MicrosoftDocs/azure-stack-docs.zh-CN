@@ -11,12 +11,12 @@ ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: bf1aed6c8140f0c0753f49195082dfd71737868a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 748da2aa4391d7f28e6d4273830d8d024021bb79
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618671"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417484"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
 
@@ -29,7 +29,7 @@ ms.locfileid: "65618671"
 
 |字段  |描述  |示例|
 |---------|---------|---------|
-|区域|Azure Stack 部署的地理位置。|`east`|
+|地区|Azure Stack 部署的地理位置。|`east`|
 |外部域名|需要用于 Azure Stack 部署的区域的名称。|`cloud.fabrikam.com`|
 |内部域名|在 Azure Stack 中用于基础结构服务的内部区域的名称。  它是进行了目录服务集成的，并且是专用的（无法从 Azure Stack 部署外部访问）。|`azurestack.local`|
 |DNS 转发器|一种 DNS 服务器，用于转发托管在 Azure Stack 外部的 DNS 查询、DNS 区域和记录，不管是在公司 Intranet 上还是公共 Internet 上。|`10.57.175.34`<br>`8.8.8.8`|
@@ -55,17 +55,17 @@ Azure Stack 部署和终结点的完全限定域名 (FQDN) 是区域参数和外
 
 ### <a name="dns-name-labels"></a>DNS 名称标签
 
-Azure Stack 支持添加 DNS 名称标签到公共 IP 地址以允许公共 IP 地址的名称解析。 这可以是用户来访问应用程序和服务托管在 Azure Stack 中按名称的简便方法。 DNS 名称标签使用基础结构终结点比略有不同的命名空间。 遵循上一示例中命名空间，DNS 名称标签的命名空间如下所示：
+Azure Stack 支持向公共 IP 地址添加 DNS 名称标签，以允许对公共 IP 地址进行名称解析。 这是一种方便用户通过名称访问 Azure Stack 中托管的应用程序和服务的方法。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间如下所示：
 
 `*.east.cloudapp.cloud.fabrikam.com`
 
-因此，如果租户表示值，该值**Myapp**中的公共 IP 地址资源的 DNS 名称标签字段，它创建 A 记录， **myapp**区域中**east.cloudapp.cloud.fabrikam.com** Azure Stack 外部 DNS 服务器上。 生成完全限定的域的名称出现，如下所示：
+因此，如果租户在公共 IP 地址资源的 DNS 名称标签字段中指定值 **Myapp**，则会在 Azure Stack 外部 DNS 服务器上的 **east.cloudapp.cloud.fabrikam.com** 区域中为 **myapp** 创建一条 A 记录。 生成的完全限定域名如下所示：
 
 `myapp.east.cloudapp.cloud.fabrikam.com`
 
-如果你想要利用此功能并使用此命名空间，必须集成使用托管想要使用以及父区域的 DNS 服务器为 Azure Stack 托管外部 DNS 区域的 DNS 服务器。 这是比 Azure Stack 服务终结点的命名空间不同的命名空间，因此你必须创建其他委派或条件性转发规则。
+如果要利用此功能并使用此命名空间，则必须将托管 Azure Stack 的外部 DNS 区域的 DNS 服务器与托管也要使用的父区域的 DNS 服务器集成。 这是一个与 Azure Stack 服务终结点的命名空间不同的命名空间，因此你必须创建一个额外的委派或条件转发规则。
 
-有关 DNS 名称标签的工作原理的详细信息，请参阅[Azure Stack 中使用的 DNS](../user/azure-stack-dns.md)。
+有关 DNS 名称标签的工作原理的详细信息，请参阅[在 Azure Stack 中使用 DNS](../user/azure-stack-dns.md)。
 
 ## <a name="resolution-and-delegation"></a>解析和委托
 
@@ -80,7 +80,7 @@ Azure Stack 包括权威 DNS 服务器和递归 DNS 服务器。 递归服务器
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>通过 Azure Stack 解析外部 DNS 名称
 
-若要解析 Azure Stack 外部的终结点（例如：www.bing.com）的 DNS 名称，需提供可供 Azure Stack 用来转发 DNS 请求的 DNS 服务器（Azure Stack 对这些请求来说并不权威）。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。
+若要解析 Azure Stack 外部终结点的 dns 名称 (例如:\.www bing.com), 需要提供 dns 服务器, Azure Stack 可以使用这些服务器转发 Azure Stack 不是权威的 dns 请求。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。
 
 ### <a name="configure-conditional-dns-forwarding"></a>配置条件性 DNS 转发
 
@@ -129,7 +129,7 @@ Azure Stack DNS 服务器的 FQDN 具有以下格式：
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-在名为 `AzureStackStampInformation.json` 的文件中，此信息也会在所有 Azure Stack 部署的末尾创建。 该文件位于部署虚拟机的 `C:\CloudDeployment\logs` 文件夹中。 如果不确定为你的 Azure Stack 部署使用了什么值，可以从此处获取这些值。
+在名为 `AzureStackStampInformation.json` 的文件中，此信息也会在所有 Azure Stack 部署的末尾创建。 该文件位于部署虚拟机的 `C:\CloudDeployment\logs` 文件夹中。 如果不确定对 Azure Stack 部署使用了什么值，可以从该文件中获取这些值。
 
 如果部署虚拟机不再可用或无法访问，则可连接到特权终结点并运行 `Get-AzureStackStampInformation` PowerShell cmdlet，以便获取这些值。 有关详细信息，请参阅[特权终结点](azure-stack-privileged-endpoint.md)。
 
@@ -137,11 +137,11 @@ Azure Stack DNS 服务器的 FQDN 具有以下格式：
 
 若要将 Azure Stack 与 DNS 基础结构集成，最简单也最安全的方式是将区域从托管父区域的服务器进行条件性转发。 如果可以直接控制为 Azure Stack 外部 DNS 命名空间托管父区域的 DNS 服务器，建议使用此方法。
 
-如果您不熟悉如何执行操作条件使用 DNS 转发，请参阅以下 TechNet 文章：[为域名分配条件转发器](https://technet.microsoft.com/library/cc794735)，或特定于 DNS 解决方案的文档。
+如果你不熟悉如何使用 DNS 进行条件转发，请参阅以下 TechNet 文章：[为域名分配条件转发器](https://technet.microsoft.com/library/cc794735)，或特定于 DNS 解决方案的文档。
 
 如果已将外部 Azure Stack DNS 区域指定为类似公司域名的子域那样，则无法使用条件性转发。 必须配置 DNS 委托。
 
-示例：
+例如：
 
 - 公司 DNS 域名：`contoso.com`
 - Azure Stack 外部 DNS 域名：`azurestack.contoso.com`

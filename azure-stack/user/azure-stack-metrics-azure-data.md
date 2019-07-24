@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 上使用 Azure Monitor |Microsoft Docs
-description: 了解如何在 Azure Stack 上使用 Azure Monitor。
+title: 使用 Azure Stack 上的 Azure Monitor |Microsoft Docs
+description: 了解如何使用 Azure Stack 上的 Azure Monitor。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,27 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: d243a574e43d3a68d3d5caf0f60235019a57462a
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.openlocfilehash: aafdc25293ea3cc584d24688d071dadb2151ce22
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816260"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418535"
 ---
-# <a name="use-azure-monitor-on-azure-stack"></a>在 Azure Stack 上使用 Azure Monitor
+# <a name="use-azure-monitor-on-azure-stack"></a>使用 Azure Stack 上的 Azure Monitor
 
 适用对象：*Azure Stack 集成系统*
 
 本文概述了 Azure Stack 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 的运行以及有关如何使用 Azure Stack 中的 Azure Monitor 的其他信息。 
 
-有关 Azure Monitor 的概述，请参阅全局 Azure 文章[开始使用 Azure Stack 上的 Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)。
+有关 Azure Monitor 的概述, 请参阅全球 Azure 文章[Azure Stack 上的 Azure Monitor 入门](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)。
 
 ![Azure Stack Monitor 边栏选项卡](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure Monitor 是一个平台服务，提供单一源，用于监视 Azure 资源。 Azure 监视器，可以可视化、 查询、 路由、 存档和对其执行其他操作指标和日志从 Azure 中的资源。 可以通过使用 Azure Stack 管理门户、Monitor PowerShell Cmdlet、跨平台 CLI 或 Azure Monitor REST API 来处理此数据。 Azure Stack 支持的特定连接，请参阅[如何使用 Azure Stack 中的监视数据](azure-stack-metrics-monitor.md)。
+Azure Monitor 是一种平台服务, 可提供用于监视 Azure 资源的单一源。 Azure Monitor 允许你对来自 Azure 资源的指标和日志进行可视化、查询、路由、存档和执行其他操作。 可以通过使用 Azure Stack 管理门户、Monitor PowerShell Cmdlet、跨平台 CLI 或 Azure Monitor REST API 来处理此数据。 有关 Azure Stack 支持的特定连接, 请参阅[如何使用 Azure Stack 中的监视数据](azure-stack-metrics-monitor.md)。
 
 > [!Note]
 > 指标和诊断日志不适用于 Azure Stack 开发工具包。
@@ -41,10 +41,10 @@ Azure Monitor 是一个平台服务，提供单一源，用于监视 Azure 资�
 在你的订阅的套餐资源提供程序设置上注册 **Microsoft.insights** 资源提供程序。 你可以验证该资源提供程序在与你的订阅关联的套餐中是否可用：
 
 1. 打开 Azure Stack 管理门户。
-2. 选择“套餐”。 
+2. 选择“套餐”。
 3. 选择与订阅关联的套餐。
-4. 在“设置”下，选择“资源提供程序”。   
-5. 查找**Microsoft.Insights**列表中，并验证状态是否**已注册**。
+4. 在“设置”下，选择“资源提供程序”。 
+5. 在**列表中找到**并验证状态是否为 "已**注册**"。
 
 ## <a name="overview-of-azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure Monitor 概述
 
@@ -58,9 +58,9 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
  - 虚拟机 
  - 虚拟机规模集
 
-### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>应用程序-诊断日志、 应用程序日志和指标
+### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>应用程序-诊断日志、应用程序日志和指标
 
-应用程序可以运行 VM 的 OS 中运行**Microsoft.Compute**资源提供程序。 这些应用和 Vm 发出其自己的日志和指标集。 Azure Monitor 依赖于 Azure 诊断扩展 （Windows 或 Linux） 来收集大多数应用程序级指标和日志。
+应用可在使用**Microsoft. 计算**资源提供程序运行的 VM 的 OS 中运行。 这些应用和 Vm 会发出自己的日志和指标集。 Azure Monitor 依赖于 Azure 诊断扩展 (Windows 或 Linux) 来收集大多数应用程序级指标和日志。
 
 度量值的类型包括：
  - 性能计数器
@@ -77,16 +77,16 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
 
 ### <a name="host-and-guest-vm-metrics"></a>宿主和来宾 VM 指标
 
-前面列出的计算资源具有专用的宿主 VM 和来宾 OS。 宿主 VM 和来宾 OS 是 Hyper-V 虚拟机监控程序中的根 VM 和来宾 VM 的等效项。 可以收集宿主 VM 和来宾 OS 的指标。 您还可以收集诊断日志来宾操作系统。 Azure Stack 上的主机和来宾 VM 指标可回收的度量值的列表位于[支持在 Azure Stack 上的 Azure Monitor 指标](azure-stack-metrics-supported.md)。 
+前面列出的计算资源具有专用的宿主 VM 和来宾 OS。 宿主 VM 和来宾 OS 是 Hyper-V 虚拟机监控程序中的根 VM 和来宾 VM 的等效项。 可以收集宿主 VM 和来宾 OS 的指标。 你还可以收集来宾操作系统的诊断日志。 Azure Stack 上的主机和来宾 VM 指标的可回收指标列表在[Azure Stack 上提供 Azure Monitor 支持的指标](azure-stack-metrics-supported.md)。 
 
 ### <a name="activity-log"></a>活动日志
 
-可以在活动日志中搜索有关 Azure Stack 基础结构看到的计算资源的信息。 日志包含多种信息，例如创建或销毁资源的时间。 Azure Stack 上的活动日志是与 Azure 一致。 有关详细信息，请参阅 [Azure 上的活动日志概述](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)的说明。 
+可以在活动日志中搜索有关 Azure Stack 基础结构看到的计算资源的信息。 日志包含多种信息，例如创建或销毁资源的时间。 Azure Stack 上的活动日志与 Azure 一致。 有关详细信息，请参阅 [Azure 上的活动日志概述](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)的说明。 
 
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure Monitor 源：所有其他项
 
-![在 Azure Stack 源-azure 监视器，其他所有内容](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Monitor Azure Stack 源-其他所有内容](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>资源-指标和诊断日志
 
@@ -115,9 +115,9 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
 以图形和图表形式将监视数据可视化可以帮助你更快地查明趋势，其速度远非单纯查看数据可比。 
 
 可视化方法包括：
- - 使用 Azure Stack 用户和管理员门户。
+ - 使用 Azure Stack 用户和管理门户。
  - 将数据路由到 Microsoft Power BI。
- - 将数据路由到第三方可视化工具使用任一实时传送视频流或者通过从 Azure 存储中存档读取该工具。
+ - 使用实时流式处理或通过从 Azure 存储中的存档读取该工具, 将数据路由到第三方可视化工具。
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>访问 Azure Stack 上的 Azure Monitor 的方法
 
@@ -131,4 +131,4 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
 
 ## <a name="next-steps"></a>后续步骤
 
-了解有关监视 Azure Stack 上一文中的数据使用情况的详细信息[监视 Azure Stack 中的数据的使用](azure-stack-metrics-monitor.md)。
+若要详细了解如何监视 Azure Stack 中的数据使用情况, 请参阅[使用 Azure Stack 中的监视数据](azure-stack-metrics-monitor.md)。

@@ -1,6 +1,6 @@
 ---
 title: 向 Azure Stack 添加 VM 映像 | Microsoft Docs
-description: 将 VM 映像添加或删除图像到组织的自定义 Windows 或 Linux VM 映像供租户使用。
+description: 添加 VM 映像作为组织的自定义 Windows 或 Linux VM 映像供租户使用，或删除作为组织的自定义 Windows 或 Linux VM 映像供租户使用的映像。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 440e68b54b99139b85ad53fd67bc43c409d658a8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 84aa627f6c274d22ebdab411d6abd1064c6ecd6d
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985641"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417478"
 ---
-# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>添加 VM 映像在 Azure Stack 中提供
+# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>添加要在 Azure Stack 中提供的 VM 映像
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-在 Azure Stack 中，可以将虚拟机 (VM) 映像添加到 marketplace，从而向用户提供。 可以通过 Azure 资源管理器模板用于 Azure Stack 添加 VM 映像。 作为 Marketplace 项，还可以添加 VM 映像为 Azure Marketplace UI。 使用全局 Azure Marketplace 中的映像或自定义 VM 映像。 您可以添加 VM 映像使用管理门户或 Windows PowerShell。
+在 Azure Stack 中，你可以向市场中添加虚拟机 (VM) 映像来将其提供给用户。 可以使用 Azure Stack 的 Azure 资源管理器模板添加 VM 映像。 还可以将 VM 映像作为市场项添加到 Azure 市场 UI。 可以使用来自全球 Azure 市场的映像，也可以使用你自己的自定义 VM 映像。 你可以使用管理门户或 Windows PowerShell 添加 VM 映像。
 
 ## <a name="add-a-vm-image-through-the-portal"></a>通过门户添加 VM 映像
 
@@ -46,7 +46,7 @@ ms.locfileid: "64985641"
 
    - 上传 [Windows VM 映像](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)时，请确保将“登录到 Azure”步骤替换为[配置 Azure Stack 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md)步骤。  
 
-   - 记下在其中上传映像的 Blob 存储 URI。 Blob 存储 URI 的格式如下：*&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd。
+   - 记下在其中上传映像的 Blob 存储 URI。 Blob 存储 URI 的格式如下： *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd。
 
    - 若要使 Blob 可供匿名访问，请转到已在其中上传了 VM 映像 VHD 的存储帐户 Blob 容器。 选择“Blob”，然后选择“访问策略”。 也可生成容器的共享访问签名，然后将其作为 Blob URI 的一部分包括进去。 此步骤确保 blob 可用于将该项添加为映像。 如果 blob 不可匿名访问，则 VM 映像创建将处于失败状态。
 
@@ -104,7 +104,7 @@ ms.locfileid: "64985641"
      VM 映像的 SKU 名称段，供用户在部署 VM 映像时使用。 例如，**Datacenter2016**。 此字段不得包含空格或其他特殊字符。  
    - **version**  
      例如： `1.0.0`  
-     VM 映像的版本，供用户在部署 VM 映像时使用。 此版本采用以下格式 *\#。\#。\#* 例如，**1.0.0**。 此字段不得包含空格或其他特殊字符。  
+     VM 映像的版本，供用户在部署 VM 映像时使用。 此版本采用 *\#.\#.\#* 格式。 例如，**1.0.0**。 此字段不得包含空格或其他特殊字符。  
    - **osType**  
      例如： `Linux`  
      映像的 osType 必须为 **Windows** 或 **Linux**。  
@@ -204,7 +204,7 @@ ms.locfileid: "64985641"
      VM 映像的 SKU 名称段，供用户在部署 VM 映像时使用。 例如，**Datacenter2016**。 此字段不得包含空格或其他特殊字符。  
    - **version**  
      例如： `1.0.0`  
-     VM 映像的版本，供用户在部署 VM 映像时使用。 此版本采用以下格式 *\#。\#。\#* 例如，**1.0.0**。 此字段不得包含空格或其他特殊字符。  
+     VM 映像的版本，供用户在部署 VM 映像时使用。 此版本采用 *\#.\#.\#* 格式。 例如，**1.0.0**。 此字段不得包含空格或其他特殊字符。  
     
      有关 Remove-AzsPlatformImage cmdlet 的详细信息，请参阅 Microsoft PowerShell [Azure Stack 操作员模块文档](https://docs.microsoft.com/powershell/module/)。
 

@@ -15,12 +15,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 8547c1aea70d7b72538b5a681e7c8dd4b4d10a02
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: d8fbcba9a635d47927b1d6eb08336e0959704cfd
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828304"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417177"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多租户
 
@@ -28,9 +28,9 @@ ms.locfileid: "66828304"
 
 可以配置 Azure Stack，以支持多个 Azure Active Directory (Azure AD) 租户中的用户使用 Azure Stack 中的服务。 例如，考虑以下方案：
 
-- 你是 contoso.onmicrosoft.com，服务管理员 Azure Stack 的安装位置。
-- Mary 是 fabrikam.onmicrosoft.com，目录管理员来宾用户的位置。
-- Mary 的公司收到你的公司，IaaS 和 PaaS 服务，并需要允许来宾目录 (fabrikam.onmicrosoft.com) 中的用户登录并在 contoso.onmicrosoft.com 中使用 Azure Stack 资源。
+- 你是安装 Azure Stack 的 contoso.onmicrosoft.com 的服务管理员。
+- Mary 是来宾用户所在的 fabrikam.onmicrosoft.com 的目录管理员。
+- Mary 的公司从公司接收 IaaS 和 PaaS 服务, 并需要允许来宾目录 (fabrikam.onmicrosoft.com) 的用户登录并使用 contoso.onmicrosoft.com 中 Azure Stack 资源。
 
 本指南提供了此方案上下文中所需的步骤，用于在 Azure Stack 中配置多租户。 在此方案中，你和 Mary 必须完成相关步骤以使 Fabrikam 中的用户能够登录并使用 Contoso 中部署的 Azure Stack 提供的服务。  
 
@@ -53,7 +53,7 @@ ms.locfileid: "66828304"
 
 通过将 Azure 资源管理器配置为接受来自来宾目录租户的用户和服务主体，将来宾目录租户 (Fabrikam) 加入到 Azure Stack。
 
-服务管理员的 contoso.onmicrosoft.com 运行以下命令。
+Contoso.onmicrosoft.com 的服务管理员运行以下命令。
 
 ```powershell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -84,7 +84,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>将 Azure Stack 注册到来宾目录
 
-Mary Fabrikam 目录管理员在来宾目录 fabrikam.onmicrosoft.com 中运行以下命令。
+Mary: Fabrikam 的目录管理员在来宾目录 fabrikam.onmicrosoft.com 中运行以下命令。
 
 ```powershell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -108,9 +108,9 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>指导用户登录
 
-现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。  Fabrikam 用户 （即，具有 fabrikam.onmicrosoft.com 后缀的用户） 登录，请访问 https://portal.local.azurestack.external。  
+现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。  Fabrikam 用户 (即, 具有 fabrikam.onmicrosoft.com 后缀的用户) 通过访问 https\://portal.local.azurestack.external. 登录  
 
-Mary 将指导任何[外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles)Fabrikam 目录 （即，如果没有 fabrikam.onmicrosoft.com 后缀，Fabrikam 目录中的用户） 中使用登录 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com。  如果他们未使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
+Mary 将引导 fabrikam 目录中的所有[外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles)(即 fabrikam 目录中不带后缀 fabrikam.onmicrosoft.com 的用户), 以使用 https\://portal.local.azurestack.external/登录。fabrikam.onmicrosoft.com。  如果他们未使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
 
 ## <a name="disable-multi-tenancy"></a>禁用多租户
 

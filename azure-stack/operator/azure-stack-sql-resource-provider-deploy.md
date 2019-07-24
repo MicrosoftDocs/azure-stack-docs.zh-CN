@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 07/23/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: ad4f1c2c7830b0b72118d013ef8fd5de2521180c
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 22fdf65ae4949468d3408097c787f0a5b93dd75f
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419487"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418080"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 资源提供程序
 
@@ -29,7 +29,7 @@ ms.locfileid: "67419487"
 > [!IMPORTANT]
 > 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 需要先实施几个先决条件，然后才能部署 Azure Stack SQL 资源提供程序。 若要满足这些要求，请在可访问特权终结点 VM 的计算机上完成以下步骤：
 
@@ -50,7 +50,7 @@ ms.locfileid: "67419487"
     |先决条件|参考|
     |-----|-----|
     |正确设置了条件性 DNS 转发。|[Azure Stack 数据中心集成 - DNS](azure-stack-integrate-dns.md)|
-    |资源提供程序的入站端口处于打开状态。|[Azure Stack 数据中心集成-端口和协议的入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |资源提供程序的入站端口处于打开状态。|[Azure Stack 数据中心集成-端口和协议入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
     |正确设置了 PKI 证书使用者和 SAN。|[Azure Stack 部署必备 PKI 先决条件](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack 部署 PaaS 证书先决条件](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
@@ -89,8 +89,8 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 | **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ |
 | **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
-| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称**AzureCloud**， **AzureUSGovernment**，或使用中国 Azure Active Directory，如果**AzureChinaCloud**。 | AzureCloud |
-| **DependencyFilesLocalPath** | 对于集成系统，必须将证书 .pfx 文件放在此目录中。 还可以在此处复制一个 Windows Update MSU 包。 | _可选_（对于集成系统为强制的  ） |
+| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure Active Directory、 **AzureChinaCloud**。 | AzureCloud |
+| **DependencyFilesLocalPath** | 对于集成系统，必须将证书 .pfx 文件放在此目录中。 还可以在此处复制一个 Windows Update MSU 包。 | _可选_（对于集成系统为强制的） |
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
 | **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 |
@@ -162,11 +162,11 @@ Clear-AzureRMContext -Scope Process -Force
 可以使用以下步骤来验证是否已成功部署 SQL 资源提供程序。
 
 1. 以服务管理员身份登录到管理门户。
-2. 选择“资源组”  。
-3. 选择“system.\<位置\>.sqladapter”资源组。 
+2. 选择“资源组”。
+3. 选择“system.\<位置\>.sqladapter”资源组。
 4. 在资源组概述摘要页上，应当没有失败的部署。
       ![验证 SQL 资源提供程序的部署](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-5. 最后，在管理门户中选择“虚拟机”  ，以验证 SQL 资源提供程序 VM 是否已成功创建且正在运行。
+5. 最后，在管理门户中选择“虚拟机”，以验证 SQL 资源提供程序 VM 是否已成功创建且正在运行。
 
 ## <a name="next-steps"></a>后续步骤
 

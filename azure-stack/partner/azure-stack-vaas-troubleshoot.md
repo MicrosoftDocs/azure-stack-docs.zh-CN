@@ -1,6 +1,6 @@
 ---
-title: 对 Azure Stack 验证作为服务进行故障排除 |Microsoft Docs
-description: 对验证作为 Azure Stack 的服务进行故障排除。
+title: 将 Azure Stack 验证作为服务进行故障排除 |Microsoft Docs
+description: 排查 Azure Stack 的服务验证问题。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: fedfd7f83a35398586734fa647751e537b850bf8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9c8807d6fb28a99c9de8464a0eaff7114bd6a162
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64297817"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418266"
 ---
-# <a name="troubleshoot-validation-as-a-service"></a>对验证作为服务进行故障排除
+# <a name="troubleshoot-validation-as-a-service"></a>验证作为服务的验证
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "64297817"
 
 ### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>在执行测试时，计算机上的代理进程已关闭。 要发生的情况
 
-如果代理进程是非正常关闭的，例如计算机重启、进程被终止（在代理窗口上按 CTRL+C 被视为正常关闭），则之前正在其上运行的测试将继续显示为**正在运行**。 如果代理重启，则代理会将测试状态更新为**已取消**。 如果不重新启动代理，则该测试显示为**运行**并且您必须手动取消测试。
+如果代理进程是非正常关闭的，例如计算机重启、进程被终止（在代理窗口上按 CTRL+C 被视为正常关闭），则之前正在其上运行的测试将继续显示为**正在运行**。 如果代理重启，则代理会将测试状态更新为**已取消**。 如果代理未重启, 则测试将显示为 "**正在运行**", 必须手动取消测试。
 
 > [!Note]
 > 工作流中的测试安排为按顺序运行。 在同一工作流中处于**正在运行**状态的测试完成之前，**挂起的**测试不会执行。
@@ -48,7 +48,7 @@ ms.locfileid: "64297817"
 
 ### <a name="handle-slow-network-connectivity"></a>处理慢速网络连接
 
-可以将 PIR 映像下载到本地数据中心内的某个共享。 然后可以检查该映像。
+可以将 PIR 映像下载到本地数据中心内的某个共享。 然后, 就可以检查映像了。
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
@@ -83,44 +83,44 @@ ms.locfileid: "64297817"
 | Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
 | Ubuntu1604-20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 
-### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>上传 VM 映像时失败`VaaSPreReq`脚本
+### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>在`VaaSPreReq`脚本中上传 VM 映像时出现故障
 
-在环境处于正常状态的第一次检查：
+首先检查环境是否正常:
 
-1. 此 DVM 从 / 跳转盒，请检查您是否可以成功登录到管理门户中使用的管理员凭据。
+1. 从 "DVM"/"跳转" 框中检查是否可以使用管理员凭据成功登录到管理门户。
 1. 确认没有任何警报或警告。
 
-如果在环境运行正常，手动上传 VaaS 测试运行所需的 5 个 VM 图像：
+如果环境正常运行, 请手动上传 VaaS 测试运行所需的5个 VM 映像:
 
-1. 登录到管理员门户服务管理员。 您可以找到在管理门户从 ECE 应用商店或戳信息文件的 URL。 有关说明，请参阅[环境的参数](azure-stack-vaas-parameters.md#environment-parameters)。
-1. 选择**更多服务** > **资源提供程序** > **计算** > **VM 映像**。
-1. 选择 **+ 添加**顶部的按钮**VM 映像**边栏选项卡。
-1. 修改或检查的第一个 VM 映像的以下字段的值：
+1. 以服务管理员身份登录到管理门户。 你可以从 ECE 存储区或你的 stamp 信息文件中找到管理门户 URL。 有关说明, 请参阅[环境参数](azure-stack-vaas-parameters.md#environment-parameters)。
+1. 选择 " > **更多服务** > " "**资源提供程序** >  **"。**
+1. 选择 " **VM 映像**" 边栏选项卡顶部的 " **+ 添加**" 按钮。
+1. 修改或检查第一个 VM 映像的以下字段的值:
     > [!IMPORTANT]
-    > 并非所有默认值为现有的应用商店项正确。
+    > 并非所有默认值对于现有 Marketplace 项都是正确的。
 
-    | 字段  | 值  |
+    | 字段  | ReplTest1  |
     |---------|---------|
-    | 发布者 | MicrosoftWindowsServer |
-    | 产品/服务 | WindowsServer |
+    | 发布服务器 | MicrosoftWindowsServer |
+    | 套餐 | WindowsServer |
     | OS 类型 | Windows |
     | SKU | 2012-R2-Datacenter |
     | Version | 1.0.0 |
     | OS 磁盘 Blob URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
 1. 选择“创建”按钮。
-1. 重复的剩余 VM 映像。
+1. 为剩余的 VM 映像重复此操作。
 
-5 的所有 VM 映像的属性如下所示：
+所有5个 VM 映像的属性如下所示:
 
-| 发布者  | 产品/服务  | OS 类型 | SKU | Version | OS 磁盘 Blob URI |
+| 发布服务器  | 套餐  | OS 类型 | SKU | Version | OS 磁盘 Blob URI |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
-| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
+| 规范 | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
+| 规范 | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
 
 ## <a name="next-steps"></a>后续步骤
 
-- 审阅[作为服务的验证的发行说明](azure-stack-vaas-release-notes.md)中最新版本的更改。
+- 查看[验证即服务的发行说明](azure-stack-vaas-release-notes.md), 了解最新版本中的更改。

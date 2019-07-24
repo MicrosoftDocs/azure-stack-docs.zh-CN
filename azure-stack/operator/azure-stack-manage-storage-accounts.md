@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 5d5fe68d9641b6ba7099268f631c1bfe89fb0674
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 4f9e9c4f79a06e0f1f74db8152047beb3af07b75
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985154"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417541"
 ---
 # <a name="manage-azure-stack-storage-accounts"></a>管理 Azure Stack 存储帐户
 
@@ -38,7 +38,7 @@ ms.locfileid: "64985154"
 
 默认显示前 10 个帐户。 可以单击列表底部的“加载更多”链接来提取更多的帐户。
 
-或
+OR
 
 如果只想查看特定的存储帐户，可以只**筛选并提取相关的帐户**。
 
@@ -46,7 +46,7 @@ ms.locfileid: "64985154"
 **筛选帐户：**
 
 1. 选择窗格顶部的“筛选”。
-2. 在筛选器窗格中，它允许您指定**帐户名**，**订阅 ID**，或**状态**以调整要显示的存储帐户的列表。 适当地使用筛选器。
+2. 在“筛选”窗格中，可以指定“帐户名”、“订阅 ID”或“状态”，以调整要显示的存储帐户列表。 适当地使用筛选器。
 3. 键入时，列表会自动应用筛选器。  .
    
     ![筛选 Azure Stack 存储帐户](media/azure-stack-manage-storage-accounts/image5.png)
@@ -77,7 +77,7 @@ ms.locfileid: "64985154"
 6. 请选择“是”以确认。
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
-7. 恢复为现在*进程.等待*指示已成功。
+7. 恢复现在正在进行中 *。等待*指示该操作成功。
    也可以选择门户顶部的“铃铛”图标查看进度指示。
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 94eb107450271722af773bc96bec7dfeb12ff52e
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 3fd84e5c294c2cdcfa942aeaf9c2daf9f9245891
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836715"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418214"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "66836715"
 > [!IMPORTANT]  
 > 需要注册才能支持完整的 Azure Stack 功能，包括在市场中提供商品。 此外，如果你在使用即用即付计费模式时未注册，则将违反 Azure Stack 许可条款。 若要了解有关 Azure Stack 授权模型的详细信息，请参阅[“如何购买”页](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>系统必备
 
 在注册之前，需要准备好以下各项：
 
@@ -46,10 +46,10 @@ ms.locfileid: "66836715"
 
 将 Azure Stack 注册到 Azure 之前，必须准备好：
 
-- Azure 订阅的订阅 ID。 注册仅支持 EA、CSP 或 CSP 共享服务订阅。 CSP 需要确定是[使用 CSP 订阅还是使用 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要获取该 ID，请登录到 Azure，单击“所有服务”  。 然后，在“常规”  类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。  
+- Azure 订阅的订阅 ID。 注册仅支持 EA、CSP 或 CSP 共享服务订阅。 CSP 需要确定是[使用 CSP 订阅还是使用 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要获取该 ID，请登录到 Azure，单击“所有服务”。 然后，在“常规”类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。
 
   > [!Note]  
-  > 当前不支持德国云订阅。
+  > 目前尚不支持德国云订阅。
 
 - 订阅所有者的帐户用户名和密码。
 
@@ -61,7 +61,7 @@ ms.locfileid: "66836715"
 
 注册 Azure Stack 的用户是 Azure Active Directory 中服务主体的所有者。 只有注册了 Azure Stack 的用户可以修改 Azure Stack 注册。 如果某位非管理员用户不是注册服务主体的所有者，则该用户在尝试注册或重新注册 Azure Stack 时，可能会遇到 403 响应。 403 响应表明用户权限不足，无法完成此操作。
 
-如果没有符合这些要求的 Azure 订阅，则可以[创建免费的 Azure 帐户此处](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。
+如果没有满足这些要求的 Azure 订阅, 可以在[此处创建一个免费的 azure 帐户](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。
 
 > [!NOTE]
 > 如果有多个 Azure Stack，最佳做法是将每个 Azure Stack 注册到其自己的订阅。 这样可以更容易地跟踪使用情况。
@@ -90,7 +90,7 @@ Azure Stack 工具 GitHub 存储库包含支持 Azure Stack 功能（包括注�
 
 ### <a name="determine-your-registration-scenario"></a>确定注册方案
 
-Azure Stack 部署可能处于“已连接”或“已断开连接”状态。  
+Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
  - **已连接**  
  “已连接”意味着 Azure Stack 已部署，因此可以连接到 Internet 和 Azure。 可以将 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 用于标识存储。 对于已连接的部署，可供选择的有两种计费模型：即用即付或基于容量。
@@ -133,7 +133,7 @@ Run: Get-AzureStackStampInformation
 
    | 参数 | 描述 |  
    |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 受支持的环境名称**AzureCloud**， **AzureUSGovernment**，或使用中国 Azure 订阅，如果**AzureChinaCloud**。  |
+   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅**AzureChinaCloud**。  |
 
 3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：  
 
@@ -161,7 +161,7 @@ Run: Get-AzureStackStampInformation
 
    | 参数 | 描述 |  
    |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 受支持的环境名称**AzureCloud**， **AzureUSGovernment**，或使用中国 Azure 订阅，如果**AzureChinaCloud**。  |
+   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅**AzureChinaCloud**。  |
 
 7. 在同一个 PowerShell 会话中运行 **Set-AzsRegistration** cmdlet。 要运行的 PowerShell：  
 
@@ -176,7 +176,7 @@ Run: Get-AzureStackStampInformation
    ```
    有关 Set-AzsRegistration cmdlet 的详细信息，请参阅[注册参考](#registration-reference)。
 
-   该过程需要花费 10 到 15 分钟。 命令完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。 
+   该过程需要花费 10 到 15 分钟。 命令完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。
 
 ## <a name="register-connected-with-capacity-billing"></a>使用容量计费模型注册连接的 Azure Stack
 
@@ -197,7 +197,7 @@ Run: Get-AzureStackStampInformation
 
    | 参数 | 描述 |  
    |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 受支持的环境名称**AzureCloud**， **AzureUSGovernment**，或使用中国 Azure 订阅，如果**AzureChinaCloud**。  |
+   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅**AzureChinaCloud**。  |
 
 3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：  
 
@@ -257,7 +257,7 @@ Run: Get-AzureStackStampInformation
 
 在连接到 Internet 的计算机上，执行相同的步骤以导入 RegisterWithAzure.psm1 模块，并登录到正确的 Azure Powershell 上下文。 然后调用 Register-AzsEnvironment。 指定可注册到 Azure 的注册令牌。 如果使用同一 Azure 订阅 ID 注册多个 Azure Stack 实例，请指定唯一的注册名称。
 
-需要将您的注册令牌和令牌的唯一名称。
+你将需要注册令牌和唯一令牌名称。
 
 1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
 
@@ -273,9 +273,9 @@ Run: Get-AzureStackStampInformation
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
-（可选） 可以使用 Get-content cmdlet 以指向包含您的注册令牌的文件。
+(可选) 可以使用 "获取内容" cmdlet 指向包含注册令牌的文件。
 
-需要将您的注册令牌和令牌的唯一名称。
+你将需要注册令牌和唯一令牌名称。
 
 1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
 
@@ -283,7 +283,7 @@ Run: Get-AzureStackStampInformation
   Import-Module .\RegisterWithAzure.psm1
   ```
 
-2. 然后运行以下 PowerShell cmdlet:  
+2. 然后, 运行以下 PowerShell cmdlet:  
 
   ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
@@ -326,13 +326,13 @@ Run: Get-AzureStackStampInformation
 
 ## <a name="verify-azure-stack-registration"></a>验证 Azure Stack 注册
 
-可以使用“区域管理”磁贴，验证  Azure Stack 注册是否成功。 可在管理门户的默认仪表板上使用此磁贴。 状态可能是已注册，也可能是未注册。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
+可以使用“区域管理”磁贴，验证 Azure Stack 注册是否成功。 可在管理门户的默认仪表板上使用此磁贴。 状态可能是已注册，也可能是未注册。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
 
 1. 登录到 [Azure Stack 管理门户](https://adminportal.local.azurestack.external)。
 
-2. 在“仪表板”中，选择“区域管理”。 
+2. 在“仪表板”中，选择“区域管理”。
 
-3. 选择“属性”  。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”、“未注册”或“已过期”。   
+3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”、“未注册”或“已过期”。
 
     [![“区域管理”磁贴](media/azure-stack-registration/admin1sm.png "“区域管理”磁贴")](media/azure-stack-registration/admin1.png#lightbox)
 
@@ -342,7 +342,7 @@ Run: Get-AzureStackStampInformation
     - **注册资源组**：包含 Azure Stack 资源的关联订阅中的 Azure 资源组。
 
 4. 使用 Azure 门户查看 Azure Stack 应用注册。 使用已关联到用于注册 Azure Stack 的订阅的帐户登录到 Azure 门户。 切换到与 Azure Stack 关联的租户。
-5. 导航到“Azure Active Directory”>“应用注册”>“查看所有应用程序”。 
+5. 导航到“Azure Active Directory”>“应用注册”>“查看所有应用程序”。
 
     ![应用注册](media/azure-stack-registration/app-registrations.png)
 
@@ -451,7 +451,7 @@ Run: Get-AzureStackStampInformation
 2. 保存此注册令牌，以便在连接 Azure 的计算机上使用。 可以从 $FilePathForRegistrationToken 复制文件或文本。
 
 ## <a name="move-a-registration-resource"></a>移动注册资源
-对于所有环境，都支持在同一订阅下的资源组之间移动注册资源  。 但是，只有当两个订阅都解析到同一个合作伙伴 ID 时，才支持在订阅之间移动注册资源。 有关将资源移到新的资源组的详细信息，请参阅[将资源移到新的资源组或订阅](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
+对于所有环境，都支持在同一订阅下的资源组之间移动注册资源。 但是，只有当两个订阅都解析到同一个合作伙伴 ID 时，才支持在订阅之间移动注册资源。 有关将资源移到新的资源组的详细信息，请参阅[将资源移到新的资源组或订阅](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
 
 ## <a name="registration-reference"></a>注册参考
 
@@ -470,7 +470,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| 参数 | Type | 描述 |
+| 参数 | type | 描述 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | 用于[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的凭据。 用户名采用 **AzureStackDomain\CloudAdmin** 格式。 |
 | PrivilegedEndpoint | String | 预先配置的远程 PowerShell 控制台，提供的功能包括日志收集和其他部署后任务。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
@@ -492,7 +492,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| 参数 | Type | 描述 |
+| 参数 | 类型 | 描述 |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | 用于[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的凭据。 用户名采用 **AzureStackDomain\CloudAdmin** 格式。 |
 | PrivilegedEndpoint | String |  预先配置的远程 PowerShell 控制台，提供的功能包括日志收集和其他部署后任务。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
@@ -507,9 +507,9 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 ## <a name="registration-failures"></a>注册失败
 
 在尝试注册 Azure Stack 时，可能会看到以下错误之一：
-1. 无法检索 $hostName 的必需硬件信息。 检查物理主机和连接，然后尝试重新运行注册。
+1. 无法检索 $hostName 的必需硬件信息。 请检查物理主机和连接, 然后尝试重新运行注册。
 
-2. 无法连接到 $hostName 获取硬件信息-请检查物理主机和连接，然后尝试重新运行注册。
+2. 无法连接到 $hostName 以获取硬件信息-请检查物理主机和连接, 然后尝试重新运行注册。
 
 > 原因：这通常是因为我们尝试从主机获取硬件详细信息（例如 UUID、Bios 和 CPU）以尝试激活，但却无法完成它，因为无法连接到物理主机。
 

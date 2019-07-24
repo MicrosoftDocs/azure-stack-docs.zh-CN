@@ -3,8 +3,8 @@ title: 创建并上传 Red Hat Enterprise Linux VHD，以供在 Azure Stack 中�
 description: 了解如何创建和上传包含 Red Hat Linux 操作系统的 Azure 虚拟硬盘 (VHD)。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,17 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 07/23/2019
+ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: 636ac38785f2604b97ee5bf1cfc3615baa259d26
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 52ca03b01e762f980cbabcbe63d718bfd4c2c152
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64293824"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418182"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>为 Azure Stack 准备基于 Red Hat 的虚拟机
 
@@ -44,9 +43,9 @@ ms.locfileid: "64293824"
 * 需要装载通用磁盘格式 (UDF) 文件系统的内核支持。 首次启动时，附加到来宾的 UDF 格式媒体会将预配配置传递给 Linux 虚拟机。 Azure Linux 代理必须装载 UDF 文件系统才能读取其配置和预配虚拟机。
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，并在临时资源磁盘上创建交换文件。 可在以下步骤中找到更多相关信息。
 * Azure 上所有 VHD 的虚拟大小必须已按 1 MB 对齐。 从原始磁盘转换为 VHD 时，必须确保在转换前的原始磁盘大小是 1 MB 的倍数。 可以在以下步骤中找到更多详细信息。
-* Azure Stack 不支持 cloud-init。 必须使用受支持版本的 Windows Azure Linux 代理 (WALA) 配置 VM。
+* Azure Stack 不支持 cloud-init。 必须为 VM 配置受支持的 Windows Azure Linux 代理 (WALA) 版本。
 
-### <a name="prepare-an-rhel-7-virtual-machine-from-hyper-v-manager"></a>从 HYPER-V 管理器准备 RHEL 7 虚拟机
+### <a name="prepare-an-rhel-7-virtual-machine-from-hyper-v-manager"></a>从 Hyper-V 管理器准备 RHEL 7 虚拟机
 
 1. 在 Hyper-V 管理器中，选择虚拟机。
 
@@ -104,7 +103,7 @@ ms.locfileid: "64293824"
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. 停止并卸载 cloud-init:
+1. 停止并卸载 cloud-init：
 
     ```bash
     systemctl stop cloud-init
@@ -229,7 +228,7 @@ ms.locfileid: "64293824"
 
    此命令还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此命令还会禁用 NIC 的新 RHEL 7 命名约定
 
-   在要将所有日志发送到串行端口的云环境中，图形界面式启动和静默启动不起作用。 如果需要，可以保留配置的 `crashkernel` 选项。 此参数可将虚拟机中的可用内存量减少 128 MB 或更多，当虚拟机大小较小时，这可能会造成问题。 我们建议删除以下参数：
+   在要将所有日志发送到串行端口的云环境中，图形界面式引导和安静引导在云环境中不适用。 如果需要，可以保留配置的 `crashkernel` 选项。 此参数可将虚拟机中的可用内存量减少 128 MB 或更多，当虚拟机大小较小时，这可能会造成问题。 我们建议删除以下参数：
 
     ```sh
     rhgb quiet crashkernel=auto
@@ -255,7 +254,7 @@ ms.locfileid: "64293824"
     dracut -f -v
     ```
 
-1. 停止并卸载 cloud-init:
+1. 停止并卸载 cloud-init：
 
     ```bash
     systemctl stop cloud-init
@@ -275,9 +274,9 @@ ms.locfileid: "64293824"
     ClientAliveInterval 180
     ```
 
-1. 当为 Azure Stack 中创建自定义 vhd，请记住，2.2.20 和 2.2.35 （这两个不含） 之间的 WALinuxAgent 版本不适用于 Azure Stack 环境。 您可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用 2.2.35 以上的版本来准备自定义映像，在 Azure Stack 更新到 1903年版本或应用 1901年/1902年修补程序。 
+1. 为 Azure Stack 创建自定义 vhd 时，请记住，2.2.20 与 2.2.35 之间的 WALinuxAgent 版本（包括两者）在 Azure Stack 环境中不工作。 你可以使用版本 2.2.20/2.2.35 来准备你的映像。 若要使用高于 2.2.35 的版本来准备你的自定义映像，请将你的 Azure Stack 更新到 1903 版本或应用 1901/1902 修补程序。 
 
-     请按照以下说明下载 WALinuxAgent 操作：
+     根据以下说明来下载 WALinuxAgent：
     
    a.   下载 setuptools
     ```bash
@@ -285,7 +284,7 @@ ms.locfileid: "64293824"
     tar xzf setuptools-7.0.tar.gz
     cd setuptools-7.0
     ```
-   b. 这是一个示例我们在其中下载"2.2.20"从 GitHub 存储库的版本。 下载并解压缩 2.2.20 从我们的 GitHub 代理的版本。 
+   b. 这是一个我们从 GitHub 存储库下载“2.2.20”版本的示例。 下载并解压缩来自我们的 GitHub 的 2.2.20 版代理。 
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
     unzip v2.2.20.zip
@@ -295,11 +294,11 @@ ms.locfileid: "64293824"
     ```bash
     sudo python setup.py install
     ```
-    d. 重新启动 waagent
+    d. 重启 waagent
     ```bash
     sudo systemctl restart waagent
     ```
-    e. 如果代理版本匹配，一个下载进行测试。 对于此示例中，它应为 2.2.20。
+    e. 测试代理版本是否与你下载的版本匹配。 对于本示例，它应当为 2.2.20。
     
     ```bash
     waagent -version
@@ -338,7 +337,7 @@ ms.locfileid: "64293824"
 1. 将 qcow2 映像转换为 VHD 格式。
 
     > [!NOTE]
-    > qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。 参考： https://bugs.launchpad.net/qemu/+bug/1490611。
+    > qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。 参考： https://bugs.launchpad.net/qemu/+bug/1490611 。
 
     首先将此映像转换为原始格式：
 
@@ -362,7 +361,7 @@ ms.locfileid: "64293824"
     qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-    或者，对于 qemu 版本 **2.6+**，包括 `force_size` 选项：
+    或者，对于 qemu 版本 **2.6+** ，包括 `force_size` 选项：
 
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
@@ -444,7 +443,7 @@ ms.locfileid: "64293824"
     dracut -f -v
     ```
 
-1. 停止并卸载 cloud-init:
+1. 停止并卸载 cloud-init：
 
     ```bash
     systemctl stop cloud-init
@@ -525,7 +524,7 @@ ms.locfileid: "64293824"
     qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-    或者，对于 qemu 版本 **2.6+**，包括 `force_size` 选项：
+    或者，对于 qemu 版本 **2.6+** ，包括 `force_size` 选项：
 
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
@@ -684,7 +683,7 @@ ms.locfileid: "64293824"
 
 在某些情况下，Linux 安装程序可能无法在初始 RAM 磁盘（initrd 或 initramfs）中包含 Hyper-V 驱动程序，除非 Linux 检测到它正在 Hyper-V 环境中运行。
 
-当你使用不同的虚拟化系统 （即，Oracle VM VirtualBox、 Xen 项目等） 来准备 Linux 映像时，您可能需要重新生成 initrd 以确保至少 hv_vmbus 和 hv_storvsc 内核模块可在初始 RAM磁盘。 至少在基于上游 Red Hat 分发的系统上这是一个已知问题。
+使用不同虚拟化系统（即 Oracle VM VirtualBox，Xen Project 等）来准备 Linux 映像时，可能需要重新生成 initrd 以确保至少 hv_vmbus 和 hv_storvsc 内核模块可在初始 RAM 磁盘上使用。 至少在基于上游 Red Hat 分发的系统上这是一个已知问题。
 
 要解决此问题，请将 Hyper-V 模块添加到 initramfs 并进行重新生成：
 

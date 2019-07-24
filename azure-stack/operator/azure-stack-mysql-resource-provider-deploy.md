@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 197c5002378be8229a6ec60fc0f3d7659b7c56b9
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 2ef279dd3970e14eb41f8a8135c2374cb751f5f7
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618148"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417778"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 资源提供程序
 
@@ -29,7 +29,7 @@ ms.locfileid: "65618148"
 > [!IMPORTANT]
 > 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 需要先实施几个先决条件，然后才能部署 Azure Stack MySQL 资源提供程序。 若要满足这些要求，请在可访问特权终结点 VM 的计算机上完成本文中的步骤。
 
@@ -95,13 +95,13 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 | **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ |
 | **VMLocalCredential** | MySQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
-| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称**AzureCloud**， **AzureUSGovernment**，或如果使用中国 Azure AD **AzureChinaCloud**。 | AzureCloud |
+| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
 | **DependencyFilesLocalPath** | 对于集成系统，必须将证书 .pfx 文件放在此目录中。 对于已断开连接的环境，请将 [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 下载到此目录。 还可以在此处复制一个 Windows Update MSU 包。 | 可选（对于集成系统或断开连接的系统，则为强制） |
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
 | **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | “否” |
-| **DebugMode** | 防止在失败时自动清除。 | “否” |
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | 否 |
+| **DebugMode** | 防止在失败时自动清除。 | 否 |
 | **AcceptLicense** | 跳过接受 GPL 许可条款的提示。  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 MySQL 资源提供程序

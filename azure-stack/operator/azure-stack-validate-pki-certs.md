@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: abf2d10c50271217220d9dc218b4d50f7411d867
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8d929a3b1fd67f3ec73137b2e1a87f594ea5b544
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984526"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417828"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>验证 Azure Stack PKI 证书
 
@@ -52,11 +52,11 @@ ms.locfileid: "64984526"
 > [!IMPORTANT]  
 > PKI 证书是一个 PFX 文件，其密码应被视为敏感信息。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 在验证用于 Azure Stack 部署的 PKI 证书之前，系统应符合以下先决条件：
 
-- Microsoft Azure Stack Readiness Checker
+- Microsoft Azure Stack 准备情况检查程序
 - 遵照[准备说明](azure-stack-prepare-pki-certs.md)导出的 SSL 证书
 - DeploymentData.json
 - Windows 10 或 Windows Server 2016
@@ -252,7 +252,7 @@ Invoke-AzsCertificateValidation Completed
 
 ## <a name="certificates"></a>证书
 
-| Directory | 证书 |
+| 目录 | 证书 |
 | ---    | ----        |
 | acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
 | ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
@@ -271,7 +271,7 @@ Invoke-AzsCertificateValidation Completed
 通过 AzsReadinessChecker 验证证书后，可在 Azure Stack 部署中使用这些证书，或者将其用于 Azure Stack 机密轮换。 
 
  - 对于部署，请根据 [Azure Stack PKI 要求文档](azure-stack-pki-certs.md)中的规定，安全地将证书传送给部署工程师，使他们能够将其复制到部署主机。
- - 对于机密轮换，您可以使用证书来更新 Azure Stack 环境公共基础结构终结点的旧证书按照[Azure Stack 机密轮换文档](azure-stack-rotate-secrets.md)。
+ - 对于机密轮换，可以遵循 [Azure Stack 机密轮换文档](azure-stack-rotate-secrets.md)，使用这些证书来更新 Azure Stack 环境公共基础结构终结点的旧证书。
  - 对于 PaaS 服务，可以按照[在 Azure Stack 中提供服务概述](azure-stack-offer-services-overview.md)文档，使用证书在 Azure Stack 中安装 SQL、MySQL 和应用程序服务资源提供程序。
 
 ## <a name="next-steps"></a>后续步骤

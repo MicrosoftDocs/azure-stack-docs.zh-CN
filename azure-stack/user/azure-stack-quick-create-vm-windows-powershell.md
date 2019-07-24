@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/09/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 1b0f367540012b86da322329f0536b3c484c39b4
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 21dacbd9fc0bd7b646eb937e5460f6e7a89e3465
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269563"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417402"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Windows Server VM
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以使用 Azure Stack PowerShell 创建 Windows Server 2016 虚拟机 (VM)。 请按照本文中的步骤创建和使用 VM。 本文还提供了执行以下操作的步骤：
 
@@ -38,18 +38,18 @@ ms.locfileid: "66269563"
 
 ## <a name="prerequisites-for-windows-server-vm"></a>Windows Server VM 的先决条件
 
-* 确保 Azure Stack 操作员已将“Windows Server 2016”  映像添加到 Azure Stack 市场。
+* 确保 Azure Stack 操作员已将“Windows Server 2016”映像添加到 Azure Stack 市场。
 
 * Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](../operator/azure-stack-powershell-install.md) PowerShell 的步骤。
 
-* 使用 Azure Stack PowerShell 设置，你将需要连接到 Azure Stack 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
+* 设置 Azure Stack PowerShell 后, 需要连接到 Azure Stack 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
 资源组是在其中部署和管理 Azure Stack 资源的逻辑容器。 在开发工具包或 Azure Stack 集成系统中，运行以下代码块创建资源组。 
 
 > [!NOTE]
-> 有关代码示例中的所有变量分配值。 但是，如果愿意，也可以分配新值。
+> 将为代码示例中的所有变量分配值。 但是，如果愿意，也可以分配新值。
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -63,7 +63,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>创建存储资源
 
-创建存储帐户和存储容器用于存储 Windows Server 2016 映像。
+创建存储帐户和存储容器以存储 Windows Server 2016 映像。
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -85,7 +85,7 @@ Set-AzureRmCurrentStorageAccount `
 
 ## <a name="create-networking-resources"></a>创建网络资源
 
-创建虚拟网络、子网和公共 IP 地址。 这些资源用来为 VM 提供网络连接。
+创建虚拟网络、子网和公共 IP 地址。 这些资源用于提供与 VM 的网络连接。
 
 ```powershell
 # Create a subnet configuration
@@ -112,7 +112,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>创建网络安全组和网络安全组规则
 
-网络安全组使用入站和出站规则保护 VM。 让我们创建端口 3389，以允许传入远程桌面连接的入站的规则并为端口 80 以允许传入的 web 流量的入站的规则。
+网络安全组使用入站和出站规则保护 VM。 让我们为端口3389创建入站规则, 以允许传入的远程桌面连接, 并为端口80创建入站规则, 以允许传入的 web 流量。
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -147,9 +147,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-vm"></a>为 VM 创建网络卡
+### <a name="create-a-network-card-for-the-vm"></a>为 VM 创建网卡
 
-网卡连接到子网、 网络安全组和公共 IP 地址的 VM。
+网卡将 VM 连接到子网、网络安全组和公共 IP 地址。
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -164,7 +164,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-vm"></a>创建 VM
 
-创建 VM 配置。 此配置包括部署 VM 时所使用的设置。 例如： 凭据、 大小和 VM 映像。
+创建 VM 配置。 此配置包括部署 VM 时使用的设置。 例如: 凭据、大小和 VM 映像。
 
 ```powershell
 # Define a credential object to store the username and password for the VM
@@ -210,14 +210,14 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-vm"></a>连接到 VM
 
-远程连接到在上一步中创建的 VM，你需要其公共 IP 地址。 运行以下命令以获取 VM 的公共 IP 地址：
+若要远程登录到上一步中创建的 VM, 需要其公共 IP 地址。 运行以下命令以获取 VM 的公共 IP 地址:
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-使用以下命令来与 VM 建立远程桌面会话。 将 IP 地址替换为你的 VM 的 *publicIPAddress*。 出现提示时，输入用户名和密码创建 VM 时使用。
+使用以下命令创建与 VM 的远程桌面会话。 将 IP 地址替换为你的 VM 的 *publicIPAddress*。 出现提示时, 输入创建 VM 时使用的用户名和密码。
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -225,7 +225,7 @@ mstsc /v <publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>通过 PowerShell 安装 IIS
 
-现在，已登录到 Azure VM，可以使用单行 PowerShell 安装 IIS 并启用本地防火墙规则以允许 web 流量。 打开 PowerShell 提示符并运行以下命令：
+现在, 已登录到 Azure VM, 可以使用单行 PowerShell 安装 IIS, 并启用本地防火墙规则以允许 web 流量。 打开 PowerShell 提示符并运行以下命令：
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -233,13 +233,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>查看 IIS 欢迎页
 
-安装 IIS，并且与在 VM 上打开端口 80，您可以使用任何浏览器查看默认 IIS 欢迎页。 请使用前面部分中记录的 *publicIpAddress* 来访问默认页面。
+如果已安装 IIS, 并在 VM 上打开端口 80, 则可以使用任何浏览器查看默认的 IIS 欢迎页。 请使用前面部分中记录的 *publicIpAddress* 来访问默认页面。
 
 ![IIS 默认站点](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
 ## <a name="delete-the-vm"></a>删除 VM
 
-如果不再需要使用以下命令删除包含 VM 和及其相关的资源的资源组：
+如果不再需要资源组, 请使用以下命令删除包含 VM 及其相关资源的资源组:
 
 ```powershell
 Remove-AzureRmResourceGroup `
@@ -248,4 +248,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门，我们部署了一个简单的 Windows 虚拟机。 若要了解有关 Azure Stack Vm 的详细信息，继续[Azure Stack VM 功能](azure-stack-vm-considerations.md)。
+在本快速入门中, 已部署了一个简单的 Windows VM。 若要详细了解 Azure Stack Vm, 请继续[AZURE STACK VM 功能](azure-stack-vm-considerations.md)。

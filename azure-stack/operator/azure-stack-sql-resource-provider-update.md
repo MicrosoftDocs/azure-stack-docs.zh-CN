@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 558853309faecbf2955a08d7a8f629d83a38dbd1
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 6554a18ee881f053eebc2fc3df8d846cd8d9d12e
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617828"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417970"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
@@ -58,13 +58,13 @@ ms.locfileid: "65617828"
 | **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ |
 | **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
-| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 受支持的环境名称**AzureCloud**， **AzureUSGovernment**，或如果使用中国 Azure AD **AzureChinaCloud**。 | AzureCloud |
+| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
 | **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | 对单节点为可选，但对多节点为必选 |
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
 | **RetryDuration** |每两次重试的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源。 | “否” |
-| **DebugMode** | 防止在失败时自动清除。 | “否” |
+| **卸载** | 删除资源提供程序和所有关联的资源。 | 否 |
+| **DebugMode** | 防止在失败时自动清除。 | 否 |
 
 ## <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
 下面是 *UpdateSQLProvider.ps1* 脚本的使用示例，该脚本可以通过提升的 PowerShell 控制台来运行。 请务必根据需要更改变量信息和密码：  
