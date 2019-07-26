@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack 帮助和支持 |Microsoft Docs
-description: 获取对 Microsoft Azure Stack 的支持。
+title: Microsoft Azure Stack 帮助和支持概述 |Microsoft Docs
+description: 获取 Microsoft Azure Stack 支持。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -12,75 +12,92 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 07/24/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 4649866a020a9ddc3d359dcb69e8d4165a00a88d
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.lastreviewed: 07/24/2019
+ms.openlocfilehash: ff7911f64cf7c1413e623cd84cebe3d26585a3e5
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828391"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493861"
 ---
 # <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack 帮助和支持
 
-1905 版本，开始**帮助 + 支持**Azure Stack 门户中的改进可简化运算符以查看其支持选项、 获得专家帮助和了解有关 Azure Stack 的详细信息。 
+Azure Stack 门户中的 "**帮助 + 支持**" 包含帮助操作员了解有关 Azure Stack 的详细信息, 请查看其支持选项, 并获得专家帮助。 从1907版本开始, 操作员还可以使用 "帮助 + 支持" 来收集诊断日志以便进行故障排除。  
 
-## <a name="documentation-billing-and-support"></a>文档、 计费和支持
+## <a name="help-resources"></a>帮助资源 
 
-在顶部**帮助 + 支持**尝试的操作可能会首先，如读取向上有关的新概念的链接了解计费如何工作，或请参阅有哪些支持选项。 
+操作员还可以使用 "**帮助 + 支持**" 来详细了解 Azure Stack、检查其支持选项, 并获得专家帮助。 
+
+### <a name="things-to-try-first"></a>首先尝试的任务
+
+"**帮助 + 支持**" 顶部的链接是指向你可能首先尝试的操作的链接, 例如了解新概念、了解计费的工作方式, 或查看可用的支持选项。 
 
 ![自助服务支持](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **文档**。 [Azure Stack 操作员文档](index.yml)包括概念、 操作方法主题和这些教程介绍如何提供 Azure Stack 服务，例如虚拟机、 SQL 数据库、 web 应用和的详细信息。 
+- **文档**。 [Azure Stack 操作员文档](index.yml)包括概念、操作方法主题和教程, 它们演示了如何提供 Azure Stack 服务, 例如虚拟机、SQL 数据库、web 应用等。 
 
-- **了解有关**。 获得技巧[使用情况和计费](azure-stack-billing-and-chargeback.md)。
+- **了解帐单**。 获取有关[使用情况和计费](azure-stack-billing-and-chargeback.md)的提示。
 
-- **支持选项**。 Azure Stack 操作员可以选择从一系列[Azure 支持选项](https://aka.ms/azstacksupport)，可以满足任何企业的需求。 
+- **支持选项**。 Azure Stack 操作员可以从一系列可满足任何企业需求的[Azure 支持选项](https://aka.ms/azstacksupport)中进行选择。 
 
-## <a name="get-expert-help"></a>获取专家帮助 
+### <a name="get-expert-help"></a>获取专家帮助 
 
 对于集成系统，Microsoft 和其原始设备制造商 (OEM) 硬件合作伙伴之间已经建立了协作的问题升级和解决流程。
 
-如果存在云服务问题，请通过 Microsoft 客户支持服务 (CSS) 寻求支持。 可以单击**帮助**（问号） 中的管理员门户，然后单击右上角**帮助 + 支持**以打开**帮助 + 支持概述**和提交新支持请求。 创建支持请求，将预先选择 Azure Stack 服务。 我们强烈建议客户使用这种体验来提交票证，而不是使用公共 Azure 门户。 
+如果存在云服务问题，请通过 Microsoft 客户支持服务 (CSS) 寻求支持。 你可以单击管理员门户右上角的 "**帮助**" (问号), 然后单击 "**帮助 + 支持**", 打开 "**帮助 + 支持概述**" 并提交新的支持请求。 创建支持请求将预先 Azure Stack 服务。 我们强烈建议客户使用此体验来提交票证, 而不是使用公用 Azure 门户。 
 
 如果存在部署问题、修补和更新问题、硬件（包括现场可更换部件）问题，以及任何硬件品牌软件（例如在硬件生命周期主机上运行的软件）问题，请首先联系 OEM 硬件供应商。 至于其他问题，请联系 Microsoft CSS。
 
-![对于集成系统获得专家帮助](media/azure-stack-help-and-support/get-support-integrated.png)
+![获取集成系统的专家帮助](media/azure-stack-help-and-support/get-support-integrated.png)
 
-为 Azure Stack 开发工具包 (ASDK)，可以提出与支持相关问题[Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)。 
+对于 ASDK, 你可以在[AZURE STACK MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中提问与支持相关的问题。 
 
-可以单击**帮助**（问号） 中的管理员门户，然后单击右上角**帮助 + 支持**以打开**帮助 + 支持概述**，其中包含链接到论坛。 定期监视 MSDN 论坛。  
+你可以单击管理员门户右上角的 "**帮助**" (问号), 然后单击 "**帮助 + 支持**", 打开 "**帮助 + 支持概述**", 其中包含了论坛的链接。 将定期监视 MSDN 论坛。  
 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft CSS 提供官方支持。
 
-![获取专家帮助对于 ASDK](media/azure-stack-help-and-support/get-support-asdk.png)
+![获取有关 ASDK 的专家帮助](media/azure-stack-help-and-support/get-support-asdk.png)
 
-您还可以联系我们 MSDN 论坛，讨论问题，或参加在线培训，提高您自己的技能。 
+你还可以与 MSDN 论坛联系, 讨论问题, 或者采取在线培训和提高自己的技能。 
 
 ![获取专家帮助](media/azure-stack-help-and-support/get-support-cards.png)
 
+### <a name="get-up-to-speed-with-azure-stack"></a>利用 Azure Stack 提高速度
 
-## <a name="get-up-to-speed-with-azure-stack"></a>使用 Azure Stack 快速入门
-
-本教程系列的自定义，具体取决于您运行的 ASDK 或集成的系统以便您可以快速掌握与你的环境。 
+这一组教程的自定义取决于您运行的是 ASDK 系统还是集成系统, 以便快速掌握您的环境。 
 
 ![获取支持教程](media/azure-stack-help-and-support/get-support-tutorials.png)
 
-## <a name="help-and-support-for-earlier-releases-azure-stack-pre-1905"></a>帮助和支持早期版本的 Azure Stack (pre 1905)
+## <a name="diagnostic-log-collection"></a>诊断日志集合
 
-以前的 Azure Stack 版本还具有一个指向**帮助 + 支持**，将重定向到[Azure Stack 操作员文档](https://aka.ms/adminportaldocs)。
+从1907版开始, 在 "**帮助和支持**" 中提供了两种新方法来收集日志:
+
+- **自动收集**:如果启用, 则日志收集由特定的运行状况警报触发 
+- **立即收集日志**:可以从过去七天选择1-4 小时滑动窗口
+
+![诊断日志收集选项的屏幕截图](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
+
+集成系统可以与 Microsoft 客户支持服务 (CSS) 共享诊断日志。 由于 Azure Stack 开发工具包 (ASDK) 是一个评估环境, 因此它不受 CSS 支持。 有关详细信息, 请参阅[Azure Stack 诊断日志收集概述](azure-stack-diagnostic-log-collection-overview.md)"。
+
+
+
+## <a name="help-and-support-for-earlier-releases-azure-stack-pre-1905"></a>更早版本的帮助和支持 Azure Stack (1905 之前)
+
+以前的 Azure Stack 版本还提供了指向 "**帮助 + 支持**" 的链接, 该链接将重定向到[Azure Stack 操作员文档](https://aka.ms/adminportaldocs)。
 
 ![获取支持教程](media/azure-stack-help-and-support/get-support-previous.png)
 
-如果存在云服务问题，请通过 Microsoft 客户支持服务 (CSS) 寻求支持。 可以单击**帮助**（问号） 在管理员门户右上角，单击**帮助和支持**，然后单击**新建支持请求**直接提交新的支持请求使用 CSS。
+如果存在云服务问题，请通过 Microsoft 客户支持服务 (CSS) 寻求支持。 你可以单击管理员门户右上角的 "**帮助**" (问号), 单击 "**帮助和支持**", 然后单击 "**新建支持请求**" 以使用 CSS 直接提交新的支持请求。
 
-对于集成系统，则协调的升级和 Microsoft OEM 合作伙伴之间的解析过程。 如果云服务问题，通过 Microsoft CSS 提供支持。 
+对于集成系统, Microsoft 和我们的 OEM 合作伙伴之间存在协调的升级和解决过程。 如果有云服务问题, 则支持通过 Microsoft CSS 提供。 
 
 如果存在部署问题、修补和更新问题、硬件（包括现场可更换部件）问题，以及任何硬件品牌软件（例如在硬件生命周期主机上运行的软件）问题，请首先联系 OEM 硬件供应商。 至于其他问题，请联系 Microsoft CSS。
 
-对于开发工具包中，可以提出与支持相关问题[Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)。 可以单击**帮助**（问号） 中的管理员门户，然后单击右上角**新建支持请求**若要从 Azure Stack 社区中的专家那里获取帮助。
+对于开发工具包, 可以在[AZURE STACK MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中提问与支持相关的问题。 你可以单击管理员门户右上角的 "**帮助**" (问号), 然后单击 "**新建支持请求**" 以从 Azure Stack 社区中的专家那里获取帮助。
 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft CSS 提供官方支持。
 
 ## <a name="next-steps"></a>后续步骤
-- 了解有关[进行 Azure Stack 故障排除](azure-stack-troubleshooting.md)
+
+- 了解[故障排除 Azure Stack](azure-stack-troubleshooting.md)

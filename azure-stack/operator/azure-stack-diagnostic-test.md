@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: a582e1d9abbd690a62f27f6bcaee8c2dd2e6be4b
-ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
+ms.openlocfilehash: 43179dfaed48385c901fcf4ad7684d225e36b3df
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68239437"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493789"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 
@@ -48,7 +48,7 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 
    有关详细信息，请参阅[参数注意事项](azure-stack-diagnostic-test.md#parameter-considerations)和[用例](azure-stack-diagnostic-test.md#use-case-examples)部分。
 
-3. 如果任何测试报告**失败**，请运行`Get-AzureStackLog`。 在集成系统中的说明，请参阅[集成系统在 Azure Stack 上运行 Get-azurestacklog](azure-stack-diagnostics.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)，或在 ASDK 中，请参阅[运行 Get-azurestacklog Azure Stack 开发工具包 (ASDK) 系统上](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
+3. 如果任何测试报表**失败**, 请`Get-AzureStackLog`运行。 有关集成系统的说明, 请参阅[若要在 Azure Stack 集成系统上](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)或在 ASDK 上运行 get-azurestacklog, 请参阅在[Azure Stack 开发工具包 (ASDK) 系统上运行 get-azurestacklog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
 
    该 cmdlet 收集 Test-AzureStack 生成的日志。 如果测试报告 **WARN**（警告），则不应收集日志或联系 CSS。
 
@@ -161,7 +161,7 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 必须以 UPN 格式键入云管理员的用户名：serviceadmin@contoso.onmicrosoft.com (Azure AD)。 出现提示时，键入云管理员帐户的密码。
 
-### <a name="groups"></a>组
+### <a name="groups"></a>个组
 
 为了改善操作员体验，已启用 **Group** 参数以同时运行多个测试类别。 目前定义了 3 个组：**Default**、**UpdateReadiness** 和 **SecretRotationReadiness**。
 
@@ -206,14 +206,14 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>运行验证工具以测试基础结构备份设置
 
-在配置基础结构备份之前，可以使用 **AzsBackupShareAccessibility** 测试来测试备份共享路径和凭据。  
+在配置基础结构备份之前，可以使用 **AzsBackupShareAccessibility** 测试来测试备份共享路径和凭据。 
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential $using:backupcred
   ```
 
-配置备份之后，可以运行 **AzsBackupShareAccessibility** 来验证是否可以从 ERCS 访问共享： 
+配置备份之后，可以运行 **AzsBackupShareAccessibility** 来验证是否可以从 ERCS 访问共享：
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -231,6 +231,6 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](azure-stack-diagnostics.md)。
+若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)。
 
-若要了解有关疑难解答的详细信息，请参阅[Microsoft Azure Stack 故障排除](azure-stack-troubleshooting.md)。
+若要了解有关故障排除的详细信息, 请参阅[Microsoft Azure Stack 故障排除](azure-stack-troubleshooting.md)。
