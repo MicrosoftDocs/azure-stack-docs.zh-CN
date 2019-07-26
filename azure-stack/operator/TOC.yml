@@ -15,14 +15,20 @@
         - name: 应用更新的清单
           href: azure-stack-release-notes-checklist.md
         - name: 安全更新
-          href: azure-stack-release-notes-security-updates-1906.md
-        - name: 1906 更新
+          href: azure-stack-release-notes-security-updates-1907.md
+        - name: 1907更新
+          items:
+            - name: 发行说明
+              href: azure-stack-release-notes-1907.md
+            - name: 已知问题
+              href: azure-stack-release-notes-known-issues-1907.md
+        - name: 1906更新
           items:
             - name: 发行说明
               href: azure-stack-release-notes-1906.md
             - name: 已知问题
               href: azure-stack-release-notes-known-issues-1906.md
-        - name: 1905 更新
+        - name: 1905更新
           items:
             - name: 发行说明
               href: azure-stack-release-notes-1905.md
@@ -34,8 +40,6 @@
               href: azure-stack-release-notes-1904.md
             - name: 已知问题
               href: azure-stack-release-notes-known-issues-1904.md
-        - name: 1903 更新
-          href: azure-stack-update-1903.md
 - name: 快速入门
   expanded: true
   items:
@@ -219,7 +223,7 @@
               href: azure-stack-add-new-user-aad.md
             - name: 为 AD FS 添加用户
               href: azure-stack-add-users-adfs.md
-            - name: 使用应用程序标识来访问资源
+            - name: 使用应用标识访问资源
               href: Azure-stack-create-service-principals.md
             - name: 启用多租户
               href: azure-stack-enable-multitenancy.md
@@ -235,6 +239,8 @@
       items:
         - name: 市场概述
           href: azure-stack-marketplace.md
+        - name: Marketplace 更改
+          href: azure-stack-marketplace-changes.md
         - name: 下载市场项
           href: azure-stack-download-azure-marketplace-item.md
         - name: Azure Stack 的 Azure 市场项
@@ -340,7 +346,7 @@
               href: azure-stack-app-service-release-notes-update-four.md
             - name: 基于 Azure Stack 的应用服务 Update 5 发行说明
               href: azure-stack-app-service-release-notes-update-five.md
-            - name: 应用服务的 Azure Stack 更新 6 发行说明
+            - name: Azure Stack 上的应用服务更新6发行说明
               href: azure-stack-app-service-release-notes-update-six.md
     - name: 创建计划、套餐和配额
       items:
@@ -382,11 +388,11 @@
               href: azure-stack-tenant-resource-usage-api.md
             - name: 使用情况常见问题
               href: azure-stack-usage-related-faq.md
-            - name: 使用情况问题进行故障排除
+            - name: 故障排除使用问题
               items:
                 - name: 使用连接错误
                   href: azure-stack-usage-issues.md
-                - name: 使用注册错误代码
+                - name: 使用情况注册错误代码
                   href: azure-stack-registration-errors.md
     - name: 备份 Azure Stack
       href: azure-stack-backup-infrastructure-backup.md
@@ -409,16 +415,26 @@
           href: azure-stack-backup-reference.md
     - name: 获取支持
       items:
-        - name: 帮助和支持
-          href: azure-stack-help-and-support-overview.md
-        - name: 故障排除
+        - name: 帮助 & 支持门户
           items:
-            - name: 已知问题
-              href: azure-stack-troubleshooting.md
-            - name: Azure Stack 中的诊断
-              href: azure-stack-diagnostics.md
-            - name: Azure Stack 验证
-              href: azure-stack-diagnostic-test.md
+            - name: 概述
+              href: azure-stack-help-and-support-overview.md
+            - name: 诊断日志集合
+              items:
+                - name: 概述
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: 自动集合
+                  items:
+                    - name: 配置自动收集
+                      href: azure-stack-configure-automatic-diagnostic-log-collection.md
+                    - name: 最佳实践
+                      href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
+                - name: 按需收集
+                  href: azure-stack-configure-on-demand-diagnostic-log-collection.md
+        - name: Azure Stack 验证
+          href: azure-stack-diagnostic-test.md
+        - name: 已知问题
+          href: azure-stack-troubleshooting.md
 - name: 参考
   items:
     - name: Azure Stack PowerShell

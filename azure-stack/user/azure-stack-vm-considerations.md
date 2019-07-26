@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/16/2019
-ms.openlocfilehash: 09e38de68f740cab50e7a3e0ee8cc7364a9909b9
-ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
+ms.openlocfilehash: ac0bca9d7073af68e7d2e7c2b7d5ce56bec856ac
+ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299439"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68497859"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM 功能
 
@@ -41,7 +41,7 @@ ms.locfileid: "68299439"
 | 虚拟机磁盘性能 | 取决于磁盘类型和大小。 | 取决于将磁盘附加到的 VM 的 VM 大小。 有关详细信息, 请参阅[Azure Stack 文章中支持的 VM 大小](azure-stack-vm-sizes.md)。
 | API 版本 | Azure 始终具有适用于所有 VM 功能的最新 API 版本。 | Azure Stack 支持特定的 Azure 服务以及这些服务的特定 API 版本。 若要查看支持的 API 版本列表，请参阅本文的 [API 版本](#api-versions)部分。 |
 | Azure 实例元数据服务 | Azure 实例元数据服务提供有关可用于管理和设置 VM 的正在运行的 VM 实例的信息。  | Azure Stack 上不支持 Azure 实例元数据服务。 |
-| 虚拟机可用性集|多个容错域 (每个区域2个或3个)。<br>多个更新域。|多个容错域 (每个区域2个或3个)。<br>多个更新域 (最多20个)。|
+| 虚拟机可用性集|多个容错域 (每个区域2个或3个)。<br>多个更新域。|多个容错域 (每个区域2个或3个)。<br>单个更新域, 其中包含用于在更新期间保护工作负荷的实时迁移。|
 | 虚拟机规模集|支持自动缩放。|不支持自动缩放。<br><br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。 |
 | 云见证 | 从 Azure Stack 中提供的存储帐户属性中选择终结点。 | [Cloud 见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)是一种故障转移群集仲裁见证, 使用 Microsoft Azure 在群集仲裁上提供投票。<br>与 Azure Stack 相比, 全局 Azure 中的终结点如下所示:<br>对于全球 Azure:<br>`https://mywitness.blob.core.windows.net/`<br>对于 Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | 虚拟机诊断 | 支持 Linux VM 诊断。 | Azure Stack 中不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。 |
@@ -64,10 +64,10 @@ Azure Stack 施加了一些资源限制，以避免资源（服务器本地和�
 |常规用途 |Dv2 系列     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
 |常规用途 |DS 系列      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
 |常规用途 |DSv2-series    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|内存优化|D 系列       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
-|内存优化|DS 系列      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
-|内存优化|Dv2 系列     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|内存优化|DSv2 系列 -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|优化内存|D 系列       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|优化内存|DS 系列      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|优化内存|Dv2 系列     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|优化内存|DSv2 系列 -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 VM 大小及其关联的资源数量在 Azure Stack 和 Azure 之间一致。 此一致性包括内存量、内核数, 以及可以创建的数据磁盘的数量/大小。 但是，大小相同的 VM 的性能取决于特定 Azure Stack 环境的基础特征。
 

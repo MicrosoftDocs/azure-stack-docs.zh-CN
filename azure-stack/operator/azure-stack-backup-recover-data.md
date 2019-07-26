@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d7b38d2eb0e840a35729879211934e470bec6dfe
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b6b6796f5d47189499e01c94b9c988dbf03091bb
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268962"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494003"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -31,13 +31,13 @@ Azure Stack 在数据中心运行 Azure 服务，并且可以在安装在单个�
 
 根据数据丢失的根本原因，你可能需要修复单个基础结构服务或还原整个 Azure Stack 实例。 你甚至可能需要还原到同一位置或其他位置中的其他硬件。
 
-此方案用于应对在设备发生故障的情况下恢复整个安装以及重新部署私有云。
+当私有云的设备和重新部署出现故障时，此方案恢复整个安装。
 
-| 场景                                                           | 数据丢失                            | 注意事项                                                             |
+| 应用场景                                                           | 数据丢失                            | 注意事项                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
 | 在由于灾难或产品 bug 而发生灾难性数据丢失后进行恢复 | 所有基础结构及用户和应用数据 | 用户应用程序和数据是独立于基础结构数据进行保护的 |
 
-## <a name="workflows"></a>工作流
+## <a name="workflows"></a>Workflows
 
 保护 Azure Stack 的过程从分别备份基础结构和应用/租户数据开始。 本文档介绍了如何保护基础结构。 
 
@@ -63,8 +63,8 @@ Azure Stack 在数据中心运行 Azure 服务，并且可以在安装在单个�
 Azure Stack 支持称为云恢复模式的部署类型。 只有当灾难或产品 bug 导致解决方案不可恢复后，你选择恢复 Azure Stack 时才使用此模式。 此部署模式不会恢复解决方案中存储的任何用户数据。 此部署模式的作用域仅限于还原以下数据：
 
  - 部署输入
- - 内部标识系统
- - 联合标识配置（断开连接部署）
+ - 内部标识服务数据 (ADFS 部署)
+ - 联合识别配置 (ADFS 部署)
  - 内部证书颁发机构使用的根证书
  - Azure 资源管理器配置用户数据，例如订阅、计划、套餐，以及存储、网络和计算资源的配额
  - KeyVault 机密和保管库

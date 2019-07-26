@@ -15,22 +15,22 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c9e796a4ece453c3cd74bbf9a2fb6996757a0b4e
-ms.sourcegitcommit: 44f1bf6e0bfa85ee14819cad27c9b1de65d375df
+ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596085"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494064"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-作为 Azure Stack 操作员，你应当使用管理员门户、PowerShell 或 Azure 资源管理器 API 执行大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。  PEP 是预配置的远程 PowerShell 控制台，可提供恰到好处的功能来帮助执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 无需管理员帐户。 为了提高安全性，不允许使用脚本。
+作为 Azure Stack 操作员，你应当使用管理员门户、PowerShell 或 Azure 资源管理器 API 执行大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。 PEP 是预配置的远程 PowerShell 控制台，可提供恰到好处的功能来帮助执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 无需管理员帐户。 为了提高安全性，不允许使用脚本。
 
 使用 PEP 可以执行如下所述的任务：
 
-- 执行低级任务，例如[收集诊断日志](azure-stack-diagnostics.md#log-collection-tool)。
+- 执行低级任务，例如[收集诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)。
 - 针对集成系统执行许多部署后的数据中心集成任务，例如在部署后添加域名系统 (DNS) 转发器、设置 Microsoft Graph 集成、Active Directory 联合身份验证服务 (AD FS) 集成、证书轮换，等等。
 - 与支持人员合作，获取临时性的高级访问权限，以便对集成系统进行深入的故障排除。
 
@@ -41,7 +41,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 ## <a name="access-the-privileged-endpoint"></a>访问特权终结点
 
-可在托管 PEP 的虚拟机上通过远程 PowerShell 会话来访问 PEP。 在 ASDK 中，此虚拟机名为 **AzS-ERCS01**。 如果使用集成系统，则有三个 PEP 实例，每个实例在不同主机上的虚拟机中运行（Prefix  -ERCS01、Prefix  -ERCS02 或 Prefix  -ERCS03），以提供复原能力。 
+可在托管 PEP 的虚拟机上通过远程 PowerShell 会话来访问 PEP。 在 ASDK 中，此虚拟机名为 **AzS-ERCS01**。 如果使用集成系统，则有三个 PEP 实例，每个实例在不同主机上的虚拟机中运行（Prefix-ERCS01、Prefix-ERCS02 或 Prefix-ERCS03），以提供复原能力。 
 
 在开始针对集成系统执行此过程之前，请确保可以通过 IP 地址或 DNS 访问 PEP。 完成 Azure Stack 的初始部署之后，只能通过 IP 地址来访问 PEP，因为尚未设置 DNS 集成。 OEM 硬件供应商将提供名为 **AzureStackStampDeploymentInfo** 的 JSON 文件，其中包含 PEP IP 地址。
 
@@ -154,9 +154,9 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
      - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
 3. 将 PEP 会话导入本地计算机
-    ```powershell 
+     ```powershell 
         Import-PSSession $session
-    ```
+   ```
 4. 现在，可以在本地 PowerShell 会话中，配合 PEP 的所有函数和 cmdlet 如常使用 Tab 键补全和执行脚本操作，而无需降低 Azure Stack 的安全级别。 请尽情享受其中的乐趣！
 
 
@@ -167,16 +167,16 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 关闭终结点会话：
 
 1. 创建 PEP 可访问的外部文件共享。 在开发工具包环境中，只能在开发工具包主机上创建文件共享。
-2. 运行 cmdlet 
-    ```powershell
-    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-    ```
-其中
+2. 运行以下 cmdlet： 
+     ```powershell
+     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+     ```
+   它使用下表中的参数。
 
-| 参数 | 描述 | Type | 需要 |
-|---------|---------|---------|---------|
-| *TranscriptsPathDestination* | 定义为"fileshareIP\sharefoldername"的外部文件共享路径 | String | 是|
-| *凭据* | 若要访问文件共享的凭据 | SecureString |  是 |
+   | 参数 | 描述 | 类型 | 必填 |
+   |---------|---------|---------|---------|
+   | *TranscriptsPathDestination* | 定义为 "fileshareIP\sharefoldername" 的外部文件共享的路径 | String | 是|
+   | *凭据* | 用于访问文件共享的凭据 | SecureString |   是 |
 
 
 将脚本日志文件成功传送到文件共享后，它们会自动从 PEP 中删除。 
@@ -187,4 +187,4 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 诊断工具](azure-stack-diagnostics.md)
+[Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

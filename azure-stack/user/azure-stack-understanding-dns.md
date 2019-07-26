@@ -15,12 +15,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e8a1e40ec5b333862eaca59d7269a46a91460237
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: 6dda8562e47f17c97da5e0597a2ed88865bc6425
+ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376799"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68497844"
 ---
 # <a name="use-idns-in-azure-stack"></a>在 Azure Stack 中使用 Idn 
 
@@ -34,7 +34,7 @@ iDNS 是一种 Azure Stack 网络功能，可用于解析外部 DNS 名称（例
 
 - 适用于租户工作负荷的共享 DNS 名称解析服务。
 - 适用于租户虚拟网络内的名称解析和 DNS 注册的权威 DNS 服务。
-- 用于解析来自租户 Vm 的 internet 名称的递归 DNS 服务。 租户不再需要指定自定义 DNS 条目来解析 internet 名称 (例如, www.bing.com)。
+- 用于解析来自租户 Vm 的 internet 名称的递归 DNS 服务。 租户不再需要指定自定义 DNS 条目来解析 internet 名称 (例如 www\.bing.com)。
 
 你仍然可以沿用自己的 DNS，也可以使用自定义 DNS 服务器。 但是, 通过使用 Idn, 你可以解析 internet DNS 名称并连接到同一虚拟网络中的其他 Vm, 而无需创建自定义 DNS 条目。
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 1904 发行说明 | Microsoft Docs
-description: 了解有关 Azure Stack 集成系统，包括最新内容、 1904年更新的已知的问题，以及在何处下载的更新和已存档的 Azure Stack 发行说明。
+description: 了解 Azure Stack 集成系统的1904更新, 其中包括新的、已知问题, 以及下载更新和存档 Azure Stack 发行说明的位置。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: d3a50288464b81104ddd1dd032f93128fde43eae
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 71ad5812472534ae4a7e3dc34feabf7a1a02faa0
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152523"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494053"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 
-*适用于：Azure Stack 集成系统*
+适用对象：*Azure Stack 集成系统*
 
 本文介绍 1904 更新包的内容。 此更新包括新的改进，以及此 Azure Stack 版本的修复。 本文包含以下信息：
 
@@ -37,7 +37,7 @@ ms.locfileid: "67152523"
 
 ## <a name="archived-release-notes"></a>已存档的发行说明
 
-您可以看到[较旧版本的 Azure Stack 发行 TechNet 库中的说明](http://aka.ms/azsarchivedrelnotes)。 这些存档的发行说明提供仅供参考，并不表示对这些版本的支持。 进一步的帮助，请联系 Microsoft 客户支持服务。
+可[在 TechNet 库中查看 Azure Stack 发行说明的早期版本](http://aka.ms/azsarchivedrelnotes)。 这些存档的发行说明仅供参考目的提供, 并不意味着对这些版本的支持。 若要获得更多帮助, 请与 Microsoft 客户支持服务联系。
 
 ## <a name="build-reference"></a>内部版本参考
 
@@ -45,7 +45,7 @@ Azure Stack 1904 更新内部版本号为 **1.1904.0.36**。
 
 ### <a name="update-type"></a>更新类型
 
-Azure Stack 1904 更新生成类型是**Express**。 有关更新的详细信息生成类型，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。 1904 更新完成所需的预期的时间大约为 16 个小时，但确切的时间可能不同。 此运行时逼真地模拟特定于 1904年更新，不应与其他 Azure Stack 更新进行比较。
+Azure Stack 1904 更新生成类型为**Express**。 有关更新生成类型的详细信息, 请参阅[Azure Stack 文章中的管理更新](azure-stack-updates.md)。 完成1904更新所需的预期时间大约为16小时, 但精确时间可能会有所不同。 此运行时近似值特定于1904更新, 不应与其他 Azure Stack 更新进行比较。
 
 ## <a name="whats-in-this-update"></a>此更新的内容
 
@@ -69,7 +69,7 @@ Azure Stack 1904 更新生成类型是**Express**。 有关更新的详细信息
 <!-- 1901,2,3 related hotfix -->
 - 改进了遇到以下情况时的资源限制：系统大规模运行以避免内部进程耗尽平台资源，从而导致门户中的操作失败。
 
-- 改进了可让操作员同时应用多个筛选器的筛选功能。 在新的用户界面中，只能按“名称”列进行排序。 
+- 改进了可让操作员同时应用多个筛选器的筛选功能。 在新的用户界面中，只能按“名称”列进行排序。
 
 - 改进了删除套餐、计划、配额和订阅的过程。 现在，如果你要删除的对象没有任何依赖项，则可以成功地从管理员门户中删除套餐、配额、计划和订阅。 有关详细信息，请参阅[此文章](azure-stack-delete-offer.md)。  
 
@@ -77,7 +77,7 @@ Azure Stack 1904 更新生成类型是**Express**。 有关更新的详细信息
 - 改进了 syslog 消息量，方法是筛选掉不必要的事件，并提供配置参数以针对转发的消息选择所需的严重性级别。 有关如何配置严重性级别的详细信息，请参阅 [Azure Stack 数据中心集成 - syslog 转发](azure-stack-integrate-security.md)。
 
 <!--this applied to Bug 1473487 -->
-- 已通过整合附加参数 `-OutputSASUri`，将一个新的功能添加到 **Get-AzureStackLog** cmdlet。 现在，可以从环境中收集 Azure Stack 日志，并将其存储在指定的 Azure 存储 Blob 容器中。 有关详细信息，请参阅 [Azure Stack 诊断](azure-stack-diagnostics.md#examples)。
+- 已通过整合附加参数 `-OutputSASUri`，将一个新的功能添加到 **Get-AzureStackLog** cmdlet。 现在，可以从环境中收集 Azure Stack 日志，并将其存储在指定的 Azure 存储 Blob 容器中。 有关详细信息，请参阅 [Azure Stack 诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#examples)。
 
 - 已在 **Test-AzureStack** `UpdateReadiness` 组中添加了新的内存检查，用于检查堆栈上是否有足够的内存，使更新能够成功完成。
 
@@ -94,9 +94,9 @@ Azure Stack 1904 更新生成类型是**Express**。 有关更新的详细信息
 - 改进了基础结构备份操作计划的幂等性。
 
 <!--Bug/Task 3139609 -->
-- 改进了 Azure Stack 日志收集。 这些改进缩减了检索日志集所需的时间。 此外，[Get-AzureStackLog](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) cmdlet 不再为 OEM 角色生成默认日志。 必须执行 [Invoke-AzureStackOnDemandLog](azure-stack-diagnostics.md#invoke-azurestackondemandlog) cmdlet，并指定要检索其 OEM 日志的角色。 有关详细信息，请参阅 [Azure Stack 诊断](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
+- 改进了 Azure Stack 日志收集。 这些改进缩减了检索日志集所需的时间。 此外，[Get-AzureStackLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) cmdlet 不再为 OEM 角色生成默认日志。 必须执行 [Invoke-AzureStackOnDemandLog](azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog) cmdlet，并指定要检索其 OEM 日志的角色。 有关详细信息，请参阅 [Azure Stack 诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
 
-- Azure Stack 现在监视数据中心与 ADFS 集成为提供的联合身份验证数据 URL。 这将在 customer ADFS 实例或场的机密轮换期间提高可靠性。
+- Azure Stack 现在会监视为数据中心与 ADFS 集成而提供的联合数据 URL。 这提高了客户 ADFS 实例或场的秘密旋转期间的可靠性。
 
 ### <a name="changes"></a>更改
 
@@ -104,7 +104,7 @@ Azure Stack 1904 更新生成类型是**Express**。 有关更新的详细信息
 - 删除了可让 Azure Stack 操作员在管理员门户中关闭基础结构角色实例的选项。 重启功能可确保系统在重启基础结构角色实例之前先尝试干净关闭。 对于高级方案，API 和 PowerShell 功能仍然可用。
 
 <!-- Feature ## 4199257 -->
-- 提供了新的市场管理体验，市场映像和资源提供程序有各自的屏幕。 现在，“资源提供程序”窗口是空的，但将来发布的新 PaaS 服务套餐将会显示，并可在“资源提供程序”窗口中进行管理。  
+- 提供了新的市场管理体验，市场映像和资源提供程序有各自的屏幕。 现在，“资源提供程序”窗口是空的，但将来发布的新 PaaS 服务套餐将会显示，并可在“资源提供程序”窗口中进行管理。
 
 <!-- Feature ## 4199257 -->
 - 更改了操作员门户中的更新体验。 资源提供程序更新有新的网格。 目前尚未推出更新资源提供程序的功能。
@@ -118,7 +118,7 @@ Azure Stack 1904 更新生成类型是**Express**。 有关更新的详细信息
 
 - 已更新 Azure Linux Agent 版本 2.2.38.0。 此项支持可让客户在 Azure 与 Azure Stack 之间保持一致的 Linux 映像。
 
-- 运营商门户中的日志对更新的更改。 请求来检索成功更新日志将不再可用。 失败的更新日志，因为它们是可操作诊断，是仍可供下载。
+- 操作员门户中更新日志的更改。 检索成功更新日志的请求不再可用。 更新日志失败, 因为它们可用于诊断, 仍可供下载。
 
 ### <a name="fixes"></a>修复项
 
@@ -132,31 +132,31 @@ Azure Stack 1904 更新生成类型是**Express**。 有关更新的详细信息
 
 - 修复了以下用户门户问题：无法加载 Blob 存储帐户的“访问策略”窗口。
 
-- 修复了在管理员和用户门户，在其中显示有关全局 Azure 门户中的错误通知。
+- 解决了管理员和用户门户中的问题, 其中显示了有关全局 Azure 门户的错误通知。
 
-- 修复了以下用户门户问题：选择“反馈”磁贴会导致打开空的浏览器标签页。 
+- 修复了以下用户门户问题：选择“反馈”磁贴会导致打开空的浏览器标签页。
 
 - 修复了以下用户门户问题：更改附加到 VM 实例的网络适配器的绑定 IP 配置的静态 IP 地址会导致显示错误消息。
 
-- 修复了以下用户门户问题：尝试通过“网络”窗口**将网络接口附加到**现有 VM 会导致操作失败并出现错误消息。 
+- 修复了以下用户门户问题：尝试通过“网络”窗口**将网络接口附加到**现有 VM 会导致操作失败并出现错误消息。
 
 - 修复了以下问题：Azure Stack 不支持将 4 个以上的网络接口 (NIC) 附加到一个 VM 实例。
 
-- 修复了以下门户问题：添加入站安全规则并选择“服务标记”作为源会显示多个无法供 Azure Stack 使用的选项。 
+- 修复了以下门户问题：添加入站安全规则并选择“服务标记”作为源会显示多个无法供 Azure Stack 使用的选项。
 
-- 修复了的问题所在网络安全组 (Nsg) 无效 Azure Stack 中全球 Azure 的方式相同。
+- 解决了网络安全组 (Nsg) 在 Azure Stack 中的工作方式与与全局 Azure 相同的问题。
 
 - 修复了以下市场管理问题：如果注册过期或被删除，则会隐藏所有已下载的产品。
 
-- 修复了以下问题：在 PowerShell 中对现有的虚拟网络网关连接发出 **Set-AzureRmVirtualNetworkGatewayConnection** 命令失败，并出现错误消息“配置的共享密钥无效...”。 
+- 修复了以下问题：在 PowerShell 中对现有的虚拟网络网关连接发出 **Set-AzureRmVirtualNetworkGatewayConnection** 命令失败，并出现错误消息“配置的共享密钥无效...”。
 
 - 修复了导致网络资源提供程序 (NRP) 无法与网络控制器同步，从而导致请求重复资源的问题。 在某些情况下，这会导致父资源一直处于错误状态。
 
-- 修复了以下问题：如果为某个用户分配了订阅的参与者角色，但未显式为其授予给定的读取权限，则在尝试保存对资源所做的更改时，会生成一条错误，指出“...对象 ID 为 {GUID} 的客户端 'somelogonaccount@domain.com' 未获得执行操作的授权...”。 
+- 修复了以下问题：如果为某个用户分配了订阅的参与者角色，但未显式为其授予给定的读取权限，则在尝试保存对资源所做的更改时，会生成一条错误，指出“...对象 ID 为 {GUID} 的客户端 'somelogonaccount@domain.com' 未获得执行操作的授权...”。
 
 - 修复了以下问题：如果使用脱机联合工具上传映像，并且其中的任一映像缺少图标 URI，则市场管理屏幕是空的。
 
-- 修复了阻止未能从正在删除在 marketplace 管理下载的产品的问题。
+- 修复了一个问题, 该问题阻止无法从 marketplace 管理中删除的产品。
 
 ### <a name="security-updates"></a>安全更新
 
@@ -194,11 +194,11 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
-- [Azure Stack hotfix 1.1904.4.45](https://support.microsoft.com/help/4505688)
+- [Azure Stack 修补程序1.1904.4.45](https://support.microsoft.com/help/4505688)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
-其系统可从基础结构网络访问 Internet 的客户在操作员门户中会看到“有可用的更新”消息。  无法访问 Internet 的系统可以下载并导入包含相应 .xml 的 .zip 文件。
+其系统可从基础结构网络访问 Internet 的客户在操作员门户中会看到“有可用的更新”消息。 无法访问 Internet 的系统可以下载并导入包含相应 .xml 的 .zip 文件。
 
 > [!TIP]  
 > 订阅下述 *RSS* 或 *Atom* 源，了解 Azure Stack 修补程序的最新信息：

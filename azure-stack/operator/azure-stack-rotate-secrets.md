@@ -15,12 +15,12 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: fb49649227cf17356c7d383e6505dd3e1c2c5648
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: 7d8990616bcf5cdca628f4aad91e2aee6b95d42a
+ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380414"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68497833"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -252,9 +252,9 @@ Remove-PSSession -Session $PEPSession
 
 3. 等待机密完成轮换。
 
-机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。**
+   机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。**
     > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+    > 如果秘密旋转失败, 请按照错误消息中的说明操作, 然后重新运行带有 **-Internal**和 **-重新运行**参数的**start-secretrotation** 。  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
@@ -300,11 +300,11 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 | 参数 | type | 必填 | 位置 | 默认 | 描述 |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | False  | 名为  | None  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享路径。 仅当轮换外部机密时才需要。 结尾目录必须是 **\Certificates**。 |
+| `PfxFilesPath` | String  | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享路径。 仅当轮换外部机密时才需要。 结尾目录必须是 **\Certificates**。 |
 | `CertificatePassword` | SecureString | False  | 名为  | 无  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则是必需的值。 |
 | `Internal` | String | False | 名为 | 无 | 每当 Azure Stack 操作员想要轮换内部基础结构机密时，都必须使用 Internal 标志。 |
-| `PathAccessCredential` | PSCredential | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享的 PowerShell 凭据。 仅当轮换外部机密时才需要。  |
-| `ReRun` | SwitchParameter | False  | 名为  | None  | 每当尝试失败后重新尝试机密轮换时，都必须使用 ReRun。 |
+| `PathAccessCredential` | PSCredential | False  | 名为  | None  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享的 PowerShell 凭据。 仅当轮换外部机密时才需要。  |
+| `ReRun` | SwitchParameter | False  | 名为  | 无  | 每当尝试失败后重新尝试机密轮换时，都必须使用 ReRun。 |
 
 ### <a name="examples"></a>示例
 
