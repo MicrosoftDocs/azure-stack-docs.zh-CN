@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2019
+ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 5409cf49f298d18680a0fb9428c71552dad54ff9
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.lastreviewed: 07/25/2019
+ms.openlocfilehash: 17f68039382453312114dff8737072d1515a583d
+ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497086"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68522003"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Azure Stack 诊断日志收集概述 
 
@@ -77,4 +77,4 @@ CSS 将为 CSS 拥有的存储 blob 提供共享访问签名 (SAS) URL。 Azure 
 
 [使用共享访问签名 (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
-[自动 Azure Stack 日志收集的最佳实践](azure-stack-best-practices-automatic-diagnostic-log-collection.md)。
+[自动 Azure Stack 日志收集的最佳实践](azure-stack-best-practices-automatic-diagnostic-log-collection.md)

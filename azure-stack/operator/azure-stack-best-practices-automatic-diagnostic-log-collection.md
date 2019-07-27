@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 566119a6c81e19962d648172ac5274ca6ab51b66
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 03fb0550bfaa41a3336ff17dd1c44e03bcea1402
+ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497141"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68522048"
 ---
 # <a name="best-practices-for-automatic-azure-stack-log-collection"></a>自动 Azure Stack 日志收集的最佳实践 
 
@@ -64,14 +64,17 @@ ms.locfileid: "68497141"
 | 网络连接 | 影响 |
 |--------------------|--------|
 | 低带宽/高延迟连接 | 日志上传需要较长的时间才能完成 | 
-| 共享连接 | 上传还可能会影响共享网络连接的其他应用程序/用户。 |
-| 计量连接 | 您的 ISP 可能会额外收取额外的网络使用量。 |
+| 共享连接 | 上传还可能会影响共享网络连接的其他应用程序/用户 |
+| 计量连接 | 你的 ISP 可能会额外收取额外的网络使用量 |
 
 
 ## <a name="managing-costs"></a>管理成本
 
 Azure [blob 存储费用](https://azure.microsoft.com/pricing/details/storage/blobs/)取决于每月保存的数据量以及数据冗余等其他因素。 如果没有现有的存储帐户, 可以登录到 Azure 门户, 单击 "**存储帐户**", 然后按照步骤[创建 AZURE BLOB 容器 SAS URL](azure-stack-configure-automatic-diagnostic-log-collection.md)。
 
-最佳做法是创建 Azure Blob 存储[生命周期管理策略](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), 以最大程度地减少正在进行的存储成本。 有关如何设置存储帐户的详细信息, 请参阅[配置自动 Azure Stack 诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)。
+最佳做法是创建 Azure Blob 存储[生命周期管理策略](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), 以最大程度地减少正在进行的存储成本。 有关如何设置存储帐户的详细信息, 请参阅[配置自动 Azure Stack 诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)
 
+## <a name="see-also"></a>请参阅
+
+[配置自动 Azure Stack 日志收集](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 

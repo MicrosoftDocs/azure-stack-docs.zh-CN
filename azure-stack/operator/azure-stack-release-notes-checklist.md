@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 01bbd8b9de5c3d5446b34483125e2dcdcb4a5c20
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494035"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544070"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新活动清单
 
@@ -58,6 +58,7 @@ ms.locfileid: "68494035"
 |-----------------------|----------------------------------------------------------------------------------|
 | 应用最新修补程序 | 应用适用于已更新版本的最新修补程序。                          |
 | 检索加密密钥 | 检索静态数据加密密钥，并将其安全存储在 Azure Stack 部署的外部。 请遵照[有关如何检索密钥的说明](azure-stack-security-bitlocker.md)操作。 |
+| 重新启用多租户 | 如果有多租户 Azure Stack, 请确保在成功更新后[配置所有来宾目录租户](https://docs.microsoft.com/azure-stack/operator/azure-stack-enable-multitenancy#configure-guest-directory)。 |
 
 ## <a name="next-steps"></a>后续步骤
 
