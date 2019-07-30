@@ -1,6 +1,6 @@
 ---
-title: 配置混合云标识与 Azure 和 Azure Stack 的应用程序 |Microsoft Docs
-description: 了解如何使用 Azure 和 Azure Stack 的应用程序中配置混合云标识。
+title: 配置 Azure 和 Azure Stack apps 的混合云标识 |Microsoft Docs
+description: 了解如何配置 Azure 的混合云标识和 Azure Stack 应用。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,65 +10,65 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: solution
+ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 3ed0c109e0253fe6d710801dbc30de04c0b5a6e5
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: bc614cb514b9d35523749944486aa375bb8fce9c
+ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286832"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68603010"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>为 Azure 和 Azure Stack 应用程序配置混合云标识
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-了解如何配置你的 Azure 和 Azure Stack 应用的混合云标识。
+了解如何为 Azure 和 Azure Stack 应用配置混合云标识。
 
-有两个选项用于授予对在全球 Azure 和 Azure Stack 中应用的访问。
+你有两个选项可用于在全球 Azure 和 Azure Stack 中授予对应用的访问权限。
 
- * 当 Azure Stack 具有持续连接到 internet 时，可以使用 Azure Active Directory (Azure AD)。
- * 当 Azure Stack 从 internet 断开连接时，可以使用 Azure Directory 联合身份验证服务 (AD FS)。
+ * 如果 Azure Stack 持续连接到 internet, 则可以使用 Azure Active Directory (Azure AD)。
+ * 当 Azure Stack 从 internet 断开连接时, 可以使用 Azure 目录联合服务 (AD FS)。
 
-使用服务主体向 Azure Stack 应用程序以部署或配置 Azure Stack 中使用 Azure 资源管理器授予访问权限。
+你可以使用服务主体, 通过 Azure Stack 中的 Azure 资源管理器, 为部署或配置授予对 Azure Stack 应用的访问权限。
 
-在此解决方案中，你将生成到一个示例环境：
+在此解决方案中, 你将构建一个示例环境, 用于:
 
 > [!div class="checklist"]
 > - 在全球 Azure 和 Azure Stack 中建立一个混合标识
 > - 检索用于访问 Azure Stack API 的令牌。
 
-在此解决方案中，必须具有 Azure Stack 操作员权限的步骤。
+对于此解决方案中的步骤, 你必须具有 Azure Stack 操作员权限。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 提供的敏捷性和创新的云计算到在本地环境中，启用唯一的混合云，可用于生成和部署混合应用任意位置。  
+> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新带入本地环境, 从而实现了唯一的混合云, 使你能够在任何位置构建和部署混合应用。  
 > 
-> 文章[混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)的设计、 部署和操作混合评审 （放置、 可伸缩性、 可用性、 复原能力、 可管理性和安全性） 的软件质量的构成要素应用程序。 设计注意事项，帮助您优化混合应用程序设计，最大程度减少在生产环境中的挑战。
+> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)查看软件质量的支柱 (放置、可伸缩性、可用性、复原能力、可管理性和安全性), 以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计, 并最大程度减少生产环境中的挑战。
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>在门户中创建适用于 Azure AD 的服务主体
 
-如果在部署 Azure Stack 使用 Azure AD 作为标识存储，可以创建服务主体就像 Azure。 [使用应用程序标识来访问资源](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal)演示如何通过门户执行步骤。 请确保您拥有[所需的 Azure AD 权限](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)然后再开始。
+如果你使用 Azure AD 作为标识存储来部署 Azure Stack, 则可以创建服务主体, 就像在 Azure 中一样。 [使用应用标识访问资源](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal)说明了如何通过门户执行这些步骤。 在开始之前, 请确保具有[所需的 Azure AD 权限](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)。
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>使用 PowerShell 创建适用于 AD FS 的服务主体
 
-如果部署使用 AD FS 的 Azure Stack 时，可以使用 PowerShell 创建服务主体、 分配角色的访问权限，并从 PowerShell 中使用该标识登录。 [使用应用程序标识来访问资源](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)演示如何执行所需的步骤使用 PowerShell。
+如果你使用 AD FS 部署 Azure Stack, 则可以使用 PowerShell 来创建服务主体, 为访问分配角色, 并使用该标识从 PowerShell 登录。 [使用应用标识访问资源](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)说明了如何使用 PowerShell 执行所需的步骤。
 
 ## <a name="using-the-azure-stack-api"></a>使用 Azure Stack API
 
-[Azure Stack API](azure-stack-rest-api-use.md)解决方案将指导你完成检索用于访问 Azure Stack API 的令牌的过程。
+[AZURE STACK API](azure-stack-rest-api-use.md)解决方案将引导你完成检索用于访问 Azure Stack API 的令牌的过程。
 
 ## <a name="connect-to-azure-stack-using-powershell"></a>使用 Powershell 连接到 Azure Stack
 
 [在 Azure Stack 中使用 PowerShell 启动并运行](../operator/azure-stack-powershell-install.md)快速入门演练了安装 Azure PowerShell 并连接到 Azure Stack 安装所要执行的步骤。
 
-### <a name="prerequisites"></a>系统必备
+### <a name="prerequisites"></a>先决条件
 
-需要连接到 Azure Active Directory 与订阅可以访问 Azure Stack 安装。 如果没有 Azure Stack 安装，可以使用这些说明来设置[Azure Stack 开发工具包](../asdk/asdk-install.md)。
+需要 Azure Stack 安装连接到可以访问的订阅 Azure Active Directory。 如果未安装 Azure Stack, 则可以使用这些说明来设置[Azure Stack 开发工具包](../asdk/asdk-install.md)。
 
 #### <a name="connect-to-azure-stack-using-code"></a>使用代码连接到 Azure Stack
 

@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 07/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 9d0597d4e2687c6563c365470be57c1603bbe616
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.lastreviewed: 07/24/2019
+ms.openlocfilehash: 2d57c0ff71cd0aa4280e6a21df4727ee4bbe7fb6
+ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376746"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616499"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本配置文件
 
@@ -91,6 +91,8 @@ API 配置文件可与使用 Azure 资源管理器的工具（例如 PowerShell�
 用于 Azure Stack 资源管理器的 Ruby SDK 提供了相关工具来帮助构建和管理基础结构。 该 SDK 中的资源提供程序包括了采用 Ruby 语言的计算、虚拟网络和存储提供程序。 有关信息, 请参阅[在 Ruby 中使用 API 版本配置文件](azure-stack-version-profiles-ruby.md)。
 - **Python**  
 Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Stack 和 Azure 公有云）用作目标。 使用 API 配置文件创建适用于混合云的解决方案。 有关信息, 请参阅[将 API 版本配置文件与 Python 配合使用](azure-stack-version-profiles-python.md)。
+- **Node.js**  
+用于 Azure Stack 的 node.js SDK 资源管理器提供有助于构建和管理基础结构的工具。 有关详细信息, 请参阅[将 API 版本配置文件与 node.js 配合使用](azure-stack-version-profile-nodejs.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

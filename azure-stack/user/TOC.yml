@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概述
   items:
-    - name: 使用 Azure Stack 构建解决方案
+    - name: Azure Stack 生成解决方案
       href: azure-stack-hybrid-cloud-patterns.md
     - name: 重要注意事项
       href: azure-stack-considerations.md
@@ -27,7 +27,7 @@
       href: azure-stack-create-vm-template.md
 - name: 操作指南
   items:
-    - name: 开始构建混合云解决方案
+    - name: 开始为混合云构建解决方案
       items:
         - name: 订阅产品
           href: azure-stack-subscribe-services.md
@@ -39,7 +39,7 @@
           items:
             - name: 设置开发环境
               href: azure-stack-dev-start.md
-            - name: 使用 PowerShell 和 Azure Stack
+            - name: 将 PowerShell 与 Azure Stack 配合使用
               items:
                 - name: Azure Stack PowerShell 概述
                   href: azure-stack-powershell-overview.md
@@ -55,7 +55,7 @@
                   href: azure-stack-powershell-user-docker.md
                 - name: 使用 Azure Stack 策略模块
                   href: azure-stack-policy-module.md
-            - name: 使用 Azure CLI 和 Azure Stack
+            - name: 将 Azure CLI 与 Azure Stack 配合使用
               href: azure-stack-version-profiles-azurecli2.md
             - name: 使用 Visual Studio Code
               href: azure-stack-dev-start-vscode-azure.md
@@ -63,7 +63,7 @@
               href: azure-stack-install-visual-studio.md
             - name: 使用安全外壳
               href: azure-stack-dev-start-howto-ssh-public-key.md
-            - name: 在 API 中使用 REST 客户端
+            - name: 将 REST 客户端与 API 一起使用
               href: azure-stack-rest-api-use.md
         - name: 使用 Azure Stack 资源管理器模板
           items:
@@ -71,7 +71,7 @@
               href: azure-stack-arm-templates.md
             - name: 模板注意事项
               href: azure-stack-develop-templates.md
-            - name: 开发在 Azure 中的模板
+            - name: 在 Azure 中开发模板
               href: azure-stack-developer.md
             - name: 检查模板
               href: azure-stack-validate-templates.md
@@ -91,21 +91,23 @@
               href: azure-stack-version-profiles-net.md
             - name: Java
               href: azure-stack-version-profiles-java.md
-            - name: Go
+            - name: 转到
               href: azure-stack-version-profiles-go.md
             - name: Ruby
               href: azure-stack-version-profiles-ruby.md
             - name: Python
               href: azure-stack-version-profiles-python.md
+            - name: NodeJS
+              href: azure-stack-version-profile-nodejs.md
             - name: 配置文件支持的资源提供程序 API
               href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: 使用资源提供程序
       items:
-        - name: 安全、 合规性和标识
+        - name: 安全性、符合性和标识
           items:
             - name: 使用基于角色的访问控制
               href: azure-stack-manage-permissions.md
-            - name: 使用应用程序标识来访问资源
+            - name: 使用应用标识访问资源
               href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 使用服务
           items:
@@ -191,9 +193,9 @@
             - name: 部署 Kubernetes 群集
               href: azure-stack-solution-template-kubernetes-deploy.md
               items:
-                - name: 部署使用 Azure AD 的 Kubernetes
+                - name: 使用 Azure AD 部署 Kubernetes
                   href: azure-stack-solution-template-kubernetes-azuread.md
-                - name: 部署使用 AD FS 的 Kubernetes
+                - name: 使用 AD FS 部署 Kubernetes
                   href: azure-stack-solution-template-kubernetes-adfs.md
                 - name: 启用 Kubernetes 仪表板
                   href: azure-stack-solution-template-kubernetes-dashboard.md
@@ -201,23 +203,23 @@
                   href: azure-stack-solution-template-kubernetes-trouble.md
             - name: 部署认知服务
               href: azure-stack-solution-template-cognitive-services.md
-    - name: 将应用部署
+    - name: 部署应用
       items:
-        - name: '部署C#web 应用到 Windows VM'
+        - name: '将C# web 应用部署到 Windows VM'
           href: azure-stack-dev-start-howto-vm-dotnet.md
         - name: 将 web 应用部署到 Linux VM
           items:
             - name: 部署适用于 Web 应用的 Linux VM
               href: azure-stack-dev-start-howto-deploy-linux.md
-            - name: Java web 应用部署
+            - name: 部署 Java web 应用
               href: azure-stack-dev-start-howto-vm-java.md
-            - name: 转到 web 应用部署
+            - name: 部署中转 web 应用
               href: azure-stack-dev-start-howto-vm-go.md
-            - name: Ruby web 应用部署
+            - name: 部署 Ruby web 应用
               href: azure-stack-dev-start-howto-vm-ruby.md
             - name: 部署 Python Web 应用
               href: azure-stack-dev-start-howto-vm-python.md
-            - name: NodeJS web 应用部署
+            - name: 部署 NodeJS web 应用
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: 部署混合云模式
       items:
@@ -233,7 +235,7 @@
           href: azure-stack-solution-geo-distributed.md
         - name: 部署混合云解决方案
           href: azure-stack-solution-hybrid-cloud.md
-        - name: 部署临时的数据分析
+        - name: 部署暂存数据分析
           href: azure-stack-solution-staged-data.md
         - name: 部署高可用性 MongoDB
           href: azure-stack-solution-mongodb-ha.md

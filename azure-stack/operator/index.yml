@@ -2,60 +2,82 @@
 documentType: LandingData
 title: Azure Stack 操作员文档
 metadata:
-  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: Azure Stack 操作员文档 - 教程和 API 参考
-  description: 了解如何使用 Azure Stack 从数据中心交付 Azure 服务。 了解和演示开发工具包或集成系统环境的功能。
+  title: Azure Stack 文档 - 教程和 API 参考
+  meta.description: azure-stack
   services: azure-stack
-  author: mattbriggs
+  author: justinha
   manager: femila
+  layout: LandingPage
+  ms.assetid: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   ms.service: azure-stack
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.tgt_pltfrm: from-team
+  ms.devlang: from-team
   ms.topic: landing-page
-  ms.date: 06/17/2019
-  ms.author: mabrigg
+  ms.date: 07/09/2019
+  ms.author: justinha
 abstract:
   description: Microsoft Azure Stack 是一种混合云平台，通过它可从数据中心提供 Azure 服务。 了解如何管理 Azure Stack 集成系统基础结构以及如何使用我们的快速入门和教程提供服务。<br/><br/>如果你是使用 Azure Stack 或为 Azure Stack 开发应用的用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。<br/><br/>如果你是对 Azure Stack 开发工具包 (ASDK) 感兴趣的 Azure Stack 操作员，可以免费下载和使用 Azure Stack 的单节点部署，请参阅我们的 <a href="/azure-stack/asdk">ASDK 文档</a>。
 sections:
-  - title: 快速入门
-    items:
-      - type: paragraph
-        text: 了解如何使用管理门户进行日常管理。
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: 使用 Azure Stack 管理门户
-            href: azure-stack-manage-portals.md
-  - title: 分步教程
-    items:
-      - type: paragraph
-        text: 了解如何将服务添加到 Azure Stack 部署。
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">在 Azure Stack 上提供虚拟机</a>
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-sql-server">在 Azure Stack 上提供 SQL 数据库</a>
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-sql">创建高度可用的 SQL 数据库</a>
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-mysql">创建高可用性的 MySQL 数据库</a>
-          - html: <a href="/azure-stack/operator/azure-stack-tutorial-app-service">在 Azure Stack 上提供 Web 应用</a>
-  - title: 免费 Pluralsight 视频培训
+  - title: 开始使用 Azure Stack
     items:
       - type: list
         style: cards
-        className: cardsFTitle
+        className: cardsA
         items:
-          - title: 了解 Azure Stack 的基本原理
-            href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
-  - title: 参考
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-manage-portals">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_portal.svg" alt="">
+              <br><b>使用管理门户</b></a>
+              <p>使用管理门户实现 Azure Stack 的日常管理和操作。</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-powershell-install">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
+              <br><b>Azure Stack PowerShell</b></a>
+              <p>从 PowerShell 轻松管理 Azure Stack 资源。</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
+              <br><b>容量规划</b></a>
+              <p>了解不同的计算资源分配如何适应各种硬件产品。</p>
+  - title: 提供 Azure Stack 服务
     items:
       - type: list
         style: cards
-        className: cardsD
+        className: cardsA
         items:
-          - title: 命令行
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-sql-resource-provider">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_SQL.svg" alt="hybrid cloud app ci/cd">
+              <br><b>将 SQL 作为 PaaS 提供</b></a>
+              <p>使用 SQL Server 资源提供程序将 SQL 数据库作为 Azure Stack 的服务提供。</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-mysql-resource-provider">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_mysql.svg" alt="hybrid cloud app identity">
+              <br><b>将 MySQL 作为 PaaS 提供</b></a>
+              <p>使用 MySQL 资源提供程序提供 MySQL 数据库即服务 Azure Stack。</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-app-service-overview">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
+              <br><b>作为 PaaS 提供 Azure App Service</b></a>
+              <p>帮助用户为任意平台或设备创建 web 应用程序和 Api。</p>
+  - title: 管理 Azure Stack
+    items:
+      - type: list
+        style: cards
+        className: cardsA
+        items:
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-updates">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_upgrade.svg" alt="">
+              <br><b>更新 Azure Stack</b></a>
+              <p>Microsoft 每个月捆绑一个程序包, 使 Azure Stack 的集成系统保持最新状态。 </p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-backup-infrastructure-backup">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_usb.svg" alt="">
+              <br><b>备份 Azure Stack</b></a>
+              <p>使用基础结构备份服务备份和还原配置和服务数据。</p>
+          - html: |-
+              <a href="/azure-stack/operator/azure-stack-security-configuration">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" alt="">
+              <br><b>配置 Azure Stack 安全性</b></a>
+              <p>Azure Stack 旨在抵御新式威胁并满足合规性标准。</p>
