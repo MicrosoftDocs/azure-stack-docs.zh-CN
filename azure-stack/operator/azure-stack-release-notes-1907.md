@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 961233bea7c2581e20cb5cae875b9dab9f617758
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: b5ed44dfaaf8f34279126d3007f4879e2af1b192
+ms.sourcegitcommit: 9a4966fa66a0ed3bfd3a10376df2a6ffd3dd60a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497240"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68665094"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新
 
@@ -38,10 +38,11 @@ Azure Stack 1907 更新内部版本号为**1.1907.0.20**。
 
 ### <a name="update-type"></a>更新类型
 
-Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的详细信息, 请参阅[Azure Stack 文章中的管理更新](azure-stack-updates.md)。 基于内部测试, 完成1907更新所需的预期时间大约为13小时。 
- - 确切的更新运行时将依赖于您的系统上使用的容量、租户工作负荷、系统网络连接 (如果已连接到 internet) 以及系统硬件配置。 
- - 持续时间比预期值长的运行时并不常见, 因此, 如果更新失败, 则不需要 Azure Stack 运算符执行操作。 
- - 此运行时近似值特定于1907更新, 不应与其他 Azure Stack 更新进行比较。
+Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的详细信息, 请参阅[Azure Stack 文章中的管理更新](azure-stack-updates.md)。 基于内部测试, 完成1907更新所需的预期时间大约为13小时。
+
+- 确切的更新运行时通常取决于您的系统上使用的容量、租户工作负荷、系统网络连接 (如果已连接到 internet) 以及系统硬件配置。
+- 持续时间比预期长的运行时并不常见, 因此, 如果更新失败, 则不需要 Azure Stack 运算符执行操作。
+- 此运行时近似值特定于1907更新, 不应与其他 Azure Stack 更新进行比较。
 
 ## <a name="whats-in-this-update"></a>此更新的内容
 
@@ -59,9 +60,9 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- "Azure Stack 更新" 边栏选项卡现在为活动更新显示 "上一步完成" 时间。 转到 "更新" 边栏选项卡, 并单击正在运行的更新可查看此选项。 "上一步完成" 在 "更新运行详细信息" 部分中可用。
+- "Azure Stack 更新" 边栏选项卡现在将显示活动更新的**最后一个步骤完成**时间。 转到 "更新" 边栏选项卡, 并单击正在运行的更新可查看此选项。 **最后一个步骤完成**后, 将在 "**更新运行详细信息**" 部分中找到。
 
-- **Test-azurestack**和**test-azurestack**运算符操作的改进。 开始 Azure Stack 的时间平均降低了 50%。 Azure Stack 的关闭时间平均降低了 30%。 平均启动和关闭时间与缩放单位中的节点数相同。 
+- **Test-azurestack**和**test-azurestack**运算符操作的改进。 开始 Azure Stack 的时间已降低平均 50%。 关闭 Azure Stack 的时间已降低平均 30%。 平均启动和关闭时间与缩放单位中的节点数相同。
 
 - 改善了断开连接的 Marketplace 工具的错误处理。 如果在使用**AzSOfflineMarketplaceItem**时下载失败或部分成功, 则会显示详细的错误消息, 其中包含有关错误和缓解步骤的详细信息 (如果有)。
 
@@ -70,7 +71,7 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/127669774/home -->
 - 改善了虚拟磁盘运行状况检查, 然后关闭节点, 以避免意外的虚拟磁盘分离。
 
-- 改善了用于管理员操作的内部日志的存储。 这会使内部日志进程的内存和存储消耗降到最低, 从而提高了管理员操作期间的性能和可靠性。 客户可能还会注意到在管理员门户中的更新边栏选项卡上的页面加载时间已提升。 作为此改进的一部分, 超过6个月的更新日志将不再出现在系统中。 如果需要这些更新的日志, 请确保在执行1907更新之前下载所有超过6个月的更新的[摘要](https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-apply-updates)。
+- 改善了用于管理员操作的内部日志的存储。 这会使内部日志进程的内存和存储消耗降到最低, 从而提高了管理员操作期间的性能和可靠性。 你可能还会注意到在管理员门户中的 "更新" 边栏选项卡上的改进页面加载时间。 作为此改进的一部分, 超过6个月的更新日志将不再出现在系统中。 如果需要这些更新的日志, 请确保在执行1907更新之前, 下载所有超过6个月的更新运行[的摘要](azure-stack-apply-updates.md)。
 
 ### <a name="changes"></a>更改
 
@@ -80,7 +81,7 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的
 
 - 基础结构备份不再包含域服务数据的备份。 这仅适用于使用 Azure Active Directory 作为标识提供者的系统。
 
-- 现在, 我们将验证正在引入 > 的映像是否已 VM 映像边栏选项卡的类型为页 blob。
+- 现在, 我们验证正在引入 > 的映像是否已**VM 映像**边栏选项卡的类型为页 blob。
 
 ### <a name="fixes"></a>修复项
 
@@ -92,21 +93,22 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的
 
 - 修复了删除用户订阅导致孤立资源的问题。
 
+- 修复了在创建产品/服务时未保存说明字段的问题。
+
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/127772311/home -->
 - 修复了由于 WMI 提供程序主机锁定的 DLL 文件而导致更新失败的问题。
 
--   修复了更新服务中阻止可用更新在更新磁贴或资源提供程序中显示的问题。 此问题已在1906修补程序[KB4511282](https://support.microsoft.com/help/4511282/)中发现和修复。
+- 修复了更新服务中阻止可用更新在更新磁贴或资源提供程序中显示的问题。 此问题已在1906修补程序[KB4511282](https://support.microsoft.com/help/4511282/)中发现和修复。
 
 - 修复了一个问题, 此问题可能会导致更新失败, 因为管理平面由于配置错误而变得不正常。 此问题已在1906修补程序[KB4512794](https://support.microsoft.com/help/4512794/)中发现和修复。
 
-- 修复了阻止用户完成从 marketplace 部署第三方映像的问题。 此问题已在1906中发现并修复了修补程序[KB4511259](https://support.microsoft.com/help/4511259/)。
+- 修复了阻止用户完成从 marketplace 部署第三方映像的问题。 此问题已在1906修补程序[KB4511259](https://support.microsoft.com/help/4511259/)中发现和修复。
 
-- 修复了可能导致从托管映像创建 VM 失败的问题, 因为用户映像管理器服务崩溃。 此问题已在1906中发现并与[KB4512794](https://support.microsoft.com/help/4512794/)修复。
+- 修复了可能导致从托管映像创建 VM 失败的问题, 因为用户映像管理器服务崩溃。 此问题已在1906修补程序[KB4512794](https://support.microsoft.com/help/4512794/)中发现和修复。
 
-- 解决了由于 appgateway 缓存未按预期刷新而导致 VM CRUD 操作失败的问题。 此问题已在1906中发现并与[KB4513119](https://support.microsoft.com/en-us/help/4513119/)修复。
+- 解决了由于应用网关缓存未按预期刷新而导致 VM CRUD 操作失败的问题。 此问题已在1906修补程序[KB4513119](https://support.microsoft.com/en-us/help/4513119/)中发现和修复。
 
--   修复了运行状况资源提供程序中的问题, 该提供程序在管理员门户中影响了区域和警报 blade 的可用性。 此问题已在1906中发现并与[KB4512794](https://support.microsoft.com/help/4512794)修复。
-
+- 修复了运行状况资源提供程序中的问题, 该提供程序在管理员门户中影响了区域和警报 blade 的可用性。 此问题已在1906修补程序[KB4512794](https://support.microsoft.com/help/4512794)中发现和修复。
 
 ## <a name="security-updates"></a>安全更新
 
@@ -146,7 +148,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
-其系统可从基础结构网络访问 Internet 的客户在操作员门户中会看到“有可用的更新”消息。 无法访问 Internet 的系统可以下载并导入包含相应 .xml 的 .zip 文件。
+可从基础结构网络访问 internet 的系统将在操作员门户中看到 "**更新可用**" 消息。 无法访问 Internet 的系统可以下载并导入包含相应 .xml 的 .zip 文件。
 
 > [!TIP]  
 > 订阅下述 *RSS* 或 *Atom* 源，了解 Azure Stack 修补程序的最新信息：

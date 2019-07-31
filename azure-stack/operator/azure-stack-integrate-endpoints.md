@@ -10,12 +10,12 @@ ms.date: 07/22/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/22/2019
-ms.openlocfilehash: 85022f074dd494978780d67db8cc14e4c243a49c
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: 6bf9f9bb66ba7e2c9722f64e7116778f17e0e4e2
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380459"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658619"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -28,7 +28,7 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 
 ## <a name="ports-and-protocols-inbound"></a>端口和协议（入站）
 
-将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。  “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 请参阅特定资源提供程序部署文档，了解需要其他资源提供程序（例如 SQL 资源提供程序）的终结点。
+将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。 “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 请参阅特定资源提供程序部署文档，了解需要其他资源提供程序（例如 SQL 资源提供程序）的终结点。
 
 此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。
 
@@ -77,10 +77,10 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 |用途|目标 URL|Protocol|端口|源网络|
 |---------|---------|---------|---------|---------|
 |标识|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
-|市场联合|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net|HTTPS|443|公共 VIP - /27|
+|市场联合|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://\*.azureedge.net|HTTPS|443|公共 VIP - /27|
 |修补程序和更新|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP - /27|
 |注册|https:\//management.azure.com|HTTPS|443|公共 VIP - /27|
-|用法|https://*.trafficmanager.net |HTTPS|443|公共 VIP - /27|
+|用法|**Azure**<br>- https://&#42;. trafficmanager.net<br>**Azure Government**<br>- https://&#42;. usgovtrafficmanager.net<br>**Azure 中国：**<br>- https://&#42;. trafficmanager.cn<br> |HTTPS|443|公共 VIP - /27|
 |Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
 |NTP|（为部署提供的 NTP 服务器的 IP）|UDP|123|公共 VIP - /27|
 |DNS|（为部署提供的 DNS 服务器的 IP）|TCP<br>UDP|53|公共 VIP - /27|
