@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 07/31/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 07/17/2019
-ms.openlocfilehash: a8958761f17bddcaae685e18556e4680100b8b9c
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: c70334bea80a84166a4bb614f15852e44f2b99f4
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603088"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692134"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace 更改
 
@@ -43,7 +43,10 @@ ms.locfileid: "68603088"
 
 ## <a name="updated-marketplace-items"></a>更新的 Marketplace 项
 
-- 此处的更新列表, 可能包含更新日期。
+- 07/30/2019:SQL Server 2016 SP1 (Express edition、Developer edition、Standard edition 和 Enterprise edition) 13.2.20190410
+- 07/30/2019:SQL Server 2016 SP2 (Express edition、Developer edition、Standard edition 和 Enterprise edition) 13.2.20190410
+- 07/30/2019:SQL Server 2017 (Express edition、Developer edition、Standard edition 和 Enterprise edition) 14.0.20190410
+- 07/30/2019:SQLIaaSExtension 1.3.20180
 
 ## <a name="next-steps"></a>后续步骤
 

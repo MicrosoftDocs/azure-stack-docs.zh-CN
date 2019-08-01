@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 07/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: b5ed44dfaaf8f34279126d3007f4879e2af1b192
-ms.sourcegitcommit: 9a4966fa66a0ed3bfd3a10376df2a6ffd3dd60a8
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: de6d45aa18dab4f6a5e4c7c772732242e296aa3a
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68665094"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692073"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新
 
@@ -52,7 +52,9 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的
 
 <!-- What's new, also net new experiences and features. -->
 
-- Azure Stack 诊断日志收集服务的公开发行版, 以便于和改善诊断日志收集。 Azure Stack 诊断日志收集服务提供了一种简单的方法来收集和共享与 Microsoft 客户支持服务 (CSS) 的诊断日志。 Azure Stack 诊断日志收集服务在 Azure Stack 管理员门户中提供了新的用户体验, 使操作员能够在引发某些关键警报时将诊断日志自动上传到存储 blob, 或者执行按需操作。 有关详细信息, 请参阅[诊断日志收集](azure-stack-diagnostic-log-collection-overview.md)一文。
+- Azure Stack 诊断日志收集服务的公开发行版, 以便于和改善诊断日志收集。 Azure Stack 诊断日志收集服务提供了一种简单的方法来收集和共享与 Microsoft 客户支持服务 (CSS) 的诊断日志。 此诊断日志收集服务在 Azure Stack 管理员门户中提供了新的用户体验, 使操作员能够在引发某些关键警报时设置将诊断日志自动上传到存储 blob 或执行相同的操作按需操作。 有关详细信息, 请参阅[诊断日志收集](azure-stack-diagnostic-log-collection-overview.md)一文。
+
+- 作为 Azure Stack 验证工具**test-azurestack**的一部分的 Azure Stack 网络基础结构验证的正式发布版本。 Azure Stack 的网络基础结构将是**test-azurestack**的一部分, 用于确定 Azure Stack 的网络基础结构是否发生了故障。 测试通过绕过 Azure Stack 软件定义的网络来检查网络基础结构的连接性。 它演示从公共 VIP 连接到已配置的 DNS 转发器、NTP 服务器和标识终结点。 此外, 如果使用 Azure AD 作为标识提供者, 则它会检查与 Azure 的连接, 如果使用 ADFS, 则检查联合服务器。 有关详细信息, 请参阅[Azure Stack 验证工具](azure-stack-diagnostic-test.md)一文。
 
 - 添加了内部机密旋转过程, 以便在系统更新过程中根据需要轮替内部 SQL TLS 证书。
 

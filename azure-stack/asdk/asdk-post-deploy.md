@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: aac9bb8edce4b15d3d058cdb3b6cc6e23aa58493
-ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: cbf9872fa75013fdb3e933c102b813924d396a83
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66835011"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692098"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
@@ -37,7 +37,7 @@ ms.locfileid: "66835011"
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-可以使用 API 版本配置文件来指定与 Azure Stack 兼容的 AzureRM 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本 AzureRM PowerShell 模块。 **AzureRM.BootStrapper**可通过 PowerShell 库的模块提供了使用 API 版本配置文件所需的 PowerShell cmdlet。
+可以使用 API 版本配置文件来指定与 Azure Stack 兼容的 AzureRM 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本 AzureRM PowerShell 模块。 通过 PowerShell 库提供的**AzureRM**模块提供了使用 API 版本配置文件所需的 PowerShell cmdlet。
 
 无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
 
@@ -46,43 +46,18 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 - **已从 ASDK 主机建立 Internet 连接**。 运行以下 PowerShell 脚本，在开发工具包安装中安装以下模块：
 
-  - 对于 1904 版本或更高版本：
 
-    ```powershell  
-      Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-      Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+  ```powershell  
+  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
+  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
 
-      # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-      Install-Module -Name AzureRM.BootStrapper
+  # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+  Install-Module -Name AzureRM.BootStrapper
 
-      # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-      Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-      Install-Module -Name AzureStack -RequiredVersion 1.7.2
-    ```
-
-  - Azure Stack 版本 1903 或更低版本仅安装以下两个模块：
-
-    ```powershell
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Install-Module -Name AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.1
-    ```
-
-    > [!Note]  
-    > Azure Stack 模块版本 1.7.1 是一项中断性变更。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
-
-  - Azure Stack 1811：
-
-    ``` PowerShell
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet.
-    Install-Module -Name AzureRM.BootStrapper
-
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    # Install Azure Stack Module Version 1.6.0.
-    Install-Module -Name AzureStack -RequiredVersion 1.6.0
-    ```
+  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+  Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+  Install-Module -Name AzureStack -RequiredVersion 1.7.2
+  ```
 
   如果安装成功，输出中会显示 AzureRM 和 AzureStack 模块。
 
@@ -136,7 +111,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 若要确保 ASDK 部署成功，可以遵循以下步骤使用 Test-AzureStack cmdlet：
 
-1. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
+1. 在 ASDK 主机计算机上以 AzureStack\AzureStackAdmin 的身份登录。
 2. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
 3. 运行：`Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. 运行：`Test-AzureStack`
@@ -152,7 +127,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 对于使用 Azure AD 的部署，需要为 ASDK 安装[启用多租户](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
 
 > [!NOTE]
-> 当使用非用于注册 Azure Stack 的域的管理员或用户帐户登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果 Azure Stack 注册 fabrikam.onmicrosoft.com 和中的日志记录的用户帐户是admin@contoso.com，用于登录到用户门户的 url 是： https://portal.local.azurestack.external/fabrikam.onmicrosoft.com。
+> 当使用非用于注册 Azure Stack 的域的管理员或用户帐户登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如, 如果 Azure Stack 已注册到 fabrikam.onmicrosoft.com 并且登录的用户帐户为admin@contoso.com, 则用于登录用户门户的 url 将为:。 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com
 
 ## <a name="next-steps"></a>后续步骤
 

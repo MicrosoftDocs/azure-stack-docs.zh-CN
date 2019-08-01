@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: fb5c02eae73dcc2191e8b65bacea32efc0068b2e
-ms.sourcegitcommit: 9a4966fa66a0ed3bfd3a10376df2a6ffd3dd60a8
+ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68665113"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685570"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 已知问题
 
@@ -33,7 +33,7 @@ ms.locfileid: "68665113"
 ## <a name="update-process"></a>更新过程
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：尝试安装 1906 Azure Stack 更新时, 更新的状态可能会失败, 并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。 1906更新包大于以前的更新包, 这可能会导致此问题更有可能出现。
+- 原因：尝试安装 1907 Azure Stack 更新时, 更新的状态可能会失败, 并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
 - 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后, URP 将清理上一次尝试的文件, 并重新启动下载。 如果此问题仍然存在, 建议使用[导入和安装更新部分](azure-stack-apply-updates.md#import-and-install-updates)手动上载更新包。
 - 发生次数：通用
 
@@ -166,7 +166,7 @@ ms.locfileid: "68665113"
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡
 
-- 适用于：此问题适用于1906和1907版本。
+- 适用于：此问题适用于1906和1907版本。    
 - 原因："虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡, 该选项卡要求提供**应用程序见解帐户**。 这是新的边栏选项卡的结果, 在 Azure Stack 尚不受支持。
 - 补救措施：无。
 - 发生次数：通用

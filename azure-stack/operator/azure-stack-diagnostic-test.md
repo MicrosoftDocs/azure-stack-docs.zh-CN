@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 43179dfaed48385c901fcf4ad7684d225e36b3df
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: da89c973637042b18410db9dc3dc618bfbde12d5
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493789"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685527"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 
@@ -78,6 +78,7 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 | Azure Stack 基础结构容量                  | AzsInfraCapacity                  |
 | Azure Stack 基础结构性能               | AzsInfraPerformance               |
 | Azure Stack 基础结构角色摘要              | AzsInfraRoleSummary               |
+| Azure Stack 网络基础                            | AzsNetworkInfra                   |
 | Azure Stack 门户和 API 摘要                   | AzsPortalAPISummary               |
 | Azure Stack 缩放单元 VM 事件                     | AzsScaleUnitEvents                |
 | Azure Stack 缩放单元 VM 资源                  | AzsScaleUnitResources             |
@@ -206,14 +207,14 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>运行验证工具以测试基础结构备份设置
 
-在配置基础结构备份之前，可以使用 **AzsBackupShareAccessibility** 测试来测试备份共享路径和凭据。 
+在配置基础结构备份之前，可以使用 **AzsBackupShareAccessibility** 测试来测试备份共享路径和凭据。  
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential $using:backupcred
   ```
 
-配置备份之后，可以运行 **AzsBackupShareAccessibility** 来验证是否可以从 ERCS 访问共享：
+配置备份之后，可以运行 **AzsBackupShareAccessibility** 来验证是否可以从 ERCS 访问共享： 
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -226,6 +227,16 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
+
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>运行验证工具以测试网络基础结构 
+
+此测试检查网络基础结构的连接, 绕过 Azure Stack 软件定义的网络 (SDN)。 它演示从公共 VIP 连接到已配置的 DNS 转发器、NTP 服务器和身份验证终结点。 这包括在使用 ADFS 作为标识提供者时将 Azure AD 用作标识提供者或联合服务器时, 与 Azure 的连接。 
+
+包含 debug 参数以获取命令的详细输出:
+
+```powershell 
+Test-AzureStack -Include AzsNetworkInfra -Debug
+```
 
 
 

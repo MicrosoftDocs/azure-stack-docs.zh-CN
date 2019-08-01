@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 38c4de35b4d2b5eac16b8586aa6933b18c62b14a
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: 3ab7dfbaef82868f45b181fb81d9b98050147191
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267330"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692121"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 在部署 Azure Stack 并预配用户资源（例如套餐、计划、配额、订阅）以后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 计划并运行定期基础结构备份可确保在硬件或服务出现灾难性故障时基础结构管理数据不会丢失。
@@ -28,7 +28,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 
 以下方案支持在 ASDK 上验证备份：
 
-|场景|目的|
+|应用场景|用途|
 |-----|-----|
 |通过集成解决方案验证基础结构备份。|短暂验证，验证备份中的数据是否有效。|
 |了解端到端恢复工作流。|使用 ASDK 验证整个备份和还原体验。|
@@ -36,7 +36,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 
 在 ASDK 上验证备份时，以下方案**不**受支持：
 
-|场景|目的|
+|应用场景|用途|
 |-----|-----|
 |ASDK 内部版本到内部版本备份和还原。|将备份数据从旧版 ASDK 还原到新版。|
 |     |     |
@@ -58,7 +58,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 |要还原的备份 ID|备份 ID，采用的字母数字形式为“xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”，用于确定需要在云恢复过程中还原的备份。|
 |时间服务器 IP|有效的时间服务器 IP（例如 132.163.97.2）是 Azure Stack 部署所需的。|
 |外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含外部证书，这些证书需使用此密码来还原。|
-|备份加密密钥|如果已升级到 Azure Stack 1901 版或更高版本，且仍以加密密钥配置了备份设置，则必须提供加密密钥。 1901 版将开始弃用加密密钥。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，请参阅下表了解所需的信息。|
+|备份加密密钥|如果使用不推荐使用的加密密钥在中配置备份设置, 则是必需的。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，请参阅下表了解所需的信息。|
 
 |     |     | 
 
@@ -73,7 +73,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 |时间服务器 IP|有效的时间服务器 IP（例如 132.163.97.2）是 Azure Stack 部署所需的。|
 |外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含外部证书，这些证书需使用此密码来还原。|
 |解密证书密码|可选。 只有在使用证书加密备份时才是必需的。 密码适用于自签名证书 (.pfx)，该证书包含解密备份数据所需的私钥。|
-|备份加密密钥|可选。 如果已升级到 Azure Stack 1901 版或更高版本，且仍以加密密钥配置了备份设置，则必须提供加密密钥。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，必须提供解密证书的密码。|
+|备份加密密钥|可选。 如果备份设置仍配置有加密密钥, 则是必需的。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，必须提供解密证书的密码。|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>准备主机 
@@ -114,7 +114,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
     ![ASDK 安装程序脚本](media/asdk-validate-backup/1.PNG) 
 
-3. 在标识提供者和凭据页上，输入 Azure AD 目录信息（可选）和 ASDK 主机的本地管理员密码。 单击“下一步”。 
+3. 在标识提供者和凭据页上，输入 Azure AD 目录信息（可选）和 ASDK 主机的本地管理员密码。 单击“下一步”  。
 
     ![标识和凭据页](media/asdk-validate-backup/2.PNG) 
 
@@ -122,7 +122,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
     ![网络适配器接口](media/asdk-validate-backup/3.PNG) 
 
-5. 在“网络配置”页上，提供有效的时间服务器和 DNS 转发站 IP 地址。 单击“下一步”。 
+5. 在“网络配置”页上，提供有效的时间服务器和 DNS 转发站 IP 地址。 单击“下一步”  。
 
     ![“网络配置”页](media/asdk-validate-backup/4.PNG) 
 
@@ -130,7 +130,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
     ![网卡设置检查](media/asdk-validate-backup/5.PNG) 
 
-7. 在“备份设置”页上根据前面的[先决条件部分](#prereqs)所述提供所需的信息，以及用于访问共享的用户名和密码。 单击“下一步”：  
+7. 在“备份设置”页上根据前面的[先决条件部分](#prereqs)所述提供所需的信息，以及用于访问共享的用户名和密码。 单击“下一步”： 
 
    ![“备份设置”页](media/asdk-validate-backup/6.PNG) 
 
