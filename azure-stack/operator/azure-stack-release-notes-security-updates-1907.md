@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/08/2019
-ms.openlocfilehash: cba33ce477c6cfe11f7d3105cb06f07c54c0468b
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 0eac6cf019696b62bd8d064588ad2c2605d5ace1
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497229"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720017"
 ---
 # <a name="azure-stack-security-updates"></a>Azure Stack 安全更新
 
@@ -31,13 +31,13 @@ ms.locfileid: "68497229"
 
 Azure Stack 的此更新不包括托管 Azure Stack 的底层操作系统的安全更新。
 
-## <a name="1906-update"></a>1906更新
+## <a name="1906-update"></a>1906 更新
 
 Azure Stack 的此更新不包括托管 Azure Stack 的底层操作系统的安全更新。
 
-## <a name="1905-update"></a>1905更新
+## <a name="1905-update"></a>1905 更新
 
-1905更新将安装以下安全更新:
+1905 更新安装以下安全更新：
 
 - [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)
 - [CVE-2019-0707](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0707)
@@ -127,8 +127,8 @@ Azure Stack 的此更新不包括托管 Azure Stack 的底层操作系统的安�
 - [CVE-2019-0797](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0797)
 - [CVE-2019-0821](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0821)
 
-由于 Windows 更新的累积性, 此更新还包含以前几个月的安全负载。 上面的标识符列表反映了3月、4月和 2019 5 月的安全负载。
-有关这些漏洞的详细信息, 请单击前面的链接, 或参阅 Microsoft 知识库文章[4499177](https://support.microsoft.com/en-us/help/4499177)。
+由于 Windows 更新的累积特性，此更新还包含前几个月的安全有效负载。 上面的 CVE 列表反映了 2019 年 3 月、4 月和 5 月的安全有效负载。
+有关这些漏洞的详细信息，请单击上述链接，或者查看 Microsoft 知识库文章 [4499177](https://support.microsoft.com/en-us/help/4499177)。
 
 ## <a name="1904-update"></a>1904 更新
 
@@ -137,4 +137,4 @@ Azure Stack 的此更新不包括托管 Azure Stack 的底层操作系统的安�
 ## <a name="next-steps"></a>后续步骤
 
 - [查看更新活动清单](azure-stack-release-notes-checklist.md)
-- [查看已知问题列表](azure-stack-release-notes-known-issues-1906.md)
+- [查看已知问题列表](azure-stack-release-notes-known-issues-1907.md)

@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e0c3c4740a1bc8073e827ff9809cf1aafa029792
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 7b5bfb39c3ec14c23b1df54c13f2733724fcfe05
+ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691694"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68712904"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>将外部监视解决方案与 Azure Stack 集成
 
@@ -30,7 +30,7 @@ ms.locfileid: "66691694"
 - 物理计算机可以通过基板管理控制器 (BMC) 提供运行状况和警报信息。
 - 物理网络设备可以通过 SNMP 协议提供运行状况和警报信息。
 
-每个 Azure Stack 解决方案随附硬件生命周期主机。 此主机运行原始设备制造商 (OEM) 硬件供应商的物理服务器和网络设备监视软件。 请咨询 OEM 提供商，看其监视解决方案能否与数据中心现有的监视解决方案集成。
+每个 Azure Stack 解决方案随附硬件生命周期主机。 此主机针对物理服务器和网络设备运行原始设备制造商 (OEM) 硬件供应商的监视软件。 请咨询 OEM 提供商，看其监视解决方案能否与数据中心现有的监视解决方案集成。
 
 > [!IMPORTANT]
 > 使用的外部监视解决方案必须无代理。 不能在 Azure Stack 组件内部安装第三方代理。
@@ -46,7 +46,7 @@ ms.locfileid: "66691694"
 
 ## <a name="integrate-with-operations-manager"></a>与 Operations Manager 集成
 
-可将 Operations Manager 用于 Azure Stack 的外部监视。 Microsoft Azure Stack 的 System Center 管理包可监视多个 Azure Stack 部署与单个操作管理器实例。 该管理包使用运行状况资源提供程序和更新资源提供程序 REST API 来与 Azure Stack 通信。 如果打算绕过硬件生命周期主机上运行的 OEM 监视软件，则可以安装供应商管理包来监视物理服务器。 还可以使用 Operations Manager 网络设备发现来监视网络交换机。
+可将 Operations Manager 用于 Azure Stack 的外部监视。 用于 Microsoft Azure Stack 的 System Center 管理包使你能够使用单个 Operations Manager 实例监视多个 Azure Stack 部署。 该管理包使用运行状况资源提供程序和更新资源提供程序 REST API 来与 Azure Stack 通信。 如果打算绕过硬件生命周期主机上运行的 OEM 监视软件，则可以安装供应商管理包来监视物理服务器。 还可以使用 Operations Manager 网络设备发现来监视网络交换机。
 
 适用于 Azure Stack 的管理包提供以下功能：
 
@@ -59,7 +59,7 @@ ms.locfileid: "66691694"
 - 可将自定义信息添加到区域
 - 支持通知和报告
 
-您可以下载 System Center 管理包的 Microsoft Azure Stack 和相关联[用户指南](https://www.microsoft.com/en-us/download/details.aspx?id=55184)，或直接从 Operations Manager。
+您可以下载适用于 Microsoft Azure Stack 和关联[用户指南](https://www.microsoft.com/en-us/download/details.aspx?id=55184)的 System Center 管理包, 也可以直接从 Operations Manager 下载。
 
 对于票证解决方案，可将 Operations Manager 与 System Center Service Manager 集成。 集成的产品连接器支持双向通信，可让你在解决 Service Manager 中的服务请求之后关闭 Azure Stack 和 Operations Manager 中的警报。
 
@@ -69,81 +69,81 @@ ms.locfileid: "66691694"
 
 ## <a name="integrate-with-nagios"></a>与 Nagios 集成
 
-您可以设置和配置适用于 Microsoft Azure Stack 的 Nagios 插件。
+可以为 Microsoft Azure Stack 设置和配置 Nagios 插件。
 
 Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，根据 MIT（麻省理工学院）的宽松免费软件许可条款提供。
 
 该插件以 Python 编写，利用运行状况资源提供程序 REST API。 它提供在 Azure Stack 中检索和关闭警报的基本功能。 与 System Center 管理包一样，它可以让你添加多个 Azure Stack 部署以及发送通知。
 
-使用版本 1.2 Azure Stack-Nagios 插件利用 Microsoft ADAL 库，并支持与机密或证书使用服务主体进行身份验证。 此外，配置已使用新参数的单个配置文件得到简化。 它现在支持使用 AAD 和 ADFS 作为标识系统的 Azure Stack 部署。
+在版本 1.2 中，Azure Stack – Nagios 插件利用 Microsoft ADAL 库，并支持使用服务主体通过机密或证书进行身份验证。 此外，配置过程已通过单个配置文件与新的参数进行简化。 它现在支持使用 AAD 和 ADFS 作为标识系统来部署 Azure Stack。
 
-该插件适用与 Nagios 4 x 和 XI。 可以在[此处](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)下载。 下载站点还包含安装和配置详细信息。
+该插件适用于 Nagios 4x 和 XI。 可以在[此处](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)下载。 下载站点还包含安装和配置详细信息。
 
 ### <a name="requirements-for-nagios"></a>Nagios 的要求
 
-1.  Nagios 的最低版本为 4.x
+1.  Nagios 的最低版本是 4.x
 
-2.  Microsoft Azure Active Directory Python 库。 此功能可以使用 Python PIP 安装。
+2.  Microsoft Azure Active Directory Python 库。 可以使用 Python PIP 安装该库。
 
-```bash  
-sudo pip install adal pyyaml six
-```
+    ```bash  
+    sudo pip install adal pyyaml six
+    ```
 
 ### <a name="install-plugin"></a>安装插件
 
-本部分介绍如何安装 Azure Stack 插件假设 Nagios 的默认安装。
+本部分介绍如何安装采用 Nagios 默认安装的 Azure Stack 插件。
 
-插件包中包含以下文件：
+插件包包含以下文件：
 
 ```
-  azurestack_plugin.py
-  azurestack_handler.sh
-  samples/etc/azurestack.cfg
-  samples/etc/azurestack_commands.cfg
-  samples/etc/azurestack_contacts.cfg
-  samples/etc/azurestack_hosts.cfg
-  samples/etc/azurestack_services.cfg
+azurestack_plugin.py
+azurestack_handler.sh
+samples/etc/azurestack.cfg
+samples/etc/azurestack_commands.cfg
+samples/etc/azurestack_contacts.cfg
+samples/etc/azurestack_hosts.cfg
+samples/etc/azurestack_services.cfg
 ```
 
-1.  复制该插件`azurestack_plugin.py`到以下目录`/usr/local/nagios/libexec`。
+1.  将插件 `azurestack_plugin.py` 复制到以下目录 `/usr/local/nagios/libexec`。
 
-2.  复制该处理程序`azurestack_handler.sh`到以下目录`/usr/local/nagios/libexec/eventhandlers`。
+2.  将处理程序 `azurestack_handler.sh` 复制到以下目录 `/usr/local/nagios/libexec/eventhandlers`。
 
-3.  请设置为可执行文件的插件
+3.  将插件文件设置为可执行文件
 
     ```bash
-      sudo cp azurestack_plugin.py <PLUGINS_DIR>
-      sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
+    sudo cp azurestack_plugin.py <PLUGINS_DIR>
+    sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
     ```
 
 ### <a name="configure-plugin"></a>配置插件
 
-可以使用 azurestack.cfg 文件中配置以下参数。 以粗体显示的参数需要配置独立于您选择的身份验证模型。
+可在 azurestack.cfg 文件中配置以下参数。 无论选择哪种身份验证模型，都需要配置以粗体显示的参数。
 
-详细的信息介绍了如何创建一个 SPN[此处](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)。
+[此处](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)阐述了有关如何创建 SPN 的详细信息。
 
-| 参数 | 描述 | Authentication |
+| 参数 | 描述 | 身份验证 |
 | --- | --- | --- |
-| * * External_domain_fqdn * * | 外部域 FQDN |    |
-| * * 区域: * * | 区域名称 |    |
-| * * tenant_id: * * | 租户 ID\* |    |
-| client_id: | 客户端 ID | 使用机密的 SPN |
-| client_secret: | 客户端密码 | 使用机密的 SPN |
-| client_cert\*\*: | 证书的路径 | 使用证书的 SPN |
-| client_cert_thumbprint\*\*: | 证书指纹 | 使用证书的 SPN |
+| **External_domain_fqdn ** | 外部域 FQDN |    |
+| **region: ** | 区域名称 |    |
+| **tenant_id: ** | 租户 ID\* |    |
+| client_id: | 客户端 ID | 包含机密的 SPN |
+| client_secret: | 客户端密码 | 包含机密的 SPN |
+| client_cert\*\*: | 证书的路径 | 包含证书的 SPN |
+| client_cert_thumbprint\*\*: | 证书指纹 | 包含证书的 SPN |
 
-\*租户 ID 不是使用 ADFS 的 Azure Stack 部署所必需的。
+\*使用 ADFS 的 Azure Stack 部署不需要租户 ID。
 
-\*\* 客户端机密和客户端证书是互相排斥。
+\*\* 客户端机密和客户端证书互斥。
 
-其他配置文件包含可选的配置设置，因为它们可以同时配置 Nagios 中。
+其他配置文件包含可选的配置设置，也可以在 Nagios 中配置这些设置。
 
 > [!Note]  
-> 检查在 azurestack_hosts.cfg 和 azurestack_services.cfg 位置目标。
+> 检查 azurestack_hosts.cfg 和 azurestack_services.cfg 中的位置目标。
 
 | 配置 | 描述 |
 | --- | --- |
-| azurestack_commands.cfg | 处理程序配置无更改 |
+| azurestack_commands.cfg | 处理程序配置没有更改要求 |
 | azurestack_contacts.cfg | 通知设置 |
 | azurestack_hosts.cfg | Azure Stack 部署命名 |
 | azurestack_services.cfg | 服务的配置 |
@@ -152,11 +152,11 @@ sudo pip install adal pyyaml six
 
 1.  修改配置文件
 
-2.  将修改后的配置文件复制到以下文件夹`/usr/local/nagios/etc/objects`。
+2.  将修改后的配置文件复制到以下文件夹 `/usr/local/nagios/etc/objects`。
 
 ### <a name="update-nagios-configuration"></a>更新 Nagios 配置
 
-Nagios 配置需要更新，以确保 Azure Stack – Nagios 插件加载。
+需要更新 Nagios 配置才能确保加载 Azure Stack – Nagios 插件。
 
 1.  打开以下文件
 
@@ -164,42 +164,42 @@ Nagios 配置需要更新，以确保 Azure Stack – Nagios 插件加载。
 /usr/local/nagios/etc/nagios.cfg
 ```
 
-1.  添加以下条目
+2.  添加以下条目
 
 ```bash  
-  #load the Azure Stack Plugin Configuration
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
-  cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+# Load the Azure Stack Plugin Configuration
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
 ```
 
-1.  重新加载 Nagios
+3.  重新加载 Nagios
 
 ```bash  
 sudo service nagios reload
 ```
 
-### <a name="manually-close-active-alerts"></a>手动关闭的活动警报
+### <a name="manually-close-active-alerts"></a>手动关闭活动的警报
 
-可以在使用自定义通知功能的 Nagios 内关闭的活动警报。 必须为自定义通知：
+可以使用自定义通知功能在 Nagios 内部关闭活动的警报。 自定义通知必须是：
 
 ```
-  /close-alert <ALERT_GUID>
+/close-alert <ALERT_GUID>
 ```
 
-此外可以使用终端使用以下命令关闭警报：
+还可以运行以下命令使用终端关闭警报：
 
 ```bash
-  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
+/usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
-### <a name="troubleshooting"></a>故障排除
+### <a name="troubleshooting"></a>疑难解答
 
-故障排除的插件可能会在终端中手动调用插件来完成。 使用以下方法：
+可以通过在终端中手动调用插件来对插件进行故障排除。 使用以下方法：
 
 ```bash
-  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
+/usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
 ```
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>使用 PowerShell 监视运行状况和警报
@@ -211,36 +211,36 @@ sudo service nagios reload
 2. 以 Azure Stack 操作员身份运行以下命令，以连接到 Azure Stack 环境：
 
    ```powershell
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN] `
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
       -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-   Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. 使用如下所示的命令来处理警报：
    ```powershell
-    #Retrieve all alerts
+    # Retrieve all alerts
     $Alerts = Get-AzsAlert
     $Alerts
 
-    #Filter for active alerts
+    # Filter for active alerts
     $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
-    #Close alert
+    # Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
     $RPHealth = Get-AzsRPHealth
     $RPHealth
 
-    #Retrieve infrastructure role instance health
+    # Retrieve infrastructure role instance health
     $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>了解详细信息
+## <a name="learn-more"></a>了解更多信息
 
 有关内置运行状况监视的信息，请参阅[在 Azure Stack 中监视运行状况和警报](azure-stack-monitor-health.md)。
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 25b72df875dd78e7ddea42c4505345f4225cc948
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.lastreviewed: 07/31/2019
+ms.openlocfilehash: 988c24f004222d80b866024c2c392473cdf73bab
+ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497108"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68712943"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-now-on-demand"></a>立即收集 Azure Stack 诊断日志 (按需)
 
@@ -186,28 +186,28 @@ if ($session) {
 * 转储文件日志收集默认情况下处于禁用状态。 若要启用它，请使用 **IncludeDumpFile** 开关参数。
 * 目前，可以使用 **FilterByRole** 参数按以下角色筛选日志收集：
 
-  |   |   |   |    |
-  | - | - | - | -  |
-  |ACS                   |CA                             |HRP                            |OboService|
-  |ACSBlob               |CacheService                   |IBC                            |OEM|
-  |ACSDownloadService    |计算                        |InfraServiceController         |OnboardRP|
-  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
-  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
-  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
-  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
-  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices|
-  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
-  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |存储|
-  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
-  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
-  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
-  |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
-  |AzureMonitor          |网关                        |NC                             |WAS|
-  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
-  |BRP                   |HintingServiceV2               |NRP                            |   |
-  |   |   |   |    |
+  |   |   |   |    |     |
+  | - | - | - | -  |  -  |
+  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
+  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
+  |ACSDownloadService    |计算                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
+  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
+  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
+  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
+  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
+  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
+  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
+  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
+  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |存储                   |         |
+  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
+  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
+  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
+  |AzureBridge           |FRP                            |MonRP                          |SupportRing               |         |
+  |AzureMonitor          |网关                        |NC                             |SupportRingServices       |         |
+  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |SupportBridgeRP           |         |
+  |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
+  |   |   |   |    |     | 
 
 ### <a name="additional-considerations"></a>其他注意事项
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: de6d45aa18dab4f6a5e4c7c772732242e296aa3a
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.lastreviewed: 08/01/2019
+ms.openlocfilehash: b3270571cd69a701395e647c50a1141d940414e6
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692073"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68719990"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新
 
@@ -38,7 +38,7 @@ Azure Stack 1907 更新内部版本号为**1.1907.0.20**。
 
 ### <a name="update-type"></a>更新类型
 
-Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的详细信息, 请参阅[Azure Stack 文章中的管理更新](azure-stack-updates.md)。 基于内部测试, 完成1907更新所需的预期时间大约为13小时。
+Azure Stack 1907 更新生成类型为**Express**。 有关更新内部版本类型的详细信息，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。 基于内部测试, 完成1907更新所需的预期时间大约为13小时。
 
 - 确切的更新运行时通常取决于您的系统上使用的容量、租户工作负荷、系统网络连接 (如果已连接到 internet) 以及系统硬件配置。
 - 持续时间比预期长的运行时并不常见, 因此, 如果更新失败, 则不需要 Azure Stack 运算符执行操作。
@@ -48,7 +48,7 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>新增功能
+### <a name="whats-new"></a>新变化
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -114,7 +114,7 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的
 
 ## <a name="security-updates"></a>安全更新
 
-有关此 Azure Stack 更新中的安全更新的信息, 请参阅[Azure Stack 安全更新](azure-stack-release-notes-security-updates-1907.md)。
+有关此 Azure Stack 更新中的安全更新的信息，请参阅 [Azure Stack 安全更新](azure-stack-release-notes-security-updates-1907.md)。
 
 ## <a name="update-planning"></a>更新规划
 
@@ -139,14 +139,14 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 1907版本的 Azure Stack 必须应用于带有以下修补程序的1906版本:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序1.1906.11.52](https://support.microsoft.com/help/4513119)
+- [Azure Stack 修补程序 1.1906.11.52](https://support.microsoft.com/help/4513119)
 
 ### <a name="after-successfully-applying-the-1907-update"></a>成功应用1907更新后
 
-安装此更新之后，请安装所有适用的修补程序。 有关详细信息, 请参阅[服务策略](azure-stack-servicing-policy.md)。
+安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- 没有可用于1907的修补程序。
+- [Azure Stack 修补程序1.1907.7.35](https://support.microsoft.com/help/4515310)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
@@ -160,7 +160,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ## <a name="archived-release-notes"></a>已存档的发行说明
 
-可[在 TechNet 库中查看 Azure Stack 发行说明的早期版本](https://aka.ms/azsarchivedrelnotes)。 这些存档的发行说明仅供参考目的提供, 并不意味着对这些版本的支持。 有关 Azure Stack 支持的信息, 请参阅[Azure Stack 服务策略](azure-stack-servicing-policy.md)。 若要获得更多帮助, 请与 Microsoft 客户支持服务联系。
+可查看 [TechNet 库中 Azure Stack 发行说明的早期版本](https://aka.ms/azsarchivedrelnotes)。 提供这些已存档的发行说明仅供参考，并不意味着支持这些版本。 有关 Azure Stack 支持的信息, 请参阅 [Azure Stack 服务策略](azure-stack-servicing-policy.md)。 若要获得更多帮助, 请与 Microsoft 客户支持服务联系。
 
 ## <a name="next-steps"></a>后续步骤
 
