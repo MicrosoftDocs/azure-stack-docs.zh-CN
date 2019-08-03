@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: b3270571cd69a701395e647c50a1141d940414e6
-ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
+ms.lastreviewed: 08/02/2019
+ms.openlocfilehash: e868cd1e7d6ec24ddb350305c82cc1d87a334d91
+ms.sourcegitcommit: 56778bf71d5f6bbe2768fbc38c2ed2208114b867
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68719990"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68756640"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新
 
@@ -48,7 +48,7 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新内部版本类
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>新变化
+### <a name="whats-new"></a>新增功能
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -96,6 +96,8 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新内部版本类
 - 修复了删除用户订阅导致孤立资源的问题。
 
 - 修复了在创建产品/服务时未保存说明字段的问题。
+
+- 解决了具有**只读**权限的用户能够创建、编辑和删除资源的问题。 现在, 用户只能在分配 "**参与者**" 权限时创建资源。 
 
 <!-- https://icm.ad.msft.net/imp/v3/incidents/details/127772311/home -->
 - 修复了由于 WMI 提供程序主机锁定的 DLL 文件而导致更新失败的问题。
@@ -146,7 +148,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序1.1907.7.35](https://support.microsoft.com/help/4515310)
+- [Azure Stack 修补程序1.1907.8.37](https://support.microsoft.com/help/4515650)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
