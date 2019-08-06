@@ -11,28 +11,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/05/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: c70334bea80a84166a4bb614f15852e44f2b99f4
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 3d0aad849395a93b1086daf5cf2c17e198d69ed5
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692134"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806918"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace 更改
 
-本文介绍[Azure Stack Marketplace 项](azure-stack-marketplace-azure-items.md)的最新添加、更新、更改和删除。 本部分中的信息经常更新, 因此请经常回来查看。
+本文介绍过去3个月内[Azure Stack Marketplace 项](azure-stack-marketplace-azure-items.md)的最新添加、更新、更改和删除。 本部分中的信息经常更新, 因此请经常回来查看。
 
-本文介绍了过去3个月内发生的 Marketplace 更改。 [Azure Stack marketplace 项](azure-stack-marketplace-azure-items.md)项目始终包含可用 Azure Stack Marketplace 项的最新列表。
+[Azure Stack marketplace 项](azure-stack-marketplace-azure-items.md)项目始终包含可用 Azure Stack Marketplace 项的最新列表。
 
 ## <a name="new-marketplace-items"></a>新建 Marketplace 项
 
-- Veeam®备份 & 复制™:有助于企业针对所有工作负荷 (虚拟、物理和基于云的工作负荷) 实现全面的数据保护。 使用单个控制台, 实现对所有应用程序和数据的快速、灵活且可靠的备份、恢复和复制。 添加了6/14/2019。
+- 1/25/2019:A10 vThunder:L4-L7 应用程序交付控制器, 全局服务器负载平衡 (GSLB), SSL 见解
 
-- A10 vThunder:L4-L7 应用程序交付控制器, 全局服务器负载平衡 (GSLB), SSL 见解。 添加了1/25/2019。
+- 6/14/2019:Veeam®备份 & 复制™
+
+- 08/05/2019:Drupal
+
+- 08/05/2019: etcd
+
+- 08/05/2019:Grafana
+
+- 08/05/2019:Neo4j
+
+- 08/05/2019:分析服务器
+
+- 08/05/2019:WordPress 多站点
+
+- 08/05/2019:ZooKeeper
+
+- 08/05/2019:TensorFlow 服务
+
+- 08/05/2019:NAT
+
+- 08/05/2019:Review Board
+
+- 08/05/2019:Composr
 
 ## <a name="deprecated-marketplace-items"></a>弃用的 Marketplace 项
 

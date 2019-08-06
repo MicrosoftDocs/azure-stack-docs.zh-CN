@@ -15,16 +15,16 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 0896ea921408d651a4b8e072c3d66ab4e333ebd6
-ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
+ms.openlocfilehash: 177d18261d8a85807826226b0dcabdfd03e87135
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67334434"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806909"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack marketplace 常见问题解答中的 Windows Server
+# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack 市场中的 Windows Server 常见问题解答
 
-本文回答了一些有关 Windows Server 映像中的常见问题[Azure Stack marketplace](azure-stack-marketplace.md)。
+本文解答有关 [Azure Stack 市场](azure-stack-marketplace.md)中 Windows Server 映像的一些常见问题。
 
 ## <a name="marketplace-items"></a>市场项
 
@@ -32,14 +32,14 @@ ms.locfileid: "67334434"
 
 首先，请确定是否有任何 Azure 资源管理器模板引用了特定的版本。 如果有，请更新这些模板，或保留旧的映像版本。 最好是使用 **version: latest**。
 
-接下来，如果任何虚拟机规模集引用的特定版本，您应考虑这些是否会更高版本，扩展并决定是否要保留较旧版本。 如果上述条件均不适用，请下载较新的之前删除旧映像 marketplace 中。 使用 marketplace 管理来删除它们，如果下载原始的方式。 然后下载新版本。
+接下来，如果有任何虚拟机规模集引用特定的版本，则应考虑将来是否要缩放它们，并确定是否要保留旧版本。 如果上述两个条件都不适用，请先在市场中删除旧映像，然后下载新映像。 如果原始映像是使用“市场管理”下载的，请使用“市场管理”将其删除。 然后下载新版本。
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Azure Stack 上的 Windows Server 市场映像有哪些许可选项？
 
-Microsoft 提供了两个版本的 Windows Server 映像，通过 Azure Stack marketplace。 可以在 Azure Stack 环境中使用此图像的只有一个版本。  
+Microsoft 通过 Azure Stack marketplace 提供了两个版本的 Windows Server 映像。 在 Azure Stack 环境中只能使用此映像的一个版本。  
 
 - **即用即付**：这些映像运行全价 Windows 计量器。
-   适合对象：使用消耗量计费模型的企业协议 (EA) 客户、不想要使用 SPLA 许可的 CSP。 
+   适合对象：使用消耗量计费模型的企业协议 (EA) 客户、不想要使用 SPLA 许可的 CSP。
 - **自带许可证 (BYOL)** ：这些映像运行基本计量器。
    适合对象：具有 Windows Server 许可证的 EA 客户、使用 SPLA 许可的 CSP。
 
@@ -47,17 +47,17 @@ Azure Stack 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”模�
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>如果下载了错误的版本并将其提供给租户/用户，该怎么办？
 
-通过 marketplace 管理首先删除不正确的版本。 等待它完成 (看看是否已完成，通知未**Marketplace 管理**边栏选项卡)。 然后下载正确的版本。
+请先通过“市场管理”删除错误的版本。 等待删除操作完成（请查看完成通知，而不要查看“市场管理”边栏选项卡）。 然后下载正确的版本。
 
-如果您下载这两个版本，只有最新版本是映像的对 marketplace 库中的最终客户可见。
+如果下载了两个版本的映像，则最终客户在市场库中只能看到最新版本。
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>如果我的用户在旧版 Windows 生成中错误地选中了“我有许可证”框，但他们其实并没有许可证，该怎么办？
 
-请参阅[将具有权益的 Windows Server VM 转换回即用即付](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1)。
+请参阅[将 Windows SERVER BYOL Vm 转换为即用即付](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1)。
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>我有一个旧版映像，而我的用户忘记了选中“我有许可证”框，或者我们使用自己的映像且拥有企业协议权利，该怎么办？
 
-请参阅[将现有 VM 转换为使用 Windows Server 的 Azure 混合权益](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server)。 请注意，Azure 混合权益不适用于 Azure Stack，但此项设置的影响确实存在。
+请参阅[将现有 Windows SERVER VM 转换为 BYOL](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server)。 请注意，Azure 混合权益不适用于 Azure Stack，但此项设置的影响确实存在。
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>对于使用 Windows Server 的其他 VM （例如 SQL 或 Machine Learning Server），该如何处理？
 
@@ -108,7 +108,7 @@ slmgr /ipk <AVMA key>
 
 ### <a name="what-about-earlier-versions-of-windows-server"></a>对于早期版本的 Windows Server，如何激活？
 
-早期版本的 Windows Server 不支持[自动虚拟机激活](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))。 你必须手动激活 Vm。
+早期版本的 Windows Server 不支持[自动虚拟机激活](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))。 必须手动激活这些 VM。
 
 ## <a name="next-steps"></a>后续步骤
 
