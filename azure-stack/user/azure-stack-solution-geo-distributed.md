@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7f50c1f5cf565040425e0c655585c3d65b837eb3
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: bac13382c1fe579a04b96274d8f310d5a1737be2
+ms.sourcegitcommit: a0dcb61890ad0f7b8e1f738f7186198681adcc2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603146"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820776"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>创建地理分布式应用解决方案, 以将流量定向到 Azure 并 Azure Stack
 
@@ -74,7 +74,7 @@ ms.locfileid: "68603146"
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新带入本地环境, 从而实现了唯一的混合云, 使你能够在任何位置构建和部署混合应用。  
 > 
-> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)查看软件质量的支柱 (放置、可伸缩性、可用性、复原能力、可管理性和安全性), 以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计, 并最大程度减少生产环境中的挑战。
+> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)查看软件质量的支柱 (放置、可伸缩性、可用性、复原能力、可管理性和安全性), 以便设计、部署和操作混合应用程序。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
 ## <a name="part-1-create-a-geo-distributed-app"></a>第 1 部分：创建异地分布式应用
 
@@ -302,7 +302,7 @@ Azure DevOps 和 Azure DevOps Server 提供高度可配置、可管理的管道�
 
 2. 添加一条 CNAME 记录来将子域映射到应用的默认主机名。
 
-   对于 www.northwindcloud.com 域示例, 添加一个 CNAME 记录, 用于将名称映射到 < 应用\_名称 >. appname>.azurewebsites.net。
+   对于 www\.northwindcloud.com 域示例, 请添加一条 CNAME 记录, 用于将名称映射到\_< 应用名称 >. appname>.azurewebsites.net。
 
 添加 CNAME 后，DNS 记录页类似于以下示例：
 

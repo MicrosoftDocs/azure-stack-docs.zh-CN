@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: cae4c6c5b96dd7bdbd6fcec7859309e0dd995a44
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 891727c8e80af479e800feef9c292f7355fb208c
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658680"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842688"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Azure Stack 中的 VM 更新和管理自动化
 使用以下 Azure 自动化解决方案功能管理使用 Azure Stack 部署的 Windows 和 Linux 虚拟机 (Vm):
@@ -131,6 +131,7 @@ VM 已安装**Azure Monitor、更新和配置管理**, 并且安装了**Azure Mo
 
    ![Azure Monitor Vm 映射 "选项卡](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
+如果[用于 VM 的 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)未显示任何性能数据, 则必须在[LogAnalytics 工作区](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters)高级设置中为 Windows 和 Linux 启用性能数据收集。
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>使用资源管理器模板启用更新管理
 如果有大量 Azure Stack Vm, 则可以使用[此 Azure 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win)在 vm 上更轻松地部署解决方案。 该模板将 Microsoft Monitoring Agent 扩展部署到现有 Azure Stack VM, 并将其添加到现有的 Azure LogAnalytics 工作区。

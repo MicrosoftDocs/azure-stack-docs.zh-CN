@@ -1,6 +1,6 @@
 ---
 title: 安装 Visual Studio 并连接到 Azure Stack | Microsoft Docs
-description: 了解安装 Visual Studio 并连接到 Azure Stack 所需的步骤
+description: 了解如何安装 Visual Studio 并连接到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,18 +16,18 @@ ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 11d389b96ed730d6395231ecf24eced6a65fbae8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 12f0b8d13ebaa7a31153dd89f65f27fd97294700
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64302591"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842939"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>安装 Visual Studio 并连接到 Azure Stack
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用 Visual Studio 将 Azure 资源管理器[模板](azure-stack-arm-templates.md)写入和部署到 Azure Stack。 这篇文章中的步骤介绍如何在上安装 Visual Studio [Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)，或如果你打算使用通过 Azure Stack 外部的计算机上[VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)。
+可以使用 Visual Studio 将 Azure 资源管理器[模板](azure-stack-arm-templates.md)写入和部署到 Azure Stack。 本文中的步骤介绍了如何在[Azure Stack](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)或外部计算机上安装 Visual Studio (如果计划通过[VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)使用 Azure Stack)。
 
 ## <a name="install-visual-studio"></a>安装 Visual Studio
 
@@ -35,13 +35,13 @@ ms.locfileid: "64302591"
 
 2. 打开“Microsoft Web 平台安装程序”。
 
-3. 搜索**Visual Studio Community 2015 with Microsoft Azure SDK-2.9.6**。 依次单击“添加”、“安装”。
+3. 搜索**带有 MICROSOFT AZURE SDK-2.9.6 的 Visual Studio 社区 2015**。 单击 "**添加**", 然后单击 "**安装**"。
 
-4. 卸载**Microsoft Azure PowerShell**安装 Azure SDK 的一部分。
+4. 卸载作为 Azure SDK 的一部分安装的**Microsoft Azure PowerShell** 。
 
     ![WebPI 安装步骤的屏幕截图](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)
+5. [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)。
 
 6. 安装完成后，重启操作系统。
 
@@ -65,9 +65,9 @@ ms.locfileid: "64302591"
 
 3. 展开**导航窗格**中的“环境”，然后选择“帐户”。
 
-4. 选择“添加”，然后输入“用户 Azure 资源管理器终结点”。 对于 Azure Stack 开发工具包，URL 为：`https://management.local.azurestack/external`。  对于 Azure Stack 集成系统，URL 为：`https://management.[Region}.[External FQDN]`。
+4. 选择“添加”，然后输入“用户 Azure 资源管理器终结点”。 对于 Azure Stack 开发工具包 (ASDK), URL 为: `https://management.local.azurestack/external`。  对于 Azure Stack 集成系统，URL 为：`https://management.[Region}.[External FQDN]`。
 
-    ![X](./media/azure-stack-install-visual-studio/image5.png)
+    ![添加新的 Azure 云发现终结点](./media/azure-stack-install-visual-studio/image5.png)
 
 5. 选择 **添加** 。  
 
@@ -79,13 +79,13 @@ ms.locfileid: "64302591"
 
 7. 选择“添加帐户”并使用 AD FS 凭据登录。  
 
-    ![云资源管理器](./media/azure-stack-install-visual-studio/image7.png)
+    ![登录到 Cloud Explorer 中的 Visual Studio](./media/azure-stack-install-visual-studio/image7.png)
 
-    Cloud Explorer 将查询可用的订阅。 您可以选择可用的订阅来管理。
+    Cloud Explorer 将查询可用的订阅。 可以选择一个要管理的可用订阅。
 
-    ![云资源管理器](./media/azure-stack-install-visual-studio/image8.png)
+    ![选择要管理的订阅 Cloud Explorer](./media/azure-stack-install-visual-studio/image8.png)
 
-8. 浏览你的现有资源、 资源组，或部署模板。
+8. 浏览现有的资源或资源组，或者部署模板。
 
 ## <a name="next-steps"></a>后续步骤
 
