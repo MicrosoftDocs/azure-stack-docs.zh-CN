@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: c5a53fcd2aa2ec516e5677e85a1516ac10208c3f
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.openlocfilehash: a64f4682f3fa46bc6213dd12128c61944b7d6dab
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544130"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865913"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将市场项从 Azure 下载到 Azure Stack
 
@@ -77,7 +77,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 也可以在联网场景中使用市场联合工具。 
 
 此方案包含两个部分：
-- **第 1 部分：** 从 Azure 市场下载。 在能够访问 Internet 的计算机上配置 PowerShell，下载联合工具，然后从 Azure 市场下载项。  
+- **第 1 部分：** 从 Azure 市场下载。 在具有 internet 访问权限的计算机上配置 PowerShell, 下载联合工具, 然后从 Azure Marketplace 下载项。  
 - **第 2 部分：** 上传并发布到 Azure Stack 市场。 将下载的文件移到 Azure Stack 环境，将其导入 Azure Stack，然后将其发布到 Azure Stack 市场。  
 
 
@@ -177,7 +177,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
    `-AzsCredential` 参数是可选的。 该参数用于续订访问令牌（如果已过期）。 如果未指定 `-AzsCredential` 参数且令牌已过期，则你会收到输入操作员凭据的提示。
 
     > [!Note]  
-    > AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 有关使用 Azure Stack 和 AD FS 作为标识管理服务设置服务主体的详细信息, 请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
+    > AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 若要详细了解如何在设置服务主体时将 Azure Stack 和 AD FS 作为标识管理服务，请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
 
 4. 成功完成该脚本后，Azure Stack 市场中应会提供该项。
 

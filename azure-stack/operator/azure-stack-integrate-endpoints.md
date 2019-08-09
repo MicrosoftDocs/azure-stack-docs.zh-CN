@@ -9,22 +9,26 @@ ms.topic: article
 ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: b97d542c5a885078fa80108cdb0c16e6ccb79b98
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.lastreviewed: 08/05/2019
+ms.openlocfilehash: 6ffd13982a4acf90896b152adcee360e34c02b79
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806950"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865891"
 ---
-# <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
+# <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Azure Stack datacenter 集成-发布 Azure Stack 服务
 
-Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP 是从公共 IP 地址池分配的。 每个 VIP 受软件定义的网络层中的访问控制列表 (ACL) 保护。 还可以在物理交换机（TOR 和 BMC）之间使用 ACL 来进一步强化解决方案。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。
-
+Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP 是从公共 IP 地址池分配的。 每个 VIP 受软件定义的网络层中的访问控制列表 (ACL) 保护。 还可以在物理交换机（TOR 和 BMC）之间使用 ACL 来进一步强化解决方案。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。 例如，将为用户门户分配 DNS 主机条目 portal. *&lt;region>.&lt;fqdn>* 。
 
 以下体系结构图显示了不同的网络层和 ACL：
 
 ![结构化图片](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+
+### <a name="ports-and-urls"></a>端口和 URL
+若要使 Azure Stack 服务（例如门户、Azure 资源管理器、DNS 等）可供外部网络使用，必须允许特定 URL、端口和协议的入站流量发往这些终结点。
+ 
+如果部署中的透明代理与传统代理服务器或防火墙的上行链路正在保护解决方案, 则必须允许特定端口和 Url 进行[入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)和[出站](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)通信。 这包括用于标识、市场、修补和更新、注册和使用情况数据的端口与 URL。
 
 ## <a name="ports-and-protocols-inbound"></a>端口和协议（入站）
 

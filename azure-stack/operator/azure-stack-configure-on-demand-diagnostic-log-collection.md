@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 988c24f004222d80b866024c2c392473cdf73bab
-ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
+ms.openlocfilehash: 007703facf882eccd594dfb6f78941570c9cfb02
+ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68712943"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68865907"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-now-on-demand"></a>立即收集 Azure Stack 诊断日志 (按需)
 
@@ -41,7 +41,7 @@ ms.locfileid: "68712943"
    ![按需日志收集的屏幕截图](media/azure-stack-automatic-log-collection/collect-logs-now.png)
 
 >[!NOTE]
->如果启用了自动诊断日志收集, 则 "**帮助和支持**" 将显示 "日志收集正在进行"。 如果单击 "**立即收集日志**" 以从针对特定时间收集日志, 同时自动日志收集正在进行, 则在自动完成日志收集后, 按需收集便会开始。 
+>如果启用了自动诊断日志收集, 则 "**帮助和支持**" 将显示 "日志收集正在进行"。 如果单击 "**立即收集日志**" 以从特定时间收集日志, 而在进行自动日志收集时, 按需收集将在自动完成日志收集后开始。 
 
 ## <a name="using-pep"></a>使用 PEP
 
