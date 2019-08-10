@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6513138226bf60d37f7f2f541d8d00dcf8d87073
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 533a56e9dcfe4b3fbdc857a042a3e90d91d8090c
+ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417434"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68940256"
 ---
 # <a name="update-the-mysql-resource-provider"></a>更新 MySQL 资源提供程序 
 
@@ -55,7 +55,7 @@ ms.locfileid: "68417434"
 | **VMLocalCredential** |SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ | 
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ | 
 | **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
-| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | _可选_（对于多节点部署是_必需_的） | 
+| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | _可选_ （对于多节点部署是 _的） | 
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ | 
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 | 
 | **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 | 
@@ -95,7 +95,7 @@ $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmi
  
 # Set credentials for the new resource provider VM. 
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass) 
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass) 
  
 # And the cloudadmin credential required for privileged endpoint access. 
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
@@ -106,7 +106,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  
 # Change directory to the folder where you extracted the installation files. 
 # Then adjust the endpoints. 
-$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
+.$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
 -VMLocalCredential $vmLocalAdminCreds ` 
 -CloudAdminCredential $cloudAdminCreds ` 
 -PrivilegedEndpoint $privilegedEndpoint ` 
