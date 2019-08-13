@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 0c9c1af77ecf2bdf1c8da23cc7ab9e8d281067ea
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 9c8911452dc77f77156c1256e42c4624b08b5648
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658694"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959314"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -38,9 +38,9 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 使用这些策略时，请注意以下重要事项：
 
-- IPsec/IKE 策略仅适用于“标准”和“高性能”（基于路由）网关 SKU。  
+- IPsec/IKE 策略仅适用于“标准”和“高性能”（基于路由）网关 SKU。
 
-- 一个给定的连接只能指定一个策略组合。 
+- 一个给定的连接只能指定一个策略组合。
 
 - 必须指定 IKE（主模式）和 IPsec（快速模式）的所有算法和参数。 不允许使用部分策略规范。
 
@@ -121,7 +121,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 有关创建站点到站点 VPN 连接的详细分步说明，请参阅[创建站点到站点 VPN 连接](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)。
 
-### <a name="prerequisites"></a>系统必备
+### <a name="prerequisites"></a>先决条件
 
 在开始之前, 请确保满足以下先决条件:
 
@@ -239,7 +239,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 3. 从连接中删除 IPsec/IKE 策略。
 
 > [!NOTE]
-> IPsec/IKE 策略仅受标准 VPN 网关和基于路由的高性能 VPN 网关支持   。 它不适用于*基本*网关 SKU。
+> IPsec/IKE 策略仅受标准 VPN 网关和基于路由的高性能 VPN 网关支持。 它不适用于*基本*网关 SKU。
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.显示连接的 IPsec/IKE 策略
 

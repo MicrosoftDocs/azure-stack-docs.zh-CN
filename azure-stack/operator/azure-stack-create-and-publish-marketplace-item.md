@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 59e86e15289833d63b85314a84d0bb9e60dc5da8
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
+ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172570"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68956603"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 ## <a name="create-a-marketplace-item"></a>创建市场项目
 
@@ -43,9 +43,9 @@ ms.locfileid: "65172570"
 3. [创建一个 Azure 资源管理器模板](/azure/azure-resource-manager/resource-group-authoring-templates)或从 GitHub 中选择一个模板。 市场项使用此模板来创建资源。
 
     > [!NOTE]  
-    > 永远不会硬编码如产品密钥、 密码或在 Azure 资源管理器模板中的任何客户身份信息的任何机密。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
+    > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
 
-4. 若要确保可以成功部署资源，测试与 Microsoft Azure Stack Api 的模板。
+4. 若要确保资源可以成功部署, 请用 Microsoft Azure Stack Api 测试模板。
 5. 如果你的模板依赖于虚拟机映像，请按照说明[向 Azure Stack 中添加虚拟机映像](azure-stack-add-vm-image.md)。
 6. 将 Azure Resource Manager 模板保存在 **/Contoso.TodoList/DeploymentTemplates/** 文件夹中。
 7. 为市场项选择图标和文本。 将图标添加到 **Icons** 文件夹，并向 **Strings** 文件夹中的 **resources** 文件添加文本。 为图标使用 **small**、**medium**、**large** 和 **wide** 命名约定。 有关这些大小的详细说明，请参阅[市场项 UI 参考](#reference-marketplace-item-ui)。
@@ -81,18 +81,18 @@ ms.locfileid: "65172570"
 12. 若要将文件夹打包到 .azpkg 文件，请打开命令提示符并运行以下命令：
 
     ```shell
-    AzureGalleryPackager.exe package -m <path to manifest.json> -o <output location for the package>
+    AzureGalleryPackager.exe package -m <absolute path to manifest.json> -o <output location for the package>
     ```
 
     > [!NOTE]
-    > 输出包的完整路径必须存在。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，文件夹**C:\MarketPlaceItem**必须存在。
+    > 必须存在清单 json 文件的完整路径以及输出包。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，则文件夹 **C:\MarketPlaceItem** 必须存在。
     >
     >
 
 ## <a name="publish-a-marketplace-item"></a>发布市场项目
 
 1. 使用 PowerShell 或 Azure 存储资源管理器将市场项 (.azpkg) 上传到 Azure Blob 存储。 可以上传到本地 Azure Stack 存储或上传到 Azure 存储，即包的临时位置。 请确保 blob 可公开访问。
-2. 在客户端虚拟机在 Microsoft Azure Stack 环境中，确保使用你的服务管理员凭据设置 PowerShell 会话。 可以在[使用 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)中找到有关如何在 Azure Stack 中对 PowerShell 进行身份验证的说明。
+2. 在 Microsoft Azure Stack 环境中的客户端虚拟机上, 请确保你的 PowerShell 会话设置为你的服务管理员凭据。 可以在[使用 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)中找到有关如何在 Azure Stack 中对 PowerShell 进行身份验证的说明。
 3. 使用 [PowerShell 1.3.0](azure-stack-powershell-install.md) 或更高版本时，可以使用 **Add-AzsGalleryItem** PowerShell cmdlet 将市场项发布到 Azure Stack。 在使用 PowerShell 1.3.0 之前，请使用 cmdlet **Add-AzureRMGalleryitem** 取代 **Add-AzsGalleryItem**。 例如，使用 PowerShell 1.3.0 或更高版本时：
 
    ```powershell
@@ -116,7 +116,7 @@ ms.locfileid: "65172570"
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
 
-6. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如:
+6. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如：
 
    ```powershell
    Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  -Verbose
@@ -131,7 +131,7 @@ ms.locfileid: "65172570"
 
 ### <a name="identity-information"></a>标识信息
 
-| 名称 | 需要 | Type | 约束 | 描述 |
+| 姓名 | 必填 | 类型 | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
 | 名称 |X |String |[A-Za-z0-9]+ | |
 | 发布服务器 |X |String |[A-Za-z0-9]+ | |
@@ -139,52 +139,52 @@ ms.locfileid: "65172570"
 
 ### <a name="metadata"></a>元数据
 
-| 名称 | 需要 | Type | 约束 | 描述 |
+| 名称 | 必填 | 类型 | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| 显示名称 |X |String |建议不要超过 80 个字符 |如果它的长度大于 80 个字符，门户不可能正确显示项名称。 |
-| PublisherDisplayName |X |String |建议不要超过 30 个字符 |门户可能超过 30 个字符是否正确显示发布者名称。 |
+| 显示名称 |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法正确地显示项名称。 |
+| PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法正确地显示发布者名称。 |
 | PublisherLegalName |X |String |最多 256 个字符 | |
-| 摘要 |X |String |60 到 100 个字符 | |
+| 总结 |X |String |60 到 100 个字符 | |
 | LongSummary |X |String |140 到 256 个字符 |在 Azure Stack 中尚不适用。 |
 | 描述 |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 到 5,000 个字符 | |
 
-### <a name="images"></a>映像
+### <a name="images"></a>图像
 
 市场使用以下图标：
 
 | 名称 | 宽度 | 高度 | 说明 |
 | --- | --- | --- | --- |
 | 宽型 |255 px |115 px |始终必需 |
-| 大 |115 px |115 px |始终必需 |
+| 大型 |115 px |115 px |始终必需 |
 | 中型 |90 px |90 px |始终必需 |
 | 小 |40 px |40 px |始终必需 |
-| 屏幕快照 |533 px |32 px |可选 |
+| 屏幕快照 |533 px |324 px |始终必需 |
 
 ### <a name="categories"></a>Categories
 
-应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以在 Azure Stack 中选择一个现有类别 (**计算**，**数据 + 存储**等)，或选择新的密码。
+应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack 中的现有类别之一（计算、数据 + 存储，等等），也可以选择新建一个。
 
 ### <a name="links"></a>链接
 
 每个市场项可以包括指向其他内容的各种链接。 链接以名称和 URI 的列表形式进行指定：
 
-| 名称 | 需要 | Type | 约束 | 描述 |
+| 名称 | 必填 | type | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| 显示名称 |X |String |最大为 64 个字符。 | |
+| 显示名称 |X |String |最多 64 个字符。 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>其他属性
 
 除了前面的元数据之外，市场作者可以采用以下形式提供自定义键/值对数据：
 
-| 名称 | 需要 | Type | 约束 | 描述 |
+| 名称 | 必填 | 类型 | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
 | 显示名称 |X |String |最多 25 个字符。 | |
-| 值 |X |String |最大为 30 个字符。 | |
+| ReplTest1 |X |String |最多 30 个字符。 | |
 
 ### <a name="html-sanitization"></a>HTML 清理
 
-允许使用 HTML，以下任何字段[元素和属性允许](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization):
+对于允许使用 HTML 的任何字段，将[允许使用以下元素和属性](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization)：
 
 `h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i`
 
