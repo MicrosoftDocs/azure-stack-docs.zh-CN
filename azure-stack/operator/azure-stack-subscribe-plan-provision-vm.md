@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 792589eabf13b9aca493e230f7e3e93cfab21736
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 51b61eae1f2c00a959eded275c13c5c4b8d06e4c
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532366"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991788"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>在 Azure Stack 中创建套餐的订阅
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-[创建某个套餐](azure-stack-create-offer.md)后，用户需要订阅此套餐才能使用此套餐。 用户可通过两种方式订阅套餐：
+[创建套餐](azure-stack-create-offer.md)后，用户需要订阅该套餐，然后才能使用它。 用户订阅套餐有两种方式：
 
-- 云操作员可以从管理员门户内部为用户创建订阅。 创建的订阅可用于公共和专用套餐。
-- 租户用户可以在使用用户门户时订阅公共套餐。  
+- 在管理员门户中以云操作员身份为用户创建订阅。 创建的订阅可用于公共和专用套餐。
+- 在使用用户门户时以租户用户身份订阅公共套餐。  
 
 ## <a name="create-a-subscription-as-a-cloud-operator"></a>以云操作员的身份创建订阅
 
@@ -45,15 +45,15 @@ ms.locfileid: "65532366"
 2. 选择 **添加** 。 在“新建用户订阅”下，输入以下信息：  
 
    - **显示名称** – 用于标识订阅的友好名称，显示为“用户订阅名称”。
-   - **用户** – 从此订阅的可用目录租户中指定一个用户。 用户名显示为“所有者”。  用户名的格式取决于标识解决方案。 例如:
+   - **用户** – 从此订阅的可用目录租户中指定一个用户。 用户名显示为“所有者”。  用户名的格式取决于标识解决方案。 例如：
 
-     - **Azure AD：**`<user1>@<contoso.onmicrosoft.com>`
+     - **Azure AD：** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS：**`<user1>@<azurestack.local>`
+     - **AD FS：** `<user1>@<azurestack.local>`
 
    - **目录租户** – 选择用户帐户所属的目录租户。 如果未启用多租户，则只能使用本地目录租户。
 
-3. 选择“套餐”。 在“套餐”下，选择此订阅的**套餐**。 因为您将创建用户的订阅，选择**专用**作为辅助功能状态。
+3. 选择“套餐”。 在“套餐”下，选择此订阅的**套餐**。 由于你要为用户创建订阅, 因此请选择 "**专用**" 作为辅助功能状态。
 
 4. 选择“创建”以创建订阅。 “用户订阅”下面会显示新订阅。 用户在登录到用户门户后可以看到订阅详细信息。
 
@@ -92,11 +92,11 @@ ms.locfileid: "65532366"
 
 如果套餐有附加计划，随时可将该计划添加到订阅。  
 
-1. 在用户门户中，选择“所有服务”。 接下来，在“常规”类别下选择“订阅”，然后选择要更改的订阅。 如果可用，任何附加计划 **+ 添加计划**处于活动状态，并且没有的磁贴**加载项计划**。
+1. 在用户门户中，选择“所有服务”。 接下来，在“常规”类别下选择“订阅”，然后选择要更改的订阅。 如果有任何可用的附加计划, 则 **+ "添加计划**" 处于活动状态, 并且有一个用于**附加计划**的磁贴。
 
-   如果 **+ 添加计划**未处于活动状态，则没有与此订阅相关的产品/服务外接程序的计划。
+   如果 **+ Add 计划**不处于活动状态, 则不存在与该订阅关联的产品/服务的附加计划。
 
-1. 选择 **+ 添加计划**或**加载项计划**磁贴。 在“附加计划”下，选择想要添加的计划。
+1. 选择 " **+ 添加计划**" 或 "**外接程序计划**" 磁贴。 在“附加计划”下，选择想要添加的计划。
 
 ## <a name="next-steps"></a>后续步骤
 

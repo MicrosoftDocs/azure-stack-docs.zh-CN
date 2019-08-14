@@ -12,41 +12,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: d02173731f8cf7834160a0228c589b036aac7fe6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984020"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991728"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 验证报表
 
-使用*Azure Stack 就绪性检查器*工具运行支持的部署和维护的 Azure Stack 环境的验证。 该工具将结果写入到 .json 报表文件。 该报表显示有关 Azure Stack 部署的先决条件状态的详细数据和汇总数据。 报表还显示有关机密轮换，以便现有的 Azure Stack 部署的信息。  
+使用 *Azure Stack 就绪性检查器*工具运行验证来为 Azure Stack 环境的部署和维护提供支持。 该工具将结果写入到 .json 报表文件。 该报表显示有关 Azure Stack 部署的先决条件状态的详细数据和汇总数据。 该报表还显示有关现有 Azure Stack 部署的机密轮换的信息。  
 
 ## <a name="where-to-find-the-report"></a>在何处可以找到该报表
 
-该工具运行时，它会将结果记录到 **AzsReadinessCheckerReport.json** 中。 该工具还会创建一个名为 **AzsReadinessChecker.log** 的日志。 在 PowerShell 中的验证结果一起显示这些文件的位置：
+该工具运行时，它会将结果记录到 **AzsReadinessCheckerReport.json** 中。 该工具还会创建一个名为 **AzsReadinessChecker.log** 的日志。 这些文件的位置会随验证结果一起显示在 PowerShell 中：
 
 ![运行验证](./media/azure-stack-validation-report/validation.png)
 
 当在同一计算机上运行后续验证检查时，这两个文件都会持久保留这些验证检查的结果。 例如，可以运行该工具来验证证书，再次运行它来验证 Azure 标识，第三次运行它来验证注册。 所有三次验证的结果都在生成的 .json 报表中。  
 
-默认情况下，这两个文件都写入到 **C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
+默认情况下，这两个文件都写入到 **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
 
-- 使用`-OutputPath <path>`要指定不同的报表位置的命令行末尾处的参数。
-- 使用`-CleanReport`用于清除之前运行中的工具有关的信息的命令行末尾处的参数**AzsReadinessCheckerReport.json**。
+- 可以在命令行的末尾使用 `-OutputPath <path>` 参数来指定不同的报告位置。
+- 可以在命令行的末尾使用 `-CleanReport` 参数从 **AzsReadinessCheckerReport.json** 中清除有关以前运行此工具的相关信息。
 
 ## <a name="view-the-report"></a>查看报告
 
-若要在 PowerShell 中查看报表，提供报表的路径的值作为`-ReportPath`。 此命令显示报表内容，并指明尚没有结果的验证。
+若要在 PowerShell 中查看报表，请将报表路径提供为 `-ReportPath` 的值。 此命令显示报表内容，并指明尚没有结果的验证。
 
-例如，若要查看从 PowerShell 提示符下的报表所在的位置打开报表，请运行以下命令：
+例如，若要从打开到报表所在位置的 PowerShell 提示符查看报表，请运行以下命令：
 
-```shell
+```powershell
 Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json
 ```
 
@@ -96,13 +96,13 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>查看报表摘要
 
-若要查看报表的摘要，可以添加`-summary`到末尾的 PowerShell 命令的参数。 例如：
+若要查看报表摘要，可以在 PowerShell 命令的末尾添加 `-summary` 参数。 例如：
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
 ```
 
-摘要显示了不具有结果的验证，并指示通过或失败的验证已完成的。 输出类似于以下示例：
+摘要会显示没有结果的验证并且会指明已完成的验证是通过还是失败。 输出类似于以下示例：
 
 ```shell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
@@ -137,7 +137,7 @@ Azure Stack ADFS Validation results not available.
 - AzureIdentity
 - 图形
 - ADFS
-- 作业
+- 作业(Job)
 - 全部  
 
 例如，若要仅查看证书的报表摘要，请使用以下 PowerShell 命令行：

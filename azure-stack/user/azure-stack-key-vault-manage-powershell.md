@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ca303590d4dc923380e10e50fc9b8b9ce2e5aac6
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: f3f2b715206c834d2c24685b57c068b53cc7020a
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842960"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991695"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中的 Key Vault
 
 适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本文介绍如何使用 Powershell 在 Azure Stack 中创建和管理密钥保管库。 你将了解如何使用 Key Vault PowerShell cmdlet 来执行以下操作:
+本文介绍如何使用 PowerShell 在 Azure Stack 中创建和管理密钥保管库。 你将了解如何使用 Key Vault PowerShell cmdlet 来执行以下操作:
 
 * 创建密钥保管库。
 * 存储和管理加密密钥和机密。
@@ -43,7 +43,7 @@ ms.locfileid: "68842960"
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>启用适用于 Key Vault 操作的租户订阅
 
-在对某个密钥保管库发出任何操作之前，必须确保租户订阅可以进行保管库操作。 若要验证保管库操作是否已启用，请运行以下命令：
+在对某个密钥保管库发出任何操作之前，必须确保租户订阅可以进行保管库操作。 若要验证是否已启用密钥保管库操作, 请运行以下命令:
 
 ```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
@@ -75,7 +75,7 @@ New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ![在 Powershell 中生成的新资源组](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-现在，请使用 **New-AzureRMKeyVault** command 在以前创建的资源组中创建一个密钥保管库。 此命令读取三个必需参数：资源组名称、密钥保管库名称和地理位置。
+现在, 使用**new-azurermkeyvault** cmdlet 在之前创建的资源组中创建密钥保管库。 此命令读取三个必需参数：资源组名称、密钥保管库名称和地理位置。
 
 运行以下命令，创建密钥保管库：
 
@@ -154,7 +154,7 @@ Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 
 使用**set-azurermkeyvaultaccesspolicy**命令授权应用程序访问密钥保管库中的密钥或机密。
 
-在以下示例中, 保管库名称是*ContosoKeyVault* , 要授权的应用的客户端 ID 为*8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*。 若要对应用进行授权, 请运行以下命令。 你还可以指定**PermissionsToKeys**参数以设置用户、应用或安全组的权限。
+在以下示例中, 保管库名称是**ContosoKeyVault** , 要授权的应用的客户端 ID 为**8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**。 若要对应用进行授权, 请运行以下命令。 你还可以指定**PermissionsToKeys**参数以设置用户、应用或安全组的权限。
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign

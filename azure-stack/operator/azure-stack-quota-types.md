@@ -3,8 +3,8 @@ title: Azure Stack 中的配额类型 | Microsoft Docs
 description: 查看和编辑可用于 Azure Stack 中的服务和资源的不同配额类型。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/27/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 08/13/2019
+ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: df0bee87f512f00ea57fc11492f824730dbf9b42
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64295221"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991782"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -31,7 +30,7 @@ ms.locfileid: "64295221"
 [配额](azure-stack-plan-offer-quota-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个 VM。 每个资源可以有其自己的配额类型。
 
 > [!IMPORTANT]
-> 可能需要新的配额，可在用户门户中或之前已更改的配额强制执行最多两个小时。
+> 在用户门户中出现可用的新配额或者强制实施更改的配额可能需要长达两小时的时间。
 
 ## <a name="compute-quota-types"></a>计算配额类型
 
@@ -45,7 +44,7 @@ ms.locfileid: "64295221"
 | 高级托管磁盘的最大容量 (GB) | 2048 | 可以在此位置中创建的高级托管磁盘的最大容量。 |
 
 > [!NOTE]  
-> 非托管磁盘 (页 blob) 的最大容量是分开的托管的磁盘配额。 可以将此值设置**存储配额**。
+> 非托管磁盘（页 Blob）的最大容量独立于托管磁盘配额。 可以在“存储配额”中设置此值。
 
 ## <a name="storage-quota-types"></a>存储配额类型
 
@@ -55,15 +54,15 @@ ms.locfileid: "64295221"
 | 存储帐户的总数 |20 |订阅可以在此位置创建的存储帐户数目上限。 |
 
 > [!NOTE]  
-> 托管磁盘的最大容量是分开的总存储配额。 可以将此值设置**计算配额**。
+> 托管磁盘的最大容量独立于总存储配额。 可以在“计算配额”中设置此值。
 
 ## <a name="network-quota-types"></a>网络配额类型
 
 | **Item** | **默认值** | **说明** |
 | --- | --- | --- |
-| 公共 IP 数目上限 |50 |订阅可以在此位置创建的公共 IP 地址的数目上限。 |
+| 公共 IP 数目上限 |50 |订阅可以在此位置创建的公共 IP 地址数目上限。 |
 | 虚拟网络数目上限 |50 |订阅可以在此位置创建的虚拟网络数目上限。 |
-| 虚拟网络网关数目上限 |第 |虚拟网络网关 （VPN 网关） 的订阅可以在此位置创建最大数目。 |
+| 虚拟网络网关数目上限 |1 |订阅可以在此位置创建的虚拟网络网关（VPN 网关）数目上限。 |
 | 网络连接数目上限 |2 |订阅可以在此位置跨所有虚拟网络网关创建的网络连接（点到点或站点到站点）数目上限。 |
 | 负载均衡器数目上限 |50 |订阅可以在此位置创建的负载均衡器数目上限。 |
 | NIC 数目上限 |100 |订阅可以在此位置创建的网络接口数目上限。 |
@@ -120,5 +119,3 @@ ms.locfileid: "64295221"
 
 - [详细了解计划、套餐和配额。](azure-stack-plan-offer-quota-overview.md)
 - [创建计划时创建配额。](azure-stack-create-plan.md)
-
-<!-- Update_Description: add edit a quota -->

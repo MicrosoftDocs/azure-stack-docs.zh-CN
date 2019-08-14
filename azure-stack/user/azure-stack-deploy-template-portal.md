@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中使用门户部署模板 |Microsoft Docs
+title: 使用 Azure Stack 门户部署模板 | Microsoft Docs
 description: 了解如何使用 Azure Stack 门户部署模板。
 services: azure-stack
 documentationcenter: ''
@@ -12,50 +12,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 8f61667351a6d22094d5f8a0ba39348cc92549a8
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: e6a9c9569f7a2aeff044232d15817313b43ed69f
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692010"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991860"
 ---
-# <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>在 Azure Stack 中使用门户部署模板
+# <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>使用 Azure Stack 门户部署模板
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以使用门户将 Azure 资源管理器模板部署到 Azure Stack。
 
 ## <a name="to-deploy-a-template"></a>部署模板
 
-1. 登录到门户中，依次选择“+ 创建资源”  、“自定义”  。
+1. 登录到门户中，依次选择“+ 创建资源”、“自定义”。
 
    ![在 Azure Stack 门户中创建资源](media/azure-stack-deploy-template-portal/template-deploy1.png)
 
-1. 选择“模板部署”。 
+1. 选择“模板部署”。
 
    ![在 Azure Stack 门户中部署模板](media/azure-stack-deploy-template-portal/template-deploy2.png)
 
-1. 选择“编辑模板”  ，然后将 JSON 模板代码粘贴到代码窗口中。 选择“保存”。 
+1. 选择“编辑模板”，然后将 JSON 模板代码粘贴到代码窗口中。 选择**保存**。
 
-   ![Azure Stack 门户中编辑模板](media/azure-stack-deploy-template-portal/template-deploy3.png)
+   ![在 Azure Stack 门户中编辑模板](media/azure-stack-deploy-template-portal/template-deploy3.png)
 
-1. 选择“编辑参数”  ，为显示的参数提供值，然后选择“确定”  。
+1. 选择“编辑参数”，为显示的参数提供值，然后选择“确定”。
 
    ![在 Azure Stack 门户中编辑参数](media/azure-stack-deploy-template-portal/template-deploy4.png)
 
-1. 选择“订阅”  。 选择要使用的订阅，然后选择“确定”  。
+1. 选择“订阅”。 选择要使用的订阅，然后选择“确定”。
 
    ![在 Azure Stack 门户中选择订阅](media/azure-stack-deploy-template-portal/template-deploy5.png)
 
-1. 选择“资源组”  。 选择现有资源组，或创建一个新资源组，然后选择“确定”  。
+1. 选择“资源组”。 选择现有资源组，或创建一个新资源组，然后选择“确定”。
 
    ![在 Azure Stack 门户中选择资源组](media/azure-stack-deploy-template-portal/template-deploy6.png)
 
-1. 选择“创建”  。 仪表板上的新磁贴会跟踪模板部署的进度。
+1. 选择“创建”。 仪表板上的新磁贴会跟踪模板部署的进度。
 
    ![在 Azure Stack 门户中创建模板](media/azure-stack-deploy-template-portal/template-deploy7.png)
 

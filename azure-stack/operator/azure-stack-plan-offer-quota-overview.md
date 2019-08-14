@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 8aa75e3a66fbec2494a653fb62405fe6c9134d7d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 6f417b8afdf5315f581db52dc4b850f72e02b1f0
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985214"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991739"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>计划、套餐、配额和订阅概述
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 在 [Azure Stack](azure-stack-overview.md) 中可以交付多种多样的服务，例如虚拟机、SQL Server 数据库、SharePoint、Exchange，甚至 [Azure 市场项](azure-stack-marketplace-azure-items.md)。 Azure Stack 操作员可以使用计划、套餐和配额，在 Azure Stack 中配置并交付此类服务。
 
@@ -54,7 +54,7 @@ ms.locfileid: "64985214"
 为了帮助管理云容量，可以使用预配置的配额，或者为计划中的每个服务创建新配额。 配额定义用户订阅可以部署或使用的资源上限。 例如，配额可能允许用户最多创建五个虚拟机 (VM)。
 
 > [!IMPORTANT]
-> 可能需要新的配额，可在用户门户中或之前已更改的配额强制执行最多两个小时。
+> 在用户门户中出现可用的新配额或者强制实施更改的配额可能需要长达两小时的时间。
 
 可按区域配置配额。 例如，为区域 A 提供计算服务的计划的配额可以是两个 VM。
 
@@ -71,7 +71,7 @@ ms.locfileid: "64985214"
 
 附加计划是添加到产品/服务的可选计划。 默认情况下，订阅中不包含附加计划。 套餐中提供的附加计划属于额外的计划（附带配额），订户可将其添加订阅中。 例如，可以提供具有有限资源的基本计划供试用，并为确定采用服务的客户提供具有更多实质资源的附加计划。
 
-## <a name="offers"></a>产品
+## <a name="offers"></a>套餐
 
 套餐是创建的一个或多个计划的组，使用户能够订阅这些产品/服务。 例如，套餐 Alpha 可以包含计划 A 和计划 B，这两个计划分别提供一组计算服务和一组存储与网络服务。
 
@@ -81,7 +81,7 @@ ms.locfileid: "64985214"
 
 订阅是用户访问套餐的方式。 如果你是服务提供商的 Azure Stack 操作员，则用户（租户）可通过订阅你的套餐来购买你的服务。 如果你是组织的 Azure Stack 操作员，则用户（员工）可以订阅你提供的服务，而无需付费。
 
-用户与套餐的每种组合都是一个唯一的订阅。 一个用户可订阅多个套餐，但每个订阅只适用于一个套餐。 计划、 产品/服务和配额仅适用于一个唯一的订阅-不能在订阅之间共享。 用户创建的每个资源都与一个订阅相关联。
+用户与套餐的每种组合都是一个唯一的订阅。 一个用户可订阅多个套餐，但每个订阅只适用于一个套餐。 计划、产品/服务和配额仅适用于唯一订阅, 不能在订阅之间共享。 用户创建的每个资源都与一个订阅相关联。
 
 ### <a name="default-provider-subscription"></a>默认提供商订阅
 
