@@ -16,12 +16,12 @@ ms.date: 08/02/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/02/2019
-ms.openlocfilehash: e868cd1e7d6ec24ddb350305c82cc1d87a334d91
-ms.sourcegitcommit: 56778bf71d5f6bbe2768fbc38c2ed2208114b867
+ms.openlocfilehash: d13f3a25d0a46f0f29405858efb06e0a4d634da0
+ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68756640"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69021701"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新
 
@@ -76,6 +76,8 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新内部版本类
 - 改善了用于管理员操作的内部日志的存储。 这会使内部日志进程的内存和存储消耗降到最低, 从而提高了管理员操作期间的性能和可靠性。 你可能还会注意到在管理员门户中的 "更新" 边栏选项卡上的改进页面加载时间。 作为此改进的一部分, 超过6个月的更新日志将不再出现在系统中。 如果需要这些更新的日志, 请确保在执行1907更新之前, 下载所有超过6个月的更新运行[的摘要](azure-stack-apply-updates.md)。
 
 ### <a name="changes"></a>更改
+
+- Azure Stack 版本1907包含警告警报, 该警报指示操作员在更新到版本 1908**之前**, 确保操作员将其系统的 OEM 包更新到2.1 或更高版本。 硬件提供程序将同时发布 OEM 包 2.1 Azure Stack 1908 版。 OEM 包2.1 或更高版本将是 Azure Stack 版本1908的必备组件。 有关如何下载 OEM 包2.1 或更高版本的详细信息, 请与系统的硬件提供商联系。
 
 - 添加了新的出站规则 (HTTPS) 以启用 Azure Stack 诊断日志收集服务的通信。 有关详细信息, 请参阅[Azure Stack 数据中心集成-发布终结点](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)。
 
