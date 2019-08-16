@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/15/2019
 ms.author: mabrigg
-ms.lastreviewed: 08/14/2019
+ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 92b33603ee75560d66b6604188c2ae103a1d10a3
-ms.sourcegitcommit: 6284fd52a61680ee4ba3a73ce8d13c9c5496d838
+ms.openlocfilehash: 1342eb503abb81308740c0103b1d54887a46cf85
+ms.sourcegitcommit: f62d58ae724020a24fa5905b6663abb5f1d62178
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519767"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69520923"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>应用 Azure Stack 原始设备制造商 (OEM) 更新
 
@@ -32,7 +32,7 @@ ms.locfileid: "69519767"
 
 除了 Microsoft Azure Stack 更新, 许多 Oem 还会发布 Azure Stack 硬件 (如驱动程序和固件更新) 的定期更新。 这称为**OEM 包更新**。 若要了解 OEM 是否要发布 OEM 包更新, 请查看[oem 的 Azure Stack 文档](#oem-contact-information)。
 
-从 Azure Stack 更新1905开始, 将这些 OEM 包更新上传到**updateadminaccount**存储帐户, 并通过 Azure Stack 管理员门户应用这些更新。 有关详细信息, 请参阅[应用 OEM 更新](#apply-oem-updates)。
+这些 OEM 包更新将上传到**updateadminaccount**存储帐户, 并通过 Azure Stack 管理员门户应用。 有关详细信息, 请参阅[应用 OEM 更新](#apply-oem-updates)。
 
 询问原始设备制造商 (OEM) 有关其特定通知流程的信息, 以确保 OEM 包更新通知可访问你的组织。
 
@@ -57,13 +57,15 @@ ms.locfileid: "69519767"
 
 使用以下步骤应用 OEM 包:
 
-1. 请与 OEM 联系, 以了解下载 OEM 包的最佳方法。
+1. 你需要联系你的 OEM 来:
+      - 确定 OEM 包的当前版本。  
+      - 找到下载 OEM 包的最佳方法。  
 2. 准备 OEM 包, 其中包含[下载集成系统更新包](azure-stack-servicing-policy.md#download-update-packages-for-integrated-systems)中概述的步骤。
 3. 使用[Azure Stack 中的 "应用更新" 中](azure-stack-apply-updates.md)所述的步骤来应用更新。
 
 ## <a name="configure-hardware-vendor-vm"></a>配置硬件供应商 VM
 
-一些硬件供应商可能需要 VM 来帮助 OEM 更新过程。 你的硬件供应商将负责创建这些 Vm。 创建 Vm 后, 可以通过特权终结点中的**OEMExternalVM** cmdlet 对它们进行配置。
+一些硬件供应商可能需要 VM 来帮助 OEM 更新过程。 硬件供应商将负责创建这些 vm, 并在运行**OEMExternalVM** cmdlet 时记录是否`ProxyVM`需要`HardwareManager`或**VMType** 。 创建 Vm 后, 请将其配置为具有特权终结点中的**OEMExternalVM** 。
 
 有关 Azure Stack 上的特权终结点的详细信息, 请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
 
@@ -78,12 +80,12 @@ ms.locfileid: "69519767"
 2. 使用**OEMExternalVM** cmdlet 配置硬件供应商 VM。 Cmdlet 用于验证 **-VMType** `ProxyVM`的 IP 地址和凭据。 VMType`HardwareManager` cmdlet 不会验证输入。
 
     ```powershell  
-    $VMCred = Get-Credential
     
     Invoke-Command -Session $session
         { 
     Set-OEMExternalVM -VMType <Either "ProxyVM" or "HardwareManager">
-        -IPAddress <IP Address of hardware vendor VM> -credential $using:VMCred
+        -IPAddress <IP Address of hardware vendor VM>
+        }
     ```
 
 ## <a name="next-steps"></a>后续步骤
