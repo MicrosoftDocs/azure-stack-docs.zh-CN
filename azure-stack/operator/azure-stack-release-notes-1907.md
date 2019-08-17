@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 08/02/2019
-ms.openlocfilehash: d13f3a25d0a46f0f29405858efb06e0a4d634da0
-ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
+ms.lastreviewed: 08/16/2019
+ms.openlocfilehash: 2f840fdd06caf92dcadb8e49d26d7570d9d6aa71
+ms.sourcegitcommit: 54448d4518c7d9145b8755f51b18d554b3190810
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69021701"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69548284"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新
 
@@ -150,7 +150,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序1.1907.8.37](https://support.microsoft.com/help/4515650)
+- [Azure Stack 修补程序1.1907.12.44](https://support.microsoft.com/help/4517473)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 

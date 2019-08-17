@@ -86,6 +86,8 @@
               href: azure-stack-network.md
             - name: 边界连接
               href: azure-stack-border-connectivity.md
+            - name: 交换机配置
+              href: azure-stack-customer-defined.md
             - name: DNS 集成
               href: azure-stack-integrate-dns.md
             - name: 防火墙集成
