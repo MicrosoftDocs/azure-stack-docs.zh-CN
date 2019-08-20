@@ -14,12 +14,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 7f86ff3347d5d6f24bcd1fe450156c2557fb41e1
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: f7d32fde9cba051297165e2e491f5c92115a8a0d
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959396"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579042"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
@@ -42,7 +42,7 @@ API 配置文件使用三个命名约定：
 |-----------------------------------------------|-----------------------------------------------------|
 | Microsoft.Compute | 2017-12-01 |
 | Microsoft.Network | 2017-10-01<br>VPN 网关将为 2017-10-01 |
-| Microsoft.Storage（数据平面） | 2017-10-01 |
+| Microsoft.Storage（数据平面） | 2017-11-09 |
 | Microsoft.Storage（控制平面） | 2017-10-01 |
 | Microsoft.Web | 2018-02-01 |
 | Microsoft.KeyVault | 2016-10-01（未更改） |
