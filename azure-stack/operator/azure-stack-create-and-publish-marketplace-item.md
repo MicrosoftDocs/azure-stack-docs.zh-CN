@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
-ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
+ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
+ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68956603"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69643856"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 ## <a name="create-a-marketplace-item"></a>创建市场项目
 
@@ -55,7 +55,7 @@ ms.locfileid: "68956603"
    >
    >
 
-8. 在 **Manifest.json** 文件中，将 **name** 更改为你的市场项的名称。 另外，将 **publisher** 更改为你的公司的名称。
+8. 在 **Manifest.json** 文件中，将 **name** 更改为你的市场项的名称。 另外，将 **publisher** 更改为你的公司的名称。 在发布映像之前, 请更新 .manifest 文件并更新以下行: "名称": "xxx"。 对于每个映像版本, 请务必使用不同的名称。
 9. 在 **artifacts** 下，将 **name** 和 **path** 更改为你包括的 Azure 资源管理器模板的正确信息：
 
    ```json
@@ -133,13 +133,13 @@ ms.locfileid: "68956603"
 
 | 姓名 | 必填 | 类型 | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| 名称 |X |String |[A-Za-z0-9]+ | |
-| 发布服务器 |X |String |[A-Za-z0-9]+ | |
+| 姓名 |X |String |[A-Za-z0-9]+ | |
+| 发布者 |X |String |[A-Za-z0-9]+ | |
 | Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>元数据
 
-| 名称 | 必填 | 类型 | 约束 | 描述 |
+| 姓名 | 必填 | type | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
 | 显示名称 |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法正确地显示项名称。 |
 | PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法正确地显示发布者名称。 |
@@ -152,7 +152,7 @@ ms.locfileid: "68956603"
 
 市场使用以下图标：
 
-| 名称 | 宽度 | 高度 | 说明 |
+| 姓名 | 宽度 | 高度 | 说明 |
 | --- | --- | --- | --- |
 | 宽型 |255 px |115 px |始终必需 |
 | 大型 |115 px |115 px |始终必需 |
@@ -168,7 +168,7 @@ ms.locfileid: "68956603"
 
 每个市场项可以包括指向其他内容的各种链接。 链接以名称和 URI 的列表形式进行指定：
 
-| 名称 | 必填 | type | 约束 | 描述 |
+| 姓名 | 必填 | 类型 | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
 | 显示名称 |X |String |最多 64 个字符。 | |
 | Uri |X |URI | | |
@@ -177,7 +177,7 @@ ms.locfileid: "68956603"
 
 除了前面的元数据之外，市场作者可以采用以下形式提供自定义键/值对数据：
 
-| 名称 | 必填 | 类型 | 约束 | 描述 |
+| 姓名 | 必填 | type | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
 | 显示名称 |X |String |最多 25 个字符。 | |
 | ReplTest1 |X |String |最多 30 个字符。 | |
