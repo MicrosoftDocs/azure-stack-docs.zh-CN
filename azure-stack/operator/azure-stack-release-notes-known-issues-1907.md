@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
-ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
+ms.openlocfilehash: 0b305f07344540555b444017a04c1002bb8a08a8
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68738328"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896342"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 已知问题
 
@@ -107,6 +107,12 @@ ms.locfileid: "68738328"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中，“连接”边栏选项卡显示一项名为“VPN 故障排除程序”的功能。 Azure Stack 目前不支持此功能。
 - 发生次数：通用
+
+### <a name="network-connection-type"></a>网络连接类型
+
+- 适用于：此问题适用于任何1906或1907环境。 
+- 原因：在用户门户中, " **AddConnection** " 边栏选项卡显示使用**vnet 到 vnet**的选项。 Azure Stack 目前不支持此功能。 
+- 发生次数：通用 
 
 #### <a name="documentation"></a>文档
 
