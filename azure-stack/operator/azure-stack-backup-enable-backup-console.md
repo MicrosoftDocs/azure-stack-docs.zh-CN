@@ -16,12 +16,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
-ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
+ms.openlocfilehash: 84dd8fdc91a796a94df71926788e62d98b5ef1ae
+ms.sourcegitcommit: 22814dd79664206a260ba0160ed3ae2612e33495
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896366"
+ms.locfileid: "69976166"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>从管理门户为 Azure Stack 启用备份
 通过管理门户启用基础结构备份服务，以便 Azure Stack 可以生成基础结构备份。 出现[灾难性故障](./azure-stack-backup-recover-data.md)时，硬件合作伙伴可以通过云恢复使用这些备份还原环境。 云恢复的目的是为了确保操作员和用户在恢复完成后可以重新登录回门户。 用户将恢复其订阅，包括基于角色的访问权限和角色、原始计划、套餐以及先前定义的计算、存储、网络配额和 Key Vault 机密。
@@ -53,7 +53,7 @@ ms.locfileid: "69896366"
     > [!Note]  
     > 如果希望对超过保留期的备份进行存档，请确保在计划程序删除备份之前对这些文件进行备份。 如果减小备份保留期（例如从 7 天到 5 天），则计划程序将删除超过新的保留期的所有备份。 在更新此值之前，请确保删除备份没有问题。 
 
-9. 在“加密设置”的“证书 .cer 文件”框中提供证书。 备份文件是使用证书中的此公钥加密的。 配置备份设置时，应提供仅包含公钥部分的证书。 首次设置此证书后或将来轮换证书时，只能查看该证书的指纹。 无法下载或查看已上传的证书文件。 若要创建证书文件，请运行以下 PowerShell 命令，以使用公钥和私钥创建自签名的证书，并导出仅包含公钥部分的证书。 可以将证书放到可从管理门户访问的任何位置。
+9. 在 "加密设置" 中, 在 "证书 .cer 文件" 框中提供证书。 备份文件是使用证书中的此公钥加密的。 配置备份设置时，应提供仅包含公钥部分的证书。 首次设置此证书后或将来轮换证书时，只能查看该证书的指纹。 无法下载或查看已上传的证书文件。 若要创建证书文件，请运行以下 PowerShell 命令，以使用公钥和私钥创建自签名的证书，并导出仅包含公钥部分的证书。 可以将证书保存到可从管理门户访问的任何位置。
 
     ```powershell
 
