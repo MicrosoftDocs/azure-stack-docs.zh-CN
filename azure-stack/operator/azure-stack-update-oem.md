@@ -15,16 +15,16 @@ ms.date: 08/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 1342eb503abb81308740c0103b1d54887a46cf85
-ms.sourcegitcommit: f62d58ae724020a24fa5905b6663abb5f1d62178
+ms.openlocfilehash: 9e7ac8a795849ac633a6569b3a7e027f89e4ce9d
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69520923"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008538"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>应用 Azure Stack 原始设备制造商 (OEM) 更新
 
-适用对象：*Azure Stack 集成系统*
+适用范围：*Azure Stack 集成系统*
 
 你可以将原始设备制造商 (OEM) 更新应用于 Azure Stack 硬件组件, 以接收驱动程序和固件改进以及安全修补程序, 同时最大程度地降低对用户的影响。 在本文中, 可以了解 OEM 更新、OEM 联系信息以及如何应用 OEM 更新。
 
@@ -60,12 +60,12 @@ ms.locfileid: "69520923"
 1. 你需要联系你的 OEM 来:
       - 确定 OEM 包的当前版本。  
       - 找到下载 OEM 包的最佳方法。  
-2. 准备 OEM 包, 其中包含[下载集成系统更新包](azure-stack-servicing-policy.md#download-update-packages-for-integrated-systems)中概述的步骤。
+2. 准备 OEM 包, 其中包含[下载集成系统更新包](azure-stack-servicing-policy.md)中概述的步骤。
 3. 使用[Azure Stack 中的 "应用更新" 中](azure-stack-apply-updates.md)所述的步骤来应用更新。
 
 ## <a name="configure-hardware-vendor-vm"></a>配置硬件供应商 VM
 
-一些硬件供应商可能需要 VM 来帮助 OEM 更新过程。 硬件供应商将负责创建这些 vm, 并在运行**OEMExternalVM** cmdlet 时记录是否`ProxyVM`需要`HardwareManager`或**VMType** 。 创建 Vm 后, 请将其配置为具有特权终结点中的**OEMExternalVM** 。
+一些硬件供应商可能需要 VM 来帮助 OEM 更新过程。 你的硬件供应商将负责创建这些 vm, 并记录在运行`ProxyVM` OEMExternalVM `HardwareManager` cmdlet 时是否需要或进行 **VMType** , 以及应该将哪些凭据用于 **-凭据**。 创建 Vm 后, 请将其配置为具有特权终结点中的**OEMExternalVM** 。
 
 有关 Azure Stack 上的特权终结点的详细信息, 请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
 
@@ -77,14 +77,14 @@ ms.locfileid: "69520923"
     -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
 
-2. 使用**OEMExternalVM** cmdlet 配置硬件供应商 VM。 Cmdlet 用于验证 **-VMType** `ProxyVM`的 IP 地址和凭据。 VMType`HardwareManager` cmdlet 不会验证输入。
+2. 使用**OEMExternalVM** cmdlet 配置硬件供应商 VM。 Cmdlet 用于验证 **-VMType** `ProxyVM`的 IP 地址和凭据。 VMType`HardwareManager` cmdlet 不会验证输入。 提供给**OEMExternalVM**的 **-Credential**参数是由硬件供应商文档明确记录的。  它不是用于特权终结点或任何其他现有 Azure Stack 凭据的 CloudAdmin 凭据。
 
     ```powershell  
-    
+    $VmCred = Get-Credential
     Invoke-Command -Session $session
         { 
     Set-OEMExternalVM -VMType <Either "ProxyVM" or "HardwareManager">
-        -IPAddress <IP Address of hardware vendor VM>
+        -IPAddress <IP Address of hardware vendor VM> -Credential $using:VmCred
         }
     ```
 

@@ -1,27 +1,26 @@
 ---
-title: Azure Stack 服务策略 | Microsoft Docs
-description: 了解 Azure Stack 服务策略，以及如何使集成系统保持在受支持的状态。
+title: 将原始设备制造商 (OEM) 更新应用到 Azure Stack |Microsoft Docs
+description: 了解如何将原始设备制造商 (OEM) 更新应用到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: sethm
-ms.reviewer: harik
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c02cc78205b2622b4ef5bdd8b88070912af72b97
+ms.date: 08/15/2019
+ms.author: mabrigg
+ms.lastreviewed: 08/15/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: b8031afd05ba03086cfa748614b58d9b0c5248e9
 ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008603"
+ms.locfileid: "70010161"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 
@@ -30,6 +29,8 @@ ms.locfileid: "70008603"
 本文介绍 Azure Stack 集成系统的服务策略, 你必须执行哪些操作来使系统处于受支持的状态, 以及如何获取支持。
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
+
+若要继续获得支持, 你必须将更新保存在当前 Azure Stack 上。
 
 要使 Azure Stack 实例保持在受支持状态, 实例必须运行最近发布的更新版本, 或者运行上述两个更新版本之一。
 
@@ -43,6 +44,6 @@ Microsoft 软件更新包是非累积性的，其先决条件是需要前一个�
 
 Azure Stack 遵循与 Azure 相同的支持过程。 企业客户可以遵循[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)中所述的过程。 如果你是云服务提供商 (CSP) 的客户，请联系 CSP 获得支持。 有关详细信息，请参阅 [Azure 支持常见问题解答](https://azure.microsoft.com/support/faq/)。
 
-## <a name="next-steps"></a>后续步骤
+# <a name="next-steps"></a>后续步骤
 
-- [在 Azure Stack 中管理更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+[在 Azure Stack 中管理更新](azure-stack-updates.md)

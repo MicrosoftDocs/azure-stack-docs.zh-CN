@@ -16,16 +16,16 @@ ms.date: 08/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/16/2019
-ms.openlocfilehash: 2f840fdd06caf92dcadb8e49d26d7570d9d6aa71
-ms.sourcegitcommit: 54448d4518c7d9145b8755f51b18d554b3190810
+ms.openlocfilehash: 526343889bbd5cc784ebb87c39603e2152a98f3b
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69548284"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008758"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新
 
-适用对象：*Azure Stack 集成系统*
+适用范围：*Azure Stack 集成系统*
 
 本文介绍1907更新包的内容。 此更新包括新的改进，以及此 Azure Stack 版本的修复。
 
@@ -143,7 +143,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 1907版本的 Azure Stack 必须应用于带有以下修补程序的1906版本:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序 1.1906.11.52](https://support.microsoft.com/help/4513119)
+- [Azure Stack 修补程序1.1906.12.54](https://support.microsoft.com/help/4518365)
 
 ### <a name="after-successfully-applying-the-1907-update"></a>成功应用1907更新后
 
