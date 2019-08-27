@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 22e6945c5064a93a8dbaf6daa5c39df36cccb597
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: 792790c2ae5c14e31914b64fc6e5d7eba11aacc0
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008811"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025907"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中应用更新
 
@@ -55,13 +55,13 @@ ms.locfileid: "70008811"
 
 3.  选择要应用的可用更新。 如果没有标记为**可用**的更新, 将需要[准备更新包](azure-stack-update-prepare-package.md)
 
-4.  选择“立即更新”。 .
+4.  选择“立即更新”。
 
     ![Azure Stack 更新运行详细信息](./media/azure-stack-update-apply/image2.png)
 
 5.  可以查看当更新进程循环访问 Azure Stack 中的各个子系统时的概要状态。 示例子系统包括物理主机、Service Fabric、基础结构虚拟机，以及提供管理员用户和用户门户的服务。 在整个更新过程中, 更新资源提供程序会报告有关更新的其他详细信息, 例如已成功完成的步骤数和正在进行的编号。
 
-6.  在“更新运行详细信息”边栏选项卡中选择“下载完整日志”以下载完整日志。
+6.  从 "更新运行详细信息" 边栏选项卡中选择**下载摘要**, 下载完整日志。
 
     如果在监视更新时遇到问题, 可以使用[特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)监视 Azure Stack 更新运行的进度, 并在 Azure Stack 门户变为不可用时, 从最后一个成功步骤恢复失败的更新运行。 有关说明, 请参阅[使用 PowerShell 监视 Azure Stack 中的更新](azure-stack-update-monitor.md)。
 
@@ -81,9 +81,9 @@ ms.locfileid: "70008811"
 
 3.  选择“更新历史记录”。
 
-![Azure Stack 更新历史记录](./media/azure-stack-update-apply/image7.png)
+    ![Azure Stack 更新历史记录](./media/azure-stack-update-apply/image7.png)
 
-# <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 
 -   [管理 Azure Stack 中的更新概述](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
 -   [Azure Stack 服务策略](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

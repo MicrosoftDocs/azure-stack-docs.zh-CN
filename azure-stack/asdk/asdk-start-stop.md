@@ -1,6 +1,6 @@
 ---
-title: 启动和停止 Azure Stack 开发工具包 (ASDK) | Microsoft Docs
-description: 了解如何启动和关闭 Azure Stack 开发工具包 (ASDK)。
+title: 启动和停止 ASDK |Microsoft Docs
+description: 了解如何启动和停止 Azure Stack 开发工具包 (ASDK)。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,21 +16,21 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 6736da0f792c0e01d1a0af06e35a0984ec398158
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 5232b1087414d6e7149157063a253b18a6b6e13a
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493710"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025814"
 ---
-# <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>启动和停止 Azure Stack 开发工具包 (ASDK)
-建议不要仅仅重启 ASDK 主机。 而是应该遵循本文中的过程正确关闭再重启 ASDK 服务。 
+# <a name="start-and-stop-the-asdk"></a>启动和停止 ASDK
+不建议只是重新启动 ASDK 主计算机。 而是应该遵循本文中的过程正确关闭再重启 ASDK 服务。
 
 ## <a name="stop-azure-stack"></a>停止 Azure Stack 
 若要正常关闭 Azure Stack 服务和 ASDK 主机，请使用以下 PowerShell 命令：
 
 1. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
-2. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
+2. 以管理员身份 (而不是 PowerShell ISE) 打开 PowerShell。
 3. 运行以下命令建立特权终结点 (PEP) 会话： 
 
    ```powershell
@@ -44,13 +44,13 @@ ms.locfileid: "68493710"
 5. 查看 PowerShell 输出，确保在关闭 ASDK 主机之前已正常关闭所有 Azure Stack 服务。 关机过程需要花费几分钟时间。
 
 ## <a name="start-azure-stack"></a>启动 Azure Stack 
-启动主机时，ASDK 服务应会自动启动。 但是，ASDK 基础结构服务的启动时间根据 ASDK 主机硬件配置的性能而异。 在某些情况下，所有服务可能需要花费好几个小时才能成功重启。
+启动主机时，ASDK 服务应会自动启动。 但是, ASDK 基础结构服务的启动时间根据 ASDK 主机的硬件配置性能而有所不同。 在某些情况下，所有服务可能需要花费好几个小时才能成功重启。
 
 不管 ASDK 是否已关闭，都应该使用以下步骤来验证打开主机后，所有 Azure Stack 服务是否都已启动并完全正常运行： 
 
 1. 打开 ASDK 主机。 
 2. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
-3. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
+3. 以管理员身份 (而不是 PowerShell ISE) 打开 PowerShell。
 4. 运行以下命令建立特权终结点 (PEP) 会话：
 
    ```powershell
@@ -63,13 +63,13 @@ ms.locfileid: "68493710"
    ```
 6. 查看输出，确保 Azure Stack 服务已成功重启。
 
-若要详细了解正常关闭和重启 Azure Stack 服务的建议过程，请参阅[启动和停止 Azure Stack](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)。 
+若要详细了解正常关闭和重启 Azure Stack 服务的建议过程，请参阅[启动和停止 Azure Stack](../operator/azure-stack-start-and-stop.md)。
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>排查启动和关机问题 
 如果在打开 ASDK 主机后的两个小时内 Azure Stack 服务未成功启动，请执行以下步骤：
 
 1. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
-2. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
+2. 以管理员身份 (而不是 PowerShell ISE) 打开 PowerShell。
 3. 运行以下命令建立特权终结点 (PEP) 会话：
 
    ```powershell
