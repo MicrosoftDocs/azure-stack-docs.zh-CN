@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Stack 门户 |Microsoft Docs
+title: 使用 Azure Stack 用户门户 |Microsoft Docs
 description: 了解如何访问和使用 Azure Stack 中的用户门户。
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 629056556b04a7b5d19c2463b619f3da3a70f7e0
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: 9f6282c9b08547c9449dc7f340f06a6280a98589
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376895"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064175"
 ---
-# <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
+# <a name="use-the-azure-stack-user-portal"></a>使用 Azure Stack 用户门户
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 使用 Azure Stack 门户订阅公共产品/服务, 并使用这些产品提供的服务。 如果你以前用过全球 Azure 门户，则应当已经熟悉了该站点的工作原理。
 
@@ -37,21 +37,21 @@ ms.locfileid: "68376895"
 
 ## <a name="customize-the-dashboard"></a>自定义仪表板
 
-仪表板包含一组默认磁贴。 选择 "**编辑仪表板**" 以修改默认仪表板, 或选择 "**新建仪表板**" 创建自定义仪表板。 通过添加或删除磁贴来轻松自定义仪表板。 例如，若要添加“计算”磁贴，请选择“+ 创建资源”  。 右键单击 "**计算**", 然后选择 "**固定到仪表板**"。
+仪表板包含一组默认磁贴。 选择 "**编辑仪表板**" 以修改默认仪表板, 或选择 "**新建仪表板**" 创建自定义仪表板。 通过添加或删除磁贴来轻松自定义仪表板。 例如，若要添加“计算”磁贴，请选择“+ 创建资源”。 右键单击 "**计算**", 然后选择 "**固定到仪表板**"。
 
 ![Azure Stack 用户门户的屏幕截图](media/azure-stack-use-portal/userportal.png)
 
 若要将仪表板还原成原始设置，请执行以下操作：
-1.  选择“编辑仪表板”  。 
-2.  单击右键并选择“重置为默认状态”。 
+1.  选择“编辑仪表板”。 
+2.  单击右键并选择“重置为默认状态”。
 
 ## <a name="create-subscription-and-browse-available-resources"></a>创建订阅和浏览可用资源
 
 如果还没有订阅, 则需要订阅产品/服务。 之后，可以浏览可用的资源。 若要浏览和创建资源，请使用以下任一方法：
 
-- 选择仪表板上的“市场”磁贴。 
-- 在“所有资源”磁贴上，选择“创建资源”。  
-- 在左侧导航窗格中，选择“+ 创建资源”。 
+- 选择仪表板上的“市场”磁贴。
+- 在“所有资源”磁贴上，选择“创建资源”。
+- 在左侧导航窗格中，选择“+ 创建资源”。
 
 ## <a name="learn-how-to-use-available-services"></a>了解如何使用可用服务
 
@@ -66,9 +66,9 @@ ms.locfileid: "68376895"
     具体而言，我们建议查看以下入门文章：
 
     - [重要注意事项：使用服务或构建 Azure Stack](azure-stack-considerations.md)的应用程序。
-    - 文档的 "**使用服务**" 部分提供了有关每个服务的注意事项。 “注意事项”页面描述了 Azure 中提供的服务与 Azure Stack 中提供的相同服务之间的差异。 有关示例，请参阅 [VM 注意事项](azure-stack-vm-considerations.md)。 “使用服务”部分中可能包含特定于 Azure Stack 的其他信息。 
+    - 文档的 "**使用服务**" 部分提供了有关每个服务的注意事项。 “注意事项”页面描述了 Azure 中提供的服务与 Azure Stack 中提供的相同服务之间的差异。 有关示例，请参阅 [VM 注意事项](azure-stack-vm-considerations.md)。 “使用服务”部分中可能包含特定于 Azure Stack 的其他信息。
 
-      可以使用 Azure 文档来大致了解服务，但必须注意这些差异。 请注意，“快速入门教程”磁贴中的文档链接指向 Azure 文档。 
+      可以使用 Azure 文档来大致了解服务，但必须注意这些差异。 请注意，“快速入门教程”磁贴中的文档链接指向 Azure 文档。
 
 ## <a name="get-support"></a>获取支持
 

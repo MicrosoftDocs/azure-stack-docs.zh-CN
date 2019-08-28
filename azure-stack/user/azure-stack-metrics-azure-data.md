@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806931"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064177"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>使用 Azure Stack 上的 Azure Monitor
 
-适用对象：*Azure Stack 集成系统*
+适用范围：*Azure Stack 集成系统*
 
 本文概述了 Azure Stack 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 的运行以及有关如何使用 Azure Stack 中的 Azure Monitor 的其他信息。 
 
@@ -40,7 +40,7 @@ Azure 监视器是一款平台服务，提供一个中心位置来让用户监�
 
 在你的订阅的套餐资源提供程序设置上注册 **Microsoft.insights** 资源提供程序。 你可以验证该资源提供程序在与你的订阅关联的套餐中是否可用：
 
-1. 打开 Azure Stack 管理门户。
+1. 打开 Azure Stack 用户门户。
 2. 选择“套餐”。
 3. 选择与订阅关联的套餐。
 4. 在“设置”下，选择“资源提供程序”。 
@@ -123,7 +123,7 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
 
 您可以使用以下方法之一来处理数据跟踪、路由和检索。 并非所有方法都适用于所有操作或数据类型。 
 
- - [Azure Stack 门户](azure-stack-use-portal.md)
+ - [Azure Stack 用户门户](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [跨平台的命令行接口 (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)

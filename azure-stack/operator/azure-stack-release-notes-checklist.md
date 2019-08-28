@@ -16,12 +16,12 @@ ms.date: 08/22/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/22/2019
-ms.openlocfilehash: 29ab5b34fc669f69ee4a74e52559c7ad27b20af8
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: f0edd9dfd615b046ee4bad7af622855bb2bd2ca2
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008768"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064152"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新活动清单
 
@@ -39,7 +39,7 @@ ms.locfileid: "70008768"
 | Run Test-AzureStack | 运行 `Test-AzureStack -Group UpdateReadiness` 确定操作问题。 |
 | 解决问题 | 解决由标识的`Test-AzureStack`所有操作问题。 |
 | 应用最新修补程序 | 应用适用于当前安装版本的最新修补程序。 |
-| 运行 Capacity Planner 工具 | 请确保使用最新版本的 Azure Stack Capacity Planner 工具来执行工作负荷规划和调整大小。 最新版本包含 bug 修复，并提供与每个 Azure Stack 更新一起发布的新功能。 |
+| 运行 Capacity Planner 工具 | 请确保使用最新版本的[Azure Stack Capacity Planner 工具](azure-stack-capacity-planning-overview.md)来执行工作负荷规划和调整大小。 最新版本包含 bug 修复，并提供与每个 Azure Stack 更新一起发布的新功能。 |
 | 可用更新 | 只有在联网场景中，Azure Stack 部署才会定期检查安全的终结点，并在已发布云更新的情况下自动通知你。 断开连接的客户可以使用[此处所述的过程](https://docs.microsoft.com/azure-stack/operator/azure-stack-apply-updates)来下载和导入新的包。 |
 
 
@@ -48,9 +48,7 @@ ms.locfileid: "70008768"
 | activities | 详细信息 |
 |--------------------|------------------------------------------------------------------------------------------------------|
 | 管理更新 |[使用运营商门户管理 Azure Stack 中的更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)。 |
-|  |  |
 | 监视更新 | 如果运营商门户不可用，请[使用特权终结点监视 Azure Stack 中的更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-monitor-update)。 |
-|  |  |
 | 恢复更新 | 在修复失败的更新后，[使用特权终结点恢复 Azure Stack 中的更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-monitor-update)。 |
 
 > [!Important]  
@@ -62,7 +60,6 @@ ms.locfileid: "70008768"
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 应用最新修补程序 | 应用适用于已更新版本的最新修补程序。 |
 | 检索加密密钥 | 检索静态数据加密密钥，并将其安全存储在 Azure Stack 部署的外部。 请遵照[有关如何检索密钥的说明](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)操作。 |
-|  |  |
 | 重新启用多租户 | 如果有多租户 Azure Stack, 请确保在成功更新后[配置所有来宾目录租户](https://docs.microsoft.com/azure-stack/operator/azure-stack-enable-multitenancy#configure-guest-directory)。 |
 
 ## <a name="next-steps"></a>后续步骤
