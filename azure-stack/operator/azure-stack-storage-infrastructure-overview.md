@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4c57cad7a5b002e6c73c0555c450a8103eaf8aa4
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: c2a61e165ee64c4b0ee91fbe387973aaa5039f46
+ms.sourcegitcommit: 9cb82df1eccb0486bcabec0bd674162d4820c00c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417995"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060220"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>管理 Azure Stack 的存储基础结构
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 本文介绍 Azure Stack 存储基础结构资源的运行状况和工作状态。 这些资源包括存储驱动器和卷。 尝试排查各种问题（例如，无法将驱动器添加到池）时，本主题中的信息可能非常有参考价值。
 
@@ -57,7 +57,7 @@ Azure Stack 集成式系统合作伙伴提供众多的解决方案版本，包�
 
 ### <a name="volumes"></a>卷
 
-存储服务将可用的存储分区成独立的卷，这些卷可分配用于保存系统数据和租户数据。  卷将驱动器合并到存储池中，带来存储空间直通的容错、可伸缩性和性能优势。
+存储服务将可用的存储分区成独立的卷，这些卷可分配用于保存系统数据和租户数据。 卷将驱动器合并到存储池中，带来存储空间直通的容错、可伸缩性和性能优势。
 
 ![Azure Stack 存储基础结构](media/azure-stack-storage-infrastructure-overview/image4.png)
 
@@ -83,7 +83,7 @@ Azure Stack 集成式系统合作伙伴提供众多的解决方案版本，包�
 
 ![Azure Stack 存储基础结构](media/azure-stack-storage-infrastructure-overview/image5.png)
 
-镜像功能通过保存所有数据的多个副本来提供容错。 这些数据的条带化和放置方式非常重要（请参阅此博客了解详细信息），但肯定的是，使用镜像功能存储的任何数据都会完整地写入多次。 每个副本将写入不同的物理硬件（位于不同服务器中的不同驱动器），假设每个硬盘各自都有可能发生故障。 三向镜像可以安全容许至少两个硬件（驱动器或服务器）同时出现问题。 例如，如果你正在重新启动一台服务器，此时另一个驱动器或服务器突然发生故障，在这种情况下，所有数据将保持安全，可供持续访问。
+镜像功能通过保存所有数据的多个副本来提供容错。 该数据是条带化的, 并不是很重要的, 但实际上, 说到使用镜像存储的任何数据都将被完整地多次写入。 每个副本将写入不同的物理硬件（位于不同服务器中的不同驱动器），假设每个硬盘各自都有可能发生故障。 三向镜像可以安全容许至少两个硬件（驱动器或服务器）同时出现问题。 例如，如果你正在重新启动一台服务器，此时另一个驱动器或服务器突然发生故障，在这种情况下，所有数据将保持安全，可供持续访问。
 
 ## <a name="volume-states"></a>卷状态
 
