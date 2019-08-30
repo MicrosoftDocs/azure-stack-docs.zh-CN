@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 21364595b30c62f47c293e38bdcb9c5663c56e90
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: b71065d4a5af880fe5fb9a48d78a0e2821822b56
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008321"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143988"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack 市场中的 Windows Server 常见问题解答
 
@@ -57,11 +57,11 @@ Azure Stack 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”模�
 
 ```powershell
 vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
-$vm.LicenseType = "Windows_Server"
+$vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-可以通过运行以下命令来检查 VM 的许可证类型。 如果许可证模型显示 " **Windows_Server**", 则将按 PAYG 模型为 Windows 许可证付费:
+可以通过运行以下命令来检查 VM 的许可证类型。 如果许可证模型显示 " **Windows_Server**", 则会按 BYOL 价格向你收费, 否则将按 PAYG 模型为 Windows 计量器收费:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -73,7 +73,7 @@ $vm | ft Name, VmId,LicenseType,ProvisioningState
 
 ```powershell
 $vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
-$vm.LicenseType = "None"
+$vm.LicenseType = "Windows_Server"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 

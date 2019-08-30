@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 23cacc7a9005e1695f7394d1e441298f3f90bca8
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.lastreviewed: 08/28/2019
+ms.openlocfilehash: cf15aebac3ad4d099892270bb2e334d32f82f580
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025943"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70144017"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>准备 ASDK 主机
 必须先准备好安装 ASDK 主机, 然后才能在主计算机上安装 Azure Stack 开发工具包 (ASDK)。 准备好主机后, 它将从 Cloudbuilder.vhdx 虚拟机 (VM) 硬盘启动, 开始 ASDK 部署。
@@ -64,12 +64,17 @@ ms.locfileid: "70025943"
 
     还可以提供以下可选设置的值：
     - **计算机名**：此选项设置 ASDK 主机的名称。 名称必须符合 FQDN 要求，且长度不得超过 15 个字符。 默认值是由 Windows 生成的随机计算机名称。
-    - **静态 IP 配置**：将部署设置为使用静态 IP 地址。 否则，当安装程序重启到 cloudbuilder.vhdx 中时，会使用 DHCP 来配置网络接口。 如果选择使用静态 IP 配置，还会显示其他选项，你还必须：
-      - 选择网络适配器。 确保可以连接到该适配器，然后单击“下一步”。
-      - 确保显示的 **IP 地址**、**网关**和 **DNS** 值是正确的，然后单击“下一步”。
 
-   > [!TIP]
-   > 若要查找时间服务器 IP 地址，请访问 [ntppool.org](https://www.ntppool.org/) 或 ping time.windows.com。
+        - 选择网络适配器。 确保可以连接到该适配器，然后单击“下一步”。
+
+            ![网络适配器设置的屏幕截图](media/asdk-prepare-host/step-four-network-adapter.png)
+
+        - 请确保显示的**IP 地址**、**网关**和**DNS**值正确, 提供有效的**时间服务器 IP**地址, 然后单击 "**下一步**"。
+
+            >[!TIP]
+            >若要查找时间服务器 IP 地址，请访问 [ntppool.org](https://www.ntppool.org/) 或 ping time.windows.com。 
+
+            ![IP 配置设置的屏幕截图](media/asdk-prepare-host/step-five-host-ip-config.png)
 
 7. 单击“下一步”，启动准备过程。
 8. 但准备过程指示“已完成”时，单击“下一步”。

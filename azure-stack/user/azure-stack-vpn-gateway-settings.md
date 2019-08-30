@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 53a423ebc8e9f503934bfd3df2f4962a7b584059
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 9fa12d91e9f2ec738c68f4a04438a93415bd36fb
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658588"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70144037"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>为 Azure Stack 配置 VPN 网关设置
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 VPN 网关是一种虚拟网络网关，可在 Azure Stack 中的虚拟网络与远程 VPN 网关之间发送加密流量。 远程 VPN 网关可位于 Azure 中、数据中心的设备中，或另一个站点上的设备中。 如果两个终结点之间存在网络连接, 则可以在两个网络之间建立安全的站点到站点 (S2S) VPN 连接。
 
@@ -36,11 +36,11 @@ VPN 网关连接依赖于多个资源配置，其中每个资源包含可配置�
 
 每个 Azure Stack 虚拟网络支持单个虚拟网络网关，其类型必须是 **Vpn**。  此支持不同于 Azure, 后者支持其他类型。
 
-创建虚拟网络网关时，必须确保用于配置的网关类型正确。 VPN 网关需要`-GatewayType Vpn`标志; 例如:
+创建虚拟网络网关时，必须确保用于配置的网关类型正确。 VPN 网关需要 `-GatewayType Vpn` 标志，例如：
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
 
@@ -70,27 +70,25 @@ Azure Stack 不支持在所支持的旧式 SKU 之间调整 SKU 大小。
 
 #### <a name="powershell"></a>PowerShell
 
-以下 PowerShell 示例将`-GatewaySku`指定为**VpnGw1**:
+以下 PowerShell 示例将`-GatewaySku`指定为**标准**:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="connection-types"></a>连接类型
 
-在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 `-ConnectionType` 的可用 Resource Manager PowerShell 值为：
+在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 的可用资源管理器 PowerShell 值为`-ConnectionType` **IPsec**。
 
-* **IPsec**
+以下 PowerShell 示例创建需要 IPsec 连接类型的 S2S 连接：
 
-   以下 PowerShell 示例创建需要 IPsec 连接类型的 S2S 连接：
-
-   ```powershell
-   New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
-   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
-   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-   ```
+```powershell
+New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+-ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+```
 
 ### <a name="vpn-types"></a>VPN 类型
 
@@ -106,13 +104,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
   >[!NOTE]
   >**PolicyBased** 在 Azure 中受支持，但在 Azure Stack 中不受支持。
 
-* **RouteBased**：基于路由的 Vpn 使用 IP 转发或路由表中配置的路由, 将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 **RouteBased** vpn 的策略或流量选择器配置为任意对等 (或使用通配符)。 默认情况下，无法更改这些 VPN。 **RouteBased** VPN 类型的值为 **RouteBased**。
+* **RouteBased**：基于路由的 Vpn 使用 IP 转发或路由表中配置的路由, 将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 **RouteBased** VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。 默认情况下，无法更改这些 VPN。 **RouteBased** VPN 类型的值为 **RouteBased**。
 
-以下 PowerShell 示例将 `-VpnType` 指定为**基于路由**。 创建网关时, 必须确保的`-VpnType`配置是正确的。
+以下 PowerShell 示例将 `-VpnType` 指定为**基于路由**。 创建网关时，必须确保 `-VpnType` 符合你的配置。
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
--Location 'West US' -IpConfigurations $gwipconfig
+New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+-Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
@@ -132,7 +130,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 在创建 VPN 网关之前，必须创建一个网关子网。 网关子网包含虚拟网络网关 VM 和服务使用的 IP 地址。 在创建虚拟网络网关时，将网关 VM 部署到网关子网，并使用所需的 VPN 网关设置进行配置。 不要将任何其他内容 (例如, 其他 Vm) 部署到网关子网。
 
 >[!IMPORTANT]
->网关子网必须命名为 **GatewaySubnet** 才能正常工作。 Azure Stack 使用此名称来确定要将虚拟网络网关 Vm 和服务部署到的子网。
+>网关子网必须命名为 **GatewaySubnet** 才能正常工作。 Azure Stack 使用此名称来识别要将虚拟网络网关 VM 和服务部署到的子网。
 
 创建网关子网时，请指定子网包含的 IP 地址数。 将网关子网中的 IP 地址分配到网关 VM 和网关服务。 有些配置需要具有比其他配置更多的 IP 地址。 查看要创建的配置的说明，验证想要创建的网关子网是否会满足这些要求。
 
@@ -156,7 +154,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 以下 PowerShell 示例创建新的本地网络网关：
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -164,7 +162,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE 参数
 
-在 Azure Stack 中设置 VPN 连接时, 必须在两端配置连接。 如果要在 Azure Stack 和硬件设备 (例如充当 VPN 网关的交换机或路由器) 之间配置 VPN 连接, 该设备可能会要求提供其他设置。
+在 Azure Stack 中设置 VPN 连接时，必须在两端配置连接。 如果要在 Azure Stack 和硬件设备 (例如充当 VPN 网关的交换机或路由器) 之间配置 VPN 连接, 该设备可能会要求提供其他设置。
 
 Azure Stack 默认情况下仅支持一个套餐，这与 Azure 不同，后者支持将多个套餐用作发起程序和响应程序。  如需使用适合 VPN 设备的不同 IPSec/IKE 设置，则可通过其他设置来手动配置连接。  有关详细信息, 请参阅为[站点到站点 VPN 连接配置 IPsec/IKE 策略](azure-stack-vpn-s2s.md)。
 
@@ -187,7 +185,7 @@ Azure Stack 默认情况下仅支持一个套餐，这与 Azure 不同，后者�
 |加密和哈希算法（身份验证） | GCMAES256|
 |SA 生存期（时间）  | 27,000 秒  |
 |SA 生存期（千字节） | 33,553,408     |
-|完全向前保密 (PFS) |无 (请参阅注释 1) |
+|完全向前保密 (PFS) |无（请参阅注释 1） |
 |死对等体检测 | 支持|  
 
 * *注释 1：* 在版本1807之前, Azure Stack 使用 PFS2048 值作为 "完全向前保密 (PFS)"。
