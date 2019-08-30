@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 6f417b8afdf5315f581db52dc4b850f72e02b1f0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: 72787bda5dd5fad372af33141e276b4852f86c39
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991739"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159520"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>计划、套餐、配额和订阅概述
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 在 [Azure Stack](azure-stack-overview.md) 中可以交付多种多样的服务，例如虚拟机、SQL Server 数据库、SharePoint、Exchange，甚至 [Azure 市场项](azure-stack-marketplace-azure-items.md)。 Azure Stack 操作员可以使用计划、套餐和配额，在 Azure Stack 中配置并交付此类服务。
 
@@ -85,7 +85,7 @@ ms.locfileid: "68991739"
 
 ### <a name="default-provider-subscription"></a>默认提供商订阅
 
-部署 Azure Stack 开发工具包时，系统会自动创建默认提供商订阅。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为用户创建计划和套餐。 出于安全和许可的原因，不应使用此订阅来运行客户工作负荷和应用程序。
+部署 Azure Stack 开发工具包时，系统会自动创建默认提供商订阅。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为用户创建计划和套餐。 出于安全和许可的原因，不应使用此订阅来运行客户工作负荷和应用程序。 不能更改默认提供商订阅的配额。
 
 ## <a name="next-steps"></a>后续步骤
 

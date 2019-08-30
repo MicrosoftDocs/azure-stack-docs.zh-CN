@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/30/2019
-ms.author: mabrigg
+ms.date: 08/21/2019
+ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 08/05/2019
-ms.openlocfilehash: 6ffd13982a4acf90896b152adcee360e34c02b79
-ms.sourcegitcommit: 8de4c18b25bd1047fc270812a795f24e8f1e9244
+ms.lastreviewed: 08/21/2019
+ms.openlocfilehash: 129033057c6bc7b98b81fde6fbb517a502282467
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68865891"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159571"
 ---
 # <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Azure Stack datacenter 集成-发布 Azure Stack 服务
 
@@ -34,16 +34,12 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 
 将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。 “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 请参阅特定资源提供程序部署文档，了解需要其他资源提供程序（例如 SQL 资源提供程序）的终结点。
 
-此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。
+此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。 用户 VIP 是动态的，由用户自己定义，而不受 Azure Stack 操作员的控制。
 
 > [!Note]  
-> 用户 VIP 是动态的，由用户自己定义，而不受 Azure Stack 操作员的控制。
+> IKEv2 VPN 是一种基于标准的 IPsec VPN 解决方案, 它使用 UDP 端口500和 4500, 以及 TCP 端口50。 防火墙并不总是打开这些端口, 因此 IKEv2 VPN 可能无法遍历代理和防火墙。
 
-> [!Note]  
-> IKEv2 VPN。 IKEv2 VPN 是一个基于标准的 IPsec VPN 解决方案，它使用 UDP 端口 500 和 4500 以及 IP 协议号 50。 防火墙并非始终打开这些端口，因此，IKEv2 VPN 有可能无法穿过代理和防火墙。
-
-> [!Note]  
-> 自 1811 更新起，由于添加了[扩展主机](azure-stack-extension-host-prepare.md)，因此不再需要打开 12495-30015 范围内的端口。
+添加[扩展主机](azure-stack-extension-host-prepare.md)后, 不需要12495-30015 范围内的端口。
 
 |终结点 (VIP)|DNS 主机 A 记录|Protocol|端口|
 |---------|---------|---------|---------|
@@ -80,11 +76,11 @@ Azure Stack 仅支持透明代理服务器。 在具有到传统代理服务器�
 
 |用途|目标 URL|Protocol|端口|源网络|
 |---------|---------|---------|---------|---------|
-|标识|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure 中国世纪互联**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
-|市场联合|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn/|HTTPS|443|公共 VIP - /27|
+|标识|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure 中国世纪互联**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure 德国**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
+|市场联合|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn<br>**Azure 德国**<br>https:\//management.microsoftazure.de/<br>http://&#42;. blob.core.cloudapi.de/|HTTPS|443|公共 VIP - /27|
 |修补程序和更新|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP - /27|
-|注册|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn/|HTTPS|443|公共 VIP - /27|
-|用法|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure 中国世纪互联**<br>https://&#42;. trafficmanager.cn|HTTPS|443|公共 VIP - /27|
+|注册|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn<br>**Azure 德国**<br>https:\//management.core.cloudapi.de/|HTTPS|443|公共 VIP - /27|
+|用法|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure 中国世纪互联**<br>https://&#42;. trafficmanager.cn<br>**Azure 德国**<br>https://&#42;. azuretrafficmanager.de|HTTPS|443|公共 VIP - /27|
 |Windows Defender|&#42;。 wdcp.microsoft.com<br>&#42;。 wdcpalt.microsoft.com<br>&#42;。 wd.microsoft.com<br>&#42;。 update.microsoft.com<br>&#42;。 download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
 |NTP|（为部署提供的 NTP 服务器的 IP）|UDP|123|公共 VIP - /27|
 |DNS|（为部署提供的 DNS 服务器的 IP）|TCP<br>UDP|53|公共 VIP - /27|

@@ -12,22 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: 2bbab1870c06e32889187f676022dab410aaf08c
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 5482d078e4edbda10806220c989909424d9fcd95
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269073"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159591"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>离线更新 Azure Stack 上的 Azure 应用服务
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 应用 1904年更新或更高版本到 Azure Stack 集成系统，或部署 Azure 应用服务 1.6 之前部署最新的 Azure Stack 开发工具包。
+> 在部署 Azure App Service 1.7 之前, 将1907更新或更高版本应用到 Azure Stack 集成的系统或部署最新的 Azure Stack 开发工具包。
 
 遵循本文中的说明可以升级部署在处于以下状态的 Azure Stack 环境中的[应用服务资源提供程序](azure-stack-app-service-overview.md)：
 
@@ -35,13 +35,13 @@ ms.locfileid: "66269073"
 * 受 Active Directory 联合身份验证服务 (AD FS) 保护。
 
 > [!IMPORTANT]
-> 在运行之前升级，请确保你已完成[部署 Azure Stack 资源提供程序上的 Azure 应用服务](azure-stack-app-service-deploy-offline.md)和你已阅读[发行说明](azure-stack-app-service-release-notes-update-six.md)，其中附带有1.6 版本中，若要了解有关新功能、 修复和可能会影响你的部署任何已知的问题。
+> 在运行升级之前, 请确保已在[Azure Stack 资源提供程序上完成 Azure App Service 的部署](azure-stack-app-service-deploy-offline.md), 并且已阅读1.7 版本随附的[发行说明](azure-stack-app-service-release-notes-update-seven.md), 以了解新的功能、修复和可能影响部署的任何已知问题。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>运行应用服务资源提供程序安装程序
 
 若要升级 Azure Stack 环境中的应用服务资源提供程序，必须完成以下任务：
 
-1. 下载[应用服务安装程序](https://aka.ms/appsvcupdate6installer)
+1. 下载[应用服务安装程序](https://aka.ms/appsvcupdate7installer)。
 2. 创建离线升级包。
 3. 运行应用服务安装程序 (appservice.exe) 并完成升级。
 
@@ -61,11 +61,11 @@ ms.locfileid: "66269073"
 
     ![应用服务安装程序][1]
 
-2. 单击“高级”   >   “创建离线包”
+2. 单击“高级” > “创建离线包”
 
     ![应用服务安装程序高级设置][2]
 
-3. 应用服务安装程序将创建离线升级包并显示其路径。  可以单击“打开文件夹”，在文件资源管理器中打开该文件夹。 
+3. 应用服务安装程序将创建离线升级包并显示其路径。  可以单击“打开文件夹”，在文件资源管理器中打开该文件夹。
 
 4. 将安装程序 (AppService.exe) 和离线升级包复制到 Azure Stack 主机。
 
@@ -80,42 +80,42 @@ ms.locfileid: "66269073"
 
     ![应用服务安装程序][1]
 
-2. 单击“高级”   >   “完成离线安装或升级”。
+2. 单击“高级” > “完成离线安装或升级”。
 
     ![应用服务安装程序高级设置][2]
 
-3. 浏览到前面创建的离线升级包所在的位置，单击“下一步”。 
+3. 浏览到前面创建的离线升级包所在的位置，单击“下一步”。
 
-4. 查看并接受 Microsoft 软件许可条款，然后单击“下一步”  。
+4. 查看并接受 Microsoft 软件许可条款，然后单击“下一步”。
 
-5. 查看并接受第三方许可条款，然后单击“下一步”  。
+5. 查看并接受第三方许可条款，然后单击“下一步”。
 
-6. 确保 Azure Stack Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack 时自定义了选项，则必须编辑此窗口中的值。 例如，如果使用域后缀 *mycloud.com*，则必须将“Azure Stack”Azure 资源管理器终结点更改为 *management.region.mycloud.com*。 确认信息后，单击“下一步”  。
+6. 确保 Azure Stack Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack 时自定义了选项，则必须编辑此窗口中的值。 例如，如果使用域后缀 *mycloud.com*，则必须将“Azure Stack”Azure 资源管理器终结点更改为 *management.region.mycloud.com*。 确认信息后，单击“下一步”。
 
     ![Azure Stack 云信息][3]
 
 7. 在下一页上执行以下操作：
 
-   1. 单击“Azure Stack 订阅”  框旁边的“连接”  按钮。
-      * 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 单击“登录”  。
-      * 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如， _cloudadmin@azurestack.local_ 。 输入密码，并单击“登录”  。
-   2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。  
-   3. 在“Azure Stack 位置”  框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”  。
+   1. 单击“Azure Stack 订阅”框旁边的“连接”按钮。
+      * 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 单击“登录”。
+      * 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如， _cloudadmin@azurestack.local_ 。 输入密码，并单击“登录”。
+   2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
+   3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
    4. 如果检测到现有的应用服务部署，则资源组和存储帐户将被填充并灰显。
-   5. 按“下一步”查看升级摘要。 
+   5. 按“下一步”查看升级摘要。
 
       ![检测到应用服务安装][4]
 
 8. 在摘要页上执行以下操作：
-   1. 验证所做的选择。 若要进行更改，请使用“上一步”  按钮访问前面的页面。
+   1. 验证所做的选择。 若要进行更改，请使用“上一步”按钮访问前面的页面。
    2. 如果配置正确，则选中此复选框。
-   3. 若要开始升级，请单击“下一步”。 
+   3. 若要开始升级，请单击“下一步”。
 
        ![应用服务升级摘要][5]
 
 9. 升级进度页：
     1. 跟踪升级进度。 Azure Stack 上的应用服务升级持续时间取决于部署的角色实例数目。
-    2. 升级成功完成后，单击“退出”。 
+    2. 升级成功完成后，单击“退出”。
 
         ![应用服务升级进度][6]
 
@@ -129,7 +129,7 @@ ms.locfileid: "66269073"
 
 ## <a name="next-steps"></a>后续步骤
 
-还可以试用其他[平台即服务 (PaaS) 服务](azure-stack-offer-services-overview.md)。
+准备 Azure Stack 上应用服务的其他管理员操作
 
-* [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)
-* [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
+* [规划额外的容量](azure-stack-app-service-capacity-planning.md)
+* [添加其他容量](azure-stack-app-service-add-worker-roles.md)

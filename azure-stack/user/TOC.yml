@@ -184,7 +184,7 @@
                   href: azure-stack-metrics-supported.md
                 - name: 使用 Azure 监视数据
                   href: azure-stack-metrics-monitor.md
-        - name: 使用解决方案模板
+        - name: 部署外接程序服务
           items:
             - name: 部署 Ethereum
               href: azure-stack-ethereum.md
