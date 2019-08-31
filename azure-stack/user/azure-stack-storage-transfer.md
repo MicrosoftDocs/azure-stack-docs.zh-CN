@@ -14,16 +14,16 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 6b6ab8ac8292f8d548b49331cf5d2e2ae100e68f
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 92e0c1a3bfd055373ffba5091d79922f1203b20b
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418450"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188028"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>使用 Azure Stack 存储中的数据传输工具
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 提供了一组存储服务, 适用于磁盘、blob、表、队列和帐户管理功能。 如果要在 Azure Stack 存储中管理或移入或移出数据, 则可以使用一些 Azure 存储工具。 本文概述了可用的工具。
 
@@ -57,38 +57,43 @@ AzCopy 是一个命令行实用程序, 旨在使用具有最佳性能的简单�
 
 ### <a name="download-and-install-azcopy"></a>下载并安装 AzCopy
 
+::: moniker range=">=azs-1811"
 * 对于1811更新或更高版本, 请[下载 AzCopy V10 +](/azure/storage/common/storage-use-azcopy-v10#download-azcopy)。
+::: moniker-end
+
+::: moniker range="<azs-1811"
 * 对于以前的版本（1802 到 1809 更新），请[下载 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。
+::: moniker-end
 
 ### <a name="azcopy-101-configuration-and-limits"></a>AzCopy 10.1 配置和限制
 
-AzCopy 10.1 现在可以配置为使用较旧的 API 版本。 这为 Azure Stack 启用 (有限) 支持。
+AzCopy 10.1 现在可以配置为使用旧版 API。 这样就可以为 Azure Stack 提供（有限的）支持。
 若要配置 AzCopy 的 API 版本以支持 Azure Stack, 请将`AZCOPY_DEFAULT_SERVICE_API_VERSION`环境变量设置`2017-11-09`为。
 
 | 操作系统 | Command  |
 |--------|-----------|
-| **Windows** | 在命令提示符下使用:`set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> 在 PowerShell 中使用:`$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
+| **Windows** | 在命令提示符处使用 `set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> 在 PowerShell 中使用 `$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
 | **Linux** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 | **MacOS** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
 
-在 AzCopy 10.1 中, Azure Stack 支持以下功能:
+在 AzCopy 10.1 中，支持适用于 Azure Stack 的以下功能：
 
 | 功能 | 支持的操作 |
 | --- | --- |
 |管理容器|创建容器<br>列出容器的内容
 |管理作业|显示作业<br>恢复作业
-|删除 blob|删除单个 blob<br>删除整个或部分虚拟目录
+|删除 Blob|删除单个 Blob<br>删除整个或部分虚拟目录
 |上传文件|上传文件<br>上传目录<br>上传目录的内容
 |下载文件|下载文件<br>下载目录<br>下载目录的内容
 |同步文件|将容器同步到本地文件系统<br>将本地文件系统同步到容器
 
    > [!NOTE]
-   > * Azure Stack 不支持通过使用 Azure Active Directory (AD) 向 AzCopy 提供授权凭据。 必须使用共享访问签名 (SAS) 令牌访问 Azure Stack 上的存储对象。
+   > * Azure Stack 不支持使用 Azure Active Directory (AD) 向 AzCopy 提供授权凭据。 必须使用共享访问签名 (SAS) 令牌访问 Azure Stack 上的存储对象。
    > * Azure Stack 不支持两个 Azure Stack blob 位置之间以及 Azure 存储和 Azure Stack 之间的同步数据传输。 不能使用 "azcopy cp" 将数据从 Azure Stack 直接移到 Azure 存储 (或其他方法), AzCopy 10.1。
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>针对数据传输的 AzCopy 命令示例
 
-以下示例展示了将数据复制到 Azure Stack Blob 以及从这些位置复制数据的典型方案。 若要了解详细信息, 请参阅[AzCopy 入门](/azure/storage/common/storage-use-azcopy-v10)。
+以下示例展示了将数据复制到 Azure Stack Blob 以及从这些位置复制数据的典型方案。 若要了解详细信息，请参阅 [AzCopy 入门](/azure/storage/common/storage-use-azcopy-v10)。
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>将所有 Blob 下载到本地磁盘
 
@@ -105,7 +110,7 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
 ### <a name="azcopy-known-issues"></a>AzCopy 的已知问题
 
  - 文件存储上的任何 AzCopy 操作都不可用, 因为文件存储在 Azure Stack 中尚不可用。
- - 如果要在两个 Azure Stack blob 位置之间传输数据, 或使用 AzCopy 10.1 在 Azure Stack 与 Azure 存储之间传输数据, 则需要先将数据下载到本地位置, 然后重新上传到 Azure Stack 或 Azure 存储上的目标目录。 或者, 可以使用 AzCopy 7.1, 并使用 **/SyncCopy**选项指定传输来复制数据。  
+ - 如果要在两个 Azure Stack blob 位置之间传输数据, 或使用 AzCopy 10.1 在 Azure Stack 与 Azure 存储之间传输数据, 则需要先将数据下载到本地位置, 然后重新上传到 Azure Stack 或 Azure 存储上的目标目录。 也可使用 AzCopy 7.1 通过 **/SyncCopy** 选项来指定传输，以便复制数据。  
  - Linux 版本的 AzCopy 仅支持1802更新或更高版本, 并且不支持表服务。
  
 ## <a name="azure-powershell"></a>Azure PowerShell

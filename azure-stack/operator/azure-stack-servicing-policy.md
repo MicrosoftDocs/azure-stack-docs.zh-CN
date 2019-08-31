@@ -12,18 +12,35 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c02cc78205b2622b4ef5bdd8b88070912af72b97
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: 1022ab056157ea1a9bc925d3992a99bd0b395a35
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008603"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188080"
 ---
-# <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
+- **OEM 硬件供应商提供的更新**。 Azure Stack 硬件合作伙伴负责硬件相关固件和驱动程序更新包的端到端服务生命周期（包括指导）。 此外，对于硬件生命周期主机上的所有软件和硬件，Azure Stack 硬件合作伙伴拥有并维护指导。 OEM 硬件供应商在自己的下载站点上托管这些更新包。
+
+## <a name="update-package-release-cadence"></a>更新包发布频率
+
+Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布多个更新或没有任何更新。 OEM 硬件供应商会根据需要发布更新。
+
+在[管理更新概述](azure-stack-updates.md)文档中，可以了解如何规划和管理更新，以及如何确定当前版本。
+
+有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明：
+
+- [Azure Stack 1908 更新](azure-stack-release-notes-1908.md)
+- [Azure Stack 1907 更新](azure-stack-release-notes-1907.md)
+- [Azure Stack 1906 更新](azure-stack-release-notes-1906.md)
+- [Azure Stack 1905 更新](azure-stack-release-notes-1905.md)
+
+## <a name="hotfixes"></a>修补程序
+
+Microsoft 偶尔会提供 Azure Stack 的修补程序（通常是预防性或时效性的程序）来解决具体的问题。  发布的每个修补程序都附带相应的 Microsoft 知识库文章，其中详细描述了问题、原因和解决方法。
 
 适用范围：*Azure Stack 集成系统*
 

@@ -10,28 +10,29 @@ ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 10bf2bcc13ceab3b28e44759bbacae57d63b9b97
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: c708c7f94f7d7e956b0ca4a6c4c4c2c70b1590fc
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131664"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188099"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Microsoft Azure Stack 提供了一组存储服务包括 blob、 表和队列存储。
+Microsoft Azure Stack 提供了一组存储服务, 包括 blob、表和队列存储。
 
 使用本文作为使用 Azure Stack 存储开发工具的入门指南。 可以在对应的 Azure 存储教程中，找到更多的详细信息和示例代码。
 
 > [!NOTE]  
-> 有 Azure Stack 存储和 Azure 存储，其中包括针对每个平台的特定需求之间的差异。 例如，有特定的客户端库和 Azure Stack 终结点后缀需求。 有关详细信息，请参阅 [Azure Stack 存储：差异和注意事项](azure-stack-acs-differences.md)。
+> Azure Stack 存储和 Azure 存储之间存在一些差异，包括每个平台的特定要求。 例如，Azure Stack 有特定的客户端库以及终结点后缀要求。 有关详细信息，请参阅 [Azure Stack 存储：差异和注意事项](azure-stack-acs-differences.md)。
 
 ## <a name="azure-client-libraries"></a>Azure 客户端库
 
 对于存储客户端库，请了解与 REST API 兼容的版本。 还必须在代码中指定 Azure Stack 终结点。
 
+::: moniker range=">=azs-1811"
 ### <a name="1811-update-or-newer-versions"></a>1811 更新或更高版本
 
 | 客户端库 | Azure Stack 支持的版本 | 链接 | 终结点规范 |
@@ -60,7 +61,9 @@ Microsoft Azure Stack 提供了一组存储服务包括 blob、 表和队列存�
 
 2. 将 [composer.phar](https://getcomposer.org/composer.phar) 下载到项目根目录。
 3. 运行：`php composer.phar install`。
+::: moniker-end
 
+::: moniker range=">=azs-1802 <=azs-1809"
 ### <a name="previous-versions-1802-to-1809-update"></a>以前的版本（1802 到 1809 更新）
 
 | 客户端库 | Azure Stack 支持的版本 | 链接 | 终结点规范 |
@@ -89,12 +92,13 @@ Microsoft Azure Stack 提供了一组存储服务包括 blob、 表和队列存�
 
 2. 将 [composer.phar](https://getcomposer.org/composer.phar) 下载到项目根目录。
 3. 运行：`php composer.phar install`。
+:::moniker-end
 
 ## <a name="endpoint-declaration"></a>终结点声明
 
 Azure Stack 终结点包含两个部分：区域的名称和 Azure Stack 域。
 在 Azure Stack 开发工具包中，默认终结点是 **local.azurestack.external**。
-如果你不确定你的终结点，请与你的云管理员联系。
+如果不确定你的终结点，请与云管理员联系。
 
 ## <a name="examples"></a>示例
 

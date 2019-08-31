@@ -16,12 +16,13 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: c646ca836728cc1963354afb66ee04ee0accf1b6
-ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
+monikerRange: azs-1906
+ms.openlocfilehash: bf8e32d6395b3ddfc54fe586568b51b76b71dc63
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887112"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188307"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新
 
@@ -116,14 +117,14 @@ Azure Stack 1906 更新内部版本类型为“快速”。 有关更新内部�
 
 ## <a name="security-updates"></a>安全更新
 
-有关此 Azure Stack 更新中的安全更新的信息，请参阅 [Azure Stack 安全更新](azure-stack-release-notes-security-updates-1906.md)。
+有关此 Azure Stack 更新中的安全更新的信息，请参阅 [Azure Stack 安全更新](azure-stack-release-notes-security-updates.md)。
 
 ## <a name="update-planning"></a>更新规划
 
 应用更新之前，请务必查看以下信息：
 
 - [已知问题](azure-stack-release-notes-known-issues-1906.md)
-- [安全更新](azure-stack-release-notes-security-updates-1906.md)
+- [安全更新](azure-stack-release-notes-security-updates.md)
 - [应用更新之前和之后的活动清单](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>下载更新

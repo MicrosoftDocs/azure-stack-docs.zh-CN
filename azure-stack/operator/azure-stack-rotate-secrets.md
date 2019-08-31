@@ -15,12 +15,13 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 7d8990616bcf5cdca628f4aad91e2aee6b95d42a
-ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
+monikerRange: '>=azs-1803'
+ms.openlocfilehash: 5b8beccab17eaa9aedadb63327150a70a327df1f
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497833"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188169"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -301,10 +302,10 @@ Start-SecretRotation [-ReRun] [-Internal]
 | 参数 | type | 必填 | 位置 | 默认 | 描述 |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | String  | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享路径。 仅当轮换外部机密时才需要。 结尾目录必须是 **\Certificates**。 |
-| `CertificatePassword` | SecureString | False  | 名为  | 无  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则是必需的值。 |
+| `CertificatePassword` | SecureString | False  | 名为  | None  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则是必需的值。 |
 | `Internal` | String | False | 名为 | 无 | 每当 Azure Stack 操作员想要轮换内部基础结构机密时，都必须使用 Internal 标志。 |
-| `PathAccessCredential` | PSCredential | False  | 名为  | None  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享的 PowerShell 凭据。 仅当轮换外部机密时才需要。  |
-| `ReRun` | SwitchParameter | False  | 名为  | 无  | 每当尝试失败后重新尝试机密轮换时，都必须使用 ReRun。 |
+| `PathAccessCredential` | PSCredential | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享的 PowerShell 凭据。 仅当轮换外部机密时才需要。  |
+| `ReRun` | SwitchParameter | False  | 名为  | None  | 每当尝试失败后重新尝试机密轮换时，都必须使用 ReRun。 |
 
 ### <a name="examples"></a>示例
 
@@ -369,10 +370,10 @@ Remove-PSSession -Session $PEPSession
 
 基板管理控制器 (BMC) 监视服务器的物理状态。 有关更新 BMC 用户帐户名和密码的规范和说明会根据原始设备制造商 (OEM) 硬件供应商而有所不同。 应定期更新 Azure Stack 组件的密码。
 
-1. 遵照 OEM 说明在 Azure Stack 的物理服务器上更新 BMC。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名不能超过16个字符。
+1. 遵照 OEM 说明在 Azure Stack 的物理服务器上更新 BMC。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名不能超过 16 个字符。
 
     > [!Note]  
-    > 首先, 在物理服务器的基本板管理控制器上更新 BMC 凭据;否则, Azure Stack 命令将在验证过程中失败。
+    > 首先，在物理服务器的基板管理控制器上更新 BMC 凭据；否则，Azure Stack 命令将在验证期间失败。
 
 2. 在 Azure Stack 会话中打开特权终结点。 有关说明，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
 3. 在 PowerShell 提示符更改为 **[IP 地址或 ERCS VM 名称]:PS>** 或 **[azs-ercs01]:PS>** （具体取决于环境）后，通过运行 `Invoke-Command` 来运行 `Set-BmcCredential`。 将特权终结点会话变量作为参数传递。 例如：
