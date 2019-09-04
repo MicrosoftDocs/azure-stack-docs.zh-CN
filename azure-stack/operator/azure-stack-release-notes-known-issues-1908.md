@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 1908 已知问题 |Microsoft Docs
-description: 了解 Azure Stack 1907 中的已知问题。
+description: 了解 Azure Stack 1908 中的已知问题。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: sethm
-ms.reviewer: hectorl
+ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: da995bf2f24c4a9021be3dec675af0b2ae03e0cb
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 317f53eb5b50fc415fc7a65e044eca7948a54e58
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188927"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234951"
 ---
 # <a name="azure-stack-1908-known-issues"></a>Azure Stack 1908 已知问题
 
@@ -34,8 +34,8 @@ ms.locfileid: "70188927"
 ## <a name="update-process"></a>更新过程
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：尝试安装 1907 Azure Stack 更新时, 更新的状态可能会失败, 并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
-- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。 然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题仍然存在, 建议使用 "[安装更新" 部分](azure-stack-apply-updates.md#install-updates-and-monitor-progress)手动上载更新包。
+- 原因：尝试安装 1907 Azure Stack 更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
+- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。 然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题仍然存在，建议使用 "[安装更新" 部分](azure-stack-apply-updates.md#install-updates-and-monitor-progress)手动上载更新包。
 - 发生次数：通用
 
 ## <a name="portal"></a>门户
@@ -50,14 +50,14 @@ ms.locfileid: "70188927"
 ### <a name="subscriptions-properties-blade"></a>订阅属性边栏选项卡
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：在管理员门户中, 订阅的 "**属性**" 边栏选项卡未正确加载
+- 原因：在管理员门户中，订阅的 "**属性**" 边栏选项卡未正确加载
 - 补救措施：您可以在 "**订阅概述**" 边栏选项卡的 "**概要**" 窗格中查看这些订阅属性。
 - 发生次数：通用
 
 ### <a name="subscriptions-lock-blade"></a>订阅锁定边栏选项卡
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：在管理员门户中, 用户订阅的**锁定**边栏选项卡有两个 butons。
+- 原因：在管理员门户中，**用户订阅的** **锁定**边栏选项卡有两个 butons。
 - 发生次数：通用
 
 ### <a name="subscription-permissions"></a>订阅权限
@@ -100,8 +100,8 @@ ms.locfileid: "70188927"
 #### <a name="local-network-gateway-deletion"></a>本地网络网关删除
 
 - 适用于：此问题适用于 1906 版本。
-- 原因：在用户门户中, 删除**本地网络网关**会显示以下错误消息:如果没有活动连接, 则**无法删除具有活动连接的本地网络网关**。
-- 缓解措施：此问题的修复将在1907中发布。 此问题的解决方法是使用相同的 IP 地址、地址空间和配置详细信息创建新的本地网络网关。 环境更新到1907后, 可以删除旧的 LNG。
+- 原因：在用户门户中，删除**本地网络网关**会显示以下错误消息：如果没有活动连接，则**无法删除具有活动连接的本地网络网关**。
+- 缓解措施：此问题的修复将在1907中发布。 此问题的解决方法是使用相同的 IP 地址、地址空间和配置详细信息创建新的本地网络网关。 环境更新到1907后，可以删除旧的 LNG。
 - 发生次数：通用
 
 #### <a name="alerts"></a>警报
@@ -125,7 +125,7 @@ ms.locfileid: "70188927"
 #### <a name="documentation"></a>文档
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：虚拟网络网关概述页中的文档链接链接到特定于 Azure 的文档，而不是 Azure Stack 文档。 使用以下链接获取 Azure Stack 文档:
+- 原因：虚拟网络网关概述页中的文档链接链接到特定于 Azure 的文档，而不是 Azure Stack 文档。 使用以下链接获取 Azure Stack 文档：
 
   - [网关 SKU](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [高可用性连接](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)

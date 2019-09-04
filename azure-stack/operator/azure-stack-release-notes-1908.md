@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 1908 发行说明 |Microsoft Docs
-description: 了解 Azure Stack 集成系统的1908更新, 包括新功能、已知问题和更新下载位置。
+description: 了解 Azure Stack 集成系统的1908更新，包括新功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: sethm
-ms.reviewer: hectorl
+ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: 64c2acc0e31266fe63b0198bd9966f74ce39dc23
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: fbf4983f6f7d2f88da70552ae182792ee316994a
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188905"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234971"
 ---
 # <a name="azure-stack-1908-update"></a>Azure Stack 1908 更新
 
@@ -35,7 +35,7 @@ ms.locfileid: "70188905"
 
 ## <a name="previous-release-notes"></a>以前的发行说明
 
-从1908版开始, 早期版本的发行说明在左侧的目录中将不再可见。 若要访问旧版本的发行说明, 请选择另一篇文章 (例如[Azure Stack 概述](azure-stack-overview.md)), 然后从左侧目录顶部的版本选择器中选择1905、1906、1907或1908。 对于早期版本的发行说明, 请参阅[存档的发行说明](#archived-release-notes)部分。
+从1908版开始，早期版本的发行说明在左侧的目录中将不再可见。 若要访问旧版本的发行说明，请选择另一篇文章（例如[Azure Stack 概述](azure-stack-overview.md)），然后从左侧目录顶部的版本选择器中选择1905、1906、1907或1908。 对于早期版本的发行说明，请参阅[存档的发行说明](#archived-release-notes)部分。
 
 ## <a name="build-reference"></a>内部版本参考
 
@@ -43,15 +43,15 @@ Azure Stack 1908 更新内部版本号为**1.1908.0.20**。
 
 ### <a name="update-type"></a>更新类型
 
-对于 1908, Azure Stack 运行的基础操作系统已更新为 Windows Server 2019。 这可以实现核心基本的增强功能, 并能够在不久的将来为 Azure Stack 提供附加功能。
+对于1908，Azure Stack 运行的基础操作系统已更新为 Windows Server 2019。 这可以实现核心基本的增强功能，并能够在不久的将来为 Azure Stack 提供附加功能。
 
-Azure Stack 1908 更新生成类型已**满**。 因此, 1908 更新的运行时比快速更新 (如1906和 1907) 长。 完整更新的确切运行时间通常取决于 Azure Stack 实例包含的节点数目、租户工作负荷在系统上使用的容量、系统的网络连接（如果已连接到 Internet），以及系统的硬件配置。 在内部测试中, 1908 更新具有以下所需的运行时:4个节点-42 小时, 8 个节点-50 小时, 12 个节点-60 小时, 16 个节点-70 小时。 持续时间比预期值长的更新运行时并不常见, 因此, 如果更新失败, 则不需要 Azure Stack 运算符执行操作。
+Azure Stack 1908 更新生成类型已**满**。 因此，1908更新的运行时比快速更新（如1906和1907）长。 完整更新的确切运行时间通常取决于 Azure Stack 实例包含的节点数目、租户工作负荷在系统上使用的容量、系统的网络连接（如果已连接到 Internet），以及系统的硬件配置。 在内部测试中，1908更新具有以下所需的运行时：4个节点-42 小时，8个节点-50 小时，12个节点-60 小时，16个节点-70 小时。 持续时间比预期值长的更新运行时并不常见，因此，如果更新失败，则不需要 Azure Stack 运算符执行操作。
 
 有关更新内部版本类型的详细信息，请参阅[在 Azure Stack 中管理更新](azure-stack-updates.md)。
 
-- 确切的更新运行时通常取决于您的系统上使用的容量、租户工作负荷、系统网络连接 (如果已连接到 internet) 以及系统硬件配置。
-- 持续时间比预期长的运行时并不常见, 因此, 如果更新失败, 则不需要 Azure Stack 运算符执行操作。
-- 此运行时近似值特定于1908更新, 不应与其他 Azure Stack 更新进行比较。
+- 确切的更新运行时通常取决于您的系统上使用的容量、租户工作负荷、系统网络连接（如果已连接到 internet）以及系统硬件配置。
+- 持续时间比预期长的运行时并不常见，因此，如果更新失败，则不需要 Azure Stack 运算符执行操作。
+- 此运行时近似值特定于1908更新，不应与其他 Azure Stack 更新进行比较。
 
 <!-- ## What's in this update -->
 
@@ -61,23 +61,23 @@ Azure Stack 1908 更新生成类型已**满**。 因此, 1908 更新的运行时
 
 <!-- What's new, also net new experiences and features. -->
 
-- 对于 1908, 请注意, Azure Stack 运行的基础操作系统已更新为 Windows Server 2019。 这可以实现核心基本的增强功能, 并能够在不久的将来为 Azure Stack 提供附加功能。
+- 对于1908，请注意，Azure Stack 运行的基础操作系统已更新为 Windows Server 2019。 这可以实现核心基本的增强功能，并能够在不久的将来为 Azure Stack 提供附加功能。
 - Azure Stack 基础结构的所有组件现在在 FIPS 140-2 模式下运行。
 
 
 ### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-- 对 Azure Stack 静态加密数据的改进, 将机密保存到物理节点的硬件受信任的平台模块 (TPM) 中。
+- 对 Azure Stack 静态加密数据的改进，将机密保存到物理节点的硬件受信任的平台模块（TPM）中。
 
 ### <a name="changes"></a>更改
 
-- 硬件提供程序将同时发布 OEM 扩展包2.1 或更高版本, Azure Stack 1908 版。 OEM 扩展包2.1 或更高版本是 Azure Stack 版本1908的必备组件。 有关如何下载 OEM 扩展包2.1 或更高版本的详细信息, 请与系统的硬件提供商联系, 并参阅[OEM 更新](azure-stack-update-oem.md#oem-contact-information)一文。  
+- 硬件提供程序将同时发布 OEM 扩展包2.1 或更高版本，Azure Stack 1908 版。 OEM 扩展包2.1 或更高版本是 Azure Stack 版本1908的必备组件。 有关如何下载 OEM 扩展包2.1 或更高版本的详细信息，请与系统的硬件提供商联系，并参阅[OEM 更新](azure-stack-update-oem.md#oem-contact-information)一文。  
 
 ### <a name="fixes"></a>修复项
 
-- 修复了与未来 Azure Stack OEM 更新兼容的问题, 以及使用客户用户映像的 VM 部署问题。 此问题已在1907修补程序[KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)中发现和修复。  
-- 修复了在 Test-azurestack for Fabric 环形运行状况中, OEM 固件更新和更正后的 misdiagnosis 的问题。 此问题已在1907修补程序[KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)中发现和修复。
+- 修复了与未来 Azure Stack OEM 更新兼容的问题，以及使用客户用户映像的 VM 部署问题。 此问题已在1907修补程序[KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)中发现和修复。  
+- 修复了在 Test-azurestack for Fabric 环形运行状况中，OEM 固件更新和更正后的 misdiagnosis 的问题。 此问题已在1907修补程序[KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)中发现和修复。
 - 修复了 OEM 固件更新过程的问题。 此问题已在1907修补程序[KB4515650](https://support.microsoft.com/en-us/help/4515650/azure-stack-hotfix-1-1907-8-37)中发现和修复。
 
 
@@ -101,18 +101,18 @@ Azure Stack 1908 更新生成类型已**满**。 因此, 1908 更新的运行时
 
 ## <a name="hotfixes"></a>修补程序
 
-Azure Stack 定期发布修补程序。 在将 Azure Stack 更新为1908之前, 请务必安装最新 Azure Stack 修补程序1907。
+Azure Stack 定期发布修补程序。 在将 Azure Stack 更新为1908之前，请务必安装最新 Azure Stack 修补程序1907。
 
 Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 ASDK 上安装修补程序。
 
 ### <a name="prerequisites-before-applying-the-1908-update"></a>先决条件：在应用1908更新之前
 
-1908版本的 Azure Stack 必须应用于带有以下修补程序的1907版本:
+1908版本的 Azure Stack 必须应用于带有以下修补程序的1907版本：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
 - [Azure Stack 修补程序1.1907.12.44](https://support.microsoft.com/help/4517473)
 
-Azure Stack 1908 更新需要从系统的硬件提供程序**AZURE STACK OEM 版本2.1 或更高版本**。 OEM 更新包括 Azure Stack 系统硬件的驱动程序和固件更新。 有关应用 OEM 更新的详细信息, 请参阅[Apply Azure Stack 原始设备制造商更新](azure-stack-update-oem.md)
+Azure Stack 1908 更新需要从系统的硬件提供程序**AZURE STACK OEM 版本2.1 或更高版本**。 OEM 更新包括 Azure Stack 系统硬件的驱动程序和固件更新。 有关应用 OEM 更新的详细信息，请参阅[Apply Azure Stack 原始设备制造商更新](azure-stack-update-oem.md)
 
 ### <a name="after-successfully-applying-the-1908-update"></a>成功应用1908更新后
 
@@ -133,7 +133,7 @@ Azure Stack 1908 更新需要从系统的硬件提供程序**AZURE STACK OEM 版
 
 ## <a name="archived-release-notes"></a>已存档的发行说明
 
-可查看 [TechNet 库中 Azure Stack 发行说明的早期版本](https://aka.ms/azsarchivedrelnotes)。 提供这些已存档的发行说明仅供参考，并不意味着支持这些版本。 有关 Azure Stack 支持的信息, 请参阅 [Azure Stack 服务策略](azure-stack-servicing-policy.md)。 若要获得更多帮助, 请与 Microsoft 客户支持服务联系。
+可查看 [TechNet 库中 Azure Stack 发行说明的早期版本](https://aka.ms/azsarchivedrelnotes)。 提供这些已存档的发行说明仅供参考，并不意味着支持这些版本。 有关 Azure Stack 支持的信息, 请参阅 [Azure Stack 服务策略](azure-stack-servicing-policy.md)。 若要获得更多帮助，请与 Microsoft 客户支持服务联系。
 
 ## <a name="next-steps"></a>后续步骤
 

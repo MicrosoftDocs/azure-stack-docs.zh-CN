@@ -1,9 +1,9 @@
 ---
-title: 将原始设备制造商 (OEM) 更新应用到 Azure Stack |Microsoft Docs
-description: 了解如何将原始设备制造商 (OEM) 更新应用到 Azure Stack。
+title: 将原始设备制造商（OEM）更新应用到 Azure Stack |Microsoft Docs
+description: 了解如何将原始设备制造商（OEM）更新应用到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,24 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2019
-ms.author: mabrigg
-ms.lastreviewed: 08/23/2019
+ms.date: 09/03/2019
+ms.author: justinha
+ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 792790c2ae5c14e31914b64fc6e5d7eba11aacc0
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: 95b7d202d686edd123b552eaa95aa2b8c74c497a
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025907"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70234974"
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中应用更新
 
 适用范围：*Azure Stack 集成系统*
 
-你可以使用 Azure Stack 中的**更新**边栏选项卡应用更新。 本文将指导你完成更新、监视和解决更新过程的步骤。 你可以使用 "更新" 边栏选项卡来查看更新信息、安装更新、监视更新进度、查看更新历史记录, 以及查看当前的 OEM 包版本。
+你可以使用 Azure Stack 中的**更新**边栏选项卡应用更新。 本文将指导你完成更新、监视和解决更新过程的步骤。 你可以使用 "更新" 边栏选项卡来查看更新信息、安装更新、监视更新进度、查看更新历史记录，以及查看当前的 OEM 包版本。
 
-你可以从管理员门户管理更新。 你可以使用仪表板中的**更新**来执行以下操作:
+你可以从管理员门户管理更新。 你可以使用仪表板中的**更新**来执行以下操作：
 
 -   查看重要信息，例如当前版本。
 -   安装更新并监视进度。
@@ -37,7 +37,7 @@ ms.locfileid: "70025907"
 
 ## <a name="determine-the-current-version"></a>确定当前版本
 
-您可以在 "**更新**" 边栏选项卡中查看 Azure Stack 的当前版本。 若要打开:
+您可以在 "**更新**" 边栏选项卡中查看 Azure Stack 的当前版本。 若要打开：
 
 1.  打开 Azure Stack 管理员门户。
 
@@ -51,27 +51,27 @@ ms.locfileid: "70025907"
 
 1.  打开 Azure Stack 管理员门户。
 
-2.  选择“仪表板”。 选择“更新”。
+2.  选择 "**仪表板** > **更新**"。
 
-3.  选择要应用的可用更新。 如果没有标记为**可用**的更新, 将需要[准备更新包](azure-stack-update-prepare-package.md)
+3.  选择要应用的可用更新。 如果没有标记为**可用**的更新，将需要[准备更新包](azure-stack-update-prepare-package.md)。
 
 4.  选择“立即更新”。
 
     ![Azure Stack 更新运行详细信息](./media/azure-stack-update-apply/image2.png)
 
-5.  可以查看当更新进程循环访问 Azure Stack 中的各个子系统时的概要状态。 示例子系统包括物理主机、Service Fabric、基础结构虚拟机，以及提供管理员用户和用户门户的服务。 在整个更新过程中, 更新资源提供程序会报告有关更新的其他详细信息, 例如已成功完成的步骤数和正在进行的编号。
+5.  可以查看当更新进程循环访问 Azure Stack 中的各个子系统时的概要状态。 示例子系统包括物理主机、Service Fabric、基础结构虚拟机，以及提供管理员用户和用户门户的服务。 在整个更新过程中，更新资源提供程序会报告有关更新的其他详细信息，例如已成功完成的步骤数和正在进行的编号。
 
-6.  从 "更新运行详细信息" 边栏选项卡中选择**下载摘要**, 下载完整日志。
+6.  从 "更新运行详细信息" 边栏选项卡中选择**下载摘要**，下载完整日志。
 
-    如果在监视更新时遇到问题, 可以使用[特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)监视 Azure Stack 更新运行的进度, 并在 Azure Stack 门户变为不可用时, 从最后一个成功步骤恢复失败的更新运行。 有关说明, 请参阅[使用 PowerShell 监视 Azure Stack 中的更新](azure-stack-update-monitor.md)。
+    如果在监视更新时遇到问题，可以使用[特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)监视 Azure Stack 更新运行的进度，并在 Azure Stack 门户变为不可用时，从最后一个成功步骤恢复失败的更新运行。 有关说明，请参阅[使用 PowerShell 监视 Azure Stack 中的更新](azure-stack-update-monitor.md)。
 
     ![Azure Stack 更新运行详细信息](./media/azure-stack-update-apply/image3.png)
 
-7.  完成后, 更新资源提供程序会提供**成功**的确认消息, 以表明更新过程已完成, 并且需要花费多长时间。 在此处，可以使用筛选器查看有关所有更新、可用更新或已安装更新的信息。
+7.  完成后，更新资源提供程序会提供**成功**的确认消息，以表明更新过程已完成，并且需要花费多长时间。 在此处，可以使用筛选器查看有关所有更新、可用更新或已安装更新的信息。
 
     ![azure stack-更新-应用](./media/azure-stack-update-apply/image4.png)
 
-    如果更新失败,**更新**边栏选项卡会报告**需要注意**。 使用“下载完整日志”选项来获取更新失败的位置的概要状态。 Azure Stack 日志收集有助于诊断和故障排除。
+    如果更新失败，**更新**边栏选项卡会报告**需要注意**。 使用“下载完整日志”选项来获取更新失败的位置的概要状态。 Azure Stack 日志收集有助于诊断和故障排除。
 
 ## <a name="review-update-history"></a>查看更新历史记录
 
