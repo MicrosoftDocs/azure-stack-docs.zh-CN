@@ -16,18 +16,18 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 14f19fa432d782eace721d47b6b578dc73846631
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: af1f1351a5659447fb0f9e7ac9782fb74208e038
+ms.sourcegitcommit: ebb5afb7968d3e6531ecfcde7f4bb5e4420caf02
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959382"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70302381"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 .NET 配合使用
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-用于 Azure Stack 资源管理器的 .NET SDK 提供了相关工具来帮助构建和管理基础结构。 SDK 中的资源提供程序包括计算、网络、存储、应用服务和[Key Vault](/azure/key-vault/key-vault-whatis)。 .NET SDK 包括 14 NuGet 包。 每次编译项目时, 都必须将这些包下载到你的解决方案中。 不过, 你可以专门下载要用于2019-03-01 混合或2018-03-01 混合的资源提供程序, 以便为你的应用程序优化内存。 每个包都包含资源提供程序、相应的 API 版本以及所属 API 配置文件。 .NET SDK 中的 API 配置文件可以用来在公有云 Azure 资源和 Azure Stack 上的资源之间进行切换，实现混合云开发。
+用于 Azure Stack 资源管理器的 .NET SDK 提供了相关工具来帮助构建和管理基础结构。 SDK 中的资源提供程序包括计算、网络、存储、应用服务和[Key Vault](/azure/key-vault/key-vault-whatis)。 .NET SDK 包括 14 NuGet 包。 每次编译项目时，都必须将这些包下载到你的解决方案中。 不过，你可以专门下载要用于2019-03-01 混合或2018-03-01 混合的资源提供程序，以便为你的应用程序优化内存。 每个包都包含资源提供程序、相应的 API 版本以及所属 API 配置文件。 .NET SDK 中的 API 配置文件可以用来在公有云 Azure 资源和 Azure Stack 上的资源之间进行切换，实现混合云开发。
 
 ## <a name="net-and-api-version-profiles"></a>.NET 与 API 版本配置文件
 
@@ -41,7 +41,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
     
     确保将上述 NuGet 包的 **ResourceProvider** 部分更改为正确的提供程序。
 
--   若要使用某个服务的最新 API-version，请使用特定 NuGet 包的 **Latest** 配置文件。 例如, 如果想要单独使用**最新 API**版本的计算服务, 请使用**最新**的**计算**包配置文件。 **latest** 配置文件是 **Microsoft.Azure.Management** NuGet 包的一部分。
+-   若要使用某个服务的最新 API-version，请使用特定 NuGet 包的 **Latest** 配置文件。 例如，如果想要单独使用**最新 API**版本的计算服务，请使用**最新**的**计算**包配置文件。 **latest** 配置文件是 **Microsoft.Azure.Management** NuGet 包的一部分。
 
 -   若要使用特定资源提供程序中某个资源类型的特定 API-version，请使用在包中定义的特定 API 版本。
 
@@ -63,13 +63,13 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
 
 5.  如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关创建订阅的说明，请参阅[在 Azure Stack 中创建套餐的订阅][]。
 
-6.  创建服务主体并保存客户端 ID 和客户端机密。 有关如何为 Azure Stack 创建服务主体的说明, 请参阅 [提供应用访问 Azure Stack] []。 创建服务主体时的客户端 ID 也称为应用程序 ID。
+6.  创建服务主体并保存客户端 ID 和客户端机密。 有关如何为 Azure Stack 创建服务主体的说明，请参阅为[提供对 Azure Stack 的应用程序访问权限][]。 创建服务主体时的客户端 ID 也称为应用程序 ID。
 
 7.  确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何将角色分配到服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限][]。
 
 ## <a name="prerequisites"></a>必备组件
 
-若要将 .NET Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 若要设置环境变量, 请参阅下表中针对特定操作系统的说明。
+若要将 .NET Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 若要设置环境变量，请参阅下表中针对特定操作系统的说明。
 
 | ReplTest1                     | 环境变量   | 说明                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -100,9 +100,9 @@ Export Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack 资源管理器终结点
 
-Microsoft Azure 资源管理器是一种管理框架, 管理员可通过它来部署、管理和监视 Azure 资源。 Azure 资源管理器可以通过单个操作以组任务而不是单个任务的形式处理这些任务。
+Microsoft Azure 资源管理器是一种管理框架，管理员可通过它来部署、管理和监视 Azure 资源。 Azure 资源管理器可以通过单个操作以组任务而不是单个任务的形式处理这些任务。
 
-可以从资源管理器终结点获取元数据信息。 终结点返回 JSON 文件, 其中包含运行代码所需的信息。
+可以从资源管理器终结点获取元数据信息。 终结点返回 JSON 文件，其中包含运行代码所需的信息。
 
 请注意以下事项：
 
@@ -127,17 +127,17 @@ Microsoft Azure 资源管理器是一种管理框架, 管理员可通过它来�
 
 ## <a name="existing-api-profiles"></a>现有 API 配置文件
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**：为 Azure Stack 生成的最新配置文件。 只要你使用的是1904或更高版本, 服务的此配置文件就与 Azure Stack 最兼容。
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**：为 Azure Stack 生成的最新配置文件。 只要你使用的是1904或更高版本，服务的此配置文件就与 Azure Stack 最兼容。
 
 2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**：使用此配置文件可以使服务与标记版本 1808 或更高版本的 Azure Stack 兼容。
 
 3.  **最新**：包含所有服务的最新版本的配置文件。 使用所有服务的最新版本。 该配置文件是 **Microsoft.Azure.Management** NuGet 包的一部分。
 
-有关 Azure Stack 和 API 配置文件的详细信息, 请参阅[API 配置文件的摘要][]。
+有关 Azure Stack 和 API 配置文件的详细信息，请参阅[API 配置文件的摘要][]。
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Azure .NET SDK API 配置文件使用情况
 
-应该使用以下代码来实例化资源管理客户端。 类似的代码可用于实例化其他资源提供程序 (例如计算、网络和存储) 客户端。
+应该使用以下代码来实例化资源管理客户端。 类似的代码可用于实例化其他资源提供程序（例如计算、网络和存储）客户端。
 
 ```csharp
 var client = new ResourceManagementClient(armEndpoint, credentials)
@@ -152,7 +152,7 @@ var client = new ResourceManagementClient(armEndpoint, credentials)
 var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
 var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
 ```
-代码中的 `getActiveDirectoryServiceSettings` 调用从元数据终结点检索 Azure Stack 终结点。 它从发出的调用中指出环境变量:
+代码中的 `getActiveDirectoryServiceSettings` 调用从元数据终结点检索 Azure Stack 终结点。 它从发出的调用中指出环境变量：
 
 ```csharp
 public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
@@ -187,18 +187,18 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 }
 ```
 
-通过这些步骤, 你可以使用 API 配置文件 NuGet 包将应用成功部署到 Azure Stack。
+通过这些步骤，你可以使用 API 配置文件 NuGet 包将应用成功部署到 Azure Stack。
 
 ## <a name="samples-using-api-profiles"></a>使用 API 配置文件的示例
 
-使用以下示例作为参考, 通过 .NET 和 Azure Stack API 配置文件来创建解决方案。
+使用以下示例作为参考，通过 .NET 和 Azure Stack API 配置文件来创建解决方案。
 - [管理资源组](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [管理存储帐户](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
 - [管理虚拟机](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)（此示例使用 Azure Stack 支持的 2019-03-01-hybrid 配置文件）
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 API 配置文件的详细信息, 请参阅:
+有关 API 配置文件的详细信息，请参阅：
 
 - [在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)
 - [配置文件支持的资源提供程序 API 版本](azure-stack-profiles-azure-resource-manager-versions.md)

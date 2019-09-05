@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 01e359b2fc92abfe2c4903b75fd52687c2246d56
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959558"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271829"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
@@ -61,11 +61,11 @@ ms.locfileid: "68959558"
    ![自定义模板部署](media/app-service-deploy-ha/1.png)
 
 
-3. 在 "**自定义部署**" 边栏选项卡中, 选择 "**编辑模板** > **快速入门模板**", 然后使用可用自定义模板下拉列表选择**appservice-sqlserver-ha**模板。 单击 **"确定"** , 然后单击 "**保存**"。
+3. 在 "**自定义部署**" 边栏选项卡中，选择 "**编辑模板** > **快速入门模板**"，然后使用可用自定义模板下拉列表选择**appservice-sqlserver-ha**模板。 单击 **"确定"** ，然后单击 "**保存**"。
 
-   ![选择 appservice-fileshare-sqlserver-ha 快速入门模板](media/app-service-deploy-ha/2.png)
+   ![选择 "appservice"-"文件共享" 快速入门模板](media/app-service-deploy-ha/2.png)
 
-4. 在“自定义部署”边栏选项卡上选择“编辑参数”，然后向下滚动以查看默认模板值。 根据需要修改这些值以提供所有必需的参数信息, 然后单击 **"确定"** 。<br><br> `ADMINPASSWORD`至少为`FILESHAREOWNERPASSWORD` 、`SQLSERVERSERVICEACCOUNTPASSWORD`、、和`SQLLOGINPASSWORD`参数提供复杂密码。 `FILESHAREUSERPASSWORD`
+4. 在“自定义部署”边栏选项卡上选择“编辑参数”，然后向下滚动以查看默认模板值。 根据需要修改这些值以提供所有必需的参数信息，然后单击 **"确定"** 。<br><br> `ADMINPASSWORD`至少为`FILESHAREOWNERPASSWORD` 、`SQLSERVERSERVICEACCOUNTPASSWORD`、、和`SQLLOGINPASSWORD`参数提供复杂密码。 `FILESHAREUSERPASSWORD`
     
    ![编辑自定义部署参数](media/app-service-deploy-ha/3.png)
 
@@ -73,7 +73,7 @@ ms.locfileid: "68959558"
 
     ![创建自定义部署](media/app-service-deploy-ha/4.png)
 
-6. 在管理门户中, 选择 "**资源组**", 然后选择为自定义部署创建的资源组的名称 (在本示例中为**应用服务 ha** )。 查看部署状态，确保所有部署已成功完成。
+6. 在管理门户中，选择 "**资源组**"，然后选择为自定义部署创建的资源组的名称（在本示例中为**应用服务 ha** ）。 查看部署状态，确保所有部署已成功完成。
 
    > [!NOTE]
    > 模板部署需要大约一小时才能完成。
@@ -95,7 +95,7 @@ ms.locfileid: "68959558"
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. 在管理门户中, 选择 "**资源组**", 然后选择为自定义部署创建的资源组的名称 (在本示例中为**应用服务 ha** )。 
+2. 在管理门户中，选择 "**资源组**"，然后选择为自定义部署创建的资源组的名称（在本示例中为**应用服务 ha** ）。 
 
 3. 单击“部署”，然后选择“Microsoft.Template”。
 
@@ -109,7 +109,7 @@ ms.locfileid: "68959558"
 ## <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 遵循本部分所述的步骤，基于 [appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack 快速入门模板在高可用性配置中部署 Azure Stack 的应用服务。 
 
-安装应用服务资源提供程序后，可以将其包括在套餐和计划中。 然后, 用户可以订阅以获取服务并开始创建应用。
+安装应用服务资源提供程序后，可以将其包括在套餐和计划中。 然后，用户可以订阅以获取服务并开始创建应用。
 
 > [!IMPORTANT]
 > 在运行资源提供程序安装程序之前，请确保已阅读每个应用服务版本随附的发行说明，以了解新功能、修复程序，以及可能影响部署的任何已知问题。
@@ -118,12 +118,12 @@ ms.locfileid: "68959558"
 在运行应用服务安装程序之前，需要执行[开始使用 Azure Stack 上的应用服务之前](azure-stack-app-service-before-you-get-started.md)一文中所述的几个步骤：
 
 > [!TIP]
-> 并非需要在[应用服务入门一文](azure-stack-app-service-before-you-get-started.md)中介绍的所有步骤都是必需的, 因为模板部署会为你配置基础结构 vm。
+> 并非需要在[应用服务入门一文](azure-stack-app-service-before-you-get-started.md)中介绍的所有步骤都是必需的，因为模板部署会为你配置基础结构 vm。
 
 - [下载应用服务安装程序与帮助器脚本](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)。
 - [将最新的自定义脚本扩展下载到 Azure Stack 市场](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)。
 - [生成所需的证书](azure-stack-app-service-before-you-get-started.md#get-certificates)。
-- 根据你为 Azure Stack 选择的标识提供者创建 ID 应用程序。 可为 [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) 或 [Active Directory 联合身份验证服务](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application)创建 ID 应用程序，并记下应用程序 ID。
+- 根据你为 Azure Stack 选择的标识提供者创建 ID 应用程序。 可为 [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) 或 [Active Directory 联合身份验证服务](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app)创建 ID 应用程序，并记下应用程序 ID。
 - 确保已将 Windows Server 2016 Datacenter 映像添加到 Azure Stack marketplace。 此映像是应用服务安装所必需的。
 
 ### <a name="steps-for-app-service-deployment"></a>应用服务部署的步骤
@@ -134,9 +134,9 @@ ms.locfileid: "68959558"
 - 注册应用服务资源提供程序。
 - 注册应用服务库项。
 
-若要部署应用服务资源提供程序, 请执行以下步骤:
+若要部署应用服务资源提供程序，请执行以下步骤：
 
-1. 从可访问 Azure Stack 管理员 Azure 资源管理终结点的计算机上以管理员身份运行之前下载的应用服务安装程序 (**appservice**)。
+1. 从可访问 Azure Stack 管理员 Azure 资源管理终结点的计算机上以管理员身份运行之前下载的应用服务安装程序（**appservice**）。
 
 2. 选择“部署应用服务或升级到最新版本”。
 
@@ -166,12 +166,12 @@ ms.locfileid: "68959558"
 
     ![应用服务上的文件共享输出信息](media/app-service-deploy-ha/07.png)
 
-9. 由于用于安装应用服务的计算机与用于承载应用服务文件共享的文件服务器不在同一个 VNet 中, 因此无法解析该名称。 **此错误是预期的行为**。<br><br>验证输入的文件共享 UNC 路径和帐户信息是否正确。 然后在警报对话框上按 **"是"** 以继续安装应用服务。
+9. 由于用于安装应用服务的计算机与用于承载应用服务文件共享的文件服务器不在同一个 VNet 中，因此无法解析该名称。 **此错误是预期的行为**。<br><br>验证输入的文件共享 UNC 路径和帐户信息是否正确。 然后在警报对话框上按 **"是"** 以继续安装应用服务。
 
     ![应用服务上的预期错误对话框](media/app-service-deploy-ha/08.png)
 
-    如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器, 则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。 在管理门户中转到 WorkersNsg, 并使用以下属性添加出站安全规则:
-    - 源:Any
+    如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。 在管理门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
+    - 源：任意
     - 源端口范围：*
     - 目标：IP 地址
     - 目标 IP 地址范围：文件服务器的 IP 范围
@@ -179,7 +179,7 @@ ms.locfileid: "68959558"
     - 协议：TCP
     - 操作：Allow
     - 优先级：700
-    - 名称:Outbound_Allow_SMB445
+    - 姓名：Outbound_Allow_SMB445
 
 10. 提供标识应用程序 ID 以及标识证书的路径和密码，然后单击“下一步”：
     - 标识应用程序证书（格式为 **sso.appservice.local.azurestack.external.pfx**）
@@ -194,11 +194,11 @@ ms.locfileid: "68959558"
 
     ![应用服务上的其他配置证书](media/app-service-deploy-ha/09.png)
 
-12. 使用高可用性模板部署输出中的 SQL Server 连接信息提供 SQL Server 连接信息:
+12. 使用高可用性模板部署输出中的 SQL Server 连接信息提供 SQL Server 连接信息：
 
     ![SQL Server 应用服务的连接信息](media/app-service-deploy-ha/10.png)
 
-13. 由于用于安装应用服务的计算机与用于承载应用服务数据库的 SQL server 不在同一 VNet 中, 因此无法解析该名称。  **这是预期行为**。<br><br>验证输入的 "SQL Server 名称" 和 "帐户信息" 的信息是否正确, 按 **"是"** 继续安装应用服务。 单击“下一步”。
+13. 由于用于安装应用服务的计算机与用于承载应用服务数据库的 SQL server 不在同一 VNet 中，因此无法解析该名称。  **这是预期行为**。<br><br>验证输入的 "SQL Server 名称" 和 "帐户信息" 的信息是否正确，按 **"是"** 继续安装应用服务。 单击“下一步”。
 
     ![SQL Server 应用服务的连接信息](media/app-service-deploy-ha/11.png)
 
@@ -222,24 +222,24 @@ ms.locfileid: "68959558"
 
     ![应用服务上的平台映像选择](media/app-service-deploy-ha/13.png)
 
-16. 提供要使用的应用服务基础结构角色凭据信息, 然后单击 "**下一步**":
+16. 提供要使用的应用服务基础结构角色凭据信息，然后单击 "**下一步**"：
 
     ![应用服务上的基础结构角色凭据](media/app-service-deploy-ha/14.png)
 
-17. 查看用于部署应用服务的信息, 然后单击 "**下一步**" 开始部署。
+17. 查看用于部署应用服务的信息，然后单击 "**下一步**" 开始部署。
 
     ![查看应用服务上的安装摘要](media/app-service-deploy-ha/15.png)
 
-18. 查看应用服务部署进度。 此部署可能需要一小时以上的时间, 具体取决于特定的部署配置和硬件。 安装程序成功完成后，选择“退出”。
+18. 查看应用服务部署进度。 此部署可能需要一小时以上的时间，具体取决于特定的部署配置和硬件。 安装程序成功完成后，选择“退出”。
 
     ![安装程序已完成应用服务](media/app-service-deploy-ha/16.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-如果已为应用服务资源提供程序提供 SQL Always On 实例, 请[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。 同步数据库以防止在发生数据库故障转移时丢失任何服务。
+如果已为应用服务资源提供程序提供 SQL Always On 实例，请[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。 同步数据库以防止在发生数据库故障转移时丢失任何服务。
 
-[横向扩展应用服务](azure-stack-app-service-add-worker-roles.md)。 你可能需要添加其他应用服务基础结构角色辅助角色, 以满足你的环境中的预期应用需求。 基于 Azure Stack 的应用服务默认支持免费的和共享的辅助角色层。 若要添加其他辅助角色层，需添加更多的辅助角色。
+[横向扩展应用服务](azure-stack-app-service-add-worker-roles.md)。 你可能需要添加其他应用服务基础结构角色辅助角色，以满足你的环境中的预期应用需求。 基于 Azure Stack 的应用服务默认支持免费的和共享的辅助角色层。 若要添加其他辅助角色层，需添加更多的辅助角色。
 
 [配置部署源](azure-stack-app-service-configure-deployment-sources.md)。 需要提供额外的配置来支持从多个源代码管理提供程序（例如 GitHub、BitBucket、OneDrive 和 DropBox）进行的按需部署。
 
-[备份应用服务](app-service-back-up.md)。 成功部署并配置应用服务后, 应确保备份灾难恢复所需的所有组件。 备份你的基本组件有助于防止在恢复操作期间发生数据丢失和不必要的服务停机。
+[备份应用服务](app-service-back-up.md)。 成功部署并配置应用服务后，应确保备份灾难恢复所需的所有组件。 备份你的基本组件有助于防止在恢复操作期间发生数据丢失和不必要的服务停机。
