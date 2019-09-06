@@ -15,16 +15,16 @@ ms.date: 05/06/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 77b341baca92e53448065325118088ff01a59052
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1fa83cbbdba011646016e1e0b0fd5bef3b8d0baf
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617816"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377284"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
-SQL 资源提供程序在锁定的虚拟机上运行。 若要启用维护操作，需要更新虚拟机的安全性。 若要使用“最低特权”原则执行此操作，可以使用 [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) 终结点 *DBAdapterMaintenance*。 资源提供程序安装包包含此操作的脚本。
+SQL 资源提供程序在锁定的虚拟机上运行。 若要启用维护操作，需要更新虚拟机的安全性。 若要使用“最低特权”原则执行此操作，可以使用 [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) 终结点 *DBAdapterMaintenance*。 资源提供程序安装包包含此操作的脚本。
 
 ## <a name="patching-and-updating"></a>修补和更新
 
@@ -136,7 +136,7 @@ SQL 资源提供程序在锁定的虚拟机上运行。 若要启用维护操作
 
    或者，使用[此直接链接](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64)下载/运行 fpam-fe.exe 文件。
 
-2. 创建与 SQL 资源提供程序适配器虚拟机维护终结点的 PowerShell 会话。
+2. 与 SQL 资源提供程序适配器虚拟机的维护终结点建立 PowerShell 会话。
 
 3. 使用维护终结点会话将定义更新文件复制到虚拟机。
 

@@ -15,18 +15,18 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 349634e9f7bfdab3ec08630488d19947813361dd
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494064"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377221"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-作为 Azure Stack 操作员，你应当使用管理员门户、PowerShell 或 Azure 资源管理器 API 执行大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。 PEP 是预配置的远程 PowerShell 控制台，可提供恰到好处的功能来帮助执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 无需管理员帐户。 为了提高安全性，不允许使用脚本。
+作为 Azure Stack 操作员，你应当使用管理员门户、PowerShell 或 Azure 资源管理器 API 执行大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。 PEP 是预配置的远程 PowerShell 控制台，可提供恰到好处的功能来帮助执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 无需管理员帐户。 为了提高安全性，不允许使用脚本。
 
 使用 PEP 可以执行如下所述的任务：
 
@@ -109,7 +109,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>有关使用特权终结点的提示 
 
-如前所述，PEP 是一个 [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) 终结点。 尽管 JEA 终结点提供强大的安全层，但也缩减了部分 PowerShell 基本功能，例如脚本编写或 Tab 键补全。 尝试执行任何类型的脚本操作时，该操作会失败并出现错误 **ScriptsNotAllowed**。 这是预期行为。
+如前所述，PEP 是一个 [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) 终结点。 尽管 JEA 终结点提供强大的安全层，但也缩减了部分 PowerShell 基本功能，例如脚本编写或 Tab 键补全。 尝试执行任何类型的脚本操作时，该操作会失败并出现错误 **ScriptsNotAllowed**。 这是预期行为。
 
 例如，若要获取特定 cmdlet 的参数列表，需运行以下命令：
 
@@ -175,7 +175,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
    | 参数 | 描述 | 类型 | 必填 |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | 定义为 "fileshareIP\sharefoldername" 的外部文件共享的路径 | String | 是|
+   | *TranscriptsPathDestination* | 定义为“fileshareIP\sharefoldername”的外部文件共享的路径 | String | 是|
    | *凭据* | 用于访问文件共享的凭据 | SecureString |   是 |
 
 

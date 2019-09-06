@@ -15,12 +15,12 @@ ms.date: 09/03/2019
 ms.author: justinha
 ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f34f31ac54881c5911488f5049cc75ffee85bd38
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 366a183f551a2b03016c4e34e5de41a4b5727b80
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234932"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377263"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概述
 
@@ -67,7 +67,7 @@ ms.locfileid: "70234932"
 
     对于连接到 internet 的 Azure Stack 实例，Microsoft 软件更新和修补程序的更新警报将显示在更新边栏选项卡中。
 
-    如果你的实例未连接，并且你希望收到有关每个修补程序版本的通知，请订阅[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/rss)或[ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/atom)馈送。
+    如果你的实例未连接，并且你希望收到有关每个修补程序版本的通知，请订阅[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)或[ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)馈送。
 
 - **OEM 硬件供应商提供的更新**
 

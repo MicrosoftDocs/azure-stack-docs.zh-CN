@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 994291eb0a990521dc932adc63f0ad52d4430e0d
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271829"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386249"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
@@ -121,7 +121,7 @@ ms.locfileid: "70271829"
 > 并非需要在[应用服务入门一文](azure-stack-app-service-before-you-get-started.md)中介绍的所有步骤都是必需的，因为模板部署会为你配置基础结构 vm。
 
 - [下载应用服务安装程序与帮助器脚本](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)。
-- [将最新的自定义脚本扩展下载到 Azure Stack 市场](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)。
+- [从 Azure Stack Marketplace 下载项目](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace)。
 - [生成所需的证书](azure-stack-app-service-before-you-get-started.md#get-certificates)。
 - 根据你为 Azure Stack 选择的标识提供者创建 ID 应用程序。 可为 [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app) 或 [Active Directory 联合身份验证服务](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app)创建 ID 应用程序，并记下应用程序 ID。
 - 确保已将 Windows Server 2016 Datacenter 映像添加到 Azure Stack marketplace。 此映像是应用服务安装所必需的。

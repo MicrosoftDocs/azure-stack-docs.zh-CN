@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a12aceff00cf5be2d6ab70c4957ef04ea1c135d5
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 0fbb57771976b896f8f6b37b62780e34d6635d78
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271713"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386242"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>在 Azure Stack 上部署应用服务的先决条件
 
@@ -47,9 +47,12 @@ ms.locfileid: "70271713"
    - 模块文件夹
      - GraphAPI.psm1
 
-## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>从市场合成自定义脚本扩展版本
+## <a name="download-items-from-the-azure-marketplace"></a>从 Azure Marketplace 下载项
 
-Azure Stack 上的 Azure 应用服务需要自定义脚本扩展 v1.9.1。  在开始部署或升级 Azure Stack 上的 Azure App Service 之前，必须[从 Marketplace 联合](azure-stack-download-azure-marketplace-item.md)该扩展。
+Azure Stack 上的 Azure App Service 需要[从 Azure marketplace 下载](azure-stack-download-azure-marketplace-item.md)项目，使其在 Azure Stack marketplace 中可用。 必须先下载这些项，然后才能开始部署或升级 Azure Stack 上的 Azure App Service：
+
+1. 最新版本的 Windows Server 2016 Datacenter 虚拟机映像。
+2. 自定义脚本扩展1.9.1 或更高版本。 这是一个虚拟机扩展。
 
 ## <a name="get-certificates"></a>获取证书
 
