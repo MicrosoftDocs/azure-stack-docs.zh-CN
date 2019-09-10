@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上的应用服务 Update 4 发行说明 | Microsoft Docs
-description: 了解 Azure Stack 上的应用服务 Update 4 的功能、已知问题和更新下载位置。
+title: Azure Stack Update 4 发行说明中的应用服务 |Microsoft Docs
+description: 了解 Azure Stack 上应用服务的更新4中的改进、修复和已知问题。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,52 +16,50 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: b65e7c3b1cf381db3e36567c9f9ccf71a2150cd7
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b92fcd3f729bf068dd578893f24f1c7fa66bbcff
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269138"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808155"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Azure Stack 上的应用服务 Update 4 发行说明
 
-适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本发行说明介绍 Azure Stack 上的 Azure 应用服务 Update 4 中的改进和修复，以及任何已知问题。 已知问题分为与部署、更新过程直接相关的问题，以及内部版本（安装后）的问题。
+这些发行说明介绍 Azure Stack Update 4 Azure App Service 的改进、修复和已知问题。 已知问题分为三部分：直接与部署相关的问题、更新过程的问题以及生成（安装后）的问题。
 
 > [!IMPORTANT]
-> 请将 1809 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.4。
->
->
+> 在部署 Azure App Service 1.4 之前，将1809更新应用到 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包（ASDK）。
 
 ## <a name="build-reference"></a>内部版本参考
 
 Azure Stack 上的应用服务 Update 4 的内部版本号为 **78.0.13698.5**
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>先决条件
 
-在开始部署之前，请参阅[准备工作文档](azure-stack-app-service-before-you-get-started.md)。
+开始部署之前，请参阅[Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
 开始将 Azure Stack 上的 Azure 应用服务升级到 1.4 之前：
 
-- 确保所有角色在 Azure Stack 管理门户的 Azure应用服务管理中处于“就绪”状态
+- 确保在 Azure Stack 管理门户的 "Azure App Service 管理" 中，所有角色都已准备就绪。
 
-- 备份应用服务和 Master 数据库：
+- 备份应用服务和 master 数据库：
   - AppService_Hosting；
   - AppService_Metering；
-  - Master
+  - 主机
 
-- 备份租户应用内容文件共享
+- 备份租户应用内容文件共享。
 
-- 从市场合成自定义脚本扩展版本 1.9
+- 将**自定义脚本扩展**版本**1.9**与 Azure Marketplace 联合。
 
 ### <a name="new-features-and-fixes"></a>新功能和修复
 
 Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
 
-- 解决了 [CVE 2018-8600](https://aka.ms/CVE20188600) 跨站点脚本漏洞。
+- 针对[CVE 2018-8600](https://aka.ms/CVE20188600)跨站点脚本（XSS）漏洞的解决方法。
 
-- 添加了对应用服务2018-02-01 API 版本的支持
+- 添加了对应用服务 2018-02-01 API 版本的支持。
 
 - 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 
@@ -69,7 +67,7 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
-- **针对以下应用程序框架和工具的更新**：
+- **以下应用框架和工具的更新**：
   - 添加了 NodeJS 10.6.0
   - 添加了 NPM 6.1.0
   - 添加了 Zulu OpenJDK 8.31.0.2
@@ -79,7 +77,7 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
     - 7.0.31
     - 7.1.20
     - 7.2.8
-  - Python 版本更新：
+  - 更新到 Python 版本：
     - 2.7.15
     - 3.6.6
   - 已将适用于 Windows 的 Git 更新到 v 2.17.1.2
@@ -88,33 +86,31 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
 - **对所有角色的基础操作系统的更新**：
   - [适用于 x64 系统的 Windows Server 2016 的 2018-10 累积更新 (KB4462928)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)
 
-- 解决了部署 Wordpress、DNN 和 Orchard CMS 库项时的模板验证问题
+- 部署 Wordpress、DNN 和 Orchard CMS 库项时解决了模板验证问题。
 
-- 解决了 Azure Stack 轮换 Azure 资源管理器客户端证书时的配置问题
+- Azure Stack 轮换 Azure 资源管理器客户端证书时解决的配置问题。
 
-- 还原了应用服务租户门户中跨域资源共享设置中的功能
+- 应用服务租户门户的跨域资源共享设置中的已还原功能。
 
-- 当资源提供程序控制平面无法连接到配置的 SQL Server 实例时，应用服务管理员门户体验中会显示错误消息
+- 当资源提供程序控制面无法连接到配置的 SQL Server 实例时，错误消息现在会显示在应用服务管理门户中。
 
-- 确保在新的函数应用程序中指定终结点时，也会在自定义存储连接字符串中指定终结点
+- 请确保在新的 Function app 中指定了自定义存储连接字符串中的终结点。
 
 ### <a name="post-deployment-steps"></a>部署后步骤
 
 > [!IMPORTANT]  
-> 如果已经为应用服务 RP 提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)并同步数据库，以免在进行数据库故障转移时丢失服务。
+> 如果已为应用服务资源提供程序提供 SQL Always On 实例，则*必须*[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)，并同步数据库，以防止任何服务丢失数据库故障转移的事件。
 
 ### <a name="post-update-steps-optional"></a>更新后的步骤（可选）
 
-对于希望为基于 Azure Stack 的现有 Azure 应用服务部署迁移到包含的数据库的客户，请在完成基于 Azure Stack 的 Azure 应用服务 1.4 更新后执行以下步骤：
+对于希望迁移到 Azure Stack 部署上现有 Azure App Service 的包含数据库的客户，请在 Azure Stack 1.4 更新的 Azure App Service 完成后执行以下步骤：
 
 > [!IMPORTANT]
-> 迁移过程大约需要花费 5-10 分钟。  该过程涉及终止现有的数据库登录会话。  计划停机时间来进行迁移，并在迁移后验证 Azure Stack 上的 Azure 应用服务。  如果在更新到 Azure Stack 上的 Azure 应用服务 1.3 之后已完成这些步骤，则无需再次执行这些步骤。
->
->
+> 迁移过程大约需要花费 5-10 分钟。 该过程涉及终止现有的数据库登录会话。 计划停机时间来进行迁移，并在迁移后验证 Azure Stack 上的 Azure 应用服务。 如果在 Azure Stack 1.3 上更新到 Azure App Service 之后完成这些步骤，则不需要这些步骤。
 
-1. [将 AppService 数据库（appservice_hosting 和 appservice_metering）添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. 将[AppService 数据库（appservice_hosting 和 appservice_metering）添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。
 
-1. 启用包含的数据库
+1. 启用包含的数据库。
     ```sql
 
         sp_configure 'contained database authentication', 1;
@@ -123,7 +119,7 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
             GO
     ```
 
-1. 将数据库转换为“部分包含”会造成停机，因为需要终止所有活动的会话
+1. 将数据库转换为部分包含的数据库时，转换将导致停机，因为需要终止所有活动会话。
 
     ```sql
         /******** [appservice_metering] Migration Start********/
@@ -165,7 +161,7 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
             /********[appservice_hosting] Migration End********/
     '''
 
-1. Migrate Logins to Contained Database Users
+1. Migrate logins to contained database users.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -194,39 +190,40 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
         GO
     ```
 
-验证
+**证实**
 
-1. 检查 SQL Server 是否启用了包含
+1. 检查 SQL Server 是否启用了包含。
 
     ```sql
         sp_configure  @configname='contained database authentication'
     ```
 
-1. 检查现有的包含的行为
+1. 检查现有的现有行为。
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
 ### <a name="known-issues-post-installation"></a>已知问题（安装后）
 
-- 如 Azure Stack 上的 Azure 应用服务部署文档中所述，当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
+- 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。 Azure Stack 部署文档的 Azure App Service 中会出现此问题。
 
-如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
- * 源:任意
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
+
+ * 源：任意
  * 源端口范围：*
  * 目标：IP 地址
  * 目标 IP 地址范围：文件服务器的 IP 范围
  * 目标端口范围：445
  * 协议：TCP
- * 操作：允许
+ * 操作：Allow
  * 优先级：700
  * 姓名：Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>云管理员在操作基于 Azure Stack 的 Azure 应用服务时的已知问题
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure Stack 上的云管理员操作 Azure App Service 的已知问题
 
 请参阅 [Azure Stack 1809 发行说明](azure-stack-update-1903.md)中的文档
 
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Azure 应用服务的概述，请参阅[基于 Azure Stack 的 Azure 应用服务概述](azure-stack-app-service-overview.md)。
-- 若要详细了解如何完成基于 Azure Stack 的应用服务的部署准备，请参阅[基于 Azure Stack 的应用服务的准备工作](azure-stack-app-service-before-you-get-started.md)。
+- 有关如何准备在 Azure Stack 上部署应用服务的详细信息，请参阅[在 Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。

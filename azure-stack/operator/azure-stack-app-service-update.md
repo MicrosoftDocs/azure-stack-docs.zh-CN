@@ -1,6 +1,6 @@
 ---
 title: 更新 Azure Stack 上的 Azure 应用服务 | Microsoft Docs
-description: 有关更新 Azure Stack 上的 Azure 应用服务的详细指导
+description: 了解如何更新 Azure Stack 上的 Azure App Service。
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -15,46 +15,44 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: 8bc2b996892f8b19fb602fa0d91354b08dcf3cd6
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: 768a6270021d6a87be3d2d28508288836ffadd29
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70159639"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808264"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>更新 Azure Stack 上的 Azure 应用服务
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.7 之前, 将1904更新应用到 Azure Stack 集成系统, 或部署最新的 Azure Stack 开发工具包。
+> 在部署 Azure App Service 1.7 之前，将1904更新应用到 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包（ASDK）。
 
-遵循本文中的说明可以升级部署在已连接到 Internet 的 Azure Stack 环境中的[应用服务资源提供程序](azure-stack-app-service-overview.md)。
+本文介绍如何升级在连接 internet 的 Azure Stack 环境中部署的[应用服务资源提供程序](azure-stack-app-service-overview.md)。
 
 > [!IMPORTANT]
-> 在运行升级之前, 请确保已完成[Azure Stack 资源提供程序上的 Azure App Service 部署](azure-stack-app-service-deploy.md), 并且已阅读1.7 版本随附的[发行说明](azure-stack-app-service-release-notes-update-seven.md), 了解有关新功能的信息、修补程序以及可能影响部署的任何已知问题。
+> 在运行升级之前，请确保已完成[Azure Stack 上的 Azure App Service 部署](azure-stack-app-service-deploy.md)。 还应阅读1.7 版本随附的[发行说明](azure-stack-app-service-release-notes-update-seven.md)，以便您可以了解有关新功能、修复程序以及可能影响部署的任何已知问题。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>运行应用服务资源提供程序安装程序
 
 在此过程中，升级操作将会：
 
-* 检测以前部署的应用服务
-* 准备要部署的所有 OSS 库的所有更新包和新版本
-* 上传到存储
-* 升级所有应用服务角色（控制器、管理、前端、发布者和辅助角色）
-* 更新应用服务规模集定义
-* 更新应用服务资源提供程序清单
+* 检测应用服务的预先部署。
+* 准备要部署的所有更新包以及所有 OSS 库的新版本。
+* 上传到存储。
+* 升级所有应用服务角色（控制器、管理、前端、发布者和辅助角色）。
+* 更新应用服务规模集定义。
+* 更新应用服务资源提供程序清单。
 
 > [!IMPORTANT]
-> 应用服务安装程序必须在可访问“Azure Stack 管理员”Azure 资源管理器终结点的计算机上运行。
->
->
+> 应用服务安装程序必须在可访问 Azure Stack 管理员 Azure 资源管理器终结点的计算机上运行。
 
 若要升级 Azure Stack 上的应用服务部署，请遵循以下步骤：
 
 1. 下载[应用服务安装程序](https://aka.ms/appsvcupdate7installer)。
 
-2. 以管理员身份运行 appservice.exe。
+2. 以管理员身份运行 appservice。
 
     ![应用服务安装程序][1]
 
@@ -64,7 +62,7 @@ ms.locfileid: "70159639"
 
 5. 查看并接受第三方许可条款，然后单击“下一步”。
 
-6. 确保 Azure Stack Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack 时自定义了选项，则必须编辑此窗口中的值。 例如，如果使用域后缀 *mycloud.com*，则必须将“Azure Stack”Azure 资源管理器终结点更改为 *management.region.mycloud.com*。 确认信息后，单击“下一步”。
+6. 请确保 Azure Stack Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 ASDK 部署过程中使用了默认设置，则可以在此处接受默认值。 但是，如果在部署 Azure Stack 时自定义了选项，则必须编辑此窗口中的值。 例如，如果使用域后缀 *mycloud.com*，则必须将“Azure Stack”Azure 资源管理器终结点更改为 *management.region.mycloud.com*。 确认信息后，单击 "**下一步**"。
 
     ![Azure Stack 云信息][2]
 
@@ -74,8 +72,8 @@ ms.locfileid: "70159639"
         * 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 单击“登录”。
         * 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，*cloudadmin\@azurestack.local*。 输入密码，并单击“登录”。
    2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
-   3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
-   4. 如果检测到现有的应用服务部署，则资源组和存储帐户将被填充并灰显。
+   3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 ASDK，请选择 "**本地**"。
+   4. 如果检测到现有应用服务部署，则会填充资源组和存储帐户，且该帐户不可用。
    5. 按“下一步”查看升级摘要。
 
       ![检测到应用服务安装][3]
@@ -88,7 +86,7 @@ ms.locfileid: "70159639"
        ![应用服务升级摘要][4]
 
 9. 升级进度页：
-    1. 跟踪升级进度。 Azure Stack 上的应用服务升级持续时间取决于部署的角色实例数目。
+    1. 跟踪升级进度。 Azure Stack 上的应用服务升级持续时间取决于所部署的角色实例的数量。
     2. 升级成功完成后，单击“退出”。
 
         ![应用服务升级进度][5]
@@ -102,7 +100,7 @@ ms.locfileid: "70159639"
 
 ## <a name="next-steps"></a>后续步骤
 
-准备 Azure Stack 上应用服务的其他管理员操作
+为 Azure Stack 上的应用服务准备其他管理操作：
 
 * [规划额外的容量](azure-stack-app-service-capacity-planning.md)
 * [添加其他容量](azure-stack-app-service-add-worker-roles.md)

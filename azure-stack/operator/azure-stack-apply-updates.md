@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中安装 OEM 更新 |Microsoft Docs
-description: 了解如何在 Azure Stack 中安装 OEM 更新。
+title: 安装 Azure Stack 更新 |Microsoft Docs
+description: 了解如何安装 Azure Stack 更新。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,18 +15,18 @@ ms.date: 09/03/2019
 ms.author: justinha
 ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a563c3ec43950122e045b0ec3168bcb3ca11fe56
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 44ad2b2e3fd5b95fd832ed50c20c388c6585d17e
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271795"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808209"
 ---
-# <a name="install-oem-updates-in-azure-stack"></a>在 Azure Stack 中安装 OEM 更新
+# <a name="install-azure-stack-updates"></a>安装 Azure Stack 更新
 
 适用范围：*Azure Stack 集成系统*
 
-你可以使用 Azure Stack 中的**更新**边栏选项卡安装原始设备制造商（OEM）更新。 本文将指导你完成更新、监视和解决更新过程的步骤。 使用 "更新" 边栏选项卡可以查看更新信息、安装更新、监视更新进度、查看更新历史记录，以及查看当前的 OEM 包版本。
+您可以使用 Azure Stack 中的**更新**边栏选项卡安装更新包。 本文将指导你完成更新、监视和解决更新过程的步骤。 使用 "更新" 边栏选项卡可以查看更新信息、安装更新、监视更新进度、查看更新历史记录，以及查看当前 Azure Stack 和 OEM 包版本。
 
 你可以从管理门户管理更新，并使用仪表板的 "**更新**" 部分执行以下操作：
 

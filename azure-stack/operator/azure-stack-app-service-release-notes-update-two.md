@@ -1,6 +1,6 @@
 ---
-title: 基于 Azure Stack 的应用服务 Update 2 发行说明 | Microsoft Docs
-description: 了解基于 Azure Stack 的应用服务 Update 2 的功能、已知问题和更新下载位置。
+title: Azure Stack 上的应用服务 Update 2 发行说明 |Microsoft Docs
+description: 了解 Azure Stack 上应用服务的更新2中的改进、修复和已知问题。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,36 +16,32 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: b56c90d9bac8039d428b7ee06a384956924e94f5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: c85cc176949c9f3c86cded80be14417add6c40da
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269053"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808139"
 ---
-# <a name="app-service-on-azure-stack-update-2-release-notes"></a>基于 Azure Stack 的应用服务 Update 2 发行说明
+# <a name="app-service-on-azure-stack-update-2-release-notes"></a>Azure Stack 上的应用服务 Update 2 发行说明
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-这些发行说明介绍了基于 Azure Stack 的 Azure 应用服务 Update 2 中的改进和修复，以及任何已知问题。 已知问题分为与部署、更新过程直接相关的问题，以及内部版本（安装后）的问题。
+这些发行说明介绍 Azure Stack Update 2 Azure App Service 上的改进、修复和已知问题。 已知问题分为三部分：直接与部署相关的问题、更新过程的问题以及生成（安装后）的问题。
 
 > [!IMPORTANT]
-> 请将 1804 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.2。
->
->
+> 在部署 Azure App Service 1.2 之前，将1804更新应用到 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包（ASDK）。
 
 ## <a name="build-reference"></a>内部版本参考
 
-基于 Azure Stack 的应用服务 Update 2 的生成号为 **72.0.13698.10**
+Azure Stack Update 2 内部版本号的应用服务为**72.0.13698.10**。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
-> 基于 Azure Stack 的 Azure 应用服务的新部署现在要求提供[三使用者通配型证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为目前在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。 新的使用者是 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
->
->
+> Azure Stack 上的 Azure App Service 的新部署现在需要[三个使用者通配符证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为在 Azure App Service 中处理 KUDU 的 SSO。 新的主题是：  **\*appservice。\<区域\>。\<domainname\>。\<拓\>**
 
-在开始部署之前，请参阅[准备工作文档](azure-stack-app-service-before-you-get-started.md)。
+开始部署之前，请参阅[Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
 ### <a name="new-features-and-fixes"></a>新功能和修复
 
@@ -69,13 +65,13 @@ ms.locfileid: "66269053"
   - 更新了 .NET Core 组件，使其与公有云中的 Azure 应用服务保持一致。
   - 更新了 Kudu
 
-- 启用了部署槽位自动交换功能 - [配置自动交换](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
+- 已启用自动交换部署槽功能-[配置自动交换](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)。
 
-- 启用了在生产中测试功能 - [在生产中测试简介](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+- 已启用生产功能的测试-[在生产中进行测试的简介](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)。
 
-- 启用了 Azure Functions 代理 - [使用 Azure Functions 代理](https://docs.microsoft.com/azure/azure-functions/functions-proxies)
+- Azure Functions 代理启用-[使用 Azure Functions 代理](https://docs.microsoft.com/azure/azure-functions/functions-proxies)。
 
-- 针对以下项添加了应用服务管理扩展 UX 支持：
+- 已为添加应用服务管理扩展 UX UX：
   - 机密轮换
   - 证书轮换
   - 系统凭据轮换
@@ -85,22 +81,23 @@ ms.locfileid: "66269053"
 
 - 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
-如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
-* 源:任意
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
+
+* 源：任意
 * 源端口范围：*
 * 目标：IP 地址
 * 目标 IP 地址范围：文件服务器的 IP 范围
 * 目标端口范围：445
 * 协议：TCP
-* 操作：允许
+* 操作：Allow
 * 优先级：700
 * 姓名：Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>云管理员在操作基于 Azure Stack 的 Azure 应用服务时的已知问题
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure Stack 上的云管理员操作 Azure App Service 的已知问题
 
 请参阅 [Azure Stack 1804 发行说明](azure-stack-update-1903.md)中的文档
 
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Azure 应用服务的概述，请参阅[基于 Azure Stack 的 Azure 应用服务概述](azure-stack-app-service-overview.md)。
-- 若要详细了解如何完成基于 Azure Stack 的应用服务的部署准备，请参阅[基于 Azure Stack 的应用服务的准备工作](azure-stack-app-service-before-you-get-started.md)。
+- 有关如何准备在 Azure Stack 上部署应用服务的详细信息，请参阅[在 Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
