@@ -3,7 +3,7 @@ title: 安装 Azure Stack 更新 |Microsoft Docs
 description: 了解如何安装 Azure Stack 更新。
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabriggs
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 44ad2b2e3fd5b95fd832ed50c20c388c6585d17e
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 2153a91bcf833386ef5884a9fd4e7c0fc759c01b
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808209"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863072"
 ---
 # <a name="install-azure-stack-updates"></a>安装 Azure Stack 更新
 
@@ -39,7 +39,7 @@ ms.locfileid: "70808209"
 
 您可以在 "**更新**" 边栏选项卡中查看 Azure Stack 的当前版本。 若要打开：
 
-1.  打开 Azure Stack 管理门户。
+1.  打开 Azure Stack 管理员门户。
 
 2.  选择“仪表板”。 在 "**更新**" 边栏选项卡中列出了最新版本。
 

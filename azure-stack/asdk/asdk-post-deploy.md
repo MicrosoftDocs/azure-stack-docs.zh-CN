@@ -1,6 +1,6 @@
 ---
 title: 部署 ASDK 的部署配置 |Microsoft Docs
-description: 了解安装 Azure Stack 开发工具包 (ASDK) 后建议进行的配置更改。
+description: 了解安装 Azure Stack 开发工具包（ASDK）后建议进行的配置更改。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,16 +16,16 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 111e8e6cb72baac64229e4808003818efece54cd
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: f4fe915d07b81a6f99d9bd5a4b222590d1bb9a30
+ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025887"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876583"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK 的部署后配置
 
-[安装 Azure Stack 开发工具包 (ASDK)](asdk-install.md)后, 在 ASDK 主机计算机上以 AzureStack\AzureStackAdmin 身份登录时, 应进行一些建议的部署后配置更改。
+[安装 Azure Stack 开发工具包（ASDK）](asdk-install.md)后，在 ASDK 主机计算机上以 AzureStack\AzureStackAdmin 身份登录时，应进行一些建议的部署后配置更改。
 
 ## <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell
 
@@ -44,7 +44,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 > [!IMPORTANT]
 > 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)。
 
-- 使用来自 ASDK 主计算机的**internet 连接**:运行以下 PowerShell 脚本, 在 ASDK 安装中安装这些模块:
+- 使用来自 ASDK 主计算机的**internet 连接**：运行以下 PowerShell 脚本，在 ASDK 安装中安装这些模块：
 
 
   ```powershell  
@@ -61,7 +61,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
   如果安装成功，输出中会显示 AzureRM 和 AzureStack 模块。
 
-- 如果没有从 ASDK 主计算机**建立 internet 连接**:在离线场景中，必须先使用以下 PowerShell 命令，将 PowerShell 模块下载到已建立 Internet 连接的计算机：
+- 如果没有从 ASDK 主计算机**建立 internet 连接**：在离线场景中，必须先使用以下 PowerShell 命令，将 PowerShell 模块下载到已建立 Internet 连接的计算机：
 
   ```powershell
   $Path = "<Path that is used to save the packages>"
@@ -109,10 +109,10 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ## <a name="validate-the-asdk-installation"></a>验证 ASDK 安装
 
-若要确保 ASDK 部署成功, 请按以下步骤使用 Test-azurestack cmdlet:
+若要确保 ASDK 部署成功，请按以下步骤使用 Test-azurestack cmdlet：
 
 1. 在 ASDK 主机计算机上以 AzureStack\AzureStackAdmin 的身份登录。
-2. 以管理员身份 (而不是 PowerShell ISE) 打开 PowerShell。
+2. 以管理员身份（而不是 PowerShell ISE）打开 PowerShell。
 3. 运行：`Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. 运行：`Test-AzureStack`
 
@@ -127,7 +127,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 对于使用 Azure AD 的部署，需要为 ASDK 安装[启用多租户](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
 
 > [!NOTE]
-> 当用于注册 Azure Stack 的域以外的其他域中的管理员或用户帐户登录到 Azure Stack 门户时, 用于注册 Azure Stack 的域名必须追加到门户 URL。 例如, 如果已向 fabrikam.onmicrosoft.com 注册了 Azure Stack, 并且登录的用户帐户为admin@contoso.com, 则用于登录用户门户的 URL 将为:。 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com
+> 当用于注册 Azure Stack 的域以外的其他域中的管理员或用户帐户登录到 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL。 例如，如果已向 fabrikam.onmicrosoft.com 注册了 Azure Stack，并且登录的用户帐户为admin@contoso.com，则用于登录用户门户的 URL 应为： https//portal.local.azurestack.external/\:fabrikam.onmicrosoft.com。
 
 ## <a name="next-steps"></a>后续步骤
 

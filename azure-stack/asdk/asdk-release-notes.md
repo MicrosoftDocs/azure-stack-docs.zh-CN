@@ -1,6 +1,6 @@
 ---
 title: ASDK 发行说明 |Microsoft Docs
-description: Azure Stack 开发工具包的改进、修复和已知问题 (ASDK)。
+description: Azure Stack 开发工具包的改进、修复和已知问题（ASDK）。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,15 +16,15 @@ ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/30/2019
 ms.openlocfilehash: 9d0820634a469f775c1e3b6637c604ae98681be2
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 09/10/2019
 ms.locfileid: "70188191"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
-本文提供了有关 Azure Stack 开发工具包 (ASDK) 中的更改、修复和已知问题的信息。 如果你不确定要运行的版本, 请[使用门户检查](../operator/azure-stack-updates.md)。
+本文提供了有关 Azure Stack 开发工具包（ASDK）中的更改、修复和已知问题的信息。 如果你不确定要运行的版本，请[使用门户检查](../operator/azure-stack-updates.md)。
 
 请订阅 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS 源](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)，随时了解 ASDK 的新增功能。
 
@@ -41,7 +41,7 @@ ms.locfileid: "70188191"
 
 <!-- - For a list of Azure Stack issues fixed in this release, see [this section](../operator/azure-stack-release-notes-1908.md#fixes) of the Azure Stack release notes. -->
 - 如需已知问题的列表，请参阅[此文](../operator/azure-stack-release-notes-known-issues-1908.md)。
-- 请注意, 可用的 Azure Stack 修补程序不适用于 ASDK。
+- 请注意，可用的 Azure Stack 修补程序不适用于 ASDK。
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -55,7 +55,7 @@ ms.locfileid: "70188191"
 
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
-- 使用某些 Marketplace 映像创建 VM 资源时, 可能无法完成部署。 作为一种解决方法，可以单击“摘要”页中的“下载模板和参数”链接，然后单击“模板”边栏选项卡中的“部署”按钮。
+- 使用某些 Marketplace 映像创建 VM 资源时，可能无法完成部署。 作为一种解决方法，可以单击“摘要”页中的“下载模板和参数”链接，然后单击“模板”边栏选项卡中的“部署”按钮。
 - 如需此版本中已修复的 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1907.md#fixes)。
 - 如需已知问题的列表，请参阅[此文](../operator/azure-stack-release-notes-known-issues-1907.md)。
 - 请注意，[发布的 Azure Stack 修补程序](../operator/azure-stack-release-notes-1907.md#hotfixes)不适用于 Azure Stack ASDK。
@@ -70,11 +70,11 @@ ms.locfileid: "70188191"
 
 ### <a name="changes"></a>更改
 
-- 添加了 **AzS-SRNG01** 支持环 VM，用于托管 Azure Stack 的日志收集服务。 有关详细信息, 请参阅[虚拟机角色](asdk-architecture.md)。
+- 添加了 **AzS-SRNG01** 支持环 VM，用于托管 Azure Stack 的日志收集服务。 有关详细信息，请参阅[虚拟机角色](asdk-architecture.md)。
 
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
-- 使用某些 Marketplace 映像创建 VM 资源时, 可能无法完成部署。 作为一种解决方法，可以单击“摘要”页中的“下载模板和参数”链接，然后单击“模板”边栏选项卡中的“部署”按钮。
+- 使用某些 Marketplace 映像创建 VM 资源时，可能无法完成部署。 作为一种解决方法，可以单击“摘要”页中的“下载模板和参数”链接，然后单击“模板”边栏选项卡中的“部署”按钮。
 - 如需此版本中已修复的 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1906.md#fixes)。
 - 如需已知问题的列表，请参阅[此文](../operator/azure-stack-release-notes-known-issues-1906.md)。
 - 请注意，[发布的 Azure Stack 修补程序](../operator/azure-stack-release-notes-1906.md#hotfixes)不适用于 Azure Stack ASDK。

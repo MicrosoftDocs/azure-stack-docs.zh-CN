@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/05/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: fbf4983f6f7d2f88da70552ae182792ee316994a
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 935a422aee68bb107e5bfe8b79a21d22ce1fffc8
+ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234971"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876615"
 ---
 # <a name="azure-stack-1908-update"></a>Azure Stack 1908 更新
 
@@ -63,7 +63,7 @@ Azure Stack 1908 更新生成类型已**满**。 因此，1908更新的运行时
 
 - 对于1908，请注意，Azure Stack 运行的基础操作系统已更新为 Windows Server 2019。 这可以实现核心基本的增强功能，并能够在不久的将来为 Azure Stack 提供附加功能。
 - Azure Stack 基础结构的所有组件现在在 FIPS 140-2 模式下运行。
-
+- Azure Stack 运算符现在可以删除门户用户数据。 有关详细信息，请参阅[从 Azure Stack 中清除门户用户数据](azure-stack-portal-clear.md)。
 
 ### <a name="improvements"></a>改进
 

@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: 317f53eb5b50fc415fc7a65e044eca7948a54e58
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 86d8cea0164a9181f444066181945358122c831b
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234951"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70862990"
 ---
 # <a name="azure-stack-1908-known-issues"></a>Azure Stack 1908 已知问题
 
@@ -34,7 +34,7 @@ ms.locfileid: "70234951"
 ## <a name="update-process"></a>更新过程
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：尝试安装 1907 Azure Stack 更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
+- 原因：尝试安装 Azure Stack 更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
 - 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。 然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题仍然存在，建议使用 "[安装更新" 部分](azure-stack-apply-updates.md#install-updates-and-monitor-progress)手动上载更新包。
 - 发生次数：通用
 
@@ -99,7 +99,7 @@ ms.locfileid: "70234951"
 
 #### <a name="local-network-gateway-deletion"></a>本地网络网关删除
 
-- 适用于：此问题适用于 1906 版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中，删除**本地网络网关**会显示以下错误消息：如果没有活动连接，则**无法删除具有活动连接的本地网络网关**。
 - 缓解措施：此问题的修复将在1907中发布。 此问题的解决方法是使用相同的 IP 地址、地址空间和配置详细信息创建新的本地网络网关。 环境更新到1907后，可以删除旧的 LNG。
 - 发生次数：通用
@@ -159,21 +159,21 @@ ms.locfileid: "70234951"
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>虚拟机规模集重置密码无法进行
 
-- 适用于：此问题适用于1906和1907版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：规模集 UI 中出现新的密码重置边栏选项卡，但 Azure Stack 尚不支持在规模集上重置密码。
 - 补救措施：无。
 - 发生次数：通用
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>规模集诊断上出现哭泣的云
 
-- 适用于：此问题适用于1906和1907版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：虚拟机规模集概述页显示空白图表。 单击该空白图表会打开“哭泣的云”边栏选项卡。 这是规模集诊断信息的图表（例如 CPU 百分比），但这不是当前 Azure Stack 内部版本支持的功能。
 - 补救措施：无。
 - 发生次数：通用
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡
 
-- 适用于：此问题适用于1906和1907版本。    
+- 适用于：此问题适用于所有支持的版本。    
 - 原因：虚拟机诊断设置边栏选项卡包含“接收器”选项卡，用于请求 **Application Insights 帐户**。 这是新边栏选项卡中的结果，Azure Stack 中尚不支持此功能。
 - 补救措施：无。
 - 发生次数：通用

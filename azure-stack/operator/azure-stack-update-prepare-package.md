@@ -3,7 +3,7 @@ title: 准备 Azure Stack 更新包 |Microsoft Docs
 description: 了解如何准备 Azure Stack 更新包。
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabrigg
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9b58b4911a575ef66c95594b6cb4cd1cc9e27a43
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 0a18c7e09f6be105ce1f80551cee6f341dda50d9
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234999"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863050"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>准备 Azure Stack 更新包
 
@@ -108,7 +108,7 @@ OEM 供应商还会发布更新，例如驱动程序和固件更新。 尽管这
 
 4.  若要安装更新，请选择标记为“就绪”的包，然后右键单击该包并选择“立即更新”，或者单击顶部附近的“立即更新”操作。
 
-5.  单击正在安装的更新包时，可以在“更新运行详细信息”区域中查看状态。 你还可以从此处单击 "**下载摘要**" 以下载日志文件。 在尝试结束后，将在6个月内提供来自更新运行的日志。
+5.  单击正在安装的更新包时，可以在“更新运行详细信息”区域中查看状态。 你还可以从此处单击 "**下载摘要**" 以下载日志文件。 在尝试结束后, 将在6个月内提供来自更新运行的日志。
 
 6.  更新完成后，"更新" 边栏选项卡会显示更新的 Azure Stack 版本。
 

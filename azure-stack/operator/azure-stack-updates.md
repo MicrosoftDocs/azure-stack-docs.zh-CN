@@ -3,7 +3,7 @@ title: 管理 Azure Stack 中的更新 |Microsoft Docs
 description: 了解如何管理 Azure Stack 中的更新
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabrigg
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 366a183f551a2b03016c4e34e5de41a4b5727b80
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.openlocfilehash: 2a6165d37aa813c332cd664ef905717ef7a8ffa8
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377263"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863031"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概述
 
@@ -97,7 +97,7 @@ ms.locfileid: "70377263"
 
 ## <a name="the-update-resource-provider"></a>更新资源提供程序
 
-Azure Stack 包含一个更新资源提供程序，用于处理 Microsoft 软件更新的应用程序。 此提供程序将检查所有物理主机、Service Fabric 应用程序和运行时以及所有基础结构虚拟机及其关联的服务上是否应用了更新。
+Azure Stack 包含一个更新资源提供程序, 用于处理 Microsoft 软件更新的应用程序。 此提供程序将检查所有物理主机、Service Fabric 应用程序和运行时以及所有基础结构虚拟机及其关联的服务上是否应用了更新。
 
 当更新安装时，由于更新进程以 Azure Stack 中的各种子系统（例如，物理主机和基础结构虚拟机）为目标，因此你可以查看高级状态。
 

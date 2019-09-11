@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/09/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 7b8bae02fdb3f85b856f6ccdb9d90155e6bde768
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.lastreviewed: 09/09/2019
+ms.openlocfilehash: 9333cfde7985977607f7108fd90b62e376fa9462
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188358"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70862999"
 ---
 # <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Azure Stack datacenter 集成-发布 Azure Stack 服务
 
@@ -28,7 +28,7 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 ### <a name="ports-and-urls"></a>端口和 URL
 若要使 Azure Stack 服务（例如门户、Azure 资源管理器、DNS 等）可供外部网络使用，必须允许特定 URL、端口和协议的入站流量发往这些终结点。
  
-如果部署中的透明代理与传统代理服务器或防火墙的上行链路正在保护解决方案, 则必须允许特定端口和 Url 进行[入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)和[出站](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)通信。 这包括用于标识、市场、修补和更新、注册和使用情况数据的端口与 URL。
+如果部署中的透明代理与传统代理服务器或防火墙的上行链路正在保护解决方案，则必须允许特定端口和 Url 进行[入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)和[出站](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)通信。 这包括用于标识、市场、修补和更新、注册和使用情况数据的端口与 URL。
 
 ## <a name="ports-and-protocols-inbound"></a>端口和协议（入站）
 
@@ -37,9 +37,9 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。 用户 VIP 是动态的，由用户自己定义，而不受 Azure Stack 操作员的控制。
 
 > [!Note]  
-> IKEv2 VPN 是一种基于标准的 IPsec VPN 解决方案, 它使用 UDP 端口500和 4500, 以及 TCP 端口50。 防火墙并不总是打开这些端口, 因此 IKEv2 VPN 可能无法遍历代理和防火墙。
+> IKEv2 VPN 是一种基于标准的 IPsec VPN 解决方案，它使用 UDP 端口500和4500，以及 TCP 端口50。 防火墙并不总是打开这些端口，因此 IKEv2 VPN 可能无法遍历代理和防火墙。
 
-添加[扩展主机](azure-stack-extension-host-prepare.md)后, 不需要12495-30015 范围内的端口。
+添加[扩展主机](azure-stack-extension-host-prepare.md)后，不需要12495-30015 范围内的端口。
 
 |终结点 (VIP)|DNS 主机 A 记录|Protocol|端口|
 |---------|---------|---------|---------|
@@ -69,17 +69,17 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 
 ## <a name="ports-and-urls-outbound"></a>端口和 URL（出站）
 
-Azure Stack 仅支持透明代理服务器。 在具有到传统代理服务器的透明代理上行的部署中, 必须允许下表中的端口和 Url 进行出站通信。
+Azure Stack 仅支持透明代理服务器。 在具有到传统代理服务器的透明代理上行的部署中，必须允许下表中的端口和 Url 进行出站通信。
 
 > [!Note]  
-> Azure Stack 不支持使用 ExpressRoute 访问下表中列出的 Azure 服务。
+> Azure Stack 不支持使用 ExpressRoute 访问下表中列出的 Azure 服务，因为 ExpressRoute 可能无法将流量路由到所有终结点。
 
 |用途|目标 URL|Protocol|端口|源网络|
 |---------|---------|---------|---------|---------|
-|标识|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure 中国世纪互联**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure 德国**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
-|市场联合|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
+|标识|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>**Azure Government**<br>https：\//login.microsoftonline.us/<br>https：\//graph.windows.net/<br>**Azure 中国世纪互联**<br>https：\//login.chinacloudapi.cn/<br>https：\//graph.chinacloudapi.cn/<br>**Azure 德国**<br>https：\//login.microsoftonline.de/<br>https：\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
+|市场联合|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https：\//management.usgovcloudapi.net/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https：\//management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
 |修补程序和更新|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP - /27|
-|注册|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
+|注册|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https：\//management.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
 |用法|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure 中国世纪互联**<br>https://&#42;. trafficmanager.cn|HTTPS|443|公共 VIP - /27|
 |Windows Defender|&#42;。 wdcp.microsoft.com<br>&#42;。 wdcpalt.microsoft.com<br>&#42;。 wd.microsoft.com<br>&#42;。 update.microsoft.com<br>&#42;。 download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
 |NTP|（为部署提供的 NTP 服务器的 IP）|UDP|123|公共 VIP - /27|
@@ -95,7 +95,7 @@ Azure Stack 仅支持透明代理服务器。 在具有到传统代理服务器�
 
 使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 通过负载均衡的 Url, Microsoft 可以更新和更改后端终结点, 而不会影响客户。 Microsoft 不会共享负载平衡的 Url 的 IP 地址列表。 应使用支持按 URL 而不是按 IP 筛选的设备。
 
-任何时候都需要出站 DNS，不同的是查询外部 DNS 的源以及选择了哪种标识集成。 如果这是一个联网场景，则在部署期间，位于 BMC 网络上的 DVM 需要该出站访问，但在部署之后，DNS 服务将移到内部组件，该组件将通过公共 VIP 发送查询。 此时，可以删除通过 BMC 网络的出站 DNS 访问权限，但是必须保留对该 DNS 服务器的公共 VIP 访问权限，否则身份验证将失败。
+所有时候都需要出站 DNS;不同之处是查询外部 DNS 的源和所选的标识集成。 在部署过程中，位于 BMC 网络上的 DVM 需要出站访问权限。 但在部署后，DNS 服务会移动到将通过公共 VIP 发送查询的内部组件。 此时，可以删除通过 BMC 网络进行的出站 DNS 访问，但对该 DNS 服务器的公共 VIP 访问权限必须保留，否则身份验证将失败。
 
 ## <a name="next-steps"></a>后续步骤
 
