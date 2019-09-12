@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0a18c7e09f6be105ce1f80551cee6f341dda50d9
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 515195e30aed9944b8e0cc0e371d08b54ea75189
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863050"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902671"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>准备 Azure Stack 更新包
 
@@ -47,9 +47,6 @@ ms.locfileid: "70863050"
 ## <a name="download-the-update-package"></a>下载更新包
 Azure Stack 更新和修补程序的更新包可通过连接的系统的 "更新" 边栏选项卡获取。 如果要更新 OEM 包或支持已断开连接的系统，则需要下载包并将包移到 Azure Stack 实例可访问的位置。 如果正在运行具有间歇连接的系统，则可能还需要下载包并将其上传到可访问位置。
 
->[!NOTE]
->更新包本身及其内容（如二进制文件、PowerShell 脚本等）都是通过 Microsoft 拥有的证书签名的。 篡改包会使签名无效。
-
 查看包内容。 更新包通常包含以下文件：
 
 -   **自解压缩\<PackageName > .zip 文件**。 此文件包含更新的有效负载。
@@ -62,9 +59,13 @@ Azure Stack 更新和修补程序的更新包可通过连接的系统的 "更新
 
 [完整更新和快速更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)Azure Stack 的更新托管在安全的 Azure 终结点上。 具有连接的实例的 Azure Stack 操作员会看到[Azure Stack 更新会自动显示在管理门户中](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)。 对于 internet 断开连接的系统或具有弱 internet 连接的系统，可以使用[Azure Stack 更新下载程序工具](https://aka.ms/azurestackupdatedownload)下载更新包。 Azure Stack 软件更新包可能包含 Azure Stack 服务的更新，以及 Azure Stack 的缩放单位的操作系统的更新。
 
+>[!NOTE]
+>更新包本身及其内容（如二进制文件、PowerShell 脚本等）都是通过 Microsoft 拥有的证书签名的。 篡改包会使签名无效。
+
+
 ### <a name="where-to-download-azure-stack-hotfix-packages"></a>Azure Stack 修补程序包下载位置
 
-[Azure Stack 修补程序](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)的包与用于 Azure Stack 更新的安全 Azure 终结点相同。 具有连接的实例的 Azure Stack 操作员会看到[Azure Stack 更新会自动显示在管理门户中](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)。 你可以使用每个相关修补程序知识库文章中的嵌入链接下载它们;例如， [Azure Stack 修补程序 1.1906.11.52](https://support.microsoft.com/help/4515650)。 你可以在与 Azure Stack 版本对应的发行说明中找到修补程序。OEM 硬件供应商提供的更新
+[Azure Stack 修补程序](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)的包与用于 Azure Stack 更新的安全 Azure 终结点相同。 具有连接的实例的 Azure Stack 操作员会看到[Azure Stack 更新会自动显示在管理门户中](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)。 可以使用各个修补程序知识库文章（如[Azure Stack 修补程序 1.1906.11.52](https://support.microsoft.com/help/4515650)）中的嵌入式链接下载它们。 你可以在与 Azure Stack 版本对应的发行说明中找到修补程序。
 
 ### <a name="where-to-download-oem-update-packages"></a>下载 OEM 更新包的位置
 OEM 供应商还会发布更新，例如驱动程序和固件更新。 尽管这些更新作为硬件供应商单独的[OEM 包更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)传送，但仍会导入、安装和管理与 Microsoft 的更新包相同的方式。 可以在[应用 Azure Stack 原始设备制造商（OEM）更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-oem#oem-contact-information)中找到供应商联系人链接列表。

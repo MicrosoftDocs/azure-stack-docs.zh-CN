@@ -3,7 +3,7 @@ title: 为 Azure Stack 集成系统部署或机密轮换准备 Azure Stack 公�
 description: 介绍如何为 Azure Stack 集成系统准备 Azure Stack PKI 证书。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,24 +11,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/10/2019
+ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 682a5ce693bd9f184fd73a322ab9ed29c2d90fae
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: 6b7d7a3e70d78b8ab943224babc515395319914e
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782498"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902720"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>准备在部署或轮换时使用的 Azure Stack PKI 证书
 
-证书文件[从所选 CA 获取](azure-stack-get-pki-certs.md)必须导入和导出属性与匹配 Azure Stack 的证书要求。
+必须使用与 Azure Stack的证书要求匹配的属性导入和导出[从所选 CA 获取](azure-stack-get-pki-certs.md)的证书文件。
 
 ## <a name="prepare-certificates-for-deployment"></a>为部署准备证书
 
-使用以下步骤来准备和验证 Azure Stack PKI 证书，此类证书将用于部署新的 Azure Stack 环境，或者用于在现有的 Azure Stack 环境中轮换机密： 
+使用以下步骤来准备和验证 Azure Stack PKI 证书，这些证书将用于部署新的 Azure Stack 环境或在现有的 Azure Stack 环境中轮换机密。 
+
 
 ### <a name="import-the-certificate"></a>导入证书
 
@@ -51,6 +52,9 @@ ms.locfileid: "65782498"
    ![将密钥标记为可导出](./media/prepare-pki-certs/2.png)
 
 1. 单击“完成”以完成导入。
+
+> [!NOTE]
+> 为 Azure Stack 导入证书后，证书的私钥在群集存储中存储为 PKCS 12 文件（.pfx）。
 
 ### <a name="export-the-certificate"></a>导出证书
 

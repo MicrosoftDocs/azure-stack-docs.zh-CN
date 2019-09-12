@@ -3,23 +3,23 @@ title: 为 Azure Stack 集成系统部署生成 Azure Stack 公钥基础结构�
 description: 介绍 Azure Stack 集成系统的 Azure Stack PKI 证书部署过程。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/10/2019
+ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 1c342b1edb86629fff95dc04735fd5b6d98fc70a
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: c9f14e643f886fab0fae148c5af8643890866fd6
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782275"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902686"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 证书签名请求生成
 
@@ -30,19 +30,19 @@ ms.locfileid: "65782275"
 - 按照[为 Azure Stack 部署生成 PKI 证书](azure-stack-get-pki-certs.md)**请求标准证书**。
 - **平台即服务**：可以请求 [Azure Stack 公钥基础结构证书要求 - 可选的 PaaS 证书](azure-stack-pki-certs.md#optional-paas-certificates)中指定的证书的平台即服务 (PaaS) 名称。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 在为 Azure Stack 部署生成 PKI 证书的 CSR 之前，系统应符合以下先决条件：
 
-- Microsoft Azure Stack Readiness Checker
+- Microsoft Azure Stack 准备情况检查程序
 - 证书属性：
   - 区域名称
   - 外部完全限定的域名 (FQDN)
-  - Subject
-- Windows 10 或 Windows Server 2016
+  - 使用者
+- Windows 10 或 Windows Server 2016 或更高版本
 
   > [!NOTE]  
-  > 从证书颁发机构收回证书时，需要在同一个系统上完成[准备 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤！
+  > 从证书颁发机构收到证书后，[准备 AZURE STACK PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤将需要在同一系统上完成！
 
 ## <a name="generate-certificate-signing-requests"></a>生成证书签名请求
 
@@ -54,7 +54,7 @@ ms.locfileid: "65782275"
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. 将**使用者**声明为有序字典。 例如:
+2. 将**使用者**声明为有序字典。 例如：
 
     ```powershell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
@@ -63,7 +63,7 @@ ms.locfileid: "65782275"
     > [!note]  
     > 如果提供公用名 (CN)，此值将被证书请求的第一个 DNS 名称覆盖。
 
-3. 声明已存在的输出目录。 例如:
+3. 声明已存在的输出目录。 例如：
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"

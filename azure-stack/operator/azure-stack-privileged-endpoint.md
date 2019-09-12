@@ -3,7 +3,7 @@ title: 使用 Azure Stack 中的特权终结点 | Microsoft Docs
 description: 介绍如何使用 Azure Stack 中的特权终结点 (PEP)（面向 Azure Stack 操作员）。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/03/2019
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 349634e9f7bfdab3ec08630488d19947813361dd
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.lastreviewed: 09/03/2019
+ms.openlocfilehash: a278a918100619953b2b7eb9b288236625968187
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377221"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902626"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
@@ -47,7 +47,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 
 > [!NOTE]
-> 出于安全原因，我们要求只从硬件生命周期主机顶层运行的强化虚拟机或者从专用的安全计算机（例如[特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)）连接到 PEP。 不得修改硬件生命周期主机的原始配置（包括安装新软件），也不能使用该主机来连接 PEP。
+> 出于安全原因，我们要求只从硬件生命周期主机顶层运行的强化虚拟机或者从专用的安全计算机（例如[特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)）连接到 PEP。 不能修改硬件生命周期主机的原始配置（包括安装新软件），也不能将其用于连接到 PEP。
 
 1. 建立信任。
 
@@ -68,6 +68,10 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
      `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
+
+     >[!NOTE]
+     >验证 PEP 凭据时，Azure Stack 不会进行远程调用。 它依赖于本地存储的 RSA 公钥来实现此目的。
+     
    - 如果运行的是 ASDK：
      
      ```powershell
@@ -82,7 +86,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
      - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
      > [!NOTE]
-     > 如果无法连接到 ERCS 终结点，请使用尚未尝试连接到的 ERCS VM 的 IP 地址重试步骤 1 和 2。
+     > 如果无法连接到 ERCS 终结点，请重试步骤1和步骤2，并将其替换为另一个 ERCS VM IP 地址。
 
 3. 在连接后，提示符将更改为 **[*IP 地址或 ERCS VM 名称*]:PS>** 或 **[azs-ercs01]:PS>** ，具体取决于环境。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
 
