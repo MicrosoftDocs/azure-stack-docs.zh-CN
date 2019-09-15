@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9190a8cb0b42b10710a4abc2671fe8ead3094d9a
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 0147108a2e4fb45fce98460fcde141b5f2e28df5
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808290"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975038"
 ---
 # <a name="deploy-app-service-in-an-offline-environment-in-azure-stack"></a>在 Azure Stack 的脱机环境中部署应用服务
 
@@ -202,7 +202,7 @@ ms.locfileid: "70808290"
 > [!IMPORTANT]
 > 如果已向应用服务 RP 提供 SQL Always On 实例，则*必须*[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)，并同步数据库，以防止在发生数据库故障转移。
 
-如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 在管理门户中，请参阅 WorkersNsg 网络安全组，并使用以下属性添加出站安全规则：
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 在管理员门户中，请参阅 WorkersNsg 网络安全组，并使用以下属性添加出站安全规则：
 
 - 源：任意
 - 源端口范围：*
@@ -216,7 +216,7 @@ ms.locfileid: "70808290"
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>验证 Azure Stack 上的应用服务安装
 
-1. 在 Azure Stack 管理员门户中，转到“管理 - 应用服务”。
+1. 在 Azure Stack 管理员门户中，请参阅**管理-应用服务**。
 
 2. 在“概述”中，在“状态”下，检查“状态”是否显示了“所有角色已就绪”。
 
@@ -229,7 +229,7 @@ ms.locfileid: "70808290"
 > [!NOTE]
 > 需要创建一个套餐，其中的计划包含 Microsoft.Web 命名空间。 然后，需要有订阅此套餐的租户订阅。 有关详细信息，请参阅[创建产品/服务](azure-stack-create-offer.md)和[创建计划](azure-stack-create-plan.md)。
 >
-> 你*必须*具有租户订阅才能创建在 Azure Stack 上使用应用服务的应用。 服务管理员只能在管理员门户中完成的功能与资源提供程序对应用服务的管理相关。 这些功能包括添加容量、配置部署源以及添加辅助角色层和 SKU。
+> 你*必须*具有租户订阅才能创建在 Azure Stack 上使用应用服务的应用。 服务管理员只能在管理员门户中完成的功能与应用服务的资源提供程序管理有关。 这些功能包括添加容量、配置部署源以及添加辅助角色层和 SKU。
 >
 > 至于第三个技术预览版，若要创建 Web 应用、API 应用和 Azure Functions 应用，必须使用租户门户并有租户订阅。
 

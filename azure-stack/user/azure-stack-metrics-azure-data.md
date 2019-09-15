@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
-ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
+ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70064177"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974678"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>使用 Azure Stack 上的 Azure Monitor
 
@@ -31,7 +31,7 @@ ms.locfileid: "70064177"
 
 ![Azure Stack Monitor 边栏选项卡](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure 监视器是一款平台服务，提供一个中心位置来让用户监视 Azure 资源。 通过 Azure Monitor 直观显示、查询、路由和存档来自 Azure 内部资源的指标和日志并对其采取其他操作。 可以通过使用 Azure Stack 管理门户、Monitor PowerShell Cmdlet、跨平台 CLI 或 Azure Monitor REST API 来处理此数据。 有关 Azure Stack 支持的具体连接，请参阅[如何使用 Azure Stack 中的监视数据](azure-stack-metrics-monitor.md)。
+Azure 监视器是一款平台服务，提供一个中心位置来让用户监视 Azure 资源。 通过 Azure Monitor 直观显示、查询、路由和存档来自 Azure 内部资源的指标和日志并对其采取其他操作。 可以通过使用 Azure Stack 管理员门户、监视 PowerShell Cmdlet、跨平台 CLI 或 Azure Monitor REST Api 来处理这些数据。 有关 Azure Stack 支持的具体连接，请参阅[如何使用 Azure Stack 中的监视数据](azure-stack-metrics-monitor.md)。
 
 > [!Note]
 > 指标和诊断日志不可用于 Azure Stack 开发工具包。
@@ -130,7 +130,7 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  
-> 查看 VM 的性能图形时, 如果遇到 "找**不到资源**" 错误, 请确保已在与 vm 关联的订阅上注册了 "Microsoft 见解"。
+> 查看 VM 的性能图形时，如果遇到 "找**不到资源**" 错误，请确保已在与 vm 关联的订阅上注册了 "Microsoft 见解"。
 
 ## <a name="next-steps"></a>后续步骤
 

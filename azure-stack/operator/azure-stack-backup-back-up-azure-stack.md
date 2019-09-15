@@ -1,6 +1,6 @@
 ---
 title: 备份 Azure Stack | Microsoft Docs
-description: 在 Azure Stack 上使用备份就地执行按需备份。
+description: 了解如何在 Azure Stack 上执行按需备份。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: a572275ff81918d1b8f739a99fbe7a57784d0651
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269015"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974734"
 ---
 # <a name="back-up-azure-stack"></a>备份 Azure Stack
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-在 Azure Stack 上执行按需备份。 有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack，请参阅[在 Azure Stack 中使用管理员门户](azure-stack-manage-portals.md)。
+本文介绍如何在 Azure Stack 上执行按需备份。 有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack，请参阅[在 Azure Stack 中使用管理员门户](azure-stack-manage-portals.md)。
 
 ## <a name="start-azure-stack-backup"></a>启动 Azure Stack 备份
 
@@ -42,9 +42,9 @@ ms.locfileid: "66269015"
 使用带 **-AsJob** 参数的 Start-AzSBackup 启动新备份，并将其另存为变量以跟踪备份作业进度。
 
 > [!NOTE]
-> 备份作业将在作业完成前约 10-15 分钟在门户中显示为成功完成。
+> 备份作业在门户中显示为已成功完成，大约在该作业完成之前10-15 分钟。
 >
-> 因此，通过下面的代码可以更好地观察实际状态。
+> 通过以下代码，可更好地观察实际状态。
 
 > [!IMPORTANT]
 > 最初引入了 1 毫秒延迟是因为代码执行太快，无法正确注册作业，它返回时不带 **PSBeginTime**，从而不带作业的**状态**。
@@ -86,7 +86,7 @@ ms.locfileid: "66269015"
 ## <a name="confirm-backup-has-completed"></a>确认备份已完成
 
 ### <a name="confirm-backup-has-completed-using-powershell"></a>使用 PowerShell 确认备份已完成
-使用以下 PowerShell 命令确保备份已成功完成：
+使用以下 PowerShell 命令来确保备份已成功完成：
 
 ```powershell
    Get-AzsBackup
@@ -111,13 +111,13 @@ ms.locfileid: "66269015"
     Tags              : {}
 ```
 
-### <a name="confirm-backup-has-completed-in-the-administration-portal"></a>在管理门户中确认备份已完成
-使用 Azure Stack 管理门户按照以下步骤验证备份是否已成功完成：
+### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>在管理员门户中确认已完成备份
+按照以下步骤，使用 Azure Stack 管理员门户来验证备份是否已成功完成：
 
-1. 打开 [Azure Stack 管理门户](azure-stack-manage-portals.md)。
-2. 选择“所有服务”  ，然后在“管理”  类别下选择“基础结构备份”  。 在“基础结构备份”  边栏选项卡中选择“配置”  。
-3. 在“可用备份”  列表中查找备份的**名称**和**完成日期**。
-4. 验证**状态**是否为“成功”  。
+1. 打开[Azure Stack 管理员门户](azure-stack-manage-portals.md)。
+2. 选择“所有服务”，然后在“管理”类别下选择“基础结构备份”。 在“基础结构备份”边栏选项卡中选择“配置”。
+3. 在“可用备份”列表中查找备份的**名称**和**完成日期**。
+4. 验证**状态**是否为“成功”。
 
 ## <a name="next-steps"></a>后续步骤
 

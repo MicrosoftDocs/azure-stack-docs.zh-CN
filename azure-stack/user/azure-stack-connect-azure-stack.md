@@ -1,6 +1,6 @@
 ---
 title: 连接到 Azure Stack | Microsoft Docs
-description: 了解如何将 Azure Stack 连接。
+description: 了解如何连接 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 8b7a9e58fd4d4d8c3a05fea60c79ff47a519bf8c
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: 90759186b008c41bd9b3e35bf368d4f819534823
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197373"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975071"
 ---
 # <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
@@ -30,23 +30,23 @@ ms.locfileid: "66197373"
 * 虚拟专用网络 (VPN)：可让多个并发用户从 Azure Stack 基础结构外部的客户端进行连接（需要配置）。
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>使用远程桌面连接到 Azure Stack
-使用远程桌面连接，单个并发用户可以使用门户来管理资源。
+单个并发用户可以通过远程桌面连接使用门户来管理资源。
 
 1. 打开远程桌面连接并连接到开发工具包。 输入 **AzureStack\AzureStackAdmin** 作为用户名，并输入设置 Azure Stack 期间提供的管理密码。  
 
 2. 在开发工具包计算机上打开服务器管理器，单击“本地服务器”，关闭“Internet Explorer 增强的安全性”，然后关闭服务器管理器。
 
-3. 若要打开门户，请转到 (https://portal.local.azurestack.external/)并使用用户凭据登录。
+3. 若要打开门户，请转到 https://portal.local.azurestack.external/) ，并使用用户凭据登录。
 
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>使用 VPN 连接到 Azure Stack
 
-可以与 Azure Stack 开发工具包建立拆分隧道 VPN 连接。 通过 VPN 连接可以访问管理门户、 用户门户和本地安装的工具，例如 Visual Studio 和 PowerShell 管理 Azure Stack 资源。 在 Azure Active Directory (AAD) 和 Active Directory 联合身份验证服务 (AD FS) 中支持 VPN 连接的基于的部署。 VPN 连接，同时连接到 Azure Stack 的多个客户端。 
+可以与 Azure Stack 开发工具包建立拆分隧道 VPN 连接。 通过 VPN 连接，你可以访问管理员门户、用户门户和本地安装的工具（如 Visual Studio 和 PowerShell）来管理 Azure Stack 资源。 基于 Azure Active Directory (AAD) 和 Active Directory 联合身份验证服务 (AD FS) 的部署均支持 VPN 连接。 VPN 连接允许多个客户端同时连接到 Azure Stack。 
 
 > [!NOTE] 
-> 此 VPN 连接不提供与 Azure Stack 基础结构 Vm 的连接。 
+> 此 VPN 连接不提供与 Azure Stack 基础结构 VM 的连接。 
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>先决条件
 
 * 在本地计算机上安装[与 Azure Stack 兼容的 Azure PowerShell](../operator/azure-stack-powershell-install.md)。  
 * 下载[使用 Azure Stack 所需的工具](../operator/azure-stack-powershell-download.md)。 
@@ -84,7 +84,7 @@ Add-AzsVpnConnection `
 
 ```
 
-如果安装不成功，则会看到`azurestack`的 VPN 连接列表中。
+如果设置成功，你将在 VPN 连接列表中看到 `azurestack`。
 
 ![网络连接](media/azure-stack-connect-azure-stack/image3.png)  
 
@@ -99,13 +99,13 @@ Add-AzsVpnConnection `
     -Password $Password
   ```
 
-  出现提示时，信任 Azure Stack 主机，并安装中的证书**AzureStackCertificateAuthority**到本地计算机的证书存储。 在提示符下可能会显示在 PowerShell 会话窗口后面。 
+  出现提示时，信任 Azure Stack 主机，并将 **AzureStackCertificateAuthority** 提供的证书安装到本地计算机的证书存储。 该提示可能会出现在 PowerShell 会话窗口后面。 
 
-* 在本地计算机上转到**网络设置** > **VPN** > 选择`azurestack`  > **连接**。 在登录提示符下，输入用户名 (AzureStack\AzureStackAdmin) 和密码。
+* 在本地计算机上，转到“网络设置” > “VPN”>选择“`azurestack`” > “连接”。 在登录提示符下，输入用户名 (AzureStack\AzureStackAdmin) 和密码。
 
 ### <a name="test-the-vpn-connectivity"></a>测试 VPN 连接
 
-若要测试门户连接，请打开浏览器并转到用户门户 (https://portal.local.azurestack.external/)，登录，并创建资源。  
+若要测试门户连接，请打开浏览器并转到用户门户 (https://portal.local.azurestack.external/) ，登录，然后创建资源。  
 
 ## <a name="next-steps"></a>后续步骤
 

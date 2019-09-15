@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 88255a15a204f5dcb18dd83f9763e8297a1af51c
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: c80a6068aa46cd182f8ec928942e7072638b143f
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808240"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974850"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Azure Stack 上的应用服务更新3发行说明
 
@@ -40,7 +40,7 @@ Azure Stack Update 3 内部版本号的应用服务为**74.0.13698.31**。
 
 开始部署之前，请参阅[Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
-开始将 Azure Stack Azure App Service 升级到1.3 之前，请确保 Azure Stack 管理门户的 "Azure App Service 管理" 中的所有角色都已准备就绪。
+在开始将 Azure Stack Azure App Service 升级到1.3 之前，请确保 Azure Stack 管理员门户的 Azure App Service 管理中已准备好所有角色。
 
 ![应用服务角色状态](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
@@ -184,7 +184,7 @@ Azure Stack Update 3 内部版本号的应用服务为**74.0.13698.31**。
 
 - 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。 Azure Stack 部署文档的 Azure App Service 中会出现此问题。
 
-如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理员门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
 
  * 源：任意
  * 源端口范围：*

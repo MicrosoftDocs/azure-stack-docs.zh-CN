@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: b92fcd3f729bf068dd578893f24f1c7fa66bbcff
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 9098fb61c0d4edcb534bd7b9d07b4727c953df8d
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808155"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974890"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Azure Stack 上的应用服务 Update 4 发行说明
 
@@ -42,7 +42,7 @@ Azure Stack 上的应用服务 Update 4 的内部版本号为 **78.0.13698.5**
 
 开始将 Azure Stack 上的 Azure 应用服务升级到 1.4 之前：
 
-- 确保在 Azure Stack 管理门户的 "Azure App Service 管理" 中，所有角色都已准备就绪。
+- 确保在 Azure Stack 管理员门户的 "Azure App Service 管理" 中，所有角色都已准备就绪。
 
 - 备份应用服务和 master 数据库：
   - AppService_Hosting；
@@ -92,7 +92,7 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
 
 - 应用服务租户门户的跨域资源共享设置中的已还原功能。
 
-- 当资源提供程序控制面无法连接到配置的 SQL Server 实例时，错误消息现在会显示在应用服务管理门户中。
+- 当资源提供程序控制面无法连接到已配置的 SQL Server 实例时，"错误消息" 现在会显示在 "应用服务管理员门户" 中。
 
 - 请确保在新的 Function app 中指定了自定义存储连接字符串中的终结点。
 
@@ -207,7 +207,7 @@ Azure Stack 上的 Azure 应用服务 Update 4 包含以下改进和修复：
 
 - 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。 Azure Stack 部署文档的 Azure App Service 中会出现此问题。
 
-如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理员门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
 
  * 源：任意
  * 源端口范围：*

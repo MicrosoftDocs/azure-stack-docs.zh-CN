@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 45fddcb71781f11cdab600200631737d284935d9
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 80dc7bae2371025fba82531b08216606580176e1
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271688"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975202"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack"></a>Azure Stack 中的应用服务服务器角色的容量规划
 
@@ -99,7 +99,7 @@ Azure 应用经典部署模型角色负责应用服务 Azure 资源管理器和 
 
 在升级和维护期间，Azure App Service 会将工作负荷转移到未分配的工作线程，以确保工作负荷将继续运行。 但是，如果在升级过程中没有未分配的工作线程，则可能会导致租户工作负荷停机。 与共享辅助角色相关，客户无需预配其他工作人员，因为服务会自动在可用工作线程内分配租户应用。 为实现高可用性，此层中有两个辅助角色的最低要求。
 
-云管理员可以在 Azure Stack 管理门户的 "应用服务管理" 区域中监视其辅助角色分配。 导航到“应用服务”，然后在左窗格中选择“辅助角色层”。 “辅助角色层”表会显示辅助角色层的名称、大小、使用的映像、可用辅助角色数目（未分配）、每层中的辅助角色总数，以及辅助角色层的整体状态。
+云管理员可以在 Azure Stack 管理员门户的 "应用服务管理" 区域中监视其辅助角色分配。 导航到“应用服务”，然后在左窗格中选择“辅助角色层”。 “辅助角色层”表会显示辅助角色层的名称、大小、使用的映像、可用辅助角色数目（未分配）、每层中的辅助角色总数，以及辅助角色层的整体状态。
 
 ![应用服务管理 - 辅助角色层][1]
 

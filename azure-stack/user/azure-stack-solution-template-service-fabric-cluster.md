@@ -15,35 +15,35 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f14face1998b73ed0739db1d9ed0504eaad2799c
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: 9b56a55ca6fd45177daaa00a7c32bcdf5c281155
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67042064"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975119"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
 
-使用 Azure 市场中的“Service Fabric 群集”项在 Azure Stack 中部署受保护的 Service Fabric 群集。  
+使用 Azure 市场中的“Service Fabric 群集”项在 Azure Stack 中部署受保护的 Service Fabric 群集。 
 
-有关使用 Service Fabric 的详细信息，请参阅[的 Azure Service Fabric 概述](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)并[Service Fabric 群集安全方案](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)Azure 文档中。
+有关使用 Service Fabric 的详细信息，请参阅 Azure 文档中的 [Azure Service Fabric 概述](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)和 [Service Fabric 群集安全方案](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
-Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.ServiceFabric。 相反，在 Azure Stack 中，Service Fabric 群集是虚拟机规模集与预安装的软件，在使用[Desired State Configuration (DSC)](https://docs.microsoft.com/powershell/dsc/overview/overview)。
+Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.ServiceFabric。 相反，在 Azure Stack 中，Service Fabric 群集是一个虚拟机规模集，具有使用 [Desired State Configuration (DSC)](https://docs.microsoft.com/powershell/dsc/overview/overview) 的预安装软件。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 若要部署 Service Fabric 群集，必须做好以下准备：
 1. **群集证书**  
-   这是部署 Service Fabric 时添加到密钥保管库的 X.509 服务器证书。 
+   这是在部署 Service Fabric 时添加到 Key Vault 的 X.509 服务器证书。 
    - 此证书中的 **CN** 必须与创建的 Service Fabric 群集的完全限定域名 (FQDN) 匹配。 
    - 证书格式必须是 PFX，因为需要公钥和私钥。 
      请参阅创建此服务器端证书所要满足的[要求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
      > [!NOTE]  
-     > 出于测试目的，可以使用 X.509 服务器证书的自签名的证书就地。 自签名的证书不需要与群集的 FQDN 匹配。
+     > 可以使用自签名的证书取代 X.509 服务器证书进行测试。 自签名的证书不需要与群集的 FQDN 匹配。
 
-1. **管理客户端证书**  
-   这是客户端使用对 Service Fabric 群集，可以自签名进行身份验证的证书。 请参阅创建此客户端证书所要满足的[要求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
+1. **管理员客户端证书**  
+   这是客户端用于在 Service Fabric 群集中进行身份验证的证书，可以是自签名的证书。 请参阅创建此客户端证书所要满足的[要求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
 1. **必须在 Azure Stack 市场中提供以下各项：**
     - **Windows Server 2016** - 模板使用 Windows Server 2016 映像来创建群集。  
@@ -52,15 +52,15 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
 
 ## <a name="add-a-secret-to-key-vault"></a>向 Key Vault 添加机密
-若要部署的 Service Fabric 群集，必须指定正确的 Key Vault*机密标识符*或 Service Fabric 群集的 URL。 Azure 资源管理器模板使用密钥保管库作为输入。 然后，该模板在安装 Service Fabric 群集时检索群集证书。
+若要部署 Service Fabric 群集，必须指定正确的 Key Vault 机密标识符，或 Service Fabric 群集的 URL。 Azure 资源管理器模板接受一个 Key Vault 作为输入。 然后，该模板在安装 Service Fabric 群集时检索群集证书。
 
 > [!IMPORTANT]  
-> 您必须使用 PowerShell 将机密添加到密钥保管库，以用于 Service Fabric。 不要使用门户。  
+> 必须使用 PowerShell 在 Key Vault 中添加一个要用于 Service Fabric 的机密。 不要使用门户。  
 
-使用以下脚本来创建密钥保管库，并添加*群集证书*到它。 （请参阅[先决条件](#prerequisites)。）在运行该脚本之前，请查看示例脚本并更新指示的参数，使之与环境匹配。 此脚本还会输出需要向 Azure 资源管理器模板提供的值。 
+使用以下脚本创建 Key Vault 并在其中添加群集证书。 （请参阅[先决条件](#prerequisites)。）在运行该脚本之前，请查看示例脚本并更新指示的参数，使之与环境匹配。 此脚本还会输出需要向 Azure 资源管理器模板提供的值。 
 
 > [!TIP]  
-> 该脚本才能成功之前，必须有公共产品/服务，包括计算、 网络、 存储和密钥保管库的服务。 
+> 要成功运行该脚本，必须有某个公共产品/服务包含计算、网络、存储和 Key Vault 的服务。 
 
   ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
@@ -120,36 +120,47 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
    ``` 
 
 
-有关详细信息，请参阅[使用 PowerShell 的 Azure Stack 上管理密钥保管库](azure-stack-key-vault-manage-powershell.md)。
+有关详细信息，请参阅[使用 PowerShell 管理 Azure Stack 上的 Key Vault](azure-stack-key-vault-manage-powershell.md)。
 
 ## <a name="deploy-the-marketplace-item"></a>部署市场项
 
-1. 在用户门户中，转到“+ 创建资源” > “计算” > “Service Fabric 群集”。    
+1. 在用户门户中，转到“+ 创建资源” > “计算” > “Service Fabric 群集”。 
 
    ![选择“Service Fabric 群集”](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-1. 填写每个页（例如“基本信息”）中的部署窗体。  如果不确定要指定哪个值，请使用默认值。 选择“确定”转到下一页： 
+2. 填写每个页（例如“基本信息”）中的部署窗体。 如果不确定要指定哪个值，请使用默认值。
 
-   ![基础](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
+    对于断开连接 Azure Stack 的部署或部署 Service Fabric 的另一版本，请下载 Service Fabric 部署包及其相应的运行时包，并将其托管在 Azure Stack blob 上。 向 " **Service Fabric 部署包 url** " 和 " **Service Fabric 运行时包 url** " 字段提供这些值。
+    > [!NOTE]  
+    > 最新版本的 Service Fabric 及其相应的 SDK 之间存在兼容性问题。 在解决该问题之前，请向部署包 URL 和运行时包 URL 提供以下参数。 否则，部署将失败。
+    > - Service Fabric 部署包 URL：<https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
+    > - Service Fabric 运行时包 URL：<https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
+    >
+    > 对于断开连接的部署，请从指定位置下载这些包并将其托管在 Azure Stack Blob 上。
 
-1. 在“网络设置”页上，可以指定要对应用程序打开的特定端口： 
+   ![基本](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
+
+    
+3. 在“网络设置”页上，可以指定要对应用程序打开的特定端口：
 
    ![网络设置](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-1. 上*安全*页上，添加所获取的值[创建 Azure 密钥保管库](#add-a-secret-to-key-vault)并上传机密。
+4. 在“安全性”页上，添加在[创建 Azure Key Vault](#add-a-secret-to-key-vault) 中获取的值并上传机密。
 
-   对于“管理客户端证书指纹”，请输入管理客户端证书的指纹。   （请参阅[先决条件](#prerequisites)。）
+   对于“管理客户端证书指纹”，请输入管理客户端证书的指纹。 （请参阅[先决条件](#prerequisites)。）
    
-   - 源 Key Vault：指定整个`keyVault id`从脚本结果的字符串。 
-   - 群集证书 URL：指定从整个 URL`Secret Id`从脚本结果。 
+   - 源 Key Vault：指定脚本结果中的完整 `keyVault id` 字符串。 
+   - 群集证书 URL：指定脚本结果中的 `Secret Id` 中的完整 URL。 
    - 群集证书指纹：指定脚本结果中的 *Cluster Certificate Thumbprint*（群集证书指纹）。
+   - 服务器证书 URL：如果要使用群集证书中的单独证书，请将证书上传到 keyvault，并提供机密的完整 url。 
+   - 服务器证书指纹：指定服务器证书的指纹
    - 管理客户端证书指纹：指定在先决条件中创建的*管理客户端证书指纹*。 
 
    ![脚本输出](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
-   ![安全](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
+   ![安全性](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-1. 完成向导，然后选择“创建”以部署 Service Fabric 群集。 
+5. 完成向导，然后选择“创建”以部署 Service Fabric 群集。
 
 
 
@@ -158,55 +169,55 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
 
 ### <a name="use-service-fabric-explorer"></a>使用 Service Fabric Explorer
-1.  请确保浏览器有权访问你的管理员客户端证书，并可以向 Service Fabric 群集进行身份验证。  
+1.  确保浏览器是否能够访问你的管理客户端证书，以及是否可在 Service Fabric 群集中进行身份验证。  
 
-    a. 打开 Internet Explorer 并转到“Internet 选项” > “内容” > “证书”。   
+    a. 打开 Internet Explorer 并转到“Internet 选项” > “内容” > “证书”。
   
-    b. 在“证书”中，选择“导入”启动“证书导入向导”，然后单击“下一步”。    在“要导入的文件”页上单击“浏览”，然后选择提供给 Azure 资源管理器模板的**管理客户端证书**。  
+    b. 在“证书”中，选择“导入”启动“证书导入向导”，然后单击“下一步”。 在“要导入的文件”页上单击“浏览”，然后选择提供给 Azure 资源管理器模板的**管理客户端证书**。
         
        > [!NOTE]  
-       > 此证书不是先前添加到密钥保管库的群集证书。  
+       > 此证书不是先前已添加到 Key Vault 的群集证书。  
 
     c. 确保在“文件资源管理器”窗口的扩展下拉列表中选择“个人信息交换”。  
 
        ![个人信息交换](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
-    d. 在“证书存储”页上选择“个人”，然后完成向导。    
+    d. 在“证书存储”页上选择“个人”，然后完成向导。  
        ![证书存储](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. 若要查找 Service Fabric 群集的 FQDN：  
 
-    a. 转到与 Service Fabric 群集关联的资源组，并找到“公共 IP 地址”资源。  选择与“公共 IP 地址”关联的对象，打开“公共 IP 地址”边栏选项卡。   
+    a. 转到与 Service Fabric 群集关联的资源组，并找到“公共 IP 地址”资源。 选择与“公共 IP 地址”关联的对象，打开“公共 IP 地址”边栏选项卡。  
 
-      ![公共 IP 地址](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
+      ![公用 IP 地址](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
-    b. 在“公共 IP 地址”边栏选项卡上，FQDN 显示为“DNS 名称”。   
+    b. 在“公共 IP 地址”边栏选项卡上，FQDN 显示为“DNS 名称”。  
 
       ![DNS 名称](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
 1. 若要查找 Service Fabric Explorer 的 URL 和客户端连接终结点，请查看模板部署的结果。
 
 1. 在浏览器中转到 <https://*FQDN*:19080>。 将 *FQDN* 替换为在步骤 2 中获取的 Service Fabric 群集 FQDN。   
-   如果已使用了自签名的证书，则会连接并不安全的警告。 若要继续的 web 站点，请选择**详细信息**，然后**转到网页**。 
+   如果使用了自签名证书，屏幕上会显示一条警告，指出连接不安全。 若要继续访问网站，请依次选择“更多信息”、“继续访问网页”。 
 
-1. 若要在站点中进行身份验证，必须选择要使用的证书。 选择“更多选项”，选择适当的证书，然后单击“确定”连接到 Service Fabric Explorer。   
+1. 若要在站点中进行身份验证，必须选择要使用的证书。 选择“更多选项”，选择适当的证书，然后单击“确定”连接到 Service Fabric Explorer。 
 
-   ![身份验证](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
+   ![验证](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
 
 
 ### <a name="use-service-fabric-powershell"></a>使用 Service Fabric PowerShell
 
-1. 安装*Microsoft Azure Service Fabric SDK*从[准备开发环境上 Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) Azure Service Fabric 文档中。  
+1. 从在 Azure Service Fabric 文档中的[Windows 上准备开发环境](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)中安装*Microsoft Azure Service Fabric SDK* 。  
 
 1. 安装完成后，配置系统环境变量，确保可从 PowerShell 访问 Service Fabric cmdlet。  
     
-    a. 转到“控制面板” > “系统和安全” > “系统”并选择“高级系统设置”。      
+    a. 转到“控制面板” > “系统和安全” > “系统”并选择“高级系统设置”。  
     
       ![控制面板](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
-    b. 在“系统属性”的“高级”选项卡上，选择“环境变量”。     
+    b. 在“系统属性”的“高级”选项卡上，选择“环境变量”。  
 
-    c. 对于“系统变量”，请编辑“路径”，并确保 **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** 位于环境变量列表的最前面。    
+    c. 对于“系统变量”，请编辑“路径”，并确保 **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** 位于环境变量列表的最前面。  
 
       ![环境变量列表](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 

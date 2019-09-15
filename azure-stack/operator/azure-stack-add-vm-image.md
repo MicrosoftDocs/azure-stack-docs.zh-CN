@@ -15,18 +15,18 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 8fec1b3702aa7c8c55f1a90167b1ac13f0ac8847
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: a72879303b80a1265450019d6b264085a8539387
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271757"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974975"
 ---
 # <a name="add-a-vm-image-to-azure-stack"></a>将 VM 映像添加到 Azure Stack
 
 适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-在 Azure Stack 中，你可以向市场中添加虚拟机 (VM) 映像来将其提供给用户。 使用用于 Azure Stack 的 Azure 资源管理器模板添加映像。 你还可以使用管理门户或 Windows PowerShell 将 VM 映像添加到 Azure Marketplace UI，作为 Marketplace 项。 可以使用来自全球 Azure 市场的映像，也可以使用你自己的自定义 VM 映像。
+在 Azure Stack 中，你可以向市场中添加虚拟机 (VM) 映像来将其提供给用户。 使用用于 Azure Stack 的 Azure 资源管理器模板添加映像。 你还可以使用管理员门户或 Windows PowerShell 将 VM 映像添加到 Azure Marketplace UI，作为 Marketplace 项。 可以使用来自全球 Azure 市场的映像，也可以使用你自己的自定义 VM 映像。
 
 ## <a name="add-a-vm-image-through-the-portal"></a>通过门户添加 VM 映像
 
@@ -66,7 +66,7 @@ ms.locfileid: "70271757"
 
 ## <a name="remove-a-vm-image-through-the-portal"></a>通过门户删除 VM 映像
 
-1. 在[https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)中打开管理门户。
+1. 在上[https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)打开管理员门户。
 
 2. 选择“市场管理”，然后选择要删除的 VM。
 

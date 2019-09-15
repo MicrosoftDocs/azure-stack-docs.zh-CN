@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ab06f5d3674000733227894a5a69778d90c29d48
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 9b28d6b55530de6716fd7781b4c7894cbc859288
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118740"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975001"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>在 Azure Stack 中添加更多的缩放单元节点
 
@@ -29,15 +29,15 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 
 若要添加某个缩放单元节点，请在 Azure Stack 中操作并运行硬件设备制造商 (OEM) 提供的工具。 OEM 工具在硬件生命周期主机 (HLH) 上运行，目的是确保新的物理计算机与现有节点的固件级别匹配。
 
-以下流程图显示了添加缩放单位节点的一般过程:
+以下流程图显示了添加缩放单位节点的一般过程：
 
 ![添加缩放单位流](media/azure-stack-add-scale-node/add-node-flow.png)
-<br> *你的 OEM 硬件供应商是否制定物理服务器机架位置, 并且更新固件会根据你的支持合同而有所不同。*
+<br> *你的 OEM 硬件供应商是否制定物理服务器机架位置，并且更新固件会根据你的支持合同而有所不同。*
 
 添加新节点的操作可能需要数小时或数天才能完成。
 
 > [!Note]  
-> 当 "添加缩放单位" 节点操作正在进行时, 请勿尝试执行以下任一操作:
+> 当 "添加缩放单位" 节点操作正在进行时，请勿尝试执行以下任一操作：
 >
 >  - 更新 Azure Stack
 >  - 轮换证书
@@ -51,16 +51,16 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 
 1. 将新的物理服务器置于机架中并进行正确的布线。 
 2. 启用物理交换机端口，并根据情况调整访问控制列表 (ACL)。
-3. 在基板管理控制器 (BMC) 中配置正确的 IP 地址, 并根据 OEM 提供的文档应用所有 BIOS 设置。
+3. 在基板管理控制器（BMC）中配置正确的 IP 地址，并根据 OEM 提供的文档应用所有 BIOS 设置。
 4. 使用硬件制造商提供的在 HLH 上运行的工具，将当前的固件基线应用于所有组件。
-5. 在 Azure Stack 管理门户中运行 "添加节点" 操作。
+5. 在 Azure Stack 管理员门户中运行添加节点操作。
 6. 验证“添加节点”操作是否成功。 为此，请查看[缩放单元的“状态”](#monitor-add-node-operations)。 
 
 ## <a name="add-the-node"></a>添加节点
 
 可以使用管理员门户或 PowerShell 来添加新节点。 “添加节点”操作首先将新的缩放单元节点添加为可用计算容量，然后自动扩展存储容量。 容量之所以可以自动扩展，是因为 Azure Stack 是一个超聚合的系统，其中的计算和存储是一起缩放的。
 
-### <a name="use-the-admin-portal"></a>使用管理员门户
+### <a name="use-the-administrator-portal"></a>使用管理员门户
 
 1. 以 Azure Stack 操作员身份登录到 Azure Stack 管理员门户。
 2. 导航到“+ 创建资源” > “容量” > “缩放单元节点”。
@@ -76,7 +76,7 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 在使用下述某个示例 PowerShell 脚本之前，请将 *node names* 和 *IP addresses* 的值替换为你的 Azure Stack 环境的值。
 
   > [!Note]  
-  > 为节点命名时，必须确保名称的长度不到 15 个字符。 还不能`\`使用包含空格的名称, 也不能包含以下任何字符:、 `>` `/` `:` `*` `<`、、、 `?` `"` `|`、、、、、`\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
+  > 为节点命名时，必须确保名称的长度不到 15 个字符。 还不能`\`使用包含空格的名称，也不能包含以下任何字符：、 `>` `/` `:` `*` `<`、、、 `?` `"` `|`、、、、、`\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **添加节点：**
   ```powershell
@@ -87,10 +87,10 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
   ```  
 
 ## <a name="monitor-add-node-operations"></a>监视“添加节点”操作 
-使用管理门户或 PowerShell 获取 "添加节点" 操作的状态。 “添加节点”操作可能需要数小时或数天来完成。
+使用管理员门户或 PowerShell 获取 "添加节点" 操作的状态。 “添加节点”操作可能需要数小时或数天来完成。
 
-### <a name="use-the-admin-portal"></a>使用管理员门户 
-若要监视新节点的添加, 请在管理门户中查看缩放单位或缩放单位节点对象。 为此，请转到“区域管理” > “缩放单元”。 接下来，选择要查看的缩放单元或缩放单元节点。 
+### <a name="use-the-administrator-portal"></a>使用管理员门户 
+若要监视新节点的添加，请在管理员门户中查看缩放单位或缩放单位节点对象。 为此，请转到“区域管理” > “缩放单元”。 接下来，选择要查看的缩放单元或缩放单元节点。 
 
 ### <a name="use-powershell"></a>使用 PowerShell
 缩放单元和缩放单元节点的状态可以使用 PowerShell 来检索，如下所示：

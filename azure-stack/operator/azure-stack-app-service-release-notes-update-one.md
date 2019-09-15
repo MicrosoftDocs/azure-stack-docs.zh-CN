@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: d9155edcf23154f70f2a7f8098df55e7acb2b552
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 7be74701b3e25658258abc7102668346e584ab39
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808267"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974830"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Azure Stack 上的应用服务 Update 1 发行说明
 
@@ -146,7 +146,7 @@ Azure Stack 上的应用服务 Update 1 内部版本号为**69.0.13698.9**。
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. 在 Azure Stack 管理门户中的 "虚拟机" 下浏览到**CN0-VM** ，并**单击 "连接**" 以打开与控制器实例的远程桌面会话。 使用在部署应用服务期间指定的凭据。
+2. 在 Azure Stack 管理员门户中的 "虚拟机" 下浏览到**CN0-VM** ，并**单击 "连接**" 以打开与控制器实例的远程桌面会话。 使用在部署应用服务期间指定的凭据。
 3. **以管理员身份启动 PowerShell**并执行以下脚本：
 
     ```powershell
@@ -199,7 +199,7 @@ Azure Stack 上的应用服务 Update 1 内部版本号为**69.0.13698.9**。
 
 6. 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
-如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理员门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
 
 - 源：任意
 - 源端口范围：*

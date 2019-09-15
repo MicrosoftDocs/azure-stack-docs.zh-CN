@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 7d0e9c6914ce8748d842c9addf040355e3dc1cb1
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 9e92101b6d00da397359ed25e8682f18305f5a83
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991711"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974728"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet 参考
 
@@ -166,7 +166,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>描述
 
-**Start-AzsReadinessChecker** cmdlet 验证证书、Azure 帐户、Azure 订阅和 Azure Active Directory。 在部署 Azure Stack 之前或在运行 Azure Stack 服务操作（例如机密轮换）之前运行验证。 该 cmdlet 还可用于生成基础结构证书的证书签名请求，以及 PaaS 证书（可选）。 最后，该 cmdlet 可以重新打包 PFX 证书，以解决常见的打包问题。
+**AzsReadinessChecker** cmdlet 验证证书、azure 帐户、azure 订阅和 Azure Active DIRECTORY （AAD）。 在部署 Azure Stack 之前或在运行 Azure Stack 服务操作（例如机密轮换）之前运行验证。 该 cmdlet 还可用于生成基础结构证书的证书签名请求，以及 PaaS 证书（可选）。 最后，该 cmdlet 可以重新打包 PFX 证书，以解决常见的打包问题。
 
 ## <a name="examples"></a>示例
 
@@ -197,7 +197,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-在此部署和支持示例中，出于安全性需要输入 PFX 密码，`Start-AzsReadinessChecker` 在相对文件夹 **Certificates** 中检查标识、区域和外部 FQDN 都是从针对部署生成的部署数据 JSON 文件中读取的部署是否有适用的有效证书。
+在此部署和支持示例中，PFX 密码是安全所必需的， `Start-AzsReadinessChecker`并且会检查相对文件夹**证书**中是否存在对从部署中读取标识、区域和外部 FQDN 的部署有效的证书为部署生成的数据 JSON 文件。
 
 ### <a name="example-validate-paas-certificates"></a>示例：验证 PaaS 证书
 
@@ -237,7 +237,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 Azure Active Directory 是否适用于租户目录名称为 **azurestack.contoso.com** 的 AAD 部署
+在此示例中，服务管理员帐户凭据是安全必需的，并`Start-AzsReadinessChecker`检查 Azure 帐户和 aad 对于租户目录名称为**azurestack.contoso.com**的 AAD 部署是否有效。
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>示例：使用部署数据验证 Azure 标识（部署支持）
 
@@ -246,7 +246,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-在此示例中, 服务管理员帐户凭据是安全所必需的, `Start-AzsReadinessChecker`并检查 Azure 帐户和 Azure Active Directory 对于 AAD 部署是否有效, 其中**AzureCloud**和**TenantName**是读取的从为部署生成的部署数据 JSON 文件。
+在此示例中，服务管理员帐户凭据是安全所必需的， `Start-AzsReadinessChecker`并检查 Azure 帐户和 aad 对于 AAD 部署是否有效，其中**AzureCloud**和**TenantName**是从部署数据 JSON 中读取的。为部署生成的文件。
 
 ### <a name="example-validate-azure-registration"></a>示例：验证 Azure 注册
 
@@ -276,7 +276,7 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
 
-在此示例中，出于安全性需要输入 PFX 密码。 Ssl.pfx 文件 将导入到本地计算机证书存储，然后以相同的密码重新导出，并保存为 Ssl_new.pfx。 当证书验证以标志形式指出私钥中未设置“本地计算机”属性、证书链中断、PFX 中存在不相关的证书，或证书链顺序错误等时，将使用此过程。
+在此示例中，出于安全性需要输入 PFX 密码。 Ssl.pfx 文件 将导入到本地计算机证书存储，然后以相同的密码重新导出，并保存为 Ssl_new.pfx。 当证书验证标志私钥未设置**本地计算机**属性、证书链断开、PFX 中存在不相关的证书或证书链的顺序不正确时，将使用此过程。
 
 ### <a name="example-view-validation-report-deployment-and-support"></a>示例：查看验证报告（部署和支持）
 
@@ -303,7 +303,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|--------------|
 |键入：                       |String        |
-|职位:                   |名为         |
+|位置：                   |名为         |
 |默认值：              |无          |
 |接受管道输入：      |False         |
 |接受通配符： |False         |
@@ -315,7 +315,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|--------------|
 |键入：                       |String        |
-|职位:                   |名为         |
+|位置：                   |名为         |
 |默认值：              |ExternalFQDN、ExternalDomainName |
 |接受管道输入：      |False         |
 |接受通配符： |False         |
@@ -327,7 +327,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|--------------|
 |键入：                       |String        |
-|职位:                   |名为         |
+|位置：                   |名为         |
 |默认值：              |无          |
 |有效值：               |'AAD'、'ADFS'  |
 |接受管道输入：      |False         |
@@ -340,7 +340,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |SecureString |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |无     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
@@ -352,8 +352,8 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |Hashtable |
-|职位:                   |名为    |
-|默认值：              |None     |
+|位置：                   |名为    |
+|默认值：              |无     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
 
@@ -364,7 +364,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |无     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
@@ -376,8 +376,8 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
-|默认值：              |None     |
+|位置：                   |名为    |
+|默认值：              |无     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
 
@@ -388,8 +388,8 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
-|默认值：              |None     |
+|位置：                   |名为    |
+|默认值：              |无     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
 
@@ -400,8 +400,8 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |OrderedDictionary   |
-|职位:                   |名为    |
-|默认值：              |无     |
+|位置：                   |名为    |
+|默认值：              |None     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
 
@@ -415,7 +415,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |无     |
 |有效值：               |'MultipleCSR'、'SingleCSR' |
 |接受管道输入：      |False    |
@@ -428,31 +428,31 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
-|默认值：              |None     |
+|位置：                   |名为    |
+|默认值：              |无     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-指定用于 Azure Stack 部署的 Azure Active Directory 服务管理员。
+指定要用于 Azure Stack 部署的 AAD 服务管理员。
 
 |  |  |
 |----------------------------|---------|
 |键入：                       |PSCredential   |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |无     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-指定用于 Azure Stack 部署的 Azure Active Directory 名称。
+指定要用于 Azure Stack 部署的 AAD 名称。
 
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |无     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
@@ -464,7 +464,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |无     |
 |有效值：               |' AzureCloud '、' AzureChinaCloud '、' AzureUSGovernment ' |
 |接受管道输入：      |False    |
@@ -477,8 +477,8 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
-|默认值：              |无     |
+|位置：                   |名为    |
+|默认值：              |None     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
 
@@ -489,7 +489,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |Guid     |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |无     |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
@@ -501,7 +501,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |全部      |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
@@ -512,18 +512,18 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 指定只包含证书所需证书文件夹的路径。
 
-包含 Azure Active Directory 标识系统的 Azure Stack 部署的所需文件夹为：
+具有 AAD 标识系统的 Azure Stack 部署所需的文件夹为：
 
-ACSBlob、ACSQueue、ACSTable、Admin Portal、ARM Admin、ARM Public、KeyVault、KeyVaultInternal、Public Portal
+- ACSBlob、ACSQueue、ACSTable、Admin Portal、ARM Admin、ARM Public、KeyVault、KeyVaultInternal、Public Portal
 
-包含 Active Directory 联合身份验证服务标识系统的 Azure Stack 部署的所需文件夹为：
+Active Directory 联合身份验证服务标识系统 Azure Stack 部署的必需文件夹为：
 
-ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、Graph、KeyVault、KeyVaultInternal、Public Portal
+- ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、Graph、KeyVault、KeyVaultInternal、Public Portal
 
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |.\Certificates |
 |接受管道输入：      |False    |
 |接受通配符： |False    |
@@ -535,7 +535,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |  |  |
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |
-|职位:                   |名为             |
+|位置：                   |名为             |
 |默认值：              |False             |
 |接受管道输入：      |False             |
 |接受通配符： |False             |
@@ -547,7 +547,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |  |  |
 |----------------------------|---------|
 |键入：                       |String   |
-|职位:                   |名为    |
+|位置：                   |名为    |
 |默认值：              |全部      |
 |有效值：               |'Certificate'、'AzureRegistration'、'AzureIdentity'、'Jobs'、'All' |
 |接受管道输入：      |False    |
@@ -560,7 +560,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |  |  |
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |
-|职位:                   |名为             |
+|位置：                   |名为             |
 |默认值：              |False             |
 |接受管道输入：      |False             |
 |接受通配符： |False             |
@@ -573,19 +573,19 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |
 |别名：                    |cf                |
-|职位:                   |名为             |
+|位置：                   |名为             |
 |默认值：              |False             |
 |接受管道输入：      |False             |
 |接受通配符： |False             |
 
 ### <a name="-outputpath"></a>-OutputPath
 
-指定用于保存就绪性 JSON 报告和详细日志文件的自定义路径。 如果该路径不存在，命令会尝试创建目录。
+指定用于保存就绪性 JSON 报告和详细日志文件的自定义路径。 如果路径不存在，则该命令将尝试创建目录。
 
 |  |  |
 |----------------------------|------------------|
 |键入：                       |String            |
-|职位:                   |名为             |
+|位置：                   |名为             |
 |默认值：              |$ENV:TEMP\AzsReadinessChecker  |
 |接受管道输入：      |False             |
 |接受通配符： |False             |
@@ -598,20 +598,20 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |
 |别名：                    |cf                |
-|职位:                   |名为             |
+|位置：                   |名为             |
 |默认值：              |False             |
 |接受管道输入：      |False             |
 |接受通配符： |False             |
 
 ### <a name="-whatif"></a>-WhatIf
 
-显示在此 cmdlet 运行的情况下将会发生什么。 此 cmdlet 未运行。
+显示在此 cmdlet 运行的情况下将会发生什么。 Cmdlet 不会运行。
 
 |  |  |
 |----------------------------|------------------|
 |键入：                       |SwitchParameter   |
 |别名：                    |wi                |
-|职位:                   |名为             |
+|位置：                   |名为             |
 |默认值：              |False             |
 |接受管道输入：      |False             |
 |接受通配符： |False             |
