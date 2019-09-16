@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabriggs
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2153a91bcf833386ef5884a9fd4e7c0fc759c01b
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 3d760e981f3dd298284b10ed56c4c6ace683f49b
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863072"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974789"
 ---
 # <a name="install-azure-stack-updates"></a>安装 Azure Stack 更新
 
@@ -28,7 +28,7 @@ ms.locfileid: "70863072"
 
 您可以使用 Azure Stack 中的**更新**边栏选项卡安装更新包。 本文将指导你完成更新、监视和解决更新过程的步骤。 使用 "更新" 边栏选项卡可以查看更新信息、安装更新、监视更新进度、查看更新历史记录，以及查看当前 Azure Stack 和 OEM 包版本。
 
-你可以从管理门户管理更新，并使用仪表板的 "**更新**" 部分执行以下操作：
+你可以从管理员门户管理更新，并使用仪表板的 "**更新**" 部分执行以下操作：
 
 - 查看重要信息，例如当前版本。
 - 安装更新并监视进度。
@@ -49,7 +49,7 @@ ms.locfileid: "70863072"
 
 ## <a name="install-updates-and-monitor-progress"></a>安装更新并监视进度
 
-1. 打开 Azure Stack 管理门户。
+1. 打开 Azure Stack 管理员门户。
 
 2. 选择“仪表板”。 选择“更新”。
 
@@ -75,7 +75,7 @@ ms.locfileid: "70863072"
 
 ## <a name="review-update-history"></a>查看更新历史记录
 
-1. 打开管理门户。
+1. 打开管理员门户。
 
 2. 选择“仪表板”。 选择“更新”。
 
