@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概述
   items:
-    - name: Azure Stack 生成解决方案
+    - name: 构建 Azure Stack 的解决方案
       href: azure-stack-hybrid-cloud-patterns.md
     - name: 重要注意事项
       href: azure-stack-considerations.md
@@ -63,7 +63,7 @@
               href: azure-stack-install-visual-studio.md
             - name: 使用安全外壳
               href: azure-stack-dev-start-howto-ssh-public-key.md
-            - name: 将 REST 客户端与 API 一起使用
+            - name: 将 REST 客户端与 API 配合使用
               href: azure-stack-rest-api-use.md
         - name: 使用 Azure Stack 资源管理器模板
           items:
@@ -103,7 +103,7 @@
               href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: 使用资源提供程序
       items:
-        - name: 安全性、符合性和标识
+        - name: 安全性、合规性和标识
           items:
             - name: 使用基于角色的访问控制
               href: azure-stack-manage-permissions.md
@@ -191,35 +191,58 @@
             - name: 部署 Service Fabric 群集
               href: azure-stack-solution-template-service-fabric-cluster.md
             - name: 部署 Kubernetes 群集
-              href: azure-stack-solution-template-kubernetes-deploy.md
               items:
-                - name: 使用 Azure AD 部署 Kubernetes
-                  href: azure-stack-solution-template-kubernetes-azuread.md
-                - name: 使用 AD FS 部署 Kubernetes
-                  href: azure-stack-solution-template-kubernetes-adfs.md
-                - name: 启用 Kubernetes 仪表板
-                  href: azure-stack-solution-template-kubernetes-dashboard.md
-                - name: 对 Kubernetes 群集进行故障排除
-                  href: azure-stack-solution-template-kubernetes-trouble.md
+                - name: AKS 引擎
+                  items:
+                    - name: Azure Stack 上的 AKS 引擎
+                      href: azure-stack-kubernetes-aks-engine-overview.md
+                    - name: 支持策略
+                      href: azure-stack-kubernetes-ask-engine-support.md
+                    - name: 设置 AKS 引擎
+                      href: azure-stack-kubernetes-aks-engine-set-up.md
+                    - name: 创建 Linux 客户端
+                      href: azure-stack-kubernetes-aks-engine-deploy-linux.md
+                    - name: 创建 Windows 客户端
+                      href: azure-stack-kubernetes-aks-engine-deploy-windows.md
+                    - name: 部署群集
+                      href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: 缩放群集
+                      href: azure-stack-kubernetes-aks-engine-scale.md
+                    - name: 升级群集
+                      href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: AKS 引擎疑难解答
+                      href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                - name: Marketplace 项
+                  items:
+                    - name: 部署 Kubernetes 群集
+                      href: azure-stack-solution-template-kubernetes-deploy.md
+                    - name: 使用 Azure AD 部署 Kubernetes
+                      href: azure-stack-solution-template-kubernetes-azuread.md
+                    - name: 使用 AD FS 部署 Kubernetes
+                      href: azure-stack-solution-template-kubernetes-adfs.md
+                    - name: 启用 Kubernetes 仪表板
+                      href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: 对 Kubernetes 群集进行故障排除
+                      href: azure-stack-solution-template-kubernetes-trouble.md
             - name: 部署认知服务
               href: azure-stack-solution-template-cognitive-services.md
     - name: 部署应用
       items:
-        - name: '将C# web 应用部署到 Windows VM'
+        - name: '将 C# Web 应用部署到 Windows VM'
           href: azure-stack-dev-start-howto-vm-dotnet.md
-        - name: 将 web 应用部署到 Linux VM
+        - name: 将 Web 应用部署到 Linux VM
           items:
             - name: 部署适用于 Web 应用的 Linux VM
               href: azure-stack-dev-start-howto-deploy-linux.md
-            - name: 部署 Java web 应用
+            - name: 部署 Java Web 应用
               href: azure-stack-dev-start-howto-vm-java.md
-            - name: 部署中转 web 应用
+            - name: 部署 Go Web 应用
               href: azure-stack-dev-start-howto-vm-go.md
-            - name: 部署 Ruby web 应用
+            - name: 部署 Ruby Web 应用
               href: azure-stack-dev-start-howto-vm-ruby.md
             - name: 部署 Python Web 应用
               href: azure-stack-dev-start-howto-vm-python.md
-            - name: 部署 NodeJS web 应用
+            - name: 部署 NodeJS Web 应用
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: 部署混合云模式
       items:
@@ -235,7 +258,7 @@
           href: azure-stack-solution-geo-distributed.md
         - name: 部署混合云解决方案
           href: azure-stack-solution-hybrid-cloud.md
-        - name: 部署暂存数据分析
+        - name: 部署临时数据分析
           href: azure-stack-solution-staged-data.md
         - name: 部署高可用性 MongoDB
           href: azure-stack-solution-mongodb-ha.md
@@ -249,7 +272,7 @@
           href: azure-stack-edge-pattern-overview.md
         - name: 跨云缩放
           href: azure-stack-edge-pattern-cross-cloud-scaling.md
-        - name: DevOps (混合 CI/CD)
+        - name: DevOps （混合 CI/CD）
           href: azure-stack-edge-pattern-hybrid-ci-cd.md
         - name: 异地分布式应用程序
           href: azure-stack-edge-pattern-geo-distribution.md

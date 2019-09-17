@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 6b7d7a3e70d78b8ab943224babc515395319914e
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.lastreviewed: 09/16/2019
+ms.openlocfilehash: 38175eee8be9b8f678405e0ad1ec6f01bdba8b77
+ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902720"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71020843"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>准备在部署或轮换时使用的 Azure Stack PKI 证书
 
@@ -54,7 +54,7 @@ ms.locfileid: "70902720"
 1. 单击“完成”以完成导入。
 
 > [!NOTE]
-> 为 Azure Stack 导入证书后，证书的私钥在群集存储中存储为 PKCS 12 文件（.pfx）。
+> 为 Azure Stack 导入证书后，证书的私钥将作为 PKCS 12 文件（PFX）存储在群集存储上。
 
 ### <a name="export-the-certificate"></a>导出证书
 
@@ -92,7 +92,7 @@ ms.locfileid: "70902720"
 
 1. 选择“**下一步**”。
 
-1. 选择要导出的 pfx 文件的文件名和位置。 选择“**下一步**”。
+1. 选择要导出的 PFX 文件的文件名和位置。 选择“**下一步**”。
 
 1. 选择“完成”。
 

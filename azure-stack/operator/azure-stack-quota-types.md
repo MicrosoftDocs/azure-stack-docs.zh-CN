@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: df0bee87f512f00ea57fc11492f824730dbf9b42
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 48ad7808e550fb875c8ee13caa5a429e1d77aa98
+ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991782"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010787"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -60,12 +60,12 @@ ms.locfileid: "68991782"
 
 | **Item** | **默认值** | **说明** |
 | --- | --- | --- |
-| 公共 IP 数目上限 |50 |订阅可以在此位置创建的公共 IP 地址数目上限。 |
 | 虚拟网络数目上限 |50 |订阅可以在此位置创建的虚拟网络数目上限。 |
 | 虚拟网络网关数目上限 |1 |订阅可以在此位置创建的虚拟网络网关（VPN 网关）数目上限。 |
 | 网络连接数目上限 |2 |订阅可以在此位置跨所有虚拟网络网关创建的网络连接（点到点或站点到站点）数目上限。 |
-| 负载均衡器数目上限 |50 |订阅可以在此位置创建的负载均衡器数目上限。 |
+| 公共 IP 数目上限 |50 |订阅可以在此位置创建的公共 IP 地址数目上限。 |
 | NIC 数目上限 |100 |订阅可以在此位置创建的网络接口数目上限。 |
+| 负载均衡器数目上限 |50 |订阅可以在此位置创建的负载均衡器数目上限。 |
 | 网络安全组数目上限 |50 |订阅可以在此位置创建的网络安全组数目上限。 |
 
 ## <a name="view-an-existing-quota"></a>查看现有配额
