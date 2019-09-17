@@ -53,7 +53,7 @@ Azure Stack 更新和修补程序的更新包可通过连接的系统的 "更新
 - **一个元数据 .xml 文件**。 此文件包含有关更新的重要信息，例如，发布者、名称、先决条件、大小和支持路径 URL。
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>自动下载和准备更新包
-为连接到**Azure Stack 自动更新终结点**的系统自动准备 Azure Stack 软件更新和修补程序： https：//endpointname>.azureedge.net 和 https://aka.ms/azurestackautomaticupdate 。 有关设置与**Azure Stack 自动更新终结点**的连接的详细信息，请参阅[Azure Stack 防火墙集成](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)中所述的**修补程序和更新**终结点
+为连接到**Azure Stack 自动更新终结点**的系统自动准备 Azure Stack 软件更新和修补程序 endpoint： https://*.azureedge.net 和 https://aka.ms/azurestackautomaticupdate 。 有关设置与**Azure Stack 自动更新终结点**的连接的详细信息，请参阅[Azure Stack 防火墙集成](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)中所述的**修补程序和更新**终结点
 
 ### <a name="where-to-download-azure-stack-update-packages"></a>Azure Stack 更新包的下载位置
 
