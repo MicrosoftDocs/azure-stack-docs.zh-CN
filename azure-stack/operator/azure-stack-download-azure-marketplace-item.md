@@ -3,7 +3,7 @@ title: 从 Azure 下载市场项 | Microsoft Docs
 description: 云操作员可将市场项从 Azure 下载到 Azure Stack 部署。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: justinha
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 4c4bac9a083ca35f851acb2f2d8201742be0ed1e
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 99d0c48a5e7f5fd4e58d6fdf13e0a12c4b9dfb1e
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991830"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070272"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将市场项从 Azure 下载到 Azure Stack
 
@@ -34,11 +34,11 @@ ms.locfileid: "68991830"
 - **联网场景** - 需将 Azure Stack 环境连接到 Internet。 使用 Azure Stack 门户查找和下载项。
 - **离线场景或部分联网场景** - 需要使用市场联合工具访问 Internet，以下载市场项。 然后，将下载内容传输到离线 Azure Stack 安装中。 此场景使用 PowerShell。
 
-有关可下载的 Marketplace 项的完整列表, 请参阅[适用于 Azure Stack 的 Azure marketplace 项](azure-stack-marketplace-azure-items.md)。 有关 Azure Stack Marketplace 的最新添加、删除和更新列表, 请参阅[Azure Stack marketplace 更改](azure-stack-marketplace-changes.md)一文。
+有关可下载的市场项的完整列表，请参阅 [Azure Stack 的 Azure 市场项](azure-stack-marketplace-azure-items.md)。 有关 Azure Stack 市场的最新添加、删除和更新的列表，请参阅 [Azure Stack 市场更改](azure-stack-marketplace-changes.md)一文。
 
 ## <a name="connected-scenario"></a>已连接的场景
 
-如果 Azure Stack 连接到 internet, 则可以使用管理员门户下载 marketplace 项。
+如果 Azure Stack 连接到 Internet，则可以使用管理员门户下载市场项。
 
 ### <a name="prerequisites"></a>先决条件
 
@@ -54,7 +54,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
     ![查看存储空间](media/azure-stack-download-azure-marketplace-item/storage.png)
 
-3. 打开 Azure Stack 市场并连接到 Azure。 为此, 请选择 " **marketplace 管理**" 服务, 选择 " **marketplace 项**", 然后选择 "**从 Azure 添加**":
+3. 打开 Azure Stack 市场并连接到 Azure。 为此，请依次选择“市场管理”服务、“市场项”和“从 Azure 中添加”：
 
     ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
@@ -78,7 +78,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
 此方案包含两个部分：
 
-- **第 1 部分：** 从 Azure 市场下载。 在具有 internet 访问权限的计算机上配置 PowerShell, 下载联合工具, 然后从 Azure Marketplace 下载项。  
+- **第 1 部分：** 从 Azure 市场下载。 在能够访问 Internet 的计算机上配置 PowerShell，下载联合工具，然后从 Azure 市场下载项。  
 - **第 2 部分：** 上传并发布到 Azure Stack 市场。 将下载的文件移到 Azure Stack 环境，将其导入 Azure Stack，然后将其发布到 Azure Stack 市场。  
 
 ### <a name="prerequisites"></a>先决条件
@@ -99,7 +99,9 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
-2. 添加已经用来注册过 Azure Stack 的 Azure 帐户。 若要添加帐户，请在 PowerShell 中不结合任何参数运行 `Add-AzureRmAccount`。 系统会提示输入 Azure 帐户凭据, 并且可能需要使用双因素身份验证, 具体取决于帐户的配置。
+2. 添加已经用来注册过 Azure Stack 的 Azure 帐户。 若要添加帐户，请在 PowerShell 中不结合任何参数运行 `Add-AzureRmAccount`。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
+
+   [!include[Remove Account](../../includes/remove-account.md)]
 
 3. 如果有多个订阅，请运行以下命令，选择已经用于注册的那个订阅：  
 
@@ -178,7 +180,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
    `-AzsCredential` 参数是可选的。 该参数用于续订访问令牌（如果已过期）。 如果未指定 `-AzsCredential` 参数且令牌已过期，则你会收到输入操作员凭据的提示。
 
     > [!NOTE]  
-    > AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要 credential 对象, 则必须使用服务主体 (SPN)。 有关使用 Azure Stack 和 AD FS 作为标识管理服务设置服务主体的详细信息, 请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
+    > AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 若要详细了解如何在设置服务主体时将 Azure Stack 和 AD FS 作为标识管理服务，请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
 
 4. 成功完成该脚本后，Azure Stack 市场中应会提供该项。
 
@@ -202,13 +204,13 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
    5. 上传的文件会显示在容器窗格中。 选择一个文件，然后复制“Blob 属性”窗格的 URL。 在下一步骤中将市场项导入 Azure Stack 时，将要使用此 URL。  在下图中，容器为 **blob-test-storage**，文件为 **Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg**。 文件 URL 为 **https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg** 。  
       [![Blob 属性](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob 属性")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
-3. 使用 **Add-AzsPlatformimage** cmdlet 将 VHD 映像导入到 Azure Stack。 使用此 cmdlet 时, 请将`publisher`、 `offer`和其他参数值替换为要导入的图像的值。
+3. 使用 **Add-AzsPlatformimage** cmdlet 将 VHD 映像导入到 Azure Stack。 使用此 cmdlet 时，请将 `publisher`、`offer` 和其他参数值替换为要导入的映像的值。
 
-   可以从与 .azpkg `publisher`文件`offer`一起下载`sku`的文本文件中获取图像的、和值。 该文本文件存储在目标位置中。 `version`值是在上一步骤中从 Azure 下载项时记下的版本。
+   可以从连同 .azpkg 文件一起下载的文本文件中，获取映像的 `publisher`、`offer` 和 `sku` 值。 该文本文件存储在目标位置中。 `version` 值是在上一过程中从 Azure 下载项目时记下的版本。
 
-   以下示例脚本使用了 Windows Server 2016 Datacenter - Server Core 虚拟机的值。 的值`-Osuri`是指向该项的 blob 存储位置的示例路径。
+   以下示例脚本使用了 Windows Server 2016 Datacenter - Server Core 虚拟机的值。 `-Osuri` 的值是项目的 blob 存储位置的示例路径。
 
-   作为此脚本的替代方法, 你可以使用[本文中所述的过程](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal), 使用 Azure 门户导入 VHD 映像。
+   除了使用此脚本以外，还可以使用[此文中所述的过程](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal)通过 Azure 门户导入 VHD 映像。
 
    ```powershell  
    Add-AzsPlatformimage `
@@ -220,9 +222,9 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
 
-   **关于解决方案模板：** 某些模板可以包含一个名为**fixed3**的小型 3 MB VHD 文件。 无需将该文件导入 Azure Stack。 Fixed3 文件随一些解决方案模板一起提供, 以满足 Azure Marketplace 的发布要求。
+   **关于解决方案模板：** 某些模板可能包含名为 **fixed3.vhd** 的 3 MB VHD 小文件。 无需将该文件导入 Azure Stack。 某些解决方案模板包含 Fixed3.vhd 文件的目的是为了满足 Azure 市场的发布要求。
 
-   查看 "模板" 说明, 下载并导入其他要求, 例如使用解决方案模板所需的 Vhd。  
+   查看模板说明并下载，然后导入其他必需的项，例如，使用解决方案模板所需的 VHD。  
 
    **关于扩展：** 使用虚拟机映像扩展时，请使用以下参数：
    - *发布者*

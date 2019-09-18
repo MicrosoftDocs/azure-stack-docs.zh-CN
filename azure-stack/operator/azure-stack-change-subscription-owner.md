@@ -3,7 +3,7 @@ title: 更新 Azure Stack 用户订阅的所有者 | Microsoft Docs
 description: 更改 Azure Stack 用户订阅的计费所有者。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,28 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.author: sethm
+ms.date: 09/17/2019
+ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 99f995941c4e7b09af70dff9391aeceb9a59844d
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 00e55dc301102622d4771a8fd8c6ff8591263dd7
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691937"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070152"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>更改 Azure Stack 用户订阅的所有者
 
 Azure Stack 操作员可以使用 PowerShell 更改用户订阅的计费所有者。 例如，更改所有者的一个原因是替换已离职的用户。
 
-会将两种类型的所有者分配到订阅： 
+会将两种类型的所有者分配到订阅：
 
 - **计费所有者**：默认情况下，计费所有者是从套餐获取订阅，然后拥有该订阅的计费关系的用户帐户。 此帐户也是订阅的管理员。 在一个订阅中，只能指定一个此类用户帐户。 计费所有者通常是组织或团队主管。
 
   可以使用 PowerShell cmdlet [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) 更改计费所有者。  
 
-- **通过 RBAC 角色添加的所有者**-可以向其他用户授予**所有者**角色使用[基于角色的访问控制](azure-stack-manage-permissions.md)(RBAC)。 可将任意数量的其他用户帐户添加为所有者，以补充计费所有者。 其他所有者也是订阅的管理员，拥有订阅的所有特权，但无权删除计费所有者。
+- **通过 RBAC 角色添加的所有者** - 可以使用[基于角色的访问控制](azure-stack-manage-permissions.md) (RBAC) 向其他用户授予**所有者**角色。 可将任意数量的其他用户帐户添加为所有者，以补充计费所有者。 其他所有者也是订阅的管理员，拥有订阅的所有特权，但无权删除计费所有者。
 
   可以使用 PowerShell 来管理其他所有者。 有关详细信息，请参阅[此文章](/azure/role-based-access-control/role-assignments-powershell)。
 
@@ -42,7 +42,7 @@ Azure Stack 操作员可以使用 PowerShell 更改用户订阅的计费所有�
 运行以下脚本更改用户订阅的计费所有者。 用于运行该脚本的计算机必须连接到 Azure Stack 并运行 Azure Stack PowerShell 模块 1.3.0 或更高版本。 有关详细信息，请参阅[安装 Azure Stack PowerShell](azure-stack-powershell-install.md)。
 
 >[!NOTE]
->在多租户 Azure Stack，新的所有者必须与现有的所有者相同的目录中。 你可以向另一个目录中的用户提供订阅的所有权之前，你必须首先[到你的目录作为来宾邀请该用户](/azure/active-directory/b2b/add-users-administrator)。
+>在多租户 Azure Stack 中，新所有者必须与现有所有者在同一目录中。 你必须首先[邀请该用户作为你目录](/azure/active-directory/b2b/add-users-administrator)中的来宾，然后才能向另一个目录中的用户提供订阅的所有权。
 
 运行脚本之前，请替换脚本中的以下值：
 
@@ -66,6 +66,8 @@ $subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
 $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
+
+[!include[Remove Account](../../includes/remove-account.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

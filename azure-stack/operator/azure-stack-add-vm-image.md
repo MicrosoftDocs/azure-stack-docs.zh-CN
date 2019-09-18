@@ -3,7 +3,7 @@ title: 向 Azure Stack 添加 VM 映像 | Microsoft Docs
 description: 了解如何在 Azure Stack 中添加或删除 VM 映像。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: Justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: mabrigg
+ms.date: 09/17/2019
+ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: a72879303b80a1265450019d6b264085a8539387
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: fef815ec23655638bbe4df1bcdccae42aeee13e2
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974975"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061163"
 ---
 # <a name="add-a-vm-image-to-azure-stack"></a>将 VM 映像添加到 Azure Stack
 
 适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-在 Azure Stack 中，你可以向市场中添加虚拟机 (VM) 映像来将其提供给用户。 使用用于 Azure Stack 的 Azure 资源管理器模板添加映像。 你还可以使用管理员门户或 Windows PowerShell 将 VM 映像添加到 Azure Marketplace UI，作为 Marketplace 项。 可以使用来自全球 Azure 市场的映像，也可以使用你自己的自定义 VM 映像。
+在 Azure Stack 中，你可以将虚拟机（VM）映像添加到 marketplace，并使其可供用户使用。 使用用于 Azure Stack 的 Azure 资源管理器模板添加映像。 你还可以使用管理员门户或 Windows PowerShell 将 VM 映像添加到 Azure Marketplace UI，作为 Marketplace 项。 可以使用来自全球 Azure 市场的映像，也可以使用你自己的自定义 VM 映像。
 
 ## <a name="add-a-vm-image-through-the-portal"></a>通过门户添加 VM 映像
 
@@ -155,10 +155,13 @@ ms.locfileid: "70974975"
 5. 以 VHD 格式（而非 VHDX）准备一个 Windows 或 Linux 操作系统映像，将该映像上传到存储帐户，并获取可通过 PowerShell 从其中检索 VM 映像的 URI。  
 
    ```powershell
-    Add-AzureRmAccount `
-      -EnvironmentName "AzureStackAdmin" `
-      -TenantId $TenantID
+   Add-AzureRmAccount 
+   -EnvironmentName "AzureStackAdmin" 
+   -TenantId $TenantID
    ```
+  
+   >[!Note]
+   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 Add-azurermaccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
 
 6. （可选）可以将数据磁盘阵列上传为 VM 映像的一部分。 使用 New-DataDiskObject cmdlet 创建数据磁盘。 通过权限提升的提示符打开 PowerShell，并运行：
 
