@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 722fea2777071fa78c89372a21fe52022a56f264
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/18/2019
+ms.openlocfilehash: c6939a28b150073d08a4f8c8dbc2d15dfd153957
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782254"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71100923"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 **AzureStack-Tools** 是托管 PowerShell 模块的 [GitHub 存储库](https://github.com/Azure/AzureStack-Tools)，可用于管理资源并将其部署到 Azure Stack。 如果你打算建立 VPN 连接，则可将这些 PowerShell 模块下载到 Azure Stack 开发工具包或基于 Windows 的外部客户端。 若要获取这些工具，请克隆 GitHub 存储库，或运行以下脚本来下载 **AzureStack-Tools** 文件夹：
 
@@ -64,6 +64,6 @@ cd AzureStack-Tools-master
 
 ## <a name="next-steps"></a>后续步骤
 
-- [开始使用 Azure Stack 上的 PowerShell](../user/azure-stack-powershell-overview.md)
+- [Azure Stack 上的 PowerShell 入门](../user/azure-stack-powershell-overview.md)
 - [配置 Azure Stack 用户的 PowerShell 环境](../user/azure-stack-powershell-configure-user.md)   
 - [通过 VPN 连接到 Azure Stack 开发工具包](../asdk/asdk-connect.md)  

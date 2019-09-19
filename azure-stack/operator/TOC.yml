@@ -11,31 +11,11 @@
     - name: 发行说明
       items:
         - name: 安全更新
-          href: azure-stack-release-notes-security-updates.md
-        - name: 1908更新
-          items:
-            - name: 发行说明
-              href: azure-stack-release-notes-1908.md
-            - name: 已知问题
-              href: azure-stack-release-notes-known-issues-1908.md
-        - name: 1907更新
-          items:
-            - name: 发行说明
-              href: azure-stack-release-notes-1907.md
-            - name: 已知问题
-              href: azure-stack-release-notes-known-issues-1907.md
-        - name: 1906 更新
-          items:
-            - name: 发行说明
-              href: azure-stack-release-notes-1906.md
-            - name: 已知问题
-              href: azure-stack-release-notes-known-issues-1906.md
-        - name: 1905 更新
-          items:
-            - name: 发行说明
-              href: azure-stack-release-notes-1905.md
-            - name: 已知问题
-              href: azure-stack-release-notes-known-issues-1905.md
+          href: release-notes-security-updates.md
+        - name: 发行说明
+          href: release-notes.md
+        - name: 已知问题
+          href: known-issues.md
 - name: 快速入门
   expanded: true
   items:
@@ -172,7 +152,7 @@
             - name: 更新和服务策略
               href: azure-stack-servicing-policy.md
             - name: 应用更新的清单
-              href: azure-stack-release-notes-checklist.md
+              href: release-notes-checklist.md
             - name: 规划更新
               href: azure-stack-update-plan.md
             - name: 准备更新包
@@ -251,7 +231,7 @@
       items:
         - name: 市场概述
           href: azure-stack-marketplace.md
-        - name: Marketplace 更改
+        - name: 市场更改
           href: azure-stack-marketplace-changes.md
         - name: 下载市场项
           href: azure-stack-download-azure-marketplace-item.md
@@ -402,11 +382,11 @@
               href: azure-stack-tenant-resource-usage-api.md
             - name: 使用情况常见问题
               href: azure-stack-usage-related-faq.md
-            - name: 故障排除使用问题
+            - name: 排查使用问题
               items:
                 - name: 使用情况连接错误
                   href: azure-stack-usage-issues.md
-                - name: 使用情况注册错误代码
+                - name: 使用注册错误代码
                   href: azure-stack-registration-errors.md
     - name: 备份 Azure Stack
       href: azure-stack-backup-infrastructure-backup.md
@@ -429,15 +409,15 @@
           href: azure-stack-backup-reference.md
     - name: 获取支持
       items:
-        - name: 帮助 & 支持门户
+        - name: “帮助和支持”门户
           items:
             - name: 概述
               href: azure-stack-help-and-support-overview.md
-            - name: 诊断日志集合
+            - name: 诊断日志收集
               items:
                 - name: 概述
                   href: azure-stack-diagnostic-log-collection-overview.md
-                - name: 自动集合
+                - name: 自动收集
                   items:
                     - name: 配置自动收集
                       href: azure-stack-configure-automatic-diagnostic-log-collection.md

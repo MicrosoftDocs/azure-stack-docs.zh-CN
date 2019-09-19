@@ -1,5 +1,5 @@
 ---
-title: 使用 ExpressRoute 将 Azure Stack 连接到 Azure
+title: 使用 ExpressRoute 将 Azure Stack 连接到 Azure |Microsoft Docs
 description: 了解如何使用 ExpressRoute 将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。
 services: azure-stack
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2ddc95097539eb1a7b15fdfc1fd2faf2c71f9ced
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377300"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094397"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -62,7 +62,7 @@ ms.locfileid: "70377300"
 
 ![ExpressRoute 网络](media/azure-stack-connect-expressroute/Conceptual.png)
 
-下图显示多个租户如何从 Azure Stack 基础结构通过 ExpressRoute 路由器连接到位于 Microsoft 边缘的 Azure：
+下图显示了多个租户如何通过 ExpressRoute 路由器从 Azure Stack 基础结构连接到 Microsoft Edge 中的 Azure：
 
 ![使用 ExpressRoute 的多租户连接](media/azure-stack-connect-expressroute/Architecture.png)
 
@@ -142,7 +142,7 @@ ms.locfileid: "70377300"
 
 本地网络网关资源识别位于 VPN 连接另一端的远程网关。 在本示例中，连接的远程端是 ExpressRoute 路由器的 LAN 子接口。 对于上图中的租户 1，远程地址为 10.60.3.255。
 
-1. 使用用户帐户登录到 Azure Stack 用户门户，然后选择“+ 创建资源”。
+1. 登录到 Azure Stack 用户门户，然后选择 " **+ 创建资源**"。
 1. 在“Azure 市场”下，选择“网络”。
 1. 从资源列表中选择“本地网关”。
 1. 在“名称”字段中，键入 **ER-Router-GW**。
@@ -153,7 +153,7 @@ ms.locfileid: "70377300"
    * 10.100.0.0/16 是 Azure 中的分支 VNet。
 
    > [!IMPORTANT]
-   > 对于 Azure Stack 网关和 ExpressRoute 路由器之间的站点到站点 VPN 连接，本示例假设使用静态路由。
+   > 此示例假设你要为 Azure Stack 网关与 ExpressRoute 路由器之间的站点到站点 VPN 连接使用静态路由。
 
 1. 确认“订阅”、“资源组”和“位置”正确无误。 然后选择“创建”。
 
@@ -172,20 +172,20 @@ ms.locfileid: "70377300"
 
 #### <a name="get-the-virtual-network-gateway-public-ip-address"></a>获取虚拟网络网关的公共 IP 地址
 
-创建虚拟网络网关后，可以获取该网关的公共 IP 地址。 请记下此地址，因为稍后需要在部署中使用。 根据部署，此地址将用作**内部 IP 地址**。
+创建虚拟网络网关后，可以获取网关的公共 IP 地址。 请记下此地址，因为稍后需要在部署中使用。 根据部署，此地址将用作**内部 IP 地址**。
 
 1. 在 Azure Stack 用户门户中，选择“所有资源”。
 1. 在“所有资源”下选择虚拟网络网关（在本示例中为 **GW1**）。
 1. 在“虚拟网络网关”下，从资源列表中选择“概述”。 或者，可以选择“属性”。
 1. 要记下的 IP 地址列在“公共 IP 地址”下。 对于示例配置，此地址为 192.68.102.1。
 
-#### <a name="create-a-virtual-machine"></a>创建虚拟机
+#### <a name="create-a-virtual-machine-vm"></a>创建虚拟机 (VM)
 
-若要通过 VPN 连接测试数据流量，需要使用虚拟机在 Azure Stack VNet 中发送和接收数据。 请创建一个虚拟机，并将其部署到虚拟网络的 VM 子网。
+若要通过 VPN 连接测试数据流量，需要 Vm 在 Azure Stack VNet 中发送和接收数据。 创建 VM，并将其部署到虚拟网络的 VM 子网。
 
 1. 在 Azure Stack 用户门户中，选择“+ 创建资源”。
 1. 在“Azure 市场”下，选择“计算”。
-1. 在虚拟机映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。
+1. 在 VM 映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。
 
    >[!NOTE]
    >如果用于本文的映像不可用，请让 Azure Stack 运营商提供不同的 Windows Server 映像。
@@ -193,7 +193,7 @@ ms.locfileid: "70377300"
 1. 在“创建虚拟机”中选择“基本信息”，然后键入 **VM01** 作为**名称**。
 1. 输入有效的用户名和密码。 创建 VM 后，将使用此帐户登录到该 VM。
 1. 提供“订阅”、“资源组”和“位置”。 选择“确定”。
-1. 在“选择大小”下，为此实例选择一种虚拟机大小，然后选择“选择”。
+1. 在 "**选择大小**" 下，为此实例选择 VM 大小，然后选择 "**选择**"。
 1. 在“设置”下，确认：
 
    * 虚拟网络为 **Tenant1VNet1**。
@@ -212,20 +212,20 @@ ms.locfileid: "70377300"
 * [创建连接](#create-the-connection)
 * [创建虚拟机](#create-a-virtual-machine)
 
-如果使用租户 2 作为示例，请记得更改 IP 地址以避免重叠。
+如果使用租户2作为示例，请记住更改 IP 地址，以避免重叠。
 
-### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>配置用于网关遍历的 NAT 虚拟机
+### <a name="configure-the-nat-vm-for-gateway-traversal"></a>为网关遍历配置 NAT VM
 
 > [!IMPORTANT]
-> 本部分仅适用于 Azure Stack 开发工具包 (ASDK) 部署。 多节点部署无需 NAT。
+> 本部分仅适用于 ASDK 部署。 多节点部署无需 NAT。
 
-Azure Stack 开发工具包是自主性的，与部署物理主机的网络相隔离。 网关连接到的 VIP 网络不是在外部，而是隐藏在执行网络地址转换 (NAT) 的路由器后面。
+ASDK 是独立的，并且与部署物理主机的网络隔离。 网关连接到的 VIP 网络不是外部网络;它隐藏在执行网络地址转换（NAT）的路由器后面。
 
 路由器是运行路由和远程访问服务（RRAS）角色的 ASDK 主机。 你必须在 ASDK 主机上配置 NAT，以允许站点到站点 VPN 连接两端连接。
 
 #### <a name="configure-the-nat"></a>配置 NAT
 
-1. 使用管理员帐户登录到 Azure Stack 主机。
+1. 用管理员帐户登录到 Azure Stack 主计算机。
 1. 在提升的 PowerShell ISE 中运行脚本。 此脚本返回**外部 BGPNAT 地址**。
 
    ```powershell
@@ -329,7 +329,7 @@ Azure Stack 开发工具包是自主性的，与部署物理主机的网络相�
 
 ### <a name="create-a-virtual-machine"></a>创建虚拟机
 
-将工作负荷虚拟机部署到分支 VNet。
+将工作负荷 Vm 部署到分支 VNet。
 
 针对 Azure 中要通过相应 ExpressRoute 线路连接的其他任何租户 VNet，重复这些步骤。
 
@@ -341,7 +341,7 @@ Azure Stack 开发工具包是自主性的，与部署物理主机的网络相�
 
 可以使用任何支持 IKEv2 VPN 和 BGP 的路由器，来终止 Azure Stack 的站点到站点 VPN 连接。 同一路由器用于通过 ExpressRoute 线路连接到 Azure。
 
-以下 Cisco ASR 1000 系列聚合服务路由器配置示例支持  *ExpressRoute 路由器配置*图中所示的网络基础结构。
+以下 Cisco Site Recovery 1000 序列聚合服务路由器配置示例支持*ExpressRoute 路由器配置*关系图中显示的网络基础结构。
 
 ```shell
 ip vrf Tenant 1
@@ -566,15 +566,15 @@ route-map VNET-ONLY permit 10
 
 执行以下 ping 测试：
 
-* 登录到 Azure VNet 中的虚拟机之一，然后针对 Azure Stack 中创建的虚拟机执行 ping。
-* 登录到 Azure Stack 中创建的虚拟机之一，然后针对 Azure VNet 中创建的虚拟机执行 ping。
+* 登录到 Azure VNet 中的某个 Vm，并对在 Azure Stack 中创建的 VM 执行 ping 操作。
+* 登录到在 Azure Stack 中创建的其中一个 Vm，并对在 Azure VNet 中创建的 VM 执行 ping 操作。
 
 >[!NOTE]
->为了确保通过站点到站点和 ExpressRoute 连接发送流量，必须在两端 ping 虚拟机的专用 IP (DIP) 地址，而不是虚拟机的 VIP 地址。
+>若要确保通过站点到站点连接和 ExpressRoute 连接发送流量，必须在两端 ping VM 的专用 IP （DIP）地址，而不是 VM 的 VIP 地址。
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>允许 ICMP 通过防火墙
 
-默认情况下，Windows Server 2016 不允许通过防火墙传入 ICMP 数据包。 对于用于 ping 测试的每个虚拟机，必须允许传入 ICMP 数据包。 若要为 ICMP 创建防火墙规则，请在权限提升的 PowerShell 窗口中运行以下 cmdlet：
+默认情况下，Windows Server 2016 不允许通过防火墙传入 ICMP 数据包。 对于用于 ping 测试的每个 VM，都必须允许传入 ICMP 数据包。 若要为 ICMP 创建防火墙规则，请在权限提升的 PowerShell 窗口中运行以下 cmdlet：
 
 ```powershell
 # Create ICMP firewall rule.
@@ -583,23 +583,23 @@ New-NetFirewallRule `
   -Protocol ICMPv4
 ```
 
-### <a name="ping-the-azure-stack-virtual-machine"></a>Ping Azure Stack 虚拟机
+### <a name="ping-the-azure-stack-vm"></a>Ping Azure Stack VM
 
-1. 使用租户帐户登录到 Azure Stack 用户门户。
+1. 登录到 Azure Stack 用户门户。
 
-1. 找到创建的虚拟机，并选择该虚拟机。
+1. 找到创建的 VM 并选择它。
 
 1. 选择“连接”。
 
 1. 在权限提升的 Windows 或 PowerShell 命令提示符下，输入 **ipconfig /all**。 记下输出中返回的 IPv4 地址。
 
-1. 从 Azure VNet 中的虚拟机 Ping IPv4 地址。
+1. 从 Azure VNet 中的 VM 对 IPv4 地址执行 Ping 操作。
 
    在示例环境中，该 IPv4 地址来自 10.1.1.x/24 子网。 在你的环境中，该地址可能不同，但是，该地址应在为租户 VNet 子网创建的子网中。
 
 ### <a name="view-data-transfer-statistics"></a>查看数据传输统计信息
 
-若要了解有多少流量通过连接，可以在 Azure Stack 用户门户中查找此信息。 此信息也很适合用于确认 ping 测试数据是否通过了 VPN 和 ExpressRoute 连接：
+若要了解有多少流量通过连接，可以在 Azure Stack 用户门户中查找此信息。 查看数据传输统计信息也是一种很好的方法，可查明 ping 测试数据是否通过 VPN 和 ExpressRoute 连接：
 
 1. 登录 Azure Stack 用户门户并选择“所有资源”。
 1. 导航到 VPN 网关的资源组，然后选择“连接”对象类型。

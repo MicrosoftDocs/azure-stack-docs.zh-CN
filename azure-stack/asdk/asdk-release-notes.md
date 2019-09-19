@@ -15,12 +15,12 @@ ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 9d0820634a469f775c1e3b6637c604ae98681be2
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 98e43cfe0226e06ca936484a78da5a61915f5797
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70188191"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101030"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
@@ -33,32 +33,32 @@ ms.locfileid: "70188191"
 
 ### <a name="new-features"></a>新增功能
 
-- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1908.md#whats-new)。
+- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1908)。
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
-<!-- - For a list of Azure Stack issues fixed in this release, see [this section](../operator/azure-stack-release-notes-1908.md#fixes) of the Azure Stack release notes. -->
-- 如需已知问题的列表，请参阅[此文](../operator/azure-stack-release-notes-known-issues-1908.md)。
+<!-- - For a list of Azure Stack issues fixed in this release, see [this section](/azure-stack/operator/release-notes?view=azs-1908#fixes-1908) of the Azure Stack release notes. -->
+- 如需已知问题的列表，请参阅[此文](/azure-stack/operator/known-issues?view=azs-1908)。
 - 请注意，可用的 Azure Stack 修补程序不适用于 ASDK。
 ::: moniker-end
 
 ::: moniker range="azs-1907"
-## <a name="build-11907020"></a>生成1.1907.0.20
+## <a name="build-11907020"></a>内部版本 1.1907.0.20
 
 ### <a name="new-features"></a>新增功能
 
-- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1907.md#whats-in-this-update)。
+- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](/azure-stack/operator/release-notes?view=azs-1907#whats-in-this-update-1907)。
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
 - 使用某些 Marketplace 映像创建 VM 资源时，可能无法完成部署。 作为一种解决方法，可以单击“摘要”页中的“下载模板和参数”链接，然后单击“模板”边栏选项卡中的“部署”按钮。
-- 如需此版本中已修复的 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1907.md#fixes)。
-- 如需已知问题的列表，请参阅[此文](../operator/azure-stack-release-notes-known-issues-1907.md)。
-- 请注意，[发布的 Azure Stack 修补程序](../operator/azure-stack-release-notes-1907.md#hotfixes)不适用于 Azure Stack ASDK。
+- 如需此版本中已修复的 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明的[此部分](/azure-stack/operator/release-notes?view=azs-1907#fixes-1907)。
+- 如需已知问题的列表，请参阅[此文](/azure-stack/operator/known-issues?view=azs-1907)。
+- 请注意，[发布的 Azure Stack 修补程序](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)不适用于 Azure Stack ASDK。
 ::: moniker-end
 
 ::: moniker range="azs-1906"
@@ -66,7 +66,7 @@ ms.locfileid: "70188191"
 
 ### <a name="new-features"></a>新增功能
 
-- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1906.md#whats-in-this-update)。
+- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1906)。
 
 ### <a name="changes"></a>更改
 
@@ -75,9 +75,9 @@ ms.locfileid: "70188191"
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
 - 使用某些 Marketplace 映像创建 VM 资源时，可能无法完成部署。 作为一种解决方法，可以单击“摘要”页中的“下载模板和参数”链接，然后单击“模板”边栏选项卡中的“部署”按钮。
-- 如需此版本中已修复的 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1906.md#fixes)。
-- 如需已知问题的列表，请参阅[此文](../operator/azure-stack-release-notes-known-issues-1906.md)。
-- 请注意，[发布的 Azure Stack 修补程序](../operator/azure-stack-release-notes-1906.md#hotfixes)不适用于 Azure Stack ASDK。
+- 如需此版本中已修复的 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明的[此部分](/azure-stack/operator/release-notes?view=azs-1906#fixes-1906)。
+- 如需已知问题的列表，请参阅[此文](/azure-stack/operator/known-issues?view=azs-1906)。
+- 请注意，[发布的 Azure Stack 修补程序](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)不适用于 Azure Stack ASDK。
 ::: moniker-end
 
 ::: moniker range="azs-1905"
@@ -87,12 +87,12 @@ ms.locfileid: "70188191"
 
 ### <a name="new-features"></a>新增功能
 
-- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1905.md#whats-in-this-update)。
+- 如需此版本中新功能的列表，请参阅 Azure Stack 发行说明的[此部分](/azure-stack/operator/release-notes?view=azs-1905#whats-in-this-update-1905)。
 
 ### <a name="fixed-and-known-issues"></a>修复的和已知的问题
 
 - 修复了必须编辑 **RegisterWithAzure.psm1** PowerShell 脚本才能成功[注册 ASDK](asdk-register.md) 的问题。
-- 如需此版本中已修复的其他 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明的[此部分](../operator/azure-stack-release-notes-1905.md#fixes)。
-- 如需已知问题的列表，请参阅[此文](../operator/azure-stack-release-notes-known-issues-1905.md)。
-- 请注意，[发布的 Azure Stack 修补程序](../operator/azure-stack-release-notes-1905.md#hotfixes)不适用于 Azure Stack ASDK。
+- 如需此版本中已修复的其他 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明的[此部分](/azure-stack/operator/release-notes?view=azs-1905#fixes-1905)。
+- 如需已知问题的列表，请参阅[此文](/azure-stack/operator/known-issues?view=azs-1905)。
+- 请注意，[发布的 Azure Stack 修补程序](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)不适用于 Azure Stack ASDK。
 ::: moniker-end

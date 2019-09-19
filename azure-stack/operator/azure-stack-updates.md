@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2a6165d37aa813c332cd664ef905717ef7a8ffa8
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 64e1bd7934b1b3b8c0bc935a920a2e4e188c4bd9
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863031"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101200"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概述
 
@@ -105,4 +105,4 @@ Azure Stack 包含一个更新资源提供程序, 用于处理 Microsoft 软件�
 
 - 若要开始更新过程，请遵循参阅[计划 Azure Stack 更新](azure-stack-update-plan.md)中的步骤。
 - 若要了解支持的 Azure Stack 版本，请参阅[Azure Stack 服务策略](azure-stack-servicing-policy.md)。  
-- 若要了解有关当前更新和最新更新的详细信息，请参阅[Azure Stack 发行说明](azure-stack-release-notes-security-updates-1907.md)。
+- 若要了解有关当前更新和最新更新的详细信息，请参阅[Azure Stack 发行说明](release-notes.md)。
