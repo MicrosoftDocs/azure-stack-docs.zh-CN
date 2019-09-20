@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: de2c0c2181025b7dbbc01691b72b0756fa201274
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: f51b0bdd4e433dd3083701e8cc967b3105d23ed6
+ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419509"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127518"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 
@@ -57,7 +57,7 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 |参数|部署工作表参数|描述|示例|
 |---------|---------|---------|---------|
-|`CustomADGlobalCatalog`|ADFS 林 FQDN|要与之集成的目标 Active Directory<br>林的 FQDN|Contoso.com|
+|`CustomADGlobalCatalog`|AD FS 林 FQDN|要与之集成的目标 Active Directory<br>林的 FQDN|Contoso.com|
 |`CustomADAdminCredentials`| |拥有 LDAP“读取”权限的用户|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>配置 Active Directory 站点
@@ -116,7 +116,7 @@ Azure Stack 中的 Graph 服务使用以下协议和端口与可写入的全局�
 
 Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Directory 通信：
 
-|Type|Port|Protocol|
+|type|Port|Protocol|
 |---------|---------|---------|
 |LDAP|389|TCP 和 UDP|
 |LDAP SSL|636|TCP|
@@ -129,9 +129,9 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 
 |参数|部署工作表参数|描述|示例|
 |---------|---------|---------|---------|
-|CustomAdfsName|ADFS 提供程序名称|声明提供程序的名称。<br>AD FS 登录页上会显示此名称。|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|ADFS 元数据 URI|联合元数据链接| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|NA|可选参数跳过 CRL 检查|无|
+|CustomAdfsName|AD FS 提供程序名称|声明提供程序的名称。<br>AD FS 登录页上会显示此名称。|Contoso|
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS 元数据 URI|联合元数据链接| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|SigningCertificateRevocationCheck|不可用|用于跳过 CRL 检查的可选参数|None|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>触发自动化以便在 Azure Stack 中配置声明提供程序信任
@@ -307,7 +307,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 有关创建 SPN 的详细信息，请参阅[为 AD FS 创建服务主体](azure-stack-create-service-principals.md)。
 
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
 
 ### <a name="configuration-rollback"></a>配置回滚
 

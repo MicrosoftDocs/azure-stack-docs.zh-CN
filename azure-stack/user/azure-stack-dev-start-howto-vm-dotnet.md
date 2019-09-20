@@ -9,12 +9,12 @@ ms.date: 08/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: beddafb351af39f0a21a1cd0d7a7baa4ccfee28e
-ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
+ms.openlocfilehash: cd7ca2e1a198cb66c5d7627029215b55af0de975
+ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68940282"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71142581"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>将 C# ASP.NET Web 应用程序部署到 Azure Stack 中的 VM。
 
@@ -111,7 +111,7 @@ ms.locfileid: "68940282"
     ![将 ASP.NET Web 应用部署到 Azure Stack 发布](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. 在“发布”窗口中选择“新建配置文件”。
-1. 选择“IIS”、“FTP”等。
+1. 选择 " **IIS"、"FTP" 等**。
 1. 选择“发布”。
 1. 对于“发布方法”，请选择“Web 部署”。
 1. 对于“服务器”，请输入前面定义的 DNS 名称，例如 *w21902.local.cloudapp.azurestack.external*。
@@ -126,7 +126,7 @@ ms.locfileid: "68940282"
 1. 将“配置”设置为“发布”。
 1. 将“目标框架”设置为“netcoreapp2.2”。
 1. 将“目标运行时”设置为“便携式”。
-1. 选择**保存**。
+1. 选择“保存”。
 1. 选择“发布”。
 1. 转到新服务器。 应会看到你的 Web 应用程序正在运行。
 

@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: b7057acd34625ffdea1de9ed533bf608de3059d6
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 4ac3534278b2a7fe4ecb355207b5a13a7cb7bd10
+ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019234"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127481"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>在 Azure Stack 的 Windows 上安装 AKS 引擎
 
@@ -64,7 +64,7 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 
 2.  在 Azure Stack 实例中创建一个存储帐户，以使用 AKS 引擎二进制文件上传存档文件（* gz）。 有关使用 Azure 存储资源管理器的说明，请参阅[使用 Azure Stack Azure 存储资源管理器](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se)。
 
-3. 在 Azure Stack 中创建一个孤行 VM。 有关说明，请[参阅快速入门：使用 Azure Stack 门户创建 Windows server VM](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
+3. 在 Azure Stack 中创建 Windows VM。 有关说明，请[参阅快速入门：使用 Azure Stack 门户创建 Windows server VM](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
 
 4.  从上传存档文件的 Azure Stack 存储帐户 blob URL （* gz），将文件下载到管理 VM。 在命令提示符下，将存档提取到可以访问的目录。
 
