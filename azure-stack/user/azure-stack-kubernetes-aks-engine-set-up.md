@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: a65449d39f114bd0ff5eb859bd49ec36d4bb4281
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: cc278020bb4d2ba530e20b6f2f56bcb841207bbc
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019223"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159739"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>在 Azure Stack 上设置 AKS 引擎的先决条件
 
@@ -29,6 +29,8 @@ ms.locfileid: "71019223"
 您可以在您的环境中的 VM 上安装 AKS 引擎，也可以在任何客户端计算机上安装 Azure Stack 资源管理器终结点。 在运行该引擎之前，你需要准备好以下各项：你的订阅中可用的 AKS 基本 Ubuntu 服务器和 Linux 自定义脚本扩展、已分配给参与者角色的服务主体标识，以及一个私钥/公钥对用于访问 Ubuntu 服务器的 SSH。 此外，如果使用的是 Azure Stack 开发工具包，则需要让计算机信任适当的证书。
 
 如果有必备组件，可以开始[定义群集](azure-stack-kubernetes-aks-engine-deploy-cluster.md)。
+
+如果你是 Azure Stack 的云操作员，并且想要提供 AKS 引擎，请按照[将 AKS 引擎添加到 Azure Stack Marketplace](../operator/azure-stack-aks-engine.md)中的说明进行操作。
 
 ## <a name="prerequisites-for-the-aks-engine"></a>AKS 引擎的先决条件
 

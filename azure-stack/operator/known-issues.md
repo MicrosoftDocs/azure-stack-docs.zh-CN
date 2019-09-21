@@ -16,16 +16,18 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: 3179416a7f8dacc5c3282372038c6761009b5b76
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ba5b8358dced378f499c30f9b8d409497319fc86
+ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106425"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164240"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack 已知问题
 
-本文列出了 Azure Stack 发行版中的已知问题。 每当发现新的问题，此列表就会更新。 **若要访问不同版本的已知问题，请使用左上角的版本选取器。**
+本文列出了 Azure Stack 发行版中的已知问题。 每当发现新的问题，此列表就会更新。
+
+若要访问不同版本的已知问题，请使用左侧目录上方的 "版本选择器" 下拉列表。
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -83,7 +85,7 @@ ms.locfileid: "71106425"
 - 原因：在用户门户中，存储帐户的“配置”边栏选项卡显示用于更改**安全传输类型**的选项。 Azure Stack 目前不支持此功能。
 - 发生次数：通用
 
-### <a name="upload-blob"></a>上传 blob
+### <a name="upload-blob"></a>上传 Blob
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中尝试使用“OAuth(preview)”选项上传 Blob 时，任务将会失败并出现错误消息。
@@ -233,7 +235,7 @@ ms.locfileid: "71106425"
 - 原因：在用户门户中，存储帐户的“配置”边栏选项卡显示用于更改**安全传输类型**的选项。 Azure Stack 目前不支持此功能。
 - 发生次数：通用
 
-### <a name="upload-blob"></a>上传 blob
+### <a name="upload-blob"></a>上传 Blob
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中尝试使用“OAuth(preview)”选项上传 Blob 时，任务将会失败并出现错误消息。
@@ -388,7 +390,7 @@ ms.locfileid: "71106425"
 - 原因：在用户门户中，存储帐户的“配置”边栏选项卡显示用于更改**安全传输类型**的选项。 Azure Stack 目前不支持此功能。
 - 发生次数：通用
 
-### <a name="upload-blob"></a>上传 blob
+### <a name="upload-blob"></a>上传 Blob
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中尝试使用“OAuth(preview)”选项上传 Blob 时，任务将会失败并出现错误消息。
@@ -565,7 +567,7 @@ ms.locfileid: "71106425"
 - 补救措施：无缓解措施。
 - 发生次数：通用
 
-### <a name="upload-blob"></a>上传 blob
+### <a name="upload-blob"></a>上传 Blob
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中尝试使用“OAuth(preview)”选项上传 Blob 时，任务将会失败并出现错误消息。
@@ -674,7 +676,7 @@ ms.locfileid: "71106425"
 ::: moniker range=">=azs-1905"
 ## <a name="archive"></a>存档
 
-若要访问较早版本的已存档的已知问题，请使用页面左上角的版本选取器，并选择所需的版本。 
+若要访问较早版本的已存档的已知问题，请使用左侧目录上方的 "版本选择器" 下拉列表，然后选择要查看的版本。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -251,7 +251,9 @@
           href: azure-stack-linux.md
         - name: 添加 Red Hat 虚拟机
           href: azure-stack-redhat-create-upload-vhd.md
-        - name: 提供 Kubernetes 群集
+        - name: 提供 AKS 引擎
+          href: azure-stack-aks-engine.md
+        - name: 提供 Kubernetes marketplace 项
           href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: 创建站点到站点 VPN 连接
           href: azure-stack-create-vpn-connection-one-node.md

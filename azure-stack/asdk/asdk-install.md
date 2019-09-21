@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c616736cf9ea8cc350c2c53bb7d6994346dac990
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: deac15b2f1e3ebd86fdd2e171f664bd4b5917e37
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025970"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159436"
 ---
 # <a name="install-the-asdk"></a>安装 ASDK
 [准备 ASDK 主机计算机](asdk-prepare-host.md)后，可以使用本文中的以下步骤将 AZURE STACK 开发工具包（ASDK）部署到 cloudbuilder.vhdx 映像中。
@@ -44,7 +44,7 @@ ms.locfileid: "70025970"
   
     如果选择 Azure 订阅标识提供者，则需要 internet 连接、Azure AD 目录租户的完整名称，*格式为 onmicrosoft.com*或 Azure AD 验证自定义域名。 还需要指定目录的全局管理员凭据。
 
-    部署后，不需要 Azure Active Directory （AAD）全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以暂时恢复帐户的全局管理员权限，也可以使用*默认提供程序订阅*所有者的单独全局管理员帐户。
+    部署后，不需要 Azure Active Directory （Azure AD）全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 
     使用 AD FS 作为标识提供者时，将使用默认标记目录服务。 登录时使用的默认帐户是 azurestackadmin@azurestack.local，要使用的密码是在设置过程中提供的。
 
@@ -55,7 +55,7 @@ ms.locfileid: "70025970"
 
     ![为 ASDK 选择网络适配器](media/asdk-install/3.PNG)
 
-5. 在“网络配置”页上，提供有效的**时间服务器 IP** 地址。 此必填字段设置 ASDK 要使用的时间服务器。 必须以有效的时间服务器 IP 地址的形式提供此参数。 服务器名称不受支持。
+5. 在“网络配置”页上，提供有效的**时间服务器 IP** 地址。 此必填字段设置 ASDK 要使用的时间服务器。 必须以有效的时间服务器 IP 地址的形式提供此参数。 不支持服务器名称。
 
       > [!TIP]
       > 若要查找时间服务器 IP 地址，请访问 [ntppool.org](https://www.ntppool.org/) 或 ping time.windows.com。 
@@ -77,7 +77,7 @@ ms.locfileid: "70025970"
 
 8. 如果执行的是 Azure AD 部署，则在安装程序启动后的几分钟内，系统将提示您输入 Azure AD 全局管理员帐户凭据。
 
-9. 部署程序需要花费数小时，在此期间，主机会自动重新启动一次。 如果要监视部署进度，请在 ASDK 主机重新启动后以 azurestack\AzureStackAdmin 的身份登录。 如果部署成功，PowerShell 控制台会显示“COMPLETE: Action 'Deployment'”。 
+9. 部署程序需要花费数小时，在此期间，主机会自动重新启动一次。 如果要监视部署进度，请在 ASDK 主机重新启动后以 azurestack\AzureStackAdmin 的身份登录。 如果部署成功，PowerShell 控制台会显示“COMPLETE:Action 'Deployment'”。 
     > [!IMPORTANT]
     > 如果在计算机加入到 test-azurestack 域后以本地管理员身份登录，则不会看到部署进度。 不要重新运行部署，而是以 azurestack\AzureStackAdmin 的身份登录，以验证它是否正在运行。
 

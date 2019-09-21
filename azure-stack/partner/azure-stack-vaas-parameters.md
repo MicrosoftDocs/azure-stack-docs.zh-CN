@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7e5467945db4987bdd86b7265117c486fb6f7e1b
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 091dc657153309298a1eda161b633a42050a0f57
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418341"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159348"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>作为服务 Azure Stack 验证的工作流常见参数
 
@@ -62,7 +62,7 @@ ms.locfileid: "68418341"
 参数    | 描述
 -------------|-----------------
 租户管理员用户                            | Azure Active Directory 在 AAD 目录中由服务管理员预配租户管理员。 此用户执行租户级别的操作, 例如部署模板来设置资源 (Vm、存储帐户等) 和执行工作负荷。 有关设置租户帐户的详细信息, 请参阅[添加新的 Azure Stack 租户](../operator/azure-stack-add-new-user-aad.md)。
-服务管理员用户             | Azure Active Directory 在 Azure Stack 部署过程中指定的 AAD 目录租户的管理员。 在 ECE 配置文件中搜索, 然后在`UniqueName`元素中选择值。 `AADTenant`
+服务管理员用户             | Azure Stack 部署期间指定的 Azure AD Directory 租户 Azure Active Directory 管理员。 在 ECE 配置文件中搜索, 然后在`UniqueName`元素中选择值。 `AADTenant`
 云管理员用户               | Azure Stack 域管理员帐户 (例如`contoso\cloudadmin`)。 在 ECE 配置文件中搜索, 然后在`UserName`元素中选择值。 `User Role="CloudAdmin"`
 诊断连接字符串          | Azure 存储帐户的 SAS URL, 在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明, 请参阅[生成诊断连接字符串](#generate-the-diagnostics-connection-string)。 |
 

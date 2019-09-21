@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 7b5bfb39c3ec14c23b1df54c13f2733724fcfe05
-ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
+ms.openlocfilehash: 489859720df8a2d0c20bb476b285fe9cb65b797e
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68712904"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159637"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>将外部监视解决方案与 Azure Stack 集成
 
@@ -59,7 +59,7 @@ ms.locfileid: "68712904"
 - 可将自定义信息添加到区域
 - 支持通知和报告
 
-您可以下载适用于 Microsoft Azure Stack 和关联[用户指南](https://www.microsoft.com/en-us/download/details.aspx?id=55184)的 System Center 管理包, 也可以直接从 Operations Manager 下载。
+您可以下载适用于 Microsoft Azure Stack 和关联[用户指南](https://www.microsoft.com/en-us/download/details.aspx?id=55184)的 System Center 管理包，也可以直接从 Operations Manager 下载。
 
 对于票证解决方案，可将 Operations Manager 与 System Center Service Manager 集成。 集成的产品连接器支持双向通信，可让你在解决 Service Manager 中的服务请求之后关闭 Azure Stack 和 Operations Manager 中的警报。
 
@@ -75,7 +75,7 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 该插件以 Python 编写，利用运行状况资源提供程序 REST API。 它提供在 Azure Stack 中检索和关闭警报的基本功能。 与 System Center 管理包一样，它可以让你添加多个 Azure Stack 部署以及发送通知。
 
-在版本 1.2 中，Azure Stack – Nagios 插件利用 Microsoft ADAL 库，并支持使用服务主体通过机密或证书进行身份验证。 此外，配置过程已通过单个配置文件与新的参数进行简化。 它现在支持使用 AAD 和 ADFS 作为标识系统来部署 Azure Stack。
+在版本 1.2 中，Azure Stack – Nagios 插件利用 Microsoft ADAL 库，并支持使用服务主体通过机密或证书进行身份验证。 此外，配置过程已通过单个配置文件与新的参数进行简化。 它现在支持使用 Azure AD & AD FS 作为标识系统的 Azure Stack 部署。
 
 该插件适用于 Nagios 4x 和 XI。 可以在[此处](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)下载。 下载站点还包含安装和配置详细信息。
 
@@ -240,7 +240,7 @@ sudo service nagios reload
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>了解更多信息
+## <a name="learn-more"></a>了解详细信息
 
 有关内置运行状况监视的信息，请参阅[在 Azure Stack 中监视运行状况和警报](azure-stack-monitor-health.md)。
 

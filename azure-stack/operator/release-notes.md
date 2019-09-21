@@ -16,18 +16,20 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 0091571dca5c966cb58fc7ce1533a17850558205
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 896169a39f450b0a0fb26699867638afb02f20a7
+ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106469"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164260"
 ---
-# <a name="azure-stack-updates"></a>Azure Stack 更新
+# <a name="azure-stack-updates-release-notes"></a>Azure Stack 更新：发行说明
 
 适用范围：*Azure Stack 集成系统*
 
-本文介绍 Azure Stack 更新包的内容。 此更新包括新的改进，以及此 Azure Stack 版本的修复。 **若要访问不同版本的发行说明，请使用左上角的版本选取器。**
+本文介绍 Azure Stack 更新包的内容。 此更新包括新的改进，以及此 Azure Stack 版本的修复。
+
+若要访问不同版本的发行说明，请使用左侧目录上方的 "版本选择器" 下拉列表。
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -506,7 +508,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ## <a name="archive"></a>存档
 
-若要访问较早版本的存档发行说明，请使用页面左上角的版本选取器，并选择所需的版本。 
+若要访问较早版本的存档发行说明，请使用左侧目录上方的 "版本选择器" 下拉列表，然后选择要查看的版本。
 
 ## <a name="next-steps"></a>后续步骤
 

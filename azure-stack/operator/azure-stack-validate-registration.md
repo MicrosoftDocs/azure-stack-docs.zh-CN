@@ -16,12 +16,12 @@ ms.date: 06/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: ca2ea89ab73c7a8e056e4b4700e92a872e628f34
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 9c4ddec0606556290e55850a9081c6665f2524d1
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316177"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159588"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
 
@@ -36,14 +36,14 @@ ms.locfileid: "67316177"
 
 从 [PowerShell 库](https://aka.ms/AzsReadinessChecker)下载最新版本的 **AzsReadinessChecker**。  
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 以下系统必备组件是必需的：
 
 ### <a name="the-computer-on-which-the-tool-runs"></a>运行该工具的计算机
 
 - Windows 10 或 Windows Server 2016，具有 Internet 连接。
-- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要  版本和次要  版本：  
+- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要版本和次要版本：  
 
   ```powershell
   $PSVersionTable.PSVersion
@@ -56,7 +56,7 @@ ms.locfileid: "67316177"
 
 - 标识将与 Azure Stack 配合使用的帐户的用户名和密码，该帐户必须是 Azure 订阅所有者。  
 - 标识将使用的 Azure 订阅的订阅 ID。
-- 标识将使用的 **AzureEnvironment**。 支持的环境名称参数值为**AzureCloud**， **AzureChinaCloud**，或**AzureUSGovernment**，取决于你的 Azure 订阅使用。
+- 标识将使用的 **AzureEnvironment**。 环境名称参数支持的值包括**AzureCloud**、 **AzureChinaCloud**或**AzureUSGovernment**，具体取决于所使用的 Azure 订阅。
 
 ## <a name="steps-to-validate-azure-registration"></a>验证 Azure 注册的步骤
 
@@ -73,7 +73,7 @@ ms.locfileid: "67316177"
    ```
 
    > [!NOTE]
-   > 作为 CSP，当使用共享服务或 IUR 订阅，必须从该各自 AAD 提供的用户的凭据。 通常这将类似于 `subscriptionowner@iurcontoso.onmicrosoft.com`。 该用户必须具有相应的凭据，如上一步所述。
+   > 作为 CSP，使用共享服务或 IUR 订阅时，必须提供该用户各自 Azure AD 的凭据。 通常这将类似于 `subscriptionowner@iurcontoso.onmicrosoft.com`。 该用户必须具有相应的凭据，如上一步所述。
 
 3. 在 PowerShell 提示符下运行以下命令，将 `$subscriptionID` 设置为要使用的 Azure 订阅。 将 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 替换为你自己的订阅 ID：
 
@@ -83,7 +83,7 @@ ms.locfileid: "67316177"
 
 4. 在 PowerShell 提示符下运行以下命令，开始验证订阅：
 
-   - 指定的值`AzureEnvironment`作为**AzureCloud**， **AzureGermanCloud**，或**AzureChinaCloud**。  
+   - 将`AzureEnvironment`的值指定为**AzureCloud**、 **AzureGermanCloud**或**AzureChinaCloud**。  
    - 提供 Azure Active Directory 管理员用户名和 Azure Active Directory 租户名称。
 
    ```powershell
@@ -106,7 +106,7 @@ ms.locfileid: "67316177"
 
 这些文件可以帮助你在部署 Azure Stack 之前共享验证状态，或者调查验证问题。 这两个文件都会持久保留每个后续验证检查的结果。 报表向你的部署团队提供标识配置确认。 日志文件可以帮助你的部署或支持团队调查验证问题。
 
-默认情况下，这两个文件写入到**C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
+默认情况下，这两个文件都写入到 **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
 
 - 可以在运行命令行的末尾使用 **-OutputPath** ***&lt;path&gt;*** 参数指定一个不同的报表位置。
 - 可以在运行命令的末尾使用 **-CleanReport** 参数从 **AzsReadinessCheckerReport.json** 中清除以前运行此工具时的相关信息。

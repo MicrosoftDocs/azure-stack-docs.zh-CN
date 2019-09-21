@@ -16,12 +16,12 @@ ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 5b8beccab17eaa9aedadb63327150a70a327df1f
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: b79e3def3444db2228992b423ca21945d7964f26
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188169"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159623"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -147,7 +147,7 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 
 1. 在前期步骤中新建的 **\Certificates\\\<标识提供者>** 目录内，根据 [Azure Stack PKI 证书要求](azure-stack-pki-certs.md#mandatory-certificates)的“必需证书”部分中所述的格式，将新的替换外部证书集放入目录结构。
 
-    AAD 标识提供者的文件夹结构示例：
+    Azure AD 标识提供程序的文件夹结构的示例：
     ```powershell
         <ShareName>
         │   │
@@ -255,7 +255,7 @@ Remove-PSSession -Session $PEPSession
 
    机密轮换成功完成后，控制台会显示“**总体操作状态: 成功”。**
     > [!Note]
-    > 如果秘密旋转失败, 请按照错误消息中的说明操作, 然后重新运行带有 **-Internal**和 **-重新运行**参数的**start-secretrotation** 。  
+    > 如果机密轮换失败，请按照错误消息中的说明操作，并使用 **-Internal** 和 **-ReRun** 参数重新运行 **Start-SecretRotation**。  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
@@ -299,13 +299,13 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="parameters"></a>Parameters
 
-| 参数 | type | 必填 | 位置 | 默认 | 描述 |
+| 参数 | 类型 | 必填 | 位置 | 默认 | 描述 |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享路径。 仅当轮换外部机密时才需要。 结尾目录必须是 **\Certificates**。 |
-| `CertificatePassword` | SecureString | False  | 名为  | None  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则是必需的值。 |
-| `Internal` | String | False | 名为 | 无 | 每当 Azure Stack 操作员想要轮换内部基础结构机密时，都必须使用 Internal 标志。 |
-| `PathAccessCredential` | PSCredential | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享的 PowerShell 凭据。 仅当轮换外部机密时才需要。  |
-| `ReRun` | SwitchParameter | False  | 名为  | None  | 每当尝试失败后重新尝试机密轮换时，都必须使用 ReRun。 |
+| `PfxFilesPath` | 字符串  | 假  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享路径。 仅当轮换外部机密时才需要。 结尾目录必须是 **\Certificates**。 |
+| `CertificatePassword` | SecureString | 假  | 名为  | 无  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则是必需的值。 |
+| `Internal` | 字符串 | 假 | 名为 | 无 | 每当 Azure Stack 操作员想要轮换内部基础结构机密时，都必须使用 Internal 标志。 |
+| `PathAccessCredential` | PSCredential | 假  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享的 PowerShell 凭据。 仅当轮换外部机密时才需要。  |
+| `ReRun` | SwitchParameter | 假  | 名为  | 无  | 每当尝试失败后重新尝试机密轮换时，都必须使用 ReRun。 |
 
 ### <a name="examples"></a>示例
 

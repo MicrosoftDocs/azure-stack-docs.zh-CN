@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 中创建和发布市场项 | Microsoft Docs
-description: 在 Azure Stack 中创建和发布市场项。
+description: 了解如何创建和发布 Azure Stack Marketplace 项。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
-ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
+ms.openlocfilehash: 668882b1f5e0702ce51798468c8f102efe92edcd
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643856"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159680"
 ---
-# <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
+# <a name="create-and-publish-a-marketplace-item-in-azure-stack"></a>在 Azure Stack 中创建和发布 Marketplace 项
 
 适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -45,8 +45,8 @@ ms.locfileid: "69643856"
     > [!NOTE]  
     > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
 
-4. 若要确保资源可以成功部署, 请用 Microsoft Azure Stack Api 测试模板。
-5. 如果你的模板依赖于虚拟机映像，请按照说明[向 Azure Stack 中添加虚拟机映像](azure-stack-add-vm-image.md)。
+4. 若要确保资源可以成功部署，请用 Microsoft Azure Stack Api 测试模板。
+5. 如果你的模板依赖于虚拟机（VM）映像，请按照说明[将 VM 映像添加到 Azure Stack](azure-stack-add-vm-image.md)。
 6. 将 Azure Resource Manager 模板保存在 **/Contoso.TodoList/DeploymentTemplates/** 文件夹中。
 7. 为市场项选择图标和文本。 将图标添加到 **Icons** 文件夹，并向 **Strings** 文件夹中的 **resources** 文件添加文本。 为图标使用 **small**、**medium**、**large** 和 **wide** 命名约定。 有关这些大小的详细说明，请参阅[市场项 UI 参考](#reference-marketplace-item-ui)。
 
@@ -55,7 +55,7 @@ ms.locfileid: "69643856"
    >
    >
 
-8. 在 **Manifest.json** 文件中，将 **name** 更改为你的市场项的名称。 另外，将 **publisher** 更改为你的公司的名称。 在发布映像之前, 请更新 .manifest 文件并更新以下行: "名称": "xxx"。 对于每个映像版本, 请务必使用不同的名称。
+8. 在 **Manifest.json** 文件中，将 **name** 更改为你的市场项的名称。 另外，将 **publisher** 更改为你的公司的名称。 在发布映像之前，请更新 .manifest 文件并更新以下行： "名称"： "xxx"。 对于每个映像版本，请务必使用不同的名称。
 9. 在 **artifacts** 下，将 **name** 和 **path** 更改为你包括的 Azure 资源管理器模板的正确信息：
 
    ```json
@@ -85,15 +85,15 @@ ms.locfileid: "69643856"
     ```
 
     > [!NOTE]
-    > 必须存在清单 json 文件的完整路径以及输出包。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，则文件夹 **C:\MarketPlaceItem** 必须存在。
+    > manifest.json 文件的完整路径以及输出包必须存在。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，则文件夹 **C:\MarketPlaceItem** 必须存在。
     >
     >
 
 ## <a name="publish-a-marketplace-item"></a>发布市场项目
 
-1. 使用 PowerShell 或 Azure 存储资源管理器将市场项 (.azpkg) 上传到 Azure Blob 存储。 可以上传到本地 Azure Stack 存储或上传到 Azure 存储，即包的临时位置。 请确保 blob 可公开访问。
-2. 在 Microsoft Azure Stack 环境中的客户端虚拟机上, 请确保你的 PowerShell 会话设置为你的服务管理员凭据。 可以在[使用 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)中找到有关如何在 Azure Stack 中对 PowerShell 进行身份验证的说明。
-3. 使用 [PowerShell 1.3.0](azure-stack-powershell-install.md) 或更高版本时，可以使用 **Add-AzsGalleryItem** PowerShell cmdlet 将市场项发布到 Azure Stack。 在使用 PowerShell 1.3.0 之前，请使用 cmdlet **Add-AzureRMGalleryitem** 取代 **Add-AzsGalleryItem**。 例如，使用 PowerShell 1.3.0 或更高版本时：
+1. 使用 PowerShell 或 Azure 存储资源管理器将市场项 (.azpkg) 上传到 Azure Blob 存储。 可以上传到本地 Azure Stack 存储或上传到 Azure 存储，这是包的临时位置。 请确保 blob 可公开访问。
+2. 在 Microsoft Azure Stack 环境中的客户端 VM 上，确保已将 PowerShell 会话设置为你的服务管理员凭据。 可以在[使用 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)中找到有关如何在 Azure Stack 中对 PowerShell 进行身份验证的说明。
+3. 使用 [PowerShell 1.3.0](azure-stack-powershell-install.md) 或更高版本时，可以使用 **Add-AzsGalleryItem** PowerShell cmdlet 将市场项发布到 Azure Stack。 对于早期版本，请使用 cmdlet **AzureRMGalleryitem**来替换**AzsGalleryItem**。 例如，使用 PowerShell 1.3.0 或更高版本时：
 
    ```powershell
    Add-AzsGalleryItem -GalleryItemUri `
@@ -133,19 +133,19 @@ ms.locfileid: "69643856"
 
 | 姓名 | 必填 | 类型 | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| 姓名 |X |String |[A-Za-z0-9]+ | |
-| 发布者 |X |String |[A-Za-z0-9]+ | |
-| Version |X |String |[SemVer v2](https://semver.org/) | |
+| 姓名 |X |字符串 |[A-Za-z0-9]+ | |
+| 发布者 |X |字符串 |[A-Za-z0-9]+ | |
+| Version |X |字符串 |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>元数据
 
-| 姓名 | 必填 | type | 约束 | 描述 |
+| 姓名 | 必填 | 类型 | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| 显示名称 |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法正确地显示项名称。 |
-| PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法正确地显示发布者名称。 |
-| PublisherLegalName |X |String |最多 256 个字符 | |
-| 总结 |X |String |60 到 100 个字符 | |
-| LongSummary |X |String |140 到 256 个字符 |在 Azure Stack 中尚不适用。 |
+| DisplayName |X |字符串 |建议不要超过 80 个字符 |如果项目名称的长度超过80个字符，门户可能不会正确显示您的项目名称。 |
+| PublisherDisplayName |X |字符串 |建议不要超过 30 个字符 |如果你的发布者名称长度超过30个字符，则它可能不会正确显示你的发布者名称。 |
+| PublisherLegalName |X |字符串 |最多 256 个字符 | |
+| 总结 |X |字符串 |60 到 100 个字符 | |
+| LongSummary |X |字符串 |140 到 256 个字符 |在 Azure Stack 中尚不适用。 |
 | 描述 |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 到 5,000 个字符 | |
 
 ### <a name="images"></a>图像
@@ -154,7 +154,7 @@ ms.locfileid: "69643856"
 
 | 姓名 | 宽度 | 高度 | 说明 |
 | --- | --- | --- | --- |
-| 宽型 |255 px |115 px |始终必需 |
+| 宽 |255 px |115 px |始终必需 |
 | 大型 |115 px |115 px |始终必需 |
 | 中型 |90 px |90 px |始终必需 |
 | 小 |40 px |40 px |始终必需 |
@@ -162,7 +162,7 @@ ms.locfileid: "69643856"
 
 ### <a name="categories"></a>Categories
 
-应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack 中的现有类别之一（计算、数据 + 存储，等等），也可以选择新建一个。
+应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以在 Azure Stack 中选择现有类别之一（"**计算**"、"**数据 + 存储**" 等），或选择一个新类别。
 
 ### <a name="links"></a>链接
 
@@ -170,7 +170,7 @@ ms.locfileid: "69643856"
 
 | 姓名 | 必填 | 类型 | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| 显示名称 |X |String |最多 64 个字符。 | |
+| DisplayName |X |字符串 |最多 64 个字符。 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>其他属性
@@ -179,8 +179,8 @@ ms.locfileid: "69643856"
 
 | 姓名 | 必填 | type | 约束 | 描述 |
 | --- | --- | --- | --- | --- |
-| 显示名称 |X |String |最多 25 个字符。 | |
-| ReplTest1 |X |String |最多 30 个字符。 | |
+| DisplayName |X |字符串 |最多 25 个字符。 | |
+| ReplTest1 |X |字符串 |最多 30 个字符。 | |
 
 ### <a name="html-sanitization"></a>HTML 清理
 
@@ -194,11 +194,11 @@ ms.locfileid: "69643856"
 
 ### <a name="create-blade"></a>“创建”边栏选项卡
 
-![“创建”边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![创建边栏选项卡-Azure Stack Marketplace 项](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>市场项详细信息边栏选项卡
 
-![市场项详细信息边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Azure Stack Marketplace 项详细信息边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>后续步骤
 

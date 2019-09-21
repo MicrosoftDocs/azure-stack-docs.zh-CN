@@ -16,17 +16,17 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d06dabc32141fcf2f487151e92c5f47aa79b6149
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: fa90091f93556cd313fa8e4e21bfe0fd24011e38
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094297"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159142"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 连接的部署规划决策
 确定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
 
-将 Azure Stack 连接到 Azure 意味着可以将 Azure Active Directory （AAD）或 Active Directory 联合身份验证服务（AD FS）用于标识存储。 也可从以下计费模式进行选择：即用即付或按容量付费。 已连接的部署是默认选项，因为它允许客户充分利用 Azure Stack，尤其适用于涉及 Azure 和 Azure Stack 的混合云方案。
+部署连接到 Azure 的 Azure Stack 意味着可以将 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 用于标识存储。 也可从以下计费模式进行选择：即用即付或按容量付费。 已连接的部署是默认选项，因为它允许客户充分利用 Azure Stack，尤其适用于涉及 Azure 和 Azure Stack 的混合云方案。
 
 ## <a name="choose-an-identity-store"></a>选择标识存储
 使用连接型部署时，可以选择将 Azure AD 或 AD FS 用于标识存储。 没有 Internet 连接的断开连接型部署只能使用 AD FS。
@@ -38,9 +38,9 @@ ms.locfileid: "71094297"
 ### <a name="azure-ad-identity-store"></a>Azure AD 标识存储
 为标识存储使用 Azure AD 需要两个 Azure AD 帐户：全局管理员帐户和计费帐户。 这两个帐户可以相同，也可以不同。 虽然使用同一用户帐户可能更简单，适用于 Azure 帐户数有限的情况，但考虑到业务需求，某些情况下也可能需要使用两个帐户：
 
-1. **全局管理员帐户**（仅连接型部署需要） 这是一个 Azure 帐户，用于在 AAD 中为 Azure Stack 基础结构服务创建应用和服务主体。 此帐户必须对要在其下部署 Azure Stack 系统的目录具有目录管理员权限。 它将成为 Azure AD 用户的 "云操作员" 全局管理员，并用于以下任务：
+1. **全局管理员帐户**（仅连接型部署需要） 这是一个 Azure 帐户，用于在 Azure AD 中创建 Azure Stack 基础结构服务的应用和服务主体。 此帐户必须对要在其下部署 Azure Stack 系统的目录具有目录管理员权限。 它将成为 Azure AD 用户的 "云操作员" 全局管理员，并用于以下任务：
 
-    - 为需要与 AAD 和图形 API 交互的所有 Azure Stack 服务预配和委托应用程序和服务主体。
+    - 为需要与 Azure AD 和图形 API 交互的所有 Azure Stack 服务预配和委托应用程序和服务主体。
     - 充当服务管理员帐户。 此帐户是默认提供程序订阅（你稍后可以更改）的所有者。 你可以使用此帐户登录到 Azure Stack 管理员门户，并在 Azure Stack 中使用它来创建产品/服务和计划、设置配额和执行其他管理功能。
 
 2. **计费帐户**（连接型部署和断开连接型部署都需要）。 此 Azure 帐户用来在 Azure Stack 集成系统和 Azure 商务后端之间建立计费关系。 这是对 Azure Stack 费用计费的帐户。 此帐户还将用于提供市场中的项目和其他混合方案。
@@ -69,7 +69,7 @@ ms.locfileid: "71094297"
 
 容量计费需要企业协议 (EA) Azure 订阅才能注册。 原因是注册设置了市场中项目的可用性，这需要 Azure 订阅。 此订阅不用于 Azure Stack 使用情况。
 
-## <a name="learn-more"></a>了解详情
+## <a name="learn-more"></a>了解详细信息
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 产品页。
 - 有关 Azure Stack 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack：Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
 - 要了解 Microsoft Azure Stack 打包和定价的详细信息，请[下载 .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。 
