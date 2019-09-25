@@ -1,6 +1,6 @@
 ---
-title: 使用 Key Vault 中存储的密码部署 Azure Stack VM |Microsoft Docs
-description: 了解如何使用 Azure Stack key vault 中存储的密码来部署 VM。
+title: 使用 Key Vault 中存储的密码部署 Azure Stack VM | Microsoft Docs
+description: 了解如何使用 Azure Stack 密钥保管库中存储的密码部署 VM。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 480740b12796fe90e2acd6fd1eb164b4c89d5ded
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 11411dbf0f09e68ab122fea87f514495a9e7a6b4
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842824"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224988"
 ---
-# <a name="deploy-an-azure-stack-vm-using-a-password-stored-in-key-vault"></a>使用存储在 Key Vault 中的密码部署 Azure Stack VM
+# <a name="deploy-an-azure-stack-vm-using-a-password-stored-in-key-vault"></a>使用 Key Vault 中存储的密码部署 Azure Stack VM
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本文逐步介绍如何使用 Azure Stack Key Vault 中存储的密码部署 Windows Server 虚拟机 (VM)。 使用密钥保管库密码比传递纯文本密码更安全。
+本文介绍如何使用 Azure Stack 密钥保管库中存储的密码部署 Windows Server 虚拟机 (VM)。 使用密钥保管库密码比传递纯文本密码更安全。
 
 ## <a name="overview"></a>概述
 
@@ -35,16 +35,16 @@ ms.locfileid: "68842824"
 * 每次部署资源时不必手动输入机密。
 * 可以指定哪些用户或服务主体可以访问机密。
 
-## <a name="prerequisites"></a>系统必备
+## <a name="prerequisites"></a>先决条件
 
 * 必须订阅包含 Key Vault 服务的产品/服务。
 * [安装适用于 Azure Stack 的 PowerShell。](../operator/azure-stack-powershell-install.md)
 * [配置 PowerShell 环境。](azure-stack-powershell-configure-user.md)
 
-以下步骤描述了通过检索存储在 Key Vault 中的密码创建 VM 所需的过程:
+以下步骤说明通过检索 Key Vault 中存储的密码创建 VM 所需的过程：
 
 1. 创建 Key Vault 机密。
-2. `azuredeploy.parameters.json`更新文件。
+2. 更新 `azuredeploy.parameters.json` 文件。
 3. 部署模板。
 
 > [!NOTE]  
@@ -52,7 +52,7 @@ ms.locfileid: "68842824"
 
 ## <a name="create-a-key-vault-secret"></a>创建 Key Vault 机密
 
-以下脚本将创建一个密钥保管库, 并将密钥保管库中的密码存储为机密。 创建密钥保管库时，请使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
+以下脚本创建密钥保管库，并将密码作为机密存储在密钥保管库中。 创建密钥保管库时，请使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
 
 ```powershell
 
@@ -80,13 +80,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-运行前面的脚本时, 输出包含机密 URI (统一资源标识符)。 请记下此 URI。 必须在 "[使用密钥保管库中的密码部署 WINDOWS VM](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) " 模板中引用它。 将 [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) 文件夹下载到开发计算机上。 此文件夹包含`azuredeploy.json`和`azuredeploy.parameters.json`文件, 后续步骤中将需要这些文件。
+运行前面的脚本时，输出会包括机密 URI（统一资源标识符）。 请记下此 URI。 在[使用密钥保管库中的密码部署 Windows VM](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) 模板中，需要引用此 URI。 将 [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) 文件夹下载到开发计算机上。 此文件夹包含 `azuredeploy.json` 和 `azuredeploy.parameters.json` 文件，在后续步骤中将需要这些文件。
 
-根据环境值，修改 `azuredeploy.parameters.json` 文件。 要注意的参数是保管库名称、保管库资源组和机密 URI（由前面的脚本生成）。 下面的文件是一个参数文件示例。
+根据环境值，修改 `azuredeploy.parameters.json` 文件。 要注意的参数是保管库名称、保管库资源组和机密 URI（由前面的脚本生成）。 以下文件是参数文件的示例。
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>更新 azuredeploy.parameters.json 文件
 
-根据你的环境, 用 VM 值的 KeyVault URI, secretName, adminUsername 更新文件。`azuredeploy.parameters.json` 以下 JSON 文件显示模板参数文件的示例：
+根据环境，以 KeyVault URI、secretName、VM 的 adminUsername 值更新 `azuredeploy.parameters.json` 文件。 以下 JSON 文件显示模板参数文件的示例：
 
 ```json
 {
@@ -96,14 +96,14 @@ Set-AzureKeyVaultSecret `
        "adminUsername":  {
          "value":  "demouser"
           },
-         "adminPassword":  {
-           "reference":  {
-              "keyVault":  {
-                "id":  "/subscriptions/xxxxxx/resourceGroups/RgKvPwd/providers/Microsoft.KeyVault/vaults/KvPwd"
-                },
-              "secretName":  "MySecret"
-           }
-         },
+       "adminPassword":  {
+         "reference":  {
+            "keyVault":  {
+              "id":  "/subscriptions/xxxxxx/resourceGroups/RgKvPwd/providers/Microsoft.KeyVault/vaults/KvPwd"
+              },
+            "secretName":  "MySecret"
+         }
+       },
        "dnsLabelPrefix":  {
           "value":  "mydns123456"
         },

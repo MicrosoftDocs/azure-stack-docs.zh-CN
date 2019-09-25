@@ -11,15 +11,15 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 8905a376a165776acde2fb792df1e8f35279140e
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 685f2d868314610ea7c19443fe47f29182561a51
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118759"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71225016"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
-部署 Azure Stack 和预配用户资源 (例如产品/服务、计划、配额和订阅) 后, 应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 如果出现灾难性的硬件或服务故障, 则计划和运行定期基础结构备份将确保基础结构管理数据不会丢失。
+部署 Azure Stack 和预配用户资源（例如产品/服务、计划、配额和订阅）后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 如果出现灾难性的硬件或服务故障，则计划和运行定期基础结构备份将确保基础结构管理数据不会丢失。
 
 > [!TIP]
 > 建议在开始此过程之前[运行按需备份](../operator/azure-stack-backup-back-up-azure-stack.md)，确保有最新基础结构数据的副本可用。 确保在备份成功完成以后捕获备份 ID。 云恢复期间需要此 ID。
@@ -46,7 +46,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 对 ASDK 执行云恢复部署即可验证从集成系统部署进行的基础结构备份。 在此类部署中，将 ASDK 安装在主机上以后，即可从备份还原特定的服务数据。
 
 ### <a name="prereqs"></a>云恢复先决条件
-在开始 ASDK 的云恢复部署之前, 请确保你具有以下信息:
+在开始 ASDK 的云恢复部署之前，请确保你具有以下信息：
 
 **UI 安装程序要求**
 
@@ -58,8 +58,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 |要还原的备份 ID|备份 ID，采用的字母数字形式为“xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx”，用于确定需要在云恢复过程中还原的备份。|
 |时间服务器 IP|有效的时间服务器 IP（例如 132.163.97.2）是 Azure Stack 部署所需的。|
 |外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含外部证书，这些证书需使用此密码来还原。|
-|备份加密密钥|如果使用不推荐使用的加密密钥在中配置备份设置, 则是必需的。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后, 请参阅下表获取所需信息。|
-
+|备份加密密钥|如果使用加密密钥配置备份设置（已弃用），则需要此项。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，请参阅下表获取所需信息。|
 |     |     | 
 
 **PowerShell 安装程序要求**
@@ -73,11 +72,11 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 |时间服务器 IP|有效的时间服务器 IP（例如 132.163.97.2）是 Azure Stack 部署所需的。|
 |外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含外部证书，这些证书需使用此密码来还原。|
 |解密证书密码|可选。 只有在使用证书加密备份时才是必需的。 密码适用于自签名证书 (.pfx)，该证书包含解密备份数据所需的私钥。|
-|备份加密密钥|可选。 如果备份设置仍配置有加密密钥, 则是必需的。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，必须提供解密证书的密码。|
+|备份加密密钥|可选。 如果仍使用加密密钥配置备份设置，则为必需。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，必须提供解密证书的密码。|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>准备主机 
-与在正常的 ASDK 部署中一样，ASDK 主机系统环境必须进行安装准备。 准备好 ASDK 主机计算机后, 它将从 Cloudbuilder.vhdx VM 硬盘驱动器启动, 以开始 ASDK 部署。
+与在正常的 ASDK 部署中一样，ASDK 主机系统环境必须进行安装准备。 准备好 ASDK 主机计算机后，它将从 Cloudbuilder.vhdx VM 硬盘驱动器启动，以开始 ASDK 部署。
 
 在 ASDK 主机上下载新的 cloudbuilder.vhdx（对应于 Azure Stack 的已备份版本），然后按说明[准备 ASDK 主机](asdk-prepare-host.md)。
 
@@ -89,9 +88,9 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-接下来，将最新的 Azure Stack 备份文件复制到新创建的共享。 共享中的文件夹结构应该是：`\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`。
+接下来，将最新的 Azure Stack 备份文件复制到新创建的共享。 请确保复制文件夹的`<BackupID>`父文件夹，这是创建备份的时间的时间戳。 共享中的文件夹结构应该是：`\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`。 
 
-最后，将解密证书 (.pfx) 复制到证书目录：`C:\CloudDeployment\Setup\Certificates\`，并将文件重命名为 `BackupDecryptionCert.pfx`。
+最后，将解密证书 (.pfx) 复制到证书目录：`C:\CloudDeployment\Setup\BackupDecryptionCert\`，并将文件重命名为 `BackupDecryptionCert.pfx`。
 
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>在云恢复模式下部署 ASDK
 
@@ -109,12 +108,12 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 > [!IMPORTANT]
 > 当前安装程序 UI 仅支持加密密钥。
 
-1. 在将主机成功启动到 Cloudbuilder.vhdx 映像后, 使用在为 ASDK 安装[准备 ASDK 主机](asdk-prepare-host.md)时指定的管理员凭据进行登录。 这些凭据应与 ASDK 主机本地管理员凭据相同。
+1. 在将主机成功启动到 Cloudbuilder.vhdx 映像后，使用在为 ASDK 安装[准备 ASDK 主机](asdk-prepare-host.md)时指定的管理员凭据进行登录。 这些凭据应与 ASDK 主机本地管理员凭据相同。
 2. 打开权限提升的 PowerShell 控制台并运行 **&lt;驱动器号>\AzureStack_Installer\asdk-installer.ps1** PowerShell 脚本。 该脚本现在可能位于与 CloudBuilder.vhdx 映像中的 C:\ 不同的驱动器上。 单击“**恢复**”。
 
     ![ASDK 安装程序脚本](media/asdk-validate-backup/1.PNG) 
 
-3. 在 "标识提供者和凭据" 页上输入 ASDK 主计算机的 Azure AD 目录信息 (可选) 和本地管理员密码。 单击“下一步”。
+3. 在 "标识提供者和凭据" 页上输入 ASDK 主计算机的 Azure AD 目录信息（可选）和本地管理员密码。 单击“下一步”。
 
     ![ASDK 标识和凭据页](media/asdk-validate-backup/2.PNG) 
 
@@ -130,7 +129,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
     ![ASDK 网络卡设置验证](media/asdk-validate-backup/5.PNG) 
 
-7. 提供前面在 "备份设置" 页上的 "[先决条件" 部分](#prereqs)中描述的必需信息, 以及用于访问共享的用户名和密码。 单击“下一步”： 
+7. 提供前面在 "备份设置" 页上的 "[先决条件" 部分](#prereqs)中描述的必需信息，以及用于访问共享的用户名和密码。 单击“下一步”： 
 
    !["ASDK 备份设置" 页](media/asdk-validate-backup/6.PNG) 
 
@@ -185,7 +184,7 @@ $decryptioncertpassword  = Read-Host -AsSecureString -Prompt "Password for the d
 **使用证书文件的恢复模式**
 
 > [!NOTE]
-> 出于安全原因, Azure Stack 部署不会保留解密证书。 需要再次提供解密证书和关联的密码。
+> 出于安全原因，Azure Stack 部署不会保留解密证书。 需要再次提供解密证书和关联的密码。
 
 ```powershell
 $decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"

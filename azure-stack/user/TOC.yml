@@ -274,6 +274,8 @@
           href: azure-stack-edge-pattern-cross-cloud-scaling.md
         - name: DevOps （混合 CI/CD）
           href: azure-stack-edge-pattern-hybrid-ci-cd.md
+        - name: Footfall 检测
+          href: hybrid-solution-retail-footfall-detection.md
         - name: 异地分布式应用程序
           href: azure-stack-edge-pattern-geo-distribution.md
 - name: 参考

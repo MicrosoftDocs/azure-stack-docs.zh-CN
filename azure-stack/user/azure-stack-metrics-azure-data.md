@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 71855d557f26fc1eb4d86ab0d5a48bf8cf987506
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: e36f7c7f80de3cf0b822c4d145af411584ea38e4
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974678"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224996"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>使用 Azure Stack 上的 Azure Monitor
 
@@ -41,8 +41,8 @@ Azure 监视器是一款平台服务，提供一个中心位置来让用户监�
 在你的订阅的套餐资源提供程序设置上注册 **Microsoft.insights** 资源提供程序。 你可以验证该资源提供程序在与你的订阅关联的套餐中是否可用：
 
 1. 打开 Azure Stack 用户门户。
-2. 选择“套餐”。
-3. 选择与订阅关联的套餐。
+2. 选择 **订阅**。
+3. 选择要注册的订阅。
 4. 在“设置”下，选择“资源提供程序”。 
 5. 在列表中找到 **Microsoft.Insights**，并验证状态是否为“已注册”。
 
@@ -121,7 +121,7 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>访问 Azure Stack 上的 Azure Monitor 的方法
 
-您可以使用以下方法之一来处理数据跟踪、路由和检索。 并非所有方法都适用于所有操作或数据类型。 
+可以使用以下方法之一处理数据跟踪、路由和检索。 并非所有方法都适用于所有操作或数据类型。 
 
  - [Azure Stack 用户门户](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
@@ -130,7 +130,7 @@ Azure Stack 中的 **Microsoft.Compute** 资源提供程序包括：
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  
-> 查看 VM 的性能图形时，如果遇到 "找**不到资源**" 错误，请确保已在与 vm 关联的订阅上注册了 "Microsoft 见解"。
+> 如果在查看 VM 的性能图表时遇到“资源未找到”错误，请确保已在与 VM 关联的订阅上注册了 Microsoft.insights。
 
 ## <a name="next-steps"></a>后续步骤
 
