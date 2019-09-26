@@ -165,6 +165,8 @@
                   href: azure-stack-update-oem.md
             - name: 监视更新状态
               href: azure-stack-update-monitor.md
+            - name: 更新疑难解答
+              href: azure-stack-updates-troubleshoot.md
         - name: 监视运行状况和警报
           href: azure-stack-monitor-health.md
         - name: 管理网络资源

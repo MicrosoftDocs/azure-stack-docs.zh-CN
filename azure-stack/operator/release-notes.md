@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 896169a39f450b0a0fb26699867638afb02f20a7
-ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
+ms.openlocfilehash: ed613e78cb2d592d40eb762f155e9e925f68721b
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71164260"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279193"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack 更新：发行说明
 
@@ -39,6 +39,16 @@ ms.locfileid: "71164260"
 > [!IMPORTANT]  
 > 如果 Azure Stack 实例超过两个更新，则会将其视为不符合。 必须[至少更新到支持的最低版本](azure-stack-servicing-policy.md#keep-your-system-under-support)。 
 ::: moniker-end
+
+## <a name="update-planning"></a>更新规划
+
+应用更新之前，请务必查看以下信息：
+
+- [已知问题](known-issues.md)
+- [安全更新](release-notes-security-updates.md)
+- [应用更新之前和之后的活动清单](release-notes-checklist.md)
+
+有关更新和更新过程故障排除的帮助，请参阅[解决 Azure Stack 的修补程序和更新问题](azure-stack-updates-troubleshoot.md)。
 
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
@@ -93,14 +103,6 @@ Azure Stack 1908 更新生成类型已**满**。 因此，1908更新的运行时
 ## <a name="security-updates-1908"></a>安全更新
 
 有关此 Azure Stack 更新中的安全更新的信息，请参阅 [Azure Stack 安全更新](release-notes-security-updates.md)。
-
-## <a name="update-planning-1908"></a>更新规划
-
-应用更新之前，请务必查看以下信息：
-
-- [已知问题](known-issues.md)
-- [安全更新](release-notes-security-updates.md)
-- [应用更新之前和之后的活动清单](release-notes-checklist.md)
 
 ## <a name="download-the-update-1908"></a>下载更新
 
