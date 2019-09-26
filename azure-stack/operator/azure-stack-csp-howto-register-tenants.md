@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 4db6eb06216294712456b3445b27bd2ed89150e9
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 76b870d795b79cf966dcf6742ad08f739d24a42a
+ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159654"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269490"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -33,9 +33,11 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 下图显示了 CSP 需要遵循的步骤，以使新的最终客户能够使用 Azure Stack，并为客户设置使用情况跟踪。 通过添加最终客户，你还可以管理 Azure Stack 中的资源。 可通过两个选项来管理这些资源：
 
 - 可以保留最终客户，并向最终客户提供本地 Azure Stack 订阅的凭据。  
-- 最终客户可以在本地使用其订阅，并将 CSP 添加为拥有所有者权限的来宾。  
+- 最终客户可以在本地使用其订阅，并将 CSP 添加为拥有所有者权限的来宾。
 
 ## <a name="add-an-end-customer"></a>添加最终客户
+
+添加最终客户之前，必须在注册时启用多租户计费。 若要启用多租户计费，请将注册订阅 ID、资源组名称和注册名称发送到`azstcsp@microsoft.com`。 它通常需要1-2 个工作日内才能实现多租户。
 
 执行以下步骤以添加最终客户，如下图所示：
 

@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 6a5ef529d2eabf8039be1da6c53da907c0b7aaaf
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: d63d4876674c66fcccab942cd856dce958e62644
+ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459037"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269486"
 ---
-# <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
+# <a name="frequently-asked-questions-about-azure-stack-usage"></a>有关 Azure Stack 使用情况的常见问题
 
-本文回答了一些有关 Azure Stack 用量 API 的常见问题。
+本文回答了一些关于 Azure Stack 使用情况和 Azure Stack 使用情况 API 的常见问题。
 
 ## <a name="what-meter-ids-can-i-see"></a>可以查看哪些计量 ID？
 
@@ -77,7 +77,7 @@ ms.locfileid: "66459037"
 **计量 ID**：1B8C1DEC-EE42-414B-AA36-6229CF199370  
 **计量名称**：TableDataTransOut  
 **单元**：传出数据 (GB)  
-**注释**：表服务数据传出 （GB)。
+**注释**：表服务传出数据 (GB)。
   
 **计量 ID**：43DAF82B-4618-444A-B994-40C23F7CD438  
 **计量名称**：BlobTransactions  
@@ -124,7 +124,7 @@ ms.locfileid: "66459037"
 **计量 ID**：6DAB500F-A4FD-49C4-956D-229BB9C8C793  
 **计量名称**：VM 大小小时数  
 **单元**：VM 小时数  
-**注释**：捕获这两个基本和 Windows VM。 不针对核心进行调整。  
+**注释**：捕获基本 VM 和 Windows VM。 不针对核心进行调整。  
   
 ### <a name="managed-disks"></a>托管磁盘
 
@@ -322,7 +322,7 @@ ms.locfileid: "66459037"
 **计量 ID**：190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **计量名称**：应用服务  
 **单元**：虚拟核心小时数  
-**注释**：用于运行应用服务的虚拟核心数。 请注意:Microsoft 使用此计量对基于 Azure Stack 的应用服务收费。 云服务提供商可能使用其他应用服务计量（见下）来计算其租户的用量。  
+**注释**：用于运行应用服务的虚拟核心数。 注意:Microsoft 使用此计量对基于 Azure Stack 的应用服务收费。 云服务提供商可能使用其他应用服务计量（见下）来计算其租户的用量。  
   
 **计量 ID**：67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **计量名称**：Functions 请求  
@@ -361,7 +361,7 @@ ms.locfileid: "66459037"
   
 ### <a name="custom-worker-tiers"></a>自定义辅助角色层   
   
-**计量 ID**：  自定义辅助角色层  
+**计量 ID**：自定义辅助角色层  
 **计量名称**：自定义辅助角色层  
 **单元**：小时  
 **注释**：确定性计量 ID 根据 SKU 和自定义辅助角色层名称来创建。 此计量 ID 对每个自定义辅助角色层来说都是唯一的。  
@@ -388,7 +388,7 @@ ms.locfileid: "66459037"
   
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Azure Stack 用量 API 与 [Azure 用量 API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview)（目前为公共预览版）有何差别？
 
-* 租户使用情况 API 是一致使用 Azure API，有一个例外： *showDetails*标志目前不支持在 Azure Stack 中。
+* 租户使用情况 API 与 Azure API 保持一致，但有一个例外： Azure Stack 中目前不支持*showDetails*标志。
 * 提供程序使用情况 API 仅适用于 Azure Stack。
 * 目前，Azure Stack 不提供 Azure 中所提供的[费率卡 API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview)。
 
@@ -399,9 +399,9 @@ ms.locfileid: "66459037"
 * **报告时间**。 用量事件进入用量系统的时间
 * **使用时间**。 使用 Azure Stack 资源的时间
 
-您可能会使用情况的时间值之间存在差异，并报告特定使用事件的时间。 延迟可能长达几个小时在任何环境中。
+你可能会发现，特定用量事件的“使用时间”与“报告时间”值有差异。 在任何环境中，延迟可能长达数小时。
 
-目前，只能按“报告时间”查询。 
+目前，只能按“报告时间”查询。
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>这些用量 API 错误代码的含义是什么？
 
@@ -418,6 +418,16 @@ ms.locfileid: "66459037"
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>VM 收费政策是什么？
 
 正在运行的和已停止的 VM 会生成使用情况数据。 与 Azure 一致的是，必须解除分配才能停止使用情况数据的发出。 如果门户不可用，但计算资源提供程序仍在运行，则会发出使用情况数据。
+
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-usage-apis"></a>如何实现从 Azure Stack 使用情况 Api 提取使用情况数据？
+
+若要从 Azure Stack 提取本地使用情况 Api 的使用情况数据，最简单的方法是使用[GitHub 上的使用情况摘要脚本](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1)。 脚本需要开始日期和结束日期作为输入参数。
+
+或者，可以使用 REST Api，如[提供程序资源使用情况 api](azure-stack-provider-resource-api.md)和[租户资源使用情况 api](azure-stack-tenant-resource-usage-api.md)文章中所述。
+
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-user-subscription"></a>如何将从 Azure 使用情况 Api 提取的使用情况关联到特定 Azure Stack 用户订阅？
+
+使用记录包括名为**additionalinfo**的属性包，其中包含 AZURE STACK 订阅 ID。 这是发出相应使用记录的用户订阅。
 
 ## <a name="next-steps"></a>后续步骤
 
