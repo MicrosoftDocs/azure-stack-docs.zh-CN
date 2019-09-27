@@ -3,7 +3,7 @@ title: Azure Stack 计划、套餐、配额和订阅概述 | Microsoft Docs
 description: 向云操作员介绍 Azure Stack 计划、套餐、配额和订阅。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: sethm
+ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 72787bda5dd5fad372af33141e276b4852f86c39
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: 57d2fb7b9fb89858f13b3946be0e36d9529297a8
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70159520"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319111"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>计划、套餐、配额和订阅概述
 
@@ -81,7 +81,7 @@ ms.locfileid: "70159520"
 
 订阅是用户访问套餐的方式。 如果你是服务提供商的 Azure Stack 操作员，则用户（租户）可通过订阅你的套餐来购买你的服务。 如果你是组织的 Azure Stack 操作员，则用户（员工）可以订阅你提供的服务，而无需付费。
 
-用户与套餐的每种组合都是一个唯一的订阅。 一个用户可订阅多个套餐，但每个订阅只适用于一个套餐。 计划、产品/服务和配额仅适用于唯一订阅, 不能在订阅之间共享。 用户创建的每个资源都与一个订阅相关联。
+用户与套餐的每种组合都是一个唯一的订阅。 一个用户可订阅多个套餐，但每个订阅只适用于一个套餐。 计划、产品/服务和配额仅适用于唯一订阅，不能在订阅之间共享。 用户创建的每个资源都与一个订阅相关联。
 
 ### <a name="default-provider-subscription"></a>默认提供商订阅
 

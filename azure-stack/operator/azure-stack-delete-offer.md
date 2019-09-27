@@ -3,7 +3,7 @@ title: 删除配额、计划、套餐和订阅 | Microsoft Docs
 description: 了解如何删除 Azure Stack 配额、计划、套餐和订阅。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: fca26723c062dd9f5155030fb11c8e1d695bf5f1
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: e89fcb3c218ab8b7228b63211b9f94c7e03d9865
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991804"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319130"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>删除配额、计划、套餐和订阅
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 本文介绍如何删除不再需要的配额、计划、套餐和订阅。 一般原则是只能删除不使用的项。 例如，只能删除没有附属订阅的套餐。
 
@@ -43,15 +43,15 @@ ms.locfileid: "68991804"
 
 ## <a name="delete-an-offer"></a>删除套餐
 
-若要删除产品, 请在管理员门户中, 依次前往 "**所有服务**" 和 "**产品**/服务"。 选择要删除的套餐，然后选择“删除”。
+若要删除某个套餐，请在管理员门户中依次转到“所有服务”、“套餐”。 选择要删除的套餐，然后选择“删除”。
 
 ![delsub1](media/azure-stack-delete-offer/delsub1.png)
 
-只能删除未被任何订阅使用的套餐。 如果订阅基于该产品/服务存在, 则 "**删除**" 选项不可用。 对于这种情况，请参阅[删除订阅](#delete-a-subscription)部分。
+只能删除未被任何订阅使用的套餐。 如果订阅基于套餐存在，则“删除”选项会不可用。 对于这种情况，请参阅[删除订阅](#delete-a-subscription)部分。
 
 ## <a name="delete-a-plan"></a>删除计划
 
-若要删除某个计划, 请在管理员门户中转到 "**所有服务**", 然后依次指向 "**计划**"。 选择要删除的计划，然后选择“删除”。
+若要删除某个计划，请在管理员门户中依次转到“所有服务”、“计划”。 选择要删除的计划，然后选择“删除”。
 
 ![delsub2](media/azure-stack-delete-offer/delsub2.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "68991804"
 
 ## <a name="edit-and-delete-a-quota"></a>编辑和删除配额
 
-可以使用管理员门户查看和编辑现有配额: 选择 "**区域管理**", 然后选择相关的资源提供程序, 然后单击 "**配额**"。 也可以删除特定资源提供程序的配额。
+可以使用管理员门户查看和编辑现有配额：选择“区域管理”，选择相关的资源提供程序，然后单击“配额”。 也可以删除特定资源提供程序的配额。
 
 ![delsub3](media/azure-stack-delete-offer/delsub3.png)
 

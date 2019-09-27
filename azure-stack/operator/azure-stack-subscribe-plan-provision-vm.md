@@ -3,7 +3,7 @@ title: 在 Azure Stack 中订阅套餐 | Microsoft Docs
 description: 在 Azure Stack 中创建套餐的订阅
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 51b61eae1f2c00a959eded275c13c5c4b8d06e4c
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: a35f8fe34cedbeb1a2ef068c666bc6a75effe111
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991788"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319155"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>在 Azure Stack 中创建套餐的订阅
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 [创建套餐](azure-stack-create-offer.md)后，用户需要订阅该套餐，然后才能使用它。 用户订阅套餐有两种方式：
 
@@ -53,7 +53,7 @@ ms.locfileid: "68991788"
 
    - **目录租户** – 选择用户帐户所属的目录租户。 如果未启用多租户，则只能使用本地目录租户。
 
-3. 选择“套餐”。 在“套餐”下，选择此订阅的**套餐**。 由于你要为用户创建订阅, 因此请选择 "**专用**" 作为辅助功能状态。
+3. 选择“套餐”。 在“套餐”下，选择此订阅的**套餐**。 由于你要为用户创建订阅，因此请选择 "**专用**" 作为辅助功能状态。
 
 4. 选择“创建”以创建订阅。 “用户订阅”下面会显示新订阅。 用户在登录到用户门户后可以看到订阅详细信息。
 
@@ -92,9 +92,9 @@ ms.locfileid: "68991788"
 
 如果套餐有附加计划，随时可将该计划添加到订阅。  
 
-1. 在用户门户中，选择“所有服务”。 接下来，在“常规”类别下选择“订阅”，然后选择要更改的订阅。 如果有任何可用的附加计划, 则 **+ "添加计划**" 处于活动状态, 并且有一个用于**附加计划**的磁贴。
+1. 在用户门户中，选择“所有服务”。 接下来，在“常规”类别下选择“订阅”，然后选择要更改的订阅。 如果有任何可用的附加计划，则 **+ "添加计划**" 处于活动状态，并且有一个用于**附加计划**的磁贴。
 
-   如果 **+ Add 计划**不处于活动状态, 则不存在与该订阅关联的产品/服务的附加计划。
+   如果 **+ Add 计划**不处于活动状态，则不存在与该订阅关联的产品/服务的附加计划。
 
 1. 选择 " **+ 添加计划**" 或 "**外接程序计划**" 磁贴。 在“附加计划”下，选择想要添加的计划。
 
