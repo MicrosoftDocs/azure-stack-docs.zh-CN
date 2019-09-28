@@ -15,24 +15,24 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 201af19756ef3958e943549482610ee32e208f01
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 4bf1334f2b4e83223bb2eb1dfbb187dc860ed360
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603066"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342962"
 ---
 # <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>使用 Azure 和 Azure Stack 部署混合云解决方案
 
 适用于：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-此方案演示如何部署使用 Azure 公有云和 Azure Stack 私有云的混合云解决方案。
+此方案介绍如何部署使用 Azure 公有云和 Azure Stack 私有云的混合云解决方案。
 
-使用混合云解决方案，可以结合私有云在合规性方面的优势与公有云的可伸缩性。 此外, 开发人员可以利用 Microsoft 开发人员生态系统, 并将其技能应用到云和本地环境。
+使用混合云解决方案，可以结合私有云在合规性方面的优势与公有云的可伸缩性。 此外，开发人员可以利用 Microsoft 开发人员生态系统，并将其技能应用到云和本地环境。
 
 ## <a name="overview-and-assumptions"></a>概述和假设
 
-按照本教程设置工作流, 使开发人员能够将相同的 web 应用部署到公有云和私有云。 此应用可以访问在私有云上托管的非 internet 可路由网络。 监视这些 web 应用, 在流量高峰时, 程序会修改 DNS 记录, 以将流量重定向到公有云。 如果流量下降到高峰出现之前的水平，则流量将路由回到私有云。
+遵循本教程设置工作流，让开发人员将相同的 Web 应用部署到公有云和私有云。 此应用可以访问私有云中托管的、无法通过 Internet 路由的网络。 这些 Web 应用受到监视；出现流量高峰时，某个程序会修改 DNS 记录，以将流量重定向到公有云。 如果流量下降到高峰出现之前的水平，则流量将路由回到私有云。
 
 本教程涵盖以下任务：
 
@@ -41,16 +41,16 @@ ms.locfileid: "68603066"
 > - 将全球 Azure 中的 Web 应用连接到混合网络。
 > - 为跨云缩放配置 DNS。
 > - 为跨云缩放配置 SSL 证书。
-> - 配置和部署 web 应用。
+> - 配置并部署 Web 应用。
 > - 创建流量管理器配置文件，并根据跨云缩放对其进行配置。
 > - 针对增大的流量设置 Application Insights 监视和警报。
 > - 配置全球 Azure 与 Azure Stack 之间的自动流量切换。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新带入本地环境, 从而实现了唯一的混合云, 使你能够在任何位置构建和部署混合应用。  
+> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
 > 
-> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)查看软件质量的支柱 (放置、可伸缩性、可用性、复原能力、可管理性和安全性), 以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计, 并最大程度减少生产环境中的挑战。
+> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)一文回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
 ### <a name="assumptions"></a>假设
 
@@ -59,24 +59,24 @@ ms.locfileid: "68603066"
  - [Azure 简介](https://azure.microsoft.com/overview/what-is-azure/)
  - [Azure Stack 的重要概念](../operator/azure-stack-overview.md)
 
-本教程还假设你有一个 Azure 订阅。 如果没有订阅, 可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
+本教程还假设你有一个 Azure 订阅。 如果没有订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>系统必备
+## <a name="prerequisites"></a>先决条件
 
-在开始此解决方案之前, 请确保满足以下要求:
+在开始此解决方案之前，请确保符合以下要求：
 
 - Azure Stack 开发工具包 (ASDK)，或 Azure Stack 集成系统的订阅。 若要部署 Azure Stack 开发工具包，请遵照[使用安装程序部署 ASDK](../asdk/asdk-install.md) 中的说明操作。
 - Azure Stack 安装中应包含以下组件：
-  - Azure 应用服务。 请与 Azure Stack 操作员协作，在环境中部署并配置 Azure 应用服务。 本教程要求应用服务至少具有一个 (1) 可用专用辅助角色。
+  - Azure 应用服务。 请与 Azure Stack 操作员协作，在环境中部署并配置 Azure 应用服务。 在本教程中，应用服务必须至少有一 (1) 个可用的专用辅助角色。
   - Windows Server 2016 映像。
-  - 带有 Microsoft SQL Server 映像的 Windows Server 2016。
-  - 适当的计划和产品/服务。
-  - Web 应用的域名。 如果没有域名, 可以从域提供商处购买, 如 GoDaddy、Bluehost 和 InMotion。
+  - 包含 Microsoft SQL Server 映像的 Windows Server 2016。
+  - 相应的计划和产品/服务。
+  - Web 应用的域名。 如果没有域名，可以从 GoDaddy、Bluehost 和 InMotion 等域提供商购买。
 - 受信任的证书颁发机构（例如 LetsEncrypt）为域颁发的 SSL 证书。
-- 与 SQL Server 数据库通信并支持 Application Insights 的 web 应用。 可以从 GitHub 下载 [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) 示例应用。
+- 与 SQL Server 数据库通信且支持 Application Insights 的 Web 应用。 可以从 GitHub 下载 [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) 示例应用。
 - Azure 虚拟网络与 Azure Stack 虚拟网络之间的混合网络。 有关详细说明，请参阅[使用 Azure 和 Azure Stack 配置混合云连接](azure-stack-solution-hybrid-connectivity.md)。
 
-- Azure Stack 中包含专用生成代理的混合持续集成/持续部署 (CI/CD) 管道。 有关详细说明, 请参阅[配置 Azure 混合云标识和 Azure Stack 应用](azure-stack-solution-hybrid-identity.md)。
+- Azure Stack 中包含专用生成代理的混合持续集成/持续部署 (CI/CD) 管道。 有关详细说明，请参阅[使用 Azure 和 Azure Stack 应用配置混合云标识](azure-stack-solution-hybrid-identity.md)
 
 ## <a name="deploy-a-hybrid-connected-sql-server-database-server"></a>部署混合连接的 SQL Server 数据库服务器
 
@@ -90,15 +90,15 @@ ms.locfileid: "68603066"
 
     ![选择虚拟机映像](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. 在“免费 SQL Server 许可证:**SQL Server 2017 开发人员**, 请选择 "**创建**"。
+4. 在“免费 SQL Server 许可证:Windows Server 上的 SQL Server 2017 Developer”中，选择“创建”。
 
-5. 在 "基本信息" **> 配置基本设置**, 为虚拟机 (VM) 提供一个**名称**, 为 SQL Server sa 提供一个**用户名**, 并为 sa 提供一个**密码**。  从 "**订阅**" 下拉列表中, 选择要部署到的订阅。 对于“资源组”，请使用“选择现有项”，并将 VM 放到 Azure Stack Web 应用所在的同一资源组中。
+5. 在“基本信息”>“配置基本设置”中，提供虚拟机 (VM) 的**名称**、SQL Server SA 的**用户名**，以及 SA 的**密码**。  在“订阅”下拉列表中，选择要部署到的订阅。 对于“资源组”，请使用“选择现有项”，并将 VM 放到 Azure Stack Web 应用所在的同一资源组中。
 
     ![配置 VM 的基本设置](media/azure-stack-solution-hybrid-cloud/image3.png)
 
 6. 在“大小”下面，选择 VM 的大小。 对于本教程，建议使用 A2_Standard 或 DS2_V2_Standard。
 
-7. 在 "**设置" > 配置可选功能**"下, 配置以下设置:
+7. 在“设置”>“配置可选功能”下面配置以下设置：
 
    - **存储帐户**：根据需要创建新帐户。
    - **虚拟网络**：
@@ -108,8 +108,8 @@ ms.locfileid: "68603066"
 
    - **公共 IP 地址**：使用默认设置。
    - **网络安全组**：(NSG)。 创建新 NSG。
-   - **扩展和监视**:保留默认设置。
-   - **诊断存储帐户**:根据需要创建新帐户。
+   - **扩展和监视**：保留默认设置。
+   - **诊断存储帐户**：根据需要创建新帐户。
    - 选择“确定”以保存配置。
 
      ![配置可选功能](media/azure-stack-solution-hybrid-cloud/image4.png)
@@ -130,13 +130,13 @@ ms.locfileid: "68603066"
 
     ![配置摘要](media/azure-stack-solution-hybrid-cloud/image6.png)
 
-10. 创建新的 VM 需要一些时间。 可以在“虚拟机”中查看 VM 的状态。
+10. 创建新 VM 需要花费一段时间。 可以在“虚拟机”中查看 VM 的状态。
 
     ![虚拟机](media/azure-stack-solution-hybrid-cloud/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack"></a>在 Azure 和 Azure Stack 中创建 Web 应用
 
-Azure App Service 简化了运行和管理 web 应用。 由于 Azure Stack 与 Azure 相一致，因此，应用服务可在这两个环境中运行。 你将使用应用服务来托管你的应用程序。
+Azure 应用服务简化了运行和管理 Web 应用的过程。 由于 Azure Stack 与 Azure 相一致，因此，应用服务可在这两个环境中运行。 你将使用应用服务来托管应用。
 
 ### <a name="create-web-apps"></a>创建 Web 应用
 
@@ -146,16 +146,16 @@ Azure App Service 简化了运行和管理 web 应用。 由于 Azure Stack 与 
 
 ### <a name="add-route-for-azure-stack"></a>添加 Azure Stack 的路由
 
-Azure Stack 上的应用服务必须可通过公共 internet 路由, 使用户能够访问你的应用。 如果 Azure Stack 可通过 internet 访问, 请记下面向公众的 IP 地址或 Azure Stack web 应用的 URL。
+Azure Stack 上的应用服务必须可从公共 Internet 进行路由，使用户能够访问你的应用。 如果 Azure Stack 可从 Internet 访问，请记下 Azure Stack Web 应用的面向公众的 IP 地址或 URL。
 
-如果使用 ASDK，则可以[配置静态 NAT 映射](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal)，以便在虚拟环境外部公开应用服务。
+如果使用 ASDK，则可以[配置静态 NAT 映射](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-vm-on-each-asdk-for-gateway-traversal)，以便在虚拟环境外部公开应用服务。
 
 ### <a name="connect-a-web-app-in-azure-to-a-hybrid-network"></a>将 Azure 中的 Web 应用连接到混合网络
 
-若要在 Azure 中的 web 前端与 Azure Stack 中的 SQL Server 数据库之间提供连接, 必须将 web 应用连接到 Azure 与 Azure Stack 之间的混合网络。 若要启用连接，必须：
+若要在 Azure 中的 web 前端与 Azure Stack 中的 SQL Server 数据库之间提供连接，必须将 web 应用连接到 Azure 与 Azure Stack 之间的混合网络。 若要启用连接，必须：
 
 - 配置点到站点连接。
-- 配置 web 应用。
+- 配置 Web 应用。
 - 修改 Azure Stack 中的本地网络网关。
 
 ### <a name="configure-the-azure-virtual-network-for-point-to-site-connectivity"></a>为点到站点连接配置 Azure 虚拟网络
@@ -166,7 +166,7 @@ Azure Stack 上的应用服务必须可通过公共 internet 路由, 使用户�
 
     ![“点到站点”选项](media/azure-stack-solution-hybrid-cloud/image8.png)
 
-2. 选择 "**立即配置**" 以配置点到站点。
+2. 选择“立即配置”以配置点到站点连接。
 
     ![开始进行点到站点配置](media/azure-stack-solution-hybrid-cloud/image9.png)
 
@@ -179,11 +179,11 @@ Azure Stack 上的应用服务必须可通过公共 internet 路由, 使用户�
 
    ![“点到站点”设置](media/azure-stack-solution-hybrid-cloud/image10.png)
 
-### <a name="integrate-the-azure-app-service-app-with-the-hybrid-network"></a>将 Azure App Service 应用与混合网络集成
+### <a name="integrate-the-azure-app-service-app-with-the-hybrid-network"></a>将 Azure 应用服务应用与混合网络集成
 
-1. 若要将应用连接到 Azure VNet, 请按照[网关所需的 VNet 集成](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration)中的说明进行操作。
+1. 若要将应用连接到 Azure VNet，请遵照[网关所需的 VNet 集成](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration)中的说明操作。
 
-2. 导航到托管 web 应用的应用服务计划的 "**设置**"。 在“设置”中，选择“网络”。
+2. 导航到托管 Web 应用的应用服务计划的“设置”。 在“设置”中，选择“网络”。
 
     ![配置网络](media/azure-stack-solution-hybrid-cloud/image11.png)
 
@@ -205,23 +205,23 @@ Azure Stack 上的应用服务必须可通过公共 internet 路由, 使用户�
 
     ![网关配置选项](media/azure-stack-solution-hybrid-cloud/image14.png)
 
-2. 在 "**地址空间**" 中, 输入 Azure 中虚拟网络网关的点到站点地址范围。
+2. 在“地址空间”中，输入 Azure 中虚拟网络网关的点到站点地址范围。
 
     ![点到站点地址空间](media/azure-stack-solution-hybrid-cloud/image15.png)
 
-3. 选择 "**保存**" 以验证并保存配置。
+3. 选择“保存”以验证并保存配置。
 
 ## <a name="configure-dns-for-cross-cloud-scaling"></a>为跨云缩放配置 DNS
 
-通过对跨云应用正确配置 DNS, 用户可以访问 web 应用的全局 Azure 和 Azure Stack 实例。 本教程中的 DNS 配置还可让 Azure 流量管理器在负载增加或减少时路由流量。
+通过对跨云应用正确配置 DNS，用户可以访问 web 应用的全局 Azure 和 Azure Stack 实例。 本教程中的 DNS 配置还可让 Azure 流量管理器在负载增加或减少时路由流量。
 
-本教程使用 Azure DNS 来管理 DNS, 因为应用服务域不起作用。
+本教程使用 Azure DNS 来管理 DNS，因为应用服务域无法正常运行。
 
 ### <a name="create-subdomains"></a>创建子域
 
-由于流量管理器依赖于 DNS CNAME，因此需要使用子域来正确将流量路由到终结点 有关 DNS 记录和域映射的详细信息, 请参阅[用流量管理器映射域](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name)。
+由于流量管理器依赖于 DNS CNAME，因此需要使用子域来正确将流量路由到终结点 有关 DNS 记录和域映射的详细信息，请参阅[用流量管理器映射域](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name)。
 
-对于 Azure 终结点, 你将创建一个可供用户用来访问你的 web 应用的子域。 在本教程中可以使用 **app.northwind.com**，但应根据自己的域自定义此值。
+对于 Azure 终结点，需要创建一个可让用户用来访问你的 Web 应用的子域。 在本教程中可以使用 **app.northwind.com**，但应根据自己的域自定义此值。
 
 此外，需要为 Azure Stack 终结点创建包含 A 记录的子域。 可以使用 **azurestack.northwind.com**。
 
@@ -231,15 +231,15 @@ Azure Stack 上的应用服务必须可通过公共 internet 路由, 使用户�
 
 ### <a name="configure-custom-domains-in-azure-stack"></a>在 Azure Stack 中配置自定义域
 
-1. 通过[将 A 记录映射到 Azure 应用服务](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record)，将 **azurestack.northwind.com** 主机名添加到 Azure Stack Web 应用。 使用应用服务应用的可通过 Internet 路由的 IP 地址。
+1. 通过[将 A 记录映射到 Azure 应用服务](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record)，将 **azurestack.northwind.com** 主机名添加到 Azure Stack Web 应用。 对应用服务应用请使用可通过 Internet 路由的 IP 地址。
 
 2. 通过[将 CNAME 映射到 Azure 应用服务](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record)，将 **app.northwind.com** 主机名添加到 Azure Stack Web 应用。 使用在前一步骤 (1) 中配置的主机名作为 CNAME 的目标。
 
 ## <a name="configure-ssl-certificates-for-cross-cloud-scaling"></a>为跨云缩放配置 SSL 证书
 
-确保 web 应用收集的敏感数据在传输到和存储在 SQL 数据库上时安全, 这一点很重要。
+必须确保 Web 应用收集的敏感数据在传输到 SQL 数据库以及存储在该数据库中时受到保护。
 
-将 Azure 和 Azure Stack web apps 配置为对所有传入流量使用 SSL 证书。
+将 Azure 和 Azure Stack Web 应用配置为对所有传入流量使用 SSL 证书。
 
 ### <a name="add-ssl-to-azure-and-azure-stack"></a>将 SSL 添加到 Azure 和 Azure Stack
 
@@ -247,7 +247,7 @@ Azure Stack 上的应用服务必须可通过公共 internet 路由, 使用户�
 
 1. 确保获取的 SSL 证书对于所创建的子域有效。 （也可以使用通配符证书。）
 
-2. 在 Azure 中, 按照**准备 web 应用**中的说明和将[现有自定义 SSL 证书绑定到 Azure WEB 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)的**ssl 证书**部分中的说明进行操作。 为“SSL 类型”选择“基于 SNI 的 SSL”。
+2. 在 Azure 中，按照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)一文的“准备 Web 应用”和“绑定 SSL 证书”部分的说明操作。 为“SSL 类型”选择“基于 SNI 的 SSL”。
 
 3. 将所有流量重定向到 HTTPS 端口。 遵照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)一文的“强制实施 HTTPS”部分的说明操作。
 
@@ -255,35 +255,35 @@ Azure Stack 上的应用服务必须可通过公共 internet 路由, 使用户�
 
 - 重复适用于 Azure 的步骤 1-3。
 
-## <a name="configure-and-deploy-the-web-app"></a>配置和部署 web 应用
+## <a name="configure-and-deploy-the-web-app"></a>配置并部署 Web 应用
 
-你将配置应用程序代码, 以便向正确的 Application Insights 实例报告遥测, 并为 web 应用配置正确的连接字符串。 若要了解有关 Application Insights 的详细信息, 请参阅[什么是 Application Insights？](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
+你将配置应用代码，以便向正确的 Application Insights 实例报告遥测，并为 Web 应用配置正确的连接字符串。 若要详细了解 Application Insights，请参阅[什么是 Application Insights？](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
 
 ### <a name="add-application-insights"></a>添加 Application Insights
 
-1. 在 Microsoft Visual Studio 中打开 web 应用。
+1. 在 Microsoft Visual Studio 中打开 Web 应用。
 
-2. [将 Application Insights 添加](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications)到项目中, 以传输在 web 流量增加或减少时 Application Insights 用于创建警报的遥测。
+2. 向项目中[添加 Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications)，以传输在 Web 流量增加或减少时 Application Insights 用于创建警报的遥测。
 
 ### <a name="configure-dynamic-connection-strings"></a>配置动态连接字符串
 
-Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 Azure 中的应用使用 SQL Server 虚拟机 (VM) 的专用 IP 地址, Azure Stack 中的应用使用 SQL Server VM 的公共 IP 地址。
+Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 Azure 中的应用使用 SQL Server 虚拟机 (VM) 的专用 IP 地址，Azure Stack 中的应用使用 SQL Server VM 的公共 IP 地址。
 
 > [!Note]  
-> 在 Azure Stack 集成系统上, 公共 IP 地址不应通过 internet 路由。 在 Azure Stack 开发工具包 (ASDK) 上, 公共 IP 地址不能在 ASDK 外部路由。
+> 在 Azure Stack 集成系统上，公共 IP 地址不应通过 Internet 路由。 在 Azure Stack 开发工具包 (ASDK) 上，公共 IP 地址不能在 ASDK 外部路由。
 
 可以使用应用服务环境变量将不同的连接字符串传递给应用的每个实例。
 
 1. 在 Visual Studio 中打开应用。
 
-2. 打开 Startup.cs 并找到以下代码块:
+2. 打开 Startup.cs 并找到以下代码块：
 
     ```C#
     services.AddDbContext<MyDatabaseContext>(options =>
         options.UseSqlite("Data Source=localdatabase.db"));
     ```
 
-3. 将前面的代码块替换为以下代码, 该代码使用在*appsettings*文件中定义的连接字符串:
+3. 将前面的代码块替换为以下代码，此代码使用在 appsettings.json 文件中定义的连接字符串：
 
     ```C#
     services.AddDbContext<MyDatabaseContext>(options =>
@@ -296,16 +296,16 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 
 1. 创建适用于 Azure 和 Azure Stack 的连接字符串。 在这些字符串中，除使用的 IP 地址外，其余部分应该相同。
 
-2. 在 Azure 和 Azure Stack 中, 将相应的连接字符串添加为 web 应用中的[应用设置](https://docs.microsoft.com/azure/app-service/web-sites-configure), `SQLCONNSTR\_`在名称中使用作为前缀。
+2. 在 Azure 和 Azure Stack 中，使用 `SQLCONNSTR\_` 作为名称中的前缀，添加相应的连接字符串作为 Web 应用中的[应用设置](https://docs.microsoft.com/azure/app-service/web-sites-configure)。
 
-3. **保存**web 应用设置并重新启动应用。
+3. **保存** Web 应用设置并重启应用。
 
 ## <a name="enable-automatic-scaling-in-global-azure"></a>在全球 Azure 中启用自动缩放
 
-在应用服务环境中创建 web 应用时, 它将从一个实例开始。 可通过自动横向扩展来添加实例，以便为应用提供更多的计算资源。 同样，可以自动缩减并减少应用所需的实例数。
+在应用服务环境中创建 Web 应用时，它最初有一个实例。 可通过自动横向扩展来添加实例，以便为应用提供更多的计算资源。 同样，可以自动缩减并减少应用所需的实例数。
 
 > [!Note]  
-> 你需要使用应用服务计划来配置 scale out 和 scale in。 如果没有计划，请在开始执行后续步骤之前创建一个计划。
+> 需要创建应用服务计划来配置横向扩展和缩减。 如果没有计划，请在开始执行后续步骤之前创建一个计划。
 
 ### <a name="enable-automatic-scale-out"></a>启用自动横向扩展
 
@@ -351,11 +351,11 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 6. 在“指标源”中，选择“当前资源”。
 
    > [!Note]  
-   > 当前资源将包含应用服务计划的名称/GUID, 并且 "**资源类型**" 和 "**资源**" 下拉列表将不可用。
+   > 当前资源将包含应用服务计划的名称/GUID，“资源类型”和“资源”下拉列表不可用。
 
 ### <a name="enable-automatic-scale-in"></a>启用自动横向缩减
 
-当流量下降时, Azure web 应用可以自动减少活动实例数以降低成本。 此操作的效率低于扩大, 并最大程度地降低对应用用户的影响。
+当流量减少时，Azure Web 应用可以自动减少活动实例的数目，以降低成本。 此操作的力度不如横向扩展，并可尽量降低对应用用户造成的影响。
 
 1. 导航到“默认”横向扩展条件，选择“+ 添加规则”。 对规则使用以下条件和操作。
 
@@ -381,29 +381,29 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 
 ## <a name="create-a-traffic-manager-profile-and-configure-cross-cloud-scaling"></a>创建流量管理器配置文件并配置跨云缩放
 
-在 Azure 中创建流量管理器配置文件, 并配置终结点以启用跨云缩放。
+在 Azure 中创建流量管理器配置文件，然后配置终结点以启用跨云缩放。
 
 ### <a name="create-traffic-manager-profile"></a>创建流量管理器配置文件
 
 1. 选择“创建资源”。
 2. 选择“网络”。
-3. 选择 "**流量管理器配置文件**" 并配置以下设置:
+3. 选择“流量管理器配置文件”并配置以下设置：
 
-   - 在“名称”中，输入配置文件的名称。 此名称**必须**在 trafficmanager.net 区域中唯一, 并用于创建新的 DNS 名称 (例如, northwindstore.trafficmanager.net)。
+   - 在“名称”中，输入配置文件的名称。 此名称**必须**在 trafficmanager.net 区域中唯一，并用于创建新的 DNS 名称（例如，northwindstore.trafficmanager.net）。
    - 对于“路由方法”，请选择“加权”。
    - 对于“订阅”，请选择要在其中创建此配置文件的订阅。
    - 在“资源组”中，为此配置文件创建新的资源组。
-   - 在**资源组位置**中，选择资源组的位置。 此设置指的是资源组的位置, 对全局部署的流量管理器配置文件没有影响。
+   - 在**资源组位置**中，选择资源组的位置。 此设置指的是资源组的位置，对全局部署的流量管理器配置文件没有影响。
 
 4. 选择“创建”。
 
     ![创建流量管理器配置文件](media/azure-stack-solution-hybrid-cloud/image19.png)
 
-   流量管理器配置文件的全局部署完成后, 它会显示在所创建的资源组的资源列表中。
+   流量管理器配置文件的全局部署完成后，会显示在它所属的资源组的资源列表中。
 
 ### <a name="add-traffic-manager-endpoints"></a>添加流量管理器终结点
 
-1. 搜索创建的流量管理器配置文件。 如果你导航到该配置文件的资源组, 请选择该配置文件。
+1. 搜索创建的流量管理器配置文件。 如果已导航到配置文件的资源组，请选择该配置文件。
 
 2. 在“流量管理器配置文件”中的“设置”下面，选择“终结点”。
 
@@ -412,9 +412,9 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 4. 在“添加终结点”中，对 Azure Stack 使用以下设置：
 
    - 对于“类型”，请选择“外部终结点”。
-   - 输入终结点的**名称**。
-   - 对于**完全限定的域名 (FQDN) 或 IP**, 请输入 Azure Stack web 应用的外部 URL。
-   - 对于“权重”，请保留默认值 **1**。 如果此终结点处于正常状态, 则此权重会导致所有流量转到此终结点。
+   - 为终结点输入**名称**。
+   - 对于“完全限定的域名(FQDN)或 IP”，请输入 Azure Stack Web 应用的外部 URL。
+   - 对于“权重”，请保留默认值 **1**。 如果此终结点处于正常状态，此权重会使所有流量转到此终结点。
    - 将“添加为已禁用”保持未选中状态。
 
 5. 选择“确定”保存 Azure Stack 终结点。
@@ -426,11 +426,11 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 3. 在“添加终结点”中，对 Azure 使用以下设置：
 
    - 对于“类型”，请选择“Azure 终结点”。
-   - 输入终结点的**名称**。
+   - 为终结点输入**名称**。
    - 对于“目标资源类型”，请选择“应用服务”。
    - 对于“目标资源”，请选择“选择应用服务”以查看同一订阅中的 Web 应用列表。
    - 在“资源”中，选取要添加为第一个终结点的应用服务。
-   - 对于“权重”，请选择 **2**。 如果主终结点不正常, 或者如果你有在触发时重定向流量的规则/警报, 此设置会导致所有流量转到此终结点。
+   - 对于“权重”，请选择 **2**。 如果主要终结点不正常，或者触发的某个规则/警报会重定向流量，则此设置会使所有流量转到此终结点。
    - 将“添加为已禁用”保持未选中状态。
 
 4. 选择“确定”保存 Azure 终结点。
@@ -441,13 +441,13 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>设置 Application Insights 监视和警报
 
-Azure 应用程序 Insights 使你可以监视应用, 并根据配置的条件发送警报。 一些示例包括: 应用不可用、遇到故障或显示了性能问题。
+Azure 应用程序 Insights 使你可以监视应用，并根据配置的条件发送警报。 一些示例包括：应用不可用、遇到故障或显示了性能问题。
 
-你将使用 Application Insights 度量值创建警报。 当这些警报触发时, web 应用的实例会自动从 Azure Stack 切换到 Azure 以进行横向扩展, 然后再返回到 Azure Stack 进行扩展。
+你将使用 Application Insights 度量值创建警报。 当这些警报触发时，web 应用的实例会自动从 Azure Stack 切换到 Azure 以进行横向扩展，然后再返回到 Azure Stack 进行扩展。
 
 ### <a name="create-an-alert-from-metrics"></a>从指标创建警报
 
-导航到本教程的资源组, 然后选择 Application Insights 实例以打开**Application Insights**。
+导航到本教程的资源组，然后选择 Application Insights 实例以打开**Application Insights**。
 
 ![Application Insights](media/azure-stack-solution-hybrid-cloud/image21.png)
 
@@ -455,57 +455,57 @@ Azure 应用程序 Insights 使你可以监视应用, 并根据配置的条件�
 
 ### <a name="create-the-scale-out-alert"></a>创建 scale out 警报
 
-1. 在 "**配置**" 下, 选择 "**警报 (经典)** "。
+1. 在 "**配置**" 下，选择 "**警报（经典）** "。
 2. 选择“添加指标警报(经典)”。
-3. 在 "**添加规则**" 中, 配置以下设置:
+3. 在 "**添加规则**" 中，配置以下设置：
 
-   - 对于 "**名称**", 请输入**突发入 Azure 云**。
+   - 对于 "**名称**"，请输入**突发入 Azure 云**。
    - **描述**是可选的。
-   - 在 "**源** > **上的警报**" 下, 选择 "**指标**"。
-   - 在 "**条件**" 下, 选择你的订阅、流量管理器配置文件的资源组和资源的流量管理器配置文件的名称。
+   - 在 "**源** > **上的警报**" 下，选择 "**指标**"。
+   - 在 "**条件**" 下，选择你的订阅、流量管理器配置文件的资源组和资源的流量管理器配置文件的名称。
 
-4. 对于 "**指标**", 请选择 "**请求速率**"。
-5. 对于 "**条件**", 选择 "**大于**"。
-6. 对于 "**阈值**", 输入**2**。
-7. 对于 "**期间**", 选择 **"过去5分钟"** 。
-8. 在 "**通知**方式" 下面:
+4. 对于 "**指标**"，请选择 "**请求速率**"。
+5. 对于 "**条件**"，选择 "**大于**"。
+6. 对于 "**阈值**"，输入**2**。
+7. 对于 "**期间**"，选择 **"过去5分钟"** 。
+8. 在 "**通知**方式" 下面：
    - 选中**电子邮件所有者、参与者和读者**的复选框。
    - 输入**其他管理员电子邮件**的电子邮件地址。
 
-9. 在菜单栏上, 选择 "**保存**"。
+9. 在菜单栏上，选择 "**保存**"。
 
 ### <a name="create-the-scale-in-alert"></a>创建放大警报
 
-1. 在 "**配置**" 下, 选择 "**警报 (经典)** "。
+1. 在 "**配置**" 下，选择 "**警报（经典）** "。
 2. 选择“添加指标警报(经典)”。
-3. 在 "**添加规则**" 中, 配置以下设置:
+3. 在 "**添加规则**" 中，配置以下设置：
 
-   - 对于 "**名称**", 请输入**Scale 回 Azure Stack**。
+   - 对于 "**名称**"，请输入**Scale 回 Azure Stack**。
    - **描述**是可选的。
-   - 在 "**源** > **上的警报**" 下, 选择 "**指标**"。
-   - 在 "**条件**" 下, 选择你的订阅、流量管理器配置文件的资源组和资源的流量管理器配置文件的名称。
+   - 在 "**源** > **上的警报**" 下，选择 "**指标**"。
+   - 在 "**条件**" 下，选择你的订阅、流量管理器配置文件的资源组和资源的流量管理器配置文件的名称。
 
-4. 对于 "**指标**", 请选择 "**请求速率**"。
-5. 对于 "**条件**", 选择 "**小于**"。
-6. 对于 "**阈值**", 输入**2**。
-7. 对于 "**期间**", 选择 **"过去5分钟"** 。
-8. 在 "**通知**方式" 下面:
+4. 对于 "**指标**"，请选择 "**请求速率**"。
+5. 对于 "**条件**"，选择 "**小于**"。
+6. 对于 "**阈值**"，输入**2**。
+7. 对于 "**期间**"，选择 **"过去5分钟"** 。
+8. 在 "**通知**方式" 下面：
    - 选中**电子邮件所有者、参与者和读者**的复选框。
    - 输入**其他管理员电子邮件**的电子邮件地址。
 
-9. 在菜单栏上, 选择 "**保存**"。
+9. 在菜单栏上，选择 "**保存**"。
 
 以下屏幕截图显示了向外扩展和向内缩放的警报。
 
-   ![警报(经典)](media/azure-stack-solution-hybrid-cloud/image22.png)
+   ![警报（经典）](media/azure-stack-solution-hybrid-cloud/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack"></a>在 Azure 与 Azure Stack 之间重定向流量
 
-可以在 Azure 与 Azure Stack 之间配置手动或自动切换 web 应用流量切换。
+可以配置为在 Azure 与 Azure Stack 之间手动或自动切换 Web 应用流量。
 
 ### <a name="configure-manual-switching-between-azure-and-azure-stack"></a>配置 Azure 与 Azure Stack 之间的手动切换
 
-当你的网站达到你配置的阈值时, 你将收到警报。 使用以下步骤将流量手动重定向到 Azure。
+当网站达到配置的阈值时，你会收到警报。 使用以下步骤将流量手动重定向到 Azure。
 
 1. 在 Azure 门户中，选择你的流量管理器配置文件。
 
@@ -513,16 +513,16 @@ Azure 应用程序 Insights 使你可以监视应用, 并根据配置的条件�
 
 2. 选择“终结点”。
 3. 选择“Azure 终结点”。
-4. 在 "**状态**" 下, 选择 "**已启用**", 然后选择 "**保存**"。
+4. 在“状态”下面，依次选择“已启用”、“保存”。
 
     ![启用 Azure 终结点](media/azure-stack-solution-hybrid-cloud/image23.png)
 
 5. 在流量管理器配置文件的“终结点”中，选择“外部终结点”。
-6. 在 "**状态**" 下, 选择 "**禁用**", 然后选择 "**保存**"。
+6. 在“状态”下面，依次选择“已禁用”、“保存”。
 
     ![禁用 Azure Stack 终结点](media/azure-stack-solution-hybrid-cloud/image24.png)
 
-配置终结点后, 应用流量将转到 Azure 横向扩展 web 应用, 而不是 Azure Stack web 应用。
+配置终结点之后，应用流量将转到 Azure 横向扩展 Web 应用，而不是 Azure Stack Web 应用。
 
  ![终结点已更改](media/azure-stack-solution-hybrid-cloud/image25.png)
 
@@ -533,22 +533,22 @@ Azure 应用程序 Insights 使你可以监视应用, 并根据配置的条件�
 
 ### <a name="configure-automatic-switching-between-azure-and-azure-stack"></a>在 Azure 与 Azure Stack 之间配置自动切换
 
-如果你的应用程序在 Azure Functions 提供的[无服务器](https://azure.microsoft.com/overview/serverless-computing/)环境中运行, 你还可以使用 Application Insights 监视。
+如果你的应用程序在 Azure Functions 提供的[无服务器](https://azure.microsoft.com/overview/serverless-computing/)环境中运行，你还可以使用 Application Insights 监视。
 
-在此方案中, 可以将 Application Insights 配置为使用调用函数应用的 webhook。 此应用将自动启用或禁用终结点以响应警报。
+在此方案中，可以将 Application Insights 配置为使用调用函数应用的 webhook。 此应用将自动启用或禁用终结点以响应警报。
 
 使用以下步骤来配置自动流量切换。
 
 1. 创建 Azure Function app。
 2. 创建 HTTP 触发的函数。
 3. 导入适用于资源管理器、Web 应用和流量管理器的 Azure Sdk。
-4. 开发代码:
+4. 开发代码：
 
    - 向 Azure 订阅进行身份验证。
-   - 使用参数来切换流量管理器终结点, 以将流量定向到 Azure 或 Azure Stack。
+   - 使用参数来切换流量管理器终结点，以将流量定向到 Azure 或 Azure Stack。
 
-5. 保存代码, 并将相应的参数添加到 Application Insights 预警规则设置的**Webhook**部分的函数应用 URL。
-6. 当 Application Insights 警报触发时, 会自动重定向流量。
+5. 保存代码，并将相应的参数添加到 Application Insights 预警规则设置的**Webhook**部分的函数应用 URL。
+6. 当 Application Insights 警报触发时，会自动重定向流量。
 
 ## <a name="next-steps"></a>后续步骤
 

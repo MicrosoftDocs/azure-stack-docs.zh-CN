@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 878e4712cf805fec188645e92784beaf6a19d591
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: c93b4535189830ee8e84acb882f85a9a51d5f443
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279123"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342720"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack 市场更改
 
@@ -29,6 +29,26 @@ ms.locfileid: "71279123"
 [Azure Stack 市场项](azure-stack-marketplace-azure-items.md)一文始终包含可用 Azure Stack 市场项的最新列表。
 
 ## <a name="new-marketplace-items"></a>新增市场项
+
+- 06/27/2019： SIOS Datakeeper 群集版本
+
+- 06/27/2019： Veeam 备份 & 复制
+
+- 06/27/2019：Windows Server 2019 Datacenter Server Core With 容器即用即付
+
+- 06/27/2019：Windows Server 2019 Datacenter Server Core With 容器 BYOL
+
+- 06/27/2019： Windows Server 2019 Datacenter 即用即付
+
+- 06/27/2019： Windows Server 2019 Datacenter BYOL
+
+- 06/27/2019：Windows Server 2019 Datacenter Server Core 即用即付
+
+- 06/27/2019：Windows Server 2019 Datacenter Server Core BYOL
+
+- 06/27/2019： Windows Server 2019 Datacenter With 容器即用即付
+
+- 06/27/2019： Windows Server 2019 Datacenter With 容器 BYOL
 
 - 08/05/2019：Bitnami Drupal
 
@@ -59,15 +79,26 @@ ms.locfileid: "71279123"
 
 ## <a name="deprecated-marketplace-items"></a>弃用市场项
 
-- Codiad
-- X2Engine Sales CRM
-- SugarCRM
-- Node.js 高可用性群集
+- Bitnami Codiad
+- Bitnami X2Engine 销售 CRM
+- Bitnami SugarCRM
+- Bitnami node.js 高可用性群集
 - A10 vThunder：L4-L7 应用程序交付控制器、全局服务器负载平衡 (GSLB)、SSL Insight
 - JsonADDomain 扩展
 
 ## <a name="updated-marketplace-items"></a>更新弃用市场项
 
+- 07/11/2019： Thales CipherTrust 云密钥管理器-版本1.0。7
+- 07/16/2019： Windows Server 2016 Datacenter Server Core BYOL-版本2016.127.20190522
+- 07/16/2019： Windows Server 2016 Datacenter Server Core 即用即付-版本2016.127.20190522
+- 07/16/2019： Windows Server 2016 Datacenter With 容器 BYOL-版本2016.127.20190522
+- 07/16/2019： Windows Server 2016 Datacenter With 容器即用即付-版本2016.127.20190522
+- 07/16/2019： Windows Server 2016 Datacenter BYOL-版本2016.127.20190522
+- 07/16/2019： Windows Server 2016 Datacenter 即用即付-版本2016.127.20190522
+- 07/16/2019： Windows Server 2008 R2 BYOL-版本2.127.20190522
+- 07/16/2019： Windows Server 2008 R2 即用即付-版本2.127.20190522
+- 07/16/2019： Windows Server 2012 R2 Datacenter BYOL-version 4.127.20190522
+- 07/16/2019： Windows Server 2012 R2 Datacenter 即用即付-版本4.127.20190522
 - 2019/07/30：SQL Server 2016 SP1 （Express edition、Developer edition、Standard edition 和 Enterprise edition）-版本13.2.20190410
 - 2019/07/30：SQL Server 2016 SP2 （速成版、开发人员版、标准版和企业版）-版本13.2.20190410
 - 2019/07/30：SQL Server 2017 （Express、Developer、Standard 和 Enterprise edition）-版本14.0.20190410

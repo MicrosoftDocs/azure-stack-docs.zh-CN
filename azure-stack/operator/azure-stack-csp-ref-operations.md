@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 中注册租户以便进行使用情况跟踪 | Microsoft Docs
-description: 详细介绍用于管理租户注册的操作，以及如何在 Azure Stack 中跟踪租户使用情况。
+description: 了解如何在 Azure Stack 中注册租户和如何跟踪租户使用情况。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 619bfc89e5def3406d719abfb589193c76c3db6b
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070091"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342832"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>在 Azure Stack 中管理租户注册
+# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>在 Azure Stack 中注册使用情况跟踪的租户
 
 适用范围：*Azure Stack 集成系统*
 
@@ -50,9 +50,9 @@ ms.locfileid: "71070091"
 | 参数                  | 描述 |
 |---                         | --- |
 | registrationSubscriptionID | 用于初始注册的 Azure 订阅。 |
-| customerSubscriptionID     | 属于要注册的客户的 Azure 订阅（非 Azure Stack）。 必须通过合作伙伴中心在云服务提供商（CSP）产品/服务中创建。 如果客户有多个租户，请为租户创建订阅以登录 Azure Stack。 |
+| customerSubscriptionID     | 属于要注册的客户的 Azure 订阅（非 Azure Stack）。 必须通过合作伙伴中心在云解决方案提供商（CSP）产品/服务中创建。 如果客户有多个租户，请为租户创建订阅以登录到 Azure Stack。 |
 | resourceGroup              | Azure 中用于存储注册的资源组。 |
-| registrationName           | Azure Stack 的注册名称。 它是 Azure 中存储的对象。 该名称的格式通常为**test-azurestack-CloudID**，其中**CloudID**是你的 AZURE STACK 部署的云 ID。 |
+| registrationName           | Azure Stack 的注册名称。 它是存储在 Azure 中的对象。 该名称的格式通常为**test-azurestack-CloudID**，其中**CloudID**是你的 AZURE STACK 部署的云 ID。 |
 
 > [!NOTE]  
 > 租户需要在其使用的每个 Azure Stack 部署中进行注册。 如果租户使用多个 Azure Stack，请使用租户订阅更新每个部署的初始注册。
@@ -86,7 +86,7 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 |---                         | ---                  |
 | registrationSubscriptionId | 用于初始注册的 Azure 订阅。   |
 | resourceGroup              | Azure 中用于存储注册的资源组。    |
-| registrationName           | Azure Stack 部署的注册名称。 它是 Azure 中存储的对象。 该名称的格式通常为**test-azurestack-CloudID**，其中**CloudID**是你的 AZURE STACK 部署的云 ID。   |
+| registrationName           | Azure Stack 部署的注册名称。 它是存储在 Azure 中的对象。 该名称的格式通常为**test-azurestack-CloudID**，其中**CloudID**是你的 AZURE STACK 部署的云 ID。   |
 
 ### <a name="powershell"></a>PowerShell
 
