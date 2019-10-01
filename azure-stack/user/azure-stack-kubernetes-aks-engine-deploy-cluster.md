@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 957ea4bc52e6f629ffd7fbd06a14d8dc2fb85021
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.lastreviewed: 09/27/2019
+ms.openlocfilehash: 0cccd93ca24f2e93717bfbbd6ec05137d91f5bd0
+ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279180"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681832"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>在 Azure Stack 上使用 AKS 引擎部署 Kubernetes 群集
 
@@ -60,9 +60,23 @@ ms.locfileid: "71279180"
     aks-engine get-versions
     ```
 
-4.  查找`portalURL`并提供租户门户的 URL。 例如， `https://portal.local.azurestack.external` 。
+4.  查找`customCloudProfile`并提供租户门户的 URL。 例如， `https://portal.local.azurestack.external` 。 
 
-5.  在数组`masterProfile`中，设置以下字段：
+5. 如果你使用 AD FS，则添加 `"identitySystem":"adfs"`。 例如，
+
+    ```JSON  
+        "customCloudProfile": {
+            "portalURL": "https://portal.local.azurestack.external",
+            "identitySystem": "adfs"
+        },
+    ```
+
+    > [!Note]  
+    > 如果对标识系统使用 Azure AD，则无需添加**identitySystem**字段。
+
+6. 查找`portalURL`并提供租户门户的 URL。 例如， `https://portal.local.azurestack.external` 。
+
+7.  在数组`masterProfile`中，设置以下字段：
 
     | 字段 | 描述 |
     | --- | --- |
@@ -71,7 +85,7 @@ ms.locfileid: "71279180"
     | vmSize |  输入[Azure Stack 支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如`Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04` 。 |
 
-6.  在数组`agentPoolProfiles`更新中：
+8.  在数组`agentPoolProfiles`更新中：
 
     | 字段 | 描述 |
     | --- | --- |
@@ -79,7 +93,7 @@ ms.locfileid: "71279180"
     | vmSize | 输入[Azure Stack 支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如`Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04` 。 |
 
-7.  在数组`linuxProfile`更新中：
+9.  在数组`linuxProfile`更新中：
 
     | 字段 | 描述 |
     | --- | --- |

@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9582c47f37bdd6ae4c306593bea094b66652c49e
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101169"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687962"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>规划 Azure Stack 更新
 
@@ -36,9 +36,9 @@ ms.locfileid: "71101169"
 
 可以通过确保应用了所有修补程序、安全修补程序、OEM 更新、验证了 Azure Stack 实例的运行状况、检查可用容量并查看更新包，来准备更新。
 
-1. 查看已知问题。 有关说明，请参阅[Azure Stack 已知问题](https://docs.microsoft.com/azure-stack/operator/release-notes.md)。
+1. 查看已知问题。 有关说明，请参阅[Azure Stack 已知问题](https://docs.microsoft.com/azure-stack/operator/release-notes)。
 
-2. 查看安全更新。 有关更新列表，请参阅[Azure Stack 安全更新](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates.md)。
+2. 查看安全更新。 有关更新列表，请参阅[Azure Stack 安全更新](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates)。
 
 3. 在开始安装此更新之前，请运行 [Test-AzureStack](https://docs.microsoft.com/azure-stack/operator/azure-stack-diagnostic-test)，以验证 Azure Stack 的状态并解决发现的所有操作问题，包括所有警告和故障。 另外，请查看处于活动状态的警报并解决任何需要采取操作的警报。
 

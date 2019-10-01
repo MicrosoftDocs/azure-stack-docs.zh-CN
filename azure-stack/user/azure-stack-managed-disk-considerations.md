@@ -16,12 +16,12 @@ ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a2809ed8a745f2ec4cdb31d924e964ecc28209b0
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271719"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687980"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异与注意事项
 
@@ -39,7 +39,7 @@ ms.locfileid: "70271719"
 |静态数据加密 |Azure 存储服务加密 (SSE)、Azure 磁盘加密 (ADE)     |BitLocker 128 位 AES 加密      |
 |图像          | 托管自定义映像 |支持|
 |备份选项 | Azure 备份服务 |尚不支持 |
-|灾难恢复选项 | Azure Site Recovery |尚不支持|
+|灾难恢复选项 | Azure 站点恢复 |尚不支持|
 |磁盘类型     |高级 SSD、标准 SSD 和标准 HDD |高级 SSD、标准 HDD |
 |高级磁盘  |完全支持 |可部署，但无性能限制或保证  |
 |高级磁盘 IOPS  |取决于磁盘大小  |每个磁盘 2300 IOPS |
@@ -159,7 +159,7 @@ Azure Stack 支持托管映像，可让你在通用化 VM（非托管和托管�
 
 执行此步骤之前，请务必正确通用化 VM。 通用化之后，不再可以使用此 VM。 基于未正确通用化的映像创建 VM 会导致 **VMProvisioningTimeout** 错误。
 
-遵照[从存储帐户中的 VHD 创建映像](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account)中的说明，从存储帐户中的通用化 VHD 创建托管映像。 将来可以使用此映像创建托管 VM。
+按照[使用存储帐户从 VM 创建映像](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account)中的说明，从存储帐户中的通用 VHD 创建托管映像。 将来可以使用此映像创建托管 VM。
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>案例 2：使用 PowerShell 基于托管映像创建托管 VM
 
@@ -219,14 +219,14 @@ Add-AzureRmVMNetworkInterface -Id $Nic.Id
 New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmConfig
 ```
 
-也可以使用门户基于托管映像创建 VM。 有关详细信息，请参阅 Azure 托管映像文章[在 azure 中创建通用 VM 的托管映像](/azure/virtual-machines/windows/capture-image-resource)和[从托管映像创建 VM](/azure/virtual-machines/windows/create-vm-generalized-managed)。
+也可以使用门户基于托管映像创建 VM。 有关详细信息，请参阅 Azure 托管映像文章：[在 Azure 中创建通用化 VM 的托管映像](/azure/virtual-machines/windows/capture-image-resource)和[从托管映像创建 VM](/azure/virtual-machines/windows/create-vm-generalized-managed)。
 
 ## <a name="configuration"></a>配置
 
-应用1808更新或更高版本后，必须在使用托管磁盘之前进行以下配置更改：
+应用 1808 或更高版本的更新后，必须先进行以下配置更改，然后再使用托管磁盘：
 
 - 如果订阅是在应用 1808 更新之前创建的，请遵循以下步骤来更新订阅。 否则，在此订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器发生内部错误。”
-   1. 在 Azure Stack 用户门户中，请参阅 "**订阅**"，并查找订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
+   1. 在 Azure Stack 用户门户中，转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
    2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
 - 如果使用多租户环境，请让云操作员（可以是组织内部或来自服务提供商的操作员）根据[此文](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤重新配置每个来宾目录。 否则，在与该来宾目录关联的订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器中发生内部错误。”
 

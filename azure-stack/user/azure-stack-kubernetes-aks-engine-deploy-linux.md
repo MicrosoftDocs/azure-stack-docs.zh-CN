@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 9c600451070373d10ee943d8e497693d89708801
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 09/27/2019
+ms.openlocfilehash: d831f5ad30fe2c7e2b4c2ce5d6a9018f8cc833fb
+ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224970"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681725"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>在 Azure Stack 中的 Linux 上安装 AKS 引擎
 
@@ -43,13 +43,13 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 
 1. 在 Azure Stack 中创建 Linux VM。 有关说明，请[参阅快速入门：使用 Azure Stack 门户](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)创建 Linux 服务器 VM。
 2. 连接到 VM。
-3. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack Marketplace 中必须提供 AKS 基本引擎。 运行命令时，必须指定版本`--version v0.41.0`。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
+3. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack Marketplace 中必须提供 AKS 基本引擎。 运行命令时，必须指定版本`--version v0.40.1`。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
 4. 运行下面的命令：
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.41.0
+        ./get-akse.sh --version v0.40.1
     ```
 
     > [!Note]  

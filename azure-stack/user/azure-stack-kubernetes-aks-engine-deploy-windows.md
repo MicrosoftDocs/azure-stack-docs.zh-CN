@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 09/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 87cd2031c15611173308bf23e50d07690d3930e9
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 09/27/2019
+ms.openlocfilehash: bd5d1d473bd72b65df3377fb7b2de79b0aa6c7b0
+ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224911"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681816"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>在 Azure Stack 的 Windows 上安装 AKS 引擎
 
@@ -46,11 +46,11 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 3. [使用 PowerShell 说明安装 Chocolatey。](https://chocolatey.org/install#install-with-powershellexe) 
 
     根据 Chocolaty 网站：Chocolatey 是 Windows 的程序包管理器，例如 apt 或 yum，但适用于 Windows。 它旨在作为一个分散框架，用于快速安装所需的应用程序和工具。 它构建于 NuGet 基础结构上，该基础结构当前使用 PowerShell 来将包从发行版传送到你的门、err、computer。
-4. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack Marketplace 中必须提供 AKS 基本引擎。 运行命令时，必须指定版本`--version v0.41.0`。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
+4. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack Marketplace 中必须提供 AKS 基本引擎。 运行命令时，必须指定版本`--version v0.40.1`。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
 5. 在权限提升的提示符下运行以下命令，并包括版本号：
 
     ```PowerShell  
-        choco install aks-engine --version v0.41.0 -y
+        choco install aks-engine --version v0.40.1 -y
     ```
 
 > [!Note]  
@@ -75,7 +75,7 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 7.  在权限提升的提示符下运行以下命令。 包含正确的版本号：
 
     ```PowerShell  
-        choco install aks-engine --version v0.0.0 -y
+        choco install aks-engine --version v0.40.1 -y
     ```
 
 ## <a name="verify-the-installation"></a>验证安装
