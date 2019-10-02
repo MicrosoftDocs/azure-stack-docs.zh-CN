@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 64e1bd7934b1b3b8c0bc935a920a2e4e188c4bd9
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ae603e1914b5a83f190eeafe7fa7d7e94e43a1aa
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101200"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714703"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概述
 
@@ -65,7 +65,7 @@ ms.locfileid: "71101200"
 
 - **Microsoft 软件更新和修补程序** 
 
-    对于连接到 internet 的 Azure Stack 实例，Microsoft 软件更新和修补程序的更新警报将显示在更新边栏选项卡中。
+    对于连接到 internet 的 Azure Stack 实例，Microsoft 软件更新和修补程序的更新警报将显示在更新边栏选项卡中。 如果未显示 "更新" 边栏选项卡，请重新启动基础结构管理控制器 VM。
 
     如果你的实例未连接，并且你希望收到有关每个修补程序版本的通知，请订阅[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)或[ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)馈送。
 

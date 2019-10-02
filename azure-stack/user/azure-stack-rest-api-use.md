@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 0be1e7832d5ac32b092e44674b78c59552af351c
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 822d05c53db2d55b3cddac44fa919c72e9af2efe
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159723"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714648"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -27,19 +27,19 @@ ms.locfileid: "71159723"
 
 适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用应用程序编程接口 (API) 来自动执行操作，例如将虚拟机 (VM) 添加到 Azure Stack 云。
+可以使用 Azure Stack REST Api 自动执行操作，例如向 Azure Stack 云添加虚拟机（VM）。
 
-API 要求客户端向 Microsoft Azure 登录终结点进行身份验证。 该终结点返回一个要在发送到 Azure Stack API 的每个请求的标头中使用的令牌。 Microsoft Azure 使用 Oauth 2.0。
+Api 要求客户端向 Microsoft Azure 登录终结点进行身份验证。 终结点在发送到 Azure Stack Api 的每个请求的标头中返回要使用的令牌。 Microsoft Azure 使用 Oauth 2.0。
 
-本文提供了使用 **cURL** 实用工具创建 Azure Stack 请求的示例。 cURL 是一个命令行工具，它有一个用于传输数据的库。 这些示例演练了检索令牌来访问 Azure Stack API 的过程。 大多数编程语言都提供了 Oauth 2.0 库，这些库提供可靠的令牌管理，并可以处理刷新令牌等任务。
+本文提供了使用 **cURL** 实用工具创建 Azure Stack 请求的示例。 cURL 是一个命令行工具，它有一个用于传输数据的库。 这些示例演示了检索令牌以访问 Azure Stack Api 的过程。 大多数编程语言都提供了 Oauth 2.0 库，这些库提供可靠的令牌管理，并可以处理刷新令牌等任务。
 
-查看配合常规 REST 客户端（例如 **cURL**）使用 Azure Stack REST API 的整个过程有助于了解基础请求，以及应可以在响应有效负载中收到的内容。
+查看将 Azure Stack REST Api 与一般 REST 客户端（如**卷**）结合使用的整个过程，以帮助你了解底层请求以及响应负载中预期的情况。
 
-本文并未探索可用于检索令牌的所有选项，例如交互式登录或创建专用应用 ID。 若要获取有关这些主题的信息，请参阅 [Azure REST API 参考](https://docs.microsoft.com/rest/api/)。
+本文不会探讨可用于检索令牌的所有选项，如交互式登录或创建专用应用 Id。 若要获取有关这些主题的信息，请参阅[Azure REST API 引用](/rest/api/)。
 
 ## <a name="get-a-token-from-azure"></a>从 Azure 获取令牌
 
-创建请求正文并使用内容类型 x-www-form-urlencoded 设置其格式，以获取访问令牌。 使用 POST 将请求发布到 Azure REST 身份验证和登录终结点。
+创建使用内容类型 `x-www-form-urlencoded` 格式的请求正文以获取访问令牌。 使用 POST 将请求发布到 Azure REST 身份验证和登录终结点。
 
 ### <a name="uri"></a>URI
 
@@ -49,9 +49,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 **租户 ID** 为下列其中一项：
 
- - 租户域，例如 `fabrikam.onmicrosoft.com`
- - 租户 ID，例如 `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
- - 租户独立密钥的默认值：`common`
+- 租户域，例如 `fabrikam.onmicrosoft.com`
+- 租户 ID，例如 `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+- 租户独立密钥的默认值：`common`
 
 ### <a name="post-body"></a>POST 正文
 
@@ -67,18 +67,19 @@ grant_type=password
 对于每个值：
 
 - **grant_type**：  
-   要使用的身份验证方案类型。 在此示例中，值为 `password`。
+   要使用的身份验证方案的类型。 在此示例中，值为 `password`。
 
 - **资源**：  
    令牌访问的资源。 可以通过查询 Azure Stack 管理元数据终结点找到该资源。 查看“受众”部分。
 
-- **Azure Stack 管理终结点**：  
-   ```
+- **Azure Stack 管理终结点**：
+
+   ```bash
    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > 如果你是尝试访问租户 API 的管理员，请确保使用租户终结点。 例如： `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > 如果你是尝试访问租户 API 的管理员，请确保使用租户终结点;例如，`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`。
 
   例如，使用 Azure Stack 开发工具包作为终结点：
 
@@ -88,7 +89,7 @@ grant_type=password
 
   响应：
 
-  ```
+  ```bash
   {
   "galleryEndpoint":"https://adminportal.local.azurestack.external:30015/",
   "graphEndpoint":"https://graph.windows.net/",
@@ -102,21 +103,20 @@ grant_type=password
 
 ### <a name="example"></a>示例
 
-  ```
+  ```bash
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
   ```
 
-  **client_id**
+- **client_id**
 
   此值已硬编码为默认值：
 
-  ```
+  ```bash
   1950a258-227b-4e31-a9cf-717495945fc2
   ```
 
   可供特定方案使用的替代选项：
 
-  
   | 应用程序 | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
   | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
@@ -125,15 +125,15 @@ grant_type=password
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
-  **username**
+- **username**
 
   例如，Azure Stack Azure AD 帐户：
 
-  ```
+  ```bash
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
 
-  **password**
+- **password**
 
   Azure AD 管理员密码 Azure Stack。
 
@@ -141,7 +141,7 @@ grant_type=password
 
 请求：
 
-```
+```bash
 curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 --data-urlencode "client_id=1950a258-227b-4e31-a9cf-717495945fc2" \
@@ -153,7 +153,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 响应：
 
-```
+```bash
 {
   "token_type": "Bearer",
   "scope": "user_impersonation",
@@ -168,7 +168,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 ## <a name="api-queries"></a>API 查询
 
-获取访问令牌后，请将其作为标头添加到每个 API 请求。 若要将其添加为标头，请创建值为 `Bearer <access token>` 的标头 **authorization**。 例如：
+获取访问令牌后，将其作为标头添加到每个 API 请求。 若要将其添加为标头，请使用以下值创建**授权**标头： `Bearer <access token>`。 例如：
 
 请求：
 
@@ -203,22 +203,22 @@ URI 指示用于发送请求的协议。 例如 `http` 或 `https`。
 
 ## <a name="azure-stack-request-uri-construct"></a>Azure Stack 请求 URI 构造
 
-```
+```bash
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
 ```
 
 ### <a name="uri-syntax"></a>URI 语法
 
-```
+```bash
 https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version}
 ```
 
 ### <a name="query-uri-example"></a>查询 URI 示例
 
-```
+```bash
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-有关使用 Azure RESTful 终结点的详细信息，请参阅 [Azure REST API 参考](https://docs.microsoft.com/rest/api/)。
+有关使用 Azure REST 终结点的详细信息，请参阅[azure REST API 参考](/rest/api/)。

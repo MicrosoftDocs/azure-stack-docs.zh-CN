@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/01/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: e87baeba1b961c134fc5754fda8c9f1688f3fe90
-ms.sourcegitcommit: f38903cb925276e96dd62ebe8ffe92df8bf6e5c8
+ms.openlocfilehash: 32533b063d4c42b740825923e9e2b5692ec03728
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256530"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714635"
 ---
 # <a name="footfall-detection-solution"></a>Footfall 检测解决方案
 
@@ -92,6 +92,6 @@ Contoso 想要找出一种不引人注目的、可通过隐私识别的方式来
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解此解决方案使用的相关模式，请参阅[分层数据模式](azure-stack-solution-staged-data.md)。 
-
-若要了解有关使用自定义视觉的详细信息，请参阅[自定义视觉 AI 开发工具包](https://azure.github.io/Vision-AI-DevKit-Pages/)。 
+- 若要详细了解此解决方案使用的相关模式，请参阅[分层数据模式](azure-stack-solution-staged-data.md)。 
+- 若要了解有关使用自定义视觉的详细信息，请参阅[自定义视觉 AI 开发工具包](https://azure.github.io/Vision-AI-DevKit-Pages/)。 
+- 下载并部署[footfall 解决方案的示例实现](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis)。 了解如何使用 Azure、Azure Stack 和自定义视觉 AI 开发工具包从实际操作生成见解。   

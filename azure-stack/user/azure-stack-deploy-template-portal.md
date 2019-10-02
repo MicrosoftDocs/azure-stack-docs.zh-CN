@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: e6a9c9569f7a2aeff044232d15817313b43ed69f
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: bbbbbc5548397f82752a43c7a1aaca7b62151b75
+ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991860"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71708997"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>使用 Azure Stack 门户部署模板
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以使用门户将 Azure 资源管理器模板部署到 Azure Stack。
 
@@ -39,7 +39,7 @@ ms.locfileid: "68991860"
 
    ![在 Azure Stack 门户中部署模板](media/azure-stack-deploy-template-portal/template-deploy2.png)
 
-1. 选择“编辑模板”，然后将 JSON 模板代码粘贴到代码窗口中。 选择**保存**。
+1. 选择“编辑模板”，然后将 JSON 模板代码粘贴到代码窗口中。 选择“保存”。
 
    ![在 Azure Stack 门户中编辑模板](media/azure-stack-deploy-template-portal/template-deploy3.png)
 

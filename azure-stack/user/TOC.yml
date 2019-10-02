@@ -73,16 +73,19 @@
               href: azure-stack-develop-templates.md
             - name: 在 Azure 中开发模板
               href: azure-stack-developer.md
-            - name: 检查模板
+            - name: 部署模板
               href: azure-stack-validate-templates.md
-            - name: 使用门户进行部署
-              href: azure-stack-deploy-template-portal.md
-            - name: 使用 PowerShell 进行部署
-              href: azure-stack-deploy-template-powershell.md
-            - name: 使用 CLI 进行部署
-              href: azure-stack-deploy-template-command-line.md
-            - name: 使用 Visual Studio 进行部署
-              href: azure-stack-deploy-template-visual-studio.md
+              items:
+                - name: 使用门户进行部署
+                  href: azure-stack-deploy-template-portal.md
+                - name: 使用 PowerShell 进行部署
+                  href: azure-stack-deploy-template-powershell.md
+                - name: 使用 CLI 进行部署
+                  href: azure-stack-deploy-template-command-line.md
+                - name: 使用 Visual Studio Code 部署
+                  href: azure-stack-resource-manager-deploy-template-vscode.md
+                - name: 使用 Visual Studio 进行部署
+                  href: azure-stack-deploy-template-visual-studio.md
         - name: 使用 API 版本配置文件
           items:
             - name: 概述
