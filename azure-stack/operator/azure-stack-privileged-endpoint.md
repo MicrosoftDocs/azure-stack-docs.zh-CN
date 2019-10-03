@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Stack 中的特权终结点 | Microsoft Docs
-description: 介绍如何使用 Azure Stack 中的特权终结点 (PEP)（面向 Azure Stack 操作员）。
+description: 了解如何使用 Azure Stack 中的特权终结点（PEP）作为操作员。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,50 +15,50 @@ ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: cb339e4d6d368481060c673482d80244f63f9cc4
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 3730da9d185f1c38411453a6bef965ab5df7d3ae
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101103"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829371"
 ---
-# <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
+# <a name="use-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-作为 Azure Stack 操作员，你应当使用管理员门户、PowerShell 或 Azure 资源管理器 API 执行大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。 PEP 是预配置的远程 PowerShell 控制台，可提供恰到好处的功能来帮助执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 无需管理员帐户。 为了提高安全性，不允许使用脚本。
+作为 Azure Stack 操作员，你应当使用管理员门户、PowerShell 或 Azure 资源管理器 API 执行大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。 PEP 是一个预配置的远程 PowerShell 控制台，它为你提供了足够的功能来帮助你执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 不需要管理员帐户。 为了进一步提高安全性，不允许使用脚本。
 
-使用 PEP 可以执行如下所述的任务：
+你可以使用 PEP 来执行以下任务：
 
-- 执行低级任务，例如[收集诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)。
-- 针对集成系统执行许多部署后的数据中心集成任务，例如在部署后添加域名系统 (DNS) 转发器、设置 Microsoft Graph 集成、Active Directory 联合身份验证服务 (AD FS) 集成、证书轮换，等等。
-- 与支持人员合作，获取临时性的高级访问权限，以便对集成系统进行深入的故障排除。
+- 低级别任务，如[收集诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)。
+- 许多集成系统的部署后数据中心集成任务，如部署后添加域名系统（DNS）转发器、设置 Microsoft Graph 集成、Active Directory 联合身份验证服务（AD FS）集成、证书旋转等。
+- 与支持部门合作，以获取对集成系统的深层故障排除的临时、高级别访问权限。
 
-PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输出）。 这可以提供完全透明度和完整的操作审核。 可以保留这些日志文件供以后审核。
+PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输出）。 这可以提供完全透明度和完整的操作审核。 你可以保留这些日志文件以供将来审核之用。
 
 > [!NOTE]
 > 在 Azure Stack 开发工具包 (ASDK) 中，可以在开发工具包主机上，直接从 PowerShell 会话运行 PEP 中可用的某些命令。 但是，可能需要使用 PEP 来测试某些操作（例如日志收集），因为这是在集成系统环境中执行某些操作的唯一可行方法。
 
 ## <a name="access-the-privileged-endpoint"></a>访问特权终结点
 
-可在托管 PEP 的虚拟机上通过远程 PowerShell 会话来访问 PEP。 在 ASDK 中，此虚拟机名为 **AzS-ERCS01**。 如果使用集成系统，则有三个 PEP 实例，每个实例在不同主机上的虚拟机中运行（Prefix-ERCS01、Prefix-ERCS02 或 Prefix-ERCS03），以提供复原能力。 
+你可以通过远程 PowerShell 会话在承载 PEP 的虚拟机（VM）上访问 PEP。 在 ASDK 中，此 VM 名为**AzS-ERCS01**。 如果使用的是集成系统，则会有三个 PEP 实例，每个实例在不同主机上的 VM 中*运行（ERCS01*、ERCS02 或*ERCS03* *），以*实现复原。
 
-在开始针对集成系统执行此过程之前，请确保可以通过 IP 地址或 DNS 访问 PEP。 完成 Azure Stack 的初始部署之后，只能通过 IP 地址来访问 PEP，因为尚未设置 DNS 集成。 OEM 硬件供应商将提供名为 **AzureStackStampDeploymentInfo** 的 JSON 文件，其中包含 PEP IP 地址。
+在开始针对集成系统的此过程之前，请确保可以通过 IP 地址或 DNS 访问 PEP。 初始部署 Azure Stack 后，只能通过 IP 地址访问 PEP，因为尚未设置 DNS 集成。 OEM 硬件供应商将提供名为 **AzureStackStampDeploymentInfo** 的 JSON 文件，其中包含 PEP IP 地址。
 
 
 > [!NOTE]
-> 出于安全原因，我们要求只从硬件生命周期主机顶层运行的强化虚拟机或者从专用的安全计算机（例如[特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)）连接到 PEP。 不能修改硬件生命周期主机的原始配置（包括安装新软件），也不能将其用于连接到 PEP。
+> 出于安全原因，我们要求仅从在硬件生命周期主机上运行的强化 VM 或从专用的安全计算机（例如[特权访问工作站](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)）连接到 PEP。 不能修改硬件生命周期主机的原始配置（包括安装新软件），也不能将其用于连接到 PEP。
 
 1. 建立信任。
 
-    - 在集成系统中，从权限提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化虚拟机的受信任主机。
+    - 在集成系统上，从提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化 VM 上的受信任主机。
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - 如果运行的是 ASDK，请登录到开发工具包主机。
 
-2. 在硬件生命周期主机或特权工作站上运行的强化虚拟机中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
+2. 在硬件生命周期主机或特权访问工作站上运行的强化 VM 上，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的 VM 上建立远程会话：
  
    - 在集成系统上：
      ```powershell
@@ -67,7 +67,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
+     @No__t 参数可以是承载 PEP 的某个 Vm 的 IP 地址或 DNS 名称。
 
      >[!NOTE]
      >验证 PEP 凭据时，Azure Stack 不会进行远程调用。 它依赖于本地存储的 RSA 公钥来实现此目的。
@@ -113,28 +113,28 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>有关使用特权终结点的提示 
 
-如前所述，PEP 是一个 [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) 终结点。 尽管 JEA 终结点提供强大的安全层，但也缩减了部分 PowerShell 基本功能，例如脚本编写或 Tab 键补全。 尝试执行任何类型的脚本操作时，该操作会失败并出现错误 **ScriptsNotAllowed**。 这是预期行为。
+如前所述，PEP 是一个 [PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) 终结点。 尽管 JEA 终结点提供强大的安全层，但也缩减了部分 PowerShell 基本功能，例如脚本编写或 Tab 键补全。 尝试执行任何类型的脚本操作时，该操作会失败并出现错误 **ScriptsNotAllowed**。 此失败是预期的行为。
 
-例如，若要获取特定 cmdlet 的参数列表，需运行以下命令：
+例如，若要获取给定 cmdlet 的参数列表，请运行以下命令：
 
 ```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
-或者，可以使用 [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) cmdlet 将所有 PEP cmdlet 导入到本地计算机上的当前会话中。 这样，PEP 的所有 cmdlet 和函数，以及 Tab 键补全和更常用的脚本功能现在都可在本地计算机上使用。 
+或者，可以使用 [Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) cmdlet 将所有 PEP cmdlet 导入到本地计算机上的当前会话中。 这样，PEP 的所有 cmdlet 和函数，以及 Tab 键补全和更常用的脚本功能现在都可在本地计算机上使用。
 
 若要在本地计算机上导入 PEP 会话，请执行以下步骤：
 
 1. 建立信任。
 
-    在集成系统中，从权限提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化虚拟机的受信任主机。
+    -在集成系统上，从提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化 VM 上的受信任主机。
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - 如果运行的是 ASDK，请登录到开发工具包主机。
 
-2. 在硬件生命周期主机或特权工作站上运行的强化虚拟机中，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
+2. 在硬件生命周期主机或特权访问工作站上运行的强化 VM 上，打开 Windows PowerShell 会话。 运行以下命令，在托管 PEP 的虚拟机上建立远程会话：
  
    - 在集成系统上：
      ```powershell
@@ -143,7 +143,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     `ComputerName` 参数可以是托管 PEP 的某个虚拟机的 IP 地址或 DNS 名称。 
+     @No__t 参数可以是承载 PEP 的某个 Vm 的 IP 地址或 DNS 名称。
    - 如果运行的是 ASDK：
      
      ```powershell
@@ -166,29 +166,29 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 ## <a name="close-the-privileged-endpoint-session"></a>关闭特权终结点会话
 
- 如前所述，PEP 会记录你在 PowerShell 会话中执行的每项操作（及其相应的输出）。 必须使用 `Close-PrivilegedEndpoint` cmdlet 关闭会话。 此 cmdlet 会正常关闭终结点，并将日志文件传送到外部文件共享进行保留。
+ 如前所述，PEP 记录你在 PowerShell 会话中执行的每个操作（及其相应的输出）。 必须使用 `Close-PrivilegedEndpoint` cmdlet 关闭会话。 此 cmdlet 会正常关闭终结点，并将日志文件传送到外部文件共享进行保留。
 
 关闭终结点会话：
 
-1. 创建 PEP 可访问的外部文件共享。 在开发工具包环境中，只能在开发工具包主机上创建文件共享。
-2. 运行以下 cmdlet： 
+1. 创建可由 PEP 访问的外部文件共享。 在开发工具包环境中，只能在开发工具包主机上创建文件共享。
+2. 运行以下 cmdlet：
      ```powershell
      Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
      ```
-   该 cmdlet 使用下表中的参数。
+   Cmdlet 使用下表中的参数：
 
-   | 参数 | 描述 | 类型 | 必填 |
+   | 参数 | 描述 | type | 必填 |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | 定义为“fileshareIP\sharefoldername”的外部文件共享的路径 | String | 是|
+   | *TranscriptsPathDestination* | 定义为 "fileshareIP\sharefoldername" 的外部文件共享的路径 | 字符串 | 是|
    | *凭据* | 用于访问文件共享的凭据 | SecureString |   是 |
 
 
 将脚本日志文件成功传送到文件共享后，它们会自动从 PEP 中删除。 
 
 > [!NOTE]
-> 如果使用 `Exit-PSSession` 或 `Exit` cmdlet 关闭 PEP 会话或只是关闭 PowerShell 控制台，则脚本日志不会传送到文件共享。 它们会保留在 PEP 中。 下次运行 `Close-PrivilegedEndpoint` 并包含文件共享时，也将传送前面会话中的脚本日志。 不要使用 `Exit-PSSession` 或 `Exit` 关闭 PEP 会话；请改用 `Close-PrivilegedEndpoint`。
+> 如果使用 `Exit-PSSession` 或 `Exit` cmdlet 关闭 PEP 会话或只是关闭 PowerShell 控制台，则脚本日志不会传送到文件共享。 它们会保留在 PEP 中。 下次运行 `Close-PrivilegedEndpoint` 并包含文件共享时，也将传送前面会话中的脚本日志。 不要使用 `Exit-PSSession` 或 `Exit` 关闭 PEP 会话;请改用 @no__t。
 
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)
+[Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)

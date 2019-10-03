@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 4763025917172e3b8acaeb1ad748410e65143864
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 00f4a9c0aaaf52ed08706e9024059d7b24268290
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782511"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829480"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中监视运行状况和警报
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 包含基础结构监视功能，有助于查看 Azure Stack 区域的运行状况和警报。 “区域管理”磁贴默认固定在默认提供商订阅的管理员门户上，其中列出了 Azure Stack 的所有已部署区域。 该磁贴除了显示每个区域的活动严重警报和警告警报数目以外， 也是 Azure Stack 运行状况和警报功能的入口点。
 

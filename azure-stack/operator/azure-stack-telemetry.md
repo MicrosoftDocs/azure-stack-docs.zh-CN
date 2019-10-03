@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 136dee8980860bb463da14fda0dcd9aff84d3803
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 439a058ea4153e0b6f74932a0ad027a0f5f8a42b
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131420"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829258"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 遥测通过互连用户体验将系统数据自动上传到 Microsoft。 Microsoft 团队使用 Azure Stack 遥测收集的数据来改进客户体验。 此数据也用于安全性、运行状况、质量和性能分析。
 
@@ -41,7 +41,7 @@ Azure Stack 遥测基于 Windows Server 2016 互连用户体验与遥测组件�
 
 ## <a name="privacy-considerations"></a>隐私注意事项
 
-ETW 服务将遥测数据发回到受保护的云存储。 最小特权原则指导对遥测数据的访问。 只有具有有效业务需求的 Microsoft 人员才能访问遥测数据。 Microsoft 不会共享个人客户数据与第三方除外客户自行要求在或中所述的受限目的[Microsoft 隐私声明](https://privacy.microsoft.com/PrivacyStatement)。 与 OEM 和合作伙伴共享的业务报告包含聚合的匿名数据。 数据共享决策由 Microsoft 内部团队（包括隐私、法律和数据管理利益干系人）做出。
+ETW 服务将遥测数据发回到受保护的云存储。 最小特权原则指导对遥测数据的访问。 只有具有有效业务需求的 Microsoft 人员才能访问遥测数据。 Microsoft 不会与第三方共享个人客户数据，除非客户自行决定或[Microsoft 隐私声明](https://privacy.microsoft.com/PrivacyStatement)中所述的有限用途。 与 OEM 和合作伙伴共享的业务报告包含聚合的匿名数据。 数据共享决策由 Microsoft 内部团队（包括隐私、法律和数据管理利益干系人）做出。
 
 Microsoft 相信并实行信息最小化。 我们尽量只收集所需的信息，并且只在服务所需或进行分析时才存储这些信息。 许多有关 Azure Stack 系统和 Azure 服务工作原则的信息在六个月内删除。 汇总或聚合的数据保留更长一段时间。
 
@@ -57,7 +57,7 @@ Microsoft 无意收集敏感数据，例如信用卡号、用户名和密码、�
 
 ## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Microsoft 如何使用遥测数据的示例
 
-遥测起着重要作用，可帮助我们快速找到并解决客户部署和配置的严重可靠性问题。 基于遥测数据的见解可帮助我们识别服务或硬件配置的问题。 获取此数据的客户和推动改进的生态系统，Microsoft 的功能提高了集成式 Azure Stack 解决方案的质量标准。
+遥测起着重要作用，可帮助我们快速找到并解决客户部署和配置的严重可靠性问题。 基于遥测数据的见解可帮助我们识别服务或硬件配置的问题。 Microsoft 能够从客户那里获取此数据并推动对生态系统的改进，从而提高集成 Azure Stack 解决方案的质量。
 
 遥测还能帮助 Microsoft 进一步了解客户如何部署组件、使用功能以及使用服务来实现业务目标。 这些见解有助于在直接影响客户体验和工作负荷的领域中指定工程投资的优先级。
 
@@ -79,7 +79,7 @@ Microsoft 无意收集敏感数据，例如信用卡号、用户名和密码、�
 仅限安全数据。 确保操作系统安全所需的信息。 这包括有关互连用户体验和遥测组件设置以及 Windows Defender 的数据。 在此级别不会发出任何特定于 Azure Stack 的遥测数据。
 
 **1（基本）**</br>
-安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。  将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
+安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。 将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
 
 - *基本设备信息*：提供生态系统中本机和虚拟 Windows Server 2016 实例的类型与配置相关的信息。 这包括：
 
@@ -93,13 +93,13 @@ Microsoft 无意收集敏感数据，例如信用卡号、用户名和密码、�
 - *兼容性数据*，帮助了解系统和虚拟机上已安装哪些资源提供程序。 此数据用于识别潜在的兼容性问题。
 
 **2（增强）**</br>
-其他见解，包括：操作系统和 Azure Stack 服务的用法、工作原理、高级可靠性数据，以及来自“安全”和“基本”级别的数据。  
+其他见解，包括：操作系统和 Azure Stack 服务的用法、工作原理、高级可靠性数据，以及来自“安全”和“基本”级别的数据。
 
 > [!NOTE]
 > 这是默认的遥测设置。
 
 **3（完整）**</br>
-识别及帮助解决问题所需的全部数据，加上来自“安全”、“基本”和“增强”级别的数据。   
+识别及帮助解决问题所需的全部数据，加上来自“安全”、“基本”和“增强”级别的数据。
 
 > [!IMPORTANT]
 > 这些遥测级别仅适用于 Microsoft Azure Stack 组件。 Azure Stack 硬件合作伙伴在硬件生命周期主机中运行的非 Microsoft 软件组件和服务可能与这些遥测级别以外的云服务通信。 应该咨询 Azure Stack 硬件解决方案提供商，以了解其遥测策略，以及如何启用或禁用。

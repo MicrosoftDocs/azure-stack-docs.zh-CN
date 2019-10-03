@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 22525fc9109bd2c03e28c4ca34b60c7a1f2585fe
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: f17c2ba41097d5b9bda903ae5d95c62e0ac9f53a
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618050"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829357"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL 资源提供程序 1.1.30.0 发行说明
 
@@ -51,9 +51,9 @@ ms.locfileid: "65618050"
 
 - **SQL 资源提供程序 Azure Stack PowerShell 兼容性**。 SQL 资源提供程序经过更新，可与 Azure Stack 2018-03-01-hybrid PowerShell 配置文件配合运行，并与 AzureRM 1.3.0 和更高版本兼容。
 
-- **SQL 登录 - 更改密码边栏选项卡**。 修复了问题，不能更改密码边栏选项卡上更改密码。 删除了密码更改通知中的链接。
+- **SQL 登录 - 更改密码边栏选项卡**。 修复了无法在“更改密码”边栏选项卡上更改密码的问题。 删除了密码更改通知中的链接。
 
-- **SQL 宿主服务器设置边栏选项卡更新**。 修复了在其中设置边栏选项卡已错误地标题为"Password"。
+- **SQL 宿主服务器设置边栏选项卡更新**。 修复了“设置”边栏选项卡错误地使用“密码”标题的问题。
 
 ## <a name="known-issues"></a>已知问题 
 
@@ -82,7 +82,7 @@ ms.locfileid: "65618050"
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
-- **SQL 资源提供程序无法添加 SQL Server Always On 侦听器**。 使用侦听器 IP 地址的 SQL Server Always On 侦听器时，SQL 资源提供程序 VM 无法解析该侦听器的主机名。
+- **SQL 资源提供程序无法添加 SQL Server Always On 侦听器**。 使用 SQL Server Always On 侦听器的 IP 地址时，SQL 资源提供程序 VM 无法解析侦听器的主机名。
 
     **解决方法**：确保 DNS 正常运行，以便将侦听器 IP 解析为侦听器主机名。
     

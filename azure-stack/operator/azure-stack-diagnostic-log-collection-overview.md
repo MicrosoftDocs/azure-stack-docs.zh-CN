@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: ecaea28d3b753520c53710a4e888cf37bf508fe1
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.openlocfilehash: cd65f51867a4626e8f9b288c5113909bfa32b1c2
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224928"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829198"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Azure Stack 诊断日志收集概述 
 
@@ -29,7 +29,7 @@ ms.locfileid: "71224928"
 
 Azure Stack 是一个大型集合，其中的组件可以一起工作并互相交互。 所有这些组件会生成自己独特的日志。 这样一来，问题可能就难以诊断，尤其是在错误来自多个交互的 Azure Stack 组件的情况下。 为了解决此难题，我们设计了一项诊断日志收集体验。 
 
-在版本 1907 之前，诊断体验包括使用 [Test-AzureStack](azure-stack-diagnostic-test.md) 来验证系统运行状况，以及使用[特权终结点 (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) 来收集用于故障排除的日志。 
+在版本 1907 之前，诊断体验包括使用 [Test-AzureStack](azure-stack-diagnostic-test.md) 来验证系统运行状况，以及使用[特权终结点 (PEP)](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) 来收集用于故障排除的日志。 
 
 从1907版本开始，"**帮助和支持**" 页使用**诊断日志集合**添加了更简单的体验。 
 “诊断日志收集”是一项持续投资的一部分，目的是改进 Azure Stack 操作员在故障排除过程中的体验。 通过这些改进，操作员可以通过 Microsoft 客户支持服务（CSS）快速收集和共享诊断日志。 可以将日志存储在 Azure 的 Blob 容器中，并可根据需要在其中自定义访问权限。    
@@ -42,7 +42,7 @@ Azure Stack 是一个大型集合，其中的组件可以一起工作并互相�
 ![诊断日志收集选项的屏幕截图](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 “诊断日志收集”有易用的用户界面，不需要 PowerShell。 即使基础结构服务关闭，也可以可靠地收集日志。
-从 1907 版开始，如果策略允许与 CSS 共享诊断日志，则“诊断日志收集”是建议的收集方法。 如果“诊断日志收集”在“帮助和支持”中不可用，则只应使用 [PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep) 来收集日志。
+从 1907 版开始，如果策略允许与 CSS 共享诊断日志，则“诊断日志收集”是建议的收集方法。 如果“诊断日志收集”在“帮助和支持”中不可用，则只应使用 [PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) 来收集日志。
 
 ## <a name="automatic-diagnostic-log-collection"></a>诊断日志自动收集 
 

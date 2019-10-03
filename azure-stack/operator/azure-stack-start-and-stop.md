@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 993c0c668a8894c82eddbf79e93b1722d3a3d8f4
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 5072c40f4e8eba787e0a18c7c73a51111d0c847b
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494021"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829271"
 ---
 # <a name="start-and-stop-azure-stack"></a>启动和停止 Azure Stack
 应该遵循本文中的过程正确关闭再重启 Azure Stack 服务。 关闭将物理关闭整个 Azure Stack 环境的电源。 启动所有基础结构角色的电源，并使租户资源返回到关闭前的电源状态。
@@ -91,4 +91,4 @@ ms.locfileid: "68494021"
 
 ## <a name="next-steps"></a>后续步骤 
 
-详细了解 [Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)
+详细了解 [Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)

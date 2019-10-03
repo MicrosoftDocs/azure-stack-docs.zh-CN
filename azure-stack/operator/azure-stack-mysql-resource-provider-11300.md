@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: e5126f55a60b98ec7c410b7f8f2256ad08fa9753
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 7679589090022f6f07c5e1fddb9c768716628865
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618568"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829441"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL 资源提供程序 1.1.30.0 发行说明
 
@@ -51,7 +51,7 @@ ms.locfileid: "65618568"
 
 - **MySQL 资源提供程序 Azure Stack PowerShell 兼容性**。 MySQL 资源提供程序经过更新，可与 Azure Stack 2018-03-01-hybrid PowerShell 配置文件配合运行，并与 AzureRM 1.3.0 和更高版本兼容。
 
-- **MySQL 登录 - 更改密码边栏选项卡**。 修复了问题，不能更改密码边栏选项卡上更改密码。 删除了密码更改通知中的链接。
+- **MySQL 登录 - 更改密码边栏选项卡**。 修复了无法在“更改密码”边栏选项卡上更改密码的问题。 删除了密码更改通知中的链接。
 
 ## <a name="known-issues"></a>已知问题 
 

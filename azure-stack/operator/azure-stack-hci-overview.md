@@ -1,6 +1,6 @@
 ---
 title: Azure Stack HCI 概述
-description: Azure Stack HCI 是使用超聚合 Windows Server 2019 群集验证硬件来运行本地虚拟化工作负荷。 您可以选择性地连接到 Azure 服务的基于云的备份、 站点恢复和的详细信息。 Azure Stack HCI 解决方案使用 Microsoft 验证的硬件来确保最佳性能和可靠性，并包含技术如 NVMe 驱动器、 永久性内存和远程直接内存访问 (RDMA) 网络的支持。
+description: Azure Stack HCI 是超融合的 Windows Server 2019 群集，可在本地环境使用经过验证的硬件来运行虚拟化工作负荷。 你也可以选择性地连接到 Azure 服务来执行云备份和站点恢复等操作。 Azure Stack HCI 解决方案使用经过 Microsoft 验证的硬件来确保最佳性能和可靠性，并且包含 NVMe 驱动器、持久性内存及远程直接内存访问 (RDMA) 网络等技术支持。
 ms.technology: storage
 ms.topic: article
 author: jasongerend
@@ -8,90 +8,90 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 05/31/2019
-ms.openlocfilehash: c3f25f38429b58d8d72037ff4ed9758d9993a2c5
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 575887ddebf80b39cc0c848f4a6e6cc00abdc9d4
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453534"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829482"
 ---
 # <a name="azure-stack-hci-overview"></a>Azure Stack HCI 概述
 
->适用对象：Windows Server 2019
+>适用于：Windows Server 2019
 
-Azure Stack HCI 是使用超聚合 Windows Server 2019 群集验证硬件来运行本地虚拟化工作负荷。 您可以选择性地连接到 Azure 服务的基于云的备份、 站点恢复和的详细信息。 Azure Stack HCI 解决方案使用 Microsoft 验证的硬件来确保最佳性能和可靠性，并包含技术如 NVMe 驱动器、 永久性内存和远程直接内存访问 (RDMA) 网络的支持。
+Azure Stack HCI 是超融合的 Windows Server 2019 群集，可在本地环境使用经过验证的硬件来运行虚拟化工作负荷。 你也可以选择性地连接到 Azure 服务来执行云备份和站点恢复等操作。 Azure Stack HCI 解决方案使用经过 Microsoft 验证的硬件来确保最佳性能和可靠性，并且包含 NVMe 驱动器、持久性内存及远程直接内存访问 (RDMA) 网络等技术支持。
 
-Azure Stack HCI 是结合了多个产品的解决方案：
+Azure Stack HCI 是结合多个产品的解决方案：
 
-- 从 OEM 合作伙伴的硬件
+- 来自 OEM 合作伙伴的硬件
 
 - Windows Server 2019 Datacenter Edition
 
-- Windows Admin Center
+- Windows 管理中心
 
-- Azure 服务 （可选）
+- Azure 服务（可选）
 
-![Azure Stack HCI 是 Microsoft 的超聚合解决方案，可从各种硬件合作伙伴。](media/azure-stack-hci/azure-stack-hci-solution.png)
+![Azure Stack HCI 是由众多硬件合作伙伴提供的 Microsoft 超融合解决方案。](media/azure-stack-hci/azure-stack-hci-solution.png)
 
-Azure Stack HCI 是 Microsoft 的超聚合解决方案，可从各种硬件合作伙伴。 请考虑以下针对超聚合解决方案，可帮助您确定 Azure Stack HCI 是否最适合你需求的解决方案的应用场景：
+Azure Stack HCI 是由众多硬件合作伙伴提供的 Microsoft 超融合解决方案。 请考虑以下适用于超融合解决方案的场景，以帮助确定 Azure Stack HCI 是否是最符合需求的解决方案：
 
-- **刷新老化硬件。** 替换较旧的服务器和存储基础结构和运行 Windows 和 Linux 虚拟机的本地和边缘与现有 IT 技术和工具。
+- **更换过时的硬件。** 替代较旧的服务器和存储基础结构，并在本地环境及边缘上使用现有 IT 技能及工具运行 Windows 和 Linux 虚拟机。
 
-- **合并虚拟化工作负荷。** 合并的高效、 超聚合基础结构上的旧应用。 点击到相同类型的用来运行 Microsoft Azure 等超大规模数据中心的云提高效率。
+- **整合虚拟化工作负荷。** 在高效的超融合基础结构上整合旧式应用。 利用用于运行超大规模数据中心的相同类型的云效率，如 Microsoft Azure。
 
-- **连接到 Azure 以构建混合云服务。** 简化云管理和安全服务在 Azure 中，包括非现场备份、 site recovery、 基于云的监视，和的详细信息的访问权限。
+- **连接到 Azure 以使用混合云服务。** 简化 Azure 中云管理和安全服务的访问，包括异地备份、站点恢复和基于云的监视，等等。
 
 ## <a name="the-azure-stack-family"></a>Azure Stack 系列
 
-Azure Stack HCI 是 Azure 的一部分，Azure Stack 系列中，使用相同的软件定义的计算、 存储和网络软件作为 Azure Stack。 下面是不同的解决方案的快速摘要：
+Azure Stack HCI 属于 Azure 和 Azure Stack 系列，与 Azure Stack 使用相同的软件定义计算、存储及网络软件。 下面是不同解决方案的快速摘要：
 
-- [Azure](https://azure.microsoft.com) -使用公共云服务
-- [Azure Stack](azure-stack-overview.md) -运行云服务的本地
-- [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) -运行虚拟化应用程序在本地，具有可选连接到 Azure
+- [Azure](https://azure.microsoft.com) - 使用公有云服务
+- [Azure Stack](azure-stack-overview.md) - 在本地操作云服务
+- [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) - 在本地运行虚拟化应用，并可选择连接到 Azure
 
-![Azure 和 Azure Stack 运行云服务，而 Azure Stack HCI 运行虚拟化本地应用程序](media/azure-stack-hci/azure-family.png)
+![Azure 和 Azure Stack 运行云服务，而 Azure Stack HCI 在本地运行虚拟化应用程序](media/azure-stack-hci/azure-family.png)
 
-|Azure：使用公有云服务|Azure Stack:云服务在本地操作|Azure Stack HCI:虚拟化应用程序在本地运行|
+|Azure：使用公有云服务|Azure Stack：在本地操作云服务|Azure Stack HCI：在本地运行虚拟化应用|
 |-----------------|-----------------|-----------------|
-|有关按需、 自助服务计算资源来迁移和运行现有应用现代化，并生成新的云本机应用。|生成和运行的云应用程序在边缘，当断开连接，或以满足监管要求，使用一致的 Azure 服务在本地。| 运行虚拟化应用程序在本地、 替换和合并老化服务器基础结构，并连接到 Azure 云服务。|
-|在全球的 54 区域中可用的 100 多个服务。|Azure Vm 的 Windows 和 Linux，Azure Web 应用和函数、 Azure 密钥保管库、 Azure 资源管理器、 Azure Marketplace、 容器、 Azure IoT 和事件中心，管理工具 （计划、 产品/服务，RBAC）|验证 HCI 解决方案用于管理和集成的访问 Azure 服务由 HYPER-V 和存储空间直通使用 Windows Server 2019 和 Windows Admin Center 提供支持。|
+|迁移按需自助式计算资源、现代化现有应用，以及生成新的云原生应用。|连接中断时，在边缘生成和运行云应用程序；或者在本地使用一致的 Azure 服务满足法规要求。| 在本地运行虚拟化应用程序、更换和整合过时的服务器基础结构，以及连接到 Azure 以使用云服务。|
+|100 多项可在全球 54 个区域使用的服务|适用于 Windows 和 Linux 的 Azure VM、Azure Web 应用 及 Functions、Azure Key Vault、Azure 资源管理器、Azure 市场、容器、Azure IoT 和事件中心、管理工具（计划、套餐、RBAC）|由 Hyper V 和存储空间直通配合 Windows Server 2019 及 Windows 管理中心支持的已验证 HCI 解决方案，可对 Azure 服务进行管理及集成式访问。|
 
 若要了解详细信息，请访问以下链接：
 
-- 了解更多信息，请访问我们[Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) solutions 网站。
-- 观看 Microsoft 的专家 Jeff Woolsey 和 Vijay Tewari[讨论新的 Azure Stack HCI 解决方案](https://aka.ms/AzureStackOverviewVideo)。
+- 请访问我们的 [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) 解决方案网站了解更多信息。
+- 观看 Microsoft 专家 Jeff Woolsey 和 Vijay Tewari [介绍新的 Azure Stack HCI 解决方案](https://aka.ms/AzureStackOverviewVideo)。
 
-## <a name="hyperconverged-efficiencies"></a>超聚合效率
+## <a name="hyperconverged-efficiencies"></a>超融合效率
 
-Azure Stack HCI 解决方案带来了高度虚拟化的计算、 存储和网络上行业标准 x86 服务器和组件。 将组合在同一群集中的资源，使你更轻松地部署、 管理和缩放。 使用所选的命令行自动化或 Windows Admin Center 进行管理。
+Azure Stack HCI 解决方案在行业标准的 x86 服务器和组件上结合了高度虚拟化的计算、存储和网络功能。 在同一群集中组合资源可以更轻松地进行部署、管理及缩放。 通过所选的命令行自动化或 Windows 管理中心进行管理。
 
-实现对 NVMe，永久性内存的内置支持服务器应用程序使用的 HYPER-V、 Microsoft 云的基础虚拟机监控程序技术和存储空间直通技术的行业领先虚拟机性能和远程直接内存访问 (RDMA) 网络。
+为你的服务器应用程序实现业界领先的虚拟机性能，具有 Hyper-v、Microsoft 云的基本虚拟机监控程序技术，以及存储空间直通技术，内置支持 NVMe、永久性内存和远程直接内存访问（RDMA）网络。
 
-帮助保护应用和数据安全与防护的虚拟机、 网络 microsegmentation 和本机加密。
+通过受防护的虚拟机、网络微段和本地加密，帮助保护应用和数据的安全。
 
 ## <a name="hybrid-capabilities"></a>混合功能
 
-您可以充分利用云在本地和公有云中的超聚合基础结构平台一起使用。 你的团队可以开始构建与 Azure 基础结构管理服务的内置集成的云技能：
+可以通过公有云中的超融合基础结构平台，利用云和本地的优势。 团队可以通过内置集成开始对 Azure 基础结构管理服务构建云技能：
 
-- Azure 站点恢复以实现高可用性和灾难恢复即服务 (DRaaS)。
+- Azure Site Recovery 可以实现高可用性和灾难恢复即服务 (DRaaS)。
 
-- Azure 监视器集中式的集线器，以便跟踪跨应用程序、 网络和基础结构 – 与发生高级分析由 AI 提供支持。
+- Azure Monitor 是用于跟踪应用程序、网络和基础结构中所发生的事件的集中式中心，具有 AI 支持的高级分析功能。
 
-- 云见证，以使用 Azure 作为轻型领带断路器用于群集仲裁。
+- 云见证使用 Azure 作为群集仲裁的轻量决胜策略。
 
-- Azure 备份为场外数据保护，以及保护免受勒索软件威胁。
+- Azure 备份可以保护场外数据和防范勒索软件。
 
-- Azure 更新管理的更新评估和更新在 Azure 中，在本地运行的 Windows 虚拟机的部署。
+- Azure 更新管理可以评估更新，以及更新 Azure 和本地环境中运行的 Windows VM 部署。
 
-- 若要通过点到站点 VPN 在 Azure 中你的 vm 连接本地资源的 azure 网络适配器。
+- Azure 网络适配器可通过点到站点 VPN 将本地资源连接到 Azure 中的 VM。
 
-- 同步文件服务器与使用 Azure 文件同步在云中。
+- 使用 Azure 文件同步将文件服务器与云同步。
 
-有关详细信息，请参阅[连接到 Azure 的混合服务的 Windows Server](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/index)。
+有关详细信息，请参阅[将 Windows Server 连接到 Azure 混合服务](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/index)。
 
-## <a name="management-tools-and-system-center"></a>管理工具和管理 System Center
+## <a name="management-tools-and-system-center"></a>管理工具和 System Center
 
-Azure Stack HCI 作为 Azure Stack 中使用的相同虚拟化和软件定义的存储和网络软件。 但是，与 Azure Stack HCI 在群集上具有完全管理权限并可以直接管理任何其技术：
+Azure Stack HCI 与 Azure Stack 使用相同的虚拟化和软件定义存储和网络软件。 但是，使用 Azure Stack HCI 可在群集上拥有完全管理员权限，并且可以直接管理其所有技术：
 
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
 - [存储空间直通](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
@@ -100,91 +100,91 @@ Azure Stack HCI 作为 Azure Stack 中使用的相同虚拟化和软件定义的
 
 若要管理这些技术，可以使用以下管理工具：
 
-- [Windows Admin Center](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview)
+- [Windows 管理中心](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview)
 - [System Center](https://www.microsoft.com/cloud-platform/system-center)
 - [PowerShell](https://docs.microsoft.com/powershell/?view=powershell-6)
-- 其他管理工具如[服务器管理器](https://docs.microsoft.com/windows-server/administration/server-manager/server-manager)，和 MMC 管理单元
-- 非 Microsoft 工具，例如 5Nine 管理器
+- 其他管理工具（例如[服务器管理器](https://docs.microsoft.com/windows-server/administration/server-manager/server-manager)）和 MMC 管理单元
+- 非 Microsoft 工具（例如 5Nine Manager）
 
-如果您选择使用 System Center 来部署和管理基础结构，将使用 System Center Virtual Machine Management (VMM) 和 System Center Operations Manager。 使用 VMM，可以预配和管理进行创建和部署到私有云的虚拟机和服务所需的资源。 借助 Operations Manager，以确定立即采取措施的问题在企业范围内监视服务、 设备和操作。
+如果你选择使用 System Center 部署和管理基础结构，将使用 System Center 虚拟机管理 (VMM) 和 System Center Operations Manager。 使用 VMM 可以预配和管理在私有云中创建和部署虚拟机与服务所需的资源。 使用 Operations Manager 可以监视整个企业中的服务、设备和操作，从而识别问题并立即采取措施。
 
 ## <a name="hardware-partners"></a>硬件合作伙伴
 
-你可以购买 15 合作伙伴提供的运行 Windows Server 2019 的已验证的 Azure Stack HCI 解决方案。 您首选的 Microsoft 合作伙伴可帮助你启动并运行没有耗时较长的设计和构建时间的情况下。 它们还提供了一个单一实现和支持服务联系点。
+可以从 15 家合作伙伴购买运行 Windows Server 2019 的已验证 Azure Stack HCI 解决方案。 首选的 Microsoft 合作伙伴可帮助你正常运行解决方案，消除冗长的设计和生成时间。 他们还可提供单一联络点来帮助你完成服务的实施与支持。
 
-请访问[Azure Stack HCI 网站](https://azure.microsoft.com/overview/azure-stack/hci)若要查看我们 70 多个 Azure Stack HCI 解决方案当前可从这些 Microsoft 合作伙伴：ASUS、 Axellio、 蓝筹股、 DataON、 Dell EMC、 Fujitsu、 HPE、 Hitachi、 华为、 Lenovo、 NEC、 primeLine 解决方案、 QCT、 SecureGUARD 和 Supermicro。
+请访问 [Azure Stack HCI 网站](https://azure.microsoft.com/overview/azure-stack/hci)，以查看这些 Microsoft 合作伙伴目前提供的 70 多种 Azure Stack HCI 解决方案：ASUS、Axellio、bluechip、DataON、Dell EMC、Fujitsu、HPE、Hitachi、华为、联想、NEC、primeLine Solutions、QCT、SecureGUARD 和 Supermicro。
 
-## <a name="faq"></a>常见问题解答
+## <a name="faq"></a>常见问题
 
-### <a name="what-do-azure-stack-and-azure-stack-hci-solutions-have-in-common"></a>Azure Stack 和 Azure Stack HCI 解决方案必须什么共同点？
+### <a name="what-do-azure-stack-and-azure-stack-hci-solutions-have-in-common"></a>Azure Stack 和 Azure Stack HCI 解决方案有哪些共同之处？
 
-Azure Stack HCI 解决方案具有同一基于 HYPER-V 软件定义的计算、 存储和网络技术功能作为 Azure Stack。 这两个产品/服务符合严格的测试和验证条件，以确保可靠性和与基础硬件平台的兼容性。
+Azure Stack HCI 解决方案与 Azure Stack 同样有 Hyper-V 架构的软件定义计算、存储和网络技术功能。 这两个产品都符合严格的测试和验证准则，目的是确保与基础硬件平台配合时的可靠性和兼容性。
 
 ### <a name="how-are-they-different"></a>那么其不同之处在哪里？
 
-使用 Azure Stack 中，您运行云服务在本地。 你可以运行 Azure IaaS 和 PaaS 服务在本地以一致地生成并运行云应用程序任意位置，使用 Azure 门户的本地管理。
+使用 Azure Stack 可在本地运行云服务。 可在本地运行 Azure IaaS 和 PaaS 服务，无论位于任何位置，都能以一致的方式生成并运行云应用程序，并可以在本地使用 Azure 门户进行管理。
 
-通过 Azure Stack HCI，在运行虚拟化工作负荷的本地托管 Windows Admin Center 和熟悉的 Windows Server 工具。 （可选） 可以用于混合方案，例如基于云的站点恢复、 监视和其他人连接到 Azure。
+使用 Azure Stack HCI 可在本地运行虚拟化工作负荷，并使用 Windows 管理中心和你熟悉的 Windows Server 工具进行管理。 可以选择性地连接到 Azure 以实现混合方案，例如基于云的站点恢复、监视等。
 
-### <a name="why-is-microsoft-bringing-its-hci-offering-to-the-azure-stack-family"></a>Microsoft 将向 Azure Stack 系列提供其 HCI 的原因？
+### <a name="why-is-microsoft-bringing-its-hci-offering-to-the-azure-stack-family"></a>Microsoft 为何将 HCI 产品/服务纳入 Azure Stack 系列？
 
-Microsoft 的超聚合技术已是 Azure Stack 的基础。
+Microsoft 的超融合技术已是 Azure Stack 的基础。
 
-许多 Microsoft 客户具有复杂的 IT 环境和我们的目标是提供解决方案，以满足他们身在何处使用合适的技术为正确的业务需要。 Azure Stack HCI 是一种演变，以前与硬件合作伙伴提供的基于 Windows Server 2016 的 Windows Server Software-Defined (WSSD) 解决方案。 我们将其引入 Azure Stack 系列因为我们开始提供用于与 Azure 无缝连接基础结构管理服务的新选项。
+许多 Microsoft 客户使用复杂的 IT 环境，而我们的目标是提供符合客户需求的解决方案，让他们使用适当的技术来满足适当的业务需求。 Azure Stack HCI 是基于 Windows Server 2016 的创新 Windows Server 软件定义 (WSSD) 解决方案，以前由我们的硬件合作伙伴提供。 之所以将其纳入 Azure Stack 系列，是因为我们已开始提供新选项来无缝连接 Azure，以提供基础结构管理服务。
 
 ### <a name="does-azure-stack-hci-need-to-be-connected-to-azure"></a>Azure Stack HCI 是否需要连接到 Azure？
 
-否，它是可选的。 您可以充分利用与 Azure 集成以进行混合方案，例如非现场备份和灾难恢复和基于云的监视和更新管理，但它们可选。 它是从 Internet 运行已断开连接没有问题。
+否，这是可选的操作。 你可以使用与 Azure 集成来实现混合方案，例如异地备份和灾难恢复，以及基于云的监视和更新管理，但这些方案是可选的。 即使与 Internet 断开连接，也仍可实现这些方案。
 
-### <a name="how-does-azure-stack-hci-relate-to-windows-server"></a>Azure Stack HCI 到 Windows Server 有何关联？
+### <a name="how-does-azure-stack-hci-relate-to-windows-server"></a>Azure Stack HCI 与 Windows Server 有何关系？
 
-Windows Server 2019 是几乎每个 Azure 产品的基础。 您值继续提供并支持在 Windows Server 中的所有功能。 Azure Stack HCI 是 HCI 的本地部署的建议的方法使用从我们的合作伙伴的 Microsoft 验证硬件。
+Windows Server 2019 几乎是每个 Azure 产品的基础。 你重视的所有功能都继续在 Windows Server 中提供，并且受到支持。 Azure Stack HCI 是在本地部署 HCI 的建议方式，可以使用我们的合作伙伴提供的经过 Microsoft 验证的硬件。
 
-### <a name="can-i-upgrade-from-azure-stack-hci-to-azure-stack"></a>可以从升级 Azure Stack HCI 到 Azure Stack？ 
+### <a name="can-i-upgrade-from-azure-stack-hci-to-azure-stack"></a>是否可以从 Azure Stack HCI 升级到 Azure Stack？ 
 
-不可以，但客户可以迁移其工作负荷从 Azure Stack HCI 到 Azure Stack 或 Azure。
+不能，但客户可将工作负荷从 Azure Stack HCI 迁移到 Azure Stack 或 Azure。
 
-### <a name="what-azure-services-can-i-connect-to-azure-stack-hci"></a>可以连接到 Azure Stack HCI 哪些 Azure 服务？
+### <a name="what-azure-services-can-i-connect-to-azure-stack-hci"></a>哪些 Azure 服务可连接到 Azure Stack HCI？
 
-有关更新的列表的 Azure 服务可以连接 Azure Stack HCI 以，请参阅[连接到 Azure 的混合服务的 Windows Server](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/index)。
+有关可与 Azure Stack HCI 连接的 Azure 服务的更新列表，请参阅[将 Windows Server 连接到 Azure 混合服务](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/index)。
 
-### <a name="how-does-the-cost-of-azure-stack-hci-compare-to-azure-stack"></a>Azure Stack HCI 的成本与 Azure Stack 相比如何？ 
+### <a name="how-does-the-cost-of-azure-stack-hci-compare-to-azure-stack"></a>Azure Stack HCI 和 Azure Stack 的成本有何差别？ 
 
-Azure Stack 作为包括服务和支持的完全集成系统出售。 你可以购买 Azure Stack 为你管理的系统或作为完全托管的服务在我们的合作伙伴。 除了基本的系统中，在 Azure Stack 或 Azure 运行的 Azure 服务在为你的使用付费的基础上出售。
+Azure Stack 以完全集成的系统销售，其中包括服务和支持。 你购买的 Azure Stack 可以是由你管理的系统，或者是我们的合作伙伴提供的完全托管服务。 除了基础系统以外，在 Azure Stack 或 Azure 上运行的 Azure 服务都以即用即付的模式销售。
 
-Azure Stack HCI 解决方案遵循传统的购买模型。 你可以从 Azure Stack HCI 合作伙伴和现有通道的软件 (Windows Server 2019 Datacenter edition 软件定义的数据中心功能以及 Windows Admin Center) 购买经过验证的硬件。 对于可以使用 Windows Admin Center 使用的 Azure 服务，您支付 Azure 订阅。
+Azure Stack HCI 解决方案遵循传统的购买模式。 可以向 Azure Stack HCI 合作伙伴购买经验证的硬件，以及从现有的各种渠道购买软件（具有软件定义的数据中心功能的 Windows Server 2019 Datacenter Edition 以及 Windows 管理中心）。 对于与 Windows 管理中心配合使用的 Azure 服务，可以通过 Azure 订阅付费。
 
 ### <a name="how-do-i-buy-azure-stack-hci-solutions"></a>如何购买 Azure Stack HCI 解决方案？
 
-执行以下步骤:
+请执行以下步骤：
 
-1. 从你的首选的硬件合作伙伴购买的 Microsoft 验证的硬件系统。
-1. 安装 Windows Server 2019 Datacenter edition 和 Windows Admin Center 的管理以及连接到 Azure 云服务的功能
-1. 选择使用你的 Azure 帐户附加到你的工作负荷的基于云的管理和安全服务。
+1. 从首选的硬件合作伙伴购买经 Microsoft 验证的硬件系统。
+1. 安装 Windows Server 2019 Datacenter Edition 和 Windows 管理中心以获取管理功能，以及连接到 Azure 以获取云服务
+1. 选择性地使用 Azure 帐户将基于云的管理和安全服务附加到工作负荷。
 
-![若要购买 Azure Stack HCI 解决方案，选择的硬件合作伙伴和最适合你需求的配置。](media/azure-stack-hci/buying-azure-stack-hci.png)
+![若要购买 Azure Stack HCI 解决方案，请选择最符合需求的硬件合作伙伴与配置。](media/azure-stack-hci/buying-azure-stack-hci.png)
 
-## <a name="compare-azure-stack-and-azure-stack-hci"></a>比较 Azure Stack 和 Azure Stack HCI
+## <a name="compare-azure-stack-and-azure-stack-hci"></a>Azure Stack 和 Azure Stack HCI 的比较
 
-你的组织进行数字转换，您可能会发现通过使用公共云服务在新式体系结构上构建，并刷新旧版应用您也可以更快地移动。 但是，出于包括技术和法规障碍的原因，许多工作负荷必须保留在本地。 下表可帮助您确定哪些 Microsoft 混合云策略提供所需的所需位置，无论他们身在何处提供适用于工作负荷的云创新的内容。
+当你的组织进行数字化变革时，你可能会发现，使用公有云服务以新式体系结构作为构建基础来更新旧式应用可以加快变革的速度。 但是，出于技术和法规障碍等原因，许多工作负荷必须保留在本地。 下表可帮助你确定哪种 Microsoft 混合云策略可随时随地提供所需的服务，并为任何位置的工作负荷提供云创新。
 
 |Azure Stack|Azure Stack HCI|
 |--------|-------|
-|新技能，创新进程|相同的技能，熟悉的过程|
-|你的数据中心中的 azure 服务|你的数据中心连接到 Azure 服务|
+|新的技能，创新的流程|相同的技能，熟悉的流程|
+|数据中心内的 Azure 服务|将数据中心连接到 Azure 服务|
 
 ### <a name="when-to-use-azure-stack"></a>何时使用 Azure Stack
 
 |Azure Stack|Azure Stack HCI|
 |--------|-------|
-|使用 Azure Stack 为自助服务基础结构作为-服务 (IaaS)，使用具有强隔离和精确的使用情况跟踪和共置的多个租户的退款。 适用于服务提供商和企业私有云。 Azure Marketplace 中的模板。|Azure Stack HCI 本机不会强制执行或提供多租户。|
-|使用 Azure Stack 开发和运行的应用程序依赖于平台的作为-服务 (PaaS) 服务等 Web 应用、 函数或事件中心的本地。 完全像在 Azure 中，从而提供一致的混合开发和运行时环境，这些服务在 Azure Stack 上运行。|Azure Stack HCI 不会在本地运行的 PaaS 服务。
-|使用 Azure Stack 实现现代化，应用程序部署和操作与 DevOps 实践等基础结构即代码、 持续集成和持续部署 (CI/CD) 和方便的功能，如 Azure 一致的 VM 扩展。 适用于开发和 DevOps 团队。|Azure Stack HCI 本机不包括任何 DevOps 工具。
+|针对自助式基础结构即服务 (IaaS) 使用 Azure Stack，因为其具有强式隔离，并且可对位于相同位置的多个租户精确地跟踪使用情况和进行费用分摊。 非常适合用于服务提供商和企业私有云。 来自 Azure 市场的模板。|Azure Stack HCI 原生不会实施或提供多租户。|
+|在本地使用 Azure Stack 开发和运行依赖于 Web 应用、Functions 或事件中心等平台即服务 (PaaS) 的应用。 在 Azure Stack 上运行的这些服务完全与在 Azure 中运行一样，提供一致的混合开发和运行时环境。|Azure Stack HCI 不会在本地运行 PaaS 服务。
+|使用 Azure Stack 现代化应用部署和配合 DevOps 做法的操作，这些做法包括基础结构即代码、持续集成和持续部署 (CI/CD)，以及 Azure 一致性 VM 扩展等便利功能。 非常适合用于开发和 DevOps 团队。|Azure Stack HCI 原生不包括任何 DevOps 工具。
 
 ### <a name="when-to-use-azure-stack-hci"></a>何时使用 Azure Stack HCI
 
 |Azure Stack|Azure Stack HCI|
 |---------------|---------------|
-|Azure Stack 需要最少 4 个节点和其自身的网络交换机。|使用 Azure Stack HCI 远程办公室和分支的最小占用量。 只需 2 个服务器节点和峰值简单性和经济性的无交换机连续网络开始。 在 4 个驱动器，64 GB 内存，也在 10 万美元的硬件产品/服务开始 / 节点。
-|Azure Stack 约束 Hyper V 可配置性和功能集与 Azure 保持一致。|使用 Azure Stack HCI 经典的企业应用，如 Exchange、 SharePoint 和 SQL Server 和 Windows Server 角色，如文件服务器、 DNS、 DHCP、 IIS 和 AD 虚拟化的基本的 HYPER-V 虚拟化。 不受限制的访问所有的 HYPER-V 功能，如受防护的 Vm。|
-|Azure Stack 不公开这些基础结构技术。|使用 Azure Stack HCI 使用软件定义基础结构来代替老化的存储阵列或网络设备，而无需主要体系结构重建。 内置的 HYPER-V、 存储空间直通和软件定义网络 (SDN) 是直接访问和管理。|
+|Azure Stack 至少需要 4 个节点，并需要自身的网络交换机。|使用 Azure Stack HCI 可以尽量减少远程办公室和分公司的占用空间。 一开始可以仅使用 2 个服务器节点和无交换机的后端到后端网络，以实现最高简便度和负担能力。 硬件产品的入门配置为 4 个驱动器和 64 GB 内存，每个节点的费用不超过 10000 美元。
+|为了与 Azure 保持一致，Azure Stack 将限制 Hyper V 可配置性和功能。|使用 Azure Stack HCI 可为经典企业应用（例如 Exchange、SharePoint 和 SQL Server）实现单纯有用的 Hyper-V 虚拟化，以及虚拟化 Windows Server 角色，例如文件服务器、DNS、DHCP、IIS 和 AD。 不受限制地访问所有 Hyper-V 功能，例如受防护的 VM。|
+|Azure Stack 不会公开这些基础结构技术。|借助 Azure Stack HCI 可以使用软件定义的基础结构来代替过时的存储设备阵列或网络设备，而无需进行重大的重新改造。 可以直接访问和管理内置的 Hyper-V、存储空间直通和软件定义的网络 (SDN)。|

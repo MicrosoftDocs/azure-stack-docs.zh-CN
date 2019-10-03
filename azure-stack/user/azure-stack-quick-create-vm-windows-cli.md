@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 090ad90f15056d614e5f61b848e5c8c248889ef2
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: b88d65806abfe83dfff59307d3bdcd4e99adf96d
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782633"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824268"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>快速入门：创建在 Azure Stack 中使用 Azure CLI 为 Windows Server 虚拟机
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Windows Server 虚拟机
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -32,7 +32,7 @@ ms.locfileid: "65782633"
 * 安装 IIS Web 服务器并查看默认主页。
 * 清理资源。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 * 确保 Azure Stack 操作员已将 **Windows Server 2016** 映像添加到 Azure Stack 市场。
 
@@ -45,7 +45,7 @@ ms.locfileid: "65782633"
 > [!NOTE]
 >  代码示例中为所有变量都分配了值。 但是，如果愿意，也可以分配新值。
 
-以下示例创建名为 myResourceGroup 中的本地位置的资源组：
+以下示例在本地位置创建名为 myResourceGroup 的资源组：
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-可以使用 [az vm create](/cli/azure/vm#az-vm-create) 命令创建虚拟机 (VM)。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理员用户名和Demouser@123作为管理员密码。 将这些值更改为适合你的环境的值。
+可以使用 [az vm create](/cli/azure/vm#az-vm-create) 命令创建虚拟机 (VM)。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理员用户名，并 Demouser@123 作为管理员密码。 将这些值更改为适合你的环境的值。
 
 ```cli
 az vm create \
@@ -65,13 +65,13 @@ az vm create \
   --location local
 ```
 
-创建 VM 时，输出中的 **PublicIPAddress** 参数包含虚拟机的公用 IP 地址。 因为您需要它来使用虚拟机，请记下此地址。
+创建 VM 时，输出中的 **PublicIPAddress** 参数包含虚拟机的公用 IP 地址。 记下此地址，因为需要使用它来访问虚拟机。
 
 ## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80
 
-因为此 VM 将运行 IIS 的 web 服务器，您需要为 internet 流量打开端口 80。
+由于此 VM 将运行 IIS Web 服务器，因此需要为 Internet 流量打开端口 80。
 
-使用[az vm 打开端口](/cli/azure/vm)命令打开端口 80:
+使用 [az vm open-port](/cli/azure/vm) 命令打开端口 80：
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -79,7 +79,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
 
-使用以下命令创建到虚拟机的远程桌面连接。 将“Public IP Address”替换为你的虚拟机的 IP 地址。 当要求时，输入用户名和密码用于虚拟机。
+使用以下命令创建到虚拟机的远程桌面连接。 将“Public IP Address”替换为你的虚拟机的 IP 地址。 系统询问时，输入用于虚拟机的用户名和密码。
 
 ```
 mstsc /v <Public IP Address>
@@ -87,7 +87,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>使用 PowerShell 安装 IIS
 
-现在，你已登录到虚拟机，可以使用 PowerShell 安装 IIS。 在虚拟机上启动 PowerShell 并运行以下命令：
+现在，你已登录到虚拟机，可以使用 PowerShell 来安装 IIS 了。 在虚拟机上启动 PowerShell 并运行以下命令：
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -95,7 +95,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>查看 IIS 欢迎页
 
-可以使用所选的浏览器查看默认 IIS 欢迎页。 使用上一部分中列出的公共 IP 地址访问默认页面：
+可以使用所选的浏览器查看默认 IIS 欢迎页。 请使用前面部分中列出的公共 IP 地址来访问默认页面：
 
 ![IIS 默认站点](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 

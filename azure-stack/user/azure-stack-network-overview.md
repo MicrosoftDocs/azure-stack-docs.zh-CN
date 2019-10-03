@@ -6,33 +6,33 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e5e76c3edcaa93e412d2715d7dc732731ac3d2ce
-ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
+ms.openlocfilehash: e47079b100487331434a201a05bbcae7645de4f1
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67816133"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824166"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 联网简介
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 提供不同类型的可以单独或一起使用的网络功能：
+Azure Stack 提供可以结合使用或单独使用的各种网络功能：
 
 - **Azure Stack 资源之间的连接**  
-    在云中的安全且私密的虚拟网络中 Azure 资源连接在一起。
+    在云中的安全专用虚拟网络内将 Azure 资源连接在一起。
 - **Internet 连接**  
-    通过 internet 进行通信传入和传出 Azure Stack 资源。
+    通过 Internet 与 Azure Stack 资源进行通信。
 - **本地连接**  
-    在本地网络连接到 Azure Stack 资源通过虚拟专用网络 (VPN) 通过 internet，或通过专用连接到 Azure Stack。
-- 负载均衡和流量方向   
+    在 Internet 上通过虚拟专用网络 (VPN) 或者通过与 Azure Stack 建立的专用连接将本地网络连接到 Azure Stack 资源。
+- 负载均衡和流量方向  
     对发往同一位置中的服务器的流量进行负载均衡，并将流量定向到不同位置中的服务器。
 - **安全性**  
-    筛选网络子网或单独的 Vm 之间的网络流量。
+    筛选网络子网或单个 VM 之间的网络流量。
 - **路由**  
     使用默认路由，或者完全控制 Azure Stack 与本地资源之间的路由。
 - **可管理性**  

@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 3e46007c07856df9ecc6b4edca4c595525b3b8ba
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: 31fa9bcdf60b27b2eb2e8396be1d2a0e89f31b70
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342778"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829191"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack 日志和客户数据处理 
 适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*  
@@ -31,7 +31,7 @@ Microsoft 的 subprocessor 是与 Azure Stack 建立的个人数据的一个处�
 - 个人数据的处理;GDPR "数据保护条款"[中的 "](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)预配" 部分。
 - 欧盟一般数据保护条例[在线服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)的附件4中的条款。
 
-随着 Azure Stack 位于客户数据中心，Microsoft 是数据控制器，只是通过[诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)、[遥测](azure-stack-telemetry.md)和[计费](azure-stack-usage-reporting.md)与 Microsoft 共享的数据。  
+随着 Azure Stack 位于客户数据中心，Microsoft 是数据控制器，只是通过[诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)、[遥测](azure-stack-telemetry.md)和[计费](azure-stack-usage-reporting.md)与 Microsoft 共享的数据。  
 
 ## <a name="data-access-controls"></a>数据访问控制 
 被分配了调查特定支持案例的 Microsoft 员工将获得对加密数据的只读访问权限。 如果需要，Microsoft 员工还可以访问用于删除数据的工具。 对客户数据的所有访问都会受到审核和记录。  
@@ -51,7 +51,7 @@ Microsoft 支持按客户请求删除按需数据。 客户可以随时请求我
 对于按需数据删除操作，Microsoft 支持工程师有权访问该工具，使其可以按需删除数据。 完成后，他们可以向客户提供电话确认。
 
 ## <a name="diagnostic-data"></a>诊断数据
-作为支持过程的一部分，Azure Stack 操作员可以与 Azure Stack 支持和工程团队[共享诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)，以帮助进行故障排除。
+作为支持过程的一部分，Azure Stack 操作员可以与 Azure Stack 支持和工程团队[共享诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)，以帮助进行故障排除。
 
 Microsoft 为客户提供了一个工具和脚本来收集和上载请求的诊断日志文件。 收集后，日志文件将通过与 Microsoft 的 HTTPS 受保护的加密连接进行传输。 由于 HTTPS 通过网络提供加密，因此传输中的加密不需要密码。 收到日志后，将对其进行加密和存储，直到在支持案例关闭90天后将其自动删除。
 

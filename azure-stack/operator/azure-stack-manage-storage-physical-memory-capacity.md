@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3aa69f1ea6e16b582a17da867c4895413d0043d2
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 147bfb6ba35115f44fe24f388f36814db766c7f2
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782391"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829447"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>管理 Azure Stack 的物理内存容量
 
-*适用于：Azure Stack 集成系统*
+适用范围：*Azure Stack 集成系统*
 
-若要增加 Azure Stack 的总可用内存容量，可以添加更多内存。 在 Azure Stack 中，物理服务器也称为*缩放单位节点*。 所有属于单一缩放单元的缩放单元节点都必须具有相同的内存量。
+若要增加 Azure Stack 的总可用内存容量，可以添加内存。 在 Azure Stack 中，物理服务器也称为*缩放单元节点*。 所有属于单一缩放单元的缩放单元节点都必须具有相同的内存量。
 
 > [!note]  
 > 继续之前，请参阅硬件制造商文档，了解制造商是否支持物理内存升级。 OEM 硬件供应商支持合同可能会要求供应商进行物理服务器机架放置和设备固件更新。
@@ -46,7 +46,7 @@ ms.locfileid: "65782391"
 > 由于不支持滚动内存升级，因此必须关闭整个缩放单元。
 
 1. 按照[启动和停止 Azure Stack](azure-stack-start-and-stop.md) 一文中所述的步骤，停止 Azure Stack。
-2. 升级使用硬件制造商的文档的每台物理计算机上的内存。
+2. 使用硬件制造商的文档升级每台物理计算机上的内存。
 3. 按照[启动和停止 Azure Stack](azure-stack-start-and-stop.md) 一文中的步骤，启动 Azure Stack。
 
 ## <a name="next-steps"></a>后续步骤

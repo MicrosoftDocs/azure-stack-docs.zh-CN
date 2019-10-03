@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 5e5e44ed9eca3cde0844c0eafbc4188bd1449da2
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 69ea42a9efbf57cfdeb589cc221eae8a9f21913c
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618149"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829323"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL 资源提供程序 1.1.33.0 发行说明
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 本发行说明介绍 SQL 资源提供程序 1.1.33.0 版中的改进和已知问题。
 
@@ -66,7 +66,7 @@ ms.locfileid: "65618149"
 
     **解决方法**：在同一订阅下始终对不同的数据库使用不同的登录名。
 
-- **SQL 资源提供程序无法添加 SQL Server Always On 侦听器**。 使用侦听器 IP 地址的 SQL Server Always On 侦听器时，SQL 资源提供程序 VM 无法解析该侦听器的主机名。
+- **SQL 资源提供程序无法添加 SQL Server Always On 侦听器**。 使用 SQL Server Always On 侦听器的 IP 地址时，SQL 资源提供程序 VM 无法解析侦听器的主机名。
 
     **解决方法**：确保 DNS 正常运行，以便将侦听器 IP 解析为侦听器主机名。
 
