@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 1d78696da3ee3e54052cff62bcef490ccbd99925
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: f3bd1fc6d1f53ee56a8b1ff1741861a7f505b5b6
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342893"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909367"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的数据中心集成规划注意事项
 

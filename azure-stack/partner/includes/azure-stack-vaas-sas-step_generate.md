@@ -2,15 +2,15 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 4b2617818c3e92ca37b9b21ce38d1800a982f346
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 43ef6d21c28a2cd1a77ba4fcbd22bcf64a28f99b
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67132969"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909545"
 ---
-选择**生成 SAS 和连接字符串**并复制**Blob 服务 SAS URL**字符串。
+选择 "**生成 SAS 和连接字符串**"，并复制 " **BLOB 服务 SAS URL** " 字符串。

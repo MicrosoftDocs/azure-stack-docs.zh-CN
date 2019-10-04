@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: b5ccba4ae4aeb002a3a4c65805bad1ed615999cc
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: fdac6c099980a1c2cedb3271123908539d18169d
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67042016"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909163"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL 资源提供程序 1.1.33.0 发行说明
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 本发行说明描述 MySQL 资源提供程序 1.1.33.0 版中的改进和已知问题。
 
@@ -44,7 +44,7 @@ ms.locfileid: "67042016"
 此 Azure Stack MySQL 资源提供程序版本包含以下改进和修复：
 
 ### <a name="fixes"></a>修复项
-- **MySQL 资源提供程序门户扩展可能选择了错误的订阅**。 MySQL 资源提供程序使用 Azure 资源管理器调用来确定要使用的第一个服务管理员订阅，该订阅可能不是默认的提供程序订阅。  如果发生这种情况，则表明 MySQL 资源提供程序运行不正常。 
+- **MySQL 资源提供程序门户扩展可能选择了错误的订阅**。 MySQL 资源提供程序使用 Azure 资源管理器调用来确定要使用的第一个服务管理员订阅，该订阅可能不是默认的提供程序订阅。 如果发生这种情况，则表明 MySQL 资源提供程序运行不正常。 
 
 - **MySQL 宿主服务器未列出托管的数据库。** 查看 MySQL 宿主服务器的租户资源时，可能会发现用户创建的数据库未列出。
 

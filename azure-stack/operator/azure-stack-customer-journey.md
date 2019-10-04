@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 57e92f877ab9516b7b4978b5a919b18dad9b60ea
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: fdb0f9a34fe40b3d3fef6abf96b9e1a6927b04e6
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342847"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909302"
 ---
 # <a name="azure-stack-datacenter-integration-walkthrough"></a>Azure Stack datacenter integration 演练
 

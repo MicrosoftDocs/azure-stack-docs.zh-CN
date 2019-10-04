@@ -2,25 +2,25 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 6cb45b58122c3e1c56098a90e294a3d67e9eb843
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: c3a85e866acc615d2d33219232f7890b32df50f5
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133383"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71938676"
 ---
-验证工作流中**安排**测试使用工作流创建期间指定的工作流级别公用参数 (请参阅[工作流通用参数作为服务AzureStack验证](../azure-stack-vaas-parameters.md)). 如果任何测试参数值变得无效，您必须 resupply 它们中所述[修改工作流参数](../azure-stack-vaas-monitor-test.md#change-workflow-parameters)。
+在验证工作流中,**计划**测试使用工作流创建期间指定的工作流级公共参数 ([有关 Azure Stack 验证作为服务的工作流通用参数](../azure-stack-vaas-parameters.md), 请参阅)。 如果任何测试参数值无效, 则必须按照[修改工作流参数](../azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示 resupply 它们。
 
 > [!NOTE]
-> 计划高于现有实例的一个验证测试，将在门户中创建的新实例来代替旧实例。 旧实例的日志将保留，但不能从门户访问。  
-测试成功，完成后**计划**操作将被禁用。
+> 在现有实例上计划验证测试会在门户中创建一个新实例来代替旧实例。 旧实例的日志将保留, 但无法从门户进行访问。  
+测试成功完成后,**计划**操作将变为禁用状态。
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](azure-stack-vaas-workflow-step_select-agent.md)]
 
-1. 选择**计划**从上下文菜单打开的提示的计划的测试实例。
+1. 从上下文菜单中选择 "**计划**" 以打开计划测试实例的提示。
 
-1. 查看测试参数，然后选择**提交**来计划执行测试。
+1. 查看测试参数, 然后选择 "**提交**" 以计划执行测试。

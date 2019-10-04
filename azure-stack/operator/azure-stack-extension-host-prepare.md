@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: ab508956ddcc57baa04c74710ea485c07cc20416
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: d64e0e3ce0dd499304bebfe2f78aebca11ff6668
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131146"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909100"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>为 Azure Stack 准备扩展主机
 
@@ -127,7 +127,7 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
 > 如果使用了 DNS 区域委派进行 DNS 集成，则此步骤不是必需的。
 如果已配置了单独的主机 A 记录来发布 Azure Stack 终结点，则需要创建两个额外的主机 A 记录：
 
-| IP | 主机名 | Type |
+| IP | 主机名 | 类型 |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<Region>.\<FQDN> | A |

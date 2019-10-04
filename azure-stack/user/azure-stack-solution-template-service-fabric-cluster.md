@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: e672ee6227e00ea6276c92c22d02874f7c8b5529
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 8a323bf5d767db288cd2d876f38119b61f577afa
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101236"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909670"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
 
@@ -192,7 +192,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 Microsoft.Se
 
     b. 在“公共 IP 地址”边栏选项卡上，FQDN 显示为“DNS 名称”。  
 
-      ![DNS 名称](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
+      ![DNS 名](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
 1. 若要查找 Service Fabric Explorer 的 URL 和客户端连接终结点，请查看模板部署的结果。
 

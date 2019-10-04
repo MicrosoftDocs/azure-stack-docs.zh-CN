@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 4f9e9c4f79a06e0f1f74db8152047beb3af07b75
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a7bd45b8eefe201a8c3767f31f7de138e37bb01d
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417541"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909272"
 ---
 # <a name="manage-azure-stack-storage-accounts"></a>管理 Azure Stack 存储帐户
 
@@ -38,7 +38,7 @@ ms.locfileid: "68417541"
 
 默认显示前 10 个帐户。 可以单击列表底部的“加载更多”链接来提取更多的帐户。
 
-OR
+或
 
 如果只想查看特定的存储帐户，可以只**筛选并提取相关的帐户**。
 
@@ -93,7 +93,7 @@ OR
   删除的帐户已作为垃圾回收后，该帐户可能不会显示在帐户列表中。 在此情况下，无法恢复该帐户。 请参阅本文中的[回收容量](#reclaim)。
 
 ## <a name="set-the-retention-period"></a>设置保留期
-云操作员可以使用保留期设置来指定时间间隔天数（0 到 9999 天），在此期间，任何已删除的帐户都有可能能够恢复。 默认保留期设置为 0 天。 将值设置为“0”表示任何已删除的帐户会立即超出保留期，并标记为定期进行垃圾回收。
+云操作员可以使用“保留期”设置来指定一个时间段（以天为单位，值为 0 到 9999 天），在此时间段内删除的帐户有可能能够恢复。 默认保留期设置为 0 天。 将值设置为“0”表示任何已删除的帐户会立即超出保留期，并标记为定期进行垃圾回收。
 
 **更改保留期：**
 

@@ -4,24 +4,24 @@ description: 使用 Azure Stack 存储开发工具的入门指南
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.topic: conceptual
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: c708c7f94f7d7e956b0ca4a6c4c4c2c70b1590fc
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 407d8167fcc359531496397dda00e51d59f49d7c
+ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188099"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71909605"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Microsoft Azure Stack 提供了一组存储服务, 包括 blob、表和队列存储。
+Microsoft Azure Stack 提供了一组存储服务，包括 blob、表和队列存储。
 
 使用本文作为使用 Azure Stack 存储开发工具的入门指南。 可以在对应的 Azure 存储教程中，找到更多的详细信息和示例代码。
 
