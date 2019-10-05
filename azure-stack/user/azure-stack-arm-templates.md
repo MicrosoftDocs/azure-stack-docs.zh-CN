@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: fde2936f3b57fdf9fc6ddeda1786b9ffd5aa9fe0
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 0b9aedb4a6b046755192b84e18e8c75a8d015c8f
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691514"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974075"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 资源管理器模板
 
@@ -29,13 +29,13 @@ ms.locfileid: "66691514"
 
 可使用 Azure 资源管理器 模板通过单个协调操作部署和预配应用程序的所有资源。 还可以重新部署模板，对资源组中的资源进行更改。
 
-可以使用 Microsoft Azure Stack 门户、 PowerShell、 命令行和 Visual Studio 部署这些模板。
+可以通过 Microsoft Azure Stack 门户、PowerShell、命令行和 Visual Studio 部署这些模板。
 
-以下快速入门模板[可在 GitHub 上](https://aka.ms/azurestackgithub):
+[GitHub 中提供了](https://aka.ms/azurestackgithub)以下快速入门模板：
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>部署 SharePoint Server（非高可用性部署）
 
-使用 PowerShell [Desired State Configuration](/powershell/dsc/overview/overview) (DSC) 扩展到[创建 SharePoint Server 2013 场](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha)包括以下资源：
+使用 PowerShell [Desired State Configuration](/powershell/dsc/overview/overview) (DSC) 扩展[创建包含以下资源的 SharePoint Server 2013 场](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha)：
 
 * 虚拟网络
 * 三个存储帐户
@@ -77,7 +77,7 @@ ms.locfileid: "66691514"
 
 ## <a name="cancel-a-running-template-deployment"></a>取消正在运行的模板部署
 
-若要取消正在运行的模板部署，请使用[停止 AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [cmdlet](/powershell/developer/cmdlet/cmdlet-overview)。
+若要取消正在运行的模板部署，请使用 [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [cmdlet](/powershell/developer/cmdlet/cmdlet-overview)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -261,6 +261,8 @@
           href: azure-stack-create-vpn-connection-one-node.md
     - name: 提供服务
       href: azure-stack-offer-services-overview.md
+    - name: 提供网络解决方案
+      href: azure-stack-network-solutions-enable.md
     - name: 提供 SQL 作为 PaaS
       href: azure-stack-sql-resource-provider.md
       items:

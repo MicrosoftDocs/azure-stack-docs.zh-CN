@@ -31,7 +31,7 @@
       items:
         - name: 订阅产品
           href: azure-stack-subscribe-services.md
-        - name: 启用云服务提供商
+        - name: 启用云解决方案提供程序
           href: azure-stack-csp-enable-billing-usage-tracking.md
         - name: 使用 Azure Stack 门户
           href: azure-stack-use-portal.md
@@ -267,6 +267,14 @@
           href: azure-stack-solution-mongodb-ha.md
         - name: 部署高可用性 SQL Server 2016
           href: azure-stack-solution-sql-ha.md
+    - name: 部署基础模式
+      items:
+        - name: 设置 VPN 到本地
+          href: azure-stack-network-howto-vnet-to-onprem.md
+        - name: VNET 到 VNET 连接
+          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+        - name: VNET 对等互连
+          href: azure-stack-network-howto-vnet-to-vnet.md
 - name: 概念
   items:
     - name: 混合云模式

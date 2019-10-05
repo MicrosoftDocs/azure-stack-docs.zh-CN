@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: bcdf43f7be95c76cfd4fc454d85e08ad197551a6
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: d3eacfa8ab4b071d44ebd3bd2ad52351b72e7f00
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094328"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974044"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Azure Stack 中的使用情况和计费
 
@@ -44,18 +44,18 @@ Azure Stack 中的每个资源提供程序会根据资源使用情况发布使�
 
 Azure Stack 资源提供程序（例如计算、存储和网络）每隔一小时为每个订阅生成使用情况数据。 使用情况数据包含有关所用资源的信息，例如资源名称、所用订阅和所用数量。 若要了解计量的 ID 资源，请参阅[使用情况 API 常见问题解答](azure-stack-usage-related-faq.md)。
 
-收集使用情况数据后，会将其[报告给 Azure](azure-stack-usage-reporting.md)以生成帐单，这可以通过 Azure 计费门户查看。
+在收集使用情况数据后，它将[报告给 Azure](azure-stack-usage-reporting.md)来生成帐单，可以通过 Azure 计费门户查看账单。
 
 > [!NOTE]  
-> Azure Stack 开发工具包（ASDK）以及在容量模式下进行许可的 Azure Stack 集成系统用户不需要使用情况数据报告。 若要详细了解 Azure Stack 中的许可，请参阅[打包和定价数据表](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。
+> 对于 Azure Stack 开发工具包 (ASDK) 和在容量模型下许可的 Azure Stack 集成系统用户，不需要进行使用情况数据报告。 若要详细了解 Azure Stack 中的许可，请参阅[打包和定价数据表](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。
 
 Azure 计费门户显示应计费资源的使用情况数据。 除了应计费资源之外，Azure Stack 还会捕获更广范围内资源的使用情况数据，可以通过 REST API 或 PowerShell cmdlet 在 Azure Stack 环境中访问这些数据。 Azure Stack 操作员可以获取所有用户订阅的使用情况数据。 单个用户只能获取自己的详细使用情况。
 
-## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>多租户云服务提供商的使用情况报告
+## <a name="usage-reporting-for-multi-tenant-cloud-solution-providers"></a>多租户云解决方案提供商的使用情况报告
 
 使用 Azure Stack 的多租户云解决方案提供程序（CSP）可能需要单独报告每个客户的使用情况，以便提供商可以将使用情况计费到不同的 Azure 订阅。
 
-每个客户将会获得一个按不同 Azure Active Directory (Azure AD) 租户表示的标识。 Azure Stack 支持向每个 Azure AD 租户分配一个 CSP 订阅。 可将租户及其订阅添加到基本 Azure Stack 注册。 将会针对所有 Azure Stack 实例执行基本注册。 如果没有为租户注册订阅，用户仍可使用 Azure Stack，其使用情况数据将发送到用于基本注册的订阅。
+每个客户将会获得一个按不同 Azure Active Directory (Azure AD) 租户表示的标识。 Azure Stack 支持向每个 Azure AD 租户分配一个 CSP 订阅。 可将租户及其订阅添加到基本 Azure Stack 注册。 将会针对所有 Azure Stack 实例执行基本注册。 如果订阅未注册到租户，用户仍可使用 Azure Stack，并将其使用情况发送到用于基本注册的订阅。
 
 ## <a name="next-steps"></a>后续步骤
 

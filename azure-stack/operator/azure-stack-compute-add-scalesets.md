@@ -7,22 +7,22 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: cd32288f6541dc4ba1ed16a24ff5fa802066af30
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: ed73441f1a8d3c1c722ce35d5deda9ab7387283b
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094428"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974093"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机规模集
 
 适用范围：Azure Stack 集成系统和 Azure Stack 开发工具包
   
-虚拟机规模集是一种 Azure Stack 计算资源。 你可以使用它们来部署和管理一组相同的虚拟机（Vm）。 通过相同方式配置的所有 Vm，规模集无需预配 Vm。 可以更方便地构建面向大型计算、大数据、容器化工作负荷的大规模服务。
+虚拟机规模集是一种 Azure Stack 计算资源。 你可以使用它们来部署和管理一组相同的虚拟机（Vm）。 通过相同方式配置的所有 Vm，规模集无需预配 Vm。 构建面向大型计算、大数据和容器化工作负荷的大规模服务更容易。
 
 本文将指导你完成 Azure Stack Marketplace 中提供规模集的过程。 完成此过程之后，用户将可以将虚拟机规模集添加到其订阅。
 
@@ -41,7 +41,7 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 ## <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
 
 >[!IMPORTANT]  
-> 当使用的是 Azure Stack 版本 1808 或更高版本时，本部分中的信息适用。 如果版本为1807或更早版本，请参阅[添加虚拟机规模集（在1808之前）](#add-the-virtual-machine-scale-set-prior-to-version-1808)。
+> 本部分中的信息适用于使用 Azure Stack 版本1808或更高版本。 如果版本为1807或更早版本，请参阅[添加虚拟机规模集（在1808之前）](#add-the-virtual-machine-scale-set-prior-to-version-1808)。
 
 1. 登录到 Azure Stack 门户。 然后，依次转到“所有服务”和“虚拟机规模集”，并在“计算”下选择“虚拟机规模集”。
    ![选择虚拟机规模集](media/azure-stack-compute-add-scalesets/all-services.png)
@@ -50,10 +50,10 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
    ![创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
 3. 填写空字段，对于“操作系统磁盘映像”、“订阅”和“实例大小”，请从下拉列表中进行选择。 对于“使用托管磁盘”，请选择“是”。 然后单击“创建”。
-    ![配置和创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create.png)
+    ![Configure 并创建虚拟机规模集 @ no__t-1
 
 4. 若要查看新的虚拟机规模集，请转到“所有资源”，搜索该虚拟机规模集名称，然后在搜索结果中单击其名称。
-   ![查看虚拟机规模集](media/azure-stack-compute-add-scalesets/search.png)
+   ![View 虚拟机规模集 @ no__t-1
 
 ## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>添加虚拟机规模集（版本 1808 之前的版本）
 

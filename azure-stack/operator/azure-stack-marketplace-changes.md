@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: c93b4535189830ee8e84acb882f85a9a51d5f443
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: c5b0472921c25379f894be5e0b799b7abcb8a43b
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342720"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961821"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack 市场更改
 
@@ -84,7 +84,7 @@ ms.locfileid: "71342720"
 - Bitnami SugarCRM
 - Bitnami node.js 高可用性群集
 - A10 vThunder：L4-L7 应用程序交付控制器、全局服务器负载平衡 (GSLB)、SSL Insight
-- JsonADDomain 扩展
+
 
 ## <a name="updated-marketplace-items"></a>更新弃用市场项
 
@@ -110,6 +110,7 @@ ms.locfileid: "71342720"
 - 09/12/2019：Service Fabric 版本1.0。3
 - 09/24/2019：F5-网络大 IP 虚拟版-版本14.1.200000
 - 09/25/2019：Debian 8-版本8.0.20190806
+- 10/1/2019：Microsoft JsonADDomain 扩展-版本1.3。4
 
 
 ## <a name="next-steps"></a>后续步骤

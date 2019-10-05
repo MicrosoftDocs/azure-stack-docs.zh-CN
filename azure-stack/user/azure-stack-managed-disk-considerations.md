@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 托管磁盘的差异和注意事项 | Microsoft Docs
+title: Azure Stack 托管磁盘;差异和注意事项 |Microsoft Docs
 description: 了解 Azure Stack 中托管磁盘和托管映像的差异与注意事项。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 97684f2a0ef9960854b192ca15f972bc15ff5b62
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687980"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974059"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异与注意事项
 
@@ -30,24 +30,24 @@ ms.locfileid: "71687980"
 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../operator/azure-stack-manage-storage-accounts.md)简化了 IaaS 虚拟机 (VM) 的磁盘管理。
 
 > [!NOTE]  
-> 从 1808 更新开始，推出了 Azure Stack 上的托管磁盘。 从 1811 更新开始，使用 Azure Stack 门户创建 VM 时，会默认启用它。
+> 从 1808 更新开始，推出了 Azure Stack 上的托管磁盘。 从1811更新开始，在使用 Azure Stack 门户创建 Vm 时，默认情况下启用此功能。
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>速查表：托管磁盘的差异
 
 | 功能 | Azure（公有云） | Azure Stack |
 | --- | --- | --- |
-|静态数据加密 |Azure 存储服务加密 (SSE)、Azure 磁盘加密 (ADE)     |BitLocker 128 位 AES 加密      |
+|静态数据加密 |Azure 存储服务加密（SSE），Azure 磁盘加密（ADE）。     |BitLocker 128 位 AES 加密      |
 |图像          | 托管自定义映像 |支持|
 |备份选项 | Azure 备份服务 |尚不支持 |
 |灾难恢复选项 | Azure 站点恢复 |尚不支持|
-|磁盘类型     |高级 SSD、标准 SSD 和标准 HDD |高级 SSD、标准 HDD |
-|高级磁盘  |完全支持 |可部署，但无性能限制或保证  |
-|高级磁盘 IOPS  |取决于磁盘大小  |每个磁盘 2300 IOPS |
-|高级磁盘吞吐量 |取决于磁盘大小 |每个磁盘 145 MB/秒 |
+|磁盘类型     |高级 SSD、标准 SSD 和标准 HDD。 |高级 SSD、标准 HDD |
+|高级磁盘  |完全支持。 |可部署，但无性能限制或保证  |
+|高级磁盘 IOPS  |取决于磁盘大小。  |每个磁盘 2300 IOPS |
+|高级磁盘吞吐量 |取决于磁盘大小。 |每个磁盘 145 MB/秒 |
 |磁盘大小  |Azure 高级磁盘：P4 (32 GiB) 到 P80 (32 TiB)<br>Azure 标准 SSD 磁盘：E10 (128 GiB) 到 E80 (32 TiB)<br>Azure 标准 HDD 磁盘：S4 (32 GiB) 到 S80 (32 TiB) |M4：32 GiB<br>M6：64 GiB<br>M10：128 GiB<br>M15：256 GiB<br>M20：512 GiB<br>M30：1023 GiB |
-|磁盘快照复制|支持附加到正在运行的 VM 的快照 Azure 托管磁盘|尚不支持 |
-|磁盘性能分析 |支持的聚合指标和每磁盘指标 |尚不支持 |
-|迁移      |提供从现有非托管 Azure 资源管理器 VM 迁移的工具，而无需重新创建 VM  |尚不支持 |
+|磁盘快照复制|将 Azure 托管磁盘连接到支持的运行中 VM 的快照。|尚不支持 |
+|磁盘性能分析 |支持聚合度量值和每个磁盘指标。 |尚不支持 |
+|迁移      |提供从现有的非托管 Azure 资源管理器 Vm 迁移的工具，而无需重新创建 VM。  |尚不支持 |
 
 > [!NOTE]  
 > Azure Stack 中的托管磁盘 IOPs 和吞吐量是一个上限数字而非预配的数字，这可能会受在 Azure Stack 中运行的硬件和工作负荷影响。
@@ -69,7 +69,7 @@ Azure Stack 托管磁盘支持以下 API 版本：
 ## <a name="convert-to-managed-disks"></a>转换为托管磁盘
 
 > [!NOTE]  
-> 不能在 Azure Stack 中使用 Azure PowerShell cmdlet **ConvertTo-AzureRmVMManagedDisk** 将非托管磁盘转换为托管磁盘。 Azure Stack 目前不支持此 cmdlet。
+> 不能使用 Azure PowerShell cmdlet **Convertto-html convertto-azurermvmmanageddisk 进行转换**将非托管磁盘转换为 Azure Stack 中的托管磁盘。 Azure Stack 当前不支持此 cmdlet。
 
 可以使用以下脚本将当前预配的 VM 从非托管磁盘转换为托管磁盘。 将占位符替换成自己的值：
 
@@ -228,7 +228,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmC
 - 如果订阅是在应用 1808 更新之前创建的，请遵循以下步骤来更新订阅。 否则，在此订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器发生内部错误。”
    1. 在 Azure Stack 用户门户中，转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
    2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
-- 如果使用多租户环境，请让云操作员（可以是组织内部或来自服务提供商的操作员）根据[此文](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤重新配置每个来宾目录。 否则，在与该来宾目录关联的订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器中发生内部错误。”
+- 如果使用多租户环境，请让云操作员（可以是组织内部或来自服务提供商的操作员）根据[此文](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤重新配置每个来宾目录。 否则，在与该来宾目录关联的订阅中部署 Vm 可能会失败，并出现错误消息 "磁盘管理器中出现内部错误"。
 
 ## <a name="next-steps"></a>后续步骤
 

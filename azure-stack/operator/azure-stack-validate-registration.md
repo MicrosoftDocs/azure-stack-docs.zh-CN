@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/23/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9c4ddec0606556290e55850a9081c6665f2524d1
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: c959a2553d6b298ef4a815890de6f717838361de
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159588"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961861"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
 
-使用 Azure Stack 就绪性检查器工具 (**AzsReadinessChecker**) 验证 Azure 订阅是否已准备好与 Azure Stack 配合使用。 在开始 Azure Stack 部署之前，请验证注册。 就绪性检查器会验证下列项：
+在开始 Azure Stack 部署之前，请使用 Azure Stack 就绪检查器工具（**AzsReadinessChecker**）来验证 Azure 订阅是否已准备好与 Azure Stack 配合使用。 就绪性检查器会验证下列项：
 
-- 你使用的 Azure 订阅是受支持的类型。 订阅必须是云服务提供商 (CSP) 或企业协议 (EA)。
+- 你使用的 Azure 订阅是受支持的类型。 订阅必须是云解决方案提供商（CSP）或企业协议（EA）。
 - 用来向 Azure 注册订阅的帐户可以登录到 Azure 并且是订阅所有者。
 
 有关 Azure Stack 注册的详细信息，请参阅[向 Azure 注册 Azure Stack](azure-stack-registration.md)。
@@ -50,7 +50,7 @@ ms.locfileid: "71159588"
   ```
 
 - [为 Azure Stack 配置的 PowerShell](azure-stack-powershell-install.md)。
-- 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)。  
+- 最新版本的[Microsoft Azure Stack 就绪检查](https://aka.ms/AzsReadinessChecker)程序工具。  
 
 ### <a name="azure-active-directory-environment"></a>Azure Active Directory 环境
 
@@ -58,7 +58,7 @@ ms.locfileid: "71159588"
 - 标识将使用的 Azure 订阅的订阅 ID。
 - 标识将使用的 **AzureEnvironment**。 环境名称参数支持的值包括**AzureCloud**、 **AzureChinaCloud**或**AzureUSGovernment**，具体取决于所使用的 Azure 订阅。
 
-## <a name="steps-to-validate-azure-registration"></a>验证 Azure 注册的步骤
+## <a name="steps-to-validate-the-azure-registration"></a>验证 Azure 注册的步骤
 
 1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 提示符，然后运行以下命令来安装 **AzsReadinessChecker**：
 
@@ -83,12 +83,12 @@ ms.locfileid: "71159588"
 
 4. 在 PowerShell 提示符下运行以下命令，开始验证订阅：
 
-   - 将`AzureEnvironment`的值指定为**AzureCloud**、 **AzureGermanCloud**或**AzureChinaCloud**。  
+   - 将 @no__t 的值指定为**AzureCloud**、 **AzureGermanCloud**或**AzureChinaCloud**。  
    - 提供 Azure Active Directory 管理员用户名和 Azure Active Directory 租户名称。
 
-   ```powershell
-   Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
-   ```
+      ```powershell
+      Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
+      ```
 
 5. 运行该工具后，查看输出。 确认状态是否符合登录和注册要求。 验证成功时会显示类似于以下示例的输出：
 
@@ -108,8 +108,8 @@ ms.locfileid: "71159588"
 
 默认情况下，这两个文件都写入到 **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
 
-- 可以在运行命令行的末尾使用 **-OutputPath** ***&lt;path&gt;*** 参数指定一个不同的报表位置。
-- 可以在运行命令的末尾使用 **-CleanReport** 参数从 **AzsReadinessCheckerReport.json** 中清除以前运行此工具时的相关信息。
+- 使用 "运行" 命令行末尾的 `-OutputPath <path>` 参数来指定不同的报表位置。
+- 使用 "运行" 命令末尾的 `-CleanReport` 参数从**AzsReadinessCheckerReport**中清除有关先前运行的工具的信息。
 
 有关详细信息，请参阅 [Azure Stack 验证报告](azure-stack-validation-report.md)。
 
@@ -117,7 +117,7 @@ ms.locfileid: "71159588"
 
 如果验证检查失败，则有关失败的详细信息将显示在 PowerShell 窗口中。 该工具还会将信息记录到 **AzsReadinessChecker.log** 文件中。
 
-下面的示例针对常见的验证失败提供了指导：
+下面的示例提供了有关常见验证失败的详细信息。
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>用户必须是订阅所有者
 

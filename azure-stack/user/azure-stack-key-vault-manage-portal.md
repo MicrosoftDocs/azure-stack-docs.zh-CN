@@ -1,5 +1,5 @@
 ---
-title: 使用门户管理 Azure Stack 中的 Key Vault |Microsoft Docs
+title: 使用门户管理 Azure Stack 中的 Key Vault | Microsoft Docs
 description: 了解如何使用 Azure Stack 门户管理 Azure Stack 中的 Key Vault。
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4b6d6e784a640894fb1ef304d4469586e9fc2297
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: fc0907ffb905012043a3e446fcc29cc9e06f6932
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842749"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961501"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>使用门户管理 Azure Stack 中的 Key Vault
 
@@ -46,7 +46,7 @@ ms.locfileid: "68842749"
 
 6. 选择“定价层”。 Azure Stack 开发工具包 (ASDK) 中的密钥保管库仅支持**标准** SKU。
 
-7. 选择一个现有**访问策略**或创建一个新访问策略。 使用访问策略可以授予用户、应用或安全组对此保管库执行操作的权限。
+7. 选择一个现有**访问策略**或创建一个新访问策略。 使用访问策略，可授予用户、应用或安全组对此保管库执行操作的权限。
 
 8. （可选）选择“高级访问权限策略”以允许访问功能。 例如：访问虚拟机 (VM) 进行部署、访问资源管理器进行模板部署，以及访问 Azure 磁盘加密进行卷加密。
 
@@ -54,7 +54,7 @@ ms.locfileid: "68842749"
 
 ## <a name="manage-keys-and-secrets"></a>管理密钥和机密
 
-创建密钥保管库后, 请使用以下过程来创建和管理保管库中的密钥和机密:
+创建密钥保管库后，使用以下过程来创建和管理保管库中的密钥和机密：
 
 ### <a name="create-a-key"></a>创建密钥
 
@@ -72,7 +72,7 @@ ms.locfileid: "68842749"
 
 7. 选择“创建”以开始部署。
 
-成功创建密钥后，可以在“密钥”下选择该密钥，并查看或修改其属性。 Properties 节包含**密钥标识符**, 它是外部应用用于访问此密钥的统一资源标识符 (URI)。 若要限制对此密钥的操作，请在“允许的操作”下配置设置。
+成功创建密钥后，可以在“密钥”下选择该密钥，并查看或修改其属性。 属性部分包含**密钥标识符**，即外部应用用来访问此密钥的统一资源标识符 (URI)。 若要限制对此密钥的操作，请在“允许的操作”下配置设置。
 
 ![密钥 URI](media/azure-stack-key-vault-manage-portal/image4.png)
 
@@ -92,7 +92,7 @@ ms.locfileid: "68842749"
 
 7. 选择“创建”以开始部署。
 
-成功创建机密后，可以在“机密”下选择该机密，并查看或修改其属性。 **机密标识符**是外部应用可用于访问此机密的 URI。
+成功创建机密后，可以在“机密”下选择该机密，并查看或修改其属性。 **机密标识符**是外部应用可用来访问此机密的 URI。
 
 ![机密 URI](media/azure-stack-key-vault-manage-portal/image5.png)
 

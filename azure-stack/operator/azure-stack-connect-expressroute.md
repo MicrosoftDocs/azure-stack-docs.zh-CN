@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094397"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961561"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -51,7 +51,7 @@ ms.locfileid: "71094397"
 * 一个用于在 Azure 中创建 ExpressRoute 线路和 VNet 的 Azure 订阅。
 * 满足以下要求的路由器：
   * 支持在其 LAN 接口与 Azure Stack 多租户共享网关之间建立站点到站点 VPN 连接。
-  * 如果 Azure Stack 部署中有多个租户，则该路由器必须支持创建多个 VRF（虚拟路由和转发）。
+  * 如果 Azure Stack 部署中有多个租户，则支持创建多个 Vrf （虚拟路由和转发）。
 * 具有以下组件的路由器：
   * 已连接到 ExpressRoute 线路的 WAN 端口。
   * 已连接到 Azure Stack 多租户网关的 LAN 端口。
@@ -62,7 +62,7 @@ ms.locfileid: "71094397"
 
 ![ExpressRoute 网络](media/azure-stack-connect-expressroute/Conceptual.png)
 
-下图显示了多个租户如何通过 ExpressRoute 路由器从 Azure Stack 基础结构连接到 Microsoft Edge 中的 Azure：
+下图显示多个租户如何从 Azure Stack 基础结构通过 ExpressRoute 路由器连接到位于 Microsoft 边缘的 Azure：
 
 ![使用 ExpressRoute 的多租户连接](media/azure-stack-connect-expressroute/Architecture.png)
 
@@ -153,7 +153,7 @@ ms.locfileid: "71094397"
    * 10.100.0.0/16 是 Azure 中的分支 VNet。
 
    > [!IMPORTANT]
-   > 此示例假设你要为 Azure Stack 网关与 ExpressRoute 路由器之间的站点到站点 VPN 连接使用静态路由。
+   > 对于 Azure Stack 网关和 ExpressRoute 路由器之间的站点到站点 VPN 连接，本示例假设使用静态路由。
 
 1. 确认“订阅”、“资源组”和“位置”正确无误。 然后选择“创建”。
 
@@ -219,7 +219,7 @@ ms.locfileid: "71094397"
 > [!IMPORTANT]
 > 本部分仅适用于 ASDK 部署。 多节点部署无需 NAT。
 
-ASDK 是独立的，并且与部署物理主机的网络隔离。 网关连接到的 VIP 网络不是外部网络;它隐藏在执行网络地址转换（NAT）的路由器后面。
+ASDK 是独立的，并且与部署物理主机的网络隔离。 网关连接到的 VIP 网络不是在外部，而是隐藏在执行网络地址转换 (NAT) 的路由器后面。
 
 路由器是运行路由和远程访问服务（RRAS）角色的 ASDK 主机。 你必须在 ASDK 主机上配置 NAT，以允许站点到站点 VPN 连接两端连接。
 

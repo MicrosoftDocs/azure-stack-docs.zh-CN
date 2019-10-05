@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 3548574ce8ece470c67101d42b115dbafe2c9a1c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 81ba613ec6a816d1ae6161d078452eea63ce1164
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829215"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974024"
 ---
 # <a name="usage-connectivity-errors"></a>使用情况连接错误
 
-Azure Stack 使用情况数据通过 Azure Stack 中的 [*Azure Bridge* 组件](azure-stack-usage-reporting.md)发送给 Azure。 如果 Azure Stack 中的桥无法连接到 Azure 使用情况服务，则会看到以下错误：
+Azure Stack 使用情况数据通过 Azure Stack 中的 [*Azure Bridge* 组件](azure-stack-usage-reporting.md)发送给 Azure。 如果 Azure Stack 中的桥无法连接到 Azure 使用情况服务，则会显示以下错误：
 
 ![使用情况网桥错误](media/azure-stack-usage-issues/usageerror2.png)
 
@@ -51,7 +51,7 @@ Azure Stack 使用情况数据通过 Azure Stack 中的 [*Azure Bridge* 组件](
 | NetworkError               | Azure Stack 网桥无法将请求发送到 Azure 中的使用情况服务终结点。                                                            | 检查代理是否阻止或拦截了对使用情况服务终结点的访问。                                                                                                                                                                                                             |
 | RequestTimedOut            | 请求已从 Azure Bridge 发出，但 Azure 中的使用情况服务无法在超时期限内做出响应。                             | 检查代理是否阻止或拦截了对使用情况服务终结点的访问。                                                                                                                                                                                                                        |
 | LoginError                 | 无法对 Microsoft Azure Active Directory 进行身份验证。                                                                                                             | 确定可从 Azure Stack 中的所有 XRP VM 访问 Azure AD 登录终结点。                                                                                                                                                                                                                     |
-| CertificateValidationError | Azure 桥无法发送请求，因为它无法在 Azure 服务中进行身份验证。                                    | 检查是否有代理在 Azure Stack XRP 机和使用情况网关终结点之间截获 HTTPS 通信。                                                                                                                                                                                      |
+| CertificateValidationError | Azure 桥无法发送请求，因为它无法通过 Azure 服务进行身份验证。                                    | 检查是否有代理拦截了 Azure Stack XRP 计算机与使用情况网关终结点之间的 HTTPS 流量。                                                                                                                                                                                      |
 | 未经授权               | Azure 桥无法将数据推送到 Azure 中的使用率服务，因为 Azure 服务无法对 Azure Stack 桥进行身份验证。 | 检查注册资源是否已修改，如果是，请重新注册 Azure Stack。 <br><br> 有时，Azure Stack 与 Azure AD 之间的时间同步问题会导致此错误。 在此情况下，请确保 Azure Stack 中 XRP VM 的时间与 Azure AD 同步。 |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
@@ -60,5 +60,5 @@ Azure Stack 使用情况数据通过 Azure Stack 中的 [*Azure Bridge* 组件](
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解如何[向 Azure 报告 Azure Stack 使用情况数据](azure-stack-usage-reporting.md)。
-- 若要查看在你的注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-registration-errors.md)。
+- 若要查看注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-registration-errors.md)。
 - 详细了解[适用于云服务提供商的使用情况报告基础结构](azure-stack-csp-ref-infrastructure.md)。
