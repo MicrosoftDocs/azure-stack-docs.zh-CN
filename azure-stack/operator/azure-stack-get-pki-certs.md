@@ -1,6 +1,6 @@
 ---
-title: 为 Azure Stack 集成系统部署生成 Azure Stack 公钥基础结构证书 | Microsoft Docs
-description: 介绍 Azure Stack 集成系统的 Azure Stack PKI 证书部署过程。
+title: 为 Azure Stack 生成证书签名请求 |Microsoft Docs
+description: 了解如何在 Azure Stack 集成系统中为 Azure Stack PKI 证书生成证书签名请求。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,25 +14,25 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: c9f14e643f886fab0fae148c5af8643890866fd6
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.openlocfilehash: 365f727f7e07c697dc2fd3cfe2a5c1bea5b68409
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902686"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019259"
 ---
-# <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 证书签名请求生成
+# <a name="generate-certificate-signing-requests-for-azure-stack"></a>为 Azure Stack 生成证书签名请求
 
 可以使用 Azure Stack 就绪性检查器工具创建适合于 Azure Stack 部署的证书签名请求 (CSR)。 应该花费足够的时间来请求、生成并验证证书，以便在部署之前进行测试。 可以[从 PowerShell 库](https://aka.ms/AzsReadinessChecker)获取工具。
 
 可以使用 Azure Stack 就绪性检查器工具 (AzsReadinessChecker) 请求以下证书：
 
-- 按照[为 Azure Stack 部署生成 PKI 证书](azure-stack-get-pki-certs.md)**请求标准证书**。
+- 根据[生成证书签名请求](azure-stack-get-pki-certs.md#generate-certificate-signing-requests)的**标准证书请求**。
 - **平台即服务**：可以请求 [Azure Stack 公钥基础结构证书要求 - 可选的 PaaS 证书](azure-stack-pki-certs.md#optional-paas-certificates)中指定的证书的平台即服务 (PaaS) 名称。
 
 ## <a name="prerequisites"></a>先决条件
 
-在为 Azure Stack 部署生成 PKI 证书的 CSR 之前，系统应符合以下先决条件：
+在为 Azure Stack 部署生成 PKI 证书的任何 Csr 之前，系统应符合以下先决条件：
 
 - Microsoft Azure Stack 准备情况检查程序
 - 证书属性：
@@ -61,7 +61,7 @@ ms.locfileid: "70902686"
     ```
 
     > [!note]  
-    > 如果提供公用名 (CN)，此值将被证书请求的第一个 DNS 名称覆盖。
+    > 如果提供一个公用名（CN），则它将被证书请求的第一个 DNS 名称覆盖。
 
 3. 声明已存在的输出目录。 例如：
 
@@ -69,15 +69,15 @@ ms.locfileid: "70902686"
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
 
-4. 声明标识系统
+4. 声明标识系统。
 
-    Azure Active Directory
+    Azure Active Directory （Azure AD）：
 
     ```powershell
     $IdentitySystem = "AAD"
     ```
 
-    Active Directory 联合身份验证服务
+    Active Directory 联合身份验证服务（AD FS）：
 
     ```powershell
     $IdentitySystem = "ADFS"
@@ -99,7 +99,7 @@ ms.locfileid: "70902686"
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    若要包括 PaaS 服务，请指定开关 ```-IncludePaaS```
+    若要包含 PaaS 服务，请指定开关 ```-IncludePaaS```。
 
 7. 另外，对于开发/测试环境，若要生成具有多个使用者可选名称的单个证书请求，请添加 **-RequestType SingleCSR** 参数和值（**不**建议用于生产环境）：
 
@@ -124,7 +124,7 @@ ms.locfileid: "70902686"
     New-AzsCertificateSigningRequest Completed
     ```
 
-9. 将生成的 **.REQ** 文件提交到 CA（内部或公共 CA）。  **New-AzsCertificateSigningRequest** 的输出目录包含提交到证书颁发机构时所需的 CSR。  此目录还包含一个子目录，其中包含生成证书请求期间使用的 INF 文件，供你参考。 请确保 CA 使用符合 [Azure Stack PKI 要求](azure-stack-pki-certs.md)的生成请求来生成证书。
+9. 将生成的 **.REQ** 文件提交到 CA（内部或公共 CA）。 **New-AzsCertificateSigningRequest** 的输出目录包含提交到证书颁发机构时所需的 CSR。 此目录还包含一个子目录，其中包含生成证书请求期间使用的 INF 文件，供你参考。 请确保 CA 使用符合 [Azure Stack PKI 要求](azure-stack-pki-certs.md)的生成请求来生成证书。
 
 ## <a name="next-steps"></a>后续步骤
 

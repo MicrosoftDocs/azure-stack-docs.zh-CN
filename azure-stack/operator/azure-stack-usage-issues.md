@@ -15,12 +15,12 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 81ba613ec6a816d1ae6161d078452eea63ce1164
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: 265645b69e909c7c9762cd03e4f49035baa2872b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974024"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019426"
 ---
 # <a name="usage-connectivity-errors"></a>使用情况连接错误
 
@@ -61,4 +61,4 @@ Azure Stack 使用情况数据通过 Azure Stack 中的 [*Azure Bridge* 组件](
 
 - 详细了解如何[向 Azure 报告 Azure Stack 使用情况数据](azure-stack-usage-reporting.md)。
 - 若要查看注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-registration-errors.md)。
-- 详细了解[适用于云服务提供商的使用情况报告基础结构](azure-stack-csp-ref-infrastructure.md)。
+- 详细了解[云解决方案提供商的使用情况报告基础结构](azure-stack-csp-ref-infrastructure.md)。

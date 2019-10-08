@@ -1,6 +1,6 @@
 ---
-title: 为 Azure Stack 准备扩展主机 | Microsoft Docs
-description: 了解如何准备扩展主机，它是通过将来的一个 Azure Stack 更新程序包自动启用的。
+title: 在 Azure Stack 中准备扩展主机 |Microsoft Docs
+description: 了解如何在 Azure Stack 中准备扩展主机，该主机在版本1808后通过 Azure Stack 更新包自动启用。
 services: azure-stack
 keywords: ''
 author: mattbriggs
@@ -11,20 +11,20 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: d64e0e3ce0dd499304bebfe2f78aebca11ff6668
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 75070550f1863457c3a2aaf9ab5915536372d55b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909100"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019279"
 ---
-# <a name="prepare-for-extension-host-for-azure-stack"></a>为 Azure Stack 准备扩展主机
+# <a name="prepare-for-extension-host-in-azure-stack"></a>准备 Azure Stack 中的扩展主机
 
 扩展主机通过减少所需的 TCP/IP 端口数来保护 Azure Stack。 本文讨论了为 Azure Stack 准备扩展主机，扩展主机是通过 1808 更新之后的一个 Azure Stack 更新程序包自动启用的。 本文适用于 Azure Stack 更新 1808、1809 和 1811。
 
 ## <a name="certificate-requirements"></a>证书要求
 
-扩展主机实施了两个新的域命名空间来为每个门户扩展保证主机条目的唯一性。 新的域命名空间需要两个额外的通配符证书来确保安全的通信。
+扩展主机实现了两个新的域命名空间，以保证每个门户扩展的唯一主机条目。 新域命名空间需要另外两个通配符证书，以确保安全通信。
 
 下表显示了新的命名空间和关联的证书：
 
@@ -33,11 +33,11 @@ ms.locfileid: "71909100"
 | 管理扩展主机 | *.adminhosting.\<region>.\<fqdn>（通配符 SSL 证书） | 管理扩展主机 | adminhosting.\<region>.\<fqdn> |
 | 公共扩展主机 | *.hosting.\<region>.\<fqdn>（通配符 SSL 证书） | 公共扩展主机 | hosting.\<region>.\<fqdn> |
 
-可以在 [Azure Stack 公钥基础结构证书要求](azure-stack-pki-certs.md)一文中找到详细的证书要求。
+有关详细证书要求，请参阅[Azure Stack 公钥基础结构证书要求](azure-stack-pki-certs.md)。
 
 ## <a name="create-certificate-signing-request"></a>创建证书签名请求
 
-Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建证书签名请求。 请按照 [Azure Stack 证书签名请求生成](azure-stack-get-pki-certs.md)一文中的步骤进行操作。
+Azure Stack 准备情况检查程序工具允许您为两个新的和所需的 SSL 证书创建证书签名请求。 请按照 [Azure Stack 证书签名请求生成](azure-stack-get-pki-certs.md)一文中的步骤进行操作。
 
 > [!Note]  
 > 你可以跳过此步骤，具体取决于你请求 SSL 证书的方式。
@@ -45,7 +45,7 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
 ## <a name="validate-new-certificates"></a>验证新证书
 
 1. 使用提升的权限在硬件生命周期主机或 Azure Stack 管理工作站上打开 PowerShell。
-2. 运行以下 cmdlet 来安装 Azure Stack 就绪性检查器工具。
+2. 运行以下 cmdlet 以安装 Azure Stack 就绪检查程序工具：
 
     ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
@@ -66,7 +66,7 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
     > [!Note]  
     > 如果使用 Azure Active Directory 联合身份验证服务 (AD FS) 进行部署，则必须在脚本中的 **$directories** 中添加以下目录：`ADFS`、`Graph`。
 
-4. 将现有的证书（目前在 Azure Stack 中使用）置于相应的目录中。 例如，将 **Admin ARM** 证书置于 `Arm Admin` 文件夹中。 然后，将新创建的托管证书置于 `Admin extension host` 和 `Public extension host` 目录中。
+4. 将当前在 Azure Stack 中使用的现有证书放在相应的目录中。 例如，将 **Admin ARM** 证书置于 `Arm Admin` 文件夹中。 然后，将新创建的托管证书置于 `Admin extension host` 和 `Public extension host` 目录中。
 5. 运行以下 cmdlet 来启动证书检查：
 
     ```powershell  
@@ -83,8 +83,8 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
 使用可以连接到 Azure Stack 特权终结点的计算机执行后续步骤。 请确保可以从该计算机访问新的证书文件。
 
 1. 使用可以连接到 Azure Stack 特权终结点的计算机执行后续步骤。 请确保可以从该计算机访问新的证书文件。
-2. 打开 PowerShell ISE 以执行接下来的脚本块
-3. 导入用于管理托管终结点的证书。
+2. 打开 PowerShell ISE 以执行下一个脚本块。
+3. 导入管理宿主终结点的证书。
 
     ```powershell  
 
@@ -124,19 +124,19 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
 ### <a name="update-dns-configuration"></a>更新 DNS 配置
 
 > [!Note]  
-> 如果使用了 DNS 区域委派进行 DNS 集成，则此步骤不是必需的。
+> 如果你使用 DNS 区域委派进行 DNS 集成，则不需要执行此步骤。
 如果已配置了单独的主机 A 记录来发布 Azure Stack 终结点，则需要创建两个额外的主机 A 记录：
 
-| IP | 主机名 | 类型 |
+| IP | 主机名 | type |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
 
-可以通过运行 cmdlet **Get-AzureStackStampInformation** 使用特权终结点检索已分配的 IP。
+可以通过运行 cmdlet AzureStackStampInformation，使用特权终结点检索分配**的**ip。
 
 ### <a name="ports-and-protocols"></a>端口和协议
 
-[Azure Stack 数据中心集成 - 发布终结点](azure-stack-integrate-endpoints.md)一文介绍了在推出扩展主机之前进行入站通信以发布 Azure Stack 所需的端口和协议。
+[Azure Stack datacenter integration-发布终结点一](azure-stack-integrate-endpoints.md)文介绍了需要入站通信的端口和协议，以便在扩展主机推出之前发布 Azure Stack。
 
 ### <a name="publish-new-endpoints"></a>发布新的终结点
 
@@ -148,7 +148,7 @@ winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
-# Obtain DNS Servers and Extension Host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+# Obtain DNS Servers and extension host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
 $StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
 If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
     Write-Host "Can access AZS DNS" -ForegroundColor Green
@@ -192,7 +192,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>更新现有的发布规则（在启用扩展主机后）
 
 > [!Note]  
-> 1808 Azure Stack 更新包**尚未**启用扩展主机。 它允许通过导入所需的证书来准备扩展主机。 在通过 1808 更新之后的 Azure Stack 更新包自动启用扩展主机之前，请不要关闭任何端口。
+> 1808 Azure Stack 更新包**尚未**启用扩展主机。 它允许您通过导入所需的证书来准备扩展主机。 在1808更新后，不通过 Azure Stack 更新包自动启用扩展主机之前，请不要关闭任何端口。
 
 在现有的防火墙规则中，必须关闭以下终结点端口。
 
@@ -209,4 +209,4 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ## <a name="next-steps"></a>后续步骤
 
 - 了解[防火墙集成](azure-stack-firewall.md)。
-- 了解 [Azure Stack 证书签名请求生成](azure-stack-get-pki-certs.md)
+- 了解[Azure Stack 证书签名请求生成](azure-stack-get-pki-certs.md)。

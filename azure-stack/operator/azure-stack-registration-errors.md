@@ -15,12 +15,12 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: b06892e5e4c9d388756a2197f2054c1bac9f013c
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: e660b5024e9aa2b582fd3e8d2f6f51d7d20a5130
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973997"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019489"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>使用情况和计费注册错误代码
 
@@ -41,6 +41,6 @@ ms.locfileid: "71973997"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解[适用于云服务提供商的使用情况报告基础结构](azure-stack-csp-ref-infrastructure.md)。
+- 详细了解[云解决方案提供商的使用情况报告基础结构](azure-stack-csp-ref-infrastructure.md)。
 - 若要详细了解 CSP 计划，请参阅[云解决方案](https://partner.microsoft.com/solutions/microsoft-cloud-solutions)。
 - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](azure-stack-billing-and-chargeback.md)。

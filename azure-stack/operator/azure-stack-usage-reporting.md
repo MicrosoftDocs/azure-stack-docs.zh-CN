@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 3aeae5c1a0106a0c13c9b6bbe2eb4ba07de14dd4
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: 5fecdbe7bcc85ea01e1502afcfc1c67d3b830c3e
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959436"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019388"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据
 
@@ -31,7 +31,7 @@ ms.locfileid: "68959436"
 > [!IMPORTANT]
 > 所有工作负荷都[必须部署在租户订阅](#are-users-charged-for-the-infrastructure-vms)下，才符合 Azure Stack 的许可条款。
 
-根据即用即付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)页）。 对于 Azure Stack 开发工具包 (ASDK) 用户, Azure Stack 操作员可以报告使用数据并测试该功能。 但是，用户无需为产生的任何用量付费。
+根据即用即付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)页）。 对于 Azure Stack 开发工具包 (ASDK) 用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。
 
 ![计费流](media/azure-stack-usage-reporting/billing-flow.png)
 
@@ -50,9 +50,9 @@ ms.locfileid: "68959436"
 
 ## <a name="generate-usage-data-reporting"></a>生成用量数据报告
 
-- 若要测试用量数据报告，请在 Azure Stack 中创建一些资源。 例如, 可以创建一个包含基本和标准 Sku 的[存储帐户](azure-stack-provision-storage-account.md)、 [Windows Server VM](../user/azure-stack-create-vm-template.md)和 Linux VM, 以查看如何报告内核使用情况。 不同类型的资源的用量数据通过不同的计量器报告。
+- 若要测试用量数据报告，请在 Azure Stack 中创建一些资源。 例如，可以创建一个包含基本和标准 Sku 的[存储帐户](azure-stack-provision-storage-account.md)、 [Windows Server VM](../user/azure-stack-create-vm-template.md)和 Linux VM，以查看如何报告内核使用情况。 不同类型的资源的用量数据通过不同的计量器报告。
 
-- 让你的资源运行几个小时。 系统大约每隔一小时收集一次用量信息。 收集之后，此数据将传输到 Azure 并在 Azure 商务系统中处理。 此过程最长可能需要花费几个小时。
+- 让资源运行几个小时。 系统大约每隔一小时收集一次用量信息。 收集之后，此数据将传输到 Azure 并在 Azure 商务系统中处理。 此过程最长可能需要花费几个小时。
 
 ## <a name="view-usage---csp-subscriptions"></a>查看用量 - CSP 订阅
 
@@ -70,11 +70,11 @@ ms.locfileid: "68959436"
 
 ![计费流](media/azure-stack-usage-reporting/pricing-details.png)
 
-对于 ASDK, Azure Stack 资源不收费, 因此显示的价格为 $0.00。
+对于 ASDK，我们不会收取 Azure Stack 资源费用，因此价格显示为 $0.00。
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>哪些 Azure Stack 部署需要付费？
 
-资源使用情况对 ASDK 是免费的。 对于 Azure Stack 多节点系统，工作负荷 VM、存储服务与应用服务需要付费。
+ASDK 可以免费使用资源。 对于 Azure Stack 多节点系统，工作负荷 VM、存储服务与应用服务需要付费。
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>使用基础结构 VM 是否需要付费？
 
@@ -92,11 +92,11 @@ ms.locfileid: "68959436"
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>哪些类型的订阅支持用量数据报告？
 
-对于 Azure Stack 多节点，支持企业协议 (EA) 和 CSP 订阅。 对于 Azure Stack 开发工具包、企业协议 (EA)、即用即付、CSP 和 MSDN 订阅支持使用情况数据报告。
+对于 Azure Stack 多节点，支持企业协议 (EA) 和 CSP 订阅。 对于 Azure Stack 开发工具包、企业协议（EA）、即用即付、CSP 和 MSDN 订阅支持使用情况数据报告。
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>是否可以在主权云中运行用量数据报告？
 
-在 Azure Stack 开发工具包中，用量数据报告需要全球 Azure 系统中创建的订阅。 在某个主权云（Azure 政府、Azure 德国和 Azure 中国云）中创建的订阅无法注册到 Azure，因此不支持用量数据报告。
+在 Azure Stack 开发工具包中，用量数据报告需要全球 Azure 系统中创建的订阅。 在主权云（Azure 政府、Azure 德国和 Azure 中国世纪互联云）之一中创建的订阅无法注册到 Azure，因此它们不支持使用情况数据报告。
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>为何 Azure Stack 中报告的用量与从 Azure 帐户中心生成的报告不匹配？
 
@@ -107,4 +107,4 @@ Azure Stack 用量 API 报告用量数据的时间与 Azure 帐户中心报告�
 - [提供者使用情况 API](azure-stack-provider-resource-api.md)  
 - [租户使用情况 API](azure-stack-tenant-resource-usage-api.md)
 - [使用情况常见问题](azure-stack-usage-related-faq.md)
-- [以云服务提供商身份管理使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)
+- [以云解决方案提供商的身份管理使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)

@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 76b870d795b79cf966dcf6742ad08f739d24a42a
-ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
+ms.openlocfilehash: 3b728bb08d41c234ccffb94005be740bea0766b6
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269490"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019280"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -37,11 +37,11 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 ## <a name="add-an-end-customer"></a>添加最终客户
 
-添加最终客户之前，必须在注册时启用多租户计费。 若要启用多租户计费，请将注册订阅 ID、资源组名称和注册名称发送到`azstcsp@microsoft.com`。 它通常需要1-2 个工作日内才能实现多租户。
+添加最终客户之前，必须在注册时启用多租户计费。 若要启用多租户计费，请将注册订阅 ID、资源组名称和注册名称发送到 `azstcsp@microsoft.com`。 它通常需要1-2 个工作日内才能实现多租户。
 
 执行以下步骤以添加最终客户，如下图所示：
 
-![设置云服务提供程序以进行用量跟踪，以及管理最终客户帐户](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
+![为使用情况跟踪设置云解决方案提供程序并管理最终客户帐户](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>在合作伙伴中心创建新客户
 
@@ -66,7 +66,7 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
    ```
 
    >[!Note]
-   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 Add-azurermaccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
+   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请运行以下 cmdlet，然后使用 Add-azurermaccount 进行登录： `Remove-AzureRmAccount-Scope Process`
 
 2. 键入 Azure 凭据。
 3. 在 PowerShell 会话中运行：
@@ -102,4 +102,4 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 - 若要查看在你的注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-registration-errors.md)。
 - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](azure-stack-billing-and-chargeback.md)。
-- 若要查看最终客户如何向你添加 CSP，作为其 Azure Stack 租户的管理员，请参阅[使云服务提供商能够管理你的 Azure Stack 订阅](../user/azure-stack-csp-enable-billing-usage-tracking.md)。
+- 若要查看最终客户如何向你添加 CSP，作为其 Azure Stack 租户的管理员，请参阅[启用云解决方案提供商以管理你的 Azure Stack 订阅](../user/azure-stack-csp-enable-billing-usage-tracking.md)。

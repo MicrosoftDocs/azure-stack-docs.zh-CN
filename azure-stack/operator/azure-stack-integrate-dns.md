@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 数据中心集成 - DNS
-description: 了解如何将 Azure Stack DNS 与数据中心 DNS 集成
+title: Azure Stack datacenter DNS 集成 |Microsoft Docs
+description: 了解如何将 Azure Stack DNS 与数据中心 DNS 集成。
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,28 +11,28 @@ ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 9e60a8f9ebda573141e2f97a9182087e90741652
-ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
+ms.openlocfilehash: 4949ed2533ed550f61efd2cc4e0dfed7de3a1d7e
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896362"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019231"
 ---
-# <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
+# <a name="azure-stack-datacenter-dns-integration"></a>Azure Stack datacenter DNS 集成
 
-若要从外部 Azure Stack 访问**门户**、 **adminportal**、 **management**和**adminmanagement**等 Azure Stack 终结点, 需要将 AZURE STACK dns 服务与托管 dns 区域的 dns 服务器集成要在 Azure Stack 中使用。
+若要从外部 Azure Stack 访问**门户**、 **adminportal**、 **management**和**adminmanagement**等 Azure Stack 终结点，需要将 AZURE STACK dns 服务与托管 dns 区域的 dns 服务器集成要在 Azure Stack 中使用。
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS 命名空间
 
-部署 Azure Stack 时，必须提供与 DNS 相关的一些重要信息。
+部署 Azure Stack 时，需要提供一些与 DNS 相关的重要信息。
 
 
 |字段  |描述  |示例|
 |---------|---------|---------|
 |地区|Azure Stack 部署的地理位置。|`east`|
 |外部域名|需要用于 Azure Stack 部署的区域的名称。|`cloud.fabrikam.com`|
-|内部域名|在 Azure Stack 中用于基础结构服务的内部区域的名称。  它是进行了目录服务集成的，并且是专用的（无法从 Azure Stack 部署外部访问）。|`azurestack.local`|
-|DNS 转发器|一种 DNS 服务器，用于转发托管在 Azure Stack 外部的 DNS 查询、DNS 区域和记录，不管是在公司 Intranet 上还是公共 Internet 上。 如果替换 DNS 转发器, 则需要更新该 IP 地址。 |`10.57.175.34`<br>`8.8.8.8`|
+|内部域名|用于 Azure Stack 中的基础结构服务的内部区域的名称。 它与目录服务集成并专用（无法从 Azure Stack 部署外部访问）。|`azurestack.local`|
+|DNS 转发器|用于转发 DNS 查询、DNS 区域和在 Azure Stack 外部托管的记录的 DNS 服务器，可在公司 intranet 或公共 internet 上进行。 如果替换 DNS 转发器，则需要更新该 IP 地址。 |`10.57.175.34`<br>`8.8.8.8`|
 |命名前缀（可选）|需要在 Azure Stack 基础结构角色实例计算机名称中使用的命名前缀。  如果不提供，则默认值为 `azs`。|`azs`|
 
 Azure Stack 部署和终结点的完全限定域名 (FQDN) 是区域参数和外部域名参数的组合。 使用上表中示例的值时，此 Azure Stack 部署的 FQDN 将是以下名称：
@@ -55,7 +55,7 @@ Azure Stack 部署和终结点的完全限定域名 (FQDN) 是区域参数和外
 
 ### <a name="dns-name-labels"></a>DNS 名称标签
 
-Azure Stack 支持向公共 IP 地址添加 DNS 名称标签，以允许对公共 IP 地址进行名称解析。 这是一种方便用户通过名称访问 Azure Stack 中托管的应用程序和服务的方法。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间如下所示：
+Azure Stack 支持向公共 IP 地址添加 DNS 名称标签，以允许对公共 IP 地址进行名称解析。 使用 DNS 标签，用户可以轻松访问按名称在 Azure Stack 中托管的应用和服务。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间如下所示：
 
 `*.east.cloudapp.cloud.fabrikam.com`
 
@@ -74,13 +74,13 @@ Azure Stack 支持向公共 IP 地址添加 DNS 名称标签，以允许对公�
 - 权威 DNS 服务器托管 DNS 区域。 它只应答这些区域中的 DNS 记录查询。
 - 递归 DNS 服务器不托管 DNS 区域。 它调用权威 DNS 服务器来收集所需的数据，以应答所有 DNS 查询。
 
-Azure Stack 包括权威 DNS 服务器和递归 DNS 服务器。 递归服务器用于解析所有项的名称，该 Azure Stack 部署的内部专用区域和外部公用 DNS 区域除外。 
+Azure Stack 包括权威 DNS 服务器和递归 DNS 服务器。 递归服务器用于解析所有项的名称，该 Azure Stack 部署的内部专用区域和外部公用 DNS 区域除外。
 
 ![Azure Stack DNS 体系结构](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>通过 Azure Stack 解析外部 DNS 名称
 
-若要解析 Azure Stack 外部终结点的 dns 名称 (例如:\.www bing.com), 需要提供 dns 服务器, Azure Stack 可以使用这些服务器转发 Azure Stack 不是权威的 dns 请求。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。 如果替换 DNS 转发器, 请更新 IP 地址。 
+若要解析 Azure Stack 外部终结点的 DNS 名称（例如： www\.bing.com），则需要提供 Azure Stack 可以使用的 DNS 服务器来转发 Azure Stack 不具有权威的 DNS 请求。 进行部署时，DNS 服务器（Azure Stack 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack 部署会失败。 如果替换 DNS 转发器，请更新 IP 地址。
 
 ### <a name="configure-conditional-dns-forwarding"></a>配置条件性 DNS 转发
 
@@ -139,7 +139,7 @@ Azure Stack DNS 服务器的 FQDN 具有以下格式：
 
 如果你不熟悉如何使用 DNS 进行条件转发，请参阅以下 TechNet 文章：[为域名分配条件转发器](https://technet.microsoft.com/library/cc794735)，或特定于 DNS 解决方案的文档。
 
-如果已将外部 Azure Stack DNS 区域指定为类似公司域名的子域那样，则无法使用条件性转发。 必须配置 DNS 委托。
+如果你指定了外部 Azure Stack DNS 区域，使其看起来像公司域名的子域，则无法使用条件转发。 必须配置 DNS 委托。
 
 例如：
 

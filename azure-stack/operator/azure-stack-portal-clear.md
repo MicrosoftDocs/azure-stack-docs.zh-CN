@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: a341ff38b0a2540fbf8e1070d9c98bdd9ec4df5f
-ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
+ms.openlocfilehash: 2dd88656491a474e4082ff4e8321af836776b1f0
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878774"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019117"
 ---
 # <a name="clear-portal-user-data-from-azure-stack"></a>从 Azure Stack 清除门户用户数据
 
@@ -86,7 +86,7 @@ ms.locfileid: "70878774"
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>清除来宾目录中的门户用户数据
 
-在此方案中，Azure Stack 运算符无权访问用户所在的来宾目录。 这是云服务提供商（CSP）的常见方案。
+在此方案中，Azure Stack 运算符无权访问用户所在的来宾目录。 这是云解决方案提供商（CSP）的常见方案。
 
 要使 Azure Stack 运算符删除门户用户数据，至少需要用户对象 ID。
 

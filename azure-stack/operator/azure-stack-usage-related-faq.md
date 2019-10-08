@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: d63d4876674c66fcccab942cd856dce958e62644
-ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
+ms.openlocfilehash: b4780077f015c060c63abc3abd33bd3e71c63e15
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269486"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019319"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-usage"></a>有关 Azure Stack 使用情况的常见问题
 
@@ -322,7 +322,7 @@ ms.locfileid: "71269486"
 **计量 ID**：190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **计量名称**：应用服务  
 **单元**：虚拟核心小时数  
-**注释**：用于运行应用服务的虚拟核心数。 注意:Microsoft 使用此计量对基于 Azure Stack 的应用服务收费。 云服务提供商可能使用其他应用服务计量（见下）来计算其租户的用量。  
+**注释**：用于运行应用服务的虚拟核心数。 注意:Microsoft 使用此计量对基于 Azure Stack 的应用服务收费。 云解决方案提供商可以使用其他应用服务计量器来计算其租户的使用情况。  
   
 **计量 ID**：67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **计量名称**：Functions 请求  

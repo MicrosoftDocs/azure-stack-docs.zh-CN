@@ -16,12 +16,12 @@ ms.date: 09/30/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 0fb46cd1b92c1b811ba1c72a91188201a7d2af96
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 7e2f13fa20c9aafd90abe34277c907a4d12b4d81
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687972"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019435"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑难解答
 
@@ -82,7 +82,7 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 
 选择用于 Azure Stack 的共享服务帐户类型。 可用于注册多租户 Azure Stack 的订阅类型为：
 
-* 云服务提供商
+* 云解决方案提供商
 * 合作伙伴共享服务订阅
 
 
