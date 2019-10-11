@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: e9ee5d3b8ad67c7955fa4da7b64d2c0962f21a15
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224950"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173078"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>配置 Azure Stack 诊断日志自动收集
 
@@ -118,7 +118,9 @@ ms.locfileid: "71224950"
 
 ## <a name="automatic-diagnostic-log-collection-alerts"></a>自动诊断日志收集警报 
 
-如果启用，则仅在需要时才会进行自动诊断日志收集。 仅下面的警报触发收集。 
+如果启用，则仅在需要时才会进行自动诊断日志收集。 仅下表触发器集合中的警报。 
+
+例如， **Update failed**是触发自动诊断日志收集的警报。 如果启用了自动收集，则会在更新失败期间主动捕获诊断日志，以帮助 CSS 对问题进行故障排除。 仅在引发**Update 失败**警报时才收集诊断日志。 
 
 |警报标题  | FaultIdType|    
 |-------------|------------|

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 7e2f13fa20c9aafd90abe34277c907a4d12b4d81
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019435"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173106"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑难解答
 
@@ -47,7 +47,7 @@ ms.locfileid: "72019435"
 * [Azure Stack 上支持的来宾操作系统](azure-stack-supported-os.md)
 * [Azure Stack 中支持的 VM 大小](../user/azure-stack-vm-sizes.md)
 
-### <a name="azure-marketplace"></a>Azure Marketplace
+### <a name="azure-marketplace"></a>Azure 市场
 
 * [可供 Azure Stack 使用的 Azure 市场项](azure-stack-marketplace-azure-items.md)
 
@@ -85,6 +85,17 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 * 云解决方案提供商
 * 合作伙伴共享服务订阅
 
+## <a name="get-scale-unit-metrics"></a>获取缩放单位指标
+
+你可以使用 PowerShell 获取戳记使用情况信息，而无需在 CSS 中获得帮助。 获取戳记利用率： 
+
+1. 创建 PEP 会话
+2. 运行 test-azurestack
+3. 退出 PEP 会话
+4. 使用调用命令调用来运行 get-azurestacklog-filterbyrole seedring
+5. 提取 seedring，然后可以从运行 test-azurestack 的 ERCS 文件夹中获取验证报告
+
+有关详细信息，请参阅[Azure Stack 诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)。
 
 ## <a name="troubleshoot-deployment"></a>排查部署问题 
 ### <a name="general-deployment-failure"></a>常见的部署失败

@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: f47278fed9cd9e93024d37a0a433388594bbd124
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: e6e09dffa6682a615c01e6fee841a5d736054546
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319160"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72164999"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>教程：在 Azure Stack 中创建和测试订阅
 
@@ -60,7 +60,7 @@ ms.locfileid: "71319160"
 
 ## <a name="test-the-offer"></a>测试产品/服务
 
-登录到用户门户后，可以使用新订阅功能预配虚拟机 (VM)，以测试套餐。
+登录到用户门户时，请通过使用新的订阅功能预配 VM 来测试产品/服务。
 
 > [!NOTE]
 > 此项测试需要先将 Windows Server 2016 Datacenter VM 添加到 Azure Stack 市场。

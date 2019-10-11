@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: f633f000968fcf4f373fc502898fa18084f93f80
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b9a7416bc73c0e36ab9986b1a280597c2d6d93a9
+ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824306"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257767"
 ---
 # <a name="protect-vms-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的 VM
 
@@ -53,7 +53,7 @@ Azure Stack 云的操作员负责创建针对底层 Azure Stack 基础结构和�
 
 为每个应用计划备份恢复和灾难恢复策略，以便确定每个应用的目标。 恢复计划将帮助你的组织正确确定本地需要的存储容量大小，并对公有云中的消耗进行计划。
 
-|  | 全局 Azure | 部署到 CSP 数据中心并由 CSP 操作的 Azure Stack | 部署到客户数据中心并由客户操作的 Azure Stack |
+|  | 全球 Azure | 部署到 CSP 数据中心并由 CSP 操作的 Azure Stack | 部署到客户数据中心并由客户操作的 Azure Stack |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **部署到 CSP 数据中心并由 CSP 操作的 Azure Stack** | 用户 VM 部署到 CSP 操作的 Azure Stack。<br><br>用户 VM 从备份还原，或者直接故障转移到 Azure。 | CSP 在自己的数据中心操作 Azure Stack 的主要和次要实例。<br><br>用户 VM 在这两个 Azure Stack 实例之间还原或故障转移。 | CSP 在主要站点操作 Azure Stack。<br><br>客户的数据中心是还原或故障转移目标。 |
 | **部署到客户数据中心并由客户操作的 Azure Stack** | 用户 VM 部署到客户操作的 Azure Stack。<br><br>用户 VM 从备份还原，或者直接故障转移到 Azure。 | 客户在主要站点操作 Azure Stack。<br><br>CSP 的数据中心是还原或故障转移目标。 | 客户在自己的数据中心操作 Azure Stack 的主要和次要实例。<br><br>用户 VM 在这两个 Azure Stack 实例之间还原或故障转移。 |
@@ -162,8 +162,16 @@ Azure Stack 部署的重要注意事项：
 
 本文提供了用于保护 Azure Stack 上部署的用户 VM 的一般准则。 有关使用 Azure 服务保护用户 VM 的信息，请参阅：
 
+- [业务连续性和灾难恢复的注意事项](http://aka.ms/azurestackbcdrconsiderationswp)
+
+### <a name="azure-backup-server"></a>Azure 备份服务器
  - [使用 Azure 备份在 Azure Stack 上备份文件和应用](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
  - [针对 Azure Stack 的 Azure 备份服务器支持](https://docs.microsoft.com/azure/backup/ ) 
+ 
+ ### <a name="azure-site-recovery"></a>Azure Site Recovery
  - [针对 Azure Stack 的 Azure Site Recovery 支持](https://docs.microsoft.com/azure/site-recovery/)  
+ 
+ ### <a name="partner-products"></a>合作伙伴产品
+ - [Azure Stack Datacenter 集成合作伙伴生态系统数据表](http://aka.ms/azurestackbcdrpartners)
 
 若要详细了解在 Azure Stack 上提供 VM 保护的合作伙伴产品，请参阅[保护 Azure Stack 上的应用和数据](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)。

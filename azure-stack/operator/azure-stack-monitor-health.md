@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 00f4a9c0aaaf52ed08706e9024059d7b24268290
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 1747be1c97a706aae5d49889949fd0b0f9a70da3
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829480"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72164964"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中监视运行状况和警报
 
@@ -67,6 +67,9 @@ Azure Stack 包含基础结构监视功能，有助于查看 Azure Stack 区域�
 选择“警报”磁贴的上半部分可以导航到区域的所有活动警报列表。 如果选择磁贴中的“严重”或“警告”行项，则会导航到警报的筛选列表（“严重”或“警告”）。 
 
 “警报”边栏选项卡支持按状态（“活动”或“已关闭”）和严重性（“严重”或“警告”）进行筛选。 默认视图显示所有活动警报。 所有已关闭的警报在七天后将从系统中删除。
+
+>[!Note]
+>如果警报在一天内仍处于活动状态但尚未更新，则可以运行[test-azurestack](azure-stack-diagnostic-test.md)并在未报告问题时关闭警报。
 
 ![在“筛选器”窗格中按严重或警告状态进行筛选](media/azure-stack-monitor-health/alert-view.png)
 

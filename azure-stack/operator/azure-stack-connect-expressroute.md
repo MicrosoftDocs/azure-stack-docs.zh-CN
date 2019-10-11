@@ -14,12 +14,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 36ed1b7ef7225f848aa3e5869b8c46f911be7e19
+ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961561"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257773"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -104,7 +104,7 @@ ms.locfileid: "71961561"
 
    |字段  |值  |
    |---------|---------|
-   |姓名     |Tenant1VNet1         |
+   |名称     |Tenant1VNet1         |
    |地址空间     |10.1.0.0/16|
    |子网名称     |Tenant1-Sub1|
    |子网地址范围     |10.1.1.0/24|
@@ -341,7 +341,7 @@ ASDK 是独立的，并且与部署物理主机的网络隔离。 网关连接�
 
 可以使用任何支持 IKEv2 VPN 和 BGP 的路由器，来终止 Azure Stack 的站点到站点 VPN 连接。 同一路由器用于通过 ExpressRoute 线路连接到 Azure。
 
-以下 Cisco Site Recovery 1000 序列聚合服务路由器配置示例支持*ExpressRoute 路由器配置*关系图中显示的网络基础结构。
+以下 Cisco ASR 1000 系列聚合服务路由器配置示例支持  *ExpressRoute 路由器配置*图中所示的网络基础结构。
 
 ```shell
 ip vrf Tenant 1

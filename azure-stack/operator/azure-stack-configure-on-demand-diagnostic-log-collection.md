@@ -12,24 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 9d8510c121c424c3c66fd179639256e8834e932e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: fd56e7aa7805614829985a2e083d228d1960b402
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829062"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173066"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>按需收集 Azure Stack 诊断日志
 
 适用范围：*Azure Stack 集成系统*
 
-在故障排除过程中，Microsoft 客户支持服务（CSS）可能需要分析诊断日志。 从 1907 版开始，Azure Stack 操作员可以通过“帮助和支持”将按需诊断日志上传到 Azure 中的 Blob 容器。 如果门户不可用，操作员可以通过特权终结点 (PEP) 使用 Get-AzureStackLog 来收集日志，这是一种备用方法。 本主题介绍了按需收集诊断日志的两种方式。
+在故障排除过程中，Microsoft 客户支持服务（CSS）可能需要分析诊断日志。 从 1907 版开始，Azure Stack 操作员可以通过“帮助和支持”将按需诊断日志上传到 Azure 中的 Blob 容器。 如果门户不可用，操作员可以使用 Get-azurestacklog 通过特权终结点（PEP）收集日志。 本主题介绍了按需收集诊断日志的两种方式。
 
-## <a name="use-help-and-support-to-collect-diagnostic-logs"></a>使用 "帮助和支持" 收集诊断日志
+>[!Note]
+>作为根据需要收集日志的替代方法，可以通过启用[自动诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)来简化故障排除过程。 如果需要调查系统运行状况条件，将自动上传日志以供 CSS 分析。 
+
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>使用 "帮助和支持" 来按需收集诊断日志
 
 为了排查问题，CSS 可能会请求 Azure Stack 操作员根据需要收集上周特定时间范围的诊断日志。 在这种情况下，CSS 会为操作员提供一个 SAS URL 来上传收集的内容。 使用以下步骤，通过 CSS 提供的 SAS URL 配置按需日志收集：
 

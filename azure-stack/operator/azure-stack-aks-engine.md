@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: bcb9dab55d00c48e5b77e7184fae0567ff1f620e
-ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 6695af1e27a2182321a468b853a4650f42146a15
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71311285"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037900"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>向 Azure Stack Marketplace 添加 Azure Kubernetes Services （AKS）引擎必备组件
 
@@ -69,10 +69,9 @@ ms.locfileid: "71311285"
 1. 选择与 AKS 引擎版本匹配的映像版本。 可以在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)中找到 AKS 基本映像到 AKS 引擎版本的列表。 
 
     在列表中，选择：
-    - **发布者**： microsoft-aks
+    - **发布者**：Azure Kubernetes 服务
     - **产品/服务**： aks
-    - **版本**：2019.07.30 （或映射到 AKS 引擎的版本）
-    - **SKU**： aks-1604-201907
+    - **版本**：AKS 基本映像 16.04-LTS Image 发行版，9月2019（2019.09.19 或 version 映射到 AKS Engine）
 
 1. 选择“下载”。
 
