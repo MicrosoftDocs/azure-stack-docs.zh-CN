@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Syslog 转发
-description: 了解如何通过 Syslog 转发将 Azure Stack 与监视解决方案集成
+title: 使用 syslog 转发将 Azure Stack 与监视解决方案集成 |Microsoft Docs
+description: 了解如何使用 syslog 转发将 Azure Stack 与监视解决方案集成。
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -11,21 +11,21 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/23/2019
 keywords: ''
-ms.openlocfilehash: a045ed6b64b80c521e6930b651635591ec0e50d4
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f28eda4a54ae95b1d5f3cc9c694344f8aec46f33
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985313"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277260"
 ---
-# <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 数据中心集成 - Syslog 转发
+# <a name="integrate-azure-stack-with-monitoring-solutions-using-syslog-forwarding"></a>使用 syslog 转发将 Azure Stack 与监视解决方案集成
 
-本文介绍如何使用 Syslog 将 Azure Stack 基础结构与已经部署在数据中心的外部安全解决方案集成。 例如，安全信息和事件管理 (SIEM) 系统。 Syslog 通道会公开由 Azure Stack 基础结构的所有组件提供的审核、警报和安全日志。 使用 Syslog 转发可以与安全监视解决方案集成，并且/或者可以检索所有审核、警报和安全日志，将其以存储方式保留。
+本文介绍如何使用 Syslog 将 Azure Stack 基础结构与已经部署在数据中心的外部安全解决方案集成。 例如，安全信息事件管理（SIEM）系统。 Syslog 通道会公开由 Azure Stack 基础结构的所有组件提供的审核、警报和安全日志。 使用 syslog 转发功能与安全监视解决方案集成，并检索所有审核、警报和安全日志以存储这些日志以进行保留。
 
 从 1809 更新开始，Azure Stack 有了一个集成的 Syslog 客户端，该客户端在配置后可以通过通用事件格式 (CEF) 的有效负载发出 Syslog 消息。
 
 下图描绘了 Azure Stack 与外部 SIEM 的集成。 需要考虑两种集成模式：第一种模式（以蓝色表示）是包含基础结构虚拟机和 Hyper-V 节点的 Azure Stack 基础结构。 来自这些组件的所有审核、安全日志和警报将通过包含 CEF 有效负载的 syslog 集中收集和公开。 本文档页将介绍此集成模式。
-第二种集成模式以橙色表示，涵盖基板管理控制器 (BMC)、硬件生命周期主机 (HLH)、运行硬件合作伙伴监视和管理软件的虚拟机和/或虚拟设备，以及架顶式 (TOR) 交换机。 由于这些组件是特定于硬件合作伙伴的，因此请与硬件合作伙伴联系，以获取有关如何将这些组件与外部 SIEM 集成的文档。
+第二个集成模式为橙色，涵盖了基板管理控制器（Bmc）、硬件生命周期主机（HLH）、运行硬件伙伴监视和管理软件的虚拟机和虚拟设备。和架顶（TOR）开关。 由于这些组件是特定于硬件合作伙伴的，因此请与硬件合作伙伴联系，以获取有关如何将这些组件与外部 SIEM 集成的文档。
 
 ![Syslog 转发图](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -37,12 +37,12 @@ Azure Stack 中的 Syslog 客户端支持以下配置：
 
 2. **基于 TCP 的 Syslog，支持服务器身份验证和 TLS 1.2 加密：** 在此配置中，Syslog 客户端可以通过证书验证 Syslog 服务器的身份。 消息通过 TLS 1.2 加密的通道发送。
 
-3. **基于 TCP 的 Syslog，不支持加密：** 在此配置中，不验证 syslog 客户端和 syslog 服务器标识。 消息通过 TCP 以明文形式发送。
+3. **基于 TCP 的 Syslog，不支持加密：** 在此配置中，系统日志客户端和 syslog 服务器标识未经过验证。 消息通过 TCP 以明文形式发送。
 
-4. **基于 UDP 的 Syslog，不支持加密：** 在此配置中，不验证 syslog 客户端和 syslog 服务器标识。 消息通过 UDP 以明文形式发送。
+4. **基于 UDP 的 Syslog，不支持加密：** 在此配置中，系统日志客户端和 syslog 服务器标识未经过验证。 消息通过 UDP 以明文形式发送。
 
 > [!IMPORTANT]
-> Microsoft 强烈建议使用 TCP 使用身份验证和加密 (#1 配置，或者在最低限度下，#2) 用于生产环境，以防止人为干预攻击和窃听的消息。
+> Microsoft 强烈建议对生产环境使用身份验证和加密（配置 #1 或，最少 #2）使用 TCP，以防止中间人攻击和窃听消息。
 
 ### <a name="cmdlets-to-configure-syslog-forwarding"></a>用于配置 Syslog 转发的 cmdlet
 配置 Syslog 转发需要访问特权终结点 (PEP)。 已将两个 PowerShell cmdlet 添加到 PEP 来配置 Syslog 转发：
@@ -61,30 +61,30 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *Set-SyslogServer* cmdlet 的参数：
 
-| 参数 | 描述 | Type | 需要 |
+| 参数 | 描述 | 类型 | 需要 |
 |---------|---------|---------|---------|
-|*ServerName* | Syslog 服务器的 FQDN 或 IP 地址 | String | 是|
-|*ServerPort* | syslog 服务器侦听的端口号 | String | 是|
-|*NoEncryption*| 强制客户端以明文形式发送 Syslog 消息 | 标志 | 否|
-|*SkipCertificateCheck*| 在 TLS 初次握手期间跳过对 Syslog 服务器所提供证书的验证 | 标志 | 否|
-|*SkipCNCheck*| 在 TLS 初次握手期间跳过对 Syslog 服务器所提供证书的“公用名称”值的验证 | 标志 | 否|
-|*UseUDP*| 使用 Syslog 时将 UDP 用作传输协议 |标志 | 否|
-|*Remove*| 从客户端删除服务器的配置并停止 Syslog 转发| 标志 | 否|
+|*ServerName* | Syslog 服务器的 FQDN 或 IP 地址。 | String | 是|
+|*ServerPort* | Syslog 服务器正在侦听的端口号。 | String | 是|
+|*NoEncryption*| 强制客户端以明文形式发送 syslog 消息。 | 标志 | 否|
+|*SkipCertificateCheck*| 初次 TLS 握手期间，跳过 syslog 服务器提供的证书验证。 | 标志 | 否|
+|*SkipCNCheck*| 跳过对 syslog 服务器在初始 TLS 握手期间提供的证书的公用名值的验证。 | 标志 | 否|
+|*UseUDP*| 结合使用 syslog 和 UDP 作为传输协议。 |标志 | 否|
+|*Remove*| 删除客户端的服务器配置并停止 syslog 转发。| 标志 | 否|
 
 *Set-SyslogClient* cmdlet 的参数：
 
-| 参数 | 描述 | Type |
+| 参数 | 描述 | 类型 |
 |---------|---------| ---------|
-| *pfxBinary* | pfx 文件，其中包含的证书可供客户端用作对 Syslog 服务器进行身份验证的标识  | Byte[] |
-| *CertPassword* |  密码，用于导入与 pfx 文件关联的私钥 | SecureString |
-|*RemoveCertificate* | 从客户端删除证书 | 标志|
-| *OutputSeverity* | 输出日志记录级别。 值为**默认**或**Verbose**。 默认情况下包括严重性级别严重、 警告或错误。 详细消息，包括所有严重级别的详细、 信息性、 警告、 严重、 或错误  | String |
+| *pfxBinary* | pfx 文件，其中包含客户端作为标识对 syslog 服务器进行身份验证时要使用的证书。  | Byte[] |
+| *CertPassword* |  用于导入与 pfx 文件关联的私钥的密码。 | SecureString |
+|*RemoveCertificate* | 从客户端中删除证书。 | 标志|
+| *OutputSeverity* | 输出日志记录的级别。 值为 **Default** 或 **Verbose**。 默认值包括严重性级别： "警告"、"严重" 或 "错误"。 详细包括所有严重性级别：详细、信息性、警告、严重或错误。  | String |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>使用 TCP、相互身份验证和 TLS 1.2 加密配置 Syslog 转发
 
-在此配置中，Azure Stack 中的 Syslog 客户端使用 TLS 1.2 加密将消息通过 TCP 转发到 Syslog 服务器。 在初次握手期间，客户端会验证服务器是否提供了有效且可信的证书；类似地，客户端也会向服务器提供证书来证明其身份。 此配置是最安全的，因为它对客户端和服务器的标识都进行了完整的验证，且消息也是通过加密的通道发送。 
+在此配置中，Azure Stack 中的 Syslog 客户端使用 TLS 1.2 加密将消息通过 TCP 转发到 Syslog 服务器。 在初始握手期间，客户端将验证服务器是否提供有效的受信任证书。 客户端还向服务器提供证书，作为其身份证明。 此配置是最安全的，因为它对客户端和服务器的标识都进行了完整的验证，且消息也是通过加密的通道发送。
 
 > [!IMPORTANT]
-> Microsoft 强烈建议用于生产环境中使用此配置。 
+> Microsoft 强烈建议对生产环境使用此配置。 
 
 若要使用 TCP、相互身份验证和 TLS 1.2 加密配置 Syslog 转发，请在 PEP 会话中运行以下两个 cmdlet：
 
@@ -131,14 +131,14 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>使用 TCP、服务器身份验证和 TLS 1.2 加密配置 Syslog 转发
 
-在此配置中，Azure Stack 中的 Syslog 客户端使用 TLS 1.2 加密将消息通过 TCP 转发到 Syslog 服务器。 在初次握手期间，客户端也会验证服务器是否提供了有效且可信的证书。 此配置可以防止客户端将消息发送至不受信任的目标。
-使用身份验证和加密的 TCP 的默认配置，表示最小的 Microsoft 建议为生产环境的安全级别。 
+在此配置中，Azure Stack 中的 Syslog 客户端使用 TLS 1.2 加密将消息通过 TCP 转发到 Syslog 服务器。 在初次握手期间，客户端也会验证服务器是否提供了有效且可信的证书。 此配置可防止客户端将消息发送到不受信任的目标。
+使用身份验证和加密的 TCP 是默认配置，表示 Microsoft 为生产环境推荐的最低安全级别。
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
 ```
 
-如果需要使用自签名证书和/或不受信任的证书来测试 Syslog 服务器与 Azure Stack 客户端的集成，可以使用这些标记来跳过在初次握手期间由客户端执行的服务器验证。
+如果要使用自签名或不受信任的证书测试 syslog 服务器与 Azure Stack 客户端的集成，则可以使用这些标志来跳过初始握手期间由客户端完成的服务器验证。
 
 ```powershell
  #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
@@ -151,32 +151,32 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 ```
 
 > [!IMPORTANT]
-> Microsoft 不提倡使用-SkipCertificateCheck 标志用于生产环境。 
+> Microsoft 建议将-SkipCertificateCheck 标志用于生产环境。 
 
 ### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>使用 TCP 在不加密的情况下配置 Syslog 转发
 
-在此配置中，Azure Stack 中的 Syslog 客户端在不加密的情况下将消息通过 TCP 转发到 Syslog 服务器。 客户端既不验证服务器的标识，也不将自己的标识提供给服务器进行验证。 
+在此配置中，Azure Stack 中的 Syslog 客户端在不加密的情况下将消息通过 TCP 转发到 Syslog 服务器。 客户端不会验证服务器的身份，也不会向服务器提供自己的标识用于验证。
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -NoEncryption
 ```
 
 > [!IMPORTANT]
-> Microsoft 建议不要用于生产环境中使用此配置。 
+> Microsoft 建议不要在生产环境中使用此配置。
 
 
 ### <a name="configuring-syslog-forwarding-with-udp-and-no-encryption"></a>使用 UDP 在不加密的情况下配置 Syslog 转发
 
-在此配置中，Azure Stack 中的 Syslog 客户端在不加密的情况下将消息通过 UDP 转发到 Syslog 服务器。 客户端既不验证服务器的标识，也不将自己的标识提供给服务器进行验证。 
+在此配置中，Azure Stack 中的 Syslog 客户端在不加密的情况下将消息通过 UDP 转发到 Syslog 服务器。 客户端不会验证服务器的身份，也不会向服务器提供自己的标识用于验证。
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
 ```
 
-不加密的 UDP 是最容易配置的，但不能防范人为干预攻击和消息窃听。 
+尽管不进行加密的 UDP 是最容易配置的，但它不会对中间人攻击和消息窃听提供任何保护。
 
 > [!IMPORTANT]
-> Microsoft 建议不要用于生产环境中使用此配置。 
+> Microsoft 建议不要在生产环境中使用此配置。
 
 
 ## <a name="removing-syslog-forwarding-configuration"></a>删除 Syslog 转发配置
@@ -197,7 +197,7 @@ Set-SyslogClient -RemoveCertificate
 
 ## <a name="verifying-the-syslog-setup"></a>验证 Syslog 设置
 
-如果已成功地将 Syslog 客户端连接到 Syslog 服务器，则很快就可以开始接收事件。 如果看不到任何事件，请运行以下 cmdlet，对 Syslog 客户端的配置进行验证：
+如果已成功地将 Syslog 客户端连接到 Syslog 服务器，则很快就可以开始接收事件。 如果看不到任何事件，请通过运行以下 cmdlet 来验证 syslog 客户端的配置：
 
 **验证 Syslog 客户端中的服务器配置**
 
@@ -214,7 +214,7 @@ Get-SyslogClient
 ## <a name="syslog-message-schema"></a>Syslog 消息架构
 
 Azure Stack 基础结构的 Syslog 转发在发送消息时采用通用事件格式 (CEF)。
-每条 Syslog 消息的结构基于以下架构： 
+每条 Syslog 消息的结构基于以下架构：
 
 ```Syslog
 <Time> <Host> <CEF payload>
@@ -242,7 +242,7 @@ Prefix fields
 
 特权终结点的事件表：
 
-| 事件 | PEP 事件 ID | PEP 任务名称 | 严重性 |
+| Event | PEP 事件 ID | PEP 任务名称 | severity |
 |-------|--------------| --------------|----------|
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
@@ -258,13 +258,13 @@ Prefix fields
 
 PEP 严重性表：
 
-| 严重性 | 级别 | 数字值 |
+| severity | Level | 数字值 |
 |----------|-------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
-|10|严重|值：1. 指示严重警报的日志|
-|8|错误| 值：2. 指示错误的日志|
+|10|关键|值：1. 指示严重警报的日志|
+|8|Error| 值：2. 指示错误的日志|
 |5|警告|值：3. 指示警告的日志|
-|2|信息|值：4. 指示信息性消息的日志|
+|2|Information|值：4. 指示信息性消息的日志|
 |0|详细|值：5. 指示所有级别的日志|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>恢复终结点事件的 CEF 映射
@@ -278,7 +278,7 @@ Prefix fields
 
 恢复终结点的事件表：
 
-| 事件 | REP 事件 ID | REP 任务名称 | 严重性 |
+| Event | REP 事件 ID | REP 任务名称 | severity |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
@@ -289,13 +289,13 @@ Prefix fields
 
 REP 严重性表：
 
-| 严重性 | 级别 | 数字值 |
+| severity | Level | 数字值 |
 |----------|-------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
-|10|严重|值：1. 指示严重警报的日志|
-|8|错误| 值：2. 指示错误的日志|
+|10|关键|值：1. 指示严重警报的日志|
+|8|Error| 值：2. 指示错误的日志|
 |5|警告|值：3. 指示警告的日志|
-|2|信息|值：4. 指示信息性消息的日志|
+|2|Information|值：4. 指示信息性消息的日志|
 |0|详细|值：5. 指示所有级别的日志|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows 事件的 CEF 映射
@@ -312,10 +312,10 @@ Windows 事件的严重性表：
 | CEF 严重性值 | Windows 事件级别 | 数字值 |
 |--------------------|---------------------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
-|10|严重|值：1. 指示严重警报的日志|
-|8|错误| 值：2. 指示错误的日志|
+|10|关键|值：1. 指示严重警报的日志|
+|8|Error| 值：2. 指示错误的日志|
 |5|警告|值：3. 指示警告的日志|
-|2|信息|值：4. 指示信息性消息的日志|
+|2|Information|值：4. 指示信息性消息的日志|
 |0|详细|值：5. 指示所有级别的日志|
 
 Azure Stack 中 Windows 事件的自定义扩展表：
@@ -357,17 +357,17 @@ Azure Stack 中 Windows 事件的自定义扩展表：
 
 警报严重性表：
 
-| 严重性 | 级别 |
+| severity | Level |
 |----------|-------|
 |0|Undefined|
-|10|严重|
+|10|关键|
 |5|警告|
 
 Azure Stack 中已创建警报的自定义扩展表：
 
 | 自定义扩展名称 | 示例 | 
 |-----------------------|---------|
-|MasEventDescription|说明：已为 \<TestDomain\> 创建用户帐户 \<TestUser\>。 它是潜在的安全风险。 - 补救措施：联系支持人员。 解决此问题需要客户协助。 不要试图在没有他们协助的情况下解决此问题。 在提交支持请求之前，请根据 https://aka.ms/azurestacklogfiles 中的指南启动日志文件收集过程 |
+|MasEventDescription|说明：已为 \<TestDomain\> 创建用户帐户 \<TestUser\>。 它是潜在的安全风险。 \- 补救措施：联系支持人员。 解决此问题需要客户协助。 如果没有帮助，请不要尝试解决此问题。 在打开支持请求之前，请使用 https://aka.ms/azurestacklogfiles 中的指南开始日志文件收集过程。
 
 ### <a name="cef-mapping-for-alerts-closed"></a>已关闭警报的 CEF 映射
 

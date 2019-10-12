@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: ae603e1914b5a83f190eeafe7fa7d7e94e43a1aa
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 0a784a80931113b7901a021a7c2ff707ce7df355
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714703"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283265"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概述
 
@@ -71,7 +71,7 @@ ms.locfileid: "71714703"
 
 - **OEM 硬件供应商提供的更新**
 
-    OEM 更新将取决于你的制造商。 需要与 OEM 建立通信通道，以便在需要应用的 OEM 更新时进行了解。 有关 Oem 和 OEM 更新过程的详细信息，请参阅[Apply Azure Stack 原始设备制造商（OEM）更新](azure-stack-update-oem.md)。
+    OEM 更新将取决于你的制造商。 你将需要与 OEM 建立通信通道，以便可以了解你的 OEM 提供的需要应用的更新。 有关 Oem 和 OEM 更新过程的详细信息，请参阅[Apply Azure Stack 原始设备制造商（OEM）更新](azure-stack-update-oem.md)。
 
 ## <a name="update-processes"></a>更新进程
 
@@ -97,7 +97,7 @@ ms.locfileid: "71714703"
 
 ## <a name="the-update-resource-provider"></a>更新资源提供程序
 
-Azure Stack 包含一个更新资源提供程序, 用于处理 Microsoft 软件更新的应用程序。 此提供程序将检查所有物理主机、Service Fabric 应用程序和运行时以及所有基础结构虚拟机及其关联的服务上是否应用了更新。
+Azure Stack 包含一个更新资源提供程序，用于处理 Microsoft 软件更新的应用程序。 此提供程序将检查所有物理主机、Service Fabric 应用程序和运行时以及所有基础结构虚拟机及其关联的服务上是否应用了更新。
 
 当更新安装时，由于更新进程以 Azure Stack 中的各种子系统（例如，物理主机和基础结构虚拟机）为目标，因此你可以查看高级状态。
 

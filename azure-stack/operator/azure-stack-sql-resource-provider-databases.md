@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: dfa8e778b21826ff1f589efbf2b49097d5ee3685
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: ceeca4f42f728bdcd9496b735704bfef6d98f25c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829332"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283387"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 
@@ -79,4 +79,4 @@ AlwaysOn 数据库应显示为已进行同步，在所有 SQL 实例中可用并
 
 ## <a name="next-steps"></a>后续步骤
 
-[维护 SQL Server 资源提供程序](azure-stack-sql-resource-provider-maintain.md)
+了解如何[提供高度可用的 SQL 数据库](azure-stack-tutorial-sql.md)

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 501040273eca6ce80972ae2a69eca2018f9f8d2d
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 4fcfb0c8ef509ab827c15321cff5fc945230d69e
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159601"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283438"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>将 Kubernetes 添加到 Azure Stack 市场
 
@@ -48,7 +48,7 @@ ms.locfileid: "71159601"
 
 1. 选择“更改状态”。 选择“公共”。
 
-1. 选择 " **+ 创建资源** > " "**产品/服务"，并计划** > **订阅**以创建订阅。
+1. 选择 " **+ 创建资源** > **产品/服务"，并计划**@no__t 3**订阅**以创建订阅。
 
     a. 输入**显示名称**。
 
@@ -154,4 +154,4 @@ ms.locfileid: "71159601"
 
 [将 Kubernetes 部署到 Azure Stack](../user/azure-stack-solution-template-kubernetes-deploy.md)
 
-[在 Azure Stack 中提供服务概述](azure-stack-offer-services-overview.md)
+[在 Azure Stack 中提供服务概述](service-plan-offer-subscription-overview.md)

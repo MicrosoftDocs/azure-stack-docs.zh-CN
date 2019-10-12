@@ -16,12 +16,12 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6bb5c0cf6b5e4f2ddf60a19734a9e7c63df5d329
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 6c2fd698efb6990862887a758ce1b44021bd13a7
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070257"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282883"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 .NET 配合使用
 
@@ -147,7 +147,7 @@ var client = new ResourceManagementClient(armEndpoint, credentials)
 };
 ```
 
-若`credentials`要实例化客户端，必须在此代码中使用参数。 下面的代码通过租户 ID 和服务主体生成身份验证令牌：
+若要实例化客户端，必须在此代码中使用 `credentials` 参数。 下面的代码通过租户 ID 和服务主体生成身份验证令牌：
 
 ```csharp
 var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
@@ -212,7 +212,7 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
   [在 Azure Stack 中创建套餐的订阅]: ../operator/azure-stack-subscribe-plan-provision-vm.md
   [提供对 Azure Stack 的应用程序访问权限]: ../operator/azure-stack-create-service-principals.md
   [*租户 ID*]: ../operator/azure-stack-identity-overview.md
-  [*订阅 ID*]: ../operator/azure-stack-plan-offer-quota-overview.md#subscriptions
+  [*订阅 ID*]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
   [*Azure Stack 资源管理器终结点*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
   [API 配置文件的摘要]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject

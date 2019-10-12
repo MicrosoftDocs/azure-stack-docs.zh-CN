@@ -15,22 +15,22 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 64554d0bd2c9e9d8622b1fd48bb7d086cd0b4b76
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: ca313e2e936f7bb006fdc1c15c49d271b1059a16
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603123"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283296"
 ---
 # <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>通过 Azure 和 Azure Stack 创建跨云缩放应用解决方案
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-了解如何创建跨云解决方案, 以提供手动触发的进程, 以便通过流量管理器通过自动缩放, 从 Azure Stack 的托管 web 应用切换到 Azure 托管 web 应用。 此过程可确保在负载下灵活且可缩放的云实用程序。
+了解如何创建跨云解决方案，以提供手动触发的进程，以便通过流量管理器通过自动缩放，从 Azure Stack 的托管 web 应用切换到 Azure 托管 web 应用。 此过程可确保在负载下灵活且可缩放的云实用程序。
 
-在此模式下, 你的租户可能尚未准备好在公有云中运行你的应用。 但是，要让企业在本地环境中保持用于处理应用需求高峰的容量，在经济上似乎不切实际。 你的租户可以使用公有云的弹性和其本地解决方案。
+在此模式下，你的租户可能尚未准备好在公有云中运行你的应用。 但是，要让企业在本地环境中保持用于处理应用需求高峰的容量，在经济上似乎不切实际。 你的租户可以使用公有云的弹性和其本地解决方案。
 
-在此解决方案中, 你将构建一个示例环境, 用于:
+在此解决方案中，你将构建一个示例环境来完成以下任务：
 
 > [!div class="checklist"]
 > - 创建多节点 web 应用。
@@ -41,38 +41,38 @@ ms.locfileid: "68603123"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新带入本地环境, 从而实现了唯一的混合云, 使你能够在任何位置构建和部署混合应用。  
+> Microsoft Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
 > 
-> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)查看软件质量的支柱 (放置、可伸缩性、可用性、复原能力、可管理性和安全性), 以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计, 并最大程度减少生产环境中的挑战。
+> [混合应用程序的设计注意事项](azure-stack-edge-pattern-overview.md)一文回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
-## <a name="prerequisites"></a>系统必备
+## <a name="prerequisites"></a>先决条件
 
--   Azure 订阅。 如果需要, 请在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+-   Azure 订阅。 如果需要，请在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 - Azure Stack 集成系统或 Azure Stack 开发工具包部署。
-    - 有关安装 Azure Stack 的说明, 请参阅[安装 Azure Stack 开发工具包](../asdk/asdk-install.md)。
-    - 对于 ASDK 后期部署自动化脚本, 请参阅:[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
+    - 有关安装 Azure Stack 的说明，请参阅[安装 Azure Stack 开发工具包](../asdk/asdk-install.md)。
+    - 对于 ASDK 后期部署自动化脚本，请参阅： [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 
     - 此安装可能需要几个小时才能完成。
 
 -   将[应用服务](../operator/azure-stack-app-service-deploy.md) PaaS 服务部署到 Azure Stack。
 
--   在 Azure Stack 环境中[创建计划/产品/服务](../operator/azure-stack-plan-offer-quota-overview.md)。
+-   在 Azure Stack 环境中[创建计划/产品/服务](../operator/service-plan-offer-subscription-overview.md)。
 
 -   在 Azure Stack 环境中[创建租户订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 
 -   在租户订阅中创建 web 应用。 记下新的 web 应用 URL 以供以后使用。
 
--   在租户订阅中部署 Azure Pipelines 虚拟机 (VM)。
+-   在租户订阅中部署 Azure Pipelines 虚拟机（VM）。
 
 -   需要 .NET 3.5 的 Windows Server 2016 VM。 将在 Azure Stack 上的租户订阅中构建此 VM 作为专用生成代理。
 
--   Azure Stack 市场中提供了[包含 SQL 2017 VM 映像的 Windows Server 2016](../operator/azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal)。 如果此映像不可用, 请使用 Azure Stack 运算符, 以确保将其添加到环境中。
+-   Azure Stack 市场中提供了[包含 SQL 2017 VM 映像的 Windows Server 2016](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal)。 如果此映像不可用，请使用 Azure Stack 运算符，以确保将其添加到环境中。
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
 
 ### <a name="scalability"></a>可伸缩性
 
-跨云缩放的关键组件是能够在公共云基础结构和本地云基础结构之间提供即时和按需缩放, 从而提供一致可靠的服务。
+跨云缩放的关键组件是能够在公共云基础结构和本地云基础结构之间提供即时和按需缩放，从而提供一致可靠的服务。
 
 ### <a name="availability"></a>可用性
 
@@ -92,14 +92,14 @@ ms.locfileid: "68603123"
 
 2.  登录到域的域名注册机构。 可能需要由获批准的管理员进行 DNS 更新。
 
-3.  通过添加 Azure AD 提供的 DNS 条目来更新域的 DNS 区域文件。 (DNS 条目不会影响邮件路由或 web 托管行为。)
+3.  通过添加 Azure AD 提供的 DNS 条目来更新域的 DNS 区域文件。 （DNS 条目不会影响邮件路由或 web 托管行为。）
 
 ### <a name="create-a-default-multi-node-web-app-in-azure-stack"></a>在 Azure Stack 中创建默认的多节点 Web 应用
 
-设置混合持续集成和持续部署 (CI/CD), 将 web 应用部署到 Azure, 并 Azure Stack 并自动将更改推送到这两个云。
+设置混合持续集成和持续部署（CI/CD），将 web 应用部署到 Azure，并 Azure Stack 并自动将更改推送到这两个云。
 
 > [!Note]  
-> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 有关详细信息, 请在[Azure Stack 上的应用服务入门之前](../operator/azure-stack-app-service-before-you-get-started.md)查看应用服务文档。
+> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 有关详细信息，请在[Azure Stack 上的应用服务入门之前](../operator/azure-stack-app-service-before-you-get-started.md)查看应用服务文档。
 
 ### <a name="add-code-to-azure-repos"></a>向 Azure Repos 中添加代码
 
@@ -117,7 +117,7 @@ Azure Repos
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>为这两个云中的应用服务创建独立的 Web 应用部署
 
-1.  编辑 **WebApplication.csproj** 文件。 选择`Runtimeidentifier`并添加`win10-x64`。 （请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。） 
+1.  编辑 **WebApplication.csproj** 文件。 选择 `Runtimeidentifier` 并添加 @no__t。 （请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。） 
 
     ![编辑 web 应用项目文件](media/azure-stack-solution-cloud-burst/image3.png)
 
@@ -133,11 +133,11 @@ Azure Repos
 
     ![将代码添加到 web 应用](media/azure-stack-solution-cloud-burst/image4.png)
 
-3. 运行生成。 [自包含的部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布在 Azure 上运行的项目, 并 Azure Stack。
+3. 运行生成。 [自包含的部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布在 Azure 上运行的项目，并 Azure Stack。
 
 ## <a name="use-an-azure-hosted-agent"></a>使用 Azure 托管代理
 
-在 Azure Pipelines 中使用托管生成代理是一种用于生成和部署 web 应用的便利选项。 维护和升级是通过 Microsoft Azure 自动完成的, 可实现持续且无中断的开发周期。
+在 Azure Pipelines 中使用托管生成代理是一种用于生成和部署 web 应用的便利选项。 维护和升级是通过 Microsoft Azure 自动完成的，可实现持续且无中断的开发周期。
 
 ### <a name="manage-and-configure-the-cd-process"></a>管理和配置 CD 过程
 
@@ -145,7 +145,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 ## <a name="create-release-definition"></a>创建发布定义
 
-1.  选择**加号**按钮, 在 VSO 的 "**生成和发布**" 部分中的 "**发布**" 选项卡下添加新发布。
+1.  选择**加号**按钮，在 VSO 的 "**生成和发布**" 部分中的 "**发布**" 选项卡下添加新发布。
 
     ![创建发布定义](media/azure-stack-solution-cloud-burst/image5.png)
 
@@ -153,19 +153,19 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
    ![应用 Azure App Service 部署模板](meDia/azure-stack-solution-cloud-burst/image6.png)
 
-3. 在 "**添加项目**" 下, 添加 Azure Cloud build 应用的项目。
+3. 在 "**添加项目**" 下，添加 Azure Cloud build 应用的项目。
 
    ![向 Azure Cloud build 添加项目](media/azure-stack-solution-cloud-burst/image7.png)
 
-4. 在 "管道" 选项卡下, 选择环境的 "**阶段"、"任务**" 链接, 并设置 Azure 云环境值。
+4. 在 "管道" 选项卡下，选择环境的 "**阶段"、"任务**" 链接，并设置 Azure 云环境值。
 
    ![设置 Azure 云环境值](media/azure-stack-solution-cloud-burst/image8.png)
 
-5. 设置**环境名称**, 然后选择 azure 云终结点的**azure 订阅**。
+5. 设置**环境名称**，然后选择 azure 云终结点的**azure 订阅**。
 
       ![选择 azure 云终结点的 Azure 订阅](media/azure-stack-solution-cloud-burst/image9.png)
 
-6. 在 "**应用服务名称**" 下, 设置所需的 Azure 应用服务名称。
+6. 在 "**应用服务名称**" 下，设置所需的 Azure 应用服务名称。
 
       ![设置 Azure 应用服务名称](media/azure-stack-solution-cloud-burst/image10.png)
 
@@ -188,7 +188,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
     ![为 Azure Stack 应用添加新项目](media/azure-stack-solution-cloud-burst/image15.png)
 
 
-11. 通过应用 Azure App Service 部署, 添加一个更多环境。
+11. 通过应用 Azure App Service 部署，添加一个更多环境。
     
     ![将环境添加到 Azure App Service 部署](media/azure-stack-solution-cloud-burst/image16.png)
 
@@ -212,7 +212,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
     
     ![选择 Azure Stack 代理](media/azure-stack-solution-cloud-burst/image21.png)
 
-17. 在 "部署 Azure App Service" 部分下, 选择适用于环境的有效**包或文件夹**。 选择文件夹位置旁边的“确定”。
+17. 在 "部署 Azure App Service" 部分下，选择适用于环境的有效**包或文件夹**。 选择文件夹位置旁边的“确定”。
 
     ![为 Azure App Service 部署选择文件夹](media/azure-stack-solution-cloud-burst/image22.png)
 
@@ -233,7 +233,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 21. 保存所有更改。
 
 > [!Note]  
-> 任务的某些设置可能已在从模板创建发布定义时自动定义为[环境变量](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables)。 无法在任务设置中修改这些设置;相反, 必须选择父环境项来编辑这些设置。
+> 任务的某些设置可能已在从模板创建发布定义时自动定义为[环境变量](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables)。 无法在任务设置中修改这些设置;相反，必须选择父环境项来编辑这些设置。
 
 ## <a name="publish-to-azure-stack-via-visual-studio"></a>通过 Visual Studio 发布到 Azure Stack
 
@@ -264,9 +264,9 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 ## <a name="develop-the-application-build"></a>开发应用程序生成
 
 > [!Note]  
-> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 有关详细信息, 请在[Azure Stack 上的应用服务入门之前](../operator/azure-stack-app-service-before-you-get-started.md)查看应用服务文档。
+> 需要在 Azure Stack 上创建适当的合成映像用于运行 Windows Server 和 SQL，并需要部署应用服务。 有关详细信息，请在[Azure Stack 上的应用服务入门之前](../operator/azure-stack-app-service-before-you-get-started.md)查看应用服务文档。
 
-使用[Azure 资源管理器模板](https://azure.microsoft.com/resources/templates/), 如 Azure Repos 的 web 应用代码部署到这两个云。
+使用[Azure 资源管理器模板](https://azure.microsoft.com/resources/templates/)，如 Azure Repos 的 web 应用代码部署到这两个云。
 
 ### <a name="add-code-to-an-azure-repos-project"></a>向 Azure Repos 项目添加代码
 
@@ -276,7 +276,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>为这两个云中的应用服务创建独立的 Web 应用部署
 
-1.  编辑 **WebApplication.csproj** 文件：选择`Runtimeidentifier`并添加`win10-x64`。 有关详细信息，请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。
+1.  编辑 **WebApplication.csproj** 文件：选择 `Runtimeidentifier`，然后添加 @no__t。 有关详细信息，请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。
 
 2.  使用团队资源管理器将代码签入 Azure Repos。
 
@@ -294,7 +294,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 #### <a name="use-an-azure-hosted-build-agent"></a>使用 Azure 托管生成代理
 
-在 Azure Pipelines 中使用托管生成代理是一种用于生成和部署 web 应用的便利选项。 维护和升级是通过 Microsoft Azure 自动完成的, 可实现持续且无中断的开发周期。
+在 Azure Pipelines 中使用托管生成代理是一种用于生成和部署 web 应用的便利选项。 维护和升级是通过 Microsoft Azure 自动完成的，可实现持续且无中断的开发周期。
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>配置持续部署 (CD) 过程
 
@@ -310,11 +310,11 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 3.  在“选择模板”上选择“Azure 应用服务部署”，然后选择“应用”。
 
-4.  在 "**添加项目**" 的 "**源 (生成定义)** " 中, 选择 "Azure 云生成应用"。
+4.  在 "**添加项目**" 的 "**源（生成定义）** " 中，选择 "Azure 云生成应用"。
 
 5.  在“管道”选项卡上选择“1 阶段，1 任务”链接，以便**查看环境任务**。
 
-6.  在 "**任务**" 选项卡上, 输入 Azure 作为**环境名称**, 并从 " **azure 订阅**" 列表中选择 "AzureCloud"。
+6.  在 "**任务**" 选项卡上，输入 Azure 作为**环境名称**，并从 " **azure 订阅**" 列表中选择 "AzureCloud"。
 
 7.  输入 **Azure 应用服务名称**，即下一屏幕截图中的 `northwindtraders`。
 
@@ -355,11 +355,11 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 ## <a name="create-a-release"></a>创建发布
 
-1.  在 "**管道**" 选项卡上, 打开 "**发布**" 列表并选择 "**创建发布**"。
+1.  在 "**管道**" 选项卡上，打开 "**发布**" 列表并选择 "**创建发布**"。
 
-2.  输入发布的说明, 检查是否选择了正确的项目, 然后选择 "**创建**"。 几分钟后, 会显示一个横幅, 指示已创建新版本, 并且发布名称将显示为链接。 选择该链接可以查看 "发布摘要" 页面。
+2.  输入发布的说明，检查是否选择了正确的项目，然后选择 "**创建**"。 几分钟后，会显示一个横幅，指示已创建新版本，并且发布名称将显示为链接。 选择该链接可以查看 "发布摘要" 页面。
 
-3.  "发布摘要" 页将显示有关版本的详细信息。 在 "版本 2" 的以下屏幕截图中, "**环境**" 部分显示 Azure 的**部署状态**"正在进行", 并将 Azure Stack 的状态显示为 "成功"。 当 Azure 环境的部署状态变为“成功”以后，会显示一个横幅，指示可以审批发布了。 如果部署挂起或失败，则会显示一个蓝色的 **(i)** 信息图标。 将鼠标悬停在图标上方即可看到一个弹出窗口，其中包含延迟或失败的原因。
+3.  "发布摘要" 页将显示有关版本的详细信息。 在 "版本 2" 的以下屏幕截图中，"**环境**" 部分显示 Azure 的**部署状态**"正在进行"，并将 Azure Stack 的状态显示为 "成功"。 当 Azure 环境的部署状态变为“成功”以后，会显示一个横幅，指示可以审批发布了。 如果部署挂起或失败，则会显示一个蓝色的 **(i)** 信息图标。 将鼠标悬停在图标上方即可看到一个弹出窗口，其中包含延迟或失败的原因。
 
 4.  其他视图（例如发布列表）也会显示一个图标，指示正在等待审批。 此图标的弹出窗口会显示环境名称以及与部署相关的更多详细信息。 管理员可以很容易地查看发布的总体进度以及哪些发布正在等待审批。
 
@@ -367,7 +367,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 1.  在“Release-2”摘要页中选择“日志”。 部署期间，此页显示代理的实时日志。 左窗格显示每个环境的部署过程中每个操作的状态。
 
-2.  为预先部署或后期部署审批选择 "**操作**" 列中的 "人员" 图标, 以查看批准 (或拒绝) 部署的人员以及他们提供的消息。
+2.  为预先部署或后期部署审批选择 "**操作**" 列中的 "人员" 图标，以查看批准（或拒绝）部署的人员以及他们提供的消息。
 
 3.  部署完成后，整个日志文件会显示在右窗格中。 选择左窗格中的任何**步骤**以查看单个步骤（例如“初始化作业”）的日志文件。 有了查看单个日志的功能，就可以更轻松地跟踪和调试整体部署的部件。 **保存**某个步骤的日志文件，或者**以 Zip 格式下载所有日志**。
 

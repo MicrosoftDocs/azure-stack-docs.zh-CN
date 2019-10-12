@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: f5cbf333494eb8d04ccbc974f95cda8be5d62284
-ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
+ms.openlocfilehash: 7d2a98656671a5e6f59d46054e074e45bb9d3c89
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71814496"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282889"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Java 配合使用
 
@@ -97,7 +97,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 租户 ID                 | `AZURE_TENANT_ID`            | 你的 Azure Stack[租户 ID](../operator/azure-stack-identity-overview.md)。                                                          |
 | 客户端 ID                 | `AZURE_CLIENT_ID`             | 在上一部分中创建服务主体时保存的服务主体应用程序 ID。                                                                                              |
-| 订阅 ID           | `AZURE_SUBSCRIPTION_ID`      | 使用[订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions)可以访问 Azure Stack 中的产品/服务。                |
+| 订阅 ID           | `AZURE_SUBSCRIPTION_ID`      | 使用[订阅 ID](../operator/service-plan-offer-subscription-overview.md#subscriptions)可以访问 Azure Stack 中的产品/服务。                |
 | 客户端机密             | `AZURE_CLIENT_SECRET`        | 创建服务主体时保存的服务主体应用程序机密。                                                                                                                                   |
 | 资源管理器终结点 | `ARM_ENDPOINT`              | 请参阅[Azure Stack 资源管理器终结点](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)一文。 |
 | Location                  | `RESOURCE_LOCATION`    | 对于 Azure Stack 来说为 **Local**。                                                                                                                                                                                                |

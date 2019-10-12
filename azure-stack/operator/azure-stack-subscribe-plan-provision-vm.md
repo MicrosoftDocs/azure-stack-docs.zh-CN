@@ -1,26 +1,21 @@
 ---
-title: 在 Azure Stack 中订阅套餐 | Microsoft Docs
+title: 订阅产品/服务 Azure Stack
 description: 在 Azure Stack 中创建套餐的订阅
 services: azure-stack
 documentationcenter: ''
 author: bryanla
 manager: femila
-editor: ''
-ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: a35f8fe34cedbeb1a2ef068c666bc6a75effe111
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: c69c8a4be93cc392ca1eaf4edb70fb7fb4fc8676
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319155"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283366"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>在 Azure Stack 中创建套餐的订阅
 
@@ -33,11 +28,11 @@ ms.locfileid: "71319155"
 
 ## <a name="create-a-subscription-as-a-cloud-operator"></a>以云操作员的身份创建订阅
 
-云操作员可使用管理员门户为用户创建套餐订阅。 你可以为自己的目录租户成员创建订阅。 如果已启用[多租户](azure-stack-enable-multitenancy.md)，则还可以为其他目录租户中的用户创建订阅。
+云操作员可以使用管理员门户为用户创建产品/服务的订阅。 可为你自己的目录租户的成员创建订阅。 如果已启用[多租户](azure-stack-enable-multitenancy.md)，则还可以为其他目录租户中的用户创建订阅。
 
 如果不希望租户创建他们自己的订阅，请将所有套餐设置为私有，然后为租户创建订阅。 将 Azure Stack 与外部计帐系统或服务目录系统集成时，通常会使用此方法。
 
-当你为某个用户创建订阅后，该用户即可登录到用户门户，然后会发现自己已订阅套餐。  
+为某个用户创建订阅后，该用户可以登录到用户门户，然后会发现他（她）已订阅套餐。  
 
 ### <a name="to-create-a-subscription-for-a-user"></a>为用户创建订阅
 
@@ -88,11 +83,11 @@ ms.locfileid: "71319155"
 
 4. 若要查看创建的订阅，请选择“所有服务”，然后在“常规”类别下选择“订阅”。 选择订阅以查看其详细信息。  
 
-### <a name="to-subscribe-to-an-add-on-plan"></a>订阅附加计划
+### <a name="to-enable-an-add-on-plan-in-your-subscription"></a>在订阅中启用外接程序计划
 
-如果套餐有附加计划，随时可将该计划添加到订阅。  
+如果订阅的产品/服务有加载项计划，则可以随时将该计划添加到订阅。  
 
-1. 在用户门户中，选择“所有服务”。 接下来，在“常规”类别下选择“订阅”，然后选择要更改的订阅。 如果有任何可用的附加计划，则 **+ "添加计划**" 处于活动状态，并且有一个用于**附加计划**的磁贴。
+1. 在用户门户中，选择“所有服务”。 接下来，在“常规”类别下选择“订阅”，然后选择要更改的订阅。 如果存在可用的附加计划，则 **+ "添加计划**" 处于活动状态，并显示**附加计划**的磁贴。
 
    如果 **+ Add 计划**不处于活动状态，则不存在与该订阅关联的产品/服务的附加计划。
 
@@ -100,4 +95,6 @@ ms.locfileid: "71319155"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [预配虚拟机](../user/azure-stack-create-vm-template.md)
+了解有关用户现在如何将资源部署到其订阅中的详细信息： 
+  - [多个用户快速入门](../user/azure-stack-quick-windows-portal.md)介绍如何使用 PowerShell、Azure CLI 和用户门户预配 Windows 和 Linux 虚拟机。 
+  - [使用 Azure 资源管理器模板的教程](../user/azure-stack-create-vm-template.md)演示了如何部署运行 Minikube 的 Ubuntu 16.04 虚拟机来管理 kubenetes 群集。 

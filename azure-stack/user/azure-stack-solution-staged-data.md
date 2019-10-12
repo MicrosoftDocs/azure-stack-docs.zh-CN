@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/20/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 37ffb494ab6ae124c6a0eb460da4569f660cd283
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 187fe88ad304804462cc4461b24eb10a7af7a299
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159359"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277733"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>将临时数据分析解决方案部署到 Azure Stack
 

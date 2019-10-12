@@ -15,12 +15,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 14f2300be0309cbd47b1481a4a52b02331f120a4
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 6ada971c092acbc1ebe8e83a784a5d1e392c4dea
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319202"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283592"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>在 Azure Stack 中创建套餐
 
@@ -43,7 +43,7 @@ ms.locfileid: "71319202"
 
    ![选择要包含在 Azure Stack 产品/服务中的计划](media/azure-stack-create-offer/select-plan.png)
 
-4. 此时，可以创建附加计划来修改基本计划，但此操作是可选的。 在下一篇文章中，我们将创建一个外接程序计划， [Azure Stack 外接程序](create-add-on-plan.md)计划。
+4. 此时，可以创建附加计划来修改基本计划，但此操作是可选的。 你可以在下一篇文章中创建外接程序计划， [Azure Stack 外接程序计划](create-add-on-plan.md)。
 
 5. 选择“查看 + 创建”选项卡。查看套餐摘要，确保所有值正确。 使用接口，可以一次展开所选计划中的配额，以查看计划中每个配额的详细信息。 你还可以返回进行任何所需的编辑。
 
@@ -111,5 +111,5 @@ ms.locfileid: "71319202"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [创建订阅](azure-stack-subscribe-plan-provision-vm.md)
-- [预配虚拟机](../user/azure-stack-create-vm-template.md)
+- 若要了解如何修改产品/服务并向用户提供附加计划，请继续[创建附加计划](create-add-on-plan.md)（可选）
+- 否则，跳转到[订阅产品/服务](azure-stack-subscribe-plan-provision-vm.md)

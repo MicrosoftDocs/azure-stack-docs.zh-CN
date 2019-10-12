@@ -14,12 +14,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 36ed1b7ef7225f848aa3e5869b8c46f911be7e19
-ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
+ms.openlocfilehash: 2fee81a79b58294a9c43f8d550f139157cb64a9b
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257773"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283572"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -84,7 +84,7 @@ ms.locfileid: "72257773"
 在开始配置 Azure Stack 之前，需要：
 
 * Azure Stack 集成系统部署，或 Azure Stack 开发工具包 (ASDK) 部署。 有关部署 ASDK 的信息，请参阅 [Azure Stack 开发工具包部署快速入门](../asdk/asdk-download.md)。
-* Azure Stack 中可供用户订阅的套餐。 有关详细信息，请参阅[计划、套餐和订阅](azure-stack-plan-offer-quota-overview.md)。
+* Azure Stack 中可供用户订阅的套餐。 有关详细信息，请参阅 "[服务、计划、产品/服务、订阅概述](service-plan-offer-subscription-overview.md)"。
 
 ### <a name="create-network-resources-in-azure-stack"></a>在 Azure Stack 中创建网络资源
 

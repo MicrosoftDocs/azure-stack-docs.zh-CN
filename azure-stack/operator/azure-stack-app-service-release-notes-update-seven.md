@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: ec07277043068835d1d1d5a41285ee5df5ee7691
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: 77fb9772f027d25b0d8c0d8355e3a868c2142d6c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165336"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282606"
 ---
 # <a name="app-service-on-azure-stack-update-7-release-notes"></a>Azure Stack 上的应用服务更新7发行说明
 
@@ -29,7 +29,7 @@ ms.locfileid: "70165336"
 这些发行说明介绍 Azure Stack Update 7 和任何已知问题的 Azure App Service 改进和修复。 已知问题分为与部署、更新过程直接相关的问题，以及内部版本（安装后）的问题。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.7 之前, 将1907更新应用到 Azure Stack 集成系统, 或部署最新的 Azure Stack 开发工具包。
+> 在部署 Azure App Service 1.7 之前，将1907更新应用到 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包。
 
 
 ## <a name="build-reference"></a>内部版本参考
@@ -40,7 +40,7 @@ Azure Stack 上的应用服务 Update 7 内部版本号为**84.0.2.10**
 
 在开始部署之前，请参阅[准备工作文档](azure-stack-app-service-before-you-get-started.md)。
 
-开始在 Azure Stack 到1.7 的 Azure App Service 升级之前:
+开始在 Azure Stack 到1.7 的 Azure App Service 升级之前：
 
 - 确保所有角色在 Azure Stack 管理门户的 Azure应用服务管理中处于“就绪”状态
 
@@ -55,7 +55,9 @@ Azure Stack 上的应用服务 Update 7 内部版本号为**84.0.2.10**
 
 ### <a name="new-features-and-fixes"></a>新功能和修复
 
-Azure Stack Update 7 上的 Azure App Service 包括以下改进和修补程序:
+Azure Stack Update 7 上的 Azure App Service 包括以下改进和修补程序：
+
+- [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372)远程代码执行漏洞的解决方法
 
 - 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 
@@ -74,25 +76,25 @@ Azure Stack Update 7 上的 Azure App Service 包括以下改进和修补程序:
   - 已将 Kudu 更新为82.10503.3890
 
 - **对所有角色的基础操作系统的更新**：
-  - [2019-08 基于 x64 的系统的 Windows Server 2016 累积更新 (KB4512495)](https://support.microsoft.com/help/4512495)
+  - [2019-08 基于 x64 的系统的 Windows Server 2016 累积更新（KB4512495）](https://support.microsoft.com/help/4512495)
 
-- **现在用户门户中启用了访问限制**:
-  - 在此版本中, 用户可以根据发布的[Azure App Service 访问限制](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)文档, 为其 Web/Api/函数应用程序配置访问限制:Azure Stack 上的 Azure App Service 不支持服务终结点。
+- **现在用户门户中启用了访问限制**：
+  - 在此版本**中，用户**可以根据发布的[Azure App Service 访问限制](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)文档，为其 Web/Api/函数应用程序配置访问限制：Azure Stack 上的 Azure App Service 不支持服务终结点。
 
-- **部署选项 (经典) 功能已还原**:
-  - 用户可以再次使用部署选项 (经典) 从 GitHub、Bitbucket、Dropbox、OneDrive、本地和外部存储库中配置其应用的部署, 并为应用程序设置部署凭据。
+- **部署选项（经典）功能已还原**：
+  - 用户可以再次使用部署选项（经典）从 GitHub、Bitbucket、Dropbox、OneDrive、本地和外部存储库中配置其应用的部署，并为应用程序设置部署凭据。
 
 - 已正确配置**Azure 函数监视**。
 
-- **Windows 更新行为**:根据客户反馈, 我们已更改了更新7中应用服务角色的 Windows 更新配置方式:
-  - 三种模式:
-    - 禁用-Windows 更新服务已禁用, 将用 Azure Stack 版本上的 Azure App Service 附带的 KB 更新 Windows;
-    - 启用**自动**Windows 更新服务, Windows 更新将确定更新的方式和时间;
-    - 已禁用**托管**Windows 更新服务, Azure App Service 会在每个角色的 OnStart 期间执行 Windows 更新循环。
+- **Windows 更新行为**：根据客户反馈，我们已更改了更新7中应用服务角色的 Windows 更新配置方式：
+  - 三种模式：
+    - **禁用-Windows 更新**服务已禁用，将用 Azure Stack 版本上的 Azure App Service 附带的 KB 更新 Windows;
+    - 启用**自动**Windows 更新服务，Windows 更新将确定更新的方式和时间;
+    - 已禁用**托管**Windows 更新服务，Azure App Service 会在每个角色的 OnStart 期间执行 Windows 更新循环。
 
   **新**部署-默认情况下禁用 Windows 更新服务。
 
-  **现有**部署-如果已修改控制器上的设置, 则值现在将从**False**更改为 "**已禁用**", 并且以前值 " **true** " 将变为**自动**
+  **现有**部署-如果已修改控制器上的设置，则值现在将从**False**更改为 "**已禁用**"，并且以前值 " **true** " 将变为**自动**
 
 ### <a name="post-deployment-steps"></a>部署后步骤
 

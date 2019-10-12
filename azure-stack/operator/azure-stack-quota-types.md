@@ -16,18 +16,18 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 48ad7808e550fb875c8ee13caa5a429e1d77aa98
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: e3e7ae6cc29756486ae5c292de6fea7e5259ecc1
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010787"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283452"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-[配额](azure-stack-plan-offer-quota-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个 VM。 每个资源可以有其自己的配额类型。
+[配额](service-plan-offer-subscription-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个 VM。 每个资源可以有其自己的配额类型。
 
 > [!IMPORTANT]
 > 在用户门户中出现可用的新配额或者强制实施更改的配额可能需要长达两小时的时间。
@@ -61,7 +61,7 @@ ms.locfileid: "71010787"
 | **Item** | **默认值** | **说明** |
 | --- | --- | --- |
 | 虚拟网络数目上限 |50 |订阅可以在此位置创建的虚拟网络数目上限。 |
-| 虚拟网络网关数目上限 |1 |订阅可以在此位置创建的虚拟网络网关（VPN 网关）数目上限。 |
+| 虚拟网络网关数目上限 |第 |订阅可以在此位置创建的虚拟网络网关（VPN 网关）数目上限。 |
 | 网络连接数目上限 |2 |订阅可以在此位置跨所有虚拟网络网关创建的网络连接（点到点或站点到站点）数目上限。 |
 | 公共 IP 数目上限 |50 |订阅可以在此位置创建的公共 IP 地址数目上限。 |
 | NIC 数目上限 |100 |订阅可以在此位置创建的网络接口数目上限。 |
@@ -117,5 +117,5 @@ ms.locfileid: "71010787"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [详细了解计划、套餐和配额。](azure-stack-plan-offer-quota-overview.md)
+- [了解有关服务、计划、产品/服务和配额的详细信息。](service-plan-offer-subscription-overview.md)
 - [创建计划时创建配额。](azure-stack-create-plan.md)

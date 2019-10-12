@@ -1,5 +1,5 @@
 ---
-title: 使用 Docker 在 Azure Stack 中运行 PowerShell |Microsoft Docs
+title: 使用 Docker 在 Azure Stack 中运行 PowerShell | Microsoft Docs
 description: 使用 Docker 在 Azure Stack 中运行 PowerShell
 services: azure-stack
 documentationcenter: ''
@@ -11,58 +11,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: 27f2b4c1817c28cf5d345f5aa9387a26cd18316b
-ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
+ms.openlocfilehash: 118f29c46a1b11c07c62407f19b86aa28ada3bd1
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725751"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277784"
 ---
 # <a name="use-docker-to-run-powershell-in-azure-stack"></a>使用 Docker 在 Azure Stack 中运行 PowerShell
 
-在本文中，使用 Docker 来创建基于 Windows 的容器以在其上运行的 PowerShell 以使用各种接口所需的版本。 在 Docker，必须使用基于 Windows 的容器。
+在本文中，我们使用 Docker 创建基于 Windows 的容器，在其中运行使用各种接口所需的 PowerShell 版本。 必须在 Docker 中使用基于 Windows 的容器。
 
 ## <a name="docker-prerequisites"></a>Docker 先决条件
 
 1. 安装 [Docker](https://docs.docker.com/install/)。
 
-1. 在命令行程序，例如 Powershell 或 Bash，输入：
+1. 在命令行程序（例如 Powershell 或 Bash）中输入以下内容：
 
     ```bash
         Docker --version
     ```
 
-1. 您需要使用 Windows 容器需要 Windows 10 运行 Docker。 在运行 Docker 时，切换到 Windows 容器。
+1. 需要使用需要 Windows 10 的 Windows 容器来运行 Docker。 在运行 Docker 时，请切换到 Windows 容器。
 
-1. 从加入到与 Azure Stack 相同的域计算机上运行 Docker。 如果使用 Azure Stack 开发工具包 (ASDK)，需要安装[在远程计算机上的 VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)。
+1. 从已加入 Azure Stack 所在的域的计算机运行 Docker。 如果使用 Azure Stack 开发工具包 (ASDK)，需[在远程计算机上安装 VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)。
 
-## <a name="set-up-a-service-principal-for-using-powershell"></a>为使用 PowerShell 设置服务主体
+## <a name="set-up-a-service-principal-for-using-powershell"></a>使用 PowerShell 设置服务主体
 
-若要使用 PowerShell 访问 Azure Stack 中的资源，在 Azure Active Directory (Azure AD) 租户中都需要服务主体。 委托的权限与用户基于角色的访问控制 (RBAC)。
+若要使用 PowerShell 访问 Azure Stack 中的资源，需要在 Azure Active Directory (Azure AD) 租户中有一个服务主体。 通过基于角色的访问控制 (RBAC) 来委派权限。
 
-1. 若要设置服务主体，请按照中的说明[通过创建服务主体向 Azure Stack 资源的应用程序访问](azure-stack-create-service-principals.md)。
+1. 若要设置服务主体，请按[通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限](azure-stack-create-service-principals.md)中的说明操作。
 
-2. 请注意应用程序 ID、 密钥和租户 ID 以供将来使用。
+2. 记下应用程序 ID、机密和租户 ID 供以后使用。
 
-## <a name="docker---azure-stack-api-profiles-module"></a>Docker-Azure Stack API 配置文件模块
+## <a name="docker---azure-stack-api-profiles-module"></a>Docker - Azure Stack API 配置文件模块
 
-Dockerfile 将打开的 Microsoft 映像*microsoft/windowsservercore*，其中包含安装 Windows PowerShell 5.1。 该文件，然后加载 NuGet 和 Azure Stack PowerShell 模块，并从 Azure Stack 工具下载这些工具。
+Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore*，其中已安装 Windows PowerShell 5.1。 该文件然后会加载 NuGet 和 Azure Stack PowerShell 模块，并从 Azure Stack Tools 下载工具。
 
-1. [Azure stack powershell 存储库下载](https://github.com/mattbriggs/azure-stack-powershell)作为 ZIP 文件或克隆存储库。
+1. 以 ZIP 文件形式[下载 azure-stack-powershell 存储库](https://github.com/mattbriggs/azure-stack-powershell)，或者克隆该存储库。
 
 2. 从终端打开存储库文件夹。
 
-3. 在存储库中，打开一个命令行接口，然后输入以下命令：
+3. 在存储库中打开命令行界面，然后输入以下命令：
 
     ```bash  
     docker build --tag azure-stack-powershell .
     ```
 
-4. 生成映像后，请输入开始交互式容器：
+4. 生成映像以后，请输入以下内容，以便启动交互式容器：
 
     ```bash  
         docker run -it azure-stack-powershell powershell
@@ -101,7 +101,7 @@ Dockerfile 将打开的 Microsoft 映像*microsoft/windowsservercore*，其中�
 
 ## <a name="next-steps"></a>后续步骤
 
--  阅读的概述[在 Azure Stack 中的 Azure Stack PowerShell](azure-stack-powershell-overview.md)。
-- 阅读有关[API 配置文件适用于 PowerShell](azure-stack-version-profiles.md) Azure Stack 中。
-- 安装[Azure Stack Powershell](../operator/azure-stack-powershell-install.md)。
+-  阅读 [Azure Stack 中的 Azure Stack PowerShell](azure-stack-powershell-overview.md) 概述。
+- 了解 Azure Stack 中的 [PowerShell 的 API 配置文件](azure-stack-version-profiles.md)。
+- 安装 [Azure Stack Powershell](../operator/azure-stack-powershell-install.md)。
 - 了解如何创建 [Azure 资源管理器模板](azure-stack-develop-templates.md)以实现云一致性。

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: mabriggs
+ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3d760e981f3dd298284b10ed56c4c6ace683f49b
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: a3864bc7233edd5b6b81a19a467ad1dca63fd3fa
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974789"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277613"
 ---
 # <a name="install-azure-stack-updates"></a>安装 Azure Stack 更新
 

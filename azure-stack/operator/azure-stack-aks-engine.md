@@ -15,12 +15,12 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 6695af1e27a2182321a468b853a4650f42146a15
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.openlocfilehash: 1e1e72cea27bf036f662cfaa64a84a57fe9bc964
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037900"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283054"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>向 Azure Stack Marketplace 添加 Azure Kubernetes Services （AKS）引擎必备组件
 
@@ -38,7 +38,7 @@ ms.locfileid: "72037900"
 
 你的用户将需要一个计划、产品/服务和订阅，以便 Azure Stack 具有足够的空间。 用户通常需要部署多达六个虚拟机的群集，由三个主机和三个工作节点组成。 你需要确保其配额足够大。
 
-如果需要有关规划和设置服务产品的详细信息，请参阅[在 Azure Stack 中提供服务概述](azure-stack-offer-services-overview.md)
+如果需要有关规划和设置服务产品的详细信息，请参阅[在 Azure Stack 中提供服务概述](service-plan-offer-subscription-overview.md)
 
 ## <a name="create-a-service-principal-and-credentials"></a>创建服务主体和凭据
 
@@ -101,4 +101,4 @@ ms.locfileid: "72037900"
 
 [Azure Stack 上的 AKS 引擎是什么？](../user/azure-stack-kubernetes-aks-engine-overview.md)
 
-[在 Azure Stack 中提供服务概述](azure-stack-offer-services-overview.md)
+[在 Azure Stack 中提供服务概述](service-plan-offer-subscription-overview.md)

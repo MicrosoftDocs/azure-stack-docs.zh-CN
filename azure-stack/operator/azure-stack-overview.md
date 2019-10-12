@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: 7c84a9cb841f06887d09a650d277566fb9ff18ed
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 060258b07e3eef385298600794a6dd8154a461fc
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070166"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283426"
 ---
 # <a name="azure-stack-overview"></a>Azure Stack 概述
 
@@ -75,7 +75,7 @@ Azure Stack 提供两个部署选项来满足需求 - 用于生产的 Azure Stac
 
 > 有关详细信息，请参阅有关[联网](azure-stack-connected-deployment.md)和[离线](azure-stack-disconnected-deployment.md)部署模型的注意事项。 
 
-### <a name="identity-provider"></a>标识提供程序 
+### <a name="identity-provider"></a>标识提供者 
 Azure Stack 使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 提供标识。 Azure AD 是 Microsoft 的基于云的多租户标识提供者。 使用 Internet 联网部署的大多数混合方案都使用 Azure AD 作为标识存储。 
 
 对于断开连接的 Azure Stack 部署，需要使用 Active Directory 联合身份验证服务 (AD FS)。 Azure Stack 资源提供程序和其他应用程序以类似方式使用 AD FS 或 Azure AD。 Azure Stack 包含自身的 Active Directory 实例，另外还包含 Active Directory 图形 API。
@@ -92,7 +92,7 @@ Azure Stack 使用 Azure Active Directory (Azure AD) 或 Active Directory 联合
 
 作为 Azure Stack 操作员，你可以提供各种服务和应用程序，例如[虚拟机](azure-stack-tutorial-tenant-vm.md)、 [web 应用程序](azure-stack-app-service-overview.md)、高可用[SQL Server](azure-stack-tutorial-sql.md)和[MySQL Server](azure-stack-tutorial-mysql.md)数据库。 他们还可以使用 [Azure Stack 快速入门 Azure 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来部署 SharePoint、Exchange 等。 
 
-在管理门户中，可以使用计划、配额、套餐和订阅来[配置 Azure Stack，以将服务交付给租户](azure-stack-plan-offer-quota-overview.md)。 租户用户可以订阅多个套餐。 套餐可以包含一个或多个计划，计划可以包含一个或多个服务。 操作员还可以管理容量以及对警报做出响应。 
+在管理门户中，可以使用计划、配额、套餐和订阅来[配置 Azure Stack，以将服务交付给租户](service-plan-offer-subscription-overview.md)。 租户用户可以订阅多个套餐。 套餐可以包含一个或多个计划，计划可以包含一个或多个服务。 操作员还可以管理容量以及对警报做出响应。 
 
 配置 Azure Stack 后，**Azure Stack 用户**（也称为租户）可以使用操作员提供的服务。 用户可以预配、监视和管理他们订阅的服务，例如 Web 应用、存储和虚拟机。
 
