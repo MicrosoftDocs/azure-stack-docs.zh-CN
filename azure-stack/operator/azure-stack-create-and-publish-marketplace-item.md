@@ -15,12 +15,12 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 3202b138dbc1b01c1438ee8988400e2845a58775
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 4a8f24c11f8e72c4b3e2b99ae6b2a417e3bd0cba
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283659"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310583"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>创建和发布自定义 Azure Stack Marketplace 项
 
@@ -39,7 +39,7 @@ ms.locfileid: "72283659"
 
 若要创建自定义 marketplace 项，请执行以下操作：
 
-1. 下载[Azure Gallery Packager 工具](https://www.aka.ms/azurestackmarketplaceitem)和示例 Azure Stack 库包。 此下载包括自定义 VM 模板。 提取 .zip 文件，并将文件夹**SimpleVMTemplate**的名称重命名为要在 Azure Stack 门户上显示的项的名称。
+1. 下载[Azure Gallery Packager 工具](https://aka.ms/azsmarketplaceitem)和示例 Azure Stack 库包。 此下载包括自定义 VM 模板。 提取 .zip 文件，并将文件夹**SimpleVMTemplate**的名称重命名为要在 Azure Stack 门户上显示的项的名称。
 
 2. 创建 Azure 资源管理器模板或使用我们的 Windows/Linux 示例模板。 在步骤1中下载的包装器工具 .zip 文件中提供了这些示例模板。 您可以使用模板和更改文本字段，也可以从 GitHub 下载预配置的模板。 有关 Azure 资源管理器模板的详细信息，请参阅[azure 资源管理器模板](/azure/azure-resource-manager/resource-group-authoring-templates)。
 

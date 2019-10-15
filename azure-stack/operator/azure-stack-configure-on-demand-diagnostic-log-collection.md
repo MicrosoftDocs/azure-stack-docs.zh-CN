@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: justinha
-ms.reviewer: prchint
+ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: fd56e7aa7805614829985a2e083d228d1960b402
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.openlocfilehash: 822055eecb59f9eceab75317aed5682c104fb616
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173066"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310564"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>按需收集 Azure Stack 诊断日志
 

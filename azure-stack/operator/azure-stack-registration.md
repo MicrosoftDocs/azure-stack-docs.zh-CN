@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 10/14/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 27dda5b79525c4a5d1c12c998077bb19cbea0079
-ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
+ms.openlocfilehash: e972c7799b8cac37d1cd75cda9dc4e94a7ae73e2
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71061187"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310548"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -46,7 +46,7 @@ ms.locfileid: "71061187"
 
 将 Azure Stack 注册到 Azure 之前，必须准备好：
 
-- Azure 订阅的订阅 ID。 注册仅支持 EA、CSP 或 CSP 共享服务订阅。 CSP 需要确定是[使用 CSP 订阅还是使用 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要获取该 ID，请登录到 Azure，单击“所有服务”。 然后，在“常规”类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。
+- Azure 订阅的订阅 ID。 注册仅支持 EA、CSP 或 CSP 共享服务订阅。 CSP 需要确定是[使用 CSP 订阅还是使用 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要获取该 ID，请登录到 Azure，单击“所有服务”。 然后，在“常规”类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。 作为最佳方案，请为生产环境和开发环境或测试环境使用单独的订阅。 
 
   > [!Note]  
   > 目前尚不支持德国云订阅。
@@ -61,7 +61,7 @@ ms.locfileid: "71061187"
 
 注册 Azure Stack 的用户是 Azure Active Directory 中服务主体的所有者。 只有注册了 Azure Stack 的用户可以修改 Azure Stack 注册。 如果某位非管理员用户不是注册服务主体的所有者，则该用户在尝试注册或重新注册 Azure Stack 时，可能会遇到 403 响应。 403 响应表明用户权限不足，无法完成此操作。
 
-如果没有满足这些要求的 Azure 订阅, 可以在[此处创建一个免费的 azure 帐户](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。
+如果没有满足这些要求的 Azure 订阅，可以在[此处创建一个免费的 azure 帐户](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。
 
 > [!NOTE]
 > 如果有多个 Azure Stack，最佳做法是将每个 Azure Stack 注册到其自己的订阅。 这样可以更容易地跟踪使用情况。
@@ -137,7 +137,7 @@ Run: Get-AzureStackStampInformation
    | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅**AzureChinaCloud**。  |
 
    >[!Note]
-   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 Add-azurermaccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
+   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请运行以下 cmdlet，然后使用 Add-azurermaccount 进行登录： `Remove-AzureRmAccount-Scope Process`
 
 3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：  
 
@@ -475,7 +475,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| 参数 | type | 描述 |
+| 参数 | 类型 | 描述 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | 用于[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的凭据。 用户名采用 **AzureStackDomain\CloudAdmin** 格式。 |
 | PrivilegedEndpoint | String | 预先配置的远程 PowerShell 控制台，提供的功能包括日志收集和其他部署后任务。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |

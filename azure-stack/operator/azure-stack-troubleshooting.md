@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 10/09/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: 45600ee6e35c7e80a1dd74c6c6d456b3bf68ed3f
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173106"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310540"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑难解答
 
@@ -85,7 +85,7 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 * 云解决方案提供商
 * 合作伙伴共享服务订阅
 
-## <a name="get-scale-unit-metrics"></a>获取缩放单位指标
+### <a name="get-scale-unit-metrics"></a>获取缩放单位指标
 
 你可以使用 PowerShell 获取戳记使用情况信息，而无需在 CSS 中获得帮助。 获取戳记利用率： 
 

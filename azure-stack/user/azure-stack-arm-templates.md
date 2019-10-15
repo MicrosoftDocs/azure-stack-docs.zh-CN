@@ -3,7 +3,7 @@ title: 在 Azure Stack 中使用 Azure 资源管理器模板 | Microsoft Docs
 description: 了解如何在 Azure Stack 中使用 Azure 资源管理器模板来部署资源。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 0b9aedb4a6b046755192b84e18e8c75a8d015c8f
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: e2daa9416c966966b3c7cff240ddeb72ac227a8c
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974075"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304055"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 资源管理器模板
 

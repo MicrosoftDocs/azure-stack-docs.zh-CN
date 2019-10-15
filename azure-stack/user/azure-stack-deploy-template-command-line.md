@@ -1,9 +1,9 @@
 ---
 title: 在 Azure Stack 中使用命令行部署模板 | Microsoft Docs
-description: 了解如何使用 Azure 跨平台命令行接口 (CLI) 将模板部署到 Azure Stack。
+description: 了解如何使用 Azure 跨平台命令行接口（CLI）将模板部署到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,45 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-ms.date: 08/13/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: da17e80c802e210d53effbad8f264b1a4019e6e0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 7b3daaefd8fa7e7bce9c6d5708e664911fc906fe
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991848"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304089"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>在 Azure Stack 中使用命令行部署模板
 
-适用对象：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用 Azure 命令行接口 (CLI) 在 Azure Stack 中部署 Azure 资源管理器模板。 Azure 资源管理器模板可通过单个协调操作部署和预配应用的资源。
-
-## <a name="before-you-begin"></a>开始之前
-
-- 使用 Azure CLI [安装并连接](azure-stack-version-profiles-azurecli2.md)到 Azure Stack。
-- 从[创建存储帐户示例模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account)下载文件 *azuredeploy.json* 和 *azuredeploy.parameters.json*。
+可以使用 Azure 命令行接口 (CLI) 在 Azure Stack 中部署 Azure 资源管理器模板。 Azure 资源管理器模板可通过单个协调的操作为应用部署和设置资源。
 
 ## <a name="deploy-template"></a>部署模板
 
-导航到这些文件下载到的文件夹，并运行以下命令来部署模板：
+1. 浏览[test-azurestack](https://aka.ms/AzureStackGitHub)存储库并查找 " **101-创建-存储-帐户**" 模板。 将模板（`azuredeploy.json`）和参数文件 `(azuredeploy.parameters.json`）保存到本地驱动器上的某个位置，例如 `C:\templates\`
+2. 导航到要将文件下载到其中的文件夹。 
+3. 使用 Azure CLI [安装并连接](azure-stack-version-profiles-azurecli2.md)到 Azure Stack。
+4. 在以下命令中更新区域和位置。 如果使用的是 ASDK，请使用 `local` 作为 location 参数。 若要部署模板，请执行以下操作：
+    ```azurecli
+    az group create --name testDeploy --location local
+    az group deployment create --resource-group testDeploy --template-file ./azuredeploy.json --parameters ./azuredeploy.parameters.json
+    ```
 
-```azurecli
-az group create "cliRG" "local" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
-```
-
-此命令将模板部署到 Azure Stack POC 默认位置中的资源组 **cliRG**。
+此命令将模板部署到 Azure Stack 实例中的资源组**testDeploy** 。
 
 ## <a name="validate-template-deployment"></a>验证模板部署
 
-若要查看此资源组和存储帐户，请使用以下 CLI 命令：
+若要查看资源组和存储帐户，请运行以下 CLI 命令：
 
 ```azurecli
 az group list
-
 az storage account list
 ```
 

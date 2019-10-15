@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/23/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: eb9ed23437d5fd708d3f98d5a5b601f3ed1a02a0
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: c821f35928df5da4c34455a0b541699b0a84d490
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283717"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310661"
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>将应用部署到 Azure 和 Azure Stack
 
@@ -342,20 +342,62 @@ Azure Pipelines 为发布到多个环境（例如开发、过渡、质量保证�
 1. 在 web 浏览器中，打开 Azure DevOps 组织和项目。
    
 1. 在左侧导航栏中选择 "**管道**@no__t **-1"** ，然后选择 "**新建管道**"。 
+
+1. 选择您的代码存储库。 Azure Pipelines 分析你的项目，并将其标识为 ASP.NET Core，并打开默认 ASP.NET Core *azure-pipelines*生成模板。 
    
-1. 在 "**选择模板**" 下，选择 " **ASP.NET Core** " 模板，然后选择 "**应用**"。 
+   ![ASP.NET Core azure-pipelines. docker-compose.override.yml 文件](media/azure-stack-solution-pipeline/buildargument.png)
    
-1. 在 "配置" 页上的左窗格中，选择 "**发布**"。
+1. 可以直接编辑管道代码，也可以选择 "**显示助手**" 打开帮助你添加任务和步骤的**任务**窗格。 
    
-1. 在右窗格中的 "**参数**" 下，将 `-r win10-x64` 添加到配置。 
+   如果选择 "**显示助手**"，请在 "**任务**" 窗格中选择 " **.net Core** "。 在 **.Net Core**窗体中：
+   - 在 "**命令**" 下，选择 "**发布**"。 
+   - 在 "**参数**" 下，输入 *-r win10-x64*。
+   - 请确保已选择 "**发布 Web 项目**"。
+   - 选择 **添加** 。
    
-   ![添加生成管道参数](media/azure-stack-solution-pipeline/buildargument.png)
+   除了使用助手，还可以编辑以下代码并将其直接添加到*azure-pipelines*文件中：
    
-1. 选择页面顶部的 "**保存 & 队列**"。
+   - 在 `pool` 下，将 @no__t 从 `ubuntu-latest` 更改为 @no__t。
+     
+   - 在 `steps` 下，添加[DotNetCoreCLI](/azure/devops/pipelines/tasks/build/dotnet-core-cli)任务、命令和参数： 
+     
+     ```yaml
+     - task: DotNetCoreCLI@2
+       inputs:
+         command: 'publish'
+         publishWebProjects: true
+         arguments: '-r win10-x64'
+     ```
+   你的*azure-pipelines*文件现在应具有以下代码： 
    
-1. 在 "**运行管道**" 对话框中，选择 "**保存并运行**"。 
+   ```yaml
+   # ASP.NET Core
+   # Build and test ASP.NET Core projects targeting .NET Core.
+   # Add steps that run tests, create a NuGet package, deploy, and more:
+   # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
    
-[自包含的部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)可以发布可在 Azure 和 Azure Stack 上运行的项目。
+   trigger:
+   - master
+   
+   pool:
+     vmImage: 'vs2017-win2016'
+   
+   variables:
+     buildConfiguration: 'Release'
+
+   steps:
+   - script: dotnet build --configuration $(buildConfiguration)
+     displayName: 'dotnet build $(buildConfiguration)'
+   
+   - task: DotNetCoreCLI@2
+     inputs:
+       command: 'publish'
+       publishWebProjects: true
+       arguments: '-r win10-x64'
+   ```
+1. 选择 "**保存并运行**"，添加提交消息和可选描述，然后再次选择 "**保存并运行**"。 
+   
+[自包含的部署生成](/dotnet/core/deploying/#self-contained-deployments-scd)可以发布可在 Azure 和 Azure Stack 上运行的项目。
 
 ### <a name="create-a-release-pipeline"></a>创建发布管道
 
@@ -381,25 +423,25 @@ Azure Pipelines 为发布到多个环境（例如开发、过渡、质量保证�
    
    ![选择订阅并输入应用服务名称](media/azure-stack-solution-pipeline/stage1.png)
    
-1. 在左窗格中，选择 "**在代理上运行"** 。 在右侧窗格中，从 "**代理池**" 下拉列表中选择 "**托管 VS2017** " （如果尚未选择）。
+1. 在左窗格中，选择 "**在代理上运行"** 。 在右侧窗格中，从 "**代理池**" 下拉列表中选择 " **Azure Pipelines** "，然后从 "**代理规范**" 下拉列表中选择 " **vs2017-win2016** "。
    
    ![选择托管代理](media/azure-stack-solution-pipeline/agentjob.png)
    
-1. 在左窗格中，选择 "**部署 Azure App Service**"，然后在右侧窗格中，浏览到 Azure web 应用生成的**包或文件夹**。
+1. 在左窗格中，选择 "**部署 Azure App Service**"。 在右侧窗格中，向下滚动并选择 "**包" 或 "文件夹**" 旁边的省略号 "..."。
    
    ![选择包或文件夹](media/azure-stack-solution-pipeline/packageorfolder.png)
    
-1. 在 "**选择文件或文件夹**" 对话框中，选择 **"确定"** 。
+1. 在 "**选择文件或文件夹**" 对话框中，浏览到 Azure web 应用生成的位置，然后选择 **"确定"** 。
    
-1. 选择**新的发布管道**页右上角的 "**保存**"。
-   
-   ![保存更改](media/azure-stack-solution-pipeline/save-devops-icon.png)
+1. 在 "**新建发布管道**" 页上，选择 "在右上角**保存**"。 
    
 1. 在 "**管道**" 选项卡上，选择 "**添加项目**"。 选择项目，然后从 "**源（生成管道）** " 下拉菜单中选择 Azure Stack "生成"。 选择 **添加** 。 
    
-1. 在 "**管道**" 选项卡上的 "**阶段**" 下，选择 "**添加**"。
+1. 在 "**阶段**" 下，将鼠标悬停在**Azure**阶段，直到出现 " **@no__t** "，然后选择 "**添加**"。
    
-1. 在新阶段中，选择超链接以**查看阶段任务**。 输入*Azure Stack*作为阶段名称。 
+1. 在 "**模板**" 下，选择 "**空作业**"。 
+   
+1. 在 "**阶段**" 对话框中，输入 " *Azure Stack* " 作为 "阶段名称"。 
    
    ![查看新阶段](media/azure-stack-solution-pipeline/newstage.png)
    
@@ -430,7 +472,7 @@ Azure Pipelines 为发布到多个环境（例如开发、过渡、质量保证�
 
 现在，你已有了一个发布管道，你可以使用它来创建发布和部署你的应用程序。 
 
-由于在发布管道中设置了连续部署触发器，因此修改源代码会启动新的生成并自动创建新版本。 不过，您将手动创建并运行此新版本。
+由于在发布管道中设置了连续部署触发器，因此修改源代码会启动新的生成并自动创建新版本。 但是，这一次您将手动创建并运行新版本。
 
 若要创建和部署发布：
 

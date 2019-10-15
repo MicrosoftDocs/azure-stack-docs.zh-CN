@@ -42,13 +42,15 @@
     - name: 数据中心集成
       href: azure-stack-customer-journey.md
       items:
-        - name: 有关 Azure Stack 集成的一般注意事项
+        - name: 演练
+          href: azure-stack-customer-journey.md
+        - name: 一般注意事项
           href: azure-stack-datacenter-integration.md
-        - name: Azure Stack 部署连接模型
+        - name: 连接模型
           href: azure-stack-connection-models.md
-        - name: 连接部署注意事项
+        - name: 连接的部署
           href: azure-stack-connected-deployment.md
-        - name: 断开连接部署注意事项
+        - name: 断开连接部署
           href: azure-stack-disconnected-deployment.md
         - name: 数据中心网络集成
           items:
@@ -119,8 +121,6 @@
       items:
         - name: 管理基础知识
           href: azure-stack-manage-basics.md
-        - name: 操作清单
-          href: azure-stack-operations-checklist.md
         - name: 从门户清除用户数据
           href: azure-stack-portal-clear.md
         - name: 配置遥测数据的收集
