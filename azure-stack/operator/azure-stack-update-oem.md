@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2019
+ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b218a1b40953d9266ec5a8bcdd49f5d89a421146
-ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
+ms.openlocfilehash: efa10feb63f01166cf93b1835d8e38f99b9191db
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749935"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445162"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>应用 Azure Stack 原始设备制造商（OEM）更新
 
-适用范围：*Azure Stack 集成系统*
+*适用于： Azure Stack 集成系统*
 
 你可以将原始设备制造商（OEM）更新应用于 Azure Stack 硬件组件，以接收驱动程序和固件改进以及安全修补程序，同时最大程度地降低对用户的影响。 在本文中，可以了解 OEM 更新、OEM 联系信息以及如何应用 OEM 更新。
 
@@ -44,12 +44,12 @@ ms.locfileid: "70749935"
 
 | 硬件伙伴 | 地区 | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | 全部 | [Cisco Azure Stack 支持/固件更新-自动通知（需要帐户/登录）](https://software.cisco.com/download/redirect?i=!y&mdfid=283862063&softwareid=286320368&release=1.0(0)&os=)<br><br>[适用于 Microsoft Azure Stack 的 Cisco 集成系统的发行说明](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | 全部 | [适用于 Microsoft Azure Stack 14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | 所有 | [适用于 Microsoft Azure Stack 操作指南的 Cisco 集成系统](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_01000.html)<br><br>[UCS C 系列机架装载 UCS 托管服务器软件](https://software.cisco.com/download/home/283862063/type/286320368/release/2.0(0)) |
+| Dell EMC | 所有 | [适用于 Microsoft Azure Stack 14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | 日本 | [Fujitsu 托管服务支持人员（要求提供帐户和登录名）](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | EMEA &AMP; US | [Fujitsu 支持 IT 产品和系统](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-| HPE | 全部 | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
-| Lenovo | 全部 | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+|  | EMEA & US | [Fujitsu 支持 IT 产品和系统](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+| HPE | 所有 | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | 所有 | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [OEM/固件包](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[terra Azure Stack 文档（包括 FRU）](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
 
 ## <a name="apply-oem-updates"></a>应用 OEM 更新
@@ -65,7 +65,7 @@ ms.locfileid: "70749935"
 
 ## <a name="configure-hardware-vendor-vm"></a>配置硬件供应商 VM
 
-一些硬件供应商可能需要 VM 来帮助 OEM 更新过程。 你的硬件供应商将负责创建这些 vm，并记录在运行`ProxyVM` OEMExternalVM `HardwareManager` cmdlet 时是否需要或进行 **VMType** ，以及应该将哪些凭据用于 **-凭据**。 创建 Vm 后，请将其配置为具有特权终结点中的**OEMExternalVM** 。
+一些硬件供应商可能需要 VM 来帮助 OEM 更新过程。 你的硬件供应商将负责创建这些 Vm，并记录在运行**OEMExternalVM** cmdlet 时是否需要 @no__t 0 或 @no__t- **1，以及**应该将哪些凭据用于 **-credential**。 创建 Vm 后，请将其配置为具有特权终结点中的**OEMExternalVM** 。
 
 有关 Azure Stack 上的特权终结点的详细信息，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
 
@@ -77,7 +77,7 @@ ms.locfileid: "70749935"
     -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
 
-2. 使用**OEMExternalVM** cmdlet 配置硬件供应商 VM。 Cmdlet 用于验证 **-VMType** `ProxyVM`的 IP 地址和凭据。 VMType`HardwareManager` cmdlet 不会验证输入。 提供给**OEMExternalVM**的 **-Credential**参数是由硬件供应商文档明确记录的。  它不是用于特权终结点或任何其他现有 Azure Stack 凭据的 CloudAdmin 凭据。
+2. 使用**OEMExternalVM** cmdlet 配置硬件供应商 VM。 Cmdlet 验证 **-VMType** @no__t 的 IP 地址和凭据。 对于 **-VMType** `HardwareManager` cmdlet 不验证输入。 提供给**OEMExternalVM**的 **-Credential**参数是由硬件供应商文档明确记录的。  它不是用于特权终结点或任何其他现有 Azure Stack 凭据的 CloudAdmin 凭据。
 
     ```powershell  
     $VmCred = Get-Credential

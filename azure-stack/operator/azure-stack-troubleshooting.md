@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 10/16/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 45600ee6e35c7e80a1dd74c6c6d456b3bf68ed3f
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310540"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445280"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑难解答
 
@@ -63,7 +63,7 @@ ms.locfileid: "72310540"
 
 * [设置保留期](azure-stack-manage-storage-accounts.md#set-the-retention-period)
 
-### <a name="security-compliance-and-identity"></a>安全性、合规性和标识  
+### <a name="security-compliance-and-identity"></a>安全性、符合性和标识  
 
 #### <a name="manage-rbac"></a>管理 RBAC
 
@@ -75,7 +75,7 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 
 * [教程：使用 Azure PowerShell 为 Azure 资源创建自定义角色](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
 
-### <a name="manage-usage-and-billing-as-a-csp"></a>以 CSP 身份管理使用情况和计费
+### <a name="manage-usage-and-billing-as-a-csp"></a>以 CSP 身份管理用量和计费
 
 * [以 CSP 身份管理用量和计费](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
 * [创建 CSP 或应用订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
@@ -98,8 +98,8 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 有关详细信息，请参阅[Azure Stack 诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)。
 
 ## <a name="troubleshoot-deployment"></a>排查部署问题 
-### <a name="general-deployment-failure"></a>常见的部署失败
-如果安装期间发生失败，可以使用部署脚本的 -rerun 选项从失败的步骤重新开始部署。  
+### <a name="general-deployment-failure"></a>常规部署失败
+如果在安装过程中遇到失败，可以使用部署脚本的-重新运行选项从失败的步骤重新启动部署。  
 
 ### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>不允许使用模板验证错误参数 osProfile
 
@@ -110,15 +110,15 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 
 若要从 Azure 将 VHD 复制到 Azure Stack，请使用[AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy)。 与供应商合作解决图像本身的问题。 有关 Azure Stack 的 WALinuxAgent 要求的详细信息，请参阅[Azure LinuX 代理](azure-stack-linux.md#azure-linux-agent)。
 
-### <a name="deployment-fails-due-to-lack-of-external-access"></a>部署因缺少外部访问而失败
-如果部署在需要外部访问的阶段失败，则会返回一个异常，如以下示例所示：
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>由于缺少外部访问权限导致部署失败
+当部署在需要外部访问的阶段失败时，将返回类似于以下示例的异常：
 
 ```
 An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
    at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
    at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
 ```
-如果发生此错误，请通过查看[部署网络流量文档](deployment-networking.md)确保满足所有最低网络要求。 合作伙伴也可使用网络检查器工具（在合作伙伴工具包中提供）。
+如果发生此错误，请通过查看[部署网络流量文档](deployment-networking.md)确保满足所有最低网络要求。 作为合作伙伴工具包的一部分，还可以使用网络检查器工具作为合作伙伴。
 
 其他部署失败通常是由于连接到 Internet 上的资源时出现问题。
 
@@ -131,26 +131,31 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
    Test-NetConnection login.windows.net -port 443
    ```
 
-如果此命令失败，请验证TOR 交换机以及任何其他的网络设备是否已配置为[允许网络流量](azure-stack-network.md)。
+如果此命令失败，请验证 TOR 开关和任何其他网络设备是否已配置为[允许网络流量](azure-stack-network.md)。
 
 ## <a name="troubleshoot-virtual-machines"></a>排查虚拟机问题
-### <a name="default-image-and-gallery-item"></a>默认映像和库项
-在 Azure Stack 中部署 VM 之前，必须先添加 Windows Server 映像和库项。
+### <a name="default-image-and-gallery-item"></a>默认图像和库项
+在 Azure Stack 中部署 Vm 之前，必须添加 Windows Server 映像和库项。
 
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk"></a>我删除了某些虚拟机，但仍在磁盘上看到 VHD 文件
 此行为是设计的：
 
-* 删除 VM 时，不会删除 VHD。 磁盘是资源组中的独立资源。
-* 删除存储帐户后，Azure 资源管理器会立即反映删除结果，但其中的磁盘仍保留在存储中，直到运行垃圾收集为止。
+* 删除 VM 时，不会删除 Vhd。 磁盘是资源组中的独立资源。
+* 删除存储帐户后，可通过 Azure 资源管理器立即看到删除，但它可能包含的磁盘仍保留在存储中，直到垃圾回收运行。
 
-如果看到“孤立的”VHD，必须知道它们是否包含在已删除的存储帐户的文件夹中。 如果未删除存储帐户，则正常情况下，这些 VHD 仍在存储帐户中。
+如果你看到 "孤立" Vhd，必须知道它们是否是已删除的存储帐户的文件夹的一部分，这一点很重要。 如果存储帐户未被删除，则正常情况下它们仍然存在。
 
-可以在[管理存储帐户](azure-stack-manage-storage-accounts.md)中详细了解如何配置保留阈值和按需回收。
+可以在[管理存储帐户](azure-stack-manage-storage-accounts.md)中了解有关配置保留阈值和按需回收的详细信息。
 
 ## <a name="troubleshoot-storage"></a>排查存储问题
 ### <a name="storage-reclamation"></a>存储回收
-回收的容量最长可能需要在 14 小时后才显示在门户中。 空间回收取决于多种因素，包括块 Blob 存储中内部容器文件的用量百分比。 因此，我们无法保证运行垃圾收集器时可回收的空间量，这取决于删除的数据量。
+在门户中显示回收的容量可能需要长达14小时。 空间回收取决于各种因素，包括块 blob 存储中内部容器文件的使用百分比。 因此，根据删除的数据量，无法保证垃圾回收器运行时可回收的空间量。
+
+### <a name="azure-storage-explorer-not-working-with-azure-stack"></a>Azure 存储资源管理器无法使用 Azure Stack 
+ 
+如果在断开连接的情况下使用集成系统，则建议使用企业证书颁发机构（CA）。 以64格式导出根证书，然后将其导入 Azure 存储资源管理器。 请确保从 ARM 终结点删除末尾的反斜杠（"/"）。 有关详细信息，请参阅[准备连接到 Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack)。
+ 
 
 ## <a name="troubleshooting-app-service"></a>应用服务故障排除
 ### <a name="create-aadidentityappps1-script-fails"></a>Create-aadidentityapp.ps1 脚本失败
