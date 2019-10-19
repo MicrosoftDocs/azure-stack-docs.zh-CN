@@ -9,18 +9,18 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 722cd99a53a0c08e7b981a571726b378e54cd288
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: c11d5ad563ff673cfaf9e28cea7373bbc6e551aa
+ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71962371"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72543798"
 ---
 # <a name="setup-vpn-gateway-for-azure-stack-using-fortigate-nva"></a>使用 FortiGate NVA 设置 Azure Stack 的 VPN 网关
 
-本文介绍如何创建与 Azure Stack 的 VPN 连接。 VPN 网关是一种虚拟网络网关，可在 Azure Stack 中的虚拟网络与远程 VPN 网关之间发送加密流量。 以下过程使用资源组中的 FortiGate NVA （网络虚拟设备）部署一个 VNET。 它还提供了在 FortiGate NVA 上设置 IPSec VPN 的步骤。
+本文介绍如何创建与 Azure Stack 的 VPN 连接。 VPN 网关是一种虚拟网络网关，用于在 Azure Stack 和远程 VPN 网关上的虚拟网络之间发送加密流量。 以下过程使用资源组中的 FortiGate NVA （网络虚拟设备）部署一个 VNET。 它还提供了在 FortiGate NVA 上设置 IPSec VPN 的步骤。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备组件
 
 -  访问具有可用容量的 Azure Stack 集成系统，以部署此解决方案所需的计算、网络和资源要求。 
 
@@ -44,7 +44,7 @@ ms.locfileid: "71962371"
 
 下表汇总了这些部署中用于引用的参数。
 
-| 参数 | ReplTest1 |
+| 参数 | Value |
 |-----------------------------------|---------------------------|
 | FortiGate 实例名称 | forti1 |
 | BYOL 许可证/版本 | 版 |
@@ -58,7 +58,7 @@ ms.locfileid: "71962371"
 | 在 VNET 子网前缀内 | 172.16.1.0/24 * |
 | VM 大小 FortiGate NVA | 标准 F2s_v2 |
 | 公共 IP 地址名称 | forti1-publicip1 |
-| 公共 IP 地址类型 | Static |
+| 公共 IP 地址类型 | 静态 |
 
 > [!Note]
 > \* 如果 `172.16.0.0/16` 与本地网络或 Azure Stack VIP 池重叠，请选择其他地址空间和子网前缀。
@@ -69,7 +69,7 @@ ms.locfileid: "71962371"
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
-1. 选择 "**创建资源**" 并搜索 `FortiGate` "。
+1. 选择 "**创建资源**" 并搜索 `FortiGate`。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
 
@@ -84,7 +84,7 @@ ms.locfileid: "71962371"
 2. 使用 "[部署参数](#deployment-parameters)" 表提供 "虚拟网络"、"子网" 和 "VM 大小" 的详细信息。
 
     > [!Warning] 
-    > 如果本地网络与 IP 范围 `172.16.0.0/16` 重叠，则必须选择并设置其他网络范围和子网。 如果要使用不同于 "[部署参数](#deployment-parameters)" 表中的名称和范围，请使用**不**会与本地网络冲突的参数。 在 VNET 中设置 VNET IP 范围和子网范围时请小心。 不希望范围与本地网络中存在的 IP 范围重叠。
+    > 如果本地网络与 `172.16.0.0/16` 的 IP 范围重叠，则必须选择并设置其他网络范围和子网。 如果要使用不同于 "[部署参数](#deployment-parameters)" 表中的名称和范围，请使用**不**会与本地网络冲突的参数。 在 VNET 中设置 VNET IP 范围和子网范围时请小心。 不希望范围与本地网络中存在的 IP 范围重叠。
 
 3. 选择“确定”。
 
@@ -94,7 +94,7 @@ ms.locfileid: "71962371"
 
 5. 选择“确定”。 再选择“确定”。
 
-6. 选择“创建”。
+6. 选择**创建**。
 
     部署需要大约10分钟。
 
@@ -152,17 +152,17 @@ ms.locfileid: "71962371"
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image14.png)
 
-6. 选择**System**@no__t 1**固件**。
+6. 选择 "**系统** > **固件**"。
 
 7. 选择显示最新固件的框，例如 `FortiOS v6.2.0 build0866`。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image15.png)
 
-8. 选择**备份配置并升级** > **继续**。
+8. 选择 "**备份配置和升级**"  > **继续**。
 
 9. NVA 会将其固件更新到最新版本，然后重新启动。 此过程大约需五分钟。 重新登录到 FortiGate web 控制台。
 
-10. 单击 " **VPN** > **IPSec 向导**"。
+10. 单击 " **VPN**  > **IPSec 向导**"。
 
 11. 输入 VPN 的名称，例如，在**Vpn 创建向导**中 `conn1`。
 
@@ -188,8 +188,8 @@ ms.locfileid: "71962371"
 18. 选择 " **port2** " 作为**本地接口**。
 
 19. 输入本地子网范围：
-    - forti1:172.16.0.0/16
-    - forti2:172.17.0.0/16
+    - forti1： 172.16.0.0/16
+    - forti2： 172.17.0.0/16
 
     如果使用不同的 IP 范围，请使用 IP 范围。
 
@@ -199,7 +199,7 @@ ms.locfileid: "71962371"
 
 21. 选择“创建”
 
-22. 选择 "**网络** > "**接口**。
+22. 选择 "**网络** > **接口**"。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image19.png)
 
@@ -213,15 +213,15 @@ ms.locfileid: "71962371"
 
 必须配置本地 VPN 设备以创建 IPSec VPN 隧道。 下表提供了设置本地 VPN 设备时需要的参数。 有关如何配置本地 VPN 设备的信息，请参阅 tp 的设备文档。
 
-| 参数 | ReplTest1 |
+| 参数 | Value |
 | --- | --- |
 | 远程网关 IP | 分配给 forti1 的公共 IP 地址–请参阅[激活 FORTIGATE NVA](#activate-the-fortigate-nva)。 |
 | 远程 IP 网络 | 172.16.0.0/16 （如果对 VNET 使用这些说明中的 IP 范围）。 |
-| 验证.方法 = 预共享密钥（PSK） | 从步骤16开始。
-| SDK 版本 | 1 |
+| Auth. Method = 预共享密钥（PSK） | 从步骤16开始。
+| SDK 版本 | 第 |
 | IKE 模式 | Main （ID 保护） |
 | 阶段1提议算法 | AES128、AES256、AES128、AES256-SHA1 |
-| Diffe-Diffie-hellman 组 | 14、5 |
+| Diffie-hellman 组 | 14、5 |
 
 ## <a name="create-the-vpn-tunnel"></a>创建 VPN 隧道
 
@@ -229,11 +229,11 @@ ms.locfileid: "71962371"
 
 从 FortiGate NVA：
 
-1. 在 forti1 FortiGate web 控制台上，中转到**Monitor**@no__t "监视 **"。**
+1. 在 forti1 FortiGate web 控制台上，中转到 "**监视**"  > **IPsec monitor**"。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image20.png)
 
-2. 突出显示 " **conn1** "，然后选择 "**打开** > **所有阶段 2" 选择器**。
+2. 突出显示 " **conn1** "，并选择 "**打开**"  >  "**所有阶段 2" 选择器**。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image21.png)
 
@@ -243,7 +243,7 @@ ms.locfileid: "71962371"
 
 验证连接：
 
-1. 在 Azure Stack Vnet 和本地网络上的系统中创建 VM。 可以按照 [Quickstart 创建 VM 的说明进行操作：使用 Azure Stack 门户 @ no__t 创建 Windows server VM。
+1. 在 Azure Stack Vnet 和本地网络上的系统中创建 VM。 可以按照以下说明在[快速入门：使用 Azure Stack 门户创建 Windows SERVER VM](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)。
 
 2. 创建 Azure Stack VM 并准备本地系统时，请检查：
 
