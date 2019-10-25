@@ -15,12 +15,12 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: 7ca248ace5020546fe9d25b9e1e731f7e70275d6
-ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
+ms.openlocfilehash: 933a2a0bc37be4c5a1b5c92fd334917668761879
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72381399"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780447"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>在 Azure Stack 上使用 AKS 引擎部署 Kubernetes 群集
 
@@ -169,7 +169,7 @@ ms.locfileid: "72381399"
 4.  运行以下命令：
 
     ```bash
-    sudo snap install helm –classic
+    sudo snap install helm --classic
     kubectl -n kube-system create serviceaccount tiller
     kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
     helm init --service-account=tiller
