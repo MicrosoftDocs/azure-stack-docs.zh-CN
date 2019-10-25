@@ -1,6 +1,6 @@
 ---
-title: 以操作员身份使用 PowerShell 连接到 Azure Stack | Microsoft Docs
-description: 了解如何以操作员身份使用 PowerShell 连接到 Azure Stack
+title: 通过 PowerShell 连接到 Azure Stack |Microsoft Docs
+description: 了解如何通过 PowerShell 连接到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,29 +15,29 @@ ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 84799fa50411b753ae5983efbc743f07282a512b
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: da07fc0fe67c00f017a547a861d8ea4eb856864b
+ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101154"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72814028"
 ---
-# <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作员身份使用 PowerShell 连接到 Azure Stack
+# <a name="connect-to-azure-stack-with-powershell"></a>通过 PowerShell 连接到 Azure Stack
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以将 Azure Stack 配置为使用 PowerShell 来管理资源，例如创建套餐、计划、配额以及警报。 本主题有助于配置操作员环境
+可以将 Azure Stack 配置为使用 PowerShell 来管理资源，例如创建产品/服务、计划、配额和警报。 本主题将帮助你配置操作员环境。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备组件
 
-如果已[通过 VPN 连接到 ASDK](../asdk/asdk-connect.md#connect-with-vpn)，请通过[开发工具包](../asdk/asdk-connect.md#connect-with-rdp)或基于 Windows 的外部客户端运行以下先决条件操作。 
+如果[通过 VPN 连接到 ASDK](../asdk/asdk-connect.md#connect-with-vpn)，请从[Azure Stack 开发工具包（ASDK）](../asdk/asdk-connect.md#connect-with-rdp)或基于 Windows 的外部客户端运行以下先决条件。
 
- - 安装 [Azure Stack 兼容的 Azure PowerShell 模块](azure-stack-powershell-install.md)。  
- - 下载[使用 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
+- 安装[兼容 Azure Stack 的 Azure PowerShell 模块](azure-stack-powershell-install.md)。  
+- 下载[处理 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
 
-## <a name="connect-with-azure-ad"></a>与 Azure AD 连接
+## <a name="connect-with-azure-ad"></a>连接 Azure AD
 
-使用 PowerShell 配置 Azure Stack 操作员环境。 运行以下脚本之一：将 Azure Active Directory (Azure AD) tenantName 和 Azure 资源管理器终结点值替换为你自己的环境配置。 
+若要通过 PowerShell 配置 Azure Stack 操作员环境，请运行以下脚本之一。 用自己的环境配置替换 Azure Active Directory （Azure AD） tenantName 和 Azure 资源管理器终结点值。
 
 [!include[Remove Account](../../includes/remove-account.md)]
 
@@ -47,7 +47,7 @@ ms.locfileid: "71101154"
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
-    # Set your tenant name
+    # Set your tenant name.
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
@@ -57,10 +57,9 @@ ms.locfileid: "71101154"
     Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
 
-## <a name="connect-with-ad-fs"></a>与 AD FS 连接
+## <a name="connect-with-ad-fs"></a>连接 AD FS
 
-连接到 Azure Stack 操作员环境中使用 PowerShell 与 Azure Active Directory 联合身份验证服务 (Azure AD FS)。 对于 Azure Stack 开发工具包，此 Azure 资源管理器终结点设置为`https://adminmanagement.local.azurestack.external`。 若要获取 Azure Stack 集成系统的 Azure 资源管理器终结点，请联系服务提供商。
-
+通过带 Azure Active Directory 联合服务（Azure AD FS）的 PowerShell 连接到 Azure Stack 操作员环境。 对于 ASDK，此 Azure 资源管理器终结点设置为 `https://adminmanagement.local.azurestack.external`。 若要获取 Azure Stack 集成系统的 Azure 资源管理器终结点，请与服务提供商联系。
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -68,16 +67,16 @@ ms.locfileid: "71101154"
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
-  # Sign in to your environment
+  # Sign in to your environment.
   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
   ```
 
 > [!Note]  
-> AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 若要详细了解如何在设置服务主体时将 Azure Stack 和 AD FS 作为标识管理服务，请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
+> AD FS 仅支持具有用户标识的交互式身份验证。 如果需要 credential 对象，则必须使用服务主体（SPN）。 有关使用 Azure Stack 和 AD FS 作为标识管理服务设置服务主体的详细信息，请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
 
 ## <a name="test-the-connectivity"></a>测试连接
 
-完成所有设置后，请使用 PowerShell 在 Azure Stack 中创建资源。 例如，可以为应用程序创建资源组并添加虚拟机。 使用以下命令创建名为“MyResourceGroup”的资源组。
+完成所有设置后，请使用 PowerShell 在 Azure Stack 中创建资源。 例如，你可以为应用程序创建资源组，并添加虚拟机。 使用以下命令创建名为**MyResourceGroup**的资源组。
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
@@ -85,6 +84,6 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [为 Azure Stack 开发模板](../user/azure-stack-develop-templates.md)
-- [通过 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)
-  - [Azure Stack 模块参考](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  
+- [开发 Azure Stack 的模板](../user/azure-stack-develop-templates.md)。
+- [通过 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)。
+  - [Azure Stack 模块参考](https://docs.microsoft.com/powershell/azure/azure-stack/overview)。
