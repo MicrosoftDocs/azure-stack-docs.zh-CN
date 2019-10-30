@@ -15,19 +15,19 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: d1ac66074f88ed131623888d8f1aa6ba044686b3
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: a57d1d1520eb09e52e651d65c92314723c3aee4f
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277684"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047225"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>使用 Active Directory 联合服务将 Kubernetes 部署到 Azure Stack
 
 *适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> Azure Stack 上的 Kubernetes 处于预览阶段。 预览版目前不支持 Azure Stack 脱接方案。 仅在开发和测试方案中使用 marketplace 项。
+> 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用 [AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
 
 可以按照本文中的步骤部署和设置 Kubernetes 的资源。 Active Directory 联合服务（AD FS）是标识管理服务时，请使用以下步骤。
 
