@@ -10,32 +10,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: af36943ebaa78ad1838506d6614a7fd6671afe4f
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 5da64bbd13e2bfde5b469c1ae0de89d85a054e3c
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418473"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167250"
 ---
 # <a name="interactive-feature-verification-testing"></a>交互式功能验证测试  
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-你可以使用交互式功能验证测试框架来请求你的系统测试。 请求测试时, Microsoft 使用框架来准备需要手动交互步骤的测试。 Microsoft 可以使用框架将多个独立的自动测试链接在一起。
+你可以使用交互式功能验证测试框架来请求你的系统测试。 请求测试时，Microsoft 使用框架来准备需要手动交互步骤的测试。 Microsoft 可以使用框架将多个独立的自动测试链接在一起。
 
-本文介绍了一个简单的手动方案。 测试检查替换 Azure Stack 中的磁盘。 框架收集每个步骤的诊断日志。 你可以在发现问题时对其进行调试。 该框架还允许共享其他工具或进程生成的日志, 并使你能够提供有关该方案的反馈。
+本文介绍了一个简单的手动方案。 测试检查替换 Azure Stack 中的磁盘。 框架收集每个步骤的诊断日志。 你可以在发现问题时对其进行调试。 该框架还允许共享其他工具或进程生成的日志，并使你能够提供有关该方案的反馈。
 
 > [!Important]  
-> 本文介绍执行磁盘标识的步骤。 这只是一个演示, 因为从测试通过工作流收集的任何结果都不能用于新的解决方案验证。
+> 本文介绍执行磁盘标识的步骤。 这只是一个演示，因为从测试通过工作流收集的任何结果都不能用于新的解决方案验证。
 
 ## <a name="overview-of-interactive-testing"></a>交互式测试概述
 
-磁盘更换的测试是一种常见方案。 在此示例中, 测试包含五个步骤:
+磁盘更换的测试是一种常见方案。 在此示例中，测试包含五个步骤：
 
 1. 创建新的**测试通过**工作流。
 2. 选择 "**磁盘标识测试**"。
@@ -45,14 +45,14 @@ ms.locfileid: "68418473"
 
 ## <a name="create-a-new-test-pass"></a>创建新的测试通过
 
-如果没有可用的现有测试阶段, 请按照[计划测试](azure-stack-vaas-schedule-test-pass.md)的说明进行操作。
+如果没有可用的现有测试阶段，请按照[计划测试](azure-stack-vaas-schedule-test-pass.md)的说明进行操作。
 
 ## <a name="schedule-the-test"></a>计划测试
 
 1. 选择 "**磁盘标识测试**"。
 
     > [!Note]  
-    > 随着对测试辅助功能的改进, 测试的版本将递增。 除非 Microsoft 指出, 否则应始终使用最高版本。
+    > 随着对测试辅助功能的改进，测试的版本将递增。 除非 Microsoft 指出，否则应始终使用最高版本。
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "68418473"
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
-1. 按照**文档**和**验证**链接, 查看有关如何执行此方案的 Microsoft 的说明。
+1. 按照**文档**和**验证**链接，查看有关如何执行此方案的 Microsoft 的说明。
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
@@ -82,23 +82,23 @@ ms.locfileid: "68418473"
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-1. 成功完成预检查脚本后, 请根据 "**信息**" 选项卡上的**文档**和**验证**链接运行手动方案 (磁盘替换)。
+1. 成功完成预检查脚本后，请根据 "**信息**" 选项卡上的**文档**和**验证**链接运行手动方案（磁盘替换）。
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
     > [!Important]  
     > 请不要在执行手动方案时关闭此对话框。
 
-1. 执行完手动方案后, 请按照说明运行 post 检查脚本。
+1. 执行完手动方案后，请按照说明运行 post 检查脚本。
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
-1. 手动方案 (磁盘替换) 成功完成后, 选择 "**下一步**"。
+1. 手动方案（磁盘替换）成功完成后，选择 "**下一步**"。
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
     > [!Important]  
-    > 如果关闭窗口, 则测试在完成之前将停止。
+    > 如果关闭窗口，则测试在完成之前将停止。
 
 1. 提供测试体验的反馈。 这些问题将帮助 Microsoft 评估方案的成功率和发行质量。
 

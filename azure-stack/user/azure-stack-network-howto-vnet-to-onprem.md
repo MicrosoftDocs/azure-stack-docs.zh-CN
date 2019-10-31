@@ -9,14 +9,16 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: c11d5ad563ff673cfaf9e28cea7373bbc6e551aa
-ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
+ms.openlocfilehash: 340f9d868c854560019899f9a4d38a484c973f7f
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72543798"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167287"
 ---
 # <a name="setup-vpn-gateway-for-azure-stack-using-fortigate-nva"></a>使用 FortiGate NVA 设置 Azure Stack 的 VPN 网关
+
+*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 本文介绍如何创建与 Azure Stack 的 VPN 连接。 VPN 网关是一种虚拟网络网关，用于在 Azure Stack 和远程 VPN 网关上的虚拟网络之间发送加密流量。 以下过程使用资源组中的 FortiGate NVA （网络虚拟设备）部署一个 VNET。 它还提供了在 FortiGate NVA 上设置 IPSec VPN 的步骤。
 
@@ -88,7 +90,7 @@ ms.locfileid: "72543798"
 
 3. 选择“确定”。
 
-4. 为 Fortigate NVA 配置公共 IP：
+4. 为 FortiGate NVA 配置公共 IP：
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
 

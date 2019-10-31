@@ -257,6 +257,8 @@
           href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: 创建站点到站点 VPN 连接
           href: azure-stack-create-vpn-connection-one-node.md
+        - name: 提供 Commvault marketplace 项
+          href: azure-stack-network-offer-backup-commvault.md
     - name: 提供服务
       items:
         - name: 服务、计划、产品/服务、订阅概述

@@ -10,53 +10,47 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0a507b7488a34715e528b6bbf291fec9832ef027
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 6fe2f8e7ab435cae3517890f79c26611a80c8a60
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418279"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167145"
 ---
-# <a name="validate-software-updates-from-microsoft"></a>验证来自 Microsoft 的软件更新
+# <a name="validate-software-updates-from-microsoft"></a>从 Microsoft 验证软件更新
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft 会定期发布 Azure Stack 软件的更新。 这些更新提供给 Azure Stack coengineering 合作伙伴。 这些更新是在公开发布之前提供的。 你可以根据解决方案检查更新, 并向 Microsoft 提供反馈。
+Microsoft 会定期发布 Azure Stack 软件的更新。 这些更新提供给 Azure Stack coengineering 合作伙伴。 这些更新是在公开发布之前提供的。 你可以根据解决方案检查更新，并向 Microsoft 提供反馈。
 
-使用命名约定指定 Azure Stack 的 Microsoft 软件更新, 例如 1803, 表示更新的值为2018年3月。 有关 Azure Stack 更新策略、发布节奏以及发行说明的信息，请参阅 [Azure Stack 服务策略](../operator/azure-stack-servicing-policy.md)。
+使用命名约定指定 Azure Stack 的 Microsoft 软件更新，例如1803，表示更新的值为2018年3月。 有关 Azure Stack 更新策略、步调和发行说明的信息，请参阅[Azure Stack 服务策略](../operator/azure-stack-servicing-policy.md)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备组件
 
-在 VaaS 中练习每月更新过程之前, 应熟悉以下各项:
+在 VaaS 中练习每月更新过程之前，应熟悉以下各项：
 
 - [作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)
 - [交互式功能验证测试](azure-stack-vaas-interactive-feature-verification.md)
 
 ## <a name="required-tests"></a>必需的测试
 
-对于每月软件验证, 应按以下顺序执行以下测试:
+对于每月软件验证，必须按以下顺序执行以下测试：
 
-1. 每月 Azure Stack 更新验证
-2. 云模拟引擎
+- 步骤 1-每月 Test-azurestack 更新验证
+- 步骤 2-OEM 扩展包验证
+- 步骤 3-OEM-云模拟引擎
 
 ## <a name="validating-software-updates"></a>正在验证软件更新
 
 1. 创建新的**包验证**工作流。
-1. 对于上面所需的测试, 请按照[运行包验证测试](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)中的说明进行操作。 有关**每月 Azure Stack 更新验证**测试的其他说明, 请参阅下面的部分。
+1. 对于上面所需的测试，请按照[运行包验证测试](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)中的说明进行操作。 有关**每月 Azure Stack 更新验证**测试的其他说明，请参阅下面的部分。
 
-### <a name="apply-the-monthly-update"></a>应用每月更新
-
-1. 选择要对其执行测试的代理。
-1. 计划**每月 Azure Stack 更新验证**。
-1. 提供当前部署在戳记上的 OEM 扩展包的位置以及将在更新过程中应用的 OEM 扩展包的位置。 若要配置这些包的 Url, 请参阅[管理用于验证的包](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation)。
-1. 从所选代理的 UI 中执行这些步骤。
-
-如果有疑问或问题, 请联系[VaaS 帮助](mailto:vaashelp@microsoft.com)。
+如果有疑问或问题，请联系[VaaS 帮助](mailto:vaashelp@microsoft.com)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -215,6 +215,8 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: AKS 引擎疑难解答
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                    - name: 从 Marketplace 项移动 AKS 引擎
+                      href: azure-stack-kubernetes-aks-engine-dvm.md
                 - name: Marketplace 项
                   items:
                     - name: 部署 Kubernetes 群集
@@ -275,8 +277,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: VNET 对等互连
           href: azure-stack-network-howto-vnet-to-vnet.md
-        - name: 连接到 iSCSI 存储
-          href: azure-stack-network-howto-iscsi-storage.md
+        - name: 复制订阅资源
+          href: azure-stack-network-howto-backup-replicator.md
 - name: 概念
   items:
     - name: 混合云模式

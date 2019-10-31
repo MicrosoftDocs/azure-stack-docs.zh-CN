@@ -9,20 +9,22 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: b68b0119e30d39b126aa43c2c8ed4c859073663e
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: cf9239f57423b54f6cd7f093779f5c7afa7745b1
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71962184"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167241"
 ---
 # <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-with-fortinet-fortigate-nva"></a>如何使用 Fortinet FortiGate NVA 在 Azure Stack 中建立 VNET 到 VNET 的连接
+
+*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 本文介绍如何使用 Fortinet FortiGate NVA （一种网络虚拟设备）将一个 Azure Stack 中的 VNET 连接到另一个 Azure Stack 中的 VNET。
 
 本文介绍了当前 Azure Stack 限制，该限制允许租户在两个环境中仅设置一个 VPN 连接。 用户将了解如何在 Linux 虚拟机上设置自定义网关，以允许跨不同 Azure Stack 的多个 VPN 连接。 本文中的过程使用每个 VNET 中的 FortiGate NVA 部署两个 Vnet：每个 Azure Stack 环境一个部署。 它还详细说明了在两个 Vnet 之间设置 IPSec VPN 所需的更改。 应为每个 Azure Stack 中的每个 VNET 重复本文中的步骤。 
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备组件
 
 -  访问具有可用容量的 Azure Stack 集成系统，以部署此解决方案所需的计算、网络和资源要求。 
 
@@ -41,9 +43,9 @@ ms.locfileid: "71962184"
 
 下表汇总了这些部署中用于引用的参数：
 
-### <a name="deployment-one-forti1"></a>部署一个：Forti1
+### <a name="deployment-one-forti1"></a>部署1： Forti1
 
-| FortiGate 实例名称 | Forti1 |
+| FortiGate 实例名称 | forti1 |
 |-----------------------------------|---------------------------|
 | BYOL 许可证/版本 | 版 |
 | FortiGate 管理用户名 | fortiadmin |
@@ -56,9 +58,9 @@ ms.locfileid: "71962184"
 | 在 VNET 子网前缀内 | 172.16.1.0/24 * |
 | VM 大小 FortiGate NVA | 标准 F2s_v2 |
 | 公共 IP 地址名称 | forti1-publicip1 |
-| 公共 IP 地址类型 | Static |
+| 公共 IP 地址类型 | 静态 |
 
-### <a name="deployment-two-forti2"></a>部署2：Forti2
+### <a name="deployment-two-forti2"></a>部署2： Forti2
 
 | FortiGate 实例名称 | Forti2 |
 |-----------------------------------|---------------------------|
@@ -73,7 +75,7 @@ ms.locfileid: "71962184"
 | 在 VNET 子网前缀内 | 172.17.1.0/24 * |
 | VM 大小 FortiGate NVA | 标准 F2s_v2 |
 | 公共 IP 地址名称 | Forti2-publicip1 |
-| 公共 IP 地址类型 | Static |
+| 公共 IP 地址类型 | 静态 |
 
 > [!Note]
 > \* 选择一组不同的地址空间和子网前缀（如果与本地网络环境重叠，其中包括任何一个 Azure Stack 的 VIP 池）。 还要确保地址范围不相互重叠。 * *
@@ -86,7 +88,7 @@ ms.locfileid: "71962184"
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image5.png)
 
-1. 选择 "**创建资源**" 并搜索 `FortiGate` "。
+1. 选择 "**创建资源**" 并搜索 `FortiGate`。
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image6.png)
 
@@ -112,7 +114,7 @@ ms.locfileid: "71962184"
 
 8. 选择 **"确定"** ，然后选择 **"确定"** 。
 
-9. 选择“创建”。
+9. 选择**创建**。
 
 部署需要大约10分钟。 你现在可以重复这些步骤，在另一个 Azure Stack 环境中创建其他 FortiGate NVA 和 VNET 部署。
 
@@ -180,7 +182,7 @@ ms.locfileid: "71962184"
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
 
-5.  选择**System**@no__t 1**固件**。
+5.  选择 "**系统** > **固件**"。
 
 6.  选择显示最新固件的框，例如 `FortiOS v6.2.0 build0866`。
 
@@ -190,7 +192,7 @@ ms.locfileid: "71962184"
 
 8.  NVA 会将其固件更新到最新版本，然后重新启动。 此过程大约需五分钟。 重新登录到 FortiGate web 控制台。
 
-10.  单击 " **VPN** > **IPSec 向导**"。
+10.  单击 " **VPN**  > **IPSec 向导**"。
 
 11. 输入 VPN 的名称，例如，在**Vpn 创建向导**中 `conn1`。
 
@@ -216,14 +218,14 @@ ms.locfileid: "71962184"
 18. 选择 " **port2** " 作为**本地接口**。
 
 19. 输入本地子网范围：
-    - forti1:172.16.0.0/16
-    - forti2:172.17.0.0/16
+    - forti1： 172.16.0.0/16
+    - forti2： 172.17.0.0/16
 
     如果使用不同的 IP 范围，请使用 IP 范围。
 
 20. 输入代表本地网络的适当远程子网，你将通过本地 VPN 设备连接到该网络。
-    - forti1:172.16.0.0/16
-    - forti2:172.17.0.0/16
+    - forti1： 172.16.0.0/16
+    - forti2： 172.17.0.0/16
 
     如果使用不同的 IP 范围，请使用 IP 范围。
 
@@ -231,7 +233,7 @@ ms.locfileid: "71962184"
 
 21. 选择“创建”
 
-22. 选择 "**网络** > "**接口**。
+22. 选择 "**网络** > **接口**"。
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
 
