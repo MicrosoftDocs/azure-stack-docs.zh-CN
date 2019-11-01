@@ -19,7 +19,7 @@
 - name: 快速入门
   expanded: true
   items:
-    - name: 使用管理门户
+    - name: 使用管理员门户
       href: azure-stack-manage-portals.md
 - name: 教程
   items:

@@ -215,8 +215,6 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: AKS 引擎疑难解答
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
-                    - name: 从 Marketplace 项移动 AKS 引擎
-                      href: azure-stack-kubernetes-aks-engine-dvm.md
                 - name: Marketplace 项
                   items:
                     - name: 部署 Kubernetes 群集
@@ -227,6 +225,8 @@
                       href: azure-stack-solution-template-kubernetes-adfs.md
                     - name: 启用 Kubernetes 仪表板
                       href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: 从 Marketplace 项移动 AKS 引擎
+                      href: azure-stack-kubernetes-aks-engine-dvm.md
                     - name: 排查 Kubernetes 群集问题
                       href: azure-stack-solution-template-kubernetes-trouble.md
             - name: 部署认知服务
@@ -271,14 +271,36 @@
           href: azure-stack-solution-sql-ha.md
     - name: 部署基础模式
       items:
+        - name: VNET 对等互连
+          items:
+            - name: VNet 与 FortiGate 的对等互连
+              href: azure-stack-network-howto-vnet-to-vnet.md
+            - name: 与 Vm 的 VNet 对等互连
+              href: azure-stack-network-howto-vnet-peering.md
         - name: 设置 VPN 到本地
           href: azure-stack-network-howto-vnet-to-onprem.md
         - name: VNET 到 VNET 连接
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
-        - name: VNET 对等互连
-          href: azure-stack-network-howto-vnet-to-vnet.md
-        - name: 复制订阅资源
-          href: azure-stack-network-howto-backup-replicator.md
+        - name: 扩展数据中心
+          href: azure-stack-network-howto-extend-datacenter.md
+        - name: 连接到 iSCSI 存储
+          href: azure-stack-network-howto-iscsi-storage.md
+        - name: 设置隧道
+          items:
+            - name: 设置多站点到站点 VPN
+              href: network-howto-vpn-tunnel.md
+            - name: 创建 VPN 隧道（GRE）
+              href: network-howto-vpn-tunnel-gre.md
+            - name: 创建 VPN 隧道（IPSEC）
+              href: network-howto-vpn-tunnel-ipsec.md
+        - name: 备份和恢复
+          items:
+            - name: 通过 Commvault 在 Azure Stack 上备份 VM
+              href: azure-stack-network-howto-backup-commvault.md
+            - name: Azure Stack 上备份存储帐户
+              href: azure-stack-network-howto-backup-storage.md
+            - name: 复制订阅资源
+              href: azure-stack-network-howto-backup-replicator.md
 - name: 概念
   items:
     - name: 混合云模式

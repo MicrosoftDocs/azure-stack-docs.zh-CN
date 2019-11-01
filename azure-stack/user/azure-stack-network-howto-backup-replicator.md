@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 97d8b417869faa84423df78bde4029b8d18f0741
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 5ef02dbe7683b4c7364811452af59013476687fd
+ms.sourcegitcommit: cc5c965b13bc3dae9a4f46a899e602f41dc66f78
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167549"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73236242"
 ---
 # <a name="how-to-back-up-resources-using-the-azure-stack-subscription-replicator"></a>如何使用 Azure Stack 订阅复制器备份资源
 
@@ -186,9 +186,9 @@ Azure 订阅复制器（v3）当前可以复制以下资源类型：
             -网络接口专用 IP 地址  
             -网络安全组配置  
             -可用性集配置  
-
-            > ![Note]  
-            > Only creates managed disks for OS disk and data disks, no support for using storage accounts currently
+ 
+> [!Note]  
+> 只为 OS 磁盘和数据磁盘创建托管磁盘。 目前，不支持使用存储帐户。 
 
 ### <a name="limitations"></a>限制
 

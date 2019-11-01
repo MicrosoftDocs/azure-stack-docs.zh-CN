@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/19/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 553b6af0e61067b4223baee100bd1a9b3079d1f1
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: 428a91503c6943ed1dcc2f48ccad09620d650039
+ms.sourcegitcommit: cc5c965b13bc3dae9a4f46a899e602f41dc66f78
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168110"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73236258"
 ---
 # <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>通过 Commvault 在 Azure Stack 上备份 VM
 
