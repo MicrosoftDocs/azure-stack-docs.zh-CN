@@ -1,0 +1,117 @@
+### YamlMime:Hub
+title: Azure Stack 文档
+summary: Azure Stack 是将 Azure 扩展到数据中心或边缘的产品和解决方案系列。 包括 Azure Stack 集线器、Azure Stack HCI 和 Azure Stack 缘。
+brand: azure
+metadata:
+  title: Azure Stack 文档
+  description: Azure Stack 是将 Azure 扩展到数据中心或边缘的产品和解决方案系列。 包括 Azure Stack 集线器、Azure Stack HCI 和 Azure Stack 缘。
+  ms.service: azure-stack
+  ms.topic: hub-page
+  author: BryanLa
+  ms.author: bryanla
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 188a1e58f592f88beee2781d5ee53a9fef48d418
+  ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+  ms.translationtype: MT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73607958"
+highlightedContent:
+  items:
+  - title: Azure Stack 系列公告
+    itemType: overview
+    url: http://aka.ms/AzsFamAnnounce
+  - title: 比较 Azure Stack 系列的产品和解决方案
+    itemType: overview
+    url: /azure-stack/operator/compare-azure-azure-stack
+productDirectory:
+  items:
+  - title: Azure Stack 中心
+    imageSrc: media/index/azure-stack-hub.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-overview
+      text: 什么是 Azure Stack 中心？
+  - title: Azure Stack Edge
+    imageSrc: media/index/azure-stack-edge.svg
+    links:
+    - url: /azure/databox-online/data-box-edge-overview
+      text: 什么是 Azure Stack 边缘？
+  - title: Azure Stack HCI
+    imageSrc: media/index/azure-stack-hci.svg
+    links:
+    - url: /azure-stack/operator/azure-stack-hci-overview
+      text: Azure Stack HCI 概述
+additionalContent:
+  sections:
+  - title: Azure Stack 中心
+    items:
+    - title: 运算符
+      links:
+      - url: /azure-stack/operator/azure-stack-manage-portals
+        text: 使用管理员门户
+      - url: /azure-stack/operator/release-notes
+        text: 发行说明
+      - url: /azure-stack/operator/azure-stack-servicing-policy
+        text: Azure Stack 中心服务策略
+      - url: /azure-stack/operator/azure-stack-create-service-principals
+        text: 使用应用标识访问资源
+    - title: 用户
+      links:
+      - url: /azure-stack/user/azure-stack-quick-windows-portal
+        text: 部署 VM
+      - url: /azure-stack/user/azure-stack-vm-sizes
+        text: 支持的 VM 大小
+      - url: /azure-stack/user/azure-stack-considerations
+        text: 构建应用的关键注意事项
+      - url: /azure-stack/user/azure-stack-key-vault-manage-portal
+        text: 创建和管理 Key Vault
+    - title: Azure Stack 集线器开发工具包（ASDK）
+      links:
+      - url: /azure-stack/asdk/asdk-deploy-considerations
+        text: ASDK 要求和注意事项
+      - url: /azure-stack/asdk/asdk-download
+        text: 下载并提取 ASDK
+      - url: /azure-stack/asdk/asdk-prepare-host
+        text: 准备 ASDK 主机计算机
+  - title: Azure Stack Edge
+    items:
+    - title: 部署
+      links:
+      - url: /azure/databox-online/data-box-edge-system-requirements
+        text: 查看系统要求
+      - url: /azure/databox-online/data-box-edge-limits
+        text: 了解限制
+      - url: /azure/databox-online/data-box-edge-deploy-prep
+        text: 准备部署
+      - url: /azure/databox-online/data-box-edge-deploy-install
+        text: 安装
+    - title: 开发
+      links:
+      - url: /azure/databox-online/data-box-edge-create-iot-edge-module
+        text: 开发 IoT Edge 模块（C#）
+      - url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules
+        text: IoT Edge 模块示例（C#）
+  - title: Azure Stack HCI
+    items:
+    - title: 解决方案
+      links:
+      - url: https://azure.microsoft.com/overview/azure-stack/hci/
+        text: Azure Stack HCI 解决方案概述
+      - url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
+        text: Azure Stack HCI 目录
+    - title: 管理
+      links:
+      - url: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+        text: Windows Admin Center
+      - url: /windows-server/manage/windows-admin-center/azure
+        text: Azure 混合服务
+    - title: 基础技术
+      links:
+      - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+        text: Hyper-V
+      - url: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
+        text: Storage Spaces Direct
+      - url: /windows-server/networking/sdn
+        text: 软件定义的网络
+      - url: /windows-server/failover-clustering/failover-clustering-overview
+        text: 故障转移群集
