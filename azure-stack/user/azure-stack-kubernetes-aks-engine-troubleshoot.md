@@ -15,16 +15,16 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 49684cb1821a5014e984a8e177f881be13123829
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 7c2dfd33db3847f386136922716b0ee35c61ce75
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047150"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595283"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>对 Azure Stack 上的 AKS 引擎进行故障排除
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 在 Azure Stack 上部署或使用 AKS 引擎时可能会遇到问题。 本文介绍了对 AKS 引擎的部署进行故障排除的步骤，收集有关 AKS 引擎的信息，收集 Kubernetes 日志，查看自定义脚本扩展错误代码，以及针对 AKS 引擎打开 GitHub 问题的说明。
 
@@ -36,7 +36,7 @@ ms.locfileid: "73047150"
 
 ### <a name="try-gofish"></a>试用 GoFish
 
-如果中的安装步骤失败，请尝试使用 GoFish 包管理器进行安装。 [GoFish](https://gofi.sh)将自身描述为跨平台 Homebrew。
+如果先前的安装步骤失败，可以使用 GoFish 包管理器安装 AKS 引擎。 [GoFish](https://gofi.sh)将自身描述为跨平台 Homebrew。
 
 #### <a name="install-the-aks-engine-with-gofish-on-linux"></a>在 Linux 上安装带有 GoFish 的 AKS 引擎
 
@@ -62,7 +62,7 @@ ms.locfileid: "73047150"
 
     ```PowerShell
     Set-ExecutionPolicy Bypass -Scope Process -Force
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
+    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
     ```
 
 2.  在同一会话中运行以下命令，以通过 GoFish 安装 AKS 引擎：
@@ -126,17 +126,17 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercon
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.tar.gz
-    tar xvzf diagnosis.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
+    tar xvf diagnosis-v0.1.1.tar.gz -C ./
     ```
 
 2. 查找 `getkuberneteslogs.sh` 脚本所需的参数。 此脚本将使用以下参数：
 
-    | 参数 | 描述 | 需要 | 示例 |
+    | 参数 | 说明 | 必选 | 示例 |
     | --- | --- | --- | --- |
     | -h、--help | 打印命令用法。 | 否 | 
     -u,--用户 | 群集 Vm 的管理员用户名 | 是 | azureuser<br>（默认值） |
-    | -i、--file | 与用于创建 Kubernetes 群集的公钥关联的 RSA 私钥（有时名为 "id_rsa"）  | 是 | `./rsa.pem` （Putty）<br>`~/.ssh/id_rsa` （SSH） |
+    | -i、--identity-file | 与用于创建 Kubernetes 群集的公钥关联的 RSA 私钥（有时名为 "id_rsa"）  | 是 | `./rsa.pem` （Putty）<br>`~/.ssh/id_rsa` （SSH） |
     |   -g, --resource-group    | Kubernetes 群集资源组 | 是 | k8sresourcegroup |
     |   -n、--user-namespace               | 从指定命名空间中的容器收集日志（始终收集 kube 系统日志） | 否 |   monitoring |
     |       --api 模型                    | 将 apimodel 文件保存在 Azure Stack 的存储帐户中。 如果同时提供了--apimodel 参数，则会将文件上传到存储帐户。 | 否 | `./apimodel.json` |

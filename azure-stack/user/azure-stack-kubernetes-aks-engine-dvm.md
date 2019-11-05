@@ -15,12 +15,12 @@ ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 41ffa9d9d9f96506d30a6a3c69a557cdba034843
-ms.sourcegitcommit: 4d7611d81da6f2f8ef50adab3c09f9122a75bc9d
+ms.openlocfilehash: 4236f1dff939621aa391927341c0ee1136a64b58
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73145769"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595311"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack"></a>将 Marketplace 项群集移到 Azure Stack 上的 AKS 引擎
 

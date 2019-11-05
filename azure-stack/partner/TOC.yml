@@ -1,30 +1,30 @@
-- name: Azure Stack 合作伙伴文档
+- name: Azure Stack 中心合作伙伴文档
   href: index.yml
 - name: 概述
   href: index.yml
   expanded: true
   items:
-    - name: 作为 Azure stack 服务验证
+    - name: 作为 Azure Stack 中心服务的身份验证
       href: azure-stack-vaas-overview.md
     - name: 发行说明
       href: azure-stack-vaas-release-notes.md
 - name: 教程
   items:
-    - name: 设置你的资源
+    - name: 设置资源
       href: azure-stack-vaas-set-up-resources.md
-    - name: 自动执行使用 PowerShell 的 Azure Stack 验证
+    - name: 利用 PowerShell 自动 Azure Stack 集线器验证
       href: azure-stack-vaas-automate-with-powershell.md
-- name: 操作指南
+- name: 操作方法指南
   items:
     - name: 部署本地代理
       href: azure-stack-vaas-local-agent.md
-    - name: 计划你的测试
+    - name: 计划测试
       href: azure-stack-vaas-schedule-test-pass.md
-    - name: 创建一个 OEM 包
+    - name: 创建 OEM 包
       href: azure-stack-vaas-create-oem-package.md
     - name: 验证 OEM 程序包
       href: azure-stack-vaas-validate-oem-package.md
-    - name: 验证新的 Azure Stack 解决方案
+    - name: 验证新的 Azure Stack 中心解决方案
       href: azure-stack-vaas-validate-solution-new.md
     - name: 验证来自 Microsoft 的软件更新
       href: azure-stack-vaas-validate-microsoft-updates.md
@@ -34,17 +34,17 @@
   items:
     - name: 关键概念
       href: azure-stack-vaas-key-concepts.md
-    - name: 最佳做法
+    - name: 最佳实践
       href: azure-stack-vaas-best-practice.md
     - name: 监视和管理 VaaS 门户中的测试
       href: azure-stack-vaas-monitor-test.md
     - name: 工作流通用参数
       href: azure-stack-vaas-parameters.md
-    - name: 对验证作为服务进行故障排除
+    - name: 验证作为服务的验证
       href: azure-stack-vaas-troubleshoot.md
 - name: 相关内容
   items:
-    - name: Azure Stack 文档
+    - name: Azure Stack 中心操作员文档
       href: /azure-stack/operator
     - name: Azure Active Directory
       href: /azure/active-directory/
@@ -58,7 +58,7 @@
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 定价信息
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: 堆栈溢出
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: 培训和认证
       href: /azure-stack/operator/azure-stack-train-and-cert

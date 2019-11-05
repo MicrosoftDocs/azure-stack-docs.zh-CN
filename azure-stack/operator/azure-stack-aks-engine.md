@@ -15,16 +15,16 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 1e1e72cea27bf036f662cfaa64a84a57fe9bc964
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 3b6d1b9e91acfdb7a54cf3b7fbc70399bf635c09
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283054"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595256"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>向 Azure Stack Marketplace 添加 Azure Kubernetes Services （AKS）引擎必备组件
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以通过将本文中所述的项目添加到 Azure Stack，使用户能够设置 Azure Kubernetes Services （AKS）引擎。 然后，用户可以通过单个协调的操作来部署 Kubernetes 群集。 本文将指导你完成将 AKS 引擎提供给连接和断开连接环境中的用户所需的步骤。 AKS 引擎依赖于服务主体标识，在 marketplace 中是自定义脚本扩展和 AKS 基本映像。
 
@@ -64,14 +64,14 @@ ms.locfileid: "72283054"
 
 1. 选择“+ 从 Azure 添加”。
 
-1. 输入 `AKS Base Image` 。
+1. `AKS Base Image`。
 
 1. 选择与 AKS 引擎版本匹配的映像版本。 可以在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)中找到 AKS 基本映像到 AKS 引擎版本的列表。 
 
     在列表中，选择：
-    - **发布者**：Azure Kubernetes 服务
+    - **发布者**： Azure Kubernetes 服务
     - **产品/服务**： aks
-    - **版本**：AKS 基本映像 16.04-LTS Image 发行版，9月2019（2019.09.19 或 version 映射到 AKS Engine）
+    - **版本**： AKS 基本映像 16.04-LTS Image 发行版，9月2019（2019.09.19 或 Version 映射到 AKS engine）
 
 1. 选择“下载”。
 
@@ -85,10 +85,10 @@ ms.locfileid: "72283054"
 
 1. 选择“+ 从 Azure 添加”。
 
-1. 输入 `Custom Script for Linux` 。
+1. `Custom Script for Linux`。
 
 1. 选择具有以下配置文件的服务器：
-   - **产品/服务**：适用于 Linux 的自定义脚本 2.0
+   - **套餐**：适用于 Linux 2.0 的自定义脚本
    - **版本**：2.0.6 （或最新版本）
    - **发布者**：Microsoft Corp
 

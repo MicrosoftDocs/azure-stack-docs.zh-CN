@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Stack 操作员文档
+title: Azure Stack 中心操作员文档
 metadata:
-  title: Azure Stack 文档 - 教程和 API 参考
+  title: Azure Stack 中心文档-教程、API 参考
   meta.description: azure-stack
   services: azure-stack
   author: justinha
@@ -16,9 +16,9 @@ metadata:
   ms.date: 07/09/2019
   ms.author: justinha
 abstract:
-  description: Microsoft Azure Stack 是一种混合云平台，通过它可从数据中心提供 Azure 服务。 了解如何管理 Azure Stack 集成系统基础结构以及如何使用我们的快速入门和教程提供服务。<br/><br/>如果你是使用 Azure Stack 或为 Azure Stack 开发应用的用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。<br/><br/>如果你是对 Azure Stack 开发工具包 (ASDK) 感兴趣的 Azure Stack 操作员，可以免费下载和使用 Azure Stack 的单节点部署，请参阅我们的 <a href="/azure-stack/asdk">ASDK 文档</a>。
+  description: Microsoft Azure Stack 中心是一种混合云平台，可让你从数据中心提供 Azure 服务。 了解如何通过我们的快速入门和教程来管理 Azure Stack 集线器集成系统基础结构以及如何提供服务。<br/><br/>如果你是使用服务或生成 Azure Stack 中心应用的 Azure Stack 集线器用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。<br/><br/>如果你是一位对 Azure Stack 中心开发工具包（ASDK）的 Azure Stack 中心操作员，可免费下载和使用的 Azure Stack 中心的单节点部署，请参阅我们的<a href="/azure-stack/asdk">ASDK 文档</a>。
 sections:
-  - title: 开始使用 Azure Stack
+  - title: Azure Stack 中心入门
     items:
       - type: list
         style: cards
@@ -28,18 +28,18 @@ sections:
               <a href="/azure-stack/operator/azure-stack-manage-portals">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_portal.svg" alt="">
               <br><b>使用管理门户</b></a>
-              <p>使用管理门户实现 Azure Stack 的日常管理和操作。</p>
+              <p>使用管理门户进行日常管理，并 Azure Stack 中心的操作。</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-powershell-install">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
               <br><b>Azure Stack PowerShell</b></a>
-              <p>从 PowerShell 轻松管理 Azure Stack 资源。</p>
+              <p>从 PowerShell 轻松管理 Azure Stack 集线器资源。</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
               <br><b>容量规划</b></a>
-              <p>了解不同的计算资源分配如何适应各种硬件产品。</p>
-  - title: 提供 Azure Stack 服务
+              <p>了解不同的计算资源分配如何适用于选择的硬件产品/服务。</p>
+  - title: 提供 Azure Stack 中心服务
     items:
       - type: list
         style: cards
@@ -48,19 +48,19 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-sql-resource-provider">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_SQL.svg" alt="hybrid cloud app ci/cd">
-              <br><b>将 SQL 作为 PaaS 提供</b></a>
-              <p>使用 SQL Server 资源提供程序将 SQL 数据库作为 Azure Stack 的服务提供。</p>
+              <br><b>提供 SQL 作为 PaaS</b></a>
+              <p>使用 SQL Server 资源提供程序将 SQL 数据库作为 Azure Stack 中心的服务提供。</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-mysql-resource-provider">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_mysql.svg" alt="hybrid cloud app identity">
-              <br><b>将 MySQL 作为 PaaS 提供</b></a>
-              <p>使用 MySQL 资源提供程序提供 MySQL 数据库即服务 Azure Stack。</p>
+              <br><b>提供 MySQL 作为 PaaS</b></a>
+              <p>使用 MySQL 资源提供程序提供 MySQL 数据库即服务 Azure Stack 中心。</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-app-service-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
-              <br><b>作为 PaaS 提供 Azure App Service</b></a>
-              <p>帮助用户为任意平台或设备创建 web 应用程序和 Api。</p>
-  - title: 管理 Azure Stack
+              <br><b>提供 Azure 应用服务作为 PaaS</b></a>
+              <p>帮助用户为任何平台或设备创建 Web 应用程序和 API。</p>
+  - title: 管理 Azure Stack 集线器
     items:
       - type: list
         style: cards
@@ -69,15 +69,15 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-updates">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_upgrade.svg" alt="">
-              <br><b>更新 Azure Stack</b></a>
-              <p>Microsoft 每个月捆绑一个程序包, 使 Azure Stack 的集成系统保持最新状态。 </p>
+              <br><b>更新 Azure Stack 中心</b></a>
+              <p>Microsoft 每个月捆绑一个程序包，使 Azure Stack Hub 集成系统保持最新状态。 </p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-backup-infrastructure-backup">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_usb.svg" alt="">
-              <br><b>备份 Azure Stack</b></a>
+              <br><b>备份 Azure Stack 中心</b></a>
               <p>使用基础结构备份服务备份和还原配置和服务数据。</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-security-configuration">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" alt="">
-              <br><b>配置 Azure Stack 安全性</b></a>
-              <p>Azure Stack 旨在抵御新式威胁并满足合规性标准。</p>
+              <br><b>配置 Azure Stack 集线器安全性</b></a>
+              <p>Azure Stack 集线器旨在抵御新式威胁并满足合规性标准。</p>

@@ -15,18 +15,18 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: 933a2a0bc37be4c5a1b5c92fd334917668761879
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: e4f10cb3e5d96942e5fe32b0d8fe3a04cf921521
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780447"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595196"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>在 Azure Stack 上使用 AKS 引擎部署 Kubernetes 群集
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以在运行 AKS 引擎的客户端 VM Azure Stack 上部署 Kubernetes 群集。 本文将介绍如何编写群集规范，如何使用 `apimodel.json` 文件部署群集，以及如何通过使用 Helm 部署 MySQL 来检查群集。
+可以在运行 AKS 引擎的客户端 VM Azure Stack 上部署 Kubernetes 群集。 在本文中，我们将介绍如何编写群集规范，如何使用 `apimodel.json` 文件部署群集，以及如何通过使用 Helm 部署 MySQL 来检查群集。
 
 ## <a name="define-a-cluster-specification"></a>定义群集规范
 
@@ -54,15 +54,15 @@ ms.locfileid: "72780447"
     > [!Note]  
     > 如果尚未安装 nano，可以在 Ubuntu 上安装 nano： `sudo apt-get install nano`。
 
-3.  在 kubernetes-test-azurestack 文件中，查找 `orchestratorRelease`。 选择一个受支持的 Kubernetes 版本。 例如，1.11、1.12、1.13、1.14。 这些版本经常会更新。 将版本指定为 "x"，而不是 "xx. x"。 有关当前版本的列表，请参阅[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)。 可以通过运行以下 AKS 引擎命令来查找支持的版本：
+3.  在 kubernetes-test-azurestack 文件中，查找 `orchestratorRelease`。 选择一个受支持的 Kubernetes 版本。 例如，1.14、1.15。 这些版本经常会更新。 将版本指定为 "x"，而不是 "xx. x"。 有关当前版本的列表，请参阅[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)。 可以通过运行以下 AKS 引擎命令来查找支持的版本：
 
     ```bash
     aks-engine get-versions
     ```
 
-4.  查找 `customCloudProfile` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。 
+4.  查找 `customCloudProfile` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。 
 
-5. 如果你使用 AD FS，则添加 `"identitySystem":"adfs"`。 例如，
+5. 如果正在使用 AD FS，请添加 `"identitySystem":"adfs"`。 例如，
 
     ```JSON  
         "customCloudProfile": {
@@ -74,28 +74,28 @@ ms.locfileid: "72780447"
     > [!Note]  
     > 如果对标识系统使用 Azure AD，则无需添加**identitySystem**字段。
 
-6. 查找 `portalURL` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。
+6. 查找 `portalURL` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。
 
-7.  在数组 `masterProfile` 中，设置以下字段：
+7.  在数组 `masterProfile`中，设置以下字段：
 
-    | 字段 | 描述 |
+    | 字段 | 说明 |
     | --- | --- |
     | dnsPrefix | 输入用于标识 Vm 主机名的唯一字符串。 例如，基于资源组名称的名称。 |
     | 计数 |  输入要用于部署的主机数。 HA 部署的最小值为3，但不允许对非 HA 部署使用1。 |
     | vmSize |  输入[Azure Stack 支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
-    | 发行版 | 输入 `aks-ubuntu-16.04` 。 |
+    | 发行版 | `aks-ubuntu-16.04`。 |
 
-8.  在数组中 `agentPoolProfiles` 更新：
+8.  `agentPoolProfiles` 更新的数组中：
 
-    | 字段 | 描述 |
+    | 字段 | 说明 |
     | --- | --- |
     | 计数 | 输入要用于部署的代理数。 |
     | vmSize | 输入[Azure Stack 支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
-    | 发行版 | 输入 `aks-ubuntu-16.04` 。 |
+    | 发行版 | `aks-ubuntu-16.04`。 |
 
-9.  在数组中 `linuxProfile` 更新：
+9.  `linuxProfile` 更新的数组中：
 
-    | 字段 | 描述 |
+    | 字段 | 说明 |
     | --- | --- |
     | adminUsername | 输入 VM 管理员用户名。 |
     | ssh | 输入将用于通过 Vm 进行 SSH 身份验证的公钥。 |
@@ -111,22 +111,22 @@ ms.locfileid: "72780447"
 
 询问 Azure Stack 运算符：
 
-- 验证系统的运行状况，并建议运行 `Test-AzureStack` 以及 OEM 供应商的硬件监视工具。
+- 验证系统的运行状况，并建议运行 `Test-AzureStack` 和 OEM 供应商的硬件监视工具。
 - 验证系统容量，包括内存、存储和公共 Ip 等资源。
 - 提供与你的订阅关联的配额的详细信息，以便你可以验证是否有足够的空间来容纳你计划使用的 Vm 数量。
 
 继续部署群集：
 
-1.  查看 Azure Stack [CLI 标志](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)上的 AKS Engine 的可用参数。
+1.  查看 Azure Stack [CLI 标志](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)上的 AKS engine 的可用参数。
 
-    | 参数 | 示例 | 描述 |
+    | 参数 | 示例 | 说明 |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | 若要指示 AKS 引擎 Azure Stack 目标平台使用 `AzureStackCloud`。 |
     | 标识-系统 | adfs | 可选。 如果使用 Active Directory 联合服务（AD FS），则指定标识管理解决方案。 |
-    | 位置 | local | Azure Stack 的区域名称。 对于 ASDK，区域设置为 `local`。 |
-    | resource-group | kube-rg | 输入新资源组的名称，或选择现有的资源组。 资源名称必须为字母数字和小写。 |
+    | location | local | Azure Stack 的区域名称。 对于 ASDK，区域设置为 `local`。 |
+    | resource-group | kube-rg | 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。 |
     | api 模型 | ./kubernetes-azurestack.json | 群集配置文件的路径或 API 模型。 |
-    | 输出-目录 | kube-rg | 输入要包含输出文件 `apimodel.json` 以及其他生成的文件的目录的名称。 |
+    | 输出-目录 | kube-rg | 输入要包含输出文件的目录的名称 `apimodel.json` 以及其他生成的文件。 |
     | 客户端-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
     | 客户端-密码 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 这是你在创建服务时设置的客户端密码。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
@@ -146,11 +146,11 @@ ms.locfileid: "72780447"
     --identity-system adfs # required if using AD FS
     ```
 
-2.  如果由于某种原因在创建输出目录后执行失败，你可以更正此问题并重新运行该命令。 如果要重新运行部署并在以前使用相同的输出目录，则 AKS 引擎将返回一个错误，指出该目录已存在。 可以使用以下标志覆盖现有目录： `--force-overwrite`。
+2.  如果由于某种原因在创建输出目录后执行失败，你可以更正此问题并重新运行该命令。 如果要重新运行部署并在以前使用相同的输出目录，则 AKS 引擎将返回一个错误，指出该目录已存在。 您可以使用标志： `--force-overwrite`覆盖现有目录。
 
 3.  将 AKS 引擎群集配置保存在安全的加密位置。
 
-    找到文件 `apimodel.json`。 将其保存到安全位置。 此文件将用作所有其他 AKS 引擎操作的输入。
+    找到 `apimodel.json`的文件。 将其保存到安全位置。 此文件将用作所有其他 AKS 引擎操作的输入。
 
     生成的 `apimodel.json` 包含在输入 API 模型中使用的服务主体、机密和 SSH 公钥。 它还包含 AKS 引擎执行所有其他操作所需的所有其他元数据。 如果丢失，AKS 引擎将无法配置群集。
 

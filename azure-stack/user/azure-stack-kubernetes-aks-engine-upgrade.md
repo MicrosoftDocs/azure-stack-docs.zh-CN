@@ -15,16 +15,16 @@ ms.date: 10/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3720781dc2545fefaff0b2cd703d7c3880c4b97b
-ms.sourcegitcommit: 83cef2c4ec6e1b2fd3f997c91675c1058a850e2f
+ms.openlocfilehash: 39eebfbc4d60d4cd68bb33d6efcf35cc12ffe313
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "72999887"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594894"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>升级 Azure Stack 上的 Kubernetes 群集
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 ## <a name="upgrade-a-cluster"></a>升级群集
 
@@ -84,11 +84,11 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 
 2. 收集运行 `upgrade` 命令所需的信息。 升级使用以下参数：
 
-    | 参数 | 示例 | 描述 |
+    | 参数 | 示例 | 说明 |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | 若要指示 AKS 引擎 Azure Stack 目标平台使用 `AzureStackCloud`。 |
-    | 位置 | local | Azure Stack 的区域名称。 对于 ASDK，区域设置为 `local`。 |
-    | resource-group | kube-rg | 输入新资源组的名称，或选择现有的资源组。 资源名称必须为字母数字和小写。 |
+    | location | local | Azure Stack 的区域名称。 对于 ASDK，区域设置为 `local`。 |
+    | resource-group | kube-rg | 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
     | api 模型 | ./kubernetes-azurestack.json | 群集配置文件的路径或 API 模型。 |
     | 客户端-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |

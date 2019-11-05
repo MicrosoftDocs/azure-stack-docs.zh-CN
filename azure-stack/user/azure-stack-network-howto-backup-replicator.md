@@ -1,28 +1,28 @@
 ---
-title: 如何使用 Azure Stack 订阅复制器备份资源 |Microsoft Docs
-description: 了解如何使用 Azure Stack 订阅复制器备份资源。
+title: 如何跨多个 Azure Stack 订阅复制资源 |Microsoft Docs
+description: 了解如何使用 Azure Stack 订阅复制器脚本集复制资源。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 5ef02dbe7683b4c7364811452af59013476687fd
-ms.sourcegitcommit: cc5c965b13bc3dae9a4f46a899e602f41dc66f78
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: f468d28ae1642235735f4e1472a8aa84859dc6e6
+ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73236242"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567787"
 ---
-# <a name="how-to-back-up-resources-using-the-azure-stack-subscription-replicator"></a>如何使用 Azure Stack 订阅复制器备份资源
+# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>如何使用 Azure Stack 订阅复制器复制资源
 
-你可以使用 Azure Stack 订阅复制器 PowerShell 脚本在 Azure Stack 订阅之间复制资源。 复制器脚本从不同的 Azure 和 Azure Stack 订阅中读取和重新生成 Azure 资源管理器资源。 本文介绍脚本的工作原理、如何使用脚本，并提供脚本中操作的引用。
+你可以使用 Azure Stack 订阅复制器 PowerShell 脚本在 Azure Stack 订阅之间、Azure Stack stamp 之间，或在 Azure Stack 和 Azure 之间复制资源。 复制器脚本从不同的 Azure 和 Azure Stack 订阅中读取和重新生成 Azure 资源管理器资源。 本文介绍脚本的工作原理、如何使用脚本，并提供脚本操作的参考。
 
 ## <a name="subscription-replicator-overview"></a>订阅复制器概述
 
-Azure 订阅复制器（v3）设计为模块化。 此工具使用核心处理器来协调资源复制。 此外，该工具支持可自定义的处理器，它们充当用于复制不同类型资源的模板。 
+Azure 订阅复制器设计为模块化。 此工具使用核心处理器来协调资源复制。 此外，该工具支持可自定义的处理器，它们充当用于复制不同类型资源的模板。 
 
 核心处理器由以下三个脚本组成：
 
@@ -70,11 +70,11 @@ Azure 订阅复制器（v3）设计为模块化。 此工具使用核心处理�
 
 该工具需要一个名为**parallel**的参数。 此参数采用布尔值，指定是否应并行部署检索到的资源。 如果该值设置为**true，** 则对**new-azurermresourcegroupdeployment**的每次调用都将具有 **-asJob**标志，并在基于资源的资源部署集之间添加用于等待并行作业完成的代码块。各种. 它可确保在部署下一种类型的资源之前部署一种类型的所有资源。 如果将**parallel**参数值设置为**false**，则将所有资源都部署在串行中。
 
-## <a name="adding-additional-resource-types"></a>添加其他资源类型
+## <a name="add-additional-resource-types"></a>添加其他资源类型
 
 添加新的资源类型非常简单。 开发人员必须创建自定义的处理器，并使用 Azure 资源管理器模板或 Azure 资源管理器模板生成器。 完成后，开发人员必须将资源类型添加到 **$resourceType**参数的 ValidateSet 和 resource_retriever 中的 **$resourceTypes**数组。 将资源类型添加到 * * $resourceTypes * * 数组时，必须按正确的顺序添加。 数组的顺序决定了将部署资源的顺序，因此请记住依赖关系。 最后，如果自定义的处理器使用 Azure 资源管理器模板生成器，则必须将资源类型名称添加到**post_process**中的 **$customTypes**数组。
 
-## <a name="running-azure-subscription-replicator"></a>正在运行 Azure 订阅复制器
+## <a name="run-azure-subscription-replicator"></a>运行 Azure 订阅复制器
 
 若要运行 Azure 订阅复制器（v3）工具，需要启动 resource_retriever，并提供所有参数。 **ResourceType**参数提供了一个选项，用于选择**所有**而不是一种资源类型。 如果选择 "**全部**"，resource_retriever 将按顺序处理所有资源，以便在运行部署时首先部署依赖资源。 例如，在虚拟机之前部署 Vnet，因为虚拟机需要一个 VNet 才能正确部署。
 
@@ -89,37 +89,20 @@ Deployment_Files 将保存两个文件**DeployResourceGroups**和**DeployResourc
 
 1.  运行该脚本。
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image2.png)
+    ![运行脚本](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-1.  等待运行脚本。
+    > [!Note]  
+    > 别忘了为 PS 实例配置源环境和订阅上下文。 
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image3.png)
+2.  查看新创建的文件夹：
 
-1.  查看新创建的文件夹：
+    ![查看文件夹](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image4.png)
+3.  将上下文设置为目标订阅，将文件夹更改为**Deployment_Files**，部署资源组，然后启动资源部署。
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image5.png)
+    ![配置并启动部署](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
-1.  将上下文设置为目标订阅。
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image6.png)
-
-1.  键入 `cd` 更改为**Deployment_Files**文件夹。
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image7.png)
-
-1.  运行 `DeployResourceGroups.ps1` 以部署资源组。
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image8.png)
-
-1.  运行 `DeployResources.ps1` 以部署资源。
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image9.png)
-
-1.  运行 `Get-Job` 以检查状态。 获取-作业 |接收-作业将返回结果。
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image10.png)
+4.  运行 `Get-Job` 以检查状态。 获取-作业 |接收-作业将返回结果。
 
 ## <a name="clean-up"></a>清理
 
@@ -186,17 +169,19 @@ Azure 订阅复制器（v3）当前可以复制以下资源类型：
             -网络接口专用 IP 地址  
             -网络安全组配置  
             -可用性集配置  
- 
+
 > [!Note]  
-> 只为 OS 磁盘和数据磁盘创建托管磁盘。 目前，不支持使用存储帐户。 
+> 只为 OS 磁盘和数据磁盘创建托管磁盘。 当前不支持使用存储帐户 
 
 ### <a name="limitations"></a>限制
 
 此工具可以将资源从一个订阅复制到另一个订阅，只要目标订阅的资源提供程序支持从源订阅复制的所有资源和选项。
 
-若要确保复制成功，请确保目标订阅的资源提供程序版本与源订阅的资源提供程序版本相匹配。
+为了确保复制成功，mare 确保目标订阅的资源提供程序版本与源订阅的资源提供程序版本相匹配。
 
 在从商业 Azure 复制到商业 Azure 或从 Azure Stack 中的一个订阅复制到相同 Azure Stack 内的另一个订阅时，将会在复制存储帐户时出现问题。 这是因为存储帐户命名要求所有存储帐户名称在所有商业 Azure 中都是唯一的，或是在 Azure Stack 区域/实例上的所有订阅中是唯一的。 跨不同 Azure Stack 实例复制存储帐户将会成功，因为堆栈是单独的区域/实例。
+
+
 
 ## <a name="next-steps"></a>后续步骤
 

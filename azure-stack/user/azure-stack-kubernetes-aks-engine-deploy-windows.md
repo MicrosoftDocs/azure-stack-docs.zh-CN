@@ -15,16 +15,16 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: c646f8229b5360aed12c9cd8070a00bf38ca3e01
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: b9dd45b6ea7fdfaab1b1e7418800dcd2031dc151
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167305"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595183"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>在 Azure Stack 的 Windows 上安装 AKS 引擎
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 你可以使用 Azure Stack 中的 Windows 计算机来托管 AKS 引擎，以便部署和管理 Kubernetes 群集。 在本文中，我们将了解如何准备客户端 VM 来管理群集，以确保连接和断开连接的 Azure Stack 实例，检查安装，并在 ASDK 上设置客户端 VM。
 
@@ -46,11 +46,11 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 3. [使用 PowerShell 说明安装 Chocolatey。](https://chocolatey.org/install#install-with-powershellexe) 
 
     根据 Chocolaty 网站： Chocolatey 是适用于 Windows 的程序包管理器，例如 apt 或 yum，但适用于 Windows。 它旨在作为一个分散框架，用于快速安装所需的应用程序和工具。 它构建于 NuGet 基础结构上，该基础结构当前使用 PowerShell 来将包从发行版传送到你的门、err、computer。
-4. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack Marketplace 中必须提供 AKS 基本引擎。 运行命令时，必须指定 `--version v0.41.2`版本。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
+4. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack Marketplace 中必须提供 AKS 基本引擎。 运行命令时，必须指定 `--version v0.43.0`版本。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
 5. 在权限提升的提示符下运行以下命令，并包括版本号：
 
     ```PowerShell  
-        choco install aks-engine --version 0.41.2 -y
+        choco install aks-engine --version 0.43.0 -y
     ```
 
 > [!Note]  
@@ -75,7 +75,7 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 7.  在权限提升的提示符下运行以下命令。 包含正确的版本号：
 
     ```PowerShell  
-        choco install aks-engine --version v0.41.2 -y
+        choco install aks-engine --version 0.43.0 -y
     ```
 
 ## <a name="verify-the-installation"></a>验证安装
