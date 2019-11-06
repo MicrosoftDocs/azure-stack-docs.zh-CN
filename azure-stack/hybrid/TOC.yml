@@ -1,0 +1,92 @@
+- name: Azure 混合文档
+  href: index.yml
+- name: 概述
+  items:
+    - name: 混合模式和解决方案示例
+      href: overview-patterns-solution-examples.md
+- name: 模式
+  items:
+    - name: 单一
+      items:
+        - name: 跨云缩放
+          href: pattern-cross-cloud-scale.md
+        - name: DevOps 混合 CI/CD
+          href: pattern-cicd-pipeline.md
+        - name: 地理分布式应用程序
+          href: pattern-geo-distributed.md
+        - name: 混合中继
+          href: pattern-hybrid-relay.md
+        - name: 分层数据
+          href: pattern-tiered-data-analytics.md
+        - name: 在边缘训练 ML 模型
+          href: pattern-train-ml-model-at-edge.md
+    - name: 路
+      items:
+        - name: 跨云缩放（本地数据）
+          href: pattern-cross-cloud-scale-onprem-data.md
+        - name: Footfall 检测（零售）
+          href: pattern-retail-footfall-detection.md
+        - name: 边缘的脱销检测
+          href: pattern-out-of-stock-at-edge.md
+- name: 解决方案部署指南
+  items:
+    - name: 跨云缩放
+      href: solution-deployment-guide-cross-cloud-scaling.md
+    - name: 跨云缩放（本地数据）
+      href: solution-deployment-guide-cross-cloud-scaling-onprem-data.md
+    - name: DevOps 混合 CI/CD
+      href: 'https://aka.ms/hybriddevopsdeploy'
+    - name: Footfall 检测（零售）
+      href: solution-deployment-guide-retail-footfall-detection.md
+    - name: 地理分布式应用程序
+      href: solution-deployment-guide-geo-distributed.md
+    - name: 混合连接
+      href: solution-deployment-guide-connectivity.md
+    - name: 混合标识
+      href: solution-deployment-guide-identity.md
+    - name: 混合中继
+      href: 'https://aka.ms/hybridrelaydeployment'
+    - name: 分层数据
+      href: 'https://aka.ms/tiereddatadeploy'
+    - name: 高可用性 MongoDB
+      href: solution-deployment-guide-mongodb-ha.md
+    - name: 高可用性 SQL Server 2016
+      href: solution-deployment-guide-sql-ha.md
+    - name: 在边缘脱销
+      href: 'https://aka.ms/edgeinferencingdeploy'
+    - name: 在边缘培训 ML 模型
+      href: 'https://aka.ms/edgetrainingdeploy'
+- name: 概念
+  items:
+    - name: 混合应用设计注意事项
+      href: overview-app-design-considerations.md
+- name: 参考
+  items:
+    - name: Azure Stack 中心 PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+    - name: Azure Stack 中心管理员 REST API
+      href: /rest/api/azure-stack/
+    - name: Azure CLI
+      href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
+- name: 相关
+  items:
+    - name: Azure Stack 集线器用户文档
+      href: /azure-stack/user/
+    - name: Azure Stack 中心操作员文档
+      href: /azure-stack/operator/
+    - name: ASDK 文档
+      href: /azure-stack/asdk/
+- name: 资源
+  items:
+    - name: Azure Stack 中心更新
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack 中心 MSDN 论坛
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
+    - name: Azure Stack 中心文档反馈
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Azure Stack 中心定价信息
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Azure Stack 中心培训和认证
+      href: /azure-stack/operator/azure-stack-train-and-cert
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-stack'

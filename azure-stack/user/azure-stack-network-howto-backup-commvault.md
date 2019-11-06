@@ -9,12 +9,12 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 428a91503c6943ed1dcc2f48ccad09620d650039
-ms.sourcegitcommit: cc5c965b13bc3dae9a4f46a899e602f41dc66f78
+ms.openlocfilehash: 4294f7f1d53f77c55532645de428678cf42be531
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73236258"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618289"
 ---
 # <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>通过 Commvault 在 Azure Stack 上备份 VM
 
@@ -149,7 +149,7 @@ ms.locfileid: "73236258"
 
 9. 输入存储帐户的访问信息。 可在此处找到有关设置 Azure 存储帐户的说明。 访问信息：
 
-    -  **服务主机**：从资源的 Blob 容器属性中获取 URL 的名称。 例如，我的 URL 是 https://backuptest.blob.westus.stackpoc.com/mybackups 的，我使用的是 blob.westus.stackpoc.com 在服务主机中。
+    -  **服务主机**：从资源的 Blob 容器属性中获取 URL 的名称。 例如，我的 URL 是 https：\//backuptest.blob.westus.stackpoc.com/mybackups 和我使用的 blob.westus.stackpoc.com 在服务主机中。
     
     -   **帐户名**：使用存储帐户名称。 可以在存储资源的 "访问密钥" 边栏选项卡中找到此项。
     

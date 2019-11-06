@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 11/04/2019
-  ms.openlocfilehash: 188a1e58f592f88beee2781d5ee53a9fef48d418
-  ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+  ms.openlocfilehash: 96ea6293fb0436f57fc619625222062e0955ef44
+  ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/05/2019
-  ms.locfileid: "73607958"
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73636828"
 highlightedContent:
   items:
   - title: Azure Stack 系列公告
@@ -41,6 +41,46 @@ productDirectory:
     links:
     - url: /azure-stack/operator/azure-stack-hci-overview
       text: Azure Stack HCI 概述
+conceptualContent:
+  title: 混合模式和解决方案示例
+  summary: 使用模式和解决方案示例，指导你完成跨 Azure 和 Azure Stack 的混合解决方案的开发。
+  items:
+  - title: 了解混合
+    links:
+    - url: /azure-stack/hybrid/overview-patterns-solution-examples
+      itemType: overview
+      text: 什么是模式和解决方案示例？
+    - url: /azure-stack/hybrid/overview-app-design-considerations
+      itemType: concept
+      text: 混合应用设计注意事项
+  - title: 探索混合模式
+    links:
+    - url: /azure-stack/hybrid/pattern-cross-cloud-scale
+      itemType: architecture
+      text: 跨云缩放
+    - url: /azure-stack/hybrid/pattern-cicd-pipeline
+      itemType: architecture
+      text: DevOps 混合 CI/CD
+    - url: /azure-stack/hybrid/pattern-retail-footfall-detection
+      itemType: architecture
+      text: Footfall 检测（零售）
+    - url: /azure-stack/hybrid/pattern-geo-distributed
+      itemType: architecture
+      text: 地理分布式应用程序
+  - title: 部署混合解决方案示例
+    links:
+    - url: /azure-stack/hybrid/solution-deployment-guide-cross-cloud-scaling
+      itemType: tutorial
+      text: 跨云缩放
+    - url: https://aka.ms/hybriddevopsdeploy
+      itemType: tutorial
+      text: DevOps 混合 CI/CD
+    - url: /azure-stack/hybrid/solution-deployment-guide-retail-footfall-detection
+      itemType: tutorial
+      text: Footfall 检测（零售）
+    - url: /azure-stack/hybrid/solution-deployment-guide-geo-distributed
+      itemType: tutorial
+      text: 地理分布式应用程序
 additionalContent:
   sections:
   - title: Azure Stack 中心
