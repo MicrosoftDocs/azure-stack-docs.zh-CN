@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 4c04eafab93da233859b5b67571b70899b081b95
+ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445280"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659240"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑难解答
 
@@ -45,7 +45,7 @@ ms.locfileid: "72445280"
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>来宾 Vm 支持的操作系统和大小
 
 * [Azure Stack 上支持的来宾操作系统](azure-stack-supported-os.md)
-* [Azure Stack 中支持的 VM 大小](../user/azure-stack-vm-sizes.md)
+* [Azure Stack 支持的 VM 大小](../user/azure-stack-vm-sizes.md)
 
 ### <a name="azure-marketplace"></a>Azure 市场
 
@@ -96,42 +96,6 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 5. 提取 seedring，然后可以从运行 test-azurestack 的 ERCS 文件夹中获取验证报告
 
 有关详细信息，请参阅[Azure Stack 诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)。
-
-## <a name="troubleshoot-deployment"></a>排查部署问题 
-### <a name="general-deployment-failure"></a>常规部署失败
-如果在安装过程中遇到失败，可以使用部署脚本的-重新运行选项从失败的步骤重新启动部署。  
-
-### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>不允许使用模板验证错误参数 osProfile
-
-如果在模板验证过程中收到错误消息，指出不允许参数 "osProfile"，请确保对这些组件使用正确的 Api 版本：
-
-- [计算](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [网络](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
-
-若要从 Azure 将 VHD 复制到 Azure Stack，请使用[AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy)。 与供应商合作解决图像本身的问题。 有关 Azure Stack 的 WALinuxAgent 要求的详细信息，请参阅[Azure LinuX 代理](azure-stack-linux.md#azure-linux-agent)。
-
-### <a name="deployment-fails-due-to-lack-of-external-access"></a>由于缺少外部访问权限导致部署失败
-当部署在需要外部访问的阶段失败时，将返回类似于以下示例的异常：
-
-```
-An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
-```
-如果发生此错误，请通过查看[部署网络流量文档](deployment-networking.md)确保满足所有最低网络要求。 作为合作伙伴工具包的一部分，还可以使用网络检查器工具作为合作伙伴。
-
-其他部署失败通常是由于连接到 Internet 上的资源时出现问题。
-
-若要验证是否能够连接到 Internet 上的资源，可以执行以下步骤：
-
-1. 打开 PowerShell。
-2. 对于 WAS01 或任何 ERCs Vm，请按 Enter。
-3. 运行以下 cmdlet： 
-   ```powershell
-   Test-NetConnection login.windows.net -port 443
-   ```
-
-如果此命令失败，请验证 TOR 开关和任何其他网络设备是否已配置为[允许网络流量](azure-stack-network.md)。
 
 ## <a name="troubleshoot-virtual-machines"></a>排查虚拟机问题
 ### <a name="default-image-and-gallery-item"></a>默认图像和库项
