@@ -14,18 +14,63 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167136"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846237"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>验证即服务的发行说明
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 本文提供 Azure Stack 验证作为服务的发行说明。
+
+## <a name="version-4353"></a>版本4.3.5。3
+
+2019年11月7日
+
+- 测试内容更新
+  - 每月 Azure Stack 更新验证（版本 5.1.46.0-> 5.1.49.0）
+  - OEM 扩展包验证（版本 5.1.46.0-> 5.1.49.0）
+  - 已保留5.1.46.0 的结果。 如果在5.1.46.0 上成功运行，请在提交结果时通知 vaashelp@microsoft.com。
+
+- Bug 修复
+  - 修复了在更新 .zip 包含特殊字符的情况下，每月 Azure Stack 更新验证无法运行的问题。
+
+- 已知问题
+  - 如果找不到 mstest.exe，VaaS 测试将失败。 解决方法：
+    1. 在 PowerShell 窗口中，按 CTRL + C。
+    1. 键入 mstest.exe，验证 mstest.exe 是否为已识别的程序。
+    1. 如果无法识别 mstest.exe，请关闭当前 PowerShell 窗口。
+    1. 单击 "启动" （不是任务栏上的 PowerShell），查找 "PowerShell"，然后以管理员身份打开。
+    1. 键入 mstest.exe 并验证它是否可用作命令。
+    1. 重新启动代理并重新运行测试。
+  - 有时，云模拟引擎会报告 \*vm 测试失败。 尝试重新运行之前，请联系 vaashelp@microsoft.com。 
+
+
+2019年10月29日
+
+- 已更新每月 Azure Stack 更新工作流和 OEM 包验证工作流的联机文档。
+
+    请查看此处的更新文档验证 OEM 包，并从 Microsoft 验证软件更新
+- VaaS 工作流更新：每月 Azure Stack 更新（版本 5.1.30.0-> 5.1.46.0）–每月 Azure Stack 更新验证测试工作流都已更新。
+
+    工作流不再需要手动干预，并且可以计划无缝运行。
+- VaaS 工作流更新： OEM 包验证（版本 5.1.30.0-> 5.1.46.0）– OEM 包验证工作流已更新。
+
+    工作流不再需要手动干预，并且可以计划无缝运行。
+- OEM 包验证工作流中的云模拟引擎（版本 > 5.1.30.0 5.1.46.0）已更新，以加快验证时间：运行时间缩短到1小时。
+- OEM 包验证工作流中的云模拟引擎和 Azure Stack 更新工作流（版本 5.1.30.0-> 5.1.46.0）要求验证的更新位于2个不同的父文件夹中，子文件夹中没有其他更新。
+- OEM 包验证工作流中的云模拟引擎和 Azure Stack 更新工作流（版本 5.1.30.0-> 5.1.46.0）要求按以下顺序计划测试–每月 Azure Stack 更新验证测试、OEM 扩展包验证测试，最后是云模拟引擎。
+- VaaS 代理更新：更新的 VaaS 代理现在使用 Azure Stack 的云管理员凭据来查询 stamp 以获取 stamp 信息，以便自动填充工作流。 
+
+    此更新需要更新并重新启动所有代理。 请参阅以下说明，了解如何更新 VaaS 代理： https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent
+- VaaS 门户 UI 更新：代理选择表已移到测试计划窗格上方，以方便进行测试。
+
+    计划作业时，如果 VaaS 代理已正确更新，则不再需要输入 stamp 信息。
+
 
 ## <a name="version-405"></a>版本4.0。5
 

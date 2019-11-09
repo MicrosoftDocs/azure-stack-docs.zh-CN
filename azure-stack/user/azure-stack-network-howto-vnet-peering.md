@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 91a90146f1f62ebea980a785d8a8e347f04fe137
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064709"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845840"
 ---
 # <a name="vnet-peering-in-azure-stack-with-vms"></a>与 Vm Azure Stack VNET 对等互连
 
@@ -24,8 +24,8 @@ ms.locfileid: "73064709"
 
 此部署模式是一种基础，它不仅允许在 Azure Stack 实例中创建 VPN 隧道，还允许在 Azure Stack 实例之间以及使用 Windows RRAS S2S VPN 隧道的其他资源（例如本地网络）创建 VPN 隧道。 
 
-可以在[Azure 智能边缘模式 GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns
-)存储库的**lucidqdreams**分叉中找到模板。 该模板位于**S2SVPNTunnel**文件夹中。
+可以在[Azure 智能边缘模式 GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
+)存储库中找到这些模板。 该模板位于**S2SVPNTunnel**文件夹中。
 
 ![替换文字](./media/azure-stack-network-howto-vnet-peering/overview.png)
 
