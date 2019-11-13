@@ -1,32 +1,32 @@
 ---
-title: 将 C# ASP.NET Web 应用部署到 Azure Stack 中的虚拟机 | Microsoft Docs
-description: 将 C# ASP.NET Web 应用程序部署到 Azure Stack 中的 VM。
+title: 将C# ASP.NET web 应用部署到 Azure Stack 中的虚拟机 |Microsoft Docs
+description: 将C# ASP.NET web 应用部署到 Azure Stack 中的 VM。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 08/09/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: cd7ca2e1a198cb66c5d7627029215b55af0de975
-ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 2b2d1bccbe41e57b81492e0ba0b201fe03df2d7d
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71142581"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955778"
 ---
-# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>将 C# ASP.NET Web 应用程序部署到 Azure Stack 中的 VM。
+# <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>在 Azure Stack C#中将 ASP.NET web 应用部署到 VM
 
-可以创建一个虚拟机 (VM) 来托管 Azure Stack 中的 C# ASP.NET Web 应用。 本文介绍在设置服务器、将服务器配置为托管 C# ASP.NET Web 应用，然后直接从 Visual Studio 部署应用时可以遵照的说明。
+可以在 Azure Stack 中创建虚拟机（VM）以托管C# ASP.NET web 应用。 本文介绍了在设置服务器时应遵循的说明，将其配置为托管C# ASP.NET web 应用，然后从 Visual Studio 部署应用。
 
-本文使用一个 C# 6.0 应用，该应用使用在 Windows 2016 服务器上运行的 ASP.NET Core 2.2。
+本文使用C# 6.0 应用，该应用使用在 Windows 2016 服务器上运行 ASP.NET Core 2.2。
 
 ## <a name="create-a-vm"></a>创建 VM
 
-1. 创建 [Windows Server VM](azure-stack-quick-windows-portal.md)。
+1. 创建[Windows SERVER VM](azure-stack-quick-windows-portal.md)。
 
-1. 若要在 VM 上安装 IIS（通过管理控制台）和 ASP.NET 4.6 组件，请运行以下脚本：
+1. 若要在 VM 上安装 IIS （带有管理控制台）和 ASP.NET 4.6 组件，请运行以下脚本：
 
     ```PowerShell  
     # Install IIS (with Management Console)
@@ -39,96 +39,96 @@ ms.locfileid: "71142581"
     Install-WindowsFeature -Name Web-Mgmt-Service
     ```
 
-1. 下载 [Web 部署 v3.6](https://www.microsoft.com/download/details.aspx?id=43717)。 从 MSI 文件完成安装，然后启用所有功能。
+1. 下载[Web 部署 3.6](https://www.microsoft.com/download/details.aspx?id=43717)版。 从 MSI 文件安装该文件，然后启用所有功能。
 
-1. 在服务器上安装 .NET Core 2.2 Hosting Bundle。 有关说明，请参阅 [.NET Core 安装程序](https://dotnet.microsoft.com/download/dotnet-core/2.2)。 确保在开发计算机和目标服务器上使用相同版本的 .NET Core。
+1. 在服务器上安装 .NET Core 2.2 托管捆绑包。 有关说明，请参阅[.Net Core 安装程序](https://dotnet.microsoft.com/download/dotnet-core/2.2)。 请确保在开发计算机和目标服务器上使用相同版本的 .NET Core。
 
-1. 在 Azure Stack 门户中，打开 VM 的网络设置中列出的端口。
+1. 在 Azure Stack 门户中，打开 VM 的 "网络设置" 中列出的端口。
 
-    a. 打开租户的 Azure Stack 门户。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 为租户打开 Azure Stack 门户。
 
-    b. 搜索你的 VM。 你可能已将 VM 固定到仪表板；或者，可以在“搜索资源”框中搜索该 VM。
+    b. 搜索你的 VM。 你可能已将 VM 固定到仪表板，或者可以在 "**搜索资源**" 框中搜索它。
 
     c. 选择“网络”。
 
-    d. 选择 VM 下的“添加入站端口规则”。
+    d.单击“下一步”。 选择 "在 VM 下**添加入站端口规则**"。
 
     e. 为以下端口添加入站安全规则：
 
-    | Port | Protocol | 描述 |
+    | Port | 协议 | 描述 |
     | --- | --- | --- |
-    | 80 | HTTP | 超文本传输协议 (HTTP) 是用于从服务器传递网页的协议。 客户端使用 DNS 名称或 IP 地址通过 HTTP 进行连接。 |
-    | 443 | HTTPS | 安全超文本传输协议 (HTTPS) 是 HTTP 的安全版本，它需要一个安全证书，并允许对信息进行加密传输。  |
-    | 22 | SSH | 安全外壳 (SSH) 是一种用于安全通信的加密网络协议。 你将在 SSH 客户端上使用此连接来配置 VM 并部署应用。 |
+    | 80 | HTTP | 超文本传输协议（HTTP）是用于从服务器传递网页的协议。 客户端通过 HTTP 连接 DNS 名称或 IP 地址。 |
+    | 443 | HTTPS | 超文本传输协议（HTTPS）是 HTTP 的安全版本，它需要安全证书，并允许加密传输信息。  |
+    | 22 | SSH | 安全外壳（SSH）是一种用于安全通信的加密网络协议。 将使用此与 SSH 客户端的连接来配置 VM 和部署应用。 |
     | 3389 | RDP | 可选。 远程桌面协议允许远程桌面连接使用计算机的图形用户界面。   |
     | 8172 | 自定义 | WebDeploy 使用的端口。 |
 
     对于每个端口：
 
-    a. 对于“源”，请选择“任何”。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 对于 "**源**"，请选择**任何**。
 
-    b. 对于“源端口范围”，请键入星号 ( **\*** )。
+    b. 对于 "**源端口范围**"，键入一个星号（**\***）。
 
-    c. 对于“目标”，请选择“任何”。
+    c. 对于 "**目标**"，请选择**任何**。
 
-    d. 对于“目标端口范围”，请添加要打开的端口。
+    d.单击“下一步”。 对于 "**目标端口范围**"，请添加要打开的端口。
 
-    e. 对于“协议”，请选择“任何”。
+    e. 对于 "**协议**"，选择 "**任意**"。
 
     f. 对于“操作”，请选择“允许”。
 
-    g. 对于“优先级”，请保留默认选项。
+    g. 对于 "**优先级**"，保留默认选择。
 
-    h. 输入**名称**和**说明**，以帮助记住打开端口的原因。
+    h. 输入 "**名称**" 和 "**说明**"，以帮助你记住此端口处于打开状态的原因。
 
     i. 选择 **添加** 。
 
-1.  对于 Azure Stack 中的 VM，在“网络”设置中创建服务器的 DNS 名称。 用户可以使用 URL 连接到你的网站。
+1.  在 Azure Stack 中 VM 的**网络**设置中，为服务器创建 DNS 名称。 用户可以使用 URL 连接到你的网站。
 
-    a. 打开租户的 Azure Stack 门户。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 为租户打开 Azure Stack 门户。
 
-    b. 搜索你的 VM。 你可能已将 VM 固定到仪表板；或者，可以在“搜索资源”框中搜索该 VM。
+    b. 搜索你的 VM。 你可能已将 VM 固定到仪表板，或者可以在 "**搜索资源**" 框中搜索它。
 
     c. 选择“概述”。
 
-    d. 在“VM”下选择“配置”。
+    d.单击“下一步”。 在 " **VM**" 下，选择 "**配置**"。
 
-    e. 对于“分配”，请选择“动态”。
+    e. 对于 "**分配**"，选择 "**动态**"。
 
-    f. 输入 DNS 名称标签（例如 **mywebapp**），因此，完整的 URL 将是 *mywebapp.local.cloudapp.azurestack.external*。
+    f. 输入 DNS 名称标签（如**mywebapp**），以使完整 URL 成为 mywebapp. *p p.. test-azurestack*。
 
 ## <a name="create-an-app"></a>创建应用 
 
-可以使用你自己的 Web 应用，或使用[使用 Visual Studio 将 ASP.NET Core 应用发布到 Azure](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
-) 中的示例。 本文将介绍如何使用 Visual Studio 2017 中的 Azure 虚拟机发布功能，创建一个 ASP.NET Web 应用并将其发布到 Azure 虚拟机。 安装应用并确保它在本地运行后，将发布目标更新为 Azure Stack 实例中的 Windows VM。
+你可以使用自己的 web 应用，也可以使用[Visual Studio 将 ASP.NET Core 应用发布到 Azure](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
+)中的示例。 本文介绍如何使用 Visual Studio 2017 中的 Azure 虚拟机发布功能，创建 ASP.NET web 应用并将其发布到 Azure 虚拟机。 安装并确保你的应用在本地运行后，你需要将发布目标更新到 Azure Stack 实例中的 Windows VM。
 
 ## <a name="deploy-and-run-the-app"></a>部署和运行应用
 
-为 Azure Stack 中的 VM 创建发布目标。
+在 Azure Stack 中创建虚拟机的发布目标。
 
-1. 在“解决方案资源管理器”中，右键单击项目，并选择“发布”。
+1. 在**解决方案资源管理器**中，右键单击你的项目，然后选择 "**发布**"。
 
-    ![将 ASP.NET Web 应用部署到 Azure Stack 发布](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
+    ![将 ASP.NET web 应用部署到 Azure Stack 发布](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
-1. 在“发布”窗口中选择“新建配置文件”。
+1. 在 "**发布**" 窗口中，选择 "**新建配置文件**"。
 1. 选择 " **IIS"、"FTP" 等**。
 1. 选择“发布”。
-1. 对于“发布方法”，请选择“Web 部署”。
-1. 对于“服务器”，请输入前面定义的 DNS 名称，例如 *w21902.local.cloudapp.azurestack.external*。
-1. 对于“站点名称”，请输入“默认网站”。
-1. 对于“用户名”，请输入计算机的用户名。
-1. 对于“密码”，请输入计算机的密码。
-1. 对于“目标 URL”，请输入站点的 URL，例如 *mywebapp.local.cloudapp.azurestack.external*。
+1. 对于 "**发布方法**"，选择**Web 部署**。
+1. 对于 "**服务器**"，请输入前面定义的 DNS 名称，例如*w21902. p p.. test-azurestack*。
+1. 对于 "**网站名称**"，请输入 "**默认**网站"。
+1. 对于 "**用户名**"，请输入计算机的用户名。
+1. 对于 "**密码**"，请输入计算机的密码。
+1. 对于 "**目标 url**"，请输入站点的 url，例如*mywebapp. p p.. test-azurestack*。
 
-    ![部署 ASP.NET Web 应用 - 配置 Web 部署](media/azure-stack-dev-start-howto-vm-dotnet/configure-web-deploy.png)
+    ![部署 ASP.NET web 应用-配置 Web 部署](media/azure-stack-dev-start-howto-vm-dotnet/configure-web-deploy.png)
 
-1. 若要验证 Web 部署配置，请选择“验证连接”，然后选择“下一步”。
-1. 将“配置”设置为“发布”。
-1. 将“目标框架”设置为“netcoreapp2.2”。
-1. 将“目标运行时”设置为“便携式”。
+1. 若要验证 web 部署配置，请选择 "**验证连接**"，然后选择 "**下一步**"。
+1. 将**配置**设置为**Release**。
+1. 将**目标框架**设置为**netcoreapp 2.2**。
+1. 将**目标运行时**设置为**可移植**。
 1. 选择“保存”。
 1. 选择“发布”。
-1. 转到新服务器。 应会看到你的 Web 应用程序正在运行。
+1. 中转到新服务器。 应会看到正在运行的 web 应用程序。
 
     ```http  
         mywebapp.local.cloudapp.azurestack.external
@@ -136,6 +136,6 @@ ms.locfileid: "71142581"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何[设置 Azure Stack 中的开发环境](azure-stack-dev-start.md)。
-- 了解[用作 IaaS 的 Azure Stack 的常见部署](azure-stack-dev-start-deploy-app.md)。
-- 若要了解 C# 编程语言和查找有关 C# 的其他资源，请参阅 [C# 指南](https://docs.microsoft.com/dotnet/csharp/)
+- 了解如何[在 Azure Stack 中设置开发环境](azure-stack-dev-start.md)。
+- 了解[Azure Stack As IaaS 的常见部署](azure-stack-dev-start-deploy-app.md)。
+- 若要了解C#编程语言并查找其他资源C#，请参阅[ C#指南](https://docs.microsoft.com/dotnet/csharp/)

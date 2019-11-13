@@ -1,28 +1,22 @@
 ---
-title: 使用应用标识访问资源 |Microsoft Docs
-description: 了解如何管理服务主体，该服务主体可用于登录和访问资源的基于角色的访问控制。
-services: azure-stack
-documentationcenter: na
+title: 使用应用标识访问资源
+description: 了解如何管理 Azure Stack 中心服务主体。 可以将服务主体与基于角色的访问控制配合使用来登录和访问资源。
 author: BryanLa
-manager: femila
-ms.service: azure-stack
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/06/2019
 ms.author: bryanla
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 7110febfa58fb1d31cde5f0ae1b4df659f567956
-ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
+ms.service: azure-stack
+ms.topic: how-to
+ms.date: 11/11/2019
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73712729"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955385"
 ---
-# <a name="use-an-app-identity-to-access-resources"></a>使用应用标识访问资源
+# <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>使用应用标识访问 Azure Stack 集线器资源
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包（ASDK）*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包（ASDK）*
 
 需要通过 Azure 资源管理器部署或配置资源的应用程序必须由服务主体表示。 与用户主体表示的用户一样，服务主体是表示应用的一种安全主体。 服务主体提供应用的标识，允许你仅向该服务主体委派必要的权限。  
 
@@ -41,16 +35,16 @@ ms.locfileid: "73712729"
  - 可以向服务主体分配**更多限制的权限**。 通常，这些权限仅限于应用需要执行的操作，称为*最低权限原则*。
  - 服务主体**凭据和权限不会像用户凭据一样频繁更改**。 例如，当用户的责任发生变化时，密码要求决定更改，或者用户离开公司。
 
-首先，在目录中创建新的应用注册，这会创建一个关联的[服务主体对象](/azure/active-directory/develop/developer-glossary#service-principal-object)来表示该目录中的应用标识。 本文档介绍了创建和管理服务主体的过程，具体取决于为 Azure Stack 实例选择的目录：
+首先，在目录中创建新的应用注册，这会创建一个关联的[服务主体对象](/azure/active-directory/develop/developer-glossary#service-principal-object)来表示该目录中的应用标识。 本文档介绍了创建和管理服务主体的过程，具体取决于为 Azure Stack 中心实例选择的目录：
 
-- Azure Active Directory (Azure AD)。 Azure AD 是一种多租户、基于云的目录和标识管理服务。 可以将 Azure AD 与连接的 Azure Stack 实例一起使用。
-- Active Directory 联合身份验证服务（AD FS）。 AD FS 提供简化、安全的联合身份验证和 web 单一登录（SSO）功能。 可以将 AD FS 与连接的和已断开的 Azure Stack 实例一起使用。
+- Azure Active Directory (Azure AD)。 Azure AD 是一种多租户、基于云的目录和标识管理服务。 可以将 Azure AD 与连接的 Azure Stack 中心实例一起使用。
+- Active Directory 联合身份验证服务（AD FS）。 AD FS 提供简化、安全的联合身份验证和 web 单一登录（SSO）功能。 可以将 AD FS 与连接的和已断开的 Azure Stack 中心实例一起使用。
 
 首先，您将了解如何管理服务主体，以及如何将服务主体分配到角色，从而限制其资源访问权限。
 
 ## <a name="manage-an-azure-ad-service-principal"></a>管理 Azure AD 服务主体
 
-如果将 Azure Stack 与 Azure AD 作为标识管理服务部署，则可以创建服务主体，就像在 Azure 中一样。 本部分演示如何执行 Azure 门户的步骤。 在开始之前，请检查是否具有[所需的 Azure AD 权限](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
+如果你将 Azure Stack 集线器部署 Azure AD 作为标识管理服务，则可以创建服务主体，就像对 Azure 执行的操作一样。 本部分演示如何执行 Azure 门户的步骤。 在开始之前，请检查是否具有[所需的 Azure AD 权限](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
 
 ### <a name="create-a-service-principal-that-uses-a-client-secret-credential"></a>创建使用客户端密钥凭据的服务主体
 
@@ -72,9 +66,9 @@ ms.locfileid: "73712729"
 
 ## <a name="manage-an-ad-fs-service-principal"></a>管理 AD FS 服务主体
 
-如果使用 AD FS 作为标识管理服务部署 Azure Stack，则必须使用 PowerShell 来管理服务主体。 下面提供了有关管理服务主体凭据的示例，同时演示了 X509 证书和客户端机密。
+如果使用 AD FS 作为标识管理服务部署 Azure Stack 集线器，则必须使用 PowerShell 来管理服务主体。 下面提供了有关管理服务主体凭据的示例，同时演示了 X509 证书和客户端机密。
 
-脚本必须在已提升（"以管理员身份运行"）的 PowerShell 控制台中运行，这将打开一个 VM 的其他会话，该 VM 承载 Azure Stack 实例的特权终结点。 一旦建立了特权终结点会话，其他 cmdlet 就会执行并管理服务主体。 有关特权终结点的详细信息，请参阅[在 Azure Stack 中使用特权终结点](azure-stack-privileged-endpoint.md)。
+脚本必须在已提升（"以管理员身份运行"）的 PowerShell 控制台中运行，这将打开一个 VM 的其他会话，该 VM 承载 Azure Stack 中心实例的特权终结点。 一旦建立了特权终结点会话，其他 cmdlet 就会执行并管理服务主体。 有关特权终结点的详细信息，请参阅[使用 Azure Stack 集线器中的特权终结点](azure-stack-privileged-endpoint.md)。
 
 ### <a name="create-a-service-principal-that-uses-a-certificate-credential"></a>创建使用证书凭据的服务主体
 
@@ -83,13 +77,13 @@ ms.locfileid: "73712729"
  - 对于生产，证书必须由内部证书颁发机构或公共证书颁发机构颁发。 如果你使用公用证书颁发机构，则必须将该颁发机构作为 Microsoft 受信任的根颁发机构计划的一部分包括在基本操作系统映像中。 可以在[Microsoft 受信任的根证书程序：参与者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)处找到完整列表。 稍后将在[更新服务主体的证书凭据](#update-a-service-principals-certificate-credential)期间显示创建 "自签名" 测试证书的示例。 
  - 加密提供程序必须指定为 Microsoft 旧版加密服务提供程序（CSP）密钥提供程序。
  - 证书格式必须为 PFX 文件，因为公钥和私钥都是必需的。 Windows 服务器使用 .pfx 文件，其中包含公钥文件（SSL 证书文件）和关联的私钥文件。
- - Azure Stack 基础结构必须对证书中发布的证书颁发机构的证书吊销列表（CRL）位置具有网络访问权限。 此 CRL 必须是 HTTP 终结点。
+ - Azure Stack 中心基础结构必须对证书中发布的证书颁发机构的证书吊销列表（CRL）位置具有网络访问权限。 此 CRL 必须是 HTTP 终结点。
 
 获得证书后，请使用下面的 PowerShell 脚本注册应用并创建服务主体。 你还可以使用服务主体登录到 Azure。 将以下占位符替换为你自己的值：
 
 | 占位符 | 描述 | 示例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack 实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
 | \<YourCertificateLocation\> | X509 证书在本地证书存储中的位置。 | "Cert： \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<YourAppName\> | 新应用注册的描述性名称。 | "我的管理工具" |
 
@@ -112,7 +106,7 @@ ms.locfileid: "73712729"
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
 
-    # Using the stamp info for your Azure Stack instance, populate the following variables:
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
     # - AzureRM endpoint used for Azure Resource Manager operations 
     # - Audience for acquiring an OAuth token used to access Graph API 
     # - GUID of the directory tenant
@@ -120,7 +114,7 @@ ms.locfileid: "73712729"
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
     $TenantID = $AzureStackInfo.AADTenantID
 
-    # Register and set an AzureRM environment that targets your Azure Stack instance
+    # Register and set an AzureRM environment that targets your Azure Stack Hub instance
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
     # Sign in using the new service principal identity
@@ -160,7 +154,7 @@ ms.locfileid: "73712729"
 
 | 占位符 | 描述 | 示例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack 实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新应用注册的描述性名称。 | "我的管理工具" |
 | \<YourCertificateLocation\> | X509 证书在本地证书存储中的位置。 | "Cert： \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<AppIdentifier\> | 分配给应用程序注册的标识符。 | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
@@ -205,7 +199,7 @@ ms.locfileid: "73712729"
 
 | 占位符 | 描述 | 示例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack 实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新应用注册的描述性名称。 | "我的管理工具" |
 
 1. 打开提升的 Windows PowerShell 会话，并运行以下 cmdlet：
@@ -222,7 +216,7 @@ ms.locfileid: "73712729"
      $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
      $Session | Remove-PSSession
 
-     # Using the stamp info for your Azure Stack instance, populate the following variables:
+     # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
      # - AzureRM endpoint used for Azure Resource Manager operations 
      # - Audience for acquiring an OAuth token used to access Graph API 
      # - GUID of the directory tenant
@@ -230,7 +224,7 @@ ms.locfileid: "73712729"
      $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
      $TenantID = $AzureStackInfo.AADTenantID
 
-     # Register and set an AzureRM environment that targets your Azure Stack instance
+     # Register and set an AzureRM environment that targets your Azure Stack Hub instance
      Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
      # Sign in using the new service principal identity
@@ -262,7 +256,7 @@ ms.locfileid: "73712729"
 
 | 占位符 | 描述 | 示例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack 实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | 分配给应用程序注册的标识符。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 1. 使用提升的 Windows PowerShell 会话运行以下 cmdlet：
@@ -299,7 +293,7 @@ ms.locfileid: "73712729"
 
 | 占位符 | 描述 | 示例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack 实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | 分配给应用程序注册的标识符。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 ```powershell  
@@ -331,7 +325,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 你选择的资源类型还会为服务主体建立*访问作用域*。 可以在订阅、资源组或资源级别设置访问作用域。 较低级别的作用域将继承权限。 例如，将应用添加到资源组的 "读取者" 角色意味着它可以读取资源组及其包含的所有资源。
 
-1. 根据 Azure Stack 安装过程中指定的目录（例如，Azure AD 的 Azure 门户或 AD FS 的 Azure Stack 用户门户）登录到相应的门户。 在此示例中，我们将显示登录到 Azure Stack 用户门户的用户。
+1. 根据在 Azure Stack 集线器安装期间指定的目录（例如，Azure AD 的 Azure 门户或 AD FS 的 Azure Stack 集线器用户门户）登录到相应的门户。 在此示例中，我们将显示登录到 Azure Stack 集线器用户门户的用户。
 
    > [!NOTE]
    > 若要为给定资源添加角色分配，你的用户帐户必须属于声明 `Microsoft.Authorization/roleAssignments/write` 权限的角色。 例如，"[所有者](/azure/role-based-access-control/built-in-roles#owner)" 或 "[用户访问管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)" 内置角色。  
@@ -352,7 +346,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
      [![分配的角色](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
-现在，你已创建服务主体并分配了角色，接下来可以开始在应用中使用此服务主体来访问 Azure Stack 资源。  
+创建服务主体并分配角色后，你可以开始在应用中使用此服务主体来访问 Azure Stack 集线器资源。  
 
 ## <a name="next-steps"></a>后续步骤
 

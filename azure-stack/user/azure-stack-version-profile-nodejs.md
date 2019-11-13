@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: 65ea0b4f6f7f7cb3769e83bf9052ac2953668e48
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 8fa2b3524b7d61f27ae30f22133047e8223f2ce3
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618230"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955225"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack"></a>在 Azure Stack 中通过 node.js 软件开发工具包（SDK）使用 API 版本配置文件
 

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0bd490b5eaf91540d7789c8eb7a7a2d34eb1ae4d
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.openlocfilehash: dee0be0817c8b614c9961d39330b64f4bd11f85f
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595361"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955861"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>什么是 Azure Stack 集线器的验证即服务？
 
@@ -45,13 +45,13 @@ VaaS 的主要用途是：
 
 合作伙伴使用**包验证**工作流来检查其解决方案是否适用于最新的 Azure Stack 中心软件更新。 必须在 Microsoft 推荐的硬件环境中运行包验证工作流，其中修补和更新（P & U）用于应用更新。 建议也在基线生成上运行工作流。
 
-有关详细信息，请参阅[验证来自 Microsoft 的软件更新](azure-stack-vaas-validate-microsoft-updates.md)。
+有关详细信息，请参阅[通过 Microsoft 验证软件更新](azure-stack-vaas-validate-microsoft-updates.md)。
 
-## <a name="get-digitally-signed-solution-partner-packages"></a>获取进行了数字签名的解决方案合作伙伴程序包
+## <a name="get-digitally-signed-solution-partner-packages"></a>获取数字签名的解决方案伙伴包
 
-除了验证 Azure Stack 集线器更新，合作伙伴还使用**包验证**工作流来验证对 OEM 自定义包的更新，包括特定于 Azure Stack 中心合作伙伴的驱动程序、固件和其他软件Azure Stack 中心软件的部署。 使用至少受支持的最小大小的解决方案，在当前版本的 Azure Stack 中心软件上部署要验证的包。 在执行测试之前，会将包提交给 VaaS。 如果测试成功，请通知[vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)包已完成测试，并应通过 Azure Stack 中心数字签名进行数字签名。 Microsoft 对包进行签名，并通知 Azure Stack 中心伙伴包可在 VaaS 门户中下载。
+除了验证 Azure Stack 集线器更新，合作伙伴还使用**包验证**工作流来验证对 OEM 自定义包的更新，其中包括部署 Azure Stack 集线器软件期间使用的 Azure Stack 中心合作伙伴特定驱动程序、固件和其他软件。 使用至少受支持的最小大小的解决方案，在当前版本的 Azure Stack 中心软件上部署要验证的包。 在执行测试之前，会将包提交给 VaaS。 如果测试成功，请通知[vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)包已完成测试，并应通过 Azure Stack 中心数字签名进行数字签名。 Microsoft 对包进行签名，并通知 Azure Stack 中心伙伴包可在 VaaS 门户中下载。
 
-有关详细信息，请参阅[验证 OEM 程序包](azure-stack-vaas-validate-oem-package.md)。
+有关详细信息，请参阅 "[验证 OEM 包](azure-stack-vaas-validate-oem-package.md)"。
 
 ## <a name="preview-vaas-test-collateral"></a>预览 VaaS 测试宣传资料
 

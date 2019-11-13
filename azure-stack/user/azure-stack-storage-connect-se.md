@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 454fe5b07dc5576cecdb11b59e5424e3c5ccbb72
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 2fa9998a584bd76c8f9c875d3a2ac082c9ca812b
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445376"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955611"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 订阅或存储帐户
 

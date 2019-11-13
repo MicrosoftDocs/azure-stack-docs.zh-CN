@@ -2,15 +2,15 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 07/23/2019
-ms.openlocfilehash: b99086454aee1d2d9c05ddc5ec46846847e91d58
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: be9d9ebf42d41e689138279724d6c218921bb87d
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417752"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955808"
 ---
-适用对象：*Azure Stack 集成系统。*
+*适用于： Azure Stack 集成系统。*
