@@ -261,6 +261,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: 扩展数据中心
           href: azure-stack-network-howto-extend-datacenter.md
+        - name: F5 负载均衡器
+          href: network-howto-f5.md
         - name: 连接到 iSCSI 存储
           href: azure-stack-network-howto-iscsi-storage.md
         - name: 设置隧道
