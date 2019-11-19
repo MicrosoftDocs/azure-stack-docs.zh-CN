@@ -11,22 +11,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 10/10/2019
+ms.date: 11/14/2019
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 1070608db881426d6cb7ca78d0b19444bdba77ce
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.lastreviewed: 11/14/2019
+ms.openlocfilehash: 89ed4549dc44eb433f8061aba9bcff9405d80699
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047215"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162975"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes 部署故障排除 Azure Stack
 
 *适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用 [AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
+> 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用[AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
 
 本文介绍了如何对 Kubernetes 群集进行故障排除。 若要开始进行故障排除，请查看部署所需的元素。 你可能需要从 Azure Stack 或托管 Kubernetes 的 Linux Vm 收集部署日志。 若要从管理终结点检索日志，请联系 Azure Stack 管理员。
 
@@ -85,17 +85,18 @@ ms.locfileid: "73047215"
 
 可以在支持 Kubernetes 群集的 Vm 上收集和查看部署日志。 与 Azure Stack 管理员联系，验证你需要使用的 Azure Stack 版本，并从与你的部署相关 Azure Stack 获取日志。
 
-1. 查看[部署状态](#review-deployment-status)，并从 Kubernetes 群集中的主节点检索日志。
-2. 请确保使用的是最新版本的 Azure Stack。 如果不确定要使用的版本，请与 Azure Stack 管理员联系。
-3.  查看 VM 创建文件。 您可能遇到了以下问题：  
+1. 在部署了群集的资源组的 "**部署**" 窗格中查看 ARM 部署返回的错误代码。 有关错误代码的说明，请在 AKS Engine GitHub 存储库中的[故障排除](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md)一文。 如果无法解决与错误说明有关的问题，请继续执行这些步骤。
+2. 查看[部署状态](#review-deployment-status)，并从 Kubernetes 群集中的主节点检索日志。
+3. 检查是否正在使用最新版本的 Azure Stack。 如果不确定要使用的版本，请与 Azure Stack 管理员联系。
+4. 查看 VM 创建文件。 您可能遇到了以下问题：  
     - 公钥可能无效。 查看已创建的密钥。  
     - 创建 VM 可能触发了内部错误或触发了创建错误。 许多因素可能导致错误，包括 Azure Stack 订阅的容量限制。
     - 请确保 VM 的完全限定的域名（FQDN）以重复的前缀开头。
-4.  如果 VM**正常**，则计算 DVM。 如果 DVM 有错误消息：
+5.  如果 VM**正常**，则计算 DVM。 如果 DVM 有错误消息：
 
     - 公钥可能无效。 查看已创建的密钥。  
     - 请与 Azure Stack 管理员联系，使用特权终结点检索 Azure Stack 的日志。 有关详细信息，请参阅[Azure Stack 诊断工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)。
-5. 如果你对部署有疑问，可以发布它，或查看是否有人在[Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答了问题。 
+6. 如果你对部署有疑问，可以发布它，或查看是否有人在[Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答了问题。 
 
 ## <a name="review-deployment-status"></a>查看部署状态
 
@@ -148,7 +149,7 @@ ms.locfileid: "73047215"
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d、--vmd 主机      | 公共 IP 或 DVM 的完全限定的域名（FQDN）。 VM 名称以 `vmd-`开头。 | IP：192.168.102.38<br>DNS： myk8s. p p. test-azurestack |
     | -h、--help  | 打印命令用法。 | |
-    | -i、--file | 创建 Kubernetes 群集时，传递给 marketplace 项的 RSA 私钥文件的路径。 需要将远程登录到 Kubernetes 节点。 | C:\data\id_rsa.pem （Putty）<br>~/.ssh/id_rsa （SSH）
+    | -i、--file | 创建 Kubernetes 群集时，传递给 marketplace 项的 RSA 私钥文件的路径。 需要将远程登录到 Kubernetes 节点。 | C:\data\ id_rsa （Putty）<br>~/.ssh/id_rsa （SSH）
     | -m、--master-主机   | 公共 IP 或 Kubernetes 主节点的完全限定的域名（FQDN）。 VM 名称以 `k8s-master-`开头。 | IP：192.168.102.37<br>FQDN： k8s-p p. test-azurestack      |
     | -u，--user          | 创建 Kubernetes 群集时，传递给 marketplace 项的用户名。 需要将远程登录到 Kubernetes 节点。 | azureuser （默认值） |
 
