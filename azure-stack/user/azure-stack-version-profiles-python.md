@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中将 API 版本配置文件与 Python 配合使用 | Microsoft Docs
-description: 了解如何在 Azure Stack 中将 API 版本配置文件与 Python 配合使用。
+title: Use API version profiles with Python in Azure Stack | Microsoft Docs
+description: Learn how to use API version profiles with Python in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,73 +14,72 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-<!-- dev: viananth -->
-ms.openlocfilehash: d0bec72b86fc2cfc729514343a3749a7907ae04c
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: b54a4440adcc4f683ca27c42d637efa807e9ac75
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282825"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239353"
 ---
-# <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Python 配合使用
+# <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Use API version profiles with Python in Azure Stack
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Python SDK 支持 API 版本配置文件以面向不同的云平台，如 Azure Stack 和全局 Azure。 使用 API 配置文件为混合云创建解决方案。
+The Python SDK supports API version profiles to target different cloud platforms, such as Azure Stack and global Azure. Use API profiles in creating solutions for a hybrid cloud.
 
-本文中的说明需要 Microsoft Azure 订阅。 如果没有帐户，可以获取一个[免费试用帐户](https://go.microsoft.com/fwlink/?LinkId=330212)。
+The instructions in this article require a Microsoft Azure subscription. If you don't have one, you can get a [free trial account](https://go.microsoft.com/fwlink/?LinkId=330212).
 
-## <a name="python-and-api-version-profiles"></a>Python 与 API 版本配置文件
+## <a name="python-and-api-version-profiles"></a>Python and API version profiles
 
-Python SDK 支持以下 API 配置文件：
+The Python SDK supports the following API profiles:
 
 - **latest**  
-    此配置文件面向 Azure 平台中所有服务提供程序的最新 API 版本。
+    This profile targets the most recent API versions for all service providers in the Azure platform.
 - **2019-03-01-hybrid**  
-    此配置文件面向版本1904或更高版本的 Azure Stack 平台中所有资源提供程序的最新 API 版本。
+    This profile targets the latest API versions for all the resource providers in the Azure Stack platform for versions 1904 or later.
 - **2018-03-01-hybrid**  
-    此配置文件面向 Azure Stack 平台中所有资源提供程序的最兼容 API 版本。
+    This profile targets the most compatible API versions for all the resource providers in the Azure Stack platform.
 - **2017-03-09-profile**  
-    此配置文件以 Azure Stack 支持的资源提供程序的大多数兼容 API 版本为目标。
+    This profile targets the most compatible API versions of the resource providers supported by Azure Stack.
 
-   有关 API 配置文件和 Azure Stack 的详细信息，请参阅[在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)。
+   For more info on API profiles and Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
 
-## <a name="install-the-azure-python-sdk"></a>安装 Azure Python SDK
+## <a name="install-the-azure-python-sdk"></a>Install the Azure Python SDK
 
-1. 从[官方站点](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)安装 Git。
-2. 有关如何安装 Python SDK 的说明，请参阅[面向 Python 开发人员的 Azure](/python/azure/python-sdk-azure-install?view=azure-python)。
-3. 如果此文不适用，请创建订阅，并保存订阅 ID 供以后使用。 有关创建订阅的说明，请参阅[在 Azure Stack 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
-4. 创建服务主体并保存其 ID 和机密。 有关如何为 Azure Stack 创建服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。
-5. 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何为服务主体分配角色的说明，请参阅[提供对 Azure Stack 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。
+1. Install Git from [the official site](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+2. For instructions on how to install the Python SDK, see [Azure for Python developers](/python/azure/python-sdk-azure-install?view=azure-python).
+3. If not available, create a subscription and save the subscription ID to use later. For instructions on creating a subscription, see [Create subscriptions to offers in Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
+4. Create a service principal and save its ID and secret. For instructions on how to create a service principal for Azure Stack, see [Provide applications access to Azure Stack](../operator/azure-stack-create-service-principals.md).
+5. Make sure your service principal has the contributor/owner role on your subscription. For instructions on how to assign a role to your service principal, see [Provide applications access to Azure Stack](../operator/azure-stack-create-service-principals.md).
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备组件
 
-若要将 Python Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 若要设置环境变量，请参阅下表中针对特定操作系统的说明。
+To use the Python Azure SDK with Azure Stack, you must supply the following values and then set values with environment variables. To set the environment variables, see the instructions after the following table, for your specific operating system.
 
-| ReplTest1 | 环境变量 | 说明 |
+| Value | 环境变量 | 描述 |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| 租户 ID | `AZURE_TENANT_ID` | 你的 Azure Stack[租户 ID](../operator/azure-stack-identity-overview.md)。 |
-| 客户端 ID | `AZURE_CLIENT_ID` | 在本文上一部分创建服务主体时保存的服务主体应用 ID。 |
-| 订阅 ID | `AZURE_SUBSCRIPTION_ID` | 使用[订阅 ID](../operator/service-plan-offer-subscription-overview.md#subscriptions)可以访问 Azure Stack 中的产品/服务。 |
-| 客户端机密 | `AZURE_CLIENT_SECRET` | 创建服务主体时保存的服务主体应用机密。 |
-| 资源管理器终结点 | `ARM_ENDPOINT` | 请参阅[Azure Stack 资源管理器终结点](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)一文。 |
-| 资源位置 | `AZURE_RESOURCE_LOCATION` | Azure Stack 环境的资源位置。
+| 租户 ID | `AZURE_TENANT_ID` | Your Azure Stack [tenant ID](../operator/azure-stack-identity-overview.md). |
+| 客户端 ID | `AZURE_CLIENT_ID` | The service principal app ID saved when the service principal was created in the previous section of this article. |
+| 订阅 ID | `AZURE_SUBSCRIPTION_ID` | You use the [subscription ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) to access offers in Azure Stack. |
+| 客户端机密 | `AZURE_CLIENT_SECRET` | The service principal app secret saved when the service principal was created. |
+| Resource Manager endpoint | `ARM_ENDPOINT` | See the [Azure Stack Resource Manager endpoint](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint) article. |
+| 资源位置 | `AZURE_RESOURCE_LOCATION` | The resource location of your Azure Stack environment.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根证书
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
 
-如果使用的是 ASDK，则必须显式信任远程计算机上的 CA 根证书。 不需要信任 Azure Stack 集成系统的 CA 根证书。
+If you are using the ASDK, you must explicitly trust the CA root certificate on your remote machine. You do not need to trust the CA root certificate with Azure Stack integrated systems.
 
 #### <a name="windows"></a>Windows
 
-1. 在计算机上查找 Python 证书存储区位置。 位置可能会有所不同，具体取决于你安装 Python 的位置。 打开命令提示符或提升的 PowerShell 提示符，然后键入以下命令：
+1. Find the Python certificate store location on your machine. The location may vary, depending on where you installed Python. Open a command prompt or an elevated PowerShell prompt, and type the following command:
 
     ```PowerShell  
       python -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书存储位置;例如， **~/lib/python3.5/site-packages/certifi/cacert.pem**。 具体的路径取决于你的操作系统和已安装的 Python 的版本。
+    Make a note of the certificate store location; for example, **~/lib/python3.5/site-packages/certifi/cacert.pem**. Your particular path depends on your operating system and the version of Python that you have installed.
 
-2. 信任 Azure Stack CA 根证书，方法是将其附加到现有的 Python 证书：
+2. Trust the Azure Stack CA root certificate by appending it to the existing Python certificate:
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate; for ex: C:\Users\user1\Downloads\root.pem>"
@@ -112,46 +111,46 @@ Python SDK 支持以下 API 配置文件：
     ```
 
 > [!NOTE]  
-> 如果使用**virtualenv**通过 python SDK 进行开发（如以下[运行 Python 示例](#run-the-python-sample)部分中所述），则必须将以前的证书添加到虚拟环境证书存储区。 路径可能如下所示： `..\mytestenv\Lib\site-packages\certifi\cacert.pem`。
+> If you are using **virtualenv** for developing with Python SDK as mentioned in the following [Run the Python sample](#run-the-python-sample) section, you must add the previous certificate to your virtual environment certificate store. The path might look similar to: `..\mytestenv\Lib\site-packages\certifi\cacert.pem`.
 
-## <a name="python-samples-for-azure-stack"></a>适用于 Azure Stack 的 Python 示例
+## <a name="python-samples-for-azure-stack"></a>Python samples for Azure Stack
 
-使用 Python SDK Azure Stack 的一些代码示例如下：
+Some of the code samples available for Azure Stack using the Python SDK are:
 
-- [管理资源和资源组](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)
-- [管理存储帐户](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)
-- [管理虚拟机](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)：此示例使用**2019-03-01 混合**配置文件，该配置文件面向 Azure Stack 支持的最新 API 版本。
+- [Manage resources and resource groups](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)
+- [Manage storage account](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)
+- [Manage virtual machines](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/): This sample uses **2019-03-01-hybrid** profile, which targets the latest API versions supported by Azure Stack.
 
-## <a name="manage-virtual-machine-sample"></a>管理虚拟机示例
+## <a name="manage-virtual-machine-sample"></a>Manage virtual machine sample
 
-使用以下 Python 代码示例执行 Azure Stack 中虚拟机（Vm）的常见管理任务。 此代码示例演示如何执行以下操作：
+Use the following Python code sample to perform common management tasks for virtual machines (VMs) in your Azure Stack. The code sample shows you how to:
 
-- 创建 VM：
+- Create VMs:
   - 创建 Linux VM
   - 创建 Windows VM
-- 更新 VM：
-  - 扩展驱动器
-  - 标记 VM
+- Update a VM:
+  - Expand a drive
+  - 标记一个 VM
   - 附加数据磁盘
   - 分离数据磁盘
-- 操作 VM：
+- Operate a VM:
   - 启动 VM
   - 停止 VM
   - 重新启动 VM
 - 列出 VM
 - 删除 VM
 
-若要查看执行这些操作的代码，请参阅 GitHub 存储库 [Hybrid-Compute-Python-Manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM) 中的 Python 脚本 **example.py** 中的 **run_example()** 函数。
+To review the code that performs these operations, see the **run_example()** function in the Python script **example.py** in the GitHub repo [Hybrid-Compute-Python-Manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
-每个操作都清晰地带有注释和一个 print 函数。 这些示例不一定按此列表中显示的顺序执行。
+Each operation is clearly labeled with a comment and a print function. The examples are not necessarily in the order shown in this list.
 
-## <a name="run-the-python-sample"></a>运行 Python 示例
+## <a name="run-the-python-sample"></a>Run the Python sample
 
-1. [安装 Python](https://www.python.org/downloads/)（如果尚未安装）。 此示例（和 SDK）与 Python 2.7、3.4、3.5 和 3.6 兼容。
+1. [Install Python](https://www.python.org/downloads/) if not already installed. This sample (and the SDK) is compatible with Python 2.7, 3.4, 3.5, and 3.6.
 
-2. Python 开发的一般建议是使用虚拟环境。 有关详细信息，请参阅 [Python 文档](https://docs.python.org/3/tutorial/venv.html)。
+2. A general recommendation for Python development is to use a virtual environment. For more information, see the [Python documentation](https://docs.python.org/3/tutorial/venv.html).
 
-3. 在 Python 3 上安装和初始化具有**venv**模块的虚拟环境（必须安装适用于 python 2.7 的[virtualenv](https://pypi.python.org/pypi/virtualenv) ）：
+3. Install and initialize the virtual environment with the **venv** module on Python 3 (you must install [virtualenv](https://pypi.python.org/pypi/virtualenv) for Python 2.7):
 
     ```bash
     python -m venv mytestenv # Might be "python3" or "py -3.6" depending on your Python installation
@@ -161,22 +160,22 @@ Python SDK 支持以下 API 配置文件：
     ./scripts/activate.bat   # Windows CMD only
     ```
 
-4. 克隆存储库：
+4. Clone the repository:
 
     ```bash
     git clone https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM.git
     ```
 
-5. 使用**pip**安装依赖关系：
+5. Install the dependencies using **pip**:
 
     ```bash
     cd Hybrid-Compute-Python-Manage-VM
     pip install -r requirements.txt
     ```
 
-6. 创建要用于 Azure Stack 的[服务主体](../operator/azure-stack-create-service-principals.md)。 确保你的服务主体在你的订阅上具有[参与者/所有者角色](../operator/azure-stack-create-service-principals.md#assign-a-role)。
+6. Create a [service principal](../operator/azure-stack-create-service-principals.md) to work with Azure Stack. Make sure your service principal has the [contributor/owner role](../operator/azure-stack-create-service-principals.md#assign-a-role) on your subscription.
 
-7. 设置以下变量并将这些环境变量导出到当前 shell 中：
+7. Set the following variables and export these environment variables into your current shell:
 
     ```bash
     export AZURE_TENANT_ID={your tenant id}
@@ -187,7 +186,7 @@ Python SDK 支持以下 API 配置文件：
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. 若要运行此示例，Ubuntu 16.04-LTS 和 WindowsServer 2012-R2-DataCenter 映像必须位于 Azure Stack Marketplace 中。 这些映像可以[从 Azure 下载](../operator/azure-stack-download-azure-marketplace-item.md)，也可以添加到[平台映像存储库](../operator/azure-stack-add-vm-image.md)中。
+8. To run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-DataCenter images must be present in the Azure Stack Marketplace. These images can be either [downloaded from Azure](../operator/azure-stack-download-azure-marketplace-item.md), or added to the [platform image repository](../operator/azure-stack-add-vm-image.md).
 
 9. 运行示例：
 
@@ -197,6 +196,6 @@ Python SDK 支持以下 API 配置文件：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Python 开发中心](https://azure.microsoft.com/develop/python/)
-- [Azure 虚拟机文档](https://azure.microsoft.com/services/virtual-machines/)
-- [虚拟机的学习路径](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
+- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
+- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
+- [Learning Path for Virtual Machines](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
