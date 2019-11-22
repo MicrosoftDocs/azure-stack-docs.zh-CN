@@ -11,24 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c21223ca8926a1e2b3ca1b06752a79a14adaeda1
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 823ea20bbddaceda970d95008e1214e77ca51f7c
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73636881"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310112"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>向 Azure Stack Marketplace 添加 Azure Kubernetes Services （AKS）引擎必备组件
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以通过将本文中所述的项目添加到 Azure Stack，使用户能够设置 Azure Kubernetes Services （AKS）引擎。 然后，用户可以通过单个协调的操作来部署 Kubernetes 群集。 本文将指导你完成将 AKS 引擎提供给连接和断开连接环境中的用户所需的步骤。 AKS 引擎依赖于服务主体标识，在 marketplace 中是自定义脚本扩展和 AKS 基本映像。
-
-[AKS 引擎](https://github.com/Azure/aks-engine)使用生成的映像 AKS 基本映像。 任何 AKS 引擎版本都依赖于可在 Azure Stack 中使用的特定映像版本。 请查看列出[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)中的 AKS 引擎版本和相应 Kubernetes 版本的表。
 
 > [!IMPORTANT]
 > AKS 引擎目前为公共预览版。
@@ -60,11 +58,11 @@ ms.locfileid: "73636881"
 
 1. 登录到[管理门户](https://adminportal.local.azurestack.external)。
 
-1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
+1. 选择“所有服务”，然后在“管理”类别下，选择“市场管理”。
 
-1. 选择 " **+ 从 Azure 添加**"。
+1. 选择“+ 从 Azure 添加”。
 
-1. 输入 `AKS Base` 。
+1. 输入 `AKS Base`。
 
 1. 选择与 AKS 引擎版本匹配的映像版本。 可以在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)中找到 AKS 基本映像到 AKS 引擎版本的列表。 
 
@@ -73,7 +71,7 @@ ms.locfileid: "73636881"
     - **产品/服务**： aks
     - **版本**： AKS 基本映像 16.04-LTS Image 发行版，10月2019（2019.10.24 或 Version 映射到 AKS engine）
 
-1. 选择 "**下载"。**
+1. 选择“下载”。
 
 ## <a name="add-a-custom-script-extension"></a>添加自定义脚本扩展
 
@@ -81,21 +79,21 @@ ms.locfileid: "73636881"
 
 1. 打开[管理门户](https://adminportal.local.azurestack.external)。
 
-1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
+1. 选择“所有服务”，然后在“管理”类别下，选择“市场管理”。
 
-1. 选择 " **+ 从 Azure 添加**"。
+1. 选择“+ 从 Azure 添加”。
 
-1. 输入 `Custom Script for Linux` 。
+1. 输入 `Custom Script for Linux`。
 
-1. 选择包含以下配置文件的脚本：
-   - **产品/服务**：适用于 Linux 2.0 的自定义脚本
+1. 选择具有以下配置文件的服务器：
+   - **套餐**：适用于 Linux 2.0 的自定义脚本
    - **版本**：2.0.6 （或最新版本）
-   - **发布者**： Microsoft Corp
+   - **发布者**：Microsoft Corp
 
      > [!Note]  
      > 可能列出了适用于 Linux 的自定义脚本的多个版本。 你将需要添加项的最后一个版本。
 
-1. 选择 "**下载"。**
+1. 选择“下载”。
 
 ## <a name="next-steps"></a>后续步骤
 

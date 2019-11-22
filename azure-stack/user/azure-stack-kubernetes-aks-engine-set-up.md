@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 9a1f25873512da735df4e098804bb474d9ce75ea
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: aa60a2fec7cb8c06d855b070fb93cdf26a5481ba
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594938"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310182"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>在 Azure Stack 上设置 AKS 引擎的先决条件
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-您可以在您的环境中的 VM 上安装 AKS 引擎，也可以在任何客户端计算机上安装 Azure Stack 资源管理器终结点。 在运行该引擎之前，你需要准备好以下各项：你的订阅中可用的 AKS 基本 Ubuntu 服务器和 Linux 自定义脚本扩展、已分配给参与者角色的服务主体标识，以及一个私钥/公钥对用于访问 Ubuntu 服务器的 SSH。 此外，如果使用的是 Azure Stack 开发工具包，则需要让计算机信任适当的证书。
+您可以在您的环境中的 VM 上安装 AKS 引擎，也可以在任何客户端计算机上安装 Azure Stack 资源管理器终结点。 在运行该引擎之前，你需要准备好以下各项：你的订阅中提供的 AKS 基本 Ubuntu 服务器和 Linux 自定义脚本扩展、已分配给参与者角色的服务主体标识，以及用于 SSH 访问 Ubuntu 服务器的私钥/公钥对。 此外，如果使用的是 Azure Stack 开发工具包，则需要让计算机信任适当的证书。
 
 如果有必备组件，可以开始[定义群集](azure-stack-kubernetes-aks-engine-deploy-cluster.md)。
 

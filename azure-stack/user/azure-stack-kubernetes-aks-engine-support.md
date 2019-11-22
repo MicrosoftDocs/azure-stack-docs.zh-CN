@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 8c83e0b006904482634e50bdf217ec5d236e4e5c
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 1aa8aa65f0b19efcbafc85887e644c1c2b773bde
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594959"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310172"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack"></a>Azure Stack 上的 AKS 引擎的支持策略
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 本文提供有关 Azure Stack 上的 AKS 引擎的技术支持策略和限制的详细信息。 本文还详细介绍了 Kubernetes Marketplace 项、第三方开源组件以及安全性或修补程序管理。 
-
-> [!IMPORTANT]
-> AKS 引擎目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="self-managed-kubernetes-clusters-on-azure-stack-with-aks-engine"></a>具有 AKS 引擎 Azure Stack 上的自托管 Kubernetes 群集
 
@@ -110,7 +106,7 @@ Microsoft 不为以下各项提供技术支持：
 
 ## <a name="preview-features"></a>预览功能
 
-对于需要扩展测试和用户反馈的功能，Microsoft 发布了功能标志后的新预览版功能或功能。 请将这些功能视为预发行版或 beta 功能。 预览功能或功能标志功能并非适用于生产。 正在进行的功能更改和行为、bug 修复和其他更改可能会导致不稳定的群集和停机时间。 Microsoft 不支持这些功能。
+对于需要扩展测试和用户反馈的功能，Microsoft 发布了功能标志后的新预览版功能或功能。 请将这些功能视为预发行版或 beta 功能。 预览功能或功能标志功能不适用于生产环境。 正在进行的功能更改和行为、bug 修复和其他更改可能会导致不稳定的群集和停机时间。 Microsoft 不支持这些功能。
 
 ## <a name="next-steps"></a>后续步骤
 

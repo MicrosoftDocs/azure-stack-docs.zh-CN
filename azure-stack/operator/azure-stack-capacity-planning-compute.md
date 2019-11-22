@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 17136cbe86029f0ea776d8dc8860ff96c82c756e
-ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
+ms.openlocfilehash: dac0360bba7c24c85d1f30efbfb7fad30eb97028
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71142595"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299161"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack 计算
 
@@ -48,7 +48,7 @@ Azure Stack 不会过度提交内存。 但是，允许过度提交物理核心�
 
 准确规划 Azure Stack 容量时需要考虑一个新的因素。 使用 1901 更新（包括之后的所有更新）时，现在可创建的虚拟机总数有限制。 此限制是暂时性的，目的是避免解决方案不稳定。 我们已解决大量 VM 的稳定性问题根源，但尚未确定补救措施的具体时间表。 现在每台服务器存在 60 个 VM 的限制，解决方案总体限制为 700 个。 例如，8 个服务器的 Azure Stack VM 数目限制是 480 (8 * 60)。 对于包含 12 到 16 个服务器的 Azure Stack 解决方案，限制为 700 个 VM。 确定此限制时，我们考虑到了所有计算容量，例如复原能力，以及运营商想要在阵列上保持的虚拟与物理 CPU 之比。 有关详细信息，请参阅新版容量规划器。 
 
-如果达到了 VM 规模限制，将返回以下错误代码：VMsPerScaleUnitLimitExceeded、VMsPerScaleUnitNodeLimitExceeded。
+如果已达到 VM 缩放限制，则会返回以下错误代码： VMsPerScaleUnitLimitExceeded、VMsPerScaleUnitNodeLimitExceeded。
 
 ## <a name="considerations-for-deallocation"></a>解除分配的注意事项
 
@@ -101,21 +101,21 @@ Azure Stack 旨在让已成功预配的 VM 持续运行。 例如，如果某台
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
-**问**：我的租户部署了新的 VM，管理门户上的容量图表要多久才显示剩余容量？
+**问**：我的租户部署了新的 VM，管理门户上的功能图表需要多长时间才能显示剩余容量？
 
-**答**：容量边栏选项卡每隔 15 分钟刷新一次，请考虑到这一点。
+**答**：容量边栏选项卡每15分钟刷新一次，因此请考虑到这一点。
 
-**问**：我的 Azure Stack 上部署的 VM 数量没有变化，但我的容量却在波动。 为什么？
+**问**：我 Azure Stack 上部署的虚拟机的数量没有变化，但容量正在波动。 为什么？
 
-**答**：VM 放置的可用内存取决于多种因素，其中之一就是主机的 OS 预留量。 此值取决于主机上运行的不同 Hyper-V 进程所使用的内存，它不是常量值。
+**答**： VM 放置的可用内存具有多个依赖项，其中一个是主机操作系统保留项。 此值取决于主机上运行的不同 Hyper-V 进程所使用的内存，它不是常量值。
 
-**问**：租户 VM 必须处于何种状态才会消耗内存？
+**问**：租户 vm 需要处于哪些状态才能消耗内存？
 
-v：除了运行 VM 以外，任何在结构上登陆的 VM 也消耗内存。 这意味着，在 "正在创建"、"失败" 或 Vm 中关闭的 Vm，而不是从门户/powershell/cli 中停止分配的虚拟机将消耗内存。
+**答**：除了运行 vm 之外，在构造上具有着陆的任何 vm 均使用内存。 这意味着，在 "正在创建"、"失败" 或 Vm 中关闭的 Vm，而不是从门户/powershell/cli 中停止分配的虚拟机将消耗内存。
 
-**问**：我有一个四主机 Azure Stack。 我的租户中有 3 个 VM，它们各自消耗 56 GB RAM (D5_v2)。 其中一个 VM 的大小调整为 112 GB RAM (D14_v2)，仪表板上的可用内存报告导致容量边栏选项卡上出现 168 GB 的用量高峰。 后续将另外两个 D5_v2 VM 的大小调整为 D14_v2 时，各自只导致增加 56 GB 的 RAM。 为什么会这样？
+**问**：我有一个 Azure Stack 的主机。 我的租户中有 3 个 VM，它们各自消耗 56 GB RAM (D5_v2)。 其中一个 VM 的大小调整为 112 GB RAM (D14_v2)，仪表板上的可用内存报告导致容量边栏选项卡上出现 168 GB 的用量高峰。 后续将另外两个 D5_v2 VM 的大小调整为 D14_v2 时，各自只导致增加 56 GB 的 RAM。 为什么会这样？
 
-**答**：可用内存受 Azure Stack 保留的复原预留量的影响。 复原预留量受 Azure Stack 阵列上最大 VM 大小的影响。 最初，阵列上的最大 VM 是 56 GB 内存。 调整 VM 大小后，阵列上的最大 VM 将变成 112 GB 内存，这不只会增大该租户 VM 使用的内存，也会增大复原预留量。 结果便是增加 56 GB（租户 VM 内存从 56 GB 增加到 112 GB）+ 增加 112 GB 复原预留内存。 后续调整 VM 大小时，最大 VM 的大小仍保持为 112 GB VM，因此没有增加任何复原预留量。 内存消耗量的增量只是租户 VM 内存增量 (56 GB)。 
+**答**：可用内存是由 Azure Stack 维护的复原预留的函数。 复原预留量受 Azure Stack 阵列上最大 VM 大小的影响。 最初，阵列上的最大 VM 是 56 GB 内存。 调整 VM 大小后，阵列上的最大 VM 将变成 112 GB 内存，这不只会增大该租户 VM 使用的内存，也会增大复原预留量。 结果便是增加 56 GB（租户 VM 内存从 56 GB 增加到 112 GB）+ 增加 112 GB 复原预留内存。 后续调整 VM 大小时，最大 VM 的大小仍保持为 112 GB VM，因此没有增加任何复原预留量。 内存消耗量的增量只是租户 VM 内存增量 (56 GB)。 
 
 
 > [!NOTE]

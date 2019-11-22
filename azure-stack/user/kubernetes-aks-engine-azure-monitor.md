@@ -15,28 +15,28 @@ ms.date: 11/15/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 2d13b5d2296d8dc76a154e1f8edf1a0238d0226b
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.openlocfilehash: a3941a3ada52a8588b504884a2d03cb00dd2c850
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74163694"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310312"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>使用 Azure Stack 中心的容器 Azure Monitor
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以使用容器[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)来监视在 Azure Stack Hub 中部署了 Kubernetes 群集的 AKS 引擎中的容器。 
 
 > [!IMPORTANT]
-> AKS 引擎目前为公共预览版。
+> Azure Stack 中心的容器 Azure Monitor 当前为公共预览版。
 > 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 可以通过指标 API 从 Kubernetes 中提供的控制器、节点和容器中收集内存和处理器指标，从而使用 Azure Monitor 查看容器性能。 此外，服务还会收集容器日志。 可以使用这些日志诊断 Azure 的本地群集中的问题。 设置 Kubernetes 群集的监视后，将自动收集这些指标和日志。 适用于 Linux 的 Azure Monitor Log Analytics 代理的容器化版本收集日志。 Azure Monitor 将指标和日志存储在你的 Azure 订阅可访问的 log analytics 工作区中。
 
 可以通过两种方式在群集上启用 Azure Monitor。 这两种方法都需要在 Azure 中设置 Azure Monitor Log Analytics 工作区。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 这两种方法都需要[Azure Monitor –容器](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers)中列出的[先决条件](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers#pre-requisites)。
 
@@ -50,21 +50,21 @@ ms.locfileid: "74163694"
 
 在此示例中，可以找到 Azure Stack 中心群集支持的 API 定义： [monitoring_existing_workspace_id_and_key kubernetes](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json)。 具体而言，请在**kubernetesConfig**中查找**加载项**属性：
 
-    ```JSON  
-    "orchestratorType": "Kubernetes",
-          "kubernetesConfig": {
-            "addons": [
-              {
-                "name": "container-monitoring",
-                "enabled": true,
-                "config": {
-                  "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
-                  "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
-                }
-              }
-            ]
-          }
-    ```
+```JSON  
+ "orchestratorType": "Kubernetes",
+       "kubernetesConfig": {
+         "addons": [
+           {
+             "name": "container-monitoring",
+             "enabled": true,
+             "config": {
+               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
+             }
+           }
+         ]
+       }
+```
 
 ## <a name="next-steps"></a>后续步骤
 

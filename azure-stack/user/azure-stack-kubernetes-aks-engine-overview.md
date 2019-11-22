@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 22779072b2dfed018a2ff6d5eac5bf2c294ccd31
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: cb531570191216ea13a0b1a7a6d36738c0765cd3
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595123"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310259"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Azure Stack 上的 AKS 引擎是什么？
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以使用 AKS 引擎命令行工具在 Azure 上部署和管理 Kubernetes 群集，并 Azure Stack。 使用 AKS 引擎创建、升级和缩放 Azure 资源管理器本地群集。 可以使用引擎在连接和断开连接的环境中部署群集。 本文概述了 AKS 引擎，并提供了有关将引擎与 Azure Stack 配合使用的支持方案，以及部署、升级和缩放等操作的简介。
-
-> [!IMPORTANT]
-> AKS 引擎目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="overview-of-the-aks-engine"></a>AKS 引擎概述
 

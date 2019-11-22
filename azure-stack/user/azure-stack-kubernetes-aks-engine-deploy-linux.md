@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 3979dfdf6a229f1d81b6c5cc017d4d3f75a62e1a
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 3095ede91ce8ac98f1571307c61b28e80aa90fba
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595348"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310261"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>在 Azure Stack 中的 Linux 上安装 AKS 引擎
 
@@ -94,7 +94,7 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 
 在 ASDK 上运行 AKS 引擎的客户端 VM 时，需要添加证书。
 
-当你使用 ASDK 时，Azure 资源管理器终结点使用自签名证书时，需要显式将此证书添加到计算机的受信任证书存储区中。 可以在 ASDK 中部署的任何 VM 中找到 ASDK 根证书。 例如，在 Ubuntu VM 中，你将在此目录中找到它 `/var/lib/waagent/Certificates.pem`。 
+当你使用 ASDK 时，Azure 资源管理器终结点使用自签名证书时，需要显式将此证书添加到计算机的受信任证书存储区中。 可以在 ASDK 中部署的任何 VM 中找到 ASDK 根证书。 例如，在 Ubuntu VM 中，你将在此目录 `/var/lib/waagent/Certificates.pem`中找到它。 
 
 将证书文件复制到以下命令：
 

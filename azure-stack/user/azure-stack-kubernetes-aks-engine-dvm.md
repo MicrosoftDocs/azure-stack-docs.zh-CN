@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 4236f1dff939621aa391927341c0ee1136a64b58
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 1aa7c403e9491bf8b081b712620a3e984e5dc68a
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595311"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310241"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack"></a>将 Marketplace 项群集移到 Azure Stack 上的 AKS 引擎
 

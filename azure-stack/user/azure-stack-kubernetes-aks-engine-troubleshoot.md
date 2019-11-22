@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: a847f04e3766e943aba78b567b0f21a99d0da860
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74162942"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310340"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>对 Azure Stack 上的 AKS 引擎进行故障排除
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 在 Azure Stack 上部署或使用 AKS 引擎时可能会遇到问题。 本文介绍了对 AKS 引擎的部署进行故障排除的步骤，收集有关 AKS 引擎的信息，收集 Kubernetes 日志，查看自定义脚本扩展错误代码，以及针对 AKS 引擎打开 GitHub 问题的说明。
-
-> [!IMPORTANT]
-> AKS 引擎目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>排查 AKS 引擎安装问题
 
@@ -132,11 +128,11 @@ ms.locfileid: "74162942"
 
 2. 查找 `getkuberneteslogs.sh` 脚本所需的参数。 此脚本将使用以下参数：
 
-    | 参数 | 描述 | 需要 | 示例 |
+    | 参数 | 说明 | 必选 | 示例 |
     | --- | --- | --- | --- |
     | -h、--help | 打印命令用法。 | 否 | 
     -u,--用户 | 群集 Vm 的管理员用户名 | 是 | azureuser<br>（默认值） |
-    | -i、--file | 与用于创建 Kubernetes 群集的公钥关联的 RSA 私钥（有时名为 "id_rsa"）  | 是 | `./rsa.pem` （Putty）<br>`~/.ssh/id_rsa` （SSH） |
+    | -i、--identity-file | 与用于创建 Kubernetes 群集的公钥关联的 RSA 私钥（有时名为 "id_rsa"）  | 是 | `./rsa.pem` （Putty）<br>`~/.ssh/id_rsa` （SSH） |
     |   -g, --resource-group    | Kubernetes 群集资源组 | 是 | k8sresourcegroup |
     |   -n、--user-namespace               | 从指定命名空间中的容器收集日志（始终收集 kube 系统日志） | 否 |   monitoring |
     |       --api 模型                    | 将 apimodel 文件保存在 Azure Stack 的存储帐户中。 如果同时提供了--apimodel 参数，则会将文件上传到存储帐户。 | 否 | `./apimodel.json` |

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 083d30e07d924e38f682785866b0739e4cdb36e6
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 28eb11be532608648761f5dcfe2d2d7f2337b80e
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019483"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298801"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 
@@ -29,7 +29,7 @@ ms.locfileid: "72019483"
 
 ## <a name="download-update-packages-for-integrated-systems"></a>下载集成系统的更新包
 
-Microsoft 同时发布每月更新包和修补程序包来解决特定问题。
+Microsoft 会发布完整的每月更新包和修补程序包来解决特定问题。
 
 每月更新包托管在安全的 Azure 终结点中。 可以使用 [Azure Stack 更新下载程序工具](https://aka.ms/azurestackupdatedownload)手动下载它们。 如果缩放单元已连接，更新会以“有可用更新”消息的形式自动显示在管理员门户中。 完整的每月更新包在每次发布时都会详细地进行记录。 有关每次发布的详细信息，可以单击本文[更新包发布频率](#update-package-release-cadence)部分的任何发布。
 
@@ -53,14 +53,14 @@ Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布
 
 有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明：
 
+- [Azure Stack 1910 更新](/azure-stack/operator/release-notes?view=azs-1910)
 - [Azure Stack 1908 更新](/azure-stack/operator/release-notes?view=azs-1908)
 - [Azure Stack 1907 更新](/azure-stack/operator/release-notes?view=azs-1907)
 - [Azure Stack 1906 更新](/azure-stack/operator/release-notes?view=azs-1906)
-- [Azure Stack 1905 更新](/azure-stack/operator/release-notes?view=azs-1905)
 
 ## <a name="hotfixes"></a>修补程序
 
-适用范围：*Azure Stack 集成系统*
+*适用于：Azure Stack 集成系统*
 
 Microsoft 偶尔会提供 Azure Stack 的修补程序（通常是预防性或时效性的程序）来解决具体的问题。  发布的每个修补程序都附带相应的 Microsoft 知识库文章，其中详细描述了问题、原因和解决方法。
 
@@ -68,16 +68,16 @@ Microsoft 偶尔会提供 Azure Stack 的修补程序（通常是预防性或时
 
 有关当前可用的修补程序的信息，请参阅该更新的发行说明：
 
-- [Azure Stack 1908 修补程序](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1908)
-- [Azure Stack 1907 修补程序](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)
-- [Azure Stack 1906 修补程序](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)
-- [Azure Stack 1905 修补程序](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)
+- [Azure Stack 1910 修补程序](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
+- [Azure Stack 1908 修补程序](/azure-stack/operator/release-notes?view=azs-1908#hotfixes)
+- [Azure Stack 1907 修补程序](/azure-stack/operator/release-notes?view=azs-1907#hotfixes)
+- [Azure Stack 1906 修补程序](/azure-stack/operator/release-notes?view=azs-1906#hotfixes)
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
 
-要使 Azure Stack 实例保持在受支持状态，实例必须运行最近发布的更新版本，或者运行上述两个更新版本之一。
+为了使 Azure Stack 实例保持受支持的状态，该实例必须运行最新发布的更新版本或运行之前的两个更新版本之一。
 
-修补程序不属于主要更新版本。 如果 Azure Stack 实例超过*两个更新*，则会将其视为不符合。 必须至少更新到支持的最低版本。
+修补程序不属于主要更新版本。 如果 Azure Stack 实例落后*两个以上的更新*，则认为它不符合。 必须至少更新到最低支持版本才能获得支持。
 
 例如，如果最新发布的更新版本为 1904，在此之前的两个更新包为版本 1903 和 1902，则 1902 和 1903 仍受支持， 但 1901 不受支持。 即使最近一到两个月没有发布任何版本，此策略也有效。 例如，如果最新版本为 1807，但没有版本 1806，则此前的两个更新包（1805 和 1804）仍受支持。
 
