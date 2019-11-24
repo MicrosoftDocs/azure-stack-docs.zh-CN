@@ -24,7 +24,7 @@ ms.locfileid: "72019375"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack"></a>在 Azure Stack 中配置多租户
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 你可以配置 Azure Stack 以支持多个 Azure Active Directory （Azure AD）租户中的用户，使他们能够使用 Azure Stack 中的服务。 例如，考虑以下方案：
 
@@ -112,9 +112,9 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>指导用户登录
 
-现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。 Fabrikam 用户（具有 fabrikam.onmicrosoft.com 后缀的用户）通过访问 https @ no__t-0//test-azurestack 登录。
+现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。 Fabrikam 用户（具有 fabrikam.onmicrosoft.com 后缀的用户）通过访问 https\://portal.local.azurestack.external. 登录
 
-Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmicrosoft.com 的用户）中的所有[外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles)使用 https @ no__t//test-azurestack///。 如果他们未使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
+Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmicrosoft.com 的用户）中的所有[外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles)使用 https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com. 登录。 如果他们未使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
 
 ## <a name="disable-multi-tenancy"></a>禁用多租户
 

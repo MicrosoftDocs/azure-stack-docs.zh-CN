@@ -34,7 +34,7 @@ ms.locfileid: "71961861"
 
 ## <a name="get-the-readiness-checker-tool"></a>获取就绪性检查器工具
 
-从 [PowerShell 库](https://aka.ms/AzsReadinessChecker)下载最新版本的 **AzsReadinessChecker**。  
+从 **PowerShell 库**下载最新版本的 [AzsReadinessChecker](https://aka.ms/AzsReadinessChecker)。  
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -83,7 +83,7 @@ ms.locfileid: "71961861"
 
 4. 在 PowerShell 提示符下运行以下命令，开始验证订阅：
 
-   - 将 @no__t 的值指定为**AzureCloud**、 **AzureGermanCloud**或**AzureChinaCloud**。  
+   - 将 `AzureEnvironment` 的值指定为**AzureCloud**、 **AzureGermanCloud**或**AzureChinaCloud**。  
    - 提供 Azure Active Directory 管理员用户名和 Azure Active Directory 租户名称。
 
       ```powershell
@@ -108,8 +108,8 @@ ms.locfileid: "71961861"
 
 默认情况下，这两个文件都写入到 **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
 
-- 使用 "运行" 命令行末尾的 `-OutputPath <path>` 参数来指定不同的报表位置。
-- 使用 "运行" 命令末尾的 `-CleanReport` 参数从**AzsReadinessCheckerReport**中清除有关先前运行的工具的信息。
+- 使用 "运行" 命令行的末尾的 `-OutputPath <path>` 参数来指定不同的报表位置。
+- 使用 "运行" 命令末尾的 "`-CleanReport`" 参数可以从**AzsReadinessCheckerReport**清除有关以前运行的工具的信息。
 
 有关详细信息，请参阅 [Azure Stack 验证报告](azure-stack-validation-report.md)。
 

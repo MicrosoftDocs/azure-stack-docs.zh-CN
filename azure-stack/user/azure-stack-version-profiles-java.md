@@ -25,7 +25,7 @@ ms.locfileid: "72282889"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Java 配合使用
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 用于 Azure Stack 资源管理器的 Java SDK 提供了相关工具来帮助构建和管理基础结构。 该 SDK 中的资源提供程序包括了计算、网络、存储、应用服务和 [Key Vault](/azure/key-vault/key-vault-whatis)。
 
@@ -65,7 +65,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 1. 按照正式说明安装 Git。 请参阅[入门-安装 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
-2. 按照说明安装 [Java SDK](https://zulu.org/download/) 和 [Maven](https://maven.apache.org/)。 正确的版本是 Java 开发人员工具包的版本 8。 Apache Maven 的正确版本为3.0 或更高版本。 若要完成本快速入门，必须将 @no__t 0 环境变量设置为 Java 开发工具包的安装位置。 有关详细信息，请参阅[使用 Java 和 Maven 创建第一个函数](/azure/azure-functions/functions-create-first-java-maven)。
+2. 按照说明安装 [Java SDK](https://zulu.org/download/) 和 [Maven](https://maven.apache.org/)。 正确的版本是 Java 开发人员工具包的版本 8。 Apache Maven 的正确版本为3.0 或更高版本。 若要完成本快速入门，必须将 `JAVA_HOME` 环境变量设置为 Java 开发工具包的安装位置。 有关详细信息，请参阅[使用 Java 和 Maven 创建第一个函数](/azure/azure-functions/functions-create-first-java-maven)。
 
 3. 若要安装正确的依赖项包，请在 Java 应用中打开 Pom.xml 文件。 添加一个依赖项，如以下代码中所示：
 
@@ -100,7 +100,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 | 订阅 ID           | `AZURE_SUBSCRIPTION_ID`      | 使用[订阅 ID](../operator/service-plan-offer-subscription-overview.md#subscriptions)可以访问 Azure Stack 中的产品/服务。                |
 | 客户端机密             | `AZURE_CLIENT_SECRET`        | 创建服务主体时保存的服务主体应用程序机密。                                                                                                                                   |
 | 资源管理器终结点 | `ARM_ENDPOINT`              | 请参阅[Azure Stack 资源管理器终结点](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)一文。 |
-| Location                  | `RESOURCE_LOCATION`    | 对于 Azure Stack 来说为 **Local**。                                                                                                                                                                                                |
+| 位置                  | `RESOURCE_LOCATION`    | 对于 Azure Stack 来说为 **Local**。                                                                                                                                                                                                |
 
 若要查找你的 Azure Stack 的租户 ID，请参阅[此处](../operator/azure-stack-csp-ref-operations.md)的说明。 若要设置环境变量，请使用以下部分中的过程：
 
@@ -130,7 +130,7 @@ Export AZURE_TENANT_ID=<Your_Tenant_ID>
 
 1. 在命令提示符下，将目录更改为 `%JAVA_HOME%\bin`。
 
-1. 运行下面的命令：
+1. 运行以下命令：
 
    ```shell
    .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
@@ -167,9 +167,9 @@ Azure 资源管理器是一种管理框架，它允许管理员部署、管理�
 
 ## <a name="existing-api-profiles"></a>现有 API 配置文件
 
-- **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**：为 Azure Stack 生成的最新配置文件。 只要你在1904或更高版本上，使用此服务配置文件与 Azure Stack 最兼容。
+- **.com.\_2019\_03\_01\_混合**：为 Azure Stack 生成最新的配置文件。 只要你在1904或更高版本上，使用此服务配置文件与 Azure Stack 最兼容。
 
-- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**：为 Azure Stack 生成的配置文件。 使用此配置文件来与 Azure Stack 1808 或更高版本兼容。
+- **\_2018\_03\_01\_混合**：为 Azure Stack 生成的配置文件。 使用此配置文件来与 Azure Stack 1808 或更高版本兼容。
 
 - **com.microsoft.azure**：包含所有服务的最新版本的配置文件。 使用所有服务的最新版本。
 

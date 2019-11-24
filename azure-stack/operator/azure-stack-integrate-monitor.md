@@ -105,9 +105,9 @@ samples/etc/azurestack_hosts.cfg
 samples/etc/azurestack_services.cfg
 ```
 
-1.  将 `azurestack_plugin.py` 的插件复制到以下目录： `/usr/local/nagios/libexec`。
+1.  将插件 `azurestack_plugin.py` 复制到以下目录中： "`/usr/local/nagios/libexec`"。
 
-2.  将处理程序 `azurestack_handler.sh` 复制到以下目录： `/usr/local/nagios/libexec/eventhandlers`。
+2.  将处理程序 `azurestack_handler.sh` 复制到以下目录中： `/usr/local/nagios/libexec/eventhandlers`。
 
 3.  请确保将插件文件设置为可执行文件：
 
@@ -122,7 +122,7 @@ samples/etc/azurestack_services.cfg
 
 有关如何创建 SPN 的详细信息，请参阅[使用应用标识来访问资源](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)。
 
-| 参数 | 描述 | 身份验证 |
+| 参数 | 说明 | 身份验证 |
 | --- | --- | --- |
 | **External_domain_fqdn ** | 外部域 FQDN |    |
 | **region: ** | 区域名称 |    |
@@ -132,7 +132,7 @@ samples/etc/azurestack_services.cfg
 | client_cert\*\*: | 证书的路径 | 包含证书的 SPN |
 | client_cert_thumbprint\*\*: | 证书指纹 | 包含证书的 SPN |
 
-具有 AD FS 的 Azure Stack 部署不需要 @no__t 0Tenant ID。
+具有 AD FS 的 Azure Stack 部署不需要 \*租户 ID。
 
 \*\* 客户端机密和客户端证书互斥。
 
@@ -141,7 +141,7 @@ samples/etc/azurestack_services.cfg
 > [!Note]  
 > 检查 azurestack_hosts.cfg 和 azurestack_services.cfg 中的位置目标。
 
-| 配置 | 描述 |
+| 配置 | 说明 |
 | --- | --- |
 | azurestack_commands.cfg | 处理程序配置没有更改要求 |
 | azurestack_contacts.cfg | 通知设置 |
@@ -194,7 +194,7 @@ sudo service nagios reload
 /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
-### <a name="troubleshooting"></a>疑难解答
+### <a name="troubleshooting"></a>故障排除
 
 排查插件问题时，可通过在终端中手动调用插件来完成此操作。 使用以下方法：
 

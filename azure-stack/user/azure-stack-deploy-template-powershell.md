@@ -24,7 +24,7 @@ ms.locfileid: "72304076"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>在 Azure Stack 中使用 Powershell 部署模板
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以使用 PowerShell 将 Azure 资源管理器模板部署到 Azure Stack。 本文介绍如何使用 PowerShell 部署模板。
 
@@ -37,7 +37,7 @@ ms.locfileid: "72304076"
 
 1. 浏览[test-azurestack](https://aka.ms/AzureStackGitHub)存储库，并找到 101-simple- **vm**模板。 将模板保存到此位置：`C:\templates\azuredeploy-101-simple-windows-vm.json`。
 2. 打开权限提升的 PowerShell 命令提示符。
-3. 将以下脚本中的 @no__t 0 和 @no__t 替换为你的用户名和密码，然后运行该脚本：
+3. 将以下脚本中的 `username` 和 `password` 替换为你的用户名和密码，然后运行该脚本：
 
     ```powershell
     # Set deployment variables

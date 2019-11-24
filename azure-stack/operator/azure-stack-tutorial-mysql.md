@@ -125,7 +125,7 @@ ms.locfileid: "72283401"
 
    ![检查服务](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
 
-3. 创建 Azure Stack MySQL 宿主服务器用来连接 MySQL 的远程访问用户帐户，然后退出 SSH 客户端。<br><br>运行以下命令，使用前面创建的超级用户密码以 root 身份登录到 MySQL，并创建新的管理员用户，根据环境需要替换 *\<username @ no__t-2*和 *\<password @ no__t* 。 在此示例中，要创建的用户的名称为**sqlsa** ，并使用强密码：
+3. 创建 Azure Stack MySQL 宿主服务器用来连接 MySQL 的远程访问用户帐户，然后退出 SSH 客户端。<br><br>运行以下命令，使用前面创建的超级用户密码以 root 身份登录到 MySQL，并创建新的管理员用户，将 *\<用户名\>* 和 *\<密码\>* 根据环境需要。 在此示例中，要创建的用户的名称为**sqlsa** ，并使用强密码：
 
    ```mysql
    mysql -u root -p
@@ -165,7 +165,7 @@ ms.locfileid: "72283401"
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. 选择 **\+** **创建资源** > **Data \+ 存储**，然后选择 " **MySQL 数据库**"。<br><br>提供所需的数据库属性信息，包括名称、排序规则、要使用的订阅以及要用于部署的位置。 
+2. 选择 **\+** **创建资源** > **数据 \+ 存储**，然后选择 " **MySQL 数据库**"。<br><br>提供所需的数据库属性信息，包括名称、排序规则、要使用的订阅以及要用于部署的位置。 
 
    ![创建 MySQL 数据库](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 
@@ -173,7 +173,7 @@ ms.locfileid: "72283401"
 
    ![选择 SKU](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 
-4. 选择**登录名** > **创建新的登录名**，然后提供要用于新数据库的 MySQL 身份验证凭据。 完成后，单击 **"确定"** ，然后单击 "**创建**" 以开始数据库部署过程。
+4. 选择 "**登录**" > **创建新的登录名**，然后提供要用于新数据库的 MySQL 身份验证凭据。 完成后，单击 **"确定"** ，然后单击 "**创建**" 以开始数据库部署过程。
 
    ![添加登录名](./media/azure-stack-tutorial-mysqlrp/createdb3.png)
 

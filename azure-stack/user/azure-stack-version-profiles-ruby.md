@@ -25,7 +25,7 @@ ms.locfileid: "72282862"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 ## <a name="ruby-and-api-version-profiles"></a>Ruby 与 API 版本配置文件
 
@@ -93,7 +93,7 @@ gem install 'azure_sdk'
 
 若要将 Ruby Azure SDK 与 Azure Stack 配合使用，必须提供以下值，然后使用环境变量来设置值。 若要设置环境变量，请参阅表后针对特定操作系统的说明。
 
-| ReplTest1 | 环境变量 | 说明 |
+| 值 | 环境变量 | 说明 |
 | --- | --- | --- |
 | 租户 ID | `AZURE_TENANT_ID` | 你的 Azure Stack[租户 ID](../operator/azure-stack-identity-overview.md)。 |
 | 客户端 ID | `AZURE_CLIENT_ID` | 在本文上一部分创建服务主体时保存的服务主体应用 ID。  |
@@ -108,7 +108,7 @@ Microsoft Azure 资源管理器是一种管理框架，管理员可通过它来�
 可以从资源管理器终结点获取元数据信息。 该终结点返回 JSON 文件，其中包含运行代码所需的信息。
 
  > [!NOTE]  
- > Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+ > Azure Stack 开发工具包中的**ResourceManagerUrl** （ASDK）是： `https://management.local.azurestack.external/` 集成系统中的**ResourceManagerUrl** ： `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
  > 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
  示例 JSON 文件：
@@ -135,7 +135,7 @@ Microsoft Azure 资源管理器是一种管理框架，管理员可通过它来�
 set AZURE_TENANT_ID=<YOUR_TENANT_ID>
 ```
 
-#### <a name="macos-linux-and-unix-based-systems"></a>MacOS、Linux 和基于 Unix 的系统
+#### <a name="macos-linux-and-unix-based-systems"></a>macOS、Linux 和基于 Unix 的系统
 
 在基于 Unix 的系统中，使用以下命令：
 

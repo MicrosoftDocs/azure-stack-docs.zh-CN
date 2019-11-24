@@ -20,7 +20,7 @@ ms.locfileid: "71974093"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机规模集
 
-适用范围：Azure Stack 集成系统和 Azure Stack 开发工具包
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
   
 虚拟机规模集是一种 Azure Stack 计算资源。 你可以使用它们来部署和管理一组相同的虚拟机（Vm）。 通过相同方式配置的所有 Vm，规模集无需预配 Vm。 构建面向大型计算、大数据和容器化工作负荷的大规模服务更容易。
 
@@ -36,7 +36,7 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 ## <a name="prerequisites"></a>先决条件
 
 * **Azure Stack Marketplace：** 向全局 Azure 注册 Azure Stack，以启用 Azure Stack Marketplace 中的项的可用性。 请遵照[将 Azure Stack 注册到 Azure](azure-stack-registration.md) 中的说明操作。
-* **操作系统映像：** 在可以创建虚拟机规模集之前，必须从[Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md)下载 VM 映像以用于规模集。 必须已存在映像，然后用户才能创建新的规模集。
+* **操作系统映像包：** 在可以创建虚拟机规模集之前，必须从[Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md)下载 VM 映像以用于规模集。 必须已存在映像，然后用户才能创建新的规模集。
 
 ## <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
 
@@ -50,10 +50,10 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
    ![创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
 3. 填写空字段，对于“操作系统磁盘映像”、“订阅”和“实例大小”，请从下拉列表中进行选择。 对于“使用托管磁盘”，请选择“是”。 然后单击“创建”。
-    ![Configure 并创建虚拟机规模集 @ no__t-1
+    ![配置和创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create.png)
 
 4. 若要查看新的虚拟机规模集，请转到“所有资源”，搜索该虚拟机规模集名称，然后在搜索结果中单击其名称。
-   ![View 虚拟机规模集 @ no__t-1
+   ![查看虚拟机规模集](media/azure-stack-compute-add-scalesets/search.png)
 
 ## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>添加虚拟机规模集（版本 1808 之前的版本）
 
@@ -74,7 +74,7 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 
 1. 虚拟机规模集部署模板为 **version** 指定了 **latest**：  
 
-   如果规模集模板 `imageReference` 节中的 `version` 设置为 **latest**，则对规模集执行的纵向扩展操作将会针对规模集实例使用映像的最新可用版本。 完成纵向扩展后，可以删除旧的虚拟机规模集实例。 `publisher`、`offer` 和 `sku` 的值保持不变。
+   如果规模集模板 `version` 节中的 **设置为**latest`imageReference`，则对规模集执行的纵向扩展操作将会针对规模集实例使用映像的最新可用版本。 完成纵向扩展后，可以删除旧的虚拟机规模集实例。 `publisher`、`offer` 和 `sku` 的值保持不变。
 
    以下 JSON 示例指定了 `latest`：  
 

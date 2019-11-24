@@ -62,12 +62,12 @@ ms.locfileid: "72283357"
 1. 
    [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. 选择“\+ 创建资源” > “自定义”，然后选择“模板部署”。
+2. 选择“ **创建资源”\+“自定义”，然后选择“模板部署”。**  > 
 
    ![自定义模板部署](media/azure-stack-tutorial-sqlrp/1.png)
 
 
-3. 在 "**自定义部署**" 边栏选项卡上，选择 "**编辑模板** > **快速入门模板**"，然后使用可用自定义模板下拉列表选择 " **2016-alwayson** " 模板，单击 **"确定**"，**然后保存**。
+3. 在 "**自定义部署**" 边栏选项卡上，选择 "**编辑模板** > **快速入门模板**"，然后使用可用自定义模板下拉列表选择 " **2016-alwayson** " 模板，单击 **"确定**"，然后单击 "**保存**"。
 
    [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "选择快速入门模板")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
@@ -83,7 +83,7 @@ ms.locfileid: "72283357"
     [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "创建自定义部署")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
-6. 在管理门户中，选择 "**资源组**"，然后选择为自定义部署创建的资源组的名称（此示例的**资源组**）。 查看部署状态，确保所有部署已成功完成。<br><br>接下来，查看资源组项，并选择 " **SQLPIPsql @ no__t-1resource" 组名称 @ no__t** "公共 IP 地址" 项。 记录负载均衡器公共 IP 的公共 IP 地址和完全 FQDN。 需要为 Azure Stack 运算符提供此操作，以便用户可以利用此 SQL AlwaysOn 可用性组创建 SQL 宿主服务器。
+6. 在管理门户中，选择 "**资源组**"，然后选择为自定义部署创建的资源组的名称（此示例的**资源组**）。 查看部署状态，确保所有部署已成功完成。<br><br>接下来，查看 "资源组" 项，然后选择 " **SQLPIPsql\<资源组名称"\>** "公共 IP 地址" 项。 记录负载均衡器公共 IP 的公共 IP 地址和完全 FQDN。 需要为 Azure Stack 运算符提供此操作，以便用户可以利用此 SQL AlwaysOn 可用性组创建 SQL 宿主服务器。
 
    > [!NOTE]
    > 模板部署需要几个小时才能完成。
@@ -95,7 +95,7 @@ ms.locfileid: "72283357"
 
 创建具有自动种子设定的可用性组时，SQL Server 会自动为该组中的每个数据库创建辅助副本，而无需任何其他手动干预来确保 AlwaysOn 数据库的高可用性。
 
-使用这些 SQL 命令为 AlwaysOn 可用性组配置自动种子设定。 根据需要，将 \<InstanceName @ no__t 替换为主实例 SQL Server name 和 < availability_group_name > 与 AlwaysOn 可用性组名称。 
+使用这些 SQL 命令为 AlwaysOn 可用性组配置自动种子设定。 根据需要，将 \<InstanceName\> 替换为主实例 SQL Server 名称，将 < availability_group_name > 替换为 AlwaysOn 可用性组名称。 
 
 在主 SQL 实例上：
 
@@ -132,7 +132,7 @@ ms.locfileid: "72283357"
 ## <a name="create-an-azure-stack-sql-hosting-server"></a>创建 Azure Stack SQL 宿主服务器
 创建并正确配置 SQL Server AlwayOn 可用性组之后，Azure Stack 运算符必须创建 Azure Stack SQL 宿主服务器，以使用户能够使用额外的容量来创建数据库。 
 
-请确保在创建 SQL AlwaysOn 可用性组的资源组时，为之前记录的 SQL 负载均衡器的公共 IP 使用公共 IP 或完全 FQDN （**SQLPIPsql @ no__t-1resource group name @ no__t**）。 此外，还需要了解用于访问 AlwaysOn 可用性组中的 SQL 实例的 SQL Server 身份验证凭据。
+请确保在创建 SQL AlwaysOn 可用性组的资源组（**SQLPIPsql\<资源组名称\>** ）时，为之前记录的 sql 负载均衡器的公共 ip 使用公共 ip 或完全 FQDN。 此外，还需要了解用于访问 AlwaysOn 可用性组中的 SQL 实例的 SQL Server 身份验证凭据。
 
 > [!NOTE]
 > 必须通过 Azure Stack 操作员从 Azure Stack 管理门户运行此步骤。
@@ -153,7 +153,7 @@ ms.locfileid: "72283357"
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. 选择 **\+** **创建资源** > **Data \+ 存储**，然后选择 " **SQL 数据库**"。<br><br>提供所需的数据库属性信息，包括名称、排序规则、最大大小和要用于部署的订阅、资源组和位置。 
+2. 选择 **\+** **创建资源** > **数据 \+ 存储**，然后选择 " **SQL 数据库**"。<br><br>提供所需的数据库属性信息，包括名称、排序规则、最大大小和要用于部署的订阅、资源组和位置。 
 
    ![创建 SQL 数据库](./media/azure-stack-tutorial-sqlrp/createdb1.png)
 
@@ -161,7 +161,7 @@ ms.locfileid: "72283357"
 
    ![选择 SKU](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
-4. 选择**登录名** > **创建新的登录名**，然后提供要用于新数据库的 SQL 身份验证凭据。 完成后，单击 **"确定"** ，然后单击 "**创建**" 以开始数据库部署过程。
+4. 选择 "**登录**" > **创建新的登录名**，然后提供要用于新数据库的 SQL 身份验证凭据。 完成后，单击 **"确定"** ，然后单击 "**创建**" 以开始数据库部署过程。
 
    ![创建登录名](./media/azure-stack-tutorial-sqlrp/createdb3.png)
 

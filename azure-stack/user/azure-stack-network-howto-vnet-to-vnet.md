@@ -36,7 +36,7 @@ ms.locfileid: "71961997"
 
 下表汇总了这些部署中用于引用的参数：
 
-### <a name="deployment-one-forti1"></a>部署一个：Forti1
+### <a name="deployment-one-forti1"></a>部署1： Forti1
 
 | FortiGate 实例名称 | Forti1 |
 |-----------------------------------|---------------------------|
@@ -51,9 +51,9 @@ ms.locfileid: "71961997"
 | 在 VNET 子网前缀内 | 172.16.1.0/24 * |
 | VM 大小 FortiGate NVA | 标准 F2s_v2 |
 | 公共 IP 地址名称 | forti1-publicip1 |
-| 公共 IP 地址类型 | Static |
+| 公共 IP 地址类型 | 静态 |
 
-### <a name="deployment-two-forti2"></a>部署2：Forti2
+### <a name="deployment-two-forti2"></a>部署2： Forti2
 
 | FortiGate 实例名称 | Forti2 |
 |-----------------------------------|---------------------------|
@@ -68,7 +68,7 @@ ms.locfileid: "71961997"
 | 在 VNET 子网前缀内 | 172.17.1.0/24 * |
 | VM 大小 FortiGate NVA | 标准 F2s_v2 |
 | 公共 IP 地址名称 | Forti2-publicip1 |
-| 公共 IP 地址类型 | Static |
+| 公共 IP 地址类型 | 静态 |
 
 > [!Note]
 > \* 选择一组不同的地址空间和子网前缀（如果与本地网络环境重叠，其中包括任何一个 Azure Stack 的 VIP 池）。 还要确保地址范围不相互重叠。
@@ -79,7 +79,7 @@ ms.locfileid: "71961997"
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
-2.  选择 "**创建资源**" 并搜索 `FortiGate` "。
+2.  选择 "**创建资源**" 并搜索 `FortiGate`。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "71961997"
 6.  使用 "[部署参数](#deployment-parameters)" 表提供 "虚拟网络"、"子网" 和 "VM 大小" 的详细信息。
 
     > [!Warning] 
-    > 如果本地网络与 IP 范围 `172.16.0.0/16` 重叠，则必须选择并设置其他网络范围和子网。 如果要使用不同于 "[部署参数](#deployment-parameters)" 表中的名称和范围，请使用**不**会与本地网络冲突的参数。 在 VNET 中设置 VNET IP 范围和子网范围时请小心。 不希望范围与本地网络中存在的 IP 范围重叠。
+    > 如果本地网络与 `172.16.0.0/16`的 IP 范围重叠，则必须选择并设置其他网络范围和子网。 如果要使用不同于 "[部署参数](#deployment-parameters)" 表中的名称和范围，请使用**不**会与本地网络冲突的参数。 在 VNET 中设置 VNET IP 范围和子网范围时请小心。 不希望范围与本地网络中存在的 IP 范围重叠。
 
 7.  选择“确定”。
 
@@ -138,7 +138,7 @@ ms.locfileid: "71961997"
 
 9. 选择 "**虚拟设备**" 作为**下一跃点类型**和 `172.16.1.4`。 如果使用不同的 IP 范围，请使用 IP 范围。
 
-    ![下一个跃点类型](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
+    ![下一跃点类型](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
 10. 选择“保存”。
 
@@ -162,13 +162,13 @@ ms.locfileid: "71961997"
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
 
-5.  选择**System**@no__t 1**固件**。
+5.  选择 "**系统** > **固件**"。
 
 6.  选择显示最新固件的框，例如 `FortiOS v6.2.0 build0866`。
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
 
-7.  选择**备份配置并升级** > **继续**。
+7.  选择 "**备份配置和升级**" > **继续**。
 
 8.  NVA 会将其固件更新到最新版本，然后重新启动。 此过程大约需五分钟。 重新登录到 FortiGate web 控制台。
 
@@ -198,14 +198,14 @@ ms.locfileid: "71961997"
 18. 选择 " **port2** " 作为**本地接口**。
 
 19. 输入本地子网范围：
-    - forti1:172.16.0.0/16
-    - forti2:172.17.0.0/16
+    - forti1： 172.16.0.0/16
+    - forti2： 172.17.0.0/16
 
     如果使用不同的 IP 范围，请使用 IP 范围。
 
 20. 输入代表本地网络的适当远程子网，你将通过本地 VPN 设备连接到该网络。
-    - forti1:172.16.0.0/16
-    - forti2:172.17.0.0/16
+    - forti1： 172.16.0.0/16
+    - forti2： 172.17.0.0/16
 
     如果使用不同的 IP 范围，请使用 IP 范围。
 
@@ -213,7 +213,7 @@ ms.locfileid: "71961997"
 
 21. 选择“创建”
 
-22. 选择 "**网络** > "**接口**。
+22. 选择 "**网络** > **接口**"。
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
 
