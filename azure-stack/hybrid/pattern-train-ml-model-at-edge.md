@@ -44,13 +44,13 @@ ms.locfileid: "73639252"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | 描述 |
+| 层 | 组件 | 说明 |
 |----------|-----------|-------------|
 | Azure | Azure 机器学习 | [Azure 机器学习](/azure/machine-learning/)协调 ML 模型的培训。 |
 | | Azure 容器注册表 | Azure ML 将模型打包到容器中，并将其存储在[Azure 容器注册表](/azure/container-registry/)中进行部署。|
-| Azure Stack 中心 | 应用服务 | [应用服务 Azure Stack 集线器](/azure-stack/operator/azure-stack-app-service-overview)为边缘提供组件的基础。 |
+| Azure Stack Hub | 应用服务 | [应用服务 Azure Stack 集线器](/azure-stack/operator/azure-stack-app-service-overview)为边缘提供组件的基础。 |
 | | 计算 | 使用 Docker 运行 Ubuntu 的 Azure Stack 集线器 VM 用于训练 ML 模型。 |
-| | 存储空间 | 可以在 Azure Stack Hub blob 存储中承载私有数据。 |
+| | 存储 | 可以在 Azure Stack Hub blob 存储中承载私有数据。 |
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
 
