@@ -1,6 +1,7 @@
 ---
-title: 如何为 Azure Stack 创建注册角色
-description: 如何创建自定义角色，以避免使用全局管理员身份进行注册。
+title: Create a custom role for Azure Stack registration
+titleSuffix: Azure Stack
+description: Learn how to create a custom role to avoid using global administrator for Azure Stack registration.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,35 +16,35 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 50c15403ec4bf41f7513af30d2dca53310d45298
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 0cfbec17b2aef1f6a14615d4b69d8a5e9347e913
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828254"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465420"
 ---
-# <a name="create-a-custom-role-for-azure-stack-registration"></a>创建 Azure Stack 注册的自定义角色
+# <a name="create-a-custom-role-for-azure-stack-registration"></a>Create a custom role for Azure Stack registration
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!WARNING]
-> 这不是一种安全态势功能。 如果你想要实施约束来防止意外更改 Azure 订阅，可以使用此功能。 向某个用户委托此自定义角色的权限时，该用户有权编辑权限和提升权限。 请只将受信任的用户分配到自定义角色。
+> This isn't a security posture feature. Use it in scenarios where you want constraints to prevent accidental changes to the Azure Subscription. When a user is delegated rights to this custom role, the user has rights to edit permissions and elevate rights. Only assign users you trust to the custom role.
 
-在 Azure Stack 注册期间必须使用 Azure Active Directory 帐户进行登录。 该帐户需要以下 Azure Active Directory 权限和 Azure 订阅的权限：
+During Azure Stack registration, you must sign in with an Azure Active Directory (Azure AD) account. The account requires the following Azure AD permissions and Azure Subscription permissions:
 
-* **Azure Active Directory 租户中的应用程序注册权限：** 管理员拥有应用程序注册权限。 用户的权限是租户中所有用户的全局设置。 若要查看或更改设置，请参阅[创建可访问资源的 Azure AD 应用程序和服务主体](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
+* **App registration permissions in your Azure AD tenant:** Admins have app registration permissions. The permission for users is a global setting for all users in the tenant. To view or change the setting, see [create an Azure AD app and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-    “用户可以注册应用程序”设置必须设置为“是”才能让用户帐户注册 Azure Stack。   如果“应用注册”设置指定为“否”，则你无法使用用户帐户，而必须使用全局管理员帐户来注册 Azure Stack。 
+    The *user can register applications* setting must be set to **Yes** for you to enable a user account to register Azure Stack. If the app registrations setting is set to **No**, you can't use a user account to register Azure Stack—you have to use a global admin account.
 
-* **一组足够高的 Azure 订阅权限：** 属于所有者角色的用户具有足够的权限。 对于其他帐户，可以通过分配自定义角色来分配权限集，如以下部分所述。
+* **A set of sufficient Azure Subscription permissions:** Users that belong to the Owner role have sufficient permissions. For other accounts, you can assign the permission set by assigning a custom role as outlined in the following sections.
 
-而不是使用 Azure 订阅中具有所有者权限的帐户，可以创建自定义角色将权限分配给较低权限用户帐户。 然后可以使用此帐户来注册 Azure Stack。
+Rather than using an account that has Owner permissions in the Azure subscription, you can create a custom role to assign permissions to a less-privileged user account. This account can then be used to register your Azure Stack.
 
-## <a name="create-a-custom-role-using-powershell"></a>使用 PowerShell 创建自定义角色
+## <a name="create-a-custom-role-using-powershell"></a>Create a custom role using PowerShell
 
-若要创建自定义角色，必须拥有所有 `AssignableScopes` 的 `Microsoft.Authorization/roleDefinitions/write` 权限，例如[所有者](/azure/role-based-access-control/built-in-roles#owner)或[用户访问权限管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)。 使用以下 JSON 模板来简化创建自定义角色。 该模板创建允许对 Azure Stack 注册进行必要读取和写入访问的自定义角色。
+若要创建自定义角色，必须拥有所有 `AssignableScopes` 的 `Microsoft.Authorization/roleDefinitions/write` 权限，例如[所有者](/azure/role-based-access-control/built-in-roles#owner)或[用户访问权限管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)。 Use the following JSON template to simplify creation of the custom role. The template creates a custom role that allows the required read and write access for Azure Stack registration.
 
-1. 创建一个 JSON 文件。 例如 `C:\CustomRoles\registrationrole.json`
+1. Create a JSON file. 例如，`C:\CustomRoles\registrationrole.json`。
 2. 将以下 JSON 添加到该文件。 将 `<SubscriptionID>` 替换为你的 Azure 订阅 ID。
 
     ```json
@@ -70,31 +71,31 @@ ms.locfileid: "66828254"
     }
     ```
 
-3. 在 PowerShell 中，连接到 Azure 以使用 Azure 资源管理器。 出现提示时，请使用[所有者](/azure/role-based-access-control/built-in-roles#owner)或[用户访问管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)等拥有足够权限的帐户进行身份验证。
+3. In PowerShell, connect to Azure to use Azure Resource Manager. When prompted, authenticate using an account with sufficient permissions such as [Owner](/azure/role-based-access-control/built-in-roles#owner) or [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 
     ```azurepowershell
     Connect-AzureRmAccount
     ```
 
-4. 若要创建自定义角色，请使用**New-azurermroledefinition**指定 JSON 模板文件。
+4. To create the custom role, use **New-AzureRmRoleDefinition** specifying the JSON template file.
 
     ``` azurepowershell
     New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
     ```
 
-## <a name="assign-a-user-to-registration-role"></a>将用户分配到注册角色
+## <a name="assign-a-user-to-registration-role"></a>Assign a user to registration role
 
-创建注册自定义角色后，将角色分配给将用于注册 Azure Stack 的用户帐户。
+After the registration custom role is created, assign the role to the user account that will be used for registering Azure Stack.
 
-1. 使用在 Azure 订阅中拥有足够权限的帐户登录，以委托权限 - 例如[所有者](/azure/role-based-access-control/built-in-roles#owner)或[用户访问管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)。
-2. 在“订阅”中，选择“访问控制(IAM)”>“添加角色分配”。  
-3. 在“角色”中，选择创建的自定义角色“Azure Stack 注册角色”。  
-4. 选择要分配到该角色的用户。
-5. 选择“保存”，将选定的用户分配到该角色。 
+1. Sign in with the account with sufficient permission on the Azure subscription to delegate rights—such as [Owner](/azure/role-based-access-control/built-in-roles#owner) or [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator).
+2. In **Subscriptions**, select **Access control (IAM) > Add role assignment**.
+3. In **Role**, choose the custom role you created: *Azure Stack registration role*.
+4. Select the users you want to assign to the role.
+5. Select **Save** to assign the selected users to the role.
 
-    ![选择要分配到角色的用户](media/azure-stack-registration-role/assign-role.png)
+    ![Select users to assign to custom role in Azure portal](media/azure-stack-registration-role/assign-role.png)
 
-有关使用自定义角色的详细信息，请参阅[使用 RBAC 和 Azure 门户管理访问权限](/azure/role-based-access-control/role-assignments-portal)。
+For more information on using custom roles, see [manage access using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 管理 Azure Stack | Microsoft Docs
-description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack 上的资源。
+title: Manage Azure Stack with Azure CLI | Microsoft Docs
+description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,51 +10,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/22/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a0218652e2dace72356a32fe99ac5f6ac450cc94
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/22/2019
+ms.openlocfilehash: a5a6cf3ef5c2c03992647c207422eb266f171ac4
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824791"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465487"
 ---
-# <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>使用 Azure CLI 管理资源以及将资源部署到 Azure Stack
+# <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Manage and deploy resources to Azure Stack with Azure CLI
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-按照本文中的步骤设置 Azure 命令行接口 (CLI)，以从 Linux、Mac 和 Windows 客户端平台管理 Azure Stack 开发工具包 (ASDK) 资源。
+Follow the steps in this article to set up the Azure Command-Line Interface (CLI) to manage Azure Stack Development Kit (ASDK) resources from Linux, Mac, and Windows client platforms.
 
-## <a name="prepare-for-azure-cli"></a>准备 Azure CLI
+## <a name="prepare-for-azure-cli"></a>Prepare for Azure CLI
 
-如果使用 ASDK，需要提供 Azure Stack 的 CA 根证书才能在开发计算机上使用 Azure CLI。 该证书用于通过 CLI 管理资源。
+If you're using the ASDK, you need the CA root certificate for Azure Stack to use Azure CLI on your development machine. You use the certificate to manage resources through the CLI.
 
- - 如果从 ASDK 外部的工作站使用 CLI，则必须准备好 **Azure Stack CA 根证书**。  
+ - **The Azure Stack CA root certificate** is required if you're using the CLI from a workstation outside the ASDK.  
 
- - **虚拟机别名终结点**提供类似于“UbuntuLTS”或“Win2012Datacenter”的别名。 此别名引用映像发布者、套餐、SKU 和版本作为部署 VM 时的单个参数。  
+ - **The virtual machine aliases endpoint** provides an alias, like "UbuntuLTS" or "Win2012Datacenter." This alias references an image publisher, offer, SKU, and version as a single parameter when deploying VMs.  
 
-以下部分介绍如何获取这些值。
+The following sections describe how to get these values.
 
-### <a name="export-the-azure-stack-ca-root-certificate"></a>导出 Azure Stack CA 根证书
+### <a name="export-the-azure-stack-ca-root-certificate"></a>Export the Azure Stack CA root certificate
 
-如果使用集成系统，则无需导出 CA 根证书。 如果使用 ASDK，请导出 ASDK 中的 CA 根证书。
+If you're using an integrated system, you don't need to export the CA root certificate. If you're using the ASDK, export the CA root certificate on an ASDK.
 
-导出 PEM 格式的 ASDK 根证书：
+To export the ASDK root certificate in PEM format:
 
-1. 获取 Azure Stack 根证书的名称：
-    - 登录到 Azure Stack 用户或管理员门户。
-    - 单击地址栏附近的“安全”。
-    - 在弹出窗口中，单击“有效”。
-    - 在“证书”窗口中，单击“证书路径”选项卡。
-    - 记下 Azure Stack 根证书的名称。
+1. Get the name of your Azure Stack Root Cert:
+    - Sign in to the Azure Stack User or Administrator portal.
+    - Click on **Secure** near the address bar.
+    - On the pop-up window, Click **Valid**.
+    - On the Certificate Window, click **Certification Path** tab.
+    - Note down the name of your Azure Stack Root Cert.
 
-    ![Azure Stack 根证书](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
+    ![Azure Stack Root Certificate](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
 
-2. [在 Azure Stack 上创建 Windows VM](azure-stack-quick-windows-portal.md)。
+2. [Create a Windows VM on Azure Stack](azure-stack-quick-windows-portal.md).
 
-3. 登录到 VM，打开权限提升的 PowerShell 提示符，然后运行以下脚本：
+3. Sign in to the VM, open an elevated PowerShell prompt, and then run the following script:
 
     ```powershell  
       $label = "<the name of your azure stack root cert from Step 1>"
@@ -73,51 +73,51 @@ ms.locfileid: "71824791"
     certutil -encode root.cer root.pem
     ```
 
-4. 将证书复制到本地计算机。
+4. Copy the certificate to your local machine.
 
 
-### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>设置虚拟机别名终结点
+### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Set up the virtual machine aliases endpoint
 
-可以设置一个可公开访问的终结点用于托管 VM 别名文件。 VM 别名文件是一个 JSON 文件，提供映像的公用名称。 以 Azure CLI 参数形式部署 VM 时，将使用该名称。
+You can set up a publicly accessible endpoint that hosts a VM alias file. The VM alias file is a JSON file that provides a common name for an image. You use the name when you deploy a VM as an Azure CLI parameter.
 
-1. 如果发布自定义映像，请记下发布过程中指定的发布者、产品/服务、SKU 和版本信息。 如果映像来自市场，可以使用 ```Get-AzureVMImage``` cmdlet 查看信息。  
+1. If you publish a custom image, make note of the publisher, offer, SKU, and version information that you specified during publishing. If it's an image from the marketplace, you can view the information by using the ```Get-AzureVMImage``` cmdlet.  
 
-2. 从 GitHub 下载[示例文件](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)。
+2. Download the [sample file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) from GitHub.
 
-3. 在 Azure Stack 中创建存储帐户。 完成该操作后，将创建 Blob 容器。 将访问策略设置为“公开”。  
+3. Create a storage account in Azure Stack. When that's done, create a blob container. Set the access policy to "public."  
 
-4. 将 JSON 文件上传到新容器。 完成该操作后，可以查看 blob 的 URL。 选择 blob 名称，然后从 blob 属性中选择该 URL。
+4. Upload the JSON file to the new container. When that's done, you can view the URL of the blob. Select the blob name and then selecting the URL from the blob properties.
 
-### <a name="install-or-upgrade-cli"></a>安装或升级 CLI
+### <a name="install-or-upgrade-cli"></a>Install or upgrade CLI
 
-登录到开发工作站并安装 CLI。 Azure Stack 需要 Azure CLI 2.0 版或更高版本。 最新版本的 API 配置文件需要最新版本的 CLI。 使用[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 一文中所述的步骤安装 CLI。 
+Sign in to your development workstation and install CLI. Azure Stack requires version 2.0 or later of Azure CLI. The latest version of the API Profiles requires a current version of the CLI. You install the CLI by using the steps described in the [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) article. 
 
-1. 若要验证安装是否成功，请打开终端或命令提示符窗口，并运行以下命令：
+1. To verify whether the installation was successful, open a terminal or command prompt window and run the following command:
 
     ```shell
     az --version
     ```
 
-    应会看到 Azure CLI 的版本，以及计算机上安装的其他依赖库。
+    You should see the version of Azure CLI and other dependent libraries that are installed on your computer.
 
-    ![Azure Stack Python 位置上的 Azure CLI](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
+    ![Azure CLI on Azure Stack Python location](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-2. 记下 CLI 的 Python 位置。 如果正在运行 ASDK，则需要使用此位置来添加证书。
+2. Make a note of the CLI's Python location. If you're running the ASDK, you need to use this location to add your certificate.
 
 
 ## <a name="windows-azure-ad"></a>Windows (Azure AD)
 
-如果使用 Azure AD 作为标识管理服务，并在 Windows 计算机上使用 CLI，可以参考本部分完成 CLI 设置过程。
+This section walks you through setting up CLI if you're using Azure AD as your identity management service, and are using CLI on a Windows machine.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根证书
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
 
-如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 在集成系统中无需执行此步骤。
+If you're using the ASDK, you need to trust the CA root certificate on your remote machine. This step isn't needed with the integrated systems.
 
-若要信任 Azure Stack CA 根证书，请将其追加​​到随 Azure CLI 一起安装的 Python 版本的现有 Python 证书存储中。 你可能正在运行自己的 Python 实例。 Azure CLI 包括其自己的 Python 版本。
+To trust the Azure Stack CA root certificate, append it to the existing Python certificate store for the Python version installed with the Azure CLI. You may be running your own instance of Python. Azure CLI includes its own version of Python.
 
-1. 在计算机上找到证书存储位置。  可以通过运行命令 `az --version` 查找位置。
+1. Find the certificate store location on your machine.  You can find the location by running the command  `az --version`.
 
-2. 导航到包含 CLI Python 应用的文件夹。 你希望运行此版本的 python。 如果已在系统 PATH 中设置了 Python，则运行 Python 将执行你自己的 Python 版本。 但是，你希望运行 CLI 使用的版本并将证书添加到该版本。 例如，CLI Python 可能位于：`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`。
+2. Navigate to the folder that contains your CLI Python app. You want to run this version of python. If you've set up Python in your system PATH, running Python will execute your own version of Python. Instead, you want to run the version used by CLI and add your certificate to that version. For example, your CLI Python may be at: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`.
 
     使用以下命令：
 
@@ -126,9 +126,9 @@ ms.locfileid: "71824791"
     .\python -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书位置。 例如， `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem` 。 特定的路径取决于 OS 和 CLI 安装。
+    Make a note of the certificate location. 例如，`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem` 。 Your particular path depends on your OS and your CLI installation.
 
-2. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
+2. Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -161,94 +161,87 @@ ms.locfileid: "71824791"
 
 ### <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
-1. 运行 `az cloud register` 命令注册 Azure Stack 环境。
+1. Register your Azure Stack environment by running the `az cloud register` command.
 
-    在某些情况下，直接出站 Internet 连接通过代理或防火墙进行路由，从而强制进行 SSL 拦截。 在这些情况下，`az cloud register` 命令可能会失败并显示错误，如“无法从云中获取终结点”。 若要解决此错误，请设置以下环境变量：
+2. Register your environment. Use the following parameters when running `az cloud register`:
 
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
-
-2. 注册环境。 在运行 `az cloud register` 时使用以下参数：
-
-    | ReplTest1 | 示例 | 描述 |
+    | Value | 示例 | 描述 |
     | --- | --- | --- |
-    | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
-    | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 包含 VM 映像别名的文档的 URI。 有关详细信息，请参阅[设置 VM 别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
+    | 环境名称 | AzureStackUser | Use `AzureStackUser`  for the user environment. If you're operator, specify `AzureStackAdmin`. |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the ASDK is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | 存储终结点 | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | Keyvault suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document, which contains VM image aliases. For more info, see [Set up the VM aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-1. 使用以下命令设置活动环境。
+1. Set the active environment by using the following commands.
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-1. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
+1. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2019-03-01-hybrid**。 还需要使用最新版本的 Azure CLI。
+    >If you're running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2019-03-01-hybrid**. You also need to use a recent version of the Azure CLI.
  
-1. 使用 `az login` 命令登录到 Azure Stack 环境。 以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
+1. Sign in to your Azure Stack environment by using the `az login` command. Sign in to the Azure Stack environment either as a user or as a [service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - 以用户身份登录： 
+   - Sign in as a *user*: 
 
-     可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
+     You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
 
      ```azurecli
      az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
      ```
 
      > [!NOTE]
-     > 如果用户帐户已启用多重身份验证，请使用不带 `-u` 参数的 `az login` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
+     > If your user account has multi-factor authentication enabled, use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
 
-   - 以服务主体身份登录： 
+   - Sign in as a *service principal*: 
     
-     在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
+     Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
 
      ```azurecli  
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>测试连接
+### <a name="test-the-connectivity"></a>Test the connectivity
 
-完成所有设置后，使用 CLI 在 Azure Stack 中创建资源。 例如，可以创建应用的资源组并添加 VM。 使用以下命令创建名为“MyResourceGroup”的资源组：
+With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an app and add a VM. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
 az group create -n MyResourceGroup -l local
 ```
 
-如果成功创建了资源组，则上述命令会输出新建资源的以下属性：
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![资源组创建输出](media/azure-stack-connect-cli/image1.png)
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="windows-ad-fs"></a>Windows (AD FS)
 
-如果使用 Active Directory 联合身份验证服务 (AD FS) 作为标识管理服务，并在 Windows 计算机上使用 CLI，可以参考本部分完成 CLI 设置过程。
+This section walks you through setting up CLI if you're using Active Directory Federated Services (AD FS) as your identity management service, and are using CLI on a Windows machine.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根证书
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
 
-如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 在集成系统中无需执行此步骤。
+If you're using the ASDK, you need to trust the CA root certificate on your remote machine. This step isn't needed with the integrated systems.
 
-1. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 打开命令提示符或权限提升的 PowerShell 提示符，然后键入以下命令：
+1. Find the certificate location on your machine. The location may vary depending on where you've installed Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
     ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书位置。 例如， `~/lib/python3.5/site-packages/certifi/cacert.pem` 。 具体的路径取决于 OS 和已安装的 Python 版本。
+    Make a note of the certificate location. 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem` 。 Your particular path depends on your OS and the version of Python that you've installed.
 
-2. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
+2. Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -281,66 +274,59 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
-1. 运行 `az cloud register` 命令注册 Azure Stack 环境。
+1. Register your Azure Stack environment by running the `az cloud register` command.
 
-    在某些情况下，直接出站 Internet 连接通过代理或防火墙进行路由，从而强制进行 SSL 拦截。 在这些情况下，`az cloud register` 命令可能会失败并显示错误，如“无法从云中获取终结点”。 若要解决此错误，请设置以下环境变量：
+2. Register your environment. Use the following parameters when running `az cloud register`:
 
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
-
-2. 注册环境。 在运行 `az cloud register` 时使用以下参数：
-
-    | ReplTest1 | 示例 | 描述 |
+    | Value | 示例 | 描述 |
     | --- | --- | --- |
-    | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
-    | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 包含 VM 映像别名的文档的 URI。 有关详细信息，请参阅[设置 VM 别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
+    | 环境名称 | AzureStackUser | Use `AzureStackUser`  for the user environment. If you're operator, specify `AzureStackAdmin`. |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the ASDK is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | 存储终结点 | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | Keyvault suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an  integrated system, use an endpoint for your system.  |
+    | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document, which contains VM image aliases. For more info, see [Set up the VM aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-1. 使用以下命令设置活动环境。
+1. Set the active environment by using the following commands.
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-1. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
+1. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2019-03-01-hybrid**。 还需要使用最新版本的 Azure CLI。
+    >If you're running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2019-03-01-hybrid**. You also need to use a recent version of the Azure CLI.
 
-1. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
+1. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - 以用户身份登录：
+   - Sign in as a *user*:
 
-     可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
+     You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
 
      ```azurecli
      az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
-     > 如果用户帐户已启用多重身份验证，请使用不带 `-u` 参数的 `az login` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
+     > If your user account has multi-factor authentication enabled, use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
 
-   - 以服务主体身份登录： 
+   - Sign in as a *service principal*: 
     
-     准备要用于服务主体登录的 .pem 文件。
+     Prepare the .pem file to be used for service principal login.
 
-     在创建主体的客户端计算机上，使用位于 `cert:\CurrentUser\My` 的私钥将服务主体证书导出为 pfx。 证书名称与主体名称相同。
+     On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`. The cert name has the same name as the principal.
 
-     将 pfx 转换为 pem（使用 OpenSSL 实用工具）。
+     Convert the pfx to pem (use the OpenSSL utility).
 
-     登录到 CLI：
+     Sign in to the CLI:
   
      ```azurecli  
      az login --service-principal \
@@ -350,46 +336,46 @@ az group create -n MyResourceGroup -l local
       --debug 
      ```
 
-### <a name="test-the-connectivity"></a>测试连接
+### <a name="test-the-connectivity"></a>Test the connectivity
 
-完成所有设置后，使用 CLI 在 Azure Stack 中创建资源。 例如，可以创建应用的资源组并添加 VM。 使用以下命令创建名为“MyResourceGroup”的资源组：
+With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an app and add a VM. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
 az group create -n MyResourceGroup -l local
 ```
 
-如果成功创建了资源组，则上述命令会输出新建资源的以下属性：
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![资源组创建输出](media/azure-stack-connect-cli/image1.png)
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 
 ## <a name="linux-azure-ad"></a>Linux (Azure AD)
 
-如果使用 Azure AD 作为标识管理服务，并在 Linux 计算机上使用 CLI，可以参考本部分完成 CLI 设置过程。
+This section walks you through setting up CLI if you're using Azure AD as your identity management service, and are using CLI on a Linux machine.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根证书
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
 
-如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 在集成系统中无需执行此步骤。
+If you're using the ASDK, you need to trust the CA root certificate on your remote machine. This step isn't needed with the integrated systems.
 
-若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
+Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
-1. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 需要安装 pip 和 certifi 模块。 在 bash 提示符下使用以下 Python 命令：
+1. Find the certificate location on your machine. The location may vary depending on where you've installed Python. You need to have pip and the certifi module installed. Use the following Python command from the bash prompt:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书位置。 例如， `~/lib/python3.5/site-packages/certifi/cacert.pem` 。 具体的路径取决于操作系统以及安装的 Python 版本。
+    Make a note of the certificate location. 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem` 。 Your specific path depends on your operating system and the version of Python that you've installed.
 
-2. 结合证书的路径运行以下 bash 命令。
+2. Run the following bash command with the path to your certificate.
 
-   - 对于远程 Linux 计算机：
+   - For a remote Linux machine:
 
      ```bash  
      sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
      ```
 
-   - 对于 Azure Stack 环境中的 Linux 计算机：
+   - For a Linux machine within the Azure Stack environment:
 
      ```bash  
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
@@ -397,49 +383,49 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
-使用以下步骤连接到 Azure Stack：
+Use the following steps to connect to Azure Stack:
 
-1. 运行 `az cloud register` 命令注册 Azure Stack 环境。 在某些情况下，直接出站 Internet 连接通过代理或防火墙进行路由，从而强制进行 SSL 拦截。 在这些情况下，`az cloud register` 命令可能会失败并显示错误，如“无法从云中获取终结点”。 若要解决此错误，请设置以下环境变量：
+1. Register your Azure Stack environment by running the `az cloud register` command. In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, set the following environment variables:
 
    ```shell
    export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
    export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. 注册环境。 在运行 `az cloud register` 时使用以下参数：
+2. Register your environment. Use the following parameters when running `az cloud register`:
 
-    | ReplTest1 | 示例 | 描述 |
+    | Value | 示例 | 描述 |
     | --- | --- | --- |
-    | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
-    | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 包含 VM 映像别名的文档的 URI。 有关详细信息，请参阅[设置 VM 别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
+    | 环境名称 | AzureStackUser | Use `AzureStackUser`  for the user environment. If you're operator, specify `AzureStackAdmin`. |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the ASDK is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | 存储终结点 | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | Keyvault suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document, which contains VM image aliases. For more info, see [Set up the VM aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-3. 设置活动的环境。 
+3. Set the active environment. 
 
       ```azurecli
         az cloud set -n <environmentname>
       ```
 
-4. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
+4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2019-03-01-hybrid**。 还需要使用最新版本的 Azure CLI。
+    >If you're running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2019-03-01-hybrid**. You also need to use a recent version of the Azure CLI.
 
-5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
+5. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   * 以用户身份登录：
+   * Sign in as a *user*:
 
-     可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
+     You can either specify the username and password directly within the `az login` command, or authenticate by using a browser. You must do the latter if your account has multi-factor authentication enabled:
 
      ```azurecli
      az login \
@@ -448,11 +434,11 @@ az group create -n MyResourceGroup -l local
      ```
 
      > [!NOTE]
-     > 如果用户帐户已启用多重身份验证，则可以使用不带 `-u` 参数的 `az login` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
+     > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
    
-   * 以服务主体身份登录
+   * Sign in as a *service principal*
     
-     在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
+     Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
 
      ```azurecli  
      az login \
@@ -462,45 +448,45 @@ az group create -n MyResourceGroup -l local
        -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>测试连接
+### <a name="test-the-connectivity"></a>Test the connectivity
 
-完成所有设置后，使用 CLI 在 Azure Stack 中创建资源。 例如，可以创建应用的资源组并添加 VM。 使用以下命令创建名为“MyResourceGroup”的资源组：
+With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an app and add a VM. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
     az group create -n MyResourceGroup -l local
 ```
 
-如果成功创建了资源组，则上述命令会输出新建资源的以下属性：
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![资源组创建输出](media/azure-stack-connect-cli/image1.png)
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="linux-ad-fs"></a>Linux (AD FS)
 
-如果使用 Active Directory 联合身份验证服务 (AD FS) 作为管理服务，并在 Linux 计算机上使用 CLI，可以参考本部分完成 CLI 设置过程。
+This section walks you through setting up CLI if you're using Active Directory Federated Services (AD FS) as your management service, and are using CLI on a Linux machine.
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根证书
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
 
-如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 在集成系统中无需执行此步骤。
+If you're using the ASDK, you need to trust the CA root certificate on your remote machine. This step isn't needed with the integrated systems.
 
-若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
+Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
-1. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 需要安装 pip 和 certifi 模块。 在 bash 提示符下使用以下 Python 命令：
+1. Find the certificate location on your machine. The location may vary depending on where you've installed Python. You need to have pip and the certifi module installed. Use the following Python command from the bash prompt:
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书位置。 例如， `~/lib/python3.5/site-packages/certifi/cacert.pem` 。 具体的路径取决于操作系统以及安装的 Python 版本。
+    Make a note of the certificate location. 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem` 。 Your specific path depends on your operating system and the version of Python that you've installed.
 
-2. 结合证书的路径运行以下 bash 命令。
+2. Run the following bash command with the path to your certificate.
 
-   - 对于远程 Linux 计算机：
+   - For a remote Linux machine:
 
      ```bash  
      sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
      ```
 
-   - 对于 Azure Stack 环境中的 Linux 计算机：
+   - For a Linux machine within the Azure Stack environment:
 
      ```bash  
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
@@ -508,66 +494,66 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
-使用以下步骤连接到 Azure Stack：
+Use the following steps to connect to Azure Stack:
 
-1. 运行 `az cloud register` 命令注册 Azure Stack 环境。 在某些情况下，直接出站 Internet 连接通过代理或防火墙进行路由，从而强制进行 SSL 拦截。 在这些情况下，`az cloud register` 命令可能会失败并显示错误，如“无法从云中获取终结点”。 若要解决此错误，请设置以下环境变量：
+1. Register your Azure Stack environment by running the `az cloud register` command. In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, set the following environment variables:
 
    ```shell
    export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
    export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
+2. Register your environment. Use the following parameters when running `az cloud register`.
 
-    | ReplTest1 | 示例 | 描述 |
+    | Value | 示例 | 描述 |
     | --- | --- | --- |
-    | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-    | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
-    | 存储终结点 | local.azurestack.external | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | KeyVault 后缀 | .vault.local.azurestack.external | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
-    | VM 映像别名文档终结点- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 包含 VM 映像别名的文档的 URI。 有关详细信息，请参阅[设置 VM 别名终结点](#set-up-the-virtual-machine-aliases-endpoint)。 |
+    | 环境名称 | AzureStackUser | Use `AzureStackUser`  for the user environment. If you're operator, specify `AzureStackAdmin`. |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the ASDK is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | 存储终结点 | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | Keyvault suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an integrated system, use an endpoint for your system.  |
+    | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document, which contains VM image aliases. For more info, see [Set up the VM aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-3. 设置活动的环境。 
+3. Set the active environment. 
 
       ```azurecli
         az cloud set -n <environmentname>
       ```
 
-4. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
+4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2019-03-01-hybrid**。 还需要使用最新版本的 Azure CLI。
+    >If you're running a version of Azure Stack before the 1808 build, you must use the API version profile **2017-03-09-profile** rather than the API version profile **2019-03-01-hybrid**. You also need to use a recent version of the Azure CLI.
 
-5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/azure/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
+5. Sign in to your Azure Stack environment by using the `az login` command. You can sign in to the Azure Stack environment either as a user or as a [service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-6. 登录： 
+6. Sign in: 
 
-   *  将 Web 浏览器与设备代码配合使用，以**用户**的身份登录：  
+   *  As a **user** using a web browser with a device code:  
 
    ```azurecli  
     az login --use-device-code
    ```
 
    > [!NOTE]  
-   >运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
+   >Running the command gives you a URL and a code that you must use to authenticate.
 
-   * 以服务主体的身份：
+   * As a service principal:
         
-     准备要用于服务主体登录的 .pem 文件。
+     Prepare the .pem file to be used for service principal login.
 
-      * 在创建主体的客户端计算机上，使用位于 `cert:\CurrentUser\My` 的私钥将服务主体证书导出为 pfx。 证书名称与主体名称相同。
+      * On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`. The cert name has the same name as the principal.
   
-      * 将 pfx 转换为 pem（使用 OpenSSL 实用工具）。
+      * Convert the pfx to pem (use the OpenSSL utility).
 
-     登录到 CLI：
+     Sign in to the CLI:
 
       ```azurecli  
       az login --service-principal \
@@ -577,28 +563,28 @@ az group create -n MyResourceGroup -l local
         --debug 
       ```
 
-### <a name="test-the-connectivity"></a>测试连接
+### <a name="test-the-connectivity"></a>Test the connectivity
 
-完成所有设置后，使用 CLI 在 Azure Stack 中创建资源。 例如，可以创建应用的资源组并添加 VM。 使用以下命令创建名为“MyResourceGroup”的资源组：
+With everything set up, use CLI to create resources within Azure Stack. For example, you can create a resource group for an app and add a VM. Use the following command to create a resource group named "MyResourceGroup":
 
 ```azurecli
   az group create -n MyResourceGroup -l local
 ```
 
-如果成功创建了资源组，则上述命令会输出新建资源的以下属性：
+If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
-![资源组创建输出](media/azure-stack-connect-cli/image1.png)
+![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="known-issues"></a>已知问题
 
-在 Azure Stack 中使用 CLI 时存在一些已知的问题：
+There are known issues when using CLI in Azure Stack:
 
- - CLI 交互模式。 例如，`az interactive` 命令在 Azure Stack 中尚不受支持。
- - 若要获取 Azure Stack 中可用的 VM 映像列表，请使用 `az vm image list --all` 命令，而不是 `az vm image list` 命令。 指定 `--all` 选项可确保响应只返回 Azure Stack 环境中可用的映像。
- - Azure 中可用的 VM 映像别名可能不适用于 Azure Stack。 使用 VM 映像时，必须使用整个 URN 参数 (Canonical:UbuntuServer:14.04.3-LTS:1.0.0)，而不是映像别名。 此 URN 必须与派生自 `az vm images list` 命令的映像规范相匹配。
+ - The CLI interactive mode. For example, the `az interactive` command, isn't yet supported in Azure Stack.
+ - To get the list of VM images available in Azure Stack, use the `az vm image list --all` command instead of the `az vm image list` command. Specifying the `--all` option ensures that the response returns only the images that are available in your Azure Stack environment.
+ - VM image aliases that are available in Azure may not be applicable to Azure Stack. When using VM images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. This URN must match the image specifications as derived from the `az vm images list` command.
 
 ## <a name="next-steps"></a>后续步骤
 
 - [使用 Azure CLI 部署模板](azure-stack-deploy-template-command-line.md)
-- [为 Azure Stack 用户启用 Azure CLI（操作员）](../operator/azure-stack-cli-admin.md)
+- [Enable Azure CLI for Azure Stack users (Operator)](../operator/azure-stack-cli-admin.md)
 - [管理用户权限](azure-stack-manage-permissions.md) 

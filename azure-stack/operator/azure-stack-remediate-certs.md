@@ -1,6 +1,7 @@
 ---
-title: 修复 Azure Stack 的证书问题 | Microsoft Docs
-description: 使用 Azure Stack 就绪性检查器查看和修复证书问题。
+title: Fix common issues with PKI certificates
+titleSuffix: Azure Stack
+description: Fix common issues with Azure Stack PKI certificates using the Azure Stack Readiness Checker.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,130 +17,130 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 6e8adbc0d84c7816a081e751473764aab79cfcf2
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 3cff638fa242e4d70230062e7d54eef0c9c66802
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961918"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465410"
 ---
-# <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修复 Azure Stack PKI 证书的常见问题
+# <a name="fix-common-issues-with-azure-stack-pki-certificates"></a>Fix common issues with Azure Stack PKI certificates
 
-本文中的信息可帮助您了解和解决 Azure Stack PKI 证书的常见问题。 使用 Azure Stack 就绪性检查器工具[验证 Azure Stack PKI 证书](azure-stack-validate-pki-certs.md)时，可以发现问题。 该工具将进行检查以确保证书满足 Azure Stack 部署的 PKI 要求并 Azure Stack 机密旋转，并将结果记录到一个[报表文件](azure-stack-validation-report.md)中。  
+The information in this article helps you understand and resolve common issues with Azure Stack PKI certificates. You can discover issues when you use the Azure Stack Readiness Checker tool to [validate Azure Stack PKI certificates](azure-stack-validate-pki-certs.md). The tool checks if the certificates meet the PKI requirements of an Azure Stack deployment and Azure Stack secret rotation, and then logs the results to a [report.json file](azure-stack-validation-report.md).  
 
-## <a name="pfx-encryption"></a>PFX 加密
+## <a name="pfx-encryption"></a>PFX Encryption
 
-**失败** - PFX 加密不是 TripleDES-SHA1。
+**Issue** - PFX encryption isn't TripleDES-SHA1.
 
-**补救** - 使用 **TripleDES-SHA1** 加密导出 PFX 文件。 从证书管理单元导出或使用 `Export-PFXCertificate` 时，这是所有 Windows 10 客户端的默认设置。
+**Fix** - Export PFX files with **TripleDES-SHA1** encryption. This is the default encryption for all Windows 10 clients when exporting from certificate snap-in or using `Export-PFXCertificate`.
 
-## <a name="read-pfx"></a>读取 PFX
+## <a name="read-pfx"></a>Read PFX
 
-**警告** - 密码仅保护证书中的私密信息。  
+**Warning** - Password only protects the private information in the certificate.  
 
-**补救措施** - 使用可选设置“启用证书隐私”来导出 PFX 文件。  
+**Fix** - Export PFX files with the optional setting for **Enable certificate privacy**.  
 
-**失败** - PFX 文件无效。  
+**Issue** - PFX file invalid.  
 
-**修复** - 使用[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书。
+**Fix** - Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md).
 
-## <a name="signature-algorithm"></a>签名算法
+## <a name="signature-algorithm"></a>Signature algorithm
 
-**失败** - 签名算法为 SHA1。
+**Issue** - Signature algorithm is SHA1.
 
-**补救措施** - 执行“生成 Azure Stack 证书签名请求”中的步骤，使用签名算法 SHA256 重新生成证书签名请求 (CSR)。 然后向证书颁发机构重新提交 CSR，要求其重新颁发证书。
+**Fix** - Use the steps in Azure Stack certificates signing request generation to regenerate the certificate signing request (CSR) with the signature algorithm of SHA256. Then resubmit the CSR to the certificate authority to reissue the certificate.
 
-## <a name="private-key"></a>专用密钥
+## <a name="private-key"></a>Private key
 
-**失败** - 私钥缺失或者不包含本地计算机属性。  
+**Issue** - The private key is missing or doesn't contain the local machine attribute.  
 
-**修复** - 在生成 CSR 的计算机中，使用[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤重新导出证书。 这些步骤包括从本地计算机证书存储进行导出。
+**Fix** - From the computer that generated the CSR, re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment). These steps include exporting from the local machine certificate store.
 
-## <a name="certificate-chain"></a>证书链
+## <a name="certificate-chain"></a>Certificate chain
 
-**失败** - 证书链不完整。  
+**Issue** - Certificate chain isn't complete.  
 
-**修复** - 证书应包含完整的证书链。 按照[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤并选择“包括证书路径中的所有证书(如果可能)”选项重新导出证书。
+**Fix** - Certificates should contain a complete certificate chain. Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) and select the option **Include all certificates in the certification path if possible**.
 
-## <a name="dns-names"></a>DNS 名称
+## <a name="dns-names"></a>DNS names
 
-**失败** - 证书上的 **DNSNameList** 不包含 Azure Stack 服务终结点名称或有效的通配符匹配项。 通配符匹配项仅适用于 DNS 名称最左侧的命名空间。 例如，`*.region.domain.com` 仅对 `portal.region.domain.com` 有效，而对 `*.table.region.domain.com` 无效。
+**Issue** - The **DNSNameList** on the certificate doesn't contain the Azure Stack service endpoint name or a valid wildcard match. Wildcard matches are only valid for the left-most namespace of the DNS name. For example, `*.region.domain.com` is only valid for `portal.region.domain.com`, not `*.table.region.domain.com`.
 
-**修复** - 执行“生成 Azure Stack 证书签名请求”中的步骤，以便使用为 Azure Stack 终结点提供支持所需的正确 DNS 名称重新生成 CSR。 将 CSR 重新提交给证书颁发机构，然后按照[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤，从生成 CSR 的计算机导出证书。  
+**Fix** - Use the steps in Azure Stack certificates signing request generation to regenerate the CSR with the correct DNS names to support Azure Stack endpoints. Resubmit the CSR to a certificate authority. Then follow the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) to export the certificate from the machine that generated the CSR.  
 
-## <a name="key-usage"></a>密钥用法
+## <a name="key-usage"></a>密钥使用情况
 
-**失败** - 密钥用法缺少数字签名或密钥加密，或者增强型密钥用法缺少服务器身份验证或客户端身份验证。  
+**Issue** - Key usage is missing digital signature or key encipherment, or enhanced key usage is missing server authentication or client authentication.  
 
-**补救措施** - 按照[生成 Azure Stack 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥用法属性重新生成 CSR。 将 CSR 重新提交给证书颁发机构，并确认证书模板未覆盖请求中的密钥用法。
+**Fix** - Use the steps in [Azure Stack certificates signing request generation](azure-stack-get-pki-certs.md) to regenerate the CSR with the correct key usage attributes. Resubmit the CSR to the certificate authority and confirm that a certificate template isn't overwriting the key usage in the request.
 
-## <a name="key-size"></a>密钥大小
+## <a name="key-size"></a>Key size
 
-**失败** - 密钥大小小于 2048。
+**Issue** - Key size is smaller than 2048.
 
-**补救措施** - 按照[生成 Azure Stack 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥长度 (2048) 重新生成 CSR，然后将 CSR 重新提交给证书颁发机构。
+**Fix** - Use the steps in [Azure Stack certificates signing request generation](azure-stack-get-pki-certs.md) to regenerate the CSR with the correct key length (2048), and then resubmit the CSR to the certificate authority.
 
-## <a name="chain-order"></a>链序
+## <a name="chain-order"></a>Chain order
 
-**失败** - 证书链的顺序不正确。  
+**Issue** - The order of the certificate chain is incorrect.  
 
-**补救措施** - 按照[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤并选择“包括证书路径中的所有证书(如果可能)”选项重新导出证书。 确保仅选择分支证书进行导出。
+**Fix** - Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) and select the option **Include all certificates in the certification path if possible**. Ensure that only the leaf certificate is selected for export.
 
-## <a name="other-certificates"></a>其他证书
+## <a name="other-certificates"></a>Other certificates
 
-**失败** - PFX 包包含的证书不是分支证书，也不是证书链的一部分。  
+**Issue** - The PFX package contains certificates that aren't the leaf certificate or part of the certificate chain.  
 
-**补救措施** - 按照[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤并选择“包括证书路径中的所有证书(如果可能)”选项重新导出证书。 确保仅选择分支证书进行导出。
+**Fix** - Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment), and select the option **Include all certificates in the certification path if possible**. Ensure that only the leaf certificate is selected for export.
 
-## <a name="fix-common-packaging-issues"></a>修复常见的打包问题
+## <a name="fix-common-packaging-issues"></a>Fix common packaging issues
 
-**AzsReadinessChecker**工具包含一个名为**AzsPfxCertificate**的帮助器 cmdlet，该 cmdlet 可以导入然后导出 PFX 文件以修复常见的打包问题，其中包括：
+The **AzsReadinessChecker** tool contains a helper cmdlet called **Repair-AzsPfxCertificate**, which can import and then export a PFX file to fix common packaging issues, including:
 
-- **PFX 加密**不是 TripleDES-SHA1。
-- **私钥**缺少本地计算机属性。
-- 证书链不完整或错误。 如果 PFX 包不包含证书链，则本地计算机必须包含。
-- **其他证书**
+- **PFX encryption** isn't TripleDES-SHA1.
+- **Private key** is missing local machine attribute.
+- **Certificate chain** is incomplete or wrong. The local machine must contain the certificate chain if the PFX package doesn't.
+- **Other certificates**
 
-如果需要生成新的 CSR 并重新颁发证书， **AzsPfxCertificate**不会有帮助。
+**Repair-AzsPfxCertificate** can't help if you need to generate a new CSR and reissue a certificate.
 
-### <a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>必备组件
 
-在运行此工具的计算机上，必须满足以下先决条件：
+The following prerequisites must be in place on the computer on which the tool runs:
 
-- Windows 10 或 Windows Server 2016，具有 Internet 连接。
-- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要版本和次要版本：
+- Windows 10 or Windows Server 2016, with internet connectivity.
+- PowerShell 5.1 or later. To check your version, run the following PowerShell cmdlet and then review the *Major** and **Minor** versions:
 
    ```powershell
    $PSVersionTable.PSVersion
    ```
 
-- 配置[适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
-- 下载最新版本的 [Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
+- Configure [PowerShell for Azure Stack](azure-stack-powershell-install.md).
+- Download the latest version of the [Azure Stack readiness checker](https://aka.ms/AzsReadinessChecker) tool.
 
-### <a name="import-and-export-an-existing-pfx-file"></a>导入和导出现有的 PFX 文件
+### <a name="import-and-export-an-existing-pfx-file"></a>Import and export an existing PFX File
 
-1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 提示符，然后运行以下命令来安装 Azure Stack 就绪性检查器：
+1. On a computer that meets the prerequisites, open an elevated PowerShell prompt, and then run the following command to install the Azure Stack readiness checker:
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. 在 PowerShell 提示符下，运行以下 cmdlet 来设置 PFX 密码。 请将 `PFXpassword` 替换为实际密码：
+2. From the PowerShell prompt, run the following cmdlet to set the PFX password. Replace `PFXpassword` with the actual password:
 
    ```powershell
    $password = Read-Host -Prompt PFXpassword -AsSecureString
    ```
 
-3. 在 PowerShell 提示符下，运行以下命令以导出新的 PFX 文件：
+3. From the PowerShell prompt, run the following command to export a new PFX file:
 
-   - 对于 `-PfxPath`，请指定要处理的 PFX 文件的路径。 在以下示例中，路径为 `.\certificates\ssl.pfx`。
-   - 对于 `-ExportPFXPath`，请指定要导出的 PFX 文件的位置和名称。 在以下示例中，路径为 `.\certificates\ssl_new.pfx`：
+   - For `-PfxPath`, specify the path to the PFX file you're working with. In the following example, the path is `.\certificates\ssl.pfx`.
+   - For `-ExportPFXPath`, specify the location and name of the PFX file for export. In the following example, the path is `.\certificates\ssl_new.pfx`:
 
    ```powershell
    Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
    ```  
 
-4. 在工具完成相关操作后，查看成功后的输出：
+4. After the tool completes, review the output for success:
 
    ```shell
    Repair-AzsPfxCertificate v1.1809.1005.1 started.

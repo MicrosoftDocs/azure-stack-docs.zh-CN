@@ -1,6 +1,7 @@
 ---
-title: 在 Azure Stack 中轮换机密 | Microsoft Docs
-description: 了解如何在 Azure Stack 中轮换机密。
+title: Rotate secrets
+titleSuffix: Azure Stack
+description: Learn how to rotate your secrets in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,128 +17,125 @@ ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 09/30/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 7549d9fc716c7c4b6027f596fd0297840b5e18ec
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: d00cbc5eaacd80ba67b339e11562dc516fcd0991
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298834"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465393"
 ---
-# <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
+# <a name="rotate-secrets-in-azure-stack"></a>Rotate secrets in Azure Stack
 
-*这些说明仅适用于 Azure Stack 集成系统版本1803及更高版本。请勿尝试在1802之前的版本上进行机密旋转 Azure Stack*
+*These instructions apply only to Azure Stack Integrated Systems version 1803 and Later. Don't attempt secret rotation on pre-1802 Azure Stack Versions*
 
-机密可帮助你维护 Azure Stack 基础结构资源与服务之间的安全通信。
+Secrets help you maintain secure communication between the Azure Stack infrastructure resources and services.
 
-## <a name="overview-to-rotate-secrets"></a>旋转机密概述
+## <a name="rotate-secrets-overview"></a>Rotate secrets overview
 
-1. 准备证书，这些证书将用于秘密旋转。
-2. 查看 Azure Stack[公钥基础结构证书要求](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs)。
-3. [使用特权终结点](azure-stack-privileged-endpoint.md)并运行**test-azurestack**以确认一切正常。  
-4. 你可以在此处找到有关[密钥轮换的预操作步骤](#pre-steps-for-secret-rotation)的详细信息。
-5. [验证 Azure Stack 的 PKI 证书](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs)。 请确保密码中没有特殊字符，例如 `*` 或 `)`。
-6. 请确保 PFX 加密为**TripleDES**。 如果遇到问题，请参阅解决[AZURE STACK PKI 证书的常见问题](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption)。
-7. 准备文件夹结构。  可以在 "[轮换外部机密](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets)" 部分中找到一个示例。
-8. [开始秘密旋转](#use-powershell-to-rotate-secrets)。
+1. Prepare the certificates which will be used for secret rotation.
+2. Review the Azure Stack [public key infrastructure certificate requirements](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs).
+3. [Use the privileged endpoint](azure-stack-privileged-endpoint.md) and run **Test-azurestack**  to confirm that everything is fine.  
+4. Review the [pre-steps for secret rotation](#pre-steps-for-secret-rotation).
+5. [Validate Azure Stack PKI certificates](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs). Make sure there are no special characters in the password, like `*` or `)`.
+6. Make sure the PFX encryption is **TripleDES-SHA1**. If you run into an issue, see [Fix common issues with Azure Stack PKI certificates](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption).
+7. Prepare the folder structure.  You can find an example in the [Rotating external secrets](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets) section.
+8. [Start the secret rotation](#use-powershell-to-rotate-secrets).
 
-## <a name="rotate-secrets"></a>轮换机密
+## <a name="rotate-secrets"></a>Rotate secrets
 
-Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务之间的安全通信。
+Azure Stack uses various secrets to maintain secure communication between the Azure Stack infrastructure resources and services.
 
-- **内部机密**
+- **Internal secrets**
 
-    由 Azure Stack 基础结构使用的所有证书、密码、安全字符串和密钥，无需 Azure Stack 操作员的介入。
+    All the certificates, passwords, secure strings, and keys used by the Azure Stack infrastructure without intervention of the Azure Stack Operator.
 
-- **外部机密**
+- **External secrets**
 
-    对外服务的基础结构服务证书，由 Azure Stack 操作员提供。 外部机密包括以下服务的证书：
+    Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. External secrets include the certificates for the following services:
 
-    - 管理员门户
-    - 公共门户
-    - 管理员 Azure 资源管理器
-    - 全局 Azure 资源管理器
-    - 管理员 KeyVault
-    - KeyVault
-    - 管理扩展主机
-    - ACS（包括 Blob、表和队列存储）
-    - ADFS *
-    - Graph *
+    - Administrator portal
+    - Public portal
+    - Administrator Azure Resource Manager
+    - Global Azure Resource Manager
+    - Administrator Key Vault
+    - Key Vault
+    - Admin Extension Host
+    - ACS (including blob, table, and queue storage)
+    - ADFS*
+    - Graph*
     
-    \*仅当环境的标识提供者是 Active Directory 联合身份验证服务 (AD FS) 时才适用。
+    \* Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
 
 > [!Note]
-> 其他所有安全密钥和字符串（包括 BMC 和交换密码以及用户和管理员帐户密码）仍然由管理员手动更新。
+> All other secure keys and strings, including BMC and switch passwords as well as user and administrator account passwords are still manually updated by the administrator.
 
 > [!Important]
-> 从 Azure Stack 1811 版开始，内部证书和外部证书的机密轮换已分开。
+> Starting with Azure Stack's 1811 release, secret rotation has been separated for internal and external certificates.
 
-为保持 Azure Stack 基础结构的完整性，操作员需要能够定期轮换其基础结构的机密，轮换频率应与其组织的安全要求一致。
+To maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure's secrets at frequencies that are consistent with their organization's security requirements.
 
-### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>使用新证书颁发机构的外部证书轮换机密
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Rotating Secrets with external certificates from a new Certificate Authority
 
-在以下上下文中，Azure Stack 支持使用新证书颁发机构 (CA) 颁发的外部证书进行机密轮换：
+Azure Stack supports secret rotation with external certificates from a new Certificate Authority (CA) in the following contexts:
 
-|已安装的证书 CA|要轮换到的 CA|支持|支持的 Azure Stack 版本|
+|Installed Certificate CA|CA to Rotate To|受支持|Azure Stack versions supported|
 |-----|-----|-----|-----|
-|从自签名|到企业|支持|1903 和更高版本|
-|从自签名|到自签名|不支持||
-|从自签名|到公共<sup>*</sup>|支持|1803 和更高版本|
-|从企业|到企业|。 从 1803-1903：只要客户使用与在部署时使用的相同的企业 CA，就可以支持|1803 和更高版本|
-|从企业|到自签名|不支持||
-|从企业|到公共<sup>*</sup>|支持|1803 和更高版本|
-|从公共<sup>*</sup>|到企业|支持|1903 和更高版本|
-|从公共<sup>*</sup>|到自签名|不支持||
-|从公共<sup>*</sup>|到公共<sup>*</sup>|支持|1803 和更高版本|
+|From Self-Signed|To Enterprise|受支持|1903 & Later|
+|From Self-Signed|To Self-Signed|不支持||
+|From Self-Signed|To Public<sup>*</sup>|受支持|1803 & Later|
+|From Enterprise|To Enterprise|。 From 1803-1903: supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
+|From Enterprise|To Self-Signed|不支持||
+|From Enterprise|To Public<sup>*</sup>|受支持|1803 & Later|
+|From Public<sup>*</sup>|To Enterprise|受支持|1903 & Later|
+|From Public<sup>*</sup>|To Self-Signed|不支持||
+|From Public<sup>*</sup>|To Public<sup>*</sup>|受支持|1803 & Later|
 
-<sup>*</sup>指示公共证书颁发机构属于 Windows 受信任根计划。 可以在[Microsoft 受信任的根证书程序：参与者（截至2017年6月27日）](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)中找到完整列表。
+<sup>*</sup>Indicates that the Public Certificate Authorities are those that are part of the Windows Trusted Root Program. You can find the full list in the article [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
-## <a name="alert-remediation"></a>警报修正
+## <a name="fixing-alerts"></a>Fixing alerts
 
-机密过期后的 30 天内，管理员门户中会生成以下警报：
+When secrets are within 30 days of expiration, the following alerts are generated in the administrator portal:
 
-- 挂起的服务帐户密码过期
-- 挂起的内部证书过期
+- Pending service account password expiration
+- Pending internal certificate expiration
 - 外部证书到期挂起
 
-使用以下说明运行机密轮换将会修正这些警报。
+Running secret rotation using the instructions below will fix these alerts.
 
 > [!Note]
-> 在 1811 之前版本的 Azure Stack 环境中，可能会看到内部证书挂起或机密过期的警报。
-> 这些警报并不正确，应将其忽略，且不运行内部机密轮换。
-> 不正确的内部机密过期警报是 1811 中解决的已知问题 - 除非环境处于活动状态的时间已达两年，否则内部机密不会过期。
+> Azure Stack environments on pre-1811 versions may see alerts for pending internal certificate or secret expirations. These alerts are inaccurate and should be ignored without running internal secret rotation. Inaccurate internal secret expiration alerts are a known issue that's resolved in 1811. Internal secrets won't expire unless the environment has been active for two years.
 
-## <a name="pre-steps-for-secret-rotation"></a>机密轮换前的步骤
+## <a name="pre-steps-for-secret-rotation"></a>Pre-steps for secret rotation
 
    > [!IMPORTANT]
-   > 如果已在 Azure Stack 环境中执行过机密轮换，在再次执行机密轮换之前，必须先将系统更新到 1811 或更高版本。
-   > 必须通过[特权终结点](azure-stack-privileged-endpoint.md)执行机密轮换，且需要有 Azure Stack 操作员凭据。
-   > 如果环境的 Azure Stack 操作员不知道是否已在环境中运行过机密轮换，请先更新到 1811，然后再次执行机密轮换。
+   > If secret rotation has already been performed on your Azure Stack environment then you must update the system to version 1811 or later before you execute secret rotation again. Secret Rotation must be executed via the [Privileged Endpoint](azure-stack-privileged-endpoint.md) and requires Azure Stack Operator credentials. If your environment Azure Stack Operator(s) don't know whether secret rotation has been run on your environment, update to 1811 before executing secret rotation again.
 
-1. 强烈建议将 Azure Stack 实例更新到 1811 版。
-
-    > [!Note] 
-    > 对于 1811 之前的版本，无需轮换机密即可添加扩展主机证书。 应该遵照[准备 Azure Stack 的扩展主机](azure-stack-extension-host-prepare.md)一文中的说明添加扩展主机证书。
-
-2. 在 Azure Stack 机密轮换期间，操作员可能会注意到警报打开并自动关闭。  此行为是预期行为，可以忽略警报。  操作员可以运行 **Test-AzureStack** 来验证这些警报的有效性。  对于使用 System Center Operations Manager 监视 Azure Stack 系统的操作人员来说，将系统置于维护模式将阻止这些警报到达其 ITSM 系统，但如果 Azure Stack 系统无法访问，则将继续发出警报。
-
-3. 在执行任何维护操作之前通知用户。 将普通的维护时间段尽量安排在非营业时间。 维护操作可能会同时影响用户工作负荷和门户操作。
+1. It's highly recommended you update your Azure Stack instance to version 1811.
 
     > [!Note]
-    > 后续步骤仅适用于轮换 Azure Stack 外部机密。
+    > For pre-1811 versions, you don't need to rotate secrets to add extension host certificates. You should follow the instructions in the article [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md) to add extension host certificates.
 
-4. 在轮换机密之前，请运行 **[Test-AzureStack](azure-stack-diagnostic-test.md)** 并确认所有测试输出都正常。
-5. 准备新的替换外部证书集。 新集与 [Azure Stack PKI 证书要求](azure-stack-pki-certs.md)中所述的证书规范匹配。 可以使用[生成 PKI 证书](azure-stack-get-pki-certs.md)中概述的步骤，生成用于购买或创建新证书的证书签名请求 (CSR)，然后使用[准备 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤来准备这些证书，以在 Azure Stack 环境中使用。 请务必使用[验证 PKI 证书](azure-stack-validate-pki-certs.md)中概述的步骤来验证准备的证书。
-6. 将用于轮换的证书备份存储在安全的备份位置。 如果运行轮换时发生失败，请使用备份副本替换文件共享中的证书，然后重新运行轮换。 请记得将备份副本保存在安全的备份位置。
-7. 创建可从 ERCS VM 访问的文件共享。 该文件共享必须可供 **CloudAdmin** 标识读取和写入。
-8. 在可以访问该文件共享的计算机上打开 PowerShell ISE 控制台。 导航到该文件共享。
-9. 运行 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 创建外部证书所需的目录。
+2. 在 Azure Stack 机密轮换期间，操作员可能会注意到警报打开并自动关闭。  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running **Test-AzureStack**.  For operators using System Center Operations Manager to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable.
+
+3. Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
+
+    > [!Note]
+    > The next steps only apply when rotating Azure Stack external secrets.
+
+4. Run **[Test-AzureStack](azure-stack-diagnostic-test.md)** and confirm all test outputs are healthy before rotating secrets.
+5. Prepare a new set of replacement external certificates. The new set matches the certificate specifications outlined in the [Azure Stack PKI certificate requirements](azure-stack-pki-certs.md). You can generate a certificate signing request (CSR) for purchasing or creating new certificates using the steps outlined in [Generate PKI Certificates](azure-stack-get-pki-certs.md) and prepare them for use in your Azure Stack environment using the steps in [Prepare Azure Stack PKI Certificates](azure-stack-prepare-pki-certs.md). Be sure to validate the certificates you prepare with the steps outlined in [Validate PKI Certificates](azure-stack-validate-pki-certs.md).
+6. Store a backup to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Keep backup copies in the secure backup location.
+7. Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
+8. Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare.
+9. Run **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
 > [!IMPORTANT]
-> CertDirectoryMaker 脚本将创建符合以下要求的文件夹结构：
+> The CertDirectoryMaker script will create a folder structure that will adhere to:
 >
-> **.\Certificates\AAD** 或 ***.\Certificates\ADFS***，具体取决于用于 Azure Stack 的标识提供者
+> **.\Certificates\AAD** or ***.\Certificates\ADFS*** depending on your Identity Provider used for Azure Stack.
 >
-> 至关重要的是，文件夹结构以 **AAD** 或 **ADFS** 文件夹结尾，并且所有子目录都在此结构中；否则，**Start-SecretRotation** 将会出现以下结果：
+> It's of utmost importance that your folder structure ends with **AAD** or **ADFS** folders and all subdirectories are within this structure; otherwise, **Start-SecretRotation** will come up with:
+>
 > ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
@@ -145,24 +143,23 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 > + PSComputerName        : xxx.xxx.xxx.xxx
 > ```
 >
-> 可以看到，错误消息指出访问文件共享时出现问题，但实际上它是此处强制实施的文件夹结构。
-> 在 Microsoft AzureStack 就绪状态检查器 - [PublicCertHelper 模块](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)中可以找到详细信息
+> The error massage indicates that there's a problem accessing your fileshare but in reality it's the folder structure that's being enforced here. More information can be found in the Microsoft AzureStack Readiness Checker - [PublicCertHelper module](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1).
 >
-> 同样重要的是，文件共享文件夹结构以 **Certificates** 文件夹开头，否则验证时也会失败。
-> 文件共享装入点应该类似于 **\\\\\<IP 地址>\\\<共享名称>\\** ，并且应该包含文件夹 **Certificates\AAD** 或 **Certificates\ADFS**。
+> It's also important that your fileshare folder structure begins with **Certificates** folder, otherwise it will also fail on validation.
+> Fileshare mount should look like **\\\\\<IPAddress>\\\<ShareName>\\** and it should contain folder **Certificates\AAD** or **Certificates\ADFS** inside.
 >
 > 例如：
-> - Fileshare = **\\\\\<IP 地址>\\\<共享名称>\\**
+> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath = **\\\\\<IP 地址>\\\<共享名称>\Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
-## <a name="rotating-external-secrets"></a>轮换外部机密
+## <a name="rotating-external-secrets"></a>Rotating external secrets
 
-轮换外部机密：
+To rotate external secrets:
 
-1. 在前期步骤中新建的 **\Certificates\\\<标识提供者>** 目录内，根据 [Azure Stack PKI 证书要求](azure-stack-pki-certs.md#mandatory-certificates)的“必需证书”部分中所述的格式，将新的替换外部证书集放入目录结构。
+1. Within the newly created **\Certificates\\\<IdentityProvider>** directory created in the pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the **Mandatory certificates** section of the [Azure Stack PKI certificate requirements](azure-stack-pki-certs.md#mandatory-certificates).
 
-    Azure AD 标识提供程序的文件夹结构的示例：
+    Example of folder structure for the Azure AD Identity Provider:
     ```powershell
         <ShareName>
         │   │
@@ -203,38 +200,39 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 
     ```
 
-2. 使用 [CloudAdmin](azure-stack-privileged-endpoint.md) 帐户创建具有**特权终结点**的 PowerShell 会话，并将会话存储为变量。 在下一步骤中要使用此变量作为参数。
+2. Create a PowerShell Session with the [Privileged endpoint](azure-stack-privileged-endpoint.md) using the **CloudAdmin** account and store the sessions as a variable. You'll use this variable as the parameter in the next step.
 
     > [!IMPORTANT]  
-    > 请勿输入会话，而是将会话存储为变量。
+    > Don't enter the session. Store the session as a variable.
 
-3. 运行 **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** 。 将特权终结点 PowerShell 会话变量作为 **Session** 参数传递。
+3. Run **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** . Pass your privileged endpoint PowerShell session variable as the **Session** parameter.
 
-4. 结合以下参数运行 **Start-SecretRotation**：
+4. Run **Start-SecretRotation** with the following parameters:
     - **PfxFilesPath**  
-    将网络路径指定为前面创建的 Certificates 目录。  
+    Specify the network path to your Certificates directory created earlier.  
     - **PathAccessCredential**  
-    用于访问共享的凭据的 PSCredential 对象。
+    A PSCredential object for credentials to the share.
     - **CertificatePassword**  
-    创建的所有 pfx 证书文件使用的密码安全字符串。
+    A secure string of the password used for all of the pfx certificate files created.
 
-5. 等待机密完成轮换。 外部机密轮换通常需要大约一小时。
+5. Wait while your secrets rotate. External secret rotation takes approximately one hour.
 
-    机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。
+    When secret rotation successfully completes, your console will display **Overall action status: Success**.
 
     > [!Note]
-    > 如果机密轮换失败，请按照错误消息中的说明操作，并结合 **-ReRun** 参数重新运行 **Start-SecretRotation**。
+    > If secret rotation fails, follow the instructions in the error message and re-run **Start-SecretRotation** with the **-ReRun** parameter.
 
     ```powershell
     Start-SecretRotation -ReRun
     ```
-    如果遇到反复的机密轮换失败，请联系技术支持。
 
-6. 成功完成机密轮换后，请从前期步骤创建的共享中删除证书，并将其存储在安全的备份位置。
+    Contact support if you experience repeated secret rotation failures.
 
-## <a name="use-powershell-to-rotate-secrets"></a>使用 PowerShell 轮换机密
+6. After successful completion of secret rotation, remove your certificates from the share created in the pre-step and store them in their secure backup location.
 
-以下 PowerShell 示例演示轮换机密时需要运行的 cmdlet 和参数。
+## <a name="use-powershell-to-rotate-secrets"></a>Use PowerShell to rotate secrets
+
+The following PowerShell example demonstrates the cmdlets and parameters to run in order to rotate your secrets.
 
 ```powershell
 # Create a PEP Session
@@ -252,89 +250,86 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-## <a name="rotating-only-internal-secrets"></a>仅轮换内部机密
+## <a name="rotating-only-internal-secrets"></a>Rotating only internal secrets
 
 > [!Note]
-> 仅当你怀疑内部机密已受到恶意实体的危害，或者收到指出内部证书即将过期的警报（在内部版本 1811 或更高版本上）时，才应该执行内部机密轮换。
-> 在 1811 之前版本的 Azure Stack 环境中，可能会看到内部证书挂起或机密过期的警报。
-> 这些警报并不正确，应将其忽略，且不运行内部机密轮换。
-> 不正确的内部机密过期警报是 1811 中解决的已知问题 - 除非环境处于活动状态的时间已达两年，否则内部机密不会过期。
+> Internal secret rotation should only be done if you suspect an internal secret has been compromised by a malicious entity, or if you've received an alert (on build 1811 or later) indicating internal certificates are nearing expiration. Azure Stack environments on pre-1811 versions may see alerts for pending internal certificate or secret expirations. These alerts are inaccurate and should be ignored without running internal secret rotation. Inaccurate internal secret expiration alerts are a known issue that's resolved in 1811. Internal secrets won't expire unless the environment has been active for two years.
 
-1. 创建具有[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 会话。
-2. 在特权终结点会话中，运行 **Start-SecretRotation -Internal**。
+1. Create a PowerShell session with the [Privileged endpoint](azure-stack-privileged-endpoint.md).
+2. In the Privileged Endpoint session, run **Start-SecretRotation -Internal**.
 
     > [!Note]
-    > 1811 之前版本上的 Azure Stack 环境不需要 -**Internal** 标志。 **Start-SecretRotation** 仅轮换内部机密。
+    > Azure Stack environments on pre-1811 versions won't require the **-Internal** flag. **Start-SecretRotation** will rotate only internal secrets.
 
-3. 等待机密完成轮换。
+3. Wait while your secrets rotate.
 
-   机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。
+   When secret rotation successfully completes, your console will display **Overall action status: Success**.
     > [!Note]
-    > 如果机密轮换失败，请按照错误消息中的说明操作，并使用 **-Internal** 和 **-ReRun** 参数重新运行 **Start-SecretRotation**。  
+    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
-如果遇到反复的机密轮换失败，请联系技术支持。
+Contact support if you experience repeated secret rotation failures.
 
-## <a name="start-secretrotation-reference"></a>Start-SecretRotation 参考
+## <a name="start-secretrotation-reference"></a>Start-SecretRotation reference
 
-轮换 Azure Stack 系统的机密。 只针对 Azure Stack 特权终结点执行。
+Rotates the secrets of an Azure Stack System. Only executed against the Azure Stack privileged endpoint.
 
 ### <a name="syntax"></a>语法
 
-#### <a name="for-external-secret-rotation"></a>对于外部机密轮换
+#### <a name="for-external-secret-rotation"></a>For external secret rotation
 
 ```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
-#### <a name="for-internal-secret-rotation"></a>对于内部机密轮换
+#### <a name="for-internal-secret-rotation"></a>For internal secret rotation
 
 ```powershell
 Start-SecretRotation [-Internal]  
 ```
 
-#### <a name="for-external-secret-rotation-rerun"></a>对于外部机密轮换 rerun
+#### <a name="for-external-secret-rotation-rerun"></a>For external secret rotation rerun
 
 ```powershell
 Start-SecretRotation [-ReRun]
 ```
 
-#### <a name="for-internal-secret-rotation-rerun"></a>对于内部机密轮换 rerun
+#### <a name="for-internal-secret-rotation-rerun"></a>For internal secret rotation rerun
 
 ```powershell
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
-### <a name="description"></a>说明
+### <a name="description"></a>描述
 
-**Start-SecretRotation** cmdlet 轮换 Azure Stack 系统的基础结构机密。 默认情况下，它只轮换所有外部网络基础结构终结点的证书。 如果与 -Internal 标志配合使用，则会轮换内部基础结构机密。 轮换外部网络基础结构终结点时，应结合 **Invoke-Command** 脚本块，并结合以 **Session** 参数形式传入的 Azure Stack 环境特权终结点会话，来运行 **Start-SecretRotation**。
+The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azure Stack system. By default, it rotates only the certificates of all external network infrastructure endpoints. If used with the -Internal flag, internal infrastructure secrets will be rotated. When rotating external network infrastructure endpoints, **Start-SecretRotation** should be run with an **Invoke-Command** script block with the Azure Stack environment's privileged endpoint session passed in as the **Session** parameter.
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 类型 | 必选 | 位置 | 默认 | 说明 |
+| 参数 | Type | 需要 | 位置 | 默认 | 描述 |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享路径。 仅当轮换外部机密时才需要。 结尾目录必须是 **\Certificates**。 |
-| `CertificatePassword` | SecureString | False  | 名为  | 无  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则是必需的值。 |
-| `Internal` | String | False | 名为 | 无 | 每当 Azure Stack 操作员想要轮换内部基础结构机密时，都必须使用 Internal 标志。 |
-| `PathAccessCredential` | PSCredential | False  | 名为  | 无  | 包含所有外部网络终结点证书的 **\Certificates** 目录的文件共享的 PowerShell 凭据。 仅当轮换外部机密时才需要。  |
-| `ReRun` | SwitchParameter | False  | 名为  | 无  | 每当尝试失败后重新尝试机密轮换时，都必须使用 ReRun。 |
+| `PfxFilesPath` | 字符串  | 错误  | 名为  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets. End directory must be **\Certificates**. |
+| `CertificatePassword` | SecureString | 错误  | 名为  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when external secrets are rotated. |
+| `Internal` | 字符串 | 错误 | 名为 | None | Internal flag must be used anytime an Azure Stack operator wishes to rotate internal infrastructure secrets. |
+| `PathAccessCredential` | PSCredential | 错误  | 名为  | None  | The PowerShell credential for the fileshare of the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets.  |
+| `ReRun` | SwitchParameter | 错误  | 名为  | None  | ReRun must be used anytime secret rotation is reattempted after a failed attempt. |
 
 ### <a name="examples"></a>示例
 
-#### <a name="rotate-only-internal-infrastructure-secrets"></a>仅轮换内部基础结构机密
+#### <a name="rotate-only-internal-infrastructure-secrets"></a>Rotate only internal infrastructure secrets
 
-必须通过 Azure Stack [环境的特权终结点](azure-stack-privileged-endpoint.md)运行。
+This command must be run via your Azure Stack [environment's privileged endpoint](azure-stack-privileged-endpoint.md).
 
 ```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
-此命令轮换向 Azure Stack 内部网络公开的所有基础结构机密。
+This command rotates all of the infrastructure secrets exposed to the Azure Stack internal network.
 
-#### <a name="rotate-only-external-infrastructure-secrets"></a>仅轮换外部基础结构机密  
+#### <a name="rotate-only-external-infrastructure-secrets"></a>Rotate only external infrastructure secrets  
 
 ```powershell
 # Create a PEP Session
@@ -353,14 +348,14 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-此命令轮换用于 Azure Stack 外部网络基础结构终结点的 TLS 证书。
+This command rotates the TLS certificates used for Azure Stack's external network infrastructure endpoints.
 
-#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>轮换内部和外部基础结构机密（仅限 **1811 以前**的版本）
+#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>Rotate internal and external infrastructure secrets (**pre-1811** only)
 
 > [!IMPORTANT]
-> 此命令仅适用于 Azure Stack **1811 以前**的版本，因为轮换将会针对内部和外部证书分开进行。
+> This command only applies to Azure Stack **pre-1811** as the rotation has been split for internal and external certificates.
 >
-> **在 1811 以上的版本中，不再能够同时轮换内部和外部证书！**
+> **From *1811+* you can't rotate both internal and external certificates anymore!**
 
 ```powershell
 # Create a PEP Session
@@ -379,20 +374,22 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-此命令轮换向 Azure Stack 内部网络公开的所有基础结构机密，以及用于 Azure Stack 外部网络基础结构终结点的 TLS 证书。 Start-SecretRotation 轮换堆栈生成的所有机密，由于提供了证书，因此也会轮换外部终结点证书。  
+This command rotates all of the infrastructure secrets exposed to Azure Stack internal network as well as the TLS certificates used for Azure Stack's external network infrastructure endpoints. Start-SecretRotation rotates all stack-generated secrets, and because there are provided certificates, external endpoint certificates will also be rotated.  
 
-## <a name="update-the-baseboard-management-controller-bmc-credential"></a>更新基板管理控制器 (BMC) 凭据
+## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Update the baseboard management controller (BMC) credential
 
-基板管理控制器 (BMC) 监视服务器的物理状态。 请参阅原始设备制造商（OEM）硬件供应商，了解更新 BMC 的用户帐户名和密码的说明。 
+The baseboard management controller (BMC) monitors the physical state of your servers. Refer to your original equipment manufacturer (OEM) hardware vendor for instructions to update the user account name and password of the BMC.
 
 >[!NOTE]
-> 你的 OEM 可能提供附加的管理应用程序。 更新其他管理应用程序的用户名或密码不会影响 BMC 用户名或密码。
+> Your OEM may provide additional management apps. Updating the user name or password for other management apps has no affect on the BMC user name or password.
 
-1. **早于1910的版本**：按照 OEM 说明更新 Azure Stack 物理服务器上的 BMC。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名不能超过 16 个字符。
+1. **Versions earlier than 1910**: Update the BMC on the Azure Stack physical servers by following your OEM instructions. The user name and password for each BMC in your environment must be the same. The BMC user names can't exceed 16 characters.
 
-   **版本1910及更高版本**：根据 OEM 说明，不再需要首先更新 Azure Stack 物理服务器上的 BMC 凭据。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名不能超过 16 个字符。
-2. 在 Azure Stack 会话中打开特权终结点。 有关说明，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
-3. 在 PowerShell 提示符更改为 **[IP 地址或 ERCS VM 名称]: PS>** 或更改为 **[azs-ercs01]: PS>** （取决于环境）后，通过运行 `Set-BmcCredential` 来运行 `Invoke-Command`。 将特权终结点会话变量作为参数传递。 例如：
+   **Version 1910 and later**: It's no longer required that you first update the BMC credentials on the Azure Stack physical servers by following your OEM instructions. The user name and password for each BMC in your environment must be the same. The BMC user names can't exceed 16 characters.
+
+2. Open a privileged endpoint in Azure Stack sessions. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
+
+3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>** , depending on the environment, run `Set-BmcCredential` by running `Invoke-Command`. Pass your privileged endpoint session variable as a parameter. 例如：
 
     ```powershell
     # Interactive Version
@@ -410,7 +407,7 @@ Remove-PSSession -Session $PEPSession
     Remove-PSSession -Session $PEPSession
     ```
 
-    也可以将静态 PowerShell 版本与密码搭配使用，如以下代码行所示：
+    You can also use the static PowerShell version with the Passwords as code lines:
 
     ```powershell
     # Static Version

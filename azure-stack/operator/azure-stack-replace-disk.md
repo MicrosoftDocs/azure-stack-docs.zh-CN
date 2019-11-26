@@ -1,6 +1,7 @@
 ---
-title: 更换 Azure Stack 中的物理磁盘 | Microsoft Docs
-description: 概述如何更换 Azure Stack 中的物理磁盘的过程。
+title: Replace a physical disk
+titleSuffix: Azure Stack
+description: Learn how to replace a physical disk in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,58 +17,59 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 5da479853487dfd93467bd1413159d6e602b93c6
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 2d4ebaf62a3a2e836df988ec510e21274040e68b
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277665"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465475"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>更换 Azure Stack 中的物理磁盘
+# <a name="replace-a-physical-disk-in-azure-stack"></a>Replace a physical disk in Azure Stack
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-本文介绍更换 Azure Stack 中的物理磁盘的一般过程。 如果物理磁盘发生故障，应尽快更换它。
+This article describes the general process to replace a physical disk in Azure Stack. 如果物理磁盘发生故障，应尽快更换。
 
-可以将此过程用于集成系统，以及用于具有热插拔磁盘的开发工具包部署。
+You can use this procedure for integrated systems, and for Azure Stack Development Kit (ASDK) deployments that have hot-swappable disks.
 
-实际的磁盘更换步骤因原始设备制造商 (OEM) 硬件供应商而异。 有关你系统特有的详细步骤，请参阅供应商的现场可更换部件 (FRU) 文档。
+实际的磁盘更换步骤因原始设备制造商 (OEM) 硬件供应商而异。 请参阅供应商的现场可更换单元 (FRU) 文档来了解特定于你的系统的详细步骤。
 
-## <a name="review-disk-alert-information"></a>查看磁盘警报信息
-当磁盘发生故障时，你会收到通知你物理磁盘已丢失的警报。
+## <a name="review-disk-alert-information"></a>Review disk alert information
+磁盘发生故障时，你将收到一个警报，告知你与物理磁盘的连接已丢失。
 
-![显示物理磁盘连接丢失的警报](media/azure-stack-replace-disk/DiskAlert.png)
+![Alert showing connectivity lost to physical disk in Azure Stack administration](media/azure-stack-replace-disk/DiskAlert.png)
 
-如果打开该警报，警报说明包含必须更换之磁盘的缩放单元节点和确切物理插槽位置。 Azure Stack 会使用 LED 指示器功能来进一步帮助你确定发生故障的磁盘。
+If you open the alert, the alert description contains the scale unit node and the exact physical slot location for the disk that you must replace. Azure Stack further helps you to identify the failed disk by using LED indicator capabilities.
 
-## <a name="replace-the-disk"></a>更换磁盘
+## <a name="replace-the-physical-disk"></a>Replace the physical disk
 
-请按照 OEM 硬件供应商的 FRU 说明来实际更换磁盘。
+请按照 OEM 硬件供应商的 FRU 说明进行实际磁盘更换。
 
 > [!note]
-> 每次更换一个缩放单元节点的磁盘。 等待虚拟磁盘修复作业完成，然后移到下一个缩放单元节点
+> Replace disks for one scale unit node at a time. Wait for the virtual disk repair jobs to complete before moving on to the next scale unit node.
 
-为了防止在集成系统中使用不支持的磁盘，系统会阻止供应商不支持的磁盘。 如果尝试使用不支持的磁盘，则会有新警报通知你因为不支持该磁盘的型号或固件，所以已将该磁盘隔离。
+To prevent the use of an unsupported disk in an integrated system, the system blocks disks that aren't supported by your vendor. If you try to use an unsupported disk, a new alert tells you a disk has been quarantined because of an unsupported model or firmware.
 
-更换磁盘后，Azure Stack 会自动发现新磁盘，并启动虚拟磁盘修复过程。
+After you replace the disk, Azure Stack automatically discovers the new disk and starts the virtual disk repair process.
 
-## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>使用 Azure Stack PowerShell 查看虚拟磁盘修复的状态
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Check the status of virtual disk repair using Azure Stack PowerShell
 
-更换磁盘后，可以使用 Azure Stack PowerShell 监视虚拟磁盘运行状况和修复作业进度。
+After you replace the disk, you can monitor the virtual disk health status and repair job progress by using Azure Stack PowerShell.
 
-1. 检查是否已安装 Azure Stack PowerShell。 有关详细信息，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
-2. 以操作员身份使用 PowerShell 连接到 Azure Stack。 有关详细信息，请参阅[以操作员身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-admin.md)。
-3. 运行以下 cmdlet 以验证虚拟磁盘运行状况并修复状态：
+1. Check that you have Azure Stack PowerShell installed. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+2. Connect to Azure Stack with PowerShell as an operator. For more information, see [Connect to Azure Stack with PowerShell as an operator](azure-stack-powershell-configure-admin.md).
+3. Run the following cmdlets to verify the virtual disk health and repair status:
+
     ```powershell  
     $scaleunit=Get-AzsScaleUnit
     $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
     Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
     ```
 
-    ![Azure Stack 卷运行状况](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+    ![Azure Stack volumes health in Powershell](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
 
-4. 验证 Azure Stack 系统状态。 有关说明，请参阅[验证 Azure Stack 系统状态](azure-stack-diagnostic-test.md)。
-5. 或者，可以运行以下命令来验证更换的物理磁盘的状态。
+4. Validate Azure Stack system state. For instructions, see [Validate Azure Stack system state](azure-stack-diagnostic-test.md).
+5. Optionally, you can run the following command to verify the status of the replaced physical disk.
 
 ```powershell  
 $scaleunit=Get-AzsScaleUnit
@@ -76,37 +78,37 @@ $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
 Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
 ```
 
-![已更换 Azure Stack 中的物理磁盘](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+![Replaced physical disks in Azure Stack with Powershell](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
-## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>使用特权终结点检查虚拟磁盘修复状态
- 
-更换磁盘后，可以使用特权终结点监视虚拟磁盘运行状况和修复作业进度。 从任何可以通过网络连接到特权终结点的计算机，按照下列步骤进行操作。
+## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>Check the status of virtual disk repair using the privileged endpoint
 
-1. 打开 Windows PowerShell 会话并连接到特权终结点。
+After you replace the disk, you can monitor the virtual disk health status and repair job progress by using the privileged endpoint. Follow these steps from any computer that has network connectivity to the privileged endpoint.
+
+1. Open a Windows PowerShell session and connect to the privileged endpoint.
     ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-    ``` 
+    ```
   
-2. 运行以下命令以查看虚拟磁盘运行状况：
+2. Run the following command to view virtual disk health:
     ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
-   ![Get-VirtualDisk 命令的 Powershell 输出](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
-3. 运行以下命令以查看当前的存储作业状态：
+   ![Powershell output of Get-VirtualDisk command](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
+
+3. Run the following command to view current storage job status:
     ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
-      ![Get-StorageJob 命令的 Powershell 输出](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+      ![Powershell output of Get-StorageJob command](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-4. 验证 Azure Stack 系统状态。 有关说明，请参阅[验证 Azure Stack 系统状态](azure-stack-diagnostic-test.md)。
+4. Validate the Azure Stack system state. For instructions, see [Validate Azure Stack system state](azure-stack-diagnostic-test.md).
 
+## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>Troubleshoot virtual disk repair using the privileged endpoint
 
-## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>使用特权终结点排查虚拟磁盘修复问题
-
-如果虚拟磁盘修复作业出现停滞，请运行以下命令来重新启动作业：
+If the virtual disk repair job appears stuck, run the following command to restart the job:
   ```powershell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ``` 
+  ```
