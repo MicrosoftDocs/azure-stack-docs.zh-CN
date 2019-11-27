@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: sethm
 ms.reviewer: prchint
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 81a454fbe2db7d72d94eb499ad276ff28d33f048
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
-ms.translationtype: HT
+ms.lastreviewed: 11/22/2019
+ms.openlocfilehash: a0e925d0c7a8401ea6d3f14f82cdb01bba4b354f
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310087"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540341"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack 更新：发行说明
 
@@ -137,15 +137,25 @@ Azure Stack 1910 更新生成类型为**Express**。
 
 - 将 marketplace 项从 Azure 下载到 Azure Stack 时，有一个新的用户界面，当存在多个版本时，可以使用它来指定项的版本。 已连接和已断开连接的方案中都提供了新的 UI。 有关详细信息，请参阅[将 marketplace 项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。  
 
-- 从1910开始，Azure Stack 系统需要额外的/20 个专用内部 IP 空间。 此网络专用于 Azure Stack 系统，可在数据中心内的多个 Azure Stack 系统上重复使用。 网络专用于 Azure Stack 时，它不得与数据中心内的网络重叠。 /20 专用 IP 空间划分为多个网络，以便在容器上运行 Azure Stack 基础结构（如上文[1905 发行说明](release-notes.md?view=azs-1905)中所述）。 在容器中运行 Azure Stack 基础结构的目标是优化利用率和提高性能。 此外，还使用了/20 个专用 IP 空间来实现正在进行的工作，从而减少部署之前所需的可路由 IP 空间。
+- 从1910版本开始，Azure Stack 系统需要额外的/20 个专用内部 IP 空间。 此网络专用于 Azure Stack 系统，可在数据中心内的多个 Azure Stack 系统上重复使用。 网络专用于 Azure Stack 时，它不得与数据中心内的网络重叠。 /20 专用 IP 空间划分为多个网络，以便在容器上运行 Azure Stack 基础结构（如上文[1905 发行说明](release-notes.md?view=azs-1905)中所述）。 在容器中运行 Azure Stack 基础结构的目标是优化利用率和提高性能。 此外，还使用了/20 个专用 IP 空间来实现正在进行的工作，从而减少部署之前所需的可路由 IP 空间。
 
-  - 请注意，/20 输入作为下一个 Azure Stack 更新的先决条件。 当下一个 Azure Stack 更新发布并且尝试安装它时，如果尚未按照下述更正步骤中所述完成/20 输入，则更新会失败。 在完成上述更正步骤之前，将在管理门户中显示警报。 请参阅[数据中心网络集成](azure-stack-network.md#private-network)一文，了解如何使用这个新的专用空间。 
+  - 请注意，在1910之后，/20 输入作为下一个 Azure Stack 更新的先决条件。 如果在1910之后发布了下一个 Azure Stack 更新，并且尝试安装该更新，则在更正步骤中，如果尚未完成/20 输入，则更新会失败。 在完成上述更正步骤之前，将在管理门户中显示警报。 请参阅[数据中心网络集成](azure-stack-network.md#private-network)一文，了解如何使用这个新的专用空间。 
 
-  - 更正步骤：若要进行修正，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备大小为/20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，并使用以下格式在 PEP 会话中运行以下 cmdlet： `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 如果操作成功执行，你将收到消息**Azs 将内部网络范围添加到配置**。如果成功完成，则警报将在管理门户中关闭。 Azure Stack 系统现在可以更新到下一个版本。
+  - 更正步骤：若要进行修正，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备大小为/20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，并使用以下格式运行以下 cmdlet （仅从1910开始提供）： `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 如果操作成功执行，你将收到消息**Azs 将内部网络范围添加到配置**。如果成功完成，则警报将在管理门户中关闭。 Azure Stack 系统现在可以更新到下一个版本。
   
 - 如果在上传过程中外部存储位置的容量用尽，则基础结构备份服务将删除部分上传的备份数据。  
 
 - 基础结构备份服务将标识服务添加到 AAD 部署的备份负载。  
+
+- Test-azurestack PowerShell 模块已更新为1910版本的1.8.0 版本。<br>更改包括：
+   - **新的 DRP 管理模块**：部署资源提供程序（DRP）允许资源提供程序的协调部署 Azure Stack。 这些命令与 Azure 资源管理器层交互，以便与 DRP 交互。
+   - **BRP**： <br />
+           -支持符号 stack 基础结构备份的单一角色还原。 <br />
+           -将参数 `RoleName` 添加到 cmdlet `Restore-AzsBackup`。
+   - **FRP**： API 版本 `2019-05-01`的**驱动器**和**卷**资源的重大更改。 Azure Stack 1910 及更高版本支持以下功能： <br />
+            -`ID`、`Name`、`HealthStatus` 和 `OperationalStatus` 的值已更改。 <br />
+            -支持**驱动器**资源的 `FirmwareVersion`、`IsIndicationEnabled`、`Manufacturer`和 `StoragePool` 的新属性。 <br />
+            -已不推荐使用**驱动器**资源的属性 `CanPool` 和 `CannotPoolReason`;改用 `OperationalStatus`。
 
 ### <a name="fixes"></a>修复项
 

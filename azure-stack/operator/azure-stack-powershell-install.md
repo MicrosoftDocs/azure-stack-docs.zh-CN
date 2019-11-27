@@ -15,12 +15,12 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 813cfb72a2fad2b22dfce5baff8680b30d2c599d
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
-ms.translationtype: HT
+ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298808"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540301"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
@@ -94,7 +94,18 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 运行以下 PowerShell 脚本，在开发工作站上安装这些模块：
 
-- 对于 Azure Stack 1904 或更高版本：
+- 对于 Azure Stack 1910 或更高版本：
+
+    ```powershell  
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.8.0
+    ```
+
+- 对于 Azure Stack 1908 或1903之后：
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -115,7 +126,8 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
     ```
 
     > [!Note]  
-    > - Azure Stack 模块版本 1.7.1 是一个包含中断性变更的版本。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
+    > - Azure Stack 模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md#changes)。
+    > - Azure Stack 模块版本1.7.2 是一个重大更改版本。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
     > - AzureRM 模块版本 2.4.0 包含对 cmdlet Remove-AzureRmStorageAccount 的中断性变更。 此 cmdlet 需要指定 `-Force` 参数，这样就可以在不确认的情况下删除存储帐户。
     > - 无需安装 **AzureRM.BootStrapper** 即可安装 Azure Stack 版本 1901 或更高版本的模块。
     > - 如果在 Azure Stack 版本 1901 或更高版本上使用以上 AzureRM 模块，请勿安装 2018-03-01-hybrid 配置文件。
@@ -147,7 +159,18 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ### <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell
 
-- Azure Stack 1904 或更高版本。
+- Azure Stack 1910 或更高版本。
+
+    ```powershell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
+    ```
+
+- 对于 Azure Stack 1908 或1903之后：
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -170,6 +193,7 @@ Get-Module -Name "Azs*" -ListAvailable
     ```
 
     > [!Note]  
+    > - Azure Stack 模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md#changes)。
     > Azure Stack 模块版本 1.7.1 是一项中断性变更。 若要从 Azure Stack 1.6.0 迁移，请参阅[迁移指南](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)。
 
     > [!NOTE]
