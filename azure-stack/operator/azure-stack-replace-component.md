@@ -1,7 +1,7 @@
 ---
-title: Replace a hardware component on an Azure Stack scale unit node
+title: 更换 Azure Stack 缩放单元节点上的硬件组件
 titleSuffix: Azure Stack
-description: Learn how to replace a hardware component on an Azure Stack integrated system.
+description: 了解如何更换 Azure Stack 集成系统上的硬件组件。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -22,73 +22,73 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465292"
 ---
-# <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Replace a hardware component on an Azure Stack scale unit node
+# <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>更换 Azure Stack 缩放单元节点上的硬件组件
 
-*Applies to: Azure Stack integrated systems*
+*适用于：Azure Stack 集成系统*
 
-This article describes the general process to replace hardware components that are non hot-swappable. Actual replacement steps vary based on your original equipment manufacturer (OEM) hardware vendor. See your vendor's field replaceable unit (FRU) documentation for detailed steps that are specific to your Azure Stack integrated system.
+本文介绍更换非热插拔硬件组件的一般过程。 实际的更换步骤将因原始设备制造商 (OEM) 硬件供应商而异。 有关 Azure Stack 集成系统特有的详细步骤，请参阅供应商的现场可更换部件 (FRU) 文档。
 
 > [!CAUTION]  
-> Firmware leveling is critical for the success of the operation described in this article. Missing this step can lead to system instability, performance decrease, security threads, or prevent Azure Stack automation from deploying the operating system. Always consult your hardware partner's documentation when replacing hardware to ensure the applied firmware matches the OEM Version displayed in the [Azure Stack administrator portal](azure-stack-updates.md).
+> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程，或阻止 Azure Stack 自动部署操作系统。 在更换硬件时，请始终咨询硬件合作伙伴的文档，以确保应用的固件与[Azure Stack 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。
 
-| Hardware Partner | 地区 | URL |
+| 硬件合作伙伴 | 区域 | 代码 |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | 所有 | [Cisco Integrated System for Microsoft Azure Stack Operations Guide](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | 所有 | [Cloud for Microsoft Azure Stack 14G (account and sign-in required)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack 13G (account and sign-in required)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
-| Fujitsu | JAPAN | [Fujitsu managed service support desk (account and sign-in required)](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | 欧洲、中东和非洲 | [Fujitsu support IT products and systems](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-|  | 欧洲 | [Fujitsu MySupport (account and sign-in required)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | 所有 | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
-| Lenovo | 所有 | [ThinkAgile SXM Best Recipes](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [OEM/firmware package](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[terra Azure Stack documentation (including FRU)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
+| Cisco | All | [适用于 Microsoft Azure Stack 操作指南的 Cisco 集成系统](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[适用于 Microsoft Azure Stack 的 Cisco 集成系统的发行说明](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | All | [适用于 Microsoft Azure Stack 14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Fujitsu | 日本 | [Fujitsu 托管服务支持人员（需要帐户和登录）](https://eservice.fujitsu.com/supportdesk-web/) |
+|  | 欧洲、中东和非洲 | [Fujitsu 支持 IT 产品和系统](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+|  | EU | [Fujitsu MySupport （需要帐户和登录）](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+| HPE | All | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | All | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+| Wortmann |  | [OEM/固件包](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[terra Azure Stack 文档（包括 FRU）](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
 
-Non hot-swappable components include the following items:
+非热插拔组件包括以下各项：
 
 - CPU*
-- Memory*
-- Motherboard/baseboard management controller (BMC)/video card
-- Disk controller/host bus adapter (HBA)/backplane
-- Network adapter (NIC)
-- Operating system disk*
-- Data drives (drives that don't support hot swap, for example PCI-e add-in cards)*
+- 内存*
+- 母板/基板管理控制器 (BMC)/视频卡
+- 磁盘控制器/主机总线适配器 (HBA)/底板
+- 网络适配器 (NIC)
+- 操作系统磁盘*
+- 数据驱动器（不支持热插拔的驱动器，例如 PCI-e 外接卡）*
 
-*These components may support hot swap, but can vary based on vendor implementation. See your OEM vendor's FRU documentation for detailed steps.
+*这些组件可能支持热插拔，但因供应商实施情况而有所不同。 有关详细步骤，请参阅 OEM 供应商的 FRU 文档。
 
-The following flow diagram shows the general FRU process to replace a non hot-swappable hardware component.
+以下流程图显示更换非热插拔硬件组件的一般 FRU 过程。
 
-![Flow diagram showing component replacement flow](media/azure-stack-replace-component/replacecomponentflow.PNG)
+![显示组件更换流程的流程图](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
-* This action may not be required based on the physical condition of the hardware.
+* 根据硬件的物理条件，可能不需要此操作。
 
-** Whether your OEM hardware vendor does the component replacement and updates the firmware could vary based on your support contract.
+\* * OEM 硬件供应商是否执行组件更换和更新固件会根据支持合同而有所不同。
 
-## <a name="review-alert-information"></a>Review alert information
+## <a name="review-alert-information"></a>查看警报信息
 
-The Azure Stack health and monitoring system tracks the health of network adapters and data drives controlled by Storage Spaces Direct. It doesn't track other hardware components. For all other hardware components, alerts are raised in the vendor-specific hardware monitoring solution that runs on the hardware lifecycle host.  
+Azure Stack 运行状况和监视系统跟踪存储空间直通控制的网络适配器和数据驱动器的运行状况。 它不跟踪其他硬件组件。 针对所有其他硬件组件，在硬件生命周期主机上运行的供应商特定硬件监视解决方案中引发警报。  
 
-## <a name="component-replacement-process"></a>Component replacement process
+## <a name="component-replacement-process"></a>组件更换过程
 
-The following steps provide a high-level overview of the component replacement process. Don't follow these steps without referring to your OEM-provided FRU documentation.
+以下步骤提供组件更换过程的高级概述。 请勿在未参考 OEM 提供的 FRU 文档的情况下执行这些步骤。
 
-1. Use the Shutdown action to gracefully shut down the scale unit node. This action may not be required based on the physical condition of the hardware.
+1. 使用关闭操作正常关闭缩放单元节点。 根据硬件的物理条件，可能不需要此操作。
 
-2. In an unlikely case the shutdown action does fail, use the [Drain](azure-stack-node-actions.md#drain) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
-
-   > [!NOTE]  
-   > In any case, only one node can be disabled and powered off at the same time without breaking the S2D (Storage Spaces Direct).
-
-3. After the scale unit node is in maintenance mode, use the [Power off](azure-stack-node-actions.md#scale-unit-node-actions) action. This action may not be required based on the physical condition of the hardware.
+2. 万一关闭操作失败，请使用[清空](azure-stack-node-actions.md#drain)操作使缩放单元节点进入维护模式。 根据硬件的物理条件，可能不需要此操作。
 
    > [!NOTE]  
-   > In the unlikely case that the power off action doesn't work, use the baseboard management controller (BMC) web interface instead.
+   > 在任何情况下，只能同时禁用一个节点并关机，而不中断 S2D（存储空间直通）。
 
-4. Replace the damaged hardware component. Whether your OEM hardware vendor does the component replacement could vary based on your support contract.  
-5. Update the firmware. Follow your vendor-specific firmware update process using the hardware lifecycle host to make sure the replaced hardware component has the approved firmware level applied. Whether your OEM hardware vendor does this step could vary based on your support contract.  
-6. Use the [Repair](azure-stack-node-actions.md#scale-unit-node-actions) action to bring the scale unit node back into the scale unit.
-7. Use the privileged endpoint to [check the status of virtual disk repair](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). With new data drives, a full storage repair job can take multiple hours depending on system load and consumed space.
-8. After the repair action has finished, validate that all active alerts have been automatically closed.
+3. 缩放单元节点处于维护模式后，请使用[关闭电源](azure-stack-node-actions.md#scale-unit-node-actions)操作。 根据硬件的物理条件，可能不需要此操作。
+
+   > [!NOTE]  
+   > 在关闭电源操作不起作用的罕见情况下，请改用基板管理控制器 (BMC) Web 界面。
+
+4. 更换损坏的硬件组件。 您的 OEM 硬件供应商是否根据您的支持合同而有所不同。  
+5. 更新固件。 请使用硬件生命周期主机按照供应商特定的固件更新过程进行操作，以确保替换的硬件组件已应用批准的固件级别。 你的 OEM 硬件供应商是否执行此步骤取决于你的支持合同。  
+6. 使用[修复](azure-stack-node-actions.md#scale-unit-node-actions)操作将缩放单元节点恢复到缩放单元。
+7. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
+8. 修复操作完成后，验证是否已自动关闭所有活动警报。
 
 ## <a name="next-steps"></a>后续步骤
 
-- For information about replacing a hot-swappable physical disk, see [Replace a disk](azure-stack-replace-disk.md).
-- For information about replacing a physical node, see [Replace a scale unit node](azure-stack-replace-node.md).
+- 有关更换热插拔物理磁盘的信息，请参阅[更换磁盘](azure-stack-replace-disk.md)。
+- 有关更换物理节点的信息，请参阅[更换缩放单元节点](azure-stack-replace-node.md)。

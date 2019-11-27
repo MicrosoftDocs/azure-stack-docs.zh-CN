@@ -1,6 +1,6 @@
 ---
-title: Updating the Azure Stack SQL resource provider | Microsoft Docs
-description: Learn how you can update the Azure Stack SQL resource provider.
+title: 更新 Azure Stack SQL 资源提供程序 | Microsoft Docs
+description: 了解如何更新 Azure Stack SQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -22,55 +22,55 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465354"
 ---
-# <a name="update-the-sql-resource-provider"></a>Update the SQL resource provider
+# <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
-*Applies to: Azure Stack integrated systems.*
+*适用于：Azure Stack 集成系统。*
 
-A new SQL resource provider might be released when Azure Stack is updated to a new build. Although the existing resource provider continues to work, we recommend updating to the latest build as soon as possible. 
+你在将 Azure Stack 更新到新的 内部版本时，可能碰上我们发布新的 SQL 资源提供程序。 虽然现有的资源提供程序可以继续使用，但仍建议尽快更新到最新的内部版本。 
 
-Starting with the SQL resource provider version 1.1.33.0 release, updates are cumulative and do not need to be installed in the order in which they were released; as long as you're starting from version 1.1.24.0 or later. For example, if you are running version 1.1.24.0 of the SQL resource provider, then you can upgrade to version 1.1.33.0 or later without needing to first install version 1.1.30.0. To review available resource provider versions, and the version of Azure Stack they are supported on, refer to the versions list in [Deploy the resource provider prerequisites](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
+从 SQL 资源提供程序发布版 1.1.33.0 开始，更新是累积性的，不需按发布顺序进行安装，前提是你从 1.1.24.0 或更高版本开始。 例如，如果运行 1.1.24.0 版 SQL 资源提供程序，则可升级到 1.1.33.0 或更高版本，不需先安装版本 1.1.30.0。 若要查看可用的资源提供程序版本，以及支持它们的 Azure Stack 版本，请参阅[部署资源提供程序的先决条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
-To update the resource provider, use the *UpdateSQLProvider.ps1* script. This script is included with the download of the new SQL resource provider. The update process is similar to the process used to [Deploy the resource provider](./azure-stack-sql-resource-provider-deploy.md). The update script uses the same arguments as the DeploySqlProvider.ps1 script, and you'll need to provide certificate information.
+若要更新资源提供程序，请使用 *UpdateSQLProvider.ps1* 脚本。 新 SQL 资源提供程序的下载包中提供此脚本。 更新过程类似于[部署资源提供程序](./azure-stack-sql-resource-provider-deploy.md)时使用的过程。 更新脚本与 DeploySqlProvider.ps1 脚本使用相同的参数，你需要提供证书信息。
 
  > [!IMPORTANT]
- > Before upgrading the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
+ > 在升级资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
-## <a name="update-script-processes"></a>Update script processes
+## <a name="update-script-processes"></a>更新脚本过程
 
-The *UpdateSQLProvider.ps1* script creates a new virtual machine (VM) with the latest resource provider code.
+*UpdateSQLProvider.ps1* 脚本可使用最新的资源提供程序代码创建新的虚拟机 (VM)。
 
 > [!NOTE]
-> We recommend that you download the latest Windows Server 2016 Core image from Marketplace Management. If you need to install an update, you can place a **single** MSU package in the local dependency path. The script will fail if there's more than one MSU file in this location.
+> 建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
 
-After the *UpdateSQLProvider.ps1* script creates a new VM, the script migrates the following settings from the old provider VM:
+*UpdateSQLProvider.ps1* 脚本在创建新的 VM 后，会从旧的提供程序 VM 中迁移以下设置：
 
 * 数据库信息
-* hosting server information
-* required DNS record
+* 宿主服务器信息
+* 必要的 DNS 记录
 
-## <a name="update-script-parameters"></a>Update script parameters
+## <a name="update-script-parameters"></a>更新脚本参数
 
-You can specify the following parameters from the command line when you run the **UpdateSQLProvider.ps1** PowerShell script. If you don't, or if any parameter validation fails, you're prompted to provide the required parameters.
+运行 **UpdateSQLProvider.ps1** PowerShell 脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
 
-| 参数名称 | 描述 | Comment or default value |
+| 参数名称 | 说明 | 注释或默认值 |
 | --- | --- | --- |
-| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _必需_ |
-| **AzCredential** | The credentials for the Azure Stack service administrator account. Use the same credentials that you used for deploying Azure Stack. | _必需_ |
-| **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. | _必需_ |
-| **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _必需_ |
-| **AzureEnvironment** | The Azure environment of the service admin account which you used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure AD, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | You must also put your certificate .pfx file in this directory. | _Optional for single node, but mandatory for multi-node_ |
-| **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _必需_ |
-| **MaxRetryCount** | The number of times you want to retry each operation if there's a failure.| 2 |
-| **RetryDuration** |The timeout interval between retries, in seconds. | 120 |
-| **卸载** | Removes the resource provider and all associated resources. | No |
-| **DebugMode** | Prevents automatic cleanup on failure. | No |
+| **CloudAdminCredential** | 访问特权终结点时所需的云管理员凭据。 | _必需_ |
+| **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ |
+| **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
+| **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
+| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
+| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | 对单节点为可选，但对多节点为必选 |
+| **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
+| **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
+| **RetryDuration** |每两次重试的超时间隔（秒）。 | 120 |
+| **卸载** | 删除资源提供程序和所有关联的资源。 | 否 |
+| **DebugMode** | 防止在失败时自动清除。 | 否 |
 
-## <a name="update-script-powershell-example"></a>Update script PowerShell example
+## <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
 > [!NOTE]
-> This update process only applies to Azure Stack integrated systems.
+> 此更新过程仅适用于 Azure Stack 集成系统。
 
-If you are updating the SQL resource provider version to 1.1.33.0 or previous versions, you need to install specific versions of AzureRm.BootStrapper and Azure Stack modules in PowerShell. If you are updating to the SQL resource provider version 1.1.47.0, this step can be skipped.
+如果要将 SQL 资源提供程序版本更新为1.1.33.0 或以前的版本，则需要在 PowerShell 中安装 AzureRm 和 Azure Stack 模块的特定版本。 如果要更新到 SQL 资源提供程序版本1.1.47.0，可以跳过此步骤。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -80,7 +80,7 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
-The following is an example of using the *UpdateSQLProvider.ps1* script that you can run from an elevated PowerShell console. Be sure to change the variable information and passwords as needed:  
+下面是 *UpdateSQLProvider.ps1* 脚本的使用示例，该脚本可以通过提升的 PowerShell 控制台来运行。 请务必根据需要更改变量信息和密码：  
 
 ```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
@@ -125,4 +125,4 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-[Maintain the SQL resource provider](azure-stack-sql-resource-provider-maintain.md)
+[维护 SQL 资源提供程序](azure-stack-sql-resource-provider-maintain.md)

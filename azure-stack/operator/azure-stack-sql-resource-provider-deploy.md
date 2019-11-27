@@ -1,6 +1,6 @@
 ---
-title: Using SQL databases on Azure Stack | Microsoft Docs
-description: Learn how you can deploy SQL databases as a service on Azure Stack and the quick steps to deploy the SQL Server resource provider adapter.
+title: 在 Azure Stack 中使用 SQL 数据库 | Microsoft Docs
+description: 了解如何在 Azure Stack 中部署 SQL 数据库即服务，并通过便捷的步骤部署 SQL Server 资源提供程序适配器。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -22,88 +22,88 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465306"
 ---
-# <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Deploy the SQL Server resource provider on Azure Stack
+# <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 资源提供程序
 
-Use the Azure Stack SQL Server resource provider to expose SQL databases as an Azure Stack service. The SQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
+可以使用 Azure Stack SQL Server 资源提供程序来将 SQL 数据库公开为 Azure Stack 服务。 SQL 资源提供程序以服务的形式在 Windows Server 2016 Server Core 虚拟机 (VM) 上运行。
 
 > [!IMPORTANT]
-> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.
+> 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
-There are several prerequisites that need to be in place before you can deploy the Azure Stack SQL resource provider. To meet these requirements, complete the following steps on a computer that can access the privileged endpoint VM:
+需要先实施几个先决条件，然后才能部署 Azure Stack SQL 资源提供程序。 若要满足这些要求，请在可访问特权终结点 VM 的计算机上完成以下步骤：
 
-- If you haven't already done so, [register Azure Stack](azure-stack-registration.md) with Azure so you can download Azure marketplace items.
-- You must install the Azure and Azure Stack PowerShell modules on the system where you  will run this installation. That system must be a Windows 10 or Windows Server 2016 image with the latest version of the .NET runtime. See [Install PowerShell for Azure Stack](./azure-stack-powershell-install.md).
-- Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Datacenter - Server Core** image.
-- Download the SQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build.
+- 向 Azure [注册 Azure Stack](azure-stack-registration.md)（如果尚未执行此操作），以便可以下载 Azure 市场项。
+- 必须在将运行此安装的系统上安装 Azure 和 Azure Stack PowerShell 模块。 该系统必须是具有最新版本的 .NET 运行时的 Windows 10 或 Windows Server 2016 映像。 请参阅[安装适用于 Azure Stack 的 PowerShell](./azure-stack-powershell-install.md)。
+- 下载 **Windows Server 2016 Datacenter - Server Core** 映像，将所需的 Windows Server 核心 VM 添加到 Azure Stack 市场。
+- 下载 SQL 资源提供程序二进制文件，然后运行自解压程序，将内容解压缩到一个临时目录。 资源提供程序有一个相应的 Azure Stack 最低内部版本。
 
-  |Minimum Azure Stack version|SQL RP version|
+  |最低 Azure Stack 版本|SQL RP 版本|
   |-----|-----|
-  |Version 1910 (1.1910.0.58)|[SQL RP version 1.1.47.0](https://aka.ms/azurestacksqlrp11470)| 
-  |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
-  |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
+  |版本1910（1.1910.0.58）|[SQL RP 版本1.1.47。0](https://aka.ms/azurestacksqlrp11470)| 
+  |版本 1808 (1.1808.0.97)|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
+  |版本 1808 (1.1808.0.97)|[SQL RP 版本 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
+  |版本 1804 (1.0.180513.1)|[SQL RP 版本 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
   |     |     |
 
 > [!IMPORTANT]
-> Before deploying the SQL resource provider version 1.1.47.0, you should have your Azure Stack system upgraded to 1910 update or later versions. The SQL resource provider version 1.1.47.0 on previous unsupported Azure Stack versions doesn't work.
+> 部署 SQL 资源提供程序版本1.1.47.0 之前，应将 Azure Stack 系统升级到1910更新或更高版本。 在以前不受支持的 Azure Stack 版本中，SQL 资源提供程序版本1.1.47.0 不起作用。
 
-- Ensure datacenter integration prerequisites are met:
+- 请确保满足数据中心集成先决条件：
 
     |先决条件|参考|
     |-----|-----|
-    |Conditional DNS forwarding is set correctly.|[Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md)|
-    |Inbound ports for resource providers are open.|[Azure Stack datacenter integration - Ports and protocols inbound](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI certificate subject and SAN are set correctly.|[Azure Stack deployment mandatory PKI prerequisites](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack deployment PaaS certificate prerequisites](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |正确设置了条件性 DNS 转发。|[Azure Stack 数据中心集成 - DNS](azure-stack-integrate-dns.md)|
+    |资源提供程序的入站端口处于打开状态。|[Azure Stack 数据中心集成 - 入站端口和协议](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |正确设置了 PKI 证书使用者和 SAN。|[Azure Stack 部署必备 PKI 先决条件](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack 部署 PaaS 证书先决条件](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>证书
 
-_For integrated systems installations only_. You must provide the SQL PaaS PKI certificate described in the optional PaaS certificates section of [Azure Stack deployment PKI requirements](./azure-stack-pki-certs.md#optional-paas-certificates). Place the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter. Do not provide a certificate for ASDK systems.
+_仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求](./azure-stack-pki-certs.md#optional-paas-certificates)中的“可选 PaaS 证书”部分所述的 SQL PaaS PKI 证书。 将 .pfx 文件放在 **DependencyFilesLocalPath** 参数指定的位置。 对于 ASDK 系统，请不要提供证书。
 
-## <a name="deploy-the-sql-resource-provider"></a>Deploy the SQL resource provider
+## <a name="deploy-the-sql-resource-provider"></a>部署 SQL 资源提供程序
 
-After you've installed all the prerequisites, you can run the **DeploySqlProvider.ps1** script to deploy the SQL resource provider. The DeploySqlProvider.ps1 script is extracted as part of the SQL resource provider binary that you downloaded for your version of Azure Stack.
+安装所有必备组件后，即可运行 **DeploySqlProvider.ps1** 脚本来部署 SQL 资源提供程序。 DeploySqlProvider.ps1 脚本是从针对 Azure Stack 版本下载的 SQL 资源提供程序二进制文件中提取的。
 
  > [!IMPORTANT]
- > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
+ > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
  
-To deploy the SQL resource provider, open a **new** elevated PowerShell window (not PowerShell ISE) and change to the directory where you extracted the SQL resource provider binary files. We recommend using a new PowerShell window to avoid potential problems caused by PowerShell modules that are already loaded.
+若要部署 SQL 资源提供程序，请打开一个权限提升的 PowerShell（不是 PowerShell ISE）**新**窗口，并切换到解压缩后的 SQL 资源提供程序二进制文件所在的目录。 我们建议使用新的 PowerShell 窗口，以避免已加载的 PowerShell 模块造成问题。
 
-Run the DeploySqlProvider.ps1 script, which completes the following tasks:
+运行 DeploySqlProvider.ps1 脚本，以完成以下任务：
 
-- Uploads the certificates and other artifacts to a storage account on Azure Stack.
-- Publishes gallery packages so you can deploy SQL databases using the gallery.
-- Publishes a gallery package for deploying hosting servers.
-- Deploys a VM using the Windows Server 2016 core image you downloaded, and then installs the SQL resource provider.
-- Registers a local DNS record that maps to your resource provider VM.
-- Registers your resource provider with the local Azure Resource Manager for the operator account.
+- 将证书和其他项目上传到 Azure Stack 上的存储帐户。
+- 发布库包，以便可以使用库部署 SQL 数据库。
+- 发布用于部署宿主服务器的库包。
+- 使用下载的 Windows Server 2016 核心映像部署 VM，然后安装 SQL 资源提供程序。
+- 注册映射到资源提供程序 VM 的本地 DNS 记录。
+- 将资源提供程序注册到操作员帐户的本地 Azure 资源管理器。
 
 > [!NOTE]
-> When the SQL resource provider deployment starts, the **system.local.sqladapter** resource group is created. It may take up to 75 minutes to finish the required deployments to this resource group.
+> 当 SQL 资源提供程序部署开始时，将创建 **system.local.sqladapter** 资源组。 可能需要花费多达 75 分钟才能完成此资源组的必需部署。
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 参数
 
-You can specify the following parameters from the command line. If you don't, or if any parameter validation fails, you're prompted to provide the required parameters.
+可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
 
-| 参数名称 | 描述 | Comment or default value |
+| 参数名称 | 说明 | 注释或默认值 |
 | --- | --- | --- |
-| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _必需_ |
-| **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack. | _必需_ |
-| **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. | _必需_ |
-| **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _必需_ |
-| **AzureEnvironment** | The Azure environment of the service admin account used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | For integrated systems only, your certificate .pfx file must be placed in this directory. You can optionally copy one Windows Update MSU package here. | _Optional_ (_mandatory_ for integrated systems) |
-| **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _必需_ |
-| **MaxRetryCount** | The number of times you want to retry each operation if there's a failure.| 2 |
-| **RetryDuration** | The timeout interval between retries, in seconds. | 120 |
-| **卸载** | Removes the resource provider and all associated resources (see the following notes). | No |
-| **DebugMode** | Prevents automatic cleanup on failure. | No |
+| **CloudAdminCredential** | 访问特权终结点时所需的云管理员凭据。 | _必需_ |
+| **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ |
+| **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
+| **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
+| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure Active Directory、 **AzureChinaCloud**。 | AzureCloud |
+| **DependencyFilesLocalPath** | 对于集成系统，必须将证书 .pfx 文件放在此目录中。 还可以在此处复制一个 Windows Update MSU 包。 | _可选_（对于集成系统为强制的） |
+| **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
+| **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
+| **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 |
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | 否 |
+| **DebugMode** | 防止在失败时自动清除。 | 否 |
 
-## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Deploy the SQL resource provider using a custom script
+## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 SQL 资源提供程序
 
-If you are deploying the SQL resource provider version 1.1.33.0 or previous versions, you need to install specific versions of AzureRm.BootStrapper and Azure Stack modules in PowerShell. If you are deploying the SQL resource provider version 1.1.47.0, this step can be skipped.
+如果要部署 SQL 资源提供程序版本1.1.33.0 或早期版本，则需要在 PowerShell 中安装 AzureRm 和 Azure Stack 模块的特定版本。 如果要部署 SQL 资源提供程序版本1.1.47.0，可以跳过此步骤。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -113,9 +113,9 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
-To eliminate any manual configuration when deploying the resource provider, you can customize the following script.  
+若要在部署资源提供程序时消除任何手动配置，可以自定义以下脚本。  
 
-Change the default account information and passwords as needed for your Azure Stack deployment.
+更改 Azure Stack 部署所需的默认帐户信息和密码。
 
 ```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
@@ -162,19 +162,19 @@ Clear-AzureRMContext -Scope Process -Force
 
  ```
 
-When the resource provider installation script finishes, refresh your browser to make sure you can see the latest updates.
+资源提供程序安装脚本完成后，刷新浏览器，以确保能够看到最新的更新。
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verify the deployment using the Azure Stack portal
+## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>使用 Azure Stack 门户验证部署
 
-You can use the following steps verify that the SQL resource provider is successfully deployed.
+可以使用以下步骤来验证是否已成功部署 SQL 资源提供程序。
 
-1. Sign in to the admin portal as the service administrator.
-2. Select **Resource Groups**.
-3. Select the **system.\<location\>.sqladapter** resource group.
-4. On the summary page for Resource group Overview, there should be no failed deployments.
-      ![Verify deployment of the SQL resource provider](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-5. Finally, select **Virtual machines** in the admin portal to verify that the SQL resource provider VM was successfully created and is running.
+1. 以服务管理员身份登录到管理门户。
+2. 选择“资源组”。
+3. 选择“system.**位置\<.sqladapter”资源组。\>**
+4. 在资源组概述摘要页上，应当没有失败的部署。
+      ![验证 SQL 资源提供程序的部署](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. 最后，在管理门户中选择“虚拟机”，以验证 SQL 资源提供程序 VM 是否已成功创建且正在运行。
 
 ## <a name="next-steps"></a>后续步骤
 
-[Add hosting servers](azure-stack-sql-resource-provider-hosting-servers.md)
+[添加宿主服务器](azure-stack-sql-resource-provider-hosting-servers.md)

@@ -81,7 +81,7 @@ ms.locfileid: "74310307"
     | 字段 | 说明 |
     | --- | --- |
     | dnsPrefix | 输入用于标识 Vm 主机名的唯一字符串。 例如，基于资源组名称的名称。 |
-    | 计数 |  输入要用于部署的主机数。 HA 部署的最小值为3，但不允许对非 HA 部署使用1。 |
+    | count |  输入要用于部署的主机数。 HA 部署的最小值为3，但不允许对非 HA 部署使用1。 |
     | vmSize |  输入[Azure Stack 支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 
@@ -89,7 +89,7 @@ ms.locfileid: "74310307"
 
     | 字段 | 说明 |
     | --- | --- |
-    | 计数 | 输入要用于部署的代理数。 |
+    | count | 输入要用于部署的代理数。 |
     | vmSize | 输入[Azure Stack 支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 

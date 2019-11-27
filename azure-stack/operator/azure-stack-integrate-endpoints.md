@@ -1,6 +1,6 @@
 ---
-title: Publish Azure Stack services in your datacenter | Microsoft Docs
-description: Learn how to publish Azure Stack services in your datacenter.
+title: 在数据中心发布 Azure Stack 服务 |Microsoft Docs
+description: 了解如何在数据中心发布 Azure Stack 服务。
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -17,47 +17,47 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74478488"
 ---
-# <a name="publish-azure-stack-services-in-your-datacenter"></a>Publish Azure Stack services in your datacenter 
+# <a name="publish-azure-stack-services-in-your-datacenter"></a>在数据中心发布 Azure Stack 服务 
 
-Azure Stack sets up virtual IP addresses (VIPs) for its infrastructure roles. These VIPs are allocated from the public IP address pool. Each VIP is secured with an access control list (ACL) in the software-defined network layer. ACLs are also used across the physical switches (TORs and BMC) to further harden the solution. A DNS entry is created for each endpoint in the external DNS zone that's specified at deployment time. For example, the user portal is assigned the DNS host entry of portal. *&lt;region>.&lt;fqdn>* .
+Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP 是从公共 IP 地址池分配的。 每个 VIP 受软件定义的网络层中的访问控制列表 (ACL) 保护。 还可以在物理交换机（TOR 和 BMC）之间使用 ACL 来进一步强化解决方案。 将为在部署时指定的外部 DNS 区域中的每个终结点创建一个 DNS 条目。 例如，将为用户门户分配 DNS 主机条目 portal. *&lt;region>.&lt;fqdn>* 。
 
-The following architectural diagram shows the different network layers and ACLs:
+以下体系结构图显示了不同的网络层和 ACL：
 
-![Diagram showing different network layers and ACLs](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![显示不同网络层和 Acl 的图表](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
-### <a name="ports-and-urls"></a>Ports and URLs
+### <a name="ports-and-urls"></a>端口和 URL
 
-To make Azure Stack services (like the portals, Azure Resource Manager, DNS, and so on) available to external networks, you must allow inbound traffic to these endpoints for specific URLs, ports, and protocols.
+若要使 Azure Stack 服务（如门户、Azure 资源管理器、DNS 等）可用于外部网络，必须允许将这些终结点的入站流量用于特定的 Url、端口和协议。
  
-In a deployment where a transparent proxy uplinks to a traditional proxy server or a firewall is protecting the solution, you must allow specific ports and URLs for both [inbound](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound) and [outbound](azure-stack-integrate-endpoints.md#ports-and-urls-outbound) communication. These include ports and URLs for identity, the marketplace, patch and update, registration, and usage data.
+在到传统代理服务器或防火墙的透明代理上行链路正在保护解决方案的部署中，必须允许特定的端口和 URL，以便进行[入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)和[出站](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)通信。 这包括用于标识、市场、修补和更新、注册和使用情况数据的端口与 URL。
 
-SSL traffic interception is [not supported](azure-stack-firewall.md#ssl-interception) and can lead to service failures when accessing endpoints. 
+SSL 流量截获[不受支持](azure-stack-firewall.md#ssl-interception)，并且可能在访问终结点时导致服务失败。 
 
-## <a name="ports-and-protocols-inbound"></a>Ports and protocols (inbound)
+## <a name="ports-and-protocols-inbound"></a>端口和协议（入站）
 
-A set of infrastructure VIPs is required for publishing Azure Stack endpoints to external networks. The *Endpoint (VIP)* table shows each endpoint, the required port, and protocol. Refer to the specific resource provider deployment documentation for endpoints that require additional resource providers, like the SQL resource provider.
+将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。 “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 有关需要其他资源提供程序（如 SQL 资源提供程序）的终结点，请参阅特定资源提供程序部署文档。
 
-Internal infrastructure VIPs aren't listed because they're not required for publishing Azure Stack. User VIPs are dynamic and defined by the users themselves, with no control by the Azure Stack operator.
+此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。 用户 Vip 是动态的，由用户自身定义，不受 Azure Stack 运算符控制。
 
 > [!Note]  
-> IKEv2 VPN is a standards-based IPsec VPN solution that uses UDP port 500 and 4500 and TCP port 50. Firewalls don't always open these ports, so an IKEv2 VPN might not be able to traverse proxies and firewalls.
+> IKEv2 VPN 是一个基于标准的 IPsec VPN 解决方案，它使用 UDP 端口 500 和 4500 以及 TCP 端口 50。 防火墙并不总是打开这些端口，因此 IKEv2 VPN 可能无法遍历代理和防火墙。
 
-With the addition of the [Extension Host](azure-stack-extension-host-prepare.md), ports in the range of 12495-30015 aren't required.
+添加[扩展主机](azure-stack-extension-host-prepare.md)后，不需要12495-30015 范围内的端口。
 
-|Endpoint (VIP)|DNS host A record|协议|端口|
+|终结点 (VIP)|DNS 主机 A 记录|协议|端口|
 |---------|---------|---------|---------|
 |AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portal (administrator)|Adminportal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|门户（管理员）|Adminportal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure Resource Manager (administrator)|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portal (user)|Portal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Azure Resource Manager (user)|Management. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure 资源管理器（管理员）|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|门户（用户）|Portal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure 资源管理器（用户）|Management. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |图形|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Certificate revocation list|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
-|DNS|&#42;. *&lt;region>.&lt;fqdn>*|TCP & UDP|53|
-|托管 | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Key Vault (user)|&#42;.vault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Key Vault (administrator)|&#42;.adminvault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|证书吊销列表|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;. *&lt;region>.&lt;fqdn>*|TCP 和 UDP|53|
+|Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
+|Key Vault（用户）|&#42;.vault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault（管理员）|&#42;.adminvault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |存储队列|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |存储表|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |存储 Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
@@ -65,43 +65,43 @@ With the addition of the [Extension Host](azure-stack-extension-host-prepare.md)
 |MySQL 资源提供程序|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
 |应用服务|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
 |  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
-|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP、UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
-|VPN 网关|     |     |[See the VPN gateway FAQ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
+|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300（Azure 资源管理器）|
+|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP、UDP|21、1021、10001-10100 (FTP)<br>990 (FTPS)|
+|VPN 网关|     |     |[请参阅 VPN 网关常见问题解答](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability)。|
 |     |     |     |     |
 
-## <a name="ports-and-urls-outbound"></a>Ports and URLs (outbound)
+## <a name="ports-and-urls-outbound"></a>端口和 URL（出站）
 
-Azure Stack supports only transparent proxy servers. In a deployment with a transparent proxy uplink to a traditional proxy server, you must allow the ports and URLs in the following table for outbound communication.
+Azure Stack 仅支持透明代理服务器。 在使用到传统代理服务器的透明代理上行链路的部署中，必须允许下表中的端口和 URL，以便进行出站通信。
 
-SSL traffic interception is [not supported](azure-stack-firewall.md#ssl-interception) and can lead to service failures when accessing endpoints. The maximum supported timeout to communicate with endpoints required for identity is 60s.
+SSL 流量截获[不受支持](azure-stack-firewall.md#ssl-interception)，并且可能在访问终结点时导致服务失败。 与标识所需的终结点进行通信时支持的最大超时值为60s。
 
 > [!Note]  
-> Azure Stack doesn't support using ExpressRoute to reach the Azure services listed in the following table because ExpressRoute may not be able to route traffic to all of the endpoints.
+> Azure Stack 不支持使用 ExpressRoute 访问下表中列出的 Azure 服务，因为 ExpressRoute 可能无法将流量路由到所有终结点。
 
-|用途|Destination URL|协议|端口|Source Network|
+|目的|目标 URL|协议|端口|源网络|
 |---------|---------|---------|---------|---------|
-|身份标识|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>https:\//\*.msftauth.net<br>https:\//\*.msauth.net<br>https:\//\*.msocdn.com<br>**Azure Government**<br>https:\//login.microsoftonline.us/<br>https:\//graph.windows.net/<br>**Azure 中国世纪互联**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure 德国**<br>https:\//login.microsoftonline.de/<br>https:\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Public VIP - /27<br>Public infrastructure Network|
-|Marketplace syndication|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>https://&#42;.blob.core.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;.blob.core.chinacloudapi.cn|HTTPS|443|Public VIP - /27|
-|Patch & Update|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|Public VIP - /27|
-|注册|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https:\//management.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn|HTTPS|443|Public VIP - /27|
-|使用情况|**Azure**<br>https://&#42;.trafficmanager.net<br>**Azure Government**<br>https://&#42;.usgovtrafficmanager.net<br>**Azure 中国世纪互联**<br>https://&#42;.trafficmanager.cn|HTTPS|443|Public VIP - /27|
-|Windows Defender|&#42;.wdcp.microsoft.com<br>&#42;.wdcpalt.microsoft.com<br>&#42;.wd.microsoft.com<br>&#42;.update.microsoft.com<br>&#42;.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Public VIP - /27<br>Public infrastructure Network|
-|NTP|(IP of NTP server provided for deployment)|UDP|123|Public VIP - /27|
-|DNS|(IP of DNS server provided for deployment)|TCP<br>UDP|53|Public VIP - /27|
-|CRL|(URL under CRL Distribution Points on your certificate)|HTTP|80|Public VIP - /27|
-|LDAP|Active Directory Forest provided for Graph integration|TCP<br>UDP|389|Public VIP - /27|
-|LDAP SSL|Active Directory Forest provided for Graph integration|TCP|636|Public VIP - /27|
-|LDAP GC|Active Directory Forest provided for Graph integration|TCP|3268|Public VIP - /27|
-|LDAP GC SSL|Active Directory Forest provided for Graph integration|TCP|3269|Public VIP - /27|
-|AD FS|AD FS metadata endpoint provided for AD FS integration|TCP|443|Public VIP - /27|
-|Diagnostic Log collection service|Azure Storage provided Blob SAS URL|HTTPS|443|Public VIP - /27|
+|标识|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>https：\//\*msftauth.net<br>https：\//\*msauth.net<br>https：\//\*msocdn.com<br>**Azure Government**<br>https：\//login.microsoftonline.us/<br>https：\//graph.windows.net/<br>**Azure 中国世纪互联**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure 德国**<br>https：\//login.microsoftonline.de/<br>https：\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
+|市场联合|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https：\//management.usgovcloudapi.net/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
+|修补程序和更新|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP - /27|
+|注册|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https：\//management.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
+|使用情况|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure 中国世纪互联**<br>https://&#42;.trafficmanager.cn|HTTPS|443|公共 VIP - /27|
+|Windows Defender|&#42;.wdcp.microsoft.com<br>&#42;.wdcpalt.microsoft.com<br>&#42;.wd.microsoft.com<br>&#42;.update.microsoft.com<br>&#42;.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
+|NTP|（为部署提供的 NTP 服务器的 IP）|UDP|123|公共 VIP - /27|
+|DNS|（为部署提供的 DNS 服务器的 IP）|TCP<br>UDP|53|公共 VIP - /27|
+|CRL|（证书上的 CRL 分发点下的 URL）|HTTP|80|公共 VIP - /27|
+|LDAP|为 Graph 集成提供的 Active Directory 林|TCP<br>UDP|389|公共 VIP - /27|
+|LDAP SSL|为 Graph 集成提供的 Active Directory 林|TCP|636|公共 VIP - /27|
+|LDAP GC|为 Graph 集成提供的 Active Directory 林|TCP|3268|公共 VIP - /27|
+|LDAP GC SSL|为 Graph 集成提供的 Active Directory 林|TCP|3269|公共 VIP - /27|
+|AD FS|为 AD FS 集成提供的 AD FS 元数据终结点|TCP|443|公共 VIP - /27|
+|诊断日志收集服务|Azure 存储提供的 Blob SAS URL|HTTPS|443|公共 VIP - /27|
 |     |     |     |     |     |
 
-Outbound URLs are load balanced using Azure traffic manager to provide the best possible connectivity based on geographic location. With load balanced URLs, Microsoft can update and change backend endpoints without affecting customers. Microsoft doesn't share the list of IP addresses for the load balanced URLs. Use a device that supports filtering by URL rather than by IP.
+使用 Azure 流量管理器对出站 Url 进行负载平衡，以根据地理位置提供可能的最佳连接。 通过负载均衡的 Url，Microsoft 可以更新和更改后端终结点，而不会影响客户。 Microsoft 不会共享负载平衡的 Url 的 IP 地址列表。 使用支持通过 URL （而不是 IP）进行筛选的设备。
 
-Outbound DNS is required at all times; what varies is the source querying the external DNS and what type of identity integration was chosen. During deployment for a connected scenario, the DVM that sits on the BMC network needs outbound access. But after deployment, the DNS service moves to an internal component that will send queries through a Public VIP. At that time, the outbound DNS access through the BMC network can be removed, but the Public VIP access to that DNS server must remain or else authentication will fail.
+所有时候都需要出站 DNS;什么不同是查询外部 DNS 的源和所选的标识集成类型。 在联网场景的部署过程中，位于 BMC 网络上的 DVM 需要出站访问权限。 但在部署后，DNS 服务会移到通过公共 VIP 发送查询的内部组件。 此时，可以删除通过 BMC 网络的出站 DNS 访问权限，但是必须保留对该 DNS 服务器的公共 VIP 访问权限，否则身份验证将失败。
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack PKI requirements](azure-stack-pki-certs.md)
+[Azure Stack PKI 要求](azure-stack-pki-certs.md)

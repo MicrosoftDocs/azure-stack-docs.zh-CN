@@ -1,7 +1,7 @@
 ---
-title: Replace a scale unit node on an Azure Stack integrated system
+title: 更换 Azure Stack 集成系统上的缩放单元节点
 titleSuffix: Azure Stack
-description: Learn how to replace a physical scale unit node on an Azure Stack integrated system.
+description: 了解如何更换 Azure Stack 集成系统上的物理缩放单元节点。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -23,60 +23,60 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74465458"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Replace a scale unit node on an Azure Stack integrated system
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>更换 Azure Stack 集成系统上的缩放单元节点
 
-*Applies to: Azure Stack integrated systems*
+*适用于：Azure Stack 集成系统*
 
-This article describes the general process to replace a physical computer (also referred to as a scale unit node) on an Azure Stack integrated system. Actual scale unit node replacement steps will vary based on your original equipment manufacturer (OEM) hardware vendor. 请参阅供应商的现场可更换单元 (FRU) 文档来了解特定于你的系统的详细步骤。
+本文介绍更换 Azure Stack 集成系统上的物理计算机（也称为缩放单元节点）的一般过程。 实际的缩放单元节点更换步骤将因原始设备制造商 (OEM) 硬件供应商而异。 请参阅供应商的现场可更换单元 (FRU) 文档来了解特定于你的系统的详细步骤。
 
 > [!CAUTION]  
-> Firmware leveling is critical for the success of the operation described in this article. Missing this step can lead to system instability, performance decrease, security threads, or prevent Azure Stack automation from deploying the operating system. Always consult your hardware partner's documentation when replacing hardware to ensure the applied firmware matches the OEM Version displayed in the [Azure Stack administrator portal](azure-stack-updates.md). For more information and links to partner documentation, see [Replace a hardware component](azure-stack-replace-component.md).
+> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程，或阻止 Azure Stack 自动部署操作系统。 在更换硬件时，请始终咨询硬件合作伙伴的文档，以确保应用的固件与[Azure Stack 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。 有关详细信息和合作伙伴文档的链接，请参阅[替换硬件组件](azure-stack-replace-component.md)。
 
-The following flow diagram shows the general FRU process to replace an entire scale unit node.
+以下流程图显示更换整个缩放单元节点的一般 FRU 过程。
 
-![Flow chart for replace node process](media/azure-stack-replace-node/replacenodeflow.png)
+![更换节点过程的流程图](media/azure-stack-replace-node/replacenodeflow.png)
 
-*This action may not be required based on the physical condition of the hardware.
+*根据硬件的物理条件，可能不需要此操作。
 
 > [!Note]  
-> If the shutdown operation does fail, it's recommended to use the drain operation followed by the stop operation. For more information, see [Scale unit node actions in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
+> 如果关闭操作失败，建议使用 "排出" 操作，然后使用 "停止" 操作。 有关详细信息，请参阅 [Azure Stack 中的缩放单元节点操作](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions)。
 
-## <a name="review-alert-information"></a>Review alert information
+## <a name="review-alert-information"></a>查看警报信息
 
-If a scale unit node is down, you'll receive the following critical alerts:
+如果缩放单元节点已关闭，你会收到以下严重警报：
 
 - 节点未连接到网络控制器
 - 节点不可访问，无法实现虚拟机放置
 - 缩放单元节点处于脱机状态
 
-![List of alerts for scale unit down](media/azure-stack-replace-node/nodedownalerts.png)
+![缩放单元节点关闭的警报列表](media/azure-stack-replace-node/nodedownalerts.png)
 
-If you open the **Scale unit node is offline** alert, the alert description contains the scale unit node that's inaccessible. You may also receive additional alerts in the OEM-specific monitoring solution that's running on the hardware lifecycle host.
+如果开启“缩放单元节点已脱机”警报，警报说明会包含不可访问的缩放单元节点。 也可能会在硬件生命周期主机上运行的 OEM 特定的监视解决方案中收到其他警报。
 
-![Details of node offline alert](media/azure-stack-replace-node/nodeoffline.png)
+![节点脱机警报的详细信息](media/azure-stack-replace-node/nodeoffline.png)
 
-## <a name="scale-unit-node-replacement-process"></a>Scale unit node replacement process
+## <a name="scale-unit-node-replacement-process"></a>缩放单元节点更换过程
 
-The following steps are provided as a high-level overview of the scale unit node replacement process. See your OEM hardware vendor's FRU documentation for detailed steps that are specific to your system. Don't follow these steps without referring to your OEM-provided documentation.
+提供以下步骤作为缩放单元节点更换过程的高级概述。 有关系统特有的详细步骤，请参阅 OEM 硬件供应商的 FRU 文档。 请勿在未参考 OEM 提供的文档的情况下执行这些步骤。
 
-1. Use the **Shutdown** action to gracefully shut down the scale unit node. This action may not be required based on the physical condition of the hardware.
+1. 使用 "**关闭**" 操作以正常关闭缩放单位节点。 根据硬件的物理条件，可能不需要此操作。
 
-2. In the unlikely case the shutdown action fails, use the [Drain](azure-stack-node-actions.md#drain) action to put the scale unit node into maintenance mode. This action may not be required based on the physical condition of the hardware.
-
-   > [!NOTE]  
-   > In any case, only one node can be disabled and powered off at the same time without breaking the S2D (Storage Spaces Direct).
-
-3. After the scale unit node is in maintenance mode, use the [Stop](azure-stack-node-actions.md#stop) action. This action may not be required based on the physical condition of the hardware.
+2. 万一关闭操作失败，请使用[清空](azure-stack-node-actions.md#drain)操作使缩放单元节点进入维护模式。 根据硬件的物理条件，可能不需要此操作。
 
    > [!NOTE]  
-   > In the unlikely case that the Power off action doesn't work, use the baseboard management controller (BMC) web interface instead.
+   > 在任何情况下，只能同时禁用一个节点并关机，而不中断 S2D（存储空间直通）。
 
-4. Replace the physical computer. Typically, this replacement is done by your OEM hardware vendor.
-5. Use the [Repair](azure-stack-node-actions.md#repair) action to add the new physical computer to the scale unit.
-6. Use the privileged endpoint to [check the status of virtual disk repair](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). With new data drives, a full storage repair job can take multiple hours depending on system load and consumed space.
-7. After the repair action has finished, validate that all active alerts have been automatically closed.
+3. 缩放单元节点处于维护模式后，请使用[停止](azure-stack-node-actions.md#stop)操作。 根据硬件的物理条件，可能不需要此操作。
+
+   > [!NOTE]  
+   > 在关闭电源操作不起作用的罕见情况下，请改用基板管理控制器 (BMC) Web 界面。
+
+4. 更换物理计算机。 通常，此替换由 OEM 硬件供应商完成。
+5. 使用[修复](azure-stack-node-actions.md#repair)操作将新的物理计算机添加到缩放单元。
+6. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
+7. 修复操作完成后，验证是否已自动关闭所有活动警报。
 
 ## <a name="next-steps"></a>后续步骤
 
-- For information about replacing a physical disk while the system is powered on, see [Replace a disk](azure-stack-replace-disk.md). 
-- For information about replacing a hardware component that requires the system to be powered off, see [Replace a hardware component](azure-stack-replace-component.md).
+- 若要了解如何在系统通电的情况下更换物理磁盘，请参阅[更换磁盘](azure-stack-replace-disk.md)。 
+- 若要了解如何完成需要系统断电才能进行的硬件组件更换操作，请参阅[更换硬件组件](azure-stack-replace-component.md)。

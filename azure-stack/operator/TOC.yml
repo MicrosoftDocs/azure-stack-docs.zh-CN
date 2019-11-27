@@ -443,7 +443,7 @@
           href: azure-stack-diagnostic-test.md
         - name: 故障排除
           href: azure-stack-troubleshooting.md
-- name: 引用
+- name: 参考
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview

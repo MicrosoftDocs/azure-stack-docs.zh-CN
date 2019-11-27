@@ -18,7 +18,7 @@ ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
 ms.openlocfilehash: 81a454fbe2db7d72d94eb499ad276ff28d33f048
 ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74310087"
