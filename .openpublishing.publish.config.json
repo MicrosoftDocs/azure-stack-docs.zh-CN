@@ -31,6 +31,22 @@
   "contribution_branch_mappings": {
     "live-sxs": "live"
   },
+"need_generate_pdf_url_template": true,
+  "branch_target_mapping": {
+     "live-sxs": [
+           "Publish",
+           "Pdf" 
+    ],
+    "live": [
+           "Publish",
+           "Pdf"
+    ]
+},
+"Targets": {
+     "Pdf": {
+               "template_folder": "_themes.pdf"
+     }
+},
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
@@ -38,6 +54,11 @@
       "branch": "master",
       "branch_mapping": {}
     },
+     {
+         "path_to_root": "_themes.pdf",
+         "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
+         "branch": "master"
+     },
     {
       "path_to_root": "_repo.en-us",
       "url": "https://github.com/MicrosoftDocs/azure-stack-docs-pr",
