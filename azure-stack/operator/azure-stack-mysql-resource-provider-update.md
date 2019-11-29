@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0c37b61cf56b1b730ce36e0574fea5cea6e2e7ec
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 2fd85cb897f1d5e457183ffeeffc5340cbb48696
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682098"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557562"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack"></a>更新 Azure Stack 中的 MySQL 资源提供程序
 
@@ -64,10 +64,11 @@ ms.locfileid: "72682098"
 | **AcceptLicense** | 跳过提示以接受 GPL 许可证。  （ https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>更新脚本示例
-下面的示例演示了可从已提升权限的 PowerShell 控制台运行的*updatemysqlprovider.ps1*脚本。 请确保根据需要更改变量信息和密码：
 
 > [!NOTE] 
 > 更新过程仅适用于集成系统。
+
+如果要将 MySQL 资源提供程序版本更新为1.1.33.0 或早期版本，则需要在 PowerShell 中安装 AzureRm 和 Azure Stack 模块的特定版本。 如果要将 MySQL 资源提供程序更新到版本1.1.47.0，可以跳过此步骤。
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -75,7 +76,11 @@ ms.locfileid: "72682098"
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+下面的示例演示了可从已提升权限的 PowerShell 控制台运行的*updatemysqlprovider.ps1*脚本。 请确保根据需要更改变量信息和密码：
+
+```powershell 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 

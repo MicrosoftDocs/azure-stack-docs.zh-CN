@@ -9,18 +9,18 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: e65943bd0b84d11e3696da206d360edc948c203f
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802264"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557687"
 ---
 # <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>如何使用 Azure Stack 订阅复制器复制资源
 
 你可以使用 Azure Stack 订阅复制器 PowerShell 脚本在 Azure Stack 订阅之间、Azure Stack stamp 之间，或在 Azure Stack 和 Azure 之间复制资源。 复制器脚本从不同的 Azure 和 Azure Stack 订阅中读取和重新生成 Azure 资源管理器资源。 本文介绍脚本的工作原理、如何使用脚本，并提供脚本操作的参考。
 
-可以在[Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns)GitHub 存储库中找到本文中使用的脚本。 脚本位于 "**订阅复制**器" 文件夹中。
+可以在[Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns)GitHub 存储库中找到本文中使用的脚本。 脚本位于 "[订阅复制](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator)器" 文件夹中。
 
 ## <a name="subscription-replicator-overview"></a>订阅复制器概述
 

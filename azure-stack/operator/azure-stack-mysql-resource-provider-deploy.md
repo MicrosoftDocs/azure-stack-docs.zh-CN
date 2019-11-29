@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: c3b3c30eb10e767cf20336af67bd094994def2f9
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: aa76766ad6528148cc8662780c4bc4dd593b366a
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682121"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557593"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 资源提供程序
 
@@ -46,10 +46,14 @@ ms.locfileid: "72682121"
 
   |最低 Azure Stack 版本|MySQL RP 版本|
   |-----|-----|
+  |版本1910（1.1910.0.58）|[MySQL RP 版本1.1.47。0](https://aka.ms/azurestackmysqlrp11470)|
   |版本1808（1.1808.0.97）|[MySQL RP 版本1.1.33。0](https://aka.ms/azurestackmysqlrp11330)|  
   |版本1808（1.1808.0.97）|[MySQL RP 版本1.1.30。0](https://aka.ms/azurestackmysqlrp11300)|
   |版本1804（1.0.180513.1）|[MySQL RP 版本1.1.24。0](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
+  
+> [!IMPORTANT]
+> 在部署 MySQL 资源提供程序版本1.1.47.0 之前，应将 Azure Stack 系统升级到1910更新或更高版本。 以前不支持的 Azure Stack MySQL 资源提供程序版本1.1.47.0 不起作用。
 
 * 确保满足数据中心集成先决条件：
 
@@ -106,7 +110,7 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 部署 PKI 要求](
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 MySQL 资源提供程序
 
-若要在部署资源提供程序时消除任何手动配置，可以自定义以下脚本。 根据 Azure Stack 部署需要更改默认帐户信息和密码。
+如果要部署 MySQL 资源提供程序版本1.1.33.0 或早期版本，则需要在 PowerShell 中安装 AzureRm 和 Azure Stack 模块的特定版本。 如果要部署 MySQL 资源提供程序版本1.1.47.0，可以跳过此步骤。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -114,7 +118,11 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 部署 PKI 要求](
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+若要在部署资源提供程序时消除任何手动配置，可以自定义以下脚本。 根据 Azure Stack 部署需要更改默认帐户信息和密码。
+
+```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
@@ -166,7 +174,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 1. 以服务管理员身份登录到管理员门户。
 2. 选择 "**资源组**"。
-3. 选择 " **\<location" \> "mysqladapter.dbadapter** " 资源组。
+3. 选择 " **\<位置"\>"mysqladapter.dbadapter** " 资源组。
 4. 在资源组概述的 "摘要" 页上，应该没有失败的部署。
 5. 最后，在管理员门户中选择 "**虚拟机**"，验证 MySQL 资源提供程序 VM 是否已成功创建且正在运行。
 

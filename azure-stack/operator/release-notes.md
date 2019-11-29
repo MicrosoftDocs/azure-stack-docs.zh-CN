@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: a0e925d0c7a8401ea6d3f14f82cdb01bba4b354f
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 75f1c4cae33987a7a2c662ced7806ed094c6ca82
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540341"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557689"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack 更新：发行说明
 
@@ -94,6 +94,16 @@ Azure Stack 1910 更新生成类型为**Express**。
 
 - 在特权终结点（PEP）中添加了**AzSDnsForwarder** cmdlet，以检索 AZURE STACK 中 DNS 服务器的转发器设置。 有关 DNS 配置的详细信息，请参阅[Azure Stack DATACENTER DNS 集成](azure-stack-integrate-dns.md)。
 
+- 添加了对使用[AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)管理**Kubernetes 群集**的支持。 从此更新开始，客户可以部署生产 Kubernetes 群集。 AKS 引擎使用户能够：
+   - 管理其 Kubernetes 群集的生命周期。 他们可以创建、更新和缩放群集。
+   - 使用 AKS 和 Azure Stack 团队生成的托管映像维护其群集。
+   - 利用 Azure 资源管理器集成的使用 Azure 本机资源构建群集的 Kubernetes 云提供程序。
+   - 在连接或断开连接 Azure Stack 戳记中部署和管理其群集。
+   - 利用 Azure 混合功能：
+      * 与 Azure Arc 集成（即将推出个人预览版）
+      * 与容器 Azure Monitor 集成（公共预览版）
+   - 将 Windows 容器与 AKS 引擎（个人预览版）配合使用。
+   - 接收针对其部署的 CSS 和 PG 支持。
 
 ### <a name="improvements"></a>措施
 

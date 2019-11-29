@@ -17,12 +17,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 29a154c5c446019e762b1312b9ef2f8a23cc4790
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955303"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557551"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -55,7 +55,7 @@ ms.locfileid: "73955303"
 | 存储帐户总数 |20 |订阅可以在此位置创建的存储帐户的最大数量。 |
 
 > [!NOTE]
-> 当一个订阅中超过**最大容量（GB）** 时，将无法在此订阅中创建新的存储资源。 但你可以在 Vm 中使用在此订阅中创建的非托管磁盘 continuely，这可能会导致总使用的容量超出配额限制。<br>托管磁盘的最大容量不同于总存储配额。 可以在 "**计算配额**" 中设置此值。
+> 当一个订阅中超过**最大容量（GB）** 时，将无法在此订阅中创建新的存储资源。 但在 Vm 中，你可以继续使用在此订阅中创建的非托管磁盘，这可能会导致总使用的容量超出配额限制。<br>托管磁盘的最大容量不同于总存储配额。 可以在 "**计算配额**" 中设置此值。
 
 ## <a name="network-quota-types"></a>网络配额类型
 
