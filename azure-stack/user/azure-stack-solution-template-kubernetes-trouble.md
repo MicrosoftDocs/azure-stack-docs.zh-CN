@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 89ed4549dc44eb433f8061aba9bcff9405d80699
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.openlocfilehash: 900ff88136d75759fdc3bc05bf351968f9c13654
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74162975"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689933"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes 部署故障排除 Azure Stack
 
@@ -93,10 +93,10 @@ ms.locfileid: "74162975"
     - 创建 VM 可能触发了内部错误或触发了创建错误。 许多因素可能导致错误，包括 Azure Stack 订阅的容量限制。
     - 请确保 VM 的完全限定的域名（FQDN）以重复的前缀开头。
 5.  如果 VM**正常**，则计算 DVM。 如果 DVM 有错误消息：
-
     - 公钥可能无效。 查看已创建的密钥。  
-    - 请与 Azure Stack 管理员联系，使用特权终结点检索 Azure Stack 的日志。 有关详细信息，请参阅[Azure Stack 诊断工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)。
-6. 如果你对部署有疑问，可以发布它，或查看是否有人在[Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答了问题。 
+    - 请与 Azure Stack 管理员联系，使用特权终结点检索 Azure Stack 的日志。 有关详细信息，请参阅[Azure Stack 诊断工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
+5. 如果你对部署有疑问，可以发布它，或查看是否有人在[Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答了问题。 
+
 
 ## <a name="review-deployment-status"></a>查看部署状态
 
@@ -151,7 +151,7 @@ ms.locfileid: "74162975"
     | -h、--help  | 打印命令用法。 | |
     | -i、--file | 创建 Kubernetes 群集时，传递给 marketplace 项的 RSA 私钥文件的路径。 需要将远程登录到 Kubernetes 节点。 | C:\data\ id_rsa （Putty）<br>~/.ssh/id_rsa （SSH）
     | -m、--master-主机   | 公共 IP 或 Kubernetes 主节点的完全限定的域名（FQDN）。 VM 名称以 `k8s-master-`开头。 | IP：192.168.102.37<br>FQDN： k8s-p p. test-azurestack      |
-    | -u，--user          | 创建 Kubernetes 群集时，传递给 marketplace 项的用户名。 需要将远程登录到 Kubernetes 节点。 | azureuser （默认值） |
+    | -u, --user          | 创建 Kubernetes 群集时，传递给 marketplace 项的用户名。 需要将远程登录到 Kubernetes 节点。 | azureuser （默认值） |
 
 
    添加参数值时，命令可能类似于以下示例：

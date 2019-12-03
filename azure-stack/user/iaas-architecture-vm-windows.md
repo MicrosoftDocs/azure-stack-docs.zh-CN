@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f3c16e202b43f9d672d9f3e385c3f14cf30935e7
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 5f9d8de7c08e8cfa0ad2af9bcb8f898fc32848a3
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569124"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690221"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack"></a>在 Azure Stack 上运行 Windows 虚拟机
 
@@ -22,7 +22,7 @@ ms.locfileid: "73569124"
 
 ![Azure Stack 上的 Windows VM 体系结构](./media/iaas-architecture-vm-windows/image1.png)
 
-## <a name="resource-group"></a>资源组
+## <a name="resource-group"></a>Resource group
 
 [资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)是保存相关 Azure Stack 资源的逻辑容器。 一般情况下，可根据资源的生存期及其管理者将资源分组。
 
@@ -38,7 +38,7 @@ Azure Stack 提供 Azure 提供的不同虚拟机大小。 有关详细信息，
 
 成本取决于预配磁盘的容量。 IOPS 和吞吐量（即数据传输速率）取决于 VM 大小，因此在预配磁盘时，请考虑所有三个因素（容量、IOPS 和吞吐量）。
 
-Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是[VM 大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)的函数，而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。 施加的 IOPS 限制是一个上限（可能的最大值），以防止邻居干扰。 它不是你会在特定 VM 大小上获得的 IOPS 的保证。
+Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是[VM 大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)的函数，而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，无论你是为磁盘类型选择 SSD 还是 HDD，一个额外的数据磁盘的 IOPS 限制为 2300 IOPS。 施加的 IOPS 限制是一个上限（可能的最大值），以防止邻居干扰。 这并不能保证你会获得特定 VM 大小的 IOPS。
 
 我们还建议使用[托管磁盘](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations)。 托管磁盘可代你处理存储，简化磁盘管理。 托管磁盘不需要存储帐户。 只需指定磁盘的大小和类型，就可以将它部署为高度可用的资源。
 
@@ -64,11 +64,18 @@ OS 磁盘是存储在 Azure Stack blob 存储中的 VHD，因此即使主机关�
 
 所有 Nsg 都包含一组[默认规则](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)，其中包括阻止所有入站 Internet 流量的规则。 无法删除默认规则，但其他规则可以覆盖它们。 若要启用 Internet 流量，请创建允许特定端口的入站流量的规则（例如，HTTP 的端口80）。 若要启用 RDP，请添加允许 TCP 端口 3389 的入站流量的 NSG 规则。
 
-## <a name="operations"></a>操作
+## <a name="operations"></a>Operations
 
 **诊断**。 启用监视和诊断，包括基本运行状况指标、诊断基础结构日志和[启动诊断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)。 如果 VM 陷入不可启动状态，启动诊断有助于诊断启动故障。 创建用于存储日志的 Azure 存储帐户。 标准的本地冗余存储 (LRS) 帐户足以存储诊断日志。 有关详细信息，请参阅[启用监视和诊断](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data)。
 
-**可用性**。 由于 Azure Stack 操作员计划的维护，你的 VM 可能会因计划内维护而重新启动。 为了提高可用性，请在[可用性集](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview#providing-high-availability)中部署多个 VM。
+**可用性**。 由于 Azure Stack 操作员计划的维护，你的 VM 可能会因计划内维护而重新启动。 为了实现 Azure 中多 VM 生产系统的高可用性，将 Vm 放置在一个[可用性集中](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)，以跨多个容错域和更新域传播它们。 在较小的 Azure Stack 中心范围内，可用性集中的容错域定义为缩放单位中的单个节点。  
+
+尽管 Azure Stack 中心的基础结构已对故障有弹性，但如果出现硬件故障，基础技术（故障转移群集）仍会对受影响的物理服务器上的 Vm 产生一些停机时间。 Azure Stack 中心支持拥有最多三个容错域的可用性集，以便与 Azure 保持一致。
+
+|                   |             |
+|-------------------|-------------|
+| **容错域** | 放置在可用性集中的 Vm 将以物理方式彼此隔离，方法是在多个容错域（Azure Stack 中心节点）之间均匀分配它们。 如果发生硬件故障，故障容错域中的 Vm 将在其他容错域中重新启动。 它们将保存在与其他 Vm 不同的容错域中，但可能会保留在同一可用性集中。 当硬件重新联机时，将重新平衡 Vm 以保持高可用性。 |
+| **更新域**| 更新域是 Azure 在可用性集中提供高可用性的另一种方法。 更新域是一组可同时进行维护的基础硬件逻辑组。 位于同一更新域中的 Vm 将在计划内维护期间一起重新启动。 当租户在可用性集中创建 Vm 时，Azure 平台会自动将 Vm 分布到这些更新域。 <br>在 Azure Stack 集线器中，Vm 在其基础主机更新之前，会在群集中的其他联机主机之间进行实时迁移。 由于在主机更新期间不会出现任何租户停机时间，因此，Azure Stack 集线器上的更新域功能只存在于与 Azure 的模板兼容性。 可用性集中的 Vm 会在门户上显示0作为其更新域的编号。 |
 
 **备份**有关保护 Azure Stack IaaS Vm 的建议，请参阅此文。
 
@@ -91,7 +98,7 @@ OS 磁盘是存储在 Azure Stack blob 存储中的 VHD，因此即使主机关�
 
 **审核日志**。 使用[活动日志](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log)查看预配操作和其他 VM 事件。
 
-**数据加密**。 Azure Stack 使用静态加密来保护存储子系统级别的用户数据和基础结构数据。 Azure Stack 的存储子系统是配合 128 位 AES 加密法使用 BitLocker 加密的。 有关更多详细信息，请参阅[此](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)文。
+**数据加密**。 Azure Stack 使用 BitLocker 128 位 AES 加密来保护存储子系统中的静态用户和基础结构数据。 有关详细信息，请参阅[Azure Stack 中的静态数据加密](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)。
 
 
 ## <a name="next-steps"></a>后续步骤

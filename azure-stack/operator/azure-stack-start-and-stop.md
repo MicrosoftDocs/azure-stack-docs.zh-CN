@@ -1,5 +1,5 @@
 ---
-title: 启动和停止 Azure Stack | Microsoft Docs
+title: 开始和停止 Azure Stack |Microsoft Docs
 description: 了解如何启动和关闭 Azure Stack。
 services: azure-stack
 documentationcenter: ''
@@ -16,23 +16,23 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 5072c40f4e8eba787e0a18c7c73a51111d0c847b
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e0e23ca6d469e33adbcd47bc66125d6af92f0123
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829271"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689977"
 ---
 # <a name="start-and-stop-azure-stack"></a>启动和停止 Azure Stack
-应该遵循本文中的过程正确关闭再重启 Azure Stack 服务。 关闭将物理关闭整个 Azure Stack 环境的电源。 启动所有基础结构角色的电源，并使租户资源返回到关闭前的电源状态。
+应按照本文中的过程操作，正确关闭并重新启动 Azure Stack 服务。 关闭将在物理上关闭整个 Azure Stack 的环境。 启动所有基础结构角色的功能，并将租户资源返回到关机之前的电源状态。
 
 ## <a name="stop-azure-stack"></a>停止 Azure Stack 
 
-使用以下步骤关闭 Azure Stack：
+按照以下步骤关闭 Azure Stack：
 
-1. 针对即将进行的关闭准备在 Azure Stack 环境的租户资源上运行的所有工作负荷。 
+1. 准备 Azure Stack 环境的租户资源上运行的所有工作负荷，以供即将关闭。 
 
-2. 从可以通过网络访问 Azure Stack ERCS VM 的计算机打开特权终结点会话 (PEP)。 有关说明，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
+2. 从具有对 Azure Stack ERCS Vm 的网络访问权限的计算机打开特权终结点会话（PEP）。 有关说明，请参阅[在 Azure Stack 中使用特权终结点](azure-stack-privileged-endpoint.md)。
 
 3. 从 PEP 运行：
 
@@ -40,26 +40,26 @@ ms.locfileid: "71829271"
       Stop-AzureStack
     ```
 
-4. 等待所有物理 Azure Stack 节点关闭电源。
+4. 等待所有物理 Azure Stack 节点关闭。
 
 > [!Note]  
-> 可以按照提供 Azure Stack 硬件的原始设备制造商 (OEM) 的指示，确认物理节点的电源状态。 
+> 可以按照提供 Azure Stack 硬件的原始设备制造商（OEM）中的说明来验证物理节点的电源状态。 
 
-## <a name="start-azure-stack"></a>启动 Azure Stack 
+## <a name="start-azure-stack"></a>开始 Azure Stack 
 
-使用以下步骤启动 Azure Stack。 请按照下列步骤操作，而不论 Azure Stack 是如何停止的。
+按照以下步骤开始 Azure Stack。 不管 Azure Stack 如何停止，请执行以下步骤。
 
-1. 将 Azure Stack 环境中每个物理节点的电源打开。 按照提供 Azure Stack 硬件的原始设备制造商 (OEM) 的指示，确认物理节点的电源开启指示。
+1. 开启 Azure Stack 环境中每个物理节点的电源。 按照为你的 Azure Stack 提供硬件的原始设备制造商（OEM）提供的说明，验证物理节点的开机说明。
 
-2. 等待直到 Azure Stack 基础结构服务启动。 Azure Stack 基础结构服务完成启动过程可能需要两个小时。 可以使用 [**Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack) 确认 Azure Stack 的启动状态。
+2. 等待 Azure Stack 基础结构服务启动。 Azure Stack 基础结构服务可能需要两个小时才能完成启动过程。 可以通过[ **ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack)验证 Azure Stack 的开始状态。
 
-3. 确保所有租户资源都已恢复到关闭之前的状态。 在工作负荷管理器启动后，可能需要重新配置在租户资源上运行的工作负荷。
+3. 确保所有租户资源都已返回到在关闭之前所处的状态。 工作负荷管理器启动后，在租户资源上运行的工作负荷可能需要重新配置。
 
 ## <a name="get-the-startup-status-for-azure-stack"></a>获取 Azure Stack 的启动状态
 
-使用以下步骤获取 Azure Stack 启动例程的启动状态：
+通过以下步骤获取 Azure Stack 启动例程的启动：
 
-1. 从可以通过网络访问 Azure Stack ERCS VM 的计算机打开特权终结点会话。
+1. 从具有对 Azure Stack ERCS Vm 的网络访问权限的计算机打开特权终结点会话。
 
 2. 从 PEP 运行：
 
@@ -67,11 +67,11 @@ ms.locfileid: "71829271"
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>针对 Azure Stack的启动和关闭进行故障排除
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Azure Stack 的启动和关闭疑难解答
 
-如果打开 Azure Stack 环境的电源 2 小时后基础结构和租户服务未成功启动，请执行以下步骤。 
+如果在你开启 Azure Stack 环境后，基础结构和租户服务不能成功启动2小时，请执行以下步骤。 
 
-1. 从可以通过网络访问 Azure Stack ERCS VM 的计算机打开特权终结点会话。
+1. 从具有对 Azure Stack ERCS Vm 的网络访问权限的计算机打开特权终结点会话。
 
 2. 运行： 
 
@@ -79,7 +79,7 @@ ms.locfileid: "71829271"
       Test-AzureStack
       ```
 
-3. 查看输出并解决任何运行状况错误。 有关详细信息，请参阅[运行 Azure Stack 的验证测试](azure-stack-diagnostic-test.md)。
+3. 查看输出并解决所有运行状况错误。 有关详细信息，请参阅[运行 Azure Stack 的验证测试](azure-stack-diagnostic-test.md)。
 
 4. 运行：
 
@@ -87,8 +87,8 @@ ms.locfileid: "71829271"
       Start-AzureStack
     ```
 
-5. 如果运行 **Start-AzureStack** 的结果为失败，请联系 Microsoft 客户服务支持。 
+5. 如果运行**test-azurestack**导致失败，请联系 Microsoft 客户服务支持。 
 
 ## <a name="next-steps"></a>后续步骤 
 
-详细了解 [Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)
+详细了解[Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

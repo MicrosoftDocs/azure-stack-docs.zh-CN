@@ -15,12 +15,12 @@ ms.date: 10/24/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: b42f21a3225194cfe50b5ae7d39d8d1a7cffb6d0
-ms.sourcegitcommit: e6a738f674634e1d5dd4eb23b6c44b660ea2fe84
+ms.openlocfilehash: a9c0016ef75040263acfe8400e9e04dce9eb744c
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72891268"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690230"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>在 Azure Stack 中创建虚拟机磁盘存储
 
@@ -38,7 +38,9 @@ ms.locfileid: "72891268"
 
 ### <a name="best-practice-guidelines"></a>最佳做法准则
 
-为了提高性能和降低总体成本，我们建议将每个 VM 磁盘放置在单独的容器中。 容器应包含 OS 磁盘或数据磁盘，但不能同时包含两者。 但是，也可以将这两种类型的磁盘放在同一容器中。
+建议为 VM 使用托管磁盘，以便更轻松地进行管理和容量平衡。 在使用托管磁盘之前，无需准备存储帐户和容器。  当创建多个托管磁盘时，这些磁盘将被分发到多个卷中，从而使卷容量平衡。  
+
+对于非托管磁盘，若要提高性能和降低总体成本，建议将每个 VM 磁盘放置在单独的容器中。 即使您可以将 OS 磁盘和数据磁盘放置在同一个容器中，最佳做法是一个容器应保留 OS 磁盘或数据磁盘，但不能同时包含两者。 
 
 如果向 VM 添加一个或多个数据磁盘，请使用其他容器作为存储这些磁盘的位置。 其他 Vm 的 OS 磁盘还应位于其自身的容器中。
 

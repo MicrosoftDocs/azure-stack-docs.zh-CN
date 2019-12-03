@@ -16,12 +16,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4c04eafab93da233859b5b67571b70899b081b95
-ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
+ms.openlocfilehash: 28e067abef24fbc60cff629e5112ffacdf14b1ec
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659240"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689943"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑难解答
 
@@ -95,7 +95,7 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 4. 使用调用命令调用来运行 get-azurestacklog-filterbyrole seedring
 5. 提取 seedring，然后可以从运行 test-azurestack 的 ERCS 文件夹中获取验证报告
 
-有关详细信息，请参阅[Azure Stack 诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)。
+有关详细信息，请参阅[Azure Stack 诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
 
 ## <a name="troubleshoot-virtual-machines"></a>排查虚拟机问题
 ### <a name="default-image-and-gallery-item"></a>默认图像和库项
