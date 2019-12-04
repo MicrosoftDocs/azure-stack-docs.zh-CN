@@ -17,12 +17,12 @@ ms.date: 12/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 0700ca4caefbec2245f2303720a675aece6c21e6
-ms.sourcegitcommit: fd7d43738f275f36dacfa0786697e7c44d405abb
+ms.openlocfilehash: 3c7808374621d3b60b1884df8ad44e27c244bfc5
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74694817"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780841"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>替换 Azure Stack 中的物理磁盘
 
@@ -74,20 +74,21 @@ ms.locfileid: "74694817"
 4. 验证 Azure Stack 系统状态。 有关说明，请参阅[验证 Azure Stack 系统状态](azure-stack-diagnostic-test.md)。
 5. 或者，你可以运行以下命令来验证替换的物理磁盘的状态。
 
-```powershell  
-$scaleunit=Get-AzsScaleUnit
-$StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+    ```powershell  
+    $scaleunit=Get-AzsScaleUnit
+    $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
 
-Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
-```
+    Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
+    ```
 
-![将 Azure Stack 中的物理磁盘替换为 Powershell](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+    ![将 Azure Stack 中的物理磁盘替换为 Powershell](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
 ## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>使用特权终结点检查虚拟磁盘修复状态
 
 替换磁盘后，可以使用特权终结点监视虚拟磁盘运行状况状态并修复作业进度。 请在任何连接到特权终结点的计算机上执行以下步骤。
 
 1. 打开 Windows PowerShell 会话并连接到特权终结点。
+
     ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
@@ -95,6 +96,7 @@ Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name
     ```
   
 2. 运行以下命令以查看虚拟磁盘运行状况：
+
     ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
@@ -102,16 +104,19 @@ Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name
    ![VirtualDisk 命令的 Powershell 输出](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. 运行以下命令以查看当前存储作业状态：
+
     ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
-      ![Get-storagejob 命令的 Powershell 输出](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+
+    ![Get-storagejob 命令的 Powershell 输出](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 4. 验证 Azure Stack 系统状态。 有关说明，请参阅[验证 Azure Stack 系统状态](azure-stack-diagnostic-test.md)。
 
 ## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>使用特权终结点排查虚拟磁盘修复问题
 
 如果虚拟磁盘修复作业出现堵塞，请运行以下命令来重新启动该作业：
-  ```powershell
-        Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```
+
+```powershell
+Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
+```

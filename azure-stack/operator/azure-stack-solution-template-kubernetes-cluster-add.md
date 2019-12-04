@@ -1,5 +1,6 @@
 ---
-title: 将 Kubernetes 添加到 Azure Stack Marketplace |Microsoft Docs
+title: 将 Kubernetes 添加到 Azure Stack Marketplace
+titleSuffix: Azure Stack
 description: 了解如何将 Kubernetes 添加到 Azure Stack Marketplace。
 services: azure-stack
 documentationcenter: ''
@@ -15,29 +16,29 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: fc83c8c68402622d721864f24a3ef9c5bab10479
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 985d0e33fd5a15329a1a47bd2d6b11e50cd82a1c
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047185"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780807"
 ---
-# <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>将 Kubernetes 添加到 Azure Stack Marketplace
+# <a name="add-kubernetes-to-azure-stack-marketplace"></a>将 Kubernetes 添加到 Azure Stack Marketplace
 
 *适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!note]  
 > 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用[AKS 引擎](azure-stack-aks-engine.md)。
 
-你可以向用户提供 Kubernetes 作为 Marketplace 项。 然后，用户可以通过单个协调的操作来部署 Kubernetes。
+你可以向用户提供 Kubernetes 作为 marketplace 项。 然后，用户可以通过单个协调的操作来部署 Kubernetes。
 
-以下文章介绍了如何使用 Azure 资源管理器模板来部署和预配独立 Kubernetes 群集的资源。 在开始之前，请检查 Azure Stack 和全局 Azure 租户设置。 收集有关 Azure Stack 的所需信息。 向租户和 Azure Stack Marketplace 添加所需的资源。 群集依赖于 Ubuntu 服务器、自定义脚本和 Kubernetes 群集 Marketplace 项。
+本文介绍如何使用 Azure 资源管理器模板来部署和预配独立 Kubernetes 群集的资源。 在开始之前，请检查 Azure Stack 和全局 Azure 租户设置。 收集有关 Azure Stack 的所需信息。 向租户添加必要的资源并 Azure Stack Marketplace。 群集依赖于 Ubuntu 服务器、自定义脚本和 Kubernetes 群集 marketplace 项 Azure Stack Marketplace。
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>创建计划、产品/服务和订阅
 
-为 Kubernetes Marketplace 项创建计划、产品/服务和订阅。 你还可以使用现有计划和产品/服务。
+为 Kubernetes marketplace 项创建计划、产品/服务和订阅。 你还可以使用现有计划和产品/服务。
 
-1. 登录到[管理门户。](https://adminportal.local.azurestack.external)
+1. 登录到[管理员门户。](https://adminportal.local.azurestack.external)
 
 1. 创建计划作为基本计划。 有关说明，请参阅[在 Azure Stack 中创建计划](azure-stack-create-plan.md)。
 
@@ -63,13 +64,13 @@ ms.locfileid: "73047185"
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>在 AD FS 中创建服务主体和凭据
 
-如果为标识管理服务使用 Active Directory 联合服务（AD FS），则需要为部署 Kubernetes 群集的用户创建服务主体。 使用客户端密码创建服务主体。 有关说明，请参阅[使用客户端密码创建服务主体](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)。
+如果你为标识管理服务使用 Active Directory 联合服务（AD FS），则需要为部署 Kubernetes 群集的用户创建服务主体。 使用客户端密码创建服务主体。 有关说明，请参阅[使用客户端密码创建服务主体](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)。
 
 ## <a name="add-an-ubuntu-server-image"></a>添加 Ubuntu server 映像
 
-将以下 Ubuntu 服务器映像添加到 Marketplace：
+将以下 Ubuntu 服务器映像添加到 Azure Stack Marketplace：
 
-1. 登录到[管理门户](https://adminportal.local.azurestack.external)。
+1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
 
 1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
 
@@ -87,9 +88,9 @@ ms.locfileid: "73047185"
 
 ## <a name="add-a-custom-script-for-linux"></a>添加适用于 Linux 的自定义脚本
 
-从 Marketplace 添加 Kubernetes：
+添加 Azure Stack Marketplace 中的 Kubernetes：
 
-1. 打开[管理门户](https://adminportal.local.azurestack.external)。
+1. 打开[管理员门户](https://adminportal.local.azurestack.external)。
 
 1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
 
@@ -103,14 +104,13 @@ ms.locfileid: "73047185"
    - **发布者**： Microsoft Corp
 
      > [!Note]  
-     > 可能列出了适用于 Linux 的自定义脚本的多个版本。 你将需要添加项的最后一个版本。
+     > 可能列出了适用于 Linux 的自定义脚本的多个版本。 需要添加项的最后一个版本。
 
 1. 选择 "**下载"。**
 
-
 ## <a name="add-kubernetes-to-the-marketplace"></a>将 Kubernetes 添加到 marketplace
 
-1. 打开[管理门户](https://adminportal.local.azurestack.external)。
+1. 打开[管理员门户](https://adminportal.local.azurestack.external)。
 
 1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
 
@@ -123,13 +123,13 @@ ms.locfileid: "73047185"
 1. 选择 "**下载"。**
 
     > [!note]  
-    > Marketplace 项可能需要5分钟才会出现在 Marketplace 中。
+    > Marketplace 项可能需要五分钟才能出现在 Azure Stack Marketplace 中。
 
-    ![Kubernetes](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
+    ![Azure Stack Marketplace 中的 Kubernetes 项](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
-## <a name="update-or-remove-the-kubernetes"></a>更新或删除 Kubernetes 
+## <a name="update-or-remove-the-kubernetes"></a>更新或删除 Kubernetes
 
-更新 Kubernetes 项时，将删除 Marketplace 中的上一项。 按照本文中的说明操作，将 Kubernetes 更新添加到 marketplace。
+更新 Kubernetes 项时，Azure Stack Marketplace 中删除上一项。 按照以下说明将 Kubernetes 更新添加到 Azure Stack Marketplace。
 
 删除 Kubernetes 项：
 
@@ -141,7 +141,7 @@ ms.locfileid: "73047185"
     Get-AzsGalleryItem | Select Name
     ```
     
-3. 记录当前项的名称，如 `Microsoft.AzureStackKubernetesCluster.0.3.0`
+3. 记录当前项的名称，如 `Microsoft.AzureStackKubernetesCluster.0.3.0`。
 
 4. 使用以下 PowerShell cmdlet 删除该项：
 

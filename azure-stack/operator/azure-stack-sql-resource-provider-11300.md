@@ -1,6 +1,7 @@
 ---
-title: Azure Stack SQL 资源提供程序 1.1.30.0 发行说明 | Microsoft Docs
-description: 了解 Azure Stack SQL 资源提供程序最新更新版的信息，包括任何已知问题和下载位置。
+title: Azure Stack SQL 资源提供程序1.1.30.0 发行说明
+titleSuffix: Azure Stack
+description: 查看 Azure Stack SQL 资源提供程序1.1.30.0 更新的发行说明。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,82 +17,83 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: f17c2ba41097d5b9bda903ae5d95c62e0ac9f53a
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: c1c2b824b8cf44a983c851f20337658d020de4c8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829357"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780620"
 ---
-# <a name="sql-resource-provider-11300-release-notes"></a>SQL 资源提供程序 1.1.30.0 发行说明
+# <a name="sql-resource-provider-11300-release-notes"></a>SQL 资源提供程序1.1.30.0 发行说明
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本发行说明介绍 SQL 资源提供程序 1.1.30.0 版中的改进和已知问题。
+这些发行说明介绍了 SQL 资源提供程序版本1.1.30.0 中的改进和已知问题。
 
-## <a name="build-reference"></a>内部版本参考
-下载 SQL 资源提供程序二进制文件，然后运行自解压程序，将内容解压缩到一个临时目录。 资源提供程序有一个相应的 Azure Stack 最低内部版本。 下面列出了安装此 SQL 资源提供程序版本所需的最低 Azure Stack 发行版：
+## <a name="build-reference"></a>生成引用
+下载 SQL 资源提供程序二进制文件，然后运行自解压缩程序，将内容提取到临时目录中。 资源提供程序至少有一个对应的 Azure Stack 生成。 安装此版本的 SQL 资源提供程序所需的最低 Azure Stack 发行版本如下所示：
 
 > |最低 Azure Stack 版本|SQL 资源提供程序版本|
 > |-----|-----|
-> |版本 1808 (1.1808.0.97)|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
+> |版本1808（1.1808.0.97）|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> 在部署最新版本的 SQL 资源提供程序之前，请先将支持的最低 Azure Stack 更新版应用到 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)。
+> 在部署最新版本的 SQL 资源提供程序之前，将支持的最低 Azure Stack 更新应用到 Azure Stack 集成系统或部署最新 Azure Stack 开发工具包（ASDK）。
 
-## <a name="new-features-and-fixes"></a>新功能和修复
-此 Azure Stack SQL 资源提供程序版本包含以下改进和修复：
+## <a name="new-features-and-fixes"></a>新增功能和修补程序
+此版本的 Azure Stack SQL 资源提供程序包括以下改进和修补程序：
 
-- **为 SQL 资源提供程序部署启用遥测**。 为 SQL 资源提供程序部署启用了遥测数据收集功能。 收集的遥测数据包括资源提供程序部署、开始和停止时间、退出状态、退出消息和错误详细信息（如果适用）。
+- **已为 SQL 资源提供程序部署启用遥测**。 已为 SQL 资源提供程序部署启用了遥测收集。 收集的遥测包括资源提供程序部署、开始和停止时间、退出状态、退出消息和错误详细信息（如果适用）。
 
-- **TLS 1.2 加密更新**。 为资源提供程序启用了仅限 TLS 1.2 的支持，使其能够与内部 Azure Stack 组件通信。 
+- **TLS 1.2 加密更新**。 启用了 TLS 1.2-仅支持与内部 Azure Stack 组件进行的资源提供程序通信。 
 
 ### <a name="fixes"></a>修复项
 
-- **SQL 资源提供程序 Azure Stack PowerShell 兼容性**。 SQL 资源提供程序经过更新，可与 Azure Stack 2018-03-01-hybrid PowerShell 配置文件配合运行，并与 AzureRM 1.3.0 和更高版本兼容。
+- **SQL 资源提供程序 Azure Stack PowerShell 兼容性**。 SQL 资源提供程序已更新为可与 Azure Stack 2018-03-01 混合 PowerShell 配置文件一起使用，并提供与 AzureRM 1.3.0 和更高版本的兼容性。
 
-- **SQL 登录 - 更改密码边栏选项卡**。 修复了无法在“更改密码”边栏选项卡上更改密码的问题。 删除了密码更改通知中的链接。
+- **SQL 登录更改密码边栏选项卡**。 修复了 "更改密码" 边栏选项卡上无法更改密码的问题。 删除了来自密码更改通知的链接。
 
-- **SQL 宿主服务器设置边栏选项卡更新**。 修复了“设置”边栏选项卡错误地使用“密码”标题的问题。
+- **SQL 宿主服务器设置边栏选项卡更新**。 修复了 "设置" 边栏选项卡错误地将错误标题为 "Password" 的问题。
 
-## <a name="known-issues"></a>已知问题 
+## <a name="known-issues"></a>已知问题
 
-- **SQL SKU 最长可能需要在一小时后才显示在门户中**。 创建新的 SQL 数据库时，新建的 SKU 最长可能需要在一小时后才显示出来并可供使用。 
+- **SQL sku 最多可能需要一小时才能在门户中显示**。 创建新的 SQL 数据库时，最多可能需要一小时才能看到新创建的 Sku。
 
     **解决方法**：无。
 
-- **重复使用 SQL 登录名**。 尝试使用与现有登录名相同的用户名在同一订阅下创建新的 SQL 登录名时，会导致重复使用同一登录名和现有密码的问题。 
+- 重新**使用 SQL 登录名**。 尝试使用同一订阅下的现有登录名创建新的 SQL 登录名，将导致重复使用相同的登录名和现有密码。
 
-    **解决方法**：在同一订阅下创建新登录名时使用不同的用户名，或者在不同订阅下使用相同的用户名创建登录名。
+    **解决方法**：在同一订阅下创建新登录名时使用不同的用户名，或在不同的订阅下使用相同的用户名创建登录名。
 
-- **共享的 SQL 登录名导致数据不一致**。 如果在同一订阅下为多个 SQL 数据库共享某个 SQL 登录名，则更改登录密码会导致数据不一致。
+- **共享 SQL 登录名将导致数据不一致**。 如果在同一订阅下为多个 SQL 数据库共享 SQL 登录名，则更改登录密码将导致数据不一致。
 
-    **解决方法**：在同一订阅下始终对不同的数据库使用不同的登录名。
+    **解决方法**：始终对同一订阅下的不同数据库使用不同的登录名。
 
-- **TLS 1.2 支持要求**。 如果你尝试从未启用 TLS 1.2 的计算机部署或更新 SQL 资源提供程序，则操作可能会失败。 在用于部署或更新资源提供程序的计算机上运行以下 PowerShell 命令，以验证是否返回支持 TLS 1.2：
+- **TLS 1.2 支持要求**。 如果尝试从不启用 TLS 1.2 的计算机部署或更新 SQL 资源提供程序，则操作可能会失败。 在用于部署或更新资源提供程序的计算机上运行以下 PowerShell 命令，以验证是否按支持返回了 TLS 1.2：
 
   ```powershell
   [System.Net.ServicePointManager]::SecurityProtocol
   ```
 
-  如果命令输出中未包含 **Tls12**，则计算机上未启用 TLS 1.2。
+  如果命令的输出中不包括**Tls12** ，则不会在计算机上启用 TLS 1.2。
 
-    **解决方法**：运行以下 PowerShell 命令以启用 TLS 1.2，然后从同一 PowerShell 会话启动资源提供程序部署或更新脚本：
+    **解决方法**：运行以下 PowerShell 命令以启用 TLS 1.2，然后启动资源提供程序部署或从同一 PowerShell 会话更新脚本：
 
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
-- **SQL 资源提供程序无法添加 SQL Server Always On 侦听器**。 使用 SQL Server Always On 侦听器的 IP 地址时，SQL 资源提供程序 VM 无法解析侦听器的主机名。
 
-    **解决方法**：确保 DNS 正常运行，以便将侦听器 IP 解析为侦听器主机名。
-    
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>云管理员操作 Azure Stack 时的已知问题
-请参阅 [Azure Stack 发行说明](azure-stack-servicing-policy.md)中的文档。
+- **SQL 资源提供程序无法将 SQL Server 添加 Always On 侦听器**。 使用 SQL Server Always On 侦听器的侦听器 IP 地址时，SQL 资源提供程序 VM 将无法解析侦听器的主机名。
+
+    **解决方法**：确保 DNS 能够正确地将侦听器 IP 解析为侦听器主机名。
+
+### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>云管理员操作 Azure Stack 的已知问题
+请参阅[Azure Stack 发行说明](azure-stack-servicing-policy.md)中的文档。
 
 ## <a name="next-steps"></a>后续步骤
-[详细了解 SQL 资源提供程序](azure-stack-sql-resource-provider.md)。
+[了解有关 SQL 资源提供程序的详细信息](azure-stack-sql-resource-provider.md)。
 
 [准备部署 SQL 资源提供程序](azure-stack-sql-resource-provider-deploy.md#prerequisites)。
 
-[从旧版升级 SQL 资源提供程序](azure-stack-sql-resource-provider-update.md)。 
+[从以前的版本升级 SQL 资源提供程序](azure-stack-sql-resource-provider-update.md)。

@@ -9,23 +9,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/11/2019
+ms.topic: reference
+ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 3e91b4baae4dc844cedebb22ca323005ea0e76fa
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.lastreviewed: 12/3/2019
+ms.openlocfilehash: d38168fee437b27dfde8d5381c960b8e2a237487
+ms.sourcegitcommit: 757f612663059f1af8c535d8b37f63a8cf4a5e7d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955669"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784091"
 ---
 # <a name="vm-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的 VM 大小
 
 *适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-本文列出了 Azure Stack 中可用的虚拟机（VM）大小。
+本文列出了 Azure Stack 中可用的虚拟机（VM）大小。 本文可帮助你选择 VM 来支持你的 Azure Stack 解决方案。
 
 Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的函数，而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，无论你是为磁盘类型选择 SSD 还是 HDD，一个额外的数据磁盘的 IOPS 限制为 2300 IOPS。 施加的 IOPS 限制是上限（可能的最大值），以防止邻居干扰。 这并不能保证你会获得特定 VM 大小的 IOPS。
 

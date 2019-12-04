@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a9c0016ef75040263acfe8400e9e04dce9eb744c
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 049698c1b4e19dc3567c07bb8a433c0fcf9208d8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690230"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780773"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>在 Azure Stack 中创建虚拟机磁盘存储
 
@@ -36,17 +36,17 @@ ms.locfileid: "74690230"
 
 非托管磁盘需要创建存储帐户来存储磁盘。 你创建的磁盘称为 VM 磁盘，存储在存储帐户的容器中。
 
-### <a name="best-practice-guidelines"></a>最佳做法准则
+## <a name="best-practice-guidelines"></a>最佳做法准则
 
-建议为 VM 使用托管磁盘，以便更轻松地进行管理和容量平衡。 在使用托管磁盘之前，无需准备存储帐户和容器。  当创建多个托管磁盘时，这些磁盘将被分发到多个卷中，从而使卷容量平衡。  
+建议为 VM 使用托管磁盘，以便更轻松地进行管理和容量平衡。 不需要在使用托管磁盘之前准备好存储帐户和容器。 创建多个托管磁盘时，这些磁盘将分配到多个卷中，这有助于平衡卷的容量。  
 
-对于非托管磁盘，若要提高性能和降低总体成本，建议将每个 VM 磁盘放置在单独的容器中。 即使您可以将 OS 磁盘和数据磁盘放置在同一个容器中，最佳做法是一个容器应保留 OS 磁盘或数据磁盘，但不能同时包含两者。 
+对于非托管磁盘，若要提高性能和降低总体成本，建议将每个非托管磁盘放置在单独的容器中。 虽然您可以将 OS 磁盘和数据磁盘放置在同一个容器中，但最好的做法是，一个容器应该包含 OS 磁盘或数据磁盘，但不能同时包含两者。
 
 如果向 VM 添加一个或多个数据磁盘，请使用其他容器作为存储这些磁盘的位置。 其他 Vm 的 OS 磁盘还应位于其自身的容器中。
 
 创建 Vm 时，可以为每个新虚拟机重复使用同一存储帐户。 仅创建的容器应是唯一的。
 
-### <a name="adding-new-disks"></a>添加新磁盘
+## <a name="adding-new-disks"></a>添加新磁盘
 
 下表总结了如何使用门户和 PowerShell 来添加磁盘：
 
