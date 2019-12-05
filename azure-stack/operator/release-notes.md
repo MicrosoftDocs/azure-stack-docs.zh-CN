@@ -16,16 +16,16 @@ ms.date: 11/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 75f1c4cae33987a7a2c662ced7806ed094c6ca82
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
-ms.translationtype: MT
+ms.openlocfilehash: 1b8b0d8719a6456d7509bfacd3d996cd2a623368
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557689"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810204"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack 更新：发行说明
 
-*适用于： Azure Stack 集成系统*
+*适用于：Azure Stack 集成系统*
 
 本文介绍 Azure Stack 更新包的内容。 此更新包括此版本 Azure Stack 的新增功能和修补程序。
 
@@ -105,7 +105,7 @@ Azure Stack 1910 更新生成类型为**Express**。
    - 将 Windows 容器与 AKS 引擎（个人预览版）配合使用。
    - 接收针对其部署的 CSS 和 PG 支持。
 
-### <a name="improvements"></a>措施
+### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
@@ -147,11 +147,11 @@ Azure Stack 1910 更新生成类型为**Express**。
 
 - 将 marketplace 项从 Azure 下载到 Azure Stack 时，有一个新的用户界面，当存在多个版本时，可以使用它来指定项的版本。 已连接和已断开连接的方案中都提供了新的 UI。 有关详细信息，请参阅[将 marketplace 项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。  
 
-- 从1910版本开始，Azure Stack 系统需要额外的/20 个专用内部 IP 空间。 此网络专用于 Azure Stack 系统，可在数据中心内的多个 Azure Stack 系统上重复使用。 网络专用于 Azure Stack 时，它不得与数据中心内的网络重叠。 /20 专用 IP 空间划分为多个网络，以便在容器上运行 Azure Stack 基础结构（如上文[1905 发行说明](release-notes.md?view=azs-1905)中所述）。 在容器中运行 Azure Stack 基础结构的目标是优化利用率和提高性能。 此外，还使用了/20 个专用 IP 空间来实现正在进行的工作，从而减少部署之前所需的可路由 IP 空间。
+- 从1910版本开始，Azure Stack 系统**需要**额外的/20 个专用内部 IP 空间。 此网络专用于 Azure Stack 系统，可在数据中心内的多个 Azure Stack 系统上重复使用。 网络专用于 Azure Stack 时，它不得与数据中心内的网络重叠。 /20 专用 IP 空间划分为多个网络，以便在容器上运行 Azure Stack 基础结构（如上文[1905 发行说明](release-notes.md?view=azs-1905)中所述）。 在容器中运行 Azure Stack 基础结构的目标是优化利用率和提高性能。 此外，还使用了/20 个专用 IP 空间来实现正在进行的工作，从而减少部署之前所需的可路由 IP 空间。
 
   - 请注意，在1910之后，/20 输入作为下一个 Azure Stack 更新的先决条件。 如果在1910之后发布了下一个 Azure Stack 更新，并且尝试安装该更新，则在更正步骤中，如果尚未完成/20 输入，则更新会失败。 在完成上述更正步骤之前，将在管理门户中显示警报。 请参阅[数据中心网络集成](azure-stack-network.md#private-network)一文，了解如何使用这个新的专用空间。 
 
-  - 更正步骤：若要进行修正，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备大小为/20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，并使用以下格式运行以下 cmdlet （仅从1910开始提供）： `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 如果操作成功执行，你将收到消息**Azs 将内部网络范围添加到配置**。如果成功完成，则警报将在管理门户中关闭。 Azure Stack 系统现在可以更新到下一个版本。
+  - 更正步骤：若要进行修正，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备大小为/20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，并使用以下示例在 PEP 会话中运行以下 cmdlet （仅从1910开始提供）： `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 如果操作成功执行，你将收到消息**Azs 将内部网络范围添加到配置**。如果成功完成，则警报将在管理门户中关闭。 Azure Stack 系统现在可以更新到下一个版本。
   
 - 如果在上传过程中外部存储位置的容量用尽，则基础结构备份服务将删除部分上传的备份数据。  
 
@@ -244,7 +244,7 @@ Azure Stack 1908 更新生成类型已**满**。 因此，1908更新的运行时
 - Azure Stack 基础结构的所有组件现在在 FIPS 140-2 模式下运行。
 - Azure Stack 运算符现在可以删除门户用户数据。 有关详细信息，请参阅[从 Azure Stack 中清除门户用户数据](azure-stack-portal-clear.md)。
 
-### <a name="improvements"></a>措施
+### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - 对 Azure Stack 静态加密数据的改进，将机密保存到物理节点的硬件受信任的平台模块（TPM）中。
@@ -319,7 +319,7 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的
 
 - 添加了内部机密旋转过程，以便在系统更新过程中根据需要轮替内部 SQL TLS 证书。
 
-### <a name="improvements"></a>措施
+### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
@@ -441,7 +441,7 @@ Azure Stack 1906 更新生成类型为**Express**。 有关更新生成类型的
 
 - Visual Studio Code 现在支持使用 AD FS Azure Stack 部署。
 
-### <a name="improvements"></a>措施
+### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
@@ -544,8 +544,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统;不要尝试在 AS
 > [!TIP]  
 > 订阅以下*RSS*或*Atom*馈送，以跟上 Azure Stack 修补程序：
 >
-> - [技术](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
-> - [动](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archive"></a>存档
 
@@ -553,10 +553,10 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统;不要尝试在 AS
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关 Azure Stack 中的更新管理的概述，请参阅[Azure Stack 概述中的 "管理更新](azure-stack-updates.md)"。  
-- 有关如何将更新应用于 Azure Stack 的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
-- 若要查看 Azure Stack 集成系统的服务策略，以及必须执行哪些操作来使系统处于受支持的状态，请参阅[Azure Stack 服务策略](azure-stack-servicing-policy.md)。  
-- 若要使用特权终结点（PEP）来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](azure-stack-monitor-update.md)。
+- 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates.md)。  
+- 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
+- 若要查看 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态，请参阅 [Azure Stack 服务策略](azure-stack-servicing-policy.md)。  
+- 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](azure-stack-monitor-update.md)。
 ::: moniker-end
 
 <!------------------------------------------------------------>

@@ -14,16 +14,16 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 7d0d83c415b52f53e8e791e8c632c5ad2da6fe58
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 98732c3eb5933e1fd6d7ce42d726d3f5019c97eb
+ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690102"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74830964"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 作为 Azure Stack 运算符，能够根据需要确定系统的运行状况和状态是至关重要的。 Azure Stack 验证工具（**test-azurestack**）是一种 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果存在）。 当你联系 Microsoft 客户服务支持（CSS）问题时，通常会要求你通过[特权终结点（PEP）](azure-stack-privileged-endpoint.md)来运行此工具。 使用目前系统范围内的运行状况和状态信息，CSS 可以收集和分析详细日志，重点关注错误发生的区域，并与你一起解决问题。
 
@@ -167,16 +167,11 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 为了改进操作员体验，已启用一个**组**参数来同时运行多个测试类别。 目前，定义了三个组： **Default**、 **UpdateReadiness**和**SecretRotationReadiness**。
 
 - **默认值**： **test-azurestack**为标准运行。 如果未选择其他组，则默认情况下将运行此组。
-- **UpdateReadiness**：检查是否可以更新 Azure Stack 实例。 运行**UpdateReadiness**组时，警告在控制台输出中显示为错误，并应将其视为更新的阻止程序。 以下类别是**UpdateReadiness**组的一部分：
+- **UpdateReadiness**：检查是否可以更新 Azure Stack 实例。 运行**UpdateReadiness**组时，警告在控制台输出中显示为错误，并应将其视为更新的阻止程序。 从 Azure Stack 版本1910，以下类别是**UpdateReadiness**组的一部分：
 
-  - **AzsAcsSummary**
-  - **AzsDefenderSummary**
-  - **AzsHostingInfraSummary**
-  - **AzsInfraCapacity**
-  - **AzsInfraRoleSummary**
-  - **AzsPortalAPISummary**
-  - **AzsSFRoleSummary**
-  - **AzsStoreSummary**
+  - **AzsInfraFileValidation**
+  - **AzsActionPlanStatus**
+  - **AzsStampBMCSummary**
 
 - **SecretRotationReadiness**：查看 Azure Stack 实例是否处于可运行机密旋转的状态。 运行**SecretRotationReadiness**组时，警告在控制台输出中显示为错误，应将其视为用于机密旋转的阻止程序。 以下类别是 SecretRotationReadiness 组的一部分：
 
