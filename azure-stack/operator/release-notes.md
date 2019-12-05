@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2019
+ms.date: 12/04/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 1b8b0d8719a6456d7509bfacd3d996cd2a623368
-ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
-ms.translationtype: HT
+ms.openlocfilehash: db050565b7ef2b1b22192e7f39366ac1e341cd0f
+ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810204"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74830974"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack 更新：发行说明
 
@@ -108,6 +108,12 @@ Azure Stack 1910 更新生成类型为**Express**。
 ### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
+
+- Azure Stack 提高了自动修正某个修补程序的能力，并更新了以前导致更新失败或阻止操作员启动 Azure Stack 更新的问题。 因此， **test-azurestack-UpdateReadiness**组中包含的测试越少。 有关详细信息，请参阅[验证 Azure Stack 系统状态](azure-stack-diagnostic-test.md#groups)。 **UpdateReadiness**组中保留了以下三个测试：
+
+  - **AzSInfraFileValidation**
+  - **AzSActionPlanStatus**
+  - **AzsStampBMCSummary**
 
 - 添加了审核规则，以便在将外部设备（例如 USB 密钥）装入到 Azure Stack 基础结构的节点时进行报告。 审核日志通过 syslog 发出，并显示为**Microsoft Windows 安全审核： 6416 |即插即用事件**。 有关如何配置 syslog 客户端的详细信息，请参阅[syslog 转发](azure-stack-integrate-security.md)。
 
