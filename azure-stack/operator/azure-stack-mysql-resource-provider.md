@@ -15,21 +15,23 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 8f498896489a0c217b1f7c51ec4dda6b493ddda7
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: d99e32b68011d34977eb73f9cff2f5ac91293527
+ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534026"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74946761"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 数据库
 
 MySQL 数据库通常与网站结合使用，并支持许多网站平台。 例如，可以使用应用服务资源提供程序（PaaS）加载项创建 WordPress 网站。
 
-部署资源提供程序后，可以：
+部署资源提供程序并将其连接到一个或多个 MySQL 服务器实例后，可以：
 
-* 使用 Azure 资源管理器部署模板创建 MySQL 服务器和数据库。
+* 使用 Azure 资源管理器部署模板创建 MySQL 数据库。
 * 提供 MySQL 数据库即服务。  
+
+Azure Stack 操作员负责部署、配置和维护数据库服务器实例，以实现安全性、HA、备份、修补和更新。 数据库服务器实例由不同的用户数据库共享，包括数据库服务器名称和公共 IP 地址。 并且不会报告数据库使用情况。
 
 ## <a name="mysql-resource-provider-adapter-architecture"></a>MySQL 资源提供程序适配器体系结构
 
@@ -45,7 +47,7 @@ MySQL 数据库通常与网站结合使用，并支持许多网站平台。 例�
 > [!NOTE]
 > 必须通过租户订阅创建安装在 Azure Stack 集成系统上的宿主服务器。 不能通过默认提供程序订阅来创建它们。 必须通过租户门户或使用适当的登录从 PowerShell 会话创建它们。 所有宿主服务器都是可计费的 Vm，并且必须具有许可证。 服务管理员可以是租户订阅的所有者。
 
-### <a name="required-privileges"></a>必需的权限
+### <a name="required-privileges"></a>所需特权
 
 系统帐户必须具有以下权限：
 

@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcfd50c533558bff0bdac75dfa3231d5196039cc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955822"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954547"
 ---
 # <a name="validate-oem-packages"></a>验证 OEM 包
 
@@ -148,30 +148,30 @@ VaaS 所需的最低访问级别取决于你是要创建包验证工作流还是
 
 5. 将 Azure 存储 blob URL 输入到需要 Microsoft 签名的测试签名 OEM 包。 有关说明，请参阅为[VaaS 生成包 BLOB URL](#generate-package-blob-url-for-vaas)。
 
-6. 将 Test-azurestack 更新包文件夹复制到 DVM 上的本地目录。 输入 "Test-azurestack 更新包文件夹路径" 的父目录路径
+6. 将 Test-azurestack 更新包文件夹复制到 DVM 上的本地目录。 输入**包含包 zip 文件和**"test-azurestack 更新包文件夹路径" 的元数据文件的文件夹的路径
 
-7. 将上面创建的 OEM 包文件夹复制到 DVM 上的本地目录。 输入 "OEM 更新包文件夹路径" 的父目录路径
+7. 将上面创建的 OEM 包文件夹复制到 DVM 上的本地目录。 输入**包含包 zip 文件和**"OEM 更新包文件夹路径" 的元数据文件的文件夹的路径
 
     > [!NOTE]
-    > 将 Test-azurestack 更新和 OEM 更新复制到**2 个单独**的父目录。
+    > 将 Test-azurestack 更新和 OEM 更新复制到**2 个不同**的目录。
 
-8. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+8. "RequireDigitalSignature"-如果需要将包设置为 Microsoft 签名（运行 OEM 验证工作流），**则提供 true** 。 如果要在最新的 Test-azurestack 更新上验证 Microsoft 签名包，请将此值作为 false （运行每月 Test-azurestack 更新验证）提供。
+
+9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > 创建工作流后，不能修改环境参数。
 
-9. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+10. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
-10. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+11. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     你将被重定向到 "测试摘要" 页。
 
 ## <a name="required-tests"></a>必需的测试
 
-对于 OEM 包验证，需要按指定顺序运行以下测试：
+需要为 OEM 包验证运行以下测试：
 
-- 步骤 1-每月 Test-azurestack 更新验证
-- 步骤 2-OEM 扩展包验证
-- 步骤 3-OEM-云模拟引擎
+- OEM 验证工作流
 
 ## <a name="run-package-validation-tests"></a>运行包验证测试
 
@@ -183,20 +183,13 @@ VaaS 所需的最低访问级别取决于你是要创建包验证工作流还是
     > 在现有实例上计划验证测试会在门户中创建一个新实例来代替旧实例。 旧实例的日志将保留，但无法从门户进行访问。  
     > 测试成功完成后，**计划**操作将变为禁用状态。
 
-2. 对于包验证，将按列出的顺序运行**所需的测试**。
+2. 选择要运行测试的代理。 有关添加本地测试执行代理的信息，请参阅[部署本地代理](azure-stack-vaas-local-agent.md)。
 
-    > [!CAUTION]
-    > VaaS 将按计划的顺序运行测试。 需要按指定顺序计划测试。
+3. 若要计划测试运行，请从上下文菜单中选择 "**计划**" 以打开计划测试实例的提示。
 
-3. 选择要运行测试的代理。 有关添加本地测试执行代理的信息，请参阅[部署本地代理](azure-stack-vaas-local-agent.md)。
+4. 查看测试参数，然后选择 "**提交**" 以计划测试。
 
-4. 若要计划测试运行，请从上下文菜单中选择 "**计划**" 以打开计划测试实例的提示。
-
-5. 查看测试参数，然后选择 "**提交**" 以计划测试。
-
-6. 在计划下一次测试之前，无需等待测试完成。 按上面指定的顺序计划所有**必需**的测试。
-
-7. 查看**所需**测试的结果。
+5. 查看**所需**测试的结果。
 
 若要提交包签名请求，请发送[vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)与此运行关联的解决方案名称和包验证名称。
 

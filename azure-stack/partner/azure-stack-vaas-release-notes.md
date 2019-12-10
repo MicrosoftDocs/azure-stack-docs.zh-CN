@@ -14,18 +14,33 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846237"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954462"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>验证即服务的发行说明
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 本文提供 Azure Stack 验证作为服务的发行说明。
+
+## <a name="version-4421"></a>版本4.4.2。1
+
+2019 12 月3日
+
+- 测试内容更新
+  - 已更新每月 Azure Stack 更新工作流和 OEM 包验证工作流的联机文档。 请查看此处的更新文档验证 OEM 包，并从 Microsoft 验证软件更新
+  - VaaS 包验证工作流更新： OEM 验证工作流是每月 Azure Stack 更新验证和 OEM 包验证所需的唯一测试。 该测试将用提供的 Test-azurestack/OEM 包更新 stamp，并运行云模拟引擎验证测试。
+  - VaaS PowerShell 扩展更新：现在支持包验证工作流自动化。 有关使用此扩展的位置和分步说明的详细信息，请参阅 Azure Stack VaaS 自动使用 Powershell。
+
+- 已知问题
+  - 如果下面的测试用例无法在 OEM 验证工作流过程中运行，请联系 vaashelp@microsoft.com：
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
+
 
 ## <a name="version-4353"></a>版本4.3.5。3
 
@@ -66,7 +81,7 @@ ms.locfileid: "73846237"
 - OEM 包验证工作流中的云模拟引擎和 Azure Stack 更新工作流（版本 5.1.30.0-> 5.1.46.0）要求按以下顺序计划测试–每月 Azure Stack 更新验证测试、OEM 扩展包验证测试，最后是云模拟引擎。
 - VaaS 代理更新：更新的 VaaS 代理现在使用 Azure Stack 的云管理员凭据来查询 stamp 以获取 stamp 信息，以便自动填充工作流。 
 
-    此更新需要更新并重新启动所有代理。 请参阅以下说明，了解如何更新 VaaS 代理： https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent
+    此更新需要更新并重新启动所有代理。 请参阅以下说明，了解如何更新 VaaS 代理： https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
 - VaaS 门户 UI 更新：代理选择表已移到测试计划窗格上方，以方便进行测试。
 
     计划作业时，如果 VaaS 代理已正确更新，则不再需要输入 stamp 信息。
@@ -149,7 +164,7 @@ ms.locfileid: "73846237"
 
 - PowerShell 自动化更新
 
-    已对需要最新版本的脚本包 `LaunchVaaSTests` PowerShell 脚本进行了更改。 有关安装最新版本的脚本包的说明，请参阅[启动测试通过工作流](azure-stack-vaas-automate-with-powershell.md#launch-the-test-pass-workflow)。
+    已对需要最新版本的脚本包 `LaunchVaaSTests` PowerShell 脚本进行了更改。 有关安装最新版本的脚本包的说明，请参阅[启动测试通过工作流](azure-stack-vaas-automate-with-powershell.md)。
 
 - 作为服务门户的验证
 

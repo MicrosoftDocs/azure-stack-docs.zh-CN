@@ -15,18 +15,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6fe2f8e7ab435cae3517890f79c26611a80c8a60
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 3399288b801114f076afe3b68d3f9790bfe2af29
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167145"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954479"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>从 Microsoft 验证软件更新
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft 会定期发布 Azure Stack 软件的更新。 这些更新提供给 Azure Stack coengineering 合作伙伴。 这些更新是在公开发布之前提供的。 你可以根据解决方案检查更新，并向 Microsoft 提供反馈。
+Microsoft 会定期发布 Azure Stack 软件的更新。 提供这些更新是为了 Azure Stack 共同工程合作伙伴。 这些更新是在公开发布之前提供的。 你可以根据解决方案检查更新，并向 Microsoft 提供反馈。
 
 使用命名约定指定 Azure Stack 的 Microsoft 软件更新，例如1803，表示更新的值为2018年3月。 有关 Azure Stack 更新策略、步调和发行说明的信息，请参阅[Azure Stack 服务策略](../operator/azure-stack-servicing-policy.md)。
 
@@ -35,15 +35,12 @@ Microsoft 会定期发布 Azure Stack 软件的更新。 这些更新提供给 A
 在 VaaS 中练习每月更新过程之前，应熟悉以下各项：
 
 - [作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)
-- [交互式功能验证测试](azure-stack-vaas-interactive-feature-verification.md)
 
 ## <a name="required-tests"></a>必需的测试
 
 对于每月软件验证，必须按以下顺序执行以下测试：
 
-- 步骤 1-每月 Test-azurestack 更新验证
-- 步骤 2-OEM 扩展包验证
-- 步骤 3-OEM-云模拟引擎
+- OEM 验证工作流
 
 ## <a name="validating-software-updates"></a>正在验证软件更新
 
