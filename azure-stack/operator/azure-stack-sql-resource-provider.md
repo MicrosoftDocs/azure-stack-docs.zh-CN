@@ -16,24 +16,27 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 4aef28f0351a89f02dc4c00cd042d6bdd33ee957
-ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
+ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74946795"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993884"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>在 Azure Stack 上使用 SQL 数据库
 
-使用 SQL Server 资源提供程序在[Azure Stack](azure-stack-overview.md)提供 SQL 数据库即服务。 在安装资源提供程序并将其连接到一个或多个 SQL Server 实例后，你和你的用户可以创建：
+使用 SQL 资源提供程序将 SQL 数据库作为服务提供[Azure Stack](azure-stack-overview.md)。 在安装资源提供程序并将其连接到一个或多个 SQL Server 实例后，你和你的用户可以创建：
 
 - 适用于云原生应用的数据库。
 - 使用 SQL 的网站。
 - 使用 SQL 的工作负荷。
 
-资源提供程序不提供[AZURE SQL 数据库](https://azure.microsoft.com/services/sql-database/)的所有数据库管理功能。 例如，不支持自动分配资源的弹性池。 但是，资源提供程序支持对 SQL Server 数据库的相似的创建、读取、更新和删除（CRUD）操作。
+安装 MySQL 资源提供程序之前，请考虑以下几个限制：
 
-Azure Stack 操作员负责部署、配置和维护数据库服务器实例，以实现安全性、HA、备份、修补和更新。 数据库服务器实例由不同的用户数据库共享，包括数据库服务器名称和公共 IP 地址。 并且不会报告数据库使用情况。
+- 用户只能创建和管理单个数据库。 最终用户无法访问数据库服务器实例。 这可能会限制与需要访问 master、Temp DB 或动态管理数据库的本地数据库应用程序的兼容性。
+- 你的 Azure Stack 操作员负责部署、更新、保护、配置和维护 SQL 数据库服务器和主机。 RP 服务不提供任何主机和数据库服务器实例管理功能。 
+- 不同订阅中不同用户的数据库可以位于同一个数据库服务器实例上。 RP 不提供隔离不同主机或数据库服务器实例上的数据库的任何机制。
+- RP 不提供数据库的租户使用情况报告。
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>SQL 资源提供程序适配器体系结构
 

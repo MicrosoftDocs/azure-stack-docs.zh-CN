@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 4b27d5195159b809c3ad439054c88d675ab99164
-ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
+ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810224"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995580"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack 已知问题
 
@@ -43,6 +43,11 @@ ms.locfileid: "74810224"
 <!---------------------------------------------------------->
 
 ::: moniker range="azs-1910"
+## <a name="update"></a>更新
+
+有关已知的 Azure Stack 中心更新问题，请参阅[Azure Stack 中心的更新疑难解答](azure-stack-updates-troubleshoot.md)。
+
+
 ## <a name="portal"></a>门户
 
 ### <a name="administrative-subscriptions"></a>管理订阅

@@ -17,12 +17,12 @@ ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b874e81afc37684e15dd9cfe79adbf123f126f89
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: c9f9558d1885de28b1bf685d370e67951542a6ac
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780654"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993797"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 
@@ -61,7 +61,7 @@ Microsoft 期望每月发布一次软件更新包。 但是，在一个月中可
 
 ## <a name="hotfixes"></a>修补程序
 
-*适用于： Azure Stack 集成系统*
+*适用于：Azure Stack 集成系统*
 
 在某些情况下，Microsoft 偶尔为 Azure Stack 提供修补程序，用于解决经常预防或区分时间的特定问题。 每个修补程序都附带了相应的 Microsoft 知识库文章，其中详细介绍了问题、原因和解决方法。
 
@@ -70,9 +70,9 @@ Microsoft 期望每月发布一次软件更新包。 但是，在一个月中可
 有关当前可用的修补程序的信息，请参阅该更新的发行说明：
 
 - [Azure Stack 1910 修补程序](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
-- [Azure Stack 1908 修补程序](/azure-stack/operator/release-notes?view=azs-1908#hotfixes)
-- [Azure Stack 1907 修补程序](/azure-stack/operator/release-notes?view=azs-1907#hotfixes)
-- [Azure Stack 1906 修补程序](/azure-stack/operator/release-notes?view=azs-1906#hotfixes)
+- [Azure Stack 1908 修补程序](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1)
+- [Azure Stack 1907 修补程序](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)
+- [Azure Stack 1906 修补程序](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>使系统保持受支持
 

@@ -9,12 +9,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e51f1bd10ad53671d4e3b60e448141207bf2f6e0
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 6797f95b672b12bfe08fd4070bef2501367fc389
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569135"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993822"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack"></a>在 Azure Stack 上运行 Linux 虚拟机
 
@@ -22,7 +22,7 @@ ms.locfileid: "73569135"
 
 ![Azure Stack 上的 Linux VM 体系结构](./media/iaas-architecture-vm-linux/image1.png)
 
-## <a name="resource-group"></a>资源组
+## <a name="resource-group"></a>Resource group
 
 [资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)是保存相关 Azure Stack 资源的逻辑容器。 一般情况下，可根据资源的生存期及其管理者将资源分组。
 
@@ -38,13 +38,13 @@ Azure Stack 提供 Azure 提供的不同虚拟机大小。 有关详细信息，
 
 成本取决于预配磁盘的容量。 IOPS 和吞吐量（即数据传输速率）取决于 VM 大小，因此在预配磁盘时，请考虑所有三个因素（容量、IOPS 和吞吐量）。
 
-Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是[VM 大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)的函数，而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。 施加的 IOPS 限制是一个上限（可能的最大值），以防止邻居干扰。 它不是你会在特定 VM 大小上获得的 IOPS 的保证。
+Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是[VM 大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)的函数，而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，无论你是为磁盘类型选择 SSD 还是 HDD，一个额外的数据磁盘的 IOPS 限制为 2300 IOPS。 施加的 IOPS 限制是一个上限（可能的最大值），以防止邻居干扰。 这并不能保证你会获得特定 VM 大小的 IOPS。
 
 我们还建议使用[托管磁盘](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations)。 托管磁盘可代你处理存储，简化磁盘管理。 托管磁盘不需要存储帐户。 只需指定磁盘的大小和类型，就可以将它部署为高度可用的资源。
 
 OS 磁盘是存储在[Azure Stack 存储](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview)中的 VHD，因此即使主机关闭时也会保留。 对于 Linux Vm，操作系统磁盘为/dev/sda1。 建议创建一个或多个[数据磁盘](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)，这些磁盘是用于应用程序数据的持久性 vhd。
 
-刚创建的 VHD 尚未格式化， 登录到 VM 对磁盘进行格式化。 在 Linux shell 中，数据磁盘显示为/dev/sdc、/dev/sdd 等。 可以运行 lsblk 来列出块设备，包括磁盘。 若要使用数据磁盘，请创建一个分区和文件系统，然后装载磁盘。 例如：
+刚创建的 VHD 尚未格式化， 登录到 VM 对磁盘进行格式化。 在 Linux shell 中，数据磁盘显示为/dev/sdc、/dev/sdd 等。 可以运行 lsblk 来列出块设备，包括磁盘。 要使用数据磁盘，请创建一个分区和文件系统，并装载磁盘。 例如：
 
 ```bash
 # Create a partition.
@@ -78,13 +78,13 @@ sudo mount /dev/sdc1 /data1
 
 所有 Nsg 都包含一组[默认规则](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)，其中包括阻止所有入站 Internet 流量的规则。 无法删除默认规则，但其他规则可以覆盖它们。 若要启用 Internet 流量，请创建允许特定端口的入站流量的规则（例如，HTTP 的端口80）。 要启用 SSH，请添加允许 TCP 端口 22 的入站流量的 NSG 规则。
 
-## <a name="operations"></a>操作
+## <a name="operations"></a>Operations
 
 **SSH**。 在创建 Linux VM 之前，生成 2048 位 RSA 公共/专用密钥对。 创建 VM 时，使用公钥文件。 有关详细信息，请参阅[如何在 Azure 上将 SSH 与 Linux 配合使用](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)。
 
 **诊断**。 启用监视和诊断，包括基本运行状况指标、诊断基础结构日志和[启动诊断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)。 如果 VM 陷入不可启动状态，启动诊断有助于诊断启动故障。 创建用于存储日志的 Azure 存储帐户。 标准的本地冗余存储 (LRS) 帐户足以存储诊断日志。 有关详细信息，请参阅[启用监视和诊断](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data)。
 
-**可用性**。 由于 Azure Stack 操作员计划的维护，你的 VM 可能会因计划内维护而重新启动。 为了提高可用性，请在[可用性集](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview#providing-high-availability)中部署多个 VM。
+**可用性**。 由于 Azure Stack 操作员计划的维护，你的 VM 可能会因计划内维护而重新启动。 为了提高可用性，请在[可用性集](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha)中部署多个 VM。
 
 **备份**有关保护 Azure Stack IaaS Vm 的建议，请参阅[此](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect)文。
 
@@ -107,7 +107,7 @@ sudo mount /dev/sdc1 /data1
 
 **审核日志**。 使用[活动日志](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log)查看预配操作和其他 VM 事件。
 
-**数据加密**。 Azure Stack 使用静态加密来保护存储子系统级别的用户数据和基础结构数据。 Azure Stack 的存储子系统是配合 128 位 AES 加密法使用 BitLocker 加密的。 有关更多详细信息，请参阅[此](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)文。
+**数据加密**。 Azure Stack 使用静态加密在存储子系统级别保护用户和基础结构数据。 使用带有128位 AES 加密的 BitLocker 加密 Azure Stack 的存储子系统。 有关更多详细信息，请参阅[此](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)文。
 
 ## <a name="next-steps"></a>后续步骤
 

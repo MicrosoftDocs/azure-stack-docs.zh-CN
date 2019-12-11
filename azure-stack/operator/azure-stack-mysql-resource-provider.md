@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: d99e32b68011d34977eb73f9cff2f5ac91293527
-ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
+ms.openlocfilehash: b66a72ce872d64f8fde3cb80ced5e6ad33d80b4d
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74946761"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993778"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 数据库
 
@@ -31,7 +31,12 @@ MySQL 数据库通常与网站结合使用，并支持许多网站平台。 例�
 * 使用 Azure 资源管理器部署模板创建 MySQL 数据库。
 * 提供 MySQL 数据库即服务。  
 
-Azure Stack 操作员负责部署、配置和维护数据库服务器实例，以实现安全性、HA、备份、修补和更新。 数据库服务器实例由不同的用户数据库共享，包括数据库服务器名称和公共 IP 地址。 并且不会报告数据库使用情况。
+安装 MySQL 资源提供程序之前，请考虑以下几个限制：
+
+- 用户只能创建和管理单个数据库。 最终用户无法访问数据库服务器实例。 这可能会限制与需要访问 master、Temp DB 或动态管理数据库的本地数据库应用程序的兼容性。
+- 你的 Azure Stack 操作员负责部署、更新、保护、配置和维护 MySQL 数据库服务器和主机。 RP 服务不提供任何主机和数据库服务器实例管理功能。 
+- 不同订阅中不同用户的数据库可以位于同一个数据库服务器实例上。 RP 不提供隔离不同主机或数据库服务器实例上的数据库的任何机制。
+- RP 不提供数据库的租户使用情况报告。
 
 ## <a name="mysql-resource-provider-adapter-architecture"></a>MySQL 资源提供程序适配器体系结构
 

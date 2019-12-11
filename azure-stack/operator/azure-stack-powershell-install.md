@@ -15,16 +15,16 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: e20012ce8ca397a9e74b97e380753b8f3ad33e45
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540301"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993833"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 Azure PowerShell 提供了一组 cmdlet，这些 cmdlet 使用 Azure 资源管理器模型来管理你的 Azure Stack 资源。
 
@@ -39,7 +39,7 @@ API 配置文件提供了一种管理 Azure 与 Azure Stack 之间版本差异�
 开始使用 Azure Stack 和 PowerShell 之前，必须具备以下先决条件：
 
 - **PowerShell 版本5。0** <br>
-若要检查版本，请运行 $PSVersionTable，并比较**主要**版本**PSVersion** 。 如果没有 PowerShell 5.0，请遵循[安装 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)。
+若要检查版本，请运行 $PSVersionTable，并比较**主要**版本**PSVersion** 。 如果没有 PowerShell 5.0，请遵循[安装 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)。
 
   > [!Note]
   > PowerShell 5.0 需要 Windows 计算机。
@@ -126,7 +126,7 @@ API 版本配置文件和所需 Azure Stack PowerShell 模块将取决于你正�
     ```
 
     > [!Note]  
-    > - Azure Stack 模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md#changes)。
+    > - Azure Stack 模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md)。
     > - Azure Stack 模块版本1.7.2 是一个重大更改版本。 若要从 Azure Stack 1.6.0 进行迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
     > - AzureRM 模块版本2.4.0 附带了 cmdlet New-azurermstorageaccount 的重大更改。 此 cmdlet 需要指定 `-Force` 参数才能删除存储帐户，而无需确认。
     > - 不需要安装**AzureRM**来安装 Azure Stack 版本1901或更高版本的模块。
@@ -193,7 +193,7 @@ Get-Module -Name "Azs*" -ListAvailable
     ```
 
     > [!Note]  
-    > - Azure Stack 模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md#changes)。
+    > - Azure Stack 模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md)。
     > Azure Stack 模块版本1.7.1 是一项重大更改。 若要从 Azure Stack 1.6.0 进行迁移，请参阅[迁移指南](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)。
 
     > [!NOTE]
@@ -208,7 +208,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 2. 登录到断开连接的工作站，并将设备上的包复制到工作站上的某个位置。
 
-3. 在断开连接的工作站上手动启动 NuGet 提供程序。 有关说明，请参阅[在未连接到 internet 的计算机上手动启动 NuGet 提供程序](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)。
+3. 在断开连接的工作站上手动启动 NuGet 提供程序。 有关说明，请参阅[在未连接到 internet 的计算机上手动启动 NuGet 提供程序](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)。
 
 4. 将此位置注册为默认存储库，并从此存储库安装 AzureRM 和 `AzureStack` 模块：
 
@@ -241,7 +241,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 在需要代理服务器访问 internet 的方案中，首先将 PowerShell 配置为使用现有的代理服务器：
 
-1. 打开提升权限的 PowerShell 提示符。
+1. 打开提升的 PowerShell 提示符。
 2. 运行以下命令：
 
    ```powershell
