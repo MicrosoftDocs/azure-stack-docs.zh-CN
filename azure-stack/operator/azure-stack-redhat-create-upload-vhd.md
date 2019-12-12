@@ -14,16 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: mabrigg
-ms.reviewer: jeffgo
-ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: d8b986dede7e55cb0418219fce6ac78673eeff60
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.reviewer: kivenkat
+ms.lastreviewed: 12/11/2019
+ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
+ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802292"
+ms.lasthandoff: 12/12/2019
+ms.locfileid: "75007956"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>为 Azure Stack 准备基于 Red Hat 的虚拟机
 
@@ -44,7 +44,7 @@ ms.locfileid: "73802292"
 * 需要装载通用磁盘格式 (UDF) 文件系统的内核支持。 首次启动时，附加到来宾的 UDF 格式的媒体会将预配配置传递到 Linux VM。 Azure Linux 代理必须安装 UDF 文件系统才能读取其配置和预配 VM。
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，并在临时资源磁盘上创建交换文件。 有关详细信息，请参阅以下步骤。
 * Azure 上的所有 VHD 必须已将虚拟大小调整为 1 MB。 将原始磁盘转换为 VHD 时，必须确保原始磁盘大小为 1 MB 的倍数，然后转换。 可以在以下步骤中找到更多详细信息。
-* Azure Stack 不支持 cloud init。 必须使用 Microsoft Azure Linux 代理（WALA）的受支持版本配置 VM。
+* Azure Stack 支持 cloud init。 [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 安装程序包和写入文件，或者配置用户和安全。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>从 Hyper-v 管理器准备 RHEL 7 VM
 
@@ -480,7 +480,7 @@ ms.locfileid: "73802292"
 
 1. 不要在操作系统磁盘上创建交换空间。
 
-    Azure Linux 代理可使用在 Azure 上预配 VM 后附加到 VM 的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是临时磁盘，并且在取消预配 VM 时可能会被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：
+    Azure Linux 代理可使用在 Azure 上预配 VM 后附加到 VM 的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是临时磁盘，并可能在取消预配 VM 时被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：
 
     ```sh
     ResourceDisk.Format=y
