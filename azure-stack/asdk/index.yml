@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Stack 集线器开发工具包文档
 metadata:
-  document_id: null
   title: Azure Stack 集线器开发工具包文档-教程、API 参考
   description: 了解如何部署和使用 Azure Stack 集线器开发工具包。
   services: azure-stack
@@ -15,7 +14,7 @@ metadata:
   ms.date: 04/13/2018
   ms.author: mabrigg
 abstract:
-  description: Azure Stack 集线器开发工具包（ASDK）是可免费下载和使用 Azure Stack 的单节点部署。 ASDK 旨在提供一个特定的环境，方便你在其中评估 Azure Stack 并开发现代应用程序，所使用的 API 和工具与非生产环境中的 Azure 一致。 <br/><br/>如果你是 Azure Stack 操作员，想要管理集成系统基础结构并提供服务，请参阅<a href="/azure-stack/operator">操作员文档</a>。<br/><br/>如果你是使用 Azure Stack 或为 Azure Stack 开发应用的用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。
+  description: Azure Stack 集线器开发工具包（ASDK）是可免费下载和使用 Azure Stack 的单节点部署。 ASDK 旨在提供一个环境，在该环境中，你可以在非生产环境中使用与 Azure 一致的 Api 和工具来评估 Azure Stack 和开发新式应用程序。 <br/><br/>如果你是管理集成系统基础结构并提供服务的 Azure Stack 操作员，请参阅我们的<a href="/azure-stack/operator">操作员文档</a>。<br/><br/>如果你是使用服务或生成 Azure Stack 的应用的 Azure Stack 用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。
 sections:
   - title: 分步教程
     items:
@@ -25,10 +24,10 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure-stack/asdk/asdk-install">部署 ASDK</a>
-          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">添加 Azure Stack 市场项</a>
+          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">添加 Azure Stack marketplace 项</a>
           - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">提供 IaaS 服务</a>
           - html: <a href="/azure-stack/user/azure-stack-subscribe-services">订阅套餐</a>
-          - html: <a href="/azure-stack/operator/create-add-on-plan">更新套餐和计划</a>
+          - html: <a href="/azure-stack/operator/create-add-on-plan">更新产品/服务和计划</a>
           - html: <a href="/azure-stack/user/azure-stack-create-vm-template">从模板创建虚拟机</a>
   - title: 参考
     items:

@@ -2,9 +2,8 @@
 documentType: LandingData
 title: Azure Stack 中心合作伙伴文档
 metadata:
-  document_id: null
   title: Azure Stack 集线器合作伙伴 D\documentation-教程、API R\reference
-  description: 了解如何验证硬件是否可以用来承载 Azure Stack。 作为服务的验证是一种本机 Azure 服务，旨在供与 Microsoft 合作 Azure Stack 中心产品的解决方案合作伙伴使用。
+  description: 了解如何验证你的硬件以承载 Azure Stack。 作为服务的验证是一种本机 Azure 服务，旨在供与 Microsoft 合作 Azure Stack 中心产品的解决方案合作伙伴使用。
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -37,5 +36,5 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">验证新的 Azure Stack 中心解决方案</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">验证 OEM 程序包</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">验证来自 Microsoft 的软件更新</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">验证 OEM 包</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">从 Microsoft 验证软件更新</a>
