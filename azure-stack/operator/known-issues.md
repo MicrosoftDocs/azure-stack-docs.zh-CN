@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
-ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
+ms.openlocfilehash: 77163d12cd23e578bcc9ae7f30f5343fd106ee5b
+ms.sourcegitcommit: 8b266d7bee8b9228e2b46ae69318a9e9994e6449
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995580"
+ms.lasthandoff: 12/14/2019
+ms.locfileid: "75032349"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack 已知问题
 
@@ -154,9 +154,9 @@ ms.locfileid: "74995580"
 
 ### <a name="access-control-iam"></a>访问控制(标识和访问管理)
 
-- 适用：此问题适用于版本1903及更高版本
-- 原因： IAM 扩展已过期。 Ibiza 附带了 Azure Stack 引入了新的行为，该行为会导致 RBAC 扩展在用户从非全局订阅选取器中未选择的订阅打开 RBAC 扩展时中断。
-- 修正：确保在全局订阅选取器中选中订阅。 
+- 适用：此问题适用于使用基本映像1903或更早版本部署的 stamp。
+- 原因： IAM 扩展已过期。 随 Azure Stack 一起提供的 Ibiza 门户引入了新的行为，如果用户正在为未在全局订阅选择器中选择的订阅打开 "**访问控制（IAM）** " 边栏选项卡（在用户门户中为 "**目录 + 订阅**"），则会导致 RBAC 扩展失败。 边栏选项卡以循环显示**加载**，用户无法向订阅添加新的角色。 "**添加**" 边栏选项卡还会在循环中显示**加载**。
+- 修正：确保在 "**目录 + 订阅**" 菜单中选中订阅。 可以从门户顶部、在 "**通知**" 按钮附近或通过显示的 "**所有资源**" 边栏选项卡上的快捷方式访问该菜单 **。打开目录 + 订阅设置**。 必须在此菜单中选择订阅。
 
 ## <a name="networking"></a>网络
 

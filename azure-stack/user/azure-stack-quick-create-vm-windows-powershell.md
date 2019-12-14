@@ -16,16 +16,16 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a46630e7f1e55d248354639a35aa7a389effc353
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 0b30f95b1158df7a20d4c03f26ce0b9ce034f6d6
+ms.sourcegitcommit: e509ae283c6c3c6a83143dbdc63d0b5556daf54a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955658"
+ms.lasthandoff: 12/13/2019
+ms.locfileid: "75031790"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Windows Server VM
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 你可以使用 Azure Stack PowerShell 创建 Windows Server 2016 虚拟机（VM）。 按照本文中的步骤创建并使用 VM。 本文还提供了以下步骤：
 
@@ -183,7 +183,7 @@ $VirtualMachine = Set-AzureRmVMOperatingSystem `
   -VM $VirtualMachine `
   -Windows `
   -ComputerName "MainComputer" `
-  -Credential $Credential
+  -Credential $Credential -ProvisionVMAgent
 
 $VirtualMachine = Set-AzureRmVMSourceImage `
   -VM $VirtualMachine `
