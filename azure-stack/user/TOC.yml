@@ -37,6 +37,8 @@
           items:
             - name: 设置开发环境
               href: azure-stack-dev-start.md
+            - name: 获取授权信息
+              href: authenticate-azure-stack-hub.md
             - name: 将 PowerShell 与 Azure Stack 中心配合使用
               items:
                 - name: Azure Stack 中心 PowerShell 概述
@@ -101,7 +103,7 @@
               href: azure-stack-version-profiles-python.md
             - name: NodeJS
               href: azure-stack-version-profile-nodejs.md
-            - name: 配置文件支持的资源提供程序 Api
+            - name: 配置文件支持的资源提供程序 API
               href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: 使用资源提供程序
       items:
@@ -188,7 +190,7 @@
                   href: azure-stack-metrics-monitor.md
         - name: 部署外接程序服务
           items:
-            - name: 部署以太坊
+            - name: 部署 Ethereum
               href: azure-stack-ethereum.md
             - name: 部署 Service Fabric 群集
               href: azure-stack-solution-template-service-fabric-cluster.md
@@ -228,7 +230,7 @@
                       href: azure-stack-solution-template-kubernetes-dashboard.md
                     - name: 从 Marketplace 项移动 AKS 引擎
                       href: azure-stack-kubernetes-aks-engine-dvm.md
-                    - name: 排查 Kubernetes 群集问题
+                    - name: 对 Kubernetes 群集进行故障排除
                       href: azure-stack-solution-template-kubernetes-trouble.md
             - name: 部署认知服务
               href: azure-stack-solution-template-cognitive-services.md

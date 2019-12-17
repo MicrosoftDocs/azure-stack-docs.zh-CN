@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 09/30/2019
+ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 14c1d6ba96cd8c9671b28f435db90b7b3ce3ad34
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: 2d6329a150e4ab1a81e9c9d092101a085d00afd0
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007973"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033956"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中旋转机密
 
@@ -386,6 +386,10 @@ Remove-PSSession -Session $PEPSession
 1. **早于1910的版本**：按照 OEM 说明更新 Azure Stack 物理服务器上的 BMC。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名不能超过16个字符。
 
    **版本1910及更高版本**：根据 OEM 说明，不再需要首先更新 Azure Stack 物理服务器上的 BMC 凭据。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名不能超过16个字符。
+
+    | 参数 | 描述 | 状况 |
+    | --- | --- | --- |
+    | BypassBMCUpdate | 使用参数时，BMC 中的凭据不会更新。 仅更新 Azure Stack 内部数据存储。 | 可选 |
 
 2. 在 Azure Stack 会话中打开特权终结点。 有关说明，请参阅[在 Azure Stack 中使用特权终结点](azure-stack-privileged-endpoint.md)。
 

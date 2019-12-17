@@ -16,12 +16,12 @@ ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 77163d12cd23e578bcc9ae7f30f5343fd106ee5b
-ms.sourcegitcommit: 8b266d7bee8b9228e2b46ae69318a9e9994e6449
+ms.openlocfilehash: 755bd556d9e4643ff5e17d900cdf7e5245f1894e
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2019
-ms.locfileid: "75032349"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033939"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack 已知问题
 
@@ -46,7 +46,6 @@ ms.locfileid: "75032349"
 ## <a name="update"></a>更新
 
 有关已知的 Azure Stack 中心更新问题，请参阅[Azure Stack 中心的更新疑难解答](azure-stack-updates-troubleshoot.md)。
-
 
 ## <a name="portal"></a>门户
 
@@ -236,8 +235,15 @@ ms.locfileid: "75032349"
 ### <a name="consumed-compute-quota"></a>使用的计算配额
 
 - 适用：此问题适用于所有受支持的版本。
-- 创建新的虚拟机时，可能会收到一个错误，例如，**此订阅在此位置的区域个 vcpu 的容量。此订阅使用全部50个可用区域个 vcpu。** 这表示已达到可用内核总数的配额。
+- 原因：创建新的虚拟机时，可能会收到一个错误，例如，**此订阅在此位置的区域个 vcpu 的容量。此订阅使用全部50个可用区域个 vcpu。** 这表示已达到可用内核总数的配额。
 - 修正：向操作员询问附加配额的附加计划。 编辑当前计划的配额将不起作用或反映增加的配额。
+- 发生次数：罕见
+
+### <a name="privileged-endpoint"></a>特权终结点
+
+- 适用：此问题适用于1910及更早版本。
+- 原因：无法从运行非英语版本的 Windows 的计算机连接到特权终结点（ERC Vm）。
+- 修正：这是在版本晚于1910的版本中修复的已知问题。 一种解决方法是，可以使用**en-us**区域性运行**新的 pssession**并**输入-pssession** Powershell cmdlet;有关示例，请使用以下脚本设置区域性： https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1 。
 - 发生次数：罕见
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
