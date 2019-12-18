@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9dc2de86828e188aa82b44d376e693be887717d8
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682176"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183419"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Azure Stack 中的 MySQL 资源提供程序维护操作
 
@@ -170,7 +170,7 @@ $session | Remove-PSSession
 如果机密旋转脚本在运行时失败，则不会自动收集机密轮换日志。
 
 **解决方法：**<br>
-使用 AzsDBAdapterLogs cmdlet 来收集所有资源提供程序日志，包括 Test-azurestack 中保存的 DatabaseAdapter. Start-secretrotation _*
+使用 AzsDBAdapterLogs cmdlet 收集所有资源提供程序日志，包括 ps1_ Start-secretrotation * .log，并保存在 C:\Logs. 中。
 
 ## <a name="collect-diagnostic-logs"></a>收集诊断日志
 
@@ -225,6 +225,32 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 $session | Remove-PSSession
 
 ```
+
+## <a name="configure-azure-diagnostics-extension-for-mysql-resource-provider"></a>为 MySQL 资源提供程序配置 Azure 诊断扩展
+
+默认情况下，在 MySQL 资源提供程序适配器 VM 上安装 Azure 诊断扩展。 以下步骤演示了如何自定义扩展，以便收集 MySQL 资源提供程序的操作事件日志和 IIS 日志，以便进行故障排除和审核。
+
+1. 登录到 Azure Stack 中心管理员门户。
+
+2. 从左侧窗格中选择 "**虚拟机**"，搜索 MySQL 资源提供程序适配器 VM，并选择 vm。
+
+3. 在 VM 的**诊断设置**中，请单击 "**日志**" 选项卡，然后选择 "**自定义**" 自定义要收集的事件日志。
+   
+   ![中转到诊断设置](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
+
+4. 添加**test-azurestack-DatabaseAdapter/operation！\*** 以收集 MySQL 资源提供程序的操作事件日志。
+
+   ![添加事件日志](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
+
+5. 若要启用 IIS 日志的集合，请检查 " **iis 日志**" 和 "**失败的请求日志**"。
+
+   ![添加 IIS 日志](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
+
+6. 最后，选择 "**保存**" 以保存所有诊断设置。
+
+为 MySQL 资源提供程序配置事件日志和 IIS 日志收集后，可在名为**mysqladapterdiagaccount**的系统存储帐户中找到日志。
+
+若要详细了解 Azure 诊断扩展，请参阅[什么是 Azure 诊断扩展](/azure-monitor/platform/diagnostics-extension-overview)。
 
 ## <a name="next-steps"></a>后续步骤
 

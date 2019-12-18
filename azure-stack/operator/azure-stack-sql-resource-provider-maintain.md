@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 8d8464c35b2aaa48c5611f7eac84ed6f9d80e866
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 5841509f9c5c9aef20dd2687adb0e54856fa5d3e
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954496"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183537"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -231,6 +231,27 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 # Close the session.
 $session | Remove-PSSession
 ```
+## <a name="configure-azure-diagnostics-extension-for-sql-resource-provider"></a>为 SQL 资源提供程序配置 Azure 诊断扩展
+默认情况下，在 SQL 资源提供程序适配器 VM 上安装 Azure 诊断扩展。 以下步骤说明了如何自定义扩展以收集 SQL 资源提供程序的操作事件日志和 IIS 日志，以便进行故障排除和审核目的。
+
+1. 登录到 Azure Stack 中心管理员门户。
+
+2. 从左侧窗格中选择 "**虚拟机**"，搜索 SQL 资源提供程序适配器 vm，并选择 vm。
+
+3. 在 VM 的 "**诊断设置**" 中，请单击 "**日志**" 选项卡，然后选择 "**自定义**" 自定义要收集的事件日志。
+![中转到 "诊断设置"](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
+
+4. 添加**test-azurestack-DatabaseAdapter/operation！\*** 以收集 SQL 资源提供程序的操作事件日志。
+![添加事件日志](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
+
+5. 若要启用 IIS 日志的集合，请检查 " **iis 日志**" 和 "**失败的请求日志**"。
+![添加 IIS 日志](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
+
+6. 最后，选择 "**保存**" 以保存所有诊断设置。
+
+为 SQL 资源提供程序配置事件日志和 IIS 日志收集后，可在名为**sqladapterdiagaccount**的系统存储帐户中找到日志。
+
+若要详细了解 Azure 诊断扩展，请参阅[什么是 Azure 诊断扩展](/azure-monitor/platform/diagnostics-extension-overview)。
 
 ## <a name="next-steps"></a>后续步骤
 
