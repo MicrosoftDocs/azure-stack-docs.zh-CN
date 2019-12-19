@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 54693e1aa67edd2851429e45f1a00365ca99160c
-ms.sourcegitcommit: 8b266d7bee8b9228e2b46ae69318a9e9994e6449
+ms.openlocfilehash: 8c124f44ed938108a4b23cea44642b7e275eb04d
+ms.sourcegitcommit: c0fe1ac8c38d0475621ad8022db96983f9e5ae79
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2019
-ms.locfileid: "75032332"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75188396"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack 更新：发行说明
 
@@ -211,7 +211,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统;不要尝试在 AS
 1910版本的 Azure Stack 必须应用于带有以下修补程序的1908版本：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序1.1908.9.43](https://support.microsoft.com/help/4531007)
+- [Azure Stack 修补程序1.1908.11.47](https://support.microsoft.com/help/4535000)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>成功应用1910更新后
 
@@ -295,7 +295,7 @@ Azure Stack 1908 更新需要从系统的硬件提供程序**AZURE STACK OEM 版
 安装此更新后，安装任何适用的修补程序。 有关详细信息，请参阅[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序1.1908.9.43](https://support.microsoft.com/help/4531007)
+- [Azure Stack 修补程序1.1908.11.47](https://support.microsoft.com/help/4535000)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

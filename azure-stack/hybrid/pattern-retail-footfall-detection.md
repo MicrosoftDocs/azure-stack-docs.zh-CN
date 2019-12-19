@@ -8,12 +8,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: a7a7563db3c315c4913287e8f286f07abd633602
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
+ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638350"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75187278"
 ---
 # <a name="footfall-detection-pattern"></a>Footfall 检测模式
 
@@ -37,8 +37,8 @@ Contoso 想要找出一种不引人注目的、可通过隐私识别的方式来
 2. 如果该模型看到某个人，则会拍摄一张图片，并将其上传到 Azure Stack 中心 blob 存储。 
 3. Blob 服务在 Azure Stack 集线器上触发 Azure 函数。 
 4. Azure 函数会调用容器，其中包含人脸 API 以获取图像中的人口统计数据和情感数据。
-5. 数据匿名并发送到 Azure 事件中心。
-6. 事件中心将数据推送到流分析。
+5. 数据匿名并发送到 Azure 事件中心群集。
+6. 事件中心群集可将数据推送到流分析。
 7. 流分析聚合数据并将其推送到 Power BI。
 
 ## <a name="components"></a>组件
@@ -51,11 +51,11 @@ Contoso 想要找出一种不引人注目的、可通过隐私识别的方式来
 | Azure | [Azure 事件中心](/azure/event-hubs/) | Azure 事件中心提供可缩放的平台，适用于与 Azure 流分析完美集成的引入匿名数据。 |
 |  | [Azure 流分析](/azure/stream-analytics/) | Azure 流分析作业聚合匿名数据，并将其分组到15秒的窗口中进行可视化。 |
 |  | [Microsoft Power BI](https://powerbi.microsoft.com/) | Power BI 提供了一个易于使用的仪表板界面，用于查看来自 Azure 流分析的输出。 |
-| Azure Stack 中心 | [应用服务](../operator/azure-stack-app-service-overview.md) | 应用服务资源提供程序（RP）为边缘组件提供基。 包括 web 应用/Api 和函数的宿主和管理功能。 |
+| Azure Stack Hub | [应用服务](../operator/azure-stack-app-service-overview.md) | 应用服务资源提供程序（RP）为边缘组件提供基。 包括 web 应用/Api 和函数的宿主和管理功能。 |
 | | Azure Kubernetes 服务[（AKS）引擎](https://github.com/Azure/aks-engine)群集 | 将 AKS 群集部署到 Azure Stack 集线器中的 AKS RP 提供可缩放的弹性引擎来运行人脸 API 容器。 |
 | | Azure 认知服务[人脸 API 容器](/azure/cognitive-services/face/face-how-to-install-containers)| 具有人脸 API 容器的 Azure 认知服务 RP 在 Contoso 的专用网络上提供了人口统计、情感和独特的访问者检测。 |
 | | Blob 存储 | 从 AI 开发工具包捕获的图像将上传到 Azure Stack 集线器的 blob 存储。 |
-| | Azure Functions | 在 Azure Stack 集线器上运行的 Azure 函数接收来自 blob 存储的输入，并管理与人脸 API 的交互。 它将匿名数据发送到位于 Azure 中的事件中心。<br><br>|
+| | Azure Functions | 在 Azure Stack 集线器上运行的 Azure 函数接收来自 blob 存储的输入，并管理与人脸 API 的交互。 它将匿名数据发送到位于 Azure 中的事件中心群集。<br><br>|
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
 
@@ -67,7 +67,7 @@ Contoso 想要找出一种不引人注目的、可通过隐私识别的方式来
 
 - 增加流分析流式处理单元数
 - 横向扩展人脸 API 部署
-- 提高事件中心吞吐量
+- 提高事件中心群集吞吐量
 - 对于极端情况，可能需要从 Azure Functions 迁移到虚拟机。
 
 ### <a name="availability"></a>可用性
