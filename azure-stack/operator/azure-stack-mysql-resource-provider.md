@@ -15,18 +15,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: b66a72ce872d64f8fde3cb80ced5e6ad33d80b4d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: ceda705c4a06ac9465c3f017a87986ba6e20e4b3
+ms.sourcegitcommit: e57a53caac50d1f8762307e065fe886fcda7eadf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993778"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75190856"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 MySQL 数据库
 
-MySQL 数据库通常与网站结合使用，并支持许多网站平台。 例如，可以使用应用服务资源提供程序（PaaS）加载项创建 WordPress 网站。
-
-部署资源提供程序并将其连接到一个或多个 MySQL 服务器实例后，可以：
+使用 MySQL 资源提供程序提供[Azure Stack](azure-stack-overview.md)上的 mysql 数据库服务。 部署资源提供程序并将其连接到一个或多个 MySQL 服务器实例后，可以：
 
 * 使用 Azure 资源管理器部署模板创建 MySQL 数据库。
 * 提供 MySQL 数据库即服务。  
