@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 已知问题
-description: 了解 Azure Stack 版本中的已知问题。
+title: Azure Stack 集线器已知问题
+description: 了解 Azure Stack 集线器版本中的已知问题。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 755bd556d9e4643ff5e17d900cdf7e5245f1894e
-ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
+ms.openlocfilehash: fd65fd8fc43135ac9c7985fc4d6a90f4ced90f45
+ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75033939"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75303763"
 ---
-# <a name="azure-stack-known-issues"></a>Azure Stack 已知问题
+# <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
-本文列出了 Azure Stack 发行版中的已知问题。 当发现新问题时，将更新此列表。
+本文列出了 Azure Stack 集线器的发行版中的已知问题。 当发现新问题时，将更新此列表。
 
 若要访问不同版本的已知问题，请使用左侧目录上方的 "版本选择器" 下拉列表。
 
@@ -35,7 +35,7 @@ ms.locfileid: "75033939"
 ::: moniker-end
 ::: moniker range="<azs-1906"
 > [!IMPORTANT]  
-> 如果 Azure Stack 实例超过两个更新，则会将其视为不符合。 必须[至少更新到支持的最低版本](azure-stack-servicing-policy.md#keep-your-system-under-support)。 
+> 如果 Azure Stack 集线器实例落后于两个以上的更新，则将其视为不符合。 必须[至少更新到支持的最低版本](azure-stack-servicing-policy.md#keep-your-system-under-support)。 
 ::: moniker-end
 
 <!---------------------------------------------------------->
@@ -65,14 +65,14 @@ ms.locfileid: "75033939"
 ### <a name="subscription-permissions"></a>订阅权限
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：无法使用 Azure Stack 门户查看订阅的权限。
+- 原因：无法使用 Azure Stack 中心门户查看订阅的权限。
 - 修正：使用[PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
 
 ### <a name="storage-account-settings"></a>存储帐户设置
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"存储帐户**配置**" 边栏选项卡显示了更改**安全传输类型**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"存储帐户**配置**" 边栏选项卡显示了更改**安全传输类型**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 ### <a name="upload-blob-with-oauth-error"></a>上传具有 OAuth 错误的 blob
@@ -85,7 +85,7 @@ ms.locfileid: "75033939"
 ### <a name="upload-blob-option-unsupported"></a>不支持上传 blob 选项
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，当你尝试上传上传边栏选项卡中的 blob 时，可以选择选择**aad**或**密钥身份验证**，但 Azure Stack 中不支持**AAD** 。
+- 原因：在用户门户中，当你尝试上传上传边栏选项卡中的 blob 时，有一个选择**aad**或**密钥身份验证**的选项，但 Azure Stack 集线器不支持**AAD** 。
 - 发生次数：常见
 
 ### <a name="load-balancer-backend-pool"></a>负载均衡器后端池
@@ -97,13 +97,13 @@ ms.locfileid: "75033939"
 ### <a name="incorrect-tooltip-when-creating-vm"></a>创建 VM 时工具提示不正确
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，选择托管磁盘时，如果磁盘类型为 "高级 SSD"，则下拉列表将显示**操作系统磁盘**。 该选项旁的工具提示指出**可以使用 Azure 免费帐户免费访问某些 OS 磁盘大小**;但是，这对 Azure Stack 无效。 此外，该列表还包括可用于 Azure Stack 的**免费帐户**。
+- 原因：在用户门户中，选择托管磁盘时，如果磁盘类型为 "高级 SSD"，则下拉列表将显示**操作系统磁盘**。 该选项旁的工具提示指出**可以使用 Azure 免费帐户免费访问某些 OS 磁盘大小**;但是，这对 Azure Stack 中心无效。 此外，该列表还包括**可用的免费帐户**，该帐户对 Azure Stack 中心也无效。
 - 发生次数：常见
 
 ### <a name="vpn-troubleshoot-and-metrics"></a>VPN 故障排除和指标
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，vpn 网关资源中的**Vpn 故障排除**功能和**指标**会出现，但是 Azure Stack 不支持此功能。
+- 原因：在用户门户中，vpn 网关资源中的**Vpn 故障排除**功能和**度量值**将出现，但是 Azure Stack 集线器不支持此功能。
 - 发生次数：常见
 
 ### <a name="adding-extension-to-vm-scale-set"></a>正在将扩展添加到 VM 规模集
@@ -129,13 +129,13 @@ ms.locfileid: "75033939"
 ### <a name="virtual-network-gateway"></a>虚拟网络网关
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，创建路由表时，"**虚拟网络网关**" 将显示为 "下一跃点类型" 选项;但 Azure Stack 不支持此项。
+- 原因：在用户门户中，创建路由表时，"**虚拟网络网关**" 将显示为 "下一跃点类型" 选项;但 Azure Stack 集线器不支持此项。
 - 发生次数：常见
 
 ### <a name="storage-account-options"></a>存储帐户选项
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，存储帐户的名称显示为**存储帐户-blob、文件、表、队列**，但 Azure Stack 中不支持**文件**。
+- 原因：在用户门户中，存储帐户的名称显示为**存储帐户-blob、文件、表、队列**;但 Azure Stack 集线器不支持**文件**。
 - 发生次数：常见
 
 ### <a name="storage-account-configuration"></a>存储帐户配置
@@ -146,16 +146,22 @@ ms.locfileid: "75033939"
 
 ### <a name="capacity-monitoring-in-sql-resource-provider-keeps-loading"></a>SQL 资源提供程序中的容量监视保留加载
 
-- 适用：此问题适用于 Azure Stack 1910 更新或更高版本，并且安装了 SQL 资源提供程序版本1.1.33.0 或更早版本。
+- 适用：此问题适用于 Azure Stack 集线器1910更新或更高版本，并且安装了 SQL 资源提供程序版本1.1.33.0 或更早版本。
 - 原因：当前版本的 SQL 资源提供程序与1910更新中的某些最新门户更改不兼容。
-- 修正：在将 Azure Stack 升级到1910更新之后，请按照资源提供程序更新过程应用 SQL 资源提供程序修补程序1.1.47.0 （[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)）。 对于 MySQL 资源提供程序，在 Azure Stack 升级到1910更新（[MYSQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)）后，还建议你应用 mysql 资源提供程序修补程序1.1.47.0。
+- 修正：在 Azure Stack 集线器升级到1910更新后，请按照资源提供程序更新过程应用 SQL 资源提供程序修补程序1.1.47.0 （[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)）。 对于 MySQL 资源提供程序，还建议在 Azure Stack 集线器升级到1910更新（[MYSQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)）后应用 mysql 资源提供程序修补程序1.1.47.0。
 - 发生次数：常见
 
-### <a name="access-control-iam"></a>访问控制(标识和访问管理)
+### <a name="access-control-iam"></a>访问控制（IAM）
 
 - 适用：此问题适用于使用基本映像1903或更早版本部署的 stamp。
-- 原因： IAM 扩展已过期。 随 Azure Stack 一起提供的 Ibiza 门户引入了新的行为，如果用户正在为未在全局订阅选择器中选择的订阅打开 "**访问控制（IAM）** " 边栏选项卡（在用户门户中为 "**目录 + 订阅**"），则会导致 RBAC 扩展失败。 边栏选项卡以循环显示**加载**，用户无法向订阅添加新的角色。 "**添加**" 边栏选项卡还会在循环中显示**加载**。
+- 原因： IAM 扩展已过期。 Azure Stack 集线器随附的 Ibiza 门户引入了新的行为，如果用户正在为未在全局订阅选择器中选择的订阅（在用户门户中为**目录 + 订阅**）打开 "**访问控制（IAM）** " 边栏选项卡，则该行为会导致 RBAC 扩展失败。 边栏选项卡以循环显示**加载**，用户无法向订阅添加新的角色。 "**添加**" 边栏选项卡还会在循环中显示**加载**。
 - 修正：确保在 "**目录 + 订阅**" 菜单中选中订阅。 可以从门户顶部、在 "**通知**" 按钮附近或通过显示的 "**所有资源**" 边栏选项卡上的快捷方式访问该菜单 **。打开目录 + 订阅设置**。 必须在此菜单中选择订阅。
+
+### <a name="sql-resource-provider"></a>SQL 资源提供程序
+
+- 适用：此问题适用于运行1908或更早版本的戳记。
+- 原因：部署 SQL 资源提供程序（RP）版本1.1.47.0 时，门户不会显示与 SQL RP 关联的资产。
+- 修正：删除 RP，升级 stamp，并重新部署 SQL RP。
 
 ## <a name="networking"></a>网络
 
@@ -174,7 +180,7 @@ ms.locfileid: "75033939"
 ### <a name="service-endpoints"></a>服务终结点
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，**虚拟网络**边栏选项卡显示了一个使用**服务终结点**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，**虚拟网络**边栏选项卡显示了一个使用**服务终结点**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 ### <a name="network-interface"></a>网络接口
@@ -197,29 +203,29 @@ ms.locfileid: "75033939"
 #### <a name="alerts"></a>警报
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="active-active"></a>主动-主动
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="vpn-troubleshooter"></a>VPN 疑难解答
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="documentation"></a>文档
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：虚拟网络网关的 "概述" 页中的文档链接，指向特定于 Azure 的文档，而不是 Azure Stack。 使用以下链接获取 Azure Stack 文档：
+- 原因：虚拟网络网关的 "概述" 页中的文档链接，指向特定于 Azure 的文档，而不是 Azure Stack 集线器的链接。 使用以下链接了解 Azure Stack 中心文档：
 
   - [网关 Sku](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [高可用连接](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [在 Azure Stack 上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [在 Azure Stack 集线器上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute 线路](azure-stack-connect-expressroute.md)
   - [指定自定义 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -248,11 +254,11 @@ ms.locfileid: "75033939"
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>在4节点 Azure Stack 环境的修补和更新过程中创建故障
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>在4节点 Azure Stack 中心环境中的修补和更新过程中创建故障
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在具有3个容错域的可用性集中创建虚拟机并创建虚拟机规模集实例将在 Azure Stack 环境的4节点上的更新过程中失败，并出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
-- 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在 Azure Stack 部署的4节点上，在更新过程中创建规模集实例仍不可用。
+- 原因：在包含3个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例在 Azure Stack 集线器环境的4节点上的更新过程中出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
+- 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在 Azure Stack 中心部署的4节点上，在更新过程中创建规模集实例仍不可用。
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

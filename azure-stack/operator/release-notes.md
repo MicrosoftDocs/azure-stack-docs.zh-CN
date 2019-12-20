@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 发行说明 |Microsoft Docs
-description: 了解 Azure Stack 集成系统的更新，包括新功能以及下载更新的位置。
+title: Azure Stack 集线器发行说明 |Microsoft Docs
+description: 了解 Azure Stack 集线器集成系统的更新，包括新功能以及下载更新的位置。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,28 +16,28 @@ ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 8c124f44ed938108a4b23cea44642b7e275eb04d
-ms.sourcegitcommit: c0fe1ac8c38d0475621ad8022db96983f9e5ae79
+ms.openlocfilehash: 47f1872f65496d57201b00f807667d1d6bf81bf7
+ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75188396"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75303745"
 ---
-# <a name="azure-stack-updates-release-notes"></a>Azure Stack 更新：发行说明
+# <a name="azure-stack-hub-updates-release-notes"></a>Azure Stack 中心更新：发行说明
 
-*适用于：Azure Stack 集成系统*
+*适用于： Azure Stack 集线器集成系统*
 
-本文介绍 Azure Stack 更新包的内容。 此更新包括此版本 Azure Stack 的新增功能和修补程序。
+本文介绍 Azure Stack 中心更新包的内容。 此更新包括此版本 Azure Stack 集线器的新增功能和修补程序。
 
 若要访问不同版本的发行说明，请使用左侧目录上方的 "版本选择器" 下拉列表。
 
 ::: moniker range=">=azs-1906"
 > [!IMPORTANT]  
-> 此更新包仅适用于 Azure Stack 集成系统。 请勿将此更新包应用于 Azure Stack 开发工具包。
+> 此更新包仅适用于 Azure Stack 集线器集成系统。 请勿将此更新包应用于 Azure Stack 开发工具包。
 ::: moniker-end
 ::: moniker range="<azs-1906"
 > [!IMPORTANT]  
-> 如果 Azure Stack 实例超过两个更新，则会将其视为不符合。 必须[至少更新到支持的最低版本](azure-stack-servicing-policy.md#keep-your-system-under-support)。
+> 如果 Azure Stack 集线器实例落后于两个以上的更新，则将其视为不符合。 必须[至少更新到支持的最低版本](azure-stack-servicing-policy.md#keep-your-system-under-support)。
 ::: moniker-end
 
 ## <a name="update-planning"></a>更新规划
@@ -48,7 +48,7 @@ ms.locfileid: "75188396"
 - [安全更新](release-notes-security-updates.md)
 - [应用更新前后的活动清单](release-notes-checklist.md)
 
-有关更新和更新过程故障排除的帮助，请参阅[解决 Azure Stack 的修补程序和更新问题](azure-stack-updates-troubleshoot.md)。
+有关更新和更新过程故障排除的帮助，请参阅[排查 Azure Stack 集线器的修补程序和更新问题](azure-stack-updates-troubleshoot.md)。
 
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
@@ -56,17 +56,17 @@ ms.locfileid: "75188396"
 ::: moniker range="azs-1910"
 ## <a name="1910-build-reference"></a>1910生成引用
 
-Azure Stack 1910 更新内部版本号为**1.1910.0.58**。
+Azure Stack 中心1910更新内部版本号为**1.1910.0.58**。
 
 ### <a name="update-type"></a>更新类型
 
-从1908开始，Azure Stack 运行的基础操作系统已更新到 Windows Server 2019。 这可以实现核心基本的增强功能，并能够在不久的将来为 Azure Stack 提供附加功能。
+从1908开始，Azure Stack 中心运行的基础操作系统已更新到 Windows Server 2019。 这可以实现核心基本的增强功能，以及在不久的将来将其他功能引入 Azure Stack 集线器的能力。
 
-Azure Stack 1910 更新生成类型为**Express**。
+Azure Stack 中心1910更新生成类型为**Express**。
 
-与以前的更新相比，1910更新包的大小较大。 增加的大小会导致下载时间较长。 此更新将在**准备**状态中保留较长时间，操作员预期此过程所花费的时间比以前的更新要长。 完成1910更新所需的预期时间大约为10小时，而不考虑 Azure Stack 环境中的物理节点数。 确切的更新运行时通常取决于您的系统上使用的容量、租户工作负荷、系统网络连接（如果已连接到 internet）以及系统硬件规范。 持续时间比预期值长的运行时并不常见，因此，如果更新失败，则不需要 Azure Stack 运算符执行操作。 此运行时近似值特定于1910更新，不应与其他 Azure Stack 更新进行比较。
+与以前的更新相比，1910更新包的大小较大。 增加的大小会导致下载时间较长。 此更新将在**准备**状态中保留较长时间，操作员预期此过程所花费的时间比以前的更新要长。 完成1910更新所需的预期时间大约为10小时，而与 Azure Stack 中心环境中的物理节点数量无关。 确切的更新运行时通常取决于您的系统上使用的容量、租户工作负荷、系统网络连接（如果已连接到 internet）以及系统硬件规范。 持续时间比预期值长的运行时并不常见，因此，如果更新失败，则不需要 Azure Stack 中心操作员执行操作。 此运行时近似值特定于1910更新，不应与其他 Azure Stack 中心更新进行比较。
 
-有关更新生成类型的详细信息，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)。
+有关更新生成类型的详细信息，请参阅[管理 Azure Stack 集线器中的更新](azure-stack-updates.md)。
 
 <!-- ## What's in this update -->
 
@@ -78,50 +78,50 @@ Azure Stack 1910 更新生成类型为**Express**。
 
 - 管理员门户现在在 "区域属性" 菜单中显示特权终结点 IP 地址，以方便发现。 此外，它还显示当前配置的时间服务器和 DNS 转发器。
 
-- 如果发生错误，Azure Stack 运行状况和监视系统现在可以为各种硬件组件发出警报。 这需要其他配置。 有关详细信息，请参阅[监视 Azure Stack 硬件组件](azure-stack-hardware-monitoring.md)。
+- 如果发生错误，Azure Stack 中心运行状况和监视系统现在可以为各种硬件组件发出警报。 这需要其他配置。 有关详细信息，请参阅[监视 Azure Stack 集线器硬件组件](azure-stack-hardware-monitoring.md)。
 
-- [Azure Stack 的 cloud init 支持](/azure/virtual-machines/linux/using-cloud-init)：云初始化是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 安装程序包和写入文件，或者配置用户和安全。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。 已更新 marketplace 中的 Ubuntu 映像，以支持云初始化，以便进行设置。
+- [Azure Stack 集线器的 cloud init 支持](/azure/virtual-machines/linux/using-cloud-init)：云初始化是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 安装程序包和写入文件，或者配置用户和安全。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。 已更新 marketplace 中的 Ubuntu 映像，以支持云初始化，以便进行设置。
 
-- Azure Stack 现在支持 Azure 中的所有 Microsoft Azure Linux 代理版本。
+- Azure Stack 集线器现在支持 Azure 中的所有 Microsoft Azure Linux 代理版本。
 
-- Azure Stack 管理 PowerShell 模块的新版本可用。 <!-- For more information, see -->
+- 提供了新版本的 Azure Stack 集线器管理 PowerShell 模块。 <!-- For more information, see -->
 
-- 在特权终结点（PEP）中添加了**AzSDefenderManualUpdate** cmdlet，以在 Azure Stack 基础结构中配置 Windows Defender 定义的手动更新。 有关详细信息，请参阅[更新 Azure Stack 上的 Windows Defender 防病毒](azure-stack-security-av.md)。
+- 在特权终结点（PEP）中添加了**AzSDefenderManualUpdate** cmdlet，以在 Azure Stack 中心基础结构中配置 Windows Defender 定义的手动更新。 有关详细信息，请参阅[更新 Azure Stack 集线器上的 Windows Defender 防病毒](azure-stack-security-av.md)。
 
-- 在特权终结点（PEP）中添加了**AzSDefenderManualUpdate** cmdlet，以检索 Azure Stack 基础结构中 Windows Defender 定义的手动更新的配置。 有关详细信息，请参阅[更新 Azure Stack 上的 Windows Defender 防病毒](azure-stack-security-av.md)。
+- 在特权终结点（PEP）中添加了**AzSDefenderManualUpdate** cmdlet，以检索 Azure Stack 中心基础结构中的 Windows Defender 定义的手动更新的配置。 有关详细信息，请参阅[更新 Azure Stack 集线器上的 Windows Defender 防病毒](azure-stack-security-av.md)。
 
-- 在特权终结点（PEP）中添加了**AzSDnsForwarder** cmdlet，以在 Azure Stack 中更改 DNS 服务器的转发器设置。 有关 DNS 配置的详细信息，请参阅[Azure Stack DATACENTER DNS 集成](azure-stack-integrate-dns.md)。
+- 在特权终结点（PEP）中添加了**AzSDnsForwarder** cmdlet，以更改 Azure Stack 集线器中的 DNS 服务器的转发器设置。 有关 DNS 配置的详细信息，请参阅[Azure Stack 中心数据中心 DNS 集成](azure-stack-integrate-dns.md)。
 
-- 在特权终结点（PEP）中添加了**AzSDnsForwarder** cmdlet，以检索 AZURE STACK 中 DNS 服务器的转发器设置。 有关 DNS 配置的详细信息，请参阅[Azure Stack DATACENTER DNS 集成](azure-stack-integrate-dns.md)。
+- 在特权终结点（PEP）中添加了**AzSDnsForwarder** cmdlet，以检索 Azure Stack 集线器中的 DNS 服务器的转发器设置。 有关 DNS 配置的详细信息，请参阅[Azure Stack 中心数据中心 DNS 集成](azure-stack-integrate-dns.md)。
 
-- 添加了对使用[AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)管理**Kubernetes 群集**的支持。 从此更新开始，客户可以部署生产 Kubernetes 群集。 AKS 引擎使用户能够：
-   - 管理其 Kubernetes 群集的生命周期。 他们可以创建、更新和缩放群集。
-   - 使用 AKS 和 Azure Stack 团队生成的托管映像维护其群集。
-   - 利用 Azure 资源管理器集成的使用 Azure 本机资源构建群集的 Kubernetes 云提供程序。
-   - 在连接或断开连接 Azure Stack 戳记中部署和管理其群集。
-   - 利用 Azure 混合功能：
-      * 与 Azure Arc 集成（即将推出个人预览版）
-      * 与容器 Azure Monitor 集成（公共预览版）
-   - 将 Windows 容器与 AKS 引擎（个人预览版）配合使用。
-   - 接收针对其部署的 CSS 和 PG 支持。
+- 添加了对使用[AKS 引擎](../user/azure-stack-kubernetes-aks-engine-overview.md)管理**Kubernetes 群集**的支持。 从此更新开始，客户可以部署生产 Kubernetes 群集。 AKS 引擎使用户能够：
+  - 管理其 Kubernetes 群集的生命周期。 他们可以创建、更新和缩放群集。
+  - 使用 AKS 和 Azure Stack 团队生成的托管映像维护其群集。
+  - 利用 Azure 资源管理器集成的 Kubernetes 云提供程序，该提供程序使用本机 Azure 资源构建群集。
+  - 在连接或断开 Azure Stack 集线器戳记中部署和管理其群集。
+  - 使用 Azure 混合功能：
+    - 与 Azure Arc 集成（即将推出个人预览版）。
+    - 与容器 Azure Monitor 集成（公共预览版）。
+  - 将 Windows 容器与 AKS 引擎（个人预览版）配合使用。
+  - 接收针对其部署的 CSS 和工程支持。
 
-### <a name="improvements"></a>改进
+### <a name="improvements"></a>措施
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- Azure Stack 提高了自动修正某个修补程序的能力，并更新了以前导致更新失败或阻止操作员启动 Azure Stack 更新的问题。 因此， **test-azurestack-UpdateReadiness**组中包含的测试越少。 有关详细信息，请参阅[验证 Azure Stack 系统状态](azure-stack-diagnostic-test.md#groups)。 **UpdateReadiness**组中保留了以下三个测试：
+- Azure Stack 中心提高了自动修正某些修补程序的能力，并更新了以前导致更新失败或阻止操作员启动 Azure Stack 中心更新的问题。 因此， **test-azurestack-UpdateReadiness**组中包含的测试越少。 有关详细信息，请参阅[验证 Azure Stack 集线器系统状态](azure-stack-diagnostic-test.md#groups)。 **UpdateReadiness**组中保留了以下三个测试：
 
   - **AzSInfraFileValidation**
   - **AzSActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- 添加了审核规则，以便在将外部设备（例如 USB 密钥）装入到 Azure Stack 基础结构的节点时进行报告。 审核日志通过 syslog 发出，并显示为**Microsoft Windows 安全审核： 6416 |即插即用事件**。 有关如何配置 syslog 客户端的详细信息，请参阅[syslog 转发](azure-stack-integrate-security.md)。
+- 添加了审核规则，以便在将外部设备（例如 USB 密钥）装入到 Azure Stack 中心基础结构的节点时进行报告。 审核日志通过 syslog 发出，并显示为**Microsoft Windows 安全审核： 6416 |即插即用事件**。 有关如何配置 syslog 客户端的详细信息，请参阅[syslog 转发](azure-stack-integrate-security.md)。
 
-- 对于内部证书，Azure Stack 将转移到4096位 RSA 密钥。 运行内部机密轮换会将旧的2048位证书替换为4096位长证书。 有关 Azure Stack 中的机密旋转的详细信息，请参阅[在 Azure Stack 中轮换机密](azure-stack-rotate-secrets.md)。
+- Azure Stack 集线器正在迁移到4096位的 RSA 密钥以获取内部证书。 运行内部机密轮换会将旧的2048位证书替换为4096位长证书。 有关 Azure Stack 中心中的机密旋转的详细信息，请参阅[在 Azure Stack 中心中旋转机密](azure-stack-rotate-secrets.md)。
 
 - 升级到多个内部组件的加密算法和密钥强度的复杂性，以遵守国家安全系统上的委员会-Policy 15 （CNSSP-15），其中提供了使用公共标准实现安全的最佳实践信息共享。 在改进中，Kerberos 身份验证和用于 VPN 加密的 SHA384 AES256。 有关 CNSSP-15 的详细信息，请参阅[国家安全系统上的委员会 "策略" 页](http://www.cnss.gov/CNSS/issuances/Policies.cfm)。
 
-- 由于上述升级，Azure Stack 现在为 IPsec/IKEv2 配置提供了新的默认值。 Azure Stack 端使用的新默认值如下所示：
+- 由于上述升级，Azure Stack 集线器现在具有新的 IPsec/IKEv2 配置默认值。 Azure Stack 中心端使用的新默认值如下所示：
 
    **IKE 阶段1（主模式）参数**
 
@@ -147,28 +147,28 @@ Azure Stack 1910 更新生成类型为**Express**。
 
    这些更改也会反映在[默认的 IPsec/IKE 建议](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)文档中。
 
-- 基础结构备份服务改进了计算需要的可用空间以进行备份的逻辑，而不是依赖固定的阈值。 服务将使用外部存储位置的备份、保留策略、保留和当前使用率的大小来确定是否需要向 operater 发出警告。 
+- 基础结构备份服务改进了计算所需可用空间以进行备份的逻辑，而不是依赖固定阈值。 服务将使用外部存储位置的备份、保留策略、保留和当前使用率的大小来确定是否需要向操作员发出警告。
 
 ### <a name="changes"></a>更改
 
-- 将 marketplace 项从 Azure 下载到 Azure Stack 时，有一个新的用户界面，当存在多个版本时，可以使用它来指定项的版本。 已连接和已断开连接的方案中都提供了新的 UI。 有关详细信息，请参阅[将 marketplace 项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。  
+- 将 marketplace 项从 Azure 下载到 Azure Stack 中心时，有一个新的用户界面，可用于在多个版本存在时指定项的版本。 已连接和已断开连接的方案中都提供了新的 UI。 有关详细信息，请参阅[将 marketplace 项从 Azure 下载到 Azure Stack 中心](azure-stack-download-azure-marketplace-item.md)。  
 
-- 从1910版本开始，Azure Stack 系统**需要**额外的/20 个专用内部 IP 空间。 此网络专用于 Azure Stack 系统，可在数据中心内的多个 Azure Stack 系统上重复使用。 网络专用于 Azure Stack 时，它不得与数据中心内的网络重叠。 /20 专用 IP 空间划分为多个网络，以便在容器上运行 Azure Stack 基础结构（如上文[1905 发行说明](release-notes.md?view=azs-1905)中所述）。 在容器中运行 Azure Stack 基础结构的目标是优化利用率和提高性能。 此外，还使用了/20 个专用 IP 空间来实现正在进行的工作，从而减少部署之前所需的可路由 IP 空间。
+- 从1910版本开始，Azure Stack 集线器系统**需要**额外的/20 个专用内部 IP 空间。 此网络专用于 Azure Stack 中心系统，可在数据中心内的多个 Azure Stack 集线器系统上重复使用。 网络专用于 Azure Stack 集线器时，它不得与数据中心内的网络重叠。 /20 专用 IP 空间划分为多个网络，以便在容器上运行 Azure Stack 中心基础结构（如上文[1905 发行说明](release-notes.md?view=azs-1905)中所述）。 在容器中运行 Azure Stack 中心基础结构的目标是优化利用率和提高性能。 此外，还使用了/20 个专用 IP 空间来实现正在进行的工作，从而减少部署之前所需的可路由 IP 空间。
 
-  - 请注意，在1910之后，/20 输入作为下一个 Azure Stack 更新的先决条件。 如果在1910之后发布了下一个 Azure Stack 更新，并且尝试安装该更新，则在更正步骤中，如果尚未完成/20 输入，则更新会失败。 在完成上述更正步骤之前，将在管理门户中显示警报。 请参阅[数据中心网络集成](azure-stack-network.md#private-network)一文，了解如何使用这个新的专用空间。 
+  - 请注意，在1910之后，/20 输入作为下一个 Azure Stack 中心更新的先决条件。 在1910发布后的下一个 Azure Stack 中心更新后，如果你尝试安装它，则更新将会失败，如果你尚未完成 "更正步骤" 中所述的 "/20 输入" （如下所述）。 在完成上述更正步骤之前，将在管理门户中显示警报。 请参阅[数据中心网络集成](azure-stack-network.md#private-network)一文，了解如何使用这个新的专用空间。 
 
-  - 更正步骤：若要进行修正，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备大小为/20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，并使用以下示例在 PEP 会话中运行以下 cmdlet （仅从1910开始提供）： `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 如果操作成功执行，你将收到消息**Azs 将内部网络范围添加到配置**。如果成功完成，则警报将在管理门户中关闭。 Azure Stack 系统现在可以更新到下一个版本。
+  - 更正步骤：若要进行修正，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备大小为/20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，并使用以下示例在 PEP 会话中运行以下 cmdlet （仅从1910开始提供）： `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 如果操作成功执行，你将收到消息**Azs 将内部网络范围添加到配置**。如果成功完成，则警报将在管理门户中关闭。 Azure Stack 集线器系统现在可以更新到下一个版本。
   
 - 如果在上传过程中外部存储位置的容量用尽，则基础结构备份服务将删除部分上传的备份数据。  
 
 - 基础结构备份服务将标识服务添加到 AAD 部署的备份负载。  
 
-- Test-azurestack PowerShell 模块已更新为1910版本的1.8.0 版本。<br>更改包括：
-   - **新的 DRP 管理模块**：部署资源提供程序（DRP）允许资源提供程序的协调部署 Azure Stack。 这些命令与 Azure 资源管理器层交互，以便与 DRP 交互。
+- Azure Stack PowerShell 模块已更新为1910版本的版本1.8.0。<br>更改包括：
+   - **新的 DRP 管理模块**：部署资源提供程序（DRP）支持将资源提供程序部署到 Azure Stack 中心。 这些命令与 Azure 资源管理器层交互，以便与 DRP 交互。
    - **BRP**： <br />
            -支持符号 stack 基础结构备份的单一角色还原。 <br />
            -将参数 `RoleName` 添加到 cmdlet `Restore-AzsBackup`。
-   - **FRP**： API 版本 `2019-05-01`的**驱动器**和**卷**资源的重大更改。 Azure Stack 1910 及更高版本支持以下功能： <br />
+   - **FRP**： API 版本 `2019-05-01`的**驱动器**和**卷**资源的重大更改。 Azure Stack 集线器1910和更高版本支持以下功能： <br />
             -`ID`、`Name`、`HealthStatus` 和 `OperationalStatus` 的值已更改。 <br />
             -支持**驱动器**资源的 `FirmwareVersion`、`IsIndicationEnabled`、`Manufacturer`和 `StoragePool` 的新属性。 <br />
             -已不推荐使用**驱动器**资源的属性 `CanPool` 和 `CannotPoolReason`;改用 `OperationalStatus`。
@@ -177,16 +177,16 @@ Azure Stack 1910 更新生成类型为**Express**。
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
-- 修复了在 Azure Stack 1904 版本之前部署的环境上阻止强制执行 TLS 1.2 策略的问题。
+- 修复了在 Azure Stack 集线器1904版本之前部署的环境上阻止强制执行 TLS 1.2 策略的问题。
 - 解决了已启用 SSH 授权的 Ubuntu 18.04 VM 不允许使用 SSH 密钥登录的问题。 
 - 已从虚拟机规模集 UI 中删除**重置密码**。
 - 解决了从门户中删除负载均衡器的问题不会导致在基础结构层中删除对象。
 - 修复了在管理门户上显示不准确的网关池使用率警报百分比的问题。
-- 修复了在虚拟机上的同一 NIC 上添加多个公共 IP 导致 internet 连接问题的问题。 现在，具有两个公共 Ip 的 NIC 应该按预期方式工作。
+<!-- Fixed an issue where adding more than one public IP on the same NIC on a Virtual Machine resulted in internet connectivity issues. Now, a NIC with two public IPs should work as expected.[This fix actually didn't go in 1910 due to build issues, commenting out until next build (2002) ] -->
 
 ## <a name="security-updates"></a>安全更新
 
-有关此 Azure Stack 更新中的安全更新的信息，请参阅[Azure Stack 安全更新](release-notes-security-updates.md)。
+有关 Azure Stack 中心更新的安全更新的信息，请参阅[Azure Stack 中心安全更新](release-notes-security-updates.md)。
 
 ## <a name="update-planning"></a>更新规划
 
@@ -198,27 +198,27 @@ Azure Stack 1910 更新生成类型为**Express**。
 
 ## <a name="download-the-update"></a>下载更新
 
-可以从[Azure Stack 下载页](https://aka.ms/azurestackupdatedownload)下载 Azure Stack 1910 更新包。
+可以从[Azure Stack 中心下载页](https://aka.ms/azurestackupdatedownload)下载 Azure Stack 中心1910更新包。
 
 ## <a name="hotfixes"></a>修补程序
 
-Azure Stack 定期发布修补程序。 在将 Azure Stack 更新为1910之前，请务必安装最新 Azure Stack 修补程序1908。
+Azure Stack 中心定期发布修补程序。 将 Azure Stack 中心更新为1910之前，请务必安装最新的 Azure Stack 中心修补程序1908。
 
-Azure Stack 修补程序仅适用于 Azure Stack 集成系统;不要尝试在 ASDK 上安装修补程序。
+Azure Stack 集线器修补程序仅适用于 Azure Stack 集线器集成系统;不要尝试在 ASDK 上安装修补程序。
 
 ### <a name="prerequisites-before-applying-the-1910-update"></a>先决条件：在应用1910更新之前
 
-1910版本的 Azure Stack 必须应用于带有以下修补程序的1908版本：
+Azure Stack 集线器1910版必须应用于带有以下修补程序的1908版本：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序1.1908.11.47](https://support.microsoft.com/help/4535000)
+- [Azure Stack 中心修补程序1.1908.11.47](https://support.microsoft.com/help/4535000)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>成功应用1910更新后
 
 安装此更新后，安装任何适用的修补程序。 有关详细信息，请参阅[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修补程序1.1910.8.76](https://support.microsoft.com/help/4534999)
+- [Azure Stack 中心修补程序1.1910.9.78](https://support.microsoft.com/help/4536210)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -250,7 +250,7 @@ Azure Stack 1908 更新生成类型已**满**。 因此，1908更新的运行时
 - Azure Stack 基础结构的所有组件现在在 FIPS 140-2 模式下运行。
 - Azure Stack 运算符现在可以删除门户用户数据。 有关详细信息，请参阅[从 Azure Stack 中清除门户用户数据](azure-stack-portal-clear.md)。
 
-### <a name="improvements"></a>改进
+### <a name="improvements"></a>措施
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - 对 Azure Stack 静态加密数据的改进，将机密保存到物理节点的硬件受信任的平台模块（TPM）中。
@@ -325,7 +325,7 @@ Azure Stack 1907 更新生成类型为**Express**。 有关更新生成类型的
 
 - 添加了内部机密旋转过程，以便在系统更新过程中根据需要轮替内部 SQL TLS 证书。
 
-### <a name="improvements"></a>改进
+### <a name="improvements"></a>措施
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
@@ -447,7 +447,7 @@ Azure Stack 1906 更新生成类型为**Express**。 有关更新生成类型的
 
 - Visual Studio Code 现在支持使用 AD FS Azure Stack 部署。
 
-### <a name="improvements"></a>改进
+### <a name="improvements"></a>措施
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
@@ -551,7 +551,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统;不要尝试在 AS
 > 订阅以下*RSS*或*Atom*馈送，以跟上 Azure Stack 修补程序：
 >
 > - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
-> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
+> - [动](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archive"></a>存档
 
