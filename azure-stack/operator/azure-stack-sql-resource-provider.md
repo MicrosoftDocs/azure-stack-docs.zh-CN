@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 9e7800c018816155205569397520271fb86c4c12
+ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993884"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492757"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>在 Azure Stack 上使用 SQL 数据库
 
@@ -31,7 +31,7 @@ ms.locfileid: "74993884"
 - 使用 SQL 的网站。
 - 使用 SQL 的工作负荷。
 
-安装 MySQL 资源提供程序之前，请考虑以下几个限制：
+安装 SQL 资源提供程序之前，需要考虑几个限制：
 
 - 用户只能创建和管理单个数据库。 最终用户无法访问数据库服务器实例。 这可能会限制与需要访问 master、Temp DB 或动态管理数据库的本地数据库应用程序的兼容性。
 - 你的 Azure Stack 操作员负责部署、更新、保护、配置和维护 SQL 数据库服务器和主机。 RP 服务不提供任何主机和数据库服务器实例管理功能。 
