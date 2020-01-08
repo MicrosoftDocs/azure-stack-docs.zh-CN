@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: fd65fd8fc43135ac9c7985fc4d6a90f4ced90f45
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.openlocfilehash: 11dcd7288f629282c1f69d12c33e9bd1a8e440b6
+ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303763"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75503617"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
@@ -94,6 +94,12 @@ ms.locfileid: "75303763"
 - 原因：在用户门户中，添加**负载均衡器**后端池时，操作导致错误消息 "**无法保存负载均衡器后端池**";但是，此操作实际上已成功。
 - 发生次数：常见
 
+### <a name="alert-for-network-interface-disconnected"></a>网络接口断开连接警报
+
+- 适用：此问题适用于1908和1910版本。
+- 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
+- 发生次数：常见
+
 ### <a name="incorrect-tooltip-when-creating-vm"></a>创建 VM 时工具提示不正确
 
 - 适用：此问题适用于所有受支持的版本。
@@ -151,9 +157,9 @@ ms.locfileid: "75303763"
 - 修正：在 Azure Stack 集线器升级到1910更新后，请按照资源提供程序更新过程应用 SQL 资源提供程序修补程序1.1.47.0 （[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)）。 对于 MySQL 资源提供程序，还建议在 Azure Stack 集线器升级到1910更新（[MYSQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)）后应用 mysql 资源提供程序修补程序1.1.47.0。
 - 发生次数：常见
 
-### <a name="access-control-iam"></a>访问控制（IAM）
+### <a name="access-control-iam"></a>访问控制 (标识和访问管理)
 
-- 适用：此问题适用于使用基本映像1903或更早版本部署的 stamp。
+- 适用：此问题适用于所有受支持的版本。
 - 原因： IAM 扩展已过期。 Azure Stack 集线器随附的 Ibiza 门户引入了新的行为，如果用户正在为未在全局订阅选择器中选择的订阅（在用户门户中为**目录 + 订阅**）打开 "**访问控制（IAM）** " 边栏选项卡，则该行为会导致 RBAC 扩展失败。 边栏选项卡以循环显示**加载**，用户无法向订阅添加新的角色。 "**添加**" 边栏选项卡还会在循环中显示**加载**。
 - 修正：确保在 "**目录 + 订阅**" 菜单中选中订阅。 可以从门户顶部、在 "**通知**" 按钮附近或通过显示的 "**所有资源**" 边栏选项卡上的快捷方式访问该菜单 **。打开目录 + 订阅设置**。 必须在此菜单中选择订阅。
 
@@ -163,9 +169,9 @@ ms.locfileid: "75303763"
 - 原因：部署 SQL 资源提供程序（RP）版本1.1.47.0 时，门户不会显示与 SQL RP 关联的资产。
 - 修正：删除 RP，升级 stamp，并重新部署 SQL RP。
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
-### <a name="load-balancer"></a>负载均衡
+### <a name="load-balancer"></a>负载均衡器
 
 - 适用：此问题适用于所有受支持的版本。
 - 原因：将可用性集 Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户上的一个表面问题;此功能仍然存在，并且在内部将 Vm 成功添加到后端池。
@@ -318,7 +324,13 @@ ms.locfileid: "75303763"
 - 修正：使用 SAS 选项上传 blob。
 - 发生次数：常见
 
-## <a name="networking"></a>网络
+### <a name="alert-for-network-interface-disconnected"></a>网络接口断开连接警报
+
+- 适用：此问题适用于1908版本。
+- 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
+- 发生次数：常见
+
+## <a name="networking"></a>联网
 
 ### <a name="load-balancer"></a>负载均衡器
 
@@ -482,7 +494,7 @@ ms.locfileid: "75303763"
 - 修正：使用 SAS 选项上传 blob。
 - 发生次数：常见
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
 ### <a name="load-balancer"></a>负载均衡器
 
@@ -665,7 +677,7 @@ ms.locfileid: "75303763"
 - 修正：刷新门户，状态将更新为 "正在进行"。
 - 出现次数：间歇
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
 ### <a name="service-endpoints"></a>服务终结点
 
@@ -711,7 +723,7 @@ ms.locfileid: "75303763"
   - [ExpressRoute 线路](azure-stack-connect-expressroute.md)
   - [指定自定义 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-### <a name="load-balancer"></a>负载均衡
+### <a name="load-balancer"></a>负载均衡器
 
 #### <a name="add-backend-pool"></a>添加后端池
 
