@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: be51964d4416e632f5ef3462c3c42861a82e47d5
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007956"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654893"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>为 Azure Stack 准备基于 Red Hat 的虚拟机
 
@@ -44,7 +44,7 @@ ms.locfileid: "75007956"
 * 需要装载通用磁盘格式 (UDF) 文件系统的内核支持。 首次启动时，附加到来宾的 UDF 格式的媒体会将预配配置传递到 Linux VM。 Azure Linux 代理必须安装 UDF 文件系统才能读取其配置和预配 VM。
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，并在临时资源磁盘上创建交换文件。 有关详细信息，请参阅以下步骤。
 * Azure 上的所有 VHD 必须已将虚拟大小调整为 1 MB。 将原始磁盘转换为 VHD 时，必须确保原始磁盘大小为 1 MB 的倍数，然后转换。 可以在以下步骤中找到更多详细信息。
-* Azure Stack 支持 cloud init。 [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 安装程序包和写入文件，或者配置用户和安全。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。
+* Azure Stack 支持 cloud init。 [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 安装程序包和写入文件，或者配置用户和安全。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。 有关将云初始化添加到映像的说明，请参阅[准备要用于云初始化的现有 Linux AZURE VM 映像](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image)。
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>从 Hyper-v 管理器准备 RHEL 7 VM
 
@@ -104,7 +104,7 @@ ms.locfileid: "75007956"
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. 停止并卸载云初始化：
+1. [1910 在版发布后可选]停止并卸载云初始化：
 
     ```bash
     systemctl stop cloud-init
@@ -117,18 +117,59 @@ ms.locfileid: "75007956"
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
+1. 为 Azure Stack 创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 更新到1903版本及更高版本或应用1901/1902 修补程序。
+
+    [1910 版之前]按照以下说明下载兼容的 WALinuxAgent：
+
+    1. 下载 setuptools。
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. 从 GitHub 下载并解压缩代理的2.2.20 版本。
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. 安装 setup.py。
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. 重新启动 waagent。
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. 测试代理版本是否与下载的版本匹配。 对于本示例，应为2.2.20。
+
+    ```bash
+    waagent -version
+    ```
+    
+    [1910 发布后]按照以下说明下载兼容的 WALinuxAgent：
+    
+    1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. 通过运行以下命令来安装 Azure Linux 代理：
+    1. 通过运行以下命令安装 Azure Linux 代理：
 
     ```bash
     sudo yum install WALinuxAgent
     sudo systemctl enable waagent.service
     ```
+
 
 1. 不要在操作系统磁盘上创建交换空间。
 
@@ -255,7 +296,7 @@ ms.locfileid: "75007956"
     dracut -f -v
     ```
 
-1. 停止并卸载云初始化：
+1. [1910 在版发布后可选]停止并卸载云初始化：
 
     ```bash
     systemctl stop cloud-init
@@ -275,11 +316,11 @@ ms.locfileid: "75007956"
     ClientAliveInterval 180
     ```
 
-1. 为 Azure Stack 创建自定义 vhd 时，请记住2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者都是独占的）在 Azure Stack 环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 更新为1903版或应用1901/1902 修补程序。
+1. 为 Azure Stack 创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 更新到1903版本及更高版本或应用1901/1902 修补程序。
 
-    按照以下说明下载 WALinuxAgent：
+    [1910 版之前]按照以下说明下载兼容的 WALinuxAgent：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 下载 setuptools。
+    1. 下载 setuptools。
 
     ```bash
     wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
@@ -287,7 +328,7 @@ ms.locfileid: "75007956"
     cd setuptools-7.0
     ```
 
-   b. 从 GitHub 下载并解压缩代理的2.2.20 版本。
+    1. 从 GitHub 下载并解压缩代理的2.2.20 版本。
 
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
@@ -295,22 +336,37 @@ ms.locfileid: "75007956"
     cd WALinuxAgent-2.2.20
     ```
 
-    c. 安装 setup.py。
+    1. 安装 setup.py。
 
     ```bash
     sudo python setup.py install
     ```
 
-    d.单击“下一步”。 重新启动 waagent。
+    1. 重新启动 waagent。
 
     ```bash
     sudo systemctl restart waagent
     ```
 
-    e. 测试代理版本是否与下载的版本匹配。 对于本示例，应为2.2.20。
+    1. 测试代理版本是否与下载的版本匹配。 对于本示例，应为2.2.20。
 
     ```bash
     waagent -version
+    ```
+    
+    [1910 发布后]按照以下说明下载兼容的 WALinuxAgent：
+    
+    1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
+
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```
+
+    1. 通过运行以下命令安装 Azure Linux 代理：
+
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. 不要在操作系统磁盘上创建交换空间。
@@ -452,7 +508,7 @@ ms.locfileid: "75007956"
     dracut -f -v
     ```
 
-1. 停止并卸载云初始化：
+1. [1910 在版发布后可选]停止并卸载云初始化：
 
     ```bash
     systemctl stop cloud-init
@@ -465,13 +521,53 @@ ms.locfileid: "75007956"
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
+1. 为 Azure Stack 创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 更新到1903版本及更高版本或应用1901/1902 修补程序。
+
+    [1910 版之前]按照以下说明下载兼容的 WALinuxAgent：
+
+    1. 下载 setuptools。
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. 从 GitHub 下载并解压缩代理的2.2.20 版本。
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. 安装 setup.py。
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. 重新启动 waagent。
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. 测试代理版本是否与下载的版本匹配。 对于本示例，应为2.2.20。
+
+    ```bash
+    waagent -version
+    ```
+    
+    [1910 发布后]按照以下说明下载兼容的 WALinuxAgent：
+    
+    1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. 通过运行以下命令来安装 Azure Linux 代理：
+    1. 通过运行以下命令安装 Azure Linux 代理：
 
     ```bash
     sudo yum install WALinuxAgent
@@ -541,7 +637,7 @@ ms.locfileid: "75007956"
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>使用 kickstart 文件自动从 ISO 准备基于 Red Hat 的 VM
 
-1. 创建包括以下内容的 kickstart 文件，并保存该文件。 有关 kickstart 安装的详细信息，请参阅 [Kickstart 安装指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)。
+1. 创建包括以下内容的 kickstart 文件，并保存该文件。 停止和卸载 cloud init 是可选的（Azure Stack post 1910 发行版支持云初始化）。 仅在1910版本后，从 redhat 存储库安装代理。 在1910之前，请使用上一部分中的 Azure 存储库。 有关 kickstart 安装的详细信息，请参阅 [Kickstart 安装指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)。
 
     ```sh
     Kickstart for provisioning a RHEL 7 Azure VM
@@ -674,9 +770,9 @@ ms.locfileid: "75007956"
 
 1. 打开 VM 设置：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 将新的虚拟硬盘附加到 VM。 请务必选择“VHD 格式”和“固定大小”。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 将新的虚拟硬盘附加到 VM。 请务必选择“VHD 格式”和“固定大小”。
 
-    b. 将安装 ISO 附加到 DVD 光驱。
+    b.保留“数据库类型”设置，即设置为“共享”。 将安装 ISO 附加到 DVD 光驱。
 
     c. 将 BIOS 设置为从 CD 启动。
 

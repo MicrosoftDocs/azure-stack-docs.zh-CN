@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 54d79742ab39a2732a774401a1765b7a264e1fab
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d6adbc374cbd2472ceed1895fe7efb34ab5b9d64
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638449"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654910"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>部署使用 Azure 和 Azure Stack 中心缩放跨云的应用
 
@@ -33,7 +33,7 @@ ms.locfileid: "73638449"
 > - 了解如何监视和跟踪部署。
 
 > [!Tip]  
-> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
@@ -59,7 +59,7 @@ ms.locfileid: "73638449"
 
 -   需要 .NET 3.5 的 Windows Server 2016 VM。 此 VM 将在 Azure Stack 中心作为专用生成代理的租户订阅中生成。
 
--   在 Azure Stack Hub Marketplace 中提供[了包含 SQL 2017 VM 映像的 Windows Server 2016](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) 。 如果此映像不可用，请与 Azure Stack 中心操作员合作，以确保将其添加到环境中。
+-   在 Azure Stack Hub Marketplace 中提供[了包含 SQL 2017 VM 映像的 Windows Server 2016](../operator/azure-stack-add-vm-image.md) 。 如果此映像不可用，请与 Azure Stack 中心操作员合作，以确保将其添加到环境中。
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
 
@@ -238,7 +238,7 @@ Azure Pipelines 和 Azure DevOps Services 为发布到多个环境（例如开�
 
 3.  在**VSTS 组**中，选择 "**终结点创建者**"。
 
-4.  在 "**成员**" 选项卡上，选择 "**添加**"。
+4.  在“成员”选项卡上，选择“添加”。
 
 5.  在 "**添加用户和组**" 中，输入用户名并从用户列表中选择该用户。
 
@@ -246,7 +246,7 @@ Azure Pipelines 和 Azure DevOps Services 为发布到多个环境（例如开�
 
 7.  在 " **VSTS 组**" 列表中，选择 "**终结点管理员**"。
 
-8.  在 "**成员**" 选项卡上，选择 "**添加**"。
+8.  在“成员”选项卡上，选择“添加”。
 
 9.  在 "**添加用户和组**" 中，输入用户名并从用户列表中选择该用户。
 

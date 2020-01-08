@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d03049fd6dea5f5d7a10a61a25639cb1de3d67ad
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73057784"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654876"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>创建和发布自定义 Azure Stack Marketplace 项
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 发布到 Azure Stack Marketplace 的每个项目都使用 Azure 库包（.azpkg）格式。 使用*Azure Gallery Packager*工具，你可以创建自定义 Azure 库包，你可以将其上传到 Azure Stack Marketplace，用户可以下载该包。 部署过程使用 Azure 资源管理器模板。
 
@@ -35,11 +35,11 @@ ms.locfileid: "73057784"
 ## <a name="create-a-marketplace-item"></a>创建市场项目
 
 > [!IMPORTANT]
-> 创建 VM marketplace 项之前，请按照[将 vm 映像添加到 Azure Stack](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal)中的说明，将自定义 VM 映像上传到 Azure Stack 门户。 然后，按照本文中的说明打包映像（创建 .azpkg）并将其上传到 Azure Stack Marketplace。
+> 创建 VM marketplace 项之前，请按照[将 vm 映像添加到 Azure Stack](azure-stack-add-vm-image.md)中的说明，将自定义 VM 映像上传到 Azure Stack 门户。 然后，按照本文中的说明打包映像（创建 .azpkg）并将其上传到 Azure Stack Marketplace。
 
 若要创建自定义 marketplace 项，请执行以下操作：
 
-1. 下载[Azure Gallery Packager 工具](https://aka.ms/azsmarketplaceitem)和示例 Azure Stack 库包。 此下载包括自定义 VM 模板。 提取 .zip 文件，并将文件夹**SimpleVMTemplate**的名称重命名为要在 Azure Stack 门户上显示的项的名称。
+1. 下载[Azure Gallery Packager 工具](https://aka.ms/azsmarketplaceitem)和示例 Azure Stack 库包。 此下载包括自定义 VM 模板。 提取 .zip 文件，并在文件夹**自定义 vm**下，可以使用 Linux 或可用的 Windows 模板。 您可以决定重新使用预置模板，并使用您将在 Azure Stack 门户上显示的项的产品详细信息修改各自的参数。 或者，你可以只是重新使用可用的 .azpkg 文件，并跳过以下步骤来自定义你自己的库包。
 
 2. 创建 Azure 资源管理器模板或使用我们的 Windows/Linux 示例模板。 在步骤1中下载的包装器工具 .zip 文件中提供了这些示例模板。 您可以使用模板和更改文本字段，也可以从 GitHub 下载预配置的模板。 有关 Azure 资源管理器模板的详细信息，请参阅[azure 资源管理器模板](/azure/azure-resource-manager/resource-group-authoring-templates)。
 
@@ -51,7 +51,7 @@ ms.locfileid: "73057784"
 
    ![部署模板结构的屏幕截图](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. 将以下突出显示的值（包含数字的值）替换为在[上传自定义映像](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal)时提供的值。
+4. 将以下突出显示的值（包含数字的值）替换为在[上传自定义映像](azure-stack-add-vm-image.md)时提供的值。
 
    > [!NOTE]  
    > 切勿对 Azure 资源管理器模板中的任何机密（如产品密钥、密码或任何客户身份信息）进行硬编码。 模板 JSON 文件在库中发布后无需进行身份验证即可访问。 将所有机密存储在[Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter)中，并从该模板中调用这些机密。
@@ -216,22 +216,22 @@ ms.locfileid: "73057784"
 
 ### <a name="identity-information"></a>标识信息
 
-| 名称 | 需要 | Type | 约束 | 描述 |
+| 名称 | 需要 | 类型 | 约束 | Description |
 | --- | --- | --- | --- | --- |
-| 名称 |X |字符串 |[A-za-z0-9] + | |
-| 发布者 |X |字符串 |[A-za-z0-9] + | |
-| 版本 |X |字符串 |[SemVer v2](https://semver.org/) | |
+| 名称 |X |String |[A-Za-z0-9]+ | |
+| 发布者 |X |String |[A-Za-z0-9]+ | |
+| 版本 |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>元数据
 
-| 名称 | 需要 | Type | 约束 | 描述 |
+| 名称 | 需要 | 类型 | 约束 | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |字符串 |建议80个字符 |如果项目名称的长度超过80个字符，门户可能不会正确显示您的项目名称。 |
-| PublisherDisplayName |X |字符串 |建议30个字符 |如果你的发布者名称长度超过30个字符，则它可能不会正确显示你的发布者名称。 |
-| PublisherLegalName |X |字符串 |最多256个字符 | |
-| 总结 |X |字符串 |60到100个字符 | |
-| LongSummary |X |字符串 |140到256个字符 |尚不适用于 Azure Stack。 |
-| 描述 |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500到5000个字符 | |
+| DisplayName |X |String |建议80个字符 |如果项目名称的长度超过80个字符，门户可能不会正确显示您的项目名称。 |
+| PublisherDisplayName |X |String |建议30个字符 |如果你的发布者名称长度超过30个字符，则它可能不会正确显示你的发布者名称。 |
+| PublisherLegalName |X |String |最多256个字符 | |
+| 摘要 |X |String |60到100个字符 | |
+| LongSummary |X |String |140到256个字符 |尚不适用于 Azure Stack。 |
+| Description |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500到5000个字符 | |
 
 ### <a name="images"></a>图像
 
@@ -253,19 +253,19 @@ Marketplace 使用以下图标：
 
 每个 Marketplace 项可以包含指向其他内容的各种链接。 这些链接指定为名称和 Uri 的列表：
 
-| 名称 | 需要 | Type | 约束 | 描述 |
+| 名称 | 需要 | 类型 | 约束 | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |字符串 |最多64个字符。 | |
+| DisplayName |X |String |最多64个字符。 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>其他属性
 
 除了上述元数据外，Marketplace 作者还可以提供以下形式的自定义键/值对数据：
 
-| 名称 | 需要 | Type | 约束 | 描述 |
+| 名称 | 需要 | 类型 | 约束 | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |字符串 |最多25个字符。 | |
-| Value |X |字符串 |最多30个字符。 | |
+| DisplayName |X |String |最多25个字符。 | |
+| 值 |X |String |最多30个字符。 | |
 
 ### <a name="html-sanitization"></a>HTML 净化
 
