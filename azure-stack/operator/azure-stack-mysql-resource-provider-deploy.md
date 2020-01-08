@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: aa76766ad6528148cc8662780c4bc4dd593b366a
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 4b2cbde2222e13b148072149d461ff4636b77d59
+ms.sourcegitcommit: 4cd33bcb1bb761a424afd51f511b093543786d76
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557593"
+ms.lasthandoff: 12/21/2019
+ms.locfileid: "75325104"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 资源提供程序
 
@@ -93,7 +93,7 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 部署 PKI 要求](
 
 你可以从命令行指定这些参数。 如果不是，或者任何参数验证失败，系统会提示提供所需的参数。
 
-| 参数名称 | 描述 | 注释或默认值 |
+| 参数名称 | Description | 注释或默认值 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 访问特权终结点所需的云管理员凭据。 | _必需_ |
 | **AzCredential** | Azure Stack service 管理员帐户的凭据。 使用用于部署 Azure Stack 的相同凭据。 | _必需_ |
@@ -104,8 +104,8 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 部署 PKI 要求](
 | **DefaultSSLCertificatePassword** | .Pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 如果出现故障，要重试每个操作的次数。| 2 |
 | **RetryDuration** | 两次重试之间的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | No |
-| **DebugMode** | 防止在失败时自动清除。 | No |
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | 否 |
+| **DebugMode** | 防止在失败时自动清除。 | 否 |
 | **AcceptLicense** | 跳过提示以接受 GPL 许可证。  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 MySQL 资源提供程序
@@ -148,10 +148,6 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
-# Clear the existing login information from the Azure PowerShell context.
-Clear-AzureRMContext -Scope CurrentUser -Force
-Clear-AzureRMContext -Scope Process -Force
-
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
@@ -173,7 +169,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>使用 Azure Stack 门户验证部署
 
 1. 以服务管理员身份登录到管理员门户。
-2. 选择 "**资源组**"。
+2. 选择“资源组”。
 3. 选择 " **\<位置"\>"mysqladapter.dbadapter** " 资源组。
 4. 在资源组概述的 "摘要" 页上，应该没有失败的部署。
 5. 最后，在管理员门户中选择 "**虚拟机**"，验证 MySQL 资源提供程序 VM 是否已成功创建且正在运行。

@@ -15,12 +15,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 509f6509b00a3bccd005fd93b69006ebbfd2f2f0
-ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
+ms.openlocfilehash: 897cb42ad2a84f3802f4d35e97a03d4976800121
+ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73712711"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75677869"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack"></a>在 Azure Stack 中添加 MySQL 宿主服务器
 
@@ -29,11 +29,16 @@ ms.locfileid: "73712711"
 > [!NOTE]
 > MySQL 资源提供程序应在默认提供程序订阅中创建，而 MySQL 宿主服务器应在可计费的用户订阅中创建。 不应使用资源提供程序服务器来托管用户数据库。
 
-MySQL 版本5.6、5.7 和8.0 可用于宿主服务器。 MySQL RP 不支持 caching_sha2_password authentication;将在下一版本中添加。 MySQL 8.0 服务器必须配置为使用 mysql_native_password。 也支持 MariaDB。
+MySQL 版本5.6、5.7 和8.0 可用于宿主服务器。 MySQL RP 不支持 caching_sha2_password 身份验证;将在下一版本中添加。 MySQL 8.0 服务器必须配置为使用 mysql_native_password。 也支持 MariaDB。
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>连接到 MySQL 宿主服务器
 
-请确保您具有具有系统管理员特权的帐户的凭据。 若要添加主机服务器，请执行以下步骤：
+请确保您具有具有系统管理员特权的帐户的凭据。
+
+> [!NOTE]
+> 对于 MySQL 8.0 及更高版本，默认情况下不启用远程访问。 你需要创建新的用户帐户，并向 previledge 授予此用户帐户的远程访问权限，然后再将其添加为宿主服务器。
+
+若要添加主机服务器，请执行以下步骤：
 
 1. 以服务管理员身份登录到 Azure Stack 管理员门户。
 2. 选择“所有服务”。
@@ -73,7 +78,7 @@ MySQL 版本5.6、5.7 和8.0 可用于宿主服务器。 MySQL RP 不支持 cach
 
 * 确保所有宿主服务器都配置为使用 TLS 1.1 进行通信。 请参阅[将 MySQL 配置为使用加密连接](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html)。
 * 使用[透明数据加密](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html)。
-* MySQL RP 不支持 caching_sha2_password authentication。
+* MySQL RP 不支持 caching_sha2_password 身份验证。
 
 ## <a name="increase-backend-database-capacity"></a>增加后端数据库容量
 
@@ -90,9 +95,9 @@ MySQL 版本5.6、5.7 和8.0 可用于宿主服务器。 MySQL RP 不支持 cach
 
 不能将 Sku 分配给特定用户或组。
 
-若要编辑 SKU，请  > **MySQL 适配器** > **sku**中转到 "**所有服务**"。 选择要修改的 SKU，进行任何必要的更改，然后单击 "**保存**" 以保存更改。 
+若要编辑 SKU，请 > **MySQL 适配器** > **sku**中转到 "**所有服务**"。 选择要修改的 SKU，进行任何必要的更改，然后单击 "**保存**" 以保存更改。 
 
-若要删除不再需要的 SKU，请在  > **MySQL 适配器** > **sku**中转到 "**所有服务**"。 右键单击 SKU 名称，然后选择 "**删除**" 将其删除。
+若要删除不再需要的 SKU，请在 > **MySQL 适配器** > **sku**中转到 "**所有服务**"。 右键单击 SKU 名称，然后选择 "**删除**" 将其删除。
 
 > [!IMPORTANT]
 > 最长可能需要一小时才能在用户门户中使用新 Sku。

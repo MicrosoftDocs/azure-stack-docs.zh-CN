@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ae2e5ec161be9dace70746c5b5460964d2348272
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: d486eaef122e1a66cca3725743d7772107e55107
+ms.sourcegitcommit: 4cd33bcb1bb761a424afd51f511b093543786d76
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954564"
+ms.lasthandoff: 12/21/2019
+ms.locfileid: "75325121"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 资源提供程序
 
@@ -91,7 +91,7 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 部署 PKI 要求](
 
 你可以从命令行指定以下参数。 如果不是，或者任何参数验证失败，系统会提示提供所需的参数。
 
-| 参数名称 | 描述 | 注释或默认值 |
+| 参数名称 | Description | 注释或默认值 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 访问特权终结点所需的云管理员凭据。 | _必需_ |
 | **AzCredential** | Azure Stack service 管理员帐户的凭据。 使用用于部署 Azure Stack 的相同凭据。 | _必需_ |
@@ -102,8 +102,8 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 部署 PKI 要求](
 | **DefaultSSLCertificatePassword** | .Pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 如果出现故障，要重试每个操作的次数。| 2 |
 | **RetryDuration** | 两次重试之间的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | No |
-| **DebugMode** | 防止在失败时自动清除。 | No |
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | 否 |
+| **DebugMode** | 防止在失败时自动清除。 | 否 |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 SQL 资源提供程序
 
@@ -149,10 +149,6 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-
-# Clear the existing login information from the Azure PowerShell context.
-Clear-AzureRMContext -Scope CurrentUser -Force
-Clear-AzureRMContext -Scope Process -Force
 
 # Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `
