@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中删除 MySQL 资源提供程序 |Microsoft Docs
-description: 了解如何从 Azure Stack 部署中删除 MySQL 资源提供程序。
+title: 在 Azure Stack Hub 中删除 MySQL 资源提供程序 |Microsoft Docs
+description: 了解如何从 Azure Stack 中心部署中删除 MySQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: a2b55707bc05aecf8681cb866c58b0ed34fb87cd
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: c1551badd87ba55432ff416aae1230abf317e1b3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682165"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811033"
 ---
-# <a name="remove-the-mysql-resource-provider-in-azure-stack"></a>在 Azure Stack 中删除 MySQL 资源提供程序
+# <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>在 Azure Stack 中心内删除 MySQL 资源提供程序
 
 删除 MySQL 资源提供程序之前，必须删除所有提供程序依赖项。 还需要一个用于安装资源提供程序的部署包的副本。
 
@@ -35,7 +35,7 @@ ms.locfileid: "72682165"
 
 在运行 DeployMySqlProvider 脚本以删除资源提供程序之前，需要执行几个清理任务。
 
-Azure Stack 运算符负责以下清理任务：
+Azure Stack 中心操作员负责以下清理任务：
 
 * 删除引用 MySQL 适配器的任何计划。
 * 删除与 MySQL 适配器关联的任何配额。
@@ -52,10 +52,10 @@ Azure Stack 运算符负责以下清理任务：
 4. 使用以下参数运行 DeployMySqlProvider 脚本：
     - **卸载**：删除资源提供程序和所有关联的资源。
     - **PrivilegedEndpoint**：特权终结点的 IP 地址或 DNS 名称。
-    - **AzureEnvironment**：用于部署 Azure Stack 的 Azure 环境。 仅 Azure AD 部署中需要。
+    - **AzureEnvironment**：用于部署 Azure Stack 集线器的 Azure 环境。 仅 Azure AD 部署中需要。
     - **CloudAdminCredential**：访问特权终结点所需的云管理员凭据。
     - **DirectoryTenantID**
-    - **AzCredential**： Azure Stack 服务管理员帐户的凭据。 使用用于部署 Azure Stack 的相同凭据。
+    - **AzCredential**： Azure Stack 中心服务管理员帐户的凭据。 使用用于部署 Azure Stack 集线器的相同凭据。
 
 ## <a name="next-steps"></a>后续步骤
 

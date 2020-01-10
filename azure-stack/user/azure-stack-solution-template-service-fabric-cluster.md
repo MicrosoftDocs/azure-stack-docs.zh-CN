@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中部署受保护的 Service Fabric 群集 |Microsoft Docs
-description: 了解如何在 Azure Stack 中部署受保护的 Service Fabric 群集
+title: 在 Azure Stack 中心部署安全的 Service Fabric 群集 |Microsoft Docs
+description: 了解如何在 Azure Stack 中心部署安全的 Service Fabric 群集
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,20 +15,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: e8b7809908bf09cdc60017c8944e26461aa6f07d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: bb0e9fdb3e1ce1c3778d1167ca76cddae3d67aa7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993841"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819193"
 ---
-# <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
+# <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>在 Azure Stack 中心部署 Service Fabric 群集
 
-使用 Azure Marketplace 中的 " **Service Fabric 群集**" 项，在 Azure Stack 中部署受保护的 Service Fabric 群集。 
+使用 Azure Marketplace 中的**Service Fabric 群集**项在 Azure Stack Hub 中部署受保护的 Service Fabric 群集。 
 
 有关使用 Service Fabric 的详细信息，请参阅 azure 文档中[的 azure Service Fabric 概述](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)和[Service Fabric 群集安全方案](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
-Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabric。 相反，在 Azure Stack 中，Service Fabric 群集是使用[所需状态配置（DSC）](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)预安装软件的虚拟机规模集。
+Azure Stack 中心的 Service Fabric 群集不使用资源提供程序 ServiceFabric。 相反，在 Azure Stack 中心，Service Fabric 群集是使用[所需状态配置（DSC）](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)预安装软件的虚拟机规模集。
 
 ## <a name="prerequisites"></a>必备组件
 
@@ -45,7 +45,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabri
 1. **管理员客户端证书**  
    这是客户端用来向 Service Fabric 群集进行身份验证的证书，该证书可以是自签名的。 请参阅创建此客户端证书的[要求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
-1. **Azure Stack Marketplace 中必须有以下各项：**
+1. **Azure Stack 中心 Marketplace 中必须有以下各项：**
     - **Windows server 2016** -该模板使用 Windows Server 2016 映像创建群集。  
     - **自定义脚本扩展**-Microsoft 的虚拟机扩展。  
     - **PowerShell Desired 阶段配置**-Microsoft 的虚拟机扩展。
@@ -120,7 +120,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabri
    ``` 
 
 
-有关详细信息，请参阅[通过 PowerShell 管理 Azure Stack 上的 Key Vault](azure-stack-key-vault-manage-powershell.md)。
+有关详细信息，请参阅[通过 PowerShell 管理 Azure Stack 中心的 Key Vault](azure-stack-key-vault-manage-powershell.md)。
 
 ## <a name="deploy-the-marketplace-item"></a>部署 Marketplace 项
 
@@ -130,13 +130,13 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabri
 
 2. 对于每个页面（如 "*基本*"），填写 "部署" 窗体。 如果你不确定值，请使用默认值。
 
-    对于断开连接 Azure Stack 的部署或部署 Service Fabric 的另一版本，请下载 Service Fabric 部署包及其相应的运行时包，并将其托管在 Azure Stack blob 上。 向 " **Service Fabric 部署包 url** " 和 " **Service Fabric 运行时包 url** " 字段提供这些值。
+    若要部署到断开连接的 Azure Stack 中心或部署 Service Fabric 的另一版本，请下载 Service Fabric 部署包及其相应的运行时包，并将其托管在 Azure Stack 中心 blob 上。 向 " **Service Fabric 部署包 url** " 和 " **Service Fabric 运行时包 url** " 字段提供这些值。
     > [!NOTE]  
     > 最新版本的 Service Fabric 及其相应的 SDK 之间存在兼容性问题。 在解决该问题之前，请向部署包 URL 和运行时包 URL 提供以下参数。 否则，部署将失败。
     > - Service Fabric 部署包 URL： <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
     > - Service Fabric 运行时包 URL： <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
     >
-    > 对于断开连接的部署，请从指定位置下载这些包并将其托管在 Azure Stack Blob 上。
+    > 对于断开连接的部署，请从指定位置下载这些包，并将其在本地 Azure Stack 中心 Blob 上托管。
 
    ![基础](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
@@ -158,7 +158,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabri
 
    ![脚本输出](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
-   ![“安全”](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
+   ![安全性](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
 5. 完成该向导，然后选择 "**创建**" 以部署 Service Fabric 群集。
 
@@ -171,9 +171,9 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabri
 ### <a name="use-service-fabric-explorer"></a>使用 Service Fabric Explorer
 1.  确保浏览器有权访问管理员客户端证书，并且可以对 Service Fabric 群集进行身份验证。  
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 打开 Internet Explorer，并 > **内容**" > **证书**" 中转到 " **internet 选项**"。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 打开 Internet Explorer，并 > **内容**" > **证书**" 中转到 " **internet 选项**"。
   
-    b. 在 "证书" 上，选择 "**导入**" 以启动*证书导入向导*，然后单击 "**下一步**"。 在 "*要导入的文件*" 页上，单击 "**浏览**"，然后选择提供给 Azure 资源管理器模板的**管理员客户端证书**。
+    b.保留“数据库类型”设置，即设置为“共享”。 在 "证书" 上，选择 "**导入**" 以启动*证书导入向导*，然后单击 "**下一步**"。 在 "*要导入的文件*" 页上，单击 "**浏览**"，然后选择提供给 Azure 资源管理器模板的**管理员客户端证书**。
         
        > [!NOTE]  
        > 此证书不是以前添加到 Key Vault 的群集证书。  
@@ -186,11 +186,11 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabri
        ![证书存储](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. 查找 Service Fabric 群集的 FQDN：  
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 中转到与 Service Fabric 群集关联的资源组，并找到*公共 IP 地址*资源。 选择与公共 IP 地址关联的对象打开 "*公共 ip 地址*" 边栏选项卡。  
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 中转到与 Service Fabric 群集关联的资源组，并找到*公共 IP 地址*资源。 选择与公共 IP 地址关联的对象打开 "*公共 ip 地址*" 边栏选项卡。  
 
       ![公共 IP 地址](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
-    b. 在 "公共 IP 地址" 边栏选项卡上，FQDN 显示为 " *DNS 名称*"。  
+    b.保留“数据库类型”设置，即设置为“共享”。 在 "公共 IP 地址" 边栏选项卡上，FQDN 显示为 " *DNS 名称*"。  
 
       ![DNS 名称](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
@@ -201,7 +201,7 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabri
 
 1. 若要向站点进行身份验证，你必须选择要使用的证书。 选择 "**更多选择**"，选择适当的证书，然后单击 **"确定"** 以连接到 Service Fabric Explorer。 
 
-   ![身份验证](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
+   ![Authenticate](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
 
 
@@ -211,11 +211,11 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabri
 
 1. 安装完成后，请配置系统环境变量，以确保 Service Fabric cmdlet 可从 PowerShell 中访问。  
     
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 请参阅 **"控制面板"**  > **系统和安全** > **系统**"，然后选择"**高级系统设置**"。  
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 请参阅 **"控制面板"**  > **系统和安全** > **系统**"，然后选择"**高级系统设置**"。  
     
       ![控制面板](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
-    b. 在*系统属性*的 "**高级**" 选项卡上，选择 "**环境变量**"。  
+    b.保留“数据库类型”设置，即设置为“共享”。 在*系统属性*的 "**高级**" 选项卡上，选择 "**环境变量**"。  
 
     c. 对于 "*系统变量*"、"编辑**路径**" 和 "确保**C：\\程序文件\\Microsoft Service Fabric\\bin\\fabric**\\fabric 位于环境变量列表的顶部。  
 
@@ -241,4 +241,4 @@ Azure Stack 中的 Service Fabric 群集不使用资源提供程序 ServiceFabri
 
 ## <a name="next-steps"></a>后续步骤
 
-[将 Kubernetes 部署到 Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
+[将 Kubernetes 部署到 Azure Stack 中心](azure-stack-solution-template-kubernetes-deploy.md)

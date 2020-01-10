@@ -1,6 +1,6 @@
 ---
-title: 在多个 Azure Stack 区域中运行 N 层应用程序以实现高可用性 |Microsoft Docs
-description: 了解如何在多个 Azure Stack 区域中运行 N 层应用程序以实现高可用性。
+title: 在多个 Azure Stack 集线器区域中运行 N 层应用程序以实现高可用性 |Microsoft Docs
+description: 了解如何在多个 Azure Stack 集线器区域中运行 N 层应用程序以实现高可用性。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: acfeebe626d7745fe200724c8c53c632bada1466
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: fc3b9d3e620bfd017f7d5870a8e334c1d9ace579
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569146"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818496"
 ---
-# <a name="run-an-n-tier-application-in-multiple-azure-stack-regions-for-high-availability"></a>在多个 Azure Stack 区域中运行 N 层应用程序以实现高可用性
+# <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>在多个 Azure Stack 集线器区域中运行 N 层应用程序以实现高可用性
 
-此参考体系结构显示了一套经过验证的做法，用于跨 N 层应用程序多个 Azure Stack 区域运行，以便实现可用性和强大的灾难恢复基础结构。 在本文档中，流量管理器用于实现高可用性，但是，如果流量管理器不是你的环境中的首选选项，则还可以在中替换一对高度可用的负载均衡器。
+此参考体系结构显示了一套经过验证的做法，用于跨 N 层应用程序多个 Azure Stack 集线器区域运行，以便实现可用性和强大的灾难恢复基础结构。 在本文档中，流量管理器用于实现高可用性，但是，如果流量管理器不是你的环境中的首选选项，则还可以在中替换一对高度可用的负载均衡器。
 
 > [!Note]  
 > 请注意，下面的体系结构中使用的流量管理器需要在 Azure 中进行配置，并且用于配置流量管理器配置文件的终结点需要是可公开路由的 Ip。
@@ -39,7 +39,7 @@ ms.locfileid: "73569146"
 
 -   **SQL Server Always On 可用性组**。 如果使用 SQL Server，则建议使用[SQL Always On 可用性组](https://msdn.microsoft.com/library/hh510230.aspx)实现高可用性。 创建同时包含两个区域中的 SQL Server 实例的单个可用性组。
 
--   **Vnet 到 vnet 的 VPN 连接**。 由于尚未在 Azure Stack 上提供 VNET 对等互连，请使用 VNET 到 VNET VPN 连接来连接这两个 Vnet。 有关详细信息，请参阅[Azure Stack 中的 vnet 到 vnet](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) 。
+-   **Vnet 到 vnet 的 VPN 连接**。 由于 VNET 对等互连在 Azure Stack 中心尚不可用，因此请使用 VNET 到 VNET VPN 连接来连接这两个 Vnet。 有关详细信息，请参阅[Azure Stack 集线器中的 vnet 到 vnet](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) 。
 
 ## <a name="recommendations"></a>建议
 
@@ -161,9 +161,9 @@ az network traffic-manager endpoint update --resource-group <resource-group> --p
 
 -   断开网络连接/使网络传输出现延迟。
 
--   进程崩溃。
+-   使进程崩溃。
 
--   证书过期。
+-   使证书过期。
 
 -   模拟硬件错误。
 

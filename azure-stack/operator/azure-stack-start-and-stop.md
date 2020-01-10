@@ -1,7 +1,7 @@
 ---
 title: 启动和停止
-titleSuffix: Azure Stack
-description: 了解如何启动和停止 Azure Stack。
+titleSuffix: Azure Stack Hub
+description: 了解如何启动和停止 Azure Stack 集线器。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,24 +17,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: dbd85b4d7b63edb89cc327fd5b1f5592c24db508
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: b78b87065977b3517e91fd27ba5208333de2a77a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954377"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814263"
 ---
-# <a name="start-and-stop-azure-stack"></a>启动和停止 Azure Stack
+# <a name="start-and-stop-azure-stack-hub"></a>启动和停止 Azure Stack 集线器
 
-按照本文中的过程操作，正确关闭并重新启动 Azure Stack 服务。 *停止*将物理关闭并关闭整个 Azure Stack 环境。 *开始*在所有基础结构角色上通电，并将租户资源返回到关机之前的电源状态。
+按照本文中的过程操作，正确关闭并重新启动 Azure Stack 中心服务。 *停止*将物理关闭并关闭整个 Azure Stack 中心环境。 *开始*在所有基础结构角色上通电，并将租户资源返回到关机之前的电源状态。
 
-## <a name="stop-azure-stack"></a>停止 Azure Stack
+## <a name="stop-azure-stack-hub"></a>停止 Azure Stack 集线器
 
-按照以下步骤停止或关闭 Azure Stack：
+通过以下步骤停止或关闭 Azure Stack 集线器：
 
-1. 准备 Azure Stack 环境的租户资源上运行的所有工作负荷，以供即将关闭。
+1. 准备 Azure Stack 中心环境的租户资源上运行的所有工作负荷，以供即将关闭。
 
-2. 从具有对 Azure Stack ERCS Vm 的网络访问权限的计算机打开特权终结点会话（PEP）。 有关说明，请参阅[在 Azure Stack 中使用特权终结点](azure-stack-privileged-endpoint.md)。
+2. 从具有网络访问权限的计算机上打开特权终结点会话（PEP） ERCS Azure Stack 中心 Vm。 有关说明，请参阅[使用 Azure Stack 集线器中的特权终结点](azure-stack-privileged-endpoint.md)。
 
 3. 从 PEP 运行：
 
@@ -42,26 +42,26 @@ ms.locfileid: "74954377"
       Stop-AzureStack
     ```
 
-4. 等待所有物理 Azure Stack 节点关闭。
+4. 等待所有物理 Azure Stack 中心节点关闭。
 
 > [!Note]
-> 可以按照提供 Azure Stack 硬件的原始设备制造商（OEM）中的说明来验证物理节点的电源状态。
+> 可以按照提供 Azure Stack 集线器硬件的原始设备制造商（OEM）中的说明来验证物理节点的电源状态。
 
-## <a name="start-azure-stack"></a>开始 Azure Stack
+## <a name="start-azure-stack-hub"></a>开始 Azure Stack 集线器
 
-按照以下步骤开始 Azure Stack。 不管 Azure Stack 如何停止，请执行以下步骤。
+启动 Azure Stack 集线器，并执行以下步骤。 不管 Azure Stack 中心停止的方式如何，请执行这些步骤。
 
-1. 开启 Azure Stack 环境中每个物理节点的电源。 按照为你的 Azure Stack 提供硬件的 OEM 中的说明，验证物理节点的开机说明。
+1. 开启 Azure Stack 中心环境中的每个物理节点。 按照为 Azure Stack 中心提供硬件的 OEM 中的说明，验证物理节点的开机说明。
 
-2. 等待 Azure Stack 基础结构服务启动。 Azure Stack 基础结构服务可能需要两个小时才能完成启动过程。 可以通过[ **ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack)验证 Azure Stack 的开始状态。
+2. 等待 Azure Stack 集线器基础结构服务启动。 Azure Stack 集线器基础结构服务可能需要两个小时才能完成启动过程。 可以通过[ **ActionStatus** Cmdlet](#get-the-startup-status-for-azure-stack-hub)验证 Azure Stack 集线器的开始状态。
 
 3. 确保你的所有租户资源都已返回到关闭前的状态。 工作负荷管理器启动后，在租户资源上运行的工作负荷可能需要重新配置。
 
-## <a name="get-the-startup-status-for-azure-stack"></a>获取 Azure Stack 的启动状态
+## <a name="get-the-startup-status-for-azure-stack-hub"></a>获取 Azure Stack 中心的启动状态
 
-通过以下步骤获取 Azure Stack 启动例程的启动：
+通过以下步骤获取 Azure Stack 集线器启动例程的启动：
 
-1. 从具有对 Azure Stack ERCS Vm 的网络访问权限的计算机打开特权终结点会话。
+1. 从具有网络访问权限的计算机上打开特权终结点会话，Azure Stack 集线器 ERCS Vm。
 
 2. 从 PEP 运行：
 
@@ -69,11 +69,11 @@ ms.locfileid: "74954377"
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Azure Stack 的启动和关闭疑难解答
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack-hub"></a>Azure Stack 集线器的启动和关闭疑难解答
 
-如果在你开启 Azure Stack 环境后，基础结构和租户服务不能成功启动两小时，请执行以下步骤。
+如果在 Azure Stack 集线器环境上通电后，基础结构和租户服务不能成功启动两小时，请执行以下步骤。
 
-1. 从具有对 Azure Stack ERCS Vm 的网络访问权限的计算机打开特权终结点会话。
+1. 从具有网络访问权限的计算机上打开特权终结点会话，Azure Stack 集线器 ERCS Vm。
 
 2. 运行：
 
@@ -81,7 +81,7 @@ ms.locfileid: "74954377"
       Test-AzureStack
       ```
 
-3. 查看输出并解决所有运行状况错误。 有关详细信息，请参阅[运行 Azure Stack 的验证测试](azure-stack-diagnostic-test.md)。
+3. 查看输出并解决所有运行状况错误。 有关详细信息，请参阅[运行 Azure Stack 集线器的验证测试](azure-stack-diagnostic-test.md)。
 
 4. 运行：
 
@@ -93,4 +93,4 @@ ms.locfileid: "74954377"
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解[Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+详细了解[Azure Stack 集线器诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

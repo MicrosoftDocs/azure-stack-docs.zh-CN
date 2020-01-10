@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中的缩放单位节点操作 |Microsoft Docs
-description: 了解缩放单位节点操作，包括开机、关机、禁用、恢复，以及如何查看 Azure Stack 集成系统中的节点状态。
+title: Azure Stack 中心中的缩放单位节点操作 |Microsoft Docs
+description: 了解缩放单位节点操作，包括开机、关机、禁用、恢复，以及如何查看 Azure Stack 集线器集成系统中的节点状态。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5bc65418c1dd098dc8784cb9bf306676a1cd79ed
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 13dcb779297eddd1d75d3de1b6e47bd882f2126c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955271"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810591"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单位节点操作
+# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack 中心中的缩放单位节点操作
 
-*适用于： Azure Stack 集成系统*
+*适用于： Azure Stack 集线器集成系统*
 
 本文介绍如何查看缩放单位的状态。 您可以查看该单元的节点。 您可以运行 "电源打开"、"关闭"、"关闭"、"排出"、"恢复" 和 "修复" 等节点操作。 通常，在对部件进行现场替换时使用这些节点操作，或帮助恢复节点。
 
@@ -56,7 +56,7 @@ ms.locfileid: "73955271"
 
 ### <a name="node-operational-states"></a>节点操作状态
 
-| 状态 | 描述 |
+| 状态 | Description |
 |----------------------|-------------------------------------------------------------------|
 | 正在运行 | 节点正在积极地参与缩放单位。 |
 | 已停止 | 节点不可用。 |
@@ -76,7 +76,7 @@ ms.locfileid: "73955271"
 
 节点的操作状态决定了哪些选项可用。
 
-需要安装 Azure Stack PowerShell 模块。 这些 cmdlet 位于**Azs**模块中。 若要安装或验证 Azure Stack 的 PowerShell 安装，请参阅[安装适用于 Azure Stack 的 powershell](azure-stack-powershell-install.md)。
+需要安装 Azure Stack 集线器 PowerShell 模块。 这些 cmdlet 位于**Azs**模块中。 若要安装或验证 Azure Stack 集线器的 PowerShell 安装，请参阅[安装适用于 Azure Stack 中心的 powershell](azure-stack-powershell-install.md)。
 
 ## <a name="stop"></a>停止
 
@@ -137,20 +137,20 @@ ms.locfileid: "73955271"
 
 有关详细信息，请参阅[AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode)。
 
-## <a name="repair"></a>修正
+## <a name="repair"></a>Repair
 
 > [!CAUTION]  
-> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程或 Azure Stack 自动化部署操作系统时出现故障。 在更换硬件时，请始终咨询硬件合作伙伴的文档，以确保应用的固件与[Azure Stack 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。<br><br>
+> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程或 Azure Stack 集线器自动化部署操作系统时出现故障。 在更换硬件时，请始终咨询硬件合作伙伴的文档，以确保应用的固件与[Azure Stack 中心管理员门户](azure-stack-updates.md)中显示的 OEM 版本相匹配。<br><br>
 有关详细信息和合作伙伴文档的链接，请参阅[替换硬件组件](azure-stack-replace-component.md)。
 
 | 硬件伙伴 | 地区 | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | 所有 | [适用于 Microsoft Azure Stack 操作指南的 Cisco 集成系统](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[适用于 Microsoft Azure Stack 的 Cisco 集成系统的发行说明](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | 所有 | [适用于 Microsoft Azure Stack 14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | 所有 | [适用于 Microsoft Azure Stack 集线器操作指南的 Cisco 集成系统](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[适用于 Microsoft Azure Stack 集线器的 Cisco 集成系统的发行说明](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | 所有 | [适用于 Microsoft Azure Stack 中心14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 中心13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | 日本 | [Fujitsu 托管服务支持人员（要求提供帐户和登录名）](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | 欧洲、中东和非洲 | [Fujitsu 支持 IT 产品和系统](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 |  |  | [Fujitsu MySupport （需要帐户和登录名）](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | 所有 | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| HPE | 所有 | [Microsoft Azure Stack 中心的 HPE ProLiant](http://www.hpe.com/info/MASupdates) |
 | Lenovo | 所有 | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 **修复**操作修复节点。 仅适用于以下任一方案：
@@ -185,4 +185,4 @@ ms.locfileid: "73955271"
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解 Azure Stack Fabric 运算符模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。
+[了解 Azure Stack 集线器 Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。

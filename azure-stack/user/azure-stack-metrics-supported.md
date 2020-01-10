@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Azure Monitor 支持的指标 |Microsoft Docs
-description: 了解 Azure Stack Azure Monitor 支持的指标。
+title: Azure Stack 中心 Azure Monitor 支持的指标 |Microsoft Docs
+description: 了解 Azure Stack 中心 Azure Monitor 支持的指标。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,30 +14,30 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c3824b80ddd6d980b408bfdb2a2c4a55f599e6d0
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: df3644be6384bd264dc78ec80f8119c9cd2ff630
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955683"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819737"
 ---
-# <a name="supported-metrics-for-azure-monitor-on-azure-stack"></a>Azure Stack Azure Monitor 支持的指标
+# <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack 中心 Azure Monitor 支持的指标
 
-*适用于： Azure Stack 集成系统*
+*适用于： Azure Stack 集线器集成系统*
 
-检索来自 Azure Stack 上的 Azure monitor 的指标，其方式与在全球 Azure 中相同。 可以在门户中创建度量值、从 REST API 获取度量值，或者通过 PowerShell 或 CLI 查询度量值。
+从 Azure Stack 集线器上的 Azure monitor 检索指标的方式与在全球 Azure 中相同。 可以在门户中创建你的度量值、 从 REST API 获取它们或使用 PowerShell 或 CLI 查询它们。
 
-下表列出了 Azure Stack 上 Azure Monitor 的指标管道可用的指标。 若要查询和访问这些指标，请使用 API 配置文件的**2018-01-01** api 版本。 有关 API 配置文件和 Azure Stack 的详细信息，请参阅[在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)。
+下表列出了 Azure Stack 中心 Azure Monitor 的指标管道可用的指标。 若要查询和访问这些指标，请使用 API 配置文件的**2018-01-01** api 版本。 有关 API 配置文件和 Azure Stack 集线器的详细信息，请参阅[在 Azure Stack 中心管理 api 版本配置文件](azure-stack-version-profiles.md)。
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-| 指标 | 指标显示名称 | 计价单位 | 聚合类型 | 描述 | 维度 |
+| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
 | CPU 百分比 | CPU 百分比 | 百分比 | 平均值 | VM 当前正在使用的已分配计算单元的百分比。 | 无维度 |
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-| 指标 | 指标显示名称 | 计价单位 | 聚合类型 | 描述 | 维度 |
+| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | 已用容量 | 字节 | 平均值 | 帐户使用的容量。 | 无维度 |
 | 事务 | 事务 | 计数 | 总计 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求，还请求生成错误的请求。 将 ResponseType 维度用于不同类型的响应。 | ResponseType、GeoType、ApiName |
@@ -49,7 +49,7 @@ ms.locfileid: "73955683"
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-| 指标 | 指标显示名称 | 计价单位 | 聚合类型 | 描述 | 维度 |
+| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
 |--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Blob 容量 | 字节 | 总计 | 存储帐户的 Blob 服务使用的存储量（以字节为单位）。 | /BlobType |
 | BlobCount | Blob 计数 | 计数 | 总计 | 存储帐户的 Blob 服务中的 blob 数。 | /BlobType |
@@ -63,7 +63,7 @@ ms.locfileid: "73955683"
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-| 指标 | 指标显示名称 | 计价单位 | 聚合类型 | 描述 | 维度 |
+| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | 表容量 | 字节 | 平均值 | 存储帐户的表服务使用的存储量（以字节为单位）。 | 无维度 |
 | TableCount | 表计数 | 计数 | 平均值 | 存储帐户的表服务中的表数。 | 无维度 |
@@ -77,7 +77,7 @@ ms.locfileid: "73955683"
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-| 指标 | 指标显示名称 | 计价单位 | 聚合类型 | 描述 | 维度 |
+| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | 队列容量 | 字节 | 平均值 | 存储帐户的队列服务使用的存储量（以字节为单位）。 | 无维度 |
 | QueueCount | 队列计数 | 计数 | 平均值 | 存储帐户的队列服务中的队列数。 | 无维度 |
@@ -91,4 +91,4 @@ ms.locfileid: "73955683"
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解[Azure Stack 上的 Azure monitor](azure-stack-metrics-azure-data.md)。
+详细了解[Azure Stack 集线器上的 Azure monitor](azure-stack-metrics-azure-data.md)。

@@ -1,6 +1,6 @@
 ---
 title: 使用基于角色的访问控制设置访问权限 |Microsoft Docs
-description: 了解如何在 Azure Stack 中使用基于角色的访问控制（RBAC）设置访问权限。
+description: 了解如何在 Azure Stack 中心使用基于角色的访问控制（RBAC）设置访问权限。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,18 +15,18 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: ae5b167ca807fc1e28c13c553e13ea89c7e6fe49
-ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
+ms.openlocfilehash: 0c565ae93acfe8b4540af2db288b8b5327e85355
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75492777"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817187"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>使用基于角色的访问控制设置访问权限
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的读取者、所有者或参与者。 例如，用户 A 可能对订阅拥有 "读取者" 权限，但对虚拟机7拥有 "所有者" 权限。
+Azure Stack 中心内的用户可以是订阅、资源组或服务的每个实例的读者、所有者或参与者。 例如，用户 A 可能对订阅拥有 "读取者" 权限，但对虚拟机7拥有 "所有者" 权限。
 
  - 读者：用户可以查看所有内容，但不能进行任何更改。
  - 参与者：用户可以管理除访问资源之外的所有内容。
@@ -54,4 +54,4 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 
 ## <a name="next-steps"></a>后续步骤
 
-[添加 Azure Stack 租户](azure-stack-add-new-user-aad.md)
+[添加 Azure Stack 中心租户](azure-stack-add-new-user-aad.md)

@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用 PowerShell 创建 Windows Server VM |Microsoft Docs
-description: 在 Azure Stack 中使用 PowerShell 创建 Windows Server VM。
+title: 在 Azure Stack 集线器中使用 PowerShell 创建 Windows Server VM |Microsoft Docs
+description: 在 Azure Stack Hub 中使用 PowerShell 创建 Windows Server VM。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,18 +16,18 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e31edd266c16fa51855efa3259c86ecf9b53660b
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: 6bb40ef1f10bcb0d4cadf6252d5e0dd5d8f268bc
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677682"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815963"
 ---
-# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Windows Server VM
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack 集线器中使用 PowerShell 创建 Windows Server VM
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-你可以使用 Azure Stack PowerShell 创建 Windows Server 2016 虚拟机（VM）。 按照本文中的步骤创建并使用 VM。 本文还提供了以下步骤：
+可以通过使用 Azure Stack 中心 PowerShell 来创建 Windows Server 2016 虚拟机（VM）。 按照本文中的步骤创建并使用 VM。 本文还提供了以下步骤：
 
 * 使用远程客户端连接到 VM。
 * 安装 IIS web 服务器并查看默认主页。
@@ -38,15 +38,15 @@ ms.locfileid: "75677682"
 
 ## <a name="prerequisites-for-windows-server-vm"></a>Windows Server VM 的先决条件
 
-* 请确保 Azure Stack 操作员已将**Windows Server 2016**映像添加到 Azure Stack marketplace。
+* 请确保 Azure Stack 中心操作员已将**Windows Server 2016**映像添加到 Azure Stack 中心市场。
 
-* Azure Stack 要求 Azure PowerShell 的特定版本来创建和管理资源。 如果没有为 Azure Stack 配置 PowerShell，请按照步骤[安装](../operator/azure-stack-powershell-install.md)powershell。
+* Azure Stack 中心需要 Azure PowerShell 的特定版本来创建和管理资源。 如果没有为 Azure Stack 中心配置 PowerShell，请按照[安装](../operator/azure-stack-powershell-install.md)powershell 的步骤进行操作。
 
-* 设置 Azure Stack PowerShell 后，需要连接到 Azure Stack 环境。 有关说明，请参阅[使用 PowerShell 作为用户连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
+* 设置 Azure Stack 中心 PowerShell 后，需要连接到 Azure Stack 中心环境。 有关说明，请参阅[使用 PowerShell 作为用户连接到 Azure Stack 集线器](azure-stack-powershell-configure-user.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是在其中部署和管理 Azure Stack 资源的逻辑容器。 从开发工具包或 Azure Stack 集成系统中，运行以下代码块以创建资源组。 
+资源组是在其中部署和管理 Azure Stack 中心资源的逻辑容器。 从开发工具包或 Azure Stack 集线器集成系统中，运行以下代码块以创建资源组。 
 
 > [!NOTE]
 > 将为代码示例中的所有变量分配值。 不过，如果需要，可以指定新值。
@@ -248,4 +248,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，已部署了一个简单的 Windows VM。 若要详细了解 Azure Stack Vm，请继续[AZURE STACK VM 功能](azure-stack-vm-considerations.md)。
+在本快速入门中，已部署了一个简单的 Windows VM。 若要详细了解 Azure Stack 集线器 vm，请继续[Azure Stack 中心 vm 功能](azure-stack-vm-considerations.md)。

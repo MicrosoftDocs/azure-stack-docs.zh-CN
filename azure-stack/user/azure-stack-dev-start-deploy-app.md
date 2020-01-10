@@ -1,6 +1,6 @@
 ---
-title: 将应用部署到 Azure Stack | Microsoft Docs
-description: 将应用部署到 Azure Stack。
+title: 将应用部署到 Azure Stack 中心 |Microsoft Docs
+description: 将应用部署到 Azure Stack 中心。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,24 +9,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 4d8dbc22a69c204b8d6a755d2a8402ba7185d03e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 5f29fd7a0d2ab8df9d713927b7e9bada38d0e249
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824736"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820672"
 ---
-# <a name="common-deployments-for-azure-stack"></a>适用于 Azure Stack 的常见部署
+# <a name="common-deployments-for-azure-stack-hub"></a>Azure Stack 中心的常见部署
 
-Azure Stack 同时支持基础结构即服务 (IaaS) 和平台即服务 (PaaS)。 本文列出了用于设置虚拟机 (VM) 然后将其部署到 Azure Stack 的资源。
+Azure Stack 集线器支持基础结构即服务（IaaS）和平台即服务（PaaS）。 本文列出了一些资源，用于设置虚拟机（VM），然后将其部署到 Azure Stack 中心。
 
 ## <a name="before-you-begin"></a>开始之前
 
-在开始将应用部署到 Azure Stack 之前，请设置开发计算机。 有关准备作为开发人员使用 Azure Stack 的说明，请参阅[在 Azure Stack 中设置开发环境](azure-stack-dev-start.md)。
+在开始将应用部署到 Azure Stack 集线器之前，请设置开发计算机。 有关准备好使用 Azure Stack 中心作为开发人员的说明，请参阅[在 Azure Stack 中心中设置开发环境](azure-stack-dev-start.md)。
 
 ## <a name="deploy-an-app-to-a-vm"></a>将应用部署到 VM
 
-在下面的操作方法文章中，将在 Azure Stack 中设置一个虚拟机 (VM)，然后将应用从开发工作站部署到 Azure Stack。
+在以下操作方法文章中，你在 Azure Stack Hub 中设置虚拟机（VM），然后将你的应用从开发工作站部署到 Azure Stack 中心。
 
 - [.NET Core (C#)](azure-stack-dev-start-howto-vm-dotnet.md)
 - [Java](azure-stack-dev-start-howto-vm-java.md)
@@ -37,5 +37,5 @@ Azure Stack 同时支持基础结构即服务 (IaaS) 和平台即服务 (PaaS)�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 设置 [Azure Stack 中的开发环境](azure-stack-dev-start.md)。
-- [在 Azure Stack 中设置持续集成/持续交付（CI/CD）管道](azure-stack-solution-pipeline.md)。
+- [在 Azure Stack Hub 中设置开发环境](azure-stack-dev-start.md)。
+- [在 Azure Stack 集线器中设置持续集成/持续交付（CI/CD）管道](azure-stack-solution-pipeline.md)。

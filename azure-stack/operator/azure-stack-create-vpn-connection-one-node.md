@@ -17,18 +17,18 @@ ms.author: justinha
 ms.reviewer: tbd
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef0fd3aef095dc0ee2865e7f1fb2a8821d378e70
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780528"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817901"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>在不同 ASDK 环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 
 ## <a name="overview"></a>概述
 
-本文介绍如何在两个单独的 Azure Stack 开发工具包（ASDK）环境中的两个虚拟网络之间创建站点到站点 VPN 连接。 配置连接时，会了解 Azure Stack 中的 VPN 网关的工作方式。
+本文介绍如何在两个单独的 Azure Stack 开发工具包（ASDK）环境中的两个虚拟网络之间创建站点到站点 VPN 连接。 配置连接时，将了解 Azure Stack 集线器中的 VPN 网关的工作原理。
 
 ### <a name="connection"></a>连接
 
@@ -52,7 +52,7 @@ ms.locfileid: "72780528"
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>在 POC1 和 POC2 上准备产品/服务
 
-在 POC1 和 POC2 上，准备一个产品/服务，以便用户可以订阅产品/服务并部署虚拟机（Vm）。 有关如何创建产品/服务的信息，请参阅向[Azure Stack 用户提供 vm](azure-stack-tutorial-tenant-vm.md)。
+在 POC1 和 POC2 上，准备一个产品/服务，以便用户可以订阅产品/服务并部署虚拟机（Vm）。 有关如何创建产品/服务的信息，请参阅[使 vm 对 Azure Stack 中心用户可用](azure-stack-tutorial-tenant-vm.md)。
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>查看并完成网络配置表
 
@@ -64,7 +64,7 @@ ms.locfileid: "72780528"
 |---------|---------|---------|
 |虚拟网络名称     |VNET-01|VNET-02 |
 |虚拟网络地址空间 |10.0.10.0/23|10.0.20.0/23|
-|子网名称     |子网-01|子网-02|
+|子网名称     |Subnet-01|Subnet-02|
 |子网地址范围|10.0.10.0/24 |10.0.20.0/24 |
 |网关子网     |10.0.11.0/24|10.0.21.0/24|
 |外部 BGPNAT 地址     |         |         |
@@ -74,7 +74,7 @@ ms.locfileid: "72780528"
 
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>获取 NAT VM 的外部适配器的 IP 地址
 
-1. 登录到 POC1 的 Azure Stack 物理计算机。
+1. 登录到 POC1 的 Azure Stack 集线器物理计算机。
 2. 编辑以下 PowerShell 代码以添加管理员密码，然后在 POC 主机上运行代码：
 
    ```powershell
@@ -94,7 +94,7 @@ ms.locfileid: "72780528"
 
 ## <a name="create-the-network-resources-in-poc1"></a>在 POC1 中创建网络资源
 
-现在，可以创建设置网关所需的 POC1 网络资源。 以下说明介绍了如何使用 Azure Stack 用户门户创建资源。 你还可以使用 PowerShell 代码创建资源。
+现在，可以创建设置网关所需的 POC1 网络资源。 以下说明介绍了如何使用 Azure Stack 集线器用户门户创建资源。 你还可以使用 PowerShell 代码创建资源。
 
 ![用于创建资源的工作流](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "72780528"
 7. 对于 "**资源组**"，可以创建资源组，也可以选择 "**使用现有**项"。
 8. 验证默认位置。
 9. 选择“固定到仪表板”。
-10. 选择**创建**。
+10. 选择“创建”。
 
 ### <a name="create-the-gateway-subnet"></a>创建网关子网
 
@@ -129,7 +129,7 @@ ms.locfileid: "72780528"
 
 ### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure 门户中，选择 " **+ 创建资源**"。
+1. 在 Azure 门户中，选择“+ 创建资源”。
 2. 中转到 " **Marketplace**"，然后选择 "**网络**"。
 3. 从网络资源列表中，选择 "**虚拟网络网关**"。
 4. 在 "**名称**" 中，输入**GW1**。
@@ -137,19 +137,19 @@ ms.locfileid: "72780528"
 6. 选择 "**公共 IP 地址**" 菜单项。 当 "**选择公共 IP 地址**" 窗口打开时，选择 "**新建**"。
 7. 在 "**名称**" 中，输入**GW1-PiP**，然后选择 **"确定"** 。
 8. 默认情况下，对于**VPN 类型**，将选择 "**基于路由**"。 保留**基于路由**的 VPN 类型。
-9. 验证“订阅”和“位置”是否正确。 可以将资源固定到仪表板。 选择**创建**。
+9. 验证“订阅”和“位置”是否正确。 可以将资源固定到仪表板。 选择“创建”。
 
 ### <a name="create-the-local-network-gateway"></a>创建本地网关
 
-在此 Azure Stack 评估部署中实现*本地网关* 稍微不同于实际 Azure 部署中的情况。
+在此 Azure Stack 集线器评估部署中，*本地网络网关*的实现与实际 Azure 部署略有不同。
 
-在 Azure 部署中，本地网关代表用于连接到 Azure 中的虚拟网络网关的本地（租户）物理设备。 在此 Azure Stack 评估部署中，连接的两端都是虚拟网络网关。
+在 Azure 部署中，本地网关代表用于连接到 Azure 中的虚拟网络网关的本地（租户）物理设备。 在此 Azure Stack 中心评估部署中，连接的两端都是虚拟网络网关。
 
 更常用的方法是，本地网络网关资源始终在连接的另一端指示远程网关。 由于 ASDK 的设计方式，必须提供另一个 ASDK 的网络地址转换（NAT） VM 上的外部网络适配器的 IP 地址，作为本地网络网关的公共 IP 地址。 然后在 NAT VM 上创建 NAT 映射，以确保两端连接正常。
 
 ### <a name="create-the-local-network-gateway-resource"></a>创建本地网络网关资源
 
-1. 登录到 POC1 的 Azure Stack 物理计算机。
+1. 登录到 POC1 的 Azure Stack 集线器物理计算机。
 2. 在用户门户中，选择 " **+ 创建资源**"。
 3. 中转到 " **Marketplace**"，然后选择 "**网络**"。
 4. 从资源列表中选择 "**本地网络网关**"。
@@ -175,7 +175,7 @@ ms.locfileid: "72780528"
 
 若要验证通过 VPN 连接传输的数据，需要使用 Vm 来发送和接收每个 ASDK 中的数据。 立即在 POC1 中创建 VM，然后在虚拟网络中将其放入 VM 子网：
 
-1. 在 Azure 门户中，选择 " **+ 创建资源**"。
+1. 在 Azure 门户中，选择“+ 创建资源”。
 2. 选择 "应用**商店**"，然后选择 "**计算**"。
 3. 在 VM 映像列表中，选择 " **Windows Server 2016 Datacenter Eval** " 映像。
 4. 在 "**基本**信息" 边栏选项卡上的 "**名称**" 中，输入**VM01**。
@@ -204,7 +204,7 @@ ms.locfileid: "72780528"
 7. 对于 "**资源组**"，创建新的资源组，或者，如果已有资源组，请选择 "**使用现有**资源组"。
 8. 验证默认**位置**。
 9. 选择“固定到仪表板”。
-10. 选择**创建**。
+10. 选择“创建”。
 
 ### <a name="create-gateway-subnet"></a>创建网关子网
 
@@ -217,7 +217,7 @@ ms.locfileid: "72780528"
 
 ### <a name="create-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure 门户中，选择 " **+ 创建资源**"。  
+1. 在 Azure 门户中，选择“+ 创建资源”。  
 2. 中转到 " **Marketplace**"，然后选择 "**网络**"。
 3. 从网络资源列表中，选择 "**虚拟网络网关**"。
 4. 在 "**名称**" 中，输入**GW2**。
@@ -225,7 +225,7 @@ ms.locfileid: "72780528"
 6. 选择“公共 IP 地址”。 当 "**选择公共 IP 地址**" 边栏选项卡打开时，选择 "**新建**"。
 7. 在 "**名称**" 中，输入**GW2-PiP**，然后选择 **"确定"** 。
 8. 默认情况下，为**VPN 类型**选择 "**基于路由**"。 保留**基于路由**的 VPN 类型。
-9. 验证“订阅”和“位置”是否正确。 可以将资源固定到仪表板。 选择**创建**。
+9. 验证“订阅”和“位置”是否正确。 可以将资源固定到仪表板。 选择“创建”。
 
 ### <a name="create-local-network-gateway-resource"></a>创建本地网络网关资源
 
@@ -254,7 +254,7 @@ ms.locfileid: "72780528"
 
 现在，在 POC2 中创建一个 VM，并将其放在虚拟网络中的 VM 子网上：
 
-1. 在 Azure 门户中，选择 " **+ 创建资源**"。
+1. 在 Azure 门户中，选择“+ 创建资源”。
 2. 选择 "应用**商店**"，然后选择 "**计算**"。
 3. 在 VM 映像列表中，选择 " **Windows Server 2016 Datacenter Eval** " 映像。
 4. 在 "**基本**信息" 边栏选项卡中，为 "**名称**" 输入**VM02**。
@@ -284,7 +284,7 @@ ms.locfileid: "72780528"
 
    ![内部 IP 地址](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
-2. 登录到 POC1 的 Azure Stack 物理计算机。
+2. 登录到 POC1 的 Azure Stack 集线器物理计算机。
 3. 复制并编辑以下 PowerShell 脚本。 若要在每个 ASDK 上配置 NAT，请在提升的 Windows PowerShell ISE 中运行该脚本。 在脚本中，将值添加到 `External BGPNAT address` 和 `Internal IP address` 占位符：
 
    ```powershell
@@ -337,12 +337,12 @@ ms.locfileid: "72780528"
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>登录到 POC1 中的租户 VM
 
-1. 登录到 POC1 的 Azure Stack 物理计算机，然后使用租户帐户登录到用户门户。
+1. 登录到 POC1 的 Azure Stack 中心物理计算机，然后使用租户帐户登录到用户门户。
 2. 在左侧导航栏中，选择 "**计算**"。
 3. 在 Vm 列表中，找到之前创建的**VM01** ，然后选择它。
 4. 在虚拟机的边栏选项卡上，单击 "**连接**"，然后打开 VM01 文件。
 
-     ![连接按钮](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![“连接”按钮](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 
 5. 用创建 VM 时配置的帐户登录。
 6. 打开提升的**Windows PowerShell**窗口。
@@ -358,7 +358,7 @@ ms.locfileid: "72780528"
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>登录到 POC2 中的租户 VM
 
-1. 登录到 POC2 的 Azure Stack 物理计算机，然后使用租户帐户登录到用户门户。
+1. 登录到 POC2 的 Azure Stack 中心物理计算机，然后使用租户帐户登录到用户门户。
 2. 在左侧导航栏中，单击 "**计算**"。
 3. 在 Vm 列表中，找到之前创建的**VM02** ，然后选择它。
 4. 在 VM 的边栏选项卡中，单击 "**连接**"。

@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure Stack 中使用 GRE 创建 VPN 隧道 |Microsoft Docs
-description: 了解如何在 Azure Stack 中使用 GRE 创建 VPN 隧道。
+title: 如何在 Azure Stack 集线器中使用 GRE 创建 VPN 隧道 |Microsoft Docs
+description: 了解如何在 Azure Stack 集线器中使用 GRE 创建 VPN 隧道。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,20 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: c9c599a7547b2000eb146a7e3b7783ba057d23b3
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 64ed6bf1ad196b2791cfcfd5240ac8de68fd7122
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167692"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815368"
 ---
-# <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack"></a>如何在 Azure Stack 中使用 GRE 创建 VPN 隧道
+# <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>如何在 Azure Stack 集线器中使用 GRE 创建 VPN 隧道
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-您可以使用此解决方案中的 Azure Stack 资源管理器模板来连接同一 Azure Stack 环境中的两个 Azure Stack Vnet。 不能使用内置虚拟网络网关[连接 Azure Stack vnet](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) 。 现在，必须使用网络虚拟设备（NVA）来创建两个 Azure Stack Vnet 之间的 VPN 隧道。 解决方案模板会部署两个 Windows Server 2016 Vm，并安装 RRAS。 解决方案将两个 RRAS 服务器配置为使用两个 Vnet 之间的 S2SVPN IKEv2 隧道。 创建相应的 NSG 和 UDR 规则，以允许在每个 VNET 上指定为**内部**子网的路由 
+你可以使用此解决方案中的 Azure Stack 中心资源管理器模板来连接同一 Azure Stack 中心环境中的两个 Azure Stack 中心 Vnet。 不能使用内置虚拟网络网关[连接 Azure Stack 集线器 vnet](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) 。 目前，必须使用网络虚拟设备（NVA）来创建两个 Azure Stack 集线器 Vnet 之间的 VPN 隧道。 解决方案模板会部署两个 Windows Server 2016 Vm，并安装 RRAS。 解决方案将两个 RRAS 服务器配置为使用两个 Vnet 之间的 S2SVPN IKEv2 隧道。 创建相应的 NSG 和 UDR 规则，以允许在每个 VNET 上指定为**内部**子网的路由 
 
-此部署模式是一种基础，可让你不仅在 Azure Stack 实例中创建 VPN 隧道，还可以在 Azure Stack 实例之间以及其他资源（例如，使用 Windows RRAS S2S VPN 的本地网络）创建 VPN 隧道隧道.
+此部署模式是一种基础，可让你不仅在 Azure Stack Hub 实例内创建 VPN 隧道，还可以在 Azure Stack 中心实例和其他资源（如使用 Windows RRAS S2S 的本地网络）之间创建 VPN 隧道VPN 隧道。
 
 可以在[Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns)GitHub 存储库中找到这些模板。 该模板位于**rras-gre-vnet-vnet**文件夹中。 
 
@@ -30,8 +30,8 @@ ms.locfileid: "73167692"
 
 ## <a name="requirements"></a>要求
 
-- 已应用最新更新的 ASDK 或 Azure Stack 集成系统。 
-- 需要 Azure Stack Marketplace 项：
+- 应用了最新更新的 ASDK 或 Azure Stack 集线器集成系统。 
+- 必需 Azure Stack 中心市场项：
     -  Windows Server 2016 Datacenter （建议使用最新版本）
     -  自定义脚本扩展
 
@@ -58,5 +58,5 @@ ms.locfileid: "73167692"
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 网络的差异和注意事项](azure-stack-network-differences.md)  
+[Azure Stack 集线器网络的差异和注意事项](azure-stack-network-differences.md)  
 [如何设置多个站点到站点 VPN 隧道](network-howto-vpn-tunnel.md)

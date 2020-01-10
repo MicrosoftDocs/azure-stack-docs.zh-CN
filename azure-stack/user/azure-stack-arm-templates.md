@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Stack 中的 Azure 资源管理器模板 |Microsoft Docs
-description: 了解如何使用 Azure Stack 中的 Azure 资源管理器模板来预配资源。
+title: 在 Azure Stack 中心使用 Azure 资源管理器模板 |Microsoft Docs
+description: 了解如何使用 Azure Stack 中心的 Azure 资源管理器模板来预配资源。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,20 +16,20 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: df7a6e7c42a8863117faaccfd4108c4ffd806a5a
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 3ae09f31a0dc1b99a0ec5b18a0e653c02c098ae7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993765"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816456"
 ---
-# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>使用 Azure Stack 中的 Azure 资源管理器模板
+# <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>在 Azure Stack 中心使用 Azure 资源管理器模板
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用 Azure 资源管理器模板，通过单个协调的操作来部署和预配应用程序的所有资源。 你还可以重新部署模板以更改资源组中的资源。
 
-可以通过 Microsoft Azure Stack 门户、PowerShell、命令行和 Visual Studio 部署这些模板。
+可以通过 Microsoft Azure Stack 中心门户、PowerShell、命令行和 Visual Studio 部署这些模板。
 
 [GitHub 上提供](https://aka.ms/azurestackgithub)了以下快速入门模板：
 

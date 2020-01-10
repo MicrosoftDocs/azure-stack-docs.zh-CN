@@ -1,6 +1,6 @@
 ---
-title: 备份 Azure Stack 上的应用服务 | Microsoft Docs
-description: 了解如何备份 Azure Stack 上的应用服务。
+title: Azure Stack 中心备份应用服务 |Microsoft Docs
+description: 了解如何在 Azure Stack 集线器上备份应用服务。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,23 +16,23 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: a41943a598545b1a4c5dbe6325307a8fa3594cd5
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: a0a1d2b1025e814152b2a9b643683c5ed68bf5ff
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975024"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804531"
 ---
-# <a name="back-up-app-service-on-azure-stack"></a>备份 Azure Stack 上的应用服务
+# <a name="back-up-app-service-on-azure-stack-hub"></a>Azure Stack 集线器上的备份应用服务
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*  
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*  
 
-本文档提供有关如何在 Azure Stack 上备份应用服务的说明。
+本文档提供有关如何在 Azure Stack 集线器上备份应用服务的说明。
 
 > [!IMPORTANT]
-> Azure Stack 上的应用服务不会作为[Azure Stack 基础结构备份](azure-stack-backup-infrastructure-backup.md)的一部分进行备份。 在必要的情况下，Azure Stack 操作员必须执行相应的步骤来确保应用服务可成功恢复。
+> Azure Stack 集线器上的应用服务不会作为[Azure Stack 中心基础结构备份](azure-stack-backup-infrastructure-backup.md)的一部分进行备份。 作为 Azure Stack 中心操作员，你必须采取措施以确保可以在必要时成功恢复应用服务。
 
-规划灾难恢复时，需要考虑到 Azure Stack 上的 Azure 应用服务的四个主要组件：
+在规划灾难恢复时，Azure App Service Azure Stack 中心具有四个主要组件需要考虑：
 1. 资源提供程序基础结构;服务器角色、辅助角色层等。 
 2. 应用服务密码。
 3. 应用服务 SQL Server 承载和计量数据库。
@@ -41,25 +41,25 @@ ms.locfileid: "70975024"
 ## <a name="back-up-app-service-secrets"></a>备份应用服务机密
 从备份中恢复应用服务时，需要提供初始部署所使用的应用服务密钥。 成功部署应用服务并将其存储在安全位置后，应立即保存此信息。 使用应用服务恢复 PowerShell cmdlet 在恢复期间从备份重新创建资源提供程序基础结构配置。
 
-请遵循以下步骤，使用管理门户备份应用服务机密： 
+按照以下步骤操作，使用管理门户来备份应用服务机密： 
 
-1. 以服务管理员身份登录到 Azure Stack 管理员门户。
+1. 以服务管理员身份登录到 Azure Stack 中心管理员门户。
 
-2. 浏览到“应用服务” -> “机密”。 
+2. 浏览到**应用服务** -> 的**机密**。 
 
-3. 选择“下载机密”。
+3. 选择 "**下载机密**"。
 
-   ![在 Azure Stack 管理员门户中下载机密](./media/app-service-back-up/download-secrets.png)
+   ![在 Azure Stack 中心管理员门户中下载机密](./media/app-service-back-up/download-secrets.png)
 
-4. 准备好下载机密时，单击“保存”，并将应用服务机密 (**SystemSecrets.JSON**) 文件存储到安全位置。 
+4. 当机密可供下载时，单击 "**保存**"，并将应用服务机密（**SystemSecrets**）文件存储在安全的位置。 
 
-   ![在 Azure Stack 管理员门户中保存机密](./media/app-service-back-up/save-secrets.png)
+   ![在 Azure Stack 中心管理员门户中保存机密](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
-> 每次轮换应用服务机密时都需要重复这些步骤。
+> 请在每次轮换应用服务机密时重复这些步骤。
 
 ## <a name="back-up-the-app-service-databases"></a>备份应用服务数据库
-若要还原应用服务，需要**Appservice_hosting**和**Appservice_metering**数据库备份。 我们建议使用 SQL Server 维护计划或 Azure 备份服务器来确保定期安全备份和保存这些数据库。 但是，可以使用任何可确保创建例行 SQL 备份的方法。
+若要还原应用服务，需要**Appservice_hosting**和**Appservice_metering**数据库备份。 建议使用 SQL Server 维护计划或 Azure 备份服务器确保定期备份和保存这些数据库。 但是，可以使用任何方法来确保创建常规的 SQL 备份。
 
 若要在登录到 SQL Server 时手动备份这些数据库，请使用以下 PowerShell 命令：
 
@@ -72,7 +72,7 @@ ms.locfileid: "70975024"
   ```
 
 > [!NOTE]
-> 如果需要备份 SQL AlwaysOn 数据库，请遵照[这些说明](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017)操作。 
+> 如果需要备份 SQL AlwaysOn 数据库，请遵循[这些说明](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017)。 
 
 成功备份所有数据库后，请将 .bak 文件复制到安全位置，并将其复制到应用服务机密信息。
 
@@ -92,4 +92,4 @@ net use $destination /delete
 ```
 
 ## <a name="next-steps"></a>后续步骤
-[还原 Azure Stack 上的应用服务](app-service-recover.md)
+[在 Azure Stack 中心还原应用服务](app-service-recover.md)

@@ -1,7 +1,6 @@
 ---
-title: Azure Stack 中的配额类型 |Microsoft Docs
-titleSuffix: Azure Stack
-description: 查看和编辑 Azure Stack 中可用于服务和资源的不同配额类型。
+title: Azure Stack 集线器中的配额类型 |Microsoft Docs
+description: 查看和编辑 Azure Stack 集线器中可用于服务和资源的不同配额类型。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -13,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 2ce9d539d68c64a2a57976ee8b4b6af2b99f6af7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557551"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809825"
 ---
-# <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
+# <a name="quota-types-in-azure-stack-hub"></a>Azure Stack 集线器中的配额类型
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 [配额](service-plan-offer-subscription-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个虚拟机（Vm）。 每个资源可以有其自己的配额类型。
 
@@ -49,7 +48,7 @@ ms.locfileid: "74557551"
 
 ## <a name="storage-quota-types"></a>存储配额类型
 
-| **Item** | **默认值** | **说明** |
+| **项** | **默认值** | **说明** |
 | --- | --- | --- |
 | 最大容量（GB） |2048 |此位置中的订阅可以使用的总存储容量。 此值是所有 blob （包括非托管磁盘）和所有关联的快照、表、队列所用的总大小。 |
 | 存储帐户总数 |20 |订阅可以在此位置创建的存储帐户的最大数量。 |
@@ -59,7 +58,7 @@ ms.locfileid: "74557551"
 
 ## <a name="network-quota-types"></a>网络配额类型
 
-| **Item** | **默认值** | **说明** |
+| **项** | **默认值** | **说明** |
 | --- | --- | --- |
 | 最大虚拟网络 |50 |订阅可以在此位置创建的虚拟网络的最大数量。 |
 | 最大虚拟网络网关 |第 |订阅可以在此位置创建的虚拟网络网关（VPN 网关）的最大数量。 |
@@ -80,7 +79,7 @@ ms.locfileid: "74557551"
 3. 在打开的边栏选项卡中，选择 "**服务和配额**"。
 4. 在 "**名称**" 列中单击要查看的配额。
 
-    [![Azure Stack 管理员门户中的配额](media/azure-stack-quota-types/quotas1sm.png "在管理员门户中查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Azure Stack 中心管理员门户中的配额](media/azure-stack-quota-types/quotas1sm.png "在管理员门户中查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>资源提供程序
 
@@ -99,11 +98,11 @@ ms.locfileid: "74557551"
 3. 在打开的边栏选项卡中，选择 "**服务和配额**"。
 4. 在 "**名称**" 列中单击要编辑的配额，将其选中。
 
-    [![Azure Stack 管理员门户中的配额](media/azure-stack-quota-types/quotas1sm.png "在管理员门户中查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Azure Stack 中心管理员门户中的配额](media/azure-stack-quota-types/quotas1sm.png "在管理员门户中查看配额")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5. 在打开的边栏选项卡中，选择 "**计算**"、"**在网络中编辑**" 或 "**在存储中编辑**"。
 
-    ![在 Azure Stack 管理员门户中编辑计划](media/azure-stack-quota-types/quotas3.png "在 Azure Stack 管理员门户中编辑计划")
+    ![在 Azure Stack 中心管理员门户中编辑计划](media/azure-stack-quota-types/quotas3.png "在 Azure Stack 中心管理员门户中编辑计划")
 
 或者，您可以按照以下步骤编辑配额：
 

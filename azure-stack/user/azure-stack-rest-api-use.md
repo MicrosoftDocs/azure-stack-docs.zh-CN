@@ -1,6 +1,6 @@
 ---
-title: 向 Azure Stack 发出 API 请求 | Microsoft Docs
-description: 了解如何从 Azure 检索身份验证令牌，以向 Azure Stack 发出 API 请求。
+title: 向 Azure Stack 集线器发出 API 请求 |Microsoft Docs
+description: 了解如何从 Azure 中检索身份验证，以便向 Azure Stack 集线器发出 API 请求。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,32 +14,32 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 822d05c53db2d55b3cddac44fa919c72e9af2efe
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 8ee6cfbae5557a2f90c25effe57891b1541867d2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714648"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815827"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="make-api-requests-to-azure-stack"></a>向 Azure Stack 发出 API 请求
+# <a name="make-api-requests-to-azure-stack-hub"></a>向 Azure Stack 集线器发出 API 请求
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-可以使用 Azure Stack REST Api 自动执行操作，例如向 Azure Stack 云添加虚拟机（VM）。
+可以使用 Azure Stack 集线器 REST Api 自动执行操作，例如将虚拟机（VM）添加到 Azure Stack 中心云。
 
-Api 要求客户端向 Microsoft Azure 登录终结点进行身份验证。 终结点在发送到 Azure Stack Api 的每个请求的标头中返回要使用的令牌。 Microsoft Azure 使用 Oauth 2.0。
+Api 要求客户端向 Microsoft Azure 登录终结点进行身份验证。 终结点在发送到 Azure Stack 中心 Api 的每个请求的标头中返回要使用的令牌。 Microsoft Azure 使用 Oauth 2.0。
 
-本文提供了使用 **cURL** 实用工具创建 Azure Stack 请求的示例。 cURL 是一个命令行工具，它有一个用于传输数据的库。 这些示例演示了检索令牌以访问 Azure Stack Api 的过程。 大多数编程语言都提供了 Oauth 2.0 库，这些库提供可靠的令牌管理，并可以处理刷新令牌等任务。
+本文提供使用**卷**实用工具创建 Azure Stack 集线器请求的示例。 卷是一个命令行工具，它具有用于传输数据的库。 这些示例演示了检索令牌以访问 Azure Stack 中心 Api 的过程。 大多数编程语言都提供了 Oauth 2.0 库，它们具有强大的令牌管理功能，并处理任务（例如刷新令牌）。
 
-查看将 Azure Stack REST Api 与一般 REST 客户端（如**卷**）结合使用的整个过程，以帮助你了解底层请求以及响应负载中预期的情况。
+查看将 Azure Stack 中心 REST Api 与常规 REST 客户端（如**卷**）结合使用的整个过程，以帮助你了解底层请求和响应有效负载中的预期内容。
 
 本文不会探讨可用于检索令牌的所有选项，如交互式登录或创建专用应用 Id。 若要获取有关这些主题的信息，请参阅[Azure REST API 引用](/rest/api/)。
 
 ## <a name="get-a-token-from-azure"></a>从 Azure 获取令牌
 
-创建使用内容类型 `x-www-form-urlencoded` 格式的请求正文以获取访问令牌。 使用 POST 将请求发布到 Azure REST 身份验证和登录终结点。
+创建使用内容类型 `x-www-form-urlencoded` 格式的请求正文以获取访问令牌。 将你的请求发布到 Azure REST 身份验证和登录终结点。
 
 ### <a name="uri"></a>URI
 
@@ -47,13 +47,13 @@ Api 要求客户端向 Microsoft Azure 登录终结点进行身份验证。 终�
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 ```
 
-**租户 ID** 为下列其中一项：
+**租户 ID**为：
 
-- 租户域，例如 `fabrikam.onmicrosoft.com`
-- 租户 ID，例如 `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
-- 租户独立密钥的默认值：`common`
+- 租户域，如 `fabrikam.onmicrosoft.com`
+- 你的租户 ID，例如 `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+- 与租户无关的密钥的默认值： `common`
 
-### <a name="post-body"></a>POST 正文
+### <a name="post-body"></a>文章正文
 
 ```bash  
 grant_type=password
@@ -70,18 +70,18 @@ grant_type=password
    要使用的身份验证方案的类型。 在此示例中，值为 `password`。
 
 - **资源**：  
-   令牌访问的资源。 可以通过查询 Azure Stack 管理元数据终结点找到该资源。 查看“受众”部分。
+   令牌访问的资源。 可以通过查询 Azure Stack 集线器管理元数据终结点来找到资源。 查看**访问群体**部分。
 
-- **Azure Stack 管理终结点**：
+- **Azure Stack 集线器管理终结点**：
 
    ```bash
-   https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+   https://management.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > 如果你是尝试访问租户 API 的管理员，请确保使用租户终结点;例如，`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`。
+  > 如果你是尝试访问租户 API 的管理员，请确保使用租户终结点;例如，`https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011`。
 
-  例如，使用 Azure Stack 开发工具包作为终结点：
+  例如，将 Azure Stack 开发工具包用作终结点：
 
    ```bash
    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
@@ -109,13 +109,13 @@ grant_type=password
 
 - **client_id**
 
-  此值已硬编码为默认值：
+  此值硬编码为默认值：
 
   ```bash
   1950a258-227b-4e31-a9cf-717495945fc2
   ```
 
-  可供特定方案使用的替代选项：
+  可选选项可用于特定方案：
 
   | 应用程序 | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
@@ -127,15 +127,15 @@ grant_type=password
 
 - **username**
 
-  例如，Azure Stack Azure AD 帐户：
+  例如，Azure Stack 中心 Azure AD 帐户：
 
   ```bash
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
 
-- **password**
+- password
 
-  Azure AD 管理员密码 Azure Stack。
+  Azure Stack 中心 Azure AD 管理员密码。
 
 ### <a name="example"></a>示例
 
@@ -190,18 +190,18 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>URL 结构和查询语法
 
-通用请求 URI 包含：`{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
+泛型请求 URI 包含： `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **URI 方案**：  
-URI 指示用于发送请求的协议。 例如 `http` 或 `https`。
+URI 指示用于发送请求的协议。 例如，`http` 或 `https`。
 - **URI 主机**：  
-该主机指定 REST 服务终结点所在服务器的域名或 IP 地址，例如 `graph.microsoft.com` 或 `adminmanagement.local.azurestack.external`。
+主机指定在其中托管 REST 服务终结点的服务器的域名或 IP 地址，例如 `graph.microsoft.com` 或 `adminmanagement.local.azurestack.external`。
 - **资源路径**：  
-该路径指定资源或资源集合，其中可能包含服务在确定选择这些资源时所用的多个段。 例如：`beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` 可用于查询应用程序集合中特定应用程序的所有者列表。
+路径指定资源或资源集合，其中可能包含服务在确定这些资源的选择时使用的多个段。 例如： `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` 可用于查询应用程序集合中特定应用程序所有者的列表。
 - **查询字符串**：  
-该字符串提供其他简单参数，例如 API 版本或资源选择条件。
+此字符串提供其他简单参数，例如 API 版本或资源选择条件。
 
-## <a name="azure-stack-request-uri-construct"></a>Azure Stack 请求 URI 构造
+## <a name="azure-stack-hub-request-uri-construct"></a>Azure Stack 中心请求 URI 构造
 
 ```bash
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}

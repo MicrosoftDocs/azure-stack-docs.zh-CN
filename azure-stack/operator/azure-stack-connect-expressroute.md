@@ -1,6 +1,6 @@
 ---
-title: 使用 ExpressRoute 将 Azure Stack 连接到 Azure |Microsoft Docs
-description: 了解如何使用 ExpressRoute 将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。
+title: 使用 ExpressRoute 将 Azure Stack 集线器连接到 Azure |Microsoft Docs
+description: 了解如何使用 ExpressRoute 将 Azure Stack 集线器中的虚拟网络连接到 Azure 中的虚拟网络。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,18 +14,18 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: efea925c421a031206ac33b49a13bd486bab1eea
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 1e476f29909d3057deaf9331d11b780c1a887e6c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73636889"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804973"
 ---
-# <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
+# <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 中心连接到 Azure
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-本文介绍如何使用[Microsoft Azure ExpressRoute](/azure/expressroute/)的直接连接将 Azure Stack 的虚拟网络连接到 Azure 虚拟网络。
+本文介绍如何使用[Microsoft Azure ExpressRoute](/azure/expressroute/)的直接连接将 Azure Stack 集线器虚拟网络连接到 Azure 虚拟网络。
 
 可以使用本文作为教程，并使用示例设置相同的测试环境。 或者，您可以使用本文作为指导您设置自己的 ExpressRoute 环境的演练。
 
@@ -40,59 +40,59 @@ ms.locfileid: "73636889"
 本文假定：
 
 * 你有 Azure 的工作知识。
-* 你基本了解 Azure Stack。
+* 你对 Azure Stack 中心有一个基本的了解。
 * 你基本了解网络。
 
 ### <a name="prerequisites"></a>必备组件
 
-若要使用 ExpressRoute 连接 Azure Stack 和 Azure，必须满足以下要求：
+若要使用 ExpressRoute 连接 Azure Stack 集线器和 Azure，必须满足以下要求：
 
 * 通过[连接提供商](/azure/expressroute/expressroute-locations)预配的[ExpressRoute 线路](/azure/expressroute/expressroute-circuit-peerings)。
 * 用于在 Azure 中创建 ExpressRoute 线路和 Vnet 的 Azure 订阅。
 * 必须执行以下操作的路由器：
-  * 支持其 LAN 接口与 Azure Stack 多租户网关之间的站点到站点 VPN 连接。
-  * 如果 Azure Stack 部署中有多个租户，则支持创建多个 Vrf （虚拟路由和转发）。
+  * 支持其 LAN 接口与 Azure Stack 中心多租户网关之间的站点到站点 VPN 连接。
+  * 如果 Azure Stack 中心部署中有多个租户，则支持创建多个 Vrf （虚拟路由和转发）。
 * 具有以下内容的路由器：
   * 连接到 ExpressRoute 线路的 WAN 端口。
-  * 连接到 Azure Stack 多租户网关的 LAN 端口。
+  * 连接到 Azure Stack 中心多租户网关的 LAN 端口。
 
 ### <a name="expressroute-network-architecture"></a>ExpressRoute 网络体系结构
 
-下图显示了使用本文中的示例完成 ExpressRoute 设置后的 Azure Stack 和 Azure 环境：
+下图显示了使用本文中的示例完成 ExpressRoute 设置后，Azure Stack 中心和 Azure 环境：
 
 ![ExpressRoute 网络](media/azure-stack-connect-expressroute/Conceptual.png)
 
-下图显示了多个租户如何从 Azure Stack 基础结构通过 ExpressRoute 路由器连接到 Azure：
+下图显示了多个租户如何从 Azure Stack 中心基础结构通过 ExpressRoute 路由器连接到 Azure：
 
 ![与 ExpressRoute 建立多租户连接](media/azure-stack-connect-expressroute/Architecture.png)
 
-本文中的示例使用此关系图中所示的相同多租户体系结构，使用 ExpressRoute 专用对等互连将 Azure Stack 连接到 Azure。 使用从 Azure Stack 到 ExpressRoute 路由器的虚拟网络网关的站点到站点 VPN 连接完成连接。
+本文中的示例使用此关系图中所示的相同多租户体系结构，使用 ExpressRoute 专用对等互连将 Azure Stack 集线器连接到 Azure。 使用从 Azure Stack 集线器中的虚拟网络网关到 ExpressRoute 路由器的站点到站点 VPN 连接来完成连接。
 
-本文中的步骤说明如何 Azure Stack 在两个 Vnet 之间创建从两个不同租户到 Azure 中的相应 Vnet 之间的端到端连接。 设置两个租户是可选的;你还可以将这些步骤用于单个租户。
+本文中的步骤说明如何在两个 Vnet 之间创建从 Azure Stack 集线器中的两个不同租户到 Azure 中的相应 Vnet 的端到端连接。 设置两个租户是可选的;你还可以将这些步骤用于单个租户。
 
-## <a name="configure-azure-stack"></a>配置 Azure Stack
+## <a name="configure-azure-stack-hub"></a>配置 Azure Stack 集线器
 
-若要为第一个租户设置 Azure Stack 环境，请使用以下步骤作为指导。 如果要设置多个租户，请重复以下步骤：
+若要为第一个租户设置 Azure Stack 中心环境，请使用以下步骤作为指导。 如果要设置多个租户，请重复以下步骤：
 
 >[!NOTE]
->以下步骤演示如何使用 Azure Stack 门户创建资源，但也可以使用 PowerShell。
+>以下步骤演示如何使用 Azure Stack 中心门户创建资源，但也可以使用 PowerShell。
 
-![Azure Stack 网络设置](media/azure-stack-connect-expressroute/image2.png)
+![Azure Stack 中心网络设置](media/azure-stack-connect-expressroute/image2.png)
 
 ### <a name="before-you-begin"></a>开始之前
 
-在开始配置 Azure Stack 之前，你需要：
+开始配置 Azure Stack 集线器之前，需要：
 
-* Azure Stack 集成系统部署或 Azure Stack 开发工具包（ASDK）部署。 有关部署 ASDK 的信息，请参阅[Azure Stack 开发工具包部署快速入门](../asdk/asdk-download.md)。
-* 用户可以订阅 Azure Stack 中的产品/服务。 有关详细信息，请参阅 "[服务、计划、产品/服务、订阅概述](service-plan-offer-subscription-overview.md)"。
+* Azure Stack 集线器集成系统部署或 Azure Stack 开发工具包（ASDK）部署。 有关部署 ASDK 的信息，请参阅[Azure Stack 开发工具包部署快速入门](../asdk/asdk-download.md)。
+* 用户可以订阅 Azure Stack 中心提供的产品/服务。 有关详细信息，请参阅 "[服务、计划、产品/服务、订阅概述](service-plan-offer-subscription-overview.md)"。
 
-### <a name="create-network-resources-in-azure-stack"></a>在 Azure Stack 中创建网络资源
+### <a name="create-network-resources-in-azure-stack-hub"></a>在 Azure Stack 集线器中创建网络资源
 
-使用以下过程在 Azure Stack 中创建租户所需的网络资源。
+使用以下过程在 Azure Stack Hub 中为租户创建所需的网络资源。
 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>创建虚拟网络和 VM 子网
 
-1. 登录到 Azure Stack 用户门户。
+1. 登录到 Azure Stack 集线器用户门户。
 
 2. 在门户中，选择 " **+ 创建资源**"。
 
@@ -102,7 +102,7 @@ ms.locfileid: "73636889"
 
 5. 在 "**创建虚拟网络**" 下，将下表中显示的值输入到相应字段中：
 
-   |字段  |Value  |
+   |字段  |值  |
    |---------|---------|
    |名称     |Tenant1VNet1         |
    |地址空间     |10.1.0.0/16|
@@ -127,7 +127,7 @@ ms.locfileid: "73636889"
 
 #### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure Stack 用户门户中，单击 " **+ 创建资源**"。
+1. 在 Azure Stack 集线器用户门户中，单击 " **+ 创建资源**"。
 1. 在 " **Azure Marketplace**" 下，选择 "**网络**"。
 1. 从网络资源列表中选择“虚拟网关”。
 1. 在 "**名称**" 字段中，输入**GW1**。
@@ -142,7 +142,7 @@ ms.locfileid: "73636889"
 
 本地网络网关资源在 VPN 连接的另一端标识远程网关。 在此示例中，连接的远程端是 ExpressRoute 路由器的 LAN 子接口。 对于上图中的租户1，远程地址为10.60.3.255。
 
-1. 登录到 Azure Stack 用户门户，然后选择 " **+ 创建资源**"。
+1. 登录到 Azure Stack 集线器用户门户，然后选择 " **+ 创建资源**"。
 1. 在 " **Azure Marketplace**" 下，选择 "**网络**"。
 1. 从资源列表中选择“本地网关”。
 1. 在 "**名称**" 字段中，键入**ER-路由器-GW**。
@@ -153,17 +153,17 @@ ms.locfileid: "73636889"
    * 10.100.0.0/16 是 Azure 中的分支 VNet。
 
    > [!IMPORTANT]
-   > 此示例假设你使用的是 Azure Stack 网关与 ExpressRoute 路由器之间的站点到站点 VPN 连接的静态路由。
+   > 此示例假设你使用的是 Azure Stack 中心网关和 ExpressRoute 路由器之间的站点到站点 VPN 连接的静态路由。
 
 1. 验证你的**订阅**、**资源组**和**位置**是否正确。 然后选择“创建”。
 
 #### <a name="create-the-connection"></a>创建连接
 
-1. 在 Azure Stack 用户门户中，选择 " **+ 创建资源**"。
+1. 在 Azure Stack 集线器用户门户中，选择 " **+ 创建资源**"。
 1. 在 " **Azure Marketplace**" 下，选择 "**网络**"。
 1. 从资源列表中选择“连接”。
 1. 在 "**基本**信息" 下，选择 "**站点到站点（IPSec）** " 作为 "**连接类型**"。
-1. 选择**订阅**、**资源组**和**位置**。 单击 **“确定”** 。
+1. 选择**订阅**、**资源组**和**位置**。 单击“确定”。
 1. 在 "**设置**" 下，选择 "**虚拟网络网关**"，然后选择 " **GW1**"。
 1. 选择 "**本地网络网关**"，然后选择 " **ER 路由器 GW**"。
 1. 在 "**连接名称**" 字段中，输入**ConnectToAzure**。
@@ -174,21 +174,21 @@ ms.locfileid: "73636889"
 
 创建虚拟网络网关后，可以获取网关的公共 IP 地址。 记下此地址，以备以后用于部署时使用。 根据你的部署，此地址将用作**内部 IP 地址**。
 
-1. 在 Azure Stack 用户门户中，选择 "**所有资源**"。
+1. 在 Azure Stack 集线器用户门户中，选择 "**所有资源**"。
 1. 在 "**所有资源**" 下，选择虚拟网络网关，该网关在示例中为**GW1** 。
 1. 在 "**虚拟网络网关**" 下，从资源列表中选择 "**概述**"。 或者，您可以选择 "**属性**"。
 1. 要记录的 IP 地址列在 "**公共 ip 地址**" 下。 对于示例配置，此地址为192.68.102.1。
 
-#### <a name="create-a-virtual-machine-vm"></a>创建虚拟机（VM）
+#### <a name="create-a-virtual-machine-vm"></a>创建虚拟机 (VM)
 
-若要通过 VPN 连接测试数据流量，需要 Vm 在 Azure Stack VNet 中发送和接收数据。 创建 VM，并将其部署到虚拟网络的 VM 子网。
+若要通过 VPN 连接测试数据流量，需要 Vm 在 Azure Stack Hub VNet 中发送和接收数据。 创建 VM，并将其部署到虚拟网络的 VM 子网。
 
-1. 在 Azure Stack 用户门户中，选择 " **+ 创建资源**"。
+1. 在 Azure Stack 集线器用户门户中，选择 " **+ 创建资源**"。
 1. 在 " **Azure Marketplace**" 下，选择 "**计算**"。
 1. 在 VM 映像列表中，选择 " **Windows Server 2016 Datacenter Eval** " 映像。
 
    >[!NOTE]
-   >如果用于本文的图像不可用，请询问 Azure Stack 操作员提供不同的 Windows Server 映像。
+   >如果用于本文的图像不可用，请询问 Azure Stack 中心操作员提供不同的 Windows Server 映像。
 
 1. 在 "**创建虚拟机**" 中，选择 "**基本**"，然后键入**VM01**作为**名称**。
 1. 请输入有效的用户名和密码。 创建 VM 后，你将使用此帐户登录到该 VM。
@@ -199,7 +199,7 @@ ms.locfileid: "73636889"
    * 虚拟网络为**Tenant1VNet1**。
    * 子网已设置为**10.1.1.0/24**。
 
-   使用默认设置，然后单击 **"确定"** 。
+   使用默认设置，再单击“确定”。
 
 1. 在 "**摘要**" 下查看 VM 配置，然后单击 **"确定"** 。
 
@@ -225,7 +225,7 @@ ASDK 是独立的，并且与部署物理主机的网络隔离。 连接网关�
 
 #### <a name="configure-the-nat"></a>配置 NAT
 
-1. 用管理员帐户登录到 Azure Stack 主计算机。
+1. 用管理员帐户登录到 Azure Stack 集线器主机计算机。
 1. 在提升的 PowerShell ISE 中运行脚本。 此脚本返回**外部 BGPNAT 地址**。
 
    ```powershell
@@ -274,11 +274,11 @@ ASDK 是独立的，并且与部署物理主机的网络隔离。 连接网关�
 
 ## <a name="configure-azure"></a>配置 Azure
 
-完成配置 Azure Stack 后，可以部署 Azure 资源。 下图显示了 Azure 中的租户虚拟网络的示例。 可以在 Azure 中使用 VNet 的任何名称和寻址方案。 但是，Azure 中 Vnet 的地址范围和 Azure Stack 必须是唯一的，且不得重叠：
+Azure Stack 中心配置完成后，可以部署 Azure 资源。 下图显示了 Azure 中的租户虚拟网络的示例。 可以在 Azure 中使用 VNet 的任何名称和寻址方案。 但是，Azure 中 Vnet 的地址范围和 Azure Stack 中心必须唯一且不得重叠：
 
 ![Azure Vnet](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
-在 Azure 中部署的资源类似于在 Azure Stack 中部署的资源。 部署以下组件：
+在 Azure 中部署的资源类似于在 Azure Stack 中心部署的资源。 部署以下组件：
 
 * 虚拟网络和子网
 * 网关子网
@@ -339,7 +339,7 @@ ASDK 是独立的，并且与部署物理主机的网络隔离。 连接网关�
 
 ![ExpressRoute 路由器配置](media/azure-stack-connect-expressroute/EndToEnd.png)
 
-你可以使用任何支持 IKEv2 VPN 和 BGP 的路由器，从 Azure Stack 终止站点到站点 VPN 连接。 使用 ExpressRoute 线路连接到 Azure 时，使用同一个路由器。
+你可以使用任何支持 IKEv2 VPN 和 BGP 的路由器，以终止 Azure Stack 集线器中的站点到站点 VPN 连接。 使用 ExpressRoute 线路连接到 Azure 时，使用同一个路由器。
 
 以下 Cisco ASR 1000 序列聚合服务路由器配置示例支持*ExpressRoute 路由器配置*关系图中所示的网络基础结构。
 
@@ -566,8 +566,8 @@ route-map VNET-ONLY permit 10
 
 执行以下 ping 测试：
 
-* 登录到 Azure VNet 中的某个 Vm，并对在 Azure Stack 中创建的 VM 执行 ping 操作。
-* 登录到在 Azure Stack 中创建的其中一个 Vm，并对在 Azure VNet 中创建的 VM 执行 ping 操作。
+* 登录到 Azure VNet 中的某个 Vm，并对在 Azure Stack Hub 中创建的 VM 执行 ping 操作。
+* 登录到在 Azure Stack 集线器中创建的其中一个 Vm，并对在 Azure VNet 中创建的 VM 执行 ping 操作。
 
 >[!NOTE]
 >若要确保通过站点到站点连接和 ExpressRoute 连接发送流量，必须在两端 ping VM 的专用 IP （DIP）地址，而不是 VM 的 VIP 地址。
@@ -583,9 +583,9 @@ New-NetFirewallRule `
   -Protocol ICMPv4
 ```
 
-### <a name="ping-the-azure-stack-vm"></a>Ping Azure Stack VM
+### <a name="ping-the-azure-stack-hub-vm"></a>Ping Azure Stack 中心 VM
 
-1. 登录到 Azure Stack 用户门户。
+1. 登录到 Azure Stack 集线器用户门户。
 
 1. 找到创建的 VM 并选择它。
 
@@ -599,9 +599,9 @@ New-NetFirewallRule `
 
 ### <a name="view-data-transfer-statistics"></a>查看数据传输统计信息
 
-如果要了解通过连接传递的流量，可以在 Azure Stack 用户门户中找到此信息。 查看数据传输统计信息也是一种很好的方法，可查明 ping 测试数据是否通过 VPN 和 ExpressRoute 连接：
+如果要了解通过连接传递的流量，可以在 Azure Stack 集线器用户门户中找到此信息。 查看数据传输统计信息也是一种很好的方法，可查明 ping 测试数据是否通过 VPN 和 ExpressRoute 连接：
 
-1. 登录到 Azure Stack 用户门户，并选择 "**所有资源**"。
+1. 登录到 Azure Stack 集线器用户门户，并选择 "**所有资源**"。
 1. 导航到 VPN 网关的资源组，并选择 "**连接**" 对象类型。
 1. 从列表中选择 " **ConnectToAzure** " 连接。
 1. 在 "**连接** > **概述**" 下，可以查看**中的数据**和**数据输出**的统计信息。应会看到一些非零值。
@@ -610,4 +610,4 @@ New-NetFirewallRule `
 
 ## <a name="next-steps"></a>后续步骤
 
-[将应用部署到 Azure 并 Azure Stack](../user/azure-stack-solution-pipeline.md)
+[将应用部署到 Azure 和 Azure Stack 中心](../user/azure-stack-solution-pipeline.md)

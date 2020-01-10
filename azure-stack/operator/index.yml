@@ -16,7 +16,7 @@ metadata:
   ms.date: 07/09/2019
   ms.author: justinha
 abstract:
-  description: Microsoft Azure Stack 中心是一种混合云平台，可让你从数据中心提供 Azure 服务。 了解如何通过我们的快速入门和教程来管理 Azure Stack 集线器集成系统基础结构以及如何提供服务。<br/><br/>如果你是使用服务或生成 Azure Stack 中心应用的 Azure Stack 集线器用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。<br/><br/>如果你是一位对 Azure Stack 中心开发工具包（ASDK）的 Azure Stack 中心操作员，可免费下载和使用的 Azure Stack 中心的单节点部署，请参阅我们的<a href="/azure-stack/asdk">ASDK 文档</a>。
+  description: Microsoft Azure Stack 中心是一种混合云平台，可让你从数据中心提供 Azure 服务。 了解如何通过我们的快速入门和教程来管理 Azure Stack 集线器集成系统基础结构以及如何提供服务。<br/><br/>如果你是使用服务或生成 Azure Stack 中心应用的 Azure Stack 集线器用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。<br/><br/>如果你是对 Azure Stack 开发工具包（ASDK）感兴趣的 Azure Stack 中心操作员，可免费下载和使用的 Azure Stack 中心的单节点部署，请参阅我们的<a href="/azure-stack/asdk">ASDK 文档</a>。
 sections:
   - title: Azure Stack 中心入门
     items:
@@ -32,13 +32,13 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-powershell-install">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
-              <br><b>Azure Stack PowerShell</b></a>
+              <br><b>Azure Stack 中心 PowerShell</b></a>
               <p>从 PowerShell 轻松管理 Azure Stack 集线器资源。</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
               <br><b>容量规划</b></a>
-              <p>了解不同的计算资源分配如何适用于选择的硬件产品/服务。</p>
+              <p>了解不同的计算资源分配如何适应各种硬件产品。</p>
   - title: 提供 Azure Stack 中心服务
     items:
       - type: list
@@ -48,18 +48,18 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-sql-resource-provider">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_SQL.svg" alt="hybrid cloud app ci/cd">
-              <br><b>提供 SQL 作为 PaaS</b></a>
+              <br>将<b>SQL 提供为 PaaS</b></a>
               <p>使用 SQL Server 资源提供程序将 SQL 数据库作为 Azure Stack 中心的服务提供。</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-mysql-resource-provider">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_mysql.svg" alt="hybrid cloud app identity">
-              <br><b>提供 MySQL 作为 PaaS</b></a>
+              <br>将<b>MySQL 作为 PaaS</a> 提供</b>
               <p>使用 MySQL 资源提供程序提供 MySQL 数据库即服务 Azure Stack 中心。</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-app-service-overview">
               <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
-              <br><b>提供 Azure 应用服务作为 PaaS</b></a>
-              <p>帮助用户为任何平台或设备创建 Web 应用程序和 API。</p>
+              <br><b>提供 Azure App Service 作为 PaaS</b></a>
+              <p>帮助用户为任意平台或设备创建 web 应用程序和 Api。</p>
   - title: 管理 Azure Stack 集线器
     items:
       - type: list

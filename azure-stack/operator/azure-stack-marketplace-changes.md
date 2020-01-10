@@ -1,6 +1,6 @@
 ---
-title: Azure Stack marketplace 中的新增功能 |Microsoft Docs
-description: Azure Stack marketplace 中的更改和更新。
+title: Azure Stack 中心应用商店中的新增功能 |Microsoft Docs
+description: Azure Stack 中心 marketplace 中的更改和更新。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,18 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 49b3ac4123a385b468d5eb995ac00bb768347d5d
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: a5d0a50765a44a677ad2c5c1b0795296b57b7b0e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534068"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817034"
 ---
-# <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace 更改
+# <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack 中心市场更改
 
-本文介绍过去3个月内[Azure Stack Marketplace 项](azure-stack-marketplace-azure-items.md)的最新添加、更新、更改和删除。 本部分中的信息经常更新，因此请经常回来查看。
+本文介绍大约最近3个月内[Azure Stack 中心市场项](azure-stack-marketplace-azure-items.md)的最新添加、更新、更改和删除。 本部分中的信息经常更新，因此请经常回来查看。
 
-[Azure Stack marketplace 项](azure-stack-marketplace-azure-items.md)项目始终包含可用 Azure Stack Marketplace 项的最新列表。
+[Azure Stack 中心 marketplace 项](azure-stack-marketplace-azure-items.md)项目始终包含可用 Azure Stack 中心市场项的最新列表。
 
 ## <a name="new-marketplace-items"></a>新建 Marketplace 项
 
@@ -105,7 +105,7 @@ ms.locfileid: "72534068"
 - 07/30/2019： SQLIaaSExtension-版本1.3.20180
 - 08/08/2019：适用于 Linux 的 CloudLink SecureVM 扩展-版本6。8
 - 08/08/2019：适用于 Windows 的 CloudLink SecureVM 扩展-版本6。8
-- 08/30/2019： Azure Stack Kubernetes 群集-版本0.5。1
+- 08/30/2019： Azure Stack Hub Kubernetes 群集-版本0.5。1
 - 09/02/2019： AKS 基本映像-版本2019.08.09 和版本2019.08.21
 - 09/12/2019： Service Fabric 版本1.0。3
 - 09/24/2019： F5-网络大 IP 虚拟版-版本14.1.200000
@@ -115,8 +115,8 @@ ms.locfileid: "72534068"
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure Stack Marketplace 的详细信息，请参阅以下文章：
+有关 Azure Stack 中心 Marketplace 的详细信息，请参阅以下文章：
 
 - [Azure Marketplace 概述](azure-stack-marketplace.md)
-- [可供 Azure Stack 使用的 Azure 市场项](azure-stack-marketplace-azure-items.md)
-- [创建并发布 Azure Stack Marketplace 项](azure-stack-create-and-publish-marketplace-item.md)
+- [适用于 Azure Stack 集线器的 Azure Marketplace 项](azure-stack-marketplace-azure-items.md)
+- [创建并发布 Azure Stack 中心市场项](azure-stack-create-and-publish-marketplace-item.md)

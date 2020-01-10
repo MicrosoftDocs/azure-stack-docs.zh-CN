@@ -1,6 +1,6 @@
 ---
-title: 从 Azure 下载 marketplace 项，并发布到 Azure Stack |Microsoft Docs
-description: 了解如何从 Azure 下载 marketplace 项，并发布到 Azure Stack。
+title: 从 Azure 下载 marketplace 项，并发布到 Azure Stack 中心 |Microsoft Docs
+description: 了解如何从 Azure 下载 marketplace 项，并发布到 Azure Stack 中心。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,23 +15,23 @@ ms.date: 12/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: 4c6da7765705d29a886a774ac55f4c3dfa42f17b
-ms.sourcegitcommit: 52c887b117f1ff51aedac8da79204e79ee3ed223
+ms.openlocfilehash: cff400b3faace08dfcdae86f0fe0d10effb42cae
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553964"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817408"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将 Marketplace 项下载到 Azure Stack 中心 
 
-作为云操作员，你可以将项目从 Marketplace 下载到 Azure Stack 集线器，并使用 Azure Stack 中心环境将其提供给所有用户使用。 你可以选择的项来自特选的 Azure Marketplace 项列表，这些项已预先测试且支持使用 Azure Stack。 其他项会频繁添加到此列表中，因此，请继续检查是否有新内容。
+作为云操作员，你可以将项目从 Marketplace 下载到 Azure Stack 集线器，并使用 Azure Stack 中心环境将其提供给所有用户使用。 你可以选择的项来自特选列表，其中包含经过预测试和支持的 Azure Marketplace 项，可与 Azure Stack 中心一起使用。 其他项会频繁添加到此列表中，因此，请继续检查是否有新内容。
 
 下载 Marketplace 产品的情况有两种：
 
 - **连接方案**：要求将 Azure Stack 集线器环境连接到 internet。 使用 Azure Stack 中心管理员门户定位和下载项目。
-- **断开连接或部分连接的方案**：要求你使用 marketplace 联合工具访问 internet 以下载 marketplace 项。 然后，将下载内容传输到断开连接的 Azure Stack 安装。 此方案使用 PowerShell。
+- **断开连接或部分连接的方案**：要求你使用 marketplace 联合工具访问 internet 以下载 marketplace 项。 然后，将下载内容传输到断开连接的 Azure Stack 中心安装。 此方案使用 PowerShell。
 
-有关可下载的 Marketplace 项的完整列表，请参阅[适用于 Azure Stack 的 Azure marketplace 项](azure-stack-marketplace-azure-items.md)。 有关 Azure Stack Marketplace 的最新添加、删除和更新列表，请参阅[Azure Stack marketplace 更改](azure-stack-marketplace-changes.md)一文。
+有关可下载的 Marketplace 项的完整列表，请参阅[Azure Stack 集线器的 Azure Marketplace 项](azure-stack-marketplace-azure-items.md)。 有关 Azure Stack 中心市场的最新添加、删除和更新的列表，请参阅[Azure Stack 中心市场更改](azure-stack-marketplace-changes.md)一文。
 
 > [!NOTE]
 > 根据 Azure Stack 集线器系统连接到的云，目录将有所不同。 云环境由用于注册 Azure Stack 中心的 Azure 订阅决定。
@@ -52,7 +52,7 @@ Azure Stack 中心部署必须具有 internet 连接并已注册到 Azure。
 
    若要查看可用空间：在 " **区域管理**" 中，选择要浏览的区域，然后 > **存储**"中访问 **资源提供程序**：
 
-   ![查看 Azure Stack 管理员门户中的存储空间](media/azure-stack-download-azure-marketplace-item/storage.png)
+   ![查看 Azure Stack 中心管理员门户中的存储空间](media/azure-stack-download-azure-marketplace-item/storage.png)
 
 3. 打开 Azure Stack 中心 Marketplace 并连接到 Azure。 为此，请选择 " **marketplace 管理**" "服务"，选择 " **marketplace 项**"，然后选择 " **从 Azure 添加**"：
 
@@ -66,7 +66,7 @@ Azure Stack 中心部署必须具有 internet 连接并已注册到 Azure。
 
    ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png)
 
-6. 选择所需的项目，然后选择 " **下载**"。 下载时间各不相同，具体取决于网络连接。 下载完成后，可以将新的 marketplace 项作为 Azure Stack 操作员或用户部署。
+6. 选择所需的项目，然后选择 " **下载**"。 下载时间各不相同，具体取决于网络连接。 下载完成后，可以将新的 marketplace 项作为 Azure Stack 中心操作员或用户部署。
 
 7. 若要部署下载项，请选择 " **+ 创建资源**"，然后在新的 marketplace 项的类别中进行搜索。 接下来，选择要开始部署过程的项。 不同 marketplace 项目的过程有所不同。
 
@@ -79,7 +79,7 @@ Marketplace 联合工具也可用于连接的方案中。
 此方案包含两个部分：
 
 - **第1部分**：从 Marketplace 项下载。 在具有 internet 访问权限的计算机上，配置 PowerShell，下载联合工具，然后从 Azure Marketplace 下载项。
-- **第2部分**：上传并发布到 Azure Stack 中心市场。 将下载的文件移动到 Azure Stack 中心环境，将其导入到 Azure Stack，然后将其发布到 Azure Stack Marketplace。
+- **第2部分**：上传并发布到 Azure Stack 中心市场。 将下载的文件移到 Azure Stack 中心环境，将其导入到 Azure Stack 中心，然后将其发布到 Azure Stack 中心市场。
 
 ### <a name="prerequisites"></a>必备组件
 
@@ -89,15 +89,15 @@ Marketplace 联合工具也可用于连接的方案中。
 
 - 断开连接 Azure Stack 集线器环境满足以下先决条件：
 
-  - 你的 Azure Stack 部署必须已注册到 Azure。
+  - 你的 Azure Stack 中心部署必须已注册到 Azure。
 
-  - 具有 internet 连接的计算机必须具有 **Azure Stack PowerShell 模块版本 1.2.11** 或更高版本。  [安装 Azure Stack 特定的 PowerShell 模块](azure-stack-powershell-install.md)（如果尚未存在）。
+  - 具有 internet 连接的计算机必须具有 **Azure Stack 集线器 PowerShell 模块版本 1.2.11** 或更高版本。 如果尚未安装，请 [安装 Azure Stack 集线器特定的 PowerShell 模块](azure-stack-powershell-install.md)。
 
-  - 若要启用下载的 marketplace 项的导入，必须配置 [Azure Stack 操作员 的 PowerShell 环境](azure-stack-powershell-configure-admin.md)。
+  - 若要启用下载的 marketplace 项的导入，必须配置 [Azure Stack 中心操作员 的 PowerShell 环境](azure-stack-powershell-configure-admin.md)。
 
-  -  GitHub 存储库克隆 [Azure Stack 工具](https://github.com/Azure/AzureStack-Tools)。
+  -  GitHub 存储库克隆 [Azure Stack 中心工具](https://github.com/Azure/AzureStack-Tools)。
 
-- 必须在具有可公开访问的容器的 Azure Stack 中  [存储帐户](azure-stack-manage-storage-accounts.md)（这是存储 blob）。 使用容器作为 marketplace 项库文件的临时存储。 如果你不熟悉存储帐户和容器，请参阅 Azure 文档中 [的使用 blob-Azure 门户](/azure/storage/blobs/storage-quickstart-blobs-portal) 。
+- 必须在具有可公开访问的容器的 Azure Stack 中心  [存储帐户](azure-stack-manage-storage-accounts.md)（这是存储 blob）。 使用容器作为 marketplace 项库文件的临时存储。 如果你不熟悉存储帐户和容器，请参阅 Azure 文档中 [的使用 blob-Azure 门户](/azure/storage/blobs/storage-quickstart-blobs-portal) 。
 
 - 在第一个过程中，将下载 marketplace 联合工具。
 
@@ -114,7 +114,7 @@ Marketplace 联合工具也可用于连接的方案中。
 
 1. 在具有 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
-2. 添加用于注册 Azure Stack 的 Azure 帐户。 若要添加该帐户，请在 PowerShell 中运行不带任何参数的 **add-azurermaccount** 。 系统将提示你输入 Azure 帐户凭据，并且你可能必须使用双因素身份验证，具体取决于你的帐户配置。
+2. 添加用于注册 Azure Stack 集线器的 Azure 帐户。 若要添加该帐户，请在 PowerShell 中运行不带任何参数的 **add-azurermaccount** 。 系统将提示你输入 Azure 帐户凭据，并且你可能必须使用双因素身份验证，具体取决于你的帐户配置。
 
    > [!NOTE]
    > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用**add-azurermaccount**： **add-azurermaccount 进程**登录之前运行以下 cmdlet。
@@ -161,7 +161,7 @@ Marketplace 联合工具也可用于连接的方案中。
    Export-AzSOfflineResourceProvider -destination "Destination folder path" -azCopyDownloadThreads "AzCopy threads number" -azureContext $AzureContext
    ```
 
-   `-azCopyDownloadThreads` 参数是可选的。 只应在具有低带宽网络并且使用高级下载时使用。 此选项指定 AzCopy 中并发操作的数量。 如果你运行的是低带宽网络，则可以指定较低的数字，以避免资源争用导致的故障。 可以在[此 Azure 文章](/azure/storage/common/storage-use-azcopy#specify-the-number-of-concurrent-operations-to-start)中查看更多详细信息。
+   `-azCopyDownloadThreads` 参数是可选的。 只应在具有低带宽网络并且使用高级下载时使用。 此选项指定 AzCopy 中并发操作的数量。 如果你运行的是低带宽网络，则可以指定较低的数字，以避免资源争用导致的故障。 可以在[此 Azure 文章](/previous-versions/azure/storage/storage-use-azcopy#specify-the-number-of-concurrent-operations-to-start)中查看更多详细信息。
 
    `-azureContext` 参数也是可选的。 如果未指定 Azure 上下文，则该 cmdlet 将使用默认的 Azure 上下文。
 
@@ -195,20 +195,20 @@ Marketplace 联合工具也可用于连接的方案中。
 
    在重试之前，请删除下载失败的产品文件夹。 例如，如果下载脚本在下载到 **D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1**时失败，请删除 **D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1** 文件夹，然后重新运行 cmdlet。
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace-using-powershell"></a>使用 PowerShell 导入下载并发布到 Azure Stack Marketplace
+### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>使用 PowerShell 导入下载并发布到 Azure Stack 中心市场
 
-1. 您必须将 [之前下载](#use-the-marketplace-syndication-tool-to-download-marketplace-items)的文件 本地，以便它们可供 Azure Stack 环境使用。 Marketplace 联合工具还必须可用于你的 Azure Stack 环境，因为你需要使用该工具来执行导入操作。
+1. 您必须将 [之前下载](#use-the-marketplace-syndication-tool-to-download-marketplace-items)的文件 本地，以便它们可用于 Azure Stack 中心环境。 Marketplace 联合工具还必须可用于 Azure Stack 中心环境，因为你需要使用该工具执行导入操作。
 
    下图显示了一个文件夹结构示例。 **D:\downloadfolder** 包含所有下载的 marketplace 项。 每个子文件夹都是一个以产品 ID 命名的 marketplace 项（例如， **2.0.3**）。 每个子文件夹内都是 marketplace 项的下载内容。
 
    ![Marketplace 下载目录结构](media/azure-stack-download-azure-marketplace-item/mp1.png)
 
-2. 按照 [本文](azure-stack-powershell-configure-admin.md)中的说明 配置 Azure Stack Operator PowerShell 会话。
+2. 按照 [本文](azure-stack-powershell-configure-admin.md)中的说明 配置 Azure Stack 中心操作员 PowerShell 会话。
 
 3. 导入联合模块，并通过运行以下脚本来启动 marketplace 联合工具：
 
    ```powershell
-   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   $credential = Get-Credential -Message "Enter the Azure Stack Hub operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
 
@@ -217,6 +217,6 @@ Marketplace 联合工具也可用于连接的方案中。
     `-AzsCredential` 参数是可选的。 如果该令牌已过期，则使用它来续订访问令牌。 如果未指定 `-AzsCredential` 参数并且令牌过期，则会提示输入操作员凭据。
 
    > [!NOTE]
-   > AD FS 仅支持具有用户标识的交互式身份验证。 如果需要 credential 对象，则必须使用服务主体（SPN）。 有关使用 Azure Stack 和 AD FS 作为标识管理服务设置服务主体的详细信息，请参阅 [管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
+   > AD FS 仅支持具有用户标识的交互式身份验证。 如果需要 credential 对象，则必须使用服务主体（SPN）。 有关使用 Azure Stack 中心和 AD FS 作为标识管理服务设置服务主体的详细信息，请参阅 [管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
 
-4. 脚本成功完成后，Azure Stack Marketplace 中应提供此项。
+4. 脚本成功完成后，该项应在 Azure Stack Hub Marketplace 中可用。

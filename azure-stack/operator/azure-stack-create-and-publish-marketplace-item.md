@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中创建和发布 Marketplace 项 |Microsoft Docs
-description: 了解如何创建和发布 Azure Stack Marketplace 项。
+title: 在 Azure Stack Hub 中创建和发布 Marketplace 项 |Microsoft Docs
+description: 了解如何创建和发布 Azure Stack 集线器 Marketplace 项。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,18 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 69d25b9a7eafa1dbf71384e2e82bef9bc87bd5af
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654876"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817782"
 ---
-# <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>创建和发布自定义 Azure Stack Marketplace 项
+# <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建和发布自定义 Azure Stack 中心市场项
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-发布到 Azure Stack Marketplace 的每个项目都使用 Azure 库包（.azpkg）格式。 使用*Azure Gallery Packager*工具，你可以创建自定义 Azure 库包，你可以将其上传到 Azure Stack Marketplace，用户可以下载该包。 部署过程使用 Azure 资源管理器模板。
+发布到 Azure Stack 中心市场的每个项目都使用 Azure 库包（.azpkg）格式。 使用*Azure Gallery Packager*工具，你可以创建自定义 Azure 库包，你可以将其上传到 Azure Stack 中心市场，然后用户便可以下载这些包。 部署过程使用 Azure 资源管理器模板。
 
 ## <a name="marketplace-items"></a>Marketplace 项
 
@@ -35,11 +35,11 @@ ms.locfileid: "75654876"
 ## <a name="create-a-marketplace-item"></a>创建市场项目
 
 > [!IMPORTANT]
-> 创建 VM marketplace 项之前，请按照[将 vm 映像添加到 Azure Stack](azure-stack-add-vm-image.md)中的说明，将自定义 VM 映像上传到 Azure Stack 门户。 然后，按照本文中的说明打包映像（创建 .azpkg）并将其上传到 Azure Stack Marketplace。
+> 创建 VM marketplace 项之前，请按照[将 vm 映像添加到 Azure Stack 中心](azure-stack-add-vm-image.md)中的说明，将自定义 VM 映像上传到 Azure Stack 中心门户。 然后，按照本文中的说明对映像进行打包（创建 .azpkg）并将其上传到 Azure Stack 中心市场。
 
 若要创建自定义 marketplace 项，请执行以下操作：
 
-1. 下载[Azure Gallery Packager 工具](https://aka.ms/azsmarketplaceitem)和示例 Azure Stack 库包。 此下载包括自定义 VM 模板。 提取 .zip 文件，并在文件夹**自定义 vm**下，可以使用 Linux 或可用的 Windows 模板。 您可以决定重新使用预置模板，并使用您将在 Azure Stack 门户上显示的项的产品详细信息修改各自的参数。 或者，你可以只是重新使用可用的 .azpkg 文件，并跳过以下步骤来自定义你自己的库包。
+1. 下载[Azure Gallery Packager 工具](https://aka.ms/azsmarketplaceitem)和示例 Azure Stack 中心库包。 此下载包括自定义 VM 模板。 提取 .zip 文件，并在文件夹**自定义 vm**下，可以使用 Linux 或可用的 Windows 模板。 您可以决定重新使用预置的模板，并使用您将在 Azure Stack 中心门户上显示的项的产品详细信息来修改各自的参数。 或者，你可以只是重新使用可用的 .azpkg 文件，并跳过以下步骤来自定义你自己的库包。
 
 2. 创建 Azure 资源管理器模板或使用我们的 Windows/Linux 示例模板。 在步骤1中下载的包装器工具 .zip 文件中提供了这些示例模板。 您可以使用模板和更改文本字段，也可以从 GitHub 下载预配置的模板。 有关 Azure 资源管理器模板的详细信息，请参阅[azure 资源管理器模板](/azure/azure-resource-manager/resource-group-authoring-templates)。
 
@@ -143,9 +143,9 @@ ms.locfileid: "75654876"
 
     ![包显示](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![包显示](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
-6. 若要确保资源可以成功部署，请用[Azure Stack api](../user/azure-stack-profiles-azure-resource-manager-versions.md)测试模板。
+6. 若要确保资源可以成功部署，请用[Azure Stack 中心 api](../user/azure-stack-profiles-azure-resource-manager-versions.md)测试模板。
 
-7. 如果你的模板依赖于虚拟机（VM）映像，请按照说明[将 VM 映像添加到 Azure Stack](azure-stack-add-vm-image.md)。
+7. 如果模板依赖于虚拟机（VM）映像，请按照说明[将 VM 映像添加到 Azure Stack 中心](azure-stack-add-vm-image.md)。
 
 8. 将 Azure 资源管理器模板保存在 **/Contoso.TodoList/DeploymentTemplates/** 文件夹中。
 
@@ -169,9 +169,9 @@ ms.locfileid: "75654876"
 
 ## <a name="publish-a-marketplace-item"></a>发布市场项目
 
-1. 使用 PowerShell 或 Azure 存储资源管理器将 Marketplace 项（. .azpkg）上传到 Azure Blob 存储。 可以上传到本地 Azure Stack 存储或上传到 Azure 存储，这是包的临时位置。 请确保 blob 可公开访问。
+1. 使用 PowerShell 或 Azure 存储资源管理器将 Marketplace 项（. .azpkg）上传到 Azure Blob 存储。 可以上传到本地 Azure Stack 中心存储或上传到 Azure 存储，这是包的临时位置。 请确保 blob 可公开访问。
 
-2. 若要将库包导入 Azure Stack 中，第一步是将（RDP）远程连接到客户端 VM，以便将刚刚创建的文件复制到 Azure Stack。
+2. 若要将库包导入 Azure Stack 中心，第一步是将（RDP）远程连接到客户端 VM，以便将刚刚创建的文件复制到 Azure Stack 中心。
 
 3. 添加上下文：
 
@@ -188,7 +188,7 @@ ms.locfileid: "75654876"
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. 验证你是否具有可用于存储项的有效存储帐户。 可以从 Azure Stack 管理员门户获取 `GalleryItemURI` 值。 选择 "**存储帐户-> Blob 属性"-> URL**，扩展名为 .azpkg。 存储帐户仅供暂时使用，以便发布到 marketplace。
+5. 验证你是否具有可用于存储项的有效存储帐户。 可以从 Azure Stack 中心管理员门户获取 `GalleryItemURI` 值。 选择 "**存储帐户-> Blob 属性"-> URL**，扩展名为 .azpkg。 存储帐户仅供暂时使用，以便发布到 marketplace。
 
    完成库包并使用**AzsGalleryItem 将**其上传后，自定义 VM 现在应显示在 Marketplace 上，并显示在 "**创建资源**" 视图中。 请注意，自定义库包在**Marketplace 管理**中不可见。
 
@@ -230,7 +230,7 @@ ms.locfileid: "75654876"
 | PublisherDisplayName |X |String |建议30个字符 |如果你的发布者名称长度超过30个字符，则它可能不会正确显示你的发布者名称。 |
 | PublisherLegalName |X |String |最多256个字符 | |
 | 摘要 |X |String |60到100个字符 | |
-| LongSummary |X |String |140到256个字符 |尚不适用于 Azure Stack。 |
+| LongSummary |X |String |140到256个字符 |尚不适用于 Azure Stack 中心。 |
 | Description |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500到5000个字符 | |
 
 ### <a name="images"></a>图像
@@ -247,7 +247,7 @@ Marketplace 使用以下图标：
 
 ### <a name="categories"></a>类别
 
-每个 Marketplace 项都应使用一个类别进行标记，该类别标识项在门户 UI 上的显示位置。 可以在 Azure Stack 中选择现有类别之一（"**计算**"、"**数据 + 存储**" 等），或选择一个新类别。
+每个 Marketplace 项都应使用一个类别进行标记，该类别标识项在门户 UI 上的显示位置。 您可以选择 Azure Stack 中心（**计算**、**数据 + 存储**等）中的现有类别之一，或者选择一个新类别。
 
 ### <a name="links"></a>链接
 
@@ -275,18 +275,18 @@ Marketplace 使用以下图标：
 
 ## <a name="reference-marketplace-item-ui"></a>参考： Marketplace 项 UI
 
-Azure Stack 门户中显示的 Marketplace 项的图标和文本如下所示。
+Azure Stack 中心门户中显示的 Marketplace 项的图标和文本如下所示。
 
 ### <a name="create-blade"></a>“创建”边栏选项卡
 
-![创建边栏选项卡-Azure Stack Marketplace 项](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![创建边栏选项卡-Azure Stack 集线器 Marketplace 项](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Marketplace 项详细信息边栏选项卡
 
-![Azure Stack Marketplace 项详细信息边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Azure Stack 集线器 Marketplace 项详细信息边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Stack Marketplace 概述](azure-stack-marketplace.md)
+- [Azure Stack 中心市场概述](azure-stack-marketplace.md)
 - [下载 Marketplace 项](azure-stack-download-azure-marketplace-item.md)
 - [Azure 资源管理器模板的格式和结构](/azure/azure-resource-manager/resource-group-authoring-templates)

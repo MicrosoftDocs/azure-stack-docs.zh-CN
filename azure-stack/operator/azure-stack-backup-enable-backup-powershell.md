@@ -1,6 +1,6 @@
 ---
-title: 使用 PowerShell 为 Azure Stack 启用备份 |Microsoft Docs
-description: 了解如何使用 PowerShell 启用基础结构备份服务，以便在发生故障时可以恢复 Azure Stack。
+title: 使用 PowerShell 启用 Azure Stack 集线器的备份 |Microsoft Docs
+description: 了解如何使用 PowerShell 启用基础结构备份服务，以便在发生故障时可以还原 Azure Stack 中心。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,16 +15,16 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 2e419c32caf78d97ee38e570ce0fa823cc94651a
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 1b55e92e292ff8bda45f040fa97b4ac97ab557ce
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975181"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815215"
 ---
-# <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 为 Azure Stack 启用备份
+# <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>使用 PowerShell 为 Azure Stack 中心启用备份
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 使用 Windows PowerShell 启用基础结构备份服务定期备份：
  - 内部标识服务和根证书。
@@ -34,25 +34,25 @@ ms.locfileid: "70975181"
  - 用户 RBAC 角色和策略。
  - 用户存储帐户。
 
-可以访问 PowerShell cmdlet 以启用备份、启动备份，以及通过操作员管理终结点获取备份信息。
+可以访问 PowerShell cmdlet，启用备份、启动备份，并通过操作员管理终结点获取备份信息。
 
 ## <a name="prepare-powershell-environment"></a>准备 PowerShell 环境
 
-有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack，请参阅[配置操作员环境并登录到 Azure Stack](azure-stack-powershell-configure-admin.md)。
+有关配置 PowerShell 环境的说明，请参阅为[Azure Stack 集线器安装 PowerShell](azure-stack-powershell-install.md)。 若要登录 Azure Stack 中心，请参阅[配置操作员环境和登录到 Azure Stack 中心](azure-stack-powershell-configure-admin.md)。
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>提供备份共享、凭据和加密密钥以启用备份
 
-在同一 PowerShell 会话中，通过添加环境变量编辑以下 PowerShell 脚本。 运行更新的脚本，以向基础结构备份服务提供备份共享、凭据和加密密钥。
+在同一 PowerShell 会话中，通过为环境添加变量来编辑以下 PowerShell 脚本。 运行更新的脚本，为基础结构备份服务提供备份共享、凭据和加密密钥。
 
-| 变量        | 描述   |
+| 变量        | Description   |
 |---              |---                                        |
-| `$username`       | 使用共享驱动器位置具有足够访问权限的域和用户名输入**用户名**，以便读取和写入文件。 例如， `Contoso\backupshareuser` 。 |
+| `$username`       | 使用 "域" 和 "用户名" 为共享驱动器位置键入**用户名**，具有对读取和写入文件的足够访问权限。 例如，`Contoso\backupshareuser` 。 |
 | `$password`       | 键入用户的**密码**。 |
-| `$sharepath`      | 键入**备份存储位置**的路径。 必须使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（例如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应位于不同的位置。 |
-| `$frequencyInHours` | “频率(小时)”决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。|
-| `$retentionPeriodInDays` | “保留期(天)”决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。|
-| `$encryptioncertpath` | 适用于1901及更高版本。 参数在 Azure Stack 模块版本1.7 及更高版本中可用。 加密证书路径指定 .CER 文件的文件路径，文件中的公钥用于数据加密。 |
-| `$encryptionkey` | 适用于 build 1811 或更早版本。 参数在 Azure Stack 模块 1.6 或更低版本中提供。 加密密钥用于数据加密。 使用 [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet 来生成新密钥。 |
+| `$sharepath`      | 键入**备份存储位置**的路径。 必须使用通用命名约定（UNC）字符串作为指向单独设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应位于不同的位置。 |
+| `$frequencyInHours` | 以小时为单位的频率决定了创建备份的频率。 默认值为 12。 计划程序最多支持12个，最多支持4个。|
+| `$retentionPeriodInDays` | 保持期（天）决定在外部位置保留备份的天数。 默认值为 7。 计划程序最多支持14个，最多支持2个。 早于保留期的备份从外部位置自动删除。|
+| `$encryptioncertpath` | 适用于1901及更高版本。 参数在 Azure Stack 集线器模块版本1.7 及更高版本中可用。 加密证书路径指定的文件路径。带有用于数据加密的公钥的 .CER 文件。 |
+| `$encryptionkey` | 适用于 build 1811 或更早版本。 参数 Azure Stack 集线器模块版本1.6 或更早版本中可用。 加密密钥用于数据加密。 使用[AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet 生成新密钥。 |
 |     |     |
 
 ### <a name="enable-backup-on-1901-and-later-using-certificate"></a>使用证书在1901和更高版本上启用备份
@@ -82,7 +82,7 @@ ms.locfileid: "70975181"
     # Set the backup settings with the name, password, share, and CER certificate file.
     Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
 ```
-### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>使用证书在 1811 或更低版本上启用备份
+### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>使用证书在1811或更早版本上启用备份
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -118,7 +118,7 @@ ms.locfileid: "70975181"
    ```
 
 ## <a name="update-backup-settings"></a>更新备份设置
-在同一 PowerShell 会话中，可以更新备份的保留期和频率的默认值。 
+在同一 PowerShell 会话中，你可以更新保留期和备份频率的默认值。 
 
    ```powershell
     #Set the backup frequency and retention period values.
@@ -140,15 +140,15 @@ ms.locfileid: "70975181"
     BackupRetentionPeriodInDays : 5
    ```
 
-### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
-用于配置基础结构备份的 PowerShell cmdlet 为 Set-AzsBackupConfiguration。 在以前的版本中，此 cmdlet 为 Set-AzsBackupShare。 此 cmdlet 要求提供一个证书。 如果使用加密密钥配置基础结构备份，则无法更新加密密钥或查看属性。 需要使用版本1.6 的管理员 PowerShell。
+### <a name="azure-stack-hub-powershell"></a>Azure Stack 中心 PowerShell 
+用于配置基础结构备份的 PowerShell cmdlet 是 AzsBackupConfiguration。 在以前的版本中，cmdlet 已设置-AzsBackupShare。 此 cmdlet 需要提供证书。 如果使用加密密钥配置基础结构备份，则无法更新加密密钥或查看属性。 需要使用版本1.6 的管理员 PowerShell。
 
 如果在更新到1901之前配置了基础结构备份，则可以使用管理员 PowerShell 版本1.6 来设置和查看加密密钥。 版本1.6 不允许更新为证书文件的加密密钥。
-有关安装正确版本的模块的详细信息，请参阅[安装 Azure Stack PowerShell](azure-stack-powershell-install.md) 。
+有关安装正确版本的模块的详细信息，请参阅[安装 Azure Stack Hub PowerShell](azure-stack-powershell-install.md) 。
 
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何运行备份，请参阅[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md)。
+了解如何运行备份，请参阅[备份 Azure Stack 中心](azure-stack-backup-back-up-azure-stack.md)。
 
-了解如何验证备份是否已运行，请参阅[在管理门户中确认已完成的备份](azure-stack-backup-back-up-azure-stack.md)。
+了解如何验证备份是否已运行，请参阅[在管理门户中确认备份已完成](azure-stack-backup-back-up-azure-stack.md)。

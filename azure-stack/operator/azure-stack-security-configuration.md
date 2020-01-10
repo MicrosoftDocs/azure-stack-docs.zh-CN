@@ -1,6 +1,6 @@
 ---
-title: 配置 Azure Stack 的安全控制
-description: 了解如何在 Azure Stack 中配置安全控制
+title: 配置 Azure Stack 中心安全控制
+description: 了解如何在 Azure Stack 中心配置安全控制
 services: azure-stack
 author: PatAltimore
 ms.service: azure-stack
@@ -9,33 +9,33 @@ ms.date: 06/17/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: b36a6d826dc7249f10b4785b27511096e45923a9
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 1423b21de6236bf316e426aa175ddb2b95c70199
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557855"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814926"
 ---
-# <a name="configure-azure-stack-security-controls"></a>配置 Azure Stack 的安全控制
+# <a name="configure-azure-stack-hub-security-controls"></a>配置 Azure Stack 中心安全控制
 
-*适用于：Azure Stack 集成系统*
+*适用于： Azure Stack 集线器集成系统*
 
-本文介绍了可以在 Azure Stack 中更改并突出显示的权衡，在适用的情况的安全控件。
+本文介绍可在 Azure Stack 中心更改的安全控制，并在适用情况下突出显示利弊。
 
-Azure Stack 体系结构基于两个安全原则支柱： 假设性违规和默认强化。 Azure Stack 安全性的详细信息，请参阅[Azure Stack 基础结构安全局势](azure-stack-security-foundations.md)。 虽然 Azure Stack 的默认安全状况可用于生产环境，有一些需要其他强化的部署方案。
+Azure Stack 中心体系结构建立在两个安全原则上：默认情况下，假定违反和强制执行。 Azure Stack 中心安全性的详细信息，请参阅[Azure Stack 中心基础结构安全状况](azure-stack-security-foundations.md)。 尽管 Azure Stack 集线器的默认安全状态是生产就绪，但还是存在一些需要额外强化的部署方案。
 
 ## <a name="tls-version-policy"></a>TLS 版本策略
 
-传输层安全性 (TLS) 协议是一个广泛采用的加密协议通过网络建立加密的通信。 TLS 的不断发展变化，并且已发布多个版本。 Azure Stack 基础结构以独占方式使用 TLS 1.2 来确保所有通信。 对于外部接口，Azure Stack 当前默认为使用 TLS 1.2。 但是，对于向后兼容性，它还支持 TLS 1.1 下协商。 和 1.0。 当 TLS 客户端请求通过 TLS 1.1 或 TLS 1.0 进行通信时，Azure Stack 允许该请求但协商到更低 TLS 版本。 如果客户端请求 TLS 1.2，Azure Stack 将建立 TLS 连接使用 TLS 1.2。
+传输层安全性（TLS）协议是一种广泛采用的加密协议，通过网络建立加密的通信。 TLS 随着时间的推移而不断发展，并已发布多个版本。 对于所有通信，Azure Stack 集线器基础结构仅使用 TLS 1.2。 对于外部接口，Azure Stack 中心目前默认为使用 TLS 1.2。 但是，为了向后兼容，它还支持向下协商到 TLS 1.1。 和1.0。 当 TLS 客户端请求通过 TLS 1.1 或 TLS 1.0 进行通信时，Azure Stack 集线器会通过协商到较低的 TLS 版本来接受请求。 如果客户端请求 TLS 1.2，Azure Stack 集线器将使用 TLS 1.2 建立 TLS 连接。
 
-因为 TLS 1.0 和 1.1 版以增量方式被弃用或禁止组织和符合性标准，从 1906年更新开始，你现在可以配置 TLS 策略在 Azure Stack 中。 您可以强制执行 TLS 1.2 唯一策略其中建立与版本低于 1.2 的 TLS 会话的任何尝试进行不允许和拒绝。
+由于 TLS 1.0 和1.1 是以增量方式弃用或禁止的，从1906更新开始，你现在可以在 Azure Stack 中心配置 TLS 策略。 你可以强制实施仅限 TLS 1.2 的策略，在这种情况下，不允许和拒绝建立版本低于1.2 的 TLS 会话的任何尝试。
 
 > [!IMPORTANT]
-> Microsoft 建议用于 Azure Stack 生产环境中使用 TLS 1.2 唯一的策略。
+> Microsoft 建议对 Azure Stack 中心生产环境使用仅限 TLS 1.2 的策略。
 
 ## <a name="get-tls-policy"></a>获取 TLS 策略
 
-使用[特权终结点 (PEP)](azure-stack-privileged-endpoint.md)若要查看所有 Azure Stack 终结点的 TLS 策略：
+使用[特权终结点（PEP）](azure-stack-privileged-endpoint.md)查看所有 Azure Stack 中心终结点的 TLS 策略：
 
 ```powershell
 Get-TLSPolicy
@@ -47,30 +47,30 @@ Get-TLSPolicy
 
 ## <a name="set-tls-policy"></a>设置 TLS 策略
 
-使用[特权终结点 (PEP)](azure-stack-privileged-endpoint.md)设置 TLS 策略的所有 Azure Stack 终结点：
+使用[特权终结点（PEP）](azure-stack-privileged-endpoint.md)为所有 Azure Stack 中心终结点设置 TLS 策略：
 
 ```powershell
 Set-TLSPolicy -Version <String>
 ```
 
-为参数*集 TLSPolicy* cmdlet:
+*TLSPolicy* cmdlet 的参数：
 
-| 参数 | 描述 | Type | 需要 |
+| 参数 | Description | 类型 | 需要 |
 |---------|---------|---------|---------|
-| *版本* | 在 Azure Stack 中允许的 TLS 版本信息 | String | 是|
+| *版本* | Azure Stack 集线器中允许的 TLS 版本 | String | 是|
 
-使用以下值之一来配置所有 Azure Stack 终结点允许的 TLS 版本：
+使用以下值之一为所有 Azure Stack 中心终结点配置允许的 TLS 版本：
 
-| 版本值 | 描述 |
+| 版本值 | Description |
 |---------|---------|
-| *TLS_All* | Azure Stack TLS 终结点支持 TLS 1.2，但向下协商为 TLS 1.1 和 TLS 1.0 允许。 |
-| *TLS_1.2* | Azure Stack TLS 终结点仅支持 TLS 1.2。 | 
+| *TLS_All* | Azure Stack 集线器 TLS 终结点支持 TLS 1.2，但允许向 TLS 1.1 和 TLS 1.0 进行向下协商。 |
+| *TLS_1.2* | Azure Stack 集线器 TLS 终结点仅支持 TLS 1.2。 | 
 
-正在更新 TLS 策略需要几分钟才能完成。
+更新 TLS 策略需要几分钟才能完成。
 
-### <a name="enforce-tls-12-configuration-example"></a>强制实施 TLS 1.2 的配置示例
+### <a name="enforce-tls-12-configuration-example"></a>强制执行 TLS 1.2 配置示例
 
-此示例设置 TLS 策略以仅强制实施 TLS 1.2。
+此示例将 TLS 策略设置为仅强制实施 TLS 1.2。
 
 ```powershell
 Set-TLSPolicy -Version TLS_1.2
@@ -93,9 +93,9 @@ Set-TLSPolicy -Version TLS_1.2
     VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
     VERBOSE: TLS 1.2 is enforced
 
-### <a name="allow-all-versions-of-tls-12-11-and-10-configuration-example"></a>允许所有版本的 TLS （1.2、 1.1 和 1.0） 的配置示例
+### <a name="allow-all-versions-of-tls-12-11-and-10-configuration-example"></a>允许 TLS 的所有版本（1.2、1.1 和1.0）配置示例
 
-此示例设置 TLS 策略以允许 TLS （1.2、 1.1 和 1.0） 的所有版本。
+此示例将 TLS 策略设置为允许 TLS 的所有版本（1.2、1.1 和1.0）。
 
 ```powershell
 Set-TLSPolicy -Version TLS_All
@@ -120,6 +120,6 @@ Set-TLSPolicy -Version TLS_All
 
 ## <a name="next-steps"></a>后续步骤
 
-- [了解 Azure Stack 基础结构安全局势](azure-stack-security-foundations.md)
-- [了解如何在 Azure Stack 中轮换机密](azure-stack-rotate-secrets.md)
-- [更新 Azure Stack 上的 Windows Defender 防病毒](azure-stack-security-av.md)
+- [了解 Azure Stack 集线器基础结构安全状况](azure-stack-security-foundations.md)
+- [了解如何在 Azure Stack 中心旋转机密](azure-stack-rotate-secrets.md)
+- [更新 Azure Stack 集线器上的 Windows Defender 防病毒](azure-stack-security-av.md)

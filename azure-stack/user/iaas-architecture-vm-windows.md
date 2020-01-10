@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 上运行 Windows 虚拟机 |Microsoft Docs
-description: 了解如何在 Azure Stack 上运行 Windows 虚拟机。
+title: 在 Azure Stack Hub 上运行 Windows 虚拟机 |Microsoft Docs
+description: 了解如何在 Azure Stack 集线器上运行 Windows 虚拟机。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,42 +9,42 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 5f9d8de7c08e8cfa0ad2af9bcb8f898fc32848a3
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 20e855655edfdbf2c67c130b88cfa2af10338986
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690221"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818445"
 ---
-# <a name="run-a-windows-virtual-machine-on-azure-stack"></a>在 Azure Stack 上运行 Windows 虚拟机
+# <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>在 Azure Stack 集线器上运行 Windows 虚拟机
 
-在 Azure Stack 中预配虚拟机（VM）除了 VM 本身以外，还需要一些其他组件，包括网络和存储资源。 本文介绍在 Azure 上运行 Windows VM 的最佳做法。
+在 Azure Stack 集线器中预配虚拟机（VM）除了 VM 本身以外，还需要一些其他组件，包括网络和存储资源。 本文介绍在 Azure 上运行 Windows VM 的最佳做法。
 
-![Azure Stack 上的 Windows VM 体系结构](./media/iaas-architecture-vm-windows/image1.png)
+![Azure Stack 集线器上的 Windows VM 体系结构](./media/iaas-architecture-vm-windows/image1.png)
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>资源组
 
-[资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)是保存相关 Azure Stack 资源的逻辑容器。 一般情况下，可根据资源的生存期及其管理者将资源分组。
+[资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)是保存相关 Azure Stack 集线器资源的逻辑容器。 一般情况下，可根据资源的生存期及其管理者将资源分组。
 
 将共享相同生命周期的密切关联资源置于同一[资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)中。 资源组可让你以组的形式部署和监视资源，并按资源组跟踪计费成本。 还可以删除作为集的资源，这适用于测试部署。 指定有意义的资源名称，以便简化特定资源的查找并了解其角色。 有关详细信息，请参阅[Azure 资源的建议命名约定](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。
 
 ## <a name="virtual-machine"></a>虚拟机
 
-可以从已发布映像的列表或上传到 Azure Stack Blob 存储的自定义映像或虚拟硬盘（VHD）文件预配 VM。
+可以从已发布映像的列表或上传到 Azure Stack 集线器 Blob 存储的自定义映像或虚拟硬盘（VHD）文件预配 VM。
 
-Azure Stack 提供 Azure 提供的不同虚拟机大小。 有关详细信息，请参阅[Azure Stack 中虚拟机的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)。 如果要将现有工作负荷移动到 Azure Stack，请从与本地服务器/Azure 最匹配的 VM 大小开始。 然后从 CPU、内存和每秒磁盘输入/输出操作次数 (IOPS) 等方面测量实际工作负荷的性能，并根据需要调整大小。
+Azure Stack 中心从 Azure 提供不同的虚拟机大小。 有关详细信息，请参阅[Azure Stack Hub 中虚拟机的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)。 如果要将现有工作负荷移动到 Azure Stack 中心，请从与本地服务器/Azure 最匹配的 VM 大小开始。 然后从 CPU、内存和每秒磁盘输入/输出操作次数 (IOPS) 等方面测量实际工作负荷的性能，并根据需要调整大小。
 
 ## <a name="disks"></a>磁盘
 
 成本取决于预配磁盘的容量。 IOPS 和吞吐量（即数据传输速率）取决于 VM 大小，因此在预配磁盘时，请考虑所有三个因素（容量、IOPS 和吞吐量）。
 
-Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是[VM 大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)的函数，而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，无论你是为磁盘类型选择 SSD 还是 HDD，一个额外的数据磁盘的 IOPS 限制为 2300 IOPS。 施加的 IOPS 限制是一个上限（可能的最大值），以防止邻居干扰。 这并不能保证你会获得特定 VM 大小的 IOPS。
+Azure Stack 集线器上的磁盘 IOPS （每秒输入/输出操作数）是[VM 大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)的函数，而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，无论你是为磁盘类型选择 SSD 还是 HDD，一个额外的数据磁盘的 IOPS 限制为 2300 IOPS。 施加的 IOPS 限制是一个上限（可能的最大值），以防止邻居干扰。 这并不能保证你会获得特定 VM 大小的 IOPS。
 
 我们还建议使用[托管磁盘](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations)。 托管磁盘可代你处理存储，简化磁盘管理。 托管磁盘不需要存储帐户。 只需指定磁盘的大小和类型，就可以将它部署为高度可用的资源。
 
-OS 磁盘是存储在 Azure Stack blob 存储中的 VHD，因此即使主机关闭时也会保留。 建议创建一个或多个[数据磁盘](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)，这些磁盘是用于应用程序数据的持久性 vhd。 如果可能，请将应用程序安装在数据磁盘上，而不是 OS 磁盘上。 某些旧版应用程序可能需要将组件安装在 C：驱动器上;在这种情况下，可以使用 PowerShell[调整 OS 磁盘的大小](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk)。
+OS 磁盘是存储在 Azure Stack 集线器 blob 存储中的 VHD，因此即使主机关闭也是如此。 建议创建一个或多个[数据磁盘](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)，这些磁盘是用于应用程序数据的持久性 vhd。 如果可能，请将应用程序安装在数据磁盘上，而不是 OS 磁盘上。 某些旧版应用程序可能需要将组件安装在 C：驱动器上;在这种情况下，可以使用 PowerShell[调整 OS 磁盘的大小](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk)。
 
-还会使用临时磁盘（Windows 上的 D：驱动器）创建 VM。 此磁盘存储在 Azure Stack 存储基础结构中的临时卷上。 它可能在重新启动和其他 VM 生命周期事件时被删除。 只使用此磁盘存储临时数据，如页面文件或交换文件。
+还会使用临时磁盘（Windows 上的 D：驱动器）创建 VM。 此磁盘存储在 Azure Stack 中心存储基础结构中的临时卷上。 它可能在重新启动和其他 VM 生命周期事件时被删除。 只使用此磁盘存储临时数据，如页面文件或交换文件。
 
 ## <a name="network"></a>网络
 
@@ -68,7 +68,7 @@ OS 磁盘是存储在 Azure Stack blob 存储中的 VHD，因此即使主机关�
 
 **诊断**。 启用监视和诊断，包括基本运行状况指标、诊断基础结构日志和[启动诊断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)。 如果 VM 陷入不可启动状态，启动诊断有助于诊断启动故障。 创建用于存储日志的 Azure 存储帐户。 标准的本地冗余存储 (LRS) 帐户足以存储诊断日志。 有关详细信息，请参阅[启用监视和诊断](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data)。
 
-**可用性**。 由于 Azure Stack 操作员计划的维护，你的 VM 可能会因计划内维护而重新启动。 为了实现 Azure 中多 VM 生产系统的高可用性，将 Vm 放置在一个[可用性集中](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)，以跨多个容错域和更新域传播它们。 在较小的 Azure Stack 中心范围内，可用性集中的容错域定义为缩放单位中的单个节点。  
+**可用性**。 由于 Azure Stack 中心操作员计划的维护，你的 VM 可能会因计划内维护而重新启动。 为了实现 Azure 中多 VM 生产系统的高可用性，将 Vm 放置在一个[可用性集中](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)，以跨多个容错域和更新域传播它们。 在较小的 Azure Stack 中心范围内，可用性集中的容错域定义为缩放单位中的单个节点。  
 
 尽管 Azure Stack 中心的基础结构已对故障有弹性，但如果出现硬件故障，基础技术（故障转移群集）仍会对受影响的物理服务器上的 Vm 产生一些停机时间。 Azure Stack 中心支持拥有最多三个容错域的可用性集，以便与 Azure 保持一致。
 
@@ -77,9 +77,9 @@ OS 磁盘是存储在 Azure Stack blob 存储中的 VHD，因此即使主机关�
 | **容错域** | 放置在可用性集中的 Vm 将以物理方式彼此隔离，方法是在多个容错域（Azure Stack 中心节点）之间均匀分配它们。 如果发生硬件故障，故障容错域中的 Vm 将在其他容错域中重新启动。 它们将保存在与其他 Vm 不同的容错域中，但可能会保留在同一可用性集中。 当硬件重新联机时，将重新平衡 Vm 以保持高可用性。 |
 | **更新域**| 更新域是 Azure 在可用性集中提供高可用性的另一种方法。 更新域是一组可同时进行维护的基础硬件逻辑组。 位于同一更新域中的 Vm 将在计划内维护期间一起重新启动。 当租户在可用性集中创建 Vm 时，Azure 平台会自动将 Vm 分布到这些更新域。 <br>在 Azure Stack 集线器中，Vm 在其基础主机更新之前，会在群集中的其他联机主机之间进行实时迁移。 由于在主机更新期间不会出现任何租户停机时间，因此，Azure Stack 集线器上的更新域功能只存在于与 Azure 的模板兼容性。 可用性集中的 Vm 会在门户上显示0作为其更新域的编号。 |
 
-**备份**有关保护 Azure Stack IaaS Vm 的建议，请参阅此文。
+**备份**有关保护 Azure Stack 中心 IaaS Vm 的建议，请参阅此文。
 
-**停止 VM**。 Azure 对“已停止”和“已解除分配”状态做了区分。 当 VM 状态为已停止时（而不是当 VM 已解除分配时）将向你收费。 在 Azure Stack 门户中，"**停止**" 按钮会释放 VM。 如果在已登录时通过 OS 关闭，VM 会停止，但不会解除分配，因此仍会产生费用。
+**停止 VM**。 Azure 对“已停止”和“已解除分配”状态做了区分。 当 VM 状态为已停止时（而不是当 VM 已解除分配时）将向你收费。 在 Azure Stack 集线器门户中，"**停止**" 按钮会释放 VM。 如果在已登录时通过 OS 关闭，VM 会停止，但不会解除分配，因此仍会产生费用。
 
 **删除 VM**。 如果删除 VM，则不会删除 VM 磁盘。 这意味着可以安全地删除 VM，而不会丢失数据。 但是，仍将向你收取存储费用。 若要删除 VM 磁盘，请删除托管磁盘对象。 若要防止意外删除，请使用*资源锁*锁定整个资源组或锁定单个资源（如 VM）。
 
@@ -98,10 +98,10 @@ OS 磁盘是存储在 Azure Stack blob 存储中的 VHD，因此即使主机关�
 
 **审核日志**。 使用[活动日志](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log)查看预配操作和其他 VM 事件。
 
-**数据加密**。 Azure Stack 使用 BitLocker 128 位 AES 加密来保护存储子系统中的静态用户和基础结构数据。 有关详细信息，请参阅[Azure Stack 中的静态数据加密](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)。
+**数据加密**。 Azure Stack 集线器使用 BitLocker 128 位 AES 加密来保护存储子系统中的静态用户和基础结构数据。 有关详细信息，请参阅[Azure Stack 集线器中的静态数据加密](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)。
 
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解 Azure Stack Vm，请参阅[AZURE STACK VM 功能](azure-stack-vm-considerations.md)。  
+- 若要详细了解 Azure Stack 集线器 vm，请参阅[Azure Stack 中心 vm 功能](azure-stack-vm-considerations.md)。  
 - 若要了解有关 Azure 云模式的详细信息，请参阅[云设计模式](https://docs.microsoft.com/azure/architecture/patterns)。

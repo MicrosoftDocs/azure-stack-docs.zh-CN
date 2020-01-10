@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 9766c1fb0c5186f33038716f0d56d1ccac9d90cb
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.openlocfilehash: 6487f3380f39d6e321771a23714e99d8f65dd836
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303680"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75821012"
 ---
 # <a name="azure-stack-hub-security-updates"></a>Azure Stack 中心安全更新
 
@@ -243,13 +243,13 @@ Azure Stack 中心的这一更新不包括托管 Azure Stack 中心的基础操�
 ::: moniker range="azs-1907"
 ## <a name="1907-update"></a>1907更新
 
-此 Azure Stack 更新不包括承载 Azure Stack 的基础操作系统的安全更新。
+Azure Stack 中心的这一更新不包括托管 Azure Stack 中心的基础操作系统的安全更新。
 ::: moniker-end
 
 ::: moniker range="azs-1906"
 ## <a name="1906-update"></a>1906更新
 
-此 Azure Stack 更新不包括承载 Azure Stack 的基础操作系统的安全更新。
+Azure Stack 中心的这一更新不包括托管 Azure Stack 中心的基础操作系统的安全更新。
 ::: moniker-end
 
 ## <a name="next-steps"></a>后续步骤

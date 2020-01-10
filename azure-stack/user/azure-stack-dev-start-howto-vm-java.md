@@ -1,6 +1,6 @@
 ---
-title: 将 Java WAR 部署到 Azure Stack 中的虚拟机 | Microsoft Docs
-description: 将 Java WAR 部署到 Azure Stack 中的虚拟机。
+title: 在 Azure Stack 集线器中将 Java WAR 部署到虚拟机 |Microsoft Docs
+description: 将 Java WAR 部署到 Azure Stack 集线器中的虚拟机。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,77 +9,77 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2c9c43439872a19ba590fb22059969f9a7c742f0
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 75633b7e695db3c6b1e48b7e5f98e9145b6b1fc9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824448"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820621"
 ---
-# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>将 Java Web 应用部署到 Azure Stack 中的 VM
+# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 Java web 应用部署到 VM
 
-可以创建一个虚拟机 (VM) 来托管 Azure Stack 中的 Python Web 应用。 在本文中，你将在 Azure Stack 中的 Linux VM 上安装并配置一个 Apache Tomcat 服务器。 然后，将 Java Web 应用程序资源 (WAR) 文件加载到该服务器。 WAR 文件用于分发 Java 存档 (JAR) 文件，以及包含 Java 资源（例如类、文本、图像、XML 和 HTML）其他用于交付 Web 应用程序的资源的压缩文件。
+你可以创建虚拟机（VM）以在 Azure Stack 中心内托管 Python web 应用。 本文介绍如何在 Azure Stack Hub 中的 Linux VM 上安装和配置 Apache Tomcat 服务器。 然后，将 Java Web 应用程序资源（WAR）文件加载到服务器中。 WAR 文件用于分发 Java 存档（JAR）文件的集合、包含 Java 资源（如类、文本、图像、XML、HTML）的压缩文件以及用于传递 web 应用程序的其他资源。
 
 ## <a name="create-a-vm"></a>创建 VM
 
-1. 按照[部署 Linux VM 以在 Azure Stack 中托管 Web 应用](azure-stack-dev-start-howto-deploy-linux.md)中的说明，在 Azure Stack 中设置 VM。
+1. 按照[部署 LINUX VM 以在 Azure Stack 中心中承载 web 应用](azure-stack-dev-start-howto-deploy-linux.md)中的说明，在 Azure Stack 集线器中设置 VM。
 
-2. 在“VM 网络”窗格中，确保可以访问以下端口：
+2. 在 "VM 网络" 窗格中，确保可访问以下端口：
 
-    | Port | Protocol | 描述 |
+    | Port | 协议 | Description |
     | --- | --- | --- |
-    | 80 | HTTP | 超文本传输协议 (HTTP) 是用于从服务器传递网页的协议。 客户端使用 DNS 名称或 IP 地址通过 HTTP 进行连接。 |
-    | 443 | HTTPS | 安全超文本传输协议 (HTTPS) 是 HTTP 的安全版本，它需要一个安全证书，并允许对信息进行加密传输。 |
-    | 22 | SSH | 安全外壳 (SSH) 是一种用于安全通信的加密网络协议。 你在 SSH 客户端上使用此连接来配置 VM 并部署应用。 |
-    | 3389 | RDP | 可选。 远程桌面协议 (RDP) 允许远程桌面连接使用计算机的图形用户界面。   |
-    | 8080 | 自定义 | Apache Tomcat 服务的默认端口。 对于生产服务器，通过 80 和 443 路由流量。 |
+    | 80 | HTTP | 超文本传输协议（HTTP）是用于从服务器传递网页的协议。 客户端通过 HTTP 连接 DNS 名称或 IP 地址。 |
+    | 443 | HTTPS | 超文本传输协议（HTTPS）是 HTTP 的安全版本，它需要安全证书，并允许加密传输信息。 |
+    | 22 | SSH | 安全外壳（SSH）是一种用于安全通信的加密网络协议。 将此连接与 SSH 客户端结合使用，以配置 VM 和部署应用。 |
+    | 3389 | RDP | 可选。 远程桌面协议（RDP）允许远程桌面连接在计算机上使用图形用户界面。   |
+    | 8080 | 自定义 | Apache Tomcat 服务的默认端口。 对于生产服务器，可通过80和443路由流量。 |
 
 ## <a name="install-java"></a>安装 Java
 
-1. 使用 SSH 客户端连接到 VM。 有关说明，请参阅[使用 PuTTY 通过 SSH 进行连接](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty)。
+1. 使用 SSH 客户端连接到 VM。 有关说明，请参阅[通过 SSH 连接到 PuTTY](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty)。
 
-2. 在 VM 上的 bash 提示符下，运行以下命令：
+2. 在虚拟机上的 bash 提示符下，运行以下命令：
 
     ```bash  
         sudo apt-get install default-jdk
     ```
 
-3. 验证安装。 仍在 SSH 会话中连接到 VM，运行以下命令：
+3. 验证你的安装。 在 SSH 会话中仍连接到 VM，请运行以下命令：
 
     ```bash  
         java -version
     ```
 
-## <a name="install-and-configure-tomcat"></a>安装并配置 Tomcat
+## <a name="install-and-configure-tomcat"></a>安装和配置 Tomcat
 
-1. 使用 SSH 客户端连接到 VM。 有关说明，请参阅[使用 PuTTY 通过 SSH 进行连接](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty)。
+1. 使用 SSH 客户端连接到 VM。 有关说明，请参阅[通过 SSH 连接到 PuTTY](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty)。
 
-1. 执行以下操作创建 Tomcat 用户：
+1. 通过执行以下操作创建 Tomcat 用户：
 
-    a. 运行以下命令创建新的 Tomcat 组：
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 通过运行以下命令创建新的 Tomcat 组：
 
     ```bash  
         sudo groupadd tomcat
     ```
      
-    b. 创建新的 Tomcat 用户。 将此用户添加到主目录为 */opt/tomcat* 的 Tomcat 组。 将 Tomcat 部署到此目录：
+    b.保留“数据库类型”设置，即设置为“共享”。 创建新的 Tomcat 用户。 将此用户添加到包含 */opt/tomcat*主目录的 Tomcat 组。 将 Tomcat 部署到此目录：
 
     ```bash  
         sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
     ```
 
-1. 执行以下操作安装 Tomcat：
+1. 通过执行以下操作来安装 Tomcat：
 
-    a. 从 [Tomcat 8 下载页](http://tomcat.apache.org/download-80.cgi)获取最新版 Tomcat 8 的 tar 的 URL。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 从[tomcat 8 下载页](http://tomcat.apache.org/download-80.cgi)获取最新版本的 tomcat 8 的 tar URL。
 
-    b. 使用 cURL 通过链接下载最新版本。 运行以下命令：
+    b.保留“数据库类型”设置，即设置为“共享”。 使用 "连接" 链接来下载最新版本。 运行以下命令：
 
     ```bash  
         cd /tmp 
         curl -O <URL for the tar for the latest version of Tomcat 8>
     ```
 
-    c. 将 Tomcat 安装到 */opt/tomcat* 目录。 创建文件夹，然后打开存档：
+    c. 将 Tomcat 安装到 */opt/tomcat*目录中。 创建文件夹，然后打开存档：
 
     ```bash  
         sudo mkdir /opt/tomcat
@@ -87,7 +87,7 @@ ms.locfileid: "71824448"
         sudo chown -R tomcat webapps/ work/ temp/ logs/
     ```
 
-1. 运行以下命令更新 Tomcat 的权限：
+1. 通过运行以下命令来更新 Tomcat 的权限：
 
     ```bash  
         sudo chgrp -R tomcat /opt/tomcat
@@ -95,30 +95,30 @@ ms.locfileid: "71824448"
         sudo chmod g+x conf
     ```
 
-1. 创建 *systemd* 服务文件，以便以服务的形式运行 Tomcat。
+1. 创建*systemd*服务文件，以便可以将 Tomcat 作为服务运行。
 
-   a. Tomcat 需要知道 Java 的安装位置。 此路径通常称为 *JAVA_HOME*。 运行以下命令找到该位置：
+   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 Tomcat 需要知道安装 Java 的位置。 此路径通常称为*JAVA_HOME*。 通过运行以下内容查找位置：
 
     ```bash  
         sudo update-java-alternatives -l
     ```
 
-    这会生成如下所示的结果：
+    这将产生如下所示的内容：
 
     ```Text  
         Output
         java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
     ```
 
-    可以使用输出中的路径并添加 */jre*，来构造 *JAVA_HOME* 变量值。 例如，使用上述示例 */usr/lib/jvm/java-1.8.0-openjdk-amd64/jre*。
+    可以通过从输出中获取路径并添加 */jre*来构造*JAVA_HOME*变量值。 例如，使用前面的示例 */usr/lib/jvm/java-1.8.0-openjdk-amd64/jre*。
 
-    b. 使用服务器中的值创建 systemd 服务文件：
+    b.保留“数据库类型”设置，即设置为“共享”。 使用服务器中的值创建 systemd 服务文件：
 
     ```bash  
         sudo nano /etc/systemd/system/tomcat.service
     ```
 
-    c. 将以下内容粘贴到该服务文件中。 根据需要修改 *JAVA_HOME* 的值，使之与系统上的值匹配。 还可以修改 CATALINA_OPTS 中指定的内存分配设置：
+    c. 将以下内容粘贴到你的服务文件中。 如有必要，请修改*JAVA_HOME*的值，使其与你在系统中找到的值匹配。 你可能还需要修改 CATALINA_OPTS 中指定的内存分配设置：
 
     ```Text  
         [Unit]
@@ -148,9 +148,9 @@ ms.locfileid: "71824448"
         WantedBy=multi-user.target
     ```
 
-    d. 保存并关闭该文件。
+    d.单击“下一步”。 保存并关闭该文件。
 
-    e. 重新加载 systemd 守护程序，使其能够识别上述服务文件：
+    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。 重载 systemd 守护程序，使其了解你的服务文件：
 
     ```bash  
         sudo systemctl daemon-reload
@@ -162,48 +162,48 @@ ms.locfileid: "71824448"
         sudo systemctl start tomcat
     ```
 
-    g. 输入以下命令，验证该服务是否已启动且未出错：
+    g. 输入以下内容，验证它是否已开始没有错误：
 
     ```bash  
         sudo systemctl status tomcat
     ```
 
-1. 验证 Tomcat 服务器。 Tomcat 使用端口 8080 来接受传统的请求。 运行以下命令，允许流量流向该端口：
+1. 验证 Tomcat 服务器。 Tomcat 使用端口8080接受常规请求。 通过运行以下命令允许流量流向该端口：
 
     ```bash  
         sudo ufw allow 8080
     ```
 
-    如果尚未为 Azure Stack VM 添加*入站端口规则*，现在请添加这些规则。 有关详细信息，请参阅[创建 VM](#create-a-vm)。
+    如果尚未为 Azure Stack 中心 VM 添加*入站端口规则*，请立即添加。 有关详细信息，请参阅[创建 VM](#create-a-vm)。
 
-1. 在 Azure Stack 所在的同一网络中打开浏览器，然后打开服务器 *yourmachine.local.cloudapp.azurestack.external:8080*。
+1. 在与 Azure Stack 中心相同的网络中打开浏览器，然后打开服务器*yourmachine。 p p.： 8080*。
 
-    ![Azure Stack VM 上的 Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Azure Stack 中心 VM 上的 Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
-    此时会加载服务器上的 Apache Tomcat 页。 接下来，将服务器配置为允许你访问服务器状态、管理器应用和主机管理器。
+    服务器上的 Apache Tomcat 页面加载。 接下来，将服务器配置为允许访问服务器状态、管理器应用和主机管理器。
 
-1. 启用服务文件，以便在重新启动服务器时自动启动 Tomcat：
+1. 启用服务文件，以便在重新启动服务器时 Tomcat 自动启动：
 
     ```bash  
         sudo systemctl enable tomcat
     ```
 
-1. 若要允许自己访问 Web 管理界面，请配置 Tomcat 服务器。 
+1. 若要允许自己访问 web 管理界面，请配置 Tomcat 服务器。 
 
-   a. 编辑 *tomcat-users.xml* 文件，并定义一个角色和用户，以便能够登录。 将用户定义为可访问 `manager-gui` 和 `admin-gui`。
+   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 编辑*tomcat-users*文件，并定义角色和用户，以便可以登录。 定义访问 `manager-gui` 和 `admin-gui`的用户。
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
     ```
 
-   b. 在 `<tomcat-users>` 节中添加以下元素：
+   b.保留“数据库类型”设置，即设置为“共享”。 将以下元素添加到 `<tomcat-users>` 部分：
 
     ```XML  
         <role rolename="tomcat"/>
         <user username="<username>" password="<password>" roles="tomcat,manager-gui,admin-gui"/>
     ```
 
-    例如，最终的文件可能如下所示：
+    例如，最终文件可能如下所示：
 
     ```XML  
         <tomcat-users xmlns="http://tomcat.apache.org/xml"
@@ -217,15 +217,15 @@ ms.locfileid: "71824448"
 
     c. 保存并关闭该文件。
 
-1. Tomcat 会将“管理器”和“主机管理器”应用的访问权限限制为来自服务器的连接。 由于你要在 Azure Stack 中的 VM 上安装 Tomcat，因此需要解除此限制。 通过编辑相应的 *context.xml* 文件来更改对这些应用的 IP 地址限制。
+1. Tomcat 限制了对来自服务器的连接的*管理器*和*主机管理器*应用的访问。 因为你要在 Azure Stack Hub 中的 VM 上安装 Tomcat，所以需要删除此限制。 通过编辑相应的*上下文 .xml*文件来更改这些应用的 IP 地址限制。
 
-    a. 在管理器应用中更新 *context.xml*：
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 在管理器应用中更新*上下文 .xml* ：
 
     ```bash  
         sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
     ```
 
-    b. 注释掉 IP 地址限制以允许从任何位置进行连接，或添加用于连接 Tomcat 的计算机的 IP 地址。
+    b.保留“数据库类型”设置，即设置为“共享”。 注释掉 IP 地址限制以允许来自任何位置的连接，或者添加用于连接到 Tomcat 的计算机的 IP 地址。
 
     ```XML  
     <Context antiResourceLocking="false" privileged="true" >
@@ -236,57 +236,57 @@ ms.locfileid: "71824448"
 
     c. 保存并关闭该文件。
 
-    d. 使用类似的更新命令更新 *context.xml* 主机管理器应用：
+    d.单击“下一步”。 使用类似更新更新主机管理器应用的*上下文 .xml* ：
 
     ```bash  
         sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml
     ```
 
-    e. 保存并关闭该文件。
+    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。 保存并关闭该文件。
 
-1. 若要使用所做的更改更新服务器，请重启 Tomcat 服务：
+1. 若要用更改更新服务器，请重新启动 Tomcat 服务：
 
     ```bash  
         sudo systemctl restart tomcat
     ```
 
-1. 在 Azure Stack 所在的同一网络中打开浏览器，然后打开服务器：*yourmachine.local.cloudapp.azurestack.external:8080*。
+1. 在与 Azure Stack 中心相同的网络中打开浏览器，然后打开服务器： yourmachine. *p p. test-azurestack： 8080*。
 
-    a. 若要查看 Tomcat 服务器的状态并验证你是否有访问权限，请选择“服务器状态”。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 若要查看 Tomcat 服务器的状态并验证你是否具有访问权限，请选择 "**服务器状态**"。
 
-    b. 使用 Tomcat 凭据登录。
+    b.保留“数据库类型”设置，即设置为“共享”。 用 Tomcat 凭据登录。
 
-    ![Azure Stack VM 上的 Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
+    ![Azure Stack 中心 VM 上的 Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
 
 ## <a name="create-an-app"></a>创建应用
 
-需要创建一个要部署到 Tomcat 的 WAR。 如果你只是想要检查环境，可以在 [Apache Tomcat 站点](https://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/)上找到一个示例 WAR。
+需要创建一个要部署到 Tomcat 的 WAR。 如果只想要检查您的环境，可以在[Apache Tomcat 站点](https://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/)上找到示例 WAR。
 
-有关在 Azure 中开发 Java 应用的指导，请参阅[在 Azure 中生成和部署 Java 应用](https://azure.microsoft.com/develop/java/)。
+有关在 Azure 中开发 Java 应用的指南，请参阅[在 azure 上生成和部署 java 应用](https://azure.microsoft.com/develop/java/)。
 
 ## <a name="deploy-and-run-the-app"></a>部署和运行应用
 
-1. 使用 SSH 客户端连接到 VM。 有关说明，请参阅[使用 PuTTY 通过 SSH 进行连接](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty)。
+1. 使用 SSH 客户端连接到 VM。 有关说明，请参阅[通过 SSH 连接到 PuTTY](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty)。
 
-1. 若要使用应用包更新服务器，请停止 Tomcat 服务：
+1. 若要将服务器更新为应用包，请停止 Tomcat 服务：
 
     ```bash  
         sudo systemctl stop tomcat
     ```
 
-1. 若要写入 webapps 文件夹，请将 FTP 用户添加到 Tomcat 组。 该 FTP 用户是在 Azure Stack 中创建 VM 时定义的用户。
+1. 若要写入到 webapps 文件夹，请将 FTP 用户添加到 Tomcat 组。 FTP 用户是在 Azure Stack Hub 中创建 VM 时定义的用户。
 
     ```bash  
         sudo usermod -a -G tomcat <VM-user>
     ```
 
-1. 若要清除 webapps 文件夹，然后加载新的或已更新的 WAR，请使用 FileZilla 连接到 VM。 有关说明，请参阅[使用 FileZilla 通过 SFTP 进行连接](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-sftp-with-filezilla)。
+1. 若要清除 webapps 文件夹，然后加载新的或更新的 WAR，请通过 FileZilla 连接到 VM。 有关说明，请参阅通过[FileZilla 与 SFTP 连接](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-sftp-with-filezilla)。
 
-    a. 清除 *TOMCAT_HOME/webapps*。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 清除*TOMCAT_HOME/webapps*。
 
-    b. 将 WAR 添加到 *TOMCAT_HOME/webapps*（例如 */opt/tomcat/webapps/* ）。
+    b.保留“数据库类型”设置，即设置为“共享”。 将 WAR 添加到*TOMCAT_HOME/webapps* （例如 */opt/tomcat/webapps/* ）。
 
-1.  Tomcat 会自动扩展并部署应用程序。 可以使用先前创建的 DNS 名称查看该应用程序。 例如：
+1.  Tomcat 自动展开并部署应用程序。 您可以使用之前创建的 DNS 名称来查看它。 例如：
 
     ```HTTP  
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
@@ -294,6 +294,6 @@ ms.locfileid: "71824448"
     
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解如何[针对 Azure Stack 进行开发](azure-stack-dev-start.md)。
-- 了解[用作 IaaS 的 Azure Stack 的常见部署](azure-stack-dev-start-deploy-app.md)。
-- 若要了解 Java 编程语言并查找适用于 Java 的其他资源，请参阅 [Java.com](https://www.java.com)。
+- 了解有关如何[针对 Azure Stack 中心进行开发的](azure-stack-dev-start.md)详细信息。
+- 了解[Azure Stack 集线器作为 IaaS 的常见部署](azure-stack-dev-start-deploy-app.md)。
+- 若要了解 Java 编程语言并查找适用于 Java 的其他资源，请参阅[Java.com](https://www.java.com)。

@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 11dcd7288f629282c1f69d12c33e9bd1a8e440b6
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503617"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812393"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
@@ -278,7 +278,7 @@ ms.locfileid: "75503617"
 ## <a name="1908-update-process"></a>1908更新过程
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：尝试安装 Azure Stack 更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序（URP）无法正确地将文件从存储容器传输到内部基础结构共享进行处理。
+- 原因：尝试安装 Azure Stack 中心更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序（URP）无法正确地将文件从存储容器传输到内部基础结构共享进行处理。
 - 修正：从版本1901（1.1901.0.95）开始，你可以通过单击 "**立即更新**" （不**继续**）来解决此问题。 然后，URP 将清理上一次尝试的文件，并重新启动下载。 如果此问题仍然存在，建议使用 "[安装更新" 部分](azure-stack-apply-updates.md#install-updates-and-monitor-progress)手动上载更新包。
 - 发生次数：常见
 
@@ -307,14 +307,14 @@ ms.locfileid: "75503617"
 ### <a name="subscription-permissions"></a>订阅权限
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：无法使用 Azure Stack 门户查看订阅的权限。
+- 原因：无法使用 Azure Stack 中心门户查看订阅的权限。
 - 修正：使用[PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
 
 ### <a name="storage-account-settings"></a>存储帐户设置
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"存储帐户**配置**" 边栏选项卡显示了更改**安全传输类型**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"存储帐户**配置**" 边栏选项卡显示了更改**安全传输类型**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 ### <a name="upload-blob"></a>上传 blob
@@ -347,7 +347,7 @@ ms.locfileid: "75503617"
 ### <a name="service-endpoints"></a>服务终结点
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，**虚拟网络**边栏选项卡显示了一个使用**服务终结点**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，**虚拟网络**边栏选项卡显示了一个使用**服务终结点**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 ### <a name="network-interface"></a>网络接口
@@ -371,29 +371,29 @@ ms.locfileid: "75503617"
 #### <a name="alerts"></a>警报
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="active-active"></a>主动-主动
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="vpn-troubleshooter"></a>VPN 疑难解答
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="documentation"></a>文档
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：虚拟网络网关的 "概述" 页中的文档链接，指向特定于 Azure 的文档，而不是 Azure Stack。 使用以下链接获取 Azure Stack 文档：
+- 原因：虚拟网络网关的 "概述" 页中的文档链接，指向特定于 Azure 的文档，而不是 Azure Stack 集线器的链接。 使用以下链接了解 Azure Stack 中心文档：
 
   - [网关 Sku](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [高可用连接](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [在 Azure Stack 上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [在 Azure Stack 集线器上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute 线路](azure-stack-connect-expressroute.md)
   - [指定自定义 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -408,11 +408,11 @@ ms.locfileid: "75503617"
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>在4节点 Azure Stack 环境的修补和更新过程中创建故障
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>在4节点 Azure Stack 中心环境中的修补和更新过程中创建故障
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在具有3个容错域的可用性集中创建虚拟机并创建虚拟机规模集实例将在 Azure Stack 环境的4节点上的更新过程中失败，并出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
-- 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在4节点 Azure Stack 上，在更新过程中创建的规模集实例仍不可用。
+- 原因：在包含3个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例在 Azure Stack 集线器环境的4节点上的更新过程中出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
+- 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在4节点 Azure Stack 集线器上，在更新过程中创建的规模集实例仍不可用。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH 访问
 
@@ -424,21 +424,21 @@ ms.locfileid: "75503617"
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>虚拟机规模集重置密码无效
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：新的 "重置密码" 边栏选项卡出现在规模集 UI 中，但 Azure Stack 不支持在规模集中重置密码。
+- 原因：新的 "重置密码" 边栏选项卡出现在规模集 UI 中，但 Azure Stack 集线器不支持在规模集中重置密码。
 - 修正：无。
 - 发生次数：常见
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>规模集诊断上的 Rainy 云
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：虚拟机规模集概述页显示一个空图表。 单击空图表会打开 "rainy cloud" 边栏选项卡。 这是规模集诊断信息的图表，例如 CPU 百分比，而不是当前 Azure Stack 生成中支持的功能。
+- 原因：虚拟机规模集概述页显示一个空图表。 单击空图表会打开 "rainy cloud" 边栏选项卡。 这是规模集诊断信息的图表，例如 CPU 百分比，而不是当前 Azure Stack 中心内部版本支持的功能。
 - 修正：无。
 - 发生次数：常见
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡
 
 - 适用：此问题适用于所有受支持的版本。    
-- 原因： "虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡，该选项卡要求提供**Application insights 帐户**。 这是新的边栏选项卡的结果，在 Azure Stack 尚不受支持。
+- 原因： "虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡，该选项卡要求提供**Application insights 帐户**。 这是新的边栏选项卡的结果，在 Azure Stack 集线器中尚不支持。
 - 修正：无。
 - 发生次数：常见
 
@@ -454,7 +454,7 @@ ms.locfileid: "75503617"
 ## <a name="1907-update-process"></a>1907更新过程
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：尝试安装 1907 Azure Stack 更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序（URP）无法正确地将文件从存储容器传输到内部基础结构共享进行处理。
+- 原因：尝试安装 1907 Azure Stack 中心更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序（URP）无法正确地将文件从存储容器传输到内部基础结构共享进行处理。
 - 修正：从版本1901（1.1901.0.95）开始，你可以通过单击 "**立即更新**" （不**继续**）来解决此问题。 然后，URP 将清理上一次尝试的文件，并重新启动下载。 如果此问题仍然存在，建议使用[导入和安装更新部分](azure-stack-apply-updates.md)手动上载更新包。
 - 发生次数：常见
 
@@ -477,14 +477,14 @@ ms.locfileid: "75503617"
 ### <a name="subscription-permissions"></a>订阅权限
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：无法使用 Azure Stack 门户查看订阅的权限。
+- 原因：无法使用 Azure Stack 中心门户查看订阅的权限。
 - 修正：使用[PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
 
 ### <a name="storage-account-settings"></a>存储帐户设置
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"存储帐户**配置**" 边栏选项卡显示了更改**安全传输类型**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"存储帐户**配置**" 边栏选项卡显示了更改**安全传输类型**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 ### <a name="upload-blob"></a>上传 blob
@@ -511,7 +511,7 @@ ms.locfileid: "75503617"
 ### <a name="service-endpoints"></a>服务终结点
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，**虚拟网络**边栏选项卡显示了一个使用**服务终结点**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，**虚拟网络**边栏选项卡显示了一个使用**服务终结点**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 ### <a name="network-interface"></a>网络接口
@@ -535,35 +535,35 @@ ms.locfileid: "75503617"
 #### <a name="alerts"></a>警报
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="active-active"></a>主动-主动
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="vpn-troubleshooter"></a>VPN 疑难解答
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 ### <a name="network-connection-type"></a>网络连接类型
 
 - 适用：此问题适用于任何1906或1907环境。 
-- 原因：在用户门户中，" **AddConnection** " 边栏选项卡显示使用**vnet 到 vnet**的选项。 Azure Stack 当前不支持此功能。 
+- 原因：在用户门户中，" **AddConnection** " 边栏选项卡显示使用**vnet 到 vnet**的选项。 Azure Stack 中心目前不支持此功能。 
 - 发生次数：常见 
 
 #### <a name="documentation"></a>文档
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：虚拟网络网关的 "概述" 页中的文档链接，指向特定于 Azure 的文档，而不是 Azure Stack。 使用以下链接获取 Azure Stack 文档：
+- 原因：虚拟网络网关的 "概述" 页中的文档链接，指向特定于 Azure 的文档，而不是 Azure Stack 集线器的链接。 使用以下链接了解 Azure Stack 中心文档：
 
   - [网关 Sku](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [高可用连接](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [在 Azure Stack 上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [在 Azure Stack 集线器上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute 线路](azure-stack-connect-expressroute.md)
   - [指定自定义 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -578,11 +578,11 @@ ms.locfileid: "75503617"
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>在4节点 Azure Stack 环境的修补和更新过程中创建故障
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>在4节点 Azure Stack 中心环境中的修补和更新过程中创建故障
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在具有3个容错域的可用性集中创建虚拟机并创建虚拟机规模集实例将在 Azure Stack 环境的4节点上的更新过程中失败，并出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
-- 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在4节点 Azure Stack 上，在更新过程中创建的规模集实例仍不可用。
+- 原因：在包含3个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例在 Azure Stack 集线器环境的4节点上的更新过程中出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
+- 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在4节点 Azure Stack 集线器上，在更新过程中创建的规模集实例仍不可用。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH 访问
 
@@ -594,21 +594,21 @@ ms.locfileid: "75503617"
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>虚拟机规模集重置密码无效
 
 - 适用：此问题适用于1906和1907版本。
-- 原因：新的 "重置密码" 边栏选项卡出现在规模集 UI 中，但 Azure Stack 不支持在规模集中重置密码。
+- 原因：新的 "重置密码" 边栏选项卡出现在规模集 UI 中，但 Azure Stack 集线器不支持在规模集中重置密码。
 - 修正：无。
 - 发生次数：常见
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>规模集诊断上的 Rainy 云
 
 - 适用：此问题适用于1906和1907版本。
-- 原因：虚拟机规模集概述页显示一个空图表。 单击空图表会打开 "rainy cloud" 边栏选项卡。 这是规模集诊断信息的图表，例如 CPU 百分比，而不是当前 Azure Stack 生成中支持的功能。
+- 原因：虚拟机规模集概述页显示一个空图表。 单击空图表会打开 "rainy cloud" 边栏选项卡。 这是规模集诊断信息的图表，例如 CPU 百分比，而不是当前 Azure Stack 中心内部版本支持的功能。
 - 修正：无。
 - 发生次数：常见
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡
 
 - 适用：此问题适用于1906和1907版本。    
-- 原因： "虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡，该选项卡要求提供**Application insights 帐户**。 这是新的边栏选项卡的结果，在 Azure Stack 尚不受支持。
+- 原因： "虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡，该选项卡要求提供**Application insights 帐户**。 这是新的边栏选项卡的结果，在 Azure Stack 集线器中尚不支持。
 - 修正：无。
 - 发生次数：常见
 
@@ -624,7 +624,7 @@ ms.locfileid: "75503617"
 ## <a name="1906-update-process"></a>1906更新过程
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：尝试安装 1906 Azure Stack 更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序（URP）无法正确地将文件从存储容器传输到内部基础结构共享进行处理。 
+- 原因：尝试安装 1906 Azure Stack 中心更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序（URP）无法正确地将文件从存储容器传输到内部基础结构共享进行处理。 
 - 修正：从版本1901（1.1901.0.95）开始，你可以通过单击 "**立即更新**" （不**继续**）来解决此问题。 然后，URP 将清理上一次尝试的文件，并重新启动下载。 如果此问题仍然存在，建议使用[导入和安装更新部分](azure-stack-apply-updates.md)手动上载更新包。
 - 发生次数：常见
 
@@ -647,7 +647,7 @@ ms.locfileid: "75503617"
 ### <a name="subscription-permissions"></a>订阅权限
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：无法使用 Azure Stack 门户查看订阅的权限。
+- 原因：无法使用 Azure Stack 中心门户查看订阅的权限。
 - 修正：使用[PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
 
@@ -660,7 +660,7 @@ ms.locfileid: "75503617"
 ### <a name="storage-account-settings"></a>存储帐户设置
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"存储帐户**配置**" 边栏选项卡显示了更改**安全传输类型**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"存储帐户**配置**" 边栏选项卡显示了更改**安全传输类型**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 ### <a name="upload-blob"></a>上传 blob
@@ -682,7 +682,7 @@ ms.locfileid: "75503617"
 ### <a name="service-endpoints"></a>服务终结点
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，**虚拟网络**边栏选项卡显示了一个使用**服务终结点**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，**虚拟网络**边栏选项卡显示了一个使用**服务终结点**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 ### <a name="network-interface"></a>网络接口
@@ -697,29 +697,29 @@ ms.locfileid: "75503617"
 #### <a name="alerts"></a>警报
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="active-active"></a>主动-主动
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="vpn-troubleshooter"></a>VPN 疑难解答
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack 当前不支持此功能。
+- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack 中心目前不支持此功能。
 - 发生次数：常见
 
 #### <a name="documentation"></a>文档
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：虚拟网络网关的 "概述" 页中的文档链接，指向特定于 Azure 的文档，而不是 Azure Stack。 请使用以下链接获取 Azure Stack 文档：
+- 原因：虚拟网络网关的 "概述" 页中的文档链接，指向特定于 Azure 的文档，而不是 Azure Stack 集线器的链接。 请使用以下链接了解 Azure Stack 中心文档：
 
   - [网关 Sku](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [高可用连接](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [在 Azure Stack 上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [在 Azure Stack 集线器上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute 线路](azure-stack-connect-expressroute.md)
   - [指定自定义 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -751,11 +751,11 @@ ms.locfileid: "75503617"
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
 
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>在4节点 Azure Stack 环境的修补和更新过程中创建故障
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>在4节点 Azure Stack 中心环境中的修补和更新过程中创建故障
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：在具有3个容错域的可用性集中创建虚拟机并创建虚拟机规模集实例将在 Azure Stack 环境的4节点上的更新过程中失败，并出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
-- 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在4节点 Azure Stack 上，在更新过程中创建的规模集实例仍不可用。
+- 原因：在包含3个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例在 Azure Stack 集线器环境的4节点上的更新过程中出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
+- 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在4节点 Azure Stack 集线器上，在更新过程中创建的规模集实例仍不可用。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH 访问
 
@@ -767,21 +767,21 @@ ms.locfileid: "75503617"
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>虚拟机规模集重置密码无效
 
 - 适用：此问题适用于1906版本。
-- 原因：新的 "重置密码" 边栏选项卡出现在规模集 UI 中，但 Azure Stack 不支持在规模集中重置密码。
+- 原因：新的 "重置密码" 边栏选项卡出现在规模集 UI 中，但 Azure Stack 集线器不支持在规模集中重置密码。
 - 修正：无。
 - 发生次数：常见
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>规模集诊断上的 Rainy 云
 
 - 适用：此问题适用于1906版本。
-- 原因：虚拟机规模集概述页显示一个空图表。 单击空图表会打开 "rainy cloud" 边栏选项卡。 这是规模集诊断信息的图表，例如 CPU 百分比，而不是当前 Azure Stack 生成中支持的功能。
+- 原因：虚拟机规模集概述页显示一个空图表。 单击空图表会打开 "rainy cloud" 边栏选项卡。 这是规模集诊断信息的图表，例如 CPU 百分比，而不是当前 Azure Stack 中心内部版本支持的功能。
 - 修正：无。
 - 发生次数：常见
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡
 
 - 适用：此问题适用于1906版本。
-- 原因： "虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡，该选项卡要求提供**Application insights 帐户**。 这是新的边栏选项卡的结果，在 Azure Stack 尚不受支持。
+- 原因： "虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡，该选项卡要求提供**Application insights 帐户**。 这是新的边栏选项卡的结果，在 Azure Stack 集线器中尚不支持。
 - 修正：无。
 - 发生次数：常见
 
@@ -848,5 +848,5 @@ ms.locfileid: "75503617"
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-你可以[在 TechNet 库上访问 Azure Stack 已知问题的旧版本](https://aka.ms/azsarchivedrelnotes)。 这些存档文档仅供参考目的提供，并不表示支持这些版本。 有关 Azure Stack 支持的信息，请参阅[Azure Stack 服务策略](azure-stack-servicing-policy.md)。 若要获得更多帮助，请与 Microsoft 客户支持服务联系。
+可以在[TechNet 库中访问 Azure Stack 中心已知问题的旧版本](https://aka.ms/azsarchivedrelnotes)。 这些存档文档仅供参考目的提供，并不表示支持这些版本。 有关 Azure Stack 中心支持的详细信息，请参阅[Azure Stack 中心维护策略](azure-stack-servicing-policy.md)。 若要获得更多帮助，请与 Microsoft 客户支持服务联系。
 ::: moniker-end

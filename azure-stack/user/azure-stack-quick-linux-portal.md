@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Stack 创建 Linux VM |Microsoft Docs
-description: 使用 Azure Stack 创建 Linux 服务器 VM。
+title: 使用 Azure Stack 集线器创建 Linux VM |Microsoft Docs
+description: 使用 Azure Stack 集线器创建 Linux 服务器 VM。
 services: azure-stack
 cloud: azure-stack
 author: mattbriggs
@@ -12,31 +12,31 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 5c3b8d85f5dca0eeb439ca475d4396848d316366
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 1edfff9f684bb5ca9ed46ee06e98685f026b5bea
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047263"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819346"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Linux 服务器 VM
+# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack 中心门户创建 Linux 服务器 VM
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-可以使用 Azure Stack 门户创建 Ubuntu Server 16.04 LTS 虚拟机（VM）。 本文介绍如何创建和使用虚拟机。 本文还介绍了如何执行以下操作：
+可以使用 Azure Stack 中心门户创建 Ubuntu Server 16.04 LTS 虚拟机（VM）。 本文介绍如何创建和使用虚拟机。 本文还介绍了如何执行以下操作：
 
 * 使用远程客户端连接到 VM。
 * 安装 NGINX web 服务器。
 * 清理资源。
 
 > [!NOTE]  
-> 本文中的图像已更新，以匹配 Azure Stack 版本1808中引入的更改。 除非托管磁盘外，版本1808添加了对使用*托管磁盘*的支持。 如果使用的是早期版本，则某些任务（如磁盘选择）的图像不同于 UI 中显示的内容。  
+> 本文中的图像已更新，以匹配 Azure Stack 集线器版本1808中引入的更改。 除非托管磁盘外，版本1808添加了对使用*托管磁盘*的支持。 如果使用的是早期版本，则某些任务（如磁盘选择）的图像不同于 UI 中显示的内容。  
 
 ## <a name="prerequisites"></a>必备组件
 
-* Azure Stack Marketplace 中的 Linux 映像
+* Azure Stack 中心应用商店中的 Linux 映像
 
-   默认情况下，Azure Stack Marketplace 没有 Linux 映像。 让 Azure Stack 运算符提供所需的 Ubuntu Server 16.04 LTS 映像。 操作员可以使用将[Marketplace 项从 Azure 下载到 Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md)中的说明进行操作。
+   默认情况下，Azure Stack 中心市场没有 Linux 映像。 让 Azure Stack 集线器操作员提供所需的 Ubuntu Server 16.04 LTS 映像。 操作员可以使用将[Marketplace 项从 Azure 下载到 Azure Stack 中心](../operator/azure-stack-download-azure-marketplace-item.md)中的说明。
 
 * 访问 SSH 客户端
 
@@ -66,23 +66,23 @@ ms.locfileid: "73047263"
 
    ![PuTTY 密钥生成器结果](media/azure-stack-quick-linux-portal/Putty02.PNG)
 
-## <a name="sign-in-to-the-azure-stack-portal"></a>登录到 Azure Stack 门户
+## <a name="sign-in-to-the-azure-stack-hub-portal"></a>登录到 Azure Stack 中心门户
 
-Azure Stack 门户的地址取决于要连接到的 Azure Stack 产品：
+Azure Stack 中心门户的地址取决于要连接到的 Azure Stack 中心产品：
 
-* 对于 ASDK，请参阅 https://portal.local.azurestack.external 。
+* 对于 ASDK 中，请转到 [https://portal.local.azurestack.external](https://portal.local.azurestack.external )。
 
-* 对于 Azure Stack 集成系统，请参阅 Azure Stack 操作员提供的 URL。
+* 对于 Azure Stack 集线器集成系统，请参阅 Azure Stack 中心操作员提供的 URL。
 
 ## <a name="create-the-vm"></a>创建 VM
 
-1. 在 Azure Stack 门户的左上角，选择 "**创建资源**"。
+1. 在 Azure Stack 中心门户的左上角，选择 "**创建资源**"。
 
 1. 选择“计算”，然后选择“Ubuntu Server 16.04 LTS”。
    
    ![选择 Linux 服务器](media/azure-stack-quick-linux-portal/select.png)
 
-1. 选择**创建**。
+1. 选择“创建”。
 
 1. 键入 VM 信息。 对于 "**身份验证类型**"，请选择 " **ssh 公钥**"，粘贴保存的 ssh 公钥，然后选择 **"确定"** 。
 
@@ -97,7 +97,7 @@ Azure Stack 门户的地址取决于要连接到的 Azure Stack 产品：
 
 1. 在 "**设置**" 页上，对默认值进行更改。
    
-   从 Azure Stack 版本1808开始，你可以配置**存储**并选择使用*托管磁盘*。 在早于1808的版本中，仅可使用非托管磁盘。
+   从 Azure Stack 集线器版本1808开始，你可以配置**存储**并选择使用*托管磁盘*。 在早于1808的版本中，仅可使用非托管磁盘。
 
    ![为托管磁盘配置存储](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
@@ -119,7 +119,7 @@ Azure Stack 门户的地址取决于要连接到的 Azure Stack 产品：
 
 1. 在 "**类别**" 窗格中，向上滚动到 "会话" 并选择 "**会话**"。
 
-1. 在 "**主机名（或 IP 地址）** " 框中，粘贴 Azure Stack 门户中显示的连接字符串。 在此示例中，字符串 *asadmin@192.168.102.34* 。
+1. 在 "**主机名（或 IP 地址）** " 框中，粘贴 Azure Stack 中心门户中显示的连接字符串。 在此示例中，字符串 *asadmin@192.168.102.34* 。
 
 1. 选择 "**打开**"，为 VM 打开会话。
 
@@ -139,11 +139,11 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-完成安装 NGINX 后，请关闭 SSH 会话，并在 Azure Stack 门户中打开 "VM**概述**" 页。
+完成安装 NGINX 后，请关闭 SSH 会话，并在 Azure Stack 中心门户中打开 "VM**概述**" 页。
 
 ## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80
 
-网络安全组（NSG）保护入站和出站流量。 在 Azure Stack 门户中创建 VM 时，会在用于 SSH 连接的端口22上创建入站规则。 由于此 VM 托管 web 服务器，因此需要创建 NSG 规则以允许端口80上的 web 流量。
+网络安全组（NSG）保护入站和出站流量。 在 Azure Stack 中心门户中创建 VM 时，将在 SSH 连接的端口22上创建入站规则。 由于此 VM 托管 web 服务器，因此需要创建 NSG 规则以允许端口80上的 web 流量。
 
 1. 在 "VM**概述**" 页上，选择**资源组**的名称。
 
@@ -173,4 +173,4 @@ sudo apt-get -y install nginx
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，已部署了包含 web 服务器的基本 Linux 服务器虚拟机。 若要详细了解 Azure Stack Vm，请继续参阅[Azure Stack 中 vm 的注意事项](azure-stack-vm-considerations.md)。
+在本快速入门中，已部署了包含 web 服务器的基本 Linux 服务器虚拟机。 若要详细了解 Azure Stack 集线器 Vm，请继续[考虑 Azure Stack 中心的 vm 的注意事项](azure-stack-vm-considerations.md)。

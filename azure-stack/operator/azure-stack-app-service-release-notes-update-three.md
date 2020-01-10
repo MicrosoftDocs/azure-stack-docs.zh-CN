@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Update 3 发行说明中的应用服务 |Microsoft Docs
-description: 了解 Azure Stack 上应用服务的更新3中的改进、修复和已知问题。
+title: Azure Stack 集线器上的应用服务 Update 3 发行说明 |Microsoft Docs
+description: 了解 Azure Stack 集线器上的应用服务更新3中的改进、修复和已知问题。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,72 +16,72 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: d226be9bad3bd6ddf775d8415329ea1fa8099eb0
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: a21f5377e1138ab48e2478880b26ba75e939667f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159545"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804922"
 ---
-# <a name="app-service-on-azure-stack-update-3-release-notes"></a>Azure Stack 上的应用服务更新3发行说明
+# <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Azure Stack 集线器上的应用服务 Update 3 发行说明
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-这些发行说明介绍 Azure Stack Update 3 Azure App Service 的改进、修复和已知问题。 已知问题分为三部分：直接与部署相关的问题、更新过程的问题以及生成（安装后）的问题。
+这些发行说明介绍 Azure Stack 中心更新 3 Azure App Service 的改进、修复和已知问题。 已知问题分为三部分：直接与部署相关的问题、更新过程的问题以及生成（安装后）的问题。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.3 之前，将1807更新应用到 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包（ASDK）。
+> 在部署 Azure App Service 1.3 之前，将1807更新应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 开发工具包（ASDK）。
 
 ## <a name="build-reference"></a>内部版本参考
 
-Azure Stack Update 3 内部版本号的应用服务为**74.0.13698.31**。
+Azure Stack 中心更新3内部版本号上的应用服务是**74.0.13698.31**。
 
-### <a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>必备组件
 
-开始部署之前，请参阅[Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
+开始部署之前，请参阅在[Azure Stack 中心部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
-在开始将 Azure Stack Azure App Service 升级到1.3 之前，请确保 Azure Stack 管理员门户的 Azure App Service 管理中已准备好所有角色。
+开始将 Azure Stack 中心 Azure App Service 升级到1.3 之前，请确保 Azure Stack 中心管理员门户的 Azure App Service 管理中已准备好所有角色。
 
 ![应用服务角色状态](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
-### <a name="new-features-and-fixes"></a>新功能和修复
+### <a name="new-features-and-fixes"></a>新增功能和修补程序
 
-基于 Azure Stack 的 Azure 应用服务 Update 3 包含以下改进和修复：
+Azure Stack 中心更新 3 Azure App Service 包括以下改进和修补程序：
 
 - 支持将 SQL Server Always On 用于 Azure App Service 资源提供程序数据库。
 
 - 已将新的环境参数添加到 AADIdentityApp helper 脚本，以帮助定位不同 Azure AD 区域。
 
-- 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
+- **应用服务租户、管理、功能门户和 Kudu 工具**的更新。 与 Azure Stack 中心门户 SDK 版本一致。
 
-- 将 **Azure Functions 运行时**更新到 **v1.0.11820**。
+- 将**Azure Functions 运行时**更新为**1.0.11820**。
 
-- 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
+- 核心服务的更新，可提高可靠性和错误消息，从而更容易诊断常见问题。
 
-- **针对以下应用程序框架和工具的更新**：
-  - 添加了 ASP.NET Core 2.1.2
-  - 添加了 NodeJS 10.0.0
-  - 添加了 Zulu OpenJDK 8.30.0.1
-  - 添加了 Tomcat 8.5.31 和 9.0.8
+- **以下应用程序框架和工具的更新**：
+  - 添加了 ASP.NET Core 2.1。2
+  - 已添加 NodeJS 10.0。0
+  - 添加了祖鲁 OpenJDK 8.30.0。1
+  - 已添加 Tomcat 8.5.31 和9.0。8
   - 添加了 PHP 版本：
     - 5.6.36
     - 7.0.30
     - 7.1.17
     - 7.2.5
-  - 添加了 Wincache 2.0.0.8
-  - 已将适用于 Windows 的 Git 更新到 v 2.17.1.2
-  - 已将 Kudu 更新到 74.10611.3437
+  - 添加了 Wincache 2.0.0。8
+  - 已更新适用于 Windows to v 2.17.1.2 的 Git
+  - 已将 Kudu 更新为74.10611.3437
   
-- **对所有角色的基础操作系统的更新**：
-  - [适用于基于 x64 的系统的 Windows Server 2016 的服务堆栈更新 (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
-  - [适用于基于 x64 的系统的 Windows Server 2016 的 2018-07 累积更新 (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
+- **所有角色的基础操作系统更新**：
+  - [用于基于 x64 的系统的 Windows Server 2016 的服务堆栈更新（KB4132216）](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [2018-07 基于 x64 的系统的 Windows Server 2016 累积更新（KB4338822）](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
 ### <a name="post-update-steps-optional"></a>更新后步骤（可选）
 
-对于希望迁移到 Azure Stack 部署上现有 Azure App Service 的包含数据库的客户，请在 Azure Stack 1.3 更新的 Azure App Service 完成后执行以下步骤：
+对于想要迁移到 Azure Stack 中心部署的现有 Azure App Service 的包含数据库的客户，请在 Azure Stack 中心1.3 更新上的 Azure App Service 完成后执行以下步骤：
 
 > [!IMPORTANT]
-> 此过程大约需要花费 5-10 分钟。 此过程涉及终止现有的数据库登录会话。 计划停机时间来进行迁移，并在迁移后验证基于 Azure Stack 的 Azure 应用服务
+> 此过程大约需5-10 分钟。 此过程涉及终止现有数据库登录会话。 规划在迁移后迁移和验证 Azure Stack 中心的 Azure App Service 的停机时间
 >
 >
 
@@ -167,7 +167,7 @@ Azure Stack Update 3 内部版本号的应用服务为**74.0.13698.31**。
         GO
     ```
 
-**证实**
+**验证**
 
 1. 检查 SQL Server 是否启用了包含。
 
@@ -182,25 +182,25 @@ Azure Stack Update 3 内部版本号的应用服务为**74.0.13698.31**。
 
 ### <a name="known-issues-post-installation"></a>已知问题（安装后）
 
-- 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。 Azure Stack 部署文档的 Azure App Service 中会出现此问题。
+- 在现有虚拟网络中部署应用服务时，辅助角色无法访问文件服务器，并且文件服务器仅在专用网络上可用。 Azure Stack 中心部署文档的 Azure App Service 中会出现此问题。
 
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理员门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
 
  * 源：任意
- * 源端口范围：*
- * 目标：IP 地址
- * 目标 IP 地址范围：文件服务器的 IP 范围
+ * 源端口范围： *
+ * 目标： IP 地址
+ * 目标 IP 地址范围：文件服务器的 Ip 范围
  * 目标端口范围：445
  * 协议：TCP
- * 操作：Allow
+ * 操作：允许
  * 优先级：700
- * 姓名：Outbound_Allow_SMB445
+ * 名称： Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure Stack 上的云管理员操作 Azure App Service 的已知问题
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的云管理员操作 Azure App Service 的已知问题
 
-请参阅 Azure Stack 1807 发行说明中的文档。
+请参阅 Azure Stack 中心1807发行说明中的文档。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关 Azure 应用服务的概述，请参阅[基于 Azure Stack 的 Azure 应用服务概述](azure-stack-app-service-overview.md)。
-- 有关如何准备在 Azure Stack 上部署应用服务的详细信息，请参阅[在 Azure Stack 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
+- 有关 Azure App Service 的概述，请参阅[Azure Stack 集线器概述](azure-stack-app-service-overview.md)中的 Azure App Service。
+- 有关如何准备在 Azure Stack 集线器上部署应用服务的详细信息，请参阅[在 Azure Stack 中心部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。

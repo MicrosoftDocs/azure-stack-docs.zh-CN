@@ -1,6 +1,6 @@
 ---
-title: 如何跨多个 Azure Stack 订阅复制资源 |Microsoft Docs
-description: 了解如何使用 Azure Stack 订阅复制器脚本集复制资源。
+title: 如何跨多个 Azure Stack 中心订阅复制资源 |Microsoft Docs
+description: 了解如何使用 Azure Stack 中心订阅复制器集复制资源。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: ef492c0e5bf63e73e3b8f59befa642d6d6b854bf
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557687"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816116"
 ---
-# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>如何使用 Azure Stack 订阅复制器复制资源
+# <a name="how-to-replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>如何使用 Azure Stack 中心订阅复制器复制资源
 
-你可以使用 Azure Stack 订阅复制器 PowerShell 脚本在 Azure Stack 订阅之间、Azure Stack stamp 之间，或在 Azure Stack 和 Azure 之间复制资源。 复制器脚本从不同的 Azure 和 Azure Stack 订阅中读取和重新生成 Azure 资源管理器资源。 本文介绍脚本的工作原理、如何使用脚本，并提供脚本操作的参考。
+你可以使用 Azure Stack 中心订阅复制器 PowerShell 脚本在 Azure Stack 中心订阅之间、Azure Stack 中心戳记之间或 Azure Stack 中心和 Azure 之间复制资源。 复制器脚本从不同的 Azure 和 Azure Stack 中心订阅中读取和重新生成 Azure 资源管理器资源。 本文介绍脚本的工作原理、如何使用脚本，并提供脚本操作的参考。
 
 可以在[Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns)GitHub 存储库中找到本文中使用的脚本。 脚本位于 "[订阅复制](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator)器" 文件夹中。
 
@@ -70,7 +70,7 @@ Azure 订阅复制器设计为模块化。 此工具使用核心处理器来协�
 
 ### <a name="parallel-deployments"></a>并行部署
 
-该工具需要一个名为**parallel**的参数。 此参数采用布尔值，指定是否应并行部署检索到的资源。 如果该值设置为**true，** 则对**new-azurermresourcegroupdeployment**的每次调用都将具有 **-asJob**标志，并在基于资源的资源部署集之间添加用于等待并行作业完成的代码块。各种. 它可确保在部署下一种类型的资源之前部署一种类型的所有资源。 如果将**parallel**参数值设置为**false**，则将所有资源都部署在串行中。
+该工具需要一个名为**parallel**的参数。 此参数采用布尔值，指定是否应并行部署检索到的资源。 如果将该值设置为**true，** 则每次调用**new-azurermresourcegroupdeployment**时，将在基于资源类型的资源部署集之间添加 **-asJob**标志，并将代码块添加到要等待的并行作业完成。 它可确保在部署下一种类型的资源之前部署一种类型的所有资源。 如果将**parallel**参数值设置为**false**，则将所有资源都部署在串行中。
 
 ## <a name="add-additional-resource-types"></a>添加其他资源类型
 
@@ -83,9 +83,9 @@ Azure 订阅复制器设计为模块化。 此工具使用核心处理器来协�
 脚本执行完毕后，将有三个新文件夹， **Deployment_Files**、 **Parameter_Files**和**Custom_ARM_Templates**。
 
  > [!Note]  
- > 在运行任何生成的脚本之前，必须设置正确的环境并登录到目标订阅（在新的 Azure Stack ex 中），并将工作目录设置为**Deployment_Files**文件夹。
+ > 在运行任何生成的脚本之前，必须设置正确的环境，并登录到目标订阅（对于 ex，在新的 Azure Stack 中心中），并将工作目录设置为**Deployment_Files**文件夹。
 
-Deployment_Files 将保存两个**DeployResourceGroups**和**DeployResources**文件。 执行 DeployResourceGroups 将部署资源组。 执行 DeployResources 将部署已处理的所有资源。 如果该工具是使用**All**或**Microsoft. Compute/virtualMachines**作为资源类型执行的，则 DeployResources 会提示用户输入将用于创建所有虚拟机的虚拟机管理员密码.
+Deployment_Files 将保存两个**DeployResourceGroups**和**DeployResources**文件。 执行 DeployResourceGroups 将部署资源组。 执行 DeployResources 将部署已处理的所有资源。 如果该工具是使用**All**或**Microsoft. Compute/virtualMachines**作为资源类型执行的，则 DeployResources 会提示用户输入将用于创建所有虚拟机的虚拟机管理员密码。
 
 ### <a name="example"></a>示例
 
@@ -106,7 +106,7 @@ Deployment_Files 将保存两个**DeployResourceGroups**和**DeployResources**�
 
 4.  运行 `Get-Job` 以检查状态。 获取-作业 |接收-作业将返回结果。
 
-## <a name="clean-up"></a>清理
+## <a name="clean-up"></a>清除
 
 在 replicatorV3 文件夹中，有一个名为**cleanup_generated_items. ps1**的文件-它将删除**Deployment_Files**、 **Parameter_Files**和**Custom_ARM_Templates**文件夹及其所有内容。
 
@@ -114,7 +114,7 @@ Deployment_Files 将保存两个**DeployResourceGroups**和**DeployResources**�
 
 Azure 订阅复制器（v3）当前可以复制以下资源类型：
 
-- AvailabilitySets/计算
+- Microsoft.Compute/availabilitySets
 
 - Microsoft.Compute/virtualMachines
 
@@ -154,7 +154,7 @@ Azure 订阅复制器（v3）当前可以复制以下资源类型：
 
     - 复制：-专用 IP 地址-公共 IP 地址配置-子网配置
     
-- AvailabilitySets/计算
+- Microsoft.Compute/availabilitySets
 
     - 复制：-容错域的数目-更新域的数目
 
@@ -181,10 +181,10 @@ Azure 订阅复制器（v3）当前可以复制以下资源类型：
 
 为了确保复制成功，mare 确保目标订阅的资源提供程序版本与源订阅的资源提供程序版本相匹配。
 
-在从商业 Azure 复制到商业 Azure 或从 Azure Stack 中的一个订阅复制到相同 Azure Stack 内的另一个订阅时，将会在复制存储帐户时出现问题。 这是因为存储帐户命名要求所有存储帐户名称在所有商业 Azure 中都是唯一的，或是在 Azure Stack 区域/实例上的所有订阅中是唯一的。 跨不同 Azure Stack 实例复制存储帐户将会成功，因为堆栈是单独的区域/实例。
+在从商业 Azure 复制到商业 Azure 或从 Azure Stack 中心内的一个订阅复制到相同 Azure Stack 中心内的另一个订阅时，将在复制存储帐户时出现问题。 这是因为存储帐户命名要求所有存储帐户名称在所有商业 Azure 中都是唯一的，或是在 Azure Stack 中心区域/实例上的所有订阅中都是唯一的。 跨不同 Azure Stack 中心实例复制存储帐户将会成功，因为堆栈是单独的区域/实例。
 
 
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 网络的差异和注意事项](azure-stack-network-differences.md)  
+[Azure Stack 集线器网络的差异和注意事项](azure-stack-network-differences.md)  

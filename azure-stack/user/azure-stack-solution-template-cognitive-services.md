@@ -1,6 +1,6 @@
 ---
-title: 将 Azure 认知服务部署到 Azure Stack |Microsoft Docs
-description: 了解如何部署 Azure 认知服务以 Azure Stack。
+title: 将 Azure 认知服务部署到 Azure Stack 中心 |Microsoft Docs
+description: 了解如何将 Azure 认知服务部署到 Azure Stack 中心。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,25 +15,25 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4323993c76019ffa2b3084679b2587e300094e38
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: b08f86a7cc239b2e39a4fd47ce5ac9d1aab8e355
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955633"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819244"
 ---
-# <a name="deploy-azure-cognitive-services-to-azure-stack"></a>将 Azure 认知服务部署到 Azure Stack
+# <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>将 Azure 认知服务部署到 Azure Stack 中心
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> Azure Stack 上的 Azure 认知服务处于预览阶段。
+> Azure Stack 集线器上的 Azure 认知服务处于预览阶段。
 
-可以将 Azure 认知服务与 Azure Stack 上的容器支持配合使用。 Azure 认知服务中的容器支持使你能够使用 Azure 中提供的相同丰富 Api。 使用容器可以灵活地部署和托管[Docker 容器](https://www.docker.com/what-container)中提供的服务。 容器支持目前以预览版提供，适用于 Azure 认知服务的一部分，包括[计算机视觉](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)、人[脸](https://docs.microsoft.com/azure/cognitive-services/face/overview)和[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)以及[语言理解](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)（LUIS）的部分。
+可以将 Azure 认知服务与 Azure Stack 集线器上的容器支持配合使用。 Azure 认知服务中的容器支持使你能够使用 Azure 中提供的相同丰富 Api。 使用容器可以灵活地部署和托管[Docker 容器](https://www.docker.com/what-container)中提供的服务。 容器支持目前以预览版提供，适用于 Azure 认知服务的一部分，包括[计算机视觉](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)、人[脸](https://docs.microsoft.com/azure/cognitive-services/face/overview)和[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)以及[语言理解](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)（LUIS）的部分。
 
 容器化是一种软件分发方法，其中应用或服务（包括其依赖项和配置）打包为容器映像。 只需进行少量修改或无需修改，即可将映像部署到容器主机。 每个容器都独立于其他容器和基础操作系统。 系统本身仅具有运行映像所需的组件。 容器主机的占用空间比虚拟机更小。 你还可以从映像创建用于短期任务的容器，并且在不再需要时可以将其删除。
 
-## <a name="use-containers-with-cognitive-services-on-azure-stack"></a>在 Azure Stack 上使用具有认知服务的容器
+## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>在 Azure Stack 中心使用具有认知服务的容器
 
 - **控制数据**  
   允许应用用户在使用认知服务时控制其数据。 你可以将认知服务传递给无法将数据发送到全球 Azure 或公有云的应用程序用户。
@@ -42,18 +42,18 @@ ms.locfileid: "73955633"
   向应用程序用户提供对其解决方案中部署的模型的版本更新。
 
 - **可移植体系结构**  
-  支持创建可移植的应用程序体系结构，以便可以将解决方案部署到公有云、本地的私有云或边缘。 可以在 Azure Stack 中将容器部署到 Azure Kubernetes 服务、Azure 容器实例或 Kubernetes 群集。 有关详细信息，请参阅[将 Kubernetes 部署到 Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)。
+  支持创建可移植的应用程序体系结构，以便可以将解决方案部署到公有云、本地的私有云或边缘。 可以将容器部署到 Azure Kubernetes 服务、Azure 容器实例或 Azure Stack 集线器中的 Kubernetes 群集。 有关详细信息，请参阅[Deploy Kubernetes to Azure Stack Hub](azure-stack-solution-template-kubernetes-deploy.md)。
 
 - **高吞吐量和低延迟**  
    让应用用户能够在高吞吐量和低延迟的流量中进行扩展。 让认知服务在 Azure Kubernetes 服务中物理地靠近其应用逻辑和数据。
 
-使用 Azure Stack，在 Kubernetes 群集中部署认知服务容器以及应用容器，实现高可用性和弹性缩放。 可以通过将认知服务与在应用服务、函数、Blob 存储、SQL 或 mySQL 数据库上构建的组件相结合来开发应用。
+使用 Azure Stack 中心，在 Kubernetes 群集中部署认知服务容器以及应用容器，实现高可用性和弹性缩放。 可以通过将认知服务与在应用服务、函数、Blob 存储、SQL 或 mySQL 数据库上构建的组件相结合来开发应用。
 
 有关认知服务容器的详细信息，请参阅[Azure 认知服务中的容器支持](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support)。
 
 ## <a name="deploy-the-azure-face-api"></a>部署 Azure 人脸 API
 
-本文介绍如何在 Azure Stack 上的 Kubernetes 群集上部署 Azure 人脸 API。 你可以使用相同的方法在 Azure Stack Kubernetes 群集上部署其他认知服务容器。
+本文介绍如何在 Azure Stack Hub 上的 Kubernetes 群集上部署 Azure 人脸 API。 可以使用相同的方法在 Azure Stack Hub Kubernetes 群集上部署其他认知服务容器。
 
 ## <a name="prerequisites"></a>必备组件
 
@@ -61,7 +61,7 @@ ms.locfileid: "73955633"
 
 1.  请求访问容器注册表，以从 Azure 认知服务容器注册表拉取人脸容器映像。 有关详细信息，请参阅[请求访问专用容器注册表](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry)。
 
-2.  准备 Azure Stack 上的 Kubernetes 群集。 可以遵循将[Kubernetes 部署到 Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)一文。
+2.  准备 Azure Stack 集线器上的 Kubernetes 群集。 可以按照将[Kubernetes 部署到 Azure Stack 集线器](azure-stack-solution-template-kubernetes-deploy.md)一文进行操作。
 
 ## <a name="create-azure-resources"></a>创建 Azure 资源
 
@@ -89,7 +89,7 @@ ms.locfileid: "73955633"
 
 使用 YAML 配置文件在 Kubernetes 群集上简化认知服务的部署。
 
-下面是一个示例 YAML 配置文件，用于将面部服务部署到 Azure Stack：
+下面是一个示例 YAML 配置文件，用于将面部服务部署到 Azure Stack 中心：
 
 ```Yaml  
 apiVersion: apps/v1beta1
@@ -174,7 +174,7 @@ http:<External IP>:5000/swagger
 
 ## <a name="try-the-services-with-python"></a>通过 Python 试用服务
 
-可以通过运行一些简单的 Python 脚本，尝试验证 Azure Stack 上的认知服务。 你的参考[计算机视觉](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)、[面部](https://docs.microsoft.com/azure/cognitive-services/face/overview)、[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)和[语言理解](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)（LUIS）具有官方 Python 快速入门示例。
+可以通过运行一些简单的 Python 脚本，尝试在 Azure Stack 中心验证认知服务。 你的参考[计算机视觉](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)、[面部](https://docs.microsoft.com/azure/cognitive-services/face/overview)、[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)和[语言理解](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)（LUIS）具有官方 Python 快速入门示例。
 
 使用 Python 应用验证容器上运行的服务时，有两个需要注意的事项： 
 1. 容器中的认知服务不需要用于身份验证的子键，但仍需要将任何字符串用作占位符以满足 SDK 要求。 
@@ -190,7 +190,7 @@ import cognitive_face as CF
 KEY = '0'  #  (keeping the quotes in place).
 CF.Key.set(KEY)
 
-# Get your actual Ip Address of service endpoint of your cognitive service on Azure Stack
+# Get your actual Ip Address of service endpoint of your cognitive service on Azure Stack Hub
 BASE_URL = 'http://<svc IP Address>:5000/face/v1.0/'  
 CF.BaseUrl.set(BASE_URL)
 

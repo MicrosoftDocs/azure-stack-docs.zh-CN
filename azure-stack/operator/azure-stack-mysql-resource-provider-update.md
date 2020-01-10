@@ -1,6 +1,6 @@
 ---
-title: 更新 Azure Stack 中的 MySQL 资源提供程序 |Microsoft Docs
-description: 了解如何在 Azure Stack 中更新 Azure Stack MySQL 资源提供程序。
+title: 在 Azure Stack Hub 中更新 MySQL 资源提供程序 |Microsoft Docs
+description: 了解如何在 Azure Stack 中心更新 Azure Stack 集线器 MySQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,20 +15,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 2fd85cb897f1d5e457183ffeeffc5340cbb48696
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: 6b0c849a6550ecae8d2127be0be3fbdbc8708f0b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557562"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810965"
 ---
-# <a name="update-the-mysql-resource-provider-in-azure-stack"></a>更新 Azure Stack 中的 MySQL 资源提供程序
+# <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>更新 Azure Stack 集线器中的 MySQL 资源提供程序
 
-*适用于： Azure Stack 集成系统。*
+*适用于： Azure Stack 集线器集成系统。*
 
-更新 Azure Stack 版本时，可能会发布新的 MySQL 资源提供程序适配器。 当现有适配器继续工作时，我们建议尽快更新到最新版本。
+更新 Azure Stack 集线器版本时，可能会发布新的 MySQL 资源提供程序适配器。 当现有适配器继续工作时，我们建议尽快更新到最新版本。
 
-从 MySQL 资源提供程序版本1.1.33.0 开始，更新是累积的，无论是从版本1.1.24.0 或更高版本开始，都无需按照它们发布的顺序进行安装。 例如，如果运行的是 MySQL 资源提供程序的版本1.1.24.0，则可以升级到1.1.33.0 或更高版本，而无需先安装版本1.1.30.0。 若要查看可用的资源提供程序版本以及支持它们的 Azure Stack 版本，请参阅[部署资源提供程序必备组件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本列表。
+从 MySQL 资源提供程序版本1.1.33.0 开始，更新是累积的，无论是从版本1.1.24.0 或更高版本开始，都无需按照它们发布的顺序进行安装。 例如，如果运行的是 MySQL 资源提供程序的版本1.1.24.0，则可以升级到1.1.33.0 或更高版本，而无需先安装版本1.1.30.0。 若要查看可用的资源提供程序版本以及支持它们的 Azure Stack 中心版本，请参阅[部署资源提供程序必备组件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
 若要更新资源提供程序，请使用**updatemysqlprovider.ps1**脚本。 此过程类似于用于安装资源提供程序的过程，如本文的部署资源提供程序部分中所述。 下载资源提供程序时，该脚本包括在内。 
 
@@ -48,31 +48,31 @@ ms.locfileid: "74557562"
 ## <a name="update-script-parameters"></a>更新脚本参数 
 运行**Updatemysqlprovider.ps1** PowerShell 脚本时，请从命令行指定以下参数。 如果不是，或者任何参数验证失败，系统会提示提供所需的参数。
 
-| 参数名 | 描述 | 注释或默认值 | 
+| 参数名 | Description | 注释或默认值 | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | 访问特权终结点所需的云管理员凭据。 | _必需_ | 
-| **AzCredential** | Azure Stack service 管理员帐户的凭据。 使用用于部署 Azure Stack 的相同凭据。 | _必需_ | 
+| **AzCredential** | Azure Stack 中心服务管理员帐户的凭据。 使用与用于部署 Azure Stack 中心相同的凭据。 | _必需_ | 
 | **VMLocalCredential** |SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ | 
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ | 
-| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅 Azure AD 部署中需要。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
+| **AzureEnvironment** | 用于部署 Azure Stack 中心的服务管理员帐户的 Azure 环境。 仅 Azure AD 部署中需要。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
 | **DependencyFilesLocalPath** | 还必须将证书 .pfx 文件放在此目录中。 | _可选_（多节点_必需_的） | 
 | **DefaultSSLCertificatePassword** | .Pfx 证书的密码。 | _必需_ | 
 | **MaxRetryCount** | 如果出现故障，要重试每个操作的次数。| 2 | 
 | **RetryDuration** | 两次重试之间的超时间隔（秒）。 | 120 | 
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | No | 
-| **DebugMode** | 防止在失败时自动清除。 | No | 
-| **AcceptLicense** | 跳过提示以接受 GPL 许可证。  （ https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | 否 | 
+| **DebugMode** | 防止在失败时自动清除。 | 否 | 
+| **AcceptLicense** | 跳过提示以接受 GPL 许可证。  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>更新脚本示例
 
 > [!NOTE] 
 > 更新过程仅适用于集成系统。
 
-如果要将 MySQL 资源提供程序版本更新为1.1.33.0 或早期版本，则需要在 PowerShell 中安装 AzureRm 和 Azure Stack 模块的特定版本。 如果要将 MySQL 资源提供程序更新到版本1.1.47.0，可以跳过此步骤。
+如果要将 MySQL 资源提供程序版本更新为1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm 和 Azure Stack 集线器模块。 如果要将 MySQL 资源提供程序更新到版本1.1.47.0，可以跳过此步骤。
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-# Note that this might not be the most currently available version of Azure Stack PowerShell.
+# Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
@@ -81,13 +81,13 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 下面的示例演示了可从已提升权限的 PowerShell 控制台运行的*updatemysqlprovider.ps1*脚本。 请确保根据需要更改变量信息和密码：
 
 ```powershell 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 
 # For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01" 
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack Hub. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted. 

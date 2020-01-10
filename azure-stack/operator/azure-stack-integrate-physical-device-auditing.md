@@ -1,6 +1,6 @@
 ---
-title: 将物理设备审核与 Azure Stack datacenter 集成 |Microsoft Docs
-description: 了解如何将物理设备访问审核与 Azure Stack 数据中心集成。
+title: 将物理设备审核与 Azure Stack 中心数据中心进行集成 |Microsoft Docs
+description: 了解如何将物理设备访问审核与 Azure Stack 中心数据中心集成。
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -11,30 +11,30 @@ ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/10/2019
 keywords: ''
-ms.openlocfilehash: b5fa17b3913db7ebec210fc3bf986bac6414368e
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 48d81975457587bd9c18122d891f8e9e08fbc6eb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277222"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817884"
 ---
-# <a name="integrate-physical-device-auditing-with-your-azure-stack-datacenter"></a>将物理设备审核与 Azure Stack 数据中心集成
+# <a name="integrate-physical-device-auditing-with-your-azure-stack-hub-datacenter"></a>将物理设备审核与 Azure Stack 中心数据中心集成
 
-Azure Stack 中的所有物理设备（例如基板管理控制器 (BMC) 和网络交换机）都会发出审核日志。 可以将审核日志集成到整体审核解决方案中。 由于设备因不同的 Azure Stack OEM 硬件供应商而异，所以请联系你的供应商来获取有关审核集成的文档。 以下各部分提供了有关 Azure Stack 中的物理设备审核的一些常规信息。  
+Azure Stack 集线器中的所有物理设备，如基板管理控制器（Bmc）和网络交换机，发出审核日志。 可以将审核日志集成到整个审核解决方案中。 由于不同 Azure Stack 中心 OEM 硬件供应商的设备有所不同，因此请与供应商联系以获取有关审核集成的文档。 以下各节提供了 Azure Stack 集线器中的物理设备审核的一些常规信息。  
 
 ## <a name="physical-device-access-auditing"></a>物理设备访问审核
 
-Azure Stack 中的所有物理设备都支持使用 TACACS 或 RADIUS。 支持包括访问基板管理控制器 (BMC) 和网络交换机。
+Azure Stack 集线器中的所有物理设备都支持使用 TACACS 或 RADIUS。 支持包括对基板管理控制器（BMC）和网络交换机的访问。
 
-Azure Stack 解决方案不附带 RADIUS 或 TACACS 内置。 但是，经验证，这些解决方案支持使用市面上现有的 RADIUS 或 TACACS 解决方案。
+Azure Stack 集线器解决方案不附带 RADIUS 或 TACACS 内置。 不过，解决方案已经过验证，可支持使用市场上可用的现有 RADIUS 或 TACACS 解决方案。
 
-对于 RADIUS，只有 MSCHAPv2 经过了验证。 它代表使用 RADIUS 的最安全实现。 请咨询 OEM 硬件供应商，在 Azure Stack 解决方案包含的设备中启用 TACAS 或 RADIUS。
+仅限 RADIUS，验证 Eap-mschapv2。 这表示使用 RADIUS 的最安全实现。 咨询 OEM 硬件供应商，在 Azure Stack 集线器解决方案随附的设备中启用 TACAS 或 RADIUS。
 
 ## <a name="syslog-forwarding-for-network-devices"></a>网络设备的 Syslog 转发
 
-Azure Stack 中的所有物理网络设备都支持 syslog 消息。 Azure Stack 解决方案不随 syslog 服务器一起提供。 但是，经验证，这些设备支持将消息发送到市面上现有的 syslog 解决方案。
+Azure Stack 集线器中的所有物理网络设备都支持 syslog 消息。 Azure Stack 集线器解决方案不附带 syslog 服务器。 但是，这些设备已经过验证，可支持向市场上提供的现有 syslog 解决方案发送消息。
 
-Syslog 目标地址是针对部署所收集的可选参数，但也可以在部署后添加此参数。 要在网络设备上配置 syslog 转发，请咨询你的 OEM 硬件供应商。
+Syslog 目标地址是为进行部署而收集的可选参数，但也可以在部署后添加。 咨询 OEM 硬件供应商，在网络设备上配置 syslog 转发。
 
 ## <a name="next-steps"></a>后续步骤
 

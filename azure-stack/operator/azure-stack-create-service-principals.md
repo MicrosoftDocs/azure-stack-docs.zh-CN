@@ -7,16 +7,16 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 1fc771f82820149b01b6d11d37ac9a8720483e51
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955385"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815300"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>使用应用标识访问 Azure Stack 集线器资源
 
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包（ASDK）*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包（ASDK）*
 
 需要通过 Azure 资源管理器部署或配置资源的应用程序必须由服务主体表示。 与用户主体表示的用户一样，服务主体是表示应用的一种安全主体。 服务主体提供应用的标识，允许你仅向该服务主体委派必要的权限。  
 
@@ -37,8 +37,8 @@ ms.locfileid: "73955385"
 
 首先，在目录中创建新的应用注册，这会创建一个关联的[服务主体对象](/azure/active-directory/develop/developer-glossary#service-principal-object)来表示该目录中的应用标识。 本文档介绍了创建和管理服务主体的过程，具体取决于为 Azure Stack 中心实例选择的目录：
 
-- Azure Active Directory (Azure AD)。 Azure AD 是一种多租户、基于云的目录和标识管理服务。 可以将 Azure AD 与连接的 Azure Stack 中心实例一起使用。
-- Active Directory 联合身份验证服务（AD FS）。 AD FS 提供简化、安全的联合身份验证和 web 单一登录（SSO）功能。 可以将 AD FS 与连接的和已断开的 Azure Stack 中心实例一起使用。
+- Azure Active Directory (Azure AD)。 Azure AD 是多租户、基于云的目录，以及标识管理服务。 可以将 Azure AD 与连接的 Azure Stack 中心实例一起使用。
+- Active Directory 联合身份验证服务 (AD FS)。 AD FS 提供简化、安全的联合身份验证和 web 单一登录（SSO）功能。 可以将 AD FS 与连接的和已断开的 Azure Stack 中心实例一起使用。
 
 首先，您将了解如何管理服务主体，以及如何将服务主体分配到角色，从而限制其资源访问权限。
 
@@ -81,10 +81,10 @@ ms.locfileid: "73955385"
 
 获得证书后，请使用下面的 PowerShell 脚本注册应用并创建服务主体。 你还可以使用服务主体登录到 Azure。 将以下占位符替换为你自己的值：
 
-| 占位符 | 描述 | 示例 |
+| 占位符 | Description | 示例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
-| \<YourCertificateLocation\> | X509 证书在本地证书存储中的位置。 | "Cert： \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<YourCertificateLocation\> | X509 证书在本地证书存储中的位置。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<YourAppName\> | 新应用注册的描述性名称。 | "我的管理工具" |
 
 1. 打开提升的 Windows PowerShell 会话，然后运行以下脚本：
@@ -152,11 +152,11 @@ ms.locfileid: "73955385"
 
 使用 PowerShell 更新证书凭据，将以下占位符替换为你自己的值：
 
-| 占位符 | 描述 | 示例 |
+| 占位符 | Description | 示例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新应用注册的描述性名称。 | "我的管理工具" |
-| \<YourCertificateLocation\> | X509 证书在本地证书存储中的位置。 | "Cert： \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<YourCertificateLocation\> | X509 证书在本地证书存储中的位置。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<AppIdentifier\> | 分配给应用程序注册的标识符。 | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
 
 1. 使用提升的 Windows PowerShell 会话运行以下 cmdlet：
@@ -197,7 +197,7 @@ ms.locfileid: "73955385"
 
 现在，你创建了另一个应用注册，但这次指定了客户端密钥凭据。 与证书凭据不同，目录可以生成客户端密钥凭据。 使用 `-GenerateClientSecret` 开关来请求生成它，而不是指定客户端机密。 将以下占位符替换为你自己的值：
 
-| 占位符 | 描述 | 示例 |
+| 占位符 | Description | 示例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新应用注册的描述性名称。 | "我的管理工具" |
@@ -254,7 +254,7 @@ ms.locfileid: "73955385"
 
 使用 PowerShell （使用**ResetClientSecret**参数）更新客户端密钥凭据，这会立即更改客户端密码。 将以下占位符替换为你自己的值：
 
-| 占位符 | 描述 | 示例 |
+| 占位符 | Description | 示例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | 分配给应用程序注册的标识符。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
@@ -291,7 +291,7 @@ ms.locfileid: "73955385"
 
 将以下占位符替换为你自己的值：
 
-| 占位符 | 描述 | 示例 |
+| 占位符 | Description | 示例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack 中心实例上的特权终结点 VM 的名称。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | 分配给应用程序注册的标识符。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |

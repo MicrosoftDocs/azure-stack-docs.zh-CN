@@ -1,6 +1,6 @@
 ---
-title: 为 Azure Stack 用户启用 Azure CLI | Microsoft Docs
-description: 了解如何启用跨平台命令行接口（CLI）来管理和部署 Azure Stack 上的资源。
+title: 为 Azure Stack 中心用户启用 Azure CLI |Microsoft Docs
+description: 了解如何启用跨平台命令行接口（CLI）来管理和部署 Azure Stack 集线器上的资源。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,30 +14,30 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: eed0626458d6186b651801d5bda29c4cf77cef9a
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 51dbef18134c3a5441808c698193fc11f00b223e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829054"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812172"
 ---
-# <a name="enable-azure-cli-for-azure-stack-users"></a>为 Azure Stack 用户启用 Azure CLI
+# <a name="enable-azure-cli-for-azure-stack-hub-users"></a>为 Azure Stack 中心用户启用 Azure CLI
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-你可以向 Azure Stack 的用户提供 CA 根证书，以便他们能够在其开发计算机上启用 Azure CLI。 用户需使用该证书通过 CLI 管理资源。
+你可以向 Azure Stack 中心的用户提供 CA 根证书，以便可以在其开发计算机上启用 Azure CLI。 你的用户需要该证书以通过 CLI 管理资源。
 
- - 如果用户使用 Azure Stack 开发工具包（ASDK）之外的工作站中的 CLI，则需要**AZURE STACK CA 根证书**。  
+ - 如果用户使用 Azure Stack 开发工具包（ASDK）之外的工作站中的 CLI，则需要**Azure Stack 中心 CA 根证书**。  
 
  - **虚拟机（VM）别名终结点**提供别名，如 "UbuntuLTS" 或 "Win2012Datacenter"，在部署 vm 时，它们引用映像发布者、产品/服务、SKU 和版本作为单一参数。  
 
 以下部分介绍如何获取这些值。
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>导出 Azure Stack CA 根证书
+## <a name="export-the-azure-stack-hub-ca-root-certificate"></a>导出 Azure Stack 中心 CA 根证书
 
-如果使用集成系统，则无需导出 CA 根证书。 需要在 ASDK 上导出 CA 根证书。
+如果使用的是集成系统，则无需导出 CA 根证书。 需要在 ASDK 上导出 CA 根证书。
 
-若要以 PEM 格式导出 ASDK 根证书，请登录并运行以下脚本：
+若要导出 PEM 格式的 ASDK 根证书，请登录并运行以下脚本：
 
 ```powershell
 $label = "AzureStackSelfSignedRootCert"
@@ -58,15 +58,15 @@ certutil -encode root.cer root.pem
 
 ## <a name="set-up-the-vm-aliases-endpoint"></a>设置 VM 别名终结点
 
-Azure Stack 操作员应该设置一个可公开访问的终结点，该终结点承载 VM 别名文件。 VM 别名文件是一个 JSON 文件，提供映像的公用名称。 以 Azure CLI 参数形式部署 VM 时，将使用该名称。  
+Azure Stack 中心操作员应该设置一个可公开访问的终结点，该终结点承载 VM 别名文件。 VM 别名文件是一个 JSON 文件，它提供映像的公用名称。 将 VM 作为 Azure CLI 参数部署时，将使用该名称。  
 
-向别名文件添加条目之前，请确保[从 Azure 市场下载映像](azure-stack-download-azure-marketplace-item.md)，或者已[发布自己的自定义映像](azure-stack-add-vm-image.md)。 如果发布自定义映像，请记下在发布过程中指定的发布者、产品/服务、SKU 和版本信息。 如果它是 marketplace 中的映像，则可以使用`Get-AzureVMImage` cmdlet 来查看信息。  
+在将条目添加到别名文件之前，请确保[从 Azure Marketplace 下载映像](azure-stack-download-azure-marketplace-item.md)或已[发布自定义映像](azure-stack-add-vm-image.md)。 如果发布自定义映像，请记下在发布过程中指定的发布者、产品/服务、SKU 和版本信息。 如果它是 marketplace 中的映像，则可以使用 `Get-AzureVMImage` cmdlet 来查看信息。  
 
-可以使用包含许多常见映像别名的[示例别名文件](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)。 可以使用该文件作为起点。 将该文件托管在 CLI 客户端可以访问它的空间。 一种方法是将该文件托管在 blob 存储帐户中并与用户共享 URL：
+提供了包含许多常见映像别名的[示例别名文件](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)。 可以将其用作起点。 将此文件托管在 CLI 客户端可以访问的空间中。 一种方法是将文件托管在 blob 存储帐户中，并与用户共享 URL：
 
 1. 从 GitHub 下载[示例文件](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)。
-2. 在 Azure Stack 中创建存储帐户。 完成该操作后，将创建 Blob 容器。 将访问策略设置为“公开”。  
-3. 将 JSON 文件上传到新容器。 完成该操作后，可以查看 blob 的 URL。 选择 "blob 名称"，然后从 "blob 属性" 中选择 "URL"。
+2. 在 Azure Stack Hub 中创建存储帐户。 完成此操作后，创建一个 blob 容器。 将访问策略设置为 "公共"。  
+3. 将 JSON 文件上传到新容器。 完成此操作后，可以查看 blob 的 URL。 选择 "blob 名称"，然后从 "blob 属性" 中选择 "URL"。
 
 ## <a name="next-steps"></a>后续步骤
 

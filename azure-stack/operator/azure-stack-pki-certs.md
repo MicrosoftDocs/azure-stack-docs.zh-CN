@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 公钥基础结构证书要求 |Microsoft Docs
-description: 了解 Azure Stack 集成系统 Azure Stack PKI 证书部署要求。
+title: Azure Stack 中心公钥基础结构证书要求 |Microsoft Docs
+description: 了解 Azure Stack 中心集成系统 Azure Stack 中心 PKI 证书部署要求。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,35 +16,35 @@ ms.date: 12/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: e9276d67c767ec6a08549be830c52bbbe03230ec
-ms.sourcegitcommit: 50b7974454e008724817cbb4416ce40368b31ef4
+ms.openlocfilehash: 124f59d043a940ebcd48131f1012551777a17a6d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75035500"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810446"
 ---
-# <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公钥基础结构证书要求
+# <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack 中心公钥基础结构证书要求
 
-Azure Stack 具有一个公共基础结构网络，该网络使用分配给一小部分 Azure Stack 服务和可能租户 Vm 的外部可访问公共 IP 地址。 在部署 Azure Stack 期间，这些 Azure Stack 公共基础结构终结点需要使用具有合适 DNS 名称的 PKI 证书。 本文提供了有关以下内容的信息：
+Azure Stack 集线器具有公共基础结构网络，该网络使用分配给一小部分 Azure Stack 中心服务和可能租户 Vm 的外部可访问公共 IP 地址。 Azure Stack 中心部署过程中需要具有这些 Azure Stack 中心公共基础结构终结点的适当 DNS 名称的 PKI 证书。 本文提供了有关以下内容的信息：
 
-- 部署 Azure Stack 需要哪些证书。
+- Azure Stack 中心部署所需的证书。
 - 获取与这些规范匹配的证书的过程。
 - 如何在部署期间准备、验证和使用这些证书。
 
 > [!NOTE]
-> 默认情况下，Azure Stack 还使用从内部 Active Directory 集成证书颁发机构（CA）颁发的证书，在节点之间进行身份验证。 若要验证证书，所有 Azure Stack 基础结构计算机都通过将该证书添加到其本地证书存储来信任内部 CA 的根证书。 Azure Stack 中没有证书的固定或允许列表。 根据目标的 FQDN 验证每个服务器证书的 SAN。 同时还会验证整个信任链以及证书的到期日期（没有证书固定的标准 TLS 服务器身份验证）。
+> 默认情况下，Azure Stack 中心还使用由内部 Active Directory 集成证书颁发机构（CA）颁发的证书，在节点之间进行身份验证。 若要验证证书，所有 Azure Stack 中心基础结构计算机都通过将该证书添加到其本地证书存储区来信任内部 CA 的根证书。 Azure Stack 中心内没有证书固定或允许列表。 根据目标的 FQDN 验证每个服务器证书的 SAN。 同时还会验证整个信任链以及证书的到期日期（没有证书固定的标准 TLS 服务器身份验证）。
 
 ## <a name="certificate-requirements"></a>证书要求
-以下列表描述了部署 Azure Stack 所需的证书要求：
+以下列表描述了部署 Azure Stack 中心所需的证书要求：
 
 - 证书必须由内部证书颁发机构或公共证书颁发机构颁发。 如果使用公共证书颁发机构，则必须将其作为 Microsoft 受信任的根证书颁发机构程序的一部分包含在基本操作系统映像中。 有关完整列表，请参阅[Microsoft 受信任的根证书程序：参与者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
-- Azure Stack 基础结构必须对证书中发布的证书颁发机构的证书吊销列表（CRL）位置具有网络访问权限。 此 CRL 必须是 http 终结点。
+- Azure Stack 中心基础结构必须对证书中发布的证书颁发机构的证书吊销列表（CRL）位置具有网络访问权限。 此 CRL 必须是 http 终结点。
 - 在1903之前的版本中循环使用证书时，必须从用于签署部署时提供的证书或上述任何公共证书颁发机构的相同内部证书颁发机构颁发证书。 对于1903和更高版本，证书可由任何企业证书颁发机构或公共证书颁发机构颁发。
 - 不支持使用自签名证书。
-- 对于部署和旋转，你可以使用一个证书，涵盖证书的 "使用者名称" 和 "使用者备用名称（SAN）" 字段中的所有命名空间，也可以为以下每个命名空间使用单个证书 Azure Stack你计划利用的服务需要。 这两种方法都需要对需要使用通配符（如**KeyVault**和**KeyVaultInternal**）。
+- 对于部署和旋转，你可以使用一个证书，涵盖证书的 "使用者名称" 和 "使用者备用名称（SAN）" 字段中的所有命名空间，或者你可以使用 Azure Stack 中心下的每个命名空间的单个证书你计划利用的服务需要。 这两种方法都需要对需要使用通配符（如**KeyVault**和**KeyVaultInternal**）。
 - 证书的 PFX 加密应该是3DES。
 - 证书签名算法不应为 SHA1。
-- 证书格式必须为 PFX，因为 Azure Stack 安装时需要公钥和私钥。 私钥必须设置本地计算机密钥属性。
+- 证书格式必须为 PFX，因为 Azure Stack 集线器安装需要公钥和私钥。 私钥必须设置本地计算机密钥属性。
 - PFX 加密必须为3DES （从 Windows 10 客户端或 Windows Server 2016 证书存储导出时，此加密是默认值）。
 - 证书 pfx 文件的 "密钥用法" 字段中必须包含 "数字签名" 和 "KeyEncipherment" 值。
 - 证书 pfx 文件的 "增强型密钥用法" 字段中的值必须为 "服务器身份验证（1.3.6.1.5.5.7.3.1）" 和 "客户端身份验证（1.3.6.1.5.5.7.3.2）"。
@@ -57,17 +57,17 @@ Azure Stack 具有一个公共基础结构网络，该网络使用分配给一�
 
 > [!NOTE]  
 > 不支持自签名证书。  
-> 在断开连接模式下部署 Azure Stack 集线器时，建议使用企业证书颁发机构颁发的证书。 这一点很重要，因为访问 Azure Stack 终结点的客户端必须能够联系证书吊销列表（CRL）。
+> 在断开连接模式下部署 Azure Stack 集线器时，建议使用企业证书颁发机构颁发的证书。 这一点很重要，因为访问 Azure Stack 中心终结点的客户端必须能够联系证书吊销列表（CRL）。
 
 > [!NOTE]  
 > *支持证书*的信任链中存在中间证书颁发机构。
 
 ## <a name="mandatory-certificates"></a>必需证书
-本节中的表描述了 Azure AD 和 AD FS Azure Stack 部署所需的 Azure Stack 公共终结点 PKI 证书。 证书要求按区域以及使用的命名空间和每个命名空间所需的证书进行分组。 该表还介绍了解决方案提供商将不同的证书复制到每个公共终结点的文件夹。
+本部分中的表描述了 Azure AD 和 AD FS Azure Stack 中心部署所需的 Azure Stack 中心公共终结点 PKI 证书。 证书要求按区域以及使用的命名空间和每个命名空间所需的证书进行分组。 该表还介绍了解决方案提供商将不同的证书复制到每个公共终结点的文件夹。
 
-需要为每个 Azure Stack 公共基础结构终结点提供适当 DNS 名称的证书。 每个终结点的 DNS 名称的格式为： *&lt;前缀 >.&lt;区域 >。&lt;fqdn >* 。
+需要为每个 Azure Stack 中心公共基础结构终结点提供适当 DNS 名称的证书。 每个终结点的 DNS 名称的格式为： *&lt;前缀 >.&lt;区域 >。&lt;fqdn >* 。
 
-对于你的部署，[region] 和 [externalfqdn] 值必须与你为 Azure Stack 系统选择的区域和外部域名匹配。 例如，如果区域名称为*Redmond* ，外部域名为*CONTOSO.COM*，则 DNS 名称的格式 *&lt;前缀 > .com .com*。 *&lt;前缀 >* 值由 Microsoft predesignated，用于描述证书所保护的终结点。 此外， *&lt;前缀 >* 外部基础结构终结点的值取决于使用特定终结点的 Azure Stack 服务。
+对于你的部署，[region] 和 [externalfqdn] 值必须与你为 Azure Stack 中心系统选择的区域和外部域名匹配。 例如，如果区域名称为*Redmond* ，外部域名为*CONTOSO.COM*，则 DNS 名称的格式 *&lt;前缀 > .com .com*。 *&lt;前缀 >* 值由 Microsoft predesignated，用于描述证书所保护的终结点。 此外， *&lt;前缀 >* 外部基础结构终结点的值取决于使用特定终结点的 Azure Stack 中心服务。
 
 对于生产环境，我们建议为每个终结点生成单个证书，并将其复制到相应的目录中。 对于开发环境，证书可以作为单个通配符证书提供，涵盖已复制到所有目录中的 "使用者" 和 "使用者备用名称（SAN）" 字段中的所有命名空间。 涵盖所有终结点和服务的单个证书是一种不安全的状况，因此仅用于开发。 请记住，这两个选项都要求将通配符证书用于**acs**和 Key Vault 所需的终结点。
 
@@ -88,7 +88,7 @@ Azure Stack 具有一个公共基础结构网络，该网络使用分配给一�
 | 管理扩展主机 | *.adminhosting.>\<区域。\<fqdn > （通配符 SSL 证书） | 管理扩展主机 | adminhosting.>\<区域。\<fqdn > |
 | 公用扩展主机 | *。托管。>\<区域。\<fqdn > （通配符 SSL 证书） | 公用扩展主机 | 提供.>\<区域。\<fqdn > |
 
-如果使用 Azure AD 部署模式部署 Azure Stack，只需请求上表中列出的证书。 但是，如果使用 AD FS 部署模式部署 Azure Stack，则还必须请求下表中所述的证书：
+如果使用 Azure AD 部署模式部署 Azure Stack 中心，只需请求上表中列出的证书。 但是，如果使用 AD FS 部署模式部署 Azure Stack 集线器，则还必须请求下表中所述的证书：
 
 |部署文件夹|必需的证书使用者和使用者可选名称（SAN）|范围（每个区域）|子域命名空间|
 |-----|-----|-----|-----|
@@ -100,12 +100,12 @@ Azure Stack 具有一个公共基础结构网络，该网络使用分配给一�
 > 本节中列出的所有证书都必须具有相同的密码。
 
 ## <a name="optional-paas-certificates"></a>可选 PaaS 证书
-如果计划在部署和配置 Azure Stack 之后部署附加 Azure Stack PaaS 服务（SQL、MySQL 和应用服务），则需要请求其他证书以涵盖 PaaS 服务的终结点。
+如果你计划在部署和配置 Azure Stack 中心后部署其他 Azure Stack 中心 PaaS 服务（SQL、MySQL 和应用服务），则需要请求其他证书以涵盖 PaaS 服务的终结点。
 
 > [!IMPORTANT]
-> 用于应用服务、SQL 和 MySQL 资源提供程序的证书需要与用于全局 Azure Stack 终结点的证书具有相同的根证书颁发机构。
+> 用于应用服务、SQL 和 MySQL 资源提供程序的证书需要与用于全局 Azure Stack 中心终结点的证书具有相同的根证书颁发机构。
 
-下表描述了 SQL 和 MySQL 适配器以及应用服务所需的终结点和证书。 不需要将这些证书复制到 Azure Stack 部署文件夹。 相反，在安装其他资源提供程序时提供这些证书。
+下表描述了 SQL 和 MySQL 适配器以及应用服务所需的终结点和证书。 不需要将这些证书复制到 Azure Stack 中心部署文件夹中。 相反，在安装其他资源提供程序时提供这些证书。
 
 |范围（每个区域）|证书|必需的证书使用者和使用者可选名称（San）|子域命名空间|
 |-----|-----|-----|-----|
@@ -120,7 +120,7 @@ Azure Stack 具有一个公共基础结构网络，该网络使用分配给一�
 &#42; <sup>2</sup> appservice。 *&lt;区域 >。&lt;fqdn >* 无法将通配符证书用于替代这三个证书（ *&lt;&lt;* &lt; *&lt;&lt;* *&lt;* 。 Appservice 显式要求对这些终结点使用单独的证书。
 
 ## <a name="learn-more"></a>了解更多
-了解如何[为 Azure Stack 部署生成 PKI 证书](azure-stack-get-pki-certs.md)。
+了解如何[为 Azure Stack 中心部署生成 PKI 证书](azure-stack-get-pki-certs.md)。
 
 ## <a name="next-steps"></a>后续步骤
-[将 AD FS 标识与 Azure Stack 数据中心集成](azure-stack-integrate-identity.md)。
+[将 AD FS 标识与 Azure Stack 中心数据中心集成](azure-stack-integrate-identity.md)。

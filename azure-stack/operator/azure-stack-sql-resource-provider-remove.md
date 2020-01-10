@@ -1,7 +1,7 @@
 ---
 title: 删除 SQL 资源提供程序
-titleSuffix: Azure Stack
-description: 了解如何从 Azure Stack 部署中删除 SQL 资源提供程序。
+titleSuffix: Azure Stack Hub
+description: 了解如何从 Azure Stack 中心部署中删除 SQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: a172b56c43dafd637a66fa8354c2e06e06a67b98
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 15178627cbc58cd466a09f7ef534e7ec115d9c1a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954445"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814399"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 
@@ -36,7 +36,7 @@ ms.locfileid: "74954445"
 
 在运行 Deploysqlprovider.ps1 脚本以删除资源提供程序之前，需要执行几个清理任务。
 
-Azure Stack 运算符负责以下清理任务：
+Azure Stack 中心操作员负责以下清理任务：
 
 * 删除引用 SQL 适配器的所有计划。
 * 删除与 SQL 适配器关联的任何配额。
@@ -56,9 +56,9 @@ Azure Stack 运算符负责以下清理任务：
 
     * **卸载**：删除资源提供程序和所有关联的资源。
     * **PrivilegedEndpoint**：特权终结点的 IP 地址或 DNS 名称。
-    * **AzureEnvironment**：用于部署 Azure Stack 的 Azure 环境。 仅 Azure AD 部署中需要。
+    * **AzureEnvironment**：用于部署 Azure Stack 集线器的 Azure 环境。 仅 Azure AD 部署中需要。
     * **CloudAdminCredential**：访问特权终结点所需的云管理员凭据。
-    * **AzCredential**： Azure Stack 服务管理员帐户的凭据。 使用用于部署 Azure Stack 的相同凭据。
+    * **AzCredential**： Azure Stack 中心服务管理员帐户的凭据。 使用用于部署 Azure Stack 集线器的相同凭据。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,6 +1,6 @@
 ---
-title: 为 Azure Stack 准备基于 Red Hat 的虚拟机 |Microsoft Docs
-titleSuffix: Azure Stack
+title: 为 Azure Stack 中心准备基于 Red Hat 的虚拟机 |Microsoft Docs
+titleSuffix: Azure Stack Hub
 description: 了解如何创建和上传包含 Red Hat Linux 操作系统的 Azure 虚拟硬盘 (VHD)。
 services: azure-stack
 documentationcenter: ''
@@ -18,18 +18,18 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: be51964d4416e632f5ef3462c3c42861a82e47d5
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 4a3b79a8b1b58ad3da4abf9d5a59d750aaeae0ec
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654893"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75809757"
 ---
-# <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>为 Azure Stack 准备基于 Red Hat 的虚拟机
+# <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>为 Azure Stack 中心准备基于 Red Hat 的虚拟机
 
-本文介绍如何准备要在 Azure Stack 中使用的 Red Hat Enterprise Linux （RHEL）虚拟机（VM）。 本文中所述的 RHEL 版本为 7.1 +。 本文所述的用于准备工作的虚拟机监控程序为 Hyper-V、基于内核的虚拟机 (KVM) 和 VMware。
+本文介绍如何准备 Red Hat Enterprise Linux （RHEL）虚拟机（VM）以在 Azure Stack 中心中使用。 本文中所述的 RHEL 版本为 7.1 +。 本文所述的用于准备工作的虚拟机监控程序为 Hyper-V、基于内核的虚拟机 (KVM) 和 VMware。
 
-有关 Red Hat Enterprise Linux 支持信息，请参阅[Red Hat 和 Azure Stack：常见问题解答](https://access.redhat.com/articles/3413531)。
+有关 Red Hat Enterprise Linux 支持信息，请参阅[Red Hat 和 Azure Stack 中心：常见问题解答](https://access.redhat.com/articles/3413531)。
 
 ## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>从 Hyper-v 管理器准备基于 Red Hat 的 VM
 
@@ -37,14 +37,14 @@ ms.locfileid: "75654893"
 
 ### <a name="rhel-installation-notes"></a>RHEL 安装说明
 
-* Azure Stack 不支持 VHDX 格式。 Azure 仅支持固定 VHD。 可使用 Hyper-V 管理器将磁盘转换为 VHD 格式，也可以使用 convert-vhd cmdlet。 如果使用 VirtualBox，则选择“固定大小”，而不是在创建磁盘时默认动态分配选项。
-* Azure Stack 仅支持第1代 Vm。 可以将第1代 VM 从 VHDX 转换为 VHD 文件格式，并从动态扩展为固定大小磁盘。 无法更改 VM 的代。 有关详细信息，请参阅是否[应在 hyper-v 中创建第1代或第2代 VM？](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* Azure Stack 中心不支持 VHDX 格式。 Azure 仅支持固定 VHD。 可使用 Hyper-V 管理器将磁盘转换为 VHD 格式，也可以使用 convert-vhd cmdlet。 如果使用 VirtualBox，则选择“固定大小”，而不是在创建磁盘时默认动态分配选项。
+* Azure Stack 集线器仅支持第1代 Vm。 可以将第1代 VM 从 VHDX 转换为 VHD 文件格式，并从动态扩展为固定大小磁盘。 无法更改 VM 的代。 有关详细信息，请参阅是否[应在 hyper-v 中创建第1代或第2代 VM？](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 * VHD 允许的最大大小为 1,023 GB。
 * 在安装 Linux 操作系统时，建议使用标准分区而不是逻辑卷管理器 (LVM)（通常是许多安装的默认设置）。 这种做法可以避免 LVM 名称与克隆的虚拟机冲突，尤其是当需要将操作系统磁盘附加到另一个相同的 VM 进行故障排除时。
 * 需要装载通用磁盘格式 (UDF) 文件系统的内核支持。 首次启动时，附加到来宾的 UDF 格式的媒体会将预配配置传递到 Linux VM。 Azure Linux 代理必须安装 UDF 文件系统才能读取其配置和预配 VM。
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，并在临时资源磁盘上创建交换文件。 有关详细信息，请参阅以下步骤。
 * Azure 上的所有 VHD 必须已将虚拟大小调整为 1 MB。 将原始磁盘转换为 VHD 时，必须确保原始磁盘大小为 1 MB 的倍数，然后转换。 可以在以下步骤中找到更多详细信息。
-* Azure Stack 支持 cloud init。 [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 安装程序包和写入文件，或者配置用户和安全。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。 有关将云初始化添加到映像的说明，请参阅[准备要用于云初始化的现有 Linux AZURE VM 映像](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image)。
+* Azure Stack 中心支持 cloud init。 [Cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 安装程序包和写入文件，或者配置用户和安全。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。 有关将云初始化添加到映像的说明，请参阅[准备要用于云初始化的现有 Linux AZURE VM 映像](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image)。
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>从 Hyper-v 管理器准备 RHEL 7 VM
 
@@ -117,7 +117,7 @@ ms.locfileid: "75654893"
     ClientAliveInterval 180
     ```
 
-1. 为 Azure Stack 创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 更新到1903版本及更高版本或应用1901/1902 修补程序。
+1. 为 Azure Stack 中心创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 中心环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 集线器更新为1903版本及更高版本或应用1901/1902 修补程序。
 
     [1910 版之前]按照以下说明下载兼容的 WALinuxAgent：
 
@@ -189,7 +189,7 @@ ms.locfileid: "75654893"
     sudo subscription-manager unregister
     ```
 
-1. 如果你使用的是使用企业证书颁发机构部署的系统，RHEL VM 将不信任 Azure Stack 根证书。 需要将其放入受信任的根存储中。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+1. 如果你使用的是使用企业证书颁发机构部署的系统，RHEL VM 将不信任 Azure Stack 中心根证书。 需要将其放入受信任的根存储中。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
 
 1. 运行以下命令以取消预配 VM，并为其准备好在 Azure 上进行预配：
 
@@ -316,7 +316,7 @@ ms.locfileid: "75654893"
     ClientAliveInterval 180
     ```
 
-1. 为 Azure Stack 创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 更新到1903版本及更高版本或应用1901/1902 修补程序。
+1. 为 Azure Stack 中心创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 中心环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 集线器更新为1903版本及更高版本或应用1901/1902 修补程序。
 
     [1910 版之前]按照以下说明下载兼容的 WALinuxAgent：
 
@@ -387,7 +387,7 @@ ms.locfileid: "75654893"
     subscription-manager unregister
     ```
 
-1. 如果你使用的是使用企业证书颁发机构部署的系统，RHEL VM 将不信任 Azure Stack 根证书。 需要将其放入受信任的根存储中。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+1. 如果你使用的是使用企业证书颁发机构部署的系统，RHEL VM 将不信任 Azure Stack 中心根证书。 需要将其放入受信任的根存储中。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
 
 1. 运行以下命令以取消预配 VM，并为其准备好在 Azure 上进行预配：
 
@@ -521,7 +521,7 @@ ms.locfileid: "75654893"
     ClientAliveInterval 180
     ```
 
-1. 为 Azure Stack 创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 更新到1903版本及更高版本或应用1901/1902 修补程序。
+1. 为 Azure Stack 中心创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 中心环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 集线器更新为1903版本及更高版本或应用1901/1902 修补程序。
 
     [1910 版之前]按照以下说明下载兼容的 WALinuxAgent：
 
@@ -592,7 +592,7 @@ ms.locfileid: "75654893"
     sudo subscription-manager unregister
     ```
 
-1. 如果你使用的是使用企业证书颁发机构部署的系统，RHEL VM 将不信任 Azure Stack 根证书。 需要将其放入受信任的根存储中。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+1. 如果你使用的是使用企业证书颁发机构部署的系统，RHEL VM 将不信任 Azure Stack 中心根证书。 需要将其放入受信任的根存储中。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
 
 1. 运行以下命令以取消预配 VM，并为其准备好在 Azure 上进行预配：
 
@@ -637,7 +637,7 @@ ms.locfileid: "75654893"
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>使用 kickstart 文件自动从 ISO 准备基于 Red Hat 的 VM
 
-1. 创建包括以下内容的 kickstart 文件，并保存该文件。 停止和卸载 cloud init 是可选的（Azure Stack post 1910 发行版支持云初始化）。 仅在1910版本后，从 redhat 存储库安装代理。 在1910之前，请使用上一部分中的 Azure 存储库。 有关 kickstart 安装的详细信息，请参阅 [Kickstart 安装指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)。
+1. 创建包括以下内容的 kickstart 文件，并保存该文件。 停止和卸载 cloud init 是可选的（Azure Stack 集线器 post 1910 版支持云初始化）。 仅在1910版本后，从 redhat 存储库安装代理。 在1910之前，请使用上一部分中的 Azure 存储库。 有关 kickstart 安装的详细信息，请参阅 [Kickstart 安装指南](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)。
 
     ```sh
     Kickstart for provisioning a RHEL 7 Azure VM
@@ -808,6 +808,6 @@ dracut -f -v
 
 ## <a name="next-steps"></a>后续步骤
 
-你现在已准备好在 Azure Stack 中使用 Red Hat Enterprise Linux 虚拟硬盘创建新的 Vm。 如果这是你第一次将 VHD 文件上载到 Azure Stack，请参阅[创建和发布 Marketplace 项](azure-stack-create-and-publish-marketplace-item.md)。
+你现在已准备好使用 Red Hat Enterprise Linux 虚拟硬盘在 Azure Stack 中心创建新的 Vm。 如果这是你第一次将 VHD 文件上载到 Azure Stack 中心，请参阅[创建和发布 Marketplace 项](azure-stack-create-and-publish-marketplace-item.md)。
 
 有关已通过认证以运行 Red Hat Enterprise Linux 的虚拟机监控程序的详细信息，请参阅[Red Hat 网站](https://access.redhat.com/certified-hypervisors)。

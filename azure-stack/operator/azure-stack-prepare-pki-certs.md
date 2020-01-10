@@ -1,7 +1,7 @@
 ---
-title: 准备 Azure Stack 用于部署或轮换的 PKI 证书 |Microsoft Docs
-titleSuffix: Azure Stack
-description: 了解如何为 Azure Stack 集成系统部署或在现有 Azure Stack 环境中轮替机密准备 PKI 证书。
+title: 准备 Azure Stack 中心 PKI 证书以进行部署或轮换 |Microsoft Docs
+titleSuffix: Azure Stack Hub
+description: 了解如何为 Azure Stack 中心集成系统部署或在现有 Azure Stack 中心环境中轮替机密准备 PKI 证书。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 09/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: a63e0e3a2246cc3c3c659f9671afdf4be0cc93cd
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 9031f81909a5bfe44882aabce47488ba6ca40edf
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802371"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810344"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment-or-rotation"></a>准备 Azure Stack PKI 证书以进行部署或轮换
+# <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>准备 Azure Stack 中心 PKI 证书以进行部署或轮换
 
-必须导入和导出[从证书颁发机构（CA）获取的](azure-stack-get-pki-certs.md)证书文件，其中包含与 Azure Stack 证书要求匹配的属性。
+必须导入和导出[从证书颁发机构（CA）获取的](azure-stack-get-pki-certs.md)证书文件，其中包含与 Azure Stack 中心证书要求匹配的属性。
 
 ## <a name="prepare-certificates-for-deployment"></a>为部署准备证书
 
-使用以下步骤来准备和验证 Azure Stack PKI 证书，这些证书将用于部署新的 Azure Stack 环境或在现有的 Azure Stack 环境中轮换机密。
+使用以下步骤来准备和验证 Azure Stack 中心 PKI 证书，这些证书将用于部署新的 Azure Stack 中心环境或在现有的 Azure Stack 中心环境中轮换机密。
 
 ### <a name="import-the-certificate"></a>导入证书
 
@@ -39,7 +39,7 @@ ms.locfileid: "73802371"
 
 1. 右键单击证书并选择 "**安装证书**" 或 "**安装 PFX**"，具体取决于证书从 CA 传递的方式。
 
-1. 在**证书导入向导**中，选择 "**本地计算机**" 作为导入位置。 选择“**下一步**”。 在以下屏幕上，再次选择 "下一步"。
+1. 在**证书导入向导**中，选择 "**本地计算机**" 作为导入位置。 选择“**下一页**”。 在以下屏幕上，再次选择 "下一步"。
 
     ![证书的本地计算机导入位置](./media/prepare-pki-certs/1.png)
 
@@ -47,14 +47,14 @@ ms.locfileid: "73802371"
 
    ![配置证书存储以进行证书导入](./media/prepare-pki-certs/3.png)
 
-   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 如果要导入 PFX，将会显示一个附加对话框。 在 "**私钥保护**" 页上，输入证书文件的密码，并启用 "将**此密钥标记为可导出"。这允许您在以后备份或传输密钥**。 选择“**下一步**”。
+   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 如果要导入 PFX，将会显示一个附加对话框。 在 "**私钥保护**" 页上，输入证书文件的密码，并启用 "将**此密钥标记为可导出"。这允许您在以后备份或传输密钥**。 选择“**下一页**”。
 
    ![标记密钥为可导出](./media/prepare-pki-certs/2.png)
 
 1. 选择 "**完成**" 以完成导入。
 
 > [!NOTE]
-> 为 Azure Stack 导入证书后，证书的私钥将作为 PKCS 12 文件（PFX）存储在群集存储上。
+> 为 Azure Stack 中心导入证书后，证书的私钥将作为 PKCS 12 文件（PFX）存储在群集存储上。
 
 ### <a name="export-the-certificate"></a>导出证书
 
@@ -72,10 +72,10 @@ ms.locfileid: "73802371"
 
 4.  > **证书位置**浏览到 "**证书** > **企业信任**"。 验证你的证书是否在右侧显示。
 
-5. 从 "证书管理器控制台" 任务栏中，选择 "**操作**" > **所有任务**" > **导出**"。 选择“**下一步**”。
+5. 从 "证书管理器控制台" 任务栏中，选择 "**操作**" > **所有任务**" > **导出**"。 选择“**下一页**”。
 
    > [!NOTE]
-   > 根据你拥有的 Azure Stack 证书数量，你可能需要多次完成此过程。
+   > 根据你拥有的 Azure Stack 中心证书数量，你可能需要多次完成此过程。
 
 6. 选择 **"是，导出私钥**"，然后单击 "**下一步**"。
 
@@ -95,9 +95,9 @@ ms.locfileid: "73802371"
 
     请记下此密码。 您将使用它作为部署参数。
 
-9. 选择“**下一步**”。
+9. 选择“**下一页**”。
 
-10. 选择要导出的 PFX 文件的文件名和位置。 选择“**下一步**”。
+10. 选择要导出的 PFX 文件的文件名和位置。 选择“**下一页**”。
 
 11. 选择“完成”。
 

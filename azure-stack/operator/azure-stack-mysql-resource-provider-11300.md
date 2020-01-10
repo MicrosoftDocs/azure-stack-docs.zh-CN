@@ -1,6 +1,6 @@
 ---
-title: Azure Stack MySQL 资源提供程序1.1.30.0 发行说明 |Microsoft Docs
-description: 查看发行说明，了解 Azure Stack MySQL 资源提供程序1.1.30.0 更新中的新增功能。
+title: Azure Stack 中心 MySQL 资源提供程序1.1.30.0 发行说明 |Microsoft Docs
+description: 查看发行说明，了解 Azure Stack Hub MySQL 资源提供程序1.1.30.0 更新中的新增功能。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,40 +16,40 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: fa21bb641589bb6da143696e0c925a0bfe51c1d0
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: cc98aaaf25c752b6d606734b5933144874cd91ca
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682209"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816966"
 ---
-# <a name="mysql-resource-provider-11300-release-notes"></a>MySQL 资源提供程序1.1.30.0 发行说明
+# <a name="mysql-resource-provider-11300-release-notes"></a>MySQL 资源提供程序 1.1.30.0 发行说明
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 这些发行说明介绍了 MySQL 资源提供程序版本1.1.30.0 中的改进和已知问题。
 
-## <a name="build-reference"></a>生成引用
-下载 MySQL 资源提供程序二进制文件，然后运行自解压缩程序，将内容提取到临时目录中。 资源提供程序至少有一个对应的 Azure Stack 生成。 安装此版本的 MySQL 资源提供程序所需的最低 Azure Stack 发行版本如下所示：
+## <a name="build-reference"></a>内部版本参考
+下载 MySQL 资源提供程序二进制文件，然后运行自解压缩程序，将内容提取到临时目录中。 资源提供程序至少有一个对应的 Azure Stack 中心生成。 安装此版本的 MySQL 资源提供程序所需的最低 Azure Stack 中心版本如下所示：
 
-> |最低 Azure Stack 版本|MySQL 资源提供程序版本|
+> |最低 Azure Stack 中心版本|MySQL 资源提供程序版本|
 > |-----|-----|
-> |Azure Stack 1808 更新（1.1808.0.97）|[1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
+> |Azure Stack 中心1808更新（1.1808.0.97）|[1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> 在部署最新版本的 MySQL 资源提供程序之前，将支持的最低 Azure Stack 更新应用到 Azure Stack 集成系统或部署最新 Azure Stack 开发工具包（ASDK）。
+> 在部署最新版本的 MySQL 资源提供程序之前，将支持的最低 Azure Stack 中心更新应用到 Azure Stack 中心集成系统或部署最新 Azure Stack 开发工具包（ASDK）。
 
 ## <a name="new-features-and-fixes"></a>新增功能和修补程序
-此版本的 Azure Stack MySQL 资源提供程序包括以下改进和修补程序：
+此版本的 Azure Stack 集线器 MySQL 资源提供程序包括以下改进和修补程序：
 
 - **已为 MySQL 资源提供程序部署启用遥测**。 已为 MySQL 资源提供程序部署启用了遥测收集。 收集的遥测包括资源提供程序部署、开始和停止时间、退出状态、退出消息和错误详细信息（如果适用）。
 
-- **TLS 1.2 加密更新**。 启用了 TLS 1.2-仅支持与内部 Azure Stack 组件进行的资源提供程序通信。 
+- **TLS 1.2 加密更新**。 启用了 TLS 1.2-仅支持与内部 Azure Stack 集线器组件进行资源提供程序通信。 
 
 ### <a name="fixes"></a>修复项
 
-- **MySQL 资源提供程序 Azure Stack PowerShell 兼容性**。 MySQL 资源提供程序已更新为可与 Azure Stack 2018-03-01 混合 PowerShell 配置文件一起使用，并提供与 AzureRM 1.3.0 和更高版本的兼容性。
+- **MySQL 资源提供程序 Azure Stack 集线器 PowerShell 兼容性**。 MySQL 资源提供程序已更新为可与 Azure Stack 中心2018-03-01 混合 PowerShell 配置文件一起使用，并提供与 AzureRM 1.3.0 和更高版本的兼容性。
 
 - **MySQL 登录更改密码边栏选项卡**。 修复了 "更改密码" 边栏选项卡上无法更改密码的问题。 删除了来自密码更改通知的链接。
 
@@ -77,8 +77,8 @@ ms.locfileid: "72682209"
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
  
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>云管理员操作 Azure Stack 的已知问题
-请参阅[Azure Stack 发行说明](azure-stack-servicing-policy.md)中的文档。
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Azure Stack 中心的云管理员操作的已知问题
+请参阅[Azure Stack 中心发行说明](azure-stack-servicing-policy.md)中的文档。
 
 ## <a name="next-steps"></a>后续步骤
 [了解有关 MySQL 资源提供程序的详细信息](azure-stack-mysql-resource-provider.md)。

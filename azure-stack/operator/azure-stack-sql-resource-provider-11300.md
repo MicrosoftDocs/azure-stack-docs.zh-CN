@@ -1,7 +1,7 @@
 ---
-title: Azure Stack SQL 资源提供程序1.1.30.0 发行说明
-titleSuffix: Azure Stack
-description: 查看 Azure Stack SQL 资源提供程序1.1.30.0 更新的发行说明。
+title: Azure Stack 中心 SQL 资源提供程序1.1.30.0 发行说明
+titleSuffix: Azure Stack Hub
+description: 查看 Azure Stack 中心 SQL 资源提供程序1.1.30.0 更新的发行说明。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,40 +17,40 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: c1c2b824b8cf44a983c851f20337658d020de4c8
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 62bec361c734bf51d4d0337623cc3e299f0025fa
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780620"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814824"
 ---
-# <a name="sql-resource-provider-11300-release-notes"></a>SQL 资源提供程序1.1.30.0 发行说明
+# <a name="sql-resource-provider-11300-release-notes"></a>SQL 资源提供程序 1.1.30.0 发行说明
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 这些发行说明介绍了 SQL 资源提供程序版本1.1.30.0 中的改进和已知问题。
 
-## <a name="build-reference"></a>生成引用
-下载 SQL 资源提供程序二进制文件，然后运行自解压缩程序，将内容提取到临时目录中。 资源提供程序至少有一个对应的 Azure Stack 生成。 安装此版本的 SQL 资源提供程序所需的最低 Azure Stack 发行版本如下所示：
+## <a name="build-reference"></a>内部版本参考
+下载 SQL 资源提供程序二进制文件，然后运行自解压缩程序，将内容提取到临时目录中。 资源提供程序至少有一个对应的 Azure Stack 中心生成。 安装此版本的 SQL 资源提供程序所需的最低 Azure Stack 中心版本如下所示：
 
-> |最低 Azure Stack 版本|SQL 资源提供程序版本|
+> |最低 Azure Stack 中心版本|SQL 资源提供程序版本|
 > |-----|-----|
 > |版本1808（1.1808.0.97）|[1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
 > |     |     |
 
 > [!IMPORTANT]
-> 在部署最新版本的 SQL 资源提供程序之前，将支持的最低 Azure Stack 更新应用到 Azure Stack 集成系统或部署最新 Azure Stack 开发工具包（ASDK）。
+> 在部署最新版本的 SQL 资源提供程序之前，将支持的最低 Azure Stack 中心更新应用到 Azure Stack 中心集成系统或部署最新 Azure Stack 开发工具包（ASDK）。
 
 ## <a name="new-features-and-fixes"></a>新增功能和修补程序
-此版本的 Azure Stack SQL 资源提供程序包括以下改进和修补程序：
+此版本的 Azure Stack 中心 SQL 资源提供程序包括以下改进和修补程序：
 
 - **已为 SQL 资源提供程序部署启用遥测**。 已为 SQL 资源提供程序部署启用了遥测收集。 收集的遥测包括资源提供程序部署、开始和停止时间、退出状态、退出消息和错误详细信息（如果适用）。
 
-- **TLS 1.2 加密更新**。 启用了 TLS 1.2-仅支持与内部 Azure Stack 组件进行的资源提供程序通信。 
+- **TLS 1.2 加密更新**。 启用了 TLS 1.2-仅支持与内部 Azure Stack 集线器组件进行资源提供程序通信。 
 
 ### <a name="fixes"></a>修复项
 
-- **SQL 资源提供程序 Azure Stack PowerShell 兼容性**。 SQL 资源提供程序已更新为可与 Azure Stack 2018-03-01 混合 PowerShell 配置文件一起使用，并提供与 AzureRM 1.3.0 和更高版本的兼容性。
+- **SQL 资源提供程序 Azure Stack 集线器 PowerShell 兼容性**。 SQL 资源提供程序已更新为可与 Azure Stack 中心2018-03-01 混合 PowerShell 配置文件一起使用，并提供与 AzureRM 1.3.0 和更高版本的兼容性。
 
 - **SQL 登录更改密码边栏选项卡**。 修复了 "更改密码" 边栏选项卡上无法更改密码的问题。 删除了来自密码更改通知的链接。
 
@@ -88,8 +88,8 @@ ms.locfileid: "74780620"
 
     **解决方法**：确保 DNS 能够正确地将侦听器 IP 解析为侦听器主机名。
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>云管理员操作 Azure Stack 的已知问题
-请参阅[Azure Stack 发行说明](azure-stack-servicing-policy.md)中的文档。
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Azure Stack 中心的云管理员操作的已知问题
+请参阅[Azure Stack 中心发行说明](azure-stack-servicing-policy.md)中的文档。
 
 ## <a name="next-steps"></a>后续步骤
 [了解有关 SQL 资源提供程序的详细信息](azure-stack-sql-resource-provider.md)。

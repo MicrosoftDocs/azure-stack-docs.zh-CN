@@ -1,6 +1,6 @@
 ---
-title: 在高度可用的配置中部署 Azure Stack 应用服务 |Microsoft Docs
-description: 了解如何使用高可用配置在 Azure Stack 中部署应用服务。
+title: 在高度可用的配置中部署 Azure Stack 中心应用服务 |Microsoft Docs
+description: 了解如何使用高可用配置在 Azure Stack 集线器中部署应用服务。
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,21 +16,21 @@ ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 9e5b99a5787e6472b2e9d25a509f615a1b02a732
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 34dd070fe0568daedd0ffd50132b43c801099f18
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654948"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810029"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
-本文介绍如何使用 Azure Stack marketplace 项在高度可用的配置中部署 Azure Stack 的应用服务。 除了可用的 marketplace 项外，此解决方案还使用[appservice](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack 快速入门模板。 此模板自动创建用于托管应用服务资源提供程序的高度可用的基础结构。 然后，应用服务将安装在此高度可用的 VM 基础结构上。 
+本文介绍如何使用 Azure Stack 中心市场项在高度可用的配置中部署 Azure Stack 中心的应用服务。 除了可用的 marketplace 项外，此解决方案还使用[appservice](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack 集线器快速入门模板。 此模板自动创建用于托管应用服务资源提供程序的高度可用的基础结构。 然后，应用服务将安装在此高度可用的 VM 基础结构上。 
 
 ## <a name="deploy-the-highly-available-app-service-infrastructure-vms"></a>部署高度可用的应用服务基础结构 Vm
-[Appservice](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack 快速入门模板可在高可用性配置中简化应用服务的部署。 它应部署在默认提供程序订阅中。 
+Appservice Azure Stack 中心快速入门模板中的 "文件[共享](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha)"-集线器快速入门模板可在高可用性配置中简化应用服务的部署。 它应部署在默认提供程序订阅中。 
 
-当用于在 Azure Stack 中创建自定义资源时，该模板将创建：
+当用于在 Azure Stack 中心创建自定义资源时，该模板将创建：
 - 虚拟网络和所需的子网。
 - 用于文件服务器、SQL Server 和 Active Directory 域服务（AD DS）子网的网络安全组。
 - VM 磁盘和群集云见证的存储帐户。
@@ -40,8 +40,8 @@ ms.locfileid: "75654948"
 - 双节点文件服务器群集。
 - 两个域控制器。
 
-### <a name="required-azure-stack-marketplace-items"></a>需要 Azure Stack marketplace 项
-使用此模板之前，请确保 Azure Stack 实例中有以下[Azure Stack marketplace 项](azure-stack-marketplace-azure-items.md)：
+### <a name="required-azure-stack-hub-marketplace-items"></a>必需 Azure Stack 中心市场项
+使用此模板之前，请确保 Azure Stack 中心实例中有以下[Azure Stack 集线器 marketplace 项](azure-stack-marketplace-azure-items.md)：
 
 - Windows Server 2016 Datacenter Core 映像（适用于 AD DS 和文件服务器 Vm）
 - Windows Server 2016 上的 SQL Server 2016 SP2 （企业版）
@@ -52,7 +52,7 @@ ms.locfileid: "75654948"
 > 查看 GitHub 上[的模板自述文件](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha)，了解有关模板要求和默认值的其他详细信息。 
 
 ### <a name="deploy-the-app-service-infrastructure"></a>部署应用服务基础结构
-使用此部分中的步骤，可以使用**appservice-sqlserver** Azure Stack 快速入门模板创建自定义部署。
+使用此部分中的步骤，通过**appservice** Azure Stack 中心快速入门模板创建自定义部署。
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
@@ -107,7 +107,7 @@ ms.locfileid: "75654948"
 
 
 ## <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
-按照本部分中的步骤，根据[appservice-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack 快速入门模板，在高度可用的配置中部署 Azure Stack 的应用服务。 
+按照本部分中的步骤，根据[appservice-sqlserver](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack Hub 快速入门模板，在高度可用的配置中部署 Azure Stack 集线器的应用服务。 
 
 安装应用服务资源提供程序后，可以将其包含在产品/服务和计划中。 然后，用户可以订阅以获取服务并开始创建应用。
 
@@ -115,28 +115,28 @@ ms.locfileid: "75654948"
 > 在运行资源提供程序安装程序之前，请确保已阅读每个应用服务版本随附的发行说明，以了解新功能、修复程序以及可能影响部署的任何已知问题。
 
 ### <a name="prerequisites"></a>必备组件
-在运行应用服务安装程序之前，需要执行多个步骤，如 "在[Azure Stack 开始应用服务之前](azure-stack-app-service-before-you-get-started.md)" 一文中所述：
+在运行应用服务安装程序之前，需要执行几个步骤，如在[Azure Stack 集线器上开始应用服务之前](azure-stack-app-service-before-you-get-started.md)所述：
 
 > [!TIP]
 > 并非需要在[应用服务入门一文](azure-stack-app-service-before-you-get-started.md)中介绍的所有步骤都是必需的，因为模板部署会为你配置基础结构 vm。
 
 - [下载应用服务安装程序和帮助程序脚本](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)。
-- [从 Azure Stack Marketplace 下载项目](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace)。
+- [从 Azure Stack 中心市场下载项目](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace)。
 - [生成所需的证书](azure-stack-app-service-before-you-get-started.md#get-certificates)。
-- 基于为 Azure Stack 选择的标识提供者创建 ID 应用程序。 可以为[Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app)或[Active Directory 联合身份验证服务](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app)创建 ID 应用程序，并记录应用程序 ID。
-- 确保已将 Windows Server 2016 Datacenter 映像添加到 Azure Stack marketplace。 此映像是应用服务安装所必需的。
+- 基于为 Azure Stack 集线器选择的标识提供者创建 ID 应用程序。 可以为[Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app)或[Active Directory 联合身份验证服务](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app)创建 ID 应用程序，并记录应用程序 ID。
+- 确保已将 Windows Server 2016 Datacenter 映像添加到 Azure Stack 中心市场。 此映像是应用服务安装所必需的。
 
 ### <a name="steps-for-app-service-deployment"></a>应用服务部署的步骤
 安装应用服务资源提供程序至少要花一小时。 所需的时间长度取决于你部署的角色实例数。 在部署过程中，安装程序会运行以下任务：
 
-- 在指定的 Azure Stack 存储帐户中创建一个 blob 容器。
+- 在指定的 Azure Stack 中心存储帐户中创建一个 blob 容器。
 - 创建应用服务的 DNS 区域和条目。
 - 注册应用服务资源提供程序。
 - 注册应用服务库项。
 
 若要部署应用服务资源提供程序，请执行以下步骤：
 
-1. 从可访问 Azure Stack 管理员 Azure 资源管理终结点的计算机上以管理员身份运行之前下载的应用服务安装程序（**appservice**）。
+1. 从可访问 Azure Stack 中心管理员 Azure 资源管理终结点的计算机上以管理员身份运行之前下载的应用服务安装程序（**appservice**）。
 
 2. 选择 **"部署应用服务或升级到最新版本"** 。
 
@@ -150,13 +150,13 @@ ms.locfileid: "75654948"
 
     ![应用服务上的非 Microsoft 许可条款](media/app-service-deploy-ha/03.png)
 
-5. 提供 Azure Stack 环境的应用服务云终结点配置。
+5. 为 Azure Stack 中心环境提供应用服务云终结点配置。
 
     ![应用服务上的应用服务云终结点配置](media/app-service-deploy-ha/04.png)
 
-6. **连接**到要用于安装的 Azure Stack 订阅，并选择位置。 
+6. **连接**到要用于安装的 Azure Stack 中心订阅，并选择位置。 
 
-    ![在应用服务上连接到 Azure Stack 订阅](media/app-service-deploy-ha/05.png)
+    ![在应用服务上连接到 Azure Stack 中心订阅](media/app-service-deploy-ha/05.png)
 
 7. 选择 "**使用现有 VNet 和子网**" 和用于部署高可用模板的资源组的**资源组名称**。<br><br>接下来，选择作为模板部署的一部分创建的虚拟网络，然后从下拉列表选项中选择相应的角色子网。 
 
@@ -188,7 +188,7 @@ ms.locfileid: "75654948"
     ![应用服务上的 ID 应用程序证书和根证书](media/app-service-deploy-ha/008.png)
 
 11. 接下来，为以下证书提供剩余的必需信息，然后单击 "**下一步**"：
-    - 默认 Azure Stack SSL 证书（格式为 appservice. **test-azurestack.** ）
+    - 默认 Azure Stack 中心 SSL 证书（采用**appservice. test-azurestack**格式）。
     - API SSL 证书（采用**appservice. test-azurestack**的格式）。
     - 发行者证书（格式为 appservice. **test-azurestack.** ） 
 
@@ -238,7 +238,7 @@ ms.locfileid: "75654948"
 
 如果已为应用服务资源提供程序提供 SQL Always On 实例，请[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。 同步数据库以防止在发生数据库故障转移时任何服务中断。 你还可以运行[脚本](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/)，将原始主服务器中的 AppServices 登录名导入到故障转移服务器。
 
-[横向扩展应用服务](azure-stack-app-service-add-worker-roles.md)。 你可能需要添加其他应用服务基础结构角色辅助角色，以满足你的环境中的预期应用需求。 默认情况下，Azure Stack 上的应用服务支持免费和共享辅助角色层。 若要添加其他辅助角色层，需要添加更多辅助角色。
+[横向扩展应用服务](azure-stack-app-service-add-worker-roles.md)。 你可能需要添加其他应用服务基础结构角色辅助角色，以满足你的环境中的预期应用需求。 默认情况下，Azure Stack 集线器上的应用服务支持免费和共享的辅助角色层。 若要添加其他辅助角色层，需要添加更多辅助角色。
 
 [配置部署源](azure-stack-app-service-configure-deployment-sources.md)。 需要进行其他配置以支持来自多个源代码管理提供程序（例如 GitHub、BitBucket、OneDrive 和 DropBox）的按需部署。
 

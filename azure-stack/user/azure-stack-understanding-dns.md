@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用 iDNS | Microsoft Docs
-description: 了解如何在 Azure Stack 中使用 iDNS 的特性和功能。
+title: 在 Azure Stack 中心使用 Idn |Microsoft Docs
+description: 了解如何在 Azure Stack 集线器中使用 Idn 的特性和功能。
 services: azure-stack
 documentationcenter: ''
 author: Justinha
@@ -15,44 +15,44 @@ ms.date: 09/16/2019
 ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 24dc5fc3ea57e1a849442fb02c118615bc8b60fa
-ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
+ms.openlocfilehash: 2ad223096601c31cf558e5557440d7d03065292e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71020838"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818921"
 ---
-# <a name="use-idns-in-azure-stack"></a>在 Azure Stack 中使用 iDNS 
+# <a name="use-idns-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用 Idn 
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-iDNS 是一种 Azure Stack 网络功能，可用于解析外部 DNS 名称（例如，https:\//www.bing.com）。它还可用于注册内部虚拟网络名称。 如此一来，就可按名称（而非 IP 地址）解析同一虚拟网络上的虚拟机 (VM)。 使用此方法，不再需要提供自定义 DNS 服务器条目。 有关 DNS 的详细信息，请参阅 [Azure DNS 概述](https://docs.microsoft.com/azure/dns/dns-overview)。
+Idn 是一项 Azure Stack 集线器网络功能，可用于解析外部 DNS 名称（例如，https：\//www.bing.com。）它还允许你注册内部虚拟网络名称。 这样，你就可以通过名称而不是 IP 地址来解析同一虚拟网络上的虚拟机（Vm）。 此方法不再需要提供自定义 DNS 服务器条目。 有关 DNS 的详细信息，请参阅[Azure DNS 概述](https://docs.microsoft.com/azure/dns/dns-overview)。
 
-## <a name="what-does-idns-do"></a>iDNS 有什么作用？
+## <a name="what-does-idns-do"></a>Idn 有什么作用？
 
-使用 Azure Stack 中的 iDNS 可以获得以下功能，而无需指定自定义 DNS 服务器条目：
+利用 Azure Stack Hub 中的 Idn，你可以获得以下功能，而无需指定自定义 DNS 服务器条目：
 
 - 适用于租户工作负荷的共享 DNS 名称解析服务。
-- 适用于租户虚拟网络内的名称解析和 DNS 注册的权威 DNS 服务。
-- 从租户 VM 解析 Internet 名称的递归 DNS 服务。 租户不再需要指定自定义 DNS 条目，就可以解析 Internet 名称（例如，www\.bing.com）。
+- 用于在租户虚拟网络中进行名称解析和 DNS 注册的权威 DNS 服务。
+- 用于解析来自租户 Vm 的 internet 名称的递归 DNS 服务。 租户不再需要指定自定义 DNS 条目来解析 internet 名称（例如 www\.bing.com）。
 
-你仍然可以沿用自己的 DNS，也可以使用自定义 DNS 服务器。 但是，通过使用 iDNS，你可以解析 Internet DNS 名称并连接到同一虚拟网络中的其他 VM，而无需创建自定义 DNS 条目。
+你仍可以自带 DNS 并使用自定义 DNS 服务器。 但是，通过使用 Idn，你可以解析 internet DNS 名称并连接到同一虚拟网络中的其他 Vm，而无需创建自定义 DNS 条目。
 
-## <a name="what-doesnt-idns-do"></a>iDNS 不做什么？
+## <a name="what-doesnt-idns-do"></a>Idn 有什么作用？
 
-iDNS 不允许针对可从虚拟网络外部解析的名称创建 DNS 记录。
+Idn 不允许你为可以从虚拟网络外部解析的名称创建 DNS 记录。
 
-在 Azure 中，可以选择指定与公共 IP 地址关联的 DNS 名称标签。 你可以选择标签（前缀），但 Azure 会根据创建公共 IP 地址所在的区域选择后缀。
+在 Azure 中，可以选择指定与公共 IP 地址关联的 DNS 名称标签。 你可以选择标签（前缀），但 Azure 会根据你在其中创建公共 IP 地址的区域选择后缀。
 
-![DNS 名称标签示例](media/azure-stack-understanding-dns-in-tp2/image3.png)
+![DNS 名称标签的示例](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-如上图所示, Azure 将在 DNS 中为在区域**westus.cloudapp.azure.com**下指定的 dns 名称标签创建 "A" 记录。 前缀和后缀将组合在一起, 以构成一个[完全限定的域名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)(FQDN), 可以从公共 internet 上的任何位置解析该域名 (FQDN)。
+如上图所示，Azure 将在 DNS 中为在区域**westus.cloudapp.azure.com**下指定的 dns 名称标签创建 "A" 记录。 前缀和后缀将组合在一起，以构成一个[完全限定的域名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)（FQDN），可以从公共 internet 上的任何位置解析该域名（FQDN）。
 
-Azure Stack 仅支持将 iDNS 用于内部名称注册，因此它无法执行以下操作：
+Azure Stack 集线器仅支持用于内部名称注册的 Idn，因此它无法执行以下操作：
 
-- 在现有的托管 DNS 区域（例如，local.azurestack.external）下创建 DNS 记录。
+- 在现有的托管 DNS 区域（例如 test-azurestack）下创建 DNS 记录。
 - 创建 DNS 区域（例如 Contoso.com）。
-- 在你自己的自定义 DNS 区域下创建记录。
+- 在你自己的自定义 DNS 区域下创建一条记录。
 - 支持购买域名。
 
 ## <a name="demo-of-how-idns-works"></a>演示 Idn 的工作方式
@@ -65,7 +65,7 @@ Azure Stack 仅支持将 iDNS 用于内部名称注册，因此它无法执行�
 
 <!--- Is DNS Label the right term? If so, we should define it. The column lists FQDNs, afaik. Where does the domain suffix come from? --->
  
-|VM    |VNet    |私有网络 IP   |公共 IP    | DNS 标签                                |
+|VM    |vNet    |专用 IP   |公共 IP    | DNS 标签                                |
 |------|--------|-------------|-------------|------------------------------------------|
 |VM-A1 |VNetA   | 10.0.0.5    |172.31.12.68 |VM-A1-lnv1. p p. azscss |
 |VM-A2 |VNetA   | 10.0.0.6    |172.31.12.76 |VM-A2-lnv1. p p. azscss |
@@ -83,7 +83,7 @@ Azure Stack 仅支持将 iDNS 用于内部名称注册，因此它无法执行�
 
 <!--- why Linux?--->
 
-从 VM-A1 （Linux VM）：正在查找 VM-A2。 你可以看到，已添加 VNetA 的 DNS 后缀并将名称解析为专用 IP：
+From VM-A1 （Linux VM）：查找 VM-A2。 你可以看到，已添加 VNetA 的 DNS 后缀并将名称解析为专用 IP：
  
 ```console
 carlos@VM-A1:~$ nslookup VM-A2
@@ -181,7 +181,7 @@ Address:  172.31.12.76
 简而言之，你可以从上述内容中看出：
  
 *   每个 VNet 都有其自己的区域，其中包含所有专用 IP 地址的记录，由 VM 名称和 VNet 的 DNS 后缀（其 GUID）组成。
-    *   \<vmname >。\<vnetGUID。\>\<区域 >。\<stackinternalFQDN >
+    *   \<vmname >。\<vnetGUID\>。>\<区域。\<stackinternalFQDN >
     *   这是自动完成的
 *   如果使用公共 IP 地址，则还可以为它们创建 DNS 标签。 这些地址的解析方式与其他外部地址相同。
  
@@ -192,4 +192,4 @@ Address:  172.31.12.76
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用 Azure Stack 中的 DNS](azure-stack-dns.md)
+[在 Azure Stack 集线器中使用 DNS](azure-stack-dns.md)

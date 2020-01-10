@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 上使用 AKS 引擎部署 Kubernetes 群集Microsoft Docs
-description: 如何在运行 AKS 引擎的客户端 VM Azure Stack 上部署 Kubernetes 群集。
+title: 在 Azure Stack Hub 上使用 AKS 引擎部署 Kubernetes 群集 |Microsoft Docs
+description: 如何从运行 AKS 引擎的客户端 VM 在 Azure Stack 集线器上部署 Kubernetes 群集。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 8018b4637dadfbca948b2caa0528b113755dc6dd
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: da1b38df17904042ade28575f1f919708d845252
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310307"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820247"
 ---
-# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>在 Azure Stack 上使用 AKS 引擎部署 Kubernetes 群集
+# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-可以在运行 AKS 引擎的客户端 VM Azure Stack 上部署 Kubernetes 群集。 在本文中，我们将介绍如何编写群集规范，如何使用 `apimodel.json` 文件部署群集，以及如何通过使用 Helm 部署 MySQL 来检查群集。
+可以通过运行 AKS 引擎的客户端 VM 在 Azure Stack 集线器上部署 Kubernetes 群集。 在本文中，我们将介绍如何编写群集规范，如何使用 `apimodel.json` 文件部署群集，以及如何通过使用 Helm 部署 MySQL 来检查群集。
 
 ## <a name="define-a-cluster-specification"></a>定义群集规范
 
@@ -36,7 +36,7 @@ ms.locfileid: "74310307"
 
 本部分介绍如何为群集创建 API 模型。
 
-1.  首先使用 Azure Stack 的[示例](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack)API 模型文件，并为部署创建本地副本。 在计算机上，已安装 AKS 引擎，运行：
+1.  首先使用 Azure Stack 中心[示例](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack)API 模型文件，并为部署创建本地副本。 在计算机上，已安装 AKS 引擎，运行：
 
     ```bash
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
@@ -60,7 +60,7 @@ ms.locfileid: "74310307"
     aks-engine get-versions
     ```
 
-4.  查找 `customCloudProfile` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。 
+4.  查找 `customCloudProfile` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。 
 
 5. 如果正在使用 AD FS，请添加 `"identitySystem":"adfs"`。 例如，
 
@@ -74,28 +74,28 @@ ms.locfileid: "74310307"
     > [!Note]  
     > 如果对标识系统使用 Azure AD，则无需添加**identitySystem**字段。
 
-6. 查找 `portalURL` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。
+6. 查找 `portalURL` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。
 
 7.  在数组 `masterProfile`中，设置以下字段：
 
-    | 字段 | 说明 |
+    | 字段 | Description |
     | --- | --- |
     | dnsPrefix | 输入用于标识 Vm 主机名的唯一字符串。 例如，基于资源组名称的名称。 |
     | count |  输入要用于部署的主机数。 HA 部署的最小值为3，但不允许对非 HA 部署使用1。 |
-    | vmSize |  输入[Azure Stack 支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
+    | vmSize |  输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 
 8.  `agentPoolProfiles` 更新的数组中：
 
-    | 字段 | 说明 |
+    | 字段 | Description |
     | --- | --- |
     | count | 输入要用于部署的代理数。 |
-    | vmSize | 输入[Azure Stack 支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
+    | vmSize | 输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 
 9.  `linuxProfile` 更新的数组中：
 
-    | 字段 | 说明 |
+    | 字段 | Description |
     | --- | --- |
     | adminUsername | 输入 VM 管理员用户名。 |
     | ssh | 输入将用于通过 Vm 进行 SSH 身份验证的公钥。 |
@@ -103,13 +103,13 @@ ms.locfileid: "74310307"
 ### <a name="more-information-about-the-api-model"></a>有关 API 模型的详细信息
 
 - 有关 API 模型中所有可用选项的完整参考，请参阅[群集定义](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md)。  
-- 有关 Azure Stack 的特定选项的突出显示，请参阅[Azure Stack 群集定义细节](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model)。  
+- 有关 Azure Stack 中心特定选项的突出显示，请参阅[Azure Stack 中心群集定义详细信息](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model)。  
 
 ## <a name="deploy-a-kubernetes-cluster"></a>部署 Kubernetes 群集
 
 收集 API 模型中的所有必需值后，便可以创建群集了。 此时，应执行以下操作：
 
-询问 Azure Stack 运算符：
+向 Azure Stack 中心操作员询问：
 
 - 验证系统的运行状况，并建议运行 `Test-AzureStack` 和 OEM 供应商的硬件监视工具。
 - 验证系统容量，包括内存、存储和公共 Ip 等资源。
@@ -117,17 +117,17 @@ ms.locfileid: "74310307"
 
 继续部署群集：
 
-1.  查看 Azure Stack [CLI 标志](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)上的 AKS engine 的可用参数。
+1.  查看 Azure Stack 集线器[CLI 标志](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)上的 AKS 引擎的可用参数。
 
-    | 参数 | 示例 | 说明 |
+    | 参数 | 示例 | Description |
     | --- | --- | --- |
-    | azure-env | AzureStackCloud | 若要指示 AKS 引擎 Azure Stack 目标平台使用 `AzureStackCloud`。 |
+    | azure-env | AzureStackCloud | 若要指示 AKS 引擎 Azure Stack 集线器使用 `AzureStackCloud`的目标平台。 |
     | 标识-系统 | adfs | 可选。 如果使用 Active Directory 联合服务（AD FS），则指定标识管理解决方案。 |
-    | location | local | Azure Stack 的区域名称。 对于 ASDK，区域设置为 `local`。 |
+    | location | local | Azure Stack 中心的区域名称。 对于 ASDK，区域设置为 `local`。 |
     | resource-group | kube-rg | 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。 |
     | api 模型 | ./kubernetes-azurestack.json | 群集配置文件的路径或 API 模型。 |
     | 输出-目录 | kube-rg | 输入要包含输出文件的目录的名称 `apimodel.json` 以及其他生成的文件。 |
-    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
+    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 中心管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 这是你在创建服务时设置的客户端密码。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
@@ -160,9 +160,9 @@ ms.locfileid: "74310307"
 
 通过使用 Helm 部署 mysql 检查群集来验证群集。
 
-1. 使用 Azure Stack 门户获取其中一个主节点的公共 IP 地址。
+1. 使用 Azure Stack 集线器门户获取其中一个主节点的公共 IP 地址。
 
-2. 从具有对 Azure Stack 实例的访问权限的计算机上，使用客户端（如 PuTTY 或 MobaXterm）通过 SSH 连接到新的主节点。 
+2. 在可访问 Azure Stack 中心实例的计算机上，使用客户端（如 PuTTY 或 MobaXterm）通过 SSH 连接到新的主节点。 
 
 3. 对于 SSH 用户名，你可以使用 "azureuser" 和你为群集部署提供的密钥对的私钥文件。
 
@@ -196,4 +196,4 @@ ms.locfileid: "74310307"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [对 Azure Stack 上的 AKS 引擎进行故障排除](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+> [对 Azure Stack 集线器上的 AKS 引擎进行故障排除](azure-stack-kubernetes-aks-engine-troubleshoot.md)

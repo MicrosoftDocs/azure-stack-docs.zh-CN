@@ -1,7 +1,7 @@
 ---
 title: SQL 资源提供程序维护操作
-titleSuffix: Azure Stack
-description: 了解 Azure Stack 上的 SQL 资源提供程序维护操作。
+titleSuffix: Azure Stack Hub
+description: 了解 Azure Stack 集线器上的 SQL 资源提供程序维护操作。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 5841509f9c5c9aef20dd2687adb0e54856fa5d3e
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: 609d0d77af4f11630616567d36fd5ffc35a24a8d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183537"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814467"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -29,7 +29,7 @@ SQL 资源提供程序在锁定的虚拟机（VM）上运行。 若要启用维�
 
 ## <a name="patching-and-updating"></a>修补和更新
 
-SQL 资源提供程序不能作为 Azure Stack 的一部分来处理，因为它是一个外接程序组件。 Microsoft 根据需要提供 SQL 资源提供程序的更新。 发布更新的 SQL 适配器后，将提供一个脚本来应用更新。 此脚本创建新的资源提供程序 VM，并将旧提供程序 VM 的状态迁移到新 VM。 有关详细信息，请参阅[更新 SQL 资源提供程序](azure-stack-sql-resource-provider-update.md)。
+SQL 资源提供程序不是作为 Azure Stack 中心的一部分来处理的，因为它是一个外接程序组件。 Microsoft 根据需要提供 SQL 资源提供程序的更新。 发布更新的 SQL 适配器后，将提供一个脚本来应用更新。 此脚本创建新的资源提供程序 VM，并将旧提供程序 VM 的状态迁移到新 VM。 有关详细信息，请参阅[更新 SQL 资源提供程序](azure-stack-sql-resource-provider-update.md)。
 
 ### <a name="provider-vm"></a>提供程序 VM
 
@@ -37,7 +37,7 @@ SQL 资源提供程序不能作为 Azure Stack 的一部分来处理，因为它
 
 ## <a name="updating-sql-credentials"></a>正在更新 SQL 凭据
 
-你负责在 SQL 服务器上创建和维护 sysadmin 帐户。 资源提供程序需要一个具有这些权限的帐户来管理用户的数据库，但不需要访问用户数据。 如果需要更新 SQL server 上的 sysadmin 密码，可以使用资源提供程序的管理员界面来更改已存储的密码。 这些密码存储在 Azure Stack 实例的 Key Vault 中。
+你负责在 SQL 服务器上创建和维护 sysadmin 帐户。 资源提供程序需要一个具有这些权限的帐户来管理用户的数据库，但不需要访问用户数据。 如果需要更新 SQL server 上的 sysadmin 密码，可以使用资源提供程序的管理员界面来更改已存储的密码。 这些密码存储在 Azure Stack 中心实例的 Key Vault 中。
 
 若要修改设置，请选择 "**浏览**&gt;**管理资源**" &gt; **Sql 宿主服务器**"&gt; **sql 登录**名并选择用户名。 必须首先在 SQL 实例（和任何副本）上进行更改（如有必要）。在 "**设置**" 下，选择 "**密码**"。
 
@@ -45,9 +45,9 @@ SQL 资源提供程序不能作为 Azure Stack 的一部分来处理，因为它
 
 ## <a name="secrets-rotation"></a>秘密旋转
 
-*这些说明仅适用于 Azure Stack 集成系统。*
+*这些说明仅适用于 Azure Stack 集线器集成系统。*
 
-将 SQL 和 MySQL 资源提供程序与 Azure Stack 集成系统一起使用时，Azure Stack 操作员负责旋转以下资源提供程序基础结构机密，以确保它们不会过期：
+将 SQL 和 MySQL 资源提供程序与 Azure Stack 集线器集成系统一起使用时，Azure Stack 中心操作员负责旋转以下资源提供程序基础结构机密，以确保它们不会过期：
 
 - [在部署过程中提供](azure-stack-pki-certs.md)的外部 SSL 证书。
 - 部署期间提供的资源提供程序 VM 本地管理员帐户密码。
@@ -101,10 +101,10 @@ SQL 资源提供程序不能作为 Azure Stack 的一部分来处理，因为它
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider 参数
 
-|参数|描述|
+|参数|Description|
 |-----|-----|
-|AzCredential|Azure Stack 服务管理员帐户凭据。|
-|CloudAdminCredential|Azure Stack 云管理域帐户凭据。|
+|AzCredential|Azure Stack 中心服务管理员帐户凭据。|
+|CloudAdminCredential|Azure Stack 中心云管理域帐户凭据。|
 |PrivilegedEndpoint|用于访问 AzureStackStampInformation 的特权终结点。|
 |DiagnosticsUserPassword|诊断用户帐户密码。|
 |VMLocalCredential|Mysqladapter.dbadapter VM 上的本地管理员帐户。|
@@ -251,7 +251,7 @@ $session | Remove-PSSession
 
 为 SQL 资源提供程序配置事件日志和 IIS 日志收集后，可在名为**sqladapterdiagaccount**的系统存储帐户中找到日志。
 
-若要详细了解 Azure 诊断扩展，请参阅[什么是 Azure 诊断扩展](/azure-monitor/platform/diagnostics-extension-overview)。
+若要详细了解 Azure 诊断扩展，请参阅[什么是 Azure 诊断扩展](/azure/azure-monitor/platform/diagnostics-extension-overview)。
 
 ## <a name="next-steps"></a>后续步骤
 

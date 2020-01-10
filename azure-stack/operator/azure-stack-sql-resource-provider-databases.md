@@ -1,6 +1,6 @@
 ---
 title: 创建 SQL 数据库
-titleSuffix: Azure Stack
+titleSuffix: Azure Stack Hub
 description: 了解如何创建和管理使用 SQL 资源提供程序适配器预配的 SQL 数据库。
 services: azure-stack
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 97d53772127cbae66e95159617cb9e50e21176ac
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: f6c030767ba64aa3c8acd47d5b358a4b385785ac
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954530"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814535"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 
-可在用户门户中创建和管理自助服务数据库。 Azure Stack 用户需要具有包含 SQL 数据库服务的产品/服务的订阅。
+可在用户门户中创建和管理自助服务数据库。 Azure Stack 集线器用户需要具有包含 SQL 数据库服务的产品/服务的订阅。
 
-1. 登录到[Azure Stack](azure-stack-overview.md)用户门户。
+1. 登录到[Azure Stack 集线器](azure-stack-overview.md)用户门户。
 
 2. 选择 " **+ 新建**" &gt;**数据 + 存储**&gt; **SQL Server 数据库**&gt; "**添加**"。
 
@@ -40,10 +40,10 @@ ms.locfileid: "74954530"
 
 4. 在 "**创建数据库**" 下，选择**SKU**。 在 "**选择 sku**" 下，选择数据库的 sku。
 
-   ![在 Azure Stack 用户门户中创建数据库。](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![在 Azure Stack Hub 用户门户中创建数据库。](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
    >[!NOTE]
-   >将宿主服务器添加到 Azure Stack 时，会为它们分配 SKU。 数据库在 SKU 中的宿主服务器池中创建。
+   >将托管服务器添加到 Azure Stack 中心时，会为它们分配 SKU。 数据库在 SKU 中的宿主服务器池中创建。
 
 5. 选择 "**登录**"。
 
@@ -54,7 +54,7 @@ ms.locfileid: "74954530"
    >[!NOTE]
    >这些设置是为仅对此数据库的访问而创建的 SQL 身份验证凭据。 登录名用户名必须是全局唯一的。 可以对使用相同 SKU 的其他数据库重用登录设置。
 
-   ![在 Azure Stack 用户门户中创建新的数据库登录名](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![在 Azure Stack Hub 用户门户中创建新的数据库登录名](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 8. 选择 **"确定"** 完成数据库的部署。
 

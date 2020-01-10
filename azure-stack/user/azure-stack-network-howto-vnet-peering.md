@@ -1,6 +1,6 @@
 ---
-title: 如何通过 VNET 对等互连连接两个 Azure stack |Microsoft Docs
-description: 了解如何通过 VNET 对等互连连接两个 Azure stack。
+title: 如何通过 VNET 对等互连连接两个 Azure Stack 集线器 |Microsoft Docs
+description: 了解如何通过 VNET 对等互连连接两个 Azure Stack 集线器。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,20 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: e1cb999e6c7bc740f890efffccb1c80ec4575457
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845840"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816065"
 ---
-# <a name="vnet-peering-in-azure-stack-with-vms"></a>与 Vm Azure Stack VNET 对等互连
+# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>通过 Vm 在 Azure Stack 中心 VNET 对等互连
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-可以在同一 Azure Stack 环境中将两个 Azure Stack Vnet 彼此连接。 目前不能使用内置[虚拟网络网关](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)连接 Azure Stack vnet。 必须使用 NVA 设备在两个 Azure Stack Vnet 之间创建 VPN 隧道。 在本文的模板引用中，将部署两个 Windows Server 2016 Vm，并安装 RRAS。 两个 RRAS 服务器都配置为实现两个 Vnet 之间的 S2SVPN IKEv2 隧道。 创建相应的 NSG 和 UDR 规则，以允许在每个 VNET 上指定为**内部**子网之间进行路由。 
+可以在同一 Azure Stack 中心环境中将两个 Azure Stack 集线器 Vnet 连接到另一个。 目前不能使用内置[虚拟网络网关](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)连接 Azure Stack 集线器 vnet。 必须使用 NVA 设备在两个 Azure Stack 集线器 Vnet 之间创建 VPN 隧道。 在本文的模板引用中，将部署两个 Windows Server 2016 Vm，并安装 RRAS。 两个 RRAS 服务器都配置为实现两个 Vnet 之间的 S2SVPN IKEv2 隧道。 创建相应的 NSG 和 UDR 规则，以允许在每个 VNET 上指定为**内部**子网之间进行路由。 
 
-此部署模式是一种基础，它不仅允许在 Azure Stack 实例中创建 VPN 隧道，还允许在 Azure Stack 实例之间以及使用 Windows RRAS S2S VPN 隧道的其他资源（例如本地网络）创建 VPN 隧道。 
+此部署模式是一种基础，它不仅允许在 Azure Stack Hub 实例内创建 VPN 隧道，还允许在 Azure Stack 中心实例和其他资源（如使用 Windows RRAS S2S VPN 隧道的本地网络）之间创建 VPN 隧道. 
 
 可以在[Azure 智能边缘模式 GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 )存储库中找到这些模板。 该模板位于**S2SVPNTunnel**文件夹中。
@@ -31,8 +31,8 @@ ms.locfileid: "73845840"
 
 ## <a name="requirements"></a>要求
 
-- 已应用最新更新的 ASDK 或 Azure Stack 集成系统。 
-- 需要 Azure Stack Marketplace 项：
+- 应用了最新更新的 ASDK 或 Azure Stack 集线器集成系统。 
+- 必需 Azure Stack 中心市场项：
     -  Windows Server 2016 Datacenter （建议使用最新版本）
     -  自定义脚本扩展
 
@@ -59,4 +59,4 @@ ms.locfileid: "73845840"
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 网络的差异和注意事项](azure-stack-network-differences.md)  
+[Azure Stack 集线器网络的差异和注意事项](azure-stack-network-differences.md)  

@@ -15,16 +15,16 @@ ms.date: 11/15/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: a3941a3ada52a8588b504884a2d03cb00dd2c850
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: cd0a5425fc072fa056030fb0be0c5ce5f6cc0225
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310312"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815419"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>使用 Azure Stack 中心的容器 Azure Monitor
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用容器[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)来监视在 Azure Stack Hub 中部署了 Kubernetes 群集的 AKS 引擎中的容器。 
 
@@ -36,7 +36,7 @@ ms.locfileid: "74310312"
 
 可以通过两种方式在群集上启用 Azure Monitor。 这两种方法都需要在 Azure 中设置 Azure Monitor Log Analytics 工作区。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备组件
 
 这两种方法都需要[Azure Monitor –容器](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers)中列出的[先决条件](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers#pre-requisites)。
 
@@ -44,7 +44,7 @@ ms.locfileid: "74310312"
 
 还可以使用[Helm](https://helm.sh/)图在群集中安装监视代理。 按照以下文章[Azure Monitor –容器](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers)中的说明进行操作。
 
-## <a name="method-two"></a>方法2
+## <a name="method-two"></a>方法二
 
 可以在 AKS 引擎群集规范 json 文件中指定**加载**项。 文件也称为 API 模型。 在此加载项中，提供用于存储监视信息的 Azure Log Analytics 工作区的 base64 编码版本的**WorkspaceGUID**和**WorkspaceKey** 。
 
@@ -68,5 +68,5 @@ ms.locfileid: "74310312"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[Azure Stack 上的 AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)  
+- 了解[Azure Stack 集线器上的 AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)  
 - 了解[容器 Azure Monitor 概述](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)

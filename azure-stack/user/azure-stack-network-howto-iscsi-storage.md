@@ -1,6 +1,6 @@
 ---
-title: 如何通过 Azure Stack 连接到 iSCSI 存储 |Microsoft Docs
-description: 了解如何通过 Azure Stack 连接到 iSCSI 存储。
+title: 如何通过 Azure Stack 中心连接到 iSCSI 存储 |Microsoft Docs
+description: 了解如何通过 Azure Stack 中心连接到 iSCSI 存储。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,31 +9,31 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: bed928bdd8ed7c521bd95ec005baafd42eb93047
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: a8cb3ad8e45f6effc593b8c5b2cc9e59dd176f5f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064797"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819686"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack"></a>如何通过 Azure Stack 连接到 iSCSI 存储
+# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>如何通过 Azure Stack 中心连接到 iSCSI 存储
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-你可以使用本文中的模板将 Azure Stack 的虚拟机（VM）连接到本地 iSCSI 目标设置 VM，以使用在我们的 Azure Stack 以外的其他位置托管的存储和数据中心内的其他位置。 本文介绍如何使用 Windows 计算机作为 iSCSI 目标。
+你可以使用本文中的模板将 Azure Stack 中心虚拟机（VM）连接到本地 iSCSI 目标，将 VM 设置为使用托管在我们的 Azure Stack 中心以外的其他位置，并将其存储在数据中心中的其他位置。 本文介绍如何使用 Windows 计算机作为 iSCSI 目标。
 
-可以在[Azure 智能边缘模式](https://github.com/lucidqdreams/azure-intelligent-edge-patterns)GitHub 存储库的**lucidqdreams**分叉中找到该模板。 该模板位于**存储 iSCSI**文件夹中。 此模板旨在设置 Azure Stack 端连接到 iSCSI 目标所需的基础结构。 这包括一个虚拟机，该虚拟机将用作 iSCSI 发起程序及其随附的 VNet、NSG、PIP 和存储。 部署模板后，需要运行两个 PowerShell 脚本来完成配置。 一个脚本将在本地 VM （目标）上运行，一个将在 Azure Stack VM （发起程序）上运行。 完成这些工作后，会将本地存储添加到 Azure Stack VM。 
+可以在[Azure 智能边缘模式](https://github.com/lucidqdreams/azure-intelligent-edge-patterns)GitHub 存储库的**lucidqdreams**分叉中找到该模板。 该模板位于**存储 iSCSI**文件夹中。 此模板旨在设置在 Azure Stack 中心端连接到 iSCSI 目标所需的基础结构。 这包括一个虚拟机，该虚拟机将用作 iSCSI 发起程序及其随附的 VNet、NSG、PIP 和存储。 部署模板后，需要运行两个 PowerShell 脚本来完成配置。 一个脚本将在本地 VM （目标）上运行，一个将在 Azure Stack 中心 VM （发起程序）上运行。 完成这些工作后，会将本地存储添加到 Azure Stack 中心 VM。 
 
 ## <a name="overview"></a>概述
 
-此关系图显示了一个 VM，该 VM 托管在本地 Windows 计算机上的 iSCSI 已装载磁盘上 Azure Stack （物理或虚拟），允许 Azure Stack 外部存储通过 iSCSI 协议装载到 Azure Stack 托管的 VM。
+此关系图显示了 Azure Stack 集线器上托管的 VM，该 VM 具有从本地 Windows 计算机（物理或虚拟）的 iSCSI 装入的磁盘，允许 Azure Stack 中心外部的存储通过 iSCSI 协议装载到 Azure Stack 中心托管的 VM。
 
 ![替换文字](./media/azure-stack-network-howto-iscsi-storage/overview.png)
 
 ### <a name="requirements"></a>要求
 
 - 运行 Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的本地计算机（物理或虚拟）。
-- 需要 Azure Stack Marketplace 项：
+- 必需 Azure Stack 中心市场项：
     -  Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter （建议使用最新版本）。
     -  PowerShell DSC 扩展。
     -  自定义脚本扩展。
@@ -51,7 +51,7 @@ ms.locfileid: "73064797"
 
 ### <a name="options"></a>选项
 
-- 你可以使用自己的 Blob 存储帐户和 SAS 令牌，并使用 **_artifactsLocation**和 **_artifactsLocationSasToken**参数将自己的存储 Blob 与 SAS 令牌配合使用。
+- 你可以使用自己的 Blob 存储帐户和 SAS 令牌并使用 **_artifactsLocation** ， **_artifactsLocationSasToken**参数能够将自己的存储 Blob 与 SAS 令牌配合使用。
 - 此模板提供 VNet 命名和 IP 寻址的默认值。
 - 此配置仅有一个来自 iSCSI 客户端的 iSCSI nic。 我们已经测试了几种配置来利用单独的子网和 Nic，但是遇到了多个网关的问题，并尝试创建一个单独的存储子网来隔离流量，实际上是真正的冗余。 
 - 请注意在法律子网和地址范围内保留这些值，因为部署可能会失败。 
@@ -65,10 +65,10 @@ ms.locfileid: "73064797"
 
 ### <a name="the-deployment-process"></a>部署过程
 
-资源组模板生成输出，该输出旨在作为下一步的输入。 它主要侧重于服务器名称和 iSCSI 流量源自的 Azure Stack 公共 IP 地址。 对于本示例：
+资源组模板生成输出，该输出旨在作为下一步的输入。 它主要侧重于服务器名称和 iSCSI 流量源自的 Azure Stack 中心公共 IP 地址。 对于本示例：
 
 1. 部署基础结构模板。
-2. 将 Azure Stack VM 部署到在数据中心其他位置托管的 VM。 
+2. 将 Azure Stack 中心 VM 部署到在你的数据中心内的其他位置托管的 VM。 
 3. 运行 `Create-iSCSITarget.ps1` 使用来自模板的 IP 地址和服务器名称输出作为 iSCSI 目标（可以是虚拟机或物理服务器）上脚本的输出参数。
 4. 使用 iSCSI 目标服务器的外部 IP 地址作为输入来运行 `Connect-toiSCSITarget.ps1` 脚本。 
 
@@ -76,11 +76,11 @@ ms.locfileid: "73064797"
 
 ### <a name="inputs-for-azuredeployjson"></a>Azuredeploy.json 的输入
 
-|**参数**|**缺省值**|**说明**|
+|**参数**|default|**description**|
 |------------------|---------------|------------------------------|
 |WindowsImageSKU         |2019-Datacenter   |请选择基本 Windows VM 映像
 |VMSize                  |Standard_D2_v2    |请输入 VM 大小
-|VMName                  |文件服务器        |VM 名称
+|VMName                  |FileServer        |VM 名称
 |adminUsername           |storageadmin      |新 VM 的管理员名称
 |adminPassword           |                  |新 Vm 的管理员帐户的密码。 默认值为订阅 ID
 |VNetName                |存储空间           |VNet 的名称。 这将用于标记资源
@@ -118,14 +118,14 @@ ms.locfileid: "73064797"
 
 `Create-iSCSITarget.ps1 `脚本将在为存储提供服务的系统上运行。 可以创建多个受发起方限制的磁盘和目标。 你可以多次运行此脚本，以创建多个可附加到不同目标的虚拟磁盘。 可以将多个磁盘连接到一个目标。 
 
-|**输入**|**缺省值**|**说明**|
+|**输入**|default|**description**|
 |------------------|---------------|------------------------------|
-|RemoteServer         |文件服务器               |连接到 iSCSI 目标的服务器的名称
+|RemoteServer         |FileServer               |连接到 iSCSI 目标的服务器的名称
 |RemoteServerIPs      |1.1.1.1                  |ISCSI 流量将来自的 IP 地址
 |DiskFolder           |C:\iSCSIVirtualDisks     |将存储虚拟磁盘的文件夹和驱动器
 |DiskName             |DiskName                 |磁盘 VHDX 文件的名称
 |DiskSize             |5GB                      |VHDX 磁盘大小
-|TargetName           |RemoteTarget01           |用于定义 iSCSI 客户端目标配置的目标名称。 
+|目标名称           |RemoteTarget01           |用于定义 iSCSI 客户端目标配置的目标名称。 
 |ChapUsername         |username                 |Chap 身份验证的用户名名称
 |ChapPassword         |userP@ssw0rd!            |Chap 身份验证的密码名称。 它必须为12到16个字符
 
@@ -133,7 +133,7 @@ ms.locfileid: "73064797"
 
 `Connect-toiSCSITarget.ps1` 是最终脚本，它在 iSCSI 客户端上运行，并将 iSCSI 目标提供的磁盘装载到 iSCSI 客户端。
 
-|**输入**|**缺省值**|**说明**|
+|**输入**|default|**description**|
 |------------------|---------------|------------------------------|
 |TargetiSCSIAddresses   |"2.2.2.2"、"2.2.2.3"    |ISCSI 目标的 IP 地址
 |LocalIPAddresses       |"10.10.1.4"            |这是 iSCSI 流量将来自的内部 IP 地址
@@ -143,4 +143,4 @@ ms.locfileid: "73064797"
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 网络的差异和注意事项](azure-stack-network-differences.md)  
+[Azure Stack 集线器网络的差异和注意事项](azure-stack-network-differences.md)  

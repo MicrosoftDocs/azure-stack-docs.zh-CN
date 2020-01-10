@@ -1,6 +1,6 @@
 ---
-title: Kubernetes 部署故障排除 Azure Stack |Microsoft Docs
-description: 了解如何对要 Azure Stack 的 Kubernetes 部署进行故障排除。
+title: Kubernetes 部署到 Azure Stack 集线器疑难解答 |Microsoft Docs
+description: 了解如何对 Kubernetes 部署到 Azure Stack 中心进行故障排除。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,25 +14,25 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 900ff88136d75759fdc3bc05bf351968f9c13654
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: df0ab63cfda336eab7f8a34a5ca7b6064b586ab9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689933"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815759"
 ---
-# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes 部署故障排除 Azure Stack
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Azure Stack 中心排查 Kubernetes 部署问题
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用[AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
+> 仅使用 Kubernetes Azure Stack 中心市场项将群集部署为概念证明。 对于 Azure Stack 集线器上支持的 Kubernetes 群集，请使用[AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
 
-本文介绍了如何对 Kubernetes 群集进行故障排除。 若要开始进行故障排除，请查看部署所需的元素。 你可能需要从 Azure Stack 或托管 Kubernetes 的 Linux Vm 收集部署日志。 若要从管理终结点检索日志，请联系 Azure Stack 管理员。
+本文介绍了如何对 Kubernetes 群集进行故障排除。 若要开始进行故障排除，请查看部署所需的元素。 可能需要从托管 Kubernetes 的 Azure Stack 集线器或 Linux Vm 收集部署日志。 若要从管理终结点检索日志，请联系 Azure Stack 中心管理员。
 
 ## <a name="overview-of-kubernetes-deployment"></a>Kubernetes 部署概述
 
-在对群集进行故障排除之前，请查看 Azure Stack Kubernetes 群集部署过程。 部署使用 Azure 资源管理器解决方案模板来创建 Vm，并安装群集的 AKS 引擎。
+在对群集进行故障排除之前，请查看 Azure Stack 中心 Kubernetes 群集部署过程。 部署使用 Azure 资源管理器解决方案模板来创建 Vm，并安装群集的 AKS 引擎。
 
 ### <a name="kubernetes-deployment-workflow"></a>Kubernetes 部署工作流
 
@@ -57,7 +57,7 @@ ms.locfileid: "74689933"
         1. 从 Azure 资源管理器元数据终结点获取库终结点。
         2. 从 Azure 资源管理器元数据终结点获取 active directory 资源 ID。
         3. 加载 AKS 引擎的 API 模型。
-        4. 将 AKS 引擎部署到 Kubernetes 群集并将 Azure Stack 云配置文件保存到 `/etc/kubernetes/azurestackcloud.json`。
+        4. 将 AKS 引擎部署到 Kubernetes 群集并将 Azure Stack 中心云配置文件保存到 `/etc/kubernetes/azurestackcloud.json`。
 3. 创建主 Vm。
 
 4. 下载并运行自定义脚本扩展。
@@ -83,26 +83,26 @@ ms.locfileid: "74689933"
 
 ## <a name="steps-to-troubleshoot-kubernetes"></a>对 Kubernetes 进行故障排除的步骤
 
-可以在支持 Kubernetes 群集的 Vm 上收集和查看部署日志。 与 Azure Stack 管理员联系，验证你需要使用的 Azure Stack 版本，并从与你的部署相关 Azure Stack 获取日志。
+可以在支持 Kubernetes 群集的 Vm 上收集和查看部署日志。 与 Azure Stack 中心管理员联系，验证你需要使用的 Azure Stack 中心的版本，以及从与部署相关的 Azure Stack 中心获取日志。
 
 1. 在部署了群集的资源组的 "**部署**" 窗格中查看 ARM 部署返回的错误代码。 有关错误代码的说明，请在 AKS Engine GitHub 存储库中的[故障排除](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md)一文。 如果无法解决与错误说明有关的问题，请继续执行这些步骤。
 2. 查看[部署状态](#review-deployment-status)，并从 Kubernetes 群集中的主节点检索日志。
-3. 检查是否正在使用最新版本的 Azure Stack。 如果不确定要使用的版本，请与 Azure Stack 管理员联系。
+3. 检查是否使用的是最新版本的 Azure Stack 中心。 如果不确定要使用的版本，请与 Azure Stack 中心管理员联系。
 4. 查看 VM 创建文件。 您可能遇到了以下问题：  
     - 公钥可能无效。 查看已创建的密钥。  
-    - 创建 VM 可能触发了内部错误或触发了创建错误。 许多因素可能导致错误，包括 Azure Stack 订阅的容量限制。
+    - 创建 VM 可能触发了内部错误或触发了创建错误。 许多因素可能导致错误，包括 Azure Stack 中心订阅的容量限制。
     - 请确保 VM 的完全限定的域名（FQDN）以重复的前缀开头。
 5.  如果 VM**正常**，则计算 DVM。 如果 DVM 有错误消息：
     - 公钥可能无效。 查看已创建的密钥。  
-    - 请与 Azure Stack 管理员联系，使用特权终结点检索 Azure Stack 的日志。 有关详细信息，请参阅[Azure Stack 诊断工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
-5. 如果你对部署有疑问，可以发布它，或查看是否有人在[Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答了问题。 
+    - 请与 Azure Stack 中心管理员联系，使用特权终结点检索 Azure Stack 中心的日志。 有关详细信息，请参阅[Azure Stack 集线器诊断工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
+5. 如果你对部署有疑问，可以发布它，或查看是否有人在[Azure Stack 中心论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答了问题。 
 
 
 ## <a name="review-deployment-status"></a>查看部署状态
 
 部署 Kubernetes 群集时，可以查看部署状态以检查是否存在任何问题。
 
-1. 打开[Azure Stack 门户](https://portal.local.azurestack.external)。
+1. 打开[Azure Stack 集线器门户](https://portal.local.azurestack.external)。
 2. 选择 "**资源组**"，然后选择部署 Kubernetes 群集时使用的资源组的名称。
 3. 选择 "**部署**"，然后选择**部署名称**。
 
@@ -110,11 +110,11 @@ ms.locfileid: "74689933"
 
 4.  请参阅故障排除窗口。 每个已部署的资源提供以下信息：
     
-    | properties | 描述 |
+    | 属性 | Description |
     | ----     | ----        |
     | 资源 | 资源的名称。 |
-    | Type | 资源提供程序和资源的类型。 |
-    | 状态 | 项的状态。 |
+    | 类型 | 资源提供程序和资源的类型。 |
+    | 状态 | 项目的状态。 |
     | TimeStamp | 时间的 UTC 时间戳。 |
     | 操作详细信息 | 操作详细信息，如操作中涉及的资源提供程序、资源终结点和资源的名称。 |
 
@@ -122,11 +122,11 @@ ms.locfileid: "74689933"
 
 ## <a name="review-deployment-logs"></a>查看部署日志
 
-如果 Azure Stack 门户没有提供足够的信息，无法进行故障排除或解决部署失败，则下一步就是深入了解群集日志。 若要手动检索部署日志，通常需要连接到群集的主 Vm 之一。 更简单的替代方法是下载并运行 Azure Stack 团队提供的以下[Bash 脚本](https://aka.ms/AzsK8sLogCollectorScript)。 此脚本连接到 DVM 和群集的 Vm，收集相关的系统和群集日志，并将它们下载回你的工作站。
+如果 Azure Stack 集线器门户没有提供足够的信息，无法进行故障排除或解决部署失败，下一步就是深入了解群集日志。 若要手动检索部署日志，通常需要连接到群集的主 Vm 之一。 更简单的替代方法是下载并运行 Azure Stack 中心团队提供的以下[Bash 脚本](https://aka.ms/AzsK8sLogCollectorScript)。 此脚本连接到 DVM 和群集的 Vm，收集相关的系统和群集日志，并将它们下载回你的工作站。
 
 ### <a name="prerequisites"></a>必备组件
 
-你需要在用于管理 Azure Stack 的计算机上具有 Bash 提示。 在 Windows 计算机上，可以通过安装[适用于 windows 的 Git](https://git-scm.com/downloads)来获取 Bash 提示。 安装后，在 "开始" 菜单中查找 " _Git Bash_ "。
+你需要在用于管理 Azure Stack 集线器的计算机上具有 Bash 提示。 在 Windows 计算机上，可以通过安装[适用于 windows 的 Git](https://git-scm.com/downloads)来获取 Bash 提示。 安装后，在 "开始" 菜单中查找 " _Git Bash_ "。
 
 ### <a name="retrieving-the-logs"></a>检索日志
 
@@ -145,11 +145,11 @@ ms.locfileid: "74689933"
 
 3. 查找脚本所需的信息并运行该脚本：
 
-    | 参数           | 描述                                                                                                      | 示例                                                                       |
+    | 参数           | Description                                                                                                      | 示例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d、--vmd 主机      | 公共 IP 或 DVM 的完全限定的域名（FQDN）。 VM 名称以 `vmd-`开头。 | IP：192.168.102.38<br>DNS： myk8s. p p. test-azurestack |
+    | -d, --vmd-host      | 公共 IP 或 DVM 的完全限定的域名（FQDN）。 VM 名称以 `vmd-`开头。 | IP：192.168.102.38<br>DNS： myk8s. p p. test-azurestack |
     | -h、--help  | 打印命令用法。 | |
-    | -i、--file | 创建 Kubernetes 群集时，传递给 marketplace 项的 RSA 私钥文件的路径。 需要将远程登录到 Kubernetes 节点。 | C:\data\ id_rsa （Putty）<br>~/.ssh/id_rsa （SSH）
+    | -i、--file | 创建 Kubernetes 群集时，传递给 marketplace 项的 RSA 私钥文件的路径。 需要将远程登录到 Kubernetes 节点。 | C:\data\ id_rsa （Putty）<br>~/.ssh/id_rsa (SSH)
     | -m、--master-主机   | 公共 IP 或 Kubernetes 主节点的完全限定的域名（FQDN）。 VM 名称以 `k8s-master-`开头。 | IP：192.168.102.37<br>FQDN： k8s-p p. test-azurestack      |
     | -u, --user          | 创建 Kubernetes 群集时，传递给 marketplace 项的用户名。 需要将远程登录到 Kubernetes 节点。 | azureuser （默认值） |
 
@@ -169,8 +169,8 @@ ms.locfileid: "74689933"
 
 ## <a name="next-steps"></a>后续步骤
 
-[将 Kubernetes 部署到 Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
+[将 Kubernetes 部署到 Azure Stack 中心](azure-stack-solution-template-kubernetes-deploy.md)
 
-[将 Kubernetes 群集添加到 Marketplace （适用于 Azure Stack 操作员）](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
+[将 Kubernetes 群集添加到 Marketplace （适用于 Azure Stack 中心操作员）](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Azure 上的 Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

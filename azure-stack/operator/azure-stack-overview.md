@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dee0d3164f0c521b657f9b8f26377e062ee1e536
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: ffd96cb9c99fcce60f4f90df3324c744da984caa
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690041"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75810548"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack 集线器概述
 
@@ -50,13 +50,13 @@ Azure Stack 集线器构建在行业标准硬件上，并使用已用于管理 A
 
 ## <a name="deployment-options"></a>部署选项
 
-<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is azure stack managed with role description, rbac, reporting, high availability take out.--->
+<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is Azure Stack Hub managed with role description, rbac, reporting, high availability take out.--->
 
 Azure Stack 集线器集成系统通过 Microsoft 和硬件合作伙伴的合作关系提供，创建了一个解决方案，提供了云进度的创新和计算管理简易性。 由于 Azure Stack 集线器作为集成的硬件和软件系统提供，因此您可以灵活地控制您的需求，并且能够从云创新。 
 
 Azure Stack 集线器集成系统的大小范围是从4-16 服务器（称为*缩放单位*）。 硬件合作伙伴和 Microsoft 共同支持集成系统。 下图显示了一个缩放单位的示例。 
 
-![显示 Azure Stack 集成系统的关系图](./media/azure-stack-overview/azure-stack-integrated-system.png). 
+![显示 Azure Stack 集线器集成系统的图示](./media/azure-stack-overview/azure-stack-integrated-system.png)。 
 
 <!---add info and image on regions, etc--->
 
@@ -75,9 +75,9 @@ Azure Stack 集线器使用 Azure Active Directory （Azure AD）或 Active Dire
 
 ## <a name="how-is-azure-stack-hub-managed"></a>如何管理 Azure Stack 中心？
 
-Azure Stack 使用与 Azure 相同的操作模型。 Azure Stack 中心运营商可以向租户用户提供各种服务和应用，类似于 Microsoft 向租户用户提供 Azure 服务的方式。 
+Azure Stack 集线器使用与 Azure 相同的操作模型。 Azure Stack 中心运营商可以向租户用户提供各种服务和应用，类似于 Microsoft 向租户用户提供 Azure 服务的方式。 
 
-![显示 Azure Stack 作业角色的关系图](./media/azure-stack-overview/azure-stack-job-roles.png)
+![显示 Azure Stack 中心作业角色的图示](./media/azure-stack-overview/azure-stack-job-roles.png)
 
 可以通过管理员门户、用户门户或[PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1)来管理 Azure Stack 中心。 Azure Stack 中心门户分别由 Azure 资源管理器的单独实例支持。 **Azure Stack 中心操作员**使用管理员门户来管理 Azure Stack 中心，并执行一些操作，例如创建租户产品并维护集成系统的运行状况和监视状态。 用户门户为虚拟机（Vm）、存储帐户和 web 应用等云资源提供自助服务体验。
 
@@ -113,7 +113,7 @@ Azure Stack 使用与 Azure 相同的操作模型。 Azure Stack 中心运营商
 
 ## <a name="next-steps"></a>后续步骤
 
-[比较 Azure Stack 项目组合](compare-azure-azure-stack.md)
+[比较 Azure Stack 中心项目组合](compare-azure-azure-stack.md)
 
 [管理基础知识](azure-stack-manage-basics.md)
 

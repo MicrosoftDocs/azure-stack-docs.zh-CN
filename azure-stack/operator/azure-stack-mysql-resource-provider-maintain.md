@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中的 MySQL 资源提供程序维护操作 |Microsoft Docs
-description: 了解如何在 Azure Stack 中维护 MySQL 资源提供程序服务。
+title: Azure Stack 中心中的 MySQL 资源提供程序维护操作 |Microsoft Docs
+description: 了解如何在 Azure Stack Hub 中维护 MySQL 资源提供程序服务。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: aaa352dedeed36335302a990b6a3bc3f37851f47
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183419"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811084"
 ---
-# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Azure Stack 中的 MySQL 资源提供程序维护操作
+# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack 中心中的 MySQL 资源提供程序维护操作
 
 MySQL 资源提供程序在锁定的虚拟机（VM）上运行。 若要启用维护操作，需要更新 VM 的安全性。 若要使用最小特权原则（POLP）来实现此目的，可以使用 PowerShell 的足够管理（JEA）终结点 DBAdapterMaintenance。 资源提供程序安装包包含此操作的脚本。
 
@@ -93,9 +93,9 @@ $session | Remove-PSSession
 
 ## <a name="secrets-rotation"></a>秘密旋转
 
-*这些说明仅适用于 Azure Stack 集成系统。*
+*这些说明仅适用于 Azure Stack 集线器集成系统。*
 
-将 SQL 和 MySQL 资源提供程序与 Azure Stack 集成系统一起使用时，Azure Stack 操作员负责旋转以下资源提供程序基础结构机密，以确保它们不会过期：
+将 SQL 和 MySQL 资源提供程序与 Azure Stack 集线器集成系统一起使用时，Azure Stack 中心操作员负责旋转以下资源提供程序基础结构机密，以确保它们不会过期：
 
 - [在部署过程中提供](azure-stack-pki-certs.md)的外部 SSL 证书。
 - 部署期间提供的资源提供程序 VM 本地管理员帐户密码。
@@ -153,10 +153,10 @@ $session | Remove-PSSession
 
 ### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider 参数
 
-|参数|描述|
+|参数|Description|
 |-----|-----|
-|AzCredential|Azure Stack 服务管理员帐户凭据。|
-|CloudAdminCredential|Azure Stack 云管理域帐户凭据。|
+|AzCredential|Azure Stack 中心服务管理员帐户凭据。|
+|CloudAdminCredential|Azure Stack 中心云管理域帐户凭据。|
 |PrivilegedEndpoint|用于访问 AzureStackStampInformation 的特权终结点。|
 |DiagnosticsUserPassword|诊断用户帐户密码。|
 |VMLocalCredential|Mysqladapter.dbadapter VM 上的本地管理员帐户。|
@@ -250,7 +250,7 @@ $session | Remove-PSSession
 
 为 MySQL 资源提供程序配置事件日志和 IIS 日志收集后，可在名为**mysqladapterdiagaccount**的系统存储帐户中找到日志。
 
-若要详细了解 Azure 诊断扩展，请参阅[什么是 Azure 诊断扩展](/azure-monitor/platform/diagnostics-extension-overview)。
+若要详细了解 Azure 诊断扩展，请参阅[什么是 Azure 诊断扩展](/azure/azure-monitor/platform/diagnostics-extension-overview)。
 
 ## <a name="next-steps"></a>后续步骤
 

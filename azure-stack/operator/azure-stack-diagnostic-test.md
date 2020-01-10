@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Stack 验证工具验证系统状态 |Microsoft Docs
-description: 了解如何使用 Azure Stack 验证工具来验证系统状态。
+title: 使用 Azure Stack 集线器验证工具验证系统状态 |Microsoft Docs
+description: 了解如何使用 Azure Stack 集线器验证工具来验证系统状态。
 services: azure-stack
 author: justinha
 manager: femila
@@ -14,18 +14,18 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 98732c3eb5933e1fd6d7ce42d726d3f5019c97eb
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: f362fb5dfc47dca23bf7076ecfe0d347a9c789d0
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830964"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817391"
 ---
-# <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
+# <a name="validate-azure-stack-hub-system-state"></a>验证 Azure Stack 集线器系统状态
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-作为 Azure Stack 运算符，能够根据需要确定系统的运行状况和状态是至关重要的。 Azure Stack 验证工具（**test-azurestack**）是一种 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果存在）。 当你联系 Microsoft 客户服务支持（CSS）问题时，通常会要求你通过[特权终结点（PEP）](azure-stack-privileged-endpoint.md)来运行此工具。 使用目前系统范围内的运行状况和状态信息，CSS 可以收集和分析详细日志，重点关注错误发生的区域，并与你一起解决问题。
+作为 Azure Stack 中心运营商，能够根据需要确定系统的运行状况和状态是至关重要的。 Azure Stack 集线器验证工具（**test-azurestack**）是一种 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果存在）。 当你联系 Microsoft 客户服务支持（CSS）问题时，通常会要求你通过[特权终结点（PEP）](azure-stack-privileged-endpoint.md)来运行此工具。 使用目前系统范围内的运行状况和状态信息，CSS 可以收集和分析详细日志，重点关注错误发生的区域，并与你一起解决问题。
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>运行验证工具并访问结果
 
@@ -48,7 +48,7 @@ ms.locfileid: "74830964"
 
    有关详细信息，请参阅[参数注意事项](azure-stack-diagnostic-test.md#parameter-considerations)和[用例示例](azure-stack-diagnostic-test.md#use-case-examples)。
 
-3. 如果任何测试报表**失败**，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[若要在 Azure Stack 集成系统上](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)或在 ASDK 上运行 get-azurestacklog，请参阅在[ASDK 系统上运行 get-azurestacklog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
+3. 如果任何测试报表**失败**，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[若要在 Azure Stack 集线器集成系统上](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)或在 ASDK 上运行 get-azurestacklog，请参阅在[ASDK 系统上运行 get-azurestacklog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
 
    Cmdlet 将收集由 Test-azurestack 生成的日志。 如果测试报告**警告**，我们建议您不要收集日志并联系 CSS。
 
@@ -64,32 +64,32 @@ ms.locfileid: "74830964"
 
 | 测试类别                                        | -Include 和-Ignore 的参数 |
 | :--------------------------------------------------- | :-------------------------------- |
-| Azure Stack ACS 摘要                              | AzsAcsSummary                     |
-| Azure Stack Active Directory 摘要                 | AzsAdSummary                      |
-| Azure Stack 警报摘要                            | AzsAlertSummary                   |
-| Azure Stack 应用程序故障摘要                | AzsApplicationCrashSummary        |
-| Azure Stack 备份共享辅助功能摘要       | AzsBackupShareAccessibility       |
-| Azure Stack BMC 摘要                              | AzsStampBMCSummary                |
-| Azure Stack 云托管基础结构摘要     | AzsHostingInfraSummary            |
-| Azure Stack 云托管基础结构利用率 | AzsHostingInfraUtilization        |
-| Azure Stack 控制平面摘要                    | AzsControlPlane                   |
-| Azure Stack Defender 摘要                         | AzsDefenderSummary                |
-| Azure Stack 承载基础结构固件摘要  | AzsHostingInfraFWSummary          |
-| Azure Stack 基础结构容量                  | AzsInfraCapacity                  |
-| Azure Stack 基础结构性能               | AzsInfraPerformance               |
-| Azure Stack 基础结构角色摘要              | AzsInfraRoleSummary               |
-| Azure Stack 网络基础                            | AzsNetworkInfra                   |
-| Azure Stack 门户和 API 摘要                   | AzsPortalAPISummary               |
-| Azure Stack 缩放单元 VM 事件                     | AzsScaleUnitEvents                |
-| Azure Stack 缩放单位 VM 资源                  | AzsScaleUnitResources             |
-| Azure Stack 方案                                | AzsScenarios                      |
-| Azure Stack SDN 验证摘要                   | AzsSDNValidation                  |
-| Azure Stack Service Fabric 角色摘要              | AzsSFRoleSummary                  |
-| Azure Stack 存储数据平面                       | AzsStorageDataPlane               |
-| Azure Stack 存储服务摘要                 | AzsStorageSvcsSummary             |
-| Azure Stack SQL 存储摘要                        | AzsStoreSummary                   |
-| Azure Stack 更新摘要                           | AzsInfraUpdateSummary             |
-| Azure Stack VM 放置摘要                     | AzsVmPlacement                    |
+| Azure Stack 中心 ACS 摘要                              | AzsAcsSummary                     |
+| Azure Stack 中心 Active Directory 摘要                 | AzsAdSummary                      |
+| Azure Stack 中心警报摘要                            | AzsAlertSummary                   |
+| Azure Stack 中心应用程序故障摘要                | AzsApplicationCrashSummary        |
+| Azure Stack 中心备份共享辅助功能摘要       | AzsBackupShareAccessibility       |
+| Azure Stack 中心 BMC 摘要                              | AzsStampBMCSummary                |
+| Azure Stack 中心云托管基础结构摘要     | AzsHostingInfraSummary            |
+| Azure Stack 中心云托管基础结构利用率 | AzsHostingInfraUtilization        |
+| Azure Stack 集线器控制平面摘要                    | AzsControlPlane                   |
+| Azure Stack 中心 Defender 摘要                         | AzsDefenderSummary                |
+| Azure Stack 中心托管基础结构固件摘要  | AzsHostingInfraFWSummary          |
+| Azure Stack 集线器基础结构容量                  | AzsInfraCapacity                  |
+| Azure Stack 中心基础结构性能               | AzsInfraPerformance               |
+| Azure Stack 中心基础结构角色摘要              | AzsInfraRoleSummary               |
+| Azure Stack 集线器网络基础                            | AzsNetworkInfra                   |
+| Azure Stack 中心门户和 API 摘要                   | AzsPortalAPISummary               |
+| Azure Stack 中心规模单元 VM 事件                     | AzsScaleUnitEvents                |
+| Azure Stack 集线器规模单元 VM 资源                  | AzsScaleUnitResources             |
+| Azure Stack 中心方案                                | AzsScenarios                      |
+| Azure Stack 中心 SDN 验证摘要                   | AzsSDNValidation                  |
+| Azure Stack 中心 Service Fabric 角色摘要              | AzsSFRoleSummary                  |
+| Azure Stack 中心存储数据平面                       | AzsStorageDataPlane               |
+| Azure Stack 中心存储服务摘要                 | AzsStorageSvcsSummary             |
+| Azure Stack 中心 SQL 存储摘要                        | AzsStoreSummary                   |
+| Azure Stack 中心更新摘要                           | AzsInfraUpdateSummary             |
+| Azure Stack 中心 VM 放置摘要                     | AzsVmPlacement                    |
 
 ### <a name="cloud-scenario-tests"></a>云方案测试
 
@@ -167,13 +167,13 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 为了改进操作员体验，已启用一个**组**参数来同时运行多个测试类别。 目前，定义了三个组： **Default**、 **UpdateReadiness**和**SecretRotationReadiness**。
 
 - **默认值**： **test-azurestack**为标准运行。 如果未选择其他组，则默认情况下将运行此组。
-- **UpdateReadiness**：检查是否可以更新 Azure Stack 实例。 运行**UpdateReadiness**组时，警告在控制台输出中显示为错误，并应将其视为更新的阻止程序。 从 Azure Stack 版本1910，以下类别是**UpdateReadiness**组的一部分：
+- **UpdateReadiness**：检查是否可以更新 Azure Stack 中心实例。 运行**UpdateReadiness**组时，警告在控制台输出中显示为错误，并应将其视为更新的阻止程序。 从 Azure Stack 中心版本1910，以下类别是**UpdateReadiness**组的一部分：
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness**：查看 Azure Stack 实例是否处于可运行机密旋转的状态。 运行**SecretRotationReadiness**组时，警告在控制台输出中显示为错误，应将其视为用于机密旋转的阻止程序。 以下类别是 SecretRotationReadiness 组的一部分：
+- **SecretRotationReadiness**：查看 Azure Stack 集线器实例是否处于可运行机密旋转的状态。 运行**SecretRotationReadiness**组时，警告在控制台输出中显示为错误，应将其视为用于机密旋转的阻止程序。 以下类别是 SecretRotationReadiness 组的一部分：
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -187,13 +187,13 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 #### <a name="group-parameter-example"></a>组参数示例
 
-下面的示例运行**test-azurestack**来测试系统准备情况，然后再使用**组**安装更新或修补程序。 在开始安装更新或修补程序之前，请运行**test-azurestack**以检查 Azure Stack 的状态：
+下面的示例运行**test-azurestack**来测试系统准备情况，然后再使用**组**安装更新或修补程序。 在开始安装更新或修补程序之前，请运行**test-azurestack**以检查 Azure Stack 中心的状态：
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-如果 Azure Stack 运行1811之前的版本，请使用以下 PowerShell 命令运行**test-azurestack**：
+如果 Azure Stack 集线器运行的版本早于1811，请使用以下 PowerShell 命令运行**test-azurestack**：
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -225,7 +225,7 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-network-infrastructure"></a>运行验证工具以测试网络基础结构
 
-此测试检查网络基础结构的连接，绕过 Azure Stack 软件定义的网络（SDN）。 它演示从公共 VIP 连接到已配置的 DNS 转发器、NTP 服务器和身份验证终结点。 这包括在 AD FS 使用作为标识提供者的 Azure AD 作为标识提供者或联合服务器时，与 Azure 的连接。
+此测试检查网络基础结构的连接，绕过 Azure Stack 中心软件定义的网络（SDN）。 它演示从公共 VIP 连接到已配置的 DNS 转发器、NTP 服务器和身份验证终结点。 这包括在 AD FS 使用作为标识提供者的 Azure AD 作为标识提供者或联合服务器时，与 Azure 的连接。
 
 包含 debug 参数以获取命令的详细输出：
 
@@ -235,6 +235,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅[Azure Stack 诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
+若要详细了解 Azure Stack 集线器诊断工具和问题日志记录，请参阅[Azure Stack 集线器诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
 
-若要了解有关故障排除的详细信息，请参阅[Microsoft Azure Stack 故障排除](azure-stack-troubleshooting.md)。
+若要了解有关故障排除的详细信息，请参阅[Microsoft Azure Stack 集线器故障排除](azure-stack-troubleshooting.md)。

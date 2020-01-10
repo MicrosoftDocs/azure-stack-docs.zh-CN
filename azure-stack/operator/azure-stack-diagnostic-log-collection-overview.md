@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 诊断日志收集概述 |Microsoft Docs
-description: 介绍 Azure Stack 帮助 + 支持（包括按需和自动日志收集）中的诊断日志收集。
+title: Azure Stack 集线器诊断日志收集概述 |Microsoft Docs
+description: 介绍 Azure Stack 中心帮助 + 支持（包括按需和自动日志收集）中的诊断日志收集。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,23 +16,23 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 1d40c0c7884773cf1f10341a90c78531c07e13f8
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 197d39feb91edc8c93d747471f30aff8f56b03ac
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690005"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811662"
 ---
-# <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Azure Stack 诊断日志收集概述 
+# <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack 集线器诊断日志收集概述 
 
-*适用于： Azure Stack 集成系统*
+*适用于： Azure Stack 集线器集成系统*
 
-Azure Stack 是一大集合组件，它们协同工作，彼此交互。 所有这些组件都生成其自己的唯一日志。 这会使诊断问题成为一项挑战性的任务，尤其是对于来自多个 Azure Stack 组件的多个交互的错误。 为了应对这一挑战，我们设计了诊断日志收集体验。 
+Azure Stack 中心是一大集合组件，它们协同工作，彼此交互。 所有这些组件都生成其自己的唯一日志。 这会使诊断问题成为一项挑战性的任务，尤其是对于来自多个 Azure Stack 集线器组件的多个交互的错误。 为了应对这一挑战，我们设计了诊断日志收集体验。 
 
 在1907之前，使用[test-azurestack](azure-stack-diagnostic-test.md)中的诊断体验来验证系统运行状况，并使用[特权终结点（PEP）](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)收集日志以便进行故障排除。 
 
 从1907版本开始，"**帮助和支持**" 页使用**诊断日志集合**添加了更简单的体验。 
-**诊断日志收集**是一项不断投入的投资，用来改善 Azure Stack 操作员在故障排除过程中的体验。 通过这些改进，操作员可以通过 Microsoft 客户支持服务（CSS）快速收集和共享诊断日志。 日志可以存储在 Azure 中的 blob 容器中，可以根据需要对其进行自定义。    
+**诊断日志收集**是一项不断投入的投资，用来改善 Azure Stack 中心运营商在故障排除过程中的体验。 通过这些改进，操作员可以通过 Microsoft 客户支持服务（CSS）快速收集和共享诊断日志。 日志可以存储在 Azure 中的 blob 容器中，可以根据需要对其进行自定义。    
    
 **诊断日志收集**通过两种不同的方式工作：
 
@@ -46,16 +46,16 @@ Azure Stack 是一大集合组件，它们协同工作，彼此交互。 所有�
 
 ## <a name="automatic-diagnostic-log-collection"></a>自动诊断日志收集 
 
-当[特定的运行状况警报](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts)处于活动状态时，自动诊断日志收集会开始并主动将诊断 Azure Stack 日志上传到 Azure 中的存储 blob，这大大减少了与 CSS 共享诊断日志所需的时间。 诊断日志仅在发出警报时收集。  
+当[特定的运行状况警报](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts)处于活动状态时，自动诊断日志收集会启动从 Azure Stack 中心到 Azure 中的存储 blob 的诊断日志，并将其与 CSS 共享诊断日志所需的时间大大减少。 诊断日志仅在发出警报时收集。  
 
-有关自动日志收集的详细信息，请参阅[配置自动 Azure Stack 诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)。
+有关自动日志收集的详细信息，请参阅[配置自动 Azure Stack 集线器诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)。
 
 ## <a name="on-demand-diagnostic-log-collection"></a>按需诊断日志收集
 
-使用按需收集时，当 Azure Stack 操作员手动触发集合时，诊断日志将从 Azure Stack 上载到 Azure 中的存储 blob。
-CSS 将为 CSS 拥有的存储 blob 提供共享访问签名（SAS） URL。 Azure Stack 操作员可以单击 "**立即收集日志**" 并输入 SAS URL。 然后，诊断日志将直接上传到 CSS blob，而无需中间共享。 
+对于按需收集，当 Azure Stack 中心操作员手动触发集合时，诊断日志将从 Azure Stack 集线器上传到 Azure 中的存储 blob。
+CSS 将为 CSS 拥有的存储 blob 提供共享访问签名（SAS） URL。 Azure Stack 中心操作员可以单击 "**立即收集日志**"，然后输入 SAS URL。 然后，诊断日志将直接上传到 CSS blob，而无需中间共享。 
 
-有关按需收集日志的详细信息，请参阅[立即收集 Azure Stack 诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md)。
+有关按需收集日志的详细信息，请参阅[立即收集 Azure Stack 集线器诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md)。
 
 ## <a name="bandwidth-considerations"></a>带宽注意事项
 
@@ -67,14 +67,14 @@ CSS 将为 CSS 拥有的存储 blob 提供共享访问签名（SAS） URL。 Azu
 |--------------------|--------|
 | 低带宽/高延迟连接 | 日志上传需要较长的时间才能完成 | 
 | 共享连接 | 上传还可能会影响共享网络连接的其他应用程序/用户 |
-| 计量连接 | 你的 ISP 可能会额外收取额外的网络使用量 |
+| 按流量计费的连接 | 你的 ISP 可能会额外收取额外的网络使用量 |
 
-有关详细信息，请参阅[自动 Azure Stack 日志收集的最佳实践](azure-stack-best-practices-automatic-diagnostic-log-collection.md)。
+有关详细信息，请参阅[自动 Azure Stack 中心日志收集的最佳实践](azure-stack-best-practices-automatic-diagnostic-log-collection.md)。
 
 ## <a name="see-also"></a>另请参阅
 
-[Azure Stack 日志和客户数据处理](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+[Azure Stack 中心日志和客户数据处理](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 
 [使用共享访问签名 (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
-[自动 Azure Stack 日志收集的最佳实践](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[自动 Azure Stack 中心日志收集的最佳实践](azure-stack-best-practices-automatic-diagnostic-log-collection.md)

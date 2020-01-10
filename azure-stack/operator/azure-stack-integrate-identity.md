@@ -1,6 +1,6 @@
 ---
-title: 将 AD FS 标识与 Azure Stack 数据中心集成 |Microsoft Docs
-description: 了解如何将 Azure Stack AD FS 标识提供程序与数据中心 AD FS 集成。
+title: 将 AD FS 标识与 Azure Stack 中心数据中心集成 |Microsoft Docs
+description: 了解如何将 Azure Stack 中心 AD FS 标识提供程序与数据中心 AD FS 集成。
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -10,37 +10,37 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 4d4ece9946d257bce5cf19876b940cf4d828872d
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 4d1ca3a04e838743983a7ed9d68fde5b1b189ff6
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167168"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817374"
 ---
-# <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>将 AD FS 标识与 Azure Stack 数据中心集成
+# <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack 中心数据中心集成
 
-您可以使用 Azure Active Directory （Azure AD）或 Active Directory 联合身份验证服务（AD FS）作为标识提供者来部署 Azure Stack。 在部署 Azure Stack 之前，必须进行选择。 在连接的方案中，可以选择 Azure AD 或 AD FS。 对于断开连接的情况，仅支持 AD FS。 本文介绍如何将 Azure Stack AD FS 与数据中心 AD FS 集成。
+你可以使用 Azure Active Directory （Azure AD）或 Active Directory 联合身份验证服务（AD FS）作为标识提供者来部署 Azure Stack 中心。 在部署 Azure Stack 集线器之前，必须进行选择。 在连接的方案中，可以选择 Azure AD 或 AD FS。 对于断开连接的情况，仅支持 AD FS。 本文介绍如何将 Azure Stack 中心 AD FS 与数据中心 AD FS 集成。
 
 > [!IMPORTANT]
-> 不需要重新部署整个 Azure Stack 解决方案，就无法切换标识提供者。
+> 不需要重新部署整个 Azure Stack 中心解决方案，就无法切换标识提供者。
 
 ## <a name="active-directory-federation-services-and-graph"></a>Active Directory 联合身份验证服务和图形
 
-使用 AD FS 部署时，允许现有 Active Directory 林中的标识通过 Azure Stack 中的资源进行身份验证。 此现有 Active Directory 林要求部署 AD FS，以允许创建 AD FS 联合身份验证信任。
+使用 AD FS 部署时，允许现有 Active Directory 林中的标识通过 Azure Stack 集线器中的资源进行身份验证。 此现有 Active Directory 林要求部署 AD FS，以允许创建 AD FS 联合身份验证信任。
 
-身份验证是标识的一部分。 若要在 Azure Stack 中管理基于角色的访问控制（RBAC），必须配置图形组件。 委托对资源的访问权限时，图形组件将使用 LDAP 协议查找现有 Active Directory 林中的用户帐户。
+身份验证是标识的一部分。 若要在 Azure Stack 中心管理基于角色的访问控制（RBAC），必须配置图形组件。 委托对资源的访问权限时，图形组件将使用 LDAP 协议查找现有 Active Directory 林中的用户帐户。
 
-![Azure Stack AD FS 体系结构](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Azure Stack 中心 AD FS 体系结构](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
-现有 AD FS 是将声明发送到 Azure Stack AD FS （资源 STS）的帐户 security token service （STS）。 在 Azure Stack 中，自动化通过现有 AD FS 的元数据终结点创建声明提供方信任。
+现有 AD FS 是将声明发送到 Azure Stack 中心 AD FS （资源 STS）的帐户 security token service （STS）。 在 Azure Stack 中心，自动化会创建声明提供方信任，其中包含现有 AD FS 的元数据终结点。
 
-在现有 AD FS 上，必须配置信赖方信任。 此步骤不是由自动化实现的，并且必须由运算符进行配置。 可以使用模式 `https://adfs.<Region>.<ExternalFQDN>/`创建 AD FS 的 Azure Stack VIP 终结点。
+在现有 AD FS 上，必须配置信赖方信任。 此步骤不是由自动化实现的，并且必须由运算符进行配置。 可以使用模式 `https://adfs.<Region>.<ExternalFQDN>/`创建 AD FS 的 Azure Stack 集线器 VIP 终结点。
 
 依赖方信任配置还要求你配置 Microsoft 提供的声明转换规则。
 
 对于图形配置，必须提供在现有 Active Directory 中具有 "读取" 权限的服务帐户。 此帐户是自动化的输入，用于启用 RBAC 方案。
 
-对于最后一个步骤，为默认提供商订阅配置新的所有者。 登录到 Azure Stack 管理员门户时，此帐户对所有资源具有完全访问权限。
+对于最后一个步骤，为默认提供商订阅配置新的所有者。 登录到 Azure Stack 中心管理员门户时，此帐户对所有资源具有完全访问权限。
 
 要求：
 
@@ -55,21 +55,21 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 以下信息是自动化参数的输入所必需的：
 
-|参数|部署工作表参数|描述|示例|
+|参数|部署工作表参数|Description|示例|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|AD FS 林 FQDN|要与之集成的目标 Active Directory 林的 FQDN|Contoso.com|
 |`CustomADAdminCredentials`| |具有 LDAP 读取权限的用户|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>配置 Active Directory 站点
 
-对于具有多个站点的 Active Directory 部署，请将最近的 Active Directory 站点配置为你的 Azure Stack 部署。 配置避免了使用远程站点中的全局编录服务器 Azure Stack 图形服务解析查询。
+对于具有多个站点的 Active Directory 部署，请将最近的 Active Directory 站点配置为你的 Azure Stack 中心部署。 配置避免了使用远程站点中的全局编录服务器 Azure Stack 集线器图形服务解析查询。
 
-将 Azure Stack 的[公共 VIP 网络](azure-stack-network.md#public-vip-network)子网添加到离 Azure Stack 最近的 Active Directory 站点。 例如，假设您的 Active Directory 有两个站点：西雅图和 Redmond。 如果 Azure Stack 部署在西雅图站点上，则可将 Azure Stack 公用 VIP 网络子网添加到西雅图的 Active Directory 站点。
+将 Azure Stack 中心[公共 VIP 网络](azure-stack-network.md#public-vip-network)子网添加到离 Azure Stack 中心最近的 Active Directory 站点。 例如，假设您的 Active Directory 有两个站点：西雅图和 Redmond。 如果 Azure Stack 中心部署在西雅图站点，则需要将 Azure Stack 中心公共 VIP 网络子网添加到西雅图的 Active Directory 站点。
 
 有关 Active Directory 站点的详细信息，请参阅[设计站点拓扑](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)。
 
 > [!Note]  
-> 如果 Active Directory 包含单一站点，则可以跳过此步骤。 如果已配置 "全部捕获" 子网，请验证 Azure Stack 公共 VIP 网络子网是否不属于该子网。
+> 如果 Active Directory 包含单一站点，则可以跳过此步骤。 如果已配置 "全部捕获" 子网，请验证 Azure Stack 中心公共 VIP 网络子网是否不属于该网络子网。
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>在现有 Active Directory 中创建用户帐户（可选）
 
@@ -83,7 +83,7 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 #### <a name="trigger-automation-to-configure-graph"></a>触发自动化以配置关系图
 
-对于此过程，请使用数据中心网络中的计算机，该计算机可以与 Azure Stack 中的特权终结点进行通信。
+对于此过程，请使用数据中心网络中的计算机，该计算机可以与 Azure Stack 集线器中的特权终结点进行通信。
 
 1. 打开提升的 Windows PowerShell 会话（以管理员身份运行），并连接到特权终结点的 IP 地址。 使用**CloudAdmin**的凭据进行身份验证。
 
@@ -105,18 +105,18 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 3. **DirectoryService** cmdlet 具有可在现有 Active Directory 验证失败的某些情况下使用的可选参数。 执行此 cmdlet 时，它会验证提供的域是否为根域、是否可以访问全局编录服务器，以及是否向提供的帐户授予读取访问权限。
 
-   |参数|描述|
+   |参数|Description|
    |---------|---------|
    |`-SkipRootDomainValidation`|指定必须使用子域，而不是推荐的根域。|
    |`-Force`|跳过所有验证检查。|
 
 #### <a name="graph-protocols-and-ports"></a>图形协议和端口
 
-Azure Stack 中的图形服务使用以下协议和端口与可以处理目标 Active Directory 林中的登录请求的可写全局编录服务器（GC）和密钥发行中心（KDC）进行通信。
+Azure Stack 集线器中的图形服务使用以下协议和端口与可以处理目标 Active Directory 林中的登录请求的可写全局编录服务器（GC）和密钥发行中心（KDC）进行通信。
 
-Azure Stack 中的图形服务使用以下协议和端口与目标 Active Directory 通信：
+Azure Stack 中心中的图形服务使用以下协议和端口与目标 Active Directory 通信：
 
-|Type|Port|协议|
+|类型|Port|协议|
 |---------|---------|---------|
 |LDAP|389|TCP & UDP|
 |LDAP SSL|636|TCP|
@@ -127,16 +127,16 @@ Azure Stack 中的图形服务使用以下协议和端口与目标 Active Direct
 
 以下信息是自动化参数的输入所必需的：
 
-|参数|部署工作表参数|描述|示例|
+|参数|部署工作表参数|Description|示例|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS 提供程序名称|声明提供程序的名称。<br>它在 AD FS 登陆页上以这种方式出现。|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|AD FS 元数据 URI|联合元数据链接。| https：\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|NA|用于跳过 CRL 检查的可选参数。|None|
+|SigningCertificateRevocationCheck|不可用|用于跳过 CRL 检查的可选参数。|无|
 
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>触发自动化以在 Azure Stack 中配置声明提供方信任
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>触发自动化以在 Azure Stack 中心配置声明提供方信任
 
-对于此过程，请使用能够与 Azure Stack 中的特权终结点进行通信的计算机。 应 Azure Stack 信任帐户**STS AD FS**所使用的证书。
+对于此过程，请使用能够与 Azure Stack 中心中的特权终结点进行通信的计算机。 Azure Stack 中心信任帐户**STS AD FS**所使用的证书。
 
 1. 打开提升的 Windows PowerShell 会话并连接到特权终结点。
 
@@ -161,13 +161,13 @@ Azure Stack 中的图形服务使用以下协议和端口与目标 Active Direct
 
 从版本1807开始，如果满足下列任一条件，请使用此方法：
 
-- 与 Azure Stack 中的所有其他终结点相比，证书链 AD FS 不同。
-- 与现有 AD FS 服务器之间没有从 Azure Stack 的 AD FS 实例进行网络连接。
+- 与 Azure Stack 中心中的所有其他终结点相比，证书链 AD FS 不同。
+- 与现有 AD FS 服务器的网络连接不能 Azure Stack 中心的 AD FS 实例中。
 
 以下信息是自动化参数的输入所必需的：
 
 
-|参数|描述|示例|
+|参数|Description|示例|
 |---------|---------|---------|
 |CustomAdfsName|声明提供程序的名称。 它在 AD FS 登陆页上以这种方式出现。|Contoso|
 |CustomADFSFederationMetadataFileContent|元数据内容。|$using： federationMetadataFileContent|
@@ -188,9 +188,9 @@ Azure Stack 中的图形服务使用以下协议和端口与目标 Active Direct
 
 2. 将元数据文件复制到可与特权终结点通信的计算机。
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>触发自动化以在 Azure Stack 中配置声明提供方信任
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>触发自动化以在 Azure Stack 中心配置声明提供方信任
 
-对于此过程，请使用可以 Azure Stack 中的特权终结点进行通信的计算机，并且有权访问在上一步中创建的元数据文件。
+对于此过程，请使用能够与 Azure Stack 中心中的特权终结点进行通信的计算机，并且有权访问在上一步中创建的元数据文件。
 
 1. 打开提升的 Windows PowerShell 会话并连接到特权终结点。
 
@@ -219,7 +219,7 @@ Azure Stack 中的图形服务使用以下协议和端口与目标 Active Direct
 
 Microsoft 提供了一种用于配置信赖方信任的脚本，包括声明转换规则。 使用脚本是可选的，因为你可以手动运行这些命令。
 
-可以从 GitHub 上的[Azure Stack 工具](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity)下载帮助器脚本。
+可以从 GitHub 上的[Azure Stack 集线器工具](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity)下载帮助器脚本。
 
 如果决定手动运行这些命令，请遵循以下步骤：
 
@@ -282,7 +282,7 @@ Microsoft 提供了一种用于配置信赖方信任的脚本，包括声明转�
    > [!IMPORTANT]  
    > 使用 Windows Server 2012 或 2012 R2 AD FS 时，必须使用 AD FS MMC 管理单元来配置颁发授权规则。
 
-4. 使用 Internet Explorer 或 Microsoft Edge 浏览器访问 Azure Stack 时，必须忽略令牌绑定。 否则，登录尝试将失败。 在 AD FS 实例或场成员上运行以下命令：
+4. 使用 Internet Explorer 或 Microsoft Edge 浏览器访问 Azure Stack 中心时，必须忽略令牌绑定。 否则，登录尝试将失败。 在 AD FS 实例或场成员上运行以下命令：
 
    > [!note]  
    > 使用 Windows Server 2012 或 2012 R2 AD FS 时，此步骤不适用。 在这种情况下，可以放心地跳过此命令并继续集成。
@@ -295,9 +295,9 @@ Microsoft 提供了一种用于配置信赖方信任的脚本，包括声明转�
 
 在许多情况下，需要使用服务主体名称（SPN）进行身份验证。 下面是一些示例：
 
-- CLI 用法与 Azure Stack 的 AD FS 部署。
-- 与 AD FS 一起部署时，适用于 Azure Stack 的 System Center 管理包。
-- 与 AD FS 一起部署时，Azure Stack 中的资源提供程序。
+- CLI 用法与 Azure Stack 中心的 AD FS 部署。
+- 与 AD FS 一起部署时，适用于 Azure Stack 中心的 System Center 管理包。
+- 部署时，Azure Stack 中心中的资源提供程序 AD FS。
 - 各种应用程序。
 - 需要非交互式登录。
 

@@ -1,6 +1,6 @@
 ---
-title: 排查 Azure Stack 上的 AKS 引擎问题 |Microsoft Docs
-description: 本文包含针对 Azure Stack 上的 AKS 引擎的故障排除步骤。
+title: 排查 Azure Stack 集线器上的 AKS 引擎问题 |Microsoft Docs
+description: 本文包含 Azure Stack 集线器上的 AKS 引擎的故障排除步骤。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 229d066438cbdad52c167706c4b77b0c425f137b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310340"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820026"
 ---
-# <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>对 Azure Stack 上的 AKS 引擎进行故障排除
+# <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>对 Azure Stack 集线器上的 AKS 引擎进行故障排除
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-在 Azure Stack 上部署或使用 AKS 引擎时可能会遇到问题。 本文介绍了对 AKS 引擎的部署进行故障排除的步骤，收集有关 AKS 引擎的信息，收集 Kubernetes 日志，查看自定义脚本扩展错误代码，以及针对 AKS 引擎打开 GitHub 问题的说明。
+在 Azure Stack 集线器上部署或使用 AKS 引擎时，可能会遇到问题。 本文介绍了对 AKS 引擎的部署进行故障排除的步骤，收集有关 AKS 引擎的信息，收集 Kubernetes 日志，查看自定义脚本扩展错误代码，以及针对 AKS 引擎打开 GitHub 问题的说明。
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>排查 AKS 引擎安装问题
 
@@ -72,9 +72,9 @@ ms.locfileid: "74310340"
 当使用 AKS 引擎部署 Kubernetes 群集时遇到错误时，可以检查：
 
 1.  你使用的是正确的服务主体凭据（SPN）吗？
-2.  SPN 是否对 Azure Stack 订阅有 "参与者" 角色？
-3. Azure Stack 计划中是否有足够大的配额？
-4.  Azure Stack 实例是否正在应用修补或升级？
+2.  SPN 是否对 Azure Stack 中心订阅有 "参与者" 角色？
+3. Azure Stack 中心计划中是否有足够大的配额？
+4.  Azure Stack 的中心实例是否正在应用修补或升级？
 
 有关详细信息，请参阅**Azure/aks** GitHub 存储库中的[故障排除](https://github.com/Azure/aks-engine/blob/master/docs/howto/troubleshooting.md)一文。
 
@@ -113,7 +113,7 @@ ms.locfileid: "74310340"
 
  - Windows 上的 Linux VM、Git Bash 或 Bash。
  - [Azure CLI](azure-stack-version-profiles-azurecli2.md)安装在运行脚本的计算机中。
- - 服务主体标识登录到 Azure CLI 会话以 Azure Stack。 由于脚本能够发现和创建 ARM 资源来完成其工作，因此需要 Azure CLI 和服务主体标识。
+ - 已登录到 Azure Stack 中心的 Azure CLI 会话的服务主体标识。 由于脚本能够发现和创建 ARM 资源来完成其工作，因此需要 Azure CLI 和服务主体标识。
  - 在环境中已选择 Kubernetes 群集的用户帐户（订阅）。 
 1. 将最新版本的脚本 tar 文件下载到客户端 VM、有权访问 Kubernetes 群集的计算机或使用 AKS 引擎部署群集所用的同一台计算机。
 
@@ -128,16 +128,16 @@ ms.locfileid: "74310340"
 
 2. 查找 `getkuberneteslogs.sh` 脚本所需的参数。 此脚本将使用以下参数：
 
-    | 参数 | 说明 | 必选 | 示例 |
+    | 参数 | Description | 需要 | 示例 |
     | --- | --- | --- | --- |
     | -h、--help | 打印命令用法。 | 否 | 
     -u,--用户 | 群集 Vm 的管理员用户名 | 是 | azureuser<br>（默认值） |
-    | -i、--identity-file | 与用于创建 Kubernetes 群集的公钥关联的 RSA 私钥（有时名为 "id_rsa"）  | 是 | `./rsa.pem` （Putty）<br>`~/.ssh/id_rsa` （SSH） |
+    | -i、--file | 与用于创建 Kubernetes 群集的公钥关联的 RSA 私钥（有时名为 "id_rsa"）  | 是 | `./rsa.pem` （Putty）<br>`~/.ssh/id_rsa` （SSH） |
     |   -g, --resource-group    | Kubernetes 群集资源组 | 是 | k8sresourcegroup |
     |   -n、--user-namespace               | 从指定命名空间中的容器收集日志（始终收集 kube 系统日志） | 否 |   monitoring |
-    |       --api 模型                    | 将 apimodel 文件保存在 Azure Stack 的存储帐户中。 如果同时提供了--apimodel 参数，则会将文件上传到存储帐户。 | 否 | `./apimodel.json` |
+    |       --api 模型                    | 将 apimodel 文件保存在 Azure Stack 中心存储帐户中。 如果同时提供了--apimodel 参数，则会将文件上传到存储帐户。 | 否 | `./apimodel.json` |
     | --所有-命名空间               | 从所有命名空间中的容器收集日志。 它替代--user-namespace | 否 | |
-    | --上传日志                  | 将检索到的日志保存在 Azure Stack 的存储帐户中。 可在 KubernetesLogs 资源组中找到日志 | 否 | |
+    | --上传日志                  | 将检索到的日志保存在 Azure Stack 中心存储帐户中。 可在 KubernetesLogs 资源组中找到日志 | 否 | |
     --禁用-主机键检查    | 执行脚本时，将 SSH 的 StrictHostKeyChecking 选项设置为 "否"。 仅在安全环境中使用。 | 否 | |
 
 3. 对你的信息运行以下任何示例命令：
@@ -158,9 +158,9 @@ ms.locfileid: "74310340"
 
 如果在收集和检查日志后仍无法解决问题，则可能需要开始创建支持票证的过程，并提供通过使用 `--upload-logs` 参数集运行 `getkuberneteslogs.sh` 收集的日志。 
 
-请联系你的 Azure Stack 操作员。 操作员使用日志中的信息来创建支持案例。
+请与 Azure Stack 中心操作员联系。 操作员使用日志中的信息来创建支持案例。
 
-在解决任何支持问题的过程中，Microsoft 支持工程师可能会要求 Azure Stack 操作员收集 Azure Stack 系统日志。 你可能需要向操作员提供通过运行 `getkuberneteslogs.sh`上传 Kubernetes 日志的存储帐户信息。
+在解决任何支持问题的过程中，Microsoft 支持工程师可能会要求 Azure Stack 中心操作员收集 Azure Stack 中心系统日志。 你可能需要向操作员提供通过运行 `getkuberneteslogs.sh`上传 Kubernetes 日志的存储帐户信息。
 
 操作员可以运行**Get-azurestacklog** PowerShell cmdlet。 此命令使用参数（`-InputSaSUri`）来指定存储 Kubernetes 日志的存储帐户。
 
@@ -180,4 +180,4 @@ ms.locfileid: "74310340"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[Azure Stack 上的 AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)
+- 了解[Azure Stack 集线器上的 AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)

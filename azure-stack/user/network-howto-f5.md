@@ -9,12 +9,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: c1166b1755b33687757b4587942c5472413e2b3e
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 360bd0fee975aaa1eb7f7dd02948493862f6105d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780875"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815385"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>如何跨两个 Azure Stack 中心实例部署 F5
 
@@ -24,21 +24,21 @@ ms.locfileid: "74780875"
 
 ## <a name="overview-of-load-balancing-with-f5"></a>带有 F5 的负载均衡概述
 
-F5 硬件（负载平衡器）可以不在 Azure Stack 的内部，也可以在承载 Azure Stack 的数据中心内。 Azure Stack 没有用于在两个不同的 Azure Stack 部署之间对工作负荷进行负载均衡的本机功能。 F5 bigip 大型 IP 虚拟版（VE）在这两个平台上运行。 此设置支持 Azure 与 Azure Stack 体系结构之间通过复制支持应用程序服务进行奇偶校验。 可以在一个环境中开发应用，并将其移到另一个环境中。 还可以镜像整个生产就绪的 Azure Stack，包括相同的大 IP 配置、策略和应用程序服务。 此方法不再需要无数小时的应用程序重构和测试，并使你能够编写代码。
+F5 硬件（负载平衡器）可以在 Azure Stack 中心外，也可以在承载 Azure Stack 中心的数据中心内。 Azure Stack 中心没有在两个单独的 Azure Stack 中心部署之间对工作负荷进行负载均衡的本机功能。 F5 bigip 大型 IP 虚拟版（VE）在这两个平台上运行。 此设置支持 Azure 与 Azure Stack 中心体系结构之间通过复制支持的应用程序服务进行奇偶校验。 可以在一个环境中开发应用，并将其移到另一个环境中。 还可以镜像整个生产就绪的 Azure Stack 中心，包括相同的大 IP 配置、策略和应用程序服务。 此方法不再需要无数小时的应用程序重构和测试，并使你能够编写代码。
 
-对于将应用程序移动到公有云的开发人员而言，保护应用程序及其数据的工作通常是一个问题。 这不是必需的。 你可以在 Azure Stack 环境中生成应用程序，而安全体系结构会配置 F5 bigip web 应用程序防火墙（WAF）上的必要设置。 可以在 Azure Stack 中复制整个堆栈，知道应用程序将受到相同行业领先 WAF 的保护。 使用相同的策略和规则集，不会有任何安全漏洞或可能通过使用不同的 Waf 生成的漏洞。
+对于将应用程序移动到公有云的开发人员而言，保护应用程序及其数据的工作通常是一个问题。 这不是必需的。 可以在 Azure Stack 中心环境中生成应用程序，而安全体系结构会配置 F5 bigip web 应用程序防火墙（WAF）上的必要设置。 可以将整个堆栈复制到 Azure Stack 中心，了解应用程序将受到相同行业领先 WAF 的保护。 使用相同的策略和规则集，不会有任何安全漏洞或可能通过使用不同的 Waf 生成的漏洞。
 
-Azure Stack 具有独立于 Azure 的 marketplace。 仅添加某些项。 在这种情况下，如果想要在每个 Azure stack 上创建新的资源组，并部署已有的 F5 虚拟设备。 在这里，你将看到需要**公共 IP**地址，以允许两个 Azure Stack 实例之间的网络连接。 实质上，它们都是孤岛，**公共 IP**允许它们在两个位置之间进行通信。
+Azure Stack 集线器具有独立于 Azure 的 marketplace。 仅添加某些项。 在这种情况下，如果想要在每个 Azure Stack 集线器上创建新的资源组，并部署已有的 F5 虚拟设备。 在这里，你将看到需要**公共 IP**地址才能允许两个 Azure Stack 集线器实例之间建立网络连接。 实质上，它们都是孤岛，**公共 IP**允许它们在两个位置之间进行通信。
 
 ## <a name="prerequisites-for-big-ip-ve"></a>大 IP VE 的先决条件
 
--  将**F5 大 IP VE （BYOL，2个引导位置）** 下载到每个 Azure Stack marketplace。 如果门户中没有可用的用户，请与云操作员联系。
+-  将**F5 大 IP VE （BYOL，2个引导位置）** 下载到每个 Azure Stack 中心市场。 如果门户中没有可用的用户，请与云操作员联系。
 
 -  可在以下 GitHub 存储库中找到 Azure 资源管理器模板： https://github.com/Mikej81/f5-azurestack-gslb 。
 
 ## <a name="deploy-f5-big-ip-ve-on-each-instance"></a>在每个实例上部署 F5 大 IP VE
 
-部署到 Azure Stack 实例 A 和实例 B。
+部署到 Azure Stack 集线器实例 A 和实例 B。
 
 1. 登录到 Azure Stack 集线器用户门户。
 
@@ -69,20 +69,20 @@ Azure Stack 具有独立于 Azure 的 marketplace。 仅添加某些项。 在�
 
 ## <a name="configure-big-ip-appliances"></a>配置大 IP 设备
 
-对于 Azure Stack A 和 B，请遵循以下步骤。
+对于 Azure Stack 集线器 A 和 B，请遵循以下步骤。
 
-1. 登录 Azure Stack 实例 A 上的 Azure Stack 集线器用户门户，查看通过大 IP 模板部署创建的资源。
+1. 登录到 Azure Stack 中心实例 A 上的 Azure Stack 集线器用户门户，查看通过大 IP 模板部署创建的资源。
 
     ![](./media/network-howto-f5/image18.png)
 
 2. 对于[大 IP 配置项目](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html)，请按照 F5 中的说明进行操作。 
 
-3. 配置大 IP 范围的 IP 列表，以侦听部署到 Azure Stack 实例 A 和 B 的两个设备。有关说明，请参阅[大 IP 的操作配置](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html)。
+3. 配置大 IP 范围的 IP 列表，在部署到 Azure Stack 集线器实例 A 和 B 的两个设备之间进行侦听。有关说明，请参阅[大 IP 的操作配置](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html)。
 
 
 4. 验证大 IP 设备的故障转移。 在测试系统上，将 DNS 服务器配置为使用以下各项：
-    - Azure Stack 实例 A = `f5stack1-ext` 的公共 IP 地址
-    - Azure Stack 实例 B = `f5stack1-ext` 公共 IP 地址
+    - Azure Stack 中心实例 A = `f5stack1-ext` 的公共 IP 地址
+    - Azure Stack 中心实例 B = `f5stack1-ext` 公共 IP 地址
 
 5. 浏览到 `www.contoso.com`，浏览器将加载 NGINX 默认页。
 
@@ -103,7 +103,7 @@ Azure Stack 具有独立于 Azure 的 marketplace。 仅添加某些项。 在�
 
 ## <a name="post-install-configurations"></a>安装后配置
 
-安装之后，需要配置 Azure Stack Nsg 并锁定源 IP 地址。
+安装之后，需要配置 Azure Stack 集线器 Nsg 并锁定源 IP 地址。
 
 1. 建立信任关系后禁用端口22。
 
@@ -113,12 +113,12 @@ Azure Stack 具有独立于 Azure 的 marketplace。 仅添加某些项。 在�
 
     ![](./media/network-howto-f5/image7.png)
 
-4. 在 Azure Stack 环境中部署基本 web 应用程序工作负载，以便在大 IP 后进行负载平衡。 可以在[Docker 上的部署 NGINX 和 NGINX Plus](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/)中找到使用 NGNIX 服务器的示例。
+4. 在 Azure Stack 中心环境中部署基本 web 应用程序工作负载，以便在大 IP 后进行负载平衡。 可以在[Docker 上的部署 NGINX 和 NGINX Plus](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/)中找到使用 NGNIX 服务器的示例。
 
     > [!Note]  
-    > 在 Azure Stack 和 Azure Stack B 上部署 NGNIX 的实例。
+    > 在 Azure Stack 中心 A 和 Azure Stack 中心 B 上部署 NGNIX 的实例。
 
-5. 将 NGINX 部署到每个 Azure Stack 实例内 Ubuntu VM 上的 docker 容器中后，验证是否可以访问服务器上的默认网页。
+5. 将 NGINX 部署到每个 Azure Stack 集线器实例内 Ubuntu VM 的 docker 容器中后，验证是否可以访问服务器上的默认网页。
 
     ![](./media/network-howto-f5/image8.png)
 
@@ -140,7 +140,7 @@ Azure Stack 具有独立于 Azure 的 marketplace。 仅添加某些项。 在�
 
     ![](./media/network-howto-f5/image11.png)
     
-    | 密钥 | Value |
+    | 密钥 | 值 |
     | --- | --- |
     | 名称 | NGINX_Pool |
     | 运行状况监视器 | HTTPS |
@@ -160,7 +160,7 @@ Azure Stack 具有独立于 Azure 的 marketplace。 仅添加某些项。 在�
 
 13. 通过转到 "**本地流量** **" > 虚拟服务器 "**  > **虚拟服务器" 列表**，然后选择 " **+** " 来创建虚拟服务器。 使用表中的值配置池。 将其他所有字段保留为默认值。
 
-    | 密钥 | Value |
+    | 密钥 | 值 |
     | --- | --- |
     |名称 | NGINX |
     |目标地址 | 大 IP > \<自 IP 地址 |
@@ -195,4 +195,4 @@ Azure Stack 具有独立于 Azure 的 marketplace。 仅添加某些项。 在�
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 网络的差异和注意事项](azure-stack-network-differences.md) 
+[Azure Stack 集线器网络的差异和注意事项](azure-stack-network-differences.md) 

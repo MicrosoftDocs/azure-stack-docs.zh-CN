@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用 PowerShell 部署模板 | Microsoft Docs
-description: 在 Azure Stack 中使用 PowerShell 部署模板。
+title: 在 Azure Stack 集线器中使用 PowerShell 部署模板 |Microsoft Docs
+description: 在 Azure Stack 集线器中使用 PowerShell 部署模板。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,27 +15,27 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 38c3c428443afa251c8a6185929bfe0b80680b86
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: ecf6ab783beccd40a642733a586ada8411182e14
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304076"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820706"
 ---
-# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>在 Azure Stack 中使用 Powershell 部署模板
+# <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用 Powershell 部署模板
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-可以使用 PowerShell 将 Azure 资源管理器模板部署到 Azure Stack。 本文介绍如何使用 PowerShell 部署模板。
+可以使用 PowerShell 将 Azure 资源管理器模板部署到 Azure Stack 中心。 本文介绍如何使用 PowerShell 部署模板。
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>运行 AzureRM PowerShell cmdlet
 
-此示例使用 **AzureRM** PowerShell cmdlet 和存储在 GitHub 上的模板。 此模板创建 Windows Server 2012 R2 Datacenter 虚拟机。
+此示例使用**AzureRM** PowerShell Cmdlet 和 GitHub 上存储的模板。 模板创建 Windows Server 2012 R2 Datacenter 虚拟机。
 
 >[!NOTE]
-> 在尝试此示例之前，请确保已为 Azure Stack 用户[配置了 PowerShell](azure-stack-powershell-configure-user.md)。
+> 尝试此示例之前，请确保已为 Azure Stack 集线器用户[配置了 PowerShell](azure-stack-powershell-configure-user.md) 。
 
-1. 浏览[test-azurestack](https://aka.ms/AzureStackGitHub)存储库，并找到 101-simple- **vm**模板。 将模板保存到此位置：`C:\templates\azuredeploy-101-simple-windows-vm.json`。
+1. 浏览[test-azurestack](https://aka.ms/AzureStackGitHub)存储库，并找到 101-simple- **vm**模板。 将模板保存到以下位置： `C:\templates\azuredeploy-101-simple-windows-vm.json`。
 2. 打开权限提升的 PowerShell 命令提示符。
 3. 将以下脚本中的 `username` 和 `password` 替换为你的用户名和密码，然后运行该脚本：
 
@@ -58,9 +58,9 @@ ms.locfileid: "72304076"
     ```
 
     >[!IMPORTANT]
-    > 每次运行此脚本时，都应递增 `$myNum` 参数的值，以避免覆盖你的部署。
+    > 每次运行此脚本时，将递增 `$myNum` 参数的值，以防止覆盖你的部署。
 
-4. 打开 Azure Stack 门户，选择“浏览”，然后选择“虚拟机”以查找新虚拟机 (**myDeployment001**)。
+4. 打开 Azure Stack 集线器门户，选择 "**浏览**"，然后选择 "**虚拟机**" 以查找新虚拟机（**myDeployment001**）。
 
 ## <a name="cancel-a-running-template-deployment"></a>取消正在运行的模板部署
 

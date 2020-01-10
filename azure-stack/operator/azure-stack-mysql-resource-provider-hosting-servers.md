@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中添加 MySQL 宿主服务器 |Microsoft Docs
+title: 在 Azure Stack Hub 中添加 MySQL 宿主服务器 |Microsoft Docs
 description: 了解如何通过 MySQL 适配器资源提供程序添加用于预配的 MySQL 宿主服务器。
 services: azure-stack
 documentationCenter: ''
@@ -15,16 +15,16 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 897cb42ad2a84f3802f4d35e97a03d4976800121
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: cf721c98b957d95e945d4979865c7d7b5aa169af
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677869"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811203"
 ---
-# <a name="add-mysql-hosting-servers-in-azure-stack"></a>在 Azure Stack 中添加 MySQL 宿主服务器
+# <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加 MySQL 宿主服务器
 
-只要 MySQL 资源提供程序可以连接到实例，你就可以在[Azure Stack](azure-stack-overview.md)的虚拟机（VM）上或 Azure Stack 环境外的 VM 上承载 MySQL 宿主服务器实例。
+只要 MySQL 资源提供程序可以连接到实例，你就可以在[Azure Stack 集线器](azure-stack-overview.md)中的虚拟机（vm）上或 Azure Stack 中心环境外的 VM 上托管 MySQL 宿主服务器实例。
 
 > [!NOTE]
 > MySQL 资源提供程序应在默认提供程序订阅中创建，而 MySQL 宿主服务器应在可计费的用户订阅中创建。 不应使用资源提供程序服务器来托管用户数据库。
@@ -40,7 +40,7 @@ MySQL 版本5.6、5.7 和8.0 可用于宿主服务器。 MySQL RP 不支持 cach
 
 若要添加主机服务器，请执行以下步骤：
 
-1. 以服务管理员身份登录到 Azure Stack 管理员门户。
+1. 以服务管理员身份登录到 Azure Stack 中心管理员门户。
 2. 选择“所有服务”。
 3. 在 "**管理资源**" 类别下，选择 " **MySQL 宿主服务器** >  **+ 添加**"。 将打开 "**添加 MySQL 宿主服务器**" 对话框，如以下屏幕截图所示。
 
@@ -49,7 +49,7 @@ MySQL 版本5.6、5.7 和8.0 可用于宿主服务器。 MySQL RP 不支持 cach
 4. 提供 MySQL 服务器实例的连接详细信息。
 
    * 对于**MySQL 宿主服务器名称**，请提供完全限定的域名（FQDN）或有效的 IPv4 地址。 请勿使用 short VM 名称。
-   * Azure Stack Marketplace 中提供的 Bitnami MySQL 映像的默认管理员**用户名**为*root*。
+   * Azure Stack 集线器 Marketplace 中提供的 Bitnami MySQL 映像的默认管理员**用户名**为*root*。
    * 如果你不知道根**密码**，请参阅[Bitnami 文档](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)以了解如何获取它。
    * 未提供默认 MySQL 实例，因此必须指定**宿主服务器的大小（GB**）。 输入与数据库服务器的容量接近的大小。
    * 保留 "**订阅**" 的默认设置。
@@ -82,7 +82,7 @@ MySQL 版本5.6、5.7 和8.0 可用于宿主服务器。 MySQL RP 不支持 cach
 
 ## <a name="increase-backend-database-capacity"></a>增加后端数据库容量
 
-可以通过在 Azure Stack 门户中部署更多的 MySQL 服务器来增加后端数据库容量。 将这些服务器添加到新的或现有的 SKU。 如果将服务器添加到现有 SKU，请确保服务器特性与 SKU 中的其他服务器的特性相同。
+可以通过在 Azure Stack 中心门户中部署更多的 MySQL 服务器来增加后端数据库容量。 将这些服务器添加到新的或现有的 SKU。 如果将服务器添加到现有 SKU，请确保服务器特性与 SKU 中的其他服务器的特性相同。
 
 ## <a name="sku-notes"></a>SKU 说明
 使用描述 SKU 中服务器功能的 SKU 名称，如容量和性能。 该名称用作帮助用户将其数据库部署到相应 SKU 的帮助。 例如，你可以使用 SKU 名称通过以下特性来区分服务产品：

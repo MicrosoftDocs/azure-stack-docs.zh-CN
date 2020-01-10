@@ -1,7 +1,7 @@
 ---
 title: 更新 Windows Defender 防病毒
-titleSuffix: Azure Stack
-description: 了解如何在 Azure Stack 上更新 Windows Defender 防病毒
+titleSuffix: Azure Stack Hub
+description: 了解如何在 Azure Stack 集线器上更新 Windows Defender 防病毒
 services: azure-stack
 author: justinha
 manager: femila
@@ -11,26 +11,26 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 97a9fe73eb83df07a9b24dc130c8295218cda7ad
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: a631d700bc83e4fabeca4472f5d2a81c411ddc9b
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74831014"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75821080"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>更新 Azure Stack 集线器上的 Windows Defender 防病毒
 
-[Windows Defender 防病毒](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)是一个提供安全和病毒保护的反恶意软件解决方案。 每个 Azure Stack 基础结构组件（Hyper-v 主机和虚拟机）都受 Windows Defender 防病毒保护。 若要获得最新保护，需要定期更新 Windows Defender 防病毒软件定义、引擎和平台。 如何应用更新取决于你的配置。
+[Windows Defender 防病毒](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)是一个提供安全和病毒保护的反恶意软件解决方案。 每个 Azure Stack 集线器基础结构组件（Hyper-v 主机和虚拟机）都受 Windows Defender 防病毒保护。 若要获得最新保护，需要定期更新 Windows Defender 防病毒软件定义、引擎和平台。 如何应用更新取决于你的配置。
 
 ## <a name="connected-scenario"></a>已连接的场景
 
-Azure Stack 中心[更新资源提供程序](azure-stack-updates.md#the-update-resource-provider)每天下载反恶意软件定义和引擎更新。 每个 Azure Stack 基础结构组件从更新资源提供程序获取更新，并自动应用更新。
+Azure Stack 中心[更新资源提供程序](azure-stack-updates.md#the-update-resource-provider)每天下载反恶意软件定义和引擎更新。 每个 Azure Stack 集线器基础结构组件从更新资源提供程序获取更新，并自动应用更新。
 
-对于连接到公共 Internet 的 Azure Stack 中心部署，将应用[每月 Azure Stack 更新](azure-stack-apply-updates.md)。 每月 Azure Stack 中心更新包括每月的 Windows Defender 防病毒平台更新。
+对于连接到公共 Internet 的 Azure Stack 中心部署，请应用[每月 Azure Stack 中心更新](azure-stack-apply-updates.md)。 每月 Azure Stack 中心更新包括每月的 Windows Defender 防病毒平台更新。
 
 ## <a name="disconnected-scenario"></a>断开连接方案
 
-对于未连接到公共 Internet 的 Azure Stack 中心部署（例如，气流数据中心），从1910版开始，客户可以在发布反恶意软件定义和引擎更新时应用这些部署。 
+对于那些未连接到公共 Internet 的 Azure Stack 中心部署（例如，有气流的数据中心），从1910版开始，客户可以在发布反恶意软件定义和引擎更新时应用它们。 
 
 若要将更新应用于你的 Azure Stack 中心解决方案，首先必须从 Microsoft 网站下载它们（下面的链接），然后将其导入到*updateadminaccount*下的存储 blob 容器中。 计划任务每30分钟扫描一次 blob 容器，并且如果找到新的 Defender 定义和引擎更新，则会将其应用到 Azure Stack 中心基础结构。 
 

@@ -1,6 +1,6 @@
 ---
-title: 管理 Azure Stack 中的存储容量 |Microsoft Docs
-description: 了解如何在 Azure Stack 中监视和管理存储容量和可用性。
+title: 管理 Azure Stack 集线器中的存储容量 |Microsoft Docs
+description: 了解如何监视和管理 Azure Stack 集线器中的存储容量和可用性。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: f569d5dbffaec772657a6fc67b82c9be78f35800
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: ddd24e1fce75d99608b406f99e7ab8648c34c73c
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540316"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817085"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的存储容量
+# <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储容量
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-本文中的信息可帮助 Azure Stack 云操作员监视和管理 Azure Stack 部署的存储容量。 Azure Stack 存储基础结构分配用于**存储服务**的 Azure Stack 部署的总存储容量的子集。 存储设备将租户的数据存储在与部署的节点对应的卷上的共享中。
+本文中的信息可帮助 Azure Stack 中心云操作员监视和管理其 Azure Stack 中心部署的存储容量。 Azure Stack 中心存储基础结构分配用于**存储服务**的 Azure Stack 中心部署的总存储容量的子集。 存储设备将租户的数据存储在与部署的节点对应的卷上的共享中。
 
 作为云操作员，你可以使用有限数量的存储空间。 存储量由您实现的解决方案定义。 你的解决方案是在使用多节点解决方案时由你的 OEM 供应商提供的，或者是你在其上安装 Azure Stack 开发工具包的硬件（ASDK）。
 
-由于 Azure Stack 不支持存储容量的扩展，因此请务必[监视](#monitor-shares)可用的存储，以确保保持有效的操作。
+由于 Azure Stack 集线器不支持存储容量的扩展，因此必须[监视](#monitor-shares)可用的存储，以确保保持有效的操作。
 
 当共享的剩余可用容量有限时，计划[管理空间](#manage-available-space)以防止共享空间不足。
 
@@ -42,7 +42,7 @@ ms.locfileid: "74540316"
 
 ## <a name="understand-volumes-and-shares-containers-and-disks"></a>了解卷和共享、容器和磁盘
 ### <a name="volumes-and-shares"></a>卷和共享
-*存储服务*会将可用存储分区到分配用于保存租户数据的单独的和相等的卷。 卷数等于 Azure Stack 部署中的节点数：
+*存储服务*会将可用存储分区到分配用于保存租户数据的单独的和相等的卷。 卷数等于 Azure Stack 中心部署中的节点数：
 
 - 在四节点部署中，有四个卷。 每个卷都有一个共享。 在多节点部署中，如果某个节点被删除或出现故障，共享的数量不会减少。
 - 如果你使用 ASDK，则会有一个包含单个共享的卷。
@@ -51,9 +51,9 @@ ms.locfileid: "74540316"
 
 卷上的共享保存租户数据。 租户数据包括页 blob、块 blob、追加 blob、表、队列、数据库和相关的元数据存储区。 由于存储对象（blob 等）单独包含在单个共享内，因此每个对象的最大大小不能超过共享大小。 新的对象的最大大小取决于在创建新对象时，共享中保留为未使用空间的容量。
 
-如果共享空间不足，并且[回收](#reclaim-capacity)空间的操作未成功或不可用，则 Azure Stack 云操作员可以将 blob 容器从一个共享迁移到另一个共享。
+如果共享空间不足，并且[回收](#reclaim-capacity)空间的操作未成功或不可用，则 Azure Stack 中心云操作员可以将 blob 容器从一个共享迁移到另一个共享。
 
-- 有关租户用户在 Azure Stack 中如何使用 blob 存储的信息，请参阅[Azure Stack 存储服务](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)。
+- 有关租户用户如何处理 Azure Stack 中心内的 blob 存储的信息，请参阅[Azure Stack 中心存储服务](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)。
 
 
 ### <a name="containers"></a>容器
@@ -63,7 +63,7 @@ ms.locfileid: "74540316"
 
 容器并不局限于单个共享。 当容器中的组合 blob 数据增大到使用80% 或更多可用空间时，容器将进入*溢出*模式。 在溢出模式下，在该容器中创建的任何新 blob 都将分配给具有足够空间的其他卷。 随着时间的推移，溢出模式下的容器可以具有跨多个卷分布的 blob。
 
-80% （再后90%）如果使用了卷中的可用空间，系统会在 Azure Stack 管理员门户中引发警报。 云操作员应查看可用的存储容量，并计划重新平衡内容。 当使用的磁盘为100% 且未引发其他警报时，存储服务将停止工作。
+80% （再后90%）使用卷中的可用空间时，系统会在 Azure Stack 中心管理员门户中引发警报。 云操作员应查看可用的存储容量，并计划重新平衡内容。 当使用的磁盘为100% 且未引发其他警报时，存储服务将停止工作。
 
 ### <a name="disks"></a>磁盘
 VM 磁盘会按租户添加到容器，并包含操作系统磁盘。 Vm 还可以有一个或多个数据磁盘。 这两种类型的磁盘都存储为页 blob。 租户的指导是将每个磁盘放置在单独的容器中，以提高 VM 的性能。
@@ -93,7 +93,7 @@ VM 磁盘会按租户添加到容器，并包含操作系统磁盘。 Vm 还可�
 1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
 2. 选择 "**所有服务**" > **存储** > **文件共享**"以打开文件共享列表，你可以在其中查看使用情况信息。
 
-    ![示例： Azure Stack 管理员门户中的存储文件共享](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![示例： Azure Stack 中心管理员门户中的存储文件共享](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
    - **Total**是共享上可用的总空间（以字节为单位）。 此空间用于存储服务维护的数据和元数据。
    - **使用**的是存储租户数据和相关元数据的文件中所有盘区使用的数据量（以字节为单位）。
@@ -106,13 +106,13 @@ VM 磁盘会按租户添加到容器，并包含操作系统磁盘。 Vm 还可�
 
 **警告**：当文件共享利用率超过80% 时，管理员门户中会出现*警告*警报：
 
-![示例： Azure Stack 管理员门户中的警告性警报](media/azure-stack-manage-storage-shares/alert-warning.png)
+![示例： Azure Stack 中心管理员门户中的警告性警报](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 **严重**：当文件共享利用率超过90% 时，管理员门户中会出现一个*严重*警报：
 
-![示例： Azure Stack 管理员门户中的严重警报](media/azure-stack-manage-storage-shares/alert-critical.png)
+![示例： Azure Stack 中心管理员门户中的严重警报](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**查看详细信息**：在管理员门户中，你可以打开警报的详细信息以查看缓解选项： ![示例：在 Azure Stack 管理员门户中查看警报详细信息](media/azure-stack-manage-storage-shares/alert-details.png)
+**查看详细信息**：在管理员门户中，可以打开警报的详细信息以查看缓解选项： ![示例：在 Azure Stack 中心管理员门户中查看警报详细信息](media/azure-stack-manage-storage-shares/alert-details.png)
 
 ## <a name="manage-available-space"></a>管理可用空间
 当需要释放共享空间时，请首先使用最不受侵害的方法。 例如，尝试回收空间，然后选择迁移容器。  
@@ -125,7 +125,7 @@ VM 磁盘会按租户添加到容器，并包含操作系统磁盘。 Vm 还可�
 有关详细信息，请参阅管理存储资源中的[回收容量](azure-stack-manage-storage-accounts.md#reclaim)。
 
 ### <a name="migrate-a-container-between-volumes"></a>在卷之间迁移容器
-*此选项仅适用于 Azure Stack 集成系统。*
+*此选项仅适用于 Azure Stack 集线器集成系统。*
 
 由于租户使用模式，某些租户共享使用的空间比其他租户要多。 结果可以是在相对未使用的其他共享之前，在空间不足的情况下运行的共享。
 
@@ -140,7 +140,7 @@ VM 磁盘会按租户添加到容器，并包含操作系统磁盘。 Vm 还可�
 - 如果你没有对资源组的权限，并且不能使用 PowerShell 来查询其他卷的溢出数据，请与这些资源组和容器的所有者合作，以了解迁移数据之前要迁移的数据的总大小。  
 
 > [!IMPORTANT]
-> 容器的 blob 迁移是需要使用 PowerShell 的脱机操作。 在迁移完成之前，要迁移的容器的所有 blob 都保持脱机状态，并且不能使用。 还应避免 Azure Stack 升级，直到所有正在进行的迁移完成。
+> 容器的 blob 迁移是需要使用 PowerShell 的脱机操作。 在迁移完成之前，要迁移的容器的所有 blob 都保持脱机状态，并且不能使用。 还应避免升级 Azure Stack 中心，直到所有正在进行的迁移完成。
 
 #### <a name="to-migrate-containers-using-powershell"></a>使用 PowerShell 迁移容器
 1. 确认已[安装并配置 Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](https://go.microsoft.com/fwlink/?LinkId=394767)。
@@ -207,7 +207,7 @@ VM 磁盘会按租户添加到容器，并包含操作系统磁盘。 Vm 还可�
     ![示例：已取消状态](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>移动 VM 磁盘
-*此选项仅适用于 Azure Stack 集成系统。*
+*此选项仅适用于 Azure Stack 集线器集成系统。*
 
 最极端的空间管理方法涉及到迁移 VM 磁盘。 由于移动附加容器（一个包含 VM 磁盘的容器）非常复杂，因此请联系 Microsoft 支持部门来完成此操作。
 

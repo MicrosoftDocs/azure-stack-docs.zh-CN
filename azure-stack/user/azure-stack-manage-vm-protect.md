@@ -1,6 +1,6 @@
 ---
-title: 保护在 Azure Stack 上部署的 Vm |Microsoft Docs
-description: 了解如何构建恢复计划来保护根据数据丢失和计划外停机而在 Azure Stack 上部署的 Vm。
+title: 保护在 Azure Stack Hub 上部署的 Vm |Microsoft Docs
+description: 了解如何构建恢复计划来保护 Azure Stack 集线器上部署的 Vm，以防数据丢失和计划外停机。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,47 +16,47 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: cb08b9c2480ab3858147669a1208ca54bc43343f
-ms.sourcegitcommit: 4789cd5d6f1e35774a17a1ddfcdf3f548b18965c
+ms.openlocfilehash: 88562c93344f139f3f167da0ddb3e072fde231fa
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/23/2019
-ms.locfileid: "75329902"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819924"
 ---
-# <a name="protect-vms-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的 Vm
+# <a name="protect-vms-deployed-on-azure-stack-hub"></a>保护 Azure Stack 集线器上部署的 Vm
 
-使用本文作为指南来开发用于保护你的用户在 Azure Stack 上部署的虚拟机（Vm）的计划。
+使用本文作为指南来开发用于保护用户在 Azure Stack Hub 上部署的虚拟机（Vm）的计划。
 
 
-若要防止数据丢失和计划外停机，需要为用户应用和其数据实现备份恢复或灾难恢复计划。 此计划可能对每个应用都是唯一的，但遵循你的组织提供的全面的业务连续性和灾难恢复（BC/DR）策略建立的框架。 很好的起点是[Azure Stack：业务连续性和灾难恢复的注意事项](https://aka.ms/azurestackbcdrconsiderationswp)。
+若要防止数据丢失和计划外停机，需要为用户应用和其数据实现备份恢复或灾难恢复计划。 此计划可能对每个应用都是唯一的，但遵循你的组织提供的全面的业务连续性和灾难恢复（BC/DR）策略建立的框架。 很好的起点是[Azure Stack 集线器：业务连续性和灾难恢复的注意事项](https://aka.ms/azurestackbcdrconsiderationswp)。
 
-## <a name="azure-stack-infrastructure-recovery"></a>Azure Stack 基础结构恢复
+## <a name="azure-stack-hub-infrastructure-recovery"></a>Azure Stack 中心基础结构恢复
 
-用户负责独立于 Azure Stack 的基础结构服务保护其 Vm。
+用户负责独立于 Azure Stack 中心的基础结构服务保护其 Vm。
 
-Azure Stack 基础结构服务的恢复计划**不**包括恢复用户 vm、存储帐户或数据库。 作为应用所有者，你负责为应用和数据实施恢复计划。
+Azure Stack 中心基础结构服务的恢复计划**不**包括恢复用户 vm、存储帐户或数据库。 作为应用所有者，你负责为应用和数据实施恢复计划。
 
-如果 Azure Stack 云长时间处于脱机状态或不可恢复，则需要制定恢复计划：
+如果 Azure Stack 中心云长时间处于脱机状态或不可恢复，则需要制定恢复计划：
 
 * 确保停机时间最短。
 * 使关键 Vm （例如数据库服务器）保持运行。
 * 使应用能够持续处理用户请求。
 
-Azure Stack 云的操作员负责为底层 Azure Stack 基础结构和服务创建恢复计划。 若要了解详细信息，请参阅[从灾难性数据丢失中恢复](../operator/azure-stack-backup-recover-data.md)。
+Azure Stack 中心云的操作员负责为底层 Azure Stack 中心基础结构和服务创建恢复计划。 若要了解详细信息，请参阅[从灾难性数据丢失中恢复](../operator/azure-stack-backup-recover-data.md)。
 
 ## <a name="considerations-for-iaas-vms"></a>IaaS Vm 的注意事项
-安装在 IaaS VM 中的操作系统限制了可用于保护其包含的数据的产品。 对于基于 Windows 的 IaaS Vm，可以使用 Microsoft 和合作伙伴产品来保护数据。 对于基于 Linux 的 IaaS Vm，唯一的选择是使用合作伙伴产品。 请参阅[此数据表，了解包含 Azure Stack 验证产品的所有 BC/DR 合作伙伴](https://aka.ms/azurestackbcdrpartners)。
+安装在 IaaS VM 中的操作系统限制了可用于保护其包含的数据的产品。 对于基于 Windows 的 IaaS Vm，可以使用 Microsoft 和合作伙伴产品来保护数据。 对于基于 Linux 的 IaaS Vm，唯一的选择是使用合作伙伴产品。 请参阅[此数据表，了解包含 Azure Stack 中心验证产品的所有 BC/DR 合作伙伴](https://aka.ms/azurestackbcdrpartners)。
 
 ## <a name="sourcetarget-combinations"></a>源/目标组合
 
-每个 Azure Stack 云都部署到一个数据中心。 需要单独的环境才能恢复应用。 恢复环境可以是另一 Azure Stack 云在不同数据中心或 Azure 公有云中。 数据主权和数据隐私要求决定了应用的恢复环境。 为每个应用启用保护后，你可以灵活地为每个应用选择特定的恢复选项。 可以将一个订阅中的应用备份到另一个数据中心。 在另一个订阅中，你可以将数据复制到 Azure 公有云。
+每个 Azure Stack 中心云都部署到一个数据中心。 需要单独的环境才能恢复应用。 恢复环境可以是另一个 Azure Stack 中心云，也可以在不同的数据中心或 Azure 公有云中。 数据主权和数据隐私要求决定了应用的恢复环境。 为每个应用启用保护后，你可以灵活地为每个应用选择特定的恢复选项。 可以将一个订阅中的应用备份到另一个数据中心。 在另一个订阅中，你可以将数据复制到 Azure 公有云。
 
 为每个应用计划备份恢复和灾难恢复策略，以确定每个应用的目标。 恢复计划可帮助组织正确调整在公有云中的本地所需存储容量和项目使用情况。
 
-|  | 全球 Azure | Azure Stack 部署到 CSP 数据中心并由 CSP 操作 | 部署到客户数据中心并由客户操作的 Azure Stack |
+|  | 全球 Azure | Azure Stack 中心部署到 CSP 数据中心并由 CSP 操作 | 部署到客户数据中心并由客户操作的 Azure Stack 中心 |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack 部署到 CSP 数据中心并由 CSP 操作** | 用户 Vm 部署到由 CSP 操作的 Azure Stack。<br><br>用户 Vm 从备份还原或故障转移到 Azure。 | CSP 在其自己的数据中心内操作 Azure Stack 的主要实例和辅助实例。<br><br>用户 Vm 在两个 Azure Stack 实例之间还原或故障转移。 | CSP 在主站点中操作 Azure Stack。<br><br>客户的数据中心是还原或故障转移目标。 |
-| **部署到客户数据中心并由客户操作的 Azure Stack** | 用户 Vm 部署到客户操作的 Azure Stack。<br><br>用户 Vm 从备份还原或故障转移到 Azure。 | 客户在主站点中运行 Azure Stack。<br><br>CSP 的数据中心是还原或故障转移目标。 | 客户在其自己的数据中心内操作 Azure Stack 的主要实例和辅助实例。<br><br>用户 Vm 在两个 Azure Stack 实例之间还原或故障转移。 |
+| **Azure Stack 中心部署到 CSP 数据中心并由 CSP 操作** | 用户 Vm 部署到 CSP 操作的 Azure Stack 集线器。<br><br>用户 Vm 从备份还原或故障转移到 Azure。 | CSP 在其自己的数据中心内操作 Azure Stack 集线器的主实例和辅助实例。<br><br>在两个 Azure Stack 集线器实例之间还原或故障转移用户 Vm。 | CSP Azure Stack 主站点中的中心运行。<br><br>客户的数据中心是还原或故障转移目标。 |
+| **部署到客户数据中心并由客户操作的 Azure Stack 中心** | 用户 Vm 部署到客户操作的 Azure Stack 中心。<br><br>用户 Vm 从备份还原或故障转移到 Azure。 | 客户在主站点中运行 Azure Stack 中心。<br><br>CSP 的数据中心是还原或故障转移目标。 | 客户在自己的数据中心内操作 Azure Stack 集线器的主实例和辅助实例。<br><br>在两个 Azure Stack 集线器实例之间还原或故障转移用户 Vm。 |
 
 ![源-目标组合](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
@@ -75,7 +75,7 @@ RTO 和 RPO 属于业务要求。 执行风险评估，定义应用的 RTO 和 R
 
 ### <a name="backup-restore"></a>备份-还原
 
-最常见的基于 VM 的应用保护方案是使用备份软件。 备份 VM 通常包括操作系统、操作系统配置、应用程序二进制文件和应用程序数据。 通过拍摄卷、磁盘或整个 VM 的快照来创建备份。 使用 Azure Stack，你可以从来宾 OS 的上下文或 Azure Stack 存储和计算 Api 中灵活地备份。 Azure Stack 不支持在虚拟机监控程序级别进行备份。
+最常见的基于 VM 的应用保护方案是使用备份软件。 备份 VM 通常包括操作系统、操作系统配置、应用程序二进制文件和应用程序数据。 通过拍摄卷、磁盘或整个 VM 的快照来创建备份。 使用 Azure Stack 中心，你可以灵活地在来宾 OS 的上下文中或从 Azure Stack 中心存储和计算 Api 进行备份。 Azure Stack 中心不支持在虚拟机监控程序级别进行备份。
  
 ![备份-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
@@ -87,9 +87,9 @@ RTO 和 RPO 属于业务要求。 执行风险评估，定义应用的 RTO 和 R
 
 #### <a name="planning-your-backup-strategy"></a>规划备份策略
 
-规划备份策略和定义规模要求从量化需要保护的 VM 实例的数量开始。 在环境中的所有服务器之间备份所有 Vm 是一项常见策略。 但是，在 Azure Stack 中，某些 Vm 需要进行备份。 例如，规模集中的 Vm 被视为可进行的暂时资源，有时没有通知。 需要保护的任何持久性数据都存储在单独的存储库中，如数据库或对象存储区。
+规划备份策略和定义规模要求从量化需要保护的 VM 实例的数量开始。 在环境中的所有服务器之间备份所有 Vm 是一项常见策略。 但是，对于 Azure Stack 集线器，需要备份一些 Vm。 例如，规模集中的 Vm 被视为可进行的暂时资源，有时没有通知。 需要保护的任何持久性数据都存储在单独的存储库中，如数据库或对象存储区。
 
-Azure Stack 上备份 Vm 时的重要注意事项：
+Azure Stack 中心备份 Vm 时的重要注意事项：
 
  - **分类**
     - 假设有一个模型，用户可在其中选择 VM 备份。
@@ -115,7 +115,7 @@ Azure Stack 上备份 Vm 时的重要注意事项：
  
 ### <a name="high-availabilityautomatic-failover"></a>高可用性/自动故障转移
 
-对于你的企业只能容忍几秒钟或几分钟的停机时间和最小数据丢失的应用，请考虑使用高可用性配置。 高可用性应用程序旨在快速、自动地从错误中恢复。 对于本地硬件故障，Azure Stack 基础结构使用两个顶部机箱交换机实现物理网络中的高可用性。 对于计算级别错误，Azure Stack 在一个缩放单位中使用多个节点。 在 VM 级别，可以将规模集与容错域结合使用，以确保节点故障不会关闭应用。
+对于你的企业只能容忍几秒钟或几分钟的停机时间和最小数据丢失的应用，请考虑使用高可用性配置。 高可用性应用程序旨在快速、自动地从错误中恢复。 对于本地硬件故障，Azure Stack 集线器基础结构使用两个顶部机箱交换机实现物理网络中的高可用性。 对于计算级别错误，Azure Stack 集线器在一个缩放单位中使用多个节点。 在 VM 级别，可以将规模集与容错域结合使用，以确保节点故障不会关闭应用。
 
 与规模集结合使用时，你的应用程序将需要以本机方式支持高可用性，或支持使用群集软件。 例如，Microsoft SQL Server 使用同步提交模式为数据库提供本机高可用性。 但是，如果您只能支持异步复制，则会出现一些数据丢失。 还可以将应用程序部署到故障转移群集中，群集软件将处理应用程序的自动故障转移。
 
@@ -127,11 +127,11 @@ Azure Stack 上备份 Vm 时的重要注意事项：
 
 ### <a name="fault-tolerance"></a>容错
 
-Azure Stack 物理冗余和基础结构服务可用性只能防止硬件级别的故障/故障，例如磁盘、电源、网络端口或节点。 但是，如果你的应用程序必须始终可用，并且永远不会丢失任何数据，则你需要在应用程序中本机实现容错，或使用其他软件来实现容错。
+Azure Stack 集线器物理冗余和基础结构服务可用性仅防止硬件级别的故障/故障，例如磁盘、电源、网络端口或节点。 但是，如果你的应用程序必须始终可用，并且永远不会丢失任何数据，则你需要在应用程序中本机实现容错，或使用其他软件来实现容错。
 
 首先，需要确保使用规模集部署应用 Vm，以防节点级故障。 若要防止云进入脱机状态，必须已将同一应用部署到不同的云，以便它能够继续处理请求而不中断。 此模型通常称为主动-主动部署。
 
-请记住，每个 Azure Stack 云彼此之间是独立的，因此，在基础结构方面，云始终被视为有效。 在这种情况下，会将应用的多个活动实例部署到一个或多个活动的云。
+请记住，每个 Azure Stack 中心云彼此独立，因此，在基础结构方面，云始终被视为有效。 在这种情况下，会将应用的多个活动实例部署到一个或多个活动的云。
 
  - RTO：无停机时间
  - RPO：无数据丢失
@@ -139,39 +139,39 @@ Azure Stack 物理冗余和基础结构服务可用性只能防止硬件级别�
 
 ### <a name="no-recovery"></a>无恢复
 
-你的环境中的某些应用可能不需要防范计划外停机或数据丢失。 例如，通常无需恢复用于开发和测试的 Vm。 您决定在不保护应用或特定 VM 的情况下执行此操作。 Azure Stack 不会从底层基础结构提供 Vm 的备份或复制。 与 Azure 类似，需要为每个订阅中的每个 VM 选择启用保护。
+你的环境中的某些应用可能不需要防范计划外停机或数据丢失。 例如，通常无需恢复用于开发和测试的 Vm。 您决定在不保护应用或特定 VM 的情况下执行此操作。 Azure Stack 中心不会从底层基础结构提供 Vm 的备份或复制。 与 Azure 类似，需要为每个订阅中的每个 VM 选择启用保护。
 
  - RTO：不可恢复
  - RPO：完全丢失数据
 
 ## <a name="recommended-topologies"></a>建议的拓扑
 
-Azure Stack 部署的重要注意事项：
+Azure Stack 中心部署的重要注意事项：
 
 |     | 建议 | 注释 |
 |-------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 将 Vm 备份/还原到已部署到数据中心的外部备份目标 | 推荐 | 利用现有的备份基础结构和操作技能。 请确保调整备份基础结构的大小，使其可以保护其他 VM 实例。 请确保备份基础结构不会接近于你的源。 可以将 Vm 还原到源 Azure Stack、辅助 Azure Stack 实例或 Azure。 |
-| 将 Vm 备份/还原到专用于 Azure Stack 的外部备份目标 | 推荐 | 你可以购买新的备份基础结构或预配 Azure Stack 的专用备份基础结构。 请确保备份基础结构不会接近于你的源。 可以将 Vm 还原到源 Azure Stack、辅助 Azure Stack 实例或 Azure。 |
-| 直接将 Vm 备份/还原到全局 Azure 或受信任的服务提供商 | 推荐 | 只要能够满足数据隐私和法规要求，就可以将备份存储在全球 Azure 或受信任的服务提供商。 理想情况下，服务提供商也会运行 Azure Stack 以便您在还原时获得操作体验的一致性。 |
-| 将 Vm 复制/故障转移到单独的 Azure Stack 实例 | 推荐 | 在故障转移情况下，你需要让第二 Azure Stack 云完全操作，因此可以避免应用程序停机时间延长。 |
-| 直接将 Vm 复制/故障转移到 Azure 或受信任的服务提供商 | 推荐 | 只要能够满足数据隐私和法规要求，就可以将数据复制到全球 Azure 或受信任的服务提供商。 理想情况下，服务提供商也会运行 Azure Stack 因此在故障转移后，您可以在操作体验中获得一致性。 |
-| 用应用数据在同一 Azure Stack 云上部署备份目标 | 不建议 | 避免在同一 Azure Stack 云中存储备份。 云的计划外停机可以使你保持你的主数据和备份数据。 如果选择将备份目标部署为虚拟设备（出于备份和还原的优化目的），必须确保所有数据都已持续复制到外部备份位置。 |
-| 将物理备份设备部署到安装了 Azure Stack 解决方案的同一机架中 | 不支持 | 目前，不能将任何其他设备连接到不属于原始解决方案的机架交换机顶部。 |
+| 将 Vm 备份/还原到已部署到数据中心的外部备份目标 | 推荐 | 利用现有的备份基础结构和操作技能。 请确保调整备份基础结构的大小，使其可以保护其他 VM 实例。 请确保备份基础结构不会接近于你的源。 可以将 Vm 还原到源 Azure Stack 中心、辅助 Azure Stack 中心实例或 Azure。 |
+| 将 Vm 备份/还原到专用于 Azure Stack 集线器的外部备份目标 | 推荐 | 你可以为 Azure Stack 中心购买新的备份基础结构或预配专用的备份基础结构。 请确保备份基础结构不会接近于你的源。 可以将 Vm 还原到源 Azure Stack 中心、辅助 Azure Stack 中心实例或 Azure。 |
+| 直接将 Vm 备份/还原到全局 Azure 或受信任的服务提供商 | 推荐 | 只要能够满足数据隐私和法规要求，就可以将备份存储在全球 Azure 或受信任的服务提供商。 理想情况下，服务提供商也会 Azure Stack 集线器上运行，以便在还原时获得操作体验的一致性。 |
+| 将 Vm 复制/故障转移到单独的 Azure Stack 集线器实例 | 推荐 | 在故障转移情况下，你需要让第二个 Azure Stack 中心云完全操作，因此可以避免应用程序停机时间延长。 |
+| 直接将 Vm 复制/故障转移到 Azure 或受信任的服务提供商 | 推荐 | 只要能够满足数据隐私和法规要求，就可以将数据复制到全球 Azure 或受信任的服务提供商。 理想情况下，服务提供商也会 Azure Stack 集线器上运行，以便在故障转移后获得操作体验的一致性。 |
+| 将备份目标部署到具有应用数据的同一 Azure Stack 中心云 | 不建议 | 避免将备份存储在同一 Azure Stack 中心云内。 云的计划外停机可以使你保持你的主数据和备份数据。 如果选择将备份目标部署为虚拟设备（出于备份和还原的优化目的），必须确保所有数据都已持续复制到外部备份位置。 |
+| 将物理备份设备部署到安装了 Azure Stack 集线器解决方案的同一机架中 | 不支持 | 目前，不能将任何其他设备连接到不属于原始解决方案的机架交换机顶部。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-本文提供了有关保护 Azure Stack 上部署的用户 Vm 的一般准则。 有关使用 Azure 服务保护用户 Vm 的信息，请参阅：
+本文提供了有关保护 Azure Stack 集线器上部署的用户 Vm 的一般准则。 有关使用 Azure 服务保护用户 Vm 的信息，请参阅：
 
 - [业务连续性和灾难恢复的注意事项](https://aka.ms/azurestackbcdrconsiderationswp)
 
 ### <a name="azure-backup-server"></a>Azure 备份服务器
- - [使用 Azure 备份在 Azure Stack 上备份文件和应用](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
- - [Azure Stack Azure 备份服务器支持](https://docs.microsoft.com/azure/backup/ ) 
+ - [使用 Azure 备份在 Azure Stack 集线器上备份文件和应用](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Azure Stack 中心 Azure 备份服务器支持](https://docs.microsoft.com/azure/backup/ ) 
  
  ### <a name="azure-site-recovery"></a>Azure 站点恢复
- - [Azure Stack Azure Site Recovery 支持](https://docs.microsoft.com/azure/site-recovery/)  
+ - [Azure Stack 中心 Azure Site Recovery 支持](https://docs.microsoft.com/azure/site-recovery/)  
  
  ### <a name="partner-products"></a>合作伙伴产品
- - [Azure Stack Datacenter 集成合作伙伴生态系统数据表](https://aka.ms/azurestackbcdrpartners)
+ - [Azure Stack 中心数据中心集成合作伙伴生态系统数据表](https://aka.ms/azurestackbcdrpartners)
 
-若要了解有关在 Azure Stack 上提供 VM 保护的合作伙伴产品的详细信息，请参阅[保护 Azure Stack 上的应用和数据](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)。
+若要详细了解在 Azure Stack 中心提供 VM 保护的合作伙伴产品，请参阅[保护 Azure Stack 中心的应用和数据](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)。

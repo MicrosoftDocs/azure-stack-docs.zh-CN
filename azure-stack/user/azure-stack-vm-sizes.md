@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中支持的 VM 大小 |Microsoft Docs
-description: Azure Stack 中支持的 VM 大小参考。
+title: Azure Stack 中心支持的 VM 大小 |Microsoft Docs
+description: Azure Stack 中心中支持的 VM 大小参考。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,20 +14,20 @@ ms.date: 12/3/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: d38168fee437b27dfde8d5381c960b8e2a237487
-ms.sourcegitcommit: 757f612663059f1af8c535d8b37f63a8cf4a5e7d
+ms.openlocfilehash: 0e657293a23326bffb6ed6d7e5a2e581fbe3a1cb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784091"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815470"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的 VM 大小
+# <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack 中心支持的 VM 大小
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-本文列出了 Azure Stack 中可用的虚拟机（VM）大小。 本文可帮助你选择 VM 来支持你的 Azure Stack 解决方案。
+本文列出了 Azure Stack Hub 中可用的虚拟机（VM）大小。 本文可帮助你选择 VM，以支持 Azure Stack 中心解决方案。
 
-Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的函数，而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，无论你是为磁盘类型选择 SSD 还是 HDD，一个额外的数据磁盘的 IOPS 限制为 2300 IOPS。 施加的 IOPS 限制是上限（可能的最大值），以防止邻居干扰。 这并不能保证你会获得特定 VM 大小的 IOPS。
+Azure Stack 集线器上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的函数，而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，无论你是为磁盘类型选择 SSD 还是 HDD，一个额外的数据磁盘的 IOPS 限制为 2300 IOPS。 施加的 IOPS 限制是上限（可能的最大值），以防止邻居干扰。 这并不能保证你会获得特定 VM 大小的 IOPS。
 
 ## <a name="vm-general-purpose"></a>VM 常规用途
 
@@ -36,15 +36,15 @@ Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的
 ### <a name="basic-a"></a>基本 A
 
 > [!NOTE]
-> *基本 A*为通过门户[创建虚拟机规模集](../operator/azure-stack-compute-add-scalesets.md)（VMSS）而停用 VM 大小。 若要创建此大小的 VMSS，请使用 PowerShell 或模板。
+> *基本 A*为通过门户[创建虚拟机规模集](../operator/azure-stack-compute-add-scalesets.md)（VMSS）而停用 VM 大小。 若要按照此大小来创建 VMSS，请使用 PowerShell 或模板。
 
 |大小-大小 \ 名称 |vCPU     |内存 | 最大临时磁盘大小 | 最大 OS 磁盘吞吐量：（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘吞吐量（IOPS） | 最大 NIC 数 |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
-|**A0 \ Basic_A0**  |第    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
-|**A1 \ Basic_A1**  |第    |1.75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |
-|**A2 \ Basic_A2**  |2    |3.5 GB   | 60 GB   |300  | 300  |4/4x300  |2   |
-|**A3 \ Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8/8x300  |2   |
-|**A4 \ Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16/16X300 |2   |
+|**A0\Basic_A0**  |第    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |2   |
+|**A1\Basic_A1**  |第    |1.75 GB  | 40 GB   |300  | 300  |2 / 2x300  |2   |
+|**A2\Basic_A2**  |2    |3.5 GB   | 60 GB   |300  | 300  |4 / 4x300  |2   |
+|**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8x300  |2   |
+|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16/16X300 |2   |
 
 ### <a name="standard-a"></a>标准 A 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |    
@@ -59,7 +59,7 @@ Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的
 |**Standard_A7** |8 |56    |605 |500 |500 |16x500 |4 |
 
 ### <a name="av2-series"></a>Av2 系列
-*需要 Azure Stack 版本1804或更高版本*
+*需要 Azure Stack 集线器版本1804或更高版本*
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |
 |-----------------|----|----|-----|-----|------|--------------|---------|
@@ -83,10 +83,10 @@ Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的
 ### <a name="ds-series"></a>DS 系列
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |
 |-----------------|----|----|-----|-----|------|-------------|---------|
-|**Standard_DS1** |第   |3.5 |7    |1000 |4000  |4/4x2300   |2 |
-|**Standard_DS2** |2   |7   |14   |1000 |8000  |8/8x2300   |2 |
-|**Standard_DS3** |4   |14  |28   |1000 |16000 |16/16x2300 |4 |
-|**Standard_DS4** |8   |28  |56   |1000 |32000 |32/32x2300 |8 |
+|**Standard_DS1** |第   |3.5 |7    |1000 |4000  |4 / 4x2300   |2 |
+|**Standard_DS2** |2   |7   |14   |1000 |8000  |8 / 8x2300   |2 |
+|**Standard_DS3** |4   |14  |28   |1000 |16000 |16 / 16x2300 |4 |
+|**Standard_DS4** |8   |28  |56   |1000 |32000 |32 / 32x2300 |8 |
 
 ### <a name="dv2-series"></a>Dv2 系列
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |
@@ -100,16 +100,16 @@ Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的
 ### <a name="dsv2-series"></a>DSv2 系列
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |
 |--------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_DS1_v2** |第   |3.5 |7   |1000 |4000  |4/4x2300   |2 |
-|**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8/8x2300   |2 |
-|**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16/16x2300 |4 |
-|**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32/32x2300 |8 |
+|**Standard_DS1_v2** |第   |3.5 |7   |1000 |4000  |4 / 4x2300   |2 |
+|**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8 / 8x2300   |2 |
+|**Standard_DS3_v2** |4   |14  |28  |1000 |16000 |16 / 16x2300 |4 |
+|**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 |
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64/64x2300 |8 |
 
 
 ## <a name="compute-optimized"></a>计算优化
 ### <a name="f-series"></a>F 系列
-*需要 Azure Stack 版本1804或更高版本*
+*需要 Azure Stack 集线器版本1804或更高版本*
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |
 |-----------------|----|----|-----|----|------|------------|---------|
@@ -121,28 +121,28 @@ Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的
 
 
 ### <a name="fs-series"></a>FS 系列
-*需要 Azure Stack 版本1804或更高版本*  
+*需要 Azure Stack 集线器版本1804或更高版本*  
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |
 |------------------|----|----|----|-----|------|-------------|---------|
-|**Standard_F1s**  |第   |2   |4   |1000 |4000  |4/4x2300   |2 |
-|**Standard_F2s**  |2   |4   |8   |1000 |8000  |8/8x2300   |2 |
-|**Standard_F4s**  |4   |8   |16  |1000 |16000 |16/16x2300 |4 |
-|**Standard_F8s**  |8   |16  |32  |1000 |32000 |32/32x2300 |8 |
+|**Standard_F1s**  |第   |2   |4   |1000 |4000  |4 / 4x2300   |2 |
+|**Standard_F2s**  |2   |4   |8   |1000 |8000  |8 / 8x2300   |2 |
+|**Standard_F4s**  |4   |8   |16  |1000 |16000 |16 / 16x2300 |4 |
+|**Standard_F8s**  |8   |16  |32  |1000 |32000 |32 / 32x2300 |8 |
 |**Standard_F16s** |16  |32  |64  |1000 |64000 |64/64x2300 |8 |
 
 
 ### <a name="fsv2-series"></a>Fsv2 系列
-*需要 Azure Stack 版本1804或更高版本* 
+*需要 Azure Stack 集线器版本1804或更高版本* 
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4/4x2300    |2 |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8/8x2300    |2 |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16/16x2300  |4 |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32/32x2300  |4 |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32/32x2300  |8 |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32/32x2300  |8 |
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4x2300    |2 |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8x2300    |2 |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16x2300  |4 |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32x2300  |4 |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32x2300  |8 |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32x2300  |8 |
 
 
 ## <a name="memory-optimized"></a>内存优化
@@ -160,9 +160,9 @@ Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的
 ### <a name="mo-ds"></a>DS 系列
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |
 |-------------------|---|----|----|--------|------|-------------|---------|
-|**Standard_DS11**  |2  |14  |28  |1000    |8000  |8/8x2300   |2 |
-|**Standard_DS12**  |4  |28  |56  |1000    |12000 |16/16x2300 |4 |
-|**Standard_DS13**  |8  |56  |112 |1000    |32000 |32/32x2300 |8 |
+|**Standard_DS11**  |2  |14  |28  |1000    |8000  |8 / 8x2300   |2 |
+|**Standard_DS12**  |4  |28  |56  |1000    |12000 |16 / 16x2300 |4 |
+|**Standard_DS13**  |8  |56  |112 |1000    |32000 |32 / 32x2300 |8 |
 |**Standard_DS14**  |16 |112 |224 |1000    |64000 |64/64x2300 |8 |
 
 ### <a name="mo-dv2"></a>Dv2 系列
@@ -177,12 +177,12 @@ Azure Stack 上的磁盘 IOPS （每秒输入/输出操作数）是 VM 大小的
 ### <a name="mo-dsv2"></a>DSv2 系列
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量（IOPS） | 最大临时存储吞吐量（IOPS） | 最大数据磁盘/吞吐量（IOPS） | 最大 NIC 数 |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4/4x2300    |2 |
-|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8/8x2300    |4 |
-|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16/16x2300  |8 |
-|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32/32x2300  |8 |
+|**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4 / 4x2300    |2 |
+|**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8 / 8x2300    |4 |
+|**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |16 / 16x2300  |8 |
+|**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32 / 32x2300  |8 |
 
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack VM 功能](azure-stack-vm-considerations.md)
+[Azure Stack 中心 VM 功能](azure-stack-vm-considerations.md)

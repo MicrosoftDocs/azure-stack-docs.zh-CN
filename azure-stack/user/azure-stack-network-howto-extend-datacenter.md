@@ -1,6 +1,6 @@
 ---
 title: 如何在 Azure Stack 中心扩展数据中心 |Microsoft Docs
-description: 了解如何在 Azure Stack 上扩展数据中心。
+description: 了解如何在 Azure Stack 集线器上扩展数据中心。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,50 +9,50 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 949736f091b02ce3118725b9fd3cf6f34c1fc402
-ms.sourcegitcommit: 708c2eb0af3779517cebe8e3b1dc533c5d26561a
+ms.openlocfilehash: 21ee510182e5c2e8056f1d19373708df3ec9b273
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75184107"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816201"
 ---
-# <a name="extending-storage-to-azure-stack"></a>将存储扩展到 Azure Stack
+# <a name="extending-storage-to-azure-stack-hub"></a>将存储扩展到 Azure Stack 集线器
 
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-本文提供 Azure Stack 中心存储基础结构信息，以帮助你决定如何将 Azure Stack 集成到现有的网络环境中。 在提供扩展数据中心的一般讨论后，本文介绍了两种不同的方案。 可以连接到 Windows 文件存储服务器。 你还可以连接到 Windows iSCSI 服务器。
+本文提供 Azure Stack 中心存储基础结构信息，以帮助你决定如何将 Azure Stack 中心集成到现有网络环境中。 在提供扩展数据中心的一般讨论后，本文介绍了两种不同的方案。 可以连接到 Windows 文件存储服务器。 你还可以连接到 Windows iSCSI 服务器。
 
 ## <a name="overview-of-extending-storage-to-azure-stack-hub"></a>将存储扩展到 Azure Stack 集线器概述
 
 在某些情况下，你的数据位于公有云中是不够的。 可能有一个计算密集型虚拟化数据库工作负荷，对延迟很敏感，而公有云的往返时间可能会影响数据库工作负荷的性能。 可能存在本地数据、保存在文件服务器、NAS 或 iSCSI 存储阵列上，需要由本地工作负荷进行访问，需要在本地以满足法规或遵从性目标。 这只是两种情况，即数据驻留在本地，对许多组织来说都是很重要的。
 
-那么，为什么不只在存储帐户中承载 Azure Stack 或 Azure Stack 系统上运行的虚拟化文件服务器中的数据呢？ 与在 Azure 中一样，Azure Stack 存储是有限的。 使用的容量完全取决于你选择购买的每个节点的容量，以及你拥有的节点数。 由于 Azure Stack 是一种超聚合解决方案，因此，如果想要增长存储容量以满足使用量需求，还需要通过添加节点来增加计算空间。 这可能会导致成本不高，尤其是在需要额外容量的情况下，可以在 Azure Stack 系统以外为低成本添加的备用存档存储。
+那么，为什么不只在存储帐户中将数据托管到 Azure Stack 集线器上，或在虚拟文件服务器中，在 Azure Stack 中心系统上运行？ 与在 Azure 中一样，Azure Stack 集线器存储是有限的。 使用的容量完全取决于你选择购买的每个节点的容量，以及你拥有的节点数。 由于 Azure Stack 中心是一种超聚合解决方案，因此，如果想要增长存储容量以满足使用量需求，还需要通过添加节点来增加计算空间。 这可能会导致成本不高，尤其是在需要额外容量的情况下，可以在 Azure Stack 中心系统以外为低成本添加的备用存档存储。
 
-这会将你带到下面介绍的方案。 如何将 Azure Stack 系统、在 Azure Stack 上运行的虚拟化工作负荷简单高效地连接到 Azure Stack 外的存储系统，并可通过网络进行访问。
+这会将你带到下面介绍的方案。 如何将 Azure Stack 集线器系统、Azure Stack 中心上运行的虚拟化工作负荷简单高效地连接到 Azure Stack 中心以外的存储系统，并可通过网络进行访问。
 
 ### <a name="design-for-extending-storage"></a>扩展存储的设计
 
-此关系图描述了一个方案，其中，运行工作负荷的单个虚拟机将连接到并利用外部（到 VM 和 Azure Stack 本身）存储，以便进行数据读取/写入等。对于本文，你将重点介绍文件的简单检索，但你可以扩展此示例，以实现更复杂的方案，例如数据库文件的远程存储。
+该关系图描绘了这样一种方案：其中，运行工作负荷的单个虚拟机将连接到虚拟机，并利用外部（到 VM 和 Azure Stack 中心本身）存储，以便进行数据读取/写入等。对于本文，你将重点介绍文件的简单检索，但你可以扩展此示例，以实现更复杂的方案，例如数据库文件的远程存储。
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
 
-在该图中，你会看到 Azure Stack 系统上的 VM 已部署了多个 Nic。 从这两种冗余，以及存储最佳做法，在目标和目标之间有多个路径，这一点很重要。 在某些情况下，Azure Stack 中的 Vm 具有公共和专用 Ip，就像在 Azure 中一样。 如果需要外部存储来访问 VM，则它只能通过公共 IP 来实现，因为专用 ip 主要在 Vnet 和子网内的 Azure Stack 系统中使用。 外部存储将无法与 VM 的专用 IP 空间通信，除非它通过站点到站点 VPN，才能打孔到 vNet 本身。 因此，在本示例中，我们将重点介绍通过公共 IP 空间进行的通信。 请注意，在关系图中，公共 IP 空间有2个不同的公共 IP 池子网。 默认情况下，Azure Stack 只需要一个池来实现公共 IP 地址，但要考虑冗余路由，则可能要添加另一个池。 但是，此时不能从特定池中选择 IP 地址，因此，你可能确实会在多个虚拟网卡上，使用同一池中具有公共 Ip 的 Vm。
+在该图中，你会看到 Azure Stack 集线器系统上的 VM 已部署了多个 Nic。 从这两种冗余，以及存储最佳做法，在目标和目标之间有多个路径，这一点很重要。 在某些情况下，Azure Stack 集线器中的 Vm 具有公共和专用 Ip，就像在 Azure 中一样。 如果外部存储需要访问 VM，则它只能通过公共 IP 来实现，因为专用 ip 主要用于 Vnet 和子网中的 Azure Stack 中心系统内。 外部存储将无法与 VM 的专用 IP 空间通信，除非它通过站点到站点 VPN，才能打孔到 vNet 本身。 因此，在本示例中，我们将重点介绍通过公共 IP 空间进行的通信。 请注意，在关系图中，公共 IP 空间有2个不同的公共 IP 池子网。 默认情况下，Azure Stack 集线器只需要一个池来实现公共 IP 地址，但要考虑冗余路由，则可能要添加另一个池。 但是，此时不能从特定池中选择 IP 地址，因此，你可能确实会在多个虚拟网卡上，使用同一池中具有公共 Ip 的 Vm。
 
 出于此讨论的目的，我们假设边界设备和外部存储之间的路由处理，并且流量可以适当地遍历网络。 对于本示例，无论主干是1GbE、10GbE、25 GbE 还是更快，都不重要，但是在规划集成时，请务必考虑到访问此外部存储的任何应用程序的性能需求。
 
 ## <a name="connect-to-a-windows-server-iscsi-target"></a>连接到 Windows Server iSCSI 目标
 
-在此方案中，我们将在 Azure Stack 上部署和配置 Windows Server 2019 虚拟机，并准备好它以连接到也将运行 Windows Server 2019 的外部 iSCSI 目标。 在适当的情况下，我们将启用 MPIO 等关键功能，以优化 VM 与外部存储之间的性能和连接性。
+在此方案中，我们将在 Azure Stack 中心部署和配置 Windows Server 2019 虚拟机，并将其准备好连接到将运行 Windows Server 2019 的外部 iSCSI 目标。 在适当的情况下，我们将启用 MPIO 等关键功能，以优化 VM 与外部存储之间的性能和连接性。
 
-### <a name="deploy-the-windows-server-2019-vm-on-azure-stack"></a>在 Azure Stack 上部署 Windows Server 2019 VM
+### <a name="deploy-the-windows-server-2019-vm-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署 Windows Server 2019 VM
 
-1.  在**Azure Stack 管理门户**中，假设此系统已正确注册并连接到 marketplace，请选择 " **marketplace 管理"** ，然后，如果你还没有 Windows server 2019 映像，请选择 "**从 Azure 添加**"，然后搜索**windows Server 2019**，添加**windows server 2019 Datacenter**映像。
+1.  在**Azure Stack 集线器管理门户**中，如果此系统已正确注册并连接到 marketplace，请选择 " **marketplace 管理"** ，然后，如果你还没有 Windows server 2019 映像，请选择 "**从 Azure 添加**"，然后搜索**windows Server 2019**，添加**windows server 2019 Datacenter**映像。
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image2.png)
 
     下载 Windows Server 2019 映像可能需要一些时间。
 
-2.  在 Azure Stack 环境中拥有 Windows Server 2019 映像后，**登录到 Azure Stack 中心用户门户**。
+2.  在 Azure Stack 中心环境中拥有 Windows Server 2019 映像后，**登录到 Azure Stack 中心用户门户**。
 
 3.  登录到 Azure Stack 集线器用户门户后，确保你有产品/[服务的订阅](https://docs.microsoft.com/azure-stack/operator/azure-stack-subscribe-plan-provision-vm?view=azs-1908)，该产品可用于预配 IaaS 资源（计算、存储和网络）。
 
@@ -60,15 +60,15 @@ ms.locfileid: "75184107"
 
 5.  在 "**基本**信息" 边栏选项卡上，填写以下信息：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。  **名称**： VM001
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  **名称**： VM001
 
-    b.  **用户名**： "localadmin"
+    b.保留“数据库类型”设置，即设置为“共享”。  **用户名**： "localadmin"
 
     c.  **密码**和**确认密码**：所选 \<密码 >
 
     d.单击“下一步”。  **订阅**：选择 \<订阅，并 > 计算/存储/网络资源。
 
-    e.  **资源组**： storagetesting （新建）
+    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。  **资源组**： storagetesting （新建）
 
     f.  选择“确定”
 
@@ -96,9 +96,9 @@ ms.locfileid: "75184107"
 
 15. 在 storagetesting 边栏选项卡中，依次选择 "**子网**" 和 "**子网**"，然后在新的 "添加子网" 边栏选项卡中输入以下信息，然后选择 **"确定"** ：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。  **名称**： subnet2
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  **名称**： subnet2
 
-    b.  **地址范围（CIDR 块）** ： 10.10.11.0/24
+    b.保留“数据库类型”设置，即设置为“共享”。  **地址范围（CIDR 块）** ： 10.10.11.0/24
 
     c.  **网络安全组**：无
 
@@ -112,9 +112,9 @@ ms.locfileid: "75184107"
 
 19. 在 "**创建网络接口**" 边栏选项卡中输入以下信息。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。  **名称**： vm001nic2
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  **名称**： vm001nic2
 
-    b.  **子网**：确保子网为 10.10.11.0/24
+    b.保留“数据库类型”设置，即设置为“共享”。  **子网**：确保子网为 10.10.11.0/24
 
     c.  **网络安全组**： VM001-nsg
 
@@ -136,9 +136,9 @@ ms.locfileid: "75184107"
 
 27. 连接到 VM 后，请以管理员身份打开**CMD** ，并输入**主机名**来检索 OS 的计算机名。 **它应与 VM001 匹配**。 稍后记下此。
 
-### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack"></a>在 Azure Stack 上的 Windows Server 2019 VM 上配置第二个网络适配器
+### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack-hub"></a>在 Azure Stack 集线器上的 Windows Server 2019 VM 上配置第二个网络适配器
 
-默认情况下，Azure Stack 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure Stack 不会将默认网关分配给附加到虚拟机的附加（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与子网外部的资源进行通信，尽管对不同操作系统而言，启用通信的步骤有所不同。
+默认情况下，Azure Stack 集线器会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure Stack 中心不会将默认网关分配给附加到虚拟机的附加（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与子网外部的资源进行通信，尽管对不同操作系统而言，启用通信的步骤有所不同。
 
 1.  如果还没有打开连接，请在**VM001**中建立 RDP 连接。
 
@@ -172,11 +172,11 @@ ms.locfileid: "75184107"
 
 ### <a name="configure-the-windows-server-2019-iscsi-target"></a>配置 Windows Server 2019 iSCSI 目标
 
-在此方案中，你将验证配置，其中，Windows Server 2019 iSCSI 目标是在 Hyper-v 上运行的虚拟机，但在 Azure Stack 环境外。 此虚拟机将配置为具有8个虚拟处理器和一个 VHDX 文件，最重要的是2个虚拟网络适配器。 在理想情况下，这些网络适配器将具有不同的可路由子网，但在此验证中，它们将在同一子网上具有网络适配器。
+在此方案中，你将验证配置，其中，Windows Server 2019 iSCSI 目标是在 Hyper-v 上运行的虚拟机，在 Azure Stack 中心环境之外。 此虚拟机将配置为具有8个虚拟处理器和一个 VHDX 文件，最重要的是2个虚拟网络适配器。 在理想情况下，这些网络适配器将具有不同的可路由子网，但在此验证中，它们将在同一子网上具有网络适配器。
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image9.png)
 
-对于 iSCSI 目标服务器，该服务器可以是 Windows Server 2016 或2019（物理或虚拟），运行在 Hyper-v、VMware 或你选择的备用设备上，如专用物理 iSCSI SAN。 这里的主要重点在于 Azure Stack 系统的连接性，但在源和目标之间有多个路径是最好的，因为它提供了额外的冗余，并允许使用更高级的功能来提高性能性能，如 MPIO。
+对于 iSCSI 目标服务器，该服务器可以是 Windows Server 2016 或2019（物理或虚拟），运行在 Hyper-v、VMware 或你选择的备用设备上，如专用物理 iSCSI SAN。 这里的主要重点是 Azure Stack 集线器系统之间的连接，但在源和目标之间有多个路径是最好的，因为它提供了额外的冗余，并允许使用更高级的功能提高性能性能，如 MPIO。
 
 我建议您在继续配置文件共享之前，用最新的累积更新和修补程序更新 Windows Server 2019 iSCSI 目标，并在必要时重新启动。
 
@@ -224,7 +224,7 @@ ms.locfileid: "75184107"
 
 ### <a name="configure-the-windows-server-2019-iscsi-initiator-and-mpio"></a>配置 Windows Server 2019 iSCSI 发起程序和 MPIO
 
-若要首先设置 iSCSI 发起程序，请首先登录到**Azure Stack**系统上的**Azure Stack 集线器用户门户**，然后导航到 VM001 的 "**概述**" 边栏选项卡 **。**
+若要首先设置 iSCSI 发起程序，请首先登录到**Azure Stack 中心**系统上的**Azure Stack 集线器用户门户**，然后导航到 VM001 的 "**概述**" 边栏选项卡 **。**
 
 1.  建立与 VM001 的 RDP 连接。 连接后，打开**服务器管理器**。
 
@@ -260,17 +260,17 @@ ms.locfileid: "75184107"
 
 13. 在 "**高级设置**" 窗口中，选择以下项，然后选择 **"确定"** 。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。  **本地适配器**： Microsoft ISCSI 发起程序。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  **本地适配器**： Microsoft ISCSI 发起程序。
 
-    b.  **发起程序 IP**：10.10.10.4。
+    b.保留“数据库类型”设置，即设置为“共享”。  **发起程序 IP**：10.10.10.4。
 
 14. 返回到 "**发现目标门户**" 窗口，选择 **"确定"** 。
 
 15. 按照以下步骤重复此过程：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 \* * IP 地址 * *：第二个 iSCSI 目标 IP 地址。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 \* * IP 地址 * *：第二个 iSCSI 目标 IP 地址。
 
-    b.  **本地适配器**： Microsoft ISCSI 发起程序。
+    b.保留“数据库类型”设置，即设置为“共享”。  **本地适配器**： Microsoft ISCSI 发起程序。
 
     c.  **发起程序 IP**：10.10.11.4。
 
@@ -286,9 +286,9 @@ ms.locfileid: "75184107"
 
 19. 输入以下信息并选择 **"确定"** ，然后在 "**连接到目标**" 窗口中选择 **"确定"** 。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。  **本地适配器**： Microsoft ISCSI 发起程序。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  **本地适配器**： Microsoft ISCSI 发起程序。
 
-    b.  **发起程序 IP**：10.10.10.4。
+    b.保留“数据库类型”设置，即设置为“共享”。  **发起程序 IP**：10.10.10.4。
 
     c.  **目标门户 ip**： \<第一个 ISCSI 目标 ip/3260 >。
 
@@ -296,9 +296,9 @@ ms.locfileid: "75184107"
 
 1.  对第二个发起方/目标组合重复此过程。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 \* * 本地适配器 * *： Microsoft iSCSI 发起程序。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 \* * 本地适配器 * *： Microsoft iSCSI 发起程序。
 
-    b.  **发起程序 IP**：10.10.11.4。
+    b.保留“数据库类型”设置，即设置为“共享”。  **发起程序 IP**：10.10.11.4。
 
     c.  **目标门户 IP**： \<第二个 ISCSI 目标 ip/3260 >。
 
@@ -334,7 +334,7 @@ ms.locfileid: "75184107"
 
 ### <a name="testing-external-storage-connectivity"></a>测试外部存储连接
 
-若要验证通信并运行基本的文件复制测试，请首先登录到**Azure Stack**系统上的**Azure Stack 集线器用户门户**，然后导航到**VM001**的 "**概述**" 边栏选项卡。
+若要验证通信并运行基本的文件复制测试，请首先登录到**Azure Stack 中心**系统上的**Azure Stack 集线器用户门户**，然后导航到**VM001**的 "**概述**" 边栏选项卡。
 
 1.  选择 "**连接**"，建立到**VM001**的 RDP 连接
 
@@ -365,8 +365,8 @@ ms.locfileid: "75184107"
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image29.png)
 
-此方案旨在重点介绍 Azure Stack 上运行的工作负荷与外部存储阵列（在这种情况下为基于 Windows Server 的 iSCSI 目标）之间的连接。 这并不是一种性能测试，也不会反映在使用基于 iSCSI 的备用设备时需要执行的步骤，但它的确突出了在 Azure Stack 上部署工作负荷时所要做的一些核心注意事项。并将它们连接到 Azure Stack 环境以外的存储系统。
+此方案旨在重点介绍 Azure Stack 集线器上运行的工作负荷与外部存储阵列（在这种情况下为基于 Windows Server 的 iSCSI 目标）之间的连接。 这并不是一种性能测试，也不会反映在使用基于 iSCSI 的备用设备时需要执行的步骤，但它确实重点介绍了在 Azure Stack 集线器上部署工作负荷时所要做的一些核心注意事项，并将它们连接到 Azure Stack 中心环境以外的存储系统。
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 网络的差异和注意事项](azure-stack-network-differences.md)
+[Azure Stack 集线器网络的差异和注意事项](azure-stack-network-differences.md)

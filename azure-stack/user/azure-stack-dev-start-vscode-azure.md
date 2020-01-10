@@ -1,6 +1,6 @@
 ---
-title: 使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack |Microsoft Docs
-description: 作为开发人员，请在 Visual Studio Code 中使用 Azure 帐户扩展连接到 Azure Stack
+title: 使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack 中心 |Microsoft Docs
+description: 作为开发人员，请在 Visual Studio Code 中使用 Azure 帐户扩展连接到 Azure Stack 中心
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,34 +9,34 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 58fecc801312d9da1a2311e4a51114cfbf245e9d
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 62e334ca62d4fddcd14357f45f00d309e8440103
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955752"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820519"
 ---
-# <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>使用 Azure 帐户扩展在 Visual Studio Code 中连接到 Azure Stack
+# <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>使用 Azure 帐户扩展连接到 Azure Stack 中心 Visual Studio Code
 
-本文将介绍如何使用 Azure 帐户扩展连接到 Azure Stack。 需要更新 Visual Studio Code （VS Code）设置。
+本文将介绍如何使用 Azure 帐户扩展连接到 Azure Stack 中心。 需要更新 Visual Studio Code （VS Code）设置。
 
-VS Code 是用于构建和调试 web 应用程序和云应用程序的轻型编辑器。 ASP.NET Core、Python、NodeJS、中转和其他开发人员使用 VS Code。 使用 Azure 帐户扩展，可以使用单个 Azure 登录，其中包含订阅筛选功能，以用于其他 Azure 扩展。 扩展使 Azure Cloud Shell 在 VS Code 集成终端中可用。 使用该扩展，你可以使用 Azure AD （Azure AD）和 Active Directory 联合服务（AD FS）连接到你的 Azure Stack 订阅以进行标识管理器。 你可以登录到 Azure Stack，选择你的订阅，然后在 cloud shell 中打开新的命令行。 
+VS Code 是用于构建和调试 web 应用程序和云应用程序的轻型编辑器。 ASP.NET Core、Python、NodeJS、中转和其他开发人员使用 VS Code。 使用 Azure 帐户扩展，可以使用单个 Azure 登录，其中包含订阅筛选功能，以用于其他 Azure 扩展。 扩展使 Azure Cloud Shell 在 VS Code 集成终端中可用。 使用该扩展，可以使用 Azure AD （Azure AD）和 Active Directory 联合服务（AD FS）为标识管理器连接到 Azure Stack 中心订阅。 你可以登录到 Azure Stack 中心，选择你的订阅，然后在 cloud shell 中打开新的命令行。 
 
 > [!Note]  
 > 你可以使用本文中的步骤来 Active Directory 联合服务（AD FS）环境。 使用 AD FS 凭据和终结点。
 
 ## <a name="pre-requisites-for-the-azure-account-extension"></a>Azure 帐户扩展的先决条件
 
-1. Azure Stack 环境1904版本或更高版本
+1. Azure Stack 集线器环境1904版本或更高版本
 2. [Visual Studio Code](https://code.visualstudio.com/)
 3. [Azure 帐户扩展](https://github.com/Microsoft/vscode-azure-account)
-4. [Azure Stack 订阅](https://azure.microsoft.com/overview/azure-stack/)
+4. [Azure Stack 中心订阅](https://azure.microsoft.com/overview/azure-stack/)
 
-## <a name="steps-to-connect-to-azure-stack"></a>连接到 Azure Stack 的步骤
+## <a name="steps-to-connect-to-azure-stack-hub"></a>连接到 Azure Stack 集线器的步骤
 
-1. 从 GitHub 中 Azure Stack 工具运行**标识**脚本。
+1. 从 GitHub 中 Azure Stack 集线器工具运行**标识**脚本。
 
-    - 在运行该脚本之前，你将需要为你的环境安装并配置 PowerShell。 有关说明，请参阅[Install PowerShell for Azure Stack](../operator/azure-stack-powershell-install.md)。
+    - 在运行该脚本之前，你将需要为你的环境安装并配置 PowerShell。 有关说明，请参阅为[Azure Stack 集线器安装 PowerShell](../operator/azure-stack-powershell-install.md)。
 
     - 有关**标识**脚本说明和脚本，请参阅[test-azurestack-工具/标识](https://github.com/Azure/AzureStack-Tools/tree/master/Identity)。
 
@@ -57,11 +57,11 @@ VS Code 是用于构建和调试 web 应用程序和云应用程序的轻型编�
 
 5. 选择 " **Azure 帐户**" 并选择 "**安装**"。
 
-      ![Azure Stack Visual Studio Code](media/azure-stack-dev-start-vscode-azure/image1.png)
+      ![Azure Stack 中心 Visual Studio Code](media/azure-stack-dev-start-vscode-azure/image1.png)
 
 6. 重新启动 VS Code 以加载扩展。
 
-7. 检索元数据以连接到 Azure Stack 中的 Azure 资源管理器。 
+7. 检索元数据以连接到 Azure Stack 中心的 Azure 资源管理器。 
     
     Microsoft Azure 资源管理器是一种管理框架，可用于部署、管理和监视 Azure 资源。
     - Azure Stack 开发工具包的资源管理器 URL （ASDK）为： `https://management.local.azurestack.external/` 
@@ -78,12 +78,12 @@ VS Code 是用于构建和调试 web 应用程序和云应用程序的轻型编�
 
     - 值：
 
-        | 参数 | 描述 |
+        | 参数 | Description |
         | --- | --- |
-        | `tenant-ID` | Azure Stack[租户 ID](../operator/azure-stack-identity-overview.md)的值。 |
+        | `tenant-ID` | Azure Stack 中心[租户 ID](../operator/azure-stack-identity-overview.md)的值。 |
         | `activeDirectoryEndpointUrl` | 这是来自 loginEndpoint 属性的 URL。 |
         | `activeDirectoryResourceId` | 这是来自访问群体属性的 URL。
-        | `resourceManagerEndpointUrl` | 这是用于 Azure Stack 的 Azure 资源管理器的根 URL。 | 
+        | `resourceManagerEndpointUrl` | 这是适用于 Azure Stack 中心的 Azure 资源管理器的根 URL。 | 
 
     - JSON 代码片段：
 
@@ -101,7 +101,7 @@ VS Code 是用于构建和调试 web 应用程序和云应用程序的轻型编�
 
 11. 选择**AzurePPE**。 身份验证页在浏览器中加载。 登录到你的终结点。
 
-12. 若要测试是否已成功登录到 Azure Stack 订阅，请按**Ctrl + Shift + P** ，然后选择 " **Azure：选择订阅**" 并查看是否有可用的订阅。
+12. 若要测试是否已成功登录到 Azure Stack 中心订阅，请按**Ctrl + Shift + P** ，然后选择 " **Azure：选择订阅**"，并查看是否有可用的订阅。
 
 ## <a name="commands"></a>命令
 
@@ -118,4 +118,4 @@ VS Code 是用于构建和调试 web 应用程序和云应用程序的轻型编�
 
 ## <a name="next-steps"></a>后续步骤
 
-[在 Azure Stack 中设置开发环境](azure-stack-dev-start.md)
+[在 Azure Stack 中心设置开发环境](azure-stack-dev-start.md)

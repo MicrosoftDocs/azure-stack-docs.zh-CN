@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用 PowerShell 创建 Linux VM |Microsoft Docs
-description: 在 Azure Stack 中使用 PowerShell 创建 Linux VM。
+title: 在 Azure Stack 集线器中使用 PowerShell 创建 Linux VM |Microsoft Docs
+description: 在 Azure Stack 集线器中使用 PowerShell 创建 Linux VM。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2bd72ad2de570eeb3089645c5ee7c9dd3784e83c
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: 4d846734c609485532da4534231a7b94c0514f21
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677665"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816014"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Linux 服务器 VM
+# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack 集线器中使用 PowerShell 创建 Linux 服务器 VM
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-可以使用 Azure Stack PowerShell 创建 Ubuntu Server 16.04 LTS 虚拟机（VM）。 本文介绍如何创建和使用虚拟机。 本文还介绍了如何执行以下操作：
+你可以使用 Azure Stack 中心 PowerShell 创建 Ubuntu Server 16.04 LTS 虚拟机（VM）。 本文介绍如何创建和使用虚拟机。 本文还介绍了如何执行以下操作：
 
 * 使用远程客户端连接到 VM。
 * 安装 NGINX web 服务器并查看默认主页。
@@ -34,17 +34,17 @@ ms.locfileid: "75677665"
 
 ## <a name="prerequisites"></a>必备组件
 
-* Azure Stack Marketplace 中的 Linux 映像。 默认情况下，Azure Stack marketplace 没有 Linux 映像。 让 Azure Stack 运算符提供所需的 Ubuntu Server 16.04 LTS 映像。 操作员可以使用将[Marketplace 项从 Azure 下载到 Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md)中的说明进行操作。
+* Azure Stack 集线器 Marketplace 中的 Linux 映像。 默认情况下，Azure Stack 集线器 marketplace 没有 Linux 映像。 让 Azure Stack 集线器操作员提供所需的 Ubuntu Server 16.04 LTS 映像。 操作员可以使用将[Marketplace 项从 Azure 下载到 Azure Stack 中心](../operator/azure-stack-download-azure-marketplace-item.md)中的说明。
 
-* Azure Stack 要求 Azure CLI 的特定版本来创建和管理其资源。 
-  * 如果没有为 Azure Stack 配置 PowerShell，请参阅[安装适用于 Azure Stack 的 powershell](../operator/azure-stack-powershell-install.md)。 
-  * 设置 Azure Stack PowerShell 后，你将连接到 Azure Stack 环境。 有关说明，请参阅[使用 PowerShell 作为用户连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
+* Azure Stack 中心需要 Azure CLI 的特定版本来创建和管理其资源。 
+  * 如果没有为 Azure Stack 中心配置 PowerShell，请参阅[安装适用于 Azure Stack 中心的 powershell](../operator/azure-stack-powershell-install.md)。 
+  * 设置 Azure Stack 中心 PowerShell 后，你将连接到 Azure Stack 中心环境。 有关说明，请参阅[使用 PowerShell 作为用户连接到 Azure Stack 集线器](azure-stack-powershell-configure-user.md)。
 
 * 名为*id_rsa*的公用安全外壳（SSH）密钥保存在 Windows 用户配置文件的*SSH*目录中。 有关创建 SSH 密钥的详细信息，请参阅[使用 ssh 公钥](azure-stack-dev-start-howto-ssh-public-key.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是可在其中部署和管理 Azure Stack 资源的逻辑容器。 若要创建资源组，请从 Azure Stack 开发工具包（ASDK）或 Azure Stack 集成系统中，运行以下代码块： 
+资源组是可在其中部署和管理 Azure Stack 中心资源的逻辑容器。 若要创建资源组，请从 Azure Stack 开发工具包（ASDK）或 Azure Stack 中心集成系统中，运行以下代码块： 
 
 > [!NOTE]
 > 我们为以下代码示例中的所有变量分配了值。 不过，您可以分配自己的值。
@@ -212,7 +212,7 @@ New-AzureRmVM `
 ## Create a resource group
 
 <#
-A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
+A resource group is a logical container where you can deploy and manage Azure Stack Hub resources. From your development kit or the Azure Stack Hub integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
 #>
 
 # Edit your variables, if required
@@ -418,4 +418,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你部署了一个基本的 Linux 服务器 VM。 若要详细了解 Azure Stack Vm，请参阅[Azure Stack 中 vm 的注意事项](azure-stack-vm-considerations.md)。
+在本快速入门中，你部署了一个基本的 Linux 服务器 VM。 若要详细了解 Azure Stack 集线器 Vm，请参阅[Azure Stack 中心 vm 的注意事项](azure-stack-vm-considerations.md)。

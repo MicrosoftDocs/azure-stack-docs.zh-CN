@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 计费概述和常见问题的 azure 应用服务 |Microsoft Docs
-description: 有关 Azure Stack 上的 Azure 应用服务是按流量计费的方式以及计费的详细信息。
+title: Azure Stack 中心帐单概述和常见问题 Azure App ServiceMicrosoft Docs
+description: 有关如何按流量计费和计费 Azure App Service Azure Stack 中心的详细信息。
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -16,88 +16,88 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 8b17020419183067793309055a6487f31da51246
-ms.sourcegitcommit: d67ae2877e3b049bf70b2567b917e55394fb8984
+ms.openlocfilehash: c67b2be49babda140b1440356d63af5abbbbfdfb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67712678"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75808458"
 ---
-# <a name="azure-app-service-on-azure-stack-billing-overview-and-faq"></a>在 Azure Stack 计费概述和常见问题的 azure 应用服务
+# <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure Stack 中心帐单概述和常见问题 Azure App Service
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-本文介绍云操作员如何计费的产品/服务在 Azure Stack 上的 Azure 应用服务，他们可以如何计费的服务使用其租户。
+本文说明了如何为云操作员提供 Azure Stack 中心的 Azure App Service，以及如何对其租户计费以便使用服务。
 
-## <a name="billing-overview"></a>帐单概览
+## <a name="billing-overview"></a>帐单概述
 
-Azure Stack 云操作员选择将 Azure Stack 上的 Azure 应用服务部署到其 Azure Stack 戳向其客户提供 Azure 应用服务和 Azure Functions 的租户功能上。 Azure 应用服务资源提供程序包含多个类型的基础结构和辅助角色层之间可以划分的角色。
+Azure Stack 中心云操作员选择将 Azure Stack 集线器上的 Azure App Service 部署到其 Azure Stack 集线器戳记上，以向其客户提供 Azure App Service 和 Azure Functions 的租户功能。 Azure App Service 的资源提供程序包含多个可在基础结构和辅助角色层之间划分的角色类型。
 
-基础结构角色不会计费，因为它们是服务的核心操作所必需的。 如需支持云操作员的租户的需求，可以扩大基础结构角色。 基础结构角色如下所示：
+不会对基础结构角色计费，因为这些角色是服务的核心操作所必需的。 基础结构角色可根据需要进行扩展，以支持云操作员租户的需求。 基础结构角色如下所示：
 
 - 控制器
 - 管理角色
 - 发布者
 - 前端
 
-辅助角色层包含两种主要类型： 共享和专用。 工作线程使用情况计费到根据以下条件的云操作员。
+辅助角色层由两种主要类型组成：共享和专用。 根据以下条件，将工作人员使用情况计费到云操作员。
 
 ## <a name="shared-workers"></a>共享辅助角色
 
-共享辅助角色是多租户和主机免费和共享应用服务计划以及基于消费的 Azure functions 用于许多租户。 共享辅助角色发出用量计量表标记为准备就绪可在 Azure 应用服务资源提供程序时。
+共享辅助角色是多种租户的多租户和共享应用服务计划和基于消耗的 Azure 功能。 共享工作人员在 Azure App Service 资源提供程序中标记为 "就绪" 时发出用量计量。
 
 ## <a name="dedicated-workers"></a>专用辅助角色
 
-专用工作线程已绑定到租户创建的应用服务计划。 例如，在 S1 SKU 中，租户可以扩展到 10 个实例默认情况下。 当租户创建一个 S1 应用服务计划时，Azure 应用服务会分配一个小型辅助角色层规模集到该租户的应用服务计划中的实例。 分配的工作就不再可用于分配给任何其他租户。 如果租户选择应用服务计划缩放为 10 个实例，九个更多辅助角色已从可用的池并分配给租户的应用服务计划。
+专用工作人员与租户创建的应用服务计划相关联。 例如，在 S1 SKU 中，默认情况下，租户可以扩展到10个实例。 当租户创建 S1 应用服务计划时，Azure App Service 会将小型辅助角色层规模集中的一个实例分配给该租户的应用服务计划。 然后，分配的辅助角色将不再可分配给任何其他租户。 如果租户选择将应用服务计划扩展到10个实例，则将从可用池中删除9个更多的工作线程，并将其分配给租户的应用服务计划。
 
-计量器发出的专用辅助角色时：
+当专用工作人员处于以下情况时，将发出计量：
 
-- 标记为准备就绪可在 Azure 应用服务资源提供程序。
-- 分配到应用服务计划。
+- 在 Azure App Service 资源提供程序中标记为 "就绪"。
+- 分配给应用服务计划。
 
-这种结算模型使云操作员可以预配的供客户使用无需支付工作线程，直到它们有效地保留其租户的应用服务计划的专用辅助角色池。 
+使用此计费模型，云操作员可以预配一个专用工作线程池，使其可供客户使用，而无需支付工作人员的租户应用服务计划。 
 
-例如，假设在小型的辅助角色层中有 20 个辅助角色。 如果您有五个客户创建两个 S1 应用服务计划每个，它们每个扩展应用服务计划最多两个实例，则必须没有可用的辅助角色。 因此，此外还有没有任何客户或新客户，若要横向扩展或创建新的应用服务计划的容量。 
+例如，假设小型辅助角色层中有20个辅助角色。 如果有五个客户创建了两个 S1 应用服务计划，每个客户将应用服务计划扩展到了两个实例，则没有辅助角色可用。 因此，没有任何客户或新客户的容量扩大或创建新的应用服务计划。 
 
-通过查看在 Azure Stack 管理的 Azure 应用服务配置中辅助角色层，云操作员可以查看每个辅助角色层的可用工作线程的当前数目。
+云操作员可以通过查看 Azure Stack 中心管理的 Azure App Service 配置中的辅助角色层来查看每个辅助角色的可用辅助进程数。
 
 ![应用服务-辅助角色层屏幕][1]
 
-## <a name="see-customer-usage-by-using-the-azure-stack-usage-service"></a>使用 Azure Stack 使用情况服务来查看客户的使用情况
+## <a name="see-customer-usage-by-using-the-azure-stack-hub-usage-service"></a>请参阅使用 Azure Stack 集线器使用情况服务的客户使用情况
 
-云操作员可以查询[Azure Stack 租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md)要检索其客户的使用情况信息。 您可以找到所有应用服务会发出来描述中的租户使用情况的单独计量[使用情况常见问题](azure-stack-usage-related-faq.md)。 这些指标则用于计算每个客户订阅计算费用的使用情况。
+云操作员可以查询[Azure Stack 中心租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md) ，为其客户检索使用情况信息。 可以在 "[使用情况常见问题解答](azure-stack-usage-related-faq.md)" 中找到应用服务发出的、用于描述租户使用情况的所有单个计量。 然后，这些计量用于计算每个客户订阅的使用情况以计算费用。
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
-### <a name="how-do-i-license-the-sql-server-and-file-server-infrastructure-required-in-the-prerequisites"></a>如何实现 SQL Server 的许可证，在先决条件中所需的文件服务器基础结构？
+### <a name="how-do-i-license-the-sql-server-and-file-server-infrastructure-required-in-the-prerequisites"></a>如何实现在必备组件中提供 SQL Server 和文件服务器基础结构的许可？
 
-Azure Stack 上的 Azure 应用服务中介绍了 SQL Server 和文件服务器基础结构，所需的 Azure 应用服务资源提供程序的许可[在开始之前](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server)一文。
+Azure App Service 资源提供程序所需的 SQL Server 和文件服务器基础结构的许可在[入门文章之前](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server)Azure Stack 中心的 Azure App Service 中进行了介绍。
 
-### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>使用情况常见问题列出租户指标，但不是为这些指标的价格。 在哪里找到它们？
+### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>使用情况常见问题解答列出了租户指标，而不是这些指标的价格。 可以在哪里找到它们？
 
-云操作员，你可以自由地应用自己的定价模型添加到你的客户。 使用率服务提供了用量计量。 然后可以使用测定仪数量来向你客户基于你所确定的定价模型收取费用。 设置定价的能力使操作员能够与其他 Azure Stack 操作员区分开来。
+作为云操作员，你可以免费将自己的定价模型应用于你的客户。 使用情况服务提供用量计量。 然后，你可以使用计量数量根据你确定的定价模型向客户收费。 设置定价的功能使操作员可以与其他 Azure Stack 中心操作员区分开来。
 
-### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>作为 CSP，如何我提供免费和共享的 Sku，供客户试用服务？
+### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-try-out-the-service"></a>作为 CSP，如何为客户提供免费和共享的 Sku 来试用服务？
 
-云操作员，则会产生成本为提供免费和共享的 Sku，因为它们托管在共享辅助角色。 该成本降到最低，您可以选择纵向缩减到最低限度的共享辅助角色层。 
+作为云操作员，你可以免费提供免费和共享 Sku，因为这些 Sku 托管在共享工作进程中。 若要将此成本降到最低，可以选择将共享辅助角色层向下扩展到最小值。 
 
-例如，若要提供免费和共享应用服务计划的 Sku 并提供基于消费的函数，需要一个 A1 实例可用的最小值。 共享辅助角色都是多租户，因此他们可以托管多个客户应用，每个单独隔离和保护的应用服务沙盒。 通过以这种方式扩展共享辅助角色层，可以限制每个月的 1 vCPU 的成本在开支。
+例如，若要提供免费和共享的应用服务计划 Sku，并提供基于消耗的功能，你至少需要一个可用的 A1 实例。 共享辅助角色是多租户的，因此可以托管多个客户应用，每个应用由应用服务沙箱单独隔离和保护。 通过以这种方式缩放共享辅助角色层，可将开支限制为每月一个 vCPU 的成本。
 
-然后可以选择创建的配额，用于计划，它仅提供了免费的共享 Sku，可以创建您的客户的免费和共享应用服务计划的数量限制。
+然后，你可以选择创建配额，用于计划，该计划仅提供免费和共享 Sku，并限制你的客户可以创建的免费和共享应用服务计划数。
 
-## <a name="sample-scripts-to-assist-with-billing"></a>示例脚本来帮助进行计费
+## <a name="sample-scripts-to-assist-with-billing"></a>帮助计费的示例脚本
 
-Azure 应用服务团队创建了示例 PowerShell 脚本来帮助进行查询 Azure Stack 使用情况服务。 云操作员可以使用这些示例脚本来准备为其租户自己计费。 示例脚本位于[Azure Stack 工具存储库](https://github.com/Azure/AzureStack-tools)在 GitHub 中。 应用服务脚本位于[AppService 文件夹下使用情况](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService)。
+Azure App Service 团队创建了一个示例 PowerShell 脚本，用于帮助查询 Azure Stack 中心使用情况服务。 云操作员可以使用这些示例脚本为租户准备自己的帐单。 示例脚本位于 GitHub 的[Azure Stack 集线器工具存储库](https://github.com/Azure/AzureStack-tools)中。 应用服务脚本位于 "[使用情况" 下的 AppService 文件夹](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService)中。
 
-可用的示例脚本是：
+可用的示例脚本包括：
 
-- [Get-AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1):此示例从 Azure Stack 使用情况 API 提取 Azure Stack 计费记录上的 Azure 应用服务。
-- [Get-AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1):此示例计算每个订阅的 Azure Stack 使用情况数量上的 Azure 应用服务。 此脚本计算基于使用情况 API 和由云操作员提供每个计量的价格中的数据的使用情况数量。
-- [挂起 UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1):此示例将挂起或启用基于使用情况限制云运算符指定的订阅。
+- [AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1)：此示例从 Azure Stack 中心使用情况 API 中获取 Azure Stack 中心计费记录 Azure App Service。
+- [AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1)：此示例计算每个订阅的 Azure Stack 中心用量量 Azure App Service。 此脚本根据使用情况 API 的数据和云运营商每个计量器提供的价格计算用量。
+- [UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1)：此示例根据云操作员指定的使用量限制挂起或启用订阅。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Stack 租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md)
+- [Azure Stack 中心租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md)
 
 <!--Image references-->
 [1]: ./media/app-service-billing-faq/app-service-worker-tiers.png

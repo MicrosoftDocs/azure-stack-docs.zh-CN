@@ -1,6 +1,6 @@
 ---
-title: 监视 Azure Stack 中的运行状况和警报 |Microsoft Docs
-description: 了解如何在 Azure Stack 中监视运行状况和警报。
+title: 监视 Azure Stack 集线器中的运行状况和警报 |Microsoft Docs
+description: 了解如何监视 Azure Stack 集线器中的运行状况和警报。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,34 +14,34 @@ ms.topic: article
 ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5d7074997a42da9ca19006e3b597d2ba02613b28
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 609f40a7f0677c6505bd06b7de025ba6b491f462
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534117"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817051"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>监视 Azure Stack 中的运行状况和警报
+# <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>监视 Azure Stack 集线器中的运行状况和警报
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 包括基础结构监视功能，可帮助你查看 Azure Stack 区域的运行状况和警报。 "**区域管理**" 磁贴列出了 Azure Stack 的所有已部署区域。 默认情况下，它在默认提供商订阅的管理员门户中处于固定状态。 该磁贴显示了每个区域的活动关键警报和警告警报的数目。 磁贴是 Azure Stack 的运行状况和警报功能的入口点。
+Azure Stack 中心包含基础结构监视功能，可帮助你查看 Azure Stack 中心区域的运行状况和警报。 "**区域管理**" 磁贴列出了 Azure Stack 集线器的所有已部署区域。 默认情况下，它在默认提供商订阅的管理员门户中处于固定状态。 该磁贴显示了每个区域的活动关键警报和警告警报的数目。 磁贴是 Azure Stack 集线器的运行状况和警报功能的入口点。
 
-![Azure Stack 管理员门户中的 "区域管理" 磁贴](media/azure-stack-monitor-health/image1.png)
+![Azure Stack 中心管理员门户中的 "区域管理" 磁贴](media/azure-stack-monitor-health/image1.png)
 
-## <a name="understand-health-in-azure-stack"></a>了解 Azure Stack 中的运行状况
+## <a name="understand-health-in-azure-stack-hub"></a>了解 Azure Stack 集线器中的运行状况
 
-运行状况资源提供程序管理运行状况和警报。 Azure Stack 基础结构组件在部署和配置 Azure Stack 期间注册到运行状况资源提供程序。 此注册可显示每个组件的运行状况和警报。 Azure Stack 中的运行状况是一个简单的概念。 如果某个组件的已注册实例的警报存在，则该组件的运行状况状态将反映最差的活动警报严重性： warning 或严重。
+运行状况资源提供程序管理运行状况和警报。 Azure Stack 中心基础结构组件在 Azure Stack 中心部署和配置期间向运行状况资源提供程序注册。 此注册可显示每个组件的运行状况和警报。 Azure Stack 集线器中的运行状况是一个简单的概念。 如果某个组件的已注册实例的警报存在，则该组件的运行状况状态将反映最差的活动警报严重性： warning 或严重。
 
 ## <a name="alert-severity-definition"></a>警报严重性定义
 
-Azure Stack 引发仅具有两个严重性的警报：**警告**和**严重**。
+Azure Stack 中心引发仅有两个严重性的警报： "**警告**" 和 "**严重**"。
 
 - **警告**  
   操作员可以按计划方式处理警告警报。 此警报通常不会影响用户工作负荷。
 
 - **严重**  
-  操作员应使用紧急警报来解决关键警报。 这些警报指明了当前影响的问题，或会对 Azure Stack 用户产生的影响。
+  操作员应使用紧急警报来解决关键警报。 这些警报表明 Azure Stack 集线器用户当前影响或即将影响的问题。
 
 
 ## <a name="view-and-manage-component-health-state"></a>查看和管理组件运行状态
@@ -55,14 +55,14 @@ Azure Stack 引发仅具有两个严重性的警报：**警告**和**严重**。
 可以单击资源提供程序或基础结构角色来查看更多详细信息。
 
 > [!WARNING]  
-> 如果单击某个基础结构角色，然后单击该角色实例，则可以选择**启动**、**重新启动**或**关闭**。 将更新应用于集成系统时，请勿使用这些操作。 此外，不要在 Azure Stack 开发工具包（ASDK）环境**中使用这些**选项。 这些选项仅适用于集成系统环境，其中每个基础结构角色有多个角色实例。 重新启动 ASDK 中的角色实例（特别是 AzS-Azs-xrp01）会导致系统不稳定。 对于疑难解答帮助，请将你的问题发布到[Azure Stack 论坛](https://aka.ms/azurestackforum)。
+> 如果单击某个基础结构角色，然后单击该角色实例，则可以选择**启动**、**重新启动**或**关闭**。 将更新应用于集成系统时，请勿使用这些操作。 此外，不要在 Azure Stack 开发工具包（ASDK）环境**中使用这些**选项。 这些选项仅适用于集成系统环境，其中每个基础结构角色有多个角色实例。 重新启动 ASDK 中的角色实例（特别是 AzS-Azs-xrp01）会导致系统不稳定。 如需故障排除帮助，请将你的问题发布到[Azure Stack 中心论坛](https://aka.ms/azurestackforum)。
 >
 
 ## <a name="view-alerts"></a>查看警报
 
-可以直接从 "**区域管理**" 边栏选项卡中获取每个 Azure Stack 区域的活动警报的列表。 默认配置中的第一个磁贴是 "**警报**" 磁贴，显示区域的严重和警告警报摘要。 可以将 "警报" 磁贴固定到此边栏选项卡上的任何其他磁贴，以实现快速访问。
+可以直接从 "**区域管理**" 边栏选项卡中获取每个 Azure Stack 中心区域的活动警报的列表。 默认配置中的第一个磁贴是 "**警报**" 磁贴，显示区域的严重和警告警报摘要。 可以将 "警报" 磁贴固定到此边栏选项卡上的任何其他磁贴，以实现快速访问。
 
-![在 Azure Stack 管理员门户中显示警告的警报磁贴](media/azure-stack-monitor-health/image3.png)
+!["警报" 磁贴在 Azure Stack 中心管理员门户中显示警告](media/azure-stack-monitor-health/image3.png)
 
  若要查看区域的所有活动警报的列表，请选择 "**警报**" 磁贴的顶部部分。 若要查看警报的筛选列表（"严重" 或 "警告"），请选择磁贴中的 "**严重**" 或 "**警告**" 行项。
 
@@ -71,13 +71,13 @@ Azure Stack 引发仅具有两个严重性的警报：**警告**和**严重**。
 >[!Note]
 >如果警报在一天内仍处于活动状态但尚未更新，则可以运行[test-azurestack](azure-stack-diagnostic-test.md)并在未报告问题时关闭警报。
 
-![在 Azure Stack 管理员门户中按严重或警告状态进行筛选的筛选器窗格](media/azure-stack-monitor-health/alert-view.png)
+!["筛选器" 窗格，按 Azure Stack 中心管理员门户中的 "严重" 或 "警告" 状态筛选](media/azure-stack-monitor-health/alert-view.png)
 
 "**查看 API** " 操作显示用于生成列表视图的 REST API。 此操作提供了一种快速熟悉可用于查询警报的 REST API 语法的方法。 可以在自动化中使用此 API，或将其与现有的数据中心监视、报告和票证解决方案集成。
 
 你可以单击特定警报以查看警报详细信息。 警报详细信息显示与警报关联的所有字段，并对受影响的组件和警报源启用快速导航。 例如，如果某个基础结构角色实例脱机或无法访问，则会出现以下警报。  
 
-![Azure Stack 管理员门户中的 "警报详细信息" 边栏选项卡](media/azure-stack-monitor-health/alert-detail.png)
+![Azure Stack 中心管理员门户中的 "警报详细信息" 边栏选项卡](media/azure-stack-monitor-health/alert-detail.png)
 
 ## <a name="repair-alerts"></a>修复警报
 
@@ -91,10 +91,10 @@ Azure Stack 引发仅具有两个严重性的警报：**警告**和**严重**。
 
 ![修复操作已成功完成](media/azure-stack-monitor-health/repair-completed.png)
 
-基础结构角色实例重新联机后，此警报将自动关闭。 许多（但不是每个警报）会在解决基础问题时自动关闭。 如果 Azure Stack 解决该问题，则 "提供修复操作" 按钮的警报将自动关闭。 对于所有其他警报，请在执行更正步骤后选择 "**关闭警报**"。 如果问题仍然存在，Azure Stack 会生成新的警报。 如果解决该问题，则该警报将保持关闭状态，并且不需要执行更多步骤。
+基础结构角色实例重新联机后，此警报将自动关闭。 许多（但不是每个警报）会在解决基础问题时自动关闭。 如果 Azure Stack 集线器解决该问题，则 "提供修复操作" 按钮的警报将自动关闭。 对于所有其他警报，请在执行更正步骤后选择 "**关闭警报**"。 如果问题仍然存在，Azure Stack 集线器会生成新的警报。 如果解决该问题，则该警报将保持关闭状态，并且不需要执行更多步骤。
 
 ## <a name="next-steps"></a>后续步骤
 
-[在 Azure Stack 中管理更新](azure-stack-updates.md)
+[管理 Azure Stack 集线器中的更新](azure-stack-updates.md)
 
-[Azure Stack 中的区域管理](azure-stack-region-management.md)
+[Azure Stack 中心的区域管理](azure-stack-region-management.md)

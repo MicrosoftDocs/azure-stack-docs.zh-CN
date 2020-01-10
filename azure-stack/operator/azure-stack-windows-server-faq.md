@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Windows Server 相关常见问题解答 |Microsoft Docs
-description: 适用于 Windows Server 的 Azure Stack Marketplace 常见问题解答列表
+title: Azure Stack 中心 Windows Server 相关常见问题解答 |Microsoft Docs
+description: 适用于 Windows Server 的 Azure Stack 集线器 Marketplace 常见问题解答列表
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 8110f48ef9e42ef2ee89b4766164b5005c7d51fa
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: 145aa748121aad65478902ca110d5bf0e5ee68c9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503600"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812614"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack marketplace 中的 Windows Server 常见问题
+# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Azure Stack 中心 marketplace 中的 Windows Server 应用常见问题
 
-本文解答了有关[Azure Stack marketplace](azure-stack-marketplace.md)中的 Windows Server 映像的一些常见问题解答。
+本文解答了有关[Azure Stack 中心 marketplace](azure-stack-marketplace.md)中的 Windows Server 映像的常见问题。
 
 ## <a name="marketplace-items"></a>Marketplace 项
 
@@ -34,16 +34,16 @@ ms.locfileid: "75503600"
 
 接下来，如果任何虚拟机规模集指的是特定版本，则应考虑是否将在以后对其进行缩放，并决定是否保留旧版本。 如果这两个条件都不适用，请在下载新映像之前删除 marketplace 中的旧映像。 使用 marketplace 管理将其删除（如果原始的下载方式）。 然后下载较新版本。
 
-### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Azure Stack 上的 Windows Server Marketplace 映像的授权选项有哪些？
+### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack-hub"></a>Azure Stack 集线器上的 Windows Server Marketplace 映像的授权选项有哪些？
 
-Microsoft 通过 Azure Stack marketplace 提供了两个版本的 Windows Server 映像。 在 Azure Stack 环境中只能使用此映像的一个版本。  
+Microsoft 通过 Azure Stack 中心市场提供了两个版本的 Windows Server 映像。 Azure Stack 中心环境中只能使用此映像的一个版本。  
 
 - 即**用即付**：这些图像运行完整的 Windows 计量标准。
    谁应使用：使用*消费计费模型*的企业协议（EA）客户;不希望使用 SPLA 授权的 Csp。
 - **自带许可（BYOL）** ：这些映像运行基本计量。
    谁应使用：具有 Windows Server 许可证的 EA 客户;使用 SPLA 授权的 Csp。
 
-Azure Stack 上不支持 Azure 混合使用权益（AHUB）。 通过 "容量" 模型进行许可的客户必须使用 BYOL 映像。 如果使用 Azure Stack 开发工具包（ASDK）进行测试，则可以使用这些选项中的任何一个。
+Azure Stack 集线器不支持 Azure 混合使用权益（AHUB）。 通过 "容量" 模型进行许可的客户必须使用 BYOL 映像。 如果使用 Azure Stack 开发工具包（ASDK）进行测试，则可以使用这些选项中的任何一个。
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>如果我下载了错误的版本以提供我的租户/用户，该怎么办？
 
@@ -89,10 +89,10 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 ## <a name="activation"></a>激活
 
-若要在 Azure Stack 上激活 Windows Server 虚拟机，必须满足以下条件：
+若要在 Azure Stack 集线器上激活 Windows Server 虚拟机，必须满足以下条件：
 
-- OEM 已在 Azure Stack 中的每个主机系统上设置相应的 BIOS 标记。
-- Windows Server 2012 R2 和 Windows Server 2016 必须使用[虚拟机自动激活](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))。 Azure Stack 上不支持密钥管理服务（KMS）和其他激活服务。
+- OEM 已在 Azure Stack 集线器中的每个主机系统上设置相应的 BIOS 标记。
+- Windows Server 2012 R2 和 Windows Server 2016 必须使用[虚拟机自动激活](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))。 Azure Stack 中心不支持密钥管理服务（KMS）和其他激活服务。
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>如何验证虚拟机是否已激活？
 
@@ -134,5 +134,5 @@ Windows Server 的早期版本不支持[虚拟机自动激活](/previous-version
 
 有关详细信息，请参阅以下文章：
 
-- [Azure Stack Marketplace 概述](azure-stack-marketplace.md)
-- [将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)
+- [Azure Stack 中心市场概述](azure-stack-marketplace.md)
+- [将 marketplace 项从 Azure 下载到 Azure Stack 中心](azure-stack-download-azure-marketplace-item.md)

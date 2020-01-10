@@ -1,6 +1,6 @@
 ---
-title: 备份 Azure Stack | Microsoft Docs
-description: 了解如何在 Azure Stack 上执行按需备份。
+title: Azure Stack 中心备份 |Microsoft Docs
+description: 了解如何在 Azure Stack 集线器上执行按需备份。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,30 +16,30 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 2e956d6fc9d646d33442eee21c74bea791babcb4
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974734"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816711"
 ---
-# <a name="back-up-azure-stack"></a>备份 Azure Stack
+# <a name="back-up-azure-stack-hub"></a>备份 Azure Stack 中心
 
-适用范围：*Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
-本文介绍如何在 Azure Stack 上执行按需备份。 有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack，请参阅[在 Azure Stack 中使用管理员门户](azure-stack-manage-portals.md)。
+本文介绍如何在 Azure Stack 中心进行按需备份。 有关配置 PowerShell 环境的说明，请参阅为[Azure Stack 集线器安装 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack 中心，请参阅[使用 Azure Stack 中心的管理员门户](azure-stack-manage-portals.md)。
 
-## <a name="start-azure-stack-backup"></a>启动 Azure Stack 备份
+## <a name="start-azure-stack-hub-backup"></a>开始 Azure Stack 中心备份
 
-### <a name="start-a-new-backup-without-job-progress-tracking"></a>启动新备份，而不进行作业进度跟踪
-使用 Start-AzSBackup 立即启动新备份，而不进行作业进度跟踪。
+### <a name="start-a-new-backup-without-job-progress-tracking"></a>在不使用作业进度跟踪的情况下启动新备份
+使用 Start-azsbackup 可立即启动新备份，无作业进度跟踪。
 
 ```powershell
    Start-AzsBackup -Force
 ```
 
-### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>启动 Azure Stack 备份，并进行作业进度跟踪
-使用带 **-AsJob** 参数的 Start-AzSBackup 启动新备份，并将其另存为变量以跟踪备份作业进度。
+### <a name="start-azure-stack-hub-backup-with-job-progress-tracking"></a>通过作业进度跟踪开始 Azure Stack 中心备份
+使用 Start-azsbackup 启动具有 **-AsJob**参数的新备份，并将其另存为变量以跟踪备份作业进度。
 
 > [!NOTE]
 > 备份作业在门户中显示为已成功完成，大约在该作业完成之前10-15 分钟。
@@ -47,7 +47,7 @@ ms.locfileid: "70974734"
 > 通过以下代码，可更好地观察实际状态。
 
 > [!IMPORTANT]
-> 最初引入了 1 毫秒延迟是因为代码执行太快，无法正确注册作业，它返回时不带 **PSBeginTime**，从而不带作业的**状态**。
+> 之所以引入初始1毫秒的延迟，是因为代码太快，无法正确地注册作业，并且它会在无**PSBeginTime**的情况后返回，而不是作业的**状态**。
 
 ```powershell
     $BackupJob = Start-AzsBackup -Force -AsJob
@@ -112,13 +112,13 @@ ms.locfileid: "70974734"
 ```
 
 ### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>在管理员门户中确认已完成备份
-按照以下步骤，使用 Azure Stack 管理员门户来验证备份是否已成功完成：
+按照以下步骤，使用 Azure Stack 中心管理员门户验证备份是否已成功完成：
 
-1. 打开[Azure Stack 管理员门户](azure-stack-manage-portals.md)。
-2. 选择“所有服务”，然后在“管理”类别下选择“基础结构备份”。 在“基础结构备份”边栏选项卡中选择“配置”。
-3. 在“可用备份”列表中查找备份的**名称**和**完成日期**。
-4. 验证**状态**是否为“成功”。
+1. 打开[Azure Stack 中心管理员门户](azure-stack-manage-portals.md)。
+2. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 ">**基础结构备份**"。 在 "**基础结构备份**" 边栏选项卡中选择 "**配置**"。
+3. 在 "**可用备份**" 列表中查找备份的 "**名称**" 和 "**完成日期**"。
+4. 验证**状态**是否为 "**成功**"。
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解[从数据丢失事件恢复](azure-stack-backup-recover-data.md)的工作流程。
+详细了解用于[从数据丢失事件中恢复](azure-stack-backup-recover-data.md)的工作流。
