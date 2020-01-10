@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 134171c85f91801f83965d376f79d09f6e8e3ac8
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 82f933babd0be4c001bd3001a631a4345bd0e488
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638724"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718056"
 ---
 # <a name="hybrid-patterns-and-solution-examples-for-azure-and-azure-stack"></a>适用于 Azure 和 Azure Stack 的混合模式和解决方案示例
 
@@ -25,7 +25,7 @@ Azure Stack 通过启用*混合云*，将云计算的灵活性带入本地环境
 
 - 在 Azure 和本地环境中一致地重复使用代码和运行云本机应用。
 - 通过可选的 Azure 服务连接运行传统的虚拟化工作负荷。
-- 将数据传输到云，或将其保留在主权的数据中心以保持合规性。
+- 将数据传输到云，或将数据保留在主权数据中心以保持符合性。
 - 在智能边缘运行硬件加速的计算机学习、容器化或虚拟化工作负荷。
 
 跨云的应用程序也称为*混合应用程序*。 可以在 Azure 中构建混合云应用，并将其部署到位于任何位置的连接或断开连接的数据中心。

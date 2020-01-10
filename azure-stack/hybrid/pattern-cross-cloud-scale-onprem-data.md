@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 75a72deac409013b3fcd77693c3a7ceb2d2497cc
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: fbf25d49539ebe244b44681ca3207badf744b99b
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638680"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718277"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>跨云缩放（本地数据）模式
 
@@ -35,7 +35,7 @@ ms.locfileid: "73638680"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | 描述 |
+| 层 | 组件 | Description |
 |----------|-----------|-------------|
 | Azure | Azure App Service | [Azure App Service](/azure/app-service/)允许你构建和托管 web 应用、RESTful API 应用和 Azure Functions。 采用所选编程语言，无需管理基础结构。 |
 | | Azure 虚拟网络| [Azure 虚拟网络（VNet）](/azure/virtual-network/virtual-networks-overview)是 azure 中专用网络的基本构建基块。 VNet 使多个 Azure 资源类型（例如虚拟机（VM））能够安全地相互通信、internet 和本地网络。 此解决方案还演示了如何使用其他网络组件：<br>-应用程序和网关子网<br>-本地网络网关<br>-作为站点到站点 VPN 网关连接的虚拟网络网关<br>-一个公共 IP 地址<br>-点到站点 VPN 连接<br>-用于托管 DNS 域和提供名称解析的 Azure DNS |
@@ -43,10 +43,10 @@ ms.locfileid: "73638680"
 | | Azure Application Insights | [Application Insights](/azure/azure-monitor/app/app-insights-overview)是一种可扩展的应用程序性能管理服务，适用于在多个平台上构建和管理应用程序的 web 开发人员。|
 | | Azure Functions | [Azure Functions](/azure/azure-functions/)允许在无服务器环境中执行代码，无需先创建 VM 或发布 web 应用程序。 |
 | | Azure 自动缩放 | [自动缩放](/azure/azure-monitor/platform/autoscale-overview)是云服务、虚拟机和 Web 应用的内置功能。 此功能允许应用程序在需求更改时执行其最佳性能。 应用将调整流量峰值，在指标发生变化时通知你，并根据需要进行缩放。 |
-| Azure Stack 中心 | IaaS 计算 | Azure Stack 集线器允许使用由 Azure 启用的应用程序模型、自助服务门户和 Api。 Azure Stack 集线器 IaaS 允许使用多种开源技术实现一致的混合云部署。 例如，解决方案示例使用 Windows Server VM 来 SQL Server。|
+| Azure Stack Hub | IaaS 计算 | Azure Stack 集线器允许使用由 Azure 启用的应用程序模型、自助服务门户和 Api。 Azure Stack 集线器 IaaS 允许使用多种开源技术实现一致的混合云部署。 例如，解决方案示例使用 Windows Server VM 来 SQL Server。|
 | | Azure App Service | 与 Azure web 应用一样，该解决方案使用[Azure Stack 中心的 Azure App Service](/azure-stack/operator/azure-stack-app-service-overview)来托管 web 应用。 |
-| | 网络 | Azure Stack 中心虚拟网络的工作方式与 Azure 虚拟网络完全相同。 它使用许多相同的网络组件，包括自定义主机名。 
-| Azure DevOps Services | 注册 | 快速为生成、测试和部署设置持续集成。 有关详细信息，请参阅[注册和登录到 Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)。 |
+| | 联网 | Azure Stack 中心虚拟网络的工作方式与 Azure 虚拟网络完全相同。 它使用许多相同的网络组件，包括自定义主机名。 
+| Azure DevOps Services | 注册 | 快速设置持续集成生成、 测试和部署。 有关详细信息，请参阅[注册和登录到 Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)。 |
 | | Azure Pipelines | 使用[Azure Pipelines](/azure/devops/pipelines/agents/agents?view=azure-devops)进行持续集成/持续交付。 Azure Pipelines 允许管理托管的生成和发布代理和定义。 |
 | | 代码存储库 | 利用多个代码存储库简化开发管道。 使用 GitHub 中的现有代码存储库、Bitbucket、Dropbox、OneDrive 和 Azure Repos。 |
 
@@ -97,7 +97,7 @@ Microsoft 在一个统一的解决方案中提供了与 Azure Stack 中心和 Az
 
 Azure Stack 集线器适用于 Azure Active Directory 和 Active Directory 联合身份验证服务（ADFS）。 Azure Stack 集线器适用于连接的方案中的 Azure Active Directory。 对于没有连接的环境，可以使用 ADFS 作为断开连接的解决方案。 服务主体用于授予对应用程序的访问权限，允许他们通过 Azure 资源管理器部署或配置资源。 
 
-### <a name="security"></a>“安全”
+### <a name="security"></a>安全性
 
 **确保符合性和数据主权**
 

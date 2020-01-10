@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1afb19c1ff7c32bbc15e40ce4fbe898be01ca0e
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 46044559e400e77098bdae038c87df88f1866127
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638603"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717988"
 ---
 # <a name="geo-distributed-pattern"></a>地理分布模式
 
@@ -34,7 +34,7 @@ Azure Stack 中心地理流量路由模式或异地分布式应用程序允许�
 **流量管理器**  
 在此图中，流量管理器位于公有云外部，但需要能够协调本地数据中心和公有云中的流量。 均衡器将流量路由到地理位置。
 
-**域名系统（DNS）**  
+**域名系统 (DNS)**  
 域名系统或 DNS 负责将网站或服务名称转换（或解析）为它的 IP 地址。
 
 ### <a name="public-cloud"></a>公有云

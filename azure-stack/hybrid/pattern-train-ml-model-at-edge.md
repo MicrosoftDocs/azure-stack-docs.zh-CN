@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f845aee01e4c87bc877eb77fb793b32472f9f222
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3f16b543751ac4bee94cc05045c03de7230f9a3c
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639252"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717971"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>在边缘模式训练机器学习（ML）模型
 
@@ -21,7 +21,7 @@ ms.locfileid: "73639252"
 
 ## <a name="context-and-problem"></a>上下文和问题
 
-很多组织想要使用数据科学家理解的工具从其本地数据或旧数据中解除见解。 [Azure 机器学习服务](/azure/machine-learning/)提供了用于训练、调整和部署 ML 和深度学习模型的云本机工具。  
+很多组织想要使用数据科学家理解的工具从其本地数据或旧数据中解除见解。 [Azure 机器学习](/azure/machine-learning/)提供了用于训练、调整和部署 ML 和深度学习模型的云本机工具。  
 
 但是，某些数据太大，无法发送到云，或者出于法规原因无法发送到云。 使用此模式，数据科学家可以使用 Azure 机器学习来使用本地数据和计算来定型模型。 
 
@@ -44,13 +44,13 @@ ms.locfileid: "73639252"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | 说明 |
+| 层 | 组件 | Description |
 |----------|-----------|-------------|
 | Azure | Azure 机器学习 | [Azure 机器学习](/azure/machine-learning/)协调 ML 模型的培训。 |
 | | Azure 容器注册表 | Azure ML 将模型打包到容器中，并将其存储在[Azure 容器注册表](/azure/container-registry/)中进行部署。|
 | Azure Stack Hub | 应用服务 | [应用服务 Azure Stack 集线器](/azure-stack/operator/azure-stack-app-service-overview)为边缘提供组件的基础。 |
 | | 计算 | 使用 Docker 运行 Ubuntu 的 Azure Stack 集线器 VM 用于训练 ML 模型。 |
-| | 存储 | 可以在 Azure Stack Hub blob 存储中承载私有数据。 |
+| | 存储空间 | 可以在 Azure Stack Hub blob 存储中承载私有数据。 |
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
 
@@ -68,7 +68,7 @@ ms.locfileid: "73639252"
 
 确保模型和试验经过适当的注册、版本控制和标记，以避免在模型部署过程中出现混乱。 
 
-### <a name="security"></a>“安全”
+### <a name="security"></a>安全性
 
 此模式允许 Azure ML 访问本地可能的敏感数据。 确保用于通过 SSH 连接到 Azure Stack 中心 VM 的帐户具有强密码，而训练脚本不会将数据保留或上传到云。 
 

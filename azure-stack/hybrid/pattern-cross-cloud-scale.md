@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ddc8218aadbf3940ea18ce80012441c5e43c7472
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3bd29e8625fac818d05954720d84d572b684c92e
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638801"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718005"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>跨云缩放模式
 
@@ -44,7 +44,7 @@ ms.locfileid: "73638801"
 
 在该图中，它位于公有云组的外部，但需要能够协调本地数据中心和公有云中的流量。 均衡器通过监视终结点并在需要时提供故障转移，为应用程序提供高可用性。
 
-**域名系统（DNS）**  
+**域名系统 (DNS)**  
 
 域名系统或 DNS 负责将网站或服务名称转换（或解析）为它的 IP 地址。
 
