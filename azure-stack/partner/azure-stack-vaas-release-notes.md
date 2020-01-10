@@ -14,12 +14,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: eb676d914a345c5fe36e063ee08ea226cd1e3209
+ms.sourcegitcommit: 1cb84d8417367b553194614d53a477a94a8e9be9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954462"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75755172"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>验证即服务的发行说明
 
@@ -28,6 +28,17 @@ ms.locfileid: "74954462"
 本文提供 Azure Stack 验证作为服务的发行说明。
 
 ## <a name="version-4421"></a>版本4.4.2。1
+
+2020年1月9日
+
+- 测试内容更新
+  - OEM 验证工作流（版本 5.1.52.0-> 5.1.53.0）：减少了 "测试计划" 窗格中所需参数的数目。 
+  - 用于计算测试的 bug 修复-TestVMOperations
+    
+- 已知问题
+  - 如果下面的测试用例无法在 OEM 验证工作流过程中运行，请联系 vaashelp@microsoft.com：
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
 
 2019 12 月3日
 
