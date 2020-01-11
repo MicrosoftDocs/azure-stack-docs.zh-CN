@@ -15,16 +15,14 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: f12cf32a3269a850b7dacda5ed97e0a4c886828b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9bb66da69f76cd7cc1c64eb7ac3894ebd1d71c9d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818598"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878588"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>为 Azure Stack 集线器创建 VPN 网关
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 必须先为虚拟网络创建虚拟网络（VPN）网关，然后才能在 Azure 虚拟网络与本地站点之间发送网络流量。
 

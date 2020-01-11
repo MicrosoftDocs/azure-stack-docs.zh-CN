@@ -14,16 +14,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 4dec7bfe4ee19f1762311fb40eee9a43626d6cfd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: fd6dd68773fdfbb595ae5281f57651d068018ce8
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815708"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878520"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>使用 Azure Stack 集线器用户门户
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 使用 Azure Stack 中心门户订阅公共产品/服务，并使用这些产品提供的服务。 如果已使用 global Azure 门户，则已熟悉网站的工作原理。
 
