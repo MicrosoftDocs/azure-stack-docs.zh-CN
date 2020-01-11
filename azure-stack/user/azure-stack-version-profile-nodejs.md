@@ -14,16 +14,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 64628dbd3369a59917f6aaa81130068ea169bac8
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e6e65ebf39ae08b56f02fca437369f4861613ade
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815657"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878299"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 node.js 软件开发工具包（SDK）使用 API 版本配置文件
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 ## <a name="nodejs-and-api-version-profiles"></a>Node.js 和 API 版本配置文件
 

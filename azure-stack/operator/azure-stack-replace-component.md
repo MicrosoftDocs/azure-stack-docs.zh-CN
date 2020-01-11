@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 819f25af457cd48a9342852e189908073df7af8f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 17155ab45678158fc669a77d63074748c867e7f3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808424"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882005"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>替换 Azure Stack 集线器缩放单位节点上的硬件组件
-
-*适用于： Azure Stack 集线器集成系统*
 
 本文介绍替换非热插拔硬件组件的一般过程。 实际替换步骤因原始设备制造商（OEM）硬件供应商而异。 请参阅供应商的现场可更换部件（FRU）文档，以了解特定于 Azure Stack 集线器集成系统的详细步骤。
 

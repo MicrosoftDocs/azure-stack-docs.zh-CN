@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 11da2f86bcfce1473e5fabe3712281fa3e9e68b2
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: c18e510d32773905b59cd756ed49daf59a0d03e9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639175"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881852"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>创建地理分布式应用解决方案，以将流量定向到 Azure 和 Azure Stack 中心
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包*
 
 了解如何使用地理分布式应用模式根据各种指标将流量定向到特定终结点。 使用基于地理的路由和终结点配置创建流量管理器配置文件，可确保将信息路由到基于区域要求、公司和国际法规和数据需求的终结点。
 
@@ -64,7 +62,7 @@ ms.locfileid: "73639175"
 -   **应用的命名约定：** 由于将部署应用的多个实例，因此已部署应用的每个实例都需要一个名称。 使用应用服务环境时，可以在多个环境中使用相同的应用名称。 由于每个应用服务环境都有一个唯一的域后缀，因此开发人员可以选择在每个环境中重复使用完全相同的应用名称。 例如，开发人员可能具有名为的应用程序，如下所示： *myapp.foo1.p.azurewebsites.net*、 *myapp.foo2.p.azurewebsites.net*、 *myapp.foo3.p.azurewebsites.net*等。 对于此处使用的应用程序，每个应用程序实例都具有唯一的名称。 所用的应用实例名称是 *webfrontend1*、*webfrontend2* 和 *webfrontend3*。
 
 > [!Tip]  
-> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
@@ -236,7 +234,7 @@ Azure DevOps Services 为发布到多个环境（例如开发、过渡、QA 和�
 
 ## <a name="part-2-update-web-app-options"></a>第2部分：更新 web 应用选项
 
-[Azure 应用服务](https://docs.microsoft.com/azure/app-service/overview)提供高度可缩放、自修补的 Web 托管服务。 
+[Azure 应用服务](https://docs.microsoft.com/azure/app-service/overview)提供高度可缩放、自修复的 Web 托管服务。 
 
 ![Azure App Service](media/solution-deployment-guide-geo-distributed/image27.png)
 
@@ -319,13 +317,13 @@ Azure DevOps Services 为发布到多个环境（例如开发、过渡、QA 和�
 
 8. 如果指示，将其他类型（`A` 或 `TXT`）的其他记录添加到域名注册机构 DNS 记录。 Azure 将提供这些记录的值和类型：
 
-   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。  要映射到应用 IP 地址的 A 记录。
+   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  要映射到应用 IP 地址的 A 记录。
 
-   b.  要映射到应用的默认主机名的**TXT**记录 < app_name >. appname>.azurewebsites.net。 应用服务仅在配置时使用此记录来验证自定义域所有权。 验证后，删除 TXT 记录。
+   b.保留“数据库类型”设置，即设置为“共享”。  要映射到应用的默认主机名的**TXT**记录 < app_name > appname>.azurewebsites.net。 应用服务仅在配置时使用此记录来验证自定义域所有权。 验证后，删除 TXT 记录。
 
 9. 在 "域注册器" 选项卡中完成此任务，然后重新验证，直到激活 "**添加主机名**" 按钮。
 
-10. 请确保 "**主机名记录类型**" 设置为 " **CNAME** （www.example.com 或任何子域）"。
+10. 请确保 "**主机名记录类型**" 设置为 " **CNAME** （ www.example.com 或任何子域）"。
 
 11. 选择“添加主机名”。
 
@@ -540,7 +538,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 操作完成后，导航到指向应用的任何 HTTP Url。 例如：
 
--   https：//< app_name >. appname>.azurewebsites.net
+-   https://<app_name>.azurewebsites.net
 -   https://northwindcloud.com
 -   <https://www.northwindcloud.com>
 
@@ -570,7 +568,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
     5.  在**资源组位置**中，选择资源组的位置。 此设置指的是资源组的位置，对全局部署的流量管理器配置文件没有影响。
 
-    6.  选择**创建**。
+    6.  选择“创建”。
 
     7.  流量管理器配置文件的全局部署完成后，它会在相应的资源组中作为资源之一列出。
 

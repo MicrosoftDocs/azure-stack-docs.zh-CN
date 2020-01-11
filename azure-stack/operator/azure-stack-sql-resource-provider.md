@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: cc8a5e11c6cc4b01b76b9a8fd94f97227ae8388c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 58aa2bc05625c031fe78c3b4e5aeeec8d6001c8a
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814348"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881767"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>使用 Azure Stack 集线器上的 SQL 数据库
 
@@ -49,7 +49,7 @@ ms.locfileid: "75814348"
 必须创建至少一个 SQL Server 实例，或提供对外部 SQL Server 实例的访问权限。
 
 > [!NOTE]
-> 必须通过租户订阅创建安装在 Azure Stack 集线器集成系统上的宿主服务器。 不能通过默认提供程序订阅来创建它们。 必须通过租户门户或使用具有相应登录的 PowerShell 来创建它们。 所有宿主服务器都是可计费的 Vm，并且必须具有许可证。 服务管理员可以是租户订阅的所有者。
+> 必须通过租户订阅创建安装在 Azure Stack 集线器集成系统上的宿主服务器。 不能通过默认提供程序订阅来创建它们。 必须使用用户门户或使用 PowerShell 通过适当的登录来创建它们。 所有宿主服务器都是可计费的 Vm，并且必须具有许可证。 服务管理员可以是租户订阅的所有者。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -16,16 +16,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e7436c6a96dfbe5bdfd392b915d0206bf969130e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5ae8a125521689a1e07e1207e03df4d981b74704
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814297"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881801"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
-
-*适用于： Azure Stack 集线器集成系统。*
 
 Azure Stack 中心更新到新版本时，可能会发布新的 SQL 资源提供程序。 尽管现有的资源提供程序会继续工作，但建议尽快更新到最新版本。
 
@@ -71,7 +69,7 @@ Azure Stack 中心更新到新版本时，可能会发布新的 SQL 资源提供
 > [!NOTE]
 > 此更新过程仅适用于 Azure Stack 集线器集成系统。
 
-如果要将 SQL 资源提供程序版本更新为1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm 和 Azure Stack 集线器模块。 如果要更新到 SQL 资源提供程序版本1.1.47.0，可以跳过此步骤。
+如果要将 SQL 资源提供程序版本更新为1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm 和 Azure Stack 集线器模块。 如果要更新到 SQL 资源提供程序版本1.1.47.0，部署脚本将自动下载并安装所需的 PowerShell 模块，使你能够通过路径 C:\Program Files\SqlMySqlPsh。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
@@ -80,6 +78,9 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
+
+> [!NOTE]
+> 在断开连接的情况下，需要下载所需的 PowerShell 模块，并手动注册存储库。 可以在[部署 SQL 资源提供程序](azure-stack-sql-resource-provider-deploy.md)中获取详细信息
 
 下面是使用*updatesqlprovider.ps1*脚本的示例，你可以从提升的 PowerShell 控制台中运行该脚本。 请确保根据需要更改变量信息和密码：  
 
@@ -112,6 +113,11 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
+
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
 . $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
@@ -123,6 +129,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert
 
  ```
+
+资源提供程序更新脚本完成后，关闭当前 PowerShell 会话。
 
 ## <a name="next-steps"></a>后续步骤
 

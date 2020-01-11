@@ -15,16 +15,14 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: ecf6ab783beccd40a642733a586ada8411182e14
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8e5521755bdfc7a85c876c3b8df3e2a0acad9901
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820706"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883688"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用 Powershell 部署模板
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用 PowerShell 将 Azure 资源管理器模板部署到 Azure Stack 中心。 本文介绍如何使用 PowerShell 部署模板。
 

@@ -16,16 +16,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 801520c33459203856daffc60080182d7aaf1178
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 98fb42ba785469482a34a40867b4060769cfd24b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814875"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881937"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>将 Kubernetes 添加到 Azure Stack 中心市场
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 > [!note]  
 > 仅使用 Kubernetes Azure Stack 中心市场项将群集部署为概念证明。 对于 Azure Stack 集线器上支持的 Kubernetes 群集，请使用[AKS 引擎](azure-stack-aks-engine.md)。

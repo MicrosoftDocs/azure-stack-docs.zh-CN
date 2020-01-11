@@ -17,16 +17,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b639f1511f5a633e60f9d37d974e4a8389582c76
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2aa7d6be221ad9c877290dc87d98ceec5483c6a9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816269"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883705"
 ---
 # <a name="deploy-templates-in-azure-stack-hub-using-visual-studio"></a>使用 Visual Studio 在 Azure Stack 中心部署模板
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用 Visual Studio 将 Azure 资源管理器模板部署到 Azure Stack 中心。
 

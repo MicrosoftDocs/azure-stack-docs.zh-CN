@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 80a9adc5aca5f3a2abc54009d40209e957f78a6f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8a2687a628180564cf7f71042fd50129da23c610
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819533"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883433"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>使用 PowerShell 以用户身份连接到 Azure Stack 集线器
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以通过 PowerShell 连接到 Azure Stack 集线器，以管理 Azure Stack 中心资源。 例如，你可以使用 PowerShell 订阅产品/服务、创建虚拟机（Vm）以及部署 Azure 资源管理器模板。
 

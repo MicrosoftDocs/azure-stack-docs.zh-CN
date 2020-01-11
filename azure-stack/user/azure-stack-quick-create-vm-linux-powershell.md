@@ -15,16 +15,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4d846734c609485532da4534231a7b94c0514f21
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 77075e5fa481773e2ed2a2e5fa31fb24774bb0ef
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816014"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878554"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack 集线器中使用 PowerShell 创建 Linux 服务器 VM
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 你可以使用 Azure Stack 中心 PowerShell 创建 Ubuntu Server 16.04 LTS 虚拟机（VM）。 本文介绍如何创建和使用虚拟机。 本文还介绍了如何执行以下操作：
 
@@ -44,7 +42,7 @@ ms.locfileid: "75816014"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是可在其中部署和管理 Azure Stack 中心资源的逻辑容器。 若要创建资源组，请从 Azure Stack 开发工具包（ASDK）或 Azure Stack 中心集成系统中，运行以下代码块： 
+资源组是可在其中部署和管理 Azure Stack 中心资源的逻辑容器。 若要创建资源组，请运行以下代码块： 
 
 > [!NOTE]
 > 我们为以下代码示例中的所有变量分配了值。 不过，您可以分配自己的值。

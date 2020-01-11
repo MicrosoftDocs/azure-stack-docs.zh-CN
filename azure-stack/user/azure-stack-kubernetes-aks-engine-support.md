@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 89563c8703ce987fa8621e6c971d8f658f582d50
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2fda9a71a06e22625778a66a2c553d83e17d8ec2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820094"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883586"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack 集线器上的 AKS 引擎的支持策略
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文提供了有关 Azure Stack 中心上的 AKS 引擎的技术支持策略和限制的详细信息。 本文还详细介绍了 Kubernetes Marketplace 项、第三方开源组件以及安全性或修补程序管理。 
 

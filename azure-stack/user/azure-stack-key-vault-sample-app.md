@@ -15,16 +15,14 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 17adeec31617bebfe9e1189af48d2c50cbf77802
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f73af34f3069b0fe550c8266253dce32efcb6b90
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820281"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883620"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>允许应用访问 Azure Stack 中心 Key Vault 机密
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 请按照本文中的步骤运行示例应用程序， **HelloKeyVault**从 Azure Stack 集线器中的密钥保管库检索密钥和机密。
 

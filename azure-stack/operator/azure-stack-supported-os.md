@@ -15,16 +15,14 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: a7cd59775d6ca8232eeb820dc6f84a96b5d9c62a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7550314d580dea04f9bf237c72cc4900094c6dc0
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814042"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881733"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack 集线器上支持的来宾操作系统
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 ## <a name="windows"></a>Windows
 

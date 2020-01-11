@@ -15,16 +15,14 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 219c573588a9557a607ef31a4389872f5b33b3c1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c19cf8a97fa92e0084a5b494fe79a7e45a519cad
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819125"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878384"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>部署 Kubernetes，将容器与 Azure Stack 中心配合使用
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
 > 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用 [AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。

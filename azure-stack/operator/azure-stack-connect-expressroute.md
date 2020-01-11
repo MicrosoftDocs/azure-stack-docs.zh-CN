@@ -14,16 +14,14 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 1e476f29909d3057deaf9331d11b780c1a887e6c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 014ff5a0b4791ac7b939ac3e61a79c89f531aa8d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804973"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75877551"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 中心连接到 Azure
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文介绍如何使用[Microsoft Azure ExpressRoute](/azure/expressroute/)的直接连接将 Azure Stack 集线器虚拟网络连接到 Azure 虚拟网络。
 
@@ -83,7 +81,7 @@ ms.locfileid: "75804973"
 
 开始配置 Azure Stack 集线器之前，需要：
 
-* Azure Stack 集线器集成系统部署或 Azure Stack 开发工具包（ASDK）部署。 有关部署 ASDK 的信息，请参阅[Azure Stack 开发工具包部署快速入门](../asdk/asdk-download.md)。
+* Azure Stack 中心部署。 
 * 用户可以订阅 Azure Stack 中心提供的产品/服务。 有关详细信息，请参阅 "[服务、计划、产品/服务、订阅概述](service-plan-offer-subscription-overview.md)"。
 
 ### <a name="create-network-resources-in-azure-stack-hub"></a>在 Azure Stack 集线器中创建网络资源

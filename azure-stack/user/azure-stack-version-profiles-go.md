@@ -14,16 +14,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 0ae8d2e9b91a06cdd88541f2b6922c66847e8593
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 543279763592fe482ea7e18c74a7e51ce8b92146
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815606"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878265"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>结合使用 API 版本配置文件 Azure Stack 中心
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 ## <a name="go-and-version-profiles"></a>中转和版本配置文件
 

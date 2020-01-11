@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 3c329217ae6b8331c2b74fb46d4082069b011429
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 280ecbe7c02d3eb9bdc14ba29cfb0b6642a7144c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820196"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883518"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>在 Azure Stack 集线器中的 Windows 上安装 AKS 引擎
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 你可以使用 Azure Stack 集线器中的 Windows 计算机来托管 AKS 引擎，以便部署和管理 Kubernetes 群集。 在本文中，我们将介绍如何准备客户端 VM 来管理群集，以实现连接和断开连接的 Azure Stack 中心实例，检查安装，并在 ASDK 上设置客户端 VM。
 

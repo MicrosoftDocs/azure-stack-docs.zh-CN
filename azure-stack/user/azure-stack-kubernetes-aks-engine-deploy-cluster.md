@@ -11,20 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: da1b38df17904042ade28575f1f919708d845252
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820247"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883554"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以通过运行 AKS 引擎的客户端 VM 在 Azure Stack 集线器上部署 Kubernetes 群集。 在本文中，我们将介绍如何编写群集规范，如何使用 `apimodel.json` 文件部署群集，以及如何通过使用 Helm 部署 MySQL 来检查群集。
 
@@ -98,7 +96,9 @@ ms.locfileid: "75820247"
     | 字段 | Description |
     | --- | --- |
     | adminUsername | 输入 VM 管理员用户名。 |
-    | ssh | 输入将用于通过 Vm 进行 SSH 身份验证的公钥。 |
+    | ssh | 输入将用于通过 Vm 进行 SSH 身份验证的公钥。 如果使用的是 Putty，请打开 PuTTY 密钥生成器以加载 Putty 私钥，并使用 ssh-rsa 开头的公钥，如以下示例中所示。 您可以使用创建 Linux 客户端时生成的密钥，但**需要复制公钥，使其成为单个行文本，如示例中所示**。|
+
+    ![PuTTY 密钥生成器](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
 
 ### <a name="more-information-about-the-api-model"></a>有关 API 模型的详细信息
 

@@ -11,12 +11,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 19d8410c42c301ad05573ec27b815d5eee869843
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5ba68257b783a2cfde41df5f7a411224a691aa26
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813787"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881818"
 ---
 # <a name="offer-highly-available-mysql-databases"></a>提供高可用性的 MySQL 数据库
 
@@ -75,7 +75,7 @@ ms.locfileid: "75813787"
    - 要创建的 MySQL 数据库副本 Vm 的数量（默认值为2）
    - 选择要使用的订阅
    - 选择要使用的资源组，或者创建一个新资源组
-   - 选择位置（默认为 ASDK 的 local）
+   - 选择位置（默认为 ASDK `local`）
 
    [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Deployment basics")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 

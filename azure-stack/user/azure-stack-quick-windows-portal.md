@@ -11,16 +11,14 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bd90937d310b07c0d16497a3e00917f05b6ff0d1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 53e33ed9da57209c1f937cbf72eb2c3882dfd1cd
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815878"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878571"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack 中心门户创建 Windows server VM
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 了解如何使用 Azure Stack 中心门户创建 Windows Server 2016 虚拟机（VM）。
 

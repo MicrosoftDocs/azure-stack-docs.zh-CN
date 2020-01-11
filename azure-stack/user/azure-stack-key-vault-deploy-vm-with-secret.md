@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bc0467113ffc1446d4f1bd72f831e050491ae48f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 01bee6f4f82938c078e22d0587b3f34c2e9f76c7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820383"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883654"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>使用存储在 Key Vault 中的密码部署 Azure Stack 中心 VM
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文逐步介绍如何使用 Azure Stack 中心 Key Vault 中存储的密码部署 Windows Server 虚拟机（VM）。 使用密钥保管库密码比传递纯文本密码更安全。
 

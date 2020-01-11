@@ -15,16 +15,14 @@ ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: eda17ea2c33e826df303870a3ae6c25e7b017226
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 66147be9158726ab9ba01d011ba0fa2fd8f141bc
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819941"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883501"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>在 Azure Stack 集线器中创建虚拟机磁盘存储
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文介绍如何使用 Azure Stack 集线器门户或 PowerShell 创建虚拟机（VM）磁盘存储。
 

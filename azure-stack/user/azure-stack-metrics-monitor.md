@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 307f0db126048f53559f6f4e29681e650b27a375
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 066a179df94d9a61b89e5f6679968db7e4dea314
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819822"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883535"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack-hub"></a>如何从 Azure Stack 中心使用监视数据
-
-*适用于： Azure Stack 集线器集成系统*
 
 监视数据在具有 Azure Monitor 管道的单个位置中，就像在全球 Azure 中 Azure Monitor 一样。 但并不是全球 Azure 中的所有监视数据都可以在 Azure Stack 集线器中使用。 本文提供了在 Azure Stack 集线器中使用监视数据的各种方式的摘要。
  

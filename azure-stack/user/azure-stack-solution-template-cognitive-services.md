@@ -15,16 +15,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b08f86a7cc239b2e39a4fd47ce5ac9d1aab8e355
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d9e98e4d6f8bd1ba2bc2450f91d510da9bfe7d36
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819244"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878435"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>将 Azure 认知服务部署到 Azure Stack 中心
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
 > Azure Stack 集线器上的 Azure 认知服务处于预览阶段。

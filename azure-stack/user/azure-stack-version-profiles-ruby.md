@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 47bf9b1fb54dbc120be42a97f3dc9d3140927cd9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d1109d2b0e8e8cffc1bf03c2e897c6c0230084c4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818683"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878334"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>在 Azure Stack 中心使用带有 Ruby 的 API 版本配置文件
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 ## <a name="ruby-and-api-version-profiles"></a>Ruby 和 API 版本配置文件
 

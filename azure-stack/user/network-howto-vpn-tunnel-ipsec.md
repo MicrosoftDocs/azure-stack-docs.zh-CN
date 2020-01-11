@@ -9,16 +9,14 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 35ad11479fc3697828e0013b849af7ffc2621819
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: a0716d4997a49c2146d64c23defdd6b2f36c0b95
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815334"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878452"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>如何在 Azure Stack 集线器中使用 IPSEC 创建 VPN 隧道
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 你可以使用此解决方案中的 Azure Stack 中心资源管理器模板来连接同一 Azure Stack 中心环境中的两个 Azure Stack 中心 Vnet。 不能使用内置虚拟网络网关[连接 Azure Stack 集线器 vnet](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) 。 目前，必须使用网络虚拟设备（NVA）来创建两个 Azure Stack 集线器 Vnet 之间的 VPN 隧道。 解决方案模板会部署两个 Windows Server 2016 Vm，并安装 RRAS。 解决方案将两个 RRAS 服务器配置为使用两个 Vnet 之间的 S2SVPN IKEv2 隧道。 创建相应的 NSG 和 UDR 规则，以允许在每个 VNET 上指定为**内部**子网的路由 
 
@@ -30,7 +28,7 @@ ms.locfileid: "75815334"
 
 ## <a name="requirements"></a>要求
 
-- 应用了最新更新的 ASDK 或 Azure Stack 集线器集成系统。 
+- 已应用最新更新而部署的系统。 
 - 必需 Azure Stack 中心市场项：
     -  Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter （建议使用最新版本）
     -  自定义脚本扩展

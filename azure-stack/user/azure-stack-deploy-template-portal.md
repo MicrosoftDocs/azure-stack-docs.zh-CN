@@ -16,16 +16,14 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: df7034f60d7e0e4999c4d658b72f47088cb70c3e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: a35029865c7b0559a2cc7c54d2d8ff34445b438c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816354"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883739"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>在 Azure Stack 中心使用门户部署模板
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用门户将 Azure 资源管理器模板部署到 Azure Stack 中心。
 

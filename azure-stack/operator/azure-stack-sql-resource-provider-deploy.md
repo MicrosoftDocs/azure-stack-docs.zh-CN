@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 4777f1e11264490a761dc80d2a8638b10614d522
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: a8978c5ceb9e54577ff2347671568122751f4715
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814501"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881835"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack 中心部署 SQL Server 资源提供程序
 
@@ -35,8 +35,6 @@ ms.locfileid: "75814501"
 部署 Azure Stack 中心 SQL 资源提供程序之前，需要准备好几个先决条件。 若要满足这些要求，请在可以访问特权终结点 VM 的计算机上完成以下步骤：
 
 - 如果尚未注册，请在 Azure 中[注册 Azure Stack 集线器](azure-stack-registration.md)，以便下载 azure Marketplace 项。
-
-- 在将运行此安装的系统上安装 Azure 和 Azure Stack 中心 PowerShell 模块。 该系统必须是使用最新版本的 .NET 运行时的 Windows 10 或 Windows Server 2016 映像。 请参阅[安装适用于 Azure Stack 集线器的 PowerShell](./azure-stack-powershell-install.md)。
 
 - 通过下载**Windows server 2016 Datacenter-Server core**映像，将所需的 windows SERVER core VM 添加到 Azure Stack 集线器 Marketplace。
 
@@ -61,6 +59,40 @@ ms.locfileid: "75814501"
     |资源提供程序的入站端口已打开。|[Azure Stack 中心数据中心集成-端口和协议入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
     |PKI 证书使用者和 SAN 设置正确。|[Azure Stack 中心部署必需的 PKI 必备项](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack 中心部署 PaaS 证书必备组件](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
+
+在断开连接的情况下，请完成以下步骤以下载所需的 PowerShell 模块并手动注册存储库。
+
+1. 登录到具有 internet 连接的计算机，然后使用以下脚本下载 PowerShell 模块。
+
+```powershell
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop
+
+# path to save the packages, c:\temp\azs1.6.0 as an example here
+$Path = "c:\temp\azs1.6.0"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
+
+2. 然后，将下载的包复制到 USB 设备。
+
+3. 登录到断开连接的工作站，并将设备上的包复制到工作站上的某个位置。
+
+4. 将此位置注册为本地存储库。
+
+```powershell
+# requires -Version 5
+# requires -RunAsAdministrator
+# requires -Module PowerShellGet
+# requires -Module PackageManagement
+
+$SourceLocation = "C:\temp\azs1.6.0"
+$RepoName = "azs1.6.0"
+
+Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+
+New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory"
+```
 
 ### <a name="certificates"></a>证书
 
@@ -107,7 +139,7 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 中心部署 pki �
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 SQL 资源提供程序
 
-如果要部署 SQL 资源提供程序版本1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm 和 Azure Stack 集线器模块。 如果要部署 SQL 资源提供程序版本1.1.47.0，可以跳过此步骤。
+如果要部署 SQL 资源提供程序版本1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm 和 Azure Stack 集线器模块。 如果要部署 SQL 资源提供程序版本1.1.47.0，部署脚本将自动下载并安装所需的 PowerShell 模块，使你能够 C:\Program Files\SqlMySqlPsh。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module
@@ -117,9 +149,10 @@ Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
-若要在部署资源提供程序时消除任何手动配置，可以自定义以下脚本。  
+> [!NOTE]
+> 在断开连接的情况下，需要下载所需的 PowerShell 模块，并手动注册存储库。
 
-根据 Azure Stack 中心部署的需要，更改默认的帐户信息和密码。
+若要在部署资源提供程序时消除任何手动配置，可以自定义以下脚本。 根据 Azure Stack 中心部署的需要，更改默认的帐户信息和密码。
 
 ```powershell
 # Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but could have been changed at install time.
@@ -150,6 +183,11 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 
+
 # Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
@@ -162,7 +200,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
  ```
 
-资源提供程序安装脚本完成后，请刷新浏览器以确保可以看到最新的更新。
+资源提供程序安装脚本完成后，请刷新浏览器，确保可以看到最新更新并关闭当前 PowerShell 会话。
 
 ## <a name="verify-the-deployment-using-the-azure-stack-hub-portal"></a>使用 Azure Stack 中心门户验证部署
 

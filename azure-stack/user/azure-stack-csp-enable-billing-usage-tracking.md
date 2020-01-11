@@ -15,16 +15,14 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: 54b258fdd91a7a288da22e5e5a8d853c6518d08a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 44d00381ea11ef6ac7e947c31adce41b3228d93d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816371"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883773"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>让云解决方案提供商管理 Azure Stack 中心订阅
-
-*适用于： Azure Stack 集线器集成系统*
 
 如果将 Azure Stack 中心与云解决方案提供商（CSP）结合使用，则可以选择管理自己的订阅，以访问 Azure 和 Azure Stack 中心的资源。 你还可以让提供商管理你的订阅。 本文介绍如何：
 

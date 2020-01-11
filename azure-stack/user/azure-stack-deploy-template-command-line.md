@@ -15,16 +15,14 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1f2c37339ce3fd61b582bd205e348f79378ffccd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f3d159823a9ec5db1309d4f4c0acaaa8272799f7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820757"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883756"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用命令行部署模板
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用 Azure 命令行接口（CLI）在 Azure Stack 中心部署 Azure 资源管理器模板。 Azure 资源管理器模板可通过单个协调的操作为应用部署和设置资源。
 

@@ -15,16 +15,14 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 7333d008345061601230a3fff0a11c2d5995f53f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 01c72ba8ead974613d42472e6e3b29b34ff2b9d2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818615"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878639"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack 中心 VM 功能
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 集线器虚拟机（Vm）提供按需的可缩放计算资源。 在部署 Vm 之前，应了解 Azure Stack 集线器和 Microsoft Azure 中可用的 VM 功能之间的差异。 本文介绍了这些差异并标识了规划 VM 部署的关键注意事项。 若要了解 Azure Stack 中心与 Azure 之间的高级差异，请参阅[关键注意事项](azure-stack-considerations.md)一文。
 

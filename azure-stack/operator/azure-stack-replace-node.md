@@ -16,16 +16,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1a64e0b8ea2774146bac410a38c6b8c09d8be741
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9e289420d10cace3c466c0b1ff18c4d84cf97800
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808356"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881971"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>替换 Azure Stack 集线器集成系统上的缩放单位节点
-
-*适用于： Azure Stack 集线器集成系统*
 
 本文介绍了在 Azure Stack 集线器集成系统上替换物理计算机（也称为缩放单位节点）的一般过程。 实际的缩放单位节点更换步骤将因原始设备制造商（OEM）硬件供应商而异。 请参阅供应商的现场可更换单元 (FRU) 文档来了解特定于你的系统的详细步骤。
 

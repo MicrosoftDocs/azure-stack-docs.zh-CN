@@ -15,16 +15,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: c8deaaca94270b5904f7d1f25d640086639373d9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9fff0249c2a1c43d7742236f64492173c501eeec
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813158"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881716"
 ---
 # <a name="manage-updates-in-azure-stack-hub-overview"></a>在 Azure Stack 中心管理更新概述
-
-*适用于： Azure Stack 集线器集成系统*
 
 从原始设备制造商（OEM）获取完整的和快速的更新、修补程序以及驱动程序和固件更新，这一切都有助于保持 Azure Stack 的最新状态。 本文介绍了不同类型的更新、何时需要发布，以及在何处可以找到有关当前版本的详细信息。
 

@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: ffd96cb9c99fcce60f4f90df3324c744da984caa
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 1d4b3a3dc094adaac0bc7cfc48d3a7aa54166dc6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810548"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882141"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack 集线器概述
 
@@ -49,8 +49,6 @@ Azure Stack 集线器构建在行业标准硬件上，并使用已用于管理 A
 利用 Azure Stack 集线器体系结构，你可以在边缘为远程位置或间歇连接提供 Azure 服务，与 internet 断开连接。 你可以创建混合解决方案，用于在 Azure Stack 中心本地处理数据，然后在 Azure 中将其聚合起来，以便进行额外的处理和分析。 最后，由于 Azure Stack 集线器是在本地安装的，因此你可以满足特定的法规或策略要求，并灵活地在本地部署云应用，而无需更改任何代码。
 
 ## <a name="deployment-options"></a>部署选项
-
-<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is Azure Stack Hub managed with role description, rbac, reporting, high availability take out.--->
 
 Azure Stack 集线器集成系统通过 Microsoft 和硬件合作伙伴的合作关系提供，创建了一个解决方案，提供了云进度的创新和计算管理简易性。 由于 Azure Stack 集线器作为集成的硬件和软件系统提供，因此您可以灵活地控制您的需求，并且能够从云创新。 
 

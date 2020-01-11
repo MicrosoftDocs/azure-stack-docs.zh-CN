@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: b1ca1d8f6f92cc3e90ed5972dd34bc42086fa7a1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: aedc2915f3e2be473b74766c4274197112ecf6fe
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819585"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878741"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>使用 Azure Stack 中心策略模块管理 Azure 策略
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 利用 Azure Stack Hub 策略模块，你可以配置与 Azure Stack 中心具有相同的版本和服务可用性的 Azure 订阅。 该模块使用[**New-azurermpolicydefinition**](/powershell/module/azurerm.resources/new-azurermpolicydefinition) PowerShell Cmdlet 创建 Azure 策略，该策略限制订阅中可用的资源类型和服务。 然后，使用[**new-azurermpolicyassignment**](/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet 在相应的范围内创建策略分配。 配置策略后，可以使用 Azure 订阅来开发面向 Azure Stack 中心的应用。
 

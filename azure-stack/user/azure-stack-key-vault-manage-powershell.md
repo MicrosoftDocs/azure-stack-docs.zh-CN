@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 4762cb77583d0a8e026528c47ffce6bc93c7b005
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 64ff69f87daa2451ab61fd2e950c5688903a955e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727592"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883671"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中心的 Key Vault
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文介绍如何使用 PowerShell 在 Azure Stack 中心创建和管理密钥保管库。 你将了解如何使用 Key Vault PowerShell cmdlet 来执行以下操作：
 

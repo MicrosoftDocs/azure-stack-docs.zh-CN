@@ -9,16 +9,14 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 21ee510182e5c2e8056f1d19373708df3ec9b273
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 292f210d8145bdac64e2f50f4c8ef85dc79d1a77
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816201"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883637"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>将存储扩展到 Azure Stack 集线器
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文提供 Azure Stack 中心存储基础结构信息，以帮助你决定如何将 Azure Stack 中心集成到现有网络环境中。 在提供扩展数据中心的一般讨论后，本文介绍了两种不同的方案。 可以连接到 Windows 文件存储服务器。 你还可以连接到 Windows iSCSI 服务器。
 

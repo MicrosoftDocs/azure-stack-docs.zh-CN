@@ -17,12 +17,12 @@ ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 58e7b4ab6904fa93374dadd6b8e4a55eb44789af
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d27dcc7314b89ed5d5a88eafac125cb72e33e170
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814841"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881920"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack 中心服务策略
 
@@ -60,8 +60,6 @@ Microsoft 期望每月发布一次软件更新包。 但是，在一个月中可
 - [Azure Stack 中心1906更新](/azure-stack/operator/release-notes?view=azs-1906)
 
 ## <a name="hotfixes"></a>修补程序
-
-*适用于： Azure Stack 集线器集成系统*
 
 偶尔，Microsoft 为 Azure Stack 中心提供修补程序，用于解决通常是预防或区分时间的特定问题。 每个修补程序都附带了相应的 Microsoft 知识库文章，其中详细介绍了问题、原因和解决方法。
 

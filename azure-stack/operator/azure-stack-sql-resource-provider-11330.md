@@ -17,16 +17,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 1920e699704c9c5343885b86a38b589ddc6e13a5
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2ef79d69c12a846e017f064463dc933b86dc8b72
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814637"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881886"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL 资源提供程序1.1.33.0 发行说明
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 这些发行说明介绍了 SQL 资源提供程序版本1.1.33.0 中的改进和已知问题。
 
@@ -39,7 +37,7 @@ ms.locfileid: "75814637"
 > |     |     |
 
 > [!IMPORTANT]
-> 在部署最新版本的 SQL 资源提供程序之前，将支持的最低 Azure Stack 中心更新应用到 Azure Stack 中心集成系统或部署最新 Azure Stack 开发工具包（ASDK）。
+> 部署最新版本的 SQL 资源提供程序之前，请将支持的最低 Azure Stack 中心更新应用到 Azure Stack 中心集成系统。
 
 ## <a name="new-features-and-fixes"></a>新增功能和修补程序
 此版本的 Azure Stack 中心 SQL 资源提供程序包括以下改进和修补程序：

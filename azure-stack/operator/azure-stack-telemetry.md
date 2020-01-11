@@ -16,16 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0767c1bf9a24dc22ed68e786872b69f47bd5497f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 167a230a8e098e0ea4087050a9a5bd36ceae3078
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813940"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882651"
 ---
 # <a name="azure-stack-hub-telemetry"></a>Azure Stack 集线器遥测
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 集线器遥测会自动通过连接的用户体验将系统数据上传到 Microsoft。 Microsoft 团队使用 Azure Stack 集线器遥测收集的数据来改善客户体验。 此数据也用于安全、运行状况、质量和性能分析。
 

@@ -15,16 +15,14 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: c04b0191ec876d22af0115d1fff0acdd3a188992
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 52b94a95c525ac4a327282380c241229e8bd7117
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819278"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878469"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>使用 Azure Active Directory 将 Kubernetes 部署到 Azure Stack 中心
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
 > 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用 [AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。

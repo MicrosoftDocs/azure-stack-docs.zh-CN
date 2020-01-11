@@ -11,16 +11,14 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 854c249ff6ef5d44f6e8b3451f50b90b296ae997
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 49266e22652b73c9af8ff2e3c08a0604f43760af
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816082"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883484"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack 集线器网络的差异和注意事项
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 集线器网络具有 Azure 网络提供的许多功能。 但是，在部署 Azure Stack 集线器网络之前，你应该了解一些重要的差异。
 

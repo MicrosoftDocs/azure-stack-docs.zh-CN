@@ -17,23 +17,21 @@ ms.date: 12/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 6fdf88d24c36e8782b880d4ddea43dee96516034
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ca16ffe2f3a72cbdd9a3cc22ee9b5f3acdf2c119
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808492"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881988"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>替换 Azure Stack 集线器中的物理磁盘
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文介绍替换 Azure Stack 集线器中的物理磁盘的一般过程。 如果物理磁盘发生故障，应尽快更换。
 
 > [!Note]  
 > 替换物理数据驱动器**不**需要将缩放单位节点提前置于维护模式（排出）范围中。 此外，在物理驱动器被替换后，不需要使用 Azure Stack 中心管理员门户来修复缩放单位节点。 以下文章提供了在需要修复时[替换 Azure Stack 集线器缩放单位节点上的硬件组件](azure-stack-replace-component.md)的详细信息。
 
-可以将此过程用于集成系统，并适用于具有热插拔磁盘的 Azure Stack 开发工具包（ASDK）部署。
+可以将此过程用于具有热插拔磁盘的部署。
 
 实际的磁盘更换步骤因原始设备制造商 (OEM) 硬件供应商而异。 请参阅供应商的现场可更换单元 (FRU) 文档来了解特定于你的系统的详细步骤。
 

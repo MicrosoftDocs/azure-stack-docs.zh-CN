@@ -16,16 +16,14 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 21d9149de4ebe467ecffa6c00d3b6386cb69eb24
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ec22eea76e2ab0188c1c7a57ef58b4625dec2fcf
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818666"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878486"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 API 版本配置文件与 .NET 配合使用
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 .NET SDK for the Azure Stack 中心资源管理器提供有助于构建和管理基础结构的工具。 SDK 中的资源提供程序包括计算、网络、存储、应用服务和[Key Vault](/azure/key-vault/key-vault-whatis)。 .NET SDK 包括14个 NuGet 包。 每次编译项目时，都必须将这些包下载到你的解决方案中。 不过，你可以专门下载用于**2019-03-01 混合**版或**2018-03-01 混合**版的资源提供程序，以便为你的应用程序优化内存。 每个包都包含资源提供程序、相应的 API 版本以及所属 API 配置文件。 .NET SDK 中的 API 配置文件可帮助你在 Azure Stack 集线器上的全局 Azure 资源和资源之间切换，从而实现了混合云开发。
 
