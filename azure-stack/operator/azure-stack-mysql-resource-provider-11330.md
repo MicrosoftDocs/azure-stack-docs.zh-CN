@@ -16,16 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 8317aad40de699737ffb494465752decd0e1e7d4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4067068090a4ae243b40af4f382a80c8bfc14455
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816864"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882226"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL 资源提供程序1.1.33.0 发行说明
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 这些发行说明介绍了 MySQL 资源提供程序版本1.1.33.0 中的改进和已知问题。
 

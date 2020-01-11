@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 1071bd3a1bda2b5a50f5ba963ff8927cf92734e5
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c783771d730010e459b444b537175f683f188bb7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820162"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883841"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Azure Stack 集线器上的 AKS 引擎是什么？
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用 AKS 引擎命令行工具来部署和管理 Azure 和 Azure Stack 集线器上的 Kubernetes 群集。 使用 AKS 引擎创建、升级和缩放 Azure 资源管理器本地群集。 可以使用引擎在连接和断开连接的环境中部署群集。 本文概述了 AKS 引擎，并提供了有关将引擎与 Azure Stack 中心配合使用的支持方案，以及部署、升级和缩放等操作的简介。
 

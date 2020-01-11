@@ -9,16 +9,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: a8cb3ad8e45f6effc593b8c5b2cc9e59dd176f5f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5616284e7632f89ba31c89febb5a26158ad81bd7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819686"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879031"
 ---
 # <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>如何通过 Azure Stack 中心连接到 iSCSI 存储
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 你可以使用本文中的模板将 Azure Stack 中心虚拟机（VM）连接到本地 iSCSI 目标，将 VM 设置为使用托管在我们的 Azure Stack 中心以外的其他位置，并将其存储在数据中心中的其他位置。 本文介绍如何使用 Windows 计算机作为 iSCSI 目标。
 

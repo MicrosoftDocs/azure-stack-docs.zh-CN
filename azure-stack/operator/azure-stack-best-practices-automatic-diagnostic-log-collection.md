@@ -16,17 +16,14 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: d541605472c2c5dda41ec7c54b7ebdff2223cc25
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7baa7440fec1c29ee43c5d3f80282bd6a58a3242
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804514"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883025"
 ---
 # <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>自动 Azure Stack 中心日志收集的最佳实践 
-
-*适用于： Azure Stack 集线器集成系统*
-
 
 本主题介绍有关管理 Azure Stack 集线器的自动诊断日志收集的最佳实践。 
 

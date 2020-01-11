@@ -17,16 +17,14 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 1e7127647ef4b0653e759c7008c9874e9a5d2be2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 56fb993f7c4059ba468100904d10baabac38cd7d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809740"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882039"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Azure Stack 中心的区域管理
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 中心使用区域的概念，*区域*是逻辑实体，由组成 Azure Stack 中心基础结构的硬件资源组成。 在区域管理中，可以找到成功操作 Azure Stack 中心基础结构所需的所有资源。
 

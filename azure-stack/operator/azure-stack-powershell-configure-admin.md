@@ -15,16 +15,14 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: f738d16f31e5ef3fc07c0fe06325fce7bac73cb2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8d01649635c8e769d6ad394a6703af1d850f2c55
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810250"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882107"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>通过 PowerShell 连接到 Azure Stack 集线器
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以将 Azure Stack 中心配置为使用 PowerShell 来管理资源，例如创建产品/服务、计划、配额和警报。 本主题有助于配置操作员环境
 

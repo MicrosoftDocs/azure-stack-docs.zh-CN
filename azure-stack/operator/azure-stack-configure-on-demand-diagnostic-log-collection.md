@@ -16,16 +16,14 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 906215478ba9828464de6cc760db30491bf445c9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f30791ec7514a68a6137d2b5d2db3441cf217f58
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817648"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883076"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>按需收集 Azure Stack 集线器诊断日志
-
-*适用于： Azure Stack 集线器集成系统*
 
 在故障排除过程中，Microsoft 客户支持服务（CSS）可能需要分析诊断日志。 从1907版本开始，Azure Stack 集线器操作员可以使用 "**帮助和支持**" 将诊断日志上传到 Azure 中的 blob 容器。 建议使用 "**帮助和支持**"，而不是使用以前的 PowerShell 方法，因为它更简单。 但如果该门户不可用，操作员可以继续使用**get-azurestacklog**通过特权终结点（PEP）（就像以前的版本）收集日志。 本主题介绍了按需收集诊断日志的两种方式。
 

@@ -16,16 +16,14 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: fbc11f6aebb0d513d96dc46cac77ae6202961a44
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 84ec5659bef23012a8d9ba48879b4b3ebafe29c2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804956"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882957"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
-
-*适用于： Azure Stack 集线器集成系统。*
 
 Azure Stack 中心在你的数据中心内运行 Azure 服务，并可在小型到单个机架中安装了四个节点的环境上运行。 与此相反，Azure 在多个数据中心的多个区域和每个区域的多个区域中40运行。 用户资源可以跨多个服务器、机架、数据中心和区域。 利用 Azure Stack Hub，当前只能选择将整个云部署到单个机架中。 此限制使你的云面临你的数据中心发生灾难性事件的风险，或因主要产品错误而失败。 发生灾难时，Azure Stack 中心实例处于脱机状态。 所有数据都可能无法恢复。
 

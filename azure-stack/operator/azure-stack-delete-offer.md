@@ -15,16 +15,14 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: c957997308c5b2aa0fb4e2cfb97f79860c04da82
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7184972e6b486ee696b4edb621046d1b41f677a9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811730"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882532"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>删除配额、计划、产品/服务和订阅
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文介绍如何删除不再需要的配额、计划、产品和订阅。 作为一般原则，只能删除未使用的内容。 例如，仅当不存在属于该产品/服务的订阅时，才可以删除该产品/服务。
 

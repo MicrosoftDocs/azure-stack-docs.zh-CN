@@ -1,36 +1,26 @@
 ---
-title: 在 Azure Active Directory 中添加新的 Azure Stack 中心租户帐户 |Microsoft Docs
-description: 了解如何在 ASDK 中创建租户帐户，以便浏览租户门户。
-services: azure-stack
-documentationcenter: ''
+title: 在 Azure Active Directory 中添加新的 Azure Stack 集线器用户帐户
+description: 了解如何在 Azure Active Directory 中创建用户帐户，以便你可以浏览用户门户。
 author: PatAltimore
 manager: femila
-editor: ''
-ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 46bb8fc18453da5775ff0b9a3b1df12cdc21ebfc
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3f0ef1b6a61d271541ee894f854639b13e24d699
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812308"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880985"
 ---
-# <a name="add-a-new-azure-stack-hub-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中添加新的 Azure Stack 中心租户帐户
+# <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>在 Azure Active Directory 中添加新的 Azure Stack 集线器用户帐户（Azure AD）
 
+你需要一个用户帐户，然后才能测试产品/服务和计划，并创建资源。 使用 Azure 门户或 PowerShell 在 Azure AD 租户中创建用户帐户。
 
-[部署 Azure Stack 开发工具包](../asdk/asdk-install.md)后，需要一个租户用户帐户，以便浏览租户门户并测试产品/服务和计划。 你可以通过使用 Azure 门户或使用 PowerShell 来创建租户帐户。
-
-
-
-## <a name="create-an-azure-stack-hub-tenant-account-by-using-the-azure-portal"></a>使用 Azure 门户创建 Azure Stack 中心租户帐户
+## <a name="create-user-account-using-the-azure-portal"></a>使用 Azure 门户创建用户帐户
 
 你必须拥有 Azure 订阅才能使用 Azure 门户。
 
@@ -57,9 +47,9 @@ ms.locfileid: "75812308"
     用户已创建并添加到 Azure AD 租户。
 
 7. 用新帐户登录到 Azure 门户。 在出现提示时更改密码。
-8. 用新帐户登录到 `https://portal.local.azurestack.external` 以查看租户门户。
+8. 用新帐户登录到 `https://portal.local.azurestack.external` 以查看用户门户。
 
-## <a name="create-an-azure-stack-hub-user-account-using-powershell"></a>使用 PowerShell 创建 Azure Stack 集线器用户帐户
+## <a name="create-a-user-account-using-powershell"></a>使用 PowerShell 创建用户帐户
 
 如果没有 Azure 订阅，则不能使用 Azure 门户来添加租户用户帐户。 在这种情况下，可以改为使用适用于 Windows PowerShell 的 Azure AD 模块。
 
@@ -82,7 +72,7 @@ ms.locfileid: "75812308"
 
             $msolcred = get-credential
 
-    # Add a tenant account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
+    # Add a user account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
 
             connect-msolservice -credential $msolcred
             $user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName <username>@<yourdomainname> -Password <password>
@@ -91,7 +81,7 @@ ms.locfileid: "75812308"
     ```
 
 1. 用新帐户登录到 Azure。 在出现提示时更改密码。
-2. 用新帐户登录到 `https://portal.local.azurestack.external` 以查看租户门户。
+2. 用新帐户登录到 `https://portal.local.azurestack.external` 以查看用户门户。
 
 ## <a name="next-steps"></a>后续步骤
 

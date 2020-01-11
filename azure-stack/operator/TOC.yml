@@ -304,6 +304,8 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: 配置部署源
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: 轮换应用服务机密和证书
+              href: app-service-rotate-certificates.md
             - name: 备份应用服务
               href: app-service-back-up.md
             - name: 恢复应用服务

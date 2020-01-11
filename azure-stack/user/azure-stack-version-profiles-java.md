@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c8619dd89a2aab79066539a299c5a58237ac51a1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 37481cee1e7bc5b9bee0e68878077e084369ca39
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818785"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883178"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 Java 使用 API 版本配置文件
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Java SDK for the Azure Stack 中心资源管理器提供有助于构建和管理基础结构的工具。 SDK 中的资源提供程序包括计算、网络、存储、应用服务和[Key Vault](/azure/key-vault/key-vault-whatis)。
 

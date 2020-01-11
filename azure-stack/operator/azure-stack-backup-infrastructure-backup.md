@@ -14,16 +14,14 @@ ms.date: 05/16/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 8abc94abe921a492cd029f01156efa597626f7c0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 101b463f10684e40be5d4e3864c235290713c518
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804480"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882770"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>通过基础结构备份服务恢复 Azure Stack 集线器中的数据
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 您可以使用 Azure Stack 中心基础结构备份服务来备份和还原配置和服务数据。 每个 Azure Stack 集线器安装都包含服务的实例。 可以使用服务创建的备份来重新部署 Azure Stack 中心云，以还原标识、安全性和 Azure 资源管理器数据。
 

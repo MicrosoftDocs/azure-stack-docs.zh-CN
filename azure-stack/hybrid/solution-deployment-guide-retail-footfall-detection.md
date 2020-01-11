@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 41166490ef2a79bc61375479d8c83e0205ab44a6
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: c2e043630e601098e0b2abbb1bacbffe44808495
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638328"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881444"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>使用 Azure 和 Azure Stack 中心部署基于 AI 的 footfall 检测解决方案
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包*
 
 本文介绍如何使用 Azure、Azure Stack 中心和自定义视觉 AI 开发工具包部署一个解决方案，该解决方案可通过现实世界操作生成见解。
 
@@ -29,7 +27,7 @@ ms.locfileid: "73638328"
 > - 使用自定义视觉 AI 开发工具包在边缘进行推断。
 
 > [!Tip]  
-> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
@@ -181,7 +179,7 @@ ms.locfileid: "73638328"
 
 4.  您可以根据需要添加其他字段和卡。
 
-## <a name="test-your-solution"></a>测试解决方案
+## <a name="test-your-solution"></a>测试你的解决方案
 
 观察在 Power BI 中创建的卡片中的数据如何变化，因为不同的人会在相机前面进行演练。 记录后，推断可能需要长达20秒的时间。
 

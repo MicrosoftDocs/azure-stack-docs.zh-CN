@@ -14,16 +14,14 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: f93fdcae55ca4407e7caec2cf0d403a25d2a3bf3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 90d57d01ec718772af45c0de3a15bac5995f5051
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818938"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883229"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>使用 Azure Stack 中心存储中的数据传输工具
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 中心为磁盘、blob、表、队列和帐户管理功能提供了一组存储服务。 如果要管理 Azure Stack 中心存储或从中移动数据，可以使用一些 Azure 存储工具。 本文概述了可用的工具。
 

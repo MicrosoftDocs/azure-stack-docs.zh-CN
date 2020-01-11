@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6dc64857b3fd421b7e6ca94fdf044b16b1b6a691
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d651405fad55501bf655b8b38970a882a8e5dc91
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812682"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881665"
 ---
 # <a name="manage-network-resources"></a>管理网络资源
 
@@ -40,8 +40,6 @@ Azure Stack 集线器使用静态 MAC 地址池自动生成 MAC 地址并将其�
 有关 MAC 地址池利用率的详细信息，请参阅 Azure Stack 中心管理员 PowerShell 模块中的 cmdlet [AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) 。
 
 ## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>查看 Azure Stack 集线器中的公共 IP 地址使用情况
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 作为云管理员，你可以查看：
  - 已分配给租户的公共 IP 地址数。

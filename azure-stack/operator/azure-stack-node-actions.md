@@ -15,16 +15,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 13dcb779297eddd1d75d3de1b6e47bd882f2126c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: de0ec0d68b3d63cc0661fe7c4684304d83878a45
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810591"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882345"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack 中心中的缩放单位节点操作
-
-*适用于： Azure Stack 集线器集成系统*
 
 本文介绍如何查看缩放单位的状态。 您可以查看该单元的节点。 您可以运行 "电源打开"、"关闭"、"关闭"、"排出"、"恢复" 和 "修复" 等节点操作。 通常，在对部件进行现场替换时使用这些节点操作，或帮助恢复节点。
 

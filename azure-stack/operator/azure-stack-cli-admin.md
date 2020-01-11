@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 51dbef18134c3a5441808c698193fc11f00b223e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c4bec9ed2984154d2dde6880f0bf56629aff3070
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812172"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882991"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>为 Azure Stack 中心用户启用 Azure CLI
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 你可以向 Azure Stack 中心的用户提供 CA 根证书，以便可以在其开发计算机上启用 Azure CLI。 你的用户需要该证书以通过 CLI 管理资源。
 

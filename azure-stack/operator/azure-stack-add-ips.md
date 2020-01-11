@@ -16,15 +16,14 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: d7af0896c4008ffe814050fbe353a5929caadec3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 214fed4c87c6c36b5e290c084efe43032b1407e0
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809783"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881138"
 ---
 # <a name="add-public-ip-addresses"></a>添加公共 IP 地址
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*  
 
 本文以公共 IP 地址的形式引用外部地址。 在 Azure Stack 集线器的上下文中，公共 IP 地址是一种可从 Azure Stack 中心外部访问的 IP 地址。 无论此外部网络是公共 internet 可路由还是位于 intranet 上并使用专用地址空间，本文的目的都是相同的，这些步骤是相同的。
 

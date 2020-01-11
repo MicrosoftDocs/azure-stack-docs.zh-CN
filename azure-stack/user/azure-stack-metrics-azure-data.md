@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 71daa893ae3c69ff29632f37eb366913b33adf18
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e78b8ead05fbb4a95488c077935277429a34e018
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819890"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878792"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>使用 Azure Stack 中心的 Azure Monitor
-
-*适用于： Azure Stack 集线器集成系统*
 
 本文概述了 Azure Stack 中心的 Azure Monitor 服务。 本文讨论 Azure Monitor 的操作以及有关如何在 Azure Stack 中心使用 Azure Monitor 的其他信息。 
 

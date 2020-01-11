@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 79eebcd464504a34ceaa25e0f54c15c7c22d271d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0fd294e0c7379bed75a0eb753678810d06888106
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820145"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878928"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>缩放 Azure Stack 集线器上的 Kubernetes 群集
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用 "**缩放**" 命令通过 AKS 引擎缩放群集。 **Scale**命令在输出目录中重复使用群集配置文件（`apimodel.json`）作为新的 Azure 资源管理器部署的输入。 引擎针对指定的代理池执行缩放操作。 缩放操作完成后，引擎将更新同一 `apimodel.json` 文件中的群集定义，以反映新的节点计数，以反映更新的当前群集配置。
 

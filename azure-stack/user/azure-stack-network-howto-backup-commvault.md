@@ -9,16 +9,14 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 5210e3874653c268eb72e8ce26c675e2494a1fe9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: b2e9871d48352d2e6a5f6d312a4d98cc3ace37ce
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819788"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878690"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>通过 Commvault 在 Azure Stack 集线器上备份 VM
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 ## <a name="overview-of-backing-up-a-vm-with-commvault"></a>使用 Commvault 备份 VM 概述
 

@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 229d066438cbdad52c167706c4b77b0c425f137b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 14f3cd2cef05b9514680dabd6849c5e60521ef86
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820026"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878809"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>对 Azure Stack 集线器上的 AKS 引擎进行故障排除
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 在 Azure Stack 集线器上部署或使用 AKS 引擎时，可能会遇到问题。 本文介绍了对 AKS 引擎的部署进行故障排除的步骤，收集有关 AKS 引擎的信息，收集 Kubernetes 日志，查看自定义脚本扩展错误代码，以及针对 AKS 引擎打开 GitHub 问题的说明。
 

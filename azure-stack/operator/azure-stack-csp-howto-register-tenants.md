@@ -15,16 +15,14 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 2b70d2e04883da963da6b410ac6e5e8c7bf7d396
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9bf0e51deb8e30bfeab978e3bdec1f4c4343561d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817680"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882600"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>将使用情况和计费的租户添加到 Azure Stack 中心
-
-*适用于： Azure Stack 集线器集成系统*
 
 本文介绍如何将租户添加到由云解决方案提供商（CSP）管理的 Azure Stack 中心部署。 当新租户使用资源时，Azure Stack 集线器会将使用情况报告给其 CSP 订阅。
 

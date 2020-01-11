@@ -15,16 +15,14 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 69d25b9a7eafa1dbf71384e2e82bef9bc87bd5af
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: aa308690caa875d2ab22ca0b987634c2d29795fa
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817782"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882753"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建和发布自定义 Azure Stack 中心市场项
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 发布到 Azure Stack 中心市场的每个项目都使用 Azure 库包（.azpkg）格式。 使用*Azure Gallery Packager*工具，你可以创建自定义 Azure 库包，你可以将其上传到 Azure Stack 中心市场，然后用户便可以下载这些包。 部署过程使用 Azure 资源管理器模板。
 

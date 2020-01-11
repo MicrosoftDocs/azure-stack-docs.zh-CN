@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/10/2020
 ms.author: sethm
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 69052164c3f32f77d8ccf3c5216e821700907928
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.lastreviewed: 1/10/2020
+ms.openlocfilehash: 1ba2be2d37cfa0b0d850f67124440fb9de13a23f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820332"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879149"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>使用门户管理 Azure Stack 中心的 Key Vault
 
@@ -58,11 +58,11 @@ ms.locfileid: "75820332"
 
 ### <a name="create-a-key"></a>创建密钥
 
-1. 登录到[用户门户](https://portal.local.azurestack.external)。
+1. 登录到 Azure Stack 集线器[用户门户](https://portal.local.azurestack.external)。
 
 2. 在仪表板中，选择 "**所有资源**"，选择先前创建的密钥保管库，然后选择 "**密钥**" 磁贴。
 
-3. 在 "**密钥**" 窗格中，选择 "**添加**"。
+3. 在 "**密钥**" 窗格中，选择 "**生成/导入**"。
 
 4. 在 "**创建密钥**" 窗格中，从**选项**列表中选择要用于创建密钥的方法。 你可以**生成**新的密钥、**上传**现有密钥，或使用**还原备份**来选择密钥的备份。
 

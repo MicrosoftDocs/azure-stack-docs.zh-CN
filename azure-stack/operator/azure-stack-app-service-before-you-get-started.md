@@ -16,16 +16,14 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/08/2020
-ms.openlocfilehash: 53256371be8903ac379cee088be2bd3b7208b2cb
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7f0c928cfaf01296b15986e3eb768f48cab54554
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812376"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880662"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署应用服务的先决条件
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 在 Azure Stack 中心部署 Azure App Service 之前，必须完成本文中的先决条件步骤。
 

@@ -10,16 +10,14 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 83c45caf8e1006cc55195f30f6ad62da8c63932d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7b072b95cae7148080ee0c9b1195960a3df041fc
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820842"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883790"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack 中心 Vm 简介
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 中心将虚拟机（Vm）作为一种按需和可缩放的计算资源提供。 当需要更好地控制计算环境时，可以选择一个 VM。 本文详细介绍了如何创建第一个 VM。
 

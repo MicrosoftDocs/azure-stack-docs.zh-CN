@@ -15,16 +15,14 @@ ms.date: 09/16/2019
 ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2ad223096601c31cf558e5557440d7d03065292e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8bdadb4e0cd36c6e650b001585aa3519293a9247
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818921"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883246"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用 Idn 
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Idn 是一项 Azure Stack 集线器网络功能，可用于解析外部 DNS 名称（例如，https：\//www.bing.com。）它还允许你注册内部虚拟网络名称。 这样，你就可以通过名称而不是 IP 地址来解析同一虚拟网络上的虚拟机（Vm）。 此方法不再需要提供自定义 DNS 服务器条目。 有关 DNS 的详细信息，请参阅[Azure DNS 概述](https://docs.microsoft.com/azure/dns/dns-overview)。
 

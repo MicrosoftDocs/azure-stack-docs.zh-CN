@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 239c65ca430140fda3d53be543e2f976ee57f588
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: caf251ad55e10ac1e763c75d61c52de4353eaf9f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820434"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879200"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用 DNS
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 中心支持以下 Azure DNS 功能：
 

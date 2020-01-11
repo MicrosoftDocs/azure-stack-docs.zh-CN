@@ -15,16 +15,14 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 32ad63180e1386f5daea8dac46379a4ad749fa8c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 337f5bfccc7deccf7214d452546c1e0ba3296555
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816728"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882889"
 ---
 # <a name="install-azure-stack-hub-updates"></a>安装 Azure Stack 中心更新
-
-*适用于： Azure Stack 集线器集成系统*
 
 你可以使用 Azure Stack 集线器中的**更新**边栏选项卡安装更新包。 本文将指导你完成更新、监视和解决更新过程的步骤。 使用 "更新" 边栏选项卡可以查看更新信息、安装更新、监视更新进度、查看更新历史记录，以及查看当前 Azure Stack 中心和 OEM 包版本。
 

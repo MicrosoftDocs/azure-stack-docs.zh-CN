@@ -16,16 +16,14 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: f494cca70ebef782fcde08356e02e3b1213d80a1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 63ee429c37d5ec7bf9258e3e940d9dbfa3786907
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815283"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882583"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>配置自动 Azure Stack 集线器诊断日志收集
-
-*适用于： Azure Stack 集线器集成系统*
 
 建议配置自动诊断日志收集功能，以简化日志收集和客户支持体验。 如果需要调查系统运行状况条件，则可以通过 Microsoft 客户支持服务（CSS）自动上载日志以进行分析。 
 

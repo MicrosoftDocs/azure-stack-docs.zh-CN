@@ -16,16 +16,14 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 197d39feb91edc8c93d747471f30aff8f56b03ac
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: cd74be55195975238e9c8454badeab26593811b5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811662"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882464"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack 集线器诊断日志收集概述 
-
-*适用于： Azure Stack 集线器集成系统*
 
 Azure Stack 中心是一大集合组件，它们协同工作，彼此交互。 所有这些组件都生成其自己的唯一日志。 这会使诊断问题成为一项挑战性的任务，尤其是对于来自多个 Azure Stack 集线器组件的多个交互的错误。 为了应对这一挑战，我们设计了诊断日志收集体验。 
 

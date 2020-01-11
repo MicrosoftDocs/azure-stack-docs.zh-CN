@@ -16,16 +16,14 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: aa38f168c6cf56e86fa0605ee7f004c480f94088
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 761d9ca8268664786fadc8c47c7269a346954d8f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804565"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880458"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>Azure Stack 集线器上的应用服务更新4发行说明
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 这些发行说明介绍 Azure Stack 中心更新 4 Azure App Service 的改进、修复和已知问题。 已知问题分为三部分：直接与部署相关的问题、更新过程的问题以及生成（安装后）的问题。
 
@@ -90,7 +88,7 @@ Azure Stack 中心更新 4 Azure App Service 包括以下改进和修补程序�
 
 - Azure Stack 中心旋转 Azure 资源管理器客户端证书时解决的配置问题。
 
-- 应用服务租户门户的跨域资源共享设置中的已还原功能。
+- 应用服务用户门户的跨域资源共享设置中的已还原功能。
 
 - 当资源提供程序控制面无法连接到已配置的 SQL Server 实例时，"错误消息" 现在会显示在 "应用服务管理员门户" 中。
 

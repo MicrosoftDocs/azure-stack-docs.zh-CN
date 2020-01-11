@@ -16,16 +16,14 @@ ms.date: 12/10/2019
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: a626b50a742d3219d7934e4cc3f77cd890ea1b93
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.openlocfilehash: 8fe3a2ac7685eeb3e9bb116cdb5754cc7b567e28
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303726"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880237"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack 中心更新活动清单
-
-*适用于： Azure Stack 集线器集成系统*
 
 查看此清单以便为 Azure Stack 中心更新做准备。 本文包含 Azure Stack 中心操作员的与更新相关的活动清单。
 

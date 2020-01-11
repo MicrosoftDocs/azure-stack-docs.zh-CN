@@ -9,16 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e1cb999e6c7bc740f890efffccb1c80ec4575457
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f2d737f9048760b9c2b1561ba44f36379bfd3f00
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816065"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883399"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>通过 Vm 在 Azure Stack 中心 VNET 对等互连
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以在同一 Azure Stack 中心环境中将两个 Azure Stack 集线器 Vnet 连接到另一个。 目前不能使用内置[虚拟网络网关](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)连接 Azure Stack 集线器 vnet。 必须使用 NVA 设备在两个 Azure Stack 集线器 Vnet 之间创建 VPN 隧道。 在本文的模板引用中，将部署两个 Windows Server 2016 Vm，并安装 RRAS。 两个 RRAS 服务器都配置为实现两个 Vnet 之间的 S2SVPN IKEv2 隧道。 创建相应的 NSG 和 UDR 规则，以允许在每个 VNET 上指定为**内部**子网之间进行路由。 
 
@@ -31,7 +29,7 @@ ms.locfileid: "75816065"
 
 ## <a name="requirements"></a>要求
 
-- 应用了最新更新的 ASDK 或 Azure Stack 集线器集成系统。 
+- 应用了最新更新的部署。 
 - 必需 Azure Stack 中心市场项：
     -  Windows Server 2016 Datacenter （建议使用最新版本）
     -  自定义脚本扩展

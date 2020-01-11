@@ -16,16 +16,14 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c373e95f3ffedca612b3e91a2bfde58f5094e4c8
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4f25f1a2d78be5aafdfb6ef379353b148cf3b418
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804752"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882906"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳实践
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 部署和管理 Azure Stack 中心时，请遵循以下最佳做法，以便在发生灾难性故障时帮助减轻数据丢失。
 

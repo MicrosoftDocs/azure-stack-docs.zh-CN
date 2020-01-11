@@ -15,16 +15,14 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 00edf73d49db990987737bbde1d63735d7d7cf66
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 21d91b9cb14fa46fbd92e033c59f7b78fbc64354
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813413"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882787"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>应用 Azure Stack 中心原始设备制造商（OEM）更新
-
-*适用于： Azure Stack 集线器集成系统*
 
 你可以将原始设备制造商（OEM）更新应用于 Azure Stack 集线器硬件组件，以接收驱动程序和固件改进以及安全修补程序，同时最大程度地降低对用户的影响。 在本文中，可以了解 OEM 更新、OEM 联系信息以及如何应用 OEM 更新。
 

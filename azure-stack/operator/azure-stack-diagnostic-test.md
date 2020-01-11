@@ -10,26 +10,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: f362fb5dfc47dca23bf7076ecfe0d347a9c789d0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.lastreviewed: 01/10/2020
+ms.openlocfilehash: 778f38f0ed3d1b1801b162624daa365ed6d1f09c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817391"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882498"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>验证 Azure Stack 集线器系统状态
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 作为 Azure Stack 中心运营商，能够根据需要确定系统的运行状况和状态是至关重要的。 Azure Stack 集线器验证工具（**test-azurestack**）是一种 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果存在）。 当你联系 Microsoft 客户服务支持（CSS）问题时，通常会要求你通过[特权终结点（PEP）](azure-stack-privileged-endpoint.md)来运行此工具。 使用目前系统范围内的运行状况和状态信息，CSS 可以收集和分析详细日志，重点关注错误发生的区域，并与你一起解决问题。
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>运行验证工具并访问结果
 
 如上所述，验证工具是通过 PEP 运行的。 每个测试都将在 PowerShell 窗口中返回 "**通过/失败**" 状态。 下面是端到端验证测试过程的概述：
+
+1. 建立信任关系。 在集成系统上，从提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化 VM 上的受信任主机。
+
+   ```powershell
+   winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+   ```
+
+   如果运行的是 Azure Stack 开发工具包（ASDK），请登录到开发工具包主机。
 
 1. 访问 PEP。 运行以下命令以建立 PEP 会话：
 
@@ -40,7 +46,7 @@ ms.locfileid: "75817391"
    > [!TIP]
    > 若要访问 Azure Stack 开发工具包（ASDK）主机计算机上的 PEP，请使用 AzS-ERCS01 for-ComputerName。
 
-2. 进入 PEP 后，运行以下内容：
+1. 进入 PEP 后，运行以下内容：
 
    ```powershell
    Test-AzureStack
@@ -48,11 +54,11 @@ ms.locfileid: "75817391"
 
    有关详细信息，请参阅[参数注意事项](azure-stack-diagnostic-test.md#parameter-considerations)和[用例示例](azure-stack-diagnostic-test.md#use-case-examples)。
 
-3. 如果任何测试报表**失败**，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[若要在 Azure Stack 集线器集成系统上](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)或在 ASDK 上运行 get-azurestacklog，请参阅在[ASDK 系统上运行 get-azurestacklog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
+1. 如果任何测试报表**失败**，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[若要在 Azure Stack 集线器集成系统上](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)或在 ASDK 上运行 get-azurestacklog，请参阅在[ASDK 系统上运行 get-azurestacklog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
 
    Cmdlet 将收集由 Test-azurestack 生成的日志。 如果测试报告**警告**，我们建议您不要收集日志并联系 CSS。
 
-4. 如果指示你通过 CSS 运行验证工具，则 CSS 代表会请求你收集的日志以继续排查你的问题。
+1. 如果指示你通过 CSS 运行验证工具，则 CSS 代表会请求你收集的日志以继续排查你的问题。
 
 ## <a name="tests-available"></a>可用测试
 

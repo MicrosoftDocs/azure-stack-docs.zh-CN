@@ -16,16 +16,14 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: a0a1d2b1025e814152b2a9b643683c5ed68bf5ff
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ba9bff9b63454be8e9f1222d8b63425ad3192724
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804531"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881359"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>Azure Stack 集线器上的备份应用服务
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*  
 
 本文档提供有关如何在 Azure Stack 集线器上备份应用服务的说明。
 

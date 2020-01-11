@@ -15,16 +15,14 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 7850c24a281a91f6797074778e72efdc281f6958
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8e9ad6917a6f8db571fc41b88fb9ef29e25d247c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811832"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882634"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Azure Stack 中心内委托服务
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 作为 Azure Stack 中心操作员，你可能想要让其他人负责注册用户和创建订阅。 例如，如果你是服务提供商，你可能希望经销商以你的名义注册客户并进行管理。 或者，如果你是企业中的中心 IT 小组的成员，则可能需要将用户注册委派给其他 IT 人员。
 

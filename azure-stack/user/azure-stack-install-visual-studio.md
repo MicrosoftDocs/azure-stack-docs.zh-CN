@@ -16,16 +16,14 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e7254f5fb6a44a268c73ea988d2ba9ecd236d7f0
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 62b3091ec0ebd2415b7de2be8c04af82d27ccd8d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727575"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879132"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>安装 Visual Studio 并连接到 Azure Stack 集线器
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用 Visual Studio 来编写 Azure 资源管理器[模板](azure-stack-arm-templates.md)并将其部署到 Azure Stack 中心。 本文中的步骤介绍了如何在[Azure Stack 集线器](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)上或在外部计算机上安装 Visual Studio （如果你计划通过[VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)使用 Azure Stack 中心）。
 

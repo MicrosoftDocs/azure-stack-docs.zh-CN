@@ -16,16 +16,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 8591bf95bd60060de76f7a9da99ed9af9fc1bdf6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 65df51ea6420d751238309ece9c134a9e7aa7374
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820468"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879217"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>利用 Azure 资源管理器为 Azure Stack 中心开发模板
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 开发应用时，必须在 Azure 与 Azure Stack 中心之间具有模板便携性，这一点非常重要。 本文提供了有关开发[Azure 资源管理器模板](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)的注意事项。 使用这些模板，可以在 Azure 中构建应用程序和测试部署，而无需访问 Azure Stack 中心环境。
 

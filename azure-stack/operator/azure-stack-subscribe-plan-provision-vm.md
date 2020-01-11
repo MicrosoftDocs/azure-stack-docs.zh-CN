@@ -10,16 +10,14 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 3d5203481eea68c9f4dbc231f346bef845622ba2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3a9798b82729a88b2ca3cf8ed2cf403a9dab34c7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814110"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882855"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建对产品/服务的订阅
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 [创建套餐](azure-stack-create-offer.md)后，用户需要订阅该套餐，然后才能使用它。 用户订阅套餐有两种方式：
 
@@ -71,7 +69,7 @@ ms.locfileid: "75814110"
 
 ### <a name="to-subscribe-to-an-offer"></a>订阅产品/服务
 
-1. [登录](../asdk/asdk-connect.md)到[Azure Stack 集线器用户门户](https://portal.local.azurestack.external)，然后选择 "**获取订阅**"。
+1. 登录到 Azure Stack 集线器用户门户，然后选择 "**获取订阅**"。
 
    ![获取订阅](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   

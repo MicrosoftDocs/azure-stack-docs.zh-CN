@@ -16,16 +16,14 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 7dcec5a0c7de0c81ec796142026df5b61698654f
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: aea624bc47dec82133e3a438c21f984509492ceb
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727558"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882277"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Azure Stack 中心市场概述
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 中心市场是为 Azure Stack 中心自定义的服务、应用和资源的集合。 资源包括网络、虚拟机（Vm）、存储等。 使用 Azure Stack 集线器 Marketplace 创建新的资源并部署新的应用程序，或浏览并选择要使用的项目。 若要使用 marketplace 项，用户必须订阅向其授予对项目的访问权限的产品/服务。
 

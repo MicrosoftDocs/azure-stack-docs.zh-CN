@@ -16,16 +16,14 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 3c546d34369211a091f63eaec6efe4e5dc9c42ec
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5fa55edd4c9e089b023cef8b8d0a2adec1606098
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817986"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882974"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>在 Azure Stack 中心创建计划
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 [Azure Stack 中心计划](azure-stack-overview.md)是一项或多项服务及其配额的分组。 作为提供商，可以创建提供给用户的计划。 然后，用户订阅你的产品/服务，以使用其所包括的计划、服务和配额。 此示例演示如何创建包含计算、网络和存储资源提供程序的计划。 此计划使订阅者能够设置虚拟机。
 

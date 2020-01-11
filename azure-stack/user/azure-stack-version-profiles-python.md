@@ -14,16 +14,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c04642ea6037813773e8c724c94fa2153bfa8a45
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 556933545af27b1fc22241ced3c83389072b3c8f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818649"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883195"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 API 版本配置文件与 Python 配合使用
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Python SDK 支持 API 版本配置文件以面向不同的云平台，如 Azure Stack 中心和全局 Azure。 在为混合云创建解决方案时使用 API 配置文件。
 

@@ -14,16 +14,14 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: e7b0a946355e7ad5ddfc6eaaf3e8b867fa142c2d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: bc139b43c2914f14cbe3bf998c20137e7a07dd25
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817647"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882736"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>为 Azure Stack 中心配置时间服务器
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*  
 
 你可以使用特权终结点（PEP）来更新 Azure Stack 集线器中的时间服务器。 使用可解析为两个或多个 NTP 服务器 IP 地址的主机名。
 

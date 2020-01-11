@@ -16,16 +16,14 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: b6c4ffabbcd9ead11103552a0a037c4783305f71
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c814f19c6f9d5df5b81aedb551c5d2cf31b26bff
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809766"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881189"
 ---
 # <a name="app-service-recovery-on-azure-stack-hub"></a>Azure Stack 集线器上的应用服务恢复
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*  
 
 本主题提供有关应用服务灾难恢复所需的操作的说明。
 

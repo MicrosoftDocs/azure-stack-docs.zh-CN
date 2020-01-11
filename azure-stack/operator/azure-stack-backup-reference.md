@@ -16,18 +16,16 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: b1a62edc088cbe73475a88f8303e28d71d2dc63f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8e54ae96cec4fff9a50c541bab4ea8e60323ca22
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816745"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882923"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务引用
 
 ## <a name="azure-backup-infrastructure"></a>Azure 备份基础结构
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 中心包含许多服务，其中包括门户（Azure 资源管理器）和总体基础结构管理体验。 Azure Stack 中心的类似于应用的管理体验侧重于降低向解决方案的操作员公开的复杂性。
 

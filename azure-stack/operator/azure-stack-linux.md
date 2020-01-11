@@ -15,16 +15,14 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 432681002831ec204e6f2fb3552fd67a4c1670f1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d8714901bc8ac8f8c20b9b2649527f8e6f6627fc
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817340"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882396"
 ---
 # <a name="add-linux-images-to-azure-stack-hub-marketplace"></a>将 Linux 映像添加到 Azure Stack 集线器 Marketplace
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以通过将基于 Linux 的映像添加到 Azure Stack 中心市场，在 Azure Stack 集线器上部署 Linux 虚拟机（Vm）。 将 Linux 映像添加到 Azure Stack 集线器的最简单方法是通过 Marketplace 管理。 这些映像已准备好并经过测试，可与 Azure Stack 中心兼容。
 

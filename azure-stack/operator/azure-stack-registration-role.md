@@ -16,16 +16,14 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: d678332e10f219d4e37783668154098da2c2a8b5
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: dff7f2dd043a7df3749ec3cdc4b7560e6cd7bd06
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809804"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882022"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>为 Azure Stack 中心注册创建自定义角色
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 > [!WARNING]
 > 这不是一项安全措施。 在希望限制阻止对 Azure 订阅进行意外更改的情况下使用此方法。 如果用户被委派了此自定义角色的权限，则该用户具有编辑权限和提升权限的权限。 仅将你信任的用户分配给自定义角色。

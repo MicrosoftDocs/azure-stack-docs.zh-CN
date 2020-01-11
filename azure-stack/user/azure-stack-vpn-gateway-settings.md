@@ -15,16 +15,14 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: d27f644b2f374014895605a3d7b5417af0db7a73
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ff7667c94b345cbb666232e869ab8871bd081f5c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815453"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883127"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>为 Azure Stack 中心配置 VPN 网关设置
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 VPN 网关是一种虚拟网络网关，用于在 Azure Stack 集线器和远程 VPN 网关中的虚拟网络之间发送加密流量。 远程 VPN 网关可以位于 Azure、数据中心的设备或其他站点中的设备上。 如果两个终结点之间存在网络连接，则可以在两个网络之间建立安全的站点到站点（S2S） VPN 连接。
 

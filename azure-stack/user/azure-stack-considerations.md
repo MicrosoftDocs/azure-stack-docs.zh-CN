@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: dc10ae92e00395a0cc6c19f0dfaafa0aeeac4141
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2e44c0e70e44d628d32fdf8d15e9d60b78a4ce14
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816388"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883807"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>使用服务和构建应用时 Azure Stack 中心与 Azure 之间的差异
 
@@ -42,8 +42,6 @@ Azure Stack 中心是一种混合云平台，可让你从公司或服务提供�
 ## <a name="cheat-sheet-high-level-differences"></a>备忘单：高级差异
 
 下表介绍 Azure Stack 中心与 Azure 之间的高级别差异。 为 Azure Stack 中心进行开发或使用 Azure Stack 中心服务时，请记住这些差异：
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 | 区域 | Azure （全局） | Azure Stack Hub |
 | -------- | ------------- | ----------|

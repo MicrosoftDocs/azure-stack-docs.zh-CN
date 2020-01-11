@@ -16,16 +16,14 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: c782806bfcf9a2750c29a790a14e5016d52031dc
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f36a94bbc442913826571fdacd1303b010212d4c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815249"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880356"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Azure Stack 集线器上的应用服务 Update 1 发行说明
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 这些发行说明介绍 Azure Stack 中心更新 1 Azure App Service 的改进、修复和已知问题。 已知问题分为三部分：直接与部署相关的问题、更新过程的问题以及生成（安装后）的问题。
 
@@ -83,7 +81,7 @@ Azure Stack 中心更新1上的 Azure App Service 包括以下改进和修补程
     - 已更新适用于 Windows to v v2.14.1**的 Git**
     - 将**Mercurial**更新到 v 4.5。0
 
-  - 在应用服务租户门户中添加了对自定义域功能内的**仅 HTTPS**功能的支持。
+  - 添加了对应用服务用户门户中 "自定义域" 功能中的 "**仅 HTTPS** " 功能的支持。
 
   - 在 Azure Functions 的自定义存储选取器中添加了对存储连接的验证。
 
@@ -91,7 +89,7 @@ Azure Stack 中心更新1上的 Azure App Service 包括以下改进和修补程
 
 - 创建脱机部署包时，客户在从应用服务安装程序打开该文件夹时将不再收到 "拒绝访问" 错误消息。
 
-- 使用应用服务租户门户中的 "自定义域" 功能时解决了问题。
+- 在应用服务用户门户中使用 "自定义域" 功能时解决了问题。
 
 - 防止客户在安装过程中使用保留的管理员名称。
 

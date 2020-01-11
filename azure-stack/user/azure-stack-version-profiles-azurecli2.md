@@ -14,16 +14,14 @@ ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: 8d6d02da1768f6cbcdaaecdfe9a1cf03d47ce0d6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d35e254a17c1b79347e7d13f866e1163bf049a08
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818853"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883365"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>通过 Azure CLI 管理和部署 Azure Stack 集线器的资源
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 按照本文中的步骤设置 Azure 命令行接口（CLI）来管理 Linux、Mac 和 Windows 客户端平台 Azure Stack 开发工具包（ASDK）资源。
 

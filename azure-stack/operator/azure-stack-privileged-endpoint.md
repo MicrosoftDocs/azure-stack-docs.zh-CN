@@ -15,16 +15,14 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 7754a1e88a8000ede2b4058e09a7e91c3c6171e7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 665e0a32abfbdce3953423135600eed98cbc2eef
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810046"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882124"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>使用 Azure Stack 集线器中的特权终结点
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 作为 Azure Stack 中心操作员，你应该使用管理员门户、PowerShell 或 Azure 资源管理器 Api 来完成大多数日常管理任务。 但是，对于某些不太常见的操作，需要使用*特权终结点*（PEP）。 PEP 是一个预配置的远程 PowerShell 控制台，它为你提供了足够的功能来帮助你执行所需的任务。 此终结点使用[POWERSHELL JEA （只是足够的管理）](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview)只公开一组受限的 cmdlet。 若要访问 PEP 并调用受限制的一组 cmdlet，请使用低特权帐户。 不需要管理员帐户。 为了进一步提高安全性，不允许使用脚本。
 

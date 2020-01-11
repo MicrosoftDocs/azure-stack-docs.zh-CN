@@ -15,16 +15,14 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: a024e1712e6b9970438805f87c24afd1f11ec11e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: cc53fcb197a67facb5f5c0c5ab65e4833b408714
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816680"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882702"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心更新 Azure App Service
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
 > 在部署 Azure App Service 1.7 之前，将1904更新应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 开发工具包（ASDK）。

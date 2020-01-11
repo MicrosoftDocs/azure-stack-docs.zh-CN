@@ -10,16 +10,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: b5f6e3f1658dd74104905b5516b8145f0123cd20
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8dfbb81b9696aeb939455906700f8194e6f5e0a8
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813703"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882804"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Azure Stack 中心培训和认证
-
-*适用于： Azure Stack 集线器集成系统*
 
 以下培训和认证机会可帮助你了解 Azure Stack 中心，并向你的 Azure Stack 中心提供熟练程度。
 

@@ -15,16 +15,14 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 78137349b6bee964f86e6c77ce2f0dd346ab0f40
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812359"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880883"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>将自定义 VM 映像添加到 Azure Stack 集线器
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 在 Azure Stack 中心，你可以将自定义虚拟机（VM）映像添加到 marketplace，并使其可供用户使用。 可以通过管理员门户或 Windows PowerShell 将 VM 映像添加到 Azure Stack 中心 Marketplace。 使用 Azure Marketplace 中的映像作为自定义映像的基础，或使用 Hyper-v 创建自己的映像。
 

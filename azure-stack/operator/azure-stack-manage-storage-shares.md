@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: ddd24e1fce75d99608b406f99e7ab8648c34c73c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 612a49649b66b6f7324ea3973a4ec3b02adf2ddb
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817085"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882311"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储容量
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文中的信息可帮助 Azure Stack 中心云操作员监视和管理其 Azure Stack 中心部署的存储容量。 Azure Stack 中心存储基础结构分配用于**存储服务**的 Azure Stack 中心部署的总存储容量的子集。 存储设备将租户的数据存储在与部署的节点对应的卷上的共享中。
 

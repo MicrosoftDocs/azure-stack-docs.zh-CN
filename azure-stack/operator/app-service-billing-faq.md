@@ -16,16 +16,14 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: c67b2be49babda140b1440356d63af5abbbbfdfb
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6b2383ada3a4de1d5c33db07d847b5ca2c5c5948
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75808458"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881342"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure Stack 中心帐单概述和常见问题 Azure App Service
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文说明了如何为云操作员提供 Azure Stack 中心的 Azure App Service，以及如何对其租户计费以便使用服务。
 

@@ -16,20 +16,18 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/29/2019
-ms.openlocfilehash: 9d7807dce064cad87a4cae1b01420efbf59433a0
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0d136fdb1a72a6c52a3e441470713b77974d1fa3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814858"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882872"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack 中心基础结构安全控制
 
-*适用于： Azure Stack 集线器集成系统*
-
 安全考虑事项和合规性要求是使用混合云的主要驱动因素之一。 Azure Stack 中心适用于这些方案。 本文介绍 Azure Stack 中心的安全控制。
 
-Azure Stack 中心共存了两个安全措施层。 第一层是 Azure Stack 中心基础结构，其中包括 Azure 资源管理器的硬件组件。 第一层包括管理员和租户门户。 第二层包含由租户创建、部署和管理的工作负荷。 第二层包含虚拟机和应用服务网站等项。
+Azure Stack 中心共存了两个安全措施层。 第一层是 Azure Stack 中心基础结构，其中包括 Azure 资源管理器的硬件组件。 第一层包括管理员和用户门户。 第二层包含由租户创建、部署和管理的工作负荷。 第二层包含虚拟机和应用服务网站等项。
 
 ## <a name="security-approach"></a>安全方法
 

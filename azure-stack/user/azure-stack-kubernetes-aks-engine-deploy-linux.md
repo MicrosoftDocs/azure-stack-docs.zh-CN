@@ -11,20 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: bdefabc59cc6d9d3e4ed52bebe64219230b88e80
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d9f56d8d40d4f4420e073516678017c4904dd7d1
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820213"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878945"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>在 Azure Stack 集线器中的 Linux 上安装 AKS 引擎
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 你可以使用 Azure Stack 中心内的 Linux 计算机来托管 AKS 引擎，以便部署和管理 Kubernetes 群集。 在本文中，我们将介绍如何准备客户端 VM 来管理群集，以实现连接和断开连接的 Azure Stack 中心实例，检查安装，并在 ASDK 上设置客户端 VM。
 
@@ -83,9 +81,16 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 1. 连接到客户端 VM。
 2. 运行以下命令：
 
-    ```bash  
-    aks-engine version
-    ```
+   ```bash  
+   aks-engine version
+   ```
+
+3. 如果 Azure 资源管理器终结点使用自签名证书，则需要将根证书显式添加到计算机的受信任的证书存储中。 可在此目录中找到 VM 中的根证书：/var/lib/waagent/Certificates.pem。 将证书文件复制到以下命令： 
+
+   ```bash
+   sudo cp /var/lib/waagent/Certificates.pem /usr/local/share/ca-certificates/azurestackca.crt 
+   sudo update-ca-certificates
+   ```
 
 如果无法验证是否已在客户端 VM 上安装了 AKS 引擎，请参阅[排查 AKS engine 安装问题](azure-stack-kubernetes-aks-engine-troubleshoot.md)
 

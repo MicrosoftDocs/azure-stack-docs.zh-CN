@@ -15,16 +15,14 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: abd194fee2e855e0170cdc5c7fa2ac8814af9424
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 09265b0b84a18d6df5f03127489a4d38f46a216e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804854"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882447"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>在 Azure Stack Hub 中配置多租户
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以将 Azure Stack 中心配置为支持多个 Azure Active Directory （Azure AD）租户中的用户，使他们能够使用 Azure Stack 中心内的服务。 例如，请考虑以下情况：
 

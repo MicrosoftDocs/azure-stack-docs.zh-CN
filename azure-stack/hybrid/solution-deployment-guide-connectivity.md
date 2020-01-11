@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88355951ea5cffc147ef9644a6e35b78bb80a02c
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 26895aeaf55c466d5800e52c7c482d4516f3f244
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638438"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881631"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>使用 Azure 和 Azure Stack 中心配置混合云连接
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包*
 
 你可以使用混合连接模式，通过全球 Azure 中的安全性和 Azure Stack 中心访问资源。
 
@@ -28,7 +26,7 @@ ms.locfileid: "73638438"
 > - 在全球 Azure 中使用云缩放的应用部署和资源时，请维护旧系统。
 
 > [!Tip]  
-> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
@@ -56,7 +54,7 @@ Azure Stack 中心操作员必须部署应用服务、创建计划和产品/服�
  - 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
  - 在 Azure 中创建[web 应用](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts)。 请记下 web 应用 URL，因为你将在解决方案中需要它。
 
-### <a name="azure-stack-hub"></a>Azure Stack 中心
+### <a name="azure-stack-hub"></a>Azure Stack Hub
 
  - 使用生产 Azure Stack 中心或从 https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 部署 Azure Stack 集线器开发工具包。
    >[!Note]
@@ -201,7 +199,7 @@ Azure Stack 中心操作员必须部署应用服务、创建计划和产品/服�
 1. 在 Azure 门户中，选择 " **+ 创建资源**"。
 2. 搜索**连接**。
 3. 在**结果**中，选择 "**连接**"。
-4. 在 "**连接**" 中，选择 "**创建**"。
+4. 在“**连接**”上选择“**创建**”。
 5. 在 "**创建连接**" 上，配置以下设置：
 
     - **连接类型**：选择 "站点到站点（IPSec）"。

@@ -16,16 +16,14 @@ ms.date: 09/13/2019
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: cdce49b5bf86222bd963d894238d121b76c694ee
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e242900d3604369306717a3d4cc2c5e3aae7932c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819958"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879575"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-hub-with-role-based-access-control"></a>使用基于角色的访问控制管理对 Azure Stack 中心资源的访问
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 中心支持基于角色的访问控制（RBAC），这是 Microsoft Azure 使用的[访问管理的相同安全模型](/azure/role-based-access-control/overview)。 可以使用 RBAC 管理对订阅、资源和服务的用户、组或应用程序访问。
 

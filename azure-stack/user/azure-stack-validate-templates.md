@@ -16,16 +16,14 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: e8f9387c2b1d20c61e69cddd40d13601c5d6c41b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e3fff62f204ca3903a08ebb8ff0450e2fa4fe7d5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818870"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883212"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>使用 Azure Stack 集线器中的模板验证工具
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 使用模板验证工具来检查 Azure 资源管理器[模板](azure-stack-arm-templates.md)是否准备好部署到 Azure Stack 中心。 模板验证工具作为 Azure Stack 中心工具 GitHub 存储库的一部分提供。 使用[从 GitHub 下载工具](../operator/azure-stack-powershell-download.md)中所述的步骤下载 Azure Stack 中心工具。
 

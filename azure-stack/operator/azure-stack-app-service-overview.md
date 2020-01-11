@@ -15,16 +15,14 @@ ms.date: 03/11/2019
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 71f194e49f0e852c3975bae61222fb2d94875af2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 19903ac8c3e2692dbf07569e1c7bc8b9661fe190
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811951"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880611"
 ---
 # <a name="app-service-on-azure-stack-hub-overview"></a>Azure Stack 集线器上的应用服务概述
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 中心的 Azure App Service 是从 Azure Stack 中心提供 Microsoft Azure 的平台即服务（PaaS）产品。 此服务使你的内部或外部客户能够为任何平台或设备创建 web、API 和 Azure Functions 应用。 它们可将你的应用与本地应用集成并实现其业务流程的自动化。 Azure Stack 中心云操作员可以在完全托管的虚拟机（Vm）上运行客户的共享 VM 资源或专用 Vm。
 

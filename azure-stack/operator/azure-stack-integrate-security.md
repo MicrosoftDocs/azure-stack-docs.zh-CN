@@ -2,21 +2,21 @@
 title: 使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成 |Microsoft Docs
 description: 了解如何使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成。
 services: azure-stack
-author: PatAltimore
+author: justinha
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/23/2019
-ms.author: patricka
+ms.date: 01/10/2020
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 04/23/2019
+ms.lastreviewed: 01/10/2020
 keywords: ''
-ms.openlocfilehash: 0462d2cac78109ad76cf8c2b8c58958fc32e5d07
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: bc484919227fe08293db9ac987bee4d18313d802
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817357"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882413"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成
 
@@ -51,7 +51,7 @@ Azure Stack 集线器中的 syslog 客户端支持以下配置：
 ```powershell
 ### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
+Set-SyslogServer [-ServerName <String>] [-ServerPort <UInt16>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
 ### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
@@ -64,7 +64,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 | 参数 | Description | 类型 | 需要 |
 |---------|---------|---------|---------|
 |*ServerName* | Syslog 服务器的 FQDN 或 IP 地址。 | String | 是|
-|*ServerPort* | Syslog 服务器正在侦听的端口号。 | String | 是|
+|*ServerPort* | Syslog 服务器正在侦听的端口号。 | UInt16 | 是|
 |*NoEncryption*| 强制客户端以明文形式发送 syslog 消息。 | flag | 否|
 |*SkipCertificateCheck*| 初次 TLS 握手期间，跳过 syslog 服务器提供的证书验证。 | flag | 否|
 |*SkipCNCheck*| 跳过对 syslog 服务器在初始 TLS 握手期间提供的证书的公用名值的验证。 | flag | 否|
@@ -75,7 +75,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 | 参数 | Description | 类型 |
 |---------|---------| ---------|
-| *pfxBinary* | pfx 文件，其中包含客户端作为标识对 syslog 服务器进行身份验证时要使用的证书。  | Byte[] |
+| *pfxBinary* | Pfx 文件的内容，通过管道传输到 Byte []，其中包含客户端作为标识对 syslog 服务器进行身份验证时要使用的证书。  | Byte[] |
 | *CertPassword* |  用于导入与 pfx 文件关联的私钥的密码。 | SecureString |
 |*RemoveCertificate* | 从客户端中删除证书。 | flag|
 | *OutputSeverity* | 输出日志记录级别。 值为 "**默认**值" 或 "**详细**"。 默认值包括严重性级别： "警告"、"严重" 或 "错误"。 详细包括所有严重性级别：详细、信息性、警告、严重或错误。  | String |

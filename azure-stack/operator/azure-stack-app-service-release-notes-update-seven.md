@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: ca1206a23f4f275304b975164dd757f274cc000c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 87a2fae4c2020b9c37a2907b42299871b0c85095
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804497"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880254"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Azure Stack 集线器上的应用服务更新7发行说明
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 这些发行说明介绍 Azure Stack 中心更新7和任何已知问题的 Azure App Service 中的改进和修复。 已知问题分为直接与部署、更新过程和生成（安装后）相关的问题。
 

@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: df3644be6384bd264dc78ec80f8119c9cd2ff630
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 321b0c6137b29fd9edea2a6ae05237e0210a8ad2
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819737"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878656"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack 中心 Azure Monitor 支持的指标
-
-*适用于： Azure Stack 集线器集成系统*
 
 从 Azure Stack 集线器上的 Azure monitor 检索指标的方式与在全球 Azure 中相同。 可以在门户中创建你的度量值、 从 REST API 获取它们或使用 PowerShell 或 CLI 查询它们。
 

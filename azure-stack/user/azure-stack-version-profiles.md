@@ -14,16 +14,14 @@ ms.date: 01/06/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 0eeba90b11e571f5ea9be9ae9d5f9b32f3b7d584
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 21686d1f7e61013c22d37b974111e0d6a57f1b88
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815504"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883161"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>在 Azure Stack 中心管理 API 版本配置文件
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API 版本。 你可以使用 API 配置文件创建采用不同语言的自定义客户端。 每个客户端都使用 API 配置文件来联系 Azure Stack 中心正确的资源提供程序和 API 版本。
 

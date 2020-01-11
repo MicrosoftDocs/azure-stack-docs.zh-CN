@@ -16,16 +16,14 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 2e956d6fc9d646d33442eee21c74bea791babcb4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 04f07af2860518174bf1f2e65ed17e85c34b4692
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816711"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882668"
 ---
 # <a name="back-up-azure-stack-hub"></a>备份 Azure Stack 中心
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文介绍如何在 Azure Stack 中心进行按需备份。 有关配置 PowerShell 环境的说明，请参阅为[Azure Stack 集线器安装 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack 中心，请参阅[使用 Azure Stack 中心的管理员门户](azure-stack-manage-portals.md)。
 

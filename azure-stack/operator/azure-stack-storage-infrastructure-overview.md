@@ -15,16 +15,14 @@ ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 2fc96f1c5749ddd28ece1a8eefd476556ab557a1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 947fe93117909b3f258b4d6a6fb7272b0835fad9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814161"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882940"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储基础结构
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文介绍 Azure Stack 中心存储基础结构资源的运行状况和操作状态。 这些资源包括存储驱动器和卷。 尝试排查各种问题（例如无法将驱动器添加到池）时，本主题中的信息可能非常有用。
 

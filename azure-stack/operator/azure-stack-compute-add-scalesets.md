@@ -11,17 +11,16 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 906c004754bb5bd83283a2be738e812d96ee34bf
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4794704678d5b344ea9d0bae9bf89f134e6bff52
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75803783"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883008"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>使虚拟机规模集在 Azure Stack 中心可用
 
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
-  
+ 
 虚拟机规模集是一种 Azure Stack 集线器计算资源。 你可以使用它们来部署和管理一组相同的虚拟机（Vm）。 通过相同方式配置的所有 Vm，规模集无需预配 Vm。 构建面向大型计算、大数据和容器化工作负荷的大规模服务更容易。
 
 本文将指导你完成在 Azure Stack Hub Marketplace 中提供规模集的过程。 完成此过程后，用户可以将虚拟机规模集添加到其订阅。
@@ -41,7 +40,7 @@ Azure Stack 集线器上的虚拟机规模集类似于 Azure 上的虚拟机规�
 ## <a name="use-the-azure-stack-hub-portal"></a>使用 Azure Stack 中心门户
 
 >[!IMPORTANT]  
-> 本部分中的信息适用于使用 Azure Stack 集线器1808版或更高版本。 如果版本为1807或更早版本，请参阅[添加虚拟机规模集（在1808之前）](#add-the-virtual-machine-scale-set-prior-to-version-1808)。
+> 本部分中的信息适用于使用 Azure Stack 集线器1808版或更高版本。 
 
 1. 登录到 Azure Stack 中心门户。 然后，依次指向 "**所有服务**"、"**虚拟机规模集**"，然后在 "**计算**" 下，选择 "**虚拟机规模集**"。
    ![选择 "虚拟机规模集"](media/azure-stack-compute-add-scalesets/all-services.png)
@@ -54,19 +53,6 @@ Azure Stack 集线器上的虚拟机规模集类似于 Azure 上的虚拟机规�
 
 4. 若要查看新的虚拟机规模集，请在 "**所有资源**" 中搜索虚拟机规模集名称，然后在搜索中选择其名称。
    ![查看虚拟机规模集](media/azure-stack-compute-add-scalesets/search.png)
-
-## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>添加虚拟机规模集（1808版之前）
-
->[!IMPORTANT]  
-> 本部分中的信息适用于在1808之前使用 Azure Stack 集线器的版本。 如果使用版本1808或更高版本，请参阅[使用 Azure Stack 集线器门户](#use-the-azure-stack-hub-portal)。
-
-1. 打开 Azure Stack 中心 Marketplace 并连接到 Azure。 选择 " **Marketplace 管理**"，然后单击 "**从 Azure 添加**"。
-
-    ![Azure Stack 中心市场管理](media/azure-stack-compute-add-scalesets/image01.png)
-
-2. 添加并下载虚拟机规模集 marketplace 项。
-
-    ![虚拟机规模集 Marketplace 项](media/azure-stack-compute-add-scalesets/image02.png)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>更新虚拟机规模集中的映像
 
@@ -87,17 +73,9 @@ Azure Stack 集线器上的虚拟机规模集类似于 Azure 上的虚拟机规�
         }
     ```
 
-   在向上扩展可以使用新映像之前，必须下载该新映像：  
-
-   * 当 Azure Stack 集线器 Marketplace 上的图像是比规模集中的映像更新的版本时，下载替换旧映像的新映像。 替换映像后，用户可以继续扩展。
-
-   * 如果 Azure Stack 中心市场上的映像版本与规模集中的映像相同，请删除规模集中使用的映像，然后再下载新映像。 在删除原始映像和下载新映像之间的时间内，无法纵向扩展。
-
-   此过程是使用1803版本引入的稀疏文件格式 resyndicate 映像所必需的。
-
 2. 虚拟机规模集部署模板**未指定版本的最新** **版本**，请改为指定版本号：  
 
-    如果下载的映像的版本较新（更改了可用的版本），则规模集无法向上扩展。 这是由设计决定的，因为规模集模板中指定的映像版本必须可用。  
+    如果 Azure Stack 运算符下载具有较新版本的映像（并删除旧版本），则规模集无法向上扩展。 这是由设计决定的，因为规模集模板中指定的映像版本必须可用。  
 
 有关详细信息，请参阅[操作系统磁盘和映像](../user/azure-stack-compute-overview.md#operating-system-disks-and-images)。  
 
@@ -110,17 +88,6 @@ Azure Stack 集线器上的虚拟机规模集类似于 Azure 上的虚拟机规�
 2. 使用滑动条为此虚拟机规模集设置新的缩放级别，然后单击 "**保存**"。
 
      ![缩放虚拟机集](media/azure-stack-compute-add-scalesets/scale.png)
-
-## <a name="remove-a-virtual-machine-scale-set"></a>删除虚拟机规模集
-
-若要删除虚拟机规模集库项，请运行以下 PowerShell 命令：
-
-```powershell  
-Remove-AzsGalleryItem
-```
-
-> [!NOTE]
-> 可能不会立即删除库项。 可能需要多次刷新门户，然后从 Azure Stack 中心市场将项目显示为已删除。
 
 ## <a name="next-steps"></a>后续步骤
 

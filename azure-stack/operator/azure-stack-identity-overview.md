@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3c30a3c848111da10c736602f2932e1fe7e7a7c4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f8c5fdaa638c7ab5fa0669ffee57611e89c192ff
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818054"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882549"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Azure Stack 中心标识提供者概述
 
@@ -65,7 +65,7 @@ Azure Stack 中心需要 Azure Active Directory （Azure AD）或 Active Directo
 - 限制为其首次注册的目录，即其组织的目录。
 - 可以从本地目录导入。 有关详细信息，请参阅[将本地目录与 Azure Active Directory 集成](/azure/active-directory/connect/active-directory-aadconnect)。
 
-登录到组织的租户门户时，请使用*https：\//Portal.local.azurestack.external* URL。 从用于注册 Azure Stack 中心的域以外的其他域登录到 Azure Stack 中心门户时，必须将用于注册 Azure Stack 中心的域名追加到门户 url。 例如，如果已向 fabrikam.onmicrosoft.com 注册 Azure Stack 集线器并且 admin@contoso.com登录的用户帐户，则用于登录用户门户的 URL 应为： https：\//portal.local.azurestack.external/fabrikam.onmicrosoft.com。
+登录到组织的用户门户时，请使用*https：\//Portal.local.azurestack.external* URL。 从用于注册 Azure Stack 中心的域以外的其他域登录到 Azure Stack 中心门户时，必须将用于注册 Azure Stack 中心的域名追加到门户 url。 例如，如果已向 fabrikam.onmicrosoft.com 注册 Azure Stack 集线器并且 admin@contoso.com登录的用户帐户，则用于登录用户门户的 URL 应为： https：\//portal.local.azurestack.external/fabrikam.onmicrosoft.com。
 
 ### <a name="guest-users"></a>来宾用户
 

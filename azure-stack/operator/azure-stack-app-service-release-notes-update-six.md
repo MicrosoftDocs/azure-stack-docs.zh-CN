@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 3d11184844078f2d888156f6bf4b1a436f345ccd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2c96d45aa433fdbae490ed5c1c304b1c000e8c02
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815266"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880101"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>Azure Stack 集线器上的应用服务更新6发行说明
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 这些发行说明介绍 Azure Stack 中心更新6和任何已知问题的 Azure App Service 改进和修复。 已知问题分为直接与部署、更新过程和生成（安装后）相关的问题。
 
@@ -115,7 +113,7 @@ Azure Stack 中心更新 6 Azure App Service 包括以下改进和修补程序�
 
 - Azure Function Monitoring 持续显示门户中的 "正在加载"
 
-当你尝试监视单个函数时，租户门户中将不会显示任何调用日志、成功计数或错误计数。  若要重新启用此功能，请跳到**Function App**，中转到 "**平台功能**"，然后参阅 "**应用程序设置**"。  添加新的应用设置-名称**AzureWebJobsDashboard** ，并将值设置为在 AzureWebJobsStorage 中设置的相同值。  然后，在该函数的 "监视" 视图中，会看到监视信息。
+尝试监视单个函数时，用户门户中将不会显示任何调用日志、成功计数或错误计数。  若要重新启用此功能，请跳到**Function App**，中转到 "**平台功能**"，然后参阅 "**应用程序设置**"。  添加新的应用设置-名称**AzureWebJobsDashboard** ，并将值设置为在 AzureWebJobsStorage 中设置的相同值。  然后，在该函数的 "监视" 视图中，会看到监视信息。
 
 ## <a name="next-steps"></a>后续步骤
 

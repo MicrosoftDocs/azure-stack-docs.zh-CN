@@ -15,16 +15,14 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 91d5d0e7c63be8a192113d26818380983c668aa7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5f4f469c6652bdb492d9c7365fb128b0461093a4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813566"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882838"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>使用 Powershell 监视 Azure Stack 集线器中的更新
-
-*适用于： Azure Stack 集线器集成系统*
 
 可以使用 Azure Stack 集线器管理终结点来监视和管理更新。 它们可通过 PowerShell 进行访问。 有关在 Azure Stack 集线器上设置 PowerShell 的说明，请参阅[安装适用于 Azure Stack 中心的 powershell](azure-stack-powershell-install.md)。
 

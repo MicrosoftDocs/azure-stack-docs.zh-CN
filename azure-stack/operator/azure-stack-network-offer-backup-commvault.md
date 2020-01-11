@@ -15,16 +15,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 76a4a64c5077447adb4a1283dcb6042c3c1fedef
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9338a8d8b088f17c9f150e21959f78306108303f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810914"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882158"
 ---
 # <a name="add-commvault-to-the-azure-stack-hub-marketplace"></a>将 Commvault 添加到 Azure Stack 中心市场
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 本文逐步讲解如何提供 Commvault 实时同步，以更新位于单独 Azure Stack 集线器缩放单位上的恢复 VM。 你可以下载 Commvault，并为用户提供备份和复制解决方案。 
 

@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 8b97636d8d0dfce09b17c54e52b0fcda1990151e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 7fcd34efefa9c82085274837829f989908f751ba
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812121"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881087"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>作为云解决方案提供商管理 Azure Stack 集线器的使用情况和计费
-
-*适用于： Azure Stack 集线器集成系统*
 
 本文介绍如何将 Azure Stack 集线器注册为云解决方案提供商（CSP）以及如何添加客户。
 

@@ -16,16 +16,15 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 2ce9d539d68c64a2a57976ee8b4b6af2b99f6af7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5f4d29a95ab56ee4728109f5b74494c39d8b1c98
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809825"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882056"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Azure Stack 集线器中的配额类型
 
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 [配额](service-plan-offer-subscription-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个虚拟机（Vm）。 每个资源可以有其自己的配额类型。
 

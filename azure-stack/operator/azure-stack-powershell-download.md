@@ -15,16 +15,14 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: bb72aeac211dcf714407a022531e899c5509f639
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ecb0af2711b12da97ef302d5228f657e669db263
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810233"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882090"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>从 GitHub 下载 Azure Stack 中心工具
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 **Test-azurestack**是托管 PowerShell 模块的[GitHub 存储库](https://github.com/Azure/AzureStack-Tools)，用于管理资源并将资源部署到 Azure Stack 中心。 如果打算建立 VPN 连接，则可将这些 PowerShell 模块下载到 Azure Stack 开发工具包（ASDK）或基于 Windows 的外部客户端。 若要获取这些工具，请克隆 GitHub 存储库，或通过运行以下脚本来下载**test-azurestack**文件夹：
 

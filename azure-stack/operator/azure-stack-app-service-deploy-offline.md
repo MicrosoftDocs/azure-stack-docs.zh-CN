@@ -16,16 +16,14 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 3e86bf066cd48f804ba40497333e3e317ce0213a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0c557b371525c11a869eb6e076bf2076fca3e984
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75805007"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882821"
 ---
 # <a name="deploy-app-service-in-an-offline-environment-in-azure-stack-hub"></a>在 Azure Stack 集线器的脱机环境中部署应用服务
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
 > 在部署 Azure App Service 1.7 之前，将1907更新应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 开发工具包（ASDK）。
@@ -230,9 +228,9 @@ ms.locfileid: "75805007"
 >
 > 你*必须*具有租户订阅才能创建在 Azure Stack Hub 上使用应用服务的应用。 服务管理员只能在管理员门户中完成的功能与应用服务的资源提供程序管理有关。 这些功能包括添加容量、配置部署源以及添加辅助角色层和 Sku。
 >
-> 从第三个技术预览版中，若要创建 web 应用、API 应用和 Azure Functions 应用，必须使用租户门户并拥有租户订阅。
+> 从第三个技术预览版中，若要创建 web 应用、API 应用和 Azure Functions 应用，必须使用用户门户并拥有租户订阅。
 
-1. 在 Azure Stack 中心租户门户中，选择 " **+ 创建资源**" > **Web + 移动** > **Web 应用**"。
+1. 在 Azure Stack 集线器用户门户中，选择 " **+ 创建资源**" > **Web + 移动** > **Web 应用**"。
 
 1. 在 " **Web 应用**" 边栏选项卡上的 " **web 应用**" 框中键入名称。
 
@@ -250,7 +248,7 @@ ms.locfileid: "75805007"
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>部署 WordPress、DNN 或 Django 网站（可选）
 
-1. 在 Azure Stack 中心租户门户中，选择 " **+** "、"在 Azure Marketplace 中"、"部署 Django" 网站并等待成功完成。 Django web 平台使用基于文件系统的数据库。 它不需要任何其他资源提供程序，如 SQL 或 MySQL。
+1. 在 Azure Stack 集线器用户门户中，选择 " **+** "、"在 Azure Marketplace 中"、"部署 Django" 网站并等待成功完成。 Django web 平台使用基于文件系统的数据库。 它不需要任何其他资源提供程序，如 SQL 或 MySQL。
 
 1. 如果还部署了 MySQL 资源提供程序，则可以从 Azure Marketplace 部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名作为*User1\@Server1*，其中包含所选的用户名和服务器名称。
 

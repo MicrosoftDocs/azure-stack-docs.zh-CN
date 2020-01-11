@@ -16,16 +16,14 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: d03a7a848213be2f57556616e9fdbf4cd3a0f3e2
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d0273a1d8bca100f09254804919ba0061b6c7bd3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809060"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880679"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Azure Stack 中心中的应用服务服务器角色的容量规划
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 若要在 Azure Stack 中心设置生产就绪的 Azure App Service 部署，你必须计划系统支持的容量。  
 

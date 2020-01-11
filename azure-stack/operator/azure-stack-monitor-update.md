@@ -14,16 +14,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 0ae83367559c51a415253e13b68df2409c107789
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: b2faf490b54fc7096c43b58864009bdee6117fe6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817017"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882260"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack 集线器中的更新
-
-*适用于： Azure Stack 集线器集成系统*
 
 可以使用[特权终结点](azure-stack-privileged-endpoint.md)监视 Azure Stack 中心更新运行的进度。 如果 Azure Stack 集线器门户不可用，则还可以使用特权终结点从上一个成功的步骤中恢复失败的更新运行。 使用 Azure Stack 集线器门户是管理 Azure Stack 中心更新的推荐方法。
 

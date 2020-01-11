@@ -1,23 +1,19 @@
 ---
 title: Azure Stack 集线器 HCI 概述
 description: Azure Stack 集线器 HCI 是一种超聚合 Windows Server 2019 群集，使用经过验证的硬件在本地运行虚拟化工作负荷。 你还可以选择连接到 Azure 服务以实现基于云的备份、站点恢复等。 Azure Stack 集线器 HCI 解决方案使用 Microsoft 验证的硬件来确保最佳性能和可靠性，并包括对对等技术（如 NVMe 驱动器、永久性内存和远程直接内存访问（RDMA）网络）的支持。
-ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
-ms.prod: windows-server-threshold
 ms.date: 11/04/2019
-ms.openlocfilehash: 2a7e01fbaa9b36db96271bc191e7b13bc7e52f58
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: d35c38ab40543556d31af443f45c0c249ae76e2c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818224"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882481"
 ---
 # <a name="azure-stack-hub-hci-overview"></a>Azure Stack 集线器 HCI 概述
-
->适用于： Windows Server 2019
 
 Azure Stack 集线器 HCI 是超聚合 Windows Server 2019 群集，使用经过验证的硬件在本地运行虚拟化工作负荷。 你还可以选择连接到 Azure 服务以实现基于云的备份、站点恢复等。 Azure Stack 集线器 HCI 解决方案使用 Microsoft 验证的硬件来确保最佳性能和可靠性，并包括对对等技术（如 NVMe 驱动器、永久性内存和远程直接内存访问（RDMA）网络）的支持。
 

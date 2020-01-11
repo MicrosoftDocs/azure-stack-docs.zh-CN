@@ -12,16 +12,14 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 630c3b13248895091f425190cc00ad019ee0df1f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4f7cb6bf451ad04a8c6365e5c39a714902f3d0b4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820961"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879999"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack 中心服务、计划、产品/服务、订阅概述
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 [Microsoft Azure Stack 中心](azure-stack-overview.md)是一种混合云平台，可让你从数据中心提供服务。 服务包括虚拟机（Vm）、SQL Server 数据库、SharePoint、Exchange 甚至[Azure Marketplace 项](azure-stack-marketplace-azure-items.md)。 作为服务提供商，你可以为你的租户提供服务。 在企业或政府机构，你可以向员工提供本地服务。
 

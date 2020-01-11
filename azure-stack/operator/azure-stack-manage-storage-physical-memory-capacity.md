@@ -16,16 +16,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 83b9383b8afe0363d9a7bc436dde73dcbab54547
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: cfacebb9c4589332b57d3140b6ef43c1156ea55c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817068"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882328"
 ---
 # <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>管理 Azure Stack 集线器中的物理内存容量
-
-*适用于： Azure Stack 集线器集成系统*
 
 若要增加 Azure Stack 集线器中的总可用内存容量，可以添加更多内存。 在 Azure Stack 中心，物理服务器也称为*缩放单位节点*。 属于单个缩放单位的所有缩放单元节点必须具有相同的内存量。
 

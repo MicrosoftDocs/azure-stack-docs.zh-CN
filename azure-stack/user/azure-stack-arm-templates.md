@@ -16,16 +16,14 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 3ae09f31a0dc1b99a0ec5b18a0e653c02c098ae7
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 734a77692f8f505e84090ee882eaa570ccd897ec
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816456"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879251"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>在 Azure Stack 中心使用 Azure 资源管理器模板
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包*
 
 可以使用 Azure 资源管理器模板，通过单个协调的操作来部署和预配应用程序的所有资源。 你还可以重新部署模板以更改资源组中的资源。
 

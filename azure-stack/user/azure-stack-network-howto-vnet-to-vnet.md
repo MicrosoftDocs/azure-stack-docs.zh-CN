@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 3750088fbf29611c97db1e3ba504997914706587
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e692d44f94aefdb28c447c9cff15f88af0d1827a
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819669"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878771"
 ---
 # <a name="how-to-connect-two-vnets-through-peering"></a>如何通过对等互连连接两个 Vnet
 
@@ -22,7 +22,7 @@ ms.locfileid: "75819669"
 
 ## <a name="prerequisites"></a>必备组件
 
--   使用可用容量访问 Azure Stack 集线器集成系统或 ASDK 以部署此解决方案所需的计算、网络和资源要求。
+-   访问具有可用容量的系统以部署此解决方案所需的计算、网络和资源要求。
 
 -  已下载网络虚拟设备（NVA）解决方案并将其发布到 Azure Stack 中心市场。 NVA 控制从外围网络到其他网络或子网的网络流量。 此过程使用[Fortinet FortiGate 下一代防火墙单一 VM 解决方案](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)。
 
