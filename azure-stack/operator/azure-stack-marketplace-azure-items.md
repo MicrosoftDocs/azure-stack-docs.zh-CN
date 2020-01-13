@@ -1,6 +1,6 @@
 ---
-title: 适用于 Azure Stack 的 Azure Marketplace 项 |Microsoft Docs
-description: 了解哪些 Azure Marketplace 项可在 Azure Stack 中使用。
+title: 适用于 Azure Stack 集线器的 Azure Marketplace 项 |Microsoft Docs
+description: 了解哪些 Azure Marketplace 项可在 Azure Stack 集线器中使用。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 10/17/2019
-ms.openlocfilehash: 7d884919b19901512661f005b9128715b6e6ede1
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
-ms.translationtype: MT
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 0a28ece2040b0c0404fde5ce0d7ced75a5e310f2
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993939"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817629"
 ---
-# <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure Marketplace 项
+# <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>适用于 Azure Stack 集线器的 Azure Marketplace 项
 
-*适用于： Azure Stack 集成系统和 Azure Stack 开发工具包。*
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 开发工具包。*
 
 ## <a name="virtual-machine-extensions"></a>虚拟机扩展
 
 当你使用的虚拟机（VM）扩展有更新时，你应该下载它们。 产品中随附的扩展不会在正常修补和更新过程中更新，因此请经常检查更新。 其他扩展只能通过 Marketplace 管理提供。
 
-|  | 项名称 | 描述 | 发布者 | OS 类型 |
+|  | 项名称 | Description | 发布者 | 操作系统类型 |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS 扩展（SqlIaasExtension）](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 扩展（SqlIaasExtension）](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **下载此扩展以在 Windows Marketplace 项目上部署任何 SQL Server-需要此扩展。** | Microsoft | Windows |
 |![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png) | [自定义脚本扩展](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **将此更新下载到适用于 Windows 的自定义脚本扩展的内置版本。** | Microsoft | Windows |
@@ -50,11 +50,11 @@ ms.locfileid: "74993939"
 
 ## <a name="microsoft-vm-images-and-solution-templates"></a>Microsoft VM 映像和解决方案模板
 
-Microsoft Azure Stack 支持以下 Azure Marketplace Vm 和解决方案模板。 如上所述，单独下载任何依赖项。 诸如 SQL Server 和 Machine Learning Server 之类的应用需要适当的许可，但标记为免费或试用版除外。
+Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模板。 如上所述，单独下载任何依赖项。 诸如 SQL Server 和 Machine Learning Server 之类的应用需要适当的许可，但标记为免费或试用版除外。
 
-|  | 项名称 | 描述 | 发布者 |
+|  | 项名称 | Description | 发布者 |
 | --- | --- | --- | --- |
-| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | 易于部署、经济高效、以应用为中心的企业级解决方案，以及以用户为中心的解决方案。 这些映像会定期更新，其中包含最新的修补程序。 **重要信息：必须删除2018年1月18日之前下载的映像，并将其替换为最新版本。** | Microsoft |
+| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows 服务器](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | 易于部署、经济高效、以应用为中心的企业级解决方案，以及以用户为中心的解决方案。 这些映像会定期更新，其中包含最新的修补程序。 **重要信息：必须删除2018年1月18日之前下载的映像，并将其替换为最新版本。** | Microsoft |
 | ![SharePoint Server 2013 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 试用版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2012 Datacenter 和 Visual Studio 2019 社区版上的 Microsoft SharePoint Server 2013 试用版。 | Microsoft |
 | ![SharePoint Server 2016 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 试用版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Windows Server 2016 Datacenter Microsoft SharePoint Server 2016 试用版。 | Microsoft |
 | ![Windows Server 2012 R2 上的 SQL Server 2014 SP3](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 上的 SQL Server 2014 SP3](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp3-ws2012r2) | SQL Server 2014 Service Pack 2。 **需要下载：** SQL IaaS 扩展。 | Microsoft |
@@ -82,7 +82,7 @@ Microsoft Azure Stack 支持以下 Azure Marketplace Vm 和解决方案模板。
 
 ## <a name="linux-distributions"></a>Linux 分发版
 
-|  | 项名称 | 描述 | 发布者 |
+|  | 项名称 | Description | 发布者 |
 | --- | --- | --- | --- |
 | ![清除 Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [清除 Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | 针对 Intel 体系结构进行了优化的引用 Linux 分发版。 | 清除 Linux 项目 |
 | ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux （稳定）](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS 是一种新式的最小 Linux 分发版，提供一种简单的方法来运行容器、管理群集并无缝更新服务器-所有启用了仓库规模计算的组件。 | CoreOS |
@@ -100,15 +100,15 @@ Microsoft Azure Stack 支持以下 Azure Marketplace Vm 和解决方案模板。
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>第三方 BYOL、免费版、试用版映像和解决方案模板
 
-|  | 项名称 | 描述 | 发布者 |
+|  | 项名称 | Description | 发布者 |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | 适用于 Microsoft Azure 的 A10 网络 vThunder ADC （应用程序传送控制器）专用于实现高性能、灵活性和易于部署的应用交付以及服务器负载平衡，并经过优化，可在 Azure 云中本机运行。 | A10 Networks |
 | ![Arista vEOS 路由器](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS 路由器](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS 路由器是一种功能丰富的多云和多虚拟机监控程序虚拟路由器，使企业和云提供商能够构建一致、高度安全和可缩放的混合网络。 | Arista 网络 |
 | ![Barracuda 应用程序安全控制中心](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 应用程序安全控制中心](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | 集中管理多个 Barracuda Web 应用程序防火墙（WAF）。 | Barracuda Networks, Inc. |
 | ![Barracuda 电子邮件安全网关](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 电子邮件安全网关](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | 电子邮件安全网关，可防范入站电子邮件威胁。 | Barracuda Networks, Inc. |
 | ![Barracuda Web 应用程序防火墙（WAF）](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web 应用程序防火墙（WAF）](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | 针对自动 & 目标攻击的安全性和 DDoS 防护。 | Barracuda Networks, Inc. |
-| ![Barracuda CloudGen 防火墙控制中心](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen 防火墙控制中心](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | 集中管理数百个 Barracuda CloudGen 防火墙，而不考虑它们的位置和外形规格。 | Barracuda Networks, Inc. |
-| ![适用于 Azure 的 Barracuda CloudGen 防火墙](media/azure-stack-marketplace-azure-items/barracuda.png) | [适用于 Azure 的 Barracuda CloudGen 防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | 提供防火墙保护，其中应用程序和数据的驻留位置，而不是仅限连接终止的位置。 | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen 防火墙控制中心](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen 防火墙控制中心](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-cc) | 集中管理数百个 Barracuda CloudGen 防火墙，而不考虑它们的位置和外形规格。 | Barracuda Networks, Inc. |
+| ![适用于 Azure 的 Barracuda CloudGen 防火墙](media/azure-stack-marketplace-azure-items/barracuda.png) | [适用于 Azure 的 Barracuda CloudGen 防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ngf) | 提供防火墙保护，其中应用程序和数据的驻留位置，而不是仅限连接终止的位置。 | Barracuda Networks, Inc. |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | 开源电子商务购物车。 | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Java 中的开源消息代理。 | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | 旨在简化管理过程的强大 PIM。 | Bitnami |
@@ -156,7 +156,7 @@ Microsoft Azure Stack 支持以下 Azure Marketplace Vm 和解决方案模板。
 | ![LimeSurvey](media/azure-stack-marketplace-azure-items/limesurvey.png) | [LimeSurvey](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.limesurvey) | 问答投票管理系统。 | Bitnami |
 | ![Live Helper Chat](media/azure-stack-marketplace-azure-items/livehelperchat.png) | [Live Helper 聊天](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.livehelperchat) | 开源实时聊天支持。 | Bitnami |
 | ![Mahara](media/azure-stack-marketplace-azure-items/mahara.png) | [Mahara](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mahara) | 常用开源 ePortfolio 和社交网络 web 应用。 | Bitnami |
-| ![Magento](media/azure-stack-marketplace-azure-items/magento.png) | [Magento](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.magento) | 常用的电子商务软件和平台。 | Bitnami |
+| ![Magento](media/azure-stack-marketplace-azure-items/magento.png) | Magento[](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.magento) | 常用的电子商务软件和平台。 | Bitnami |
 | ![Mantis](media/azure-stack-marketplace-azure-items/mantis.png) | [Mantis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mantis) | 高级 bug 跟踪系统。 | Bitnami |
 | ![MariaDB 与复制](media/azure-stack-marketplace-azure-items/mariadb.png) | [MariaDB 与复制](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mariadb-cluster) | MariaDB 是一种开放源代码社区开发的 SQL 数据库服务器，该服务器广泛使用，因为其企业功能、灵活性和与领先技术公司的协作。 此解决方案使用多个 Vm 将数据库从主节点复制到可配置的副本数。 **此解决方案模板还需要 Debian 8 和适用于 Linux 2.0 扩展的自定义脚本。**| Bitnami |
 | ![Mattermost 团队版](media/azure-stack-marketplace-azure-items/mattermostteamedition.png) | [Mattermost 团队版](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mattermost) | 开源工作区消息传递解决方案。 | Bitnami |
@@ -167,7 +167,7 @@ Microsoft Azure Stack 支持以下 Azure Marketplace Vm 和解决方案模板。
 | ![Memcached 多个实例](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached 多个实例](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached-multipleinstances) | Memcached 是一种高性能分布式内存对象缓存系统。 此解决方案预配多个 Memcached 节点，为你的应用创建高性能、可经受故障的分布式缓存。 **此解决方案模板还需要 Debian 8 和适用于 Linux 2.0 扩展的自定义脚本。** | Bitnami |
 | ![MODX](media/azure-stack-marketplace-azure-items/modx.png) | [MODX](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.modx) | 直观的 Web CMS。 | Bitnami |
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | 编写的C++高性能开源 NoSQL 数据库。 | Bitnami |
-| ![带有复制的 MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [带有复制的 MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | 编写的C++高性能开源 NoSQL 数据库。 **此解决方案模板要求 Azure Stack 为版本1807或更高版本，并且还需要 Debian 8 和 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![带有复制的 MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [带有复制的 MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | 编写的C++高性能开源 NoSQL 数据库。 **此解决方案模板要求 Azure Stack 集线器处于版本1807或更高版本，并且还需要 Debian 8 和 Linux 2.0 扩展的自定义脚本。** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | 为联机学习社区设计的有效 CMS。 | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | 免费和开源论坛软件。 | Bitnami |
 | ![MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql) | 最流行的数据库系统。 | Bitnami |
@@ -207,7 +207,7 @@ Microsoft Azure Stack 支持以下 Azure Marketplace Vm 和解决方案模板。
 | ![RabbitMQ 群集](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ 是一种消息传送代理，可向应用提供公共平台用于发送和接收消息，以及在收到消息之前有效地使用消息。 此解决方案使用多个 Vm 在 RabbitMQ 群集中设置多个节点，从而形成一个逻辑 broker。 **此解决方案模板还需要 Debian 8 和适用于 Linux 2.0 扩展的自定义脚本。** | Bitnami |
 | ![Re：短线](media/azure-stack-marketplace-azure-items/redash.png) | [Re：短线](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | 开源数据可视化和协作平台。 | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | 强大的开源键-值存储。 | Bitnami |
-| ![Redis 高可用性](media/azure-stack-marketplace-azure-items/redis.png) | [Redis 高可用性](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | 强大的开源键-值存储。 **此解决方案模板要求 Azure Stack 为版本1807或更高版本，并且还需要 Debian 8 和 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![Redis 高可用性](media/azure-stack-marketplace-azure-items/redis.png) | [Redis 高可用性](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | 强大的开源键-值存储。 **此解决方案模板要求 Azure Stack 集线器处于版本1807或更高版本，并且还需要 Debian 8 和 Linux 2.0 扩展的自定义脚本。** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | 强大的项目管理 web 应用。 | Bitnami |
 | ![Redmine + Agile](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine + Agile](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | 已预先配置敏捷插件的项目管理应用程序。 | Bitnami |
 | ![ReportServer 社区](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer 社区](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | 开源商业智能平台。 | Bitnami |
@@ -237,9 +237,11 @@ Microsoft Azure Stack 支持以下 Azure Marketplace Vm 和解决方案模板。
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | 用于创建动态网站的 CMS 和 Web 门户程序。 | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 开源 CRM 系统：移动、社交和 Gamified。 | Bitnami |
 | ![ZooKeeper](media/azure-stack-marketplace-azure-items/zookeeper.png) | [ZooKeeper](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeeper) | ZooKeeper 为分布式应用程序提供了一种可靠、集中的配置数据和服务注册。 | Bitnami |
-| ![Check Point vSEC 安全管理](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC 安全管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC 提供高级的多层威胁防护，保护 Azure 中的客户资产免受恶意软件和复杂的威胁。 **下载这两个检查点 vSEC marketplace 项。** | Check Point |
+| ![Check Point CloudGuard IaaS 高可用性](media/azure-stack-marketplace-azure-items/checkpoint.png) | [CloudGuard IaaS 高可用性](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 此解决方案部署2个成员检查点 CloudGuard IaaS 群集。 每个成员有2个网络接口。 | Check Point |
+| ![Check Point CloudGuard IaaS 安全管理](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point CloudGuard IaaS 安全管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 此解决方案使用单个网络接口部署单一检查点安全管理服务器。 | Check Point |
+| ![Check Point CloudGuard IaaS 单一网关](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point CloudGuard IaaS 单一网关](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 此解决方案部署具有2个网络接口的单一检查点 CloudGuard IaaS 安全网关。 部署完成后，应设置用户定义的路由（Udr），以便通过网关路由流量。 | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef 自动化](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 通过 Chef 自动执行、持续自动化平台生成、部署和管理。 **下载这两个 Chef marketplace 项**。 | Chef Software，Inc。 |
-| ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | 用于备份和恢复的综合性解决方案、用于 Azure Stack 的应用和 VM 迁移，以及单个解决方案中 Azure Stack 环境的灾难恢复。 | Commvault |
+| ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | 一种全面的解决方案，可用于备份和恢复、应用和 VM 迁移到 Azure Stack 中心，以及单个解决方案中 Azure Stack 中心环境的灾难恢复。 | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 轻松可靠地控制、监视和加密 Vm。 **下载所有 CloudLink SecureVM 项。** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM 是一个全面的安全平台，它提供具有可供审核的符合性功能的高级安全工具。 | EventTracker |
 | ![Exivity-混合云计费解决方案](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity-混合云计费解决方案](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | 一种计费工具，可满足几乎任何 IT 服务交付模型的要求，无论是在本地、公有云还是混合环境中部署的。 | Exivity |
@@ -248,16 +250,16 @@ Microsoft Azure Stack 支持以下 Azure Marketplace Vm 和解决方案模板。
 | ![Hortonworks 数据平台（HDP）沙箱](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks 数据平台（HDP）沙箱](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 为 Hadoop、Spark、风暴、HBase、Kafka、Hive、Ambari 提供 HDP 2.5 100% 开源平台支持。 | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky 等混合云安全](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky 等混合云安全可实现无缝协调和自适应网络安全生态系统。 | Kaspersky 等实验室 |
 | ![KEMP LoadMaster 负载均衡器 ADC 内容开关](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 负载均衡器 ADC 内容开关](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 第4-7 层应用程序传送控制器（ADC）负载均衡器、内容交换机和流量管理器。 | KEMP 技术 Inc。 |
-| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | 此解决方案使用 AKS 生成的模板来部署作为独立群集运行的 Kubernetes 群集。<br>**此解决方案模板还需要 Ubuntu Server 16.04 LTS 和适用于 Linux 2.0 的自定义脚本。**| Microsoft |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-aks-engine.md) | 此解决方案使用 AKS 生成的模板来部署作为独立群集运行的 Kubernetes 群集。<br>**此解决方案模板还需要 Ubuntu Server 16.04 LTS 和适用于 Linux 2.0 的自定义脚本。**| Microsoft |
 | ![Service Fabric 群集](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric 群集](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | 此解决方案部署作为虚拟机规模集上的独立群集运行的 Service Fabric。 <br>**此解决方案模板还需要下载 Windows Server 2016 Datacenter**| Microsoft |
 | ![NRI mPLAT Suite-多云导体](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite-多云导体](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 用于监视、配置、预配、自动化和控制任何工作负荷或云的单个窗格。 | NRI |
 | ![NooBaa 混合 AWS S3 兼容-社区版](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa 混合 AWS S3 兼容-社区版](https://www.noobaa.io/hybrid-cloud) | 与 S3 兼容的存储服务，跨越公共容量资源和本地容量资源。 | NooBaa |
-| ![NetFoundry 关 for Multipoint，0信任 Azure Stack 连接](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry 关 for Multipoint，0信任 Azure Stack 连接](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | 在 Azure Stack 和任何位置之间通过任何网络连接进行的仅限软件的多点连接，具有业界领先的零信任安全性、最多5倍的 VPN 吞吐量和不受限制的并行用户。 | NetFoundry |
-| ![Palo Alto VM 系列下一代防火墙](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 系列下一代防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM 系列下一代防火墙使客户能够安全地将其应用程序和数据迁移到 Azure Stack，并通过应用程序允许列表和威胁防护策略保护它们免受未知和未知的威胁。 **此映像需要部署模板;请参阅此[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)了解重要信息。**| Palo Alto Networks，Inc。 |
+| ![用于 Multipoint 的 NetFoundry 网关，Azure Stack 中心连接的零信任](media/azure-stack-marketplace-azure-items/netfoundry.png) | [用于 Multipoint 的 NetFoundry 网关，Azure Stack 中心连接的零信任](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | 在 Azure Stack 集线器和任何位置之间通过任何网络连接进行的仅限软件的多点连接，具有业界领先的零信任安全性、VPN 吞吐量的5倍和不受限制的并行用户。 | NetFoundry |
+| ![Palo Alto VM 系列下一代防火墙](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 系列下一代防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM 系列下一代防火墙使客户能够安全地将其应用程序和数据迁移到 Azure Stack 中心，并通过应用允许列表和威胁防护策略保护他们免受未知和未知的威胁。 **此映像需要部署模板;请参阅此[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)了解重要信息。**| Palo Alto Networks，Inc。 |
 | ![PT 应用程序防火墙](media/azure-stack-marketplace-azure-items/pt.png) | [PT 应用程序防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT 应用程序防火墙检测已知 & 未知漏洞，并阻止对 web 应用的攻击。 **下载这两个 PT Marketplace 项。** | 正面技术 |
-| ![Puppet 企业](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet 企业](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise 使你能够自动执行 Azure Stack 基础结构的整个生命周期。 **下载这两个 Puppet Marketplace 项。** | Puppet |
+| ![Puppet 企业](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet 企业](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise 使你能够自动完成 Azure Stack 中心基础结构的整个生命周期。 **下载这两个 Puppet Marketplace 项。** | Puppet |
 | ![寻找快速恢复](media/azure-stack-marketplace-azure-items/quest.png) | [寻找快速恢复核心](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | 快速恢复高级数据保护在一个易于使用的软件解决方案中统一了备份、复制和恢复。 | 寻找软件 |
-| ![SIOS DataKeeper 群集版本](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper 群集版本](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper 在 Azure Stack 中提供高可用性（HA）和灾难恢复（DR）。 只需在 Azure Stack 部署中将 SIOS DataKeeper software 作为成分添加到 Windows Server 故障转移群集（WSFC）环境中，便无需共享存储。 | SIOS 技术公司。 |
+| ![SIOS DataKeeper 群集版本](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper 群集版本](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper 在 Azure Stack 集线器中提供高可用性（HA）和灾难恢复（DR）。 只需在 Azure Stack 中心部署中将 SIOS DataKeeper software 作为成分添加到 Windows Server 故障转移群集（WSFC）环境中，即可无需共享存储。 | SIOS 技术公司。 |
 | ![SUSE Manager 3.1 代理（BYOS）](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 代理（BYOS）](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | 同类最佳开源基础结构管理。 | SUSE |
 | ![CipherTrust 云密钥管理器](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust 云密钥管理器](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | 通过利用 Microsoft Azure 和其他云提供商创建自己的密钥（BYOK） Api，CipherTrust 云密钥管理器通过提供对加密密钥的多云生命周期控制（集中管理和可见性。 | Thales eSecurity |
 | ![Veeam 备份 & 复制](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam 备份 & 复制](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam®备份 & 复制™有助于企业针对所有工作负荷（虚拟、物理和基于云）实现全面的数据保护。 使用单个控制台，可以实现快速、灵活且可靠的所有应用和数据的备份、恢复和复制。 | Veeam 软件 |
