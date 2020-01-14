@@ -16,12 +16,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e68293f3d1ef64e10eb0eeff74cbd7b6f170f77c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8cd440c67f8f192cb6ed1d0010ddc3f83fbdc281
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819108"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914847"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>优化 Azure Stack 中心性能的 SQL server 最佳做法
 
@@ -31,6 +31,8 @@ ms.locfileid: "75819108"
 
 > [!NOTE]  
 > 尽管本文介绍了如何使用全局 Azure 门户预配 SQL Server VM，但本指南也适用于具有以下差异的 Azure Stack 中心： SSD 不适用于操作系统磁盘，且存储空间有细微差异configuration.
+
+在 VM 映像中，对于 "SQL Server"，只能使用 "自带许可证" （BYOL）。 对于 Windows Server，默认许可证模型为即用即付（PAYG）。 有关 VM 中 Windows Server 许可证模型的详细信息，请参阅[Windows server in Azure Stack Hub MARKETPLACE 常见问题解答](https://docs.microsoft.com/azure-stack/operator/azure-stack-windows-server-faq#what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server)。  
 
 本文重点介绍 Azure Stack 中心 Vm 上 SQL Server 的*最佳*性能。 如果你的工作负荷不太要求，你可能不需要每个建议的优化。 评估这些建议时应考虑性能需求和工作负荷模式。
 

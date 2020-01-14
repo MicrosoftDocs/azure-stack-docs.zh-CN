@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 4a3b79a8b1b58ad3da4abf9d5a59d750aaeae0ec
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 381cc82bcade8196f6e65a9c82bfef9b9093724d
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809757"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924404"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>为 Azure Stack 中心准备基于 Red Hat 的虚拟机
 
@@ -434,7 +434,7 @@ ms.locfileid: "75809757"
 
 ## <a name="prepare-a-red-hat-based-vm-from-vmware"></a>从 VMware 准备基于 Red Hat 的虚拟机
 
-本部分假设已在 VMware 中安装了 RHEL VM。 有关如何在 VMware 中安装操作系统的详细信息，请参阅 [VMware 来宾操作系统安装指南](https://partnerweb.vmware.com/GOSIG/home.html)。
+本部分假设已在 VMware 中安装了 RHEL VM。 有关如何在 VMware 中安装操作系统的详细信息，请参阅 [VMware 来宾操作系统安装指南](https://aka.ms/aa6z600)。
 
 * 在安装 Linux 操作系统时，建议使用标准分区而不是 LVM，这通常是许多安装的默认设置。 此方法可避免 LVM 名称与克隆的虚拟机冲突，尤其是在需要将操作系统磁盘附加到另一个 VM 进行故障排除时。 如果需要，可以在数据磁盘上使用 LVM 或 RAID。
 * 不要在操作系统磁盘上配置交换分区。 可将 Linux 代理配置为在临时资源磁盘上创建交换文件。 可以在下面的步骤中找到有关此配置的详细信息。

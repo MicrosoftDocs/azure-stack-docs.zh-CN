@@ -10,12 +10,12 @@ ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 7b072b95cae7148080ee0c9b1195960a3df041fc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7a7da17dd3b9be99c797b2241ae38bd2d4e6c0d2
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883790"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923985"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack 中心 Vm 简介
 
@@ -103,7 +103,7 @@ VM 扩展通过部署后的配置和自动化任务为 VM 额外增加了功能�
 |方法|文章|
 |---------|---------|
 |Azure Stack 中心门户|使用 Azure Stack 中心门户创建 Windows VM<br>[使用 Azure Stack 中心门户创建 Linux VM](azure-stack-quick-linux-portal.md)|
-|模板|Azure Stack 集线器快速入门模板位于：<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStarvirtualt-Templates)|
+|模板|Azure Stack 集线器快速入门模板位于：<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
 |PowerShell|[在 Azure Stack 集线器中使用 PowerShell 创建 Windows VM](azure-stack-quick-create-vm-windows-powershell.md)<br>[在 Azure Stack 集线器中使用 PowerShell 创建 Linux VM](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[在 Azure Stack 集线器中使用 CLI 创建 Windows VM](azure-stack-quick-create-vm-windows-cli.md)<br>[在 Azure Stack 集线器中使用 CLI 创建 Linux VM](azure-stack-quick-create-vm-linux-cli.md)|
 

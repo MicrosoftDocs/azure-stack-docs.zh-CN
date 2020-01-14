@@ -328,6 +328,8 @@
                   href: azure-stack-app-service-release-notes-update-six.md
                 - name: Azure Stack 集线器上的应用服务更新7发行说明
                   href: azure-stack-app-service-release-notes-update-seven.md
+                - name: Azure Stack 上的应用服务更新8发行说明
+                  href: azure-stack-app-service-release-notes-update-eight.md
         - name: Azure Stack 集线器上的 MySQL
           items:
             - name: 概述

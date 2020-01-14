@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 734a77692f8f505e84090ee882eaa570ccd897ec
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 130a4f31f608368df99ec3f98fc2e2763a0fbd1a
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879251"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924003"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>在 Azure Stack 中心使用 Azure 资源管理器模板
 
@@ -71,7 +71,7 @@ ms.locfileid: "75879251"
 
 ## <a name="basic-virtual-machine"></a>基本虚拟机
 
-[部署一个 WINDOWS VM](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm) ，其中包含一个虚拟网络（使用 DNS）、公共 IP 地址和一个网络接口。
+[部署一个 WINDOWS VM](https://aka.ms/aa6zdzx) ，其中包含一个虚拟网络（使用 DNS）、公共 IP 地址和一个网络接口。
 
 ## <a name="cancel-a-running-template-deployment"></a>取消正在运行的模板部署
 

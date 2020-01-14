@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 2e44c0e70e44d628d32fdf8d15e9d60b78a4ce14
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 82b1826831ffd9c5d28f56dab25c6f02b49edca8
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883807"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924008"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>使用服务和构建应用时 Azure Stack 中心与 Azure 之间的差异
 
@@ -65,7 +65,7 @@ Microsoft 提供的工具和指南可帮助你针对 Azure Stack 中心进行开
 | -------- | ------------- |
 | 在开发人员工作站上安装正确的工具。 | - [安装 PowerShell](../operator/azure-stack-powershell-install.md)<br>- [下载工具](../operator/azure-stack-powershell-download.md)<br>- [配置 PowerShell](azure-stack-powershell-configure-user.md)<br>- [安装 Visual Studio](azure-stack-install-visual-studio.md)
 | 查看有关以下各项的信息：<br>-Azure 资源管理器模板注意事项。<br>-如何查找快速入门模板。<br>-使用策略模块帮助你使用 Azure 针对 Azure Stack 中心进行开发。 | [针对 Azure Stack 中心进行开发](azure-stack-developer.md) |
-| 查看并遵循模板的最佳实践。 | [资源管理器快速入门模板](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
+| 查看并遵循模板的最佳实践。 | [资源管理器快速入门模板](https://aka.ms/aa6yz42)
 | | |
 
 ## <a name="version-requirements"></a>版本要求

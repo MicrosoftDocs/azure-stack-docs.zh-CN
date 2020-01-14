@@ -6,17 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 10/02/2019
+ms.date: 1/10/2020
 ms.author: mabrigg
-ms.custom: mvc
 ms.reviewer: kivenkat
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 53e33ed9da57209c1f937cbf72eb2c3882dfd1cd
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 1/10/2020
+ms.openlocfilehash: 1b7ea35da7234fde1517b59101205a92075b9016
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878571"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914933"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack 中心门户创建 Windows server VM
 
@@ -35,35 +34,38 @@ ms.locfileid: "75878571"
 
 ## <a name="create-a-vm"></a>创建 VM
 
-1. 单击 " **+ 创建资源**" > **计算** > **Windows Server 2016 Datacenter-即用即付** > **创建**"。 <br> 如果看不到 " **Windows server 2016 Datacenter-即用即付**" 条目，请与 Azure Stack 中心操作员联系，并要求他们将其添加到 marketplace，如将[WINDOWS Server 2016 VM 映像添加到 Azure Stack 中心市场](../operator/azure-stack-create-and-publish-marketplace-item.md)文章中所述。
+1. 选择 "**创建资源** > **计算**"。 搜索` Windows Server 2016 Datacenter – Pay as you use`。
+    如果看不到 " **Windows Server 2016 Datacenter-即用即付**" 条目，请与 Azure Stack 中心云操作员联系，要求将图像添加到 Azure Stack 中心市场。 有关说明，你的云操作员可以参阅[创建和发布自定义 Azure Stack 中心市场项](../operator/azure-stack-create-and-publish-marketplace-item.md)。
 
-    ![在门户中创建 Windows VM 的步骤](media/azure-stack-quick-windows-portal/image01.png)
+    ![Windows Server 2016 Datacenter –按使用情况付费](./media/azure-stack-quick-windows-portal/image1.png)
 
-2. 在 "**基本**信息" 下，键入**名称**、**用户名**和**密码**。 选择“订阅”。 创建**资源组**或选择现有资源组，选择一个**位置**，然后单击 **"确定"** 。
+1. 选择“创建”。
 
-    ![配置基本设置](media/azure-stack-quick-windows-portal/image02.png)
+    ![创建资源](./media/azure-stack-quick-windows-portal/image2.png)
 
-3. 在 "**大小**" 下，选择 " **D1 标准**"，然后单击 "**选择**"。  
+1. 在 "**基本**信息" 下输入**名称**、**磁盘类型**、**用户名**和**密码**。 选择“订阅”。 创建**资源组**或选择现有资源组，选择一个**位置**，然后选择 **"确定"** 。
 
-    ![选择 VM 的大小](media/azure-stack-quick-windows-portal/image03.png)
+    ![创建 VM-基础](./media/azure-stack-quick-windows-portal/image3.png)
 
-4. 在 "**设置**" 页上，对默认值进行任何所需的更改。
-   - 从 Azure Stack 集线器版本1808开始，你可以配置**存储**，你可以在其中选择使用*托管磁盘*。 在1808之前的版本中，仅可使用非托管磁盘。  
+1. 选择 "**大小**" 下**D1_v2** ，然后选择 "**选择**"。
 
-   ![配置 VM 设置](media/azure-stack-quick-windows-portal/image04.png)  
+    ![创建 VM-大小](./media/azure-stack-quick-windows-portal/image4.png)
 
-   配置准备就绪后，请选择 **"确定"** 继续。
+1. 在 "**设置**" 页上，对默认值进行任何所需的更改。 您必须从相关的下拉配置所需的公用入站端口。 完成后，选择“确定”。
 
-5. 在 "**摘要**" 下，单击 **"确定"** 以创建 VM。
-    ![查看摘要和创建 VM](media/azure-stack-quick-windows-portal/image05.png)
+    ![创建 VM-设置](./media/azure-stack-quick-windows-portal/image5.png)
 
-6. 若要查看新 VM，请单击 "**所有资源**"，搜索 VM 名称，然后在搜索结果中选择它。
+1. 选择 "**摘要**" 下的 **"确定"** 以创建 VM。
 
-    ![请参阅 VM](media/azure-stack-quick-windows-portal/image06.png)
+    ![创建 VM-摘要](./media/azure-stack-quick-windows-portal/image6.png)
+
+1. 选择 "**虚拟机**" 以查看新 VM。 搜索 VM 名称，然后在搜索结果中选择该 VM。
+
+![为 VM 创建 VM 搜索](./media/azure-stack-quick-windows-portal/image7.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 
-使用完 VM 后，请删除 VM 及其资源。 为此，请在 VM 页面上选择资源组，并单击 "**删除**"。
+使用完 VM 后，请删除 VM 及其资源。 为此，请在 "VM" 页上选择资源组，然后选择 "**删除**"。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -17,12 +17,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 3efa4da68a5149f78c21c9bd3e8416371f03eb77
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: dcf506ec301ed9e912ef07ee43f211c748d8e936
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820808"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924167"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>教程：使用社区模板创建 VM
 
@@ -44,7 +44,7 @@ Azure Stack 集线器快速入门模板存储在 GitHub[全局 Azure Stack 中�
 >[!IMPORTANT]
 > 其中一些模板是由社区成员创建的，而不是由 Microsoft 创建的。 每个模板由其所有者（而非 Microsoft）根据许可协议授予许可。 Microsoft 不对这些模板负责，并且不会对安全性、兼容性或性能进行筛选。 任何 Microsoft 支持计划或服务均不支持社区模板，并 "按原样" 提供，且没有任何形式的保证。
 
-如果要将 Azure 资源管理器模板加入 GitHub，请在[test-azurestack](https://github.com/Azure/AzureStack-QuickStart-Templates)存储库中做出贡献。 若要了解有关此存储库以及如何参与此存储库的详细信息，请参阅[自述文件](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md)。
+如果要将 Azure 资源管理器模板加入 GitHub，请在[test-azurestack](https://github.com/Azure/AzureStack-QuickStart-Templates)存储库中做出贡献。 若要了解有关此存储库以及如何参与此存储库的详细信息，请参阅[自述文件](https://aka.ms/aa6zktg)。
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>使用自定义 GitHub 模板创建 VM
 

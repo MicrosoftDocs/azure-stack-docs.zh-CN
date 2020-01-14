@@ -1,6 +1,7 @@
 ---
-title: Azure Stack 集线器遥测 |Microsoft Docs
-description: 介绍如何使用 PowerShell 配置 Azure Stack 集线器遥测设置。
+title: 配置 Azure Stack 集线器遥测
+titleSuffix: Azure Stack
+description: 了解 Azure Stack 集线器遥测以及如何使用 PowerShell 配置遥测设置。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,23 +17,23 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 167a230a8e098e0ea4087050a9a5bd36ceae3078
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f83380b7eb3f35c5887911f40336bf4286759f53
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882651"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914760"
 ---
-# <a name="azure-stack-hub-telemetry"></a>Azure Stack 集线器遥测
+# <a name="configure-azure-stack-hub-telemetry"></a>配置 Azure Stack 集线器遥测
 
 Azure Stack 集线器遥测会自动通过连接的用户体验将系统数据上传到 Microsoft。 Microsoft 团队使用 Azure Stack 集线器遥测收集的数据来改善客户体验。 此数据也用于安全、运行状况、质量和性能分析。
 
 对于 Azure Stack 中心运营商，遥测可向企业部署提供有价值的见解，并为你提供有助于调整 Azure Stack 中心的未来版本的声音。
 
 > [!NOTE]
-> 你还可以配置 Azure Stack 集线器，将使用情况信息转发到 Azure 进行计费。 这是选择即用即付计费的多节点 Azure Stack 集线器客户所必需的。 使用情况报告独立于遥测，对于选择容量模型或 Azure Stack 开发工具包用户的多节点客户不需要。 对于这些情况，可以[使用注册脚本](azure-stack-usage-reporting.md)关闭使用情况报告。
+> 你还可以配置 Azure Stack 集线器，将使用情况信息转发到 Azure 进行计费。 这是选择即用即付计费的多节点 Azure Stack 集线器客户所必需的。 使用情况报告独立于遥测，并不是选择容量模型或为 Azure Stack 开发工具包用户提供的多节点客户所必需的。 对于这些情况，可以[使用注册脚本](azure-stack-usage-reporting.md)关闭使用情况报告。
 
-Azure Stack 集线器遥测基于 Windows Server 2016 连接的用户体验和遥测组件，该组件使用[Windows 事件跟踪（ETW）](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging 技术来收集和存储事件和数据。 Azure Stack 集线器组件使用相同的技术来发布使用公共操作系统事件日志记录和跟踪 Api 收集的事件和数据。 这些 Azure Stack 集线器组件的示例包括：网络资源、存储资源、监视资源和更新资源。 连接的用户体验和遥测组件使用 SSL 来加密数据，并使用证书固定将数据通过 HTTPS 传输到 Microsoft 数据管理服务。
+Azure Stack 集线器遥测基于 Windows Server 2016 连接的用户体验和遥测组件。 此组件使用[Windows 事件跟踪（ETW）](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging 技术来收集和存储事件和数据。 Azure Stack 组件使用相同的技术来发布使用公共操作系统事件日志记录和跟踪 Api 收集的事件和数据。 这些 Azure Stack 集线器组件的示例包括：网络资源、存储资源、监视资源和更新资源。 连接的用户体验和遥测组件使用 SSL 来加密数据，并使用证书固定将数据通过 HTTPS 传输到 Microsoft 数据管理服务。
 
 > [!IMPORTANT]
 > 若要启用遥测数据流，必须在网络中打开端口443（HTTPS）。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 https://v10.vortex-win.data.microsoft.com ）。 连接的用户体验和遥测组件还连接到 https://settings-win.data.microsoft.com 以下载配置信息。
@@ -55,7 +56,7 @@ Microsoft 不打算收集敏感数据，如信用卡号、用户名和密码、�
 
 ## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Microsoft 使用遥测数据的方式的示例
 
-遥测在帮助快速识别和修复客户部署和配置中的严重可靠性问题方面扮演着重要的角色。 来自遥测数据的见解有助于识别服务或硬件配置的问题。 Microsoft 能够从客户那里获取此数据并推动对生态系统的改进，从而提高集成 Azure Stack 中心解决方案的质量。
+遥测在帮助快速识别和修复客户部署和配置中的严重可靠性问题方面扮演着重要的角色。 来自遥测数据的见解有助于识别服务或硬件配置的问题。 Microsoft 能够从客户那里获取此数据并推动对生态系统的改进，从而提高了集成 Azure Stack 中心解决方案的质量。
 
 遥测还可以帮助 Microsoft 更好地了解客户如何部署组件、如何使用功能以及如何使用服务来实现其业务目标。 这些见解可帮助在直接影响客户体验和工作负荷的领域中确定工程投资的优先级。
 
@@ -63,7 +64,7 @@ Microsoft 不打算收集敏感数据，如信用卡号、用户名和密码、�
 
 ## <a name="manage-telemetry-collection"></a>管理遥测集合
 
-不建议在组织中关闭遥测。 但是，在某些情况下，这可能是必需的。
+不建议在组织中关闭遥测。 但是，在某些情况下，可能需要这样做。
 
 在这些情况下，你可以在部署 Azure Stack 集线器之前，通过使用注册表设置来配置发送到 Microsoft 的遥测级别，或在部署 Azure Stack Hub 后使用遥测终结点。
 
@@ -88,7 +89,7 @@ Microsoft 不打算收集敏感数据，如信用卡号、用户名和密码、�
 
 - *遥测功能*，其中包括上传事件的百分比、删除的事件和上次数据上传时间。
 - *与质量相关的信息*，可帮助 Microsoft 大致了解 Azure Stack 集线器的执行方式。 例如，针对特定硬件配置的严重警报计数。
-- *兼容性数据*，帮助了解系统和虚拟机上安装了哪些资源提供程序。 这会识别潜在的兼容性问题。
+- *兼容性数据*，帮助了解系统和虚拟机（VM）上安装了哪些资源提供程序。 这会识别潜在的兼容性问题。
 
 **2（增强）**</br>
 其他见解，包括如何使用操作系统和 Azure Stack 中心服务、这些服务的执行方式、高级可靠性数据以及**安全**级别和**基本**级别的数据。
@@ -123,14 +124,14 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 ### <a name="asdk-and-multi-node-enable-or-disable-telemetry-after-deployment"></a>ASDK 和多节点：部署后启用或禁用遥测
 
-若要在部署后启用或禁用遥测，你需要有权访问在 ERCS Vm 上公开的特权终结点（PEP）。
+若要在部署后启用或禁用遥测，你需要访问在 ERCS Vm 上公开的特权终结点（PEP）。
 
-1. 若要启用： `Set-Telemetry -Enable`
-2. 若要禁用： `Set-Telemetry -Disable`
+- 若要启用： `Set-Telemetry -Enable`
+- 若要禁用： `Set-Telemetry -Disable`
 
 参数详细信息：
-> .参数 Enable-启用遥测数据上传</br>
-> .参数禁用-关闭遥测数据上传  
+- `.PARAMETER Enable`-启用遥测数据上传
+- `.PARAMETER Disable`-关闭遥测数据上传  
 
 **启用遥测的脚本：**
 

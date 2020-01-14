@@ -15,12 +15,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 14f3cd2cef05b9514680dabd6849c5e60521ef86
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3b87f5cf7273afdabd6ee7da672d06712607e126
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878809"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923926"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>对 Azure Stack 集线器上的 AKS 引擎进行故障排除
 
@@ -92,7 +92,7 @@ ms.locfileid: "75878809"
 
 ## <a name="collect-kubernetes-logs"></a>收集 Kubernetes 日志
 
-除了 AKS 引擎日志以外，Kubernetes 组件还生成状态和错误消息。 可以使用 Bash 脚本[getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.zip)收集这些日志。
+除了 AKS 引擎日志以外，Kubernetes 组件还生成状态和错误消息。 可以使用 Bash 脚本[getkuberneteslogs.sh](https://aka.ms/aa6z613)收集这些日志。
 
 此脚本将自动收集以下日志： 
 

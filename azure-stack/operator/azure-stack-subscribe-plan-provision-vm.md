@@ -1,6 +1,7 @@
 ---
-title: 在 Azure Stack 中心订阅产品/服务
-description: 在 Azure Stack 中心创建产品/服务的订阅
+title: 在 Azure Stack Hub 中创建对产品/服务的订阅。
+titleSuffix: Azure Stack
+description: 了解如何在 Azure Stack Hub 中创建产品/服务的订阅。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -10,16 +11,16 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 3a9798b82729a88b2ca3cf8ed2cf403a9dab34c7
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 357b44e5a9860f8626c7b17e215ee773e4e4ebca
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882855"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914797"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建对产品/服务的订阅
 
-[创建套餐](azure-stack-create-offer.md)后，用户需要订阅该套餐，然后才能使用它。 用户订阅套餐有两种方式：
+[创建套餐](azure-stack-create-offer.md)后，用户需要订阅该套餐，然后才能使用它。 用户可以通过两种方式订阅产品/服务：
 
 - 在管理员门户中以云操作员身份为用户创建订阅。 创建的订阅可以是针对公共套餐的，也可以是针对专用套餐的。
 - 在使用用户门户时以租户用户身份订阅公共套餐。  
@@ -34,7 +35,7 @@ ms.locfileid: "75882855"
 
 ### <a name="to-create-a-subscription-for-a-user"></a>为用户创建订阅
 
-1. 在管理门户中，请参阅**用户订阅。**
+1. 在管理员门户中，请参阅**用户订阅。**
 2. 选择 **添加** 。 在 "**新建用户订阅**" 下，输入以下信息：  
 
    - **显示名称**-用于标识显示为*用户订阅名称*的订阅的友好名称。
@@ -54,7 +55,7 @@ ms.locfileid: "75882855"
 
 云操作员可随时将计划添加到先前创建的订阅：
 
-1. 在管理门户中，选择 "**所有服务**"，然后在 "**管理资源**" 类别下选择 "**用户订阅**"。 选择想要更改的订阅。
+1. 在管理员门户中，选择 "**所有服务**"，然后在 "**管理资源**" 类别下选择 "**用户订阅**"。 选择想要更改的订阅。
 
 2. 选择 "**外接程序**"，然后选择 " **+ 添加**"。  
 
@@ -71,11 +72,11 @@ ms.locfileid: "75882855"
 
 1. 登录到 Azure Stack 集线器用户门户，然后选择 "**获取订阅**"。
 
-   ![获取订阅](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![在 Azure Stack Hub 用户门户中获取订阅](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
 2. 在 "**获取订阅**" 下的 "**显示名称**" 中，输入订阅的友好名称。 选择 "**产品**/服务"，在 "**选择产品**/服务" 下选择产品/服务。 选择 "**创建**" 以创建订阅。
 
-   ![创建套餐](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![在 Azure Stack 集线器用户门户中选择产品/服务](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. 订阅产品/服务后，刷新门户以查看哪些服务是新订阅的一部分。
 
@@ -93,6 +94,7 @@ ms.locfileid: "75882855"
 
 ## <a name="next-steps"></a>后续步骤
 
-了解有关用户现在如何将资源部署到其订阅中的详细信息： 
-  - [多个用户快速入门](../user/azure-stack-quick-windows-portal.md)介绍如何使用 PowerShell、Azure CLI 和用户门户预配 Windows 和 Linux 虚拟机。 
-  - [使用 Azure 资源管理器模板的教程](../user/azure-stack-create-vm-template.md)演示了如何部署运行 Minikube 的 Ubuntu 16.04 虚拟机来管理 kubenetes 群集。 
+了解有关用户现在如何将资源部署到其订阅中的详细信息：
+
+- [多个用户快速入门](../user/azure-stack-quick-windows-portal.md)介绍如何使用 PowerShell、Azure CLI 和用户门户预配 Windows 和 Linux 虚拟机。
+- [使用 Azure 资源管理器模板的教程](../user/azure-stack-create-vm-template.md)演示了如何部署运行 Minikube 的 Ubuntu 16.04 虚拟机来管理 Kubernetes 群集。

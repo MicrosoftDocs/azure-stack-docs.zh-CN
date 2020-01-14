@@ -12,12 +12,12 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: e09e11ef8e5b454fbc6bffe4a9d8e4753b263ec4
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 86e9f6fb78275678f8072573f83696d3ea79184f
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820400"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924150"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署以太坊区块链网络
 
@@ -62,7 +62,7 @@ ms.locfileid: "75820400"
 
 协会负责人模板配置网络中第一个成员的占用量。 
 
-1. [从 GitHub 下载负责人模板](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)。
+1. [从 GitHub 下载负责人模板](https://aka.ms/aa6z619)。
 2. 在 Azure Stack 中心租户门户中，选择 " **+ 创建资源" > 模板部署**从自定义模板部署。
 3. 选择 "**编辑模板**" 以编辑新的自定义模板。
 4. 在右侧的编辑窗格中，复制并粘贴之前下载的引线模板 JSON。
@@ -117,7 +117,7 @@ ms.locfileid: "75820400"
 
 ### <a name="joining-consortium-member-deployment"></a>加入联合会成员部署
 
-1. [从 GitHub 下载联合会成员模板](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)。
+1. [从 GitHub 下载联合会成员模板](https://aka.ms/aa6zkua)。
 2. 在 Azure Stack 中心租户门户中，选择 " **+ 创建资源" > 模板部署**从自定义模板部署。
 3. 选择 "**编辑模板**" 以编辑新的自定义模板。
 4. 在右侧的编辑窗格中，复制并粘贴你先前下载的引线模板 JSON。
@@ -169,7 +169,7 @@ ms.locfileid: "75820400"
 
 此模板创建从引线到远程成员的连接。 
 
-1. [从 GitHub 下载 connect 成员和领导者模板](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)。
+1. [从 GitHub 下载 connect 成员和领导者模板](https://aka.ms/aa6zdyt)。
 2. 在 Azure Stack 中心租户门户中，选择 " **+ 创建资源" > 模板部署**从自定义模板部署。
 3. 选择 "**编辑模板**" 以编辑新的自定义模板。
 4. 在右侧的编辑窗格中，复制并粘贴你先前下载的引线模板 JSON。

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 01/10/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/03/2020
-ms.openlocfilehash: 00db45d05f92b946fa1b493911363142f0dc32e1
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/10/2020
+ms.openlocfilehash: 079be062ee45e012abf3ec1bc869409ec4ee03a5
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75886196"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914573"
 ---
 # <a name="rotate-app-service-on-azure-stack-hub-secrets-and-certificates"></a>旋转 Azure Stack 中心机密和证书上的应用服务
 
@@ -65,7 +65,7 @@ ms.locfileid: "75886196"
 
 1. 凭据将在 Azure App Service 角色实例中进行旋转。 操作员可以使用 "**状态**" 按钮监视过程的状态。
 
-## <a name="rotate-certificates"></a>旋转证书
+## <a name="rotate-certificates"></a>轮换证书
 
 若要在 Azure Stack 中心旋转 Azure App Service 中使用的证书，请完成以下步骤：
 

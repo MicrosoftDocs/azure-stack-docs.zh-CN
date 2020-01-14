@@ -12,23 +12,25 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1099d605949b8ce05b2a2c5d4c8b1b233a5ac940
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: eb38d3f237b872e552bd135cbe6b93c905115e30
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880764"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924266"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>在 Azure Stack 中心部署应用服务
+
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包*
 
 本文介绍如何在 Azure Stack Hub 中部署应用服务。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.7 之前，将1907更新应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 开发工具包（ASDK）。
+> 在部署 Azure App Service 1.8 之前，请将1910更新应用到 Azure Stack 集线器集成系统，或部署最新的 Azure Stack 中心开发工具包（ASDK）。
 
 你可以为用户授予创建 web 和 API 应用程序的能力。 若要允许用户创建这些应用，需要执行以下操作：
 
@@ -36,7 +38,7 @@ ms.locfileid: "75880764"
 - 安装应用服务资源提供程序后，可以将其包含在产品/服务和计划中。 然后，用户可以订阅以获取服务并开始创建应用。
 
 > [!IMPORTANT]
-> 在运行资源提供程序安装程序之前，请确保已遵循中的指南，[然后再阅读](azure-stack-app-service-before-you-get-started.md)1.7 版本随附的[发行说明](azure-stack-app-service-release-notes-update-seven.md)。 阅读此内容可帮助你了解新功能、修补程序以及可能影响你的部署的任何已知问题。
+> 在运行资源提供程序安装程序之前，请确保已遵循中的指南，[然后再阅读](azure-stack-app-service-before-you-get-started.md)1.8 版本随附的[发行说明](azure-stack-app-service-release-notes-update-eight.md)。 阅读此内容可帮助你了解新功能、修补程序以及可能影响你的部署的任何已知问题。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>运行应用服务资源提供程序安装程序
 
@@ -65,19 +67,21 @@ ms.locfileid: "75880764"
 
    ![应用服务安装程序][2]
 
-6. 在 "下一应用服务安装程序" 页上，执行以下步骤：
+6. 在 "下一应用服务安装程序" 页上，你将连接到 Azure Stack 中心：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 选择**Azure Stack 中心订阅**旁边的 "**连接**"。
+    1. 选择要使用的连接方法-**凭据**或**服务主体**
+ 
+        - **凭据**
+            - 如果使用 Azure Active Directory （Azure AD），请输入在部署 Azure Stack 中心时提供的 Azure AD 管理员帐户和密码。 选择“连接”。
+            - 如果使用 Active Directory 联合身份验证服务（AD FS），请提供管理员帐户。 例如，cloudadmin@azurestack.local 。 输入密码，然后选择 "**连接**"。
 
-   - 如果使用 Azure Active Directory （Azure AD），请输入在部署 Azure Stack 中心时提供的 Azure AD 管理员帐户和密码。 选择“登录”。
-   - 如果使用 Active Directory 联合身份验证服务（AD FS），请提供管理员帐户。 例如，cloudadmin@azurestack.local 。 输入密码，然后选择 "**登录**"。
+        - **Service Principal**
+            - 你使用的服务主体**必须**对**默认提供程序订阅**具有**所有者**权限
+            - 提供**服务主体 ID**、**证书文件**和**密码**，然后选择 "**连接**"。
 
-   b.保留“数据库类型”设置，即设置为“共享”。 在**Azure Stack 中心订阅**"中，选择**默认提供程序订阅**。
+    1. 在**Azure Stack 中心订阅**"中，选择**默认提供程序订阅**。  **必须**在**默认提供程序订阅**中部署 Azure Stack 中心的 Azure App Service。
 
-     > [!IMPORTANT]
-     > 应用服务**必须**部署到**默认提供程序订阅**。
-
-   c. 在**Azure Stack 集线器位置**，选择与要部署到的区域相对应的位置。 例如，如果要部署到 ASDK，请选择 "**本地**"。
+    1. 在**Azure Stack 集线器位置**，选择与要部署到的区域相对应的位置。 例如，如果要部署到 ASDK，请选择 "**本地**"。
 
     ![应用服务安装程序][3]
 
@@ -173,7 +177,7 @@ ms.locfileid: "75880764"
 
 16. 在 "下一应用服务安装程序" 页上，执行以下步骤：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 跟踪安装进度。 Azure Stack 集线器上的应用服务基于默认选择部署大约60分钟。
+    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 跟踪安装进度。 Azure Stack 集线器上的应用服务最长可能需要240分钟才能根据默认的 Windows 2016 Datacenter 映像的默认选择和使用时间进行部署。
 
     b.保留“数据库类型”设置，即设置为“共享”。 安装程序成功完成后，选择 "**退出**"。
 

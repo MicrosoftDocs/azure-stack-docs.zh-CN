@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6b2383ada3a4de1d5c33db07d847b5ca2c5c5948
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 6c409577c73389bb53008ae03cbaf938c61d363f
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881342"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924132"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure Stack 中心帐单概述和常见问题 Azure App Service
 
@@ -85,13 +85,13 @@ Azure App Service 资源提供程序所需的 SQL Server 和文件服务器基�
 
 ## <a name="sample-scripts-to-assist-with-billing"></a>帮助计费的示例脚本
 
-Azure App Service 团队创建了一个示例 PowerShell 脚本，用于帮助查询 Azure Stack 中心使用情况服务。 云操作员可以使用这些示例脚本为租户准备自己的帐单。 示例脚本位于 GitHub 的[Azure Stack 集线器工具存储库](https://github.com/Azure/AzureStack-tools)中。 应用服务脚本位于 "[使用情况" 下的 AppService 文件夹](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService)中。
+Azure App Service 团队创建了一个示例 PowerShell 脚本，用于帮助查询 Azure Stack 中心使用情况服务。 云操作员可以使用这些示例脚本为租户准备自己的帐单。 示例脚本位于 GitHub 的[Azure Stack 集线器工具存储库](https://github.com/Azure/AzureStack-tools)中。 应用服务脚本位于 "[使用情况" 下的 AppService 文件夹](https://aka.ms/aa6zku8)中。
 
 可用的示例脚本包括：
 
-- [AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1)：此示例从 Azure Stack 中心使用情况 API 中获取 Azure Stack 中心计费记录 Azure App Service。
-- [AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1)：此示例计算每个订阅的 Azure Stack 中心用量量 Azure App Service。 此脚本根据使用情况 API 的数据和云运营商每个计量器提供的价格计算用量。
-- [UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1)：此示例根据云操作员指定的使用量限制挂起或启用订阅。
+- [AppServiceBillingRecords](https://aka.ms/aa6zku2)：此示例从 Azure Stack 中心使用情况 API 中获取 Azure Stack 中心计费记录 Azure App Service。
+- [AppServiceSubscriptionUsage](https://aka.ms/aa6zku6)：此示例计算每个订阅的 Azure Stack 中心用量量 Azure App Service。 此脚本根据使用情况 API 的数据和云运营商每个计量器提供的价格计算用量。
+- [UserSubscriptions](https://aka.ms/aa6zku7)：此示例根据云操作员指定的使用量限制挂起或启用订阅。
 
 ## <a name="next-steps"></a>后续步骤
 

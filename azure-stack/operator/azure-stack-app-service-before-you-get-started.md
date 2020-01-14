@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 集线器上部署应用服务的先决条件 |Microsoft Docs
-description: 在 Azure Stack 集线器上部署应用服务之前，请先了解要完成的先决条件步骤。
+title: 在 Azure Stack 中心部署 Azure App Service 的先决条件 |Microsoft Docs
+description: 了解在 Azure Stack 中心部署 Azure App Service 之前需要完成的先决条件步骤。
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,23 +12,25 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/08/2020
-ms.openlocfilehash: 7f0c928cfaf01296b15986e3eb768f48cab54554
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: e5dffbfd82ab8c23aa3862763f02ae759cf4de08
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880662"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924213"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署应用服务的先决条件
+
+*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包*
 
 在 Azure Stack 中心部署 Azure App Service 之前，必须完成本文中的先决条件步骤。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.6 之前，将1904更新应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 开发工具包（ASDK）。
+> 在部署 Azure App Service 1.8 之前，请将1910更新应用到 Azure Stack 集线器集成系统，或部署最新的 Azure Stack 中心开发工具包（ASDK）。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>下载安装程序和帮助程序脚本
 
@@ -150,7 +152,7 @@ API 证书放置在管理角色上。 资源提供程序使用它来帮助保护
 
 ### <a name="validate-certificates"></a>验证证书
 
-在部署应用服务资源提供程序之前，应该使用[PowerShell 库](https://aka.ms/AzsReadinessChecker)中提供的 Azure Stack 集线器就绪检查程序工具[来验证要使用的证书](azure-stack-validate-pki-certs.md#using-validated-certificates)。 Azure Stack 集线器就绪检查程序工具验证生成的 PKI 证书是否适用于应用服务部署。
+在部署应用服务资源提供程序之前，应该使用[PowerShell 库](https://aka.ms/AzsReadinessChecker)中提供的 Azure Stack 集线器就绪检查程序工具[来验证要使用的证书](azure-stack-validate-pki-certs.md)。 Azure Stack 集线器就绪检查程序工具验证生成的 PKI 证书是否适用于应用服务部署。
 
 最佳做法是，在使用任何必需的[Azure Stack 中心 PKI 证书](azure-stack-pki-certs.md)时，应根据需要计划足够的时间来测试和重新颁发证书。
 

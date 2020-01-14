@@ -9,12 +9,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 62e334ca62d4fddcd14357f45f00d309e8440103
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 1898b4415519dd8b1e6bf901c69cf67d6a607308
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820519"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923860"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>使用 Azure 帐户扩展连接到 Azure Stack 中心 Visual Studio Code
 
@@ -38,7 +38,7 @@ VS Code 是用于构建和调试 web 应用程序和云应用程序的轻型编�
 
     - 在运行该脚本之前，你将需要为你的环境安装并配置 PowerShell。 有关说明，请参阅为[Azure Stack 集线器安装 PowerShell](../operator/azure-stack-powershell-install.md)。
 
-    - 有关**标识**脚本说明和脚本，请参阅[test-azurestack-工具/标识](https://github.com/Azure/AzureStack-Tools/tree/master/Identity)。
+    - 有关**标识**脚本说明和脚本，请参阅[test-azurestack-工具/标识](https://aka.ms/aa6z611)。
 
     - 在同一会话中，运行：
 

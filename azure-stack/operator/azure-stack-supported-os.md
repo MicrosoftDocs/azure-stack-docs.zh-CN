@@ -1,6 +1,7 @@
 ---
-title: Azure Stack 中心支持的来宾操作系统 |Microsoft Docs
-description: 可以在 Azure Stack 集线器上使用这些来宾操作系统。
+title: Azure Stack 集线器上支持的来宾操作系统
+titleSuffix: Azure Stack
+description: 了解可在 Azure Stack 集线器上使用哪些来宾操作系统。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +16,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 7550314d580dea04f9bf237c72cc4900094c6dc0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 72b49bfec350c5216c1856096489705dc0adb486
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881733"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914733"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack 集线器上支持的来宾操作系统
 
@@ -28,7 +29,7 @@ ms.locfileid: "75881733"
 
 Azure Stack 中心支持下表中列出的 Windows 来宾操作系统：
 
-| 操作系统 | Description | 在 Marketplace 中提供 |
+| 操作系统 | Description | Azure Stack Marketplace 中提供 |
 | --- | --- | --- |
 | Windows Server，版本 1709 | 64 位 | 包含容器的内核 |
 | Windows Server 2019 | 64 位 |  数据中心、数据中心核心、包含容器的数据中心 |
@@ -40,22 +41,22 @@ Azure Stack 中心支持下表中列出的 Windows 来宾操作系统：
 | Windows 10 *（请参阅注释1）* | 64位、专业版和企业版 | 自带映像 |
 
 > [!NOTE]
-> 若要在 Azure Stack Hub 上部署 Windows 10 客户端操作系统，必须拥有[windows 每用户许可](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)或通过合格的多租户宿主（[QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)）购买。
+> 若要在 Azure Stack Hub 上部署 Windows 10 客户端操作系统，必须拥有[windows 每用户许可](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)或通过合格的多租户宿主（[QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)）购买。
 
-Marketplace 映像适用于即用即付或 BYOL （EA/SPLA）许可。 不支持在单个 Azure Stack 集线器实例上使用这两者。 在部署过程中，Azure Stack 集线器会将适当版本的来宾代理注入到映像中。
+Marketplace 映像适用于即用即付或 BYOL （EA/SPLA）许可。 不支持在单个 Azure Stack 集线器实例上同时使用这两者。 在部署过程中，Azure Stack 集线器会将适当版本的来宾代理注入到映像中。
 
-Datacenter edition 在 marketplace 中提供，可供下载;客户可以引入自己的服务器映像，包括其他版本。 Windows 客户端映像在 marketplace 中不可用。
+数据中心版本可用于下载 Azure Stack Marketplace;客户可以引入自己的服务器映像，包括其他版本。 Azure Stack Marketplace 中不提供 Windows 客户端映像。
 
 ## <a name="linux"></a>Linux
 
-在 marketplace 中列出的 Linux 分发版包括必要的 Microsoft Azure Linux 代理（WALA）。 如果你将自己的映像引入 Azure Stack 集线器，请遵循[将 Linux 映像添加到 Azure Stack 集线器](azure-stack-linux.md)中的指导原则。
+在 Azure Stack Marketplace 中列出的 Linux 分发版包含必需的 Windows Azure Linux 代理（WALA）。 如果你将自己的映像用于 Azure Stack，请按照[将 Linux 映像添加到 Azure Stack](azure-stack-linux.md)中的指南进行操作。
 
 > [!NOTE]
 > 自定义映像应由最新的公共 WALA 版本（在 1903 Azure Stack 集线器 build 和更高版本、1901/1902 修补程序）或版本2.2.20 生成。 2\.2.20 之前的版本以及2.2.21 和2.2.34 （含）之间的版本可能无法在 Azure Stack 集线器上正常工作。 在 Azure Stack 集线器1910及更高版本中，所有 Azure WALA 代理版本都适用于 Azure Stack 中心。
 >
 > Azure Stack 集线器1910及更高版本支持[cloud init](https://cloud-init.io/) 。
 
-| 分配 | Description | 发布者 | 市场 |
+| 分配 | Description | 发布者 | Azure Stack 市场 |
 | --- | --- | --- | --- |
 | 基于 CentOS 的6。9 | 64 位 | Rogue 波 | 是 |
 | 基于 CentOS 的7。5 | 64 位 | Rogue 波 | 是 |
@@ -76,7 +77,7 @@ Datacenter edition 在 marketplace 中提供，可供下载;客户可以引入�
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure Stack 中心 marketplace 的详细信息，请参阅以下文章：
+有关 Azure Stack Marketplace 的详细信息，请参阅以下文章：
 
 - [下载市场项](azure-stack-download-azure-marketplace-item.md)  
 - [创建并发布 marketplace 项](azure-stack-create-and-publish-marketplace-item.md)
