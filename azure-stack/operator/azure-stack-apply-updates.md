@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 337f5bfccc7deccf7214d452546c1e0ba3296555
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 2686b761ccf92af4ea643dd3e3c7d3fad5dcf2b5
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882889"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022983"
 ---
 # <a name="install-azure-stack-hub-updates"></a>安装 Azure Stack 中心更新
 
@@ -46,6 +46,9 @@ ms.locfileid: "75882889"
     例如，在此图中，版本为1.1903.0.35。
 
 ## <a name="install-updates-and-monitor-progress"></a>安装更新和监视进度
+
+> [!Important]
+> 在 Azure Stack 中心应用更新之前，请确保已完成[更新前清单](release-notes-checklist.md)中的**所有**步骤，并为要应用的更新类型计划了相应的维护时段。
 
 1. 打开 Azure Stack 中心管理员门户。
 

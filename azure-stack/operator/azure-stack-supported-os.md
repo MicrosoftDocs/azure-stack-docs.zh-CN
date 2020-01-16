@@ -16,12 +16,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 72b49bfec350c5216c1856096489705dc0adb486
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 8d437425db15fa078c00c973fe50824d0ada58bd
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914733"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023313"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack 集线器上支持的来宾操作系统
 
@@ -29,7 +29,7 @@ ms.locfileid: "75914733"
 
 Azure Stack 中心支持下表中列出的 Windows 来宾操作系统：
 
-| 操作系统 | Description | Azure Stack Marketplace 中提供 |
+| 操作系统 | Description | 在 Azure Stack Hub Marketplace 中提供 |
 | --- | --- | --- |
 | Windows Server，版本 1709 | 64 位 | 包含容器的内核 |
 | Windows Server 2019 | 64 位 |  数据中心、数据中心核心、包含容器的数据中心 |
@@ -45,18 +45,18 @@ Azure Stack 中心支持下表中列出的 Windows 来宾操作系统：
 
 Marketplace 映像适用于即用即付或 BYOL （EA/SPLA）许可。 不支持在单个 Azure Stack 集线器实例上同时使用这两者。 在部署过程中，Azure Stack 集线器会将适当版本的来宾代理注入到映像中。
 
-数据中心版本可用于下载 Azure Stack Marketplace;客户可以引入自己的服务器映像，包括其他版本。 Azure Stack Marketplace 中不提供 Windows 客户端映像。
+数据中心版本可用于下载 Azure Stack 中心市场;客户可以引入自己的服务器映像，包括其他版本。 Windows 客户端映像在 Azure Stack Hub Marketplace 中不可用。
 
 ## <a name="linux"></a>Linux
 
-在 Azure Stack Marketplace 中列出的 Linux 分发版包含必需的 Windows Azure Linux 代理（WALA）。 如果你将自己的映像用于 Azure Stack，请按照[将 Linux 映像添加到 Azure Stack](azure-stack-linux.md)中的指南进行操作。
+在 Azure Stack Hub Marketplace 中列出的 Linux 分发版包含所需的 Microsoft Azure Linux 代理（WALA）。 如果你将自己的映像用于 Azure Stack，请按照[将 Linux 映像添加到 Azure Stack](azure-stack-linux.md)中的指南进行操作。
 
 > [!NOTE]
 > 自定义映像应由最新的公共 WALA 版本（在 1903 Azure Stack 集线器 build 和更高版本、1901/1902 修补程序）或版本2.2.20 生成。 2\.2.20 之前的版本以及2.2.21 和2.2.34 （含）之间的版本可能无法在 Azure Stack 集线器上正常工作。 在 Azure Stack 集线器1910及更高版本中，所有 Azure WALA 代理版本都适用于 Azure Stack 中心。
 >
 > Azure Stack 集线器1910及更高版本支持[cloud init](https://cloud-init.io/) 。
 
-| 分配 | Description | 发布者 | Azure Stack 市场 |
+| 分配 | Description | 发布者 | Azure Stack 中心市场 |
 | --- | --- | --- | --- |
 | 基于 CentOS 的6。9 | 64 位 | Rogue 波 | 是 |
 | 基于 CentOS 的7。5 | 64 位 | Rogue 波 | 是 |
@@ -77,7 +77,7 @@ Marketplace 映像适用于即用即付或 BYOL （EA/SPLA）许可。 不支持
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure Stack Marketplace 的详细信息，请参阅以下文章：
+有关 Azure Stack 中心 Marketplace 的详细信息，请参阅以下文章：
 
 - [下载市场项](azure-stack-download-azure-marketplace-item.md)  
 - [创建并发布 marketplace 项](azure-stack-create-and-publish-marketplace-item.md)

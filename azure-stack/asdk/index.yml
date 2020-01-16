@@ -24,7 +24,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure-stack/asdk/asdk-install">部署 ASDK</a>
-          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">添加 Azure Stack marketplace 项</a>
+          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">添加 Azure Stack 中心市场项</a>
           - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">提供 IaaS 服务</a>
           - html: <a href="/azure-stack/user/azure-stack-subscribe-services">订阅套餐</a>
           - html: <a href="/azure-stack/operator/create-add-on-plan">更新产品/服务和计划</a>

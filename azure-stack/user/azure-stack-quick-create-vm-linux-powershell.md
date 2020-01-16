@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 77075e5fa481773e2ed2a2e5fa31fb24774bb0ef
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7a7d47eaf8bf415f61b9d2b78087204027404270
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878554"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023106"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack 集线器中使用 PowerShell 创建 Linux 服务器 VM
 
@@ -32,7 +32,7 @@ ms.locfileid: "75878554"
 
 ## <a name="prerequisites"></a>必备组件
 
-* Azure Stack 集线器 Marketplace 中的 Linux 映像。 默认情况下，Azure Stack 集线器 marketplace 没有 Linux 映像。 让 Azure Stack 集线器操作员提供所需的 Ubuntu Server 16.04 LTS 映像。 操作员可以使用将[Marketplace 项从 Azure 下载到 Azure Stack 中心](../operator/azure-stack-download-azure-marketplace-item.md)中的说明。
+* Azure Stack 集线器 Marketplace 中的 Linux 映像。 默认情况下，Azure Stack 集线器 Marketplace 没有 Linux 映像。 让 Azure Stack 集线器操作员提供所需的 Ubuntu Server 16.04 LTS 映像。 操作员可以使用将[Marketplace 项从 Azure 下载到 Azure Stack 中心](../operator/azure-stack-download-azure-marketplace-item.md)中的说明。
 
 * Azure Stack 中心需要 Azure CLI 的特定版本来创建和管理其资源。 
   * 如果没有为 Azure Stack 中心配置 PowerShell，请参阅[安装适用于 Azure Stack 中心的 powershell](../operator/azure-stack-powershell-install.md)。 

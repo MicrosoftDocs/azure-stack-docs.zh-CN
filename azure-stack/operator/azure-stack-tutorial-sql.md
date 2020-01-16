@@ -11,12 +11,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 849704881c3da209892b2da1b21b55b9516f7d43
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 408508119a7535467756b0b45fbfeb59fba7fbf1
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813770"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023002"
 ---
 # <a name="offer-highly-available-sql-databases"></a>提供高度可用的 SQL 数据库
 
@@ -44,7 +44,7 @@ ms.locfileid: "75813770"
 - Windows 版本1.9.1 或更高版本[的自定义脚本扩展](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension)。 自定义脚本扩展是一种工具，可用于自动启动部署后 VM 自定义任务。
 - [PowerShell Desired State Configuration （DSC）](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm)版本2.76.0.0 或更高版本。 DSC 是 Windows PowerShell 中的一个管理平台，可用于部署和管理软件服务的配置数据，并管理这些服务的运行环境。
 
-若要了解有关将项目添加到 Azure Stack 中心 marketplace 的详细信息，请参阅[Azure Stack 中心市场概述](azure-stack-marketplace.md)。
+若要了解有关将项目添加到 Azure Stack 中心 Marketplace 的详细信息，请参阅[Azure Stack 中心市场概述](azure-stack-marketplace.md)。
 
 ## <a name="create-a-sql-server-alwayson-availability-group"></a>创建 SQL Server AlwaysOn 可用性组
 使用本部分中的步骤，通过使用[SQL-2016-AlwaysOn Azure Stack 中心快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson)部署 SQL Server AlwaysOn 可用性组。 此模板在 Always On 可用性组中部署两个 SQL Server Enterprise、标准或开发人员实例。 它创建以下资源：

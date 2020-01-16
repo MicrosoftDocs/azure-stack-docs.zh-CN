@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 01/14/2020
 ms.author: sethm
 ms.reviewer: ppacent
-ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: 8fe3a2ac7685eeb3e9bb116cdb5754cc7b567e28
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 1cd38ece03a83fa029944ed5457f721c57aae444
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880237"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023206"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack 中心更新活动清单
 
@@ -29,18 +29,18 @@ ms.locfileid: "75880237"
 
 ## <a name="prepare-for-azure-stack-hub-update"></a>准备 Azure Stack 中心更新
 
-| 活动                     | 详细信息                                                   |
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;                   | 详细信息                                                   |
 |------------------------------|-----------------------------------------------------------|
 | 查看已知问题     | [已知问题列表](known-issues.md)。                |
 | 查看安全更新 | [安全更新列表](release-notes-security-updates.md)。      |
 | 应用最新的 OEM 包 | 与 OEM 联系以确保系统满足你的系统正在更新到的 Azure Stack 中心版本的最低 OEM 包要求。 确保 OEM 包与要更新到 Azure Stack 集线器版本兼容。 如果 OEM 包与要更新到 Azure Stack 集线器版本不兼容，则需要在运行 Azure Stack 中心更新之前执行 OEM 包更新。 有关说明，请参阅 "应用 Azure Stack 中心原始设备制造商（OEM）更新"。 |
 | 可选：配置自动日志收集 | 建议在 Azure Stack 中心环境上配置自动日志收集，以便在需要打开支持票证时，简化收集系统日志的过程。 若要配置自动日志收集，请参阅[配置自动 Azure Stack 集线器诊断日志集合](azure-stack-configure-automatic-diagnostic-log-collection.md)中的说明。 |
-| 应用最新修补程序 | 应用适用于当前安装的版本的最新修补程序。 有关最新修补程序的列表，请参阅发行说明修补程序部分。 |
+| 应用最新修补程序 | 应用适用于当前安装的版本的最新修补程序。 有关最新修补程序的列表，请参阅[发行说明修补程序](release-notes.md#hotfixes)部分。 |
 | 运行容量规划器工具 | 请确保使用最新版本的[Azure Stack 中心 Capacity Planner 工具](azure-stack-capacity-planning-overview.md)来执行工作负荷规划和调整大小。 最新版本包含 bug 修复，并提供随每个 Azure Stack 中心更新发布的新功能。 |
-| Run Test-AzureStack | 运行 `Test-AzureStack -Group UpdateReadiness` 以确定操作问题。 Cmdlet 可通过特权终结点会话（PEP）访问。 有关详细信息，请参阅[验证 Azure Stack 集线器系统状态](azure-stack-diagnostic-test.md)。 |
+| 运行**test-azurestack** | 运行 `Test-AzureStack -Group UpdateReadiness` 以确定操作问题。 Cmdlet 可通过特权终结点会话（PEP）访问。 有关详细信息，请参阅[验证 Azure Stack 集线器系统状态](azure-stack-diagnostic-test.md)。 |
 | 解决问题 | 解决 `Test-AzureStack`标识的任何操作问题。 |
 | 可用更新 | 仅在连接的方案中，Azure Stack 中心部署会定期检查受保护的终结点，并在更新可用于你的云时自动通知你。 断开连接的客户可以使用[此处所述的过程](azure-stack-apply-updates.md)来下载和导入新的包。 |
-| 通知用户 | 你应将任何维护操作的用户通知给用户，并且如果可能，你应在非工作时间计划正常维护时段。 维护操作可能会影响租户工作负荷和门户操作。 |
+| 计划维护时段并通知用户 | 如果可能，你应该通知用户任何维护操作，并在非工作时间计划正常维护时段。 维护操作可能会影响现有的租户工作负荷，并导致新的租户操作（例如，创建、重新配置或删除 Vm）失败-无论操作是从门户启动还是以编程方式从 Azure 资源管理器API. 对于 Azure Stack 集线器快速更新和完整更新，您可以查看[发行说明](release-notes.md)，了解在要应用的版本中预期更新所需的时间。 |
 
 ## <a name="during-azure-stack-hub-update"></a>Azure Stack 中心更新期间
 

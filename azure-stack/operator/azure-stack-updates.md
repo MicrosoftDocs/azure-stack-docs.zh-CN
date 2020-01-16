@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9fff0249c2a1c43d7742236f64492173c501eeec
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e7f1b45a561d49ffbefd9376308473b225b99fad
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881716"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022471"
 ---
 # <a name="manage-updates-in-azure-stack-hub-overview"></a>在 Azure Stack 中心管理更新概述
 
@@ -79,7 +79,7 @@ ms.locfileid: "75881716"
 
 1. **规划更新**。
 
-    准备 Azure Stack 中心，使更新过程尽可能顺利地进行，以便对用户的影响降至最低。 向用户通知任何可能的服务中断，然后按照步骤准备要更新的实例。 有关计划更新的更多步骤，请参阅[Azure Stack 中心更新活动清单](release-notes-checklist.md)。
+    准备 Azure Stack 中心，使更新过程尽可能顺利地进行，以便对用户的影响降至最低。 向用户通知任何可能的服务中断，然后按照步骤准备要更新的实例。 应务必按照[Azure Stack 中心更新前清单](release-notes-checklist.md)中的**所有**步骤操作，以确保已完成应用更新所需的 presteps，并为应用的更新类型计划了相应的维护时段。
 
 2. **上载并准备更新包**。
 

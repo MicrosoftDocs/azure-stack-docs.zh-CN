@@ -15,12 +15,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: f7d39ce1c2a33a6a693a56a6c5c86b7e1275993d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: e1d2e350079ab3d58802c8490da30a4c9555885d
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810063"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023256"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 

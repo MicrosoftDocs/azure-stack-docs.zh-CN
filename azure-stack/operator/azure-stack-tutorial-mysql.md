@@ -11,18 +11,18 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 5ba68257b783a2cfde41df5f7a411224a691aa26
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 422ffe6f0b99909af8d3baf3dbc64a8b8c810a7b
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881818"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023277"
 ---
 # <a name="offer-highly-available-mysql-databases"></a>提供高可用性的 MySQL 数据库
 
 作为 Azure Stack 中心操作员，你可以将服务器 Vm 配置为托管 MySQL Server 数据库。 成功创建 MySQL 群集并通过 Azure Stack 中心管理这些群集后，订阅 MySQL 服务的用户可以轻松地创建高度可用的 MySQL 数据库。
 
-本文介绍如何使用 Azure Stack 集线器 marketplace 项创建[具有复制群集的 MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster)。 此解决方案使用多个 Vm 将数据库从主节点复制到可配置的副本数。 创建群集后，可以将其作为 Azure Stack 中心 MySQL 宿主服务器添加，然后用户可以创建高度可用的 MySQL 数据库。
+本文介绍如何使用 Azure Stack 集线器 Marketplace 项创建[具有复制群集的 MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster)。 此解决方案使用多个 Vm 将数据库从主节点复制到可配置的副本数。 创建群集后，可以将其作为 Azure Stack 中心 MySQL 宿主服务器添加，然后用户可以创建高度可用的 MySQL 数据库。
 
 > [!IMPORTANT]
 > 对于所有 Azure 云订阅环境，**使用复制**Azure Stack 中心市场项的 MySQL 可能不可用。 验证 marketplace 项在你的订阅中是否可用，然后再尝试执行此 tutoral 的其余部分。
@@ -36,7 +36,7 @@ ms.locfileid: "75881818"
 
 将使用可用的 Azure Stack 中心市场项创建和配置三个 VM MySQL 服务器群集。 
 
-在开始之前，请确保已成功安装[MySQL Server 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)，并且 Azure Stack 中心 marketplace 中提供了以下各项：
+在开始之前，请确保已成功安装[MySQL Server 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)，并且 Azure Stack 中心 Marketplace 中提供了以下各项：
 
 > [!IMPORTANT]
 > 需要以下所有项才能创建 MySQL 群集。
@@ -46,7 +46,7 @@ ms.locfileid: "75881818"
 - [适用于 linux 2.0 的自定义脚本](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview)。 自定义脚本扩展是一种工具，用于在 VM 预配后执行 VM 自定义任务。 将此扩展添加到虚拟机后，它可以从 Azure 存储下载脚本并在 VM 上运行这些脚本。 自定义脚本扩展任务也可以使用 Azure PowerShell cmdlet 和 Azure 跨平台命令行接口（xPlat CLI）自动执行。
 - 适用于 Linux 扩展1.4.7 的 VM 访问权限。 使用 VM 访问扩展可以重置密码、SSH 密钥或 SSH 配置，使你能够重新获得 VM 的访问权限。 你还可以使用密码或 SSH 密钥添加新用户，或使用此扩展来删除用户。 此扩展以 Linux Vm 为目标。
 
-若要了解有关将项目添加到 Azure Stack 中心 marketplace 的详细信息，请参阅[Azure Stack 中心市场概述](azure-stack-marketplace.md)。
+若要了解有关将项目添加到 Azure Stack 中心 Marketplace 的详细信息，请参阅[Azure Stack 中心市场概述](azure-stack-marketplace.md)。
 
 还需要使用 SSH 客户端（如[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) ），以便在部署 Linux vm 后登录到这些 vm。
 

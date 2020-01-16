@@ -15,12 +15,12 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 01c72ba8ead974613d42472e6e3b29b34ff2b9d2
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 4f89f4869ae87bafa23d7a8579785483fe6cc4da
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878639"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023054"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack 中心 VM 功能
 
@@ -30,7 +30,7 @@ Azure Stack 集线器虚拟机（Vm）提供按需的可缩放计算资源。 �
 
 | 功能 | Azure （全局） | Azure Stack Hub |
 | --- | --- | --- |
-| 虚拟机映像 | Azure Marketplace 提供了可用于创建 VM 的映像。 请参阅[Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1)页面，查看 azure marketplace 中提供的映像的列表。 | 默认情况下，Azure Stack 中心 marketplace 中没有可用的映像。 Azure Stack 中心云管理员必须先将映像发布或下载到 Azure Stack 中心市场，然后用户才能使用。 |
+| 虚拟机映像 | Azure Marketplace 提供了可用于创建 VM 的映像。 请参阅[Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1)页面，查看 azure marketplace 中提供的映像的列表。 | 默认情况下，Azure Stack 中心 Marketplace 中没有可用的映像。 Azure Stack 中心云管理员必须先将映像发布或下载到 Azure Stack 中心市场，然后用户才能使用。 |
 | 虚拟机大小 | Azure 支持多种 Vm 大小。 若要了解可用大小和选项，请参阅[Windows vm 大小](/azure/virtual-machines/virtual-machines-windows-sizes)和[Linux VM 大小](/azure/virtual-machines/linux/sizes)主题。 | Azure Stack 集线器支持 Azure 中可用的 VM 大小的子集。 若要查看受支持的大小列表，请参阅本文的[VM 大小](#vm-sizes)部分。 |
 | 虚拟机配额 | [配额限制](/azure/azure-subscription-service-limits#service-specific-limits)由 Microsoft 设置。 | Azure Stack 中心云管理员必须先分配配额，然后才能向其用户提供 VM。 |
 | 虚拟机扩展 |Azure 支持多种 VM 扩展。 若要了解可用扩展，请参阅[VM 扩展和功能](/azure/virtual-machines/windows/extensions-features)一文。| Azure Stack 集线器支持 Azure 中提供的一小部分扩展，每个扩展都有特定的版本。 Azure Stack 中心云管理员可以选择向其用户提供哪些扩展。 若要查看支持的扩展的列表，请参阅本文的[VM 扩展](#vm-extensions)部分。 |

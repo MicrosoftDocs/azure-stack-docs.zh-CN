@@ -16,12 +16,12 @@ ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 34dd070fe0568daedd0ffd50132b43c801099f18
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0d1912a753ae29eb7a4c0ee8b583c34821962f60
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810029"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023030"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
@@ -41,7 +41,7 @@ Appservice Azure Stack 中心快速入门模板中的 "文件[共享](https://gi
 - 两个域控制器。
 
 ### <a name="required-azure-stack-hub-marketplace-items"></a>必需 Azure Stack 中心市场项
-使用此模板之前，请确保 Azure Stack 中心实例中有以下[Azure Stack 集线器 marketplace 项](azure-stack-marketplace-azure-items.md)：
+使用此模板之前，请确保 Azure Stack 中心实例中有以下[Azure Stack 集线器 Marketplace 项](azure-stack-marketplace-azure-items.md)：
 
 - Windows Server 2016 Datacenter Core 映像（适用于 AD DS 和文件服务器 Vm）
 - Windows Server 2016 上的 SQL Server 2016 SP2 （企业版）

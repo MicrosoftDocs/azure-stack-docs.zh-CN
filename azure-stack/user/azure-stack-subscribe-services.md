@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 3aa9231fbcf6032b073a61fa4d96e5ed20257290
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 216fe342bcda090d69452e8623f34f6c43cf70b9
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815725"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023184"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>教程：在 Azure Stack 中心创建和测试订阅
 

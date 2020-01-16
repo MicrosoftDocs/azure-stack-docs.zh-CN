@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 中心应用商店中的新增功能 |Microsoft Docs
-description: Azure Stack 中心 marketplace 中的更改和更新。
+description: Azure Stack 中心 Marketplace 中的更改和更新。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a5d0a50765a44a677ad2c5c1b0795296b57b7b0e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3dbd177f080067283ba22d661e08d54c23e642ff
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817034"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022786"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack 中心市场更改
 

@@ -15,12 +15,12 @@ ms.date: 12/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: cff400b3faace08dfcdae86f0fe0d10effb42cae
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 80cf9d192be07f951ee959c7a83419bb16bd2bbb
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817408"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022948"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将 Marketplace 项下载到 Azure Stack 中心 
 
@@ -165,7 +165,7 @@ Marketplace 联合工具也可用于连接的方案中。
 
    `-azureContext` 参数也是可选的。 如果未指定 Azure 上下文，则该 cmdlet 将使用默认的 Azure 上下文。
 
-7. 当该工具运行时，应会看到类似于下图的屏幕，其中包含可用的 Azure marketplace 项列表：
+7. 当该工具运行时，应会看到类似于下图的屏幕，其中包含可用的 Azure Marketplace 项列表：
 
    ![Marketplace 项](media/azure-stack-download-azure-marketplace-item/tool1.png)
 

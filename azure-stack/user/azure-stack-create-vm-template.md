@@ -17,12 +17,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: dcf506ec301ed9e912ef07ee43f211c748d8e936
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: b709d51a430530c50cf9a6e06896d405c435383e
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924167"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023244"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>教程：使用社区模板创建 VM
 
@@ -65,7 +65,7 @@ Minikube 是一种可在本地运行 Kubernetes 的工具。 Minikube 在 VM 内
 * xRDP
 
 > [!IMPORTANT]
-> 执行这些步骤之前，必须已将 Ubuntu VM 映像（在本示例中为 Ubuntu Server 16.04 LTS）添加到 Azure Stack 集线器 marketplace。
+> 执行这些步骤之前，必须已将 Ubuntu VM 映像（在本示例中为 Ubuntu Server 16.04 LTS）添加到 Azure Stack 集线器 Marketplace。
 
 1. 依次选择 " **+ 创建资源**" 和 "**自定义**"，然后**模板部署**"。
 
