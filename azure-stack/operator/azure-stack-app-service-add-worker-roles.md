@@ -16,16 +16,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: b07d90f17d1c4380f65c43029215bf8946d209e2
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: cb46029fabb81c224716e5e1c5eb8f65cd0cd34e
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924209"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124780"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的 Azure App Service 中添加辅助角色和基础结构
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包*  
 
 本文档提供有关如何在 Azure Stack 中心的 Azure App Service 中缩放基础结构和辅助角色的说明。 我们将介绍创建附加辅助角色以支持任意大小的应用程序所需的所有步骤。
 

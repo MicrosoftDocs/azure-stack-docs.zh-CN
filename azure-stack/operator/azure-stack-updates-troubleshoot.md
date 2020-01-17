@@ -15,19 +15,19 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f2bbcf10feb47ba42bb6133bd4ab4320e120b283
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 94c6b6882c3b2f88c9815ab535fbef8b23811007
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813311"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145761"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Azure Stack 中心修补程序和更新问题进行故障排除的最佳实践
 
 本文概述了对 Azure Stack 集线器修补程序和更新问题进行故障排除的最佳实践，以及修正常见的修补程序和更新问题。
 
 
-Azure Stack 中心修补程序和更新过程旨在允许操作员以一致且简单的方式应用更新包。 虽然不常见，但在修补和更新问题期间可能会出现问题。 如果在修补和更新过程中遇到问题，建议执行以下步骤：
+Azure Stack 中心修补程序和更新过程旨在允许操作员以一致且简单的方式应用更新包。 虽然不常见，但在修补和更新过程中可能会出现问题。 如果在修补和更新过程中遇到问题，建议执行以下步骤：
 
 0. **先决条件**：确保已遵循[更新活动清单](release-notes-checklist.md)并已[配置自动日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)。
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。

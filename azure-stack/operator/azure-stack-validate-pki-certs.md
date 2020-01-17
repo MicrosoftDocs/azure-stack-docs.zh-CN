@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 23225b21d1dc3074c69cefa2af23a99b634a7a73
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 94acfbeb0c08bc79ad6d9bfa0282313a39c0eae6
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812852"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124712"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>验证 Azure Stack 中心 PKI 证书
 
@@ -157,8 +157,8 @@ ms.locfileid: "75812852"
     # DBAdapter
     Invoke-AzsCertificateValidation -CertificateType DBAdapter -CertificatePath C:\Certificates\DBAdapter -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
 
-    # EventHub
-    Invoke-AzsCertificateValidation -CertificateType EventHubs -CertificatePath C:\Certificates\EventHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
+    # EventHubs
+    Invoke-AzsCertificateValidation -CertificateType EventHubs -CertificatePath C:\Certificates\EventHubs -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
 
     # IoTHub
     Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
@@ -200,9 +200,9 @@ ms.locfileid: "75812852"
                 |   \---Public Portal
                 |           portal.pfx
                 |
-                +---EventHub            # Invoke-AzsCertificateValidation `
-                |       eventhub.pfx    #   -CertificateType EventHub `
-                |                       #   -CertificatePath C:\Certificates\EventHub
+                +---EventHubs           # Invoke-AzsCertificateValidation `
+                |       eventhubs.pfx   #   -CertificateType EventHubs `
+                |                       #   -CertificatePath C:\Certificates\EventHubs
                 |
                 \---IoTHub              # Invoke-AzsCertificateValidation `
                         iothub.pfx      #   -CertificateType IoTHub `
@@ -230,7 +230,6 @@ ms.locfileid: "75812852"
     Details:
     The certificate records '*.east.azurestack.contoso.com' do not contain a record that is valid for '*.blob.east.azurestack.contoso.com'. Please refer to the documentation for how to create the required certificate file.
     The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
-    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
     Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json

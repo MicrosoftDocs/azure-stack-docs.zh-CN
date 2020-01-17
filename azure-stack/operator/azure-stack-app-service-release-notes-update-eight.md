@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: e7826cd220c8174f8e97b821d69bcc295c682e79
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 5da3ec3d838deabebbe70b04ad66d58241a42b5d
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75926938"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124695"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Azure Stack 集线器上的应用服务 update 8 发行说明
-
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 这些发行说明介绍 Azure Stack 中心更新8和任何已知问题的 Azure App Service 改进和修复。 已知问题分为直接与部署、更新过程和生成（安装后）相关的问题。
 

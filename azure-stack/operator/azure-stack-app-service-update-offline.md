@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: e36e9d7504f956475c1cf1e66daac0d2d4c4bcb3
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: d0cfc906030355dac78da3561da2b746a9a0dc92
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924285"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124814"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的脱机更新 Azure App Service
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包*
 
 > [!IMPORTANT]
 > 在部署 Azure App Service 1.8 之前，将1910更新或更高版本应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 集线器开发工具包。

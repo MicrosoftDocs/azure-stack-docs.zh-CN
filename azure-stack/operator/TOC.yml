@@ -161,7 +161,11 @@
                 - name: 应用 OEM 更新
                   href: azure-stack-update-oem.md
             - name: 监视更新状态
-              href: azure-stack-update-monitor.md
+              items:
+                - name: 使用 PowerShell
+                  href: azure-stack-update-monitor.md
+                - name: 使用特权终结点
+                  href: azure-stack-monitor-update.md
             - name: 更新疑难解答
               href: azure-stack-updates-troubleshoot.md
         - name: 监视运行状况和警报

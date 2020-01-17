@@ -16,16 +16,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 2902b3ab06c3fb85d3b535d3ae241f66db352658
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 147759d9c885d796195a3c581953f8b115587eb1
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924190"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124848"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>将 Azure App Service 部署到 Azure Stack 中心的脱机环境中
-
-*适用于： Azure Stack 集线器集成系统和 Azure Stack 集线器开发工具包*
 
 > [!IMPORTANT]
 > 在部署 Azure App Service 1.8 之前，请将1910更新应用到 Azure Stack 集线器集成系统，或部署最新的 Azure Stack 中心开发工具包（ASDK）。

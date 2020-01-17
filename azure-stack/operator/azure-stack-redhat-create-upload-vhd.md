@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 381cc82bcade8196f6e65a9c82bfef9b9093724d
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 2ac894211b1ccd8d1537453100879ad695507268
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924404"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145812"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>为 Azure Stack 中心准备基于 Red Hat 的虚拟机
 
@@ -118,58 +118,58 @@ ms.locfileid: "75924404"
     ```
 
 1. 为 Azure Stack 中心创建自定义 vhd 时，请记住，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 中心环境中不起作用。 你可以使用版本 2.2.20/2.2.35 版本来准备映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 集线器更新为1903版本及更高版本或应用1901/1902 修补程序。
-
+    
     [1910 版之前]按照以下说明下载兼容的 WALinuxAgent：
-
+    
     1. 下载 setuptools。
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+    
     1. 从 GitHub 下载并解压缩代理的2.2.20 版本。
 
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
 
     1. 安装 setup.py。
 
-    ```bash
-    sudo python setup.py install
-    ```
+        ```bash
+        sudo python setup.py install
+        ```
 
     1. 重新启动 waagent。
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
+    
+        ```bash
+        sudo systemctl restart waagent
+        ```
 
     1. 测试代理版本是否与下载的版本匹配。 对于本示例，应为2.2.20。
 
-    ```bash
-    waagent -version
-    ```
-    
+        ```bash
+        waagent -version
+        ```
+
     [1910 发布后]按照以下说明下载兼容的 WALinuxAgent：
     
     1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1. 通过运行以下命令安装 Azure Linux 代理：
+    1. 通过运行以下命令来安装 Azure Linux 代理：
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+    
 
 1. 不要在操作系统磁盘上创建交换空间。
 
@@ -321,53 +321,53 @@ ms.locfileid: "75924404"
     [1910 版之前]按照以下说明下载兼容的 WALinuxAgent：
 
     1. 下载 setuptools。
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
     1. 从 GitHub 下载并解压缩代理的2.2.20 版本。
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
     1. 安装 setup.py。
-
-    ```bash
-    sudo python setup.py install
-    ```
-
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
     1. 重新启动 waagent。
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
     1. 测试代理版本是否与下载的版本匹配。 对于本示例，应为2.2.20。
-
-    ```bash
-    waagent -version
-    ```
-    
+        
+        ```bash
+        waagent -version
+        ```
+        
     [1910 发布后]按照以下说明下载兼容的 WALinuxAgent：
     
     1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1. 通过运行以下命令安装 Azure Linux 代理：
+        1. 通过运行以下命令安装 Azure Linux 代理：
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
+            ```bash
+            sudo yum install WALinuxAgent
+            sudo systemctl enable waagent.service
+            ```
 
 1. 不要在操作系统磁盘上创建交换空间。
 
@@ -526,39 +526,39 @@ ms.locfileid: "75924404"
     [1910 版之前]按照以下说明下载兼容的 WALinuxAgent：
 
     1. 下载 setuptools。
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
-    1. 从 GitHub 下载并解压缩代理的2.2.20 版本。
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
-    1. 安装 setup.py。
-
-    ```bash
-    sudo python setup.py install
-    ```
-
-    1. 重新启动 waagent。
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
-    1. 测试代理版本是否与下载的版本匹配。 对于本示例，应为2.2.20。
-
-    ```bash
-    waagent -version
-    ```
     
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
+    1. 从 GitHub 下载并解压缩代理的2.2.20 版本。
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
+    1. 安装 setup.py。
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
+    1. 重新启动 waagent。
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
+    1. 测试代理版本是否与下载的版本匹配。 对于本示例，应为2.2.20。
+        
+        ```bash
+        waagent -version
+        ```
+        
     [1910 发布后]按照以下说明下载兼容的 WALinuxAgent：
     
     1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
@@ -568,12 +568,12 @@ ms.locfileid: "75924404"
     ```
 
     1. 通过运行以下命令安装 Azure Linux 代理：
-
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+        
 1. 不要在操作系统磁盘上创建交换空间。
 
     Azure Linux 代理可使用在 Azure 上预配 VM 后附加到 VM 的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是临时磁盘，并可能在取消预配 VM 时被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：
