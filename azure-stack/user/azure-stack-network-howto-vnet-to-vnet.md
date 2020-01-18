@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e692d44f94aefdb28c447c9cff15f88af0d1827a
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b37677b10aaddb92b0f840900ac846b1a6478bc5
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878771"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259848"
 ---
-# <a name="how-to-connect-two-vnets-through-peering"></a>如何通过对等互连连接两个 Vnet
+# <a name="connect-two-vnets-through-peering"></a>通过对等互连连接两个 Vnet
 
 本文介绍如何在相同环境中的两个虚拟网络之间创建连接。 设置连接时，会了解 Azure Stack 集线器中的 VPN 网关的工作原理。 使用 Fortinet FortiGate 连接同一 Azure Stack 中心环境中的两个 Vnet。 此过程将两个 Vnet 部署在每个 VNET 中，每个 FortiGate NVA，一个网络虚拟设备，在单独的资源组中。 它还详细说明了在两个 Vnet 之间设置 IPSec VPN 所需的更改。 为每个 VNET 部署重复本文中的步骤。
 

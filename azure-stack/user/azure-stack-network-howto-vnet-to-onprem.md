@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e970dc46a4afdcc67e16c0239dc712da111c47a6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 8b15be476153f2cc3fa01788814801bb751c9a9c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879115"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259845"
 ---
-# <a name="setup-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>使用 FortiGate NVA 设置 Azure Stack 集线器的 VPN 网关
+# <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>使用 FortiGate NVA 设置 Azure Stack 集线器的 VPN 网关
 
 本文介绍如何创建与 Azure Stack 中心之间的 VPN 连接。 VPN 网关是一种虚拟网络网关，用于在 Azure Stack 集线器和远程 VPN 网关中的虚拟网络之间发送加密流量。 以下过程使用资源组中的 FortiGate NVA （网络虚拟设备）部署一个 VNET。 它还提供了在 FortiGate NVA 上设置 IPSec VPN 的步骤。
 

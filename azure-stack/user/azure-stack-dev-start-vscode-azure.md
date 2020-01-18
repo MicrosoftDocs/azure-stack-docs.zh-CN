@@ -9,12 +9,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1898b4415519dd8b1e6bf901c69cf67d6a607308
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 5ef1fe95f91c0ceb343bb796c4c31cdefad65e36
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923860"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256217"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>使用 Azure 帐户扩展连接到 Azure Stack 中心 Visual Studio Code
 
@@ -65,7 +65,7 @@ VS Code 是用于构建和调试 web 应用程序和云应用程序的轻型编�
     
     Microsoft Azure 资源管理器是一种管理框架，可用于部署、管理和监视 Azure 资源。
     - Azure Stack 开发工具包的资源管理器 URL （ASDK）为： `https://management.local.azurestack.external/` 
-    - 集成系统的资源管理器 URL 是： `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+    - 集成系统的资源管理器 URL 是： `https://management.region.<fqdn>/`，其中 `<fqdn>` 是完全限定的域名。
     - 将以下文本添加到 URL 以访问元数据： `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
     例如，检索 Azure 资源管理器终结点的元数据的 URL 可能类似如下所示： `https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`

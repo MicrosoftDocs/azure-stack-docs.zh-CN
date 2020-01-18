@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 37481cee1e7bc5b9bee0e68878077e084369ca39
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 06def59e2ec66f8a3260aaeb008eb05cabb6781e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883178"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256251"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 Java 使用 API 版本配置文件
 
@@ -144,7 +144,7 @@ Azure 资源管理器是一种管理框架，它允许管理员部署、管理�
 
 - ASDK 中的**ResourceManagerUrl**为： `https://management.local.azurestack.external/`。
 
-- 集成系统中的**ResourceManagerUrl**为： `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`。
+- 集成系统中的**ResourceManagerUrl**为： `https://management.region.<fqdn>/`，其中 `<fqdn>` 是完全限定的域名。
 
 若要检索所需的元数据： `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`。
 

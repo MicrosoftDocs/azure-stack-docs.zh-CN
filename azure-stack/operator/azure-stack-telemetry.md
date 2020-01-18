@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f83380b7eb3f35c5887911f40336bf4286759f53
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: c16987ac19b47eb4d0fedb147522703b98c8792e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914760"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256353"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>配置 Azure Stack 集线器遥测
 
@@ -36,7 +36,7 @@ Azure Stack 集线器遥测会自动通过连接的用户体验将系统数据�
 Azure Stack 集线器遥测基于 Windows Server 2016 连接的用户体验和遥测组件。 此组件使用[Windows 事件跟踪（ETW）](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging 技术来收集和存储事件和数据。 Azure Stack 组件使用相同的技术来发布使用公共操作系统事件日志记录和跟踪 Api 收集的事件和数据。 这些 Azure Stack 集线器组件的示例包括：网络资源、存储资源、监视资源和更新资源。 连接的用户体验和遥测组件使用 SSL 来加密数据，并使用证书固定将数据通过 HTTPS 传输到 Microsoft 数据管理服务。
 
 > [!IMPORTANT]
-> 若要启用遥测数据流，必须在网络中打开端口443（HTTPS）。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 https://v10.vortex-win.data.microsoft.com ）。 连接的用户体验和遥测组件还连接到 https://settings-win.data.microsoft.com 以下载配置信息。
+> 若要启用遥测数据流，必须在网络中打开端口443（HTTPS）。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 `https://v10.events.data.microsoft.com` ）。 连接的用户体验和遥测组件还连接到 `https://settings-win.data.microsoft.com` 以下载配置信息。 用于错误报告的其他诊断数据服务连接 `https://watson.telemetry.microsoft.com`。
 
 ## <a name="privacy-considerations"></a>隐私注意事项
 

@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 010722e7152af7e51747870ae5bf26229ad339d6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7c01e509dc77e2a036ad640ee5376ffda37f903f
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878401"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259828"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 中心订阅或存储帐户
 

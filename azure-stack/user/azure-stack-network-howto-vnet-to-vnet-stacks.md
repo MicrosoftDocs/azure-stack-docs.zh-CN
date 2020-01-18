@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 27feb4689380d0e1c70f66e38d144056d4c72d13
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a6ca83e68fa7e682fa9fdca4ba38ade91ff78b0f
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883416"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259879"
 ---
-# <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>如何使用 Fortinet FortiGate NVA 在 Azure Stack 集线器中建立 vnet 到 VNET 的连接
+# <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>在 Fortinet FortiGate NVA 的 Azure Stack 集线器中建立 vnet 到 VNET 的连接
 
 本文介绍如何使用 Fortinet FortiGate NVA （一种网络虚拟设备）将同一 Azure Stack 集线器中的 VNET 连接到另一 Azure Stack 中心的 VNET。
 

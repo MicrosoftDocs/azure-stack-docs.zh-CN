@@ -21,14 +21,14 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: 教程
   items:
+    - name: 订阅套餐
+      href: azure-stack-subscribe-services.md
     - name: 从模板创建 VM
       href: azure-stack-create-vm-template.md
 - name: 操作指南
   items:
     - name: 开始为混合云构建解决方案
       items:
-        - name: 订阅套餐
-          href: azure-stack-subscribe-services.md
         - name: 启用云解决方案提供程序
           href: azure-stack-csp-enable-billing-usage-tracking.md
         - name: 使用 Azure Stack 中心门户

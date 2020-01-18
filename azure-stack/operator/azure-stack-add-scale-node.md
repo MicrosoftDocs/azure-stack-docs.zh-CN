@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7f9ab8b1ee8988689d2ac52dc355b85bfe9bfae6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 50ff1bf63cbd7aaa36bb16e84f4c57db9c5a607d
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75805058"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256370"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>在 Azure Stack 集线器中添加其他缩放单位节点
 
@@ -34,7 +34,7 @@ Azure Stack 中心操作员可通过添加额外的物理计算机来增加现�
 ![添加缩放单位流](media/azure-stack-add-scale-node/add-node-flow.png)
 <br> *你的 OEM 硬件供应商是否制定物理服务器机架位置，并且更新固件会根据你的支持合同而有所不同。*
 
-用于添加新节点的操作可能需要几个小时或几天才能完成。
+用于添加新节点的操作可能需要几个小时或几天才能完成。 添加其他缩放单位节点时，对系统上运行的工作负荷没有影响。
 
 > [!Note]  
 > 当 "添加缩放单位" 节点操作正在进行时，请勿尝试执行以下任一操作：

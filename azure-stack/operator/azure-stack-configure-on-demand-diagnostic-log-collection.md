@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: f30791ec7514a68a6137d2b5d2db3441cf217f58
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/16/2020
+ms.openlocfilehash: bb7fc0488ea264a83cc93e071b044e6443e97630
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883076"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256336"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>按需收集 Azure Stack 集线器诊断日志
 
@@ -108,7 +108,7 @@ if ($session) {
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* 在 Azure Stack Hub 上运行自行管理的 Azure Kubernetes Services （AKS）的租户部署中收集日志。 AKS 日志应采用一种格式存储在租户存储帐户中，该格式将允许将收集时间范围应用于这些日志。 
+* 在 Azure Stack 上，从运行自行管理的 Kubernetes 群集（AKS 引擎）的租户部署收集日志。 Kubernetes 日志应采用一种格式存储在租户存储帐户中，该格式将允许将收集时间范围应用于这些日志。 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"

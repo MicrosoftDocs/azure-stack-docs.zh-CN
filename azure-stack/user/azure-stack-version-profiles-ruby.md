@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: d1109d2b0e8e8cffc1bf03c2e897c6c0230084c4
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: ec8c03536cb005de84f35ae7dc534d33f7223354
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878334"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256285"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>在 Azure Stack 中心使用带有 Ruby 的 API 版本配置文件
 
@@ -106,7 +106,7 @@ Microsoft Azure 资源管理器是一种管理框架，管理员可通过它来�
 可以从资源管理器终结点获取元数据信息。 终结点返回 JSON 文件，其中包含运行代码所需的信息。
 
  > [!NOTE]  
- > Azure Stack 开发工具包中的**ResourceManagerUrl** （ASDK）是： `https://management.local.azurestack.external/` 集成系统中的**ResourceManagerUrl** ： `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+ > Azure Stack 开发工具包**中的** **ResourceManagerUrl** （ASDK）是 `https://management.local.azurestack.external/`： `https://management.region.<fqdn>/`，其中 `<fqdn>` 是完全限定的域名。  
  > 若要检索所需的元数据： `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
  示例 JSON 文件：

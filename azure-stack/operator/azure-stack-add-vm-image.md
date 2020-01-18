@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f0d0b268445d3de95e8f4dcaa0d44cb8d553111c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880883"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259811"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>将自定义 VM 映像添加到 Azure Stack 集线器
 
@@ -30,13 +30,22 @@ ms.locfileid: "75880883"
 
 ### <a name="windows"></a>Windows
 
-创建自定义通用化 VHD。 如果 VHD 来自 Azure 外部，请按照[上传通用 VHD 并使用它在 azure 中创建新的 vm 中](/azure/virtual-machines/windows/upload-generalized-managed)的步骤，正确地**Sysprep** VHD 并使其通用化。
+创建自定义通用化 VHD。 
 
-如果 VHD 来自 Azure，请按照[本文档](/azure/virtual-machines/windows/download-vhd)中的说明进行操作，在将 vhd 移植到 Azure Stack 集线器之前，对其进行正确通用化和下载。
+**如果 vhd 来自 Azure 外部**，请按照[上传通用 VHD 并使用它在 azure 中创建新的 vm 中](/azure/virtual-machines/windows/upload-generalized-managed)的步骤，正确地**Sysprep** VHD 并使其通用化。
+
+**如果 VHD 来自 Azure**，则在通用化 VM 之前，请确保以下各项：
+1) 在 Azure 上预配 VM 时，请使用 PowerShell 并在不使用 `-ProvisionVMAgent` 标志的情况下对其进行设置 
+2) 在 Azure 中通用化 VM 之前，请从 VM 中删除所有 VM 扩展，**并使用 set-azurermvmextension** cmdlet。 可以通过转到 Windows （C：）找到已安装的 VM 扩展> Windowsazure.storage > 日志 > 插件。
+
+```Powershell
+Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```                       
+请按照[本文档](/azure/virtual-machines/windows/download-vhd)中的说明进行操作，在将 VHD 移植到 Azure Stack 集线器之前，对其进行正确通用化和下载。
 
 ### <a name="linux"></a>Linux
 
-如果 VHD 来自 Azure 外部，请按照相应说明通用化 VHD：
+**如果 vhd 来自 Azure 外部**，请按照相应说明通用化 vhd：
 
 - [基于 CentOS 的分发版](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -44,7 +53,7 @@ ms.locfileid: "75880883"
 - [SLES 或 openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-如果 VHD 来自 Azure，请按照以下说明通用化和下载 VHD：
+**如果 vhd 来自 Azure**，请按照以下说明通用化和下载 vhd：
 
 1. 停止**waagent**服务：
 

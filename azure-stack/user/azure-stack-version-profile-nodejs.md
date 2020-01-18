@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e6e65ebf39ae08b56f02fca437369f4861613ade
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d235a128e9fc7bb0bdabec58f33ff6de76c50a5e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878299"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256268"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 node.js 软件开发工具包（SDK）使用 API 版本配置文件
 
@@ -120,7 +120,8 @@ Microsoft Azure 资源管理器是一种管理框架，允许管理员部署、 
 可以从资源管理器终结点获取元数据信息。 该终结点返回 JSON 文件，以及运行代码所需的信息。
 
 > [!Note]  
-> Azure Stack 开发工具包中的**ResourceManagerUrl** （ASDK）是： `https://management.local.azurestack.external` 集成系统中的**ResourceManagerUrl** ： `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com` 来检索所需的元数据： `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+> Azure Stack 开发工具包**中的** **ResourceManagerUrl** （ASDK）是 `https://management.local.azurestack.external`： `https://management.region.<fqdn>/`，其中 `<fqdn>` 是完全限定的域名。
+若要检索所需的元数据： `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
 示例 JSON 文件：
 
