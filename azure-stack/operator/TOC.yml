@@ -4,7 +4,7 @@
   items:
     - name: 什么是 Azure Stack 中心？
       href: azure-stack-overview.md
-    - name: 什么是 Azure Stack 集线器 HCI？
+    - name: 什么是 Azure Stack HCI？
       href: azure-stack-hci-overview.md
     - name: 比较 Azure 生态系统
       href: compare-azure-azure-stack.md
