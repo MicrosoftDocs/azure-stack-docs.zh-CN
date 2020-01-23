@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 88562c93344f139f3f167da0ddb3e072fde231fa
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9211a3221a3c12c91b9d8875c04bbdfbedaf81e2
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819924"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536158"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>保护 Azure Stack 集线器上部署的 Vm
 

@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 951840c6382506404e514bfd27d69af399b5a120
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812393"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516736"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
@@ -776,6 +776,13 @@ ms.locfileid: "75812393"
 - 适用：此问题适用于1906版本。
 - 原因：虚拟机规模集概述页显示一个空图表。 单击空图表会打开 "rainy cloud" 边栏选项卡。 这是规模集诊断信息的图表，例如 CPU 百分比，而不是当前 Azure Stack 中心内部版本支持的功能。
 - 修正：无。
+- 发生次数：常见
+
+### <a name="issues-creating-resources"></a>创建资源时出现问题
+
+- 适用：此问题适用于1906版本。
+- 原因：在1906中存在一个已知问题，其中包含用于创建资源的自定义角色和权限分配。 即使您拥有正确的权限，也可能会面临创建资源的问题。
+- 修正：若要缓解此问题，请更新到版本1907。
 - 发生次数：常见
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡

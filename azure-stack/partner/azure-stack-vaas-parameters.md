@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: e7df32ea390c236e10d64e7575dcfdd45f01ea3a
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 567b6a98c6ee407871b53fe6ecb8ddb3762c2119
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955880"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535820"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>作为服务 Azure Stack 验证的工作流常见参数
 
@@ -59,7 +59,7 @@ ms.locfileid: "73955880"
 
 常见测试参数包括无法存储在配置文件中的敏感信息。 必须手动提供这些。
 
-参数    | 描述
+参数    | Description
 -------------|-----------------
 租户管理员用户                            | Azure Active Directory 在 AAD 目录中由服务管理员预配租户管理员。 此用户执行租户级别的操作，例如部署模板来设置资源（Vm、存储帐户等）和执行工作负荷。 有关设置租户帐户的详细信息，请参阅[添加新的 Azure Stack 租户](../operator/azure-stack-add-new-user-aad.md)。
 服务管理员用户             | Azure Stack 部署期间指定的 Azure AD Directory 租户 Azure Active Directory 管理员。 在 ECE 配置文件中搜索 `AADTenant`，并选择 `UniqueName` 元素中的值。

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: d539ea7c2be9cbd124ce3286adda2eff8cd1a7ca
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7f8c18c08369bacf4882d1f9d7c389baeedc0e9a
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882294"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535189"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>监视 Azure Stack 集线器中的运行状况和警报
 

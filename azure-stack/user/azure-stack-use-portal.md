@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: fd6dd68773fdfbb595ae5281f57651d068018ce8
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e51e5e67a95af5aeee8c35ebbefceb0790ae6aec
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878520"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536396"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>使用 Azure Stack 集线器用户门户
 

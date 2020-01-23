@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 8a2687a628180564cf7f71042fd50129da23c610
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 98b5cad057ae8a231569cfa7348cb9df16591ff4
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883433"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536022"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>使用 PowerShell 以用户身份连接到 Azure Stack 集线器
 

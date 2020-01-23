@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 45a26354edb7939a5fbc241bb5bcaf5d9db8edf3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 070e7bd8a933b3d04185b40f322931ea60f3bbae
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818383"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535461"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>准备 Azure Stack 集线器中的扩展主机
 

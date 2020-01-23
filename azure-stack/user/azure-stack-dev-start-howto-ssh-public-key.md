@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: b40fb92eefa696369ed57aabefb4e8298dad3eea
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 160427b6cdef6bcb5927aad4999ed4c213fc3be3
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820689"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536328"
 ---
 # <a name="use-an-ssh-public-key"></a>使用 SSH 公钥
 

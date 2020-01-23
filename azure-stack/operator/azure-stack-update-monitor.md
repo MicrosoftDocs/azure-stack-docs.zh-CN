@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 5f4f469c6652bdb492d9c7365fb128b0461093a4
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 2ef7537e7d4733e1cd99592e8962665deb258f0e
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882838"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535683"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>使用 Powershell 监视 Azure Stack 集线器中的更新
 

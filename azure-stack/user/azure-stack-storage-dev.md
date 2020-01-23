@@ -4,18 +4,18 @@ description: 使用 Azure Stack 中心存储开发工具的入门指南
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.topic: conceptual
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 80dbb848eb764f2c0c71e3987c291f9eb505cf91
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 043b3ca7105b526e2c0c79ca7573375b2a8cfcae
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883314"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535920"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Azure Stack 中心存储开发工具入门
 

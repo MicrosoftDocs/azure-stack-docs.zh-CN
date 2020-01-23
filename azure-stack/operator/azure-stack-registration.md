@@ -13,16 +13,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 0b176ecde1effd2a5784f6e26d4ca452ae31eb9d
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 115c3180044b7163887cc388d291e298f7c33bbe
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022731"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535784"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>向 Azure 注册 Azure Stack 集线器
 

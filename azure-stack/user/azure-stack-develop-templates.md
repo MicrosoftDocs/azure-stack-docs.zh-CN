@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 65df51ea6420d751238309ece9c134a9e7aa7374
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 9cb0d229b076fef849d36a61ed43602e65d0a720
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879217"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536107"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>利用 Azure 资源管理器为 Azure Stack 中心开发模板
 

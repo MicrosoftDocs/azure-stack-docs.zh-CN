@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bd93eed23d00edd772a1bbfc2d88cad03ce83dd9
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: cb6a1e99def82625d01864601c504b62425b7a5f
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816439"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535886"
 ---
 # <a name="connect-to-azure-stack-hub"></a>连接到 Azure Stack 集线器
 

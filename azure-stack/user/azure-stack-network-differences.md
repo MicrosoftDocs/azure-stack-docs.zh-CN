@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 49266e22652b73c9af8ff2e3c08a0604f43760af
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 2d40e774ce3ef57694ae765e0774d6fc6610d553
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883484"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536056"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack 集线器网络的差异和注意事项
 

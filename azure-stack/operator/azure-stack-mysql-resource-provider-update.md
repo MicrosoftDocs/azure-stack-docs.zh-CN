@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 3c184b581233e8bdb9ccade4af73401fe1907527
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a230a07c62f415c990b4cccf21cd5c842782d41b
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882192"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76534628"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>更新 Azure Stack 集线器中的 MySQL 资源提供程序
 

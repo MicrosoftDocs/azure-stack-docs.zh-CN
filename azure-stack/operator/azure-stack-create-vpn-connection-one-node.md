@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 01/22/2020
 ms.author: justinha
-ms.reviewer: tbd
-ms.lastreviewed: 09/12/2018
+ms.reviewer: misainat
+ms.lastreviewed: 01/22/2020
 ROBOTS: NOINDEX
-ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0dc4786e575fac736ec4664d2b8fdd3dcc467466
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817901"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516719"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>在不同 ASDK 环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 
@@ -75,21 +75,13 @@ ms.locfileid: "75817901"
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>获取 NAT VM 的外部适配器的 IP 地址
 
 1. 登录到 POC1 的 Azure Stack 集线器物理计算机。
-2. 编辑以下 PowerShell 代码以添加管理员密码，然后在 POC 主机上运行代码：
+2. 以管理员身份打开 PowerShell 并运行以下 cmdlet：
 
    ```powershell
-   cd \AzureStack-Tools-master\connect
-   Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "<your administrator password>" `
-    -AsPlainText `
-    -Force
-   Get-AzureStackNatServerAddress `
-    -HostComputer "AzS-bgpnat01" `
-    -Password $Password
+   Get-NetNatExternalAddress
    ```
 
 3. 将 IP 地址添加到上一部分中显示的网络配置表。
-
 4. 在 POC2 上重复此过程。
 
 ## <a name="create-the-network-resources-in-poc1"></a>在 POC1 中创建网络资源

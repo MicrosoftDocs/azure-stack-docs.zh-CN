@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 5f29fd7a0d2ab8df9d713927b7e9bada38d0e249
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 07a6e2c3b7f7dd4a3a0102d320d9564e7479b5b3
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820672"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536260"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>Azure Stack 中心的常见部署
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2686b761ccf92af4ea643dd3e3c7d3fad5dcf2b5
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 540eded35338d07403577d826fc9c817021b7cac
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022983"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76534285"
 ---
 # <a name="install-azure-stack-hub-updates"></a>安装 Azure Stack 中心更新
 

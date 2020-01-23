@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: c19cf8a97fa92e0084a5b494fe79a7e45a519cad
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 17d9c16a6ee95672450dcfed1dee66e21390e022
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878384"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536430"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>部署 Kubernetes，将容器与 Azure Stack 中心配合使用
 
 > [!Note]  
-> 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用 [AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
+> 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用[AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
 
 可以按照本文中的步骤，通过单个协调的操作来部署和设置 Kubernetes 的资源。 步骤使用 Azure 资源管理器解决方案模板。 需要收集 Azure Stack 集线器安装所需的信息，生成模板，然后将其部署到云。 Azure Stack 中心模板不使用在全球 Azure 中提供的相同的托管 AKS 服务。
 

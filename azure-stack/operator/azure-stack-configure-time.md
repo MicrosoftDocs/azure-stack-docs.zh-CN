@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: bc139b43c2914f14cbe3bf998c20137e7a07dd25
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 2a473ab2b44362b7fc93cdd1879b1869f469ddfa
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882736"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76534050"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>为 Azure Stack 中心配置时间服务器
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 50ca47c66e31417378e5088bf6c0c9f7cb406cc1
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: cb58b2edc8a7a9ec96317a902ad79b8bacce89ec
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878317"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536413"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Azure Stack 中心存储简介
 

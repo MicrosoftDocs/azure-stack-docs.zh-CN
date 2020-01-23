@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 2ef79d69c12a846e017f064463dc933b86dc8b72
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 27ead61bb1fbb5bdebab439a1deecf3d6f70d861
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881886"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535767"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL 资源提供程序1.1.33.0 发行说明
 

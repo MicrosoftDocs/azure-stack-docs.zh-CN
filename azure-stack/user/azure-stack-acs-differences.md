@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/2/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 9b945f4cbb5e955c38b18c4bacd18726bbcb5e89
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dc50320941ab12fbd3f8b6b43f44e5ef9ddc7c45
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883858"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535801"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack 中心存储：差异和注意事项
 
@@ -42,7 +42,7 @@ Azure Stack 中心存储是 Microsoft Azure Stack 中心中的存储云服务集
 |块 blob 最大大小|4.75 TB（100 MB X 50,000 块）|对于1802更新或更新版本，4.75 TB （100 MB x 50000 块）。 对于以前的版本，50000 X 4 MB （约 195 GB）。
 |页 blob 快照复制|备份已连接到正在运行的 VM 的 Azure 非托管 VM 磁盘|尚不支持。
 |页 blob 增量快照复制|支持高级和标准 Azure 页 blob|尚不支持。
-|页 blob 计费|对于唯一页，无论它们是在 blob 中还是在快照中，都会产生费用。 在更新基本 blob 之前，不会对与 blob 关联的快照产生额外费用。|基本 blob 和 assiociated 快照会产生费用。 对于每个单独的快照，将产生额外的费用。
+|页 blob 计费|对于唯一页，无论它们是在 blob 中还是在快照中，都会产生费用。 在更新基本 blob 之前，不会对与 blob 关联的快照产生额外费用。|基本 blob 和关联快照会产生费用。 对于每个单独的快照，将产生额外的费用。
 |Blob 存储的存储层|热、冷和存档存储层。|尚不支持。
 |Blob 存储的软删除|公开提供|尚不支持。
 |页 blob 最大大小|8 TB|1 TB

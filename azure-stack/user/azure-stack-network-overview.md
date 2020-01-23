@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 0682a698dadf79feb2e22eaa683b723e7ae23717
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 1a0ba98c44c4c28feedbf72e23534603d08abd44
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883348"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536039"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Azure Stack 集线器网络简介
 

@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/03/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: f2d737f9048760b9c2b1561ba44f36379bfd3f00
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bf855be0ec6fc63be4ab816dac4dde170b24fdad
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883399"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536073"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>通过 Vm 在 Azure Stack 中心 VNET 对等互连
 

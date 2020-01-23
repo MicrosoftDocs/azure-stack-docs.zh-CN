@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 888d34441af672dfcfa27e8f48237c41105ce629
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 69b02e95e7819ed6caea19721cbd8b09da1a802d
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817119"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535291"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>管理 Azure Stack 中心存储帐户
 

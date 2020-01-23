@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: e78b8ead05fbb4a95488c077935277429a34e018
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7627202f24feff4ce4ebf90a97d9c4bf1b5e119b
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878792"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536124"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>使用 Azure Stack 中心的 Azure Monitor
 

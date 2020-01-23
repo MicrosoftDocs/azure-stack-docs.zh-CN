@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 4067068090a4ae243b40af4f382a80c8bfc14455
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 942d3b70650b335f1717083e4f9ba14d03e97132
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882226"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76534968"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL 资源提供程序1.1.33.0 发行说明
 
