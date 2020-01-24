@@ -16,20 +16,19 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 58aa2bc05625c031fe78c3b4e5aeeec8d6001c8a
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7a88b68df43bb71c24a3d066f67bd8281765c60f
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881767"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706586"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>使用 Azure Stack 集线器上的 SQL 数据库
 
-使用 SQL 资源提供程序在[Azure Stack 中心](azure-stack-overview.md)提供 sql 数据库即服务。 在安装资源提供程序并将其连接到一个或多个 SQL Server 实例后，你和你的用户可以创建：
+使用 SQL 资源提供程序提供[Azure Stack 中心](azure-stack-overview.md)上的 sql 数据库。 在安装资源提供程序并将其连接到一个或多个 SQL Server 实例后，你和你的用户可以创建：
 
-- 适用于云原生应用的数据库。
-- 使用 SQL 的网站。
-- 使用 SQL 的工作负荷。
+- 适用于云原生应用的 SQL 数据库。
+- 用于 web 应用程序的 SQL 数据库。
 
 安装 SQL 资源提供程序之前，需要考虑几个限制：
 
@@ -37,6 +36,8 @@ ms.locfileid: "75881767"
 - Azure Stack 中心操作员负责部署、更新、保护、配置和维护 SQL 数据库服务器和主机。 RP 服务不提供任何主机和数据库服务器实例管理功能。 
 - 不同订阅中不同用户的数据库可以位于同一个数据库服务器实例上。 RP 不提供隔离不同主机或数据库服务器实例上的数据库的任何机制。
 - RP 不提供数据库的租户使用情况报告。
+
+对于本地 SQL Server 本地工作负荷，建议 SQL Server Azure Stack 中心的虚拟机。
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>SQL 资源提供程序适配器体系结构
 

@@ -15,19 +15,19 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9351ce5b2dde1fc7e2dfeddc2d3520a4f5d1fe2b
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 39ab41c9852dce6508adf3f3d18e06f8bcc6e228
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534611"
+ms.locfileid: "76706620"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>在 Microsoft Azure Stack 中心使用 MySQL 数据库
 
-使用 MySQL 资源提供程序在[Azure Stack 中心](azure-stack-overview.md)提供 MySQL 数据库服务。 部署资源提供程序并将其连接到一个或多个 MySQL 服务器实例后，可以：
+使用 MySQL 资源提供程序在[Azure Stack 中心](azure-stack-overview.md)提供 MySQL 数据库。 部署资源提供程序并将其连接到一个或多个 MySQL 服务器实例后，可以创建：
 
-* 使用 Azure 资源管理器部署模板创建 MySQL 数据库。
-* 提供 MySQL 数据库即服务。  
+* 适用于云原生应用的 MySQL 数据库。
+* 用于 web 应用程序的 MySQL 数据库。  
 
 安装 MySQL 资源提供程序之前，请考虑以下几个限制：
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 5bdfb3f39582c198f077e961ff98f5d1352cb942
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6d3f9c6965154873fefb88255c60bb03c6790bea
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75803800"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706603"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Azure Stack 中心中的使用情况和计费
 

@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2e09f10fc61454cf1b32797e75b5a57fc3f90f8f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 9497fb4404b9328929e1b4639bfd1e2fa9ed20fe
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819873"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706858"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack 集线器托管磁盘：差异和注意事项
 
-本文总结了 Azure[中 Azure Stack 中心](azure-stack-manage-vm-disks.md)和[托管磁盘](/azure/virtual-machines/windows/managed-disks-overview)的托管磁盘之间的差异。 若要了解 Azure Stack 中心与 Azure 之间的高级差异，请参阅[关键注意事项](azure-stack-considerations.md)一文。
+本文总结了 Azure 中 Azure Stack 中心和[托管磁盘](/azure/virtual-machines/windows/managed-disks-overview)的[*托管磁盘*](azure-stack-manage-vm-disks.md)之间的差异。 若要了解 Azure Stack 中心与 Azure 之间的高级差异，请参阅[关键注意事项](azure-stack-considerations.md)一文。
 
 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../operator/azure-stack-manage-storage-accounts.md)，简化 IaaS 虚拟机（vm）的磁盘管理。
 
@@ -52,7 +52,7 @@ ms.locfileid: "75819873"
 > [!NOTE]  
 > Azure Stack 集线器中的托管磁盘 IOPs 和吞吐量是 cap 数量，而不是预配的数量，可能会受到 Azure Stack 集线器中运行的硬件和工作负载的影响。
 
-## <a name="metrics"></a>度量值
+## <a name="metrics"></a>指标
 
 与存储指标之间也有一些差异：
 
@@ -147,7 +147,7 @@ Azure Stack 中心支持*托管映像*，这使你能够在通用化 VM （非�
 对于 Windows，请遵循[使用 Sysprep 通用化 WINDOWS VM](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)部分。 对于 Linux，请执行[此处](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)的步骤1。
 
 > [!NOTE]
-> 请确保通用化虚拟机。 从不正确通用化的映像创建 VM 将导致**VMProvisioningTimeout**错误。
+> 请确保通用化虚拟机。 从不正确通用化的映像创建 VM 可能会产生**VMProvisioningTimeout**错误。
 
 ### <a name="step-2-create-the-managed-image"></a>步骤2：创建托管映像
 
@@ -232,4 +232,4 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmC
 
 ## <a name="next-steps"></a>后续步骤
 
-- [了解 Azure Stack 集线器虚拟机](azure-stack-compute-overview.md)
+- 了解[Azure Stack 中心虚拟机](azure-stack-compute-overview.md)。

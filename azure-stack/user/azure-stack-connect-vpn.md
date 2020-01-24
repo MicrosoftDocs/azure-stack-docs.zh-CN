@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 210890ce5ae82142906fb8f98d874c2f90ea3713
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 75d6143d3ae1ce0eaf114bd537e0a4983f99e53c
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883824"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706892"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 中心连接到 Azure
 

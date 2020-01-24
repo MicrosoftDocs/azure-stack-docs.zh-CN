@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: 44d00381ea11ef6ac7e947c31adce41b3228d93d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d6ad986c35a819b8cd3250914aeeefc6fd961486
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883773"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706824"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>让云解决方案提供商管理 Azure Stack 中心订阅
 

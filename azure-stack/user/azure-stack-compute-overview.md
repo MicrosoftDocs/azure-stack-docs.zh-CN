@@ -6,16 +6,16 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 7a7da17dd3b9be99c797b2241ae38bd2d4e6c0d2
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: f14972ed2c34ff88dedbf3adb2b9751b33576268
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923985"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706875"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack 中心 Vm 简介
 

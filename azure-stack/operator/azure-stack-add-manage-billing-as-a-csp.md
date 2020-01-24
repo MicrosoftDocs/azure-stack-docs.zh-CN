@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7fcd34efefa9c82085274837829f989908f751ba
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 4e696f3e50f3f61f4b4f73387cf6e62b6ae88e6c
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881087"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706552"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>作为云解决方案提供商管理 Azure Stack 集线器的使用情况和计费
 
@@ -67,7 +67,7 @@ Azure Stack 集线器使用称为 "*注册*" 的功能。 注册是存储在 Azu
 
 使用注册，Azure Stack 中心可以：
 
-- 将 Azure Stack 集线器使用数据转发到 Azure Commerce 并计费 Azure 订阅。
+- 将[Azure Stack 集线器使用数据](azure-stack-billing-and-chargeback.md)转发到 azure Commerce 并计费 azure 订阅。
 - 使用多租户 Azure Stack 中心部署报告不同订阅上的每个客户的使用情况。 多租户支持 Azure Stack 集线器支持同一 Azure Stack 中心实例上的不同组织。
 
 对于每个 Azure Stack 中心，都有一个默认订阅和多个租户订阅。 默认订阅是在没有特定于租户的订阅的情况下收费的 Azure 订阅。 它必须是要注册的第一个订阅。 要使多租户使用情况报表有效，订阅必须是 CSP 或应用订阅。

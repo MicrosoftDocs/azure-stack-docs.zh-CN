@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a8978c5ceb9e54577ff2347671568122751f4715
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c84649853d77b2f56fc1192d0bb302996deb8a60
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881835"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706722"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack 中心部署 SQL Server 资源提供程序
 
@@ -100,7 +100,7 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 中心部署 pki �
 
 ## <a name="deploy-the-sql-resource-provider"></a>部署 SQL 资源提供程序
 
-安装所有先决条件后，请运行**deploysqlprovider.ps1**脚本以部署 SQL 资源提供程序。 Deploysqlprovider.ps1 脚本提取为你为 Azure Stack 集线器版本下载的 SQL 资源提供程序二进制文件的一部分。
+安装所有先决条件后，请从可访问 Azure Stack 中心管理员 Azure 资源管理终结点和特权终结点的计算机上运行**deploysqlprovider.ps1**脚本，以部署 SQL 资源提供程序。 Deploysqlprovider.ps1 脚本提取为你为 Azure Stack 集线器版本下载的 SQL 资源提供程序二进制文件的一部分。
 
  > [!IMPORTANT]
  > 在部署资源提供程序之前，请查看发行说明，了解新功能、修复程序以及可能影响部署的任何已知问题。
@@ -117,7 +117,7 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 中心部署 pki �
 - 将资源提供程序注册到操作员帐户的本地 Azure 资源管理器。
 
 > [!NOTE]
-> SQL 资源提供程序部署启动时，将创建**microsoft.sqladapter**资源组。 完成此资源组所需的部署最多可能需要75分钟。
+> SQL 资源提供程序部署启动时，将创建**microsoft.sqladapter**资源组。 完成此资源组所需的部署最多可能需要75分钟。 不应将任何其他资源放置在**microsoft.sqladapter**资源组中。
 
 ### <a name="deploysqlproviderps1-parameters"></a>Deploysqlprovider.ps1 参数
 

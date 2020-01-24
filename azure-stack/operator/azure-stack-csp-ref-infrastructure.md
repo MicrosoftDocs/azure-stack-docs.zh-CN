@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 574d6bcd7b86f026a6c7f078e06fa92a3e0d4581
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6dfb744b4e8a91036a16c4461ccbe584305af384
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75809706"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706807"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>云解决方案提供商的使用情况报告基础结构
 
-Azure Stack 中心包含跟踪使用情况时所需的基础结构，并将其转发到 Azure。 在 Azure 中，Azure Commerce 处理使用情况数据并向适当的 Azure 订阅收取费用。 此过程的工作方式与在全球 Azure 云中使用跟踪的方式相同。
+Azure Stack 中心包含跟踪使用情况时所需的基础结构，并将其转发到 Azure。 在 Azure 中，Azure Commerce 处理[使用情况数据并](azure-stack-billing-and-chargeback.md)向适当的 Azure 订阅收取费用。 此过程的工作方式与在全球 Azure 云中使用跟踪的方式相同。
 
 全局 Azure 与 Azure Stack 中心之间的一些概念是一致的。 Azure Stack 中心具有本地订阅，可满足 Azure 订阅的类似角色。 本地订阅仅在本地有效。 将使用情况转发到 Azure 时，本地订阅会映射到 Azure 订阅。
 
@@ -34,7 +34,7 @@ Azure Stack 中心具有本地使用情况计量。 本地使用情况映射到 
 
 你可以了解有关在合作伙伴中心使用的 Azure Stack 中心计量器和其价格的信息。 此过程与适用于 Azure 服务的过程相同：
 
-1. 在合作伙伴中心，请在 "**仪表板" 菜单**上，选择 "**销售**"，然后选择 "**定价和产品/服务**"。
+1. 在合作伙伴中心，请在 "**仪表板**" 菜单上，选择 "**销售**"，然后选择 "**定价和产品/服务**"。
 2. 在 "**基于使用情况的服务**" 下，选择 "**当前**"。
 3. **在全局 CSP 价目表**电子表格中打开 Azure。
 4. 按**区域筛选 Azure Stack 中心**。

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 3dbd177f080067283ba22d661e08d54c23e642ff
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: a487d8d333ec46f552cefa4c39bda9951f02deb9
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022786"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706671"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack 中心市场更改
 
@@ -31,51 +31,33 @@ ms.locfileid: "76022786"
 ## <a name="new-marketplace-items"></a>新建 Marketplace 项
 
 - 06/27/2019： SIOS Datakeeper 群集版本
-
 - 06/27/2019： Veeam 备份 & 复制
-
 - 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器即用即付
-
 - 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器 BYOL
-
 - 06/27/2019： Windows Server 2019 Datacenter 即用即付
-
 - 06/27/2019： Windows Server 2019 Datacenter BYOL
-
 - 06/27/2019： Windows Server 2019 Datacenter Server Core 即用即付
-
 - 06/27/2019： Windows Server 2019 Datacenter Server Core BYOL
-
 - 06/27/2019： Windows Server 2019 Datacenter With 容器即用即付
-
 - 06/27/2019： Windows Server 2019 Datacenter With 容器 BYOL
-
 - 08/05/2019： Bitnami Drupal
-
 - 08/05/2019： Bitnami etcd
-
 - 08/05/2019： Bitnami Grafana
-
 - 08/05/2019： Bitnami Neo4j
-
 - 08/05/2019： Bitnami 分析服务器
-
 - 08/05/2019： Bitnami WordPress Multisite
-
 - 08/05/2019： Bitnami ZooKeeper
-
 - 08/05/2019： Bitnami TensorFlow 服务
-
 - 08/05/2019： Bitnami NAT
-
 - 08/05/2019： Bitnami 审阅板
-
 - 08/05/2019： Bitnami Composr
-
 - 08/09/2019： Oracle Linux
-
 - 08/19/2019： Iguazio 数据科学平台
-
+- 10/16/2019： SIOS DataKeeper 群集版本
+- 12/26/2019： CloudGuard IaaS 高可用性
+- 12/26/2019：检查点 CloudGuard IaaS 安全管理
+- 12/26/2019：检查点 CloudGuard IaaS 单一网关
+- 01/21/2020： Teradici Cloud Access 软件
 
 ## <a name="deprecated-marketplace-items"></a>弃用的 Marketplace 项
 
@@ -84,7 +66,7 @@ ms.locfileid: "76022786"
 - Bitnami SugarCRM
 - Bitnami node.js 高可用性群集
 - A10 vThunder： L4-L7 应用程序交付控制器，全局服务器负载平衡（GSLB），SSL 见解
-
+- Check Point vSEC 安全管理
 
 ## <a name="updated-marketplace-items"></a>更新的 Marketplace 项
 

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c77a9a02a49672a120a0b1099784098e38fb515a
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882566"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706688"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>在 Azure Stack 集线器中注册使用情况跟踪的租户
 
@@ -33,7 +33,7 @@ ms.locfileid: "75882566"
 
 若要将新租户添加到注册，可以使用此操作。 租户使用情况在与 Azure Active Directory （Azure AD）租户连接的 Azure 订阅下报告。
 
-你还可以使用此操作来更改与租户关联的订阅。 调用 PUT 或**move-azurermresource**以覆盖上一映射。
+你还可以使用此操作来更改与租户关联的订阅。 调用 PUT 或**Move-azurermresource** PowerShell cmdlet 以覆盖以前的映射。
 
 可以将单个 Azure 订阅与租户相关联。 如果尝试将第二个订阅添加到现有租户，将覆盖第一个订阅。
 
@@ -53,7 +53,7 @@ ms.locfileid: "75882566"
 | registrationName           | Azure Stack 中心注册的名称。 它是存储在 Azure 中的对象。 该名称的格式通常为**test-azurestack-CloudID**，其中**CloudID**是 Azure Stack 中心部署的云 ID。 |
 
 > [!NOTE]  
-> 租户需要在其使用的每个 Azure Stack 中心部署中进行注册。 如果租户使用多个 Azure Stack 中心，请使用租户订阅更新每个部署的初始注册。
+> 租户必须使用其使用的每个 Azure Stack 中心部署进行注册。 如果租户使用多个 Azure Stack 中心，请使用租户订阅更新每个部署的初始注册。
 
 ### <a name="powershell"></a>PowerShell
 

@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 5ad2f6b3b66e2c01cbae91a42a2b2a1bb0b59a26
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8be16900ce6e83c866334fe4e6f594c57e6f85dc
+ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813005"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76706739"
 ---
 # <a name="usage-connectivity-errors"></a>使用连接错误
 
-Azure Stack 集线器使用情况数据由 Azure Stack 集线器中的[ *Azure Bridge*组件](azure-stack-usage-reporting.md)发送到 Azure。 如果 Azure Stack 集线器中的桥无法连接到 Azure 使用情况服务，则会显示以下错误：
+Azure Stack 集线器使用情况数据由 Azure Stack 集线器中的[*Azure Bridge*](azure-stack-usage-reporting.md)组件发送到 Azure。 如果 Azure Stack 集线器中的桥无法连接到 Azure 使用情况服务，则会显示以下错误：
 
 ![使用量桥错误](media/azure-stack-usage-issues/usageerror2.png)
 
