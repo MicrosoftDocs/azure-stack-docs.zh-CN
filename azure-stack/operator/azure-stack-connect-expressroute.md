@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 014ff5a0b4791ac7b939ac3e61a79c89f531aa8d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d9947738cbe86d0483d20204e9c0e346656fd583
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75877551"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750518"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 中心连接到 Azure
 
@@ -81,7 +81,7 @@ ms.locfileid: "75877551"
 
 开始配置 Azure Stack 集线器之前，需要：
 
-* Azure Stack 中心部署。 
+* Azure Stack 中心部署。
 * 用户可以订阅 Azure Stack 中心提供的产品/服务。 有关详细信息，请参阅 "[服务、计划、产品/服务、订阅概述](service-plan-offer-subscription-overview.md)"。
 
 ### <a name="create-network-resources-in-azure-stack-hub"></a>在 Azure Stack 集线器中创建网络资源
@@ -177,7 +177,7 @@ ms.locfileid: "75877551"
 1. 在 "**虚拟网络网关**" 下，从资源列表中选择 "**概述**"。 或者，您可以选择 "**属性**"。
 1. 要记录的 IP 地址列在 "**公共 ip 地址**" 下。 对于示例配置，此地址为192.68.102.1。
 
-#### <a name="create-a-virtual-machine-vm"></a>创建虚拟机 (VM)
+#### <a name="create-a-virtual-machine-vm"></a>创建虚拟机（VM）
 
 若要通过 VPN 连接测试数据流量，需要 Vm 在 Azure Stack Hub VNet 中发送和接收数据。 创建 VM，并将其部署到虚拟网络的 VM 子网。
 
@@ -197,7 +197,7 @@ ms.locfileid: "75877551"
    * 虚拟网络为**Tenant1VNet1**。
    * 子网已设置为**10.1.1.0/24**。
 
-   使用默认设置，再单击“确定”。
+   使用默认设置，然后单击 **"确定"** 。
 
 1. 在 "**摘要**" 下查看 VM 配置，然后单击 **"确定"** 。
 

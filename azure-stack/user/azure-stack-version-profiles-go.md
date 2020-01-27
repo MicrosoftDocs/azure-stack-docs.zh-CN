@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 543279763592fe482ea7e18c74a7e51ce8b92146
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 6e4cd8fcd5020e94f011188cc6a4e4f61744402d
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878265"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750405"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>结合使用 API 版本配置文件 Azure Stack 中心
 

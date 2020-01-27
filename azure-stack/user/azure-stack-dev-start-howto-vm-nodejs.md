@@ -9,12 +9,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: c5d254351fab0bb89023dad8928ac32958f63404
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 9361b2db39a667da71d125cac496a47386726bb0
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536209"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750450"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>将 node.js web 应用部署到 Azure Stack 集线器中的 VM
 
@@ -47,7 +47,7 @@ ms.locfileid: "76536209"
 2. [安装 NPM](https://www.npmjs.com/)，用于 node.js 包或模块的包管理器。 如果仍在 SSH 会话中连接到 VM，请输入以下命令：
 
     ```bash  
-       go version
+       node --version
     ```
 
 3. [安装 Git](https://git-scm.com)，这是一个广泛分发的版本控制和源代码管理（SCM）系统。 在 SSH 会话中仍连接到 VM 时，请输入以下命令：

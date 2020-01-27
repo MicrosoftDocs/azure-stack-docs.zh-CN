@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 06def59e2ec66f8a3260aaeb008eb05cabb6781e
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 423782113e161360f2f3c4e0dc799d16f8c4ae0a
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256251"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750433"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 Java 使用 API 版本配置文件
 

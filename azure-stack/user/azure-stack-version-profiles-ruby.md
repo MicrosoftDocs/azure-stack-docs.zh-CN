@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: ec8c03536cb005de84f35ae7dc534d33f7223354
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 0c439e9d4997486ecc1d8304dba94026f5832bed
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256285"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750501"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>在 Azure Stack 中心使用带有 Ruby 的 API 版本配置文件
 

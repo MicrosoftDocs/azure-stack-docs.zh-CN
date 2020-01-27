@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: d8714901bc8ac8f8c20b9b2649527f8e6f6627fc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 93b69057d70d12dda92186819731ee707032601a
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882396"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750467"
 ---
-# <a name="add-linux-images-to-azure-stack-hub-marketplace"></a>将 Linux 映像添加到 Azure Stack 集线器 Marketplace
+# <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>将 Linux 映像添加到 Azure Stack 中心市场
 
 可以通过将基于 Linux 的映像添加到 Azure Stack 中心市场，在 Azure Stack 集线器上部署 Linux 虚拟机（Vm）。 将 Linux 映像添加到 Azure Stack 集线器的最简单方法是通过 Marketplace 管理。 这些映像已准备好并经过测试，可与 Azure Stack 中心兼容。
 
@@ -61,7 +61,7 @@ ms.locfileid: "75882396"
 
 ## <a name="cloud-init"></a>Cloud-init
 
-1910以外的 Azure Stack 集线器版本支持[Cloud init](https://cloud-init.io/) 。 若要使用 cloud init 自定义 Linux VM，可以使用以下 PowerShell 说明： 
+1910以外的 Azure Stack 集线器版本支持[Cloud init](https://cloud-init.io/) 。 若要使用 cloud init 自定义 Linux VM，可以使用以下 PowerShell 说明。
 
 ### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>步骤1：创建 cloud-init.txt 文件与你的云配置
 

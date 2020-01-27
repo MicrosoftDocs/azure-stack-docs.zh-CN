@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3defbf731a2b4b89fce8f9815513456104f80ea6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 4e3f118114a87fbfc279634d68fccb93687cb20b
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883263"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750484"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 

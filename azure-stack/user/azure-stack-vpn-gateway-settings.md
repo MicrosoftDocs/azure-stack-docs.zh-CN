@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ff7667c94b345cbb666232e869ab8871bd081f5c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 20ebbe3a33a18a6ec4f847ef722203bc37885685
+ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883127"
+ms.lasthandoff: 01/25/2020
+ms.locfileid: "76750382"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>为 Azure Stack 中心配置 VPN 网关设置
 
@@ -32,7 +32,7 @@ VPN 网关连接依赖于多个资源配置，其中每个资源包含可配置�
 
 ### <a name="gateway-types"></a>网关类型
 
-每个 Azure Stack 集线器虚拟网络支持单个虚拟网络网关，该网关必须是**Vpn**类型。  此支持不同于 Azure，后者支持其他类型。
+每个 Azure Stack 集线器虚拟网络支持单个虚拟网络网关，该网关必须是**Vpn**类型。 此支持不同于 Azure，后者支持其他类型。
 
 创建虚拟网络网关时，必须确保配置的网关类型正确。 VPN 网关需要 `-GatewayType Vpn` 标志;例如：
 
