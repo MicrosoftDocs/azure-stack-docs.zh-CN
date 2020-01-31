@@ -1,26 +1,18 @@
 ---
-title: Azure Stack 集线器 VM 功能 |Microsoft Docs
+title: Azure Stack 中心 VM 功能
 description: 了解在 Azure Stack 集线器中使用 Vm 时的不同功能和注意事项。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: d336593dccdc4686f52ab17dbc568b62c5569a0e
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 94889f2d5d1223d1f5c1da1eaf5289f968cc5efa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536362"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883028"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack 中心 VM 功能
 

@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 中心中的 VM 更新和管理自动化 |Microsoft Docs
+title: Azure Stack 中心中的 VM 更新和管理自动化
 description: 了解如何使用 Azure 自动化中的用于 VM 的 Azure Monitor、更新管理、更改跟踪和清单解决方案来管理 Azure Stack 中心部署的 Windows 和 Linux Vm。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 580e1e724a1d03183091ce4e59b779fc30cfb92c
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: e3595179c4efc5503f8e4315fbe5a419049b2db4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023121"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885231"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack 中心中的 VM 更新和管理自动化
 使用以下 Azure 自动化解决方案功能管理使用 Azure Stack 中心部署的 Windows 和 Linux 虚拟机（Vm）：

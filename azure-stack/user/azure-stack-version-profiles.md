@@ -1,25 +1,18 @@
 ---
-title: 在 Azure Stack Hub 中管理 API 版本配置文件 |Microsoft Docs
+title: 在 Azure Stack 中心管理 API 版本配置文件
 description: 了解 Azure Stack 集线器中的 API 版本配置文件。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 21686d1f7e61013c22d37b974111e0d6a57f1b88
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 65f28a4de02bf8d52a15e19a1e5ea6a28ad7dce3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883161"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884190"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>在 Azure Stack 中心管理 API 版本配置文件
 
@@ -27,7 +20,7 @@ API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API �
 
 你可以创建一个应用来使用 Azure 资源提供程序，而无需确切地对每个资源提供程序 API 的哪个版本与 Azure Stack 中心兼容。 只需将应用程序与配置文件对齐，SDK 就会恢复到正确的 API 版本。
 
-本主题可帮助：
+本主题将帮助你：
 
 - 了解 Azure Stack 集线器的 API 配置文件。
 - 了解如何使用 API 配置文件来开发解决方案。

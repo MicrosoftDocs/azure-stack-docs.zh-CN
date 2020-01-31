@@ -1,22 +1,18 @@
 ---
-title: 使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成 |Microsoft Docs
+title: 使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成
 description: 了解如何使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成。
-services: azure-stack
-author: justinha
-manager: femila
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-keywords: ''
-ms.openlocfilehash: bc484919227fe08293db9ac987bee4d18313d802
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 2b8a6b06b0eca680a42d7c15bfe7fbb43afec29a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882413"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882090"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成
 
@@ -65,11 +61,11 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 |---------|---------|---------|---------|
 |*ServerName* | Syslog 服务器的 FQDN 或 IP 地址。 | String | 是|
 |*ServerPort* | Syslog 服务器正在侦听的端口号。 | UInt16 | 是|
-|*NoEncryption*| 强制客户端以明文形式发送 syslog 消息。 | flag | 否|
-|*SkipCertificateCheck*| 初次 TLS 握手期间，跳过 syslog 服务器提供的证书验证。 | flag | 否|
-|*SkipCNCheck*| 跳过对 syslog 服务器在初始 TLS 握手期间提供的证书的公用名值的验证。 | flag | 否|
-|*UseUDP*| 结合使用 syslog 和 UDP 作为传输协议。 |flag | 否|
-|*删除*| 删除客户端的服务器配置并停止 syslog 转发。| flag | 否|
+|*NoEncryption*| 强制客户端以明文形式发送 syslog 消息。 | 标志 | 否|
+|*SkipCertificateCheck*| 初次 TLS 握手期间，跳过 syslog 服务器提供的证书验证。 | 标志 | 否|
+|*SkipCNCheck*| 跳过对 syslog 服务器在初始 TLS 握手期间提供的证书的公用名值的验证。 | 标志 | 否|
+|*UseUDP*| 结合使用 syslog 和 UDP 作为传输协议。 |标志 | 否|
+|*删除*| 删除客户端的服务器配置并停止 syslog 转发。| 标志 | 否|
 
 *SyslogClient* cmdlet 的参数：
 
@@ -77,7 +73,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 |---------|---------| ---------|
 | *pfxBinary* | Pfx 文件的内容，通过管道传输到 Byte []，其中包含客户端作为标识对 syslog 服务器进行身份验证时要使用的证书。  | Byte[] |
 | *CertPassword* |  用于导入与 pfx 文件关联的私钥的密码。 | SecureString |
-|*RemoveCertificate* | 从客户端中删除证书。 | flag|
+|*RemoveCertificate* | 从客户端中删除证书。 | 标志|
 | *OutputSeverity* | 输出日志记录级别。 值为 "**默认**值" 或 "**详细**"。 默认值包括严重性级别： "警告"、"严重" 或 "错误"。 详细包括所有严重性级别：详细、信息性、警告、严重或错误。  | String |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>用 TCP、相互身份验证和 TLS 1.2 加密配置 syslog 转发
 

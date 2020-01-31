@@ -1,25 +1,18 @@
 ---
-title: 在 Azure Stack Hub 中使用 Python 的 API 版本配置文件 |Microsoft Docs
+title: 在 Azure Stack 集线器中将 API 版本配置文件与 Python 配合使用
 description: 了解如何在 Azure Stack 集线器中将 API 版本配置文件与 Python 配合使用。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 99446d0968c07155578cabc47e08cf5fac677dd2
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750399"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884225"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 API 版本配置文件与 Python 配合使用
 

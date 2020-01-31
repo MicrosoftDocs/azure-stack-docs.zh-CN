@@ -1,23 +1,18 @@
 ---
-title: Azure Stack 中心服务、计划、产品/服务、订阅概述 |Microsoft Docs
+title: Azure Stack 中心服务、计划、产品/服务、订阅概述
 description: 概述 Azure Stack 中心服务、计划、产品/服务和订阅。
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 4f7cb6bf451ad04a8c6365e5c39a714902f3d0b4
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c67d880308bd946c2f73f0993bbd3a19be0342aa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879999"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885167"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack 中心服务、计划、产品/服务、订阅概述
 

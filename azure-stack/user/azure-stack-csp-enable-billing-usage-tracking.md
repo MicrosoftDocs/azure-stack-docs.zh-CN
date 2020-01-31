@@ -1,26 +1,18 @@
 ---
-title: 让云解决方案提供商管理 Azure Stack 中心订阅 |Microsoft Docs
+title: 让云解决方案提供商管理 Azure Stack 中心订阅
 description: 了解如何让云解决方案提供商（CSP）管理你的 Azure Stack 中心订阅。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: d6ad986c35a819b8cd3250914aeeefc6fd961486
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 5a04602c8906ba546190aa6783b4cbcf40b56cba
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706824"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883854"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>让云解决方案提供商管理 Azure Stack 中心订阅
 

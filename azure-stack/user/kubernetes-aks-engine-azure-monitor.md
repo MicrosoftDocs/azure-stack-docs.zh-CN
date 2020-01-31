@@ -1,26 +1,18 @@
 ---
-title: 使用 Azure Stack 中心的容器 Azure Monitor |Microsoft Docs
+title: 使用 Azure Stack 中心的容器 Azure Monitor
 description: 了解如何在 Azure Stack 中心使用容器 Azure Monitor。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 4fa741970a2fb8c82bab3c9f7eb16a3aefd31ecd
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 5b3172695fd6e0536360eed2dc4e370dd8bccecc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883110"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885244"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>使用 Azure Stack 中心的容器 Azure Monitor
 
@@ -42,7 +34,7 @@ ms.locfileid: "75883110"
 
 还可以使用[Helm](https://helm.sh/)图在群集中安装监视代理。 按照以下文章[Azure Monitor –容器](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers)中的说明进行操作。
 
-## <a name="method-two"></a>方法二
+## <a name="method-two"></a>方法2
 
 可以在 AKS 引擎群集规范 json 文件中指定**加载**项。 文件也称为 API 模型。 在此加载项中，提供用于存储监视信息的 Azure Log Analytics 工作区的 base64 编码版本的**WorkspaceGUID**和**WorkspaceKey** 。
 

@@ -2,26 +2,18 @@
 title: 使用 SQL 数据库
 titleSuffix: Azure Stack Hub
 description: 了解如何使用 SQL Server 资源提供程序在 Azure Stack 中心提供 SQL 数据库即服务。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 7a88b68df43bb71c24a3d066f67bd8281765c60f
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 30ca5673bb337342eba57d127acf2f3e657bb8df
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706586"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882781"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>使用 Azure Stack 集线器上的 SQL 数据库
 
@@ -30,12 +22,12 @@ ms.locfileid: "76706586"
 - 适用于云原生应用的 SQL 数据库。
 - 用于 web 应用程序的 SQL 数据库。
 
-安装 SQL 资源提供程序之前，需要考虑几个限制：
+安装 SQL 资源提供程序之前需要考虑的限制：
 
 - 用户只能创建和管理单个数据库。 最终用户无法访问数据库服务器实例。 这可能会限制与需要访问 master、Temp DB 或动态管理数据库的本地数据库应用程序的兼容性。
-- Azure Stack 中心操作员负责部署、更新、保护、配置和维护 SQL 数据库服务器和主机。 RP 服务不提供任何主机和数据库服务器实例管理功能。 
+- Azure Stack 中心操作员负责部署、更新、保护、配置和维护 SQL 数据库服务器和主机。 RP 服务不提供任何主机和数据库服务器实例管理功能。
 - 不同订阅中不同用户的数据库可以位于同一个数据库服务器实例上。 RP 不提供隔离不同主机或数据库服务器实例上的数据库的任何机制。
-- RP 不提供数据库的租户使用情况报告。
+- RP 并不提供数据库的租户使用情况报告。
 
 对于本地 SQL Server 本地工作负荷，建议 SQL Server Azure Stack 中心的虚拟机。
 

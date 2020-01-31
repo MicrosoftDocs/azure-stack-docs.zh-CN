@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 集线器诊断日志收集概述 |Microsoft Docs
+title: Azure Stack 集线器诊断日志收集概述
 description: 介绍 Azure Stack 中心帮助 + 支持（包括按需和自动日志收集）中的诊断日志收集。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: cd74be55195975238e9c8454badeab26593811b5
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: facbff4bdddc284c4f547c4bf5941678d2c8bcd7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882464"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882373"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack 集线器诊断日志收集概述 
 
@@ -65,7 +56,7 @@ CSS 将为 CSS 拥有的存储 blob 提供共享访问签名（SAS） URL。 Azu
 |--------------------|--------|
 | 低带宽/高延迟连接 | 日志上传需要较长的时间才能完成 | 
 | 共享连接 | 上传还可能会影响共享网络连接的其他应用程序/用户 |
-| 按流量计费的连接 | 你的 ISP 可能会额外收取额外的网络使用量 |
+| 计量连接 | 你的 ISP 可能会额外收取额外的网络使用量 |
 
 有关详细信息，请参阅[自动 Azure Stack 中心日志收集的最佳实践](azure-stack-best-practices-automatic-diagnostic-log-collection.md)。
 

@@ -1,26 +1,19 @@
 ---
-title: 验证作为服务 Azure Stack 验证中的原始设备制造商（OEM）包 |Microsoft Docs
+title: 验证作为服务 Azure Stack 验证中的原始设备制造商（OEM）包
 description: 了解如何使用验证即服务验证原始设备制造商（OEM）包。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954547"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885117"
 ---
 # <a name="validate-oem-packages"></a>验证 OEM 包
 
@@ -72,7 +65,7 @@ VaaS 所需的最低访问级别取决于你是要创建包验证工作流还是
 
 |访问级别 | 工作流要求 | 测试要求 |
 |---|---------|---------|
-|Private | 生成每个包 blob 的 SAS URL （[选项 1](#option-1-generate-a-blob-sas-url)）。 | 在帐户级别生成 SAS URL，并手动添加包 blob 名称（[选项 2](#option-2-construct-a-container-sas-url)）。 |
+|专用 | 生成每个包 blob 的 SAS URL （[选项 1](#option-1-generate-a-blob-sas-url)）。 | 在帐户级别生成 SAS URL，并手动添加包 blob 名称（[选项 2](#option-2-construct-a-container-sas-url)）。 |
 |Blob | 提供 "blob URL" 属性（[选项 3](#option-3-grant-public-read-access)）。 | 在帐户级别生成 SAS URL，并手动添加包 blob 名称（[选项 2](#option-2-construct-a-container-sas-url)）。 |
 |容器 | 提供 "blob URL" 属性（[选项 3](#option-3-grant-public-read-access)）。 | 提供 "blob URL" 属性（[选项 3](#option-3-grant-public-read-access)）。
 

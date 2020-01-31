@@ -1,26 +1,18 @@
 ---
-title: 为 Azure Stack 集线器安装 PowerShell |Microsoft Docs
+title: 为 Azure Stack 集线器安装 PowerShell
 description: 了解如何安装适用于 Azure Stack 集线器的 PowerShell。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: d7e9e5643341e0b3e3c79e177f19200d251dcefc
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 928af9066375407a2c018dad70568b8dc14e46b4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534509"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881554"
 ---
 # <a name="install-powershell-for-azure-stack-hub"></a>为 Azure Stack 集线器安装 PowerShell
 
@@ -239,7 +231,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 在需要代理服务器访问 internet 的方案中，首先将 PowerShell 配置为使用现有的代理服务器：
 
-1. 打开提升的 PowerShell 提示符。
+1. 打开提升权限的 PowerShell 提示符。
 2. 运行以下命令：
 
    ```powershell

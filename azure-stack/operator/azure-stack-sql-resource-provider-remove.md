@@ -2,26 +2,18 @@
 title: 删除 SQL 资源提供程序
 titleSuffix: Azure Stack Hub
 description: 了解如何从 Azure Stack 中心部署中删除 SQL 资源提供程序。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 15178627cbc58cd466a09f7ef534e7ec115d9c1a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5d8335e69c35c209e444d88f41ce76a3fae94bb0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814399"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882790"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 

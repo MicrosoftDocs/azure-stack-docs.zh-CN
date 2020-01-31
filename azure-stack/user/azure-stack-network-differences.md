@@ -1,22 +1,18 @@
 ---
-title: Azure Stack 集线器网络差异 |Microsoft Docs
+title: Azure Stack 集线器网络差异
 description: 了解在 Azure Stack 集线器中使用网络时的差异和注意事项。
-services: azure-stack
-keywords: ''
 author: mattbriggs
-manager: femila
 ms.date: 1/22/2020
 ms.topic: article
-ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2d40e774ce3ef57694ae765e0774d6fc6610d553
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 4cb075b429fa2a52d6bf0b12216716dd451fe444
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536056"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883404"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack 集线器网络的差异和注意事项
 
@@ -48,7 +44,7 @@ Azure Stack 集线器网络具有 Azure 网络提供的许多功能。 但是，
 | 虚拟网络网关 | 点到站点 VPN 网关 | 受支持 | 尚不支持。 |
 |  | Vnet 到 Vnet 网关 | 受支持 | 尚不支持。 |
 |  | 虚拟网络网关类型 | Azure 支持 VPN<br> 快速路由 <br> 超级网络。 | Azure Stack 中心目前仅支持 VPN 类型。 |
-|  | VPN 网关 SKU | 支持基本、GW1、GW2、GW3、标准高性能和超高性能。 | 支持基本、标准和高性能 Sku。 |
+|  | VPN 网关 Sku | 支持基本、GW1、GW2、GW3、标准高性能和超高性能。 | 支持基本、标准和高性能 Sku。 |
 |  | VPN 类型 | Azure 支持基于策略和基于路由的。 | Azure Stack 中心仅支持路由。 |
 |  | BGP 设置 | Azure 支持配置 BGP 对等互连地址和对等互连。 | BGP 对等互连地址和对等权重在 Azure Stack 集线器中自动配置。 用户无法将这些设置配置为自己的值。 |
 |  | 默认网关站点 | Azure 支持为强制隧道配置默认网站。 | 尚不支持。 |
@@ -64,7 +60,7 @@ Azure Stack 集线器网络具有 Azure 网络提供的许多功能。 但是，
 | 网络接口 | 获取有效的路由表 | 受支持 | 尚不支持。 |
 |  | 获取有效的 Acl | 受支持 | 尚不支持。 |
 |  | 启用加速网络 | 受支持 | 尚不支持。 |
-|  | IP 转发 | 默认情况下处于禁用状态。  可以启用。 | 不支持切换此设置。  默认开启。 |
+|  | IP 转发 | 默认情况下禁用。  可以启用。 | 不支持切换此设置。  默认情况下启用。 |
 |  | 应用程序安全组 | 受支持 | 尚不支持。 |
 |  | 内部 DNS 名称标签 | 受支持 | 尚不支持。 |
 |  | 专用 IP 地址版本 | IPv6 和 IPv4 都受支持。 | 仅支持 IPv4。 |

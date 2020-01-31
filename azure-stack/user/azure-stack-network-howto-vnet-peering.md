@@ -1,20 +1,18 @@
 ---
-title: 如何通过 VNET 对等互连连接两个 Azure Stack 集线器 |Microsoft Docs
+title: 如何通过 VNET 对等互连连接两个 Azure Stack 集线器
 description: 了解如何通过 VNET 对等互连连接两个 Azure Stack 集线器。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: bf855be0ec6fc63be4ab816dac4dde170b24fdad
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 3b257fee978fe576c97855d5af18854082155d7e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536073"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884562"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>通过 Vm 在 Azure Stack 中心 VNET 对等互连
 

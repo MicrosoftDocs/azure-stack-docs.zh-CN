@@ -2,18 +2,17 @@
 title: 使用 Azure 和 Azure Stack 集线器实现混合中继解决方案的模式。
 description: 了解如何使用 Azure 和 Azure Stack 中心服务连接到边缘资源或受防火墙保护的设备。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9b9defd4a6aec6dab3511425089e7395649d8087
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638581"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890062"
 ---
 # <a name="hybrid-relay-pattern"></a>混合中继模式
 
@@ -40,11 +39,11 @@ ms.locfileid: "73638581"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | 描述 |
+| 层 | 组件 | Description |
 |----------|-----------|-------------|
 | Azure | Azure VM | Azure VM 为本地资源提供可公开访问的终结点。 |
 | | Azure 服务总线中继 | [Azure 服务总线中继](/azure/service-bus-relay/)提供基础结构，用于维护 Azure vm 与 AZURE STACK 中心 vm 之间的隧道和连接。|
-| Azure Stack 中心 | 计算 | Azure Stack 中心 VM 提供混合中继隧道的服务器端。 |
+| Azure Stack Hub | 计算 | Azure Stack 中心 VM 提供混合中继隧道的服务器端。 |
 | | 存储空间 | 部署到 Azure Stack 集线器中的 AKS 引擎群集提供了一个可缩放的弹性引擎来运行人脸 API 容器。|
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
@@ -63,7 +62,7 @@ ms.locfileid: "73638581"
 
 此解决方案可跨多个设备和位置，这可能会变得困难。 Azure 的 IoT 服务可自动使新的位置和设备联机，并使其保持最新状态。
 
-### <a name="security"></a>“安全”
+### <a name="security"></a>安全性
 
 此模式如下所示，允许自由从边缘访问内部设备上的端口。 考虑将身份验证机制添加到内部设备上的服务，或添加到混合中继终结点前面。 
 

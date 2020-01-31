@@ -1,26 +1,18 @@
 ---
-title: Azure Stack 集线器中的 PowerShell |Microsoft Docs
+title: Azure Stack 集线器中的 PowerShell
 description: Azure Stack 集线器中的 PowerShell 具有多个模块和上下文。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: powershell
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: da899ed4e926e4ead7ee74e76aedb4f4dec9a93b
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 2238b399c6c7de6e37a7059a395a0024d3e71a98
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536464"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883333"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Azure Stack 中心中的 PowerShell 入门
 

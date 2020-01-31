@@ -2,21 +2,17 @@
 title: 在 Azure Stack Hub 中创建对产品/服务的订阅。
 titleSuffix: Azure Stack
 description: 了解如何在 Azure Stack Hub 中创建产品/服务的订阅。
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 357b44e5a9860f8626c7b17e215ee773e4e4ebca
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 2b4c90edbb4c53caf358d936873196f1a8c6ef9c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914797"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881215"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建对产品/服务的订阅
 

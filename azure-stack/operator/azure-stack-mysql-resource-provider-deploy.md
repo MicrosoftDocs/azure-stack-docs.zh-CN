@@ -1,26 +1,18 @@
 ---
-title: 在 Azure Stack Hub 上部署 MySQL 资源提供程序 |Microsoft Docs
+title: 在 Azure Stack 集线器上部署 MySQL 资源提供程序
 description: 了解如何在 Azure Stack 中心部署 MySQL 资源提供程序适配器和 MySQL 数据库即服务。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: ab90c149094fe62452199cc346ebe1c260ff260f
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 52ee1953098f861cca572e08269dff56da31f3aa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706756"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881832"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署 MySQL 资源提供程序
 
@@ -211,7 +203,7 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 ## <a name="verify-the-deployment-by-using-the-azure-stack-hub-portal"></a>使用 Azure Stack 中心门户验证部署
 
 1. 以服务管理员身份登录到管理员门户。
-2. 选择“资源组”。
+2. 选择 "**资源组**"。
 3. 选择 " **\<位置"\>"mysqladapter.dbadapter** " 资源组。
 4. 在资源组概述的 "摘要" 页上，应该没有失败的部署。
 5. 最后，在管理员门户中选择 "**虚拟机**"，验证 MySQL 资源提供程序 VM 是否已成功创建且正在运行。

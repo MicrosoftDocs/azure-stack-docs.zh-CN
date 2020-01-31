@@ -1,20 +1,18 @@
 ---
 title: 向 AD FS 中添加 Azure Stack 集线器用户
 description: 了解如何为 Active Directory 联合身份验证服务（AD FS）部署添加 Azure Stack 集线器用户。
-author: PatAltimore
-manager: femila
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 06/03/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 2c81d8ccceb4fa2f1e05b006232e3b6513ace469
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7d11ae849a5ecc51c1506e8d978510884b752a9a
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880951"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890368"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-active-directory-federation-services-ad-fs"></a>在 Active Directory 联合身份验证服务中添加新的 Azure Stack 集线器用户帐户（AD FS）
 

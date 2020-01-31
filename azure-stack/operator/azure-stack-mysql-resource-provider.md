@@ -1,26 +1,18 @@
 ---
-title: 在 Azure Stack 中心使用 MySQL 数据库作为 PaaS |Microsoft Docs
+title: 在 Azure Stack 中心使用 MySQL 数据库作为 PaaS
 description: 了解如何部署 MySQL 资源提供程序，以及如何在 Azure Stack 中心提供 MySQL 数据库即服务。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 39ab41c9852dce6508adf3f3d18e06f8bcc6e228
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: f7ff0e3b3ea21dc6545a6c69b1a9cdbf8dbed607
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706620"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881742"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>在 Microsoft Azure Stack 中心使用 MySQL 数据库
 
@@ -50,7 +42,7 @@ ms.locfileid: "76706620"
 > [!NOTE]
 > 必须通过租户订阅创建安装在 Azure Stack 集线器集成系统上的宿主服务器。 不能通过默认提供程序订阅来创建它们。 必须使用用户门户或使用适当的登录从 PowerShell 会话创建它们。 所有宿主服务器都是可计费的 Vm，并且必须具有许可证。 服务管理员可以是租户订阅的所有者。
 
-### <a name="required-privileges"></a>所需特权
+### <a name="required-privileges"></a>必需的权限
 
 系统帐户必须具有以下权限：
 

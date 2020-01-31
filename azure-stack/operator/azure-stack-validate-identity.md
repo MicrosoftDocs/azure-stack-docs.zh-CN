@@ -1,27 +1,18 @@
 ---
-title: 验证 Azure Stack 集线器的 Azure 标识 |Microsoft Docs
+title: 验证 Azure Stack 集线器的 Azure 标识
 description: 使用 Azure Stack 集线器就绪状态检查器来验证 Azure 标识。
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: e38e0462bc9b30783ff0932a16e2e997f64df0fd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: a6646f6c96faa15dd8ddd2ada24ef1eafe4d94f5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812886"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882604"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识
 

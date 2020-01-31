@@ -1,26 +1,17 @@
 ---
-title: Azure Stack 中心中的 Key Vault 简介 |Microsoft Docs
+title: Azure Stack 中心中的 Key Vault 简介
 description: 了解 Key Vault 如何管理 Azure Stack 中心的密钥和机密。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: 70f1684a-3fbb-4cd1-bf29-9f9882e98fe9
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 4c2c2c2c514949924204f448c04079176b982ff3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: ba509696f9c4636b541b3f7fa3751d306a27bb0b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820366"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883612"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Azure Stack 中心中的 Key Vault 简介
 
