@@ -1,27 +1,18 @@
 ---
-title: AzsReadinessChecker cmdlet 引用 |Microsoft Docs
+title: AzsReadinessChecker cmdlet 参考
 description: Azure Stack 中心就绪检查器模块的 PowerShell cmdlet 帮助。
-services: azure-stack
-documentationcenter: ''
-author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.author: sethm
+ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d6b7525657696792bd72d968e8888bd8f7bc62fb
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: e4794df9c66f1d060b6701d782c0486ddb914b02
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727439"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877759"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>AzsReadinessChecker cmdlet 参考
 
@@ -351,7 +342,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |哈希表 |
+|类型：                       |散 |
 |置于                   |已命名    |
 |默认值：              |无     |
 |接受管道输入：      |错误    |

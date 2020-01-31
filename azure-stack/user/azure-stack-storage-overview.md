@@ -1,25 +1,17 @@
 ---
-title: Azure Stack 中心存储简介 |Microsoft Docs
+title: Azure Stack 中心存储简介
 description: 了解 Azure Stack 集线器存储服务。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: cb58b2edc8a7a9ec96317a902ad79b8bacce89ec
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 288dfd077d7f41bf5bb82a122c11a747c7054f91
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536413"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884348"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Azure Stack 中心存储简介
 
@@ -33,7 +25,7 @@ Azure Stack 中心存储提供以下三种服务：
 
 - **Blob 存储**
 
-    Blob 存储存储非结构化的对象数据。 Blob 可以是任何类型的文本或二进制数据，例如文档、媒体文件或应用安装程序。
+    Blob 存储存储非结构化对象数据。 Blob 可以是任何类型的文本或二进制数据，例如文档、媒体文件或应用安装程序。
 
 - **表存储**
 
@@ -62,15 +54,15 @@ Azure Stack 中心存储帐户是一个安全帐户，可让你访问 Azure Stac
 
 Blob 存储提供三种类型的 blob：
 
-- **块 Blob**
+- **块 blob**
 
     块 blob 经过优化，可用于流式传输和存储云对象。 它们是存储文档、媒体文件、备份和其他类似文件的不错选择。
 
-- **追加​​ Blob**
+- **追加 blob**
 
     追加 Blob 类似于块 Blob，但针对追加追加操作进行了优化。 追加 Blob 仅可以通过将新的块添加到末尾来进行更新。 对于需要新数据只能写入到 Blob 结尾的情况，例如日志记录，追加 Blob 是一个不错的选择 。
 
-- **页 Blob**
+- **页 blob**
 
     页 blob 针对表示 IaaS 磁盘和支持最大为 1 TB 的随机写入进行了优化。 Azure Stack 集线器虚拟机连接的 IaaS 磁盘是作为页 blob 存储的 VHD。
 

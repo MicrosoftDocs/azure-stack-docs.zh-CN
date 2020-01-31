@@ -2,18 +2,17 @@
 title: 使用 Azure 和 Azure Stack 中心配置混合云连接
 description: 了解如何使用 Azure 和 Azure Stack 中心配置混合云连接。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 26895aeaf55c466d5800e52c7c482d4516f3f244
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 4b65ce6d03ee345b308cd5c5dd594e4dcf56cfec
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881631"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875498"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>使用 Azure 和 Azure Stack 中心配置混合云连接
 

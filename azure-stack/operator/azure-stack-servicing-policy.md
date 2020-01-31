@@ -2,27 +2,18 @@
 title: Azure Stack 中心服务策略
 titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack 中心服务策略，以及如何使集成系统处于受支持的状态。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d27dcc7314b89ed5d5a88eafac125cb72e33e170
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 280509c989a10b11884e93947d20569b3c128426
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881920"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882919"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack 中心服务策略
 

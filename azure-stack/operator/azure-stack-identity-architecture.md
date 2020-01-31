@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 集线器的标识体系结构 |Microsoft Docs
+title: Azure Stack 中心的标识体系结构
 description: 了解 Azure Stack 集线器的标识体系结构，以及 Azure AD 和 AD FS 之间的差异。
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 952dd9d6333b917a986ce444355f3b9b694976ef
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: a3846deb266b610a1f09b32df549e49c88f19b76
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818071"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890300"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack 中心的标识体系结构
 

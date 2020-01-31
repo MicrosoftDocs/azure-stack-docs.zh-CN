@@ -1,25 +1,18 @@
 ---
-title: 使用特权终结点监视 Azure Stack 集线器中的更新 |Microsoft Docs
+title: 使用特权终结点监视 Azure Stack 集线器中的更新
 description: 了解如何使用特权终结点监视 Azure Stack 集线器集成系统的更新状态。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 2ae4a48f363ba6f96e55bb3da6db0bad95d3ea7d
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c116051e305f78fd281f420de2f31dbee36601af
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535019"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881904"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack 集线器中的更新
 

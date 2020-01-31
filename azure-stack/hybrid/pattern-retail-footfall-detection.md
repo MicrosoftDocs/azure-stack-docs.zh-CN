@@ -2,18 +2,17 @@
 title: 混合模式，用于实现使用 Azure 和 Azure Stack 中心实现的基于 AI 的 footfall 检测。
 description: 了解如何使用 Azure 和 Azure Stack 中心服务来实现基于 AI 的 footfall 检测解决方案，以便分析零售商店流量。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: 27fb31a29313543c3eec2b973cdf8e8ce32940fd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187278"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877317"
 ---
 # <a name="footfall-detection-pattern"></a>Footfall 检测模式
 
@@ -45,7 +44,7 @@ Contoso 想要找出一种不引人注目的、可通过隐私识别的方式来
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | 描述 |
+| 层 | 组件 | Description |
 |----------|-----------|-------------|
 | 应用商店内硬件 | [自定义视觉 AI 开发工具包](https://azure.github.io/Vision-AI-DevKit-Pages/) | 使用仅捕获要分析的人员图像的本地 ML 模型提供存储中筛选。 通过 IoT 中心安全地预配和更新。<br><br>|
 | Azure | [Azure 事件中心](/azure/event-hubs/) | Azure 事件中心提供可缩放的平台，适用于与 Azure 流分析完美集成的引入匿名数据。 |
@@ -78,7 +77,7 @@ Contoso 想要找出一种不引人注目的、可通过隐私识别的方式来
 
 此解决方案可跨多个设备和位置，这可能会变得困难。 可以使用[Azure IoT 服务](/azure/iot-fundamentals/)自动使新的位置和设备联机，并使其保持最新状态。 
 
-### <a name="security"></a>“安全”
+### <a name="security"></a>安全性
 
 此解决方案捕获客户映像，使安全性成为极其重要的考虑因素。 请确保所有存储帐户都使用正确的访问策略进行保护，并定期轮换密钥。 确保存储帐户和事件中心具有符合公司和政府隐私法规的保留策略。 另外，请确保对用户访问级别进行分层。 分层确保用户只能访问其角色所需的数据。
 

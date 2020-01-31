@@ -1,25 +1,18 @@
 ---
-title: 通过基础结构备份服务恢复 Azure Stack 集线器中的数据 |Microsoft Docs
+title: 通过基础结构备份服务恢复 Azure Stack 集线器中的数据
 description: 了解如何使用基础结构备份服务备份和还原 Azure Stack 集线器中的配置和服务数据。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 101b463f10684e40be5d4e3864c235290713c518
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a9ebb725bed0472eaacc80e821840746966104dd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882770"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874325"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>通过基础结构备份服务恢复 Azure Stack 集线器中的数据
 

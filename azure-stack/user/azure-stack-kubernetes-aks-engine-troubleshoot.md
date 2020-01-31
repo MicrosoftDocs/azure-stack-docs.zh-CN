@@ -1,26 +1,18 @@
 ---
-title: 排查 Azure Stack 集线器上的 AKS 引擎问题 |Microsoft Docs
+title: 对 Azure Stack 集线器上的 AKS 引擎进行故障排除
 description: 本文包含 Azure Stack 集线器上的 AKS 引擎的故障排除步骤。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femilav
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 3b87f5cf7273afdabd6ee7da672d06712607e126
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: de9bceea3cd8fb7003afff8e5b654146aff8883b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923926"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884729"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>对 Azure Stack 集线器上的 AKS 引擎进行故障排除
 

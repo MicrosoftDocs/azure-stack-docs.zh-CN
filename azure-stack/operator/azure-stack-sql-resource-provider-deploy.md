@@ -2,26 +2,18 @@
 title: 部署 SQL Server 资源提供程序
 titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack 中心部署 SQL Server 资源提供程序。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: c84649853d77b2f56fc1192d0bb302996deb8a60
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: f365886119e343fd550e00e606840172fed7fa21
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706722"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881229"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack 中心部署 SQL Server 资源提供程序
 
@@ -207,7 +199,7 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 你可以使用以下步骤来验证是否已成功部署 SQL 资源提供程序。
 
 1. 以服务管理员身份登录到管理员门户。
-2. 选择“资源组”。
+2. 选择 "**资源组**"。
 3. 选择 " **\<位置"\>"microsoft.sqladapter** " 资源组。
 4. 在资源组概述的 "摘要" 页上，应该没有失败的部署。
 

@@ -1,20 +1,18 @@
 ---
-title: 在 Azure Stack 集线器中将 Java WAR 部署到虚拟机 |Microsoft Docs
+title: 将 Java WAR 部署到 Azure Stack 集线器中的虚拟机
 description: 将 Java WAR 部署到 Azure Stack 集线器中的虚拟机。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7d5ed74f3b62f3cdb926fcf321a7502840e5f453
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 6a696417b296da978b2d077c6f2c01b94a106d2e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536243"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884901"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 Java web 应用部署到 VM
 

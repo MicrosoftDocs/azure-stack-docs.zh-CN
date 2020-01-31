@@ -2,26 +2,18 @@
 title: 管理 Azure Stack 集线器的存储基础结构
 titleSuffix: Azure Stack
 description: 了解如何管理 Azure Stack 集线器的存储基础结构。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: dfc073c87b1e6c8b1696b4d052e89c4ef786bc4d
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 045bab05645c5186069d787645efe56ea5b4effa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535733"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882761"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储基础结构
 
@@ -29,13 +21,13 @@ ms.locfileid: "76535733"
 
 ## <a name="understand-drives-and-volumes"></a>了解驱动器和卷
 
-### <a name="drives"></a>驱动器
+### <a name="drives"></a>着
 
 由 Windows Server 软件提供支持，Azure Stack 集线器使用存储空间直通（S2D）和 Windows Server 故障转移群集的组合来定义存储功能。 这种组合提供了性能、可缩放且可复原的存储服务。
 
 Azure Stack 集线器集成系统合作伙伴提供多种解决方案变体，包括各种存储灵活性。 当前可以选择三个驱动器类型的组合： NVMe （非易失性内存 express）、SATA/SAS SSD （固态硬盘）、HDD （硬盘驱动器）。
 
-存储空间直通使用缓存来最大程度地提高存储性能。 在具有一种或多种类型的驱动器的 Azure Stack 集线器设备中，存储空间直通自动使用 "最快" （NVMe &gt; SSD &gt; HDD）类型的所有驱动器进行缓存。 剩余的驱动器用作容量空间。 可以将驱动器分组为 "全部刷新" 或 "混合" 部署：
+存储空间直通使用缓存来最大程度地提高存储性能。 在具有一种或多种类型的驱动器的 Azure Stack 集线器设备中，存储空间直通自动使用 "最快" （NVMe &gt; SSD &gt; HDD）类型的所有驱动器进行缓存。 剩余的驱动器用于容量。 可以将驱动器分组为 "全部刷新" 或 "混合" 部署：
 
 ![Azure Stack 中心存储基础结构](media/azure-stack-storage-infrastructure-overview/image1.png)
 
@@ -45,7 +37,7 @@ Azure Stack 集线器集成系统合作伙伴提供多种解决方案变体，�
 
 混合部署旨在平衡性能和容量，或最大限度地提高容量并包括旋转 Hdd。
 
-根据要为其提供缓存的驱动器类型自动确定缓存行为。 缓存 Ssd （例如 Ssd 的 NVMe 缓存）时，仅缓存写入。 这会减少容量驱动器上的磨损，降低容量驱动器的累计流量并延长其生存期。 同时，不缓存读取。 它们不会被缓存，因为读取不会显著影响闪存的生存期，并且 Ssd 会广泛地提供较低的读取延迟。 当缓存 Hdd （如用于 Hdd 的 Ssd 缓存）时，读取和写入都将缓存，以便为两者提供类似于闪烁的延迟（通常/约10倍）。
+缓存的行为是根据要为其缓存的驱动器的类型自动确定的。 缓存 Ssd （例如 Ssd 的 NVMe 缓存）时，仅缓存写入。 这会减少容量驱动器上的磨损，降低容量驱动器的累计流量并延长其生存期。 同时，不缓存读取。 它们不会被缓存，因为读取不会显著影响闪存的生存期，并且 Ssd 会广泛地提供较低的读取延迟。 当缓存 Hdd （如用于 Hdd 的 Ssd 缓存）时，读取和写入都将缓存，以便为两者提供类似于闪烁的延迟（通常/约10倍）。
 
 ![Azure Stack 中心存储基础结构](media/azure-stack-storage-infrastructure-overview/image3.png)
 
@@ -82,7 +74,7 @@ Azure Stack 中心存储池上创建了三种类型的卷：
 
 ![Azure Stack 中心存储基础结构](media/azure-stack-storage-infrastructure-overview/image5.png)
 
-镜像保留所有数据的多个副本，提供容错。 该数据是条带化的，并不是很重要的，但是，假设使用镜像存储的任何数据都将被完整地多次写入。 每个副本均写入不同的物理硬件（不同服务器中的不同驱动器）中，而这些硬件都认为将独立发生故障。 三向镜像一次可以安全地容忍至少两个硬件问题（驱动器或服务器）。 例如，如果你在另一个驱动器或服务器突然发生故障时重新启动一个服务器，则所有数据都将保持安全且可连续访问。
+镜像通过保留所有数据的多个副本来提供容错能力。 该数据是条带化的，并不是很重要的，但是，假设使用镜像存储的任何数据都将被完整地多次写入。 每个副本都写入不同的物理硬件（不同服务器中的不同驱动器），这些硬件被认为独立地失败。 三向镜像一次可以安全地容忍至少两个硬件问题（驱动器或服务器）。 例如，如果你在突然另一个驱动器或服务器发生故障时重启一台服务器，则所有数据都将保持安全且持续可访问。
 
 ## <a name="volume-states"></a>卷状态
 
@@ -119,7 +111,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 | 操作状态 | Description |
 |---|---|
 | 服务中 | Azure Stack 集线器正在修复卷，如添加或删除驱动器后。 修复完成后，卷应返回到 "正常" 运行状况状态。<br> <br>**操作：** 等待 Azure Stack 集线器完成卷修复，然后检查状态。 |
-| 未完成 | 卷的复原能力降低，因为一个或多个驱动器出现故障或丢失。 不过，缺少的驱动器包含数据的最新副本。<br> <br>**操作：** 重新连接任何缺失的驱动器、更换任何故障的驱动器，并使任何脱机的服务器联机。 |
+| 完整 | 卷的复原能力降低，因为一个或多个驱动器出现故障或丢失。 不过，缺少的驱动器包含数据的最新副本。<br> <br>**操作：** 重新连接任何缺失的驱动器、更换任何故障的驱动器，并使任何脱机的服务器联机。 |
 | 已降级 | 由于驱动器上有一个或多个故障驱动器和过时的数据副本，卷的复原能力会降低。<br> <br>**操作：** 重新连接任何缺失的驱动器、更换任何故障的驱动器，并使任何脱机的服务器联机。 |
 
 ### <a name="volume-health-state-unhealthy"></a>卷运行状况状态：不正常
@@ -187,7 +179,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 | 无法识别的元数据 | 在驱动器上找到了无法识别的元数据，这通常意味着驱动器上有来自不同池中的元数据。<br> <br>**操作：** 将驱动器替换为新磁盘。 如果必须使用此磁盘，请从系统中删除该磁盘，确保磁盘上没有有用的数据，擦除磁盘，然后重新放置磁盘。 |
 | 媒体失败 | 驱动器失败，存储空间将不再使用。<br> <br>**操作：** 尽快更换驱动器以确保完全复原。 |
 | 设备硬件故障 | 此驱动器上出现硬件故障。 <br> <br>**操作：** 尽快更换驱动器以确保完全复原。 |
-| 更新固件 | Azure Stack 集线器正在更新驱动器上的固件。 此状态为临时状态，通常持续时间不到一分钟，在此期间，池中的其他驱动器将处理所有读取和写入操作。<br> <br>**操作：** 等待 Azure Stack 集线器完成更新并检查该状态。 |
+| 正在更新固件 | Azure Stack 集线器正在更新驱动器上的固件。 此状态为临时状态，通常持续时间不到一分钟，在此期间，池中的其他驱动器将处理所有读取和写入操作。<br> <br>**操作：** 等待 Azure Stack 集线器完成更新并检查该状态。 |
 | 正在启动 | 驱动器正在为操作做好准备。 此状态应为 "临时"-完成后，驱动器将转换为其他操作状态。<br> <br>**操作：** 等待 Azure Stack 集线器完成操作并稍后检查状态。 |
 
 ## <a name="reasons-a-drive-cant-be-pooled"></a>无法将驱动器汇集到池中的原因

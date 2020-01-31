@@ -2,18 +2,17 @@
 title: 用于在边缘使用 Azure 和 Azure Stack 边缘实现脱销检测的模式。
 description: 了解如何使用 Azure 和 Azure Stack Edge 服务实现脱销检测。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fb4eb410eefb8a34bd869543a191a1b044a42f72
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 2fac02fc6bae0d8bfedebcbb059e376d616a5b87
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638526"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875532"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>边缘模式的脱销检测
 
@@ -44,7 +43,7 @@ ms.locfileid: "73638526"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | 描述 |
+| 层 | 组件 | Description |
 |----------|-----------|-------------|
 | 本地硬件 | 网络照相机 | 需要一个网络摄像机，其中使用 HTTP 或 RTSP 源来提供用于推理的映像。 |
 | Azure | Azure IoT 中心 | [Azure IoT 中心](/azure/iot-hub/)处理边缘设备的设备预配和消息传递。 |
@@ -69,7 +68,7 @@ ms.locfileid: "73638526"
 
 此解决方案可跨多个设备和位置，这可能会变得困难。 Azure 的 IoT 服务可自动使新的位置和设备联机，并使其保持最新状态。 还必须遵循适当的数据管理过程。
 
-### <a name="security"></a>“安全”
+### <a name="security"></a>安全性
 
 此模式处理潜在的敏感数据。 请确保密钥定期旋转，并正确设置 Azure 存储帐户和本地共享上的权限。 
 

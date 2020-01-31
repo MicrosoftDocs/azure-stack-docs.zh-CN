@@ -2,26 +2,18 @@
 title: Azure Stack 集线器上支持的来宾操作系统
 titleSuffix: Azure Stack
 description: 了解可在 Azure Stack 集线器上使用哪些来宾操作系统。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 8d437425db15fa078c00c973fe50824d0ada58bd
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 5171b52bc3c85dd5dbcc2c83cf307274ef92d558
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023313"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890198"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack 集线器上支持的来宾操作系统
 
@@ -31,7 +23,7 @@ Azure Stack 中心支持下表中列出的 Windows 来宾操作系统：
 
 | 操作系统 | Description | 在 Azure Stack Hub Marketplace 中提供 |
 | --- | --- | --- |
-| Windows Server，版本 1709 | 64 位 | 包含容器的内核 |
+| Windows Server，版本1709 | 64 位 | 包含容器的内核 |
 | Windows Server 2019 | 64 位 |  数据中心、数据中心核心、包含容器的数据中心 |
 | Windows Server 2016 | 64 位 |  数据中心、数据中心核心、包含容器的数据中心 |
 | Windows Server 2012 R2 | 64 位 |  数据中心 |

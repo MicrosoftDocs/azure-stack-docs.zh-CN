@@ -1,27 +1,18 @@
 ---
-title: 从管理员门户启用 Azure Stack 中心备份 |Microsoft Docs
+title: 通过管理员门户启用 Azure Stack 中心备份
 description: 了解如何从管理员门户启用基础结构备份服务，以便在发生故障时可以还原 Azure Stack 中心。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
-ms.service: azure-stack
-ms.workload: naS
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: b554c40ec18efce37cc409771a9bed5b1ca6908d
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0aa5fca80cfc408088f34923a607d4200ece15cb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816762"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878201"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>通过管理员门户启用 Azure Stack 中心备份
 
@@ -54,7 +45,7 @@ ms.locfileid: "75816762"
 5. 键入用户的**密码**。
 6. 再次键入密码以**确认密码**。
 7. **以小时为单位的频率**决定了创建备份的频率。 默认值为 12。 计划程序最多支持12个，最多支持4个。 
-8. **保持期（天**）决定在外部位置保留备份的天数。 默认值为 7。 计划程序最多支持14个，最多支持2个。 早于保留期的备份将从外部位置自动删除。
+8. **保持期（天**）决定在外部位置保留备份的天数。 默认值为7。 计划程序最多支持14个，最多支持2个。 早于保留期的备份将从外部位置自动删除。
 
     > [!Note]  
     > 如果要将备份存档早于保留期，请确保在计划程序删除备份之前备份这些文件。 如果将备份保持期（例如7天到5天）减少，计划程序将删除所有早于新保留期的备份。 请确保在更新此值之前已将备份删除。

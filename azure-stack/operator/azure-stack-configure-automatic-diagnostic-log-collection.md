@@ -1,27 +1,18 @@
 ---
-title: 配置自动 Azure Stack 中心日志收集 |Microsoft Docs
+title: 配置自动 Azure Stack 中心日志收集
 description: 如何在 Azure Stack 中心帮助 + 支持中配置自动日志收集。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 63ee429c37d5ec7bf9258e3e940d9dbfa3786907
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3dede51916863a79f720f463af2a031e597f844f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882583"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878184"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>配置自动 Azure Stack 集线器诊断日志收集
 
@@ -53,7 +44,7 @@ ms.locfileid: "75882583"
 
    ![显示 blob 容器属性的屏幕截图](media/azure-stack-automatic-log-collection/azure-stack-log-collection-create-storage-account.png)
 
-1. 单击“查看 + 创建”，然后单击“创建”。  
+1. 单击 "**查看 + 创建**"，然后单击 "**创建**"。  
 
 ### <a name="create-a-blob-container"></a>创建 Blob 容器 
 

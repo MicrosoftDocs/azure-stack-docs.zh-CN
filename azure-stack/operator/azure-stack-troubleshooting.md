@@ -2,27 +2,18 @@
 title: Azure Stack 集线器疑难解答
 titleSuffix: Azure Stack
 description: 了解如何对 Azure Stack 集线器进行故障排除，包括 Vm、存储和应用服务的问题。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 72f5643f58e369ab341628bebc7195f2056cd8b8
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: bacffec0b3bda76eab27097c2d090df371d51fcf
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914655"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880843"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack 集线器中的问题
 

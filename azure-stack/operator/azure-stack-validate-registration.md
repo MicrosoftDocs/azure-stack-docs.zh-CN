@@ -1,27 +1,18 @@
 ---
-title: 验证 Azure Stack 集线器的 Azure 注册 |Microsoft Docs
+title: 验证 Azure Stack 集线器的 Azure 注册
 description: 使用 Azure Stack 集线器就绪状态检查器来验证 Azure 注册。
-services: azure-stack
-documentationcenter: ''
-author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.author: sethm
+ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a1ac34b39bc1628314c1ba2f05202c4a1454c189
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f9d5ff2a4ef02bb8d8b738cf20de2dae3bfafd02
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812835"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882574"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
 

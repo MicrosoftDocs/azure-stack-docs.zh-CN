@@ -2,18 +2,17 @@
 title: 用于生成可在 Azure 和 Azure Stack 集线器上跨云缩放的应用程序的模式。
 description: 了解如何使用 Azure 和 Azure Stack 中心构建可伸缩的跨云应用程序。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3bd29e8625fac818d05954720d84d572b684c92e
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 4bf4a7b868822300c39275b8763798007cdada29
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718005"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877368"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>跨云缩放模式
 
@@ -44,7 +43,7 @@ ms.locfileid: "75718005"
 
 在该图中，它位于公有云组的外部，但需要能够协调本地数据中心和公有云中的流量。 均衡器通过监视终结点并在需要时提供故障转移，为应用程序提供高可用性。
 
-**域名系统 (DNS)**  
+**域名系统（DNS）**  
 
 域名系统或 DNS 负责将网站或服务名称转换（或解析）为它的 IP 地址。
 

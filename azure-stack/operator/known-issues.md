@@ -1,27 +1,18 @@
 ---
 title: Azure Stack 集线器已知问题
 description: 了解 Azure Stack 集线器版本中的已知问题。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 951840c6382506404e514bfd27d69af399b5a120
-ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
+ms.openlocfilehash: 631a086b86fd7855780aa1cb6dba11dbfa799759
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76516736"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879816"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
@@ -157,7 +148,7 @@ ms.locfileid: "76516736"
 - 修正：在 Azure Stack 集线器升级到1910更新后，请按照资源提供程序更新过程应用 SQL 资源提供程序修补程序1.1.47.0 （[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)）。 对于 MySQL 资源提供程序，还建议在 Azure Stack 集线器升级到1910更新（[MYSQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)）后应用 mysql 资源提供程序修补程序1.1.47.0。
 - 发生次数：常见
 
-### <a name="access-control-iam"></a>访问控制 (标识和访问管理)
+### <a name="access-control-iam"></a>访问控制（IAM）
 
 - 适用：此问题适用于所有受支持的版本。
 - 原因： IAM 扩展已过期。 Azure Stack 集线器随附的 Ibiza 门户引入了新的行为，如果用户正在为未在全局订阅选择器中选择的订阅（在用户门户中为**目录 + 订阅**）打开 "**访问控制（IAM）** " 边栏选项卡，则该行为会导致 RBAC 扩展失败。 边栏选项卡以循环显示**加载**，用户无法向订阅添加新的角色。 "**添加**" 边栏选项卡还会在循环中显示**加载**。

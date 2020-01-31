@@ -1,26 +1,18 @@
 ---
-title: 将外部监视解决方案与 Azure Stack 中心集成 |Microsoft Docs
+title: 将外部监视解决方案与 Azure Stack 中心集成
 description: 了解如何在你的数据中心中将 Azure Stack 集线器与外部监视解决方案集成。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: PowerShell
+author: ihenkel
 ms.topic: article
 ms.date: 06/05/2019
-ms.author: jeffgilb
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: e9e66908cd42a72629caa12163c0c56790cae82f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3e50471201c7207aa68b725daf202d323b836a99
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811356"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882120"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>将外部监视解决方案与 Azure Stack 中心集成
 
@@ -164,7 +156,7 @@ samples/etc/azurestack_services.cfg
    /usr/local/nagios/etc/nagios.cfg
    ```
 
-2. 添加以下项：
+2. 添加以下条目：
 
    ```bash  
    # Load the Azure Stack Hub Plugin Configuration

@@ -1,27 +1,19 @@
 ---
-title: Azure Stack 中心帐单概述和常见问题 Azure App ServiceMicrosoft Docs
+title: Azure Stack 中心帐单概述和常见问题 Azure App Service
 description: 有关如何按流量计费和计费 Azure App Service Azure Stack 中心的详细信息。
-services: azure-stack
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: f45cda455f0c13fd2e6c5cb431fb3c60d54dce03
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: c22bb6c29082449d7590ad67e0f51c8a7c1b7aca
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256319"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875277"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure Stack 中心帐单概述和常见问题 Azure App Service
 
@@ -71,7 +63,7 @@ Azure Stack 中心云操作员选择将 Azure Stack 集线器上的 Azure App Se
 
 Azure App Service 资源提供程序所需的 SQL Server 和文件服务器基础结构的许可在[入门文章之前](azure-stack-app-service-before-you-get-started.md#licensing-concerns-for-required-file-server-and-sql-server)Azure Stack 中心的 Azure App Service 中进行了介绍。
 
-### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>使用情况常见问题解答列出了租户指标，而不是这些指标的价格。 可以在哪里找到它们？
+### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>使用情况常见问题解答列出了租户指标，而不是这些指标的价格。 在哪里可以找到这些文件？
 
 作为云操作员，你可以免费将自己的定价模型应用于你的客户。 使用情况服务提供用量计量。 然后，你可以使用计量数量根据你确定的定价模型向客户收费。 设置定价的功能使操作员可以与其他 Azure Stack 中心操作员区分开来。
 

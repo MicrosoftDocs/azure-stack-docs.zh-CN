@@ -1,25 +1,18 @@
 ---
-title: 使用 ExpressRoute 将 Azure Stack 集线器连接到 Azure |Microsoft Docs
+title: 使用 ExpressRoute 将 Azure Stack 中心连接到 Azure
 description: 了解如何使用 ExpressRoute 将 Azure Stack 集线器中的虚拟网络连接到 Azure 中的虚拟网络。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: d9947738cbe86d0483d20204e9c0e346656fd583
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: f857fc92c5fec814ebd44aeb8bb12449f777586f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750518"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879425"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 中心连接到 Azure
 

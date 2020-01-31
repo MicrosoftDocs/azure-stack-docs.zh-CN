@@ -1,26 +1,18 @@
 ---
-title: Azure Stack 中心中的 MySQL 资源提供程序维护操作 |Microsoft Docs
+title: Azure Stack 中心中的 MySQL 资源提供程序维护操作
 description: 了解如何在 Azure Stack Hub 中维护 MySQL 资源提供程序服务。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 26f064f0fd364252d57deca8f60da7a3e8d50c06
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: a39ecec1cce85582a53e0fb64979726adb15115d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534781"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881790"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack 中心中的 MySQL 资源提供程序维护操作
 

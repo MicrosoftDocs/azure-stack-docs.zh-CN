@@ -1,26 +1,18 @@
 ---
-title: 使用 PowerShell 启用 Azure Stack 集线器的备份 |Microsoft Docs
+title: 使用 PowerShell 为 Azure Stack 中心启用备份
 description: 了解如何使用 PowerShell 启用基础结构备份服务，以便在发生故障时可以还原 Azure Stack 中心。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 06f20168bb3960eccab5b29b8538382dcd9a0ce3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 0a4398328df57802b19f20edbe534ba1fe40709d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75877653"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878031"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>使用 PowerShell 为 Azure Stack 中心启用备份
 
@@ -48,7 +40,7 @@ ms.locfileid: "75877653"
 | `$password`       | 键入用户的**密码**。 |
 | `$sharepath`      | 键入**备份存储位置**的路径。 必须使用通用命名约定（UNC）字符串作为指向单独设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应位于不同的位置。 |
 | `$frequencyInHours` | 以小时为单位的频率决定了创建备份的频率。 默认值为 12。 计划程序最多支持12个，最多支持4个。|
-| `$retentionPeriodInDays` | 保持期（天）决定在外部位置保留备份的天数。 默认值为 7。 计划程序最多支持14个，最多支持2个。 早于保留期的备份从外部位置自动删除。|
+| `$retentionPeriodInDays` | 保持期（天）决定在外部位置保留备份的天数。 默认值为7。 计划程序最多支持14个，最多支持2个。 早于保留期的备份从外部位置自动删除。|
 | `$encryptioncertpath` | 适用于1901及更高版本。 参数在 Azure Stack 集线器模块版本1.7 及更高版本中可用。 加密证书路径指定的文件路径。带有用于数据加密的公钥的 .CER 文件。 |
 | `$encryptionkey` | 适用于 build 1811 或更早版本。 参数 Azure Stack 集线器模块版本1.6 或更早版本中可用。 加密密钥用于数据加密。 使用[AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet 生成新密钥。 |
 |     |     |

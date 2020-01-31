@@ -1,27 +1,19 @@
 ---
-title: Azure Stack 集线器上的应用服务 Update 2 发行说明 |Microsoft Docs
+title: Azure Stack 集线器上的应用服务 Update 2 发行说明
 description: 了解 Azure Stack 集线器上的应用服务更新2中的改进、修复和已知问题。
-services: azure-stack
-documentationcenter: ''
 author: bryanla
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: b21ff443ff9f5cea95ea772e201f1e9804798024
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 029601b9bac3bc3b14d2ab4202df072b6d9063de
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880033"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875787"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Azure Stack 集线器上的应用服务 Update 2 发行说明
 
@@ -86,7 +78,7 @@ Azure Stack 中心更新2上的 Azure App Service 包括以下改进和修补程
 * 目标： IP 地址
 * 目标 IP 地址范围：文件服务器的 Ip 范围
 * 目标端口范围：445
-* 协议：TCP
+* 协议： TCP
 * 操作：允许
 * 优先级：700
 * 名称： Outbound_Allow_SMB445

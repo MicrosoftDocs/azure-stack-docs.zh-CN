@@ -1,25 +1,17 @@
 ---
-title: 配置 IPsec/IKE 站点到站点 VPN 连接 |Microsoft Docs
+title: 配置 IPsec/IKE 站点到站点 VPN 连接
 description: 了解并为 Azure Stack 集线器中的站点到站点 VPN 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b4d99d44fa1cd5b2c6232bf0d2938f37a4bf662c
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 262d0714c8a0d5979a1313dcff48947f676109ce
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727541"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883004"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 

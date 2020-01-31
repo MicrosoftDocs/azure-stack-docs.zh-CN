@@ -2,18 +2,17 @@
 title: 将高度可用的 MongoDB 解决方案部署到 Azure 并 Azure Stack 中心
 description: 了解如何将高度可用的 MongoDB 解决方案部署到 Azure 并 Azure Stack 中心
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e850cde0196d496d6d854822ee0cd1a679bccca0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 88cad7fc3f9ac4d213cd16f6e690876b1e0faa4d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881495"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876994"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>将高度可用的 MongoDB 解决方案部署到 Azure 并 Azure Stack 中心
 

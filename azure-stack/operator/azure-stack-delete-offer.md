@@ -1,26 +1,18 @@
 ---
-title: 删除配额、计划、产品和订阅 |Microsoft Docs
+title: 删除配额、计划、产品/服务和订阅
 description: 了解如何删除 Azure Stack 集线器配额、计划、产品和订阅。
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 7184972e6b486ee696b4edb621046d1b41f677a9
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 61d55c3b11dd89894a062e71c51dc5cc3e89e01c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882532"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882422"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>删除配额、计划、产品/服务和订阅
 

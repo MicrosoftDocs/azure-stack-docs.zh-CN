@@ -1,26 +1,18 @@
 ---
-title: 作为云解决方案提供商管理 Azure Stack 集线器的使用情况和计费 |Microsoft Docs
+title: 作为云解决方案提供商管理 Azure Stack 集线器的使用情况和计费
 description: 了解如何注册 Azure Stack 集线器作为云解决方案提供程序（CSP）并添加计费的客户。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 4e696f3e50f3f61f4b4f73387cf6e62b6ae88e6c
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 131a3e0cacc1d08df6f2f925845d8dbf21386162
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706552"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876552"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>作为云解决方案提供商管理 Azure Stack 集线器的使用情况和计费
 

@@ -2,26 +2,18 @@
 title: 租户资源使用情况 Api 参考
 titleSuffix: Azure Stack
 description: 资源使用 Api 参考，用于检索 Azure Stack 集线器使用情况信息。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 5e6fd1042edcf59955a6e766d2ffb215c49c2949
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: 458dc41cd587ca78b979270611cb94ba109d7035
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914717"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880893"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>租户资源使用情况 API 参考
 
@@ -49,7 +41,7 @@ ms.locfileid: "75914717"
 | reportedEndTime |查询的结束时间。 适用于**reportedStartTime**的约束也适用于此参数。 **ReportedEndTime**的值不能为将来的值。 |
 | aggregationGranularity |具有两个离散潜在值的可选参数：**每天**和**每小时**。 如值所示，一种是每日粒度返回数据，另一种是每小时的解析。 默认值为 "**每日**" 选项。 |
 | api-version |用于发出此请求的协议的版本。 必须使用**2015-06-01-preview**。 |
-| ContinuationToken |从上次调用使用情况 API 提供程序检索到的令牌。 当响应大于1000行时，需要使用此令牌。 它充当进度书签。 如果不存在，则基于传入的粒度从当天或小时的开头检索数据。 |
+| continuationToken |从上次调用使用情况 API 提供程序检索到的令牌。 当响应大于1000行时，需要使用此令牌。 它充当进度书签。 如果不存在，则基于传入的粒度从当天或小时的开头检索数据。 |
 
 ### <a name="response"></a>响应
 
@@ -87,7 +79,7 @@ GET
 | **Parameter** | **说明** |
 | --- | --- |
 | id |用量聚合的唯一 ID。 |
-| name |使用聚合的名称。 |
+| name |使用情况聚合的名称。 |
 | type |资源定义。 |
 | subscriptionId |Azure 用户的订阅标识符。 |
 | usageStartTime |此使用情况聚合所属的用量存储桶的 UTC 开始时间。 |

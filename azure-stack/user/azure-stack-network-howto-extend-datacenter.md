@@ -1,20 +1,18 @@
 ---
-title: 如何在 Azure Stack 中心扩展数据中心 |Microsoft Docs
+title: 如何在 Azure Stack 集线器上扩展数据中心
 description: 了解如何在 Azure Stack 集线器上扩展数据中心。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 292f210d8145bdac64e2f50f4c8ef85dc79d1a77
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: fd851b4d25d188c03fe09793986901e28a00a6a5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883637"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884675"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>将存储扩展到 Azure Stack 集线器
 

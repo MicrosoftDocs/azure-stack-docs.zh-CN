@@ -1,26 +1,18 @@
 ---
-title: 在 Azure Stack Hub 中的 Linux 上安装 AKS 引擎 |Microsoft Docs
+title: 在 Azure Stack 集线器中的 Linux 上安装 AKS 引擎
 description: 了解如何使用 Azure Stack 集线器中的 Linux 计算机来托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: d9f56d8d40d4f4420e073516678017c4904dd7d1
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/28/2020
+ms.openlocfilehash: 66e340df1d687e9a0c19f43c05c4fcb92e6940c2
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878945"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883543"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>在 Azure Stack 集线器中的 Linux 上安装 AKS 引擎
 
@@ -41,7 +33,7 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 
 1. 在 Azure Stack 集线器中创建 Linux VM。 有关说明，请参阅[快速入门：使用 Azure Stack 集线器门户创建 Linux 服务器 VM](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)。
 2. 连接到 VM。
-3. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack 中心市场中必须提供 AKS 基本引擎。 运行命令时，必须指定 `--version v0.43.0`版本。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
+3. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack 中心市场中必须提供 AKS 基本映像。 运行命令时，必须指定 `--version v0.43.0`版本。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
 4. 运行以下命令：
 
     ```bash  

@@ -1,20 +1,18 @@
 ---
-title: 如何在 Azure Stack 集线器中使用 GRE 创建 VPN 隧道 |Microsoft Docs
+title: 如何在 Azure Stack 集线器中使用 GRE 创建 VPN 隧道
 description: 了解如何在 Azure Stack 集线器中使用 GRE 创建 VPN 隧道。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 88f3d1ab53ace7a666aab8dcae640f2cef3b77fa
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 623d2825c74d486b0500d5aa17e98d28234f0086
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536549"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882992"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>如何在 Azure Stack 集线器中使用 GRE 创建 VPN 隧道
 

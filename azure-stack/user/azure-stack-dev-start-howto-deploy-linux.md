@@ -1,20 +1,18 @@
 ---
-title: 将 Linux VM 部署到 Azure Stack 集线器 |Microsoft Docs
+title: 将 Linux VM 部署到 Azure Stack 集线器
 description: 将应用部署到 Azure Stack 中心。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 65bff945a9a55452632e14436381a14b9b29dbff
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: b887e4e3eba0a3f109d8f338d4de3bcca4908512
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536294"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884932"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>部署 Linux VM 以在 Azure Stack 中心内托管 web 应用
 

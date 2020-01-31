@@ -1,27 +1,18 @@
 ---
-title: 将 Azure App Service 部署到 Azure Stack 中心的脱机环境 |Microsoft Docs
+title: 将 Azure App Service 部署到 Azure Stack 中心的脱机环境中
 description: 了解如何在 AD FS 保护的脱机 Azure Stack 中心环境中部署 Azure App Service。
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 147759d9c885d796195a3c581953f8b115587eb1
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: fe20a682041e3e23e2a67957ecdce85f922fbf20
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124848"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876365"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>将 Azure App Service 部署到 Azure Stack 中心的脱机环境中
 
@@ -205,7 +196,7 @@ ms.locfileid: "76124848"
 - 目标： IP 地址
 - 目标 IP 地址范围：文件服务器的 Ip 范围
 - 目标端口范围：445
-- 协议：TCP
+- 协议： TCP
 - 操作：允许
 - 优先级：700
 - 名称： Outbound_Allow_SMB445

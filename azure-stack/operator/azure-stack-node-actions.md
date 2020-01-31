@@ -1,26 +1,18 @@
 ---
-title: Azure Stack 中心中的缩放单位节点操作 |Microsoft Docs
+title: Azure Stack 中心中的缩放单位节点操作
 description: 了解缩放单位节点操作，包括开机、关机、禁用、恢复，以及如何查看 Azure Stack 集线器集成系统中的节点状态。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: de0ec0d68b3d63cc0661fe7c4684304d83878a45
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c9a82059d1b4d8dee853394160997a1366ee8597
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882345"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881681"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack 中心中的缩放单位节点操作
 

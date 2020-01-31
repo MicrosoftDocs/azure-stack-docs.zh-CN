@@ -1,27 +1,18 @@
 ---
-title: 在 Azure Stack Hub 中部署应用服务 |Microsoft Docs
+title: 在 Azure Stack 中心部署应用服务
 description: 了解如何在 Azure Stack Hub 中部署应用服务。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 783bed2b6f90a88b815e534da17a953b3c309af2
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: 55d42471f56b17fe2016c7a7ac05f0b688773128
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124831"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874852"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>在 Azure Stack 中心部署应用服务
 
@@ -193,7 +184,7 @@ ms.locfileid: "76124831"
 - 目标： IP 地址
 - 目标 IP 地址范围：文件服务器的 Ip 范围
 - 目标端口范围：445
-- 协议：TCP
+- 协议： TCP
 - 操作：允许
 - 优先级：700
 - 名称： Outbound_Allow_SMB445

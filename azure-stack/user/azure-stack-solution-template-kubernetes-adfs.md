@@ -1,26 +1,18 @@
 ---
-title: 使用 Active Directory 联合服务（AD FS）将 Kubernetes 部署到 Azure Stack 中心 |Microsoft Docs
+title: 使用 Active Directory 联合服务（AD FS）将 Kubernetes 部署到 Azure Stack 中心
 description: 了解如何使用 Active Directory 联合服务（AD FS）将 Kubernetes 部署到 Azure Stack 中心。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: nav
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: b02f4f0deddd7a7eae493d4af02315f636e594c9
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 78abed9225a2a7516db65f9163aac5d0db24ad04
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535954"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884449"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>使用 Active Directory 联合服务将 Kubernetes 部署到 Azure Stack 中心
 
@@ -118,7 +110,7 @@ ms.locfileid: "76535954"
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-2. 查看设置。
+2. 检查设置。
 
 3. 选择 **"确定"** 以部署群集。
 

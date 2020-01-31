@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 集线器的网络集成规划 |Microsoft Docs
+title: Azure Stack 集线器的网络集成规划
 description: 了解如何规划与 Azure Stack 集线器集成系统的数据中心网络集成。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 10/23/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 19091f3d55da79f025a7f002e873ba9d8996764c
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 42529e5757100ed2ad1334b62bf4e58e1266f561
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75810744"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881695"
 ---
 # <a name="network-integration-planning-for-azure-stack-hub"></a>Azure Stack 集线器的网络集成规划
 

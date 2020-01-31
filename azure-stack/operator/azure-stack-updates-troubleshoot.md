@@ -1,26 +1,18 @@
 ---
-title: 排查 Azure Stack 集线器中的更新问题 |Microsoft Docs
+title: Azure Stack 中心中的更新疑难解答
 description: 作为 Azure Stack 中心运营商，了解如何解决更新的问题，以便 Azure Stack 中心尽快返回到生产环境。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 94c6b6882c3b2f88c9815ab535fbef8b23811007
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: b944e598080df3551764c7978ab205a9fffd666b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145761"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882637"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Azure Stack 中心修补程序和更新问题进行故障排除的最佳实践
 

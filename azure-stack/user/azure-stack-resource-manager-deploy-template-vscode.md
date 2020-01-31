@@ -1,26 +1,18 @@
 ---
-title: 通过 Visual Studio Code 部署到 Azure Stack 中心 |Microsoft Docs
+title: 通过 Visual Studio Code 部署到 Azure Stack 中心
 description: 作为用户，我想要在 Visual Studio Code 中创建 Azure 资源管理器模板，并使用部署架构来准备与我的 Azure Stack 中心版本兼容的模板。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 12f7b1f0dad8e1d7b452fcfe0e1785fcd851b04b
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: b1dd38fcb9228bf4bcc6455462e5c6adc0e49007
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536447"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883247"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>通过 Visual Studio Code 部署到 Azure Stack 中心
 

@@ -2,27 +2,18 @@
 title: 配置 Azure Stack 集线器遥测
 titleSuffix: Azure Stack
 description: 了解 Azure Stack 集线器遥测以及如何使用 PowerShell 配置遥测设置。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: c16987ac19b47eb4d0fedb147522703b98c8792e
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: cc4122424f990fd0c218899956e9ea32a695fe99
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256353"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880949"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>配置 Azure Stack 集线器遥测
 
@@ -54,7 +45,7 @@ Microsoft 相信和实践信息的最小化。 我们努力只收集所需的信
 
 Microsoft 不打算收集敏感数据，如信用卡号、用户名和密码、电子邮件地址或类似的敏感信息。 如果我们确定不小心收到了敏感信息，我们会将其删除。
 
-## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Microsoft 使用遥测数据的方式的示例
+## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Microsoft 如何使用遥测数据的示例
 
 遥测在帮助快速识别和修复客户部署和配置中的严重可靠性问题方面扮演着重要的角色。 来自遥测数据的见解有助于识别服务或硬件配置的问题。 Microsoft 能够从客户那里获取此数据并推动对生态系统的改进，从而提高了集成 Azure Stack 中心解决方案的质量。
 
@@ -98,7 +89,7 @@ Microsoft 不打算收集敏感数据，如信用卡号、用户名和密码、�
 > 这是默认遥测设置。
 
 **3（完整）**</br>
-识别并帮助解决问题所需的所有数据，以及**安全**、**基本**和**增强**级别中的数据。
+确定和帮助解决问题所需的所有数据，以及**安全**、**基本**和**增强**级别的数据。
 
 > [!IMPORTANT]
 > 这些遥测级别仅适用于 Microsoft Azure Stack 集线器组件。 在 Azure Stack 集线器硬件合作伙伴的硬件生命周期主机内运行的非 Microsoft 软件组件和服务可与其在这些遥测级别以外的云服务进行通信。 你应该与 Azure Stack 集线器硬件解决方案提供商合作，了解其遥测策略，以及如何选择加入或退出。

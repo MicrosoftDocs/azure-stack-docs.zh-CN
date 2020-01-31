@@ -1,26 +1,18 @@
 ---
-title: 将 Azure 认知服务部署到 Azure Stack 中心 |Microsoft Docs
+title: 将 Azure 认知服务部署到 Azure Stack 中心
 description: 了解如何将 Azure 认知服务部署到 Azure Stack 中心。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d9e98e4d6f8bd1ba2bc2450f91d510da9bfe7d36
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bc8a6745b9c3e4323e37bc3b4a46291955d227a1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878435"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883188"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>将 Azure 认知服务部署到 Azure Stack 中心
 

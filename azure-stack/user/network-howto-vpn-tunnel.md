@@ -1,20 +1,18 @@
 ---
-title: 如何在 Azure Stack Hub 中设置多个站点到站点 VPN 隧道 |Microsoft Docs
+title: 如何在 Azure Stack 集线器中设置多个站点到站点 VPN 隧道
 description: 了解如何在 Azure Stack Hub 中设置多个站点到站点 VPN 隧道。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4593898a1ea70b2001c252f885b12db2f16e922e
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 42ed5facf2b88aee8eb5fefd514ee31df8722ecc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883042"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883014"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>如何在 Azure Stack 集线器中设置多个站点到站点 VPN 隧道
 
@@ -78,7 +76,7 @@ ms.locfileid: "75883042"
 
 ### <a name="review-the-deployments-for-web-tier-and-app-tier-and-capture-outputs"></a>查看 web 层和应用层的部署并捕获输出
 
-1.  查看部署是否已成功完成。 选择“输出”。
+1.  查看部署是否已成功完成。 选择 "**输出**"。
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image7.png)
 

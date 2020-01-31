@@ -2,18 +2,17 @@
 title: 使用 Azure 和 Azure Stack 集线器直接与地理分布式应用程序解决方案的通信
 description: 了解如何使用 Azure 和 Azure Stack 集线器创建用于将流量定向到特定终结点的异地分布式应用解决方案。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c18e510d32773905b59cd756ed49daf59a0d03e9
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3353977eb36701575a725f2e74f2275dac73bddd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881852"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877640"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>创建地理分布式应用解决方案，以将流量定向到 Azure 和 Azure Stack 中心
 

@@ -1,26 +1,18 @@
 ---
-title: 将使用情况和计费的租户添加到 Azure Stack 中心 |Microsoft Docs
+title: 将使用情况和计费的租户添加到 Azure Stack 中心
 description: 了解如何向 Azure Stack 中心添加使用情况和计费的租户。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 9bf0e51deb8e30bfeab978e3bdec1f4c4343561d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e5bdfa5a190b639ef0537c96f4b0e049817fba21
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882600"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882563"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>将使用情况和计费的租户添加到 Azure Stack 中心
 
@@ -47,11 +39,11 @@ Csp 通常为其 Azure Stack 中心部署中的多个最终客户（租户）提
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>为最终用户创建 Azure 订阅
 
-在合作伙伴中心中创建客户的记录后，你可以向他们销售目录中产品的订阅。 有关说明，请参阅[创建、暂停或取消客户订阅](/partner-center/create-a-new-subscription)。
+在合作伙伴中心创建了客户的记录后，可以将其订阅出售给目录中的产品。 有关说明，请参阅[创建、暂停或取消客户订阅](/partner-center/create-a-new-subscription)。
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>在最终客户目录中创建来宾用户
 
-默认情况下，作为 CSP，你将无法访问最终客户的 Azure Stack 中心订阅。 但是，如果你的客户想要管理其资源，则他们可以将你的帐户作为所有者/参与者添加到其 Azure Stack 中心订阅。 要执行此操作，需要将你的帐户作为来宾用户添加到其 Azure AD 租户。 建议你使用 Azure CSP 帐户中的其他帐户来管理客户的 Azure Stack 中心订阅，以确保你不会失去对客户的 Azure 订阅的访问权限。
+默认情况下，作为 CSP，你无权访问最终客户的 Azure Stack 中心订阅。 但是，如果你的客户想要管理其资源，则他们可以将你的帐户作为所有者/参与者添加到其 Azure Stack 中心订阅。 要执行此操作，必须将帐户作为来宾用户添加到其 Azure AD 租户。 建议你使用 Azure CSP 帐户中的其他帐户来管理客户的 Azure Stack 中心订阅，以确保你不会失去对客户的 Azure 订阅的访问权限。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>更新最终客户订阅的注册
 
