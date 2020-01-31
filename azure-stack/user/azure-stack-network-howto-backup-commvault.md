@@ -1,20 +1,18 @@
 ---
-title: 如何通过 Commvault 在 Azure Stack 集线器上备份 VM |Microsoft Docs
+title: 如何通过 Commvault 在 Azure Stack 集线器上备份 VM
 description: 了解如何通过 Commvault 在 Azure Stack 集线器上备份 VM。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: b2e9871d48352d2e6a5f6d312a4d98cc3ace37ce
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: aa4e5d10534f2ffe4c9b6cc948fcb7968213aab0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878690"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884659"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>通过 Commvault 在 Azure Stack 集线器上备份 VM
 

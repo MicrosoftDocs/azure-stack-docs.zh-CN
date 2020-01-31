@@ -1,28 +1,18 @@
 ---
-title: 在 Azure Stack 中心创建包含产品/服务的订阅 |Microsoft Docs
+title: 在 Azure Stack 中心创建包含产品/服务的订阅
 description: 了解如何使用 Azure Stack 集线器中的产品/服务创建新订阅，并使用测试 VM 测试产品/服务。
-services: azure-stack
-documentationcenter: ''
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 216fe342bcda090d69452e8623f34f6c43cf70b9
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: ea0bf7287fd0463aa7b57a24386a30f7f3a1b754
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023184"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884327"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>教程：在 Azure Stack 中心创建和测试订阅
 

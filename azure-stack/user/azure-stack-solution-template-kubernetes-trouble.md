@@ -1,25 +1,18 @@
 ---
-title: Kubernetes 部署到 Azure Stack 集线器疑难解答 |Microsoft Docs
+title: Azure Stack 中心排查 Kubernetes 部署问题
 description: 了解如何对 Kubernetes 部署到 Azure Stack 中心进行故障排除。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 93c7972cef394ad86f2619f1ac06781c2dedb3e0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883331"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889535"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Azure Stack 中心排查 Kubernetes 部署问题
 
@@ -83,7 +76,7 @@ ms.locfileid: "75883331"
 
 可以在支持 Kubernetes 群集的 Vm 上收集和查看部署日志。 与 Azure Stack 中心管理员联系，验证你需要使用的 Azure Stack 中心的版本，以及从与部署相关的 Azure Stack 中心获取日志。
 
-1. 在部署了群集的资源组的 "**部署**" 窗格中查看 ARM 部署返回的错误代码。 有关错误代码的说明，请在 AKS Engine GitHub 存储库中的[故障排除](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md)一文。 如果无法解决与错误说明有关的问题，请继续执行这些步骤。
+1. 在部署了群集的资源组的 "**部署**" 窗格中查看 ARM 部署返回的错误代码。 有关错误代码的说明，请在 AKS engine GitHub 存储库中的[故障排除](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md)一文。 如果无法解决与错误说明有关的问题，请继续执行这些步骤。
 2. 查看[部署状态](#review-deployment-status)，并从 Kubernetes 群集中的主节点检索日志。
 3. 检查是否使用的是最新版本的 Azure Stack 中心。 如果不确定要使用的版本，请与 Azure Stack 中心管理员联系。
 4. 查看 VM 创建文件。 您可能遇到了以下问题：  
@@ -112,7 +105,7 @@ ms.locfileid: "75883331"
     | ----     | ----        |
     | 资源 | 资源的名称。 |
     | 类型 | 资源提供程序和资源的类型。 |
-    | 状态 | 项目的状态。 |
+    | 状态 | 项的状态。 |
     | TimeStamp | 时间的 UTC 时间戳。 |
     | 操作详细信息 | 操作详细信息，如操作中涉及的资源提供程序、资源终结点和资源的名称。 |
 

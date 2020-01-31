@@ -1,26 +1,19 @@
 ---
-title: 通过 PowerShell 自动 Azure Stack 验证 |Microsoft Docs
+title: 利用 PowerShell 自动 Azure Stack 验证
 description: 可以通过 PowerShell 自动 Azure Stack 验证。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/26/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2f048ea1feb7a707c3c52b83fcf7c9e65a1ea58a
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: d37c1f9027017446c31b0877496c28928d22f92a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954411"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884989"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>利用 PowerShell 自动 Azure Stack 验证
 
@@ -42,7 +35,7 @@ ms.locfileid: "74954411"
 
 ## <a name="download-the-automation-scripts"></a>下载自动化脚本
 
-1. 打开提升的 PowerShell 提示符。
+1. 打开提升权限的 PowerShell 提示符。
 
 2. 运行以下脚本以下载自动化脚本：
 
@@ -260,7 +253,7 @@ $scriptParameters = @{
 
 有关详细信息，请参阅[Workflow common parameters](azure-stack-vaas-parameters.md)。
 
-| 参数 | 描述 |
+| 参数 | Description |
 | --- | --- |
 | VaaSAccountUserName | VaaS 门户的 VaaS 用户名。 |
 | VaaSAccountPassword | VaaS 门户的 VaaS 密码。 |
@@ -272,7 +265,7 @@ $scriptParameters = @{
 | CloudAdminUserName | 云管理员用户名。  |
 | CloudAdminPassword | 云管理员的密码。  |
 | SolutionName | VaaS 解决方案的名称。 |
-| ProjectName | VaaS 工作流的名称。 |
+| 项目名称 | VaaS 工作流的名称。 |
 | DiagnosticsStorageConnection | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅[生成诊断连接字符串](azure-stack-vaas-parameters.md)。 |
 
 ## <a name="review-the-results"></a>查看结果

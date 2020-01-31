@@ -1,26 +1,19 @@
 ---
-title: 将 Azure Stack 验证作为服务进行故障排除 |Microsoft Docs
+title: 将 Azure Stack 验证作为服务进行故障排除
 description: 排查 Azure Stack 的服务验证问题。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2dfa55af61627a82f869c7e222dc29997b07a6e3
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 1525ed6ce9005fd8a64acefb44c730e2f172bcdc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955841"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884982"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>验证作为服务的验证
 
@@ -103,11 +96,11 @@ ms.locfileid: "73955841"
     > [!IMPORTANT]
     > 并非所有默认值对于现有 Marketplace 项都是正确的。
 
-    | 字段  | Value  |
+    | 字段  | 值  |
     |---------|---------|
     | 发布者 | MicrosoftWindowsServer |
     | 产品 | WindowsServer |
-    | OS 类型 | Windows |
+    | 操作系统类型 | Windows |
     | SKU | 2012-R2-Datacenter |
     | 版本 | 1.0.0 |
     | OS 磁盘 Blob URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
@@ -117,7 +110,7 @@ ms.locfileid: "73955841"
 
 所有5个 VM 映像的属性如下所示：
 
-| 发布者  | 产品  | OS 类型 | SKU | 版本 | OS 磁盘 Blob URI |
+| 发布者  | 产品  | 操作系统类型 | SKU | 版本 | OS 磁盘 Blob URI |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |

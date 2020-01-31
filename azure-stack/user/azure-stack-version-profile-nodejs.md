@@ -1,25 +1,18 @@
 ---
-title: 在 Azure Stack Hub 中通过 node.js 使用 API 版本配置文件 |Microsoft Docs
+title: 在 Azure Stack 集线器中将 API 版本配置文件与 node.js 配合使用
 description: 了解如何在 Azure Stack 集线器中将 API 版本配置文件与 node.js 配合使用。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d235a128e9fc7bb0bdabec58f33ff6de76c50a5e
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: b397ee97c5b1e7ea9cc1a47e60f24d21ae8d6f29
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256268"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884274"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 node.js 软件开发工具包（SDK）使用 API 版本配置文件
 
@@ -58,7 +51,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 | [资源](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
  | [Keyvault](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid) | @azure/arm-keyvault-profile-2019-03-01-hybrid |
 
-若要使用服务的最新 API 版本，请使用特定客户端库的**最新**配置文件。 例如，如果你想要单独使用最新的 API 版本的资源服务，请使用**资源管理客户端库**的 `azure-arm-resource` 配置文件。 部署。
+若要使用服务的最新 API 版本，请使用特定客户端库的**最新**配置文件。 例如，如果你想要单独使用最新的 API 版本的资源服务，请使用**资源管理客户端库**的 `azure-arm-resource` 配置文件。 软件包.
 
 使用包中定义的特定 API 版本获取资源提供程序的特定 API 版本。
 

@@ -1,26 +1,19 @@
 ---
-title: 监视和管理 Azure Stack VaaS 门户中的测试 |Microsoft Docs
+title: 在 Azure Stack VaaS 门户中监视和管理测试
 description: 监视和管理 Azure Stack VaaS 门户中的测试。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87ba89298c0a5a134cb0b3b1a2b7e771151e46d9
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955912"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885075"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>监视和管理 VaaS 门户中的测试
 
@@ -66,13 +59,13 @@ ms.locfileid: "73955912"
 
 每个计划的测试实例都显示以下信息：
 
-| 柱形图​​ | 描述 |
+| 柱形图​​ | Description |
 | --- | --- |
 | 测试名称 | 测试的名称和版本。 |
 | 类别 | 测试的目的。 |
 | 已创建 | 计划测试的时间。 |
-| 已启动 | 测试开始执行的时间。 |
-| Duration | 测试运行的时间长度。 |
+| Started | 测试开始执行的时间。 |
+| 持续时间 | 测试运行的时间长度。 |
 | 状态 | 测试的状态或结果。 执行前或正在进行的状态有： `Pending`，`Running`。 终端状态为： `Cancelled`、`Failed`、`Aborted``Succeeded`。 |
 | 代理名称 | 运行测试的代理的名称。 |
 | 总操作数 | 在测试期间尝试的操作的总数。 |
@@ -87,14 +80,14 @@ ms.locfileid: "73955912"
 
 从上下文菜单中选择 "**查看信息**" 以查看有关测试定义的一般信息。 这由具有相同名称和版本的每个测试实例共享。
 
-| 测试属性 | 描述 |
+| 测试属性 | Description |
 | -- | -- |
 | 测试名称 | 测试的名称。 |
 | 测试版本 | 测试的版本。 |
 | 发布者 | 测试的发行者。 |
 | 类别 |  测试的目的。 |
 | 目标服务 | 正在测试的 Azure Stack 服务。 |
-| 描述 | 测试的说明。 |
+| Description | 测试的说明。 |
 | 估计持续时间（分钟） | 测试的预期运行时。 |
 | 链接 | 有关测试或联系点的任何相关信息。 |
 
@@ -104,7 +97,7 @@ ms.locfileid: "73955912"
 
 此窗口包含所有测试实例的以下元数据：
 
-| 测试实例属性 | 描述 |
+| 测试实例属性 | Description |
 | -- | -- |
 | 测试名称 | 测试的名称。 |
 | 测试版本 | 测试的版本。 |

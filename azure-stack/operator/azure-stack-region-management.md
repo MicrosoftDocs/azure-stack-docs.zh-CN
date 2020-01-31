@@ -1,28 +1,19 @@
 ---
-title: Azure Stack 中心中的区域管理 |Microsoft Docs
+title: Azure Stack 中心的区域管理
 titleSuffix: Azure Stack Hub
 description: Azure Stack 中心中的区域管理概述。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 56fb993f7c4059ba468100904d10baabac38cd7d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 930909dd82b67dbeff5dbf656635855b6d34d92b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882039"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881451"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Azure Stack 中心的区域管理
 
@@ -36,7 +27,7 @@ Azure Stack 集线器具有 "**区域管理**" 磁贴中提供的一组区域管
 
 ![Azure Stack 中心管理员门户中的 "区域管理" 磁贴](media/azure-stack-region-management/image1.png)
 
-如果单击 "**区域管理**" 磁贴中的某个区域，则可以访问以下信息：
+如果在 "**区域管理**" 磁贴中选择区域，则可以访问以下信息：
 
 [![Azure Stack 中心管理员门户中 "区域管理" 边栏选项卡上的窗格说明](media/azure-stack-region-management/regionssm.png "Azure Stack 中心管理员门户中的 "区域管理" 边栏选项卡")](media/azure-stack-region-management/regions.png#lightbox)
 

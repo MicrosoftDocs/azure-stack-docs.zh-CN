@@ -1,26 +1,18 @@
 ---
-title: 使用 Azure Stack 集线器中的命令行部署模板 |Microsoft Docs
+title: 在 Azure Stack 集线器中使用命令行部署模板
 description: 了解如何使用 Azure 跨平台命令行接口（CLI）将模板部署到 Azure Stack 集线器。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: CLI
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 25479837bd73816abae92badfcd03bb21317f84c
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 7566a1b2b607064560302ee5178c5c52b5098e94
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536345"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883835"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用命令行部署模板
 

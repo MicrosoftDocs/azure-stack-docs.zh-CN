@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 集线器集成系统的数据中心集成规划注意事项 |Microsoft Docs
+title: Azure Stack 集线器集成系统的数据中心集成规划注意事项
 description: 了解如何规划和准备与 Azure Stack 集线器集成系统的数据中心集成。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 07ec33de275d46dbdcab3d54c9baa69be8a1e3f2
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: b4809454f6bec18fbfd2ffdc3f1aa866786199c5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535478"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882468"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Azure Stack 集线器集成系统的数据中心集成规划注意事项
 

@@ -2,18 +2,17 @@
 title: 使用 Azure 和 Azure Stack 集线器的智能边缘的 DevOps 模式。
 description: 了解使用 Azure 和 Azure Stack 集线器的智能边缘的 DevOps 模式。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f774fb0382409d5674c622f289767ca8ae81effb
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: bf1ae2d8c404f8cc52ab32b22c883ee15934c3b1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73638669"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877470"
 ---
 # <a name="devops-pattern"></a>DevOps 模式
 

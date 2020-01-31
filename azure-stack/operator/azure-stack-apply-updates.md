@@ -1,26 +1,18 @@
 ---
-title: 安装 Azure Stack 集线器更新 |Microsoft Docs
+title: 安装 Azure Stack 中心更新
 description: 了解如何安装 Azure Stack 集线器更新。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 540eded35338d07403577d826fc9c817021b7cac
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: b854a7334055dcee4a753143f4a601f1eb8281f8
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534285"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877778"
 ---
 # <a name="install-azure-stack-hub-updates"></a>安装 Azure Stack 中心更新
 

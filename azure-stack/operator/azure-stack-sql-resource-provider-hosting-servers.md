@@ -2,26 +2,18 @@
 title: 添加 SQL 资源提供程序的宿主服务器
 titleSuffix: Azure Stack Hub
 description: 了解如何通过 SQL 资源提供程序适配器添加用于预配的宿主服务器。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 7bdbe25e204ca00b31f1932c16aab6cdb815d5e1
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c7b3d1ef979e69a72904e03b49cb5ee4b75c182e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814552"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882818"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>添加 SQL 资源提供程序的宿主服务器
 
@@ -59,7 +51,7 @@ ms.locfileid: "75814552"
 > [!NOTE]
 > 安装在多节点 Azure Stack 集线器上的所有宿主服务器都必须从用户订阅创建，而不是默认的提供程序订阅。 必须使用相应的登录名从用户门户或 PowerShell 会话创建它们。 所有宿主服务器都是可计费的 Vm，并且必须具有相应的 SQL 许可证。 服务管理员_可以_是该订阅的所有者。
 
-### <a name="required-privileges"></a>必需的特权
+### <a name="required-privileges"></a>必需的权限
 
 您可以创建具有比 SQL sysadmin 更低权限的管理员用户。 用户仅需要以下操作的权限：
 
@@ -144,7 +136,7 @@ ms.locfileid: "75814552"
 
 ### <a name="configure-contained-database-authentication"></a>配置包含的数据库身份验证
 
-在将包含的数据库添加到某个可用性组前，请确保在托管该可用性组的可用性副本的每个服务器实例上将包含的数据库身份验证服务器选项设置为 1。 有关详细信息，请参阅 [contained database authentication Server Configuration Option](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)。
+在将包含的数据库添加到某一可用性组之前，请确保在承载该可用性组的可用性副本的每个服务器实例上，"包含的数据库身份验证服务器" 选项设置为1。 有关详细信息，请参阅 [contained database authentication Server Configuration Option](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)。
 
 使用以下命令为每个实例设置包含的数据库身份验证服务器选项：
 

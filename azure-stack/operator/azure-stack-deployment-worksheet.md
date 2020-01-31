@@ -1,26 +1,18 @@
 ---
-title: Azure Stack 中心集成系统的部署工作表 |Microsoft Docs
+title: Azure Stack 中心集成系统的部署工作表
 description: 了解如何安装和使用 "部署工作表" 工具部署 Azure Stack 中心。
-services: azure-stack
-documentationcenter: ''
-author: wamota
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 04/19/2019
-ms.author: wamota
+ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 0ec6f85e0df5bcc818f57410a442d532d024fc02
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4173afb6e31591f75d28880f67301596b2a6c295
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804891"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882395"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Azure Stack 中心集成系统的部署工作表
 
@@ -42,7 +34,7 @@ Azure Stack 中心部署工作表是一个 Windows 窗体应用程序，它在�
 > [!NOTE]  
 > 计算机必须连接到 internet 才能使用此方法。
 
-1. 打开提升的 PowerShell 提示符。
+1. 打开提升权限的 PowerShell 提示符。
 
 2. 在 PowerShell 窗口中，从[powershell 库](https://www.powershellgallery.com/packages/Azs.Deployment.Worksheet/)安装模块：
 

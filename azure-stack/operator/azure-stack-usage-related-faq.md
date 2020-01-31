@@ -1,26 +1,18 @@
 ---
-title: 使用情况 API 相关的常见问题解答 |Microsoft Docs
+title: 使用情况 API 相关常见问题解答
 description: Azure Stack 中心计量的列表、与 Azure 使用情况 API 的比较、使用时间和报告时间、错误代码。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: dea410ab514f095f7ed68a0617b2dd7816544f80
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 18539c666683c6e35c8736616405f961b63adf40
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813056"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880652"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>有关 Azure Stack 集线器使用情况的常见问题
 
@@ -396,12 +388,12 @@ ms.locfileid: "75813056"
 
 使用情况数据报表具有两个主要时间值：
 
-* **报告时间**。 使用情况事件进入使用系统的时间
-* **使用时间**。 Azure Stack 集线器资源的使用时间
+* **报告时间**。 使用情况事件进入使用系统的时间。
+* **使用时间**。 使用 Azure Stack 集线器资源的时间。
 
 你可能会发现特定使用事件的使用时间值和报告时间存在差异。 在任何环境中，延迟时间可以长达几个小时。
 
-目前，只能按*报告的时间*进行查询。
+目前，只能按**报告的时间**进行查询。
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>这些使用情况 API 错误代码的含义是什么？
 
@@ -417,7 +409,7 @@ ms.locfileid: "75813056"
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>Vm 的收费策略是什么？
 
-正在运行和已停止的 Vm 生成使用情况数据。 与 Azure 一致，需要解除分配来停止使用情况数据的发出。 如果门户不可用，但计算资源提供程序仍在运行，将发出使用率。
+正在运行和已停止的 Vm 生成使用情况数据。 与 Azure 一致，需要解除分配来停止使用情况数据的发出。 如果门户不可用，但计算资源提供程序仍在运行，则会发出使用情况。
 
 ## <a name="how-do-i-extract-usage-data-from-the-azure-stack-hub-usage-apis"></a>如何实现从 Azure Stack 中心使用情况 Api 提取使用情况数据？
 

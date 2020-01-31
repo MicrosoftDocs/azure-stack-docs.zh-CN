@@ -1,25 +1,17 @@
 ---
-title: 为 Azure Stack 中心用户启用 Azure CLI |Microsoft Docs
+title: 为 Azure Stack 中心用户启用 Azure CLI
 description: 了解如何启用跨平台命令行接口（CLI）来管理和部署 Azure Stack 集线器上的资源。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: CLI
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 333fd0eeb3f3e7162069d98c8f45a94228af5032
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 07cc157290280dbfd435dbcda6939d62388ba7d9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534033"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879000"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>为 Azure Stack 中心用户启用 Azure CLI
 

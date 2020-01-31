@@ -1,22 +1,18 @@
 ---
-title: 使用 ASDK 验证 Azure Stack 备份 |Microsoft Docs
+title: 使用 ASDK 验证 Azure Stack 备份
 description: 了解如何使用 ASDK 来验证 Azure Stack 集成系统备份。
-services: azure-stack
 author: justinha
-manager: femila
-cloud: azure-stack
-ms.service: azure-stack
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 603a0bc79af764d2b76d05f01ac0dc6b07b4f864
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 2ff4ec010243b27406a2ebb3149bc123aa01947d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534084"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873492"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 部署 Azure Stack 和预配用户资源（例如产品/服务、计划、配额和订阅）后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 如果出现灾难性的硬件或服务故障，则计划和运行定期基础结构备份将确保基础结构管理数据不会丢失。
@@ -129,7 +125,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
     ![ASDK 网络卡设置验证](media/asdk-validate-backup/5.PNG) 
 
-7. 提供前面在 "备份设置" 页上的 "[先决条件" 部分](#prereqs)中描述的必需信息，以及用于访问共享的用户名和密码。 单击“下一步”： 
+7. 提供前面在 "备份设置" 页上的 "[先决条件" 部分](#prereqs)中描述的必需信息，以及用于访问共享的用户名和密码。 单击 "**下一步**"： 
 
    !["ASDK 备份设置" 页](media/asdk-validate-backup/6.PNG) 
 

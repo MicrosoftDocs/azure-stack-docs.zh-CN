@@ -1,26 +1,19 @@
 ---
-title: 部署本地代理 |Microsoft Docs
+title: 部署本地代理
 description: 将 Azure Stack 验证的本地代理部署为服务。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9cd13f16df804c674c2901ae0e167e47294f176a
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: a84f2495b0e2195ac143dc8fd9ac4ea4668392b4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955885"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884087"
 ---
 # <a name="deploy-the-local-agent"></a>部署本地代理
 
@@ -89,11 +82,11 @@ ms.locfileid: "73955885"
 
 **参数**
 
-| 参数 | 描述 |
+| 参数 | Description |
 | --- | --- |
 | AadServiceAdminUser | Azure AD 租户的全局管理员用户。 例如，可以 vaasadmin@contoso.onmicrosoft.com。 |
 | AadServiceAdminPassword | 全局管理员用户的密码。 |
-| CloudAdminUserName | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如，它可能是，AzusreStack\CloudAdmin。 有关详细信息，请参阅 [此处](azure-stack-vaas-parameters.md)。 |
+| CloudAdminUserName | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如，它可能是，AzusreStack\CloudAdmin。 有关详细信息，请参阅 [此处](azure-stack-vaas-parameters.md) 。 |
 | CloudAdminPassword | 云管理员帐户的密码。|
 
 ![下载必备组件](media/installing-prereqs.png)
@@ -134,9 +127,9 @@ ms.locfileid: "73955885"
 
       **参数**  
 
-    | 参数 | 描述 |
+    | 参数 | Description |
     | --- | --- |
-    | CloudAdminUserName | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如，它可能是，AzusreStack\CloudAdmin。 有关详细信息，请参阅 [此处](azure-stack-vaas-parameters.md)。 |
+    | CloudAdminUserName | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如，它可能是，AzusreStack\CloudAdmin。 有关详细信息，请参阅 [此处](azure-stack-vaas-parameters.md) 。 |
     | CloudAdminPassword | 云管理员帐户的密码。|
     | VaaSUserId | 用于登录到 VaaS 门户的用户 ID （例如，UserName\@Contoso.com） |
     | VaaSTenantId | 为注册为服务的 Azure 帐户 Azure AD 租户 ID。 |

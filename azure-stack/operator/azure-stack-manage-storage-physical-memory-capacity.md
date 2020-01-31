@@ -1,27 +1,18 @@
 ---
-title: 管理 Azure Stack 集线器中的物理内存容量 |Microsoft Docs
+title: 管理 Azure Stack 集线器中的物理内存容量
 description: 了解如何监视和管理 Azure Stack 集线器中的物理内存和容量。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 84518E90-75E1-4037-8D4E-497EAC72AAA1
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 24fdcfc4b28a1c5fb9ebb2d7facb774ec176de05
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 5d0b0c160fc502629a23e799e50569886dd7c000
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535138"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881985"
 ---
 # <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>管理 Azure Stack 集线器中的物理内存容量
 

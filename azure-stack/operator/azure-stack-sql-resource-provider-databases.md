@@ -2,26 +2,18 @@
 title: 创建 SQL 数据库
 titleSuffix: Azure Stack Hub
 description: 了解如何创建和管理使用 SQL 资源提供程序适配器预配的 SQL 数据库。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4292c05d4a2cfb0ca15a8ac46435029ff2bb30b8
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 6a0135d643ebb87fb99ba12bec4741c67faa1111
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535750"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882837"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 

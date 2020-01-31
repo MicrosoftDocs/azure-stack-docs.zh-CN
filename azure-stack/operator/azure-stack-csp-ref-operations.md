@@ -1,26 +1,18 @@
 ---
-title: 在 Azure Stack Hub 中注册使用情况跟踪的租户 |Microsoft Docs
+title: 在 Azure Stack 集线器中注册使用情况跟踪的租户
 description: 了解如何在 Azure Stack Hub 中注册租户和如何跟踪租户使用情况。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: c77a9a02a49672a120a0b1099784098e38fb515a
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 1f5f3011c1546970a1b94773b171e6419757c461
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706688"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882488"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>在 Azure Stack 集线器中注册使用情况跟踪的租户
 

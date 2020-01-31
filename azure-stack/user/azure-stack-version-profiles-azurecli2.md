@@ -1,25 +1,18 @@
 ---
-title: Azure CLI 管理 Azure Stack 集线器 |Microsoft Docs
+title: 通过 Azure CLI 管理 Azure Stack 集线器
 description: 了解如何使用跨平台命令行接口（CLI）管理和部署 Azure Stack 集线器上的资源。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: d35e254a17c1b79347e7d13f866e1163bf049a08
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 72f0e04d03a4304c4ed74f54dcd96f16e247f2a3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883365"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884262"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>通过 Azure CLI 管理和部署 Azure Stack 集线器的资源
 

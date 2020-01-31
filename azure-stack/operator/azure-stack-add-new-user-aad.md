@@ -1,20 +1,18 @@
 ---
 title: 在 Azure Active Directory 中添加新的 Azure Stack 集线器用户帐户
 description: 了解如何在 Azure Active Directory 中创建用户帐户，以便你可以浏览用户门户。
-author: PatAltimore
-manager: femila
-ms.service: azure-stack
+author: JustinHall
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: patricka
+ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 3f0ef1b6a61d271541ee894f854639b13e24d699
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b7bfcf97df22f5ca0d1dcaa7c9687079656af840
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880985"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890147"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>在 Azure Active Directory 中添加新的 Azure Stack 集线器用户帐户（Azure AD）
 

@@ -1,20 +1,18 @@
 ---
-title: 如何通过 Azure Stack 中心连接到 iSCSI 存储 |Microsoft Docs
+title: 如何通过 Azure Stack 中心连接到 iSCSI 存储
 description: 了解如何通过 Azure Stack 中心连接到 iSCSI 存储。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 909c138e17a25b06f7ed135c74aefaf63ce69aff
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 0e5f87b0cb6920a32021795042a31b740c52adcf
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259777"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883362"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>通过 Azure Stack 集线器连接到 iSCSI 存储
 
@@ -78,7 +76,7 @@ ms.locfileid: "76259777"
 |------------------|---------------|------------------------------|
 |WindowsImageSKU         |2019-Datacenter   |请选择基本 Windows VM 映像
 |VMSize                  |Standard_D2_v2    |请输入 VM 大小
-|VMName                  |FileServer        |VM 名称
+|VMName                  |文件服务器        |VM 名称
 |adminUsername           |storageadmin      |新 VM 的管理员名称
 |adminPassword           |                  |新 Vm 的管理员帐户的密码。 默认值为订阅 ID
 |VNetName                |存储空间           |VNet 的名称。 这将用于标记资源
@@ -118,12 +116,12 @@ ms.locfileid: "76259777"
 
 |**输入**|default|**description**|
 |------------------|---------------|------------------------------|
-|RemoteServer         |FileServer               |连接到 iSCSI 目标的服务器的名称
+|RemoteServer         |文件服务器               |连接到 iSCSI 目标的服务器的名称
 |RemoteServerIPs      |1.1.1.1                  |ISCSI 流量将来自的 IP 地址
 |DiskFolder           |C:\iSCSIVirtualDisks     |将存储虚拟磁盘的文件夹和驱动器
 |DiskName             |DiskName                 |磁盘 VHDX 文件的名称
 |DiskSize             |5GB                      |VHDX 磁盘大小
-|目标名称           |RemoteTarget01           |用于定义 iSCSI 客户端目标配置的目标名称。 
+|TargetName           |RemoteTarget01           |用于定义 iSCSI 客户端目标配置的目标名称。 
 |ChapUsername         |username                 |Chap 身份验证的用户名名称
 |ChapPassword         |userP@ssw0rd!            |Chap 身份验证的密码名称。 它必须为12到16个字符
 

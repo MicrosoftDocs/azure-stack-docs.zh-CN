@@ -1,20 +1,18 @@
 ---
-title: 如何跨两个 Azure Stack 集线器实例部署 F5 |Microsoft Docs
+title: 如何跨两个 Azure Stack 中心实例部署 F5
 description: 了解如何跨两个 Azure Stack 中心实例部署 F5。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: eb20f61cfa42af41431169f46f822001c0471659
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 87c924ff78e4209b300bc7fd68e7cc5b59640026
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023145"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885337"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>如何跨两个 Azure Stack 中心实例部署 F5
 

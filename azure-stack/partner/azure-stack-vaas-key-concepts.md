@@ -1,26 +1,19 @@
 ---
-title: 作为服务密钥概念 Azure Stack 验证 |Microsoft Docs
+title: 作为服务关键概念 Azure Stack 验证
 description: 描述作为服务 Azure Stack 验证中的关键概念。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a79b6e6f34c8293febf30a9cb48ddbfae9c99816
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 25feb0b51d8b202f72b297c2badc5c152144de1f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167325"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885013"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>作为服务关键概念的验证
 

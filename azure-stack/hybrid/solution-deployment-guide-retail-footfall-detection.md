@@ -2,18 +2,17 @@
 title: 使用 Azure 和 Azure Stack 中心部署基于 AI 的 footfall 检测解决方案
 description: 了解如何使用 Azure 和 Azure Stack 中心部署 footfall 检测解决方案。 此解决方案用于分析零售商店中的访问者流量。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c2e043630e601098e0b2abbb1bacbffe44808495
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d81fdf315e9bc834c46161d901d6ac10d736f7ab
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881444"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875294"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>使用 Azure 和 Azure Stack 中心部署基于 AI 的 footfall 检测解决方案
 
@@ -179,7 +178,7 @@ ms.locfileid: "75881444"
 
 4.  您可以根据需要添加其他字段和卡。
 
-## <a name="test-your-solution"></a>测试你的解决方案
+## <a name="test-your-solution"></a>测试解决方案
 
 观察在 Power BI 中创建的卡片中的数据如何变化，因为不同的人会在相机前面进行演练。 记录后，推断可能需要长达20秒的时间。
 

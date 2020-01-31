@@ -3,16 +3,15 @@ title: 使用应用标识访问资源
 description: 了解如何管理 Azure Stack 中心服务主体。 可以将服务主体与基于角色的访问控制配合使用来登录和访问资源。
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 73eec3724aa37976809af6d1a4aa1b4b4c7baef5
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e53758880f8cc6bd4b365d5d752a960d623795e6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883093"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879850"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>使用应用标识访问 Azure Stack 集线器资源
 
@@ -35,8 +34,8 @@ ms.locfileid: "75883093"
 
 首先，在目录中创建新的应用注册，这会创建一个关联的[服务主体对象](/azure/active-directory/develop/developer-glossary#service-principal-object)来表示该目录中的应用标识。 本文档介绍了创建和管理服务主体的过程，具体取决于为 Azure Stack 中心实例选择的目录：
 
-- Azure Active Directory (Azure AD)。 Azure AD 是多租户、基于云的目录，以及标识管理服务。 可以将 Azure AD 与连接的 Azure Stack 中心实例一起使用。
-- Active Directory 联合身份验证服务 (AD FS)。 AD FS 提供简化、安全的联合身份验证和 web 单一登录（SSO）功能。 可以将 AD FS 与连接的和已断开的 Azure Stack 中心实例一起使用。
+- Azure Active Directory (Azure AD)。 Azure AD 是一种多租户、基于云的目录和标识管理服务。 可以将 Azure AD 与连接的 Azure Stack 中心实例一起使用。
+- Active Directory 联合身份验证服务（AD FS）。 AD FS 提供简化、安全的联合身份验证和 web 单一登录（SSO）功能。 可以将 AD FS 与连接的和已断开的 Azure Stack 中心实例一起使用。
 
 首先，您将了解如何管理服务主体，以及如何将服务主体分配到角色，从而限制其资源访问权限。
 

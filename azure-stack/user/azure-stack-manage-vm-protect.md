@@ -1,27 +1,18 @@
 ---
-title: 保护在 Azure Stack Hub 上部署的 Vm |Microsoft Docs
+title: 保护 Azure Stack 集线器上部署的 Vm
 description: 了解如何构建恢复计划来保护 Azure Stack 集线器上部署的 Vm，以防数据丢失和计划外停机。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 9211a3221a3c12c91b9d8875c04bbdfbedaf81e2
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: fdcae656e142f8981a41875daada938b5ce360ab
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536158"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884718"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>保护 Azure Stack 集线器上部署的 Vm
 

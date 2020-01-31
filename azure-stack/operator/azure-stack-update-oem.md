@@ -1,26 +1,18 @@
 ---
-title: 将原始设备制造商（OEM）更新应用到 Azure Stack 中心 |Microsoft Docs
+title: 将原始设备制造商（OEM）更新应用到 Azure Stack 中心
 description: 了解如何将原始设备制造商（OEM）更新应用到 Azure Stack 中心。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: c21e2a1335b76da2bcd1f4ce88274685d962a299
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: a5b1449ae82258a7e4d65ef3d237673cba388420
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259913"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880720"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>应用 Azure Stack 中心原始设备制造商（OEM）更新
 

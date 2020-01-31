@@ -1,26 +1,18 @@
 ---
-title: 使用 Azure Active Directory （Azure AD）将 Kubernetes 部署到 Azure Stack 中心 |Microsoft Docs
+title: 使用 Azure Active Directory （Azure AD）将 Kubernetes 部署到 Azure Stack 集线器
 description: 了解如何使用 Azure Active Directory （Azure AD）将 Kubernetes 部署到 Azure Stack 中心。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 19fecf32cb15e9c320e09b1b2740636ced664496
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: e8c8ad8581b9deff792ce2c095bbc3c5f9cee034
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536481"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883222"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>使用 Azure Active Directory 将 Kubernetes 部署到 Azure Stack 中心
 
@@ -150,7 +142,7 @@ ms.locfileid: "76536481"
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-2. 查看设置。
+2. 检查设置。
 
 3. 选择 **"确定"** 以部署群集。
 

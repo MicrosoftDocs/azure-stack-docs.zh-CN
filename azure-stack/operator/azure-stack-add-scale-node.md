@@ -1,27 +1,18 @@
 ---
-title: 在 Azure Stack 集线器中添加缩放单位节点 |Microsoft Docs
+title: 在 Azure Stack 集线器中添加缩放单位节点
 description: 了解如何将缩放单位节点添加到 Azure Stack 集线器中的缩放单位。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 50ff1bf63cbd7aaa36bb16e84f4c57db9c5a607d
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: d138fe5c4203cc28cedfb44964d7b99d9fc72931
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256370"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876586"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>在 Azure Stack 集线器中添加其他缩放单位节点
 

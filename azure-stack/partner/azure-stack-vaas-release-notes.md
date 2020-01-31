@@ -1,25 +1,18 @@
 ---
-title: 作为服务发行说明 Azure Stack 验证 |Microsoft Docs
+title: 作为服务发行说明 Azure Stack 验证
 description: Azure Stack 验证作为服务发行说明。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: eb676d914a345c5fe36e063ee08ea226cd1e3209
-ms.sourcegitcommit: 1cb84d8417367b553194614d53a477a94a8e9be9
+ms.openlocfilehash: 63602a3bd4f53eada398dc6959a59202e0614708
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75755172"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884038"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>验证即服务的发行说明
 

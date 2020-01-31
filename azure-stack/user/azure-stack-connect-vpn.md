@@ -1,27 +1,18 @@
 ---
-title: 使用 VPN 将 Azure Stack 集线器连接到 Azure |Microsoft Docs
+title: 使用 VPN 将 Azure Stack 中心连接到 Azure
 description: 如何使用 VPN 将 Azure Stack 集线器中的虚拟网络连接到 Azure 中的虚拟网络。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 75d6143d3ae1ce0eaf114bd537e0a4983f99e53c
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: c0a03b453a574b04e6b4a8654e3375d552acc5f5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706892"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883913"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 中心连接到 Azure
 
@@ -84,7 +75,7 @@ ms.locfileid: "76706892"
 
 ### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure 门户中，选择“+ 创建资源”。
+1. 在 Azure 门户中，选择 " **+ 创建资源**"。
 
 2. 中转到 " **Marketplace**"，然后选择 "**网络**"。
 3. 从网络资源列表中，选择 "**虚拟网络网关**"。
@@ -96,7 +87,7 @@ ms.locfileid: "76706892"
 
 ### <a name="create-the-local-network-gateway-resource"></a>创建本地网络网关资源
 
-1. 在 Azure 门户中，选择“+ 创建资源”。
+1. 在 Azure 门户中，选择 " **+ 创建资源**"。
 
 2. 中转到 " **Marketplace**"，然后选择 "**网络**"。
 3. 从资源列表中选择 "**本地网络网关**"。
@@ -126,7 +117,7 @@ ms.locfileid: "76706892"
 
 现在，在 Azure 中创建 VM，并将其放在虚拟网络中的 VM 子网上。
 
-1. 在 Azure 门户中，选择“+ 创建资源”。
+1. 在 Azure 门户中，选择 " **+ 创建资源**"。
 2. 选择 "应用**商店**"，然后选择 "**计算**"。
 3. 在 VM 映像列表中，选择 " **Windows Server 2016 Datacenter Eval** " 映像。
 4. 在 "**基本**信息" 部分，为 "**名称**" 键入 " **add-azurevm**"。
@@ -229,7 +220,7 @@ Azure Stack 集线器中的*本地网络网关*的概念与在 Azure 部署中�
 
 若要检查 VPN 连接，请创建两个 Vm：一个在 Azure 中，另一个在 Azure Stack 集线器中。 创建这些 Vm 后，可以使用它们通过 VPN 隧道来发送和接收数据。
 
-1. 在 Azure 门户中，选择“+ 创建资源”。
+1. 在 Azure 门户中，选择 " **+ 创建资源**"。
 2. 选择 "应用**商店**"，然后选择 "**计算**"。
 3. 在 VM 映像列表中，选择 " **Windows Server 2016 Datacenter Eval** " 映像。
 4. 在 "**基本**信息" 部分的 "**名称**" 中，键入**Azs**。
@@ -257,10 +248,10 @@ Azure Stack 集线器中的*本地网络网关*的概念与在 Azure 部署中�
 3. 在 Vm 列表中，找到之前创建的**Azs-vm** ，然后选择它。
 4. 在 VM 的节中，选择 "**连接**"，然后打开 Azs-VM 文件。
 
-     ![“连接”按钮](media/azure-stack-connect-vpn/image17.png)
+     ![连接按钮](media/azure-stack-connect-vpn/image17.png)
 
 5. 用创建 VM 时配置的帐户登录。
-6. 打开一个提升的 Windows PowerShell 提示符下。
+6. 打开提升的 Windows PowerShell 提示符。
 7. 键入 **ipconfig /all**。
 8. 在输出中，找到**IPv4 地址**，然后保存该地址供以后使用。 这是从 Azure ping 的地址。 在示例环境中，地址是**10.1.0.4**，但在您的环境中，它可能不同。 它应位于你之前创建的**10.1.0.0/24**子网中。
 9. 若要创建允许 VM 响应 ping 的防火墙规则，请运行以下 PowerShell 命令：

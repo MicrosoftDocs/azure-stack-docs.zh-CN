@@ -1,21 +1,18 @@
 ---
-title: 在数据中心发布 Azure Stack 中心服务 |Microsoft Docs
+title: 在数据中心发布 Azure Stack 中心服务
 description: 了解如何在数据中心发布 Azure Stack 中心服务。
-services: azure-stack
-author: mattbriggs
-manager: femila
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 12/11/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 5ed74e225df2e2667acc536e0b8dbd901a086b9a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 5cd828de0e4123faf3fcb7020703ad5d8682c7e1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818003"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882151"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>在数据中心发布 Azure Stack 中心服务 
 
@@ -63,9 +60,9 @@ SSL 流量截获[不受支持](azure-stack-firewall.md#ssl-interception)，并�
 |存储 Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL 资源提供程序|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
 |MySQL 资源提供程序|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|应用服务|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172（Msdeploy.exe）|
-|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300（Azure 资源管理器）|
+|应用服务|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80（HTTP）<br>443（HTTPS）<br>8172（Msdeploy.exe）|
+|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443（HTTPS）|
+|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443（HTTPS）<br>44300（Azure 资源管理器）|
 |  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP、UDP|21，1021，10001-10100 （FTP）<br>990（FTPS）|
 |VPN 网关|     |     |[请参阅 VPN 网关常见问题](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability)。|
 |     |     |     |     |

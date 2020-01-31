@@ -1,28 +1,19 @@
 ---
-title: 在不同 ASDK 环境中的两个虚拟网络之间创建站点到站点 VPN 连接 |Microsoft Docs
+title: 在不同 ASDK 环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 description: 用于在两个单节点 Azure Stack 开发工具包（ASDK）环境之间创建站点到站点 VPN 连接的云操作员教程。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/22/2020
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0dc4786e575fac736ec4664d2b8fdd3dcc467466
-ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
+ms.openlocfilehash: 56d2a07b4c13964dc5bdd26aac1bdd9abe9546d3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76516719"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879918"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>在不同 ASDK 环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 
@@ -121,7 +112,7 @@ ms.locfileid: "76516719"
 
 ### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure 门户中，选择“+ 创建资源”。
+1. 在 Azure 门户中，选择 " **+ 创建资源**"。
 2. 中转到 " **Marketplace**"，然后选择 "**网络**"。
 3. 从网络资源列表中，选择 "**虚拟网络网关**"。
 4. 在 "**名称**" 中，输入**GW1**。
@@ -167,7 +158,7 @@ ms.locfileid: "76516719"
 
 若要验证通过 VPN 连接传输的数据，需要使用 Vm 来发送和接收每个 ASDK 中的数据。 立即在 POC1 中创建 VM，然后在虚拟网络中将其放入 VM 子网：
 
-1. 在 Azure 门户中，选择“+ 创建资源”。
+1. 在 Azure 门户中，选择 " **+ 创建资源**"。
 2. 选择 "应用**商店**"，然后选择 "**计算**"。
 3. 在 VM 映像列表中，选择 " **Windows Server 2016 Datacenter Eval** " 映像。
 4. 在 "**基本**信息" 边栏选项卡上的 "**名称**" 中，输入**VM01**。
@@ -209,7 +200,7 @@ ms.locfileid: "76516719"
 
 ### <a name="create-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure 门户中，选择“+ 创建资源”。  
+1. 在 Azure 门户中，选择 " **+ 创建资源**"。  
 2. 中转到 " **Marketplace**"，然后选择 "**网络**"。
 3. 从网络资源列表中，选择 "**虚拟网络网关**"。
 4. 在 "**名称**" 中，输入**GW2**。
@@ -246,7 +237,7 @@ ms.locfileid: "76516719"
 
 现在，在 POC2 中创建一个 VM，并将其放在虚拟网络中的 VM 子网上：
 
-1. 在 Azure 门户中，选择“+ 创建资源”。
+1. 在 Azure 门户中，选择 " **+ 创建资源**"。
 2. 选择 "应用**商店**"，然后选择 "**计算**"。
 3. 在 VM 映像列表中，选择 " **Windows Server 2016 Datacenter Eval** " 映像。
 4. 在 "**基本**信息" 边栏选项卡中，为 "**名称**" 输入**VM02**。
@@ -334,7 +325,7 @@ ms.locfileid: "76516719"
 3. 在 Vm 列表中，找到之前创建的**VM01** ，然后选择它。
 4. 在虚拟机的边栏选项卡上，单击 "**连接**"，然后打开 VM01 文件。
 
-     ![“连接”按钮](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![连接按钮](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 
 5. 用创建 VM 时配置的帐户登录。
 6. 打开提升的**Windows PowerShell**窗口。

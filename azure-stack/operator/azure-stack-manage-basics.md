@@ -1,25 +1,17 @@
 ---
-title: Azure Stack 集线器管理基础知识 |Microsoft Docs
+title: Azure Stack 集线器管理基础知识
 description: 了解 Azure Stack 集线器管理的基础知识。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 0954a318092e075e621c76ba4219030bc37e7ca3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 53515145d4cbc1ad49ca25261ab65ac8bafdfbb5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817323"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882047"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack 集线器管理基础知识
 
@@ -128,7 +120,7 @@ Azure Stack 中心使用 Azure 资源管理器作为其基础部署、管理和�
 
 用户必须订阅作为操作员创建的[产品](azure-stack-subscribe-plan-provision-vm.md)/服务，然后用户才能使用服务。
 
-## <a name="where-to-get-support"></a>获得支持的渠道
+## <a name="where-to-get-support"></a>获取支持的位置
 
 > [!Note]  
 > 若要查找更早版本的 Azure Stack 中心（1905版）的支持信息，请参阅[早期版本 Azure Stack 中心的帮助和支持（1905之前）](azure-stack-servicing-policy.md)。

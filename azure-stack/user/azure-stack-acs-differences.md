@@ -1,26 +1,18 @@
 ---
-title: Azure Stack 集线器存储差异和注意事项 |Microsoft Docs
+title: Azure Stack 集线器存储差异和注意事项
 description: 了解 Azure Stack 中心存储与 Azure 存储之间的差异，以及 Azure Stack 中心部署注意事项。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: dc50320941ab12fbd3f8b6b43f44e5ef9ddc7c45
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 6e5171c105bd806895a04880e0bec0af5fab8855
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535801"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883977"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack 中心存储：差异和注意事项
 

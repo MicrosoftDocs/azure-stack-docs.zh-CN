@@ -1,26 +1,18 @@
 ---
-title: ASDK 发行说明 |Microsoft Docs
+title: ASDK 发行说明
 description: Azure Stack 开发工具包的改进、修复和已知问题（ASDK）。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 2323f13029d4d356ce54b825bab69da5ca21d6ab
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 608374ce5e788a82378aaf9c62414b05d871c983
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993582"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873475"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 

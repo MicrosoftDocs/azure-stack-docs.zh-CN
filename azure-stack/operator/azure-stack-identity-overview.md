@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 中心标识提供者概述 |Microsoft Docs
+title: Azure Stack 中心标识提供者概述
 description: 了解可与 Azure Stack 中心一起使用的标识提供者。
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: patricka
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f8c5fdaa638c7ab5fa0669ffee57611e89c192ff
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b6db553b2c129b1179adde2f53b98dc705077294
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882549"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890283"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Azure Stack 中心标识提供者概述
 

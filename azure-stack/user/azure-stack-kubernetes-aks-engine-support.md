@@ -1,26 +1,18 @@
 ---
-title: Azure Stack 集线器上的 AKS 引擎的支持策略 |Microsoft Docs
+title: Azure Stack 集线器上的 AKS 引擎的支持策略
 description: 本主题包含 Azure Stack 集线器上的 AKS 引擎的支持策略。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 2fda9a71a06e22625778a66a2c553d83e17d8ec2
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7320389f5b8a74b4a8964216c06c9495fe3581b4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883586"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883517"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack 集线器上的 AKS 引擎的支持策略
 

@@ -1,28 +1,18 @@
 ---
-title: Azure Stack 中心概述 |Microsoft Docs
+title: Azure Stack 集线器概述
 description: 概述 Azure Stack 集线器的定义，以及如何使你能够在数据中心内运行 Azure 服务。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/08/2019
 ms.author: justinha
 ms.reviewer: unknown
-ms.custom: ''
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: 1d4b3a3dc094adaac0bc7cfc48d3a7aa54166dc6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d6fa05eb64f749c3d1e2371840b9de1afb8cb7d9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882141"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881656"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack 集线器概述
 

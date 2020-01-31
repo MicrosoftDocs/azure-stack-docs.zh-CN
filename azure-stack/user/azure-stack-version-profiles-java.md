@@ -1,27 +1,18 @@
 ---
-title: 在 Azure Stack Hub 中通过 Java 使用 API 版本配置文件 |Microsoft Docs
+title: 在 Azure Stack Hub 中通过 Java 使用 API 版本配置文件
 description: 了解如何在 Azure Stack Hub 中通过 Java 使用 API 版本配置文件。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 423782113e161360f2f3c4e0dc799d16f8c4ae0a
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: da85abeff55d09684c561679bdc0f85e28440ed7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750433"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884243"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 Java 使用 API 版本配置文件
 

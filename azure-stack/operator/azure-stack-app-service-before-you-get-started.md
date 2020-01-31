@@ -1,27 +1,18 @@
 ---
-title: 在 Azure Stack 中心部署 Azure App Service 的先决条件 |Microsoft Docs
+title: 在 Azure Stack 中心部署 Azure App Service 的先决条件
 description: 了解在 Azure Stack 中心部署 Azure App Service 之前需要完成的先决条件步骤。
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: a1cd98973bede3382790430dd59e434e135701de
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124729"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874750"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署应用服务的先决条件
 
@@ -87,7 +78,7 @@ Azure Stack 集线器上的 Azure App Service 需要[从 Azure Marketplace 下�
 若要创建证书，请执行以下步骤：
 
 1. 使用 AzureStack\AzureStackAdmin 帐户登录到 ASDK 主机。
-2. 打开一个提升的 PowerShell 会话。
+2. 打开提升权限的 PowerShell 会话。
 3. 从提取了帮助程序脚本的文件夹中运行*create-appservicecerts.ps1*脚本。 此脚本在应用服务创建证书所需的脚本所在的同一文件夹中创建四个证书。
 4. 输入用于保护 .pfx 文件的密码，并记下它。 你必须在 Azure Stack Hub 安装程序上的应用服务中输入它。
 
@@ -218,7 +209,7 @@ Azure App Service 要求使用文件服务器。 对于生产部署，必须将�
    - 启用**用户不能更改密码**。
    - 禁用 "**用户在下次登录时必须更改密码**"。
 
-3. 将这些帐户添加到组成员身份，如下所示：
+3. 将帐户添加到组成员身份，如下所示：
 
    - 将**FileShareOwner**添加到**FileShareOwners**组。
    - 将**FileShareUser**添加到**FileShareUsers**组。
@@ -259,7 +250,7 @@ Azure App Service 要求使用文件服务器。 对于生产部署，必须将�
 
 #### <a name="provision-the-content-share-on-a-single-file-server-active-directory-or-workgroup"></a>在单个文件服务器（Active Directory 或工作组）上设置内容共享
 
-在一个文件服务器上，在提升了权限的命令提示符下运行以下命令。 将 `C:\WebSites` 的值替换为你的环境中的相应路径。
+在单个文件服务器上，在提升的命令提示符下运行以下命令。 将 `C:\WebSites` 的值替换为你的环境中的相应路径。
 
 ```DOS
 set WEBSITES_SHARE=WebSites
@@ -314,7 +305,7 @@ Azure Stack 中心的 Azure App Service 的 SQL Server 实例必须可从所有�
 > [!NOTE]
 > 许多 SQL IaaS 虚拟机映像可通过 Marketplace 管理功能获得。 在使用 Marketplace 项部署 VM 之前，请确保始终下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL Vm 相同。 对于基于这些映像创建的 SQL Vm，IaaS 扩展和对应的门户增强功能提供了一些功能，例如自动修补和备份功能。
 >
-> 对于任何 SQL Server 角色，均可使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务，然后打开端口1434。
+> 对于任何 SQL Server 角色，可以使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务，然后打开端口1434。
 
 应用服务安装程序将进行检查以确保 SQL Server 已启用数据库包含。 若要在将承载应用服务数据库的 SQL Server 上启用数据库包含，请运行以下 SQL 命令：
 

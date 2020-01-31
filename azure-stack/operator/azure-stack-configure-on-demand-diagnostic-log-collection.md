@@ -1,27 +1,18 @@
 ---
-title: 按需收集 Azure Stack 集线器诊断日志 |Microsoft Docs
+title: 按需收集 Azure Stack 集线器诊断日志
 description: 了解如何使用帮助和支持或特权终结点（PEP）在 Azure Stack 集线器中按需收集诊断日志。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: bb7fc0488ea264a83cc93e071b044e6443e97630
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 759edb6cf4f106e59a1b847cb4dcafd4450665da
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256336"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890079"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>按需收集 Azure Stack 集线器诊断日志
 
@@ -178,7 +169,7 @@ if ($session) {
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
   |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |Cacheservice.provider                   |IBC                            |OEM                       |WAS            |
+  |ACSBlob               |Cacheservice.provider                   |IBC                            |OEM                       |尝试            |
   |ACSDownloadService    |计算                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 

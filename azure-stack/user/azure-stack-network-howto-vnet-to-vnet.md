@@ -1,20 +1,18 @@
 ---
-title: 如何通过 VNET 对等互连连接两个 Azure Stack 集线器 |Microsoft Docs
+title: 如何通过 VNET 对等互连连接两个 Azure Stack 集线器
 description: 了解如何通过 VNET 对等互连连接两个 Azure Stack 集线器。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: af60e71ef9143e1ca5b51fa07aeed100369faa45
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 83d52af03f33a01ccdf1b065ea1f59d7842f4cda
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536566"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883397"
 ---
 # <a name="connect-two-vnets-through-peering"></a>通过对等互连连接两个 Vnet
 
@@ -106,7 +104,7 @@ ms.locfileid: "76536566"
 
 10.  选择“创建”。
 
-部署将需要大约 10 分钟。
+部署需要大约10分钟。
 
 ## <a name="configure-routes-udrs-for-each-vnet"></a>为每个 VNET 配置路由（Udr）
 

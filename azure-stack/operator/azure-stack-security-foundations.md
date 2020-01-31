@@ -2,26 +2,18 @@
 title: Azure Stack 中心安全控制
 titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack 中心应用的安全状况和控制。
-services: azure-stack
-documentationcenter: ''
 author: JustinHall
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: f61e7340c766f50f71bc41db7afa5bc079c53c7d
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: 396db14d269ee9443d38f8220e5dd0384d04a479
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145795"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881305"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack 中心基础结构安全控制
 
@@ -93,7 +85,7 @@ Azure Stack 中心中的管理由三个入口点控制，每个入口点都有�
 - Azure 资源管理器通过 PowerShell 和 Azure CLI 使用的 REST API 公开管理员门户的所有管理操作。
 - 对于特定的低级别操作（例如，数据中心集成或支持方案），Azure Stack 集线器公开了称为[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组列表中的一组 cmdlet，并进行大量审核。
 
-## <a name="network-controls"></a>网络控制
+## <a name="network-controls"></a>网络控件
 
 Azure Stack 集线器基础结构附带了多层网络访问控制列表（ACL）。 Acl 可防止对基础结构组件进行未经授权的访问，并将基础结构通信限制为仅适用于其正常运行所需的路径。
 

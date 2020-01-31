@@ -1,32 +1,23 @@
 ---
-title: 从 Azure Stack 中心按需清除 "门户用户数据"。 | Microsoft Docs
+title: 从 Azure Stack 中心按需清除 "门户用户数据"。
 description: 作为 Azure Stack 中心操作员，请了解当 Azure Stack 中心用户请求时如何清除门户用户数据。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.date: 09/10/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: ac28a67f7b1409ebc5a786a88e8b9702df94c2ff
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: c632161c32f6a20b7f9943df191ab0f0c0158720
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022768"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881624"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>从 Azure Stack 中心清除门户用户数据
 
-Azure Stack 中心操作员可以在 Azure Stack 集线器用户请求时按需清除门户用户数据。 作为 Azure Stack 中心用户，可以通过固定磁贴和更改仪表板布局来自定义门户。 用户还可以更改主题，并调整默认语言以匹配个人首选项。 
+Azure Stack 中心操作员可以在 Azure Stack 集线器用户请求时按需清除门户用户数据。 作为 Azure Stack 中心用户，可以通过固定磁贴和更改仪表板布局来自定义门户。 用户还可以更改主题，并调整默认语言以匹配个人首选项。
 
 门户用户数据包括 Azure Stack 集线器用户门户中的收藏夹和最近访问的资源。 本文介绍如何清除门户用户数据。
 
@@ -59,7 +50,7 @@ Azure Stack 中心操作员可以在 Azure Stack 集线器用户请求时按需�
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
    ```
 
-2. 运行以下命令。 请确保将占位符替换为与环境匹配的值。
+2. 运行以下命令。 请确保将占位符替换为与环境匹配的值：
 
    ```powershell
    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.

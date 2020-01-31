@@ -1,27 +1,18 @@
 ---
-title: 在 Azure Stack Hub 中通过 .NET 使用 API 版本配置文件 |Microsoft Docs
+title: 在 Azure Stack 集线器中将 API 版本配置文件与 .NET 配合使用
 description: 了解如何在 Azure Stack 集线器中将 API 版本配置文件与 .NET SDK 一起使用。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 3af8a06f10322df67d80c489e1d19a7805dd8b2c
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 6f8220f9a8683569c23460acf2890c9aa8407f30
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256387"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883087"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 API 版本配置文件与 .NET 配合使用
 
@@ -34,7 +25,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
 - 若要使用所有服务的最新版本，请使用包的 **latest** 配置文件。 该配置文件是 **Microsoft.Azure.Management** NuGet 包的一部分。
 
 - 若要使用与 Azure Stack 中心兼容的服务，请使用以下包之一：
-  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
   - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
   确保将上述 NuGet 包的 **ResourceProvider** 部分更改为正确的提供程序。
@@ -53,9 +44,9 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
 
 - 需要安装的包取决于要使用的配置文件版本。 配置文件版本的包名称如下：
 
-   - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-   - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 - 若要安装 Visual Studio Code 的正确 NuGet 包，请查看此下载链接：[NuGet 包管理器说明][]。
 
@@ -85,7 +76,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
 若要在 Windows 命令提示符中设置环境变量，请使用以下格式：
 
 ```shell
-Set Azure_Tenant_ID=Your_Tenant_ID
+set Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>基于 MacOS、Linux 和 Unix 的系统
@@ -93,7 +84,7 @@ Set Azure_Tenant_ID=Your_Tenant_ID
 在基于 Unix 的系统中，使用以下命令：
 
 ```shell
-Export Azure_Tenant_ID=Your_Tenant_ID
+export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Azure Stack 中心资源管理器终结点

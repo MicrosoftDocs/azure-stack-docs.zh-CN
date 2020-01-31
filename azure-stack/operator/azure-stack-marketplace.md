@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 中心市场概述 |Microsoft Docs
+title: Azure Stack 中心市场概述
 description: Azure Stack 中心市场和 Marketplace 项的概述。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: aea624bc47dec82133e3a438c21f984509492ceb
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 4be33d9d12fe8f677a335f10f3b84b36433495d1
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882277"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890096"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Azure Stack 中心市场概述
 

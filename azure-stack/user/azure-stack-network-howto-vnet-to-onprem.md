@@ -1,20 +1,18 @@
 ---
-title: 为 Azure Stack 中心设置 VPN 网关 |Microsoft Docs
+title: 设置 Azure Stack 集线器的 VPN 网关
 description: 了解如何为 Azure Stack 集线器设置 VPN 网关。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 8b15be476153f2cc3fa01788814801bb751c9a9c
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 19056b0ad37511e75d462c201190c8e2f3a606e0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259845"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883376"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>使用 FortiGate NVA 设置 Azure Stack 集线器的 VPN 网关
 
@@ -96,7 +94,7 @@ ms.locfileid: "76259845"
 
 6. 选择“创建”。
 
-    部署将需要大约 10 分钟。
+    部署需要大约10分钟。
 
 ## <a name="configure-routes-udr-for-the-vnet"></a>为 VNET 配置路由（UDR）
 

@@ -1,25 +1,17 @@
 ---
-title: 将服务主体凭据存储在 Azure Stack 中心 Key Vault |Microsoft Docs
+title: 将服务主体凭据存储在 Azure Stack 中心 Key Vault
 description: 了解 Key Vault 如何在 Azure Stack 集线器上存储服务主体凭据
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a953666396b89706b935b73abea0b4d42c1dcc1a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6c2943565ca750176bc3bba4ca28084a2b8b100e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820264"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883555"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>将服务主体凭据存储在 Azure Stack 中心 Key Vault
 

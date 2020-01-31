@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 集线器容量规划计算 |Microsoft Docs
+title: Azure Stack 集线器容量规划计算
 description: 了解 Azure Stack 中心部署的容量规划。
-services: azure-stack
-documentationcenter: ''
-author: prchint
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 07/16/2019
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 7b91a03f54ed63c49ff18664818133c24c005557
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: fc4fa70b21f3af47ba2a23894d8bc2b4e2233b17
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815113"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890045"
 ---
 # <a name="azure-stack-hub-compute"></a>Azure Stack 中心计算
 
@@ -30,7 +21,7 @@ Azure Stack 集线器上支持的 VM 大小是 Azure 上支持的[VM 大小](htt
 >[!IMPORTANT]
 >[Azure Stack 中心 Capacity Planner](https://aka.ms/azstackcapacityplanner)不考虑或保证 IOPS 性能。
 
-## <a name="vm-placement"></a>VM 放置
+## <a name="vm-placement"></a>VM 位置
 
 Azure Stack 集线器位置引擎将租户 Vm 放置在可用的主机上。
 

@@ -1,26 +1,18 @@
 ---
-title: 升级 Azure Stack 集线器上的 Kubernetes 群集 |Microsoft Docs
+title: 升级 Azure Stack 集线器上的 Kubernetes 群集
 description: 了解如何在 Azure Stack 集线器上升级 Kubernetes 群集。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: de2774a9cdbdbc8461b05db5dbf1f80b0854fbc7
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 9a1a9f4d5edcd7446d980489cfd475db51ed5d07
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883603"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883459"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>升级 Azure Stack 集线器上的 Kubernetes 群集
 
@@ -36,7 +28,7 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 
 -   Kubernetes
 -   Azure Stack 中心 Kubernetes 提供程序
--   基操作系统
+-   基本操作系统
 
 升级生产群集时，请考虑以下事项：
 

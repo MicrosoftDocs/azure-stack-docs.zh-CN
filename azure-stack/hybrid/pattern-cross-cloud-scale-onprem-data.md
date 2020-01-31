@@ -2,18 +2,17 @@
 title: 用于构建应用的模式，该应用可在 Azure 和 Azure Stack 集线器上使用本地数据缩放跨云。
 description: 了解如何使用 Azure 和 Azure Stack 中心来构建使用本地数据的可伸缩跨云应用。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fbf25d49539ebe244b44681ca3207badf744b99b
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 51224171848b6109a7cd3d8eb2d5fa1fdcb70973
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718277"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875770"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>跨云缩放（本地数据）模式
 

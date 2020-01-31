@@ -1,20 +1,18 @@
 ---
-title: 在 Azure Stack 集线器上部署高度可用的网络虚拟设备 |Microsoft Docs
+title: 在 Azure Stack 集线器上部署高度可用的网络虚拟设备
 description: 了解如何在 Azure Stack 集线器上部署高度可用的网络虚拟设备。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 5bf9434b14c7dfb4abdbe295339c02eb320323ae
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: cdcf4eca724e4b8b215b0fcb32e2b81969ef10d0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815487"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884150"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署高度可用的网络虚拟设备
 

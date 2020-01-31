@@ -2,27 +2,18 @@
 title: 启动和停止
 titleSuffix: Azure Stack Hub
 description: 了解如何启动和停止 Azure Stack 集线器。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: b78b87065977b3517e91fd27ba5208333de2a77a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 3f3493d55d524de7c292f0052cc20d26b2fccc28
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75814263"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881197"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>启动和停止 Azure Stack 集线器
 

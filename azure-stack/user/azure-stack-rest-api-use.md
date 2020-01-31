@@ -1,25 +1,18 @@
 ---
-title: 向 Azure Stack 集线器发出 API 请求 |Microsoft Docs
+title: 向 Azure Stack 集线器发出 API 请求
 description: 了解如何从 Azure 中检索身份验证，以便向 Azure Stack 集线器发出 API 请求。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 4e3f118114a87fbfc279634d68fccb93687cb20b
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: 45dd07337aef61a1fcfecb855e0c113315b15271
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750484"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883209"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 

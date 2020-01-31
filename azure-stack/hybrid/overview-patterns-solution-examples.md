@@ -2,18 +2,17 @@
 title: 适用于 Azure 和 Azure Stack 的混合模式和解决方案示例
 description: 混合模式和解决方案示例的概述，有助于在 Azure 和 Azure Stack 上学习和构建混合解决方案。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 82f933babd0be4c001bd3001a631a4345bd0e488
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 7b0eedab9981556c06b3f0d102e376b0eb519256
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718056"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875753"
 ---
 # <a name="hybrid-patterns-and-solution-examples-for-azure-and-azure-stack"></a>适用于 Azure 和 Azure Stack 的混合模式和解决方案示例
 

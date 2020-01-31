@@ -1,28 +1,18 @@
 ---
-title: 使用社区模板创建 VM |Microsoft Docs
+title: 使用社区模板创建 VM
 description: 了解如何使用 Azure Stack 开发工具包（ASDK）通过预定义模板和 GitHub 自定义模板来创建 VM。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 962751cbe933963c6bed1be861897f618f841e34
-ms.sourcegitcommit: ea90ddcae07857ee4f77670891ac7814da8bdc17
+ms.openlocfilehash: ab2a177c9e2edc1b0362b03023148072fb885fb9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2020
-ms.locfileid: "76750535"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883880"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>教程：使用社区模板创建 VM
 

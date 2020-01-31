@@ -1,26 +1,18 @@
 ---
-title: 使用 PowerShell 以用户身份连接到 Azure Stack 集线器 |Microsoft Docs
+title: 使用 PowerShell 以用户身份连接到 Azure Stack 集线器
 description: 了解如何通过 PowerShell 连接到 Azure Stack 集线器。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 98b5cad057ae8a231569cfa7348cb9df16591ff4
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: d7667ed91cb3ebde2b74d05b655e3ff880685d98
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536022"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884540"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>使用 PowerShell 以用户身份连接到 Azure Stack 集线器
 

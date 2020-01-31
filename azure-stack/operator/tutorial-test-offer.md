@@ -3,17 +3,16 @@ title: 测试 Azure Stack 中心服务产品。
 description: 了解如何通过创建订阅和部署资源来测试服务产品。
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: fd14a6099c9906a0b37c8227164b213235dcfee3
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c44f5b06c034a65a79ddd8098b9abc8e220ea5b9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75820927"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885090"
 ---
 # <a name="tutorial-test-a-service-offering"></a>教程：测试服务产品
 
@@ -80,7 +79,7 @@ ms.locfileid: "75820927"
 1. 选择 " **+ 创建资源**" >**计算**> **\<映像名称\>** ，其中 "映像名称" 是你在 "先决条件" 中下载的虚拟机的名称。
 1. 在 "**创建虚拟机**/**基础知识**中，提供以下信息：
   
-   - 输入 VM 的“名称”。
+   - 输入 VM 的**名称**。
    - 输入管理员帐户的**用户名**。
    - 对于 Linux Vm，请选择 "密码" 作为 "**身份验证类型**"。
    - 为管理员帐户输入密码，并为 "**确认密码**" 输入相同的**密码**。

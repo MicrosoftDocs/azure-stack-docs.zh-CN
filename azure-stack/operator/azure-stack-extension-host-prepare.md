@@ -1,22 +1,18 @@
 ---
-title: 准备 Azure Stack 集线器中的扩展主机 |Microsoft Docs
+title: 准备 Azure Stack 集线器中的扩展主机
 description: 了解如何在 Azure Stack Hub 中准备扩展主机，该主机在1808版后通过 Azure Stack 中心更新包自动启用。
-services: azure-stack
-keywords: ''
-author: mattbriggs
-ms.author: mabrigg
+author: ihenkel
+ms.author: inhenkel
 ms.date: 1/22/2020
 ms.topic: article
-ms.service: azure-stack
 ms.reviewer: thoroet
-manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 070e7bd8a933b3d04185b40f322931ea60f3bbae
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c28f47930ea7fa9913ae339ea379562477694492
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535461"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882263"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>准备 Azure Stack 集线器中的扩展主机
 

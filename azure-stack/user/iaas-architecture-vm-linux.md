@@ -1,20 +1,18 @@
 ---
-title: 在 Azure Stack 集线器上运行 Linux 虚拟机 |Microsoft Docs
+title: 在 Azure Stack 集线器上运行 Linux 虚拟机
 description: 了解如何在 Azure Stack 集线器上运行 Linux 虚拟机。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 8667274e6684af407ca503c25b2e2348a7649134
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 97f1b58fc1d36a9cd3f26875625c2ae7ea67abdc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023154"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885321"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>在 Azure Stack 集线器上运行 Linux 虚拟机
 

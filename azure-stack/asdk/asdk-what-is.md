@@ -1,30 +1,20 @@
 ---
-title: 什么是 Azure Stack 集线器开发工具包（ASDK）？ | Microsoft Docs
-description: 了解 Azure Stack 集线器开发工具包以及如何使用它来评估 Azure Stack 中心。
-services: azure-stack
-documentationcenter: ''
+title: 什么是 Azure Stack 开发工具包（ASDK）？ | Microsoft Docs
+description: 了解 Azure Stack 开发工具包以及如何使用它来评估 Azure Stack 中心。
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
 ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: fb9dab302e20d436be7f3cf9a76de913bbfe22e3
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689828"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873288"
 ---
-# <a name="what-is-the-azure-stack-hub-development-kit-asdk"></a>什么是 Azure Stack 集线器开发工具包（ASDK）？
+# <a name="what-is-the-azure-stack-development-kit-asdk"></a>什么是 Azure Stack 开发工具包（ASDK）？
 [Microsoft Azure Stack 集线器集成系统](../operator/azure-stack-overview.md)的大小范围是4-16 个节点，由硬件合作伙伴和 Microsoft 共同支持。 使用 Azure Stack 集线器集成系统为生产工作负荷启用新方案。 如果你是管理集成系统基础结构并提供服务的 Azure Stack 中心操作员，请参阅我们的[操作员文档](/azure-stack/operator)。
 
 ASDK 是 Azure Stack 集线器的单节点部署，可以**免费**下载和使用。 所有 ASDK 组件都安装在一台主机上运行的虚拟机（Vm）中，该计算机必须满足或超过[最低硬件要求](asdk-deploy-considerations.md#hardware)。 ASDK 旨在提供一个环境，在该环境中，你可以在*非生产*环境中使用与 Azure 一致的 api 和工具来评估 Azure Stack 中心和开发新式应用。 
@@ -46,7 +36,7 @@ ASDK 旨在提供 Azure 一致的混合云体验：
 ## <a name="asdk-and-multi-node-azure-stack-hub-differences"></a>ASDK 和多节点 Azure Stack 集线器差异
 单节点 ASDK 部署与多节点 Azure Stack 集线器部署的不同之处在于：
 
-|描述|ASDK|多节点 Azure Stack 集线器|
+|Description|ASDK|多节点 Azure Stack 集线器|
 |-----|-----|-----|
 |**缩放**|所有组件都安装在单节点服务器计算机上。|范围可以是4-16 个节点的大小。|
 |**复原能力**|单节点配置不提供高可用性|支持高可用性功能。|
@@ -62,7 +52,7 @@ ASDK 旨在提供 Azure 一致的混合云体验：
 默认情况下，在部署 ASDK 时，Azure Stack 中心包含以下 "基础服务"：
 - 计算
 - 存储空间
-- 网络
+- 联网
 - Key Vault
 
 使用这些基础服务，可以使用最小配置向用户提供基础结构即服务（IaaS）。

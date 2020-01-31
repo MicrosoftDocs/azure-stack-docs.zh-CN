@@ -1,26 +1,18 @@
 ---
-title: 在 Azure Stack Hub 中创建 VM 磁盘存储 |Microsoft Docs
+title: 在 Azure Stack 集线器中创建虚拟机磁盘存储
 description: 在 Azure Stack 集线器中为虚拟机创建磁盘。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 66147be9158726ab9ba01d011ba0fa2fd8f141bc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: a6f728e69eacab25941ef0640a35243d390fa4c7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883501"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883476"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>在 Azure Stack 集线器中创建虚拟机磁盘存储
 
@@ -90,7 +82,7 @@ ms.locfileid: "75883501"
    * 选择**帐户类型**。
       ![示例：将新磁盘附加到 vm](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-      **高级·SSD**  
+      **高级 SSD**  
       高级磁盘（SSD）由固态硬盘支持，并提供一致的低延迟性能。 它们在价格与性能之间提供最佳平衡，适用于 i/o 密集型应用程序和生产工作负荷。
 
       **标准 HDD**  
@@ -303,7 +295,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName -Vhd
 ```
 
 
-#### <a name="create-new-virtual-machine"></a>新建虚拟机
+#### <a name="create-new-virtual-machine"></a>创建新虚拟机
 使用以下 PowerShell 命令设置 OS 映像，将网络配置添加到 VM，然后启动新的 VM。
 
 ```powershell

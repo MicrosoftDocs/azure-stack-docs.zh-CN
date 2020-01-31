@@ -1,28 +1,18 @@
 ---
-title: Azure Stack 中心和全球 Azure 比较 |Microsoft Docs
+title: Azure Stack 中心与全局 Azure 的比较
 description: 了解 Microsoft 如何在一个 Azure 生态系统中提供 Azure 和 Azure Stack 中心服务系列
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
-ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 2d350bedd88ba5c3d04b29f833a17bdd19705f05
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: 3ddcedc92265147cd4e87ebabf2ad48986b9ad8d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145846"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880020"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>全局 Azure、Azure Stack 集线器和 Azure Stack HCI 之间的差异
 
@@ -34,7 +24,7 @@ Microsoft 在一个 Azure 生态系统中提供 Azure 和 Azure Stack 中心服�
 
 ## <a name="global-azure"></a>全球 Azure
 
-Microsoft Azure 是一个不断扩展的云服务集合，它可以帮助组织应对各种商业挑战。 借助它，你能够使用自己喜欢的工具和框架在大规模全球性网络上随意生成、管理和部署应用程序。
+Microsoft Azure 是一个不断扩展的云服务集合，它可以帮助组织应对各种商业挑战。 使用最喜欢的工具和框架，可以自由地在大规模全局网络上生成、管理和部署应用程序。
 
 全球 Azure 提供在全球54地区提供的100多个服务。 有关全球 Azure 服务的最新列表，请参阅[*可用产品（按区域*](https://azure.microsoft.com/regions/services)）。 Azure 中提供的服务按类别列出，还可以通过预览版公开发布或提供。
 
@@ -85,7 +75,7 @@ Azure Stack HCI 提供由 Hyper-v 和 Windows Server 2019 软件定义数据中�
 - Azure 站点恢复
 - Azure Monitor 和更新
 
-如需可以与 Azure Stack HCI 连接的 Azure 服务的更新列表，请参阅 [Connecting Windows Server to Azure hybrid services](https://docs.microsoft.com/windows-server/azure-hybrid-services/index)（将 Windows Server 连接到 Azure 混合服务）。
+有关可以 Azure Stack HCI 连接到的 Azure 服务的更新列表，请参阅将[Windows Server 连接到 Azure 混合服务](https://docs.microsoft.com/windows-server/azure-hybrid-services/index)。
 
 ### <a name="example-use-cases-for-azure-stack-hci"></a>Azure Stack HCI 的示例用例
 - 远程或分支机构系统

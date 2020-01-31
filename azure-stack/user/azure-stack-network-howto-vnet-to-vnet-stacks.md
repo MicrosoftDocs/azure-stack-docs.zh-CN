@@ -1,20 +1,18 @@
 ---
-title: 如何使用 Fortinet FortiGate NVA 在 Azure Stack 集线器中建立 vnet 到 VNET 的连接 |Microsoft Docs
+title: 如何使用 Fortinet FortiGate NVA 在 Azure Stack 集线器中建立 vnet 到 VNET 的连接
 description: 了解如何使用 Fortinet FortiGate NVA 在 Azure Stack 集线器中建立 vnet 到 VNET 的连接
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 51fd6ffa23cff44967c31e5d66716bd5634861e0
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: c39285cec673a7274304cb2dbe1179e5478ddc7d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536090"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884599"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>在 Fortinet FortiGate NVA 的 Azure Stack 集线器中建立 vnet 到 VNET 的连接
 
@@ -114,7 +112,7 @@ ms.locfileid: "76536090"
 
 9. 选择“创建”。
 
-部署将需要大约 10 分钟。 你现在可以重复这些步骤，在其他 Azure Stack 中心环境中创建其他 FortiGate NVA 和 VNET 部署。
+部署需要大约10分钟。 你现在可以重复这些步骤，在其他 Azure Stack 中心环境中创建其他 FortiGate NVA 和 VNET 部署。
 
 ## <a name="configure-routes-udrs-for-each-vnet"></a>为每个 VNET 配置路由（Udr）
 

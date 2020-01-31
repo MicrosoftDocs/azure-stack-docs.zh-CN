@@ -1,25 +1,18 @@
 ---
-title: Azure Stack 集线器中的配置文件支持的资源提供程序 API 版本 |Microsoft Docs
+title: Azure Stack 集线器中的配置文件支持的资源提供程序 API 版本
 description: 了解 Azure Stack 中心中的配置文件支持的 Azure 资源管理器 API 版本。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: ca8b1dc5fd3b8f7f029498145a692b7a8414c053
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 03ec8b455991a85515793d1098df0f72497299b9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727490"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883302"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Azure Stack 集线器中的配置文件支持的资源提供程序 API 版本
 
@@ -82,7 +75,7 @@ API 配置文件使用三个命名约定：
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-Azure 计算 API 提供对虚拟机及其支持的资源的编程式访问。 有关详细信息，请参阅[Azure 计算](/rest/api/compute/)。
+Azure 计算 Api 允许以编程方式访问虚拟机及其支持资源。 有关详细信息，请参阅[Azure 计算](/rest/api/compute/)。
 
 | 资源类型 | API 版本 |
 |---------------------------------------------------------------|-------------|
@@ -122,7 +115,7 @@ Azure 计算 API 提供对虚拟机及其支持的资源的编程式访问。 �
 | 活动类型 | 2015-04-01 |
 | 事件类别 | 2015-04-01 |
 | 指标定义 | 2018-01-01 |
-| 度量值 | 2018-01-01 |
+| 指标 | 2018-01-01 |
 | 诊断设置 | 2017-05-01-预览 |
 | 诊断设置类别 | 2017-05-01-预览 |
 

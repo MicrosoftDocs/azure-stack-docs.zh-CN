@@ -2,27 +2,18 @@
 title: Azure Stack 中心 SQL 资源提供程序1.1.30.0 发行说明
 titleSuffix: Azure Stack Hub
 description: 查看 Azure Stack 中心 SQL 资源提供程序1.1.30.0 更新的发行说明。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: e6baccbd3ae7f2fe01c1ace47ff809d2d1006158
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 07abcb71715c3078887e00c89f5eac53f5f98def
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534203"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882865"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL 资源提供程序 1.1.30.0 发行说明
 

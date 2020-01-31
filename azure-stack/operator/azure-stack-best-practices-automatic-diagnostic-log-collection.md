@@ -1,27 +1,18 @@
 ---
-title: 自动 Azure Stack 中心日志收集的最佳实践 |Microsoft Docs
+title: 自动 Azure Stack 中心日志收集的最佳实践
 description: Azure Stack 中心帮助 + 支持中自动收集日志的最佳做法
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 7baa7440fec1c29ee43c5d3f80282bd6a58a3242
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 56af62717b4cd32d7a5130d1d324bd40bf61adb9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883025"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878422"
 ---
 # <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>自动 Azure Stack 中心日志收集的最佳实践 
 
@@ -62,7 +53,7 @@ ms.locfileid: "75883025"
 |--------------------|--------|
 | 低带宽/高延迟连接 | 日志上传需要较长的时间才能完成 | 
 | 共享连接 | 上传还可能会影响共享网络连接的其他应用程序/用户 |
-| 按流量计费的连接 | 你的 ISP 可能会额外收取额外的网络使用量 |
+| 计量连接 | 你的 ISP 可能会额外收取额外的网络使用量 |
 
 
 ## <a name="managing-costs"></a>管理成本

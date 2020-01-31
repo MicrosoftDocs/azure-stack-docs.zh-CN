@@ -1,26 +1,18 @@
 ---
-title: 向 Azure 报告 Azure Stack 集线器使用情况数据 |Microsoft Docs
+title: 向 Azure 报告 Azure Stack 集线器使用情况数据
 description: 了解如何在 Azure Stack Hub 中设置使用情况数据报告。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 17cb3b649e253f610c30b7c6e10b442498340242
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 195491ebd67f1e7741a793278b316bab028c4471
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812988"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882665"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 集线器使用情况数据
 

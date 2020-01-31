@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 中心数据中心集成演练 |Microsoft Docs
+title: Azure Stack 中心数据中心集成演练
 description: 从规划到后期部署开始，了解你的数据中心内成功的现场部署 Azure Stack。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 11/07/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: e5175c11887d3a9afec2c7887f56b605b159f84f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6711483384ba9985ced7396d19e025e0ed3240c6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75818428"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882504"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack 中心数据中心集成演练
 
@@ -77,10 +68,10 @@ Microsoft 或 Azure Stack 中心解决方案合作伙伴将有助于评估你的
 
 使用[Azure Stack 中心 Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)调查和分析最佳硬件容量和配置，满足你的需求。 
 
-## <a name="ordering"></a>中间件排序
+## <a name="ordering"></a>订购
 你的组织承诺购买 Azure Stack 中心、签署合同和采购订单，并向解决方案提供商提供集成要求数据。
 
-## <a name="pre-deployment"></a>部署前
+## <a name="pre-deployment"></a>预先部署
 你决定如何将 Azure Stack 集线器集成到你的数据中心。 Microsoft 与解决方案提供商合作发布[部署工作表](azure-stack-deployment-worksheet.md)，以帮助您收集必要的信息。
 "[常规数据中心集成注意事项](azure-stack-datacenter-integration.md)" 一文提供的信息可帮助你完成模板（称为 "部署工作表"）。
 

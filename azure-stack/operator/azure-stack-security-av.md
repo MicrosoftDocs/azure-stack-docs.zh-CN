@@ -2,21 +2,18 @@
 title: 更新 Windows Defender 防病毒
 titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack 集线器上更新 Windows Defender 防病毒
-services: azure-stack
 author: justinha
-manager: femila
-ms.service: azure-stack
 ms.topic: article
 ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: a631d700bc83e4fabeca4472f5d2a81c411ddc9b
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 36b85d9259e951264abc8f4489f2b5b31be5b71b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75821080"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882934"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>更新 Azure Stack 集线器上的 Windows Defender 防病毒
 

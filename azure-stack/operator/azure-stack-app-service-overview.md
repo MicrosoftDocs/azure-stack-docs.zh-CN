@@ -1,26 +1,18 @@
 ---
-title: Azure App Service Azure Stack 概述 |Microsoft Docs
+title: Azure Stack 概述上的 Azure App Service
 description: Azure Stack 中心的 Azure App Service 和 Azure Functions 的概述。
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 2b39b4e7bf8f4b7d3e24d2547e187b7e5d81c728
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: 76acf85ac6bdfa1576416a9fc583463a71ad95d8
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124746"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876110"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Azure Stack 中心概述的 Azure App Service 和 Azure Functions 概述
 

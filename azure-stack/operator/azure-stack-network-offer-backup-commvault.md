@@ -1,26 +1,18 @@
 ---
-title: 将 Commvault 添加到 Azure Stack 中心市场 |Microsoft Docs
+title: 将 Commvault 添加到 Azure Stack 中心市场
 description: 了解如何将 Commvault 添加到 Azure Stack 中心市场。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 9338a8d8b088f17c9f150e21959f78306108303f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d2d12e032e639cb9b272affb4beed3a3a439b2cb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882158"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881702"
 ---
 # <a name="add-commvault-to-the-azure-stack-hub-marketplace"></a>将 Commvault 添加到 Azure Stack 中心市场
 

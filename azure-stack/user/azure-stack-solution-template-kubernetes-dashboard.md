@@ -1,26 +1,18 @@
 ---
-title: 访问 Azure Stack 集线器中的 Kubernetes 仪表板 |Microsoft Docs
+title: 访问 Azure Stack 集线器中的 Kubernetes 仪表板
 description: 了解如何访问 Azure Stack 集线器中的 Kubernetes 仪表板
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 3a101150ee8dd931a4c13ba68225cfc3785352f4
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: af3b8b9b0049782aa401c4ce7c6e872b4e07e852
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535937"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884376"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>访问 Azure Stack 集线器中的 Kubernetes 仪表板 
 

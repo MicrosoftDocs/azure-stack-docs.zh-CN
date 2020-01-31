@@ -2,18 +2,17 @@
 title: 部署使用 Azure 和 Azure Stack 中心缩放跨云的应用
 description: 了解如何使用 Azure 和 Azure Stack 中心部署可缩放跨云的应用。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3a8edb749ba995636f8e2fe626063ff4c495bb7b
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dc615786a23295468e173c3ce13b46cb308b8215
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881750"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875617"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>部署使用 Azure 和 Azure Stack 中心缩放跨云的应用
 
@@ -236,7 +235,7 @@ Azure Pipelines 和 Azure DevOps Services 为发布到多个环境（例如开�
 
 3.  在**VSTS 组**中，选择 "**终结点创建者**"。
 
-4.  在“成员”选项卡上，选择“添加”。
+4.  在 "**成员**" 选项卡上，选择 "**添加**"。
 
 5.  在 "**添加用户和组**" 中，输入用户名并从用户列表中选择该用户。
 
@@ -244,7 +243,7 @@ Azure Pipelines 和 Azure DevOps Services 为发布到多个环境（例如开�
 
 7.  在 " **VSTS 组**" 列表中，选择 "**终结点管理员**"。
 
-8.  在“成员”选项卡上，选择“添加”。
+8.  在 "**成员**" 选项卡上，选择 "**添加**"。
 
 9.  在 "**添加用户和组**" 中，输入用户名并从用户列表中选择该用户。
 

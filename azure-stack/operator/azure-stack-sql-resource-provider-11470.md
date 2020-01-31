@@ -1,27 +1,18 @@
 ---
-title: Azure Stack 中心 SQL 资源提供程序1.1.47.0 发行说明 |Microsoft Docs
+title: Azure Stack 中心 SQL 资源提供程序1.1.47.0 发行说明
 description: 了解最新 Azure Stack 中心 SQL 资源提供程序更新中的内容，包括任何已知问题以及下载位置。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 758390e9190e75125bad5701b810af08456f2efc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 1210b537d36d4be5c31f596bde589afa9b3cadfa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881869"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882841"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>SQL 资源提供程序1.1.47.0 发行说明
 

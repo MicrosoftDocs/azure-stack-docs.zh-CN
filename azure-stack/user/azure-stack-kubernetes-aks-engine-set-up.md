@@ -1,26 +1,18 @@
 ---
-title: 在 Azure Stack Hub 上设置 AKS 引擎的先决条件 |Microsoft Docs
+title: 设置 Azure Stack 集线器上的 AKS 引擎的先决条件
 description: 建立在 Azure Stack 集线器上运行 ASK Engine 的要求。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 1516b07cc491ca365f5bc87ad584960818bb537d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 340b0e9b2b6f4ece2629968128b872282e88c2c0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879608"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884750"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>设置 Azure Stack 集线器上的 AKS 引擎的先决条件
 

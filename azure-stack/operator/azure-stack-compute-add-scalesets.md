@@ -1,22 +1,18 @@
 ---
-title: 使虚拟机规模集在 Azure Stack Hub 中可用 |Microsoft Docs
+title: 使虚拟机规模集在 Azure Stack 中心可用
 description: 了解云操作员如何将虚拟机规模集添加到 Azure Stack 中心市场。
-services: azure-stack
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: dcd4f1d6ff9eaae4dce629ce576495e3304403aa
-ms.sourcegitcommit: ecb541f53255c6a4433724ad2d20fb93c4720ce1
+ms.openlocfilehash: 7474b18a1d50c6ab8ed91be64f8f943a215ff7fd
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706841"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889739"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>使虚拟机规模集在 Azure Stack 中心可用
 
@@ -24,7 +20,7 @@ ms.locfileid: "76706841"
 
 本文将指导你完成在 Azure Stack Hub Marketplace 中提供规模集的过程。 完成此过程后，用户可以将虚拟机规模集添加到其订阅。
 
-Azure Stack 集线器上的虚拟机规模集类似于 Azure 上的虚拟机规模集。 有关详细信息，请参阅下列视频：
+Azure Stack 集线器上的虚拟机规模集类似于 Azure 上的虚拟机规模集。 有关详细信息，请参阅以下视频：
 
 * [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)（Mark Russinovich 谈论 Azure 规模集）
 * [具有 Bowerman 的虚拟机规模集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)

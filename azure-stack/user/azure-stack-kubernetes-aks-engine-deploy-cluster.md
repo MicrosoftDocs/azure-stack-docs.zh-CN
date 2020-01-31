@@ -1,26 +1,18 @@
 ---
-title: 在 Azure Stack Hub 上使用 AKS 引擎部署 Kubernetes 群集 |Microsoft Docs
+title: 在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 description: 如何从运行 AKS 引擎的客户端 VM 在 Azure Stack 集线器上部署 Kubernetes 群集。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883554"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884808"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 
@@ -158,7 +150,7 @@ ms.locfileid: "75883554"
 
 ## <a name="verify-your-cluster"></a>验证群集
 
-通过使用 Helm 部署 mysql 检查群集来验证群集。
+通过使用 Helm 部署 MySql 检查群集来验证群集。
 
 1. 使用 Azure Stack 集线器门户获取其中一个主节点的公共 IP 地址。
 
@@ -166,31 +158,71 @@ ms.locfileid: "75883554"
 
 3. 对于 SSH 用户名，你可以使用 "azureuser" 和你为群集部署提供的密钥对的私钥文件。
 
-4.  运行以下命令：
+4. 运行以下命令以创建 Redis master 的示例部署（仅适用于连接的标记）：
+
+   ```bash
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-master-deployment.yaml
+   ```
+
+    1. 查询箱列表：
+
+       ```bash
+       kubectl get pods
+       ```
+
+    2. 响应应如下所示：
+
+       ```shell
+       NAME                            READY     STATUS    RESTARTS   AGE
+       redis-master-1068406935-3lswp   1/1       Running   0          28s
+       ```
+
+    3. 查看部署日志：
+
+       ```shell
+       kubectl logs -f <pod name>
+       ```
+
+    对于包含 Redis master 的示例 PHP 应用的完整部署，请按照[此处的说明](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/)进行操作。
+
+5. 对于断开连接的戳记，以下命令应该足以满足需要：
+
+    1. 首先检查群集终结点是否正在运行：
+
+       ```bash
+       kubectl cluster-info
+       ```
+
+       输出应如下所示：
+
+       ```shell
+       Kubernetes master is running at https://democluster01.location.domain.com
+       CoreDNS is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+       kubernetes-dashboard is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+       Metrics-server is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+       ```
+
+    2. 然后，查看节点状态：
+
+       ```bash
+       kubectl get nodes
+       ```
+
+       输出应如下所示：
+
+       ```shell
+       k8s-linuxpool-29969128-0   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-1   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-2   Ready      agent    9d    v1.15.5
+       k8s-master-29969128-0      Ready      master   9d    v1.15.5
+       k8s-master-29969128-1      Ready      master   9d    v1.15.5
+       k8s-master-29969128-2      Ready      master   9d    v1.15.5
+       ```
+
+6. 若要清理上一步中的 redis POD 部署，请运行以下命令：
 
     ```bash
-    sudo snap install helm --classic
-    kubectl -n kube-system create serviceaccount tiller
-    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
-    helm init --service-account=tiller
-    helm repo update
-    helm install stable/mysql
-    ```
-
-5.  若要清理测试，请查找用于 mysql 部署的名称。 在下面的示例中，名称为 `wintering-rodent`。 然后将其删除。 
-
-    运行以下命令：
-
-    ```bash
-    helm ls
-    NAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE
-    wintering-rodent 1 Thu Oct 18 15:06:58 2018 DEPLOYED mysql-0.10.1 5.7.14 default
-    helm delete wintering-rodent
-    ```
-
-    CLI 将显示：
-    ```bash
-    release "wintering-rodent" deleted
+    kubectl delete deployment -l app=redis
     ```
 
 ## <a name="next-steps"></a>后续步骤
