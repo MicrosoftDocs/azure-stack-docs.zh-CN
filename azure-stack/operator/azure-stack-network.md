@@ -7,16 +7,16 @@ ms.date: 10/23/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 42529e5757100ed2ad1334b62bf4e58e1266f561
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cd1e5e66b5cdb893591fc4116b335ff399ace736
+ms.sourcegitcommit: bcd2c6cd08526723f4b770b149c5e9a4fd5ef0ee
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881695"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76922632"
 ---
 # <a name="network-integration-planning-for-azure-stack-hub"></a>Azure Stack 集线器的网络集成规划
 
-本文提供 Azure Stack 集线器网络基础结构信息，以帮助你确定如何将 Azure Stack 中心最佳集成到现有的网络环境中。 
+本文提供 Azure Stack 集线器网络基础结构信息，以帮助你确定如何将 Azure Stack 中心最佳集成到现有的网络环境中。
 
 > [!NOTE]
 > 若要解析 Azure Stack 集线器中的外部 DNS 名称（例如 www\.bing.com），需要提供 DNS 服务器来转发 DNS 请求。 有关 Azure Stack 中心 DNS 要求的详细信息，请参阅[Azure Stack 中心数据中心集成-DNS](azure-stack-integrate-dns.md)。
