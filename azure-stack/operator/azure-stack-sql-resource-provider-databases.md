@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6a0135d643ebb87fb99ba12bec4741c67faa1111
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4269cce339ee606fd8efb4cb08677079c0f2e477
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882837"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972664"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 
@@ -26,7 +26,7 @@ ms.locfileid: "76882837"
 3. 在 "**创建数据库**" 下，输入所需的信息，如**数据库名称**和**最大大小（MB**）。
 
    >[!NOTE]
-   >数据库的大小必须至少为 64 MB，你可以在部署数据库之后增加此大小。
+   >数据库的大小必须至少为 64 MB，这可以在部署数据库后增加。
 
    根据环境的需要配置其他设置。
 
@@ -66,7 +66,7 @@ ms.locfileid: "76882837"
 
 Always On 数据库应显示为已**同步**并且可用于所有 SQL 实例，并显示在**可用性组**中。 在前面的屏幕截图中，数据库示例为 newdb1，其状态为**newdb1 （已同步）** 。
 
-### <a name="delete-an-alwayson-database"></a>删除 AlwaysOn 数据库
+### <a name="delete-an-always-on-database"></a>删除 Always On 数据库
 
 从资源提供程序中删除 SQL Always On 数据库时，SQL 会从**主**副本和可用性组中删除该数据库。
 

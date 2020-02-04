@@ -3,16 +3,16 @@ title: Azure Stack 中心 VM 功能
 description: 了解在 Azure Stack 集线器中使用 Vm 时的不同功能和注意事项。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 94889f2d5d1223d1f5c1da1eaf5289f968cc5efa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 76ecac957ab7680032c31cd46db4b717a2f029e5
+ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883028"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76977880"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack 中心 VM 功能
 
@@ -23,6 +23,7 @@ Azure Stack 集线器虚拟机（Vm）提供按需的可缩放计算资源。 �
 | 功能 | Azure （全局） | Azure Stack Hub |
 | --- | --- | --- |
 | 虚拟机映像 | Azure Marketplace 提供了可用于创建 VM 的映像。 请参阅[Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1)页面，查看 azure marketplace 中提供的映像的列表。 | 默认情况下，Azure Stack 中心 Marketplace 中没有可用的映像。 Azure Stack 中心云管理员必须先将映像发布或下载到 Azure Stack 中心市场，然后用户才能使用。 |
+| VHD 生成 | 第两代 Vm 支持生成一个 Vm 时不支持的关键功能。 这些功能包括增加的内存、Intel 软件防护扩展（Intel SGX）和虚拟化永久性内存（vPMEM）。 在本地运行的两个 Vm 在 Azure 中不支持某些功能。 有关详细信息，请参阅[Azure 上的第2代 Vm 支持](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)  | Azure Stack 集线器仅支持代一代 Vm。 你可以将第一个 VM 从 VHDX 转换为 VHD 文件格式，并从动态扩展为固定大小磁盘。 无法更改 VM 的代。 有关详细信息，请参阅[Azure 上的第2代 Vm 支持](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)。 |
 | 虚拟机大小 | Azure 支持多种 Vm 大小。 若要了解可用大小和选项，请参阅[Windows vm 大小](/azure/virtual-machines/virtual-machines-windows-sizes)和[Linux VM 大小](/azure/virtual-machines/linux/sizes)主题。 | Azure Stack 集线器支持 Azure 中可用的 VM 大小的子集。 若要查看受支持的大小列表，请参阅本文的[VM 大小](#vm-sizes)部分。 |
 | 虚拟机配额 | [配额限制](/azure/azure-subscription-service-limits#service-specific-limits)由 Microsoft 设置。 | Azure Stack 中心云管理员必须先分配配额，然后才能向其用户提供 VM。 |
 | 虚拟机扩展 |Azure 支持多种 VM 扩展。 若要了解可用扩展，请参阅[VM 扩展和功能](/azure/virtual-machines/windows/extensions-features)一文。| Azure Stack 集线器支持 Azure 中提供的一小部分扩展，每个扩展都有特定的版本。 Azure Stack 中心云管理员可以选择向其用户提供哪些扩展。 若要查看支持的扩展的列表，请参阅本文的[VM 扩展](#vm-extensions)部分。 |

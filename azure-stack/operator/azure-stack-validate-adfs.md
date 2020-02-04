@@ -1,18 +1,21 @@
 ---
-title: 验证 Azure Stack 中心的 AD FS 集成
-description: 使用 Azure Stack 集线器就绪状态检查器来验证 Azure Stack 中心的 AD FS 集成。
+title: 验证 AD FS 集成
+titleSuffix: Azure Stack Hub
+description: 了解如何使用 Azure Stack 集线器就绪检查器来验证 Azure Stack 中心的 AD FS 集成。
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a98a5384b8590f494e6e9d6acdeb05e90fce3a20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 786ee290aba91c855211d3f470f439c3e9b2c01a
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880641"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972595"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>验证 Azure Stack 中心的 AD FS 集成
 
@@ -21,7 +24,7 @@ ms.locfileid: "76880641"
 就绪检查程序将验证：
 
 * *联合元数据*包含用于联合的有效 XML 元素。
-* 可以检索*AD FS SSL 证书*，并且可以生成信任链。 在 "stamp AD FS 必须信任 SSL 证书链。 证书必须由用于 Azure Stack 中心部署证书的相同*证书颁发机构*进行签名，或者由受信任的根证书颁发机构伙伴进行签名。 有关受信任的根颁发机构伙伴的完整列表，请参阅[TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
+* 可以检索*AD FS SSL 证书*，并且可以生成信任链。 在戳记上，AD FS 必须信任 SSL 证书链。 证书必须由用于 Azure Stack 中心部署证书的相同*证书颁发机构*进行签名，或者由受信任的根证书颁发机构伙伴进行签名。 有关受信任的根颁发机构伙伴的完整列表，请参阅[TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
 * *AD FS 签名证书*是受信任的，并且未接近过期。
 
 有关 Azure Stack 中心数据中心集成的详细信息，请参阅[Azure Stack 中心数据中心集成-标识](azure-stack-integrate-identity.md)。
@@ -36,31 +39,37 @@ ms.locfileid: "76880641"
 
 **运行该工具的计算机：**
 
-* Windows 10 或 Windows Server 2016，具有域连接性。
+* 具有域连接的 windows 10 或 Windows Server 2016。
 * PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，并查看*主要*版本和*次要*版本：  
-   > `$PSVersionTable.PSVersion`
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * 最新版本的[Microsoft Azure Stack 集线器就绪检查](https://aka.ms/AzsReadinessChecker)程序工具。
 
 **Active Directory 联合身份验证服务环境：**
 
 至少需要以下一种形式的元数据：
 
-* AD FS 联合元数据的 URL。 示例为 `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`。
-* 联合元数据 XML 文件。 例如，Federationmetadata.xml。
+- AD FS 联合元数据的 URL。 例如：`https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`。
+* 联合元数据 XML 文件。 例如： Federationmetadata.xml。
 
 ## <a name="validate-ad-fs-integration"></a>验证 AD FS 集成
 
 1. 在满足先决条件的计算机上，打开管理 PowerShell 提示符，然后运行以下命令以安装 AzsReadinessChecker：
 
-     `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    ```
 
 1. 在 PowerShell 提示符下，运行以下命令以启动验证。 将 **-CustomADFSFederationMetadataEndpointUri**的值指定为联合元数据的 URI。
 
-     `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
+     ```powershell
+     Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+     ```
 
 1. 运行该工具后，查看输出。 确认 AD FS 集成要求状态是否为 "正常"。 验证成功类似于以下示例：
 
-    ```
+    ```powershell
     Invoke-AzsADFSValidation v1.1809.1001.1 started.
 
     Testing ADFS Endpoint https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
@@ -93,8 +102,8 @@ ms.locfileid: "76880641"
 
 使用：
 
-* **-OutputPath**： run 命令末尾的*path*参数，用于指定不同的报表位置。
-* **-CleanReport**： run 命令末尾的参数，用于清除以前报表信息的 AzsReadinessCheckerReport。 有关详细信息，请参阅[Azure Stack 中心验证报告](azure-stack-validation-report.md)。
+* `-OutputPath`： run 命令末尾的*path*参数，用于指定不同的报表位置。
+* `-CleanReport`： run 命令末尾的参数，用于清除以前报表信息的 AzsReadinessCheckerReport。 有关详细信息，请参阅[Azure Stack 中心验证报告](azure-stack-validation-report.md)。
 
 ## <a name="validation-failures"></a>验证失败
 
@@ -104,13 +113,17 @@ ms.locfileid: "76880641"
 
 ### <a name="command-not-found"></a>找不到命令
 
-`Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
+```powershell
+Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
 
 **原因**： PowerShell Autoload 未能正确加载就绪检查器模块。
 
-**解决方法**：显式导入就绪状态检查器模块。 将以下代码复制并粘贴到 PowerShell，并更新 \<版本\>，其中包含当前安装的版本的编号。
+**解决方法**：显式导入就绪状态检查器模块。 将以下代码复制并粘贴到 PowerShell，并将 `<version>` 更新为当前安装的版本的编号。
 
-`Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
+```powershell
+Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force
+```
 
 ## <a name="next-steps"></a>后续步骤
 

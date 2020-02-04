@@ -1,29 +1,32 @@
 ---
-title: 验证 Azure Stack 中心集成系统部署 Azure Stack 中心公钥基础结构证书
-description: 描述如何为 Azure Stack 中心集成系统验证 Azure Stack 中心 PKI 证书。 介绍如何使用 Azure Stack 集线器证书检查器工具。
+title: 验证 Azure Stack 中心 PKI 证书
+titleSuffix: Azure Stack Hub
+description: 了解如何使用 Azure Stack 中心就绪检查程序工具验证 Azure Stack 集线器集成系统的 PKI 证书。
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8ade18f01f9d0636e3a5903307ee9513c44470f7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882599"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972540"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>验证 Azure Stack 中心 PKI 证书
 
-本文中介绍的 Azure Stack 集线器准备情况检查器工具可[从 PowerShell 库中](https://aka.ms/AzsReadinessChecker)获取。 您可以使用该工具验证[生成的 PKI 证书](azure-stack-get-pki-certs.md)是否适用于预先部署。 如果需要，请保留足够的时间来测试和重新颁发证书，以验证证书。
+本文中介绍的 Azure Stack 集线器准备情况检查器工具可[从 PowerShell 库中](https://aka.ms/AzsReadinessChecker)获取。 使用工具验证[生成的公钥基础结构（PKI）证书](azure-stack-get-pki-certs.md)是否适用于预先部署。 如果需要，请保留足够的时间来测试和重新颁发证书，以验证证书。
 
 就绪检查程序工具执行以下证书验证：
 
 - **分析 PFX**  
-    检查是否有有效的 PFX 文件、正确的密码以及公共信息是否受密码保护。 
+    检查是否有有效的 PFX 文件、正确的密码以及公共信息是否受密码保护。
 - **到期日期**  
-    检查7天的最小有效性。 
+    检查七天的最小有效性。
 - **签名算法**  
     检查签名算法是否不是 SHA1。
 - **私钥**  
@@ -33,7 +36,7 @@ ms.locfileid: "76882599"
 - **DNS 名称**  
     检查 SAN 是否包含每个终结点的相关 DNS 名称，或者是否存在支持通配符。
 - **密钥用法**  
-    检查密钥用法是否包含数字签名和密钥加密，增强型密钥用法是否包含服务器身份验证和客户端身份验证。
+    检查密钥用法是否包含数字签名和密钥加密，并检查增强型密钥用法是否包含服务器身份验证和客户端身份验证。
 - **密钥大小**  
     检查密钥大小是否为2048或更大。
 - **链式顺序**  
@@ -48,10 +51,10 @@ ms.locfileid: "76882599"
 
 在验证 Azure Stack 中心部署的 PKI 证书之前，系统应符合以下先决条件：
 
-- Microsoft Azure Stack 集线器就绪检查程序
-- 按照[准备说明](azure-stack-prepare-pki-certs.md)导出的 SSL 证书
-- DeploymentData.json
-- Windows 10 或 Windows Server 2016
+- Microsoft Azure Stack 中心就绪检查程序。
+- 按照[准备说明](azure-stack-prepare-pki-certs.md)导出的 SSL 证书。
+- DeploymentData。
+- Windows 10 或 Windows Server 2016。
 
 ## <a name="perform-core-services-certificate-validation"></a>执行 core services 证书验证
 
@@ -75,7 +78,7 @@ ms.locfileid: "76882599"
     ```
     
     > [!Note]  
-    > 如果使用 AD FS 作为标识系统，则需要 AD FS 和图形。 例如：
+    > 如果你使用 AD FS 作为标识系统，则需要 AD FS 和图形。 例如：
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
@@ -86,14 +89,14 @@ ms.locfileid: "76882599"
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. 在 PowerShell 窗口中，将 " **RegionName** " 和 " **FQDN** " 的值更改为适用于 Azure Stack 中心环境，并运行以下操作：
+3. 在 PowerShell 窗口中，将 "`RegionName`" 和 "`FQDN`" 的值更改为适用于 Azure Stack 中心环境的，并运行以下 cmdlet：
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
     Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. 检查输出和所有证书均通过所有测试。 例如：
+4. 检查输出并确保所有证书都通过所有测试。 例如：
 
     ```powershell
     Invoke-AzsCertificateValidation v1.1912.1082.37 started.
@@ -155,7 +158,7 @@ ms.locfileid: "76882599"
     # IoTHub
     Invoke-AzsCertificateValidation -CertificateType IoTHub -CertificatePath C:\Certificates\IoTHub -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com
     ```
-对于证书类型，每个文件夹应包含一个 PFX 文件，如果证书类型具有多证书要求，则每个单独证书的嵌套文件夹都是预期的和名称敏感的。  以下代码显示了所有证书类型的示例文件夹/证书结构，以及 ```-CertificateType``` 和 ```-CertificatePath```的相应值。
+    每个文件夹应该包含一个用于证书类型的 PFX 文件。 如果证书类型有多证书要求，则每个证书的嵌套文件夹都应与名称敏感。 以下代码显示了所有证书类型的示例文件夹/证书结构，以及 ```-CertificateType``` 和 ```-CertificatePath```的相应值。
     
     ```powershell  
     C:\>tree c:\SecretStore /A /F
@@ -167,16 +170,16 @@ ms.locfileid: "76882599"
             \---Certificates
                 +---AppServices         # Invoke-AzsCertificateValidation `
                 |   +---API             #     -CertificateType AppServices `
-                |   |       api .pfx #-CertificatePath C:\Certificates\AppServices
+                |   |       api.pfx     #     -CertificatePath C:\Certificates\AppServices
                 |   |
                 |   +---DefaultDomain
-                |   |       wappsvc .pfx
+                |   |       wappsvc.pfx
                 |   |
-                |   +---标识
-                |   |       sso .pfx
+                |   +---Identity
+                |   |       sso.pfx
                 |   |
-                |   \---发布
-                |           ftp .pfx
+                |   \---Publishing
+                |           ftp.pfx
                 |
                 +---DBAdapter           # Invoke-AzsCertificateValidation `
                 |       dbadapter.pfx   #   -CertificateType DBAdapter `
@@ -184,10 +187,10 @@ ms.locfileid: "76882599"
                 |
                 +---Deployment          # Invoke-AzsCertificateValidation `
                 |   +---ACSBlob         #   -CertificateType Deployment `
-                |   |       acsblob #-CertificatePath C:\Certificates\Deployment
+                |   |       acsblob.pfx #   -CertificatePath C:\Certificates\Deployment
                 |   |
                 |   +---ACSQueue
-                |   |       acsqueue .pfx
+                |   |       acsqueue.pfx
                ./. ./. ./. ./. ./. ./. ./.    <- Deployment certificate tree trimmed.
                 |   \---Public Portal
                 |           portal.pfx
@@ -200,6 +203,7 @@ ms.locfileid: "76882599"
                         iothub.pfx      #   -CertificateType IoTHub `
                                         #   -CertificatePath C:\Certificates\IoTHub
     ```
+
 ### <a name="known-issues"></a>已知问题
 
 **症状**：已跳过测试
@@ -234,21 +238,21 @@ ms.locfileid: "76882599"
 
 | 目录 | 证书 |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
-| ACSQueue  |  wildcard_queue_\<区域 > _\<externalFQDN > |
-| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
-| 管理扩展主机  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
-| 管理门户  |  adminportal_\<region>_\<externalFQDN> |
-| ARM 管理员  |  adminmanagement_\<区域 > _\<externalFQDN > |
-| ARM 公共  |  management_\<区域 > _\<externalFQDN > |
-| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
-| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
-| 公用扩展主机  |  wildcard_hosting_\<region>_\<externalFQDN> |
-| 公共门户  |  portal_\<区域 > _\<externalFQDN > |
+| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
+| ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
+| 管理扩展主机  |  `wildcard_adminhosting_<region>_<externalFQDN>` |
+| 管理门户  |  `adminportal_<region>_<externalFQDN>` |
+| ARM 管理员  |  `adminmanagement_<region>_<externalFQDN>` |
+| ARM 公共  |  `management_<region>_<externalFQDN>` |
+| KeyVault  |  `wildcard_vault_<region>_<externalFQDN>` |
+| KeyVaultInternal  |  `wildcard_adminvault_<region>_<externalFQDN>` |
+| 公用扩展主机  |  `wildcard_hosting_<region>_<externalFQDN>` |
+| 公共门户  |  `portal_<region>_<externalFQDN>` |
 
 ## <a name="using-validated-certificates"></a>使用验证的证书
 
-证书通过 AzsReadinessChecker 验证后，便可以在 Azure Stack 中心部署中使用这些证书，也可以 Azure Stack 中心机密旋转。 
+证书通过 AzsReadinessChecker 验证后，便可以在 Azure Stack 中心部署中使用这些证书，也可以 Azure Stack 中心机密旋转。
 
  - 对于部署，安全地将证书传输到你的部署工程师，以便他们可以将其复制到[Azure Stack 中心 PKI 要求文档](azure-stack-pki-certs.md)中指定的部署主机上。
  - 对于秘密旋转，可以根据[Azure Stack 中心机密旋转文档](azure-stack-rotate-secrets.md)，使用证书来更新 Azure Stack 中心环境的公共基础结构终结点的旧证书。

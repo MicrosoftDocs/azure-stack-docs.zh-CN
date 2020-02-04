@@ -1,5 +1,6 @@
 ---
-title: 为 Azure Stack 中心验证 Azure Graph 集成
+title: 验证 Azure Graph 集成
+titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack 集线器就绪状态检查器来验证 Azure Stack 中心的图形集成。
 author: ihenkel
 ms.topic: article
@@ -7,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 29cc035e66039d09e761410808098d57f0b1927f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ff9763edbd96dda39f3de8e8a764ce4f4acd7200
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882630"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972498"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>验证 Azure Stack 集线器的图形集成
 
@@ -37,9 +38,11 @@ ms.locfileid: "76882630"
 
 **运行该工具的计算机：**
 
-* Windows 10 或 Windows Server 2016，具有域连接性。
-* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，并查看*主要*版本和*次要*版本：  
-   > `$PSVersionTable.PSVersion`
+* 具有域连接的 windows 10 或 Windows Server 2016。
+* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，并查看*主要*版本和*次要*版本：
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * Active Directory PowerShell 模块。
 * 最新版本的[Microsoft Azure Stack 集线器就绪检查](https://aka.ms/AzsReadinessChecker)程序工具。
 
@@ -52,19 +55,25 @@ ms.locfileid: "76882630"
 
 1. 在满足先决条件的计算机上，打开管理 PowerShell 提示符，然后运行以下命令以安装 AzsReadinessChecker：
 
-     `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    ```
 
 1. 在 PowerShell 提示符下，运行以下命令，将 *$graphCredential*变量设置为图形帐户。 使用 `domain\username` 格式将 `contoso\graphservice` 替换为你的帐户。
 
-    `$graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"`
+    ```powershell
+    $graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"
+    ```
 
-1. 在 PowerShell 提示符下，运行以下命令以启动对 graph 服务的验证。 将 **-ForestFQDN**的值指定为林根的 FQDN。
+1. 在 PowerShell 提示符下，运行以下命令以启动对 graph 服务的验证。 将 `-ForestFQDN` 的值指定为林根的 FQDN。
 
-     `Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential`
+    ```powershell
+    Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential
+    ```
 
 1. 运行该工具后，查看输出。 确认 "图形集成要求" 的状态为 "正常"。 验证成功类似于以下示例：
 
-    ```
+    ```powershell
     Testing Graph Integration (v1.0)
             Test Forest Root:            OK
             Test Graph Credential:       OK
@@ -98,8 +107,8 @@ ms.locfileid: "76882630"
 
 使用：
 
-* **-OutputPath**： run 命令末尾的*path*参数，用于指定不同的报表位置。
-* **-CleanReport**： run 命令末尾的参数，用于清除以前报表信息的*AzsReadinessCheckerReport* 。 有关详细信息，请参阅[Azure Stack 中心验证报告](azure-stack-validation-report.md)。
+* `-OutputPath`： run 命令末尾的*path*参数，用于指定不同的报表位置。
+* `-CleanReport`： run 命令末尾的参数，用于清除以前报表信息的*AzsReadinessCheckerReport* 。 有关详细信息，请参阅[Azure Stack 中心验证报告](azure-stack-validation-report.md)。
 
 ## <a name="validation-failures"></a>验证失败
 

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解如何向 Azure 注册 Azure Stack 集线器集成系统，以便可以下载 Azure Marketplace 项并设置数据报告。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/02/2020
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 81b899104b162e92f74204f9b70c67fc280d7c31
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 568bcc7b04da397dff343662a8e80b86e27d2618
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881406"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972574"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>向 Azure 注册 Azure Stack 集线器
 
@@ -478,7 +478,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | BillingModel | String | 订阅使用的计费模型。 此参数允许的值为： "容量"、"PayAsYouUse" 和 "开发"。 |
 | MarketplaceSyndicationEnabled | True/False | 确定 marketplace 管理功能在门户中是否可用。 如果注册到 internet 连接，则设置为 true。 如果在断开连接的环境中注册，则设置为 false。 对于断开连接的注册，可以使用[脱机联合工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)来下载 marketplace 项。 |
 | UsageReportingEnabled | True/False | 默认情况下，Azure Stack 中心报告使用情况指标。 具有容量的操作员使用或支持断开连接的环境需要关闭使用情况报告。 此参数允许的值为： True、False。 |
-| agreementNumber | String |  |
+| agreementNumber | String | 为此 Azure Stack 的容量 SKU 排序所依据的 EA 协议号码。 |
 | RegistrationName | String | 如果要使用相同的 Azure 订阅 ID 在 Azure Stack 中心的多个实例上运行注册脚本，请设置注册的唯一名称。 参数的默认值为**AzureStackRegistration**。 但是，如果在 Azure Stack 中心的多个实例上使用相同的名称，则脚本将失败。 |
 
 ### <a name="get-azsregistrationtoken"></a>AzsRegistrationToken

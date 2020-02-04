@@ -1,18 +1,19 @@
 ---
-title: 验证 Azure Stack 集线器的 Azure 注册
-description: 使用 Azure Stack 集线器就绪状态检查器来验证 Azure 注册。
+title: 验证 Azure 注册
+titleSuffix: Azure Stack Hub
+description: 了解如何通过 Azure Stack 中心就绪检查程序工具验证 Azure 注册。
 author: ihenkel
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: f9d5ff2a4ef02bb8d8b738cf20de2dae3bfafd02
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 58f65be2ac4ba352b17b9b0bba079b286a9609fa
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882574"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972568"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
 
@@ -35,15 +36,13 @@ ms.locfileid: "76882574"
 
 - Windows 10 或 Windows Server 2016，具有 internet 连接。
 - PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，并查看**主要**和**次要**版本：  
-
   ```powershell
   $PSVersionTable.PSVersion
   ```
-
 - [为 Azure Stack 中心配置的 PowerShell](azure-stack-powershell-install.md)。
 - 最新版本的[Microsoft Azure Stack 集线器就绪检查](https://aka.ms/AzsReadinessChecker)程序工具。  
 
-### <a name="azure-active-directory-environment"></a>Azure Active Directory 环境
+### <a name="azure-active-directory-aad-environment"></a>Azure Active Directory （AAD）环境
 
 - 标识一个帐户的用户名和密码，该帐户是将与 Azure Stack 中心一起使用的 Azure 订阅的所有者。  
 - 确定要使用的 Azure 订阅的订阅 ID。
@@ -57,7 +56,7 @@ ms.locfileid: "76882574"
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. 在 PowerShell 提示符下，运行以下命令，将 `$registrationCredential` 设置为作为订阅所有者的帐户。 将 `subscriptionowner@contoso.onmicrosoft.com` 替换为你的帐户和租户名称：
+2. 在 PowerShell 提示符下，运行以下命令，将 `$registrationCredential` 设置为订阅所有者的帐户。 将 `subscriptionowner@contoso.onmicrosoft.com` 替换为你的帐户和租户名称：
 
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
@@ -75,8 +74,7 @@ ms.locfileid: "76882574"
 4. 在 PowerShell 提示符下，运行以下命令以开始验证你的订阅：
 
    - 将 `AzureEnvironment` 的值指定为**AzureCloud**、 **AzureGermanCloud**或**AzureChinaCloud**。  
-   - 提供 Azure Active Directory 管理员和 Azure Active Directory 租户名称。
-
+   - 提供 Azure AD 管理员和 Azure AD 租户名称。
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
       ```
@@ -97,7 +95,7 @@ ms.locfileid: "76882574"
 
 这些文件可帮助你在部署 Azure Stack 中心或调查验证问题之前共享验证状态。 这两个文件都保留每个后续验证检查的结果。 该报表提供部署团队确认身份配置。 日志文件可帮助您的部署或支持团队调查验证问题。
 
-默认情况下，这两个文件都将写入**C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
+默认情况下，这两个文件都将写入 `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json`。  
 
 - 使用 "运行" 命令行的末尾的 `-OutputPath <path>` 参数来指定不同的报表位置。
 - 使用 "运行" 命令末尾的 "`-CleanReport`" 参数可以从**AzsReadinessCheckerReport**清除有关以前运行的工具的信息。
@@ -152,7 +150,7 @@ Invoke-AzsRegistrationValidation Completed
 Login-AzureRMAccount
 ```
 
-或者，以帐户所有者身份登录到[Azure 门户](https://portal.azure.com)，并将强制用户更改密码。
+另一种方法是以帐户所有者身份登录到[Azure 门户](https://portal.azure.com)，并将强制用户更改密码。
 
 ### <a name="unknown-user-type"></a>未知用户类型  
 
@@ -167,7 +165,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**原因**-帐户无法登录到指定的 Azure Active Directory 环境。 在此示例中，将**AzureChinaCloud**指定为**AzureEnvironment**。  
+**原因**-帐户无法登录到指定的 Azure AD 环境。 在此示例中，将**AzureChinaCloud**指定为**AzureEnvironment**。  
 
 **解决方法**-确认该帐户对于指定的 Azure 环境有效。 在 PowerShell 中运行以下命令，验证该帐户对于特定环境是否有效：
 
