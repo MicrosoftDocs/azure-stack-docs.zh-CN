@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 2b8a6b06b0eca680a42d7c15bfe7fbb43afec29a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
+ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882090"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001602"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成
 
@@ -23,7 +23,7 @@ ms.locfileid: "76882090"
 下图描述了 Azure Stack 中心与外部 SIEM 的集成。 需要考虑两种集成模式：第一个模式（蓝色）是包含基础结构虚拟机和 Hyper-v 节点的 Azure Stack 中心基础结构。 这些组件的所有审核、安全日志和警报都通过 syslog 和 CEF 负载进行集中收集和公开。 此集成模式在此文档页中进行了介绍。
 第二个集成模式为橙色，涵盖了基板管理控制器（Bmc）、硬件生命周期主机（HLH）、运行硬件伙伴监视和管理软件的虚拟机和虚拟设备。和架顶（TOR）开关。 由于这些组件是特定于硬件合作伙伴的组件，因此请与硬件合作伙伴联系，以了解如何将它们与外部 SIEM 集成。
 
-![Syslog 转发关系图](media/azure-stack-integrate-security/syslog-forwarding.png)
+![Syslog 转发关系图](media/azure-stack-integrate-security/azure-stack-hub-syslog-forwarding-diagram_bg.svg)
 
 ## <a name="configuring-syslog-forwarding"></a>配置 syslog 转发
 

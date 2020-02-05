@@ -3,16 +3,16 @@ title: Azure Stack 集线器发行说明
 description: Azure Stack 集线器集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 9f2dee0503f5b3210fa8bb8e81f23c326b3b360b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 40c727c97035b0f843ce84b0eafad47c77560938
+ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885142"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001635"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -200,7 +200,7 @@ Azure Stack 集线器修补程序仅适用于 Azure Stack 集线器集成系统;
 Azure Stack 集线器1910版必须应用于带有以下修补程序的1908版本：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1908.11.47](https://support.microsoft.com/help/4535000)
+- [Azure Stack 中心修补程序1.1908.14.53](https://support.microsoft.com/help/4537661)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>成功应用1910更新后
 
@@ -284,7 +284,7 @@ Azure Stack 集线器1908更新需要从系统的硬件提供程序**Azure Stack
 安装此更新后，安装任何适用的修补程序。 有关详细信息，请参阅[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1908.11.47](https://support.microsoft.com/help/4535000)
+- [Azure Stack 中心修补程序1.1908.14.53](https://support.microsoft.com/help/4537661)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

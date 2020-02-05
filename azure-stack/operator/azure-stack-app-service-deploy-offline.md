@@ -7,12 +7,12 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: fe20a682041e3e23e2a67957ecdce85f922fbf20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: bf9ce157e927b2fc43b64746d53d74e8cb82524c
+ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876365"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77012880"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>将 Azure App Service 部署到 Azure Stack 中心的脱机环境中
 
@@ -37,9 +37,9 @@ ms.locfileid: "76876365"
 
 若要在脱机环境中部署 Azure App Service，请先在连接到 internet 的计算机上创建脱机安装包。
 
-1. 在连接到 internet 的计算机上运行 AppService 安装程序。
+1. 在连接到 internet 的计算机上运行 AppService 安装程序。 
 
-2. 选择 "**高级**" > "**创建脱机安装包**"。
+2. 选择 "**高级**" > "**创建脱机安装包**"。 此步骤需要几分钟才能完成。
 
     ![在 Azure App Service 安装程序中创建脱机包][1]
 
@@ -158,10 +158,17 @@ ms.locfileid: "76876365"
 
     ![在 Azure App Service 安装程序中设置角色层和 SKU 选项][14]
 
+1. 在 "**选择平台映像**" 框中，从 Azure App Service 云的计算资源提供程序中提供的映像中选择部署 Windows Server 2016 虚拟机（VM）映像。 选择“**下一页**”。
+
     > [!NOTE]
     > Windows Server 2016 Core 不是受支持的平台映像，*不适*用于 Azure Stack 中心的 Azure App Service。  不要将评估映像用于生产部署。 Azure Stack 中心的 Azure App Service 要求在用于部署的映像上激活 Microsoft .NET 3.5.1 SP1。 Marketplace 联合的 Windows Server 2016 映像未启用此功能。 因此，你必须创建并使用预先启用此功能的 Windows Server 2016 映像。
-
-1. 在 "**选择平台映像**" 框中，从 Azure App Service 云的计算资源提供程序中提供的映像中选择部署 Windows Server 2016 虚拟机（VM）映像。 选择“**下一页**”。
+    >
+    > 有关创建自定义映像并将其添加到 Marketplace 的详细信息，请参阅[将自定义 VM 映像添加到 Azure Stack 集线器](azure-stack-add-vm-image.md)。 将映像添加到 Marketplace 时，请确保指定以下各项：
+    >
+    >- 发布服务器 = MicrosoftWindowsServer
+    >- 提议 = WindowsServer
+    >- SKU = 2016-Datacenter
+    >- 版本 = 指定 "最新" 版本
 
 1. 在下一页上：
      1. 输入辅助角色 VM 管理员用户名和密码。
