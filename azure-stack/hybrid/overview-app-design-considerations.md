@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 10035700de713910d33114e06fab11321e96e5b1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72a0fd215363911457271f65d636be37e3388c83
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877436"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037159"
 ---
 # <a name="hybrid-application-design-considerations"></a>混合应用程序设计注意事项 
 
@@ -50,7 +50,7 @@ Microsoft Azure 是唯一一致的混合云。 它可让你重复使用开发投
 
 表1中列出了要包含在清单中的常见应用程序组件。
 
-### <a name="table-1-common-app-components"></a>表 1. 常见应用程序组件
+### <a name="table-1-common-app-components"></a>表 1。 常见应用程序组件
 
 
 | 组件 | **混合应用程序指南** |
@@ -69,14 +69,14 @@ Microsoft Azure 是唯一一致的混合云。 它可让你重复使用开发投
 
 对于每个组件，请为每个支柱评估其特性。 当你用所有的支柱来评估每个组件时，你可能未考虑的问题可能会影响混合应用程序的设计。 根据这些考虑，可以增加优化应用程序的价值。 表2提供了每个支柱的描述，因为它与混合应用程序相关。
 
-### <a name="table-2-pillars"></a>表2： 要点
+### <a name="table-2-pillars"></a>表 2. 支柱
 
 | **支柱** | **说明** |
 | ----------- | --------------------------------------------------------- |
 | 位置  | 混合应用程序中组件的战略定位。 |
 | 可伸缩性  | 系统处理增加的负载的能力。 |
 | 可用性  | 混合应用程序正常运行和工作的时间比例。 |
-| 恢复能力 | 混合应用程序恢复的能力。 |
+| 复原 | 混合应用程序恢复的能力。 |
 | 可管理性 | 让系统在生产环境中持续运行的操作过程。 |
 | 安全性 | 保护混合应用程序和数据免受威胁。 |
 
@@ -142,9 +142,9 @@ Microsoft Azure 是唯一一致的混合云。 它可让你重复使用开发投
 
 可用性是指系统正常运行和工作的时间。 可用性按运行时间的百分比进行度量。 应用程序错误、基础结构问题和系统负载都会降低可用性。
 
-有关此支柱的核心讨论，请参阅软件质量的支柱中的[*可用性*](https://docs.microsoft.com/azure/architecture/guide/pillars#availability)。
+有关此支柱的核心讨论，请参阅软件质量的支柱中的[*可用性*](/azure/architecture/framework/)。
 
-### <a name="availability-checklist"></a>可用性清单
+### <a name="availability-checklist"></a>可用性核对清单
 
 **提供连接的冗余。** 混合应用程序需要在应用程序所跨的云之间建立连接。 你可以选择用于混合连接的技术，因此除了你的主要技术选择以外，还可以使用其他技术通过自动故障转移功能来提供冗余，以便在主要技术发生故障时使用。
 
@@ -158,7 +158,7 @@ Microsoft Azure 是唯一一致的混合云。 它可让你重复使用开发投
 
 **维护服务级别协议（Sla）。** 可用性对于维护与客户的服务和应用程序的连接至关重要。 混合应用程序所依赖的每个位置可能有其自己的 SLA。 这些不同的 Sla 可能会影响混合应用程序的总体 SLA。
 
-## <a name="resiliency"></a>恢复能力
+## <a name="resiliency"></a>复原
 
 复原功能使混合应用程序和系统能够从故障中恢复并继续工作。 复原能力的目标是在故障发生后将应用程序恢复到可完全正常运行的状态。 复原策略包括备份、复制和灾难恢复等解决方案。
 
@@ -186,7 +186,7 @@ Microsoft Azure 是唯一一致的混合云。 它可让你重复使用开发投
 
 如何管理混合应用程序的注意事项对设计体系结构至关重要。 管理良好的混合应用程序提供了一种基础结构作为代码，使你能够在常见开发管道中集成一致的应用程序代码。 通过实现对基础结构的更改进行一致的系统范围和单独测试，你可以确保在更改通过测试时集成部署，使其能够合并到源代码中。
 
-有关此支柱的核心讨论，请参阅软件质量的支柱中的 "[*管理" 和 "DevOps*](https://docs.microsoft.com/azure/architecture/guide/pillars#management-and-devops) "。
+有关此支柱的核心讨论，请参阅软件质量的支柱中的[*DevOps*](/azure/architecture/framework/#devops) 。
 
 ### <a name="manageability-checklist"></a>可管理性清单
 

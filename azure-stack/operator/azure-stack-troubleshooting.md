@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: bacffec0b3bda76eab27097c2d090df371d51fcf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f5c223e08207518bde315725fd69ddb3fb97a578
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880843"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037261"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack 集线器中的问题
 
@@ -114,7 +114,7 @@ Azure Stack 中心内的用户可以是订阅、资源组或服务的每个实�
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure 存储资源管理器无法使用 Azure Stack 中心
 
-如果在断开连接的情况下使用集成系统，则建议使用企业证书颁发机构（CA）。 以64格式导出根证书，然后将其导入 Azure 存储资源管理器。 请确保删除资源管理器终结点中的尾随斜杠（`/`）。 有关详细信息，请参阅[准备连接到 Azure Stack 集线器](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack)。
+如果在断开连接的情况下使用集成系统，则建议使用企业证书颁发机构（CA）。 以64格式导出根证书，然后将其导入 Azure 存储资源管理器。 请确保删除资源管理器终结点中的尾随斜杠（`/`）。 有关详细信息，请参阅[准备连接到 Azure Stack 集线器](/azure-stack/user/azure-stack-storage-connect-se)。
 
 ## <a name="troubleshooting-app-service"></a>应用服务故障排除
 

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d7db8ade21580af67c0a1b3f3783f694544f5e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7453e8e454d6af39d86be0eaff49bef6e4538fac
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881994"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037278"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储容量
 
@@ -43,7 +43,7 @@ ms.locfileid: "76881994"
 
 如果共享空间不足，并且[回收](#reclaim-capacity)空间的操作未成功或不可用，则 Azure Stack 中心云操作员可以将 blob 容器从一个共享迁移到另一个共享。
 
-- 有关租户用户如何处理 Azure Stack 中心内的 blob 存储的信息，请参阅[Azure Stack 中心存储服务](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)。
+- 有关租户用户如何处理 Azure Stack 中心内的 blob 存储的信息，请参阅[Azure Stack 中心存储服务](/azure-stack/user/azure-stack-storage-overview)。
 
 
 ### <a name="containers"></a>容器

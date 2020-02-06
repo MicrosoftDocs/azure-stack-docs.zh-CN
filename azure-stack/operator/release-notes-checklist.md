@@ -7,12 +7,12 @@ ms.date: 01/14/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 373777d5dce715dfa7dc435c5305925af7f9e0b5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7ee8a4bc80b211b8e6aa8fd77d29ae5cf4c524e1
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885198"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037176"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack 中心更新活动清单
 
@@ -26,7 +26,7 @@ ms.locfileid: "76885198"
 | 查看安全更新 | [安全更新列表](release-notes-security-updates.md)。      |
 | 应用最新的 OEM 包 | 与 OEM 联系以确保系统满足你的系统正在更新到的 Azure Stack 中心版本的最低 OEM 包要求。 确保 OEM 包与要更新到 Azure Stack 集线器版本兼容。 如果 OEM 包与要更新到 Azure Stack 集线器版本不兼容，则需要在运行 Azure Stack 中心更新之前执行 OEM 包更新。 有关说明，请参阅 "应用 Azure Stack 中心原始设备制造商（OEM）更新"。 |
 | 可选：配置自动日志收集 | 建议在 Azure Stack 中心环境上配置自动日志收集，以便在需要打开支持票证时，简化收集系统日志的过程。 若要配置自动日志收集，请参阅[配置自动 Azure Stack 集线器诊断日志集合](azure-stack-configure-automatic-diagnostic-log-collection.md)中的说明。 |
-| 应用最新修补程序 | 应用适用于当前安装的版本的最新修补程序。 有关最新修补程序的列表，请参阅[发行说明修补程序](release-notes.md#hotfixes)部分。 |
+| 应用最新修补程序 | 应用适用于当前安装的版本的最新修补程序。 有关最新修补程序的列表，请参阅[发行说明修补程序](release-notes.md)部分。 |
 | 运行容量规划器工具 | 请确保使用最新版本的[Azure Stack 中心 Capacity Planner 工具](azure-stack-capacity-planning-overview.md)来执行工作负荷规划和调整大小。 最新版本包含 bug 修复，并提供随每个 Azure Stack 中心更新发布的新功能。 |
 | 运行**test-azurestack** | 运行 `Test-AzureStack -Group UpdateReadiness` 以确定操作问题。 Cmdlet 可通过特权终结点会话（PEP）访问。 有关详细信息，请参阅[验证 Azure Stack 集线器系统状态](azure-stack-diagnostic-test.md)。 |
 | 解决问题 | 解决 `Test-AzureStack`标识的任何操作问题。 |

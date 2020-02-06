@@ -7,12 +7,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 43369cc1b06bfd3601353238656e611b84e24c54
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7894d59d3129b151f6110cbac4606cbfecad8889
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880690"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037244"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>管理 Azure Stack 集线器中的更新
 
@@ -57,7 +57,7 @@ ms.locfileid: "76880690"
 
     对于连接到 internet 的 Azure Stack 集线器实例，Microsoft 软件更新和修补程序的更新警报将显示在**更新**边栏选项卡中。 如果未显示 "**更新**" 边栏选项卡，请重新启动基础结构管理控制器 VM。
 
-    如果你的实例未连接，并且你希望收到有关每个修补程序版本的通知，请订阅[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/rss)或[ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/atom)馈送。
+    如果你的实例未连接，并且你希望收到有关每个修补程序版本的通知，请订阅[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)或[ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)馈送。
 
 - **OEM 硬件供应商提供的更新**
 

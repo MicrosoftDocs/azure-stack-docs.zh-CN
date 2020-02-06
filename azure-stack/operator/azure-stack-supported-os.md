@@ -8,12 +8,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 5171b52bc3c85dd5dbcc2c83cf307274ef92d558
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: c590aed504df1549e3c4a43ae282a304e579195a
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890198"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037193"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack 集线器上支持的来宾操作系统
 
@@ -21,7 +21,7 @@ ms.locfileid: "76890198"
 
 Azure Stack 中心支持下表中列出的 Windows 来宾操作系统：
 
-| 操作系统 | Description | 在 Azure Stack Hub Marketplace 中提供 |
+| 操作系统 | 说明 | 在 Azure Stack Hub Marketplace 中提供 |
 | --- | --- | --- |
 | Windows Server，版本1709 | 64 位 | 包含容器的内核 |
 | Windows Server 2019 | 64 位 |  数据中心、数据中心核心、包含容器的数据中心 |
@@ -33,7 +33,7 @@ Azure Stack 中心支持下表中列出的 Windows 来宾操作系统：
 | Windows 10 *（请参阅注释1）* | 64位、专业版和企业版 | 自带映像 |
 
 > [!NOTE]
-> 若要在 Azure Stack Hub 上部署 Windows 10 客户端操作系统，必须拥有[windows 每用户许可](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)或通过合格的多租户宿主（[QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)）购买。
+> 若要在 Azure Stack Hub 上部署 Windows 10 客户端操作系统，必须拥有[windows 每用户许可](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)或通过合格的多租户宿主（[QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)）购买。
 
 Marketplace 映像适用于即用即付或 BYOL （EA/SPLA）许可。 不支持在单个 Azure Stack 集线器实例上同时使用这两者。 在部署过程中，Azure Stack 集线器会将适当版本的来宾代理注入到映像中。
 
@@ -48,7 +48,7 @@ Marketplace 映像适用于即用即付或 BYOL （EA/SPLA）许可。 不支持
 >
 > Azure Stack 集线器1910及更高版本支持[cloud init](https://cloud-init.io/) 。
 
-| 分配 | Description | 发布者 | Azure Stack 中心市场 |
+| 分布 | 说明 | 发布者 | Azure Stack 中心市场 |
 | --- | --- | --- | --- |
 | 基于 CentOS 的6。9 | 64 位 | Rogue 波 | 是 |
 | 基于 CentOS 的7。5 | 64 位 | Rogue 波 | 是 |

@@ -7,12 +7,12 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b944e598080df3551764c7978ab205a9fffd666b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 927877867b0ec8cb2601b50e7f084f86964a5342
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882637"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037210"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Azure Stack 中心修补程序和更新问题进行故障排除的最佳实践
 
@@ -23,7 +23,7 @@ Azure Stack 中心修补程序和更新过程旨在允许操作员以一致且�
 
 0. **先决条件**：确保已遵循[更新活动清单](release-notes-checklist.md)并已[配置自动日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)。
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
-2. 如果列出了问题，请查看[常见的 Azure Stack 中心修补程序和更新问题](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#Common-azure-stack-hub-patch-and-update-issues)，并采取建议的操作。
+2. 如果列出了问题，请查看[常见的 Azure Stack 中心修补程序和更新问题](#common-azure-stack-hub-patch-and-update-issues)，并采取建议的操作。
 3. 如果你无法解决上述步骤中的问题，请创建[Azure Stack 集线器支持票证](azure-stack-help-and-support-overview.md)。 请确保已为时间跨度收集了出现问题的[日志](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection)。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>常见 Azure Stack 中心修补程序和更新问题

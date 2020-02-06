@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f2a981b3eb7b9d233d656daea4d0bcb4bbd21039
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b866b99cca9e4db7fa522bd605512f0aeea632db
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885280"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037227"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>SQL Server 的 Azure Stack 集线器上的 Windows N 层应用程序
 
@@ -80,7 +80,7 @@ ms.locfileid: "76885280"
 
 不要将 VM 直接向 Internet 公开，而是改为给每个 VM 提供专用 IP 地址。 客户端使用与第7层负载均衡器关联的公共 IP 地址进行连接。
 
-定义用于将网络流量定向到 VM 的负载均衡器规则。 例如，若要启用 HTTP 流量，请将前端配置中的端口 80 映射到后端地址池上的端口 80。 当客户端向端口80发送 HTTP 请求时，负载均衡器将使用包含源 IP 地址的[哈希算法](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#load-balancer-concepts)选择后端 IP 地址。 客户端请求将在后端地址池中的所有 VM 之间分配。
+定义用于将网络流量定向到 VM 的负载均衡器规则。 例如，若要启用 HTTP 流量，请将前端配置中的端口 80 映射到后端地址池上的端口 80。 当客户端向端口80发送 HTTP 请求时，负载均衡器将使用包含源 IP 地址的[哈希算法](/azure/load-balancer/concepts-limitations#load-balancer-concepts)选择后端 IP 地址。 客户端请求将在后端地址池中的所有 VM 之间分配。
 
 ### <a name="network-security-groups"></a>网络安全组
 
