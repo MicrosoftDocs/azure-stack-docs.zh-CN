@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack 中心服务策略，以及如何使集成系统处于受支持的状态。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 280509c989a10b11884e93947d20569b3c128426
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: be2da63bcb2eb986a14ebae417810ee4b585714d
+ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882919"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075949"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack 中心服务策略
 
@@ -77,6 +77,9 @@ Microsoft 软件更新包是非累积性的，需要以前的更新包或修补�
 
 Azure Stack 中心遵循与 Azure 相同的支持过程。 企业客户可以遵循[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)中所述的过程。 如果你是云解决方案提供商（CSP）的客户，请联系你的 CSP 以获得支持。 有关详细信息，请参阅 [Azure 支持常见问题解答](https://azure.microsoft.com/support/faq/)。
 
+若要帮助解决更新问题，请参阅[解决 Azure Stack 集线器修补程序和更新问题时的最佳做法](azure-stack-updates-troubleshoot.md)。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [管理 Azure Stack 集线器中的更新](azure-stack-updates.md)
+- [Azure Stack 中心修补程序和更新问题进行故障排除的最佳实践](azure-stack-updates-troubleshoot.md)

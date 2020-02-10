@@ -3,16 +3,16 @@ title: Azure Stack 集线器中的使用情况连接问题和错误
 description: 解决 Azure Stack 集线器使用问题和错误。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 4a4b34c6aeaac3bd484c0a954af0f3a456cbfe85
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 79f34d685998a6719bc580504d4d26a8e4be093f
+ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882682"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075983"
 ---
 # <a name="usage-connectivity-errors"></a>使用连接错误
 
@@ -38,13 +38,13 @@ Azure Stack 集线器使用情况数据由 Azure Stack 集线器中的[*Azure Br
 
 本部分介绍使用错误代码。
 
-| 错误代码                 | 问题                                                                                                                                             | 补救                                                                                                                                                                                                                                                                                        |
+| 错误代码                 | 问题                                                                                                                                             | 修正                                                                                                                                                                                                                                                                                        |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NetworkError               | Azure Stack 集线器桥无法将请求发送到 Azure 中的使用情况服务终结点。                                                            | 检查代理是否正在阻止或截获对使用情况服务终结点的访问。                                                                                                                                                                                                             |
 | RequestTimedOut            | 请求是从 Azure Bridge 发送的，但 Azure 中的使用率服务未能在超时期限内响应。                             | 检查代理是否正在阻止或截获对使用情况服务终结点的访问。                                                                                                                                                                                                                        |
 | LoginError                 | 无法对 Microsoft Azure Active Directory 进行身份验证。                                                                                                             | 确保 Azure AD 的登录终结点可从 Azure Stack 中心内的所有 XRP Vm 进行访问。                                                                                                                                                                                                                     |
 | CertificateValidationError | Azure 桥无法发送请求，因为它无法通过 Azure 服务进行身份验证。                                    | 检查 Azure Stack 中心 XRP 机和使用情况网关终结点之间是否存在侦听 HTTPS 流量的代理。                                                                                                                                                                                      |
-| 未授权               | Azure 桥无法将数据推送到 Azure 中的使用率服务，因为 Azure 服务无法对 Azure Stack 中心桥进行身份验证。 | 检查是否已修改注册资源，如果是，则重新注册 Azure Stack 集线器。 <br><br> 有时 Azure Stack 集线器和 Azure AD 之间的时间同步问题可能导致此失败。 在这种情况下，请确保 Azure Stack 集线器上的 XRP Vm 上的时间与 Azure AD 同步。 |
+| Unauthorized               | Azure 桥无法将数据推送到 Azure 中的使用率服务，因为 Azure 服务无法对 Azure Stack 中心桥进行身份验证。 | 检查是否已修改注册资源，如果是，则重新注册 Azure Stack 集线器。 <br><br> 有时 Azure Stack 集线器和 Azure AD 之间的时间同步问题可能导致此失败。 在这种情况下，请确保 Azure Stack 集线器上的 XRP Vm 上的时间与 Azure AD 同步。 |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
 此外，可能还需要通过执行以下[步骤](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)，为 AZURE BRIDGE、WAS 和 WASPublic 组件提供日志文件。

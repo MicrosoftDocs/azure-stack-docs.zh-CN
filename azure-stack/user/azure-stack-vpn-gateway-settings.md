@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: b230c78811e79e7a04114b77a2fcacd1b2a2fc9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2f0b520b4c615e56fea7575422b306c226188eb0
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884117"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075210"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>为 Azure Stack 中心配置 VPN 网关设置
 
@@ -112,7 +112,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 | **站点到站点连接（S2S 连接）** | 不支持 | 基于路由的 VPN 配置 | 基于路由的 VPN 配置 | 基于路由的 VPN 配置 |
 | **身份验证方法**  | 不支持 | 用于 S2S 连接的预共享密钥  | 用于 S2S 连接的预共享密钥  | 用于 S2S 连接的预共享密钥  |
 | **S2S 连接的最大数目**  | 不支持 | 20 | 20| 10|
-|**活动路由支持 (BGP)** | 不支持 | 不支持 | 受支持 | 受支持 |
+|**活动路由支持 (BGP)** | 不支持 | 不支持 | 支持 | 支持 |
 
 ### <a name="gateway-subnet"></a>网关子网
 
@@ -160,9 +160,9 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 | 属性              | 值|
 |-|-|
 | SDK 版本           | IKEv2 |
-|Diffie-Hellman 组   | ECP384 |
+|Diffie-hellman 组 *   | ECP384 |
 | 身份验证方法 | 预共享密钥 |
-|加密和哈希算法 | AES256、SHA384 |
+|加密 & 哈希算法 * | AES256、SHA384 |
 |SA 生存期（时间）     | 28,800 秒|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE 阶段 2（快速模式）参数
@@ -174,8 +174,19 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 |加密 & 哈希算法（身份验证） | GCMAES256|
 |SA 生存期（时间）  | 27,000 秒  |
 |SA 生存期（Kb） | 33553408     |
-|完全向前保密 (PFS) | ECP384 |
-|死对等体检测 | 受支持|  
+|完全向前保密（PFS） * | ECP384 |
+|死对等体检测 | 支持| 
+
+>[!NOTE]
+>对于版本1910及更高版本，Diffie-hellman 组、哈希算法和完全向前保密的默认值已更改。 如果 Azure Stack 中心位于1910以下的版本中，请使用以下参数的值：
+
+>| 属性| 值|
+>|-|-|
+>|Diffie-Hellman 组   | DHGroup2 |
+>|哈希算法 | SHA256 |
+>|完全向前保密 (PFS) | 无 |
+
+\* 新的或更改的参数。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,16 +3,16 @@ title: 将自定义 VM 映像添加到 Azure Stack 集线器
 description: 了解如何在 Azure Stack 集线器中添加或删除自定义 VM 映像。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 359adfbe9083bd21368934426a54c887af2f9f2a
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: ae446d053c008fc2433f44ba8e7ffa7324972362
+ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889960"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075966"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>将自定义 VM 映像添加到 Azure Stack 集线器
 
@@ -22,18 +22,20 @@ ms.locfileid: "76889960"
 
 ### <a name="windows"></a>Windows
 
-创建自定义通用化 VHD。 
+创建自定义通用化 VHD。
 
 **如果 vhd 来自 Azure 外部**，请按照[上传通用 VHD 并使用它在 azure 中创建新的 vm 中](/azure/virtual-machines/windows/upload-generalized-managed)的步骤，正确地**Sysprep** VHD 并使其通用化。
 
 **如果 VHD 来自 Azure**，则在通用化 VM 之前，请确保以下各项：
-1) 在 Azure 上预配 VM 时，请使用 PowerShell 并在不使用 `-ProvisionVMAgent` 标志的情况下对其进行设置 
-2) 在 Azure 中通用化 VM 之前，请从 VM 中删除所有 VM 扩展，**并使用 set-azurermvmextension** cmdlet。 可以通过转到 Windows （C：）找到已安装的 VM 扩展> Windowsazure.storage > 日志 > 插件。
 
-```Powershell
+- 在 Azure 上预配 VM 时，请使用 PowerShell 并在不使用 `-ProvisionVMAgent` 标志的情况下对其进行设置。
+- 在 Azure 中通用化 VM 之前，请从 VM 中删除所有 VM 扩展，**并使用 set-azurermvmextension** cmdlet。 可以通过转到 `Windows (C:) > WindowsAzure > Logs > Plugins`来查找已安装的 VM 扩展。
+
+```powershell
 Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
-```                       
-请按照[本文档](/azure/virtual-machines/windows/download-vhd)中的说明进行操作，在将 VHD 移植到 Azure Stack 集线器之前，对其进行正确通用化和下载。
+```
+
+按照[本文](/azure/virtual-machines/windows/download-vhd)中的说明进行操作，在将 VHD 移植到 Azure Stack 集线器之前，对其进行正确通用化和下载。
 
 ### <a name="linux"></a>Linux
 
@@ -72,7 +74,7 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
    1. 选择 "**生成 URL**"。
 
    1. 生成 URL。
-   
+
    1. 在生成的 URL 下，选择 **"下载 VHD 文件**"。
 
    1. 你可能需要在浏览器中选择 "**保存**" 以开始下载。 VHD 文件的默认名称为 _abcd_。
@@ -83,7 +85,7 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
 
 - Azure Stack 集线器仅支持采用固定磁盘 VHD 格式的第1代 VM。 固定格式在文件中以线性方式构造逻辑磁盘，使磁盘偏移量*x*存储在 blob 偏移量*x*的位置。Blob 末尾的小页脚描述了 VHD 的属性。 若要确认是否已修复磁盘，请使用 "**获取 VHD** PowerShell cmdlet"。
 
-- Azure Stack 中心不支持动态磁盘 Vhd。 
+- Azure Stack 中心不支持动态磁盘 Vhd。
 
 ## <a name="step-2-upload-the-vm-image-to-a-storage-account"></a>步骤2：将 VM 映像上传到存储帐户
 
@@ -100,19 +102,18 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
      在此示例中使用的一个此类工具是将 VHD 上传到 Azure Stack 中心管理员门户中的存储帐户的 Add-azurermvhd 命令。  
 
      ```powershell
-     Add-AzureRmVhd -Destination "https://bash.blob.redmond.azurestack.com/sample/vhdtestingmgd.vhd" -LocalFilePath "C:\vhd\vhdtestingmgd.vhd" 
+     Add-AzureRmVhd -Destination "https://bash.blob.redmond.azurestack.com/sample/vhdtestingmgd.vhd" -LocalFilePath "C:\vhd\vhdtestingmgd.vhd"
      ```
 
-3. 记下要在其中上传映像的 blob 存储 URI。 Blob 存储 URI 采用以下格式： *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd。
+4. 记下要在其中上传映像的 blob 存储 URI。 Blob 存储 URI 采用以下格式： *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd。
 
-4. 若要使 blob 可匿名访问，请访问已上传 VM 映像 VHD 的存储帐户 blob 容器。 选择 " **Blob**"，然后选择 "**访问策略**"。 （可选）可以为容器生成共享访问签名，并将其包含为 blob URI 的一部分。 此步骤可确保 blob 可供使用。 如果无法以匿名方式访问 blob，则会在 "失败" 状态下创建 VM 映像。
+5. 若要使 blob 可匿名访问，请访问已上传 VM 映像 VHD 的存储帐户 blob 容器。 选择 " **Blob**"，然后选择 "**访问策略**"。 （可选）可以为容器生成共享访问签名，并将其包含为 blob URI 的一部分。 此步骤可确保 blob 可供使用。 如果无法以匿名方式访问 blob，则会在 "失败" 状态下创建 VM 映像。
 
    ![中转到存储帐户 blob](./media/azure-stack-add-vm-image/tca1.png)
 
    ![将 blob 访问权限设置为公共](./media/azure-stack-add-vm-image/tca2.png)
 
    ![将 blob 访问权限设置为公共](./media/azure-stack-add-vm-image/tca3.png)
-   
 
 ## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>步骤3，选项1：使用门户将 VM 映像添加为 Azure Stack 中心操作员
 
@@ -121,11 +122,11 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
    ![自定义映像旁加载 UI](./media/azure-stack-add-vm-image/tca4.png)
 
 2. 在 "**创建映像**" 下，输入发布者、产品/服务、SKU、版本和 OS 磁盘 blob URI。 然后，选择 "**创建**" 以开始创建 VM 映像。
-   
+
    ![自定义映像旁加载 UI](./media/azure-stack-add-vm-image/tca5.png)
 
    成功创建映像后，VM 映像状态将更改为 "**成功**"。
-   
+
 3. 添加映像时，它仅适用于基于 Azure 资源管理器的模板和 PowerShell 部署。 若要将映像作为 marketplace 项提供给用户，请使用[创建和发布 marketplace 项一](azure-stack-create-and-publish-marketplace-item.md)文中的步骤来发布 marketplace 项。 请确保记下**发布者**、**产品/服务**、 **SKU**和**版本**值。 在 .azpkg 中编辑资源管理器模板和时，需要用到它们。
 
 ## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>步骤3：选项2：使用 PowerShell 将 VM 映像作为 Azure Stack 中心操作员添加
@@ -149,7 +150,7 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
    - **发布服务器**  
      例如： `Canonical`  
      用户在部署映像时使用的 VM 映像的**发布者**名称段。 不要在此字段中包含空格或其他特殊字符。  
-   - **offer**  
+   - **提供**  
      例如： `UbuntuServer`  
      用户在部署 VM 映像时使用的 VM 映像的**产品/服务**名称段。 不要在此字段中包含空格或其他特殊字符。  
    - **sku**  
@@ -157,7 +158,7 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
      用户在部署 VM 映像时使用的 VM 映像的**SKU**名称段。 不要在此字段中包含空格或其他特殊字符。  
    - **version**  
      例如： `1.0.0`  
-     用户在部署 VM 映像时使用的 VM 映像的版本。 此版本采用以下格式 *\#。\#。\#* 不要在此字段中包含空格或其他特殊字符。  
+     用户在部署 VM 映像时使用的 VM 映像的版本。 此版本的格式为 *\#.\#。\#* 。 不要在此字段中包含空格或其他特殊字符。  
    - **osType**  
      例如： `Linux`  
      映像的**osType**必须为**Windows**或**Linux**。  
@@ -166,7 +167,7 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
      可以为 `osDisk`指定 blob 存储 URI。  
 
      有关详细信息，请参阅[AzsPlatformimage](/powershell/module/azs.compute.admin/add-azsplatformimage) Cmdlet 的 PowerShell 参考。
-     
+
 4. 添加映像时，它仅适用于基于 Azure 资源管理器的模板和 PowerShell 部署。 若要将映像作为 marketplace 项提供给用户，请使用[创建和发布 marketplace 项一](azure-stack-create-and-publish-marketplace-item.md)文中的步骤来发布 marketplace 项。 请确保记下**发布者**、**产品/服务**、 **SKU**和**版本**值。 在自定义的 .azpkg 中编辑 resource manager 模板和 Manifest 时，需要用到它们。
 
 ## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>使用门户将 VM 映像作为 Azure Stack 中心操作员删除
@@ -201,7 +202,7 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
    - **发布服务器**  
      例如： `Canonical`  
      用户在部署映像时使用的 VM 映像的**发布者**名称段。 不要在此字段中包含空格或其他特殊字符。  
-   - **offer**  
+   - **提供**  
      例如： `UbuntuServer`  
      用户在部署 VM 映像时使用的 VM 映像的**产品/服务**名称段。 不要在此字段中包含空格或其他特殊字符。  
    - **sku**  
@@ -209,7 +210,7 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
      用户在部署 VM 映像时使用的 VM 映像的**SKU**名称段。 不要在此字段中包含空格或其他特殊字符。  
    - **version**  
      例如： `1.0.0`  
-     用户在部署 VM 映像时使用的 VM 映像的版本。 此版本采用以下格式 *\#。\#。\#* 不要在此字段中包含空格或其他特殊字符。  
+     用户在部署 VM 映像时使用的 VM 映像的版本。 此版本的格式为 *\#.\#。\#* 。 不要在此字段中包含空格或其他特殊字符。  
 
      有关**AzsPlatformImage** cmdlet 的详细信息，请参阅 Microsoft PowerShell [Azure Stack 中心操作员模块文档](/powershell/module/)。
 

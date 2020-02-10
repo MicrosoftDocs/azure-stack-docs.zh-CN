@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: 396db14d269ee9443d38f8220e5dd0384d04a479
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7b83fa18f8a550a718023c97ccab8d46b5b86564
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881305"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075193"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack 中心基础结构安全控制
 
@@ -85,7 +85,7 @@ Azure Stack 中心中的管理由三个入口点控制，每个入口点都有�
 - Azure 资源管理器通过 PowerShell 和 Azure CLI 使用的 REST API 公开管理员门户的所有管理操作。
 - 对于特定的低级别操作（例如，数据中心集成或支持方案），Azure Stack 集线器公开了称为[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组列表中的一组 cmdlet，并进行大量审核。
 
-## <a name="network-controls"></a>网络控件
+## <a name="network-controls"></a>网络控制
 
 Azure Stack 集线器基础结构附带了多层网络访问控制列表（ACL）。 Acl 可防止对基础结构组件进行未经授权的访问，并将基础结构通信限制为仅适用于其正常运行所需的路径。
 
@@ -105,7 +105,7 @@ Azure Stack 中心已通过与第三方无关的审核公司进行了正式的�
 - [CSA 云控制矩阵](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview)是跨多个标准的综合性映射，包括 FEDRAMP、ISO27001、HIPAA、HITRUST、ITAR、NIST SP800-53 等。
 - 政府客户[FedRAMP 高](https://www.fedramp.gov/fedramp-releases-high-baseline/)。
 
-可在[Microsoft 服务信任门户](https://servicetrust.microsoft.com/ViewPage/Blueprint)中找到符合性文档。 合规性指南是受保护的资源，要求你使用 Azure 云服务凭据登录。
+可在[Microsoft 服务信任门户](https://servicetrust.microsoft.com/ViewPage/AzureStack)中找到符合性文档。 合规性指南是受保护的资源，要求你使用 Azure 云服务凭据登录。
 
 ## <a name="next-steps"></a>后续步骤
 
