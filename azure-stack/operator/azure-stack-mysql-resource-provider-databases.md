@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 5955dcf6c211f9f431d84227548496af7782a0d7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 23c823fcbfa76d34a471ac404b18dab13b737315
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881842"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125749"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建 MySQL 数据库
 订阅了包含 MySQL 数据库服务的产品/服务的 Azure Stack 集线器用户可以在用户门户中创建和管理自助服务 MySQL 数据库。
@@ -23,7 +23,7 @@ ms.locfileid: "76881842"
 2. 选择 " **+ 创建资源**" > **数据 + 存储** > **MySQL 数据库** > "**添加**"。
 3. 在 "**创建 MySQL 数据库**" 下，输入数据库名称，并根据环境要求配置其他设置。
 
-    ![创建测试 MySQL 数据库](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+    ![创建测试 MySQL 数据库](./media/azure-stack-mysql-rp-deploy/mysql-create-db-a.png)
 
 4. 在 "**创建数据库**" 下，选择**SKU**。 在 "**选择 MYSQL sku**" 下，选择数据库的 SKU。
 
@@ -44,7 +44,7 @@ ms.locfileid: "76881842"
 
 部署数据库后，请记下**Essentials**下的**连接字符串**。 你可以在任何需要访问 MySQL 数据库的应用程序中使用此字符串。
 
-![获取 MySQL 数据库的连接字符串](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+![获取 MySQL 数据库的连接字符串](./media/azure-stack-mysql-rp-deploy/mysql-db-created-a.png)
 
 ## <a name="update-the-administrative-password"></a>更新管理密码
 

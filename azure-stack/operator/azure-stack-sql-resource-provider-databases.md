@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4269cce339ee606fd8efb4cb08677079c0f2e477
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: b0ea11c3245d8a3ddbf9eeaf85481f830c67dc7f
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972664"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125564"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 
@@ -32,7 +32,7 @@ ms.locfileid: "76972664"
 
 4. 在 "**创建数据库**" 下，选择**SKU**。 在 "**选择 sku**" 下，选择数据库的 sku。
 
-   ![在 Azure Stack Hub 用户门户中创建数据库。](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![在 Azure Stack Hub 用户门户中创建数据库。](./media/azure-stack-sql-rp-deploy/newsqldba.png)
 
    >[!NOTE]
    >将托管服务器添加到 Azure Stack 中心时，会为它们分配 SKU。 数据库在 SKU 中的宿主服务器池中创建。
@@ -46,13 +46,13 @@ ms.locfileid: "76972664"
    >[!NOTE]
    >这些设置是为仅对此数据库的访问而创建的 SQL 身份验证凭据。 登录名用户名必须是全局唯一的。 可以对使用相同 SKU 的其他数据库重用登录设置。
 
-   ![在 Azure Stack Hub 用户门户中创建新的数据库登录名](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![在 Azure Stack Hub 用户门户中创建新的数据库登录名](./media/azure-stack-sql-rp-deploy/create-new-login-a.png)
 
 8. 选择 **"确定"** 完成数据库的部署。
 
 在部署数据库后显示的 " **Essentials**" 下，记下**连接字符串**。 您可以在任何需要访问 SQL Server 数据库的应用程序中使用此字符串。
 
-![检索 SQL Server 数据库的连接字符串](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![检索 SQL Server 数据库的连接字符串](./media/azure-stack-sql-rp-deploy/sql-db-settings-a.png)
 
 ## <a name="sql-always-on-databases"></a>SQL Always On 数据库
 
@@ -62,7 +62,7 @@ ms.locfileid: "76972664"
 
 以下屏幕截图显示了如何使用 SQL Server Management Studio 来查看 SQL Always On 中的数据库状态。
 
-![SQL Server Management Studio 中的 AlwaysOn 数据库状态](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![SQL Server Management Studio 中的 AlwaysOn 数据库状态](./media/azure-stack-sql-rp-deploy/verify-always-on.png)
 
 Always On 数据库应显示为已**同步**并且可用于所有 SQL 实例，并显示在**可用性组**中。 在前面的屏幕截图中，数据库示例为 newdb1，其状态为**newdb1 （已同步）** 。
 

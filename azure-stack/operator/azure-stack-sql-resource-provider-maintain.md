@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0d6551f7db2ef8b7266d45223c9b20587610b169
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed76e3611fe0b7b57386a7b688f08ddbdc3c36d7
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881256"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125799"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -33,7 +33,7 @@ SQL 资源提供程序不是作为 Azure Stack 中心的一部分来处理的，
 
 若要修改设置，请选择 "**浏览**&gt;**管理资源**" &gt; **Sql 宿主服务器**"&gt; **sql 登录**名并选择用户名。 必须首先在 SQL 实例（和任何副本）上进行更改（如有必要）。在 "**设置**" 下，选择 "**密码**"。
 
-![更新 SQL 管理员密码](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![更新 SQL 管理员密码](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
 ## <a name="secrets-rotation"></a>秘密旋转
 
@@ -93,7 +93,7 @@ SQL 资源提供程序不是作为 Azure Stack 中心的一部分来处理的，
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider 参数
 
-|参数|Description|
+|参数|说明|
 |-----|-----|
 |AzCredential|Azure Stack 中心服务管理员帐户凭据。|
 |CloudAdminCredential|Azure Stack 中心云管理域帐户凭据。|
