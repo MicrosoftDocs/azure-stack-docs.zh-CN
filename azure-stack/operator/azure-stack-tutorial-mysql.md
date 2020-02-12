@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: b8ad46128d3b0228fdc2e6ecc0c3ca507b4ec697
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882730"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147896"
 ---
 # <a name="create-highly-available-mysql-databases"></a>创建高度可用的 MySQL 数据库
 
@@ -78,7 +78,7 @@ ms.locfileid: "76882730"
    - 选择要使用的资源组，或者创建一个新资源组。
    - 选择位置（默认为 ASDK 的 "本地"）。
 
-   ![部署基础知识-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)] （media/mysqlrp/lg）。PNG # lightbox）
+   [![部署基础知识-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. 在 "**环境配置**" 页上，提供以下信息，然后选择 **"确定"** ：
 
@@ -86,11 +86,11 @@ ms.locfileid: "76882730"
    - VM 大小（默认为标准 D1 v2 Vm）。
    - 数据磁盘大小（GB）
 
-   ![环境配置-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)] （media/mysqlrp/lg）。PNG # lightbox）
+   [![环境配置-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. 查看部署**摘要**。 还可以选择下载自定义模板和参数，然后选择 **"确定"** 。
 
-   ![摘要-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)] （media/mysqlrp/lg）。PNG # lightbox）
+   [![摘要-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. 在 "**购买**" 页上选择 "**创建**" 以开始部署。
 
@@ -115,7 +115,7 @@ ms.locfileid: "76882730"
 
     在 "**目标端口范围**" 中输入**3306** ，并根据需要在 "**名称**" 和 "**说明**" 字段中提供说明。
 
-   ![开门](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/7.png)
 
 3. 选择 "**添加**" 以关闭 "入站安全规则" 对话框。
 

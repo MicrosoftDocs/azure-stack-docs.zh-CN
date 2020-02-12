@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 验证即服务中验证 Microsoft 的软件更新
+title: 在 Azure Stack Hub 验证即服务中验证 Microsoft 的软件更新
 description: 了解如何通过验证即服务验证 Microsoft 的软件更新。
 author: mattbriggs
 ms.topic: tutorial
@@ -8,22 +8,22 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5e4438f0c3a95b2254422a428741a28b685cb9f5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8e09160245551ee83f631360931c8e70bac4318e
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884006"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143903"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>从 Microsoft 验证软件更新
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft 会定期发布 Azure Stack 软件的更新。 提供这些更新是为了 Azure Stack 共同工程合作伙伴。 这些更新是在公开发布之前提供的。 你可以根据解决方案检查更新，并向 Microsoft 提供反馈。
+Microsoft 会定期发布 Azure Stack 中心软件的更新。 这些更新提供给 Azure Stack 中心共同工程合作伙伴。 这些更新是在公开发布之前提供的。 你可以根据解决方案检查更新，并向 Microsoft 提供反馈。
 
-使用命名约定指定 Azure Stack 的 Microsoft 软件更新，例如1803，表示更新的值为2018年3月。 有关 Azure Stack 更新策略、步调和发行说明的信息，请参阅[Azure Stack 服务策略](../operator/azure-stack-servicing-policy.md)。
+使用命名约定指定 Azure Stack 集线器的 Microsoft 软件更新，例如，1803表示更新适用于3月2018。 有关 Azure Stack 中心更新策略、步调和发行说明的信息，请参阅[Azure Stack 中心维护策略](../operator/azure-stack-servicing-policy.md)。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 在 VaaS 中练习每月更新过程之前，应熟悉以下各项：
 
@@ -38,7 +38,7 @@ Microsoft 会定期发布 Azure Stack 软件的更新。 提供这些更新是�
 ## <a name="validating-software-updates"></a>正在验证软件更新
 
 1. 创建新的**包验证**工作流。
-1. 对于上面所需的测试，请按照[运行包验证测试](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)中的说明进行操作。 有关**每月 Azure Stack 更新验证**测试的其他说明，请参阅下面的部分。
+1. 对于上面所需的测试，请按照[运行包验证测试](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)中的说明进行操作。 请参阅以下部分，了解有关**每月 Azure Stack 中心更新验证**测试的其他说明。
 
 如果有疑问或问题，请联系[VaaS 帮助](mailto:vaashelp@microsoft.com)。
 

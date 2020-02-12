@@ -1,30 +1,30 @@
 ---
-title: 使用验证即服务 Azure Stack 门户计划第一个测试
-description: 使用 "验证即服务" 作为 Azure Stack 门户计划第一次测试。
+title: 使用验证即服务 Azure Stack 中心门户计划第一次测试
+description: 使用 "验证即服务" 作为 Azure Stack 中心门户计划第一次测试。
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885128"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143722"
 ---
 # <a name="scheduling-a-test"></a>计划测试
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-在 Azure Stack 解决方案的验证即服务（VaaS）门户中计划测试。 VaaS 解决方案表示具有特定硬件材料清单（BoM）的 Azure Stack 解决方案。 你可以计划测试，以检查硬件是否可以 Azure Stack 运行。
+在 Azure Stack 中心解决方案的验证即服务（VaaS）门户中计划测试。 VaaS 解决方案表示具有特定硬件材料清单（BoM）的 Azure Stack 集线器解决方案。 你可以计划测试，以检查硬件是否可以 Azure Stack 集线器运行。
 
-若要检查解决方案，请为测试创建工作流。 VaaS 工作流在 VaaS 解决方案的上下文中运行。 它代表一组测试套件，用于在硬件上运用 Azure Stack 部署的功能。 添加解决方案的环境参数，并选择要在解决方案中运行的一个或多个测试。
+若要检查解决方案，请为测试创建工作流。 VaaS 工作流在 VaaS 解决方案的上下文中运行。 它代表一组测试套件，用于在硬件上执行 Azure Stack 中心部署的功能。 添加解决方案的环境参数，并选择要在解决方案中运行的一个或多个测试。
 
 虽然测试通过工作流可用于运行由 VaaS 提供的任何测试，包括验证工作流中的测试，但不会将测试通过工作流的结果视为*正式*测试。 有关官方验证工作流的信息，请参阅[工作流](azure-stack-vaas-key-concepts.md#workflows)。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 在执行本快速入门之前，应完成以下各项：
 
@@ -44,7 +44,7 @@ ms.locfileid: "76885128"
 
 ## <a name="specify-parameters"></a>指定参数
 
-![替换文本](media/vaas_test_pass_parameters.png)
+![替换文字](media/vaas_test_pass_parameters.png)
 
 提供应用于工作流中的所有测试的参数。
 

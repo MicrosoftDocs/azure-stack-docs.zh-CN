@@ -1,5 +1,5 @@
 ---
-title: 验证作为服务 Azure Stack 验证中的原始设备制造商（OEM）包
+title: 验证作为服务 Azure Stack 集线器验证中的原始设备制造商（OEM）包
 description: 了解如何使用验证即服务验证原始设备制造商（OEM）包。
 author: mattbriggs
 ms.topic: tutorial
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8bb39f3aae4031402e38023f92ebdb91feb9bf92
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885117"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143738"
 ---
 # <a name="validate-oem-packages"></a>验证 OEM 包
 
@@ -55,7 +55,7 @@ ms.locfileid: "76885117"
 
 ### <a name="generate-package-blob-url-for-vaas"></a>为 VaaS 生成包 blob URL
 
-在 VaaS 门户中创建**包验证**工作流时，需要提供包含包的 Azure 存储 BLOB 的 URL。 某些*交互式*测试（包括**每月 test-azurestack 更新验证**和**OEM 扩展包验证**）还需要包 blob 的 URL。
+在 VaaS 门户中创建**包验证**工作流时，需要提供包含包的 Azure 存储 BLOB 的 URL。 某些*交互式*测试（包括**每月 Azure Stack 中心更新验证**和**OEM 扩展包验证**）还需要包 blob 的 URL。
 
 #### <a name="handling-container-access-level"></a>处理容器访问级别
 
@@ -141,14 +141,14 @@ VaaS 所需的最低访问级别取决于你是要创建包验证工作流还是
 
 5. 将 Azure 存储 blob URL 输入到需要 Microsoft 签名的测试签名 OEM 包。 有关说明，请参阅为[VaaS 生成包 BLOB URL](#generate-package-blob-url-for-vaas)。
 
-6. 将 Test-azurestack 更新包文件夹复制到 DVM 上的本地目录。 输入**包含包 zip 文件和**"test-azurestack 更新包文件夹路径" 的元数据文件的文件夹的路径
+6. 将 Azure Stack 中心更新包文件夹复制到 DVM 上的本地目录。 输入**包含包 zip 文件和**"test-azurestack 更新包文件夹路径" 的元数据文件的文件夹的路径
 
 7. 将上面创建的 OEM 包文件夹复制到 DVM 上的本地目录。 输入**包含包 zip 文件和**"OEM 更新包文件夹路径" 的元数据文件的文件夹的路径
 
     > [!NOTE]
-    > 将 Test-azurestack 更新和 OEM 更新复制到**2 个不同**的目录。
+    > 将 Azure Stack 集线器更新和 OEM 更新复制到**2 个不同**的目录。
 
-8. "RequireDigitalSignature"-如果需要将包设置为 Microsoft 签名（运行 OEM 验证工作流），**则提供 true** 。 如果要在最新的 Test-azurestack 更新上验证 Microsoft 签名包，请将此值作为 false （运行每月 Test-azurestack 更新验证）提供。
+8. "RequireDigitalSignature"-如果需要将包设置为 Microsoft 签名（运行 OEM 验证工作流），**则提供 true** 。 如果要在最新的 Azure Stack 中心更新上验证 Microsoft 签名包，请将此值提供为 false （每月运行 Azure Stack 中心更新验证）。
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -170,7 +170,7 @@ VaaS 所需的最低访问级别取决于你是要创建包验证工作流还是
 
 1. 在 "**包验证测试摘要**" 页中，你将运行适用于你的方案的所列测试的子集。
 
-    在验证工作流中，**计划**测试使用工作流创建期间指定的工作流级公共参数（[有关 Azure Stack 验证作为服务的工作流通用参数](azure-stack-vaas-parameters.md)，请参阅）。 如果任何测试参数值无效，则必须按照[修改工作流参数](azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示 resupply 它们。
+    在验证工作流中，**计划**测试使用工作流创建过程中指定的工作流级公共参数（[有关 Azure Stack 中心验证作为服务的工作流常见参数](azure-stack-vaas-parameters.md)，请参阅）。 如果任何测试参数值无效，则必须按照[修改工作流参数](azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示 resupply 它们。
 
     > [!NOTE]
     > 在现有实例上计划验证测试会在门户中创建一个新实例来代替旧实例。 旧实例的日志将保留，但无法从门户进行访问。  

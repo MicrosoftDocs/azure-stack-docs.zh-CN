@@ -1,6 +1,6 @@
 ---
 title: 部署本地代理
-description: 将 Azure Stack 验证的本地代理部署为服务。
+description: 将 Azure Stack 集线器验证的本地代理部署为服务。
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a84f2495b0e2195ac143dc8fd9ac4ea4668392b4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a5090b60c5aa3c947fbbf1fc887b4fb25900ae98
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884087"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143980"
 ---
 # <a name="deploy-the-local-agent"></a>部署本地代理
 
@@ -32,13 +32,13 @@ ms.locfileid: "76884087"
 
 ## <a name="download-and-start-the-local-agent"></a>下载并启动本地代理
 
-将代理下载到满足你的数据中心先决条件的计算机，并且有权访问所有 Azure Stack 终结点。 此计算机不应是 Azure Stack 系统的一部分，也不应托管在 Azure Stack 云中。
+将代理下载到满足你的数据中心先决条件的计算机，并且有权访问所有 Azure Stack 中心终结点。 此计算机不应是 Azure Stack 中心系统的一部分，也不应托管在 Azure Stack 中心云中。
 
 ### <a name="machine-prerequisites"></a>计算机必备组件
 
 检查您的计算机是否满足以下条件：
 
-- 访问所有 Azure Stack 终结点
+- 访问所有 Azure Stack 中心终结点
 - 已安装 .NET 4.6 和 PowerShell 5。0
 - 至少 8 GB RAM
 - 最低8核处理器
@@ -48,7 +48,7 @@ ms.locfileid: "76884087"
 ### <a name="download-and-install-the-local-agent"></a>下载并安装本地代理
 
 1. 在将用于运行测试的计算机上，在提升的提示符下打开 Windows PowerShell。
-2. 运行以下命令以下载并安装本地代理依赖项，并将公用映像存储库（PIR）映像（OS VHD）复制到 Azure Stack 环境。
+2. 运行以下命令以下载并安装本地代理依赖项，并将公用映像存储库（PIR）映像（OS VHD）复制到 Azure Stack 中心环境。
 
     ```powershell
     # Review and update the following five parameters
@@ -82,7 +82,7 @@ ms.locfileid: "76884087"
 
 **参数**
 
-| 参数 | Description |
+| 参数 | 说明 |
 | --- | --- |
 | AadServiceAdminUser | Azure AD 租户的全局管理员用户。 例如，可以 vaasadmin@contoso.onmicrosoft.com。 |
 | AadServiceAdminPassword | 全局管理员用户的密码。 |
@@ -93,7 +93,7 @@ ms.locfileid: "76884087"
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>在开始测试之前执行完整性检查
 
-这些测试运行远程操作。 运行测试的计算机必须具有对 Azure Stack 终结点的访问权限，否则测试将不起作用。 如果使用的是 VaaS 本地代理，请使用运行代理的计算机。 您可以通过运行以下检查来检查您的计算机是否可以访问 Azure Stack 终结点：
+这些测试运行远程操作。 运行测试的计算机必须有权访问 Azure Stack 中心终结点，否则测试将不起作用。 如果使用的是 VaaS 本地代理，请使用运行代理的计算机。 可以通过运行以下检查来检查计算机是否可以访问 Azure Stack 中心终结点：
 
 1. 检查是否可以访问基 URI。 打开 CMD 提示符或 bash shell，并运行以下命令，将 `<EXTERNALFQDN>` 替换为您的环境的外部 FQDN：
 
@@ -105,13 +105,13 @@ ms.locfileid: "76884087"
 
 3. 使用创建测试通过时提供的 "Azure AD 服务管理员名称" 和 "密码" 值登录。
 
-4. 运行**Test-azurestack** PowerShell cmdlet 来检查系统的运行状况，如[运行 Azure Stack 的验证测试](../operator/azure-stack-diagnostic-test.md)中所述。 在启动任何测试之前修复所有警告和错误。
+4. 按照[Azure Stack 集线器的运行验证测试](../operator/azure-stack-diagnostic-test.md)中所述，运行**test-azurestack** PowerShell cmdlet 来检查系统的运行状况。 在启动任何测试之前修复所有警告和错误。
 
 ## <a name="run-the-local-agent"></a>运行本地代理
 
 1. 在提升的提示符下打开 Windows PowerShell。
 
-2. 运行以下命令：
+2. 运行下面的命令：
 
     ```powershell
    # Review and update the following five parameters
@@ -127,7 +127,7 @@ ms.locfileid: "76884087"
 
       **参数**  
 
-    | 参数 | Description |
+    | 参数 | 说明 |
     | --- | --- |
     | CloudAdminUserName | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如，它可能是，AzusreStack\CloudAdmin。 有关详细信息，请参阅 [此处](azure-stack-vaas-parameters.md) 。 |
     | CloudAdminPassword | 云管理员帐户的密码。|

@@ -22,11 +22,11 @@
       href: azure-stack-vaas-schedule-test-pass.md
     - name: 创建 OEM 包
       href: azure-stack-vaas-create-oem-package.md
-    - name: 验证 OEM 程序包
+    - name: 验证 OEM 包
       href: azure-stack-vaas-validate-oem-package.md
     - name: 验证新的 Azure Stack 中心解决方案
       href: azure-stack-vaas-validate-solution-new.md
-    - name: 验证来自 Microsoft 的软件更新
+    - name: 从 Microsoft 验证软件更新
       href: azure-stack-vaas-validate-microsoft-updates.md
     - name: 交互式功能验证测试
       href: azure-stack-vaas-interactive-feature-verification.md
@@ -50,15 +50,15 @@
       href: /azure/active-directory/
 - name: 资源
   items:
-    - name: Azure Stack 路线图
+    - name: Azure Stack 中心路线图
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure Stack MSDN 论坛
+    - name: Azure Stack 中心 MSDN 论坛
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
-    - name: Azure Stack 文档反馈
+    - name: Azure Stack 中心文档反馈
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 定价信息
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
+    - name: 堆栈溢出
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: 培训和认证
       href: /azure-stack/operator/azure-stack-train-and-cert

@@ -1,6 +1,6 @@
 ---
-title: 作为服务 Azure Stack 验证中的工作流常见参数
-description: 作为服务 Azure Stack 验证的工作流常见参数
+title: Azure Stack 中心验证作为服务的工作流常见参数
+description: Azure Stack 中心验证作为服务的工作流常见参数
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
@@ -8,14 +8,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee72aca1cbba27c75d2811dac96d4b0a78a87617
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cc237792576ffa3a5bb3ad0a003da4284c9cc56f
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885040"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143694"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>作为服务 Azure Stack 验证的工作流常见参数
+# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Azure Stack 中心验证作为服务的工作流常见参数
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -26,14 +26,14 @@ ms.locfileid: "76885040"
 
 ## <a name="environment-parameters"></a>环境参数
 
-环境参数描述所测试的 Azure Stack 环境。 必须通过为要测试的特定实例生成和上传 Azure Stack 戳记信息文件来提供这些值。
+环境参数描述了受测 Azure Stack 中心环境。 必须通过为要测试的特定实例生成和上传 Azure Stack 集线器戳记信息文件来提供这些值。
 
 > [!NOTE]
 > 在官方验证工作流中，在创建工作流后，不能修改环境参数。
 
 ### <a name="generate-the-stamp-information-file"></a>生成戳记信息文件
 
-1. 登录到 DVM 或有权访问 Azure Stack 环境的任何计算机。
+1. 登录到 DVM 或有权访问 Azure Stack 中心环境的任何计算机。
 2. 在提升的 PowerShell 窗口中运行以下命令：
 
     ```powershell  
@@ -52,11 +52,11 @@ ms.locfileid: "76885040"
 
 常见测试参数包括无法存储在配置文件中的敏感信息。 必须手动提供这些。
 
-参数    | Description
+参数    | 说明
 -------------|-----------------
-租户管理员用户                            | Azure Active Directory 在 AAD 目录中由服务管理员预配租户管理员。 此用户执行租户级别的操作，例如部署模板来设置资源（Vm、存储帐户等）和执行工作负荷。 有关设置租户帐户的详细信息，请参阅[添加新的 Azure Stack 租户](../operator/azure-stack-add-new-user-aad.md)。
-服务管理员用户             | Azure Stack 部署期间指定的 Azure AD Directory 租户 Azure Active Directory 管理员。 在 ECE 配置文件中搜索 `AADTenant`，并选择 `UniqueName` 元素中的值。
-云管理员用户               | Azure Stack 域管理员帐户（例如，`contoso\cloudadmin`）。 在 ECE 配置文件中搜索 `User Role="CloudAdmin"`，并选择 `UserName` 元素中的值。
+租户管理员用户                            | Azure Active Directory 在 AAD 目录中由服务管理员预配租户管理员。 此用户执行租户级别的操作，例如部署模板来设置资源（Vm、存储帐户等）和执行工作负荷。 有关设置租户帐户的详细信息，请参阅[添加新的 Azure Stack 中心租户](../operator/azure-stack-add-new-user-aad.md)。
+服务管理员用户             | Azure Stack 中心部署期间指定的 Azure AD Directory 租户 Azure Active Directory 管理员。 在 ECE 配置文件中搜索 `AADTenant`，并选择 `UniqueName` 元素中的值。
+云管理员用户               | Azure Stack 中心域管理员帐户（例如，`contoso\cloudadmin`）。 在 ECE 配置文件中搜索 `User Role="CloudAdmin"`，并选择 `UserName` 元素中的值。
 诊断连接字符串          | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅[生成诊断连接字符串](#generate-the-diagnostics-connection-string)。 |
 
 > [!IMPORTANT]

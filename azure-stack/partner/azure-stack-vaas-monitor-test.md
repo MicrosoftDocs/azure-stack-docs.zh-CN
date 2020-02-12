@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack VaaS 门户中监视和管理测试
-description: 监视和管理 Azure Stack VaaS 门户中的测试。
+title: 监视和管理 Azure Stack 中心 VaaS 门户中的测试
+description: 监视和管理 Azure Stack 中心 VaaS 门户中的测试。
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/11/2019
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 494fffff04cd092afc4a4df3fbf0be59ca894278
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885075"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143790"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>监视和管理 VaaS 门户中的测试
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-针对 Azure Stack 解决方案计划测试后，验证即服务（VaaS）将开始报告测试执行状态。 此信息可在 VaaS 门户中找到，还包含重新计划和取消测试等操作。
+针对 Azure Stack 中心解决方案计划测试后，验证即服务（VaaS）将开始报告测试执行状态。 此信息可在 VaaS 门户中找到，还包含重新计划和取消测试等操作。
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>导航到 "工作流测试摘要" 页
 
@@ -37,7 +37,7 @@ ms.locfileid: "76885075"
 
 1. 在 "测试摘要" 页上，选择 "**编辑**" 按钮。
 
-1. 根据[Azure Stack 验证的工作流常见参数](azure-stack-vaas-parameters.md)，提供新值作为服务。
+1. 根据[Azure Stack 集线器验证的工作流通用参数](azure-stack-vaas-parameters.md)提供新值作为服务。
 
 1. 选择 "**提交**" 以保存值。
 
@@ -53,26 +53,26 @@ ms.locfileid: "76885075"
 
 ## <a name="managing-test-instances"></a>管理测试实例
 
-对于非正式运行（即**测试通过**工作流），"测试摘要" 页将列出针对 Azure Stack 解决方案计划的测试。
+对于非正式运行（即**测试通过**工作流），"测试摘要" 页将列出针对 Azure Stack 中心解决方案计划的测试。
 
-对于官方运行（即，**验证**工作流），"测试摘要" 页将列出完成 Azure Stack 解决方案验证所需的测试。 从此页计划验证测试。
+对于官方运行（即，**验证**工作流），"测试摘要" 页将列出完成 Azure Stack 中心解决方案验证所需的测试。 从此页计划验证测试。
 
 每个计划的测试实例都显示以下信息：
 
-| 柱形图​​ | Description |
+| 列 | 说明 |
 | --- | --- |
 | 测试名称 | 测试的名称和版本。 |
 | 类别 | 测试的目的。 |
-| 已创建 | 计划测试的时间。 |
-| Started | 测试开始执行的时间。 |
+| 创建 | 计划测试的时间。 |
+| 已启动 | 测试开始执行的时间。 |
 | 持续时间 | 测试运行的时间长度。 |
 | 状态 | 测试的状态或结果。 执行前或正在进行的状态有： `Pending`，`Running`。 终端状态为： `Cancelled`、`Failed`、`Aborted``Succeeded`。 |
 | 代理名称 | 运行测试的代理的名称。 |
-| 总操作数 | 在测试期间尝试的操作的总数。 |
+| 操作总数 | 在测试期间尝试的操作的总数。 |
 | 传递的操作 | 测试过程中成功的操作的数目。 |
 |  失败的操作 | 测试过程中失败的操作的数目。 |
 
-### <a name="actions"></a>操作
+### <a name="actions"></a>Actions
 
 每个测试实例都列出了在测试实例表中选择其上下文菜单 **[...]** 时可以执行的操作。
 
@@ -80,14 +80,14 @@ ms.locfileid: "76885075"
 
 从上下文菜单中选择 "**查看信息**" 以查看有关测试定义的一般信息。 这由具有相同名称和版本的每个测试实例共享。
 
-| 测试属性 | Description |
+| 测试属性 | 说明 |
 | -- | -- |
 | 测试名称 | 测试的名称。 |
 | 测试版本 | 测试的版本。 |
 | 发布者 | 测试的发行者。 |
 | 类别 |  测试的目的。 |
-| 目标服务 | 正在测试的 Azure Stack 服务。 |
-| Description | 测试的说明。 |
+| 目标服务 | 正在测试的 Azure Stack 中心服务。 |
+| 说明 | 测试的说明。 |
 | 估计持续时间（分钟） | 测试的预期运行时。 |
 | 链接 | 有关测试或联系点的任何相关信息。 |
 
@@ -97,7 +97,7 @@ ms.locfileid: "76885075"
 
 此窗口包含所有测试实例的以下元数据：
 
-| 测试实例属性 | Description |
+| 测试实例属性 | 说明 |
 | -- | -- |
 | 测试名称 | 测试的名称。 |
 | 测试版本 | 测试的版本。 |

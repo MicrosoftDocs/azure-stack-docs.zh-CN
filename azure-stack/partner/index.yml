@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Stack 中心合作伙伴文档
 metadata:
   title: Azure Stack 集线器合作伙伴 D\documentation-教程、API R\reference
-  description: 了解如何验证你的硬件以承载 Azure Stack。 作为服务的验证是一种本机 Azure 服务，旨在供与 Microsoft 合作 Azure Stack 中心产品的解决方案合作伙伴使用。
+  description: 了解如何验证要托管 Azure Stack 集线器的硬件。 作为服务的验证是一种本机 Azure 服务，旨在供与 Microsoft 合作 Azure Stack 中心产品的解决方案合作伙伴使用。
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -15,7 +15,7 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: johnhas
 abstract:
-  description: 你可以使用 "验证即服务" 来检查硬件以用于 Azure Stack。 此服务是一项本机 Azure 服务，旨在供与 Microsoft 联合工程 Azure Stack 中心产品的解决方案合作伙伴使用。
+  description: 你可以使用 "验证即服务" 来检查你的硬件以与 Azure Stack 中心一起使用。 此服务是一项本机 Azure 服务，旨在供与 Microsoft 联合工程 Azure Stack 中心产品的解决方案合作伙伴使用。
 sections:
   - title: 5 分钟快速入门
     items:

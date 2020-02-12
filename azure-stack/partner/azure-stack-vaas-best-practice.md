@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 验证最佳实践。
-description: 本文讨论验证即服务的最佳实践。
+title: Azure Stack 验证最佳实践
+description: 了解验证即服务的最佳实践。
 author: mattbriggs
 ms.topic: article
 ms.date: 10/28/2019
@@ -8,14 +8,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: cdd5d8a2b1933559c204e479f0215e63b6100b33
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 87dbfa83fa29c0c2870bd9944ddbf97e3cca0578
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884115"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147648"
 ---
-# <a name="best-practices-for-validation-as-a-service"></a>验证即服务的最佳实践
+# <a name="azure-stack-validation-best-practices"></a>Azure Stack 验证最佳实践
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -41,7 +41,7 @@ ms.locfileid: "76884115"
 
 对所有 VaaS 工作流运行使用一致的命名约定。 例如，在以下生成属性中构造工作流名称，如下所示：
 
-|内部版本号（主要） | Date | 解决方案大小 | 工作流名称
+|内部版本号（主要） | 日期 | 解决方案大小 | 工作流名称
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
 

@@ -1,6 +1,6 @@
 ---
-title: 将 Azure Stack 验证作为服务进行故障排除
-description: 排查 Azure Stack 的服务验证问题。
+title: Azure Stack 集线器验证作为服务进行故障排除
+description: 排查 Azure Stack 中心服务的验证问题。
 author: mattbriggs
 ms.topic: article
 ms.date: 11/11/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1525ed6ce9005fd8a64acefb44c730e2f172bcdc
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1adadf1df42873d37e45a9c25a4876ee79612cf6
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884982"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143612"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>验证作为服务的验证
 

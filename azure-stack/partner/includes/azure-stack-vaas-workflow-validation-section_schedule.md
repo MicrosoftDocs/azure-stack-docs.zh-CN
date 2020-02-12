@@ -6,14 +6,14 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: d3b1a91c89147f0f945efd345f00823b26f0c7b1
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 0fedbca19a460998d264e1dfa5bec3aa76f8ad01
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76694344"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143802"
 ---
-在验证工作流中，**计划**测试使用工作流创建期间指定的工作流级公共参数（[有关 Azure Stack 验证作为服务的工作流通用参数](../azure-stack-vaas-parameters.md)，请参阅）。 如果任何测试参数值无效，则必须按照[修改工作流参数](../azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示 resupply 它们。
+在验证工作流中，**计划**测试使用工作流创建过程中指定的工作流级公共参数（[有关 Azure Stack 中心验证作为服务的工作流常见参数](../azure-stack-vaas-parameters.md)，请参阅）。 如果任何测试参数值无效，则必须按照[修改工作流参数](../azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示 resupply 它们。
 
 > [!NOTE]
 > 在现有实例上计划验证测试会在门户中创建一个新实例来代替旧实例。 旧实例的日志将保留，但无法从门户进行访问。  

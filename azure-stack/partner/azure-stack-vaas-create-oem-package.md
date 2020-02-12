@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 验证最佳实践
+title: Azure Stack 中心验证最佳实践
 description: 本文介绍了使用验证作为服务的最佳做法。
 author: mattbriggs
 ms.topic: article
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 19446113fc2e167d83b578fbad15964b21001ef4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 647e724b179d994819032859c325bf711cb9d2ee
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885052"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143828"
 ---
 # <a name="create-an-oem-package"></a>创建 OEM 包
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Azure Stack OEM 扩展包是一种机制，通过该机制，可以将 OEM 特定内容添加到 Azure Stack 基础结构，以便在部署中使用，也可以在更新、扩展和现场替换等操作过程中使用。
+Azure Stack 中心 OEM 扩展包是一种机制，通过该机制，可以将 OEM 特定内容添加到 Azure Stack 中心基础结构，以便在部署中使用，也可以在更新、扩展和现场替换等操作过程中使用。
 
 ## <a name="creating-the-package"></a>创建包
 

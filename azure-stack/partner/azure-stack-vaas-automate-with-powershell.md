@@ -1,6 +1,7 @@
 ---
 title: 利用 PowerShell 自动 Azure Stack 验证
-description: 可以通过 PowerShell 自动 Azure Stack 验证。
+titleSuffix: Azure Stack Hub
+description: 了解如何通过 PowerShell 自动化 Azure Stack 验证。
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/26/2019
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d37c1f9027017446c31b0877496c28928d22f92a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a85f43096cffa900bfefb801bdd28b26358e6219
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884989"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147761"
 ---
-# <a name="automate-azure-stack-validation-with-powershell"></a>利用 PowerShell 自动 Azure Stack 验证
+# <a name="automate-azure-stack-hub-validation-with-powershell"></a>利用 PowerShell 自动 Azure Stack 集线器验证
 
 验证即服务（VaaS）可让你使用**RunVaaSAutomation**脚本自动启动测试。
 
@@ -29,7 +30,7 @@ ms.locfileid: "76884989"
 
 以下链接包含有关如何通过 VaaS 门户运行测试的信息。 使用脚本之前，应了解必需的参数及其值：
 
-* SolutionValidation 工作流：[验证新的 Azure Stack 解决方案](azure-stack-vaas-validate-solution-new.md)
+* SolutionValidation 工作流：[验证新的 Azure Stack 中心解决方案](azure-stack-vaas-validate-solution-new.md)
 * PackageValidation 工作流：[验证 OEM 包](azure-stack-vaas-validate-oem-package.md)
 * TestPass 工作流：[计划测试](azure-stack-vaas-schedule-test-pass.md)
 
@@ -253,19 +254,19 @@ $scriptParameters = @{
 
 有关详细信息，请参阅[Workflow common parameters](azure-stack-vaas-parameters.md)。
 
-| 参数 | Description |
+| 参数 | 说明 |
 | --- | --- |
 | VaaSAccountUserName | VaaS 门户的 VaaS 用户名。 |
 | VaaSAccountPassword | VaaS 门户的 VaaS 密码。 |
 | VaaSAccountTenantId | 你的 VaaS 租户 GUID。 |
-| ServiceAdminUserName | 你的 Azure Stack 服务管理员帐户。  |
-| ServiceAdminPassword | Azure Stack 服务密码。  |
+| ServiceAdminUserName | Azure Stack 中心服务管理员帐户。  |
+| ServiceAdminPassword | Azure Stack 中心服务密码。  |
 | TenantAdminUserName | 主要租户的管理员。  |
 | TenantAdminPassword | 主要租户的密码。  |
 | CloudAdminUserName | 云管理员用户名。  |
 | CloudAdminPassword | 云管理员的密码。  |
 | SolutionName | VaaS 解决方案的名称。 |
-| 项目名称 | VaaS 工作流的名称。 |
+| ProjectName | VaaS 工作流的名称。 |
 | DiagnosticsStorageConnection | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅[生成诊断连接字符串](azure-stack-vaas-parameters.md)。 |
 
 ## <a name="review-the-results"></a>查看结果
@@ -276,6 +277,6 @@ $scriptParameters = @{
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack 上的 PowerShell，请查看最新的模块。
+若要详细了解 Azure Stack 集线器上的 PowerShell，请查看最新的模块。
 
-- [Azure Stack 模块](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)
+- [Azure Stack 中心模块](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 验证即服务中的交互式功能验证测试
-description: 了解如何为具有验证即服务的 Azure Stack 创建交互式功能验证测试。
+title: Azure Stack 集线器验证中的交互式功能验证测试作为一项服务
+description: 了解如何为具有验证即服务的 Azure Stack 集线器创建交互式功能验证测试。
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/28/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c957d076fb4d90dc9a19d5b8fbaaddbdb55c789d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 15cd1b2adb4ef1b0e5738b89078beb57d6b7b346
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884135"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143837"
 ---
 # <a name="interactive-feature-verification-testing"></a>交互式功能验证测试  
 
@@ -21,7 +21,7 @@ ms.locfileid: "76884135"
 
 你可以使用交互式功能验证测试框架来请求你的系统测试。 请求测试时，Microsoft 使用框架来准备需要手动交互步骤的测试。 Microsoft 可以使用框架将多个独立的自动测试链接在一起。
 
-本文介绍了一个简单的手动方案。 测试检查替换 Azure Stack 中的磁盘。 框架收集每个步骤的诊断日志。 你可以在发现问题时对其进行调试。 该框架还允许共享其他工具或进程生成的日志，并使你能够提供有关该方案的反馈。
+本文介绍了一个简单的手动方案。 测试检查替换 Azure Stack 集线器中的磁盘。 框架收集每个步骤的诊断日志。 你可以在发现问题时对其进行调试。 该框架还允许共享其他工具或进程生成的日志，并使你能够提供有关该方案的反馈。
 
 > [!Important]  
 > 本文介绍执行磁盘标识的步骤。 这只是一个演示，因为从测试通过工作流收集的任何结果都不能用于新的解决方案验证。
@@ -67,7 +67,7 @@ ms.locfileid: "76884135"
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
-1. 选择“**下一页**”。
+1. 选择 **“下一步”** 。
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 

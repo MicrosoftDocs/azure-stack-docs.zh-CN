@@ -1,6 +1,6 @@
 ---
-title: 验证新的 Azure Stack 解决方案
-description: 了解如何使用验证即服务验证新的 Azure Stack 解决方案。
+title: 验证新的 Azure Stack 中心解决方案
+description: 了解如何使用验证即服务验证新的 Azure Stack 中心解决方案。
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,20 +8,20 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3e62141988f99706c652124943da0fbabf44439
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b5380b644aeece0e12e692ebb578fe2b6d0c8792
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884029"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143958"
 ---
-# <a name="validate-a-new-azure-stack-solution"></a>验证新的 Azure Stack 解决方案
+# <a name="validate-a-new-azure-stack-hub-solution"></a>验证新的 Azure Stack 中心解决方案
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-了解如何使用**解决方案验证**工作流来验证新的 Azure Stack 解决方案。
+了解如何使用**解决方案验证**工作流来验证新的 Azure Stack 中心解决方案。
 
-Azure Stack 解决方案是一种硬件清单（BoM），在满足 Windows Server 徽标认证要求后，会在 Microsoft 和合作伙伴之间联合达成共识。 当硬件 BoM 发生变化时，必须 recertified 解决方案。 有关何时再次验证解决方案的其他问题，请联系[vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)的团队。
+Azure Stack 中心解决方案是一种硬件清单（BoM），在满足 Windows Server 徽标认证要求后，会在 Microsoft 和合作伙伴之间联合达成共识。 当硬件 BoM 发生变化时，必须 recertified 解决方案。 有关何时再次验证解决方案的其他问题，请联系[vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)的团队。
 
 若要验证解决方案，请运行解决方案验证工作流两次。 针对*最低*支持的配置运行一次。 再次运行*最大化*支持的配置。 如果这两个配置都通过了所有测试，则 Microsoft 会对解决方案进行认证。
 
@@ -57,7 +57,7 @@ Azure Stack 解决方案是一种硬件清单（BoM），在满足 Windows Serve
 
 在 "**解决方案验证测试摘要**" 页中，你将看到完成验证所需的测试列表。
 
-在验证工作流中，**计划**测试使用工作流创建期间指定的工作流级公共参数（[有关 Azure Stack 验证作为服务的工作流通用参数](azure-stack-vaas-parameters.md)，请参阅）。 如果任何测试参数值无效，则必须按照[修改工作流参数](azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示 resupply 它们。
+在验证工作流中，**计划**测试使用工作流创建过程中指定的工作流级公共参数（[有关 Azure Stack 中心验证作为服务的工作流常见参数](azure-stack-vaas-parameters.md)，请参阅）。 如果任何测试参数值无效，则必须按照[修改工作流参数](azure-stack-vaas-monitor-test.md#change-workflow-parameters)中的指示 resupply 它们。
 
 > [!NOTE]
 > 在现有实例上计划验证测试会在门户中创建一个新实例来代替旧实例。 旧实例的日志将保留，但无法从门户进行访问。  
