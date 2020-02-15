@@ -3,16 +3,16 @@ title: Azure Stack 中心更新活动清单
 description: 用于准备系统以获取最新 Azure Stack 中心更新的清单。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 7ee8a4bc80b211b8e6aa8fd77d29ae5cf4c524e1
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: e1260cec62c2b1906f76004f04010e0f0857664e
+ms.sourcegitcommit: b501f9dc931bb0a1648b768f7ea47116b4dfda33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037176"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213657"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack 中心更新活动清单
 
@@ -31,7 +31,7 @@ ms.locfileid: "77037176"
 | 运行**test-azurestack** | 运行 `Test-AzureStack -Group UpdateReadiness` 以确定操作问题。 Cmdlet 可通过特权终结点会话（PEP）访问。 有关详细信息，请参阅[验证 Azure Stack 集线器系统状态](azure-stack-diagnostic-test.md)。 |
 | 解决问题 | 解决 `Test-AzureStack`标识的任何操作问题。 |
 | 可用更新 | 仅在连接的方案中，Azure Stack 中心部署会定期检查受保护的终结点，并在更新可用于你的云时自动通知你。 断开连接的客户可以使用[此处所述的过程](azure-stack-apply-updates.md)来下载和导入新的包。 |
-| 计划维护时段并通知用户 | 如果可能，你应该通知用户任何维护操作，并在非工作时间计划正常维护时段。 维护操作可能会影响现有的租户工作负荷，并导致新的租户操作（例如，创建、重新配置或删除 Vm）失败-无论操作是从门户启动还是以编程方式从 Azure 资源管理器API. 对于 Azure Stack 集线器快速更新和完整更新，您可以查看[发行说明](release-notes.md)，了解在要应用的版本中预期更新所需的时间。 |
+| 计划维护时段并通知用户 | 如果可能，你应该通知用户任何维护操作，并在非工作时间计划正常维护时段。 维护操作可能会影响现有的租户工作负荷，并导致新的租户操作（例如，创建、重新配置或删除 Vm）失败-无论操作是从门户启动还是以编程方式从 Azure 资源管理器API. 其他操作（例如备份）在更新完成之前也可能不可用。 对于 Azure Stack 集线器快速更新和完整更新，您可以查看[发行说明](release-notes.md)，了解在要应用的版本中预期更新所需的时间。 |
 
 ## <a name="during-azure-stack-hub-update"></a>Azure Stack 中心更新期间
 
