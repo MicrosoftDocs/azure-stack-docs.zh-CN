@@ -21,11 +21,11 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: 教程
   items:
-    - name: 订阅套餐
+    - name: 订阅产品
       href: azure-stack-subscribe-services.md
     - name: 从模板创建 VM
       href: azure-stack-create-vm-template.md
-- name: 操作指南
+- name: 操作方法指南
   items:
     - name: 开始为混合云构建解决方案
       items:
@@ -46,7 +46,7 @@
                 - name: 安装 Azure Stack 中心 PowerShell
                   href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
-                - name: 通过 PowerShell 连接
+                - name: 使用 PowerShell 连接
                   href: azure-stack-powershell-configure-user.md
                 - name: 下载 Azure Stack 中心工具
                   href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -95,7 +95,7 @@
               href: azure-stack-version-profiles-net.md
             - name: Java
               href: azure-stack-version-profiles-java.md
-            - name: Go
+            - name: 开始
               href: azure-stack-version-profiles-go.md
             - name: Ruby
               href: azure-stack-version-profiles-ruby.md
@@ -133,7 +133,7 @@
                   href: vm-update-management.md
                 - name: SQL Server VM 注意事项
                   href: azure-stack-sql-server-vm-considerations.md
-            - name: 存储空间
+            - name: 存储
               items:
                 - name: 概述
                   href: azure-stack-storage-overview.md
@@ -165,7 +165,7 @@
                   href: azure-stack-understanding-dns.md
                 - name: Azure Stack 中心中的 DNS
                   href: azure-stack-dns.md
-            - name: Key Vault
+            - name: 密钥保管库
               items:
                 - name: 概述
                   href: azure-stack-key-vault-intro.md
@@ -181,7 +181,7 @@
                   href: azure-stack-key-vault-store-credentials.md
                 - name: KeyVault 示例应用
                   href: azure-stack-key-vault-sample-app.md
-            - name: Azure 监视器
+            - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
                 - name: 支持的指标
@@ -253,6 +253,7 @@
             - name: 部署 NodeJS web 应用
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: 部署基础模式
+      href: deploy-foundational-patterns.md
       items:
         - name: 网络模式
           items:
@@ -282,7 +283,6 @@
               href: azure-stack-network-howto-iscsi-storage.md
             - name: 扩展数据中心
               href: azure-stack-network-howto-extend-datacenter.md
-        - name: VNET 对等互连
         - name: 备份和恢复
           items:
             - name: 通过 Commvault 在 Azure Stack 集线器上备份 VM
@@ -313,7 +313,7 @@
       href: /rest/api/
     - name: Azure CLI
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
-- name: 相关
+- name: 相关内容
   items:
     - name: Azure Stack 中心操作员文档
       href: /azure-stack/operator/
@@ -329,7 +329,7 @@
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 定价信息
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
+    - name: 堆栈溢出
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: 培训和认证
       href: /azure-stack/operator/azure-stack-train-and-cert
