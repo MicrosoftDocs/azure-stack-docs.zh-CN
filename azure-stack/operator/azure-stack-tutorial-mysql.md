@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 7201ad85961ecf08d1162d97aa684625e0782d35
+ms.sourcegitcommit: 381e4e47851dd2526bbf04d6b06af90fb1fb6a49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147896"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77363021"
 ---
 # <a name="create-highly-available-mysql-databases"></a>创建高度可用的 MySQL 数据库
 
@@ -60,13 +60,15 @@ ms.locfileid: "77147896"
 - 用于托管 MySQL 群集的三个 Linux Vm
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../includes/azs-user-portal.md)]
 
-2. 选择 **\+** **创建资源** > **计算**，然后**使用复制创建 MySQL**。
+2. 如果尚未分配订阅，请从仪表板中选择 "**获取订阅**"。 在边栏选项卡中，键入订阅的名称，然后选择 "产品/服务"。 建议你在自己的订阅中保留 MySQL 群集部署，以防止意外删除。
 
-   ![Azure Stack 中心中的自定义模板部署](media/azure-stack-tutorial-mysqlrp/1.png)
+3. 选择 **\+** **创建资源** > **计算**，然后**使用复制创建 MySQL**。
 
-3. 在 "**基本**信息" 页上提供基本的部署信息。 查看默认值并根据需要进行更改，然后选择 **"确定"** 。
+   ![Azure Stack 中心中的自定义模板部署](media/azure-stack-tutorial-mysqlrp/img1.png)
+
+4. 在 "**基本**信息" 页上提供基本的部署信息。 查看默认值并根据需要进行更改，然后选择 **"确定"** 。
 
     至少提供以下信息：
 
@@ -78,28 +80,28 @@ ms.locfileid: "77147896"
    - 选择要使用的资源组，或者创建一个新资源组。
    - 选择位置（默认为 ASDK 的 "本地"）。
 
-   [![部署基础知识-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+     ![部署基础知识-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/img2.png)
 
-4. 在 "**环境配置**" 页上，提供以下信息，然后选择 **"确定"** ：
+5. 在 "**环境配置**" 页上，提供以下信息，然后选择 **"确定"** ：
 
    - 用于安全外壳（SSH）身份验证的密码或 SSH 公钥。 如果使用密码，则它必须包含字母、数字，并且**可以**包含特殊字符。
    - VM 大小（默认为标准 D1 v2 Vm）。
    - 数据磁盘大小（GB）
 
-   [![环境配置-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+     ![环境配置-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/img3.png)
 
-5. 查看部署**摘要**。 还可以选择下载自定义模板和参数，然后选择 **"确定"** 。
+6. 查看部署**摘要**。 还可以选择下载自定义模板和参数，然后选择 **"确定"** 。
 
-   [![摘要-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   ![摘要-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/img4.png)
 
-6. 在 "**购买**" 页上选择 "**创建**" 以开始部署。
+7. 在 "**购买**" 页上选择 "**创建**" 以开始部署。
 
-   ![购买页面-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/5.png)
+   ![购买页面-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/img5.png)
 
     > [!NOTE]
     > 部署需要大约一小时。 在继续之前，请确保已完成部署并且已完全配置 MySQL 群集。
 
-7. 所有部署都成功完成后，查看资源组项，并选择 " **mysqlip** " 公共 IP 地址项。 记录群集的公共 ip 地址和公共 IP 的完全 FQDN。
+8. 所有部署都成功完成后，查看资源组项，并选择 " **mysqlip** " 公共 IP 地址项。 记录群集的公共 ip 地址和公共 IP 的完全 FQDN。
 
     需要为 Azure Stack 中心操作员提供此 IP 地址，以便他们可以利用此 MySQL 群集创建 MySQL 宿主服务器。
 
@@ -109,13 +111,13 @@ ms.locfileid: "77147896"
 
 1. 在管理员门户中，切换到部署 MySQL 群集时创建的资源组，并选择 "网络安全组" （**默认-子网-sg**）：
 
-   ![在 Azure Stack 中心管理员门户中选择 "网络安全组"](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![在 Azure Stack 中心管理员门户中选择 "网络安全组"](media/azure-stack-tutorial-mysqlrp/img6.png)
 
 2. 选择 "**入站安全规则**"，然后选择 "**添加**"。
 
     在 "**目标端口范围**" 中输入**3306** ，并根据需要在 "**名称**" 和 "**说明**" 字段中提供说明。
 
-   ![open](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![开门](media/azure-stack-tutorial-mysqlrp/img7.png)
 
 3. 选择 "**添加**" 以关闭 "入站安全规则" 对话框。
 
