@@ -8,12 +8,12 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 134e5def9de8adfe7f6146f6355d67d6a775afaf
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: b063f6b69d69f63ddb8adef25413e263e2fe9d4b
+ms.sourcegitcommit: 4386c482c1c320c06df00a7a6364bb84b8720493
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147808"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453420"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>在 Azure Stack 集线器中创建外接程序计划
 
@@ -37,7 +37,7 @@ ms.locfileid: "77147808"
 
    ![在 Azure Stack 管理员门户中选择 "产品/服务"，并在外接程序计划中更新](media/create-add-on-plan/add-on1.png)
 
-4. 在产品/服务属性的底部，选择 "**外接程序计划**"。 选择“添加”。
+4. 在产品/服务属性的底部，选择 "**外接程序计划**"。 选择 **添加** 。
 
     ![在 Azure Stack 管理员门户中选择 "外接程序计划"](media/create-add-on-plan/add-on2.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "77147808"
 
 6. 查看产品/服务附带的附加计划列表，以验证是否列出了新的外接程序计划。
 
-    ![查看 Azure Stack 管理员门户中的外接程序计划列表](media/create-add-on-plan/add-on4.png "创建附加计划")]（media/create-add-on-plan/add-on4lg # lightbox）
+    ![[查看 Azure Stack 管理员门户中的外接程序计划列表]（media/create-add-on-plan/add-on4 "Create 附加方案"）](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
@@ -60,7 +60,7 @@ ms.locfileid: "77147808"
 
    ![在 Azure Stack 管理员门户中选择 "产品/服务"，并在外接程序计划中更新](media/create-add-on-plan/1.PNG)
 
-4. 滚动到 "产品/服务属性" 的底部，选择 "**外接程序计划**"。 选择“添加”。
+4. 滚动到 "产品/服务属性" 的底部，选择 "**外接程序计划**"。 选择 **添加** 。
 
     ![在 Azure Stack 管理员门户中选择 "外接程序计划"](media/create-add-on-plan/2.PNG)
 
