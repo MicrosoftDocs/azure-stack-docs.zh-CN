@@ -2,18 +2,18 @@
 title: 更新 Azure Stack 中心 SQL 资源提供程序
 titleSuffix: Azure Stack Hub
 description: 了解如何更新 Azure Stack 中心 SQL 资源提供程序。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 11/11/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 07f372f1974780d2310b12cc8d874808e010ac3c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 09a9b190594eb4d737b54c971fc2e3dbd03cd5f9
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881260"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491741"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
@@ -43,7 +43,7 @@ Azure Stack 中心更新到新版本时，可能会发布新的 SQL 资源提供
 
 运行**Updatesqlprovider.ps1** PowerShell 脚本时，可以从命令行指定以下参数。 如果不是，或者任何参数验证失败，系统会提示提供所需的参数。
 
-| 参数名称 | Description | 注释或默认值 |
+| 参数名称 | 说明 | 注释或默认值 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 访问特权终结点所需的云管理员凭据。 | _必需_ |
 | **AzCredential** | Azure Stack 中心服务管理员帐户的凭据。 使用用于部署 Azure Stack 集线器的相同凭据。 | _必需_ |

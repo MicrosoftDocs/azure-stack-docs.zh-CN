@@ -1,18 +1,18 @@
 ---
 title: 准备 Azure Stack 集线器中的扩展主机
 description: 了解如何在 Azure Stack Hub 中准备扩展主机，该主机在1808版后通过 Azure Stack 中心更新包自动启用。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.date: 1/22/2020
 ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: c28f47930ea7fa9913ae339ea379562477694492
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1d6b32173b8b2fba921e7e15fc5f0073456e6031
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882263"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509953"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>准备 Azure Stack 集线器中的扩展主机
 
@@ -183,7 +183,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 | 终结点（VIP） | 协议 | 端口 |
 |----------------|----------|-------|
 | 管理宿主 | HTTPS | 443 |
-| 托管 | HTTPS | 443 |
+| Hosting | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>更新现有发布规则（扩展主机的启用后）
 

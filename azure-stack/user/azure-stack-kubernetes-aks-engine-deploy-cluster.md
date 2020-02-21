@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f7d9b735a3b4936a5bb97e60e4c84f4b35b29baa
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884808"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492285"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 
@@ -68,7 +68,7 @@ ms.locfileid: "76884808"
 
 7.  在数组 `masterProfile`中，设置以下字段：
 
-    | 字段 | Description |
+    | 字段 | 说明 |
     | --- | --- |
     | dnsPrefix | 输入用于标识 Vm 主机名的唯一字符串。 例如，基于资源组名称的名称。 |
     | count |  输入要用于部署的主机数。 HA 部署的最小值为3，但不允许对非 HA 部署使用1。 |
@@ -77,7 +77,7 @@ ms.locfileid: "76884808"
 
 8.  `agentPoolProfiles` 更新的数组中：
 
-    | 字段 | Description |
+    | 字段 | 说明 |
     | --- | --- |
     | count | 输入要用于部署的代理数。 |
     | vmSize | 输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
@@ -85,7 +85,7 @@ ms.locfileid: "76884808"
 
 9.  `linuxProfile` 更新的数组中：
 
-    | 字段 | Description |
+    | 字段 | 说明 |
     | --- | --- |
     | adminUsername | 输入 VM 管理员用户名。 |
     | ssh | 输入将用于通过 Vm 进行 SSH 身份验证的公钥。 如果使用的是 Putty，请打开 PuTTY 密钥生成器以加载 Putty 私钥，并使用 ssh-rsa 开头的公钥，如以下示例中所示。 您可以使用创建 Linux 客户端时生成的密钥，但**需要复制公钥，使其成为单个行文本，如示例中所示**。|
@@ -111,7 +111,7 @@ ms.locfileid: "76884808"
 
 1.  查看 Azure Stack 集线器[CLI 标志](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)上的 AKS 引擎的可用参数。
 
-    | 参数 | 示例 | Description |
+    | 参数 | 示例 | 说明 |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | 若要指示 AKS 引擎 Azure Stack 集线器使用 `AzureStackCloud`的目标平台。 |
     | 标识-系统 | adfs | 可选。 如果使用 Active Directory 联合服务（AD FS），则指定标识管理解决方案。 |
@@ -123,7 +123,7 @@ ms.locfileid: "76884808"
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 这是你在创建服务时设置的客户端密码。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
-    下面是一个示例：
+    以下是示例：
 
     ```bash  
     aks-engine deploy \
@@ -208,7 +208,7 @@ ms.locfileid: "76884808"
        kubectl get nodes
        ```
 
-       输出应如下所示：
+       输出应与以下内容类似：
 
        ```shell
        k8s-linuxpool-29969128-0   Ready      agent    9d    v1.15.5

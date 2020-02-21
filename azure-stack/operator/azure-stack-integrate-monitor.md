@@ -1,18 +1,18 @@
 ---
 title: 将外部监视解决方案与 Azure Stack 中心集成
 description: 了解如何在你的数据中心中将 Azure Stack 集线器与外部监视解决方案集成。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 3e50471201c7207aa68b725daf202d323b836a99
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a38c6f8aca4ad8203b576550dd01873cdeb9b7a8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882120"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509851"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>将外部监视解决方案与 Azure Stack 中心集成
 
@@ -114,7 +114,7 @@ samples/etc/azurestack_services.cfg
 
 有关如何创建 SPN 的详细信息，请参阅[使用应用标识来访问资源](azure-stack-create-service-principals.md)。
 
-| 参数 | Description | 身份验证 |
+| 参数 | 说明 | Authentication |
 | --- | --- | --- |
 | \* * External_domain_fqdn * * | 外部域 FQDN |    |
 | \* * region： * * | 区域名称 |    |
@@ -133,7 +133,7 @@ samples/etc/azurestack_services.cfg
 > [!Note]  
 > 检查 location 目标 azurestack_hosts cfg 和 azurestack_services。
 
-| 配置 | Description |
+| 配置 | 说明 |
 | --- | --- |
 | azurestack_commands.cfg | 处理程序配置无更改要求 |
 | azurestack_contacts.cfg | 通知设置 |
@@ -232,7 +232,7 @@ samples/etc/azurestack_services.cfg
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>了解更多
+## <a name="learn-more"></a>了解详细信息
 
 有关内置运行状况监视的信息，请参阅[监视 Azure Stack 集线器中的运行状况和警报](azure-stack-monitor-health.md)。
 

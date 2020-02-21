@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 集线器集成系统的边框连接和网络集成
 description: 了解如何规划 Azure Stack 集线器集成系统中的数据中心边框网络连接。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 15440c32974aebfed3f3faf86885dd6f0af71ddd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8a0f6b45d261df2347589178bead735e72cdccd7
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878507"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509477"
 ---
 # <a name="border-connectivity"></a>边界连接 
 网络集成规划是成功 Azure Stack 中心集成系统部署、操作和管理的一个重要必备组件。 边界连接计划首先选择是否要将动态路由与边界网关协议（BGP）配合使用。 这需要分配一个16位 BGP 自治系统编号（公用或专用）或使用静态路由，并将静态默认路由分配给边框设备。

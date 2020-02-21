@@ -2,18 +2,18 @@
 title: 解决 PKI 证书的常见问题
 titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack 中心准备情况检查程序解决 Azure Stack 中心 PKI 证书的常见问题。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 942a5f4145fbee0d7a012350d88601554b44834c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1adf2bdef69549393717fd5705858376447cd710
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881390"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509630"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>解决 Azure Stack 中心 PKI 证书的常见问题
 
@@ -94,7 +94,7 @@ ms.locfileid: "76881390"
 
 如果需要生成新的 CSR 并重新颁发证书， **AzsPfxCertificate**不会有帮助。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 在运行该工具的计算机上，必须具备以下先决条件：
 

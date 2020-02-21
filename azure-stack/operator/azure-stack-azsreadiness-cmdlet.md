@@ -1,18 +1,18 @@
 ---
 title: AzsReadinessChecker cmdlet 参考
 description: Azure Stack 中心就绪检查器模块的 PowerShell cmdlet 帮助。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: e4794df9c66f1d060b6701d782c0486ddb914b02
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 067164db905e6649def7ecd06b0e15d166d286b9
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877759"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509375"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>AzsReadinessChecker cmdlet 参考
 
@@ -155,7 +155,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-## <a name="description"></a>Description
+## <a name="description"></a>说明
 
 **AzsReadinessChecker** cmdlet 验证证书、azure 帐户、azure 订阅和 Azure Active directory （Azure AD）。 在部署 Azure Stack 集线器之前或 Azure Stack 中心服务操作（例如机密旋转）之前，请运行验证。 此 cmdlet 还可用于为基础结构证书和 PaaS 证书（可选）生成证书签名请求。 最后，此 cmdlet 可以重新打包 PFX 证书，以修正常见的打包问题。
 
@@ -293,11 +293,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|--------------|
-|类型：                       |String        |
+|键入：                       |String        |
 |置于                   |已命名         |
 |默认值：              |无          |
-|接受管道输入：      |错误         |
-|接受通配符： |错误         |
+|接受管道输入：      |False         |
+|接受通配符： |False         |
 
 ### <a name="-fqdn"></a>-FQDN
 
@@ -305,11 +305,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|--------------|
-|类型：                       |String        |
+|键入：                       |String        |
 |置于                   |已命名         |
 |默认值：              |ExternalFQDN, ExternalDomainName |
-|接受管道输入：      |错误         |
-|接受通配符： |错误         |
+|接受管道输入：      |False         |
+|接受通配符： |False         |
 
 ### <a name="-identitysystem"></a>-IdentitySystem
 
@@ -317,12 +317,12 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|--------------|
-|类型：                       |String        |
+|键入：                       |String        |
 |置于                   |已命名         |
 |默认值：              |无          |
 |有效值：               |"AAD"、"ADFS"  |
-|接受管道输入：      |错误         |
-|接受通配符： |错误         |
+|接受管道输入：      |False         |
+|接受通配符： |False         |
 
 ### <a name="-pfxpassword"></a>-PfxPassword
 
@@ -330,11 +330,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |SecureString |
+|键入：                       |SecureString |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-paascertificates"></a>-PaaSCertificates
 
@@ -342,11 +342,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |散 |
+|键入：                       |Hashtable |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
@@ -354,11 +354,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-pfxpath"></a>-PfxPath
 
@@ -366,11 +366,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-exportpfxpath"></a>-ExportPFXPath  
 
@@ -378,11 +378,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-subject"></a>-Subject
 
@@ -390,11 +390,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |OrderedDictionary   |
+|键入：                       |OrderedDictionary   |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-requesttype"></a>-RequestType
 
@@ -405,12 +405,12 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
 |默认值：              |无     |
 |有效值：               |'MultipleCSR','SingleCSR' |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-outputrequestpath"></a>-OutputRequestPath
 
@@ -418,11 +418,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
@@ -430,11 +430,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |PSCredential   |
+|键入：                       |PSCredential   |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
@@ -442,11 +442,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-azureenvironment"></a>-AzureEnvironment
 
@@ -454,12 +454,12 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
 |默认值：              |无     |
 |有效值：               |' AzureCloud '、' AzureChinaCloud '、' AzureUSGovernment ' |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-registrationaccount"></a>-RegistrationAccount
 
@@ -467,11 +467,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
@@ -479,11 +479,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |GUID     |
+|键入：                       |Guid     |
 |置于                   |已命名    |
 |默认值：              |无     |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-reportpath"></a>-ReportPath
 
@@ -491,11 +491,11 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
-|默认值：              |所有      |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|默认值：              |All      |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ## <a name="optional-parameters"></a>可选参数
 
@@ -513,11 +513,11 @@ Active Directory 联合身份验证服务标识系统 Azure Stack 中心部署�
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
 |默认值：              |.\Certificates |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-includepaas"></a>-IncludePaaS  
 
@@ -525,11 +525,11 @@ Active Directory 联合身份验证服务标识系统 Azure Stack 中心部署�
 
 |  |  |
 |----------------------------|------------------|
-|类型：                       |SwitchParameter   |
+|键入：                       |SwitchParameter   |
 |置于                   |已命名             |
-|默认值：              |错误             |
-|接受管道输入：      |错误             |
-|接受通配符： |错误             |
+|默认值：              |False             |
+|接受管道输入：      |False             |
+|接受通配符： |False             |
 
 ### <a name="-reportsections"></a>-ReportSections
 
@@ -537,12 +537,12 @@ Active Directory 联合身份验证服务标识系统 Azure Stack 中心部署�
 
 |  |  |
 |----------------------------|---------|
-|类型：                       |String   |
+|键入：                       |String   |
 |置于                   |已命名    |
-|默认值：              |所有      |
+|默认值：              |All      |
 |有效值：               |"证书"、"AzureRegistration"、"AzureIdentity"、"作业"、"全部" |
-|接受管道输入：      |错误    |
-|接受通配符： |错误    |
+|接受管道输入：      |False    |
+|接受通配符： |False    |
 
 ### <a name="-summary"></a>-Summary
 
@@ -550,11 +550,11 @@ Active Directory 联合身份验证服务标识系统 Azure Stack 中心部署�
 
 |  |  |
 |----------------------------|------------------|
-|类型：                       |SwitchParameter   |
+|键入：                       |SwitchParameter   |
 |置于                   |已命名             |
-|默认值：              |错误             |
-|接受管道输入：      |错误             |
-|接受通配符： |错误             |
+|默认值：              |False             |
+|接受管道输入：      |False             |
+|接受通配符： |False             |
 
 ### <a name="-cleanreport"></a>-CleanReport
 
@@ -562,12 +562,12 @@ Active Directory 联合身份验证服务标识系统 Azure Stack 中心部署�
 
 |  |  |
 |----------------------------|------------------|
-|类型：                       |SwitchParameter   |
+|键入：                       |SwitchParameter   |
 |别名                    |cf                |
 |置于                   |已命名             |
-|默认值：              |错误             |
-|接受管道输入：      |错误             |
-|接受通配符： |错误             |
+|默认值：              |False             |
+|接受管道输入：      |False             |
+|接受通配符： |False             |
 
 ### <a name="-outputpath"></a>-OutputPath
 
@@ -575,11 +575,11 @@ Active Directory 联合身份验证服务标识系统 Azure Stack 中心部署�
 
 |  |  |
 |----------------------------|------------------|
-|类型：                       |String            |
+|键入：                       |String            |
 |置于                   |已命名             |
 |默认值：              |$ENV： TEMP\AzsReadinessChecker  |
-|接受管道输入：      |错误             |
-|接受通配符： |错误             |
+|接受管道输入：      |False             |
+|接受通配符： |False             |
 
 ### <a name="-confirm"></a>-Confirm
 
@@ -587,12 +587,12 @@ Active Directory 联合身份验证服务标识系统 Azure Stack 中心部署�
 
 |  |  |
 |----------------------------|------------------|
-|类型：                       |SwitchParameter   |
+|键入：                       |SwitchParameter   |
 |别名                    |cf                |
 |置于                   |已命名             |
-|默认值：              |错误             |
-|接受管道输入：      |错误             |
-|接受通配符： |错误             |
+|默认值：              |False             |
+|接受管道输入：      |False             |
+|接受通配符： |False             |
 
 ### <a name="-whatif"></a>-WhatIf
 
@@ -600,9 +600,9 @@ Active Directory 联合身份验证服务标识系统 Azure Stack 中心部署�
 
 |  |  |
 |----------------------------|------------------|
-|类型：                       |SwitchParameter   |
+|键入：                       |SwitchParameter   |
 |别名                    |保真                |
 |置于                   |已命名             |
-|默认值：              |错误             |
-|接受管道输入：      |错误             |
-|接受通配符： |错误             |
+|默认值：              |False             |
+|接受管道输入：      |False             |
+|接受通配符： |False             |

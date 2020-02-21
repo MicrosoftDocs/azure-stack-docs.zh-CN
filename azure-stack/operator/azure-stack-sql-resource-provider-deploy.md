@@ -2,18 +2,18 @@
 title: 部署 SQL Server 资源提供程序
 titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack 中心部署 SQL Server 资源提供程序。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.openlocfilehash: f365886119e343fd550e00e606840172fed7fa21
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2faeb2c714099a3b055343445dc94a57879d2cd6
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881229"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491826"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack 中心部署 SQL Server 资源提供程序
 
@@ -22,7 +22,7 @@ ms.locfileid: "76881229"
 > [!IMPORTANT]
 > 仅支持资源提供程序在托管 SQL 或 MySQL 的服务器上创建项。 在不是由资源提供程序创建的主机服务器上创建的项可能会导致不匹配的状态。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 部署 Azure Stack 中心 SQL 资源提供程序之前，需要准备好几个先决条件。 若要满足这些要求，请在可以访问特权终结点 VM 的计算机上完成以下步骤：
 
@@ -115,7 +115,7 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 中心部署 pki �
 
 你可以从命令行指定以下参数。 如果不是，或者任何参数验证失败，系统会提示提供所需的参数。
 
-| 参数名称 | Description | 注释或默认值 |
+| 参数名称 | 说明 | 注释或默认值 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 访问特权终结点所需的云管理员凭据。 | _必需_ |
 | **AzCredential** | Azure Stack 中心服务管理员帐户的凭据。 使用用于部署 Azure Stack 集线器的相同凭据。 | _必需_ |

@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Stack 集线器交换机配置上修改特定设置
 description: 了解可在 Azure Stack 集线器交换机配置中自定义的内容。 原始设备制造商（OEM）创建配置后，请不要在不同意 OEM 或 Microsoft Azure Stack 中心工程团队同意的情况下进行更改。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ef98624781232e91199ef42ecdeba03725a95085
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5071af80c5063db8d4fc127f2f64311b21785f12
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882528"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510072"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-hub-switch-configuration"></a>在 Azure Stack 集线器交换机配置上修改特定设置
 
@@ -39,7 +39,7 @@ ms.locfileid: "76882528"
 
 操作员可以配置简单网络管理协议（SNMP） v2 或 v3 来监视网络设备并将陷阱发送到数据中心的网络监视应用程序。 出于安全原因，请使用 SNMPv3，因为它比 v2 更安全。 请咨询 OEM 硬件提供商以获取 Mib 和所需的配置。 查看[访问控制列表更新](#access-control-list-updates)部分，了解有关如何配置交换机管理访问权限的概述。
 
-## <a name="authentication"></a>身份验证
+## <a name="authentication"></a>Authentication
 
 操作员可以配置 RADIUS 或 TACACS 来管理网络设备上的身份验证。 请咨询 OEM 硬件提供商，以获取所需的支持方法和配置。  查看[访问控制列表更新](#access-control-list-updates)部分，了解有关如何配置交换机管理访问权限的概述。
 

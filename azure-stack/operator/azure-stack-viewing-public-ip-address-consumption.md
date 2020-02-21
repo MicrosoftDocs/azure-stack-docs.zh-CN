@@ -2,18 +2,18 @@
 title: 管理网络资源
 titleSuffix: Azure Stack Hub
 description: 了解如何管理网络资源，包括 MAC 地址池以及区域中公共 IP 地址的消耗。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 3542706d71ed6800cd246cbc0d59a5443ed3edbc
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 8f52158e53bbb48b25b9b3a898c0ece33ab3c1be
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147829"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508015"
 ---
 # <a name="manage-network-resources-in-azure-stack-hub"></a>管理 Azure Stack 集线器中的网络资源
 
@@ -71,11 +71,11 @@ Azure Stack 集线器使用静态 MAC 地址池自动生成 MAC 地址并将其�
 
 | **公共 IP 地址分配案例** | **出现在使用情况摘要中** | **显示在 "租户公共 IP 地址" 列表中** |
 | --- | --- | --- |
-| 尚未分配给 NIC 或负载均衡器（临时）的动态公共 IP 地址。 |是 |是 |
+| 尚未分配给 NIC 或负载均衡器（临时）的动态公共 IP 地址。 |否 |是 |
 | 分配给 NIC 或负载均衡器的动态公共 IP 地址。 |是 |是 |
 | 分配给租户 NIC 或负载均衡器的静态公共 IP 地址。 |是 |是 |
-| 分配给结构基础结构服务终结点的静态公共 IP 地址。 |是 |是 |
-| 为 IaaS VM 实例隐式创建的公共 IP 地址，并且用于虚拟网络上的出站 NAT。 只要租户创建 VM 实例，就会在幕后创建这些信息，以便 Vm 可以将信息发送到 Internet。 |是 |是 |
+| 分配给结构基础结构服务终结点的静态公共 IP 地址。 |是 |否 |
+| 为 IaaS VM 实例隐式创建的公共 IP 地址，并且用于虚拟网络上的出站 NAT。 只要租户创建 VM 实例，就会在幕后创建这些信息，以便 Vm 可以将信息发送到 Internet。 |是 |否 |
 
 ## <a name="next-steps"></a>后续步骤
 

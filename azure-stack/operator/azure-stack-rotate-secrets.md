@@ -2,19 +2,19 @@
 title: 轮换机密
 titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中轮替机密。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 38e517aef0dcdd60e691d655004a9a807c2789d3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 22be9075f6c1d8b25c6ce241ad24ed8e10630261
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881339"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509562"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack 中心旋转机密
 
@@ -70,17 +70,17 @@ Azure Stack 集线器使用各种机密来维护 Azure Stack 中心基础结构�
 
 Azure Stack 中心支持在以下上下文中通过外部证书从新证书颁发机构（CA）进行密钥轮替：
 
-|已安装证书 CA|要旋转到的 CA|受支持|支持 Azure Stack 集线器版本|
+|已安装证书 CA|要旋转到的 CA|支持|支持 Azure Stack 集线器版本|
 |-----|-----|-----|-----|
-|自签名|到企业|受支持|1903 & 更高版本|
+|自签名|到企业|支持|1903 & 更高版本|
 |自签名|自签名|不支持||
-|自签名|到公用<sup>*</sup>|受支持|1803 & 更高版本|
+|自签名|到公用<sup>*</sup>|支持|1803 & 更高版本|
 |从企业|到企业|支持。 从1803-1903：支持，只要客户使用部署时使用的相同企业 CA|1803 & 更高版本|
 |从企业|自签名|不支持||
-|从企业|到公用<sup>*</sup>|受支持|1803 & 更高版本|
-|从公共<sup>*</sup>|到企业|受支持|1903 & 更高版本|
+|从企业|到公用<sup>*</sup>|支持|1803 & 更高版本|
+|从公共<sup>*</sup>|到企业|支持|1903 & 更高版本|
 |从公共<sup>*</sup>|自签名|不支持||
-|从公共<sup>*</sup>|到公用<sup>*</sup>|受支持|1803 & 更高版本|
+|从公共<sup>*</sup>|到公用<sup>*</sup>|支持|1803 & 更高版本|
 
 <sup>*</sup>指示公共证书颁发机构是受 Windows 信任的根程序的一部分的证书颁发机构。 可以在[Microsoft 受信任的根证书程序：参与者（截至2017年6月27日）](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)中找到完整列表。
 
@@ -141,9 +141,9 @@ Azure Stack 中心支持在以下上下文中通过外部证书从新证书颁�
 > 文件共享装载应类似于 **\\\\\<IPAddress >\\\<共享名 >** \\并且它应包含**Certificates\AAD**或**Certificates\ADFS**中的文件夹。
 >
 > 例如：
-> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
+> - 文件共享 = **\\\\\<IPAddress >\\\<共享名 >** \\
 > - CertFolder = **Certificates\AAD**
-> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress >\\\<共享名 > \Certificates\AAD**
 
 ## <a name="rotating-external-secrets"></a>旋转外部机密
 
@@ -295,19 +295,19 @@ Start-SecretRotation [-ReRun]
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>说明
 
 **Start-secretrotation** cmdlet 可旋转 Azure Stack 中心系统的基础结构机密。 默认情况下，它只旋转所有外部网络基础结构终结点的证书。 如果与-Internal 标志一起使用，将旋转内部基础结构密码。 旋转外部网络基础结构终结点时，应使用 Start-secretrotation 脚本块运行 ，**并将 Azure Stack**中心环境的特权终结点会话作为**session**参数传入。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-| 参数 | 类型 | 需要 | 位置 | 默认 | Description |
+| 参数 | 类型 | 必选 | 位置 | 默认 | 说明 |
 | -- | -- | -- | -- | -- | -- |
-| `PfxFilesPath` | String  | 错误  | 已命名  | 无  | 包含所有外部网络终结点证书的 **\Certificates**目录的文件共享路径。 仅在轮换外部机密时是必需的。 结束目录必须为 **\Certificates**。 |
-| `CertificatePassword` | SecureString | 错误  | 已命名  | 无  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则为必需的值。 |
-| `Internal` | String | 错误 | 已命名 | 无 | Azure Stack 中心操作员希望轮换内部基础结构机密时，必须使用内部标志。 |
-| `PathAccessCredential` | PSCredential | 错误  | 已命名  | 无  | 包含所有外部网络终结点证书的 **\Certificates**目录的文件共享的 PowerShell 凭据。 仅在轮换外部机密时是必需的。  |
-| `ReRun` | SwitchParameter | 错误  | 已命名  | 无  | 尝试失败后，必须随时判断进行机密旋转。 |
+| `PfxFilesPath` | String  | False  | 已命名  | 无  | 包含所有外部网络终结点证书的 **\Certificates**目录的文件共享路径。 仅在轮换外部机密时是必需的。 结束目录必须为 **\Certificates**。 |
+| `CertificatePassword` | SecureString | False  | 已命名  | 无  | -PfXFilesPath 中提供的所有证书的密码。 如果在轮换外部机密时提供了 PfxFilesPath，则为必需的值。 |
+| `Internal` | String | False | 已命名 | 无 | Azure Stack 中心操作员希望轮换内部基础结构机密时，必须使用内部标志。 |
+| `PathAccessCredential` | PSCredential | False  | 已命名  | 无  | 包含所有外部网络终结点证书的 **\Certificates**目录的文件共享的 PowerShell 凭据。 仅在轮换外部机密时是必需的。  |
+| `ReRun` | SwitchParameter | False  | 已命名  | 无  | 尝试失败后，必须随时判断进行机密旋转。 |
 
 ### <a name="examples"></a>示例
 
@@ -379,7 +379,7 @@ Remove-PSSession -Session $PEPSession
 
    **版本1910及更高版本**：根据 OEM 说明，不再需要首先更新 Azure Stack 集线器物理服务器上的 BMC 凭据。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名不能超过16个字符。
 
-    | 参数 | Description | 状况 |
+    | 参数 | 说明 | 状态 |
     | --- | --- | --- |
     | BypassBMCUpdate | 使用参数时，BMC 中的凭据不会更新。 仅更新 Azure Stack 集线器内部数据存储。 | 可选 |
 

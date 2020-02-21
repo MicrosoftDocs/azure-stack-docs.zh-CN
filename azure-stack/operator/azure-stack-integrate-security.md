@@ -1,18 +1,18 @@
 ---
 title: 使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成
 description: 了解如何使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
-ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
+ms.openlocfilehash: 21a4d50c4ebb191e32c8c5a853359880bcdb1392
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001602"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509783"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>使用 syslog 转发将 Azure Stack 集线器与监视解决方案集成
 
@@ -57,7 +57,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *SyslogServer* cmdlet 的参数：
 
-| 参数 | Description | 类型 | 需要 |
+| 参数 | 说明 | 类型 | 必选 |
 |---------|---------|---------|---------|
 |*ServerName* | Syslog 服务器的 FQDN 或 IP 地址。 | String | 是|
 |*ServerPort* | Syslog 服务器正在侦听的端口号。 | UInt16 | 是|
@@ -69,7 +69,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *SyslogClient* cmdlet 的参数：
 
-| 参数 | Description | 类型 |
+| 参数 | 说明 | 类型 |
 |---------|---------| ---------|
 | *pfxBinary* | Pfx 文件的内容，通过管道传输到 Byte []，其中包含客户端作为标识对 syslog 服务器进行身份验证时要使用的证书。  | Byte[] |
 | *CertPassword* |  用于导入与 pfx 文件关联的私钥的密码。 | SecureString |
@@ -332,7 +332,7 @@ Azure Stack 中心中的 Windows 事件的自定义扩展表：
 |MasKeywords |0x8000000000000000|
 |MasKeywordName |审核成功|
 |MasLevel |4|
-|MasOpcode |第|
+|MasOpcode |1|
 |MasOpcodeName |info|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
@@ -364,7 +364,7 @@ Azure Stack 中心中创建的警报的自定义扩展表：
 
 | 自定义扩展名称 | 示例 | 
 |-----------------------|---------|
-|MasEventDescription|说明：为 \<TestDomain\>创建的用户帐户 \<TestUser\>。 这是潜在的安全风险。 --修正：联系支持人员。 若要解决此问题，必须提供客户帮助。 如果没有帮助，请不要尝试解决此问题。 在打开支持请求之前，请使用 https://aka.ms/azurestacklogfiles 中的指南启动日志文件收集过程。
+|MasEventDescription|说明：为 \<TestDomain\>创建的用户帐户 \<TestUser\>。 这是潜在的安全风险。 --修正：联系支持人员。 若要解决此问题，必须提供客户帮助。 如果没有帮助，请不要尝试解决此问题。 在打开支持请求之前，请使用 https://aka.ms/azurestacklogfiles中的指南启动日志文件收集过程。
 
 ### <a name="cef-mapping-for-alerts-closed"></a>已关闭警报的 CEF 映射
 

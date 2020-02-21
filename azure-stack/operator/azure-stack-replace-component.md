@@ -2,18 +2,18 @@
 title: 替换 Azure Stack 集线器缩放单位节点上的硬件组件
 titleSuffix: Azure Stack Hub
 description: 了解如何更换 Azure Stack 集线器集成系统上的硬件组件。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 8b17807e5d05f84d53158f71cc6cc345dbc70904
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0f0838d64dd205d56b0a82d487176296805f4ff3
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881367"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509596"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>替换 Azure Stack 集线器缩放单位节点上的硬件组件
 
@@ -22,15 +22,15 @@ ms.locfileid: "76881367"
 > [!CAUTION]  
 > 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程，或阻止 Azure Stack 集线器自动化部署操作系统。 在更换硬件时，请始终咨询硬件合作伙伴的文档，以确保应用的固件与[Azure Stack 中心管理员门户](azure-stack-updates.md)中显示的 OEM 版本相匹配。
 
-| 硬件伙伴 | 地区 | URL |
+| 硬件伙伴 | 区域 | 代码 |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | 所有 | [适用于 Microsoft Azure Stack 集线器操作指南的 Cisco 集成系统](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[适用于 Microsoft Azure Stack 集线器的 Cisco 集成系统的发行说明](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
-| Dell EMC | 所有 | [适用于 Microsoft Azure Stack 中心14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 中心13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | All | [适用于 Microsoft Azure Stack 集线器操作指南的 Cisco 集成系统](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[适用于 Microsoft Azure Stack 集线器的 Cisco 集成系统的发行说明](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | All | [适用于 Microsoft Azure Stack 中心14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 中心13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | 日本 | [Fujitsu 托管服务支持人员（需要帐户和登录）](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | 欧洲、中东和非洲 | [Fujitsu 支持 IT 产品和系统](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-|  | 欧洲 | [Fujitsu MySupport （需要帐户和登录）](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | 所有 | [Microsoft Azure Stack 中心的 HPE ProLiant](http://www.hpe.com/info/MASupdates) |
-| Lenovo | 所有 | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+|  | 欧洲、非洲和中东 | [Fujitsu 支持 IT 产品和系统](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+|  | EU | [Fujitsu MySupport （需要帐户和登录）](https://support.ts.fujitsu.com/IndexMySupport.asp) |
+| HPE | All | [Microsoft Azure Stack 中心的 HPE ProLiant](http://www.hpe.com/info/MASupdates) |
+| Lenovo | All | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [OEM/固件包](https://aka.ms/AA6z600)<br>[terra Azure Stack 中心文档（包括 FRU）](https://aka.ms/aa6zktc)
 
 非热插拔组件包括以下各项：

@@ -1,22 +1,22 @@
 ---
 title: 在 Azure Stack Hub 中配置多租户
 description: 了解如何在 Azure Stack 中心内启用和禁用多个 Azure Active Directory 租户。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: dd91cfed0dd4f2444371de43e7da8a48b6339069
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 48573cb6dd5acf859ca2ce5a87c127dd5351f871
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890266"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509987"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>在 Azure Stack Hub 中配置多租户
 
-可以将 Azure Stack 中心配置为支持多个 Azure Active Directory （Azure AD）租户中的用户，使他们能够使用 Azure Stack 中心内的服务。 例如，请考虑以下方案：
+可以将 Azure Stack 中心配置为支持多个 Azure Active Directory （Azure AD）租户中的用户，使他们能够使用 Azure Stack 中心内的服务。 例如，请考虑以下情况：
 
 - 你是安装 Azure Stack 集线器的 contoso.onmicrosoft.com 的服务管理员。
 - Mary 是来宾用户所在的 fabrikam.onmicrosoft.com 的目录管理员。

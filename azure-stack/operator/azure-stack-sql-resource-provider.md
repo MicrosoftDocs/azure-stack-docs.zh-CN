@@ -2,18 +2,18 @@
 title: 使用 SQL 数据库
 titleSuffix: Azure Stack Hub
 description: 了解如何使用 SQL Server 资源提供程序在 Azure Stack 中心提供 SQL 数据库即服务。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 30ca5673bb337342eba57d127acf2f3e657bb8df
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5f09af556a9541ac0d081a986ac4c2befb26b203
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882781"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491758"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>使用 Azure Stack 集线器上的 SQL 数据库
 

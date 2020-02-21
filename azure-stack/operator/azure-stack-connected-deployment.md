@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 集线器集成系统的 Azure 连接的部署决策
 description: 确定 Azure Stack 集线器集成系统的 Azure 连接部署的部署规划决策，包括计费和标识。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 82fad799b4c2b24ac3899c376e53bfd07c6d3d07
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a4ab00ff732bcffd66d984757a279a3ad030b33d
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879323"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510123"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack 集线器集成系统的 Azure 连接的部署规划决策
 确定[将 Azure Stack 中心集成到混合云环境的方式](azure-stack-connection-models.md)后，可以完成 Azure Stack 中心部署决策。
@@ -50,7 +50,7 @@ ms.locfileid: "76879323"
 
 如果要使用 CSP 订阅，请查看下表以确定要使用哪个 CSP 订阅，因为正确的方法取决于确切的 CSP 方案：
 
-|方案|域和订阅选项|
+|场景|域和订阅选项|
 |-----|-----|
 |你是**直接 Csp 合作伙伴**或**间接 csp 提供商**，你将运行 Azure Stack 中心|使用 CSL （常见服务层）订阅。<br>     或<br>在合作伙伴中心创建一个具有描述性名称的 Azure AD 租户。 例如，&lt;你的组织 > CSPAdmin 与它相关联的 Azure CSP 订阅。|
 |你是一个**间接 CSP 经销商**，你将运行 Azure Stack 中心|要求间接 CSP 提供商使用合作伙伴中心为你的组织创建一个与之关联的 Azure CSP 订阅的 Azure AD 租户。|
@@ -60,7 +60,7 @@ ms.locfileid: "76879323"
 
 容量计费要求使用企业协议（EA） Azure 订阅进行注册。 原因是注册在 Marketplace 中设置了项目的可用性，这需要 Azure 订阅。 此订阅不用于 Azure Stack 集线器使用情况。
 
-## <a name="learn-more"></a>了解更多
+## <a name="learn-more"></a>了解详细信息
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅[Azure Stack 中心](https://azure.microsoft.com/overview/azure-stack/)产品页。
 - 有关 Azure Stack 中心集成系统的路线图和地域可用性的信息，请参阅白皮书： [Azure Stack 中心： Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
 - 若要了解有关 Microsoft Azure Stack 中心打包和定价的详细信息，请[下载 .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。 

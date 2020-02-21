@@ -2,18 +2,18 @@
 title: 为 Azure Stack 中心注册创建自定义角色
 titleSuffix: Azure Stack Hub
 description: 了解如何创建自定义角色，以避免使用全局管理员进行 Azure Stack 集线器注册。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: fb4f9c117dd7f7e9ff0e2121706aecebc188de2a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e867e8e95c53d7dcf25b98edf9a2be7aceac526b
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881427"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509664"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>为 Azure Stack 中心注册创建自定义角色
 
@@ -32,7 +32,7 @@ ms.locfileid: "76881427"
 
 ## <a name="create-a-custom-role-using-powershell"></a>使用 PowerShell 创建自定义角色
 
-若要创建自定义角色，必须拥有所有 `AssignableScopes` 的 `Microsoft.Authorization/roleDefinitions/write` 权限，例如[所有者](/azure/role-based-access-control/built-in-roles#owner)或[用户访问权限管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)。 使用以下 JSON 模板可以简化自定义角色的创建。 模板创建一个自定义角色，该角色允许 Azure Stack 中心注册所需的读取和写入访问权限。
+若要创建自定义角色，必须拥有所有 `Microsoft.Authorization/roleDefinitions/write` 的 `AssignableScopes` 权限，例如[所有者](/azure/role-based-access-control/built-in-roles#owner)或[用户访问权限管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)。 使用以下 JSON 模板可以简化自定义角色的创建。 模板创建一个自定义角色，该角色允许 Azure Stack 中心注册所需的读取和写入访问权限。
 
 1. 创建一个 JSON 文件。 例如，`C:\CustomRoles\registrationrole.json`。
 2. 将以下 JSON 添加到该文件。 将 `<SubscriptionID>` 替换为你的 Azure 订阅 ID。

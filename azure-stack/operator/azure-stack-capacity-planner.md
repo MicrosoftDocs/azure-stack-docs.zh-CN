@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 中心 Capacity Planner
 description: 了解如何使用 Azure Stack 中心 Capacity Planner 用于部署的电子表格。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: b1c71d472ef3b03108f86660d0707f596e440138
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 8d703e1c8efb04573951ef68e7318f32c7deb64f
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147841"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509188"
 ---
 # <a name="azure-stack-hub-capacity-planner"></a>Azure Stack 中心 Capacity Planner
 
@@ -25,7 +25,7 @@ Azure Stack 中心 Capacity Planner 是一个电子表格，其中显示了不�
 |工作表名称|说明|
 |-----|-----|
 |版本免责声明|计算器的用途、版本号和发布日期。|
-|说明|为虚拟机（Vm）的集合制定容量规划模型的分步说明。|
+|Instructions|为虚拟机（Vm）的集合制定容量规划模型的分步说明。|
 |DefinedSolutionSKUs|表，最多有五个硬件定义。 这些项是示例。 更改详细信息以匹配正在考虑的系统配置。|
 |DefineByVMFootprint|通过比较不同大小和 Vm 数量的配置，查找相应的硬件 SKU。|
 |DefineByWorkloadFootprint|通过创建 Azure Stack 集线器工作负载的集合来查找适当的硬件 SKU。|

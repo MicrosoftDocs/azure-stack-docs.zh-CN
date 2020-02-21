@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 中心计算容量
 description: 了解 Azure Stack 中心部署的计算容量规划。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: c2745aba7d58ec6afda404307e8d3dbd47b62846
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 0b0c1db89dba68b818d13056c141ae22db342000
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147856"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509409"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack 中心计算容量
 
@@ -93,7 +93,7 @@ VM 位置的可用内存 = 总主机内存-复原保留-运行租户 Vm 所使�
 
 **答**：容量边栏选项卡每15分钟刷新一次，因此请考虑到这一点。
 
-**问**：我的 Azure Stack 集线器上部署的虚拟机的数量没有变化，但容量正在波动。 为什么?
+**问**：我的 Azure Stack 集线器上部署的虚拟机的数量没有变化，但容量正在波动。 为什么？
 
 **答**： VM 放置的可用内存具有多个依赖项，其中一个是主机操作系统保留项。 此值取决于主机上运行的不同 Hyper-v 进程使用的内存，这不是一个常数值。
 

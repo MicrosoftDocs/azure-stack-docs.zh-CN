@@ -2,18 +2,18 @@
 title: 配置 Azure Stack 集线器遥测
 titleSuffix: Azure Stack
 description: 了解 Azure Stack 集线器遥测以及如何使用 PowerShell 配置遥测设置。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/16/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cc4122424f990fd0c218899956e9ea32a695fe99
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cc2a0a17c2bce21a46132dde503d0461430a6064
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880949"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509460"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>配置 Azure Stack 集线器遥测
 
@@ -27,7 +27,7 @@ Azure Stack 集线器遥测会自动通过连接的用户体验将系统数据�
 Azure Stack 集线器遥测基于 Windows Server 2016 连接的用户体验和遥测组件。 此组件使用[Windows 事件跟踪（ETW）](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging 技术来收集和存储事件和数据。 Azure Stack 组件使用相同的技术来发布使用公共操作系统事件日志记录和跟踪 Api 收集的事件和数据。 这些 Azure Stack 集线器组件的示例包括：网络资源、存储资源、监视资源和更新资源。 连接的用户体验和遥测组件使用 SSL 来加密数据，并使用证书固定将数据通过 HTTPS 传输到 Microsoft 数据管理服务。
 
 > [!IMPORTANT]
-> 若要启用遥测数据流，必须在网络中打开端口443（HTTPS）。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 `https://v10.events.data.microsoft.com` ）。 连接的用户体验和遥测组件还连接到 `https://settings-win.data.microsoft.com` 以下载配置信息。 用于错误报告的其他诊断数据服务连接 `https://watson.telemetry.microsoft.com`。
+> 若要启用遥测数据流，必须在网络中打开端口443（HTTPS）。 连接的用户体验和遥测组件连接到 `https://v10.events.data.microsoft.com`的 Microsoft 数据管理服务。 连接的用户体验和遥测组件还连接到 `https://settings-win.data.microsoft.com` 以下载配置信息。 用于错误报告的其他诊断数据服务连接 `https://watson.telemetry.microsoft.com`。
 
 ## <a name="privacy-considerations"></a>隐私注意事项
 

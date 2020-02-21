@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 集线器集成系统连接模型
 description: 确定 Azure Stack 集线器集成系统的连接模型和其他部署规划决策。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 26a5821f6616390a4657a64d974862ef25c4cbe5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b3d6f1c02e7c4cb526a97034b93dbbfd92fc057f
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879408"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510140"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack 集线器集成系统连接模型
 如果你有兴趣购买 Azure Stack 集线器集成系统，则需要了解 Azure Stack 中心部署的[几个数据中心集成注意事项](azure-stack-datacenter-integration.md)，以确定系统如何适应你的数据中心。 此外，还需要决定将 Azure Stack 集线器集成到混合云环境中的方式。 本文概述了这些重要决策，其中包括 Azure 连接模型、标识存储选项和计费模型选项。
@@ -30,13 +30,13 @@ ms.locfileid: "76879408"
 
 |选项|已连接到 Azure|已与 Azure 断开连接|
 |-----|:-----:|:-----:|
-|Azure AD|![受支持](media/azure-stack-connection-models/check.png)| |
-|AD FS|![受支持](media/azure-stack-connection-models/check.png)|![受支持](media/azure-stack-connection-models/check.png)|
-|基于消耗的计费|![受支持](media/azure-stack-connection-models/check.png)| |
-|基于容量的计费|![受支持](media/azure-stack-connection-models/check.png)|![受支持](media/azure-stack-connection-models/check.png)|
-|许可| 企业协议或云解决方案提供商 | 企业协议 |
-|修补和更新|更新包可以直接从 Internet 下载到 Azure Stack 中心 |  需要<br><br>还需要可移动媒体<br> 和单独连接的设备 |
-| 注册 | 自动 | 需要<br><br>还需要可移动媒体<br> 和单独连接的设备 |
+|Azure AD|![支持](media/azure-stack-connection-models/check.png)| |
+|AD FS|![支持](media/azure-stack-connection-models/check.png)|![支持](media/azure-stack-connection-models/check.png)|
+|基于消耗的计费|![支持](media/azure-stack-connection-models/check.png)| |
+|基于容量的计费|![支持](media/azure-stack-connection-models/check.png)|![支持](media/azure-stack-connection-models/check.png)|
+|授权| 企业协议或云解决方案提供商 | 企业协议 |
+|修补和更新|更新包可以直接从 Internet 下载到 Azure Stack 中心 |  必选<br><br>还需要可移动媒体<br> 和单独连接的设备 |
+| 注册 | 自动 | 必选<br><br>还需要可移动媒体<br> 和单独连接的设备 |
 
 确定要用于 Azure Stack 中心部署的 Azure 连接模型后，必须为标识存储和计费方法做出其他依赖于连接的决策。
 

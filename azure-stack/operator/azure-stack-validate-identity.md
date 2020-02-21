@@ -2,18 +2,18 @@
 title: 验证 Azure 标识
 titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack 集线器就绪状态检查器来验证 Azure 标识。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 5c20e951e2a34c800611c8417d3b8504ed84c346
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: ff09f519e23054fef26157a35e0c55200c0c8467
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972468"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508253"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识
 
@@ -30,7 +30,7 @@ ms.locfileid: "76972468"
 
 从[PowerShell 库](https://aka.ms/AzsReadinessChecker)下载最新版本的 Azure Stack 集线器就绪检查器工具（AzsReadinessChecker）。  
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 需要以下先决条件：
 

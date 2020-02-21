@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 中心数据中心 DNS 集成
 description: 了解如何将 Azure Stack Hub DNS 与数据中心 DNS 集成。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 3d92504080e754db08d76cf7ec2a2c7e010ee394
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 50553f15d394b5640bb63cb2e675da9a9684469d
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882171"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509885"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack 中心数据中心 DNS 集成
 
@@ -23,9 +23,9 @@ ms.locfileid: "76882171"
 部署 Azure Stack 中心时，需要提供一些与 DNS 相关的重要信息。
 
 
-|字段  |Description  |示例|
+|字段  |说明  |示例|
 |---------|---------|---------|
-|地区|Azure Stack 中心部署的地理位置。|`east`|
+|区域|Azure Stack 中心部署的地理位置。|`east`|
 |外部域名|要用于 Azure Stack 中心部署的区域的名称。|`cloud.fabrikam.com`|
 |内部域名|用于 Azure Stack 集线器中的基础结构服务的内部区域的名称。 它与目录服务集成并是专用的（无法从 Azure Stack 中心部署外部访问）。|`azurestack.local`|
 |DNS 转发器|用于在公司 intranet 或公共 internet 上转发在 Azure Stack 中心外托管的 DNS 查询、DNS 区域和记录的 DNS 服务器。 部署后，可以通过[ **AzSDnsForwarder** Cmdlet](#editing-dns-forwarder-ips)编辑 DNS 转发器的值。 

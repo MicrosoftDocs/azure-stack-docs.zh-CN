@@ -4,8 +4,6 @@
   items:
     - name: 什么是 Azure Stack 中心？
       href: azure-stack-overview.md
-    - name: 什么是 Azure Stack HCI？
-      href: azure-stack-hci-overview.md
     - name: 比较 Azure 生态系统
       href: compare-azure-azure-stack.md
     - name: 发行说明
@@ -35,7 +33,7 @@
           href: azure-stack-capacity-planning-overview.md
         - name: 计算
           href: azure-stack-capacity-planning-compute.md
-        - name: 存储空间
+        - name: 存储
           href: azure-stack-capacity-planning-storage.md
         - name: Azure Stack 中心 Capacity Planner
           href: azure-stack-capacity-planner.md
@@ -116,7 +114,7 @@
               href: azure-stack-integrate-security.md
             - name: 设备审核
               href: azure-stack-integrate-physical-device-auditing.md
-- name: 操作指南
+- name: 操作方法指南
   items:
     - name: 管理 Azure Stack 中心
       items:
@@ -140,7 +138,7 @@
               href: azure-stack-powershell-install.md
             - name: 下载工具
               href: azure-stack-powershell-download.md
-            - name: 通过 PowerShell 连接
+            - name: 使用 PowerShell 连接
               href: azure-stack-powershell-configure-admin.md
         - name: 特权终结点
           href: azure-stack-privileged-endpoint.md
@@ -204,11 +202,11 @@
               href: azure-stack-replace-component.md
     - name: 安全、符合性和标识
       items:
-        - name: 安全性概述
+        - name: 安全概述
           href: azure-stack-security-foundations.md
         - name: 配置安全性
           href: azure-stack-security-configuration.md
-        - name: 身份标识
+        - name: 标识
           items:
             - name: 标识概述
               href: azure-stack-identity-overview.md
@@ -270,11 +268,11 @@
           href: service-plan-offer-subscription-overview.md
         - name: 创建计划
           href: azure-stack-create-plan.md
-        - name: 创建套餐
+        - name: 创建产品
           href: azure-stack-create-offer.md
         - name: 创建附加计划
           href: create-add-on-plan.md
-        - name: 订阅套餐
+        - name: 订阅产品
           href: azure-stack-subscribe-plan-provision-vm.md
         - name: 删除产品
           href: azure-stack-delete-offer.md
@@ -386,7 +384,7 @@
                   href: azure-stack-sql-resource-provider-11330.md
                 - name: SQL 资源提供程序 1.1.30.0 发行说明
                   href: azure-stack-sql-resource-provider-11300.md
-    - name: 用量和计费
+    - name: 使用情况和计费
       href: azure-stack-billing-and-chargeback.md
       items:
         - name: 以 CSP 身份管理用量和计费
@@ -448,7 +446,7 @@
                   items:
                     - name: 配置自动收集
                       href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                    - name: 最佳实践
+                    - name: 最佳做法
                       href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
                 - name: 按需收集
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
@@ -460,7 +458,7 @@
   items:
     - name: Azure Stack 中心 PowerShell
       href: /powershell/azure/azure-stack/overview
-- name: 相关
+- name: 相关内容
   items:
     - name: Azure Stack 集线器用户文档
       href: /azure-stack/user/
@@ -478,5 +476,5 @@
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 定价信息
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
+    - name: 堆栈溢出
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'

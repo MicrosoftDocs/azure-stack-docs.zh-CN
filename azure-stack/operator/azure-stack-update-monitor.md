@@ -1,18 +1,18 @@
 ---
 title: 使用 Powershell 监视 Azure Stack 集线器中的更新
 description: 了解如何使用 Powershell 监视 Azure Stack 集线器中的更新
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 12c3de988fde0dc7b5abd35bfa07c504f8c60c4b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8be3e34605d2759494a7315959285829c3ab41c6
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882703"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508950"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>使用 Powershell 监视 Azure Stack 集线器中的更新
 
@@ -20,7 +20,7 @@ ms.locfileid: "76882703"
 
 你可以使用以下 PowerShell cmdlet 来管理你的更新：
 
-| Cmdlet | Description |
+| Cmdlet | 说明 |
 |------------------------------------------------------|-------------|
 | [AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | 获取可用更新的列表。 |
 | [AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| 获取更新位置的列表。 |

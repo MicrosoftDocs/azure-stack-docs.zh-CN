@@ -2,18 +2,18 @@
 title: 删除 SQL 资源提供程序
 titleSuffix: Azure Stack Hub
 description: 了解如何从 Azure Stack 中心部署中删除 SQL 资源提供程序。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 5d8335e69c35c209e444d88f41ce76a3fae94bb0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8b9ed17aa19a2d0ed9403ace3876f4c8f3a25bf
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882790"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491775"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 
@@ -22,16 +22,7 @@ ms.locfileid: "76882790"
 > [!NOTE]
 > 可以在[部署资源提供程序必备组件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中找到资源提供程序安装程序的下载链接。
 
-删除 SQL 资源提供程序不会从宿主服务器中删除租户数据库。
-
-## <a name="dependency-cleanup"></a>依赖项清理
-
-在运行 Deploysqlprovider.ps1 脚本以删除资源提供程序之前，需要执行几个清理任务。
-
-Azure Stack 中心操作员负责以下清理任务：
-
-* 删除引用 SQL 适配器的所有计划。
-* 删除与 SQL 适配器关联的任何配额。
+删除 SQL 资源提供程序将删除操作员管理的关联计划和配额。 但它不会从宿主服务器中删除租户数据库。
 
 ## <a name="to-remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 

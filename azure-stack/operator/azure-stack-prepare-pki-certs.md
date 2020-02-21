@@ -2,18 +2,18 @@
 title: 准备 Azure Stack 中心 PKI 证书以进行部署或轮换
 titleSuffix: Azure Stack Hub
 description: 了解如何为 Azure Stack 中心集成系统部署或在现有 Azure Stack 中心环境中轮替机密准备 PKI 证书。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 3111d59a685425210bd8e63fbafcd4bb68c4a3a2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 321ceff84ec24997866366c533eb31939acde2dd
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881586"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509715"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>准备 Azure Stack 中心 PKI 证书以进行部署或轮换
 
@@ -39,7 +39,7 @@ ms.locfileid: "76881586"
 
    ![配置证书存储以进行证书导入](./media/prepare-pki-certs/3.png)
 
-   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 如果要导入 PFX，将会显示一个附加对话框。 在 "**私钥保护**" 页上，输入证书文件的密码，并启用 "将**此密钥标记为可导出"。这允许您在以后备份或传输密钥**。 选择“**下一页**”。
+   a. 如果要导入 PFX，将会显示一个附加对话框。 在 "**私钥保护**" 页上，输入证书文件的密码，并启用 "将**此密钥标记为可导出"。这允许您在以后备份或传输密钥**。 选择“**下一页**”。
 
    ![标记密钥为可导出](./media/prepare-pki-certs/2.png)
 

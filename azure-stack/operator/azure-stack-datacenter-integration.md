@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 集线器集成系统的数据中心集成规划注意事项
 description: 了解如何规划和准备与 Azure Stack 集线器集成系统的数据中心集成。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: b4809454f6bec18fbfd2ffdc3f1aa866786199c5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5c91ddd19ad384cc2a029dfac21d482470d37bc8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882468"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510038"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Azure Stack 集线器集成系统的数据中心集成规划注意事项
 
@@ -56,7 +56,7 @@ Azure Stack 集线器是一个密封系统，其中的基础结构从权限和�
 下图显示了集成的 AD FS 和图形通信流。
 显示 AD FS 和图形通信流 ![关系图](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
-## <a name="licensing-model"></a>许可模型
+## <a name="licensing-model"></a>许可模式
 您必须确定要使用的授权模型。 可用选项取决于你是否部署了连接到 internet Azure Stack 集线器：
 - 对于[连接的部署](azure-stack-connected-deployment.md)，可以选择 "即用即付" 或 "基于容量的许可"。 即用即付要求与 Azure 建立连接，以报告使用情况，然后通过 Azure 商业计费。 
 - 如果部署与 internet[断开连接](azure-stack-disconnected-deployment.md)，则仅支持基于容量的许可。 
@@ -76,7 +76,7 @@ Azure Stack 集线器是一个密封系统，其中的基础结构从权限和�
 
 下表总结了这些域命名决定。
 
-| 名称 | Description | 
+| 名称 | 说明 | 
 | -------- | ------------- | 
 |区域名称 | 第一个 Azure Stack 中心区域的名称。 此名称用作 Azure Stack 中心管理的公共虚拟 IP 地址（Vip）的 FQDN 的一部分。 通常，区域名称是物理位置标识符，如数据中心位置。<br><br>区域名称只能包含0-9 之间的字母和数字。 不允许使用特殊字符（如 `-`、`#`等）。| 
 | 外部域名 | 具有面向外部 Vip 的终结点的域名系统（DNS）区域的名称。 用于这些公共 Vip 的 FQDN 中。 | 
@@ -124,7 +124,7 @@ Azure Stack 集线器是一个密封系统，其中的基础结构从权限和�
  
 下表总结了混合连接方案的优点、缺点和用例。
 
-| 方案 | 连接方法 | 优点 | 缺点 | 适用于 |
+| 场景 | 连接方法 | 优点 | 缺点 | 适用于 |
 | -- | -- | --| -- | --|
 | 单个租户 Azure Stack 中心、intranet 部署 | 出站 NAT | 更好的带宽以实现更快的传输。 易于实现;不需要网关。 | 未加密的流量;堆栈外无隔离或加密。 | 所有租户都平等信任的企业部署。<br><br>具有 azure ExpressRoute 线路到 Azure 的企业。 |
 | 多租户 Azure Stack 集线器、intranet 部署 | 站点到站点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽限制为站点到站点 VPN 隧道。<br><br>需要虚拟网络中的网关和目标网络上的 VPN 设备。 | 必须从其他租户保护某些租户流量的企业部署。 |
@@ -192,7 +192,7 @@ Azure Stack 中心不会备份租户应用和数据。 你必须规划对 Azure 
 
 若要将数据复制到辅助位置并在发生灾难时协调应用程序故障转移，可以使用 Azure Site Recovery 或支持的第三方产品。 另外，支持本机复制的应用（如 Microsoft SQL Server）可以将数据复制到应用运行的另一个位置。
 
-## <a name="learn-more"></a>了解更多
+## <a name="learn-more"></a>了解详细信息
 
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅[Azure Stack 中心](https://azure.microsoft.com/overview/azure-stack/)产品页。
 - 有关 Azure Stack 中心集成系统的路线图和地域可用性的信息，请参阅白皮书： [Azure Stack 中心： Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 

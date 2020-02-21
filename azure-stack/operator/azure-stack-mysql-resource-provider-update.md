@@ -1,18 +1,18 @@
 ---
 title: 更新 Azure Stack 集线器中的 MySQL 资源提供程序
 description: 了解如何在 Azure Stack 中心更新 Azure Stack 集线器 MySQL 资源提供程序。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: bdb370b4b9583544075a77dcb4e5d9b7c85d852c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7bd1e47c87d0d746f862f64284eb1c1f915c883f
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881767"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492030"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>更新 Azure Stack 集线器中的 MySQL 资源提供程序
 
@@ -38,7 +38,7 @@ ms.locfileid: "76881767"
 ## <a name="update-script-parameters"></a>更新脚本参数 
 运行**Updatemysqlprovider.ps1** PowerShell 脚本时，请从命令行指定以下参数。 如果不是，或者任何参数验证失败，系统会提示提供所需的参数。
 
-| 参数名 | Description | 注释或默认值 | 
+| 参数名称 | 说明 | 注释或默认值 | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | 访问特权终结点所需的云管理员凭据。 | _必需_ | 
 | **AzCredential** | Azure Stack 中心服务管理员帐户的凭据。 使用与用于部署 Azure Stack 中心相同的凭据。 | _必需_ | 
@@ -51,7 +51,7 @@ ms.locfileid: "76881767"
 | **RetryDuration** | 两次重试之间的超时间隔（秒）。 | 120 | 
 | **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | 否 | 
 | **DebugMode** | 防止在失败时自动清除。 | 否 | 
-| **AcceptLicense** | 跳过提示以接受 GPL 许可证。  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+| **AcceptLicense** | 跳过提示以接受 GPL 许可证。  （ https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>更新脚本示例
 

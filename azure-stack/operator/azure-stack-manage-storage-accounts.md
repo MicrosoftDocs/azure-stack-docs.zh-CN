@@ -1,18 +1,18 @@
 ---
 title: 管理 Azure Stack 中心存储帐户
 description: 了解如何查找、管理、恢复和回收 Azure Stack 中心存储帐户。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: e3817639d379811b79387cb46064fbaff02b2f33
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 77505a2d91ff4aac4174395a170ba040fb4e9ec7
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882028"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509817"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>管理 Azure Stack 中心存储帐户
 
@@ -24,13 +24,13 @@ ms.locfileid: "76882028"
 
 1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
 
-2. 选择“所有服务” > “存储” > “存储帐户”。
+2. 选择“所有服务” **“存储”** “存储帐户” >  > 。
 
    ![Azure Stack 中心存储帐户](media/azure-stack-manage-storage-accounts/image4.png)
 
 默认情况下，将显示前10个帐户。 可以通过单击列表底部的 "**加载更多**" 链接来选择获取详细信息。
 
-或者
+或
 
 如果你对特定存储帐户感兴趣，则只能**筛选和提取相关帐户**。
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: 了解如何使用 Azure Stack 中心就绪检查程序工具验证 Azure Stack 集线器集成系统的 PKI 证书。
 services: azure-stack
 documentationcenter: ''
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 40539890c6adc431ffba95358855db0e7d9f17d8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972540"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508083"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>验证 Azure Stack 中心 PKI 证书
 
@@ -47,7 +47,7 @@ ms.locfileid: "76972540"
 > [!IMPORTANT]  
 > PKI 证书是 PFX 文件，应将密码视为敏感信息。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 在验证 Azure Stack 中心部署的 PKI 证书之前，系统应符合以下先决条件：
 
@@ -93,7 +93,7 @@ ms.locfileid: "76972540"
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com  
     ```
 
 4. 检查输出并确保所有证书都通过所有测试。 例如：
@@ -238,7 +238,7 @@ ms.locfileid: "76972540"
 
 | 目录 | 证书 |
 | ---    | ----        |
-| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSBlob | `wildcard_blob_<region>_<externalFQDN>` |
 | ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
 | ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
 | 管理扩展主机  |  `wildcard_adminhosting_<region>_<externalFQDN>` |

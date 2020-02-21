@@ -2,18 +2,18 @@
 title: SQL 资源提供程序维护操作
 titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack 集线器上的 SQL 资源提供程序维护操作。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ed76e3611fe0b7b57386a7b688f08ddbdc3c36d7
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.openlocfilehash: ce8364d5323e26e305627b1216dae60bff63652b
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125799"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491792"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 

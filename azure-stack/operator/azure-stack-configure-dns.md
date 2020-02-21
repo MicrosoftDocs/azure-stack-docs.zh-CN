@@ -1,18 +1,18 @@
 ---
 title: 更新 Azure Stack 集线器中的 DNS 转发器
 description: 了解如何更新 Azure Stack 集线器中的 DNS 转发器。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: e0220a9ce7a16e5aa49f336e52d2abef535e71cf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 773ee77c1fcad3fa355e453355aa08e5887da974
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879170"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509154"
 ---
 # <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>更新 Azure Stack 集线器中的 DNS 转发器
 

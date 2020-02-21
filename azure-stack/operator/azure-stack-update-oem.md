@@ -1,18 +1,18 @@
 ---
 title: 将原始设备制造商（OEM）更新应用到 Azure Stack 中心
 description: 了解如何将原始设备制造商（OEM）更新应用到 Azure Stack 中心。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/15/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a5b1449ae82258a7e4d65ef3d237673cba388420
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 82c2af02b26e9a661e600b6296b19cf4b0ba802c
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880720"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508933"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>应用 Azure Stack 中心原始设备制造商（OEM）更新
 
@@ -32,14 +32,14 @@ ms.locfileid: "76880720"
 
 本部分包含 OEM 联系信息以及到 OEM Azure Stack 中心参考资料的链接。
 
-| 硬件伙伴 | 地区 | URL |
+| 硬件伙伴 | 区域 | 代码 |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | 所有 | [适用于 Microsoft Azure Stack 集线器操作指南的 Cisco 集成系统](https://aka.ms/aa708e2)<br><br>[UCS C 系列机架装载 UCS 托管服务器软件](https://aka.ms/aa700rq) |
-| Dell EMC | 所有 | [适用于 Microsoft Azure Stack 中心14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 中心13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | All | [适用于 Microsoft Azure Stack 集线器操作指南的 Cisco 集成系统](https://aka.ms/aa708e2)<br><br>[UCS C 系列机架装载 UCS 托管服务器软件](https://aka.ms/aa700rq) |
+| Dell EMC | All | [适用于 Microsoft Azure Stack 中心14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 中心13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | 日本 | [Fujitsu 托管服务支持人员（要求提供帐户和登录名）](https://eservice.fujitsu.com/supportdesk-web/) |
-|  | EMEA & US | [Fujitsu 支持 IT 产品和系统](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-| HPE | 所有 | [Microsoft Azure Stack 中心的 HPE ProLiant](http://www.hpe.com/info/MASupdates) |
-| Lenovo | 所有 | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+|  | EMEA &AMP; US | [Fujitsu 支持 IT 产品和系统](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
+| HPE | All | [Microsoft Azure Stack 中心的 HPE ProLiant](http://www.hpe.com/info/MASupdates) |
+| Lenovo | All | [ThinkAgile SXM 最佳食谱](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [OEM/固件包](https://aka.ms/AA6z600)<br>[terra Azure Stack 中心文档（包括 FRU）](https://aka.ms/aa6zktc)
 
 ## <a name="apply-oem-updates"></a>应用 OEM 更新

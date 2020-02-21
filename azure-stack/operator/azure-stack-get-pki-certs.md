@@ -1,18 +1,18 @@
 ---
 title: 为 Azure Stack 中心生成证书签名请求
 description: 了解如何在 Azure Stack 集线器集成系统中为 Azure Stack 中心 PKI 证书生成证书签名请求。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: baee1a439129f83013e191db683927cd15cb1d65
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f0620162767ea69c8c8221f13bd698f003424a58
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882251"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509936"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>为 Azure Stack 中心生成证书签名请求
 
@@ -23,7 +23,7 @@ ms.locfileid: "76882251"
 - 根据[生成证书签名请求](azure-stack-get-pki-certs.md#generate-certificate-signing-requests)的**标准证书请求**。
 - **平台即服务**：可以为[Azure Stack 中心公钥基础结构证书要求-可选 PaaS 证书](azure-stack-pki-certs.md#optional-paas-certificates)中指定的证书请求平台即服务（PaaS）名称。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 在为 Azure Stack 中心部署生成 PKI 证书的任何 Csr 之前，系统应满足以下先决条件：
 

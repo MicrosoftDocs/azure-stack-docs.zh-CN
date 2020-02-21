@@ -2,18 +2,18 @@
 title: 容量规划概述
 titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack 中心部署的容量规划。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 79a73d9bd60837190aa0dc2c060593a39e6ecbf0
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 343f9a691cb37966c4a5b8cfc9932488749d967f
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147617"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510089"
 ---
 # <a name="capacity-planning-for-azure-stack-hub-overview"></a>Azure Stack 集线器的容量规划概述
 

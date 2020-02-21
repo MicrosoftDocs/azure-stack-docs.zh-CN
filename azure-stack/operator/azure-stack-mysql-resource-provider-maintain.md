@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 中心中的 MySQL 资源提供程序维护操作
 description: 了解如何在 Azure Stack Hub 中维护 MySQL 资源提供程序服务。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: a39ecec1cce85582a53e0fb64979726adb15115d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f3153de76385a74f7742dd72a1c12038acc2513e
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881790"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492064"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack 中心中的 MySQL 资源提供程序维护操作
 
@@ -145,7 +145,7 @@ $session | Remove-PSSession
 
 ### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider 参数
 
-|参数|Description|
+|参数|说明|
 |-----|-----|
 |AzCredential|Azure Stack 中心服务管理员帐户凭据。|
 |CloudAdminCredential|Azure Stack 中心云管理域帐户凭据。|

@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: 了解如何使用 Azure Stack 集线器就绪检查器来验证 Azure Stack 中心的 AD FS 集成。
 services: azure-stack
 documentationcenter: ''
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 786ee290aba91c855211d3f470f439c3e9b2c01a
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 1aec8cbf3502321766b79a110b48e1c4cc0cedf1
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972595"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508695"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>验证 Azure Stack 中心的 AD FS 集成
 
@@ -33,7 +33,7 @@ ms.locfileid: "76972595"
 
 从[PowerShell 库](https://aka.ms/AzsReadinessChecker)下载最新版本的 Azure Stack 集线器就绪检查器工具（AzsReadinessChecker）。  
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 必须满足以下先决条件。
 

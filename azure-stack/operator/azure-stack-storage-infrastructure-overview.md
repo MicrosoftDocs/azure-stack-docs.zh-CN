@@ -2,18 +2,18 @@
 title: 管理 Azure Stack 集线器的存储基础结构
 titleSuffix: Azure Stack
 description: 了解如何管理 Azure Stack 集线器的存储基础结构。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 045bab05645c5186069d787645efe56ea5b4effa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a50b39c84a31e0266db437bfe29fd57370881644
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882761"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509528"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储基础结构
 
@@ -21,7 +21,7 @@ ms.locfileid: "76882761"
 
 ## <a name="understand-drives-and-volumes"></a>了解驱动器和卷
 
-### <a name="drives"></a>着
+### <a name="drives"></a>驱动器
 
 由 Windows Server 软件提供支持，Azure Stack 集线器使用存储空间直通（S2D）和 Windows Server 故障转移群集的组合来定义存储功能。 这种组合提供了性能、可缩放且可复原的存储服务。
 
@@ -99,36 +99,36 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 ### <a name="volume-health-state-healthy"></a>卷运行状况状态：正常
 
-| 操作状态 | Description |
+| 操作状态 | 说明 |
 |---|---|
-| 确定 | 卷处于正常状态。 |
-| 最佳 | 数据不会跨驱动器均匀写入。<br> <br>**操作：** 请联系支持人员以优化存储池中的驱动器使用情况。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles 中的指南开始日志文件收集过程。 还原失败的连接后，可能需要从备份还原。 |
+| OK | 卷处于正常状态。 |
+| 最佳 | 数据不会跨驱动器均匀写入。<br> <br>**操作：** 请联系支持人员以优化存储池中的驱动器使用情况。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 还原失败的连接后，可能需要从备份还原。 |
 
 ### <a name="volume-health-state-warning"></a>卷运行状况状态：警告
 
 当卷处于警告运行状况状态时，表示数据的一个或多个副本不可用，但 Azure Stack 集线器仍可读取至少一个数据副本。
 
-| 操作状态 | Description |
+| 操作状态 | 说明 |
 |---|---|
 | 服务中 | Azure Stack 集线器正在修复卷，如添加或删除驱动器后。 修复完成后，卷应返回到 "正常" 运行状况状态。<br> <br>**操作：** 等待 Azure Stack 集线器完成卷修复，然后检查状态。 |
-| 完整 | 卷的复原能力降低，因为一个或多个驱动器出现故障或丢失。 不过，缺少的驱动器包含数据的最新副本。<br> <br>**操作：** 重新连接任何缺失的驱动器、更换任何故障的驱动器，并使任何脱机的服务器联机。 |
+| 未完成 | 卷的复原能力降低，因为一个或多个驱动器出现故障或丢失。 不过，缺少的驱动器包含数据的最新副本。<br> <br>**操作：** 重新连接任何缺失的驱动器、更换任何故障的驱动器，并使任何脱机的服务器联机。 |
 | 已降级 | 由于驱动器上有一个或多个故障驱动器和过时的数据副本，卷的复原能力会降低。<br> <br>**操作：** 重新连接任何缺失的驱动器、更换任何故障的驱动器，并使任何脱机的服务器联机。 |
 
 ### <a name="volume-health-state-unhealthy"></a>卷运行状况状态：不正常
 
 当卷处于不正常运行状况状态时，当前无法访问该卷上的部分或全部数据。
 
-| 操作状态 | Description |
+| 操作状态 | 说明 |
 |---|---|
-| 无冗余 | 卷丢失了数据，因为驱动器太多。<br> <br>**操作：** 联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles 中的指南开始日志文件收集过程。 |
+| 无冗余 | 卷丢失了数据，因为驱动器太多。<br> <br>**操作：** 联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 |
 
 ### <a name="volume-health-state-unknown"></a>卷运行状况状态：未知
 
 如果虚拟磁盘已分离，则卷也可以处于未知的运行状况状态。
 
-| 操作状态 | Description |
+| 操作状态 | 说明 |
 |---|---|
-| 分离 | 发生存储设备故障，这可能会导致无法访问该卷。 某些数据可能丢失。<br> <br>**操作：** <br>1. 检查所有存储设备的物理连接和网络连接。<br>2. 如果所有设备均已正确连接，请联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles 中的指南开始日志文件收集过程。 还原失败的连接后，可能需要从备份还原。 |
+| 分离 | 发生存储设备故障，这可能会导致无法访问该卷。 某些数据可能丢失。<br> <br>**操作：** <br>1. 检查所有存储设备的物理连接和网络连接。<br>2. 如果所有设备均已正确连接，请联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 还原失败的连接后，可能需要从备份还原。 |
 
 ## <a name="drive-states"></a>驱动器状态
 
@@ -146,32 +146,32 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 ### <a name="drive-health-state-healthy"></a>驱动器运行状况状态：正常
 
-| 操作状态 | Description |
+| 操作状态 | 说明 |
 |---|---|
-| 确定 | 卷处于正常状态。 |
+| OK | 卷处于正常状态。 |
 | 服务中 | 驱动器正在执行一些内部日常维护操作。 操作完成后，驱动器应返回到 "正常" 运行状况状态。 |
 
 ### <a name="drive-health-state-healthy"></a>驱动器运行状况状态：正常
 
 处于警告状态的驱动器可以成功读取和写入数据，但会出现问题。
 
-| 操作状态 | Description |
+| 操作状态 | 说明 |
 |---|---|
 | 通信丢失 | 驱动器的连接已丢失。<br> <br>**操作：** 使所有服务器恢复联机状态。 如果未解决此问题，请重新连接驱动器。 如果此状态仍然存在，请更换驱动器以确保完全复原。 |
 | 预测性故障 | 预计即将发生驱动器故障。<br> <br>**操作：** 尽快更换驱动器以确保完全复原。 |
 | IO 错误 | 访问驱动器时出现临时错误。<br> <br>**操作：** 如果此状态仍然存在，请更换驱动器以确保完全复原。 |
 | 暂时性错误 | 驱动器出现临时错误。 此错误通常意味着驱动器无响应，但这也可能意味着无法正确地从驱动器中删除存储空间直通保护分区。 <br> <br>**操作：** 如果此状态仍然存在，请更换驱动器以确保完全复原。 |
 | 异常延迟 | 驱动器有时无响应，并显示失败的迹象。<br> <br>**操作：** 如果此状态仍然存在，请更换驱动器以确保完全复原。 |
-| 正在从池删除 | Azure Stack 集线器正在从其存储池中删除驱动器。<br> <br>**操作：** 等待 Azure Stack 集线器完成删除驱动器，然后检查状态。<br>如果状态仍然存在，请联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles 中的指南开始日志文件收集过程。 |
+| 正在从池删除 | Azure Stack 集线器正在从其存储池中删除驱动器。<br> <br>**操作：** 等待 Azure Stack 集线器完成删除驱动器，然后检查状态。<br>如果状态仍然存在，请联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 |
 | 正在启动维护模式 | Azure Stack 集线器正在将驱动器置于维护模式。 此状态为临时状态，驱动器应很快处于维护模式状态。<br> <br>**操作：** 等待 Azure Stack 集线器完成此过程，然后检查状态。 |
-| 处于维护模式 | 驱动器处于维护模式，正在停止从驱动器进行的读取和写入操作。 此状态通常意味着 Azure Stack 集线器管理任务，如 PNU 或 FRU 正在运行驱动器。 但管理员也可以将驱动器置于维护模式。<br> <br>**操作：** 等待中心 Azure Stack 集线器完成管理任务，并在以后检查状态。<br>如果状态仍然存在，请联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles 中的指南开始日志文件收集过程。 |
+| 处于维护模式 | 驱动器处于维护模式，正在停止从驱动器进行的读取和写入操作。 此状态通常意味着 Azure Stack 集线器管理任务，如 PNU 或 FRU 正在运行驱动器。 但管理员也可以将驱动器置于维护模式。<br> <br>**操作：** 等待中心 Azure Stack 集线器完成管理任务，并在以后检查状态。<br>如果状态仍然存在，请联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 |
 | 停止维护模式 | Azure Stack 集线器正在使驱动器恢复联机。 此状态为临时状态-驱动器应很快处于另一状态，理想情况下正常。<br> <br>**操作：** 等待 Azure Stack 集线器完成此过程，然后检查状态。 |
 
 ### <a name="drive-health-state-unhealthy"></a>驱动器运行状况状态：不正常
 
 当前不能写入或访问处于不正常状态的驱动器。
 
-| 操作状态 | Description |
+| 操作状态 | 说明 |
 |---|---|
 | 拆分 | 驱动器已与池分离。<br> <br>**操作：** 将驱动器替换为新磁盘。 如果必须使用此磁盘，请从系统中删除该磁盘，确保磁盘上没有有用的数据，擦除磁盘，然后重新放置磁盘。 |
 | 不可用 | 物理磁盘被隔离，因为它不受解决方案供应商的支持。 仅支持为解决方案批准的磁盘，并且支持正确的磁盘固件。<br> <br>**操作：** 将驱动器替换为具有解决方案的已批准制造商和型号的磁盘。 |
@@ -186,7 +186,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 有些驱动器并未准备好 Azure Stack 集线器存储池中。 通过查看驱动器的 "`CannotPoolReason`" 属性，可以查明驱动器不符合池要求的原因。 下表提供了有关每个原因的更多详细信息。
 
-| 原因 | Description |
+| 原因 | 说明 |
 |---|---|
 | 硬件不合规 | 该驱动器不在使用运行状况服务指定的已批准存储模型的列表中。<br> <br>**操作：** 将驱动器替换为新磁盘。 |
 | 固件不合规 | 物理驱动器上的固件不在已批准固件修订列表中，使用运行状况服务。<br> <br>**操作：** 将驱动器替换为新磁盘。 |
@@ -195,8 +195,8 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 | 不正常 | 驱动器不处于正常状态，可能需要将其替换。<br> <br>**操作：** 将驱动器替换为新磁盘。 |
 | 容量不足 | 驱动器上有占用空间的分区。<br> <br>**操作：** 将驱动器替换为新磁盘。 如果必须使用此磁盘，请从系统中删除该磁盘，确保磁盘上没有有用的数据，擦除磁盘，然后重新放置磁盘。 |
 | 正在进行验证 | 运行状况服务正在检查是否已批准使用驱动器上的驱动器或固件。<br> <br>**操作：** 等待 Azure Stack 集线器完成此过程，然后检查状态。 |
-| 验证失败 | 运行状况服务无法检查驱动器上的驱动器或固件是否已被批准使用。<br> <br>**操作：** 联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles 中的指南开始日志文件收集过程。 |
-| Offline | 驱动器处于脱机状态。 <br> <br>**操作：** 联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles 中的指南开始日志文件收集过程。 |
+| 验证失败 | 运行状况服务无法检查驱动器上的驱动器或固件是否已被批准使用。<br> <br>**操作：** 联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 |
+| Offline | 驱动器处于脱机状态。 <br> <br>**操作：** 联系支持人员。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 |
 
 ## <a name="next-step"></a>后续步骤
 

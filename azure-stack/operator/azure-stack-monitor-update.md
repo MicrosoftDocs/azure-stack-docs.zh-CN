@@ -1,18 +1,18 @@
 ---
 title: 使用特权终结点监视 Azure Stack 集线器中的更新
 description: 了解如何使用特权终结点监视 Azure Stack 集线器集成系统的更新状态。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: c116051e305f78fd281f420de2f31dbee36601af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 170bb21a8facd66fc5f581729a19f436fbd16fc1
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881904"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77507998"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack 集线器中的更新
 
@@ -20,14 +20,14 @@ ms.locfileid: "76881904"
 
 适用于 Azure Stack 集线器集成系统的1710更新中包含了以下用于更新管理的新 PowerShell cmdlet。
 
-| Cmdlet  | Description  |
+| Cmdlet  | 说明  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | 返回当前正在运行的、已完成的或失败的更新的状态。 提供更新操作的高级状态和描述当前步骤和相应状态的 XML 文档。 |
 | `Resume-AzureStackUpdate` | 恢复失败的更新。 在某些情况下，你可能需要在继续更新之前完成缓解步骤。         |
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>验证 cmdlet 是否可用
-由于 cmdlet 是 Azure Stack 集线器1710更新包中的新 cmdlet，因此，1710更新过程需要在监视功能可用之前获得特定的时间点。 通常，如果管理员门户中的状态表明1710更新在 "**重新启动存储主机**" 步骤上，则可以使用 cmdlet。 Cmdlet 更新期间出现的具体而言，**步骤： 运行步骤 2.6 的更新 PrivilegedEndpoint 允许列表**。
+由于 cmdlet 是 Azure Stack 集线器1710更新包中的新 cmdlet，因此，1710更新过程需要在监视功能可用之前获得特定的时间点。 通常，如果管理员门户中的状态表明1710更新在 "**重新启动存储主机**" 步骤上，则可以使用 cmdlet。 具体而言，cmdlet 将在**步骤：运行步骤 2.6-Update PrivilegedEndpoint 白名单**中进行。
 
 你还可以通过从特权终结点查询命令列表来确定是否可以编程方式使用 cmdlet。 若要执行此查询，请从硬件生命周期主机或特权访问工作站运行以下命令。 此外，请确保特权终结点是受信任的主机。 有关详细信息，请参阅[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步骤1。
 
@@ -97,11 +97,11 @@ $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStac
 $statusString.Value 
 ```
 
-可能值包括：
+可能的值包括：
 
 - 正在运行
 - 已完成
-- 已失败 
+- 失败 
 - 已取消
 
 你可以重复运行这些命令来查看最新状态。 无需重新建立连接即可检查。

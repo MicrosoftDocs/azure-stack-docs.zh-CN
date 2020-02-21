@@ -1,18 +1,18 @@
 ---
 title: 配置 Azure Stack 中心安全控制
 description: 了解如何在 Azure Stack 中心配置安全控制
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: dae9f8822924f37ae9a46d2be71b7525d8bf3982
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: cd63908eceffb5072a41ae200ca2a544728b5971
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890181"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509511"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>配置 Azure Stack 中心安全控制
 
@@ -51,16 +51,16 @@ Set-TLSPolicy -Version <String>
 
 *TLSPolicy* cmdlet 的参数：
 
-| 参数 | Description | 类型 | 需要 |
+| 参数 | 说明 | 类型 | 必选 |
 |---------|---------|---------|---------|
 | *版本* | Azure Stack 集线器中允许的 TLS 版本 | String | 是|
 
 使用以下值之一为所有 Azure Stack 中心终结点配置允许的 TLS 版本：
 
-| 版本值 | Description |
+| 版本值 | 说明 |
 |---------|---------|
 | *TLS_All* | Azure Stack 集线器 TLS 终结点支持 TLS 1.2，但允许向 TLS 1.1 和 TLS 1.0 进行向下协商。 |
-| *TLS_1.2* | Azure Stack 集线器 TLS 终结点仅支持 TLS 1.2。 | 
+| *TLS_1 2* | Azure Stack 集线器 TLS 终结点仅支持 TLS 1.2。 | 
 
 更新 TLS 策略需要几分钟才能完成。
 

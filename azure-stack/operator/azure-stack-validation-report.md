@@ -2,18 +2,18 @@
 title: Azure Stack 中心验证报告
 titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack 集线器就绪检查程序工具来生成验证报告。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: a2264608c295a29fecc5335ce4970499dd10c895
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: c64c9b4b5a6f73f5dd8f5e323ff16a44589173cc
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147730"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508150"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Azure Stack 中心验证报告
 
@@ -130,7 +130,7 @@ Azure Stack Hub ADFS Validation results not available.
 - 图形
 - ADFS
 - 作业
-- 全部  
+- All  
 
 例如，若要查看仅用于证书的报表摘要，请使用以下 PowerShell 命令行：
 

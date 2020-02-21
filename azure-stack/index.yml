@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 11/04/2019
-  ms.openlocfilehash: 96ea6293fb0436f57fc619625222062e0955ef44
-  ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+  ms.openlocfilehash: 11ba5e777f26cbfca0cae2b4dc1b0b91f6ce77c6
+  ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73636828"
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77509120"
 highlightedContent:
   items:
   - title: Azure Stack 系列公告
@@ -35,11 +35,11 @@ productDirectory:
     imageSrc: media/index/azure-stack-edge.svg
     links:
     - url: /azure/databox-online/data-box-edge-overview
-      text: 什么是 Azure Stack 边缘？
+      text: 什么是 Azure Stack Edge？
   - title: Azure Stack HCI
     imageSrc: media/index/azure-stack-hci.svg
     links:
-    - url: /azure-stack/operator/azure-stack-hci-overview
+    - url: /azure-stack/hci/overview
       text: Azure Stack HCI 概述
 conceptualContent:
   title: 混合模式和解决方案示例
@@ -85,7 +85,7 @@ additionalContent:
   sections:
   - title: Azure Stack 中心
     items:
-    - title: 运算符
+    - title: 操作员
       links:
       - url: /azure-stack/operator/azure-stack-manage-portals
         text: 使用管理员门户
@@ -142,7 +142,7 @@ additionalContent:
     - title: 管理
       links:
       - url: /windows-server/manage/windows-admin-center/understand/windows-admin-center
-        text: Windows Admin Center
+        text: Windows 管理中心
       - url: /windows-server/manage/windows-admin-center/azure
         text: Azure 混合服务
     - title: 基础技术
@@ -150,7 +150,7 @@ additionalContent:
       - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
         text: Hyper-V
       - url: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
-        text: Storage Spaces Direct
+        text: 存储空间直通
       - url: /windows-server/networking/sdn
         text: 软件定义的网络
       - url: /windows-server/failover-clustering/failover-clustering-overview

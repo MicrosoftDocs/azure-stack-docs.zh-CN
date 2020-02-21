@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Stack 中心内删除 MySQL 资源提供程序
 description: 了解如何从 Azure Stack 中心部署中删除 MySQL 资源提供程序。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 89d0a55797b6182b7490778db10914a09977e105
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e432e0a37dbcea7bf441594ba6669ee15578b3e4
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881784"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492047"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>在 Azure Stack 中心内删除 MySQL 资源提供程序
 
@@ -21,16 +21,7 @@ ms.locfileid: "76881784"
 > [!NOTE]
 > 可以在[部署资源提供程序必备组件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中找到资源提供程序安装程序的下载链接。
 
-删除 MySQL 资源提供程序不会从宿主服务器中删除租户数据库。
-
-## <a name="dependency-cleanup"></a>依赖项清理
-
-在运行 DeployMySqlProvider 脚本以删除资源提供程序之前，需要执行几个清理任务。
-
-Azure Stack 中心操作员负责以下清理任务：
-
-* 删除引用 MySQL 适配器的任何计划。
-* 删除与 MySQL 适配器关联的任何配额。
+删除 MySQL 资源提供程序将删除操作员管理的关联计划和配额。 但它不会从宿主服务器中删除租户数据库。
 
 ## <a name="to-remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序
 

@@ -1,18 +1,18 @@
 ---
 title: 将 AD FS 标识与 Azure Stack 中心数据中心集成
 description: 了解如何将 Azure Stack 中心 AD FS 标识提供程序与数据中心 AD FS 集成。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 1e55ae573d67775389e1e8e8ebac1b9ba094e5a7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b4f48c8fe4138b74b735615777b16630c0fe7060
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882133"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509834"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack 中心数据中心集成
 
@@ -52,7 +52,7 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 以下信息是自动化参数的输入所必需的：
 
-|参数|部署工作表参数|Description|示例|
+|参数|部署工作表参数|说明|示例|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|AD FS 林 FQDN|要与之集成的目标 Active Directory 林的 FQDN|Contoso.com|
 |`CustomADAdminCredentials`| |具有 LDAP 读取权限的用户|YOURDOMAIN\graphservice|
@@ -102,7 +102,7 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 3. **DirectoryService** cmdlet 具有可在现有 Active Directory 验证失败的某些情况下使用的可选参数。 执行此 cmdlet 时，它会验证提供的域是否为根域、是否可以访问全局编录服务器，以及是否向提供的帐户授予读取访问权限。
 
-   |参数|Description|
+   |参数|说明|
    |---------|---------|
    |`-SkipRootDomainValidation`|指定必须使用子域，而不是推荐的根域。|
    |`-Force`|跳过所有验证检查。|
@@ -113,9 +113,9 @@ Azure Stack 集线器中的图形服务使用以下协议和端口与可以处�
 
 Azure Stack 中心中的图形服务使用以下协议和端口与目标 Active Directory 通信：
 
-|类型|Port|协议|
+|类型|端口|协议|
 |---------|---------|---------|
-|LDAP|389|TCP & UDP|
+|LDAP|389|TCP &AMP; UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
 |LDAP GC SSL|3269|TCP|
@@ -124,11 +124,11 @@ Azure Stack 中心中的图形服务使用以下协议和端口与目标 Active 
 
 以下信息是自动化参数的输入所必需的：
 
-|参数|部署工作表参数|Description|示例|
+|参数|部署工作表参数|说明|示例|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS 提供程序名称|声明提供程序的名称。<br>它在 AD FS 登陆页上以这种方式出现。|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|AD FS 元数据 URI|联合元数据链接。| https：\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|不可用|用于跳过 CRL 检查的可选参数。|无|
+|SigningCertificateRevocationCheck|NA|用于跳过 CRL 检查的可选参数。|无|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>触发自动化以在 Azure Stack 中心配置声明提供方信任
@@ -164,7 +164,7 @@ Azure Stack 中心中的图形服务使用以下协议和端口与目标 Active 
 以下信息是自动化参数的输入所必需的：
 
 
-|参数|Description|示例|
+|参数|说明|示例|
 |---------|---------|---------|
 |CustomAdfsName|声明提供程序的名称。 它在 AD FS 登陆页上以这种方式出现。|Contoso|
 |CustomADFSFederationMetadataFileContent|元数据内容。|$using： federationMetadataFileContent|

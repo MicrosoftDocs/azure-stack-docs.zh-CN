@@ -1,18 +1,18 @@
 ---
 title: 在数据中心发布 Azure Stack 中心服务
 description: 了解如何在数据中心发布 Azure Stack 中心服务。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/11/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 5cd828de0e4123faf3fcb7020703ad5d8682c7e1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4bde57bbd67fcc97e65fbd68adace42d7208e232
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882151"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509868"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>在数据中心发布 Azure Stack 中心服务 
 
@@ -51,19 +51,19 @@ SSL 流量截获[不受支持](azure-stack-firewall.md#ssl-interception)，并�
 |Azure 资源管理器（用户）|层. *&lt;fqdn >&lt;区域 >*|HTTPS|443|
 |图形|图形. *&lt;fqdn >&lt;区域 >*|HTTPS|443|
 |证书吊销列表|*&lt;区域 >&lt;fqdn >*|HTTP|80|
-|DNS|&#42;. *&lt;fqdn >&lt;区域 >*|TCP & UDP|53|
-|托管 | *。托管。>\<区域。\<fqdn > | HTTPS | 443 |
+|DNS|&#42;. *&lt;fqdn >&lt;区域 >*|TCP &AMP; UDP|53|
+|Hosting | *。托管。>\<区域。\<fqdn > | HTTPS | 443 |
 |Key Vault （用户）|&#42;保管库. *&lt;fqdn >&lt;区域 >*|HTTPS|443|
 |Key Vault （管理员）|&#42;.adminvault. *&lt;fqdn >&lt;区域 >*|HTTPS|443|
-|存储队列|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|存储队列|&#42;使. *&lt;fqdn >&lt;区域 >*|HTTP<br>HTTPS|80<br>443|
 |存储表|&#42;数据表. *&lt;fqdn >&lt;区域 >*|HTTP<br>HTTPS|80<br>443|
-|存储 Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|SQL 资源提供程序|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL 资源提供程序|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|应用服务|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80（HTTP）<br>443（HTTPS）<br>8172（Msdeploy.exe）|
-|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443（HTTPS）|
-|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443（HTTPS）<br>44300（Azure 资源管理器）|
-|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP、UDP|21，1021，10001-10100 （FTP）<br>990（FTPS）|
+|存储 Blob|&#42;blob. *&lt;fqdn >&lt;区域 >*|HTTP<br>HTTPS|80<br>443|
+|SQL 资源提供程序|microsoft.sqladapter. .dbadapter。 *&lt;fqdn >&lt;区域 >*|HTTPS|44300-44304|
+|MySQL 资源提供程序|mysqladapter.dbadapter. .dbadapter。 *&lt;fqdn >&lt;区域 >*|HTTPS|44300-44304|
+|应用服务|&#42;appservice. *&lt;fqdn >&lt;区域 >*|TCP|80（HTTP）<br>443（HTTPS）<br>8172（Msdeploy.exe）|
+|  |&#42;appservice。 *&lt;fqdn >&lt;区域 >*|TCP|443（HTTPS）|
+|  |appservice。 *&lt;fqdn >&lt;区域 >*|TCP|443（HTTPS）<br>44300（Azure 资源管理器）|
+|  |appservice。 *&lt;fqdn >&lt;区域 >*|TCP、UDP|21，1021，10001-10100 （FTP）<br>990（FTPS）|
 |VPN 网关|     |     |[请参阅 VPN 网关常见问题](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability)。|
 |     |     |     |     |
 
@@ -76,14 +76,14 @@ SSL 流量截获[不受支持](azure-stack-firewall.md#ssl-interception)，并�
 > [!Note]  
 > Azure Stack 中心不支持使用 ExpressRoute 访问下表中列出的 Azure 服务，因为 ExpressRoute 可能无法将流量路由到所有终结点。
 
-|用途|目标 URL|协议|端口|源网络|
+|目的|目标 URL|协议|端口|源网络|
 |---------|---------|---------|---------|---------|
-|身份标识|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https：\//management.core.windows.net<br>ARMUri = https：\//management.azure.com<br>https：\//\*msftauth.net<br>https：\//\*msauth.net<br>https：\//\*msocdn.com<br>**Azure Government**<br>https：\//login.microsoftonline.us/<br>https：\//graph.windows.net/<br>**Azure 中国世纪互联**<br>https：\//login.chinacloudapi.cn/<br>https：\//graph.chinacloudapi.cn/<br>**Azure 德国**<br>https：\//login.microsoftonline.de/<br>https：\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|公共 VIP-/27<br>公共基础结构网络|
+|标识|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https：\//management.core.windows.net<br>ARMUri = https：\//management.azure.com<br>https：\//\*msftauth.net<br>https：\//\*msauth.net<br>https：\//\*msocdn.com<br>**Azure Government**<br>https：\//login.microsoftonline.us/<br>https：\//graph.windows.net/<br>**Azure 中国世纪互联**<br>https：\//login.chinacloudapi.cn/<br>https：\//graph.chinacloudapi.cn/<br>**Azure 德国**<br>https：\//login.microsoftonline.de/<br>https：\//graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|公共 VIP-/27<br>公共基础结构网络|
 |Marketplace 联合|**Azure**<br>https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https：\//management.usgovcloudapi.net/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https：\//management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn|HTTPS|443|公共 VIP-/27|
-|修补 & 更新|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP-/27|
+|修补 & 更新|https://&#42;.azureedge.net<br>https：\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP-/27|
 |注册|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https：\//management.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https：\//management.chinacloudapi.cn|HTTPS|443|公共 VIP-/27|
 |使用情况|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure 中国世纪互联**<br>https://&#42;. trafficmanager.cn|HTTPS|443|公共 VIP-/27|
-|Windows Defender|&#42;。 wdcp.microsoft.com<br>&#42;。 wdcpalt.microsoft.com<br>&#42;。 wd.microsoft.com<br>&#42;。 update.microsoft.com<br>&#42;。 download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https：\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP-/27<br>公共基础结构网络|
+|Windows Defender|&#42;。 wdcp.microsoft.com<br>&#42;。 wdcpalt.microsoft.com<br>&#42;。 wd.microsoft.com<br>&#42;。 update.microsoft.com<br>&#42;。 download.microsoft.com<br>https：\//www.microsoft.com/pkiops/crl<br>https：\//www.microsoft.com/pkiops/certs<br>https：\//crl.microsoft.com/pki/crl/products<br>https：\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP-/27<br>公共基础结构网络|
 |NTP|（为部署提供的 NTP 服务器 IP）|UDP|123|公共 VIP-/27|
 |DNS|（为部署提供的 DNS 服务器 IP）|TCP<br>UDP|53|公共 VIP-/27|
 |CRL|（证书的 CRL 分发点下的 URL）|HTTP|80|公共 VIP-/27|

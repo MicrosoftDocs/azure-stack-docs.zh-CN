@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 中心集成系统 Azure Stack 集线器防火墙集成
 description: 了解 Azure Stack 中心集成系统 Azure Stack 集线器防火墙集成。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 752fd1f7887b8de6e9d7808e5c887200da8d6b10
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f0074bedfbcd0e55bea84080e33e14738fccb896
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882305"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509970"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Azure Stack 集线器防火墙集成
 建议使用防火墙设备来帮助保护 Azure Stack 中心。 防火墙可以帮助防御分布式拒绝服务（DDOS）攻击、入侵检测和内容检查等内容。 但是，它们也可能成为 Azure 存储服务（如 blob、表和队列）的吞吐量瓶颈。
@@ -52,7 +52,7 @@ NAT 也可以替代外部网络上的公共 IP 地址或公共 Vip。 但是，�
 
 ![Azure Stack 集线器外围网络示例](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
-## <a name="learn-more"></a>了解更多
+## <a name="learn-more"></a>了解详细信息
 了解有关[Azure Stack 中心终结点使用的端口和协议的](azure-stack-integrate-endpoints.md)详细信息。
 
 ## <a name="next-steps"></a>后续步骤

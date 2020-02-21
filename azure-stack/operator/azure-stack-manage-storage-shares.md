@@ -1,18 +1,18 @@
 ---
 title: 管理 Azure Stack 集线器中的存储容量
 description: 了解如何监视和管理 Azure Stack 集线器中的存储容量和可用性。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: b97d8e6dcb3069ec7d693f9dfc8677947de019fb
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 9c0f7213a961847e9d8abfd68419db0cab6d2f2c
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147869"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509766"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储容量
 

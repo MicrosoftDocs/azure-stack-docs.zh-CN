@@ -2,18 +2,18 @@
 title: 向 Azure 注册 Azure Stack 集线器
 titleSuffix: Azure Stack Hub
 description: 了解如何向 Azure 注册 Azure Stack 集线器集成系统，以便可以下载 Azure Marketplace 项并设置数据报告。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 2/02/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 568bcc7b04da397dff343662a8e80b86e27d2618
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: c842a762ace6bd51f55240c292c434fc7bc96c92
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972574"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509647"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>向 Azure 注册 Azure Stack 集线器
 
@@ -24,7 +24,7 @@ ms.locfileid: "76972574"
 > [!IMPORTANT]  
 > 需要注册才能支持完整 Azure Stack 集线器功能，包括在 marketplace 中提供项目。 如果你在使用即用即付计费模型时未注册，则将违反 Azure Stack 集线器许可条款。 若要详细了解 Azure Stack 中心许可模式，请参阅[如何购买页](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 注册之前，需要满足以下先决条件：
 
@@ -124,7 +124,7 @@ Run: Get-AzureStackStampInformation
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | 参数 | Description |  
+   | 参数 | 说明 |  
    |-----|-----|
    | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅**AzureChinaCloud**。  |
 
@@ -155,7 +155,7 @@ Run: Get-AzureStackStampInformation
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | 参数 | Description |  
+   | 参数 | 说明 |  
    |-----|-----|
    | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅**AzureChinaCloud**。  |
 
@@ -191,7 +191,7 @@ Run: Get-AzureStackStampInformation
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | 参数 | Description |  
+   | 参数 | 说明 |  
    |-----|-----|
    | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅**AzureChinaCloud**。  |
 
@@ -468,7 +468,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| 参数 | 类型 | Description |
+| 参数 | 类型 | 说明 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | 用于[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的凭据。 用户名的格式为**AzureStackDomain\CloudAdmin**。 |
 | PrivilegedEndpoint | String | 预先配置的远程 PowerShell 控制台，它为你提供日志收集和其他部署后任务等功能。 若要了解详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
@@ -478,7 +478,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | BillingModel | String | 订阅使用的计费模型。 此参数允许的值为： "容量"、"PayAsYouUse" 和 "开发"。 |
 | MarketplaceSyndicationEnabled | True/False | 确定 marketplace 管理功能在门户中是否可用。 如果注册到 internet 连接，则设置为 true。 如果在断开连接的环境中注册，则设置为 false。 对于断开连接的注册，可以使用[脱机联合工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)来下载 marketplace 项。 |
 | UsageReportingEnabled | True/False | 默认情况下，Azure Stack 中心报告使用情况指标。 具有容量的操作员使用或支持断开连接的环境需要关闭使用情况报告。 此参数允许的值为： True、False。 |
-| agreementNumber | String | 为此 Azure Stack 的容量 SKU 排序所依据的 EA 协议号码。 |
+| AgreementNumber | String | 为此 Azure Stack 的容量 SKU 排序所依据的 EA 协议号码。 |
 | RegistrationName | String | 如果要使用相同的 Azure 订阅 ID 在 Azure Stack 中心的多个实例上运行注册脚本，请设置注册的唯一名称。 参数的默认值为**AzureStackRegistration**。 但是，如果在 Azure Stack 中心的多个实例上使用相同的名称，则脚本将失败。 |
 
 ### <a name="get-azsregistrationtoken"></a>AzsRegistrationToken
@@ -490,7 +490,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| 参数 | 类型 | Description |
+| 参数 | 类型 | 说明 |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | 用于[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的凭据。 用户名的格式为**AzureStackDomain\CloudAdmin**。 |
 | PrivilegedEndpoint | String |  预先配置的远程 PowerShell 控制台，它为你提供日志收集和其他部署后任务等功能。 若要了解详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
@@ -500,7 +500,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 | BillingModel | String | 订阅使用的计费模型。 此参数允许的值为： "容量"、"PayAsYouUse" 和 "开发"。 |
 | MarketplaceSyndicationEnabled | True/False |  |
 | UsageReportingEnabled | True/False | 默认情况下，Azure Stack 中心报告使用情况指标。 具有容量的操作员使用或支持断开连接的环境需要关闭使用情况报告。 此参数允许的值为： True、False。 |
-| agreementNumber | String |  |
+| AgreementNumber | String |  |
 
 ## <a name="registration-failures"></a>注册失败
 

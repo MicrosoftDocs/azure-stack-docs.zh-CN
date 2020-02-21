@@ -1,18 +1,18 @@
 ---
 title: 准备 Azure Stack 中心更新包
 description: 了解如何准备 Azure Stack 中心更新包。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: af8877b9b1c282854a18eb3a1138b70e760cfa91
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5532345fe383b19bb96ea2f240634e15004a22b4
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882715"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509018"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>准备 Azure Stack 中心更新包
 
@@ -25,7 +25,7 @@ ms.locfileid: "76882715"
 
 下表显示更新包何时需要手动准备以及何时自动准备更新包。
 
-| 更新类型 | 连接性 | 必需的操作 |
+| 更新类型 | 连接 | 所需操作 |
 | --- | --- | --- |
 | Azure Stack 中心软件更新 | 连续 | 应用更新时，将自动下载并准备更新。 |
 | Azure Stack 中心修补程序 | 连续 | 应用更新时，将自动下载并准备更新。 |
@@ -43,7 +43,7 @@ Azure Stack 中心更新和修补程序的更新包可通过连接的系统的 "
 - **一个元数据 .xml 文件**。 此文件包含有关更新的重要信息，例如，发布者、名称、先决条件、大小和支持路径 URL。
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>自动下载和准备更新包
-对于连接到**Azure Stack 中心自动更新终结点**（https：//*. endpointname>.azureedge.net 和 https://aka.ms/azurestackautomaticupdate ）的系统，Azure Stack 集线器软件更新和修补程序将自动准备就绪。 有关设置与**Azure Stack 中心自动更新终结点**的连接的详细信息，请参阅[Azure Stack 集线器防火墙集成](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)中所述的**修补程序和更新**终结点
+对于连接到**Azure Stack 中心自动更新终结点**（https：//*. endpointname>.azureedge.net 和 https://aka.ms/azurestackautomaticupdate）的系统，Azure Stack 集线器软件更新和修补程序将自动准备就绪。 有关设置与**Azure Stack 中心自动更新终结点**的连接的详细信息，请参阅[Azure Stack 集线器防火墙集成](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)中所述的**修补程序和更新**终结点
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Azure Stack 中心更新包的下载位置
 

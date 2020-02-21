@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 集线器集成系统的 Azure 断开连接部署决策
 description: 了解 Azure Stack 集线器集成系统的 Azure 断开连接部署，以及要考虑的规划决策。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: aa310ffa3896e5468529e8e579328c52a9afa9c8
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b03d00d4f90a16bbb1a299902097e23607e488b8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882314"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510004"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack 集线器集成系统的 Azure 断开连接部署规划决策
 确定[将 Azure Stack 中心集成到混合云环境的方式](azure-stack-connection-models.md)后，可以完成 Azure Stack 中心部署决策。
@@ -32,7 +32,7 @@ ms.locfileid: "76882314"
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>已断开连接的部署中受损或不可用的功能 
 在连接到 Azure 时，Azure Stack 集线器的运行效果最好，因此请务必注意，在断开连接模式下，某些特性和功能已被削弱或完全不可用。
 
-|功能|断开连接模式的影响|
+|Feature|断开连接模式的影响|
 |-----|-----|
 |用于配置 VM 后期部署的具有 DSC 扩展的 VM 部署|受损-DSC 扩展对 internet 查找最新的 WMF。|
 |运行 Docker 扩展的 VM 部署|受损-Docker 将在 internet 上检查最新版本，并且此检查将失败。|
@@ -48,7 +48,7 @@ ms.locfileid: "76882314"
 |证书|不可用-HTTPS 上下文中的证书吊销列表（CRL）和联机证书状态协议（OSCP）服务需要 internet 连接。|
 |Key Vault|受损-Key Vault 的一个常见用例是让应用程序在运行时读取机密。 对于此用例，应用需要目录中的服务主体。 在 Azure AD 中，默认情况下，允许普通用户（非管理员）添加服务主体。 Azure AD （使用 AD FS），则不是这样。 这种有障碍的是，在端到端体验方面有一个障碍，因为必须始终通过目录管理员来添加任何应用。
 
-## <a name="learn-more"></a>了解更多
+## <a name="learn-more"></a>了解详细信息
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅[Azure Stack 中心](https://azure.microsoft.com/overview/azure-stack/)产品页。
 - 有关 Azure Stack 中心集成系统的路线图和地域可用性的信息，请参阅白皮书： [Azure Stack 中心： Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
 - 若要了解有关 Microsoft Azure Stack 中心打包和定价的详细信息，请[下载 .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。 

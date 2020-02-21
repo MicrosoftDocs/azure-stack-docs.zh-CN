@@ -1,0 +1,28 @@
+- name: Azure Stack HCI 文档
+  href: overview.md
+- name: 概述
+  items:
+    - name: 什么是 Azure Stack HCI？
+      href: overview.md
+- name: 参考
+  items:
+    - name: Hyper-v PowerShell 命令
+      href: /powershell/module/hyper-v
+    - name: 存储 PowerShell 命令
+      href: /powershell/module/storage
+- name: 相关内容
+  items:
+    - name: Azure Stack 系列
+      href: ../index.yml
+    - name: Windows 管理中心
+      href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+    - name: Azure 混合服务
+      href: /windows-server/manage/windows-admin-center/azure
+    - name: 存储空间直通
+      href: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
+    - name: 故障转移群集
+      href: /windows-server/failover-clustering/failover-clustering-overview
+    - name: Hyper-V
+      href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+    - name: 软件定义的网络
+      href: /windows-server/networking/sdn

@@ -1,24 +1,24 @@
 ---
 title: Azure Stack 中心数据中心集成演练
 description: 从规划到后期部署开始，了解你的数据中心内成功的现场部署 Azure Stack。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 6711483384ba9985ced7396d19e025e0ed3240c6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ba68a3045876e8dd6e23f430cd23edc429cb4e31
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882504"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510055"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack 中心数据中心集成演练
 
 本文介绍了从购买到后期部署支持 Azure Stack 中心数据中心集成的端到端过程。 集成是客户、解决方案提供商和 Microsoft 之间的协作项目。 单击以下选项卡可以查看项目中每个成员的特定步骤，并查看后续部分，了解项目时间线的不同阶段。 
 
-# <a name="customertabcustomer"></a>[客户](#tab/customer)
+# <a name="customer"></a>[客户](#tab/customer)
 
 1. 描述用例和要求
 1. 确定计费模型
@@ -29,7 +29,7 @@ ms.locfileid: "76882504"
 1. 在部署过程中提供订阅信息
 1. 解决有关提供的数据的任何问题
 
-# <a name="partnertabpartner"></a>[合作伙伴](#tab/partner)
+# <a name="partner"></a>[合作伙伴](#tab/partner)
 
 1. 根据客户要求推荐解决方案选项
 1. 建议概念证明（POC） 
@@ -48,7 +48,7 @@ ms.locfileid: "76882504"
 1. 部署 Azure Stack 中心
 1. 向客户交付
 
-# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+# <a name="microsoft"></a>[Microsoft](#tab/micro)
 
 1. 与合作伙伴合作以获取售销售支持
 2. 准备软件许可和协定

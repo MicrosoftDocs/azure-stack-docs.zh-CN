@@ -3,21 +3,21 @@ title: 允许应用访问 Azure Stack 中心 Key Vault 机密
 description: 了解如何在 Azure Stack Hub 中运行从密钥保管库检索密钥和机密的示例应用。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 02/19/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 11b26d5e079ce16c7450bea0424aa4902c0ff8b3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4db38de1586096cfeeb2e7f2b806430d0ca1344f
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883585"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492302"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>允许应用访问 Azure Stack 中心 Key Vault 机密
 
 请按照本文中的步骤运行示例应用程序， **HelloKeyVault**从 Azure Stack 集线器中的密钥保管库检索密钥和机密。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 如果[通过 VPN 进行连接](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)，则可以从[Azure Stack 开发工具包](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)或基于 Windows 的外部客户端安装以下系统必备组件：
 
@@ -142,9 +142,17 @@ Write-Host
 在 Visual Studio 中：
 
 1. 打开 HelloKeyVault\App.config 文件并查找 `<appSettings>` 元素。
-2. 用创建密钥保管库时返回的值更新**VaultUrl**、 **AuthClientId**和**AuthClientSecret**键。 默认情况下，App.config 文件的 `AuthCertThumbprint`占位符。 将此占位符替换 `AuthClientSecret`。
+2. 用创建密钥保管库时返回的值更新**VaultUrl**、 **AuthClientId**和**AuthCertThumbprint**键。 默认情况下，App.config 文件的 `AuthCertThumbprint`占位符。 将此占位符替换 `AuthClientSecret`。
 
-   ![应用设置](media/azure-stack-key-vault-sample-app/appconfig.png)
+   ```xml
+   <appSettings>
+    <!-- Update these settings for your test environment -->
+    <add key="VaultUrl" value="URL to your Vault" />
+    <add key="AuthClientId" value="Client Id of your Service Principal" />
+    <add key="AuthCertThumbprint" value="Thumbprint of the certificate used for authentication" />
+    <add key="TracingEnabled" value="false" />
+   </appSettings>
+   ```
 
 3. 重新生成解决方案。
 

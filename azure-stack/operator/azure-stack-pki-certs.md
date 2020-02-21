@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 中心公钥基础结构证书要求
 description: 了解 Azure Stack 中心集成系统 Azure Stack 中心 PKI 证书部署要求。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 464e47b204c782f5ebac5a3588d0aff5eaf98d49
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5ed0a7fa6091ee62a7de5e1938bd0094d7765512
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881637"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509698"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack 中心公钥基础结构证书要求
 
@@ -67,11 +67,11 @@ Azure Stack 集线器具有公共基础结构网络，该网络使用分配给�
 
 | 部署文件夹 | 必需的证书使用者和使用者可选名称（SAN） | 范围（每个区域） | 子域命名空间 |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
-| 公共门户 | 端口.>&lt;区域。&lt;fqdn > | Portals | > &lt;区域。&lt;fqdn > |
-| 管理门户 | adminportal.>&lt;区域。&lt;fqdn > | Portals | > &lt;区域。&lt;fqdn > |
-| Azure 资源管理器公有 | 层.>&lt;区域。&lt;fqdn > | Azure Resource Manager | > &lt;区域。&lt;fqdn > |
-| Azure 资源管理器管理员 | adminmanagement.>&lt;区域。&lt;fqdn > | Azure Resource Manager | > &lt;区域。&lt;fqdn > |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） | Blob 存储 | blob.>&lt;区域。&lt;fqdn > |
+| 公共门户 | 端口.>&lt;区域。&lt;fqdn > | 门户 | > &lt;区域。&lt;fqdn > |
+| 管理门户 | adminportal.>&lt;区域。&lt;fqdn > | 门户 | > &lt;区域。&lt;fqdn > |
+| Azure 资源管理器公有 | 层.>&lt;区域。&lt;fqdn > | Azure 资源管理器 | > &lt;区域。&lt;fqdn > |
+| Azure 资源管理器管理员 | adminmanagement.>&lt;区域。&lt;fqdn > | Azure 资源管理器 | > &lt;区域。&lt;fqdn > |
+| ACSBlob | \* blob。>&lt;区域。&lt;fqdn ><br>（通配符 SSL 证书） | Blob 存储 | blob.>&lt;区域。&lt;fqdn > |
 | ACSTable | \* 表。>&lt;区域。&lt;fqdn ><br>（通配符 SSL 证书） | 表存储 | 数据表.>&lt;区域。&lt;fqdn > |
 | ACSQueue | *. queue。>&lt;区域。&lt;fqdn ><br>（通配符 SSL 证书） | 队列存储 | 使.>&lt;区域。&lt;fqdn > |
 | KeyVault | \* 保管库。>&lt;区域。&lt;fqdn ><br>（通配符 SSL 证书） | Key Vault | 保管库.>&lt;区域。&lt;fqdn > |
@@ -83,8 +83,8 @@ Azure Stack 集线器具有公共基础结构网络，该网络使用分配给�
 
 |部署文件夹|必需的证书使用者和使用者可选名称（SAN）|范围（每个区域）|子域命名空间|
 |-----|-----|-----|-----|
-|ADFS|Adfs. *&lt;fqdn >&lt;区域 >*<br>（SSL 证书）|ADFS|*&lt;region>.&lt;fqdn>*|
-|图形|图形. *&lt;fqdn >&lt;区域 >*<br>（SSL 证书）|图形|*&lt;region>.&lt;fqdn>*|
+|ADFS|adfs. *&lt;fqdn >&lt;区域 >*<br>（SSL 证书）|ADFS|*> &lt;区域。&lt;fqdn >*|
+|图形|图形. *&lt;fqdn >&lt;区域 >*<br>（SSL 证书）|图形|*> &lt;区域。&lt;fqdn >*|
 |
 
 > [!IMPORTANT]
@@ -101,16 +101,16 @@ Azure Stack 集线器具有公共基础结构网络，该网络使用分配给�
 |范围（每个区域）|证书|必需的证书使用者和使用者可选名称（San）|子域命名空间|
 |-----|-----|-----|-----|
 |SQL、MySQL|SQL 和 MySQL|&#42;.dbadapter. *&lt;fqdn >&lt;区域 >*<br>（通配符 SSL 证书）|.dbadapter. *&lt;fqdn >&lt;区域 >*|
-|应用服务|Web 流量默认 SSL 证书|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;region>.&lt;fqdn>*<br>（多域通配符 SSL 证书<sup>1</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|应用服务|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|应用服务|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|应用服务|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|应用服务|Web 流量默认 SSL 证书|&#42;appservice. *&lt;fqdn >&lt;区域 >*<br>&#42;appservice。 *&lt;fqdn >&lt;区域 >*<br>&#42;appservice。 *&lt;fqdn >&lt;区域 >*<br>（多域通配符 SSL 证书<sup>1</sup>）|appservice. *&lt;fqdn >&lt;区域 >*<br>appservice。 *&lt;fqdn >&lt;区域 >*|
+|应用服务|API|appservice。 *&lt;fqdn >&lt;区域 >*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;fqdn >&lt;区域 >*<br>appservice。 *&lt;fqdn >&lt;区域 >*|
+|应用服务|FTP|appservice。 *&lt;fqdn >&lt;区域 >*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;fqdn >&lt;区域 >*<br>appservice。 *&lt;fqdn >&lt;区域 >*|
+|应用服务|SSO|appservice。 *&lt;fqdn >&lt;区域 >*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;fqdn >&lt;区域 >*<br>appservice。 *&lt;fqdn >&lt;区域 >*|
 
 <sup>1</sup>需要一个具有多个通配符使用者可选名称的证书。 并非所有公共证书颁发机构都支持在单个证书上使用多个通配符 San。
 
-&#42; <sup>2</sup> appservice。 *&lt;区域 >。&lt;fqdn >* 无法将通配符证书用于替代这三个证书（ *&lt;&lt;* &lt; *&lt;&lt;* *&lt;* 。 Appservice 显式要求对这些终结点使用单独的证书。
+&#42; <sup>2</sup> appservice。 *&lt;区域 >。&lt;fqdn >* 无法将通配符证书用于替代这三个证书（ *&lt;>&lt;* >&lt;> *&lt;>&lt;* > *&lt;>* 。 Appservice 显式要求对这些终结点使用单独的证书。
 
-## <a name="learn-more"></a>了解更多
+## <a name="learn-more"></a>了解详细信息
 了解如何[为 Azure Stack 中心部署生成 PKI 证书](azure-stack-get-pki-certs.md)。
 
 ## <a name="next-steps"></a>后续步骤
