@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d81fdf315e9bc834c46161d901d6ac10d736f7ab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 66f6e316c83e25651dc0e0b1be95d6a8467f7f47
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875294"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568378"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>使用 Azure 和 Azure Stack 中心部署基于 AI 的 footfall 检测解决方案
 
@@ -26,17 +26,17 @@ ms.locfileid: "76875294"
 > - 使用自定义视觉 AI 开发工具包在边缘进行推断。
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
 
-## <a name="prerequisites"></a>必备组件 
+## <a name="prerequisites"></a>先决条件 
 
 在开始本部署指南之前，请确保：
 
 - 查看[Footfall 检测解决方案概述](pattern-retail-footfall-detection.md) 
-- 获取用户对 Azure Stack 集线器开发工具包（ASDK）或 Azure Stack 中心集成系统实例的访问权限，其中包括：
+- 获取用户对 Azure Stack 开发工具包（ASDK）或 Azure Stack 中心集成系统实例的访问权限，其中包括：
   - [Azure Stack 中心资源提供程序上](../operator/azure-stack-app-service-overview.md)安装了 Azure App Service。 需要操作员访问 Azure Stack 中心实例，或与管理员合作来安装。
   - 提供应用服务和存储配额的产品/服务的订阅。 需要操作员访问权限才能创建产品/服务。
 - 获取对 Azure 订阅的访问权限
@@ -64,7 +64,7 @@ ms.locfileid: "76875294"
 
 首先，使用 Porter CLI 生成凭据集，然后部署云应用程序。  
 
-1. 从 https://github.com/azure-samples/azure-intelligent-edge-patterns 克隆或下载解决方案示例代码。 
+1. 从 https://github.com/azure-samples/azure-intelligent-edge-patterns克隆或下载解决方案示例代码。 
 
 1. Porter 将生成一组将自动部署应用程序的凭据。 在运行凭据生成命令之前，请确保具有以下各项：
 
@@ -178,7 +178,7 @@ ms.locfileid: "76875294"
 
 4.  您可以根据需要添加其他字段和卡。
 
-## <a name="test-your-solution"></a>测试解决方案
+## <a name="test-your-solution"></a>测试你的解决方案
 
 观察在 Power BI 中创建的卡片中的数据如何变化，因为不同的人会在相机前面进行演练。 记录后，推断可能需要长达20秒的时间。
 

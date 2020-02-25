@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: a50b39c84a31e0266db437bfe29fd57370881644
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 4db040483ff841801081ef4f2acf60d9a9e3d4a0
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509528"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568633"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储基础结构
 
@@ -68,7 +68,7 @@ Azure Stack 中心存储池上创建了三种类型的卷：
 
 - 即使节点出现故障或已被删除，卷的数目仍保持不变。
 
-- 如果使用 Azure Stack 集线器开发工具包，则有一个具有多个共享的卷。
+- 如果使用 Azure Stack 开发工具包，则有一个具有多个共享的卷。
 
 存储空间直通中的卷可以提供复原功能，防止出现硬件问题，如驱动器或服务器故障。 它们还在服务器维护（如软件更新）中实现持续可用性。 Azure Stack 集线器部署使用三向镜像来确保数据恢复能力。 租户数据的三个副本将写入到不同的服务器，这些服务器位于缓存中：
 
@@ -101,7 +101,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 | 操作状态 | 说明 |
 |---|---|
-| OK | 卷处于正常状态。 |
+| 确定 | 卷处于正常状态。 |
 | 最佳 | 数据不会跨驱动器均匀写入。<br> <br>**操作：** 请联系支持人员以优化存储池中的驱动器使用情况。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 还原失败的连接后，可能需要从备份还原。 |
 
 ### <a name="volume-health-state-warning"></a>卷运行状况状态：警告
@@ -148,7 +148,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 | 操作状态 | 说明 |
 |---|---|
-| OK | 卷处于正常状态。 |
+| 确定 | 卷处于正常状态。 |
 | 服务中 | 驱动器正在执行一些内部日常维护操作。 操作完成后，驱动器应返回到 "正常" 运行状况状态。 |
 
 ### <a name="drive-health-state-healthy"></a>驱动器运行状况状态：正常

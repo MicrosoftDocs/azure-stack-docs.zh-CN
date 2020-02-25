@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: a617483b849b02576f1349e3b79620c47c7a5705
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c259504e1c4b70ccc5e6be6fc9b88f5e683bc5c9
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874427"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568548"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的脱机更新 Azure App Service
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.8 之前，将1910更新或更高版本应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 集线器开发工具包。
+> 在部署 Azure App Service 1.8 之前，将1910更新或更高版本应用到 Azure Stack 集线器集成系统或部署最新 Azure Stack 开发工具包。
 
 按照本文中的说明操作，可以升级部署在 Azure Stack 中心环境中的[Azure App Service 资源提供程序](azure-stack-app-service-overview.md)：
 
@@ -77,7 +77,7 @@ ms.locfileid: "76874427"
 
 5. 查看并接受第三方许可条款，然后单击 "**下一步**"。
 
-6. 请确保 Azure Stack 中心 Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 Azure Stack 集线器开发工具包部署过程中使用了默认设置，则可以在此处接受默认值。 但是，如果您在部署 Azure Stack 集线器时自定义了选项，则必须在此窗口中编辑这些值。 例如，如果使用域后缀*mycloud.com*，则 Azure Stack 中心 Azure 资源管理器终结点必须更改为*management.region.mycloud.com*。 确认信息后，单击 "**下一步**"。
+6. 请确保 Azure Stack 中心 Azure 资源管理器终结点和 Active Directory 租户信息正确。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，则可以在此处接受默认值。 但是，如果您在部署 Azure Stack 集线器时自定义了选项，则必须在此窗口中编辑这些值。 例如，如果使用域后缀*mycloud.com*，则 Azure Stack 中心 Azure 资源管理器终结点必须更改为*management.region.mycloud.com*。 确认信息后，单击 "**下一步**"。
 
     ![Azure Stack 中心云信息][3]
 

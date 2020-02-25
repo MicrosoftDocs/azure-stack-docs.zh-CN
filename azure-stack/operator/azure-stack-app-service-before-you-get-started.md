@@ -7,19 +7,19 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8d995550ead87f31a9024cc9c87ba45f0800a78d
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874750"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568446"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署应用服务的先决条件
 
 在 Azure Stack 中心部署 Azure App Service 之前，必须完成本文中的先决条件步骤。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.8 之前，请将1910更新应用到 Azure Stack 集线器集成系统，或部署最新的 Azure Stack 中心开发工具包（ASDK）。
+> 在部署 Azure App Service 1.8 之前，将1910更新应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 开发工具包（ASDK）。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>下载安装程序和帮助程序脚本
 
@@ -59,16 +59,16 @@ Azure Stack 集线器上的 Azure App Service 需要[从 Azure Marketplace 下�
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-azurestackrootcert.ps1 脚本参数
 
-| 参数 | 必需还是可选 | 默认值 | Description |
+| 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | 需要 | AzS-ERCS01 | 特权终结点 |
-| CloudAdminCredential | 需要 | AzureStack\CloudAdmin | Azure Stack 中心云管理员的域帐户凭据 |
+| PrivilegedEndpoint | 必需 | AzS-ERCS01 | 特权终结点 |
+| CloudAdminCredential | 必需 | AzureStack\CloudAdmin | Azure Stack 中心云管理员的域帐户凭据 |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Azure App Service 的 ASDK 部署所需的证书
 
 *Create-appservicecerts.ps1*脚本与 Azure Stack 中心证书颁发机构合作，以创建应用服务所需的四个证书。
 
-| 文件名 | 使用 |
+| 文件名称 | 使用 |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | 应用服务默认 SSL 证书 |
 | api.appservice.local.azurestack.external.pfx | 应用服务 API SSL 证书 |
@@ -84,10 +84,10 @@ Azure Stack 集线器上的 Azure App Service 需要[从 Azure Marketplace 下�
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Create-appservicecerts.ps1 脚本参数
 
-| 参数 | 必需还是可选 | 默认值 | Description |
+| 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| pfxPassword | 需要 | Null | 帮助保护证书私钥的密码 |
-| DomainName | 需要 | local.azurestack.external | Azure Stack 中心区域和域后缀 |
+| pfxPassword | 必需 | Null | 帮助保护证书私钥的密码 |
+| DomainName | 必需 | local.azurestack.external | Azure Stack 中心区域和域后缀 |
 
 ### <a name="certificates-required-for-azure-stack-hub-production-deployment-of-azure-app-service"></a>Azure App Service Azure Stack 中心生产部署所需的证书
 
@@ -124,7 +124,7 @@ API 证书放置在管理角色上。 资源提供程序使用它来帮助保护
 
 | 格式 | 示例 |
 | --- | --- |
-| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
+| \<区域\>。\<DomainName\>。\<扩展\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>标识证书
 
@@ -209,7 +209,7 @@ Azure App Service 要求使用文件服务器。 对于生产部署，必须将�
    - 启用**用户不能更改密码**。
    - 禁用 "**用户在下次登录时必须更改密码**"。
 
-3. 将帐户添加到组成员身份，如下所示：
+3. 将这些帐户添加到组成员身份，如下所示：
 
    - 将**FileShareOwner**添加到**FileShareOwners**组。
    - 将**FileShareUser**添加到**FileShareUsers**组。
@@ -250,7 +250,7 @@ Azure App Service 要求使用文件服务器。 对于生产部署，必须将�
 
 #### <a name="provision-the-content-share-on-a-single-file-server-active-directory-or-workgroup"></a>在单个文件服务器（Active Directory 或工作组）上设置内容共享
 
-在单个文件服务器上，在提升的命令提示符下运行以下命令。 将 `C:\WebSites` 的值替换为你的环境中的相应路径。
+在一个文件服务器上，在提升了权限的命令提示符下运行以下命令。 将 `C:\WebSites` 的值替换为你的环境中的相应路径。
 
 ```DOS
 set WEBSITES_SHARE=WebSites
@@ -305,7 +305,7 @@ Azure Stack 中心的 Azure App Service 的 SQL Server 实例必须可从所有�
 > [!NOTE]
 > 许多 SQL IaaS 虚拟机映像可通过 Marketplace 管理功能获得。 在使用 Marketplace 项部署 VM 之前，请确保始终下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL Vm 相同。 对于基于这些映像创建的 SQL Vm，IaaS 扩展和对应的门户增强功能提供了一些功能，例如自动修补和备份功能。
 >
-> 对于任何 SQL Server 角色，可以使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务，然后打开端口1434。
+> 对于任何 SQL Server 角色，均可使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务，然后打开端口1434。
 
 应用服务安装程序将进行检查以确保 SQL Server 已启用数据库包含。 若要在将承载应用服务数据库的 SQL Server 上启用数据库包含，请运行以下 SQL 命令：
 
@@ -355,14 +355,14 @@ GO
     Create-AADIdentityApp.ps1
 ```
 
-| 参数 | 必需还是可选 | 默认值 | Description |
+| 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| DirectoryTenantName | 需要 | Null | Azure AD 租户 ID。 提供 GUID 或字符串。 例如，myazureaaddirectory.onmicrosoft.com。 |
-| AdminArmEndpoint | 需要 | Null | 管理员 Azure 资源管理器终结点。 例如，adminmanagement. test-azurestack。 |
-| TenantARMEndpoint | 需要 | Null | 租户 Azure 资源管理器终结点。 例如 "test-azurestack"。 |
-| AzureStackAdminCredential | 需要 | Null | Azure AD 服务管理员凭据。 |
-| CertificateFilePath | 需要 | Null | 之前生成的标识应用程序证书文件的**完整路径**。 |
-| CertificatePassword | 需要 | Null | 帮助保护证书私钥的密码。 |
+| DirectoryTenantName | 必需 | Null | Azure AD 租户 ID。 提供 GUID 或字符串。 例如，myazureaaddirectory.onmicrosoft.com。 |
+| AdminArmEndpoint | 必需 | Null | 管理员 Azure 资源管理器终结点。 例如，adminmanagement. test-azurestack。 |
+| TenantARMEndpoint | 必需 | Null | 租户 Azure 资源管理器终结点。 例如 "test-azurestack"。 |
+| AzureStackAdminCredential | 必需 | Null | Azure AD 服务管理员凭据。 |
+| CertificateFilePath | 必需 | Null | 之前生成的标识应用程序证书文件的**完整路径**。 |
+| CertificatePassword | 必需 | Null | 帮助保护证书私钥的密码。 |
 | 环境 | 可选 | AzureCloud | 可用的目标 Azure Active Directory 图形服务所支持的云环境的名称。  允许的值： "AzureCloud"、"AzureChinaCloud"、"AzureUSGovernment"、"AzureGermanCloud"。|
 
 ## <a name="create-an-active-directory-federation-services-app"></a>创建 Active Directory 联合身份验证服务应用
@@ -391,13 +391,13 @@ GO
     Create-ADFSIdentityApp.ps1
 ```
 
-| 参数 | 必需还是可选 | 默认值 | Description |
+| 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | 需要 | Null | 管理员 Azure 资源管理器终结点。 例如，adminmanagement. test-azurestack。 |
-| PrivilegedEndpoint | 需要 | Null | 特权终结点。 例如 AzS-ERCS01。 |
-| CloudAdminCredential | 需要 | Null | Azure Stack 中心云管理员的域帐户凭据。 例如 Azurestack\CloudAdmin。 |
-| CertificateFilePath | 需要 | Null | 标识应用程序的证书 PFX 文件的**完整路径**。 |
-| CertificatePassword | 需要 | Null | 帮助保护证书私钥的密码。 |
+| AdminArmEndpoint | 必需 | Null | 管理员 Azure 资源管理器终结点。 例如，adminmanagement. test-azurestack。 |
+| PrivilegedEndpoint | 必需 | Null | 特权终结点。 例如 AzS-ERCS01。 |
+| CloudAdminCredential | 必需 | Null | Azure Stack 中心云管理员的域帐户凭据。 例如 Azurestack\CloudAdmin。 |
+| CertificateFilePath | 必需 | Null | 标识应用程序的证书 PFX 文件的**完整路径**。 |
+| CertificatePassword | 必需 | Null | 帮助保护证书私钥的密码。 |
 
 ## <a name="next-steps"></a>后续步骤
 

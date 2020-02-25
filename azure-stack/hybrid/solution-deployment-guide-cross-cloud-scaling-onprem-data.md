@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1042852535648edae61f24f1634ecbf9b6779af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abaa1405db1e3837c02cbc67e00cd3a593e9b98b
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877504"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568565"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>部署使用本地数据的应用，并使用 Azure 和 Azure Stack 集线器缩放跨云
 
@@ -37,7 +37,7 @@ ms.locfileid: "76877504"
 > - 配置全局 Azure 与 Azure Stack 中心之间的自动流量切换。
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
@@ -51,11 +51,11 @@ ms.locfileid: "76877504"
 
 本教程还假定你具有 Azure 订阅。 如果没有订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>先决条件
 
 在开始此解决方案之前，请确保满足以下要求：
 
-- Azure Stack 集线器开发工具包（ASDK）或 Azure Stack 中心集成系统上的订阅。 若要部署 Azure Stack 集线器开发工具包，请按照[使用安装程序部署 ASDK](../asdk/asdk-install.md)中的说明进行操作。
+- Azure Stack 中心集成系统上的 Azure Stack 开发工具包（ASDK）或订阅。 若要部署 Azure Stack 开发工具包，请按照[使用安装程序部署 ASDK](../asdk/asdk-install.md)中的说明进行操作。
 - Azure Stack 中心安装应安装以下各项：
   - Azure App Service。 使用 Azure Stack 中心操作员在你的环境中部署和配置 Azure App Service。 本教程要求应用服务至少具有一个（1）可用专用辅助角色。
   - Windows Server 2016 映像。
@@ -260,7 +260,7 @@ Azure Stack 集线器上的应用服务必须可通过公共 internet 路由，�
 Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 Azure 中的应用使用 SQL Server 虚拟机（VM）的专用 IP 地址，Azure Stack 中心的应用使用 SQL Server VM 的公共 IP 地址。
 
 > [!Note]  
-> 在 Azure Stack 集线器集成系统上，公共 IP 地址不应可通过 internet 路由。 在 Azure Stack 集线器开发工具包（ASDK）上，公共 IP 地址无法在 ASDK 外部路由。
+> 在 Azure Stack 集线器集成系统上，公共 IP 地址不应可通过 internet 路由。 在 Azure Stack 开发工具包（ASDK）上，公共 IP 地址不能在 ASDK 外部路由。
 
 可以使用应用服务环境变量将不同的连接字符串传递给应用的每个实例。
 
@@ -334,7 +334,7 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 
 3. 将**冷却**设置为**5**。
 
-4. 选择 **添加** 。
+4. 选择“添加”。
 
 5. 选择 " **+ 添加规则**"。
 
@@ -367,7 +367,7 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
    - 将**实例计数**设置为**1**。
    - 将**冷却**设置为**5**。
 
-2. 选择 **添加** 。
+2. 选择“添加”。
 
 ## <a name="create-a-traffic-manager-profile-and-configure-cross-cloud-scaling"></a>创建流量管理器配置文件并配置跨云缩放
 
@@ -385,7 +385,7 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
    - 在 "**资源组**" 中，为此配置文件创建新的资源组。
    - 在**资源组位置**中，选择资源组的位置。 此设置指的是资源组的位置，对全局部署的流量管理器配置文件没有影响。
 
-4. 选择“创建”。
+4. 选择 **“创建”** 。
 
     ![创建流量管理器配置文件](media/solution-deployment-guide-hybrid/image19.png)
 
@@ -397,7 +397,7 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 
 2. 在**流量管理器配置文件**中的 "**设置**" 下，选择 "**终结点**"。
 
-3. 选择 **添加** 。
+3. 选择“添加”。
 
 4. 在 "**添加终结点**" 中，将以下设置用于 Azure Stack 中心：
 

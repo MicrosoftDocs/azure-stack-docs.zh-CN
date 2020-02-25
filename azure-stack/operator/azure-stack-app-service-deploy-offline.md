@@ -7,17 +7,17 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: bf9ce157e927b2fc43b64746d53d74e8cb82524c
-ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
+ms.openlocfilehash: 7fa4ac0f63b3f5243a6473c921012614bb01bfb2
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77012880"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568616"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>将 Azure App Service 部署到 Azure Stack 中心的脱机环境中
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.8 之前，请将1910更新应用到 Azure Stack 集线器集成系统，或部署最新的 Azure Stack 中心开发工具包（ASDK）。
+> 在部署 Azure App Service 1.8 之前，将1910更新应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 开发工具包（ASDK）。
 
 按照本文中的说明，可以将[Azure App Service 资源提供程序](azure-stack-app-service-overview.md)部署到 Azure Stack 中心环境，该环境为：
 - 未连接到 internet。
@@ -90,7 +90,7 @@ ms.locfileid: "77012880"
        1. 选择包含虚拟网络的 "**资源组**" 选项。
        2. 选择要部署到的**虚拟网络**名称。
        3. 为每个所需的角色子网选择正确的**子网**值。
-       4. 选择“**下一页**”。
+       4. 选择 **“下一步”** 。
 
       ![Azure App Service 安装程序中的虚拟网络和子网信息][5]
 
@@ -106,7 +106,7 @@ ms.locfileid: "77012880"
     1. 在 "**标识应用程序证书文件**" 框中，输入（或浏览到）证书文件的位置。
     1. 在 "**标识应用程序证书密码**" 框中，输入证书的密码。 此密码是你在使用脚本创建证书时记下的密码。
     1. 在 " **Azure 资源管理器根证书文件**" 框中，输入（或浏览到）证书文件的位置。
-    1. 选择“**下一页**”。
+    1. 选择 **“下一步”** 。
 
     ![在 Azure App Service 安装程序中输入应用程序 ID 和证书信息][10]
 
@@ -114,7 +114,7 @@ ms.locfileid: "77012880"
 
     | Box | 证书文件名示例 |
     | --- | --- |
-    | **应用服务默认 SSL 证书文件** | \_.appservice.local.AzureStack.external.pfx |
+    | **应用服务默认 SSL 证书文件** | \_. appservice. Test-azurestack |
     | **应用服务 API SSL 证书文件** | api.appservice.local.AzureStack.external.pfx |
     | **应用服务发布者 SSL 证书文件** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -148,17 +148,17 @@ ms.locfileid: "77012880"
      >
      >
 
-    | 角色 | 最小实例 | 最低 SKU | 说明 |
+    | 角色 | 最小实例 | 最低 SKU | 注意 |
     | --- | --- | --- | --- |
-    | 控制器 | 第 | Standard_A2-（2 vCPU，3584 MB） | 管理并维护 Azure App Service 云的运行状况。 |
-    | 管理 | 第 | Standard_A2-（2个 vcpu，3584 MB） | 管理 Azure App Service Azure 资源管理器和 API 终结点、门户扩展（管理员、租户、函数门户）和数据服务。 若要支持故障转移，请将推荐的实例增加到2。 |
-    | 发布者 | 第 | Standard_A1-（1 vCPU，1792 MB） | 通过 FTP 和 web 部署发布内容。 |
-    | FrontEnd | 第 | Standard_A1-（1 vCPU，1792 MB） | 将请求路由到 Azure App Service 应用。 |
-    | 共享辅助角色 | 第 | Standard_A1-（1 vCPU，1792 MB） | 托管 web 应用或 API 应用和 Azure Functions 应用。 你可能想要添加更多实例。 作为操作员，你可以定义产品/服务并选择任何 SKU 层。 层必须具有至少一个 vCPU。 |
+    | 控制器 | 1 | Standard_A2-（2 vCPU，3584 MB） | 管理并维护 Azure App Service 云的运行状况。 |
+    | 管理 | 1 | Standard_A2-（2个 vcpu，3584 MB） | 管理 Azure App Service Azure 资源管理器和 API 终结点、门户扩展（管理员、租户、函数门户）和数据服务。 若要支持故障转移，请将推荐的实例增加到2。 |
+    | 发布者 | 1 | Standard_A1-（1 vCPU，1792 MB） | 通过 FTP 和 web 部署发布内容。 |
+    | FrontEnd | 1 | Standard_A1-（1 vCPU，1792 MB） | 将请求路由到 Azure App Service 应用。 |
+    | 共享辅助角色 | 1 | Standard_A1-（1 vCPU，1792 MB） | 托管 web 应用或 API 应用和 Azure Functions 应用。 你可能想要添加更多实例。 作为操作员，你可以定义产品/服务并选择任何 SKU 层。 层必须具有至少一个 vCPU。 |
 
     ![在 Azure App Service 安装程序中设置角色层和 SKU 选项][14]
 
-1. 在 "**选择平台映像**" 框中，从 Azure App Service 云的计算资源提供程序中提供的映像中选择部署 Windows Server 2016 虚拟机（VM）映像。 选择“**下一页**”。
+1. 在 "**选择平台映像**" 框中，从 Azure App Service 云的计算资源提供程序中提供的映像中选择部署 Windows Server 2016 虚拟机（VM）映像。 选择 **“下一步”** 。
 
     > [!NOTE]
     > Windows Server 2016 Core 不是受支持的平台映像，*不适*用于 Azure Stack 中心的 Azure App Service。  不要将评估映像用于生产部署。 Azure Stack 中心的 Azure App Service 要求在用于部署的映像上激活 Microsoft .NET 3.5.1 SP1。 Marketplace 联合的 Windows Server 2016 映像未启用此功能。 因此，你必须创建并使用预先启用此功能的 Windows Server 2016 映像。
@@ -173,7 +173,7 @@ ms.locfileid: "77012880"
 1. 在下一页上：
      1. 输入辅助角色 VM 管理员用户名和密码。
      2. 输入 "其他角色" "VM 管理员用户名" 和 "密码"。
-     3. 选择“**下一页**”。
+     3. 选择 **“下一步”** 。
 
     ![在 Azure App Service 安装程序中输入角色 VM 管理员][16]
 
@@ -203,7 +203,7 @@ ms.locfileid: "77012880"
 - 目标： IP 地址
 - 目标 IP 地址范围：文件服务器的 Ip 范围
 - 目标端口范围：445
-- 协议： TCP
+- 协议：TCP
 - 操作：允许
 - 优先级：700
 - 名称： Outbound_Allow_SMB445

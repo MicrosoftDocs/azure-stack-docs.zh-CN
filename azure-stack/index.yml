@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 11/04/2019
-  ms.openlocfilehash: 11ba5e777f26cbfca0cae2b4dc1b0b91f6ce77c6
-  ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+  ms.openlocfilehash: 9a0a1b733882ca77cdce2d6ccc0395ce31c891f1
+  ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 02/20/2020
-  ms.locfileid: "77509120"
+  ms.lasthandoff: 02/24/2020
+  ms.locfileid: "77568356"
 highlightedContent:
   items:
   - title: Azure Stack 系列公告
@@ -85,7 +85,7 @@ additionalContent:
   sections:
   - title: Azure Stack 中心
     items:
-    - title: 操作员
+    - title: 运算符
       links:
       - url: /azure-stack/operator/azure-stack-manage-portals
         text: 使用管理员门户
@@ -105,7 +105,7 @@ additionalContent:
         text: 构建应用的关键注意事项
       - url: /azure-stack/user/azure-stack-key-vault-manage-portal
         text: 创建和管理 Key Vault
-    - title: Azure Stack 集线器开发工具包（ASDK）
+    - title: Azure Stack 开发工具包 (ASDK)
       links:
       - url: /azure-stack/asdk/asdk-deploy-considerations
         text: ASDK 要求和注意事项

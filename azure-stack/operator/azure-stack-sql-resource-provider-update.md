@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 09a9b190594eb4d737b54c971fc2e3dbd03cd5f9
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 31cdb0d27e9d94e93cf1e410f25f2cc200db31d7
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491741"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568684"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
@@ -21,7 +21,7 @@ Azure Stack 中心更新到新版本时，可能会发布新的 SQL 资源提供
 
 从 SQL 资源提供程序版本1.1.33.0 版本开始，更新是累积的，无论是从版本1.1.24.0 或更高版本开始，都无需按照它们发布的顺序进行安装。 例如，如果运行的是 SQL 资源提供程序的版本1.1.24.0，则可以升级到1.1.33.0 或更高版本，而无需先安装版本1.1.30.0。 若要查看可用的资源提供程序版本以及支持它们的 Azure Stack 中心版本，请参阅[部署资源提供程序必备组件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
-若要更新资源提供程序，请使用*updatesqlprovider.ps1*脚本。 此脚本包含在下载新的 SQL 资源提供程序中。 更新过程类似于用于[部署资源提供程序](./azure-stack-sql-resource-provider-deploy.md)的过程。 更新脚本使用与 Deploysqlprovider.ps1 脚本相同的参数，你将需要提供证书信息。
+若要更新资源提供程序，请使用*updatesqlprovider.ps1*脚本。 使用具有本地管理权限的服务帐户，并且是订阅的**所有者**。 此脚本包含在下载新的 SQL 资源提供程序中。 更新过程类似于用于[部署资源提供程序](./azure-stack-sql-resource-provider-deploy.md)的过程。 更新脚本使用与 Deploysqlprovider.ps1 脚本相同的参数，你将需要提供证书信息。
 
  > [!IMPORTANT]
  > 升级资源提供程序之前，请查看发行说明，了解新功能、修复程序以及可能影响部署的任何已知问题。
@@ -54,8 +54,8 @@ Azure Stack 中心更新到新版本时，可能会发布新的 SQL 资源提供
 | **DefaultSSLCertificatePassword** | .Pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 如果出现故障，要重试每个操作的次数。| 2 |
 | **RetryDuration** |两次重试之间的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源。 | 否 |
-| **DebugMode** | 防止在失败时自动清除。 | 否 |
+| **卸载** | 删除资源提供程序和所有关联的资源。 | 是 |
+| **DebugMode** | 防止在失败时自动清除。 | 是 |
 
 ## <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
 > [!NOTE]

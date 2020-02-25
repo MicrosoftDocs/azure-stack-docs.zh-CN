@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88cad7fc3f9ac4d213cd16f6e690876b1e0faa4d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7611387047d80ad7c60f4402c7399d3d0d4e8b09
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876994"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568328"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>将高度可用的 MongoDB 解决方案部署到 Azure 并 Azure Stack 中心
 
@@ -27,7 +27,7 @@ ms.locfileid: "76876994"
 
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
@@ -40,7 +40,7 @@ ms.locfileid: "76876994"
 
 ## <a name="prerequisites-for-mongodb-with-azure-stack-hub"></a>Azure Stack 中心的 MongoDB 必备组件
 
-  - 两个连接 Azure Stack 集线器集成系统（Azure Stack 集线器），此部署不适用于 Azure Stack 集线器开发工具包（ASDKs）。 若要详细了解 Azure Stack 中心，请参阅[什么是 Azure Stack 中心？](https://azure.microsoft.com/overview/azure-stack/)
+  - 两个连接 Azure Stack 集线器集成系统（Azure Stack 集线器），此部署不适用于 Azure Stack 开发工具包（ASDKs）。 若要详细了解 Azure Stack 中心，请参阅[什么是 Azure Stack 中心？](https://azure.microsoft.com/overview/azure-stack/)
       - 每个 Azure Stack 中心上的租户订阅。    
       - **记下每个 Azure Stack 中心的每个订阅 ID 和 Azure 资源管理器终结点。**
   - 对每个 Azure Stack 中心拥有租户订阅权限的 Azure Active Directory （Azure AD）服务主体。 如果针对不同的 Azure AD 租户部署 Azure Stack 集线器，则可能需要创建两个服务主体。 若要了解如何为 Azure Stack 中心创建服务主体，请参阅[创建服务主体，以使应用程序能够访问 Azure Stack 中心资源](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)。    

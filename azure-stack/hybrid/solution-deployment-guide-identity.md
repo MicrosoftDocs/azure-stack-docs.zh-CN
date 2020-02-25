@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a0e9c00aeca18b8f5ed435d39bfb5cf9d4e56067
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: dc3096888138400007c4091ec9f7f40e289340ed
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875481"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568412"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>配置 Azure 的混合云标识和 Azure Stack 中心应用程序
 
@@ -34,7 +34,7 @@ ms.locfileid: "76875481"
 对于此解决方案中的步骤，你必须具有 Azure Stack 中心操作员权限。
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
@@ -56,9 +56,9 @@ ms.locfileid: "76875481"
 
 在[Azure Stack Hub 中启动并运行 PowerShell](../operator/azure-stack-powershell-install.md)的快速入门介绍了安装 Azure PowerShell 并连接到 Azure Stack 集线器安装所需的步骤。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>先决条件
 
-你需要与你可以访问的订阅连接到 Azure Active Directory Azure Stack 中心安装。 如果没有 Azure Stack 集线器安装，则可以使用这些说明来设置[Azure Stack 中心开发工具包](../asdk/asdk-install.md)。
+你需要与你可以访问的订阅连接到 Azure Active Directory Azure Stack 中心安装。 如果没有 Azure Stack 集线器安装，则可以使用这些说明来设置[Azure Stack 开发工具包](../asdk/asdk-install.md)。
 
 #### <a name="connect-to-azure-stack-hub-using-code"></a>使用代码连接到 Azure Stack 集线器
 

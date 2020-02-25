@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 60a5df4b54165ab86ac8c836254baabaab4f7ca6
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 68111eb8179ac3c000c668407c266a7916761bb6
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492675"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568650"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署 MySQL 资源提供程序
 
@@ -21,7 +21,7 @@ ms.locfileid: "77492675"
 > [!IMPORTANT]
 > 仅支持资源提供程序在托管 SQL 或 MySQL 的服务器上创建项。 在不是由资源提供程序创建的主机服务器上创建的项可能会导致不匹配的状态。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 部署 Azure Stack 中心 MySQL 资源提供程序之前，需要准备好几个先决条件。 若要满足这些要求，请在可以访问特权终结点 VM 的计算机上完成本文中所述的步骤。
 
@@ -122,7 +122,7 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 中心部署 pki �
 | 参数名称 | 说明 | 注释或默认值 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 访问特权终结点所需的云管理员凭据。 | _必需_ |
-| **AzCredential** | Azure Stack 中心服务管理员帐户的凭据。 使用用于部署 Azure Stack 集线器的相同凭据。 | _必需_ |
+| **AzCredential** | Azure Stack 中心服务管理员帐户的凭据。 使用用于部署 Azure Stack 集线器的相同凭据。 如果用于 AzCredential 的帐户需要多重身份验证（MFA），则脚本将失败。 | _必需_ |
 | **VMLocalCredential** | MySQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
 | **AzureEnvironment** | 用于部署 Azure Stack 中心的服务管理员帐户的 Azure 环境。 仅 Azure AD 部署中需要。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
@@ -130,8 +130,8 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 中心部署 pki �
 | **DefaultSSLCertificatePassword** | .Pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 如果出现故障，要重试每个操作的次数。| 2 |
 | **RetryDuration** | 两次重试之间的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | 否 |
-| **DebugMode** | 防止在失败时自动清除。 | 否 |
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | 是 |
+| **DebugMode** | 防止在失败时自动清除。 | 是 |
 | **AcceptLicense** | 跳过提示以接受 GPL 许可证。  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 MySQL 资源提供程序
