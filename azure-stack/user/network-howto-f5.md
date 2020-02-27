@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 87c924ff78e4209b300bc7fd68e7cc5b59640026
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f3b564bc667376361e1bfc57df0ec50e32522401
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885337"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636312"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>如何跨两个 Azure Stack 中心实例部署 F5
 
@@ -32,7 +32,7 @@ Azure Stack 集线器具有独立于 Azure 的 marketplace。 仅添加某些项
 
 -  将**F5 大 IP VE （BYOL，2个引导位置）** 下载到每个 Azure Stack 中心市场。 如果门户中没有可用的用户，请与云操作员联系。
 
--  可在以下 GitHub 存储库中找到 Azure 资源管理器模板： https://github.com/Mikej81/f5-azurestack-gslb 。
+-  可在以下 GitHub 存储库中找到 Azure 资源管理器模板： https://github.com/Mikej81/f5-azurestack-gslb。
 
 ## <a name="deploy-f5-big-ip-ve-on-each-instance"></a>在每个实例上部署 F5 大 IP VE
 
@@ -183,7 +183,7 @@ Azure Stack 集线器具有独立于 Azure 的 marketplace。 仅添加某些项
     ![](./media/network-howto-f5/image17.png)
 
 
-## <a name="for-more-information"></a>有关
+## <a name="for-more-information"></a>更多信息
 
 您可以找到有关使用 F5 的一些参考文章：
 

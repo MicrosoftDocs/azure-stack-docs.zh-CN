@@ -1,5 +1,6 @@
 ---
-title: Azure Stack 集线器验证作为服务进行故障排除
+title: 验证作为服务的验证
+titleSuffix: Azure Stack Hub
 description: 排查 Azure Stack 中心服务的验证问题。
 author: mattbriggs
 ms.topic: article
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1adadf1df42873d37e45a9c25a4876ee79612cf6
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 6c25ceebdf82c7fe0e32259346d3d59558fdabc7
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143612"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625367"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>验证作为服务的验证
 
@@ -25,17 +26,17 @@ ms.locfileid: "77143612"
 
 ### <a name="the-portal-shows-local-agent-in-debug-mode"></a>门户在调试模式下显示本地代理
 
-这很可能是因为由于网络连接不稳定，代理无法向服务发送检测信号。 每隔五分钟发送一次检测信号。 如果服务未收到15分钟的检测信号，则服务会将代理视为非活动状态，并且不会再对其计划测试。 检查*Agenthost*文件中的错误消息，该文件位于启动代理的目录中。
+出现此问题的原因可能是由于网络连接不稳定，代理无法向服务发送检测信号。 每隔五分钟发送一次检测信号。 如果服务未收到15分钟的检测信号，则服务会将代理视为非活动状态，并且不会再对其计划测试。 检查*Agenthost*文件中的错误消息，该文件位于启动代理的目录中。
 
 > [!Note]
 > 已在代理上运行的任何测试将继续运行，但如果检测信号在测试结束之前未还原，则代理将无法更新测试状态或上载日志。 测试将始终显示为 "**正在运行**" 且需要取消。
 
 ### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>在执行测试时，计算机上的代理进程已关闭。 要发生的情况
 
-如果代理进程已关闭意外（例如，重新启动计算机，则代理窗口上的 CTRL + C 被视为正常关闭），则在该进程上运行的测试将继续显示为**正在运行**。 如果重新启动代理，则代理会将测试状态更新为 "**已取消**"。 如果代理未重启，则测试将显示为 "**正在运行**"，必须手动取消测试。
+如果代理进程已关闭意外，则在其上运行的测试将继续显示为 "**正在运行**"。 非常规关闭的一个示例是计算机重新启动并终止进程（代理窗口上的 CTRL + C 被视为正常关闭）。 如果重新启动代理，则代理会将测试状态更新为 "**已取消**"。 如果代理未重启，则测试将显示为 "**正在运行**"，必须手动取消测试。
 
 > [!Note]
-> 工作流中的测试计划为按顺序运行。 在同一工作流中**运行**状态的测试完成之前，将不会执行**挂起**的测试。
+> 工作流中的测试计划为按顺序运行。 在同一工作流中**运行**状态的测试完成之前，不会执行**挂起**的测试。
 
 ## <a name="vm-images"></a>VM 映像
 
@@ -47,9 +48,9 @@ ms.locfileid: "77143612"
 
 #### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>在网络流量缓慢的情况下将 PIR 映像下载到本地共享
 
-1. 下载 AzCopy： [vaasexternaldependencies （AzCopy）](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)
+1. 下载 AzCopy： [vaasexternaldependencies （AzCopy）](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)。
 
-2. 提取 AzCopy，并更改为包含 AzCopy 的目录
+2. 提取 AzCopy，并更改为包含 `AzCopy.exe`的目录。
 
 3. 从权限提升的提示符打开 Windows PowerShell。 运行以下命令：
 
@@ -80,26 +81,26 @@ ms.locfileid: "77143612"
 | OpenLogic-CentOS-69-20180105 | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest .vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>在 `VaaSPreReq` 脚本中上传 VM 映像时出现故障
+### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>在 `VaaSPreReq` 脚本中上传 VM 映像时出现故障
 
 首先检查环境是否正常：
 
-1. 从 "DVM"/"跳转" 框中检查是否可以使用管理员凭据成功登录到管理门户。
+1. 从 "DVM"/"跳转" 框中检查是否可以使用管理员凭据成功登录到管理员门户。
 1. 确认没有任何警报或警告。
 
-如果环境正常运行，请手动上传 VaaS 测试运行所需的5个 VM 映像：
+如果环境正常运行，请手动上传 VaaS 测试运行所需的五个 VM 映像：
 
-1. 以服务管理员身份登录到管理门户。 你可以从 ECE 存储区或你的 stamp 信息文件中找到管理门户 URL。 有关说明，请参阅[环境参数](azure-stack-vaas-parameters.md#environment-parameters)。
+1. 以服务管理员身份登录到管理员门户。 你可以从 ECE 存储区或你的 stamp 信息文件中找到管理员门户 URL。 有关说明，请参阅[环境参数](azure-stack-vaas-parameters.md#environment-parameters)。
 1. 选择 "**更多服务**" > **资源提供程序** > **计算** > **VM 映像**。
 1. 选择 " **VM 映像**" 边栏选项卡顶部的 " **+ 添加**" 按钮。
 1. 修改或检查第一个 VM 映像的以下字段的值：
     > [!IMPORTANT]
-    > 并非所有默认值对于现有 Marketplace 项都是正确的。
+    > 并非所有默认值对于现有 marketplace 项都是正确的。
 
     | 字段  | 值  |
     |---------|---------|
     | 发布者 | MicrosoftWindowsServer |
-    | 产品 | WindowsServer |
+    | 产品/服务 | WindowsServer |
     | 操作系统类型 | Windows |
     | SKU | 2012-R2-Datacenter |
     | 版本 | 1.0.0 |
@@ -108,9 +109,9 @@ ms.locfileid: "77143612"
 1. 选择“创建”按钮。
 1. 为剩余的 VM 映像重复此操作。
 
-所有5个 VM 映像的属性如下所示：
+所有五个 VM 映像的属性如下所示：
 
-| 发布者  | 产品  | 操作系统类型 | SKU | 版本 | OS 磁盘 Blob URI |
+| 发布者  | 产品/服务  | 操作系统类型 | SKU | 版本 | OS 磁盘 Blob URI |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |

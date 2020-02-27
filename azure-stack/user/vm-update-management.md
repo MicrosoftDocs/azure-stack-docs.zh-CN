@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e3595179c4efc5503f8e4315fbe5a419049b2db4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0a105730f36aa9ce14e967bcdcefdb93ece0f26b
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885231"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636278"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack 中心中的 VM 更新和管理自动化
 使用以下 Azure 自动化解决方案功能管理使用 Azure Stack 中心部署的 Windows 和 Linux 虚拟机（Vm）：
@@ -28,7 +28,7 @@ ms.locfileid: "76885231"
 > [!IMPORTANT]
 > 这些解决方案与用于管理 Azure Vm 的解决方案相同。 使用相同的工具，通过相同的方式管理 Azure 和 Azure Stack 中心 Vm。 将更新管理、更改跟踪、清单和用于 VM 的 Azure Monitor 解决方案与 Azure Stack 中心结合使用时，Azure Stack 中心 Vm 也会与 Azure Vm 定价相同。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 使用这些功能更新和管理 Azure Stack 中心 Vm 之前，必须先满足一些先决条件。 其中包括 Azure 门户中必须执行的步骤，还包括 Azure Stack 中心管理门户。
 
 ### <a name="in-the-azure-portal"></a>在 Azure 门户中

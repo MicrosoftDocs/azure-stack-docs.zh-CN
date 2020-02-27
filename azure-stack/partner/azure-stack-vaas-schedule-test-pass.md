@@ -1,36 +1,37 @@
 ---
-title: 使用验证即服务 Azure Stack 中心门户计划第一次测试
-description: 使用 "验证即服务" 作为 Azure Stack 中心门户计划第一次测试。
+title: 在 Azure Stack Hub 验证门户中计划测试
+titleSuffix: Azure Stack Hub
+description: 了解如何在 Azure Stack Hub 验证门户中计划测试。
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: ccaae2e6d7625687f7739cba4fa77eda3ab91520
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143722"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625452"
 ---
-# <a name="scheduling-a-test"></a>计划测试
+# <a name="schedule-a-test-in-azure-stack-validation-portal"></a>在 Azure Stack 验证门户中计划测试
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-在 Azure Stack 中心解决方案的验证即服务（VaaS）门户中计划测试。 VaaS 解决方案表示具有特定硬件材料清单（BoM）的 Azure Stack 集线器解决方案。 你可以计划测试，以检查硬件是否可以 Azure Stack 集线器运行。
+在 Microsoft Azure Stack 验证门户中计划 Azure Stack 中心解决方案的测试。 验证即服务（VaaS）解决方案表示具有特定硬件材料清单（BoM）的 Azure Stack 集线器解决方案。 你可以计划测试，以检查硬件是否可以 Azure Stack 集线器运行。
 
 若要检查解决方案，请为测试创建工作流。 VaaS 工作流在 VaaS 解决方案的上下文中运行。 它代表一组测试套件，用于在硬件上执行 Azure Stack 中心部署的功能。 添加解决方案的环境参数，并选择要在解决方案中运行的一个或多个测试。
 
-虽然测试通过工作流可用于运行由 VaaS 提供的任何测试，包括验证工作流中的测试，但不会将测试通过工作流的结果视为*正式*测试。 有关官方验证工作流的信息，请参阅[工作流](azure-stack-vaas-key-concepts.md#workflows)。
+虽然测试通过工作流可用于运行由 VaaS 提供的任何测试，包括验证工作流中的测试，但测试通过工作流的结果不会被视为*官方*。 有关官方验证工作流的信息，请参阅[工作流](azure-stack-vaas-key-concepts.md#workflows)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
-在执行本快速入门之前，应完成以下各项：
+在执行本快速入门之前，请完成以下任务：
 
-- [将验证设置为服务资源](azure-stack-vaas-set-up-resources.md)
-- [部署本地代理](azure-stack-vaas-local-agent.md)（必需）
-- [验证作为服务关键概念](azure-stack-vaas-key-concepts.md)（必需）
+- [将验证设置为服务资源](azure-stack-vaas-set-up-resources.md)。
+- [部署本地代理](azure-stack-vaas-local-agent.md)（必需）。
+- [验证作为服务关键概念](azure-stack-vaas-key-concepts.md)（必需）。
 
 ## <a name="start-a-workflow"></a>启动工作流
 
@@ -39,12 +40,12 @@ ms.locfileid: "77143722"
 登录到门户，选择或创建解决方案，然后选择解决方案。
 
 1. 登录到[VaaS 门户](https://azurestackvalidation.com)。
-2. 键入现有解决方案的名称，或选择 "**新建解决方案**" 创建新解决方案。 有关说明，请参阅[在 VaaS 门户中创建解决方案](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal)。
+2. 键入现有解决方案的名称，或选择 "**新建解决方案**" 创建新解决方案。 有关说明，请参阅[在 VaaS 门户中创建解决方案](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-azure-stack-hub-validation-portal)。
 3. 选择 "**测试轮次**" 磁贴上的 "**开始**"。
 
 ## <a name="specify-parameters"></a>指定参数
 
-![替换文字](media/vaas_test_pass_parameters.png)
+![在 VaaS 门户中指定参数](media/vaas_test_pass_parameters.png)
 
 提供应用于工作流中的所有测试的参数。
 
@@ -60,7 +61,7 @@ ms.locfileid: "77143722"
 
 1. 选择要在工作流中运行的测试。
 
-    如果要对任何测试重写通用参数（即在上一节中提供的参数），请选择 "指定新值" 旁边的 "**编辑**" 链接。
+    如果要为任何测试覆盖公共参数（在上一节中提供的参数），请选择 "指定新值" 旁边的 "**编辑**" 链接。
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
 

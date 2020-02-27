@@ -1,6 +1,7 @@
 ---
 title: 部署本地代理
-description: 将 Azure Stack 集线器验证的本地代理部署为服务。
+titleSuffix: Azure Stack Hub
+description: 了解如何以服务的形式部署 Azure Stack 集线器验证的本地代理。
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5090b60c5aa3c947fbbf1fc887b4fb25900ae98
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 83ecc620238593f8d01cdc9855305a86b34990a8
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143980"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625265"
 ---
 # <a name="deploy-the-local-agent"></a>部署本地代理
 
@@ -38,12 +39,12 @@ ms.locfileid: "77143980"
 
 检查您的计算机是否满足以下条件：
 
-- 访问所有 Azure Stack 中心终结点
-- 已安装 .NET 4.6 和 PowerShell 5。0
-- 至少 8 GB RAM
-- 最低8核处理器
-- 最小 200-GB 磁盘空间
-- 与 internet 的稳定网络连接
+- 访问所有 Azure Stack 中心终结点。
+- 已安装 .NET 4.6 和 PowerShell 5.0。
+- 至少 8 GB 的 RAM。
+- 最少8核处理器。
+- 最小 200-GB 磁盘空间。
+- 与 internet 的稳定网络连接。
 
 ### <a name="download-and-install-the-local-agent"></a>下载并安装本地代理
 
@@ -78,30 +79,30 @@ ms.locfileid: "77143980"
     ```
 
 > [!Note]  
-> VaaSPrerequisites cmdlet 下载大型 VM 映像文件。 如果网络速度缓慢，可以将文件下载到本地文件服务器，并手动将 VM 映像添加到测试环境。 有关详细信息，请参阅[处理慢速网络连接](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)。
+> `Install-VaaSPrerequisites` cmdlet 下载大型 VM 映像文件。 如果网络速度缓慢，可以将文件下载到本地文件服务器，并手动将 VM 映像添加到测试环境。 有关详细信息，请参阅[处理慢速网络连接](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)。
 
 **参数**
 
 | 参数 | 说明 |
 | --- | --- |
-| AadServiceAdminUser | Azure AD 租户的全局管理员用户。 例如，可以 vaasadmin@contoso.onmicrosoft.com。 |
-| AadServiceAdminPassword | 全局管理员用户的密码。 |
-| CloudAdminUserName | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如，它可能是，AzusreStack\CloudAdmin。 有关详细信息，请参阅 [此处](azure-stack-vaas-parameters.md) 。 |
-| CloudAdminPassword | 云管理员帐户的密码。|
+| `AadServiceAdminUser` | Azure AD 租户的全局管理员用户。 例如：vaasadmin@contoso.onmicrosoft.com。 |
+| `AadServiceAdminPassword` | 全局管理员用户的密码。 |
+| `CloudAdminUserName` | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如： AzusreStack\CloudAdmin。 有关详细信息，请参阅[VaaS 的工作流通用参数](azure-stack-vaas-parameters.md)。 |
+| `CloudAdminPassword` | 云管理员帐户的密码。|
 
-![下载必备组件](media/installing-prereqs.png)
+![下载本地代理的先决条件](media/installing-prereqs.png)
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>在开始测试之前执行完整性检查
 
 这些测试运行远程操作。 运行测试的计算机必须有权访问 Azure Stack 中心终结点，否则测试将不起作用。 如果使用的是 VaaS 本地代理，请使用运行代理的计算机。 可以通过运行以下检查来检查计算机是否可以访问 Azure Stack 中心终结点：
 
-1. 检查是否可以访问基 URI。 打开 CMD 提示符或 bash shell，并运行以下命令，将 `<EXTERNALFQDN>` 替换为您的环境的外部 FQDN：
+1. 检查是否可以访问基 URI。 打开 CMD 提示符或 bash shell 并运行以下命令，并将 `<EXTERNALFQDN>` 替换为您的环境的外部完全限定的域名（FQDN）：
 
     ```bash
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. 打开 web 浏览器并中转到 `https://adminportal.<EXTERNALFQDN>`，以检查是否可以访问 MA 门户。
+2. 打开浏览器并中转到 `https://adminportal.<EXTERNALFQDN>`，以检查是否可以访问 MA 门户。
 
 3. 使用创建测试通过时提供的 "Azure AD 服务管理员名称" 和 "密码" 值登录。
 
@@ -111,7 +112,7 @@ ms.locfileid: "77143980"
 
 1. 在提升的提示符下打开 Windows PowerShell。
 
-2. 运行下面的命令：
+2. 运行以下命令：
 
     ```powershell
    # Review and update the following five parameters
@@ -129,10 +130,10 @@ ms.locfileid: "77143980"
 
     | 参数 | 说明 |
     | --- | --- |
-    | CloudAdminUserName | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如，它可能是，AzusreStack\CloudAdmin。 有关详细信息，请参阅 [此处](azure-stack-vaas-parameters.md) 。 |
-    | CloudAdminPassword | 云管理员帐户的密码。|
-    | VaaSUserId | 用于登录到 VaaS 门户的用户 ID （例如，UserName\@Contoso.com） |
-    | VaaSTenantId | 为注册为服务的 Azure 帐户 Azure AD 租户 ID。 |
+    | `CloudAdminUserName` | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如： AzusreStack\CloudAdmin。 有关详细信息，请参阅[VaaS 的工作流通用参数](azure-stack-vaas-parameters.md)。 |
+    | `CloudAdminPassword` | 云管理员帐户的密码。|
+    | `VaaSUserId` | 用于登录 Azure Stack 中心验证门户的用户 ID。 例如： UserName\@Contoso.com）。 |
+    | `VaaSTenantId` | 为注册为服务的 Azure 帐户 Azure AD 租户 ID。 |
 
     > [!Note]  
     > 运行代理时，当前工作目录必须是任务引擎主机可执行文件**VaaSOnPrem**的位置。
@@ -143,10 +144,10 @@ ms.locfileid: "77143980"
 
 ![已启动代理](media/started-agent.png)
 
-代理由其名称唯一标识。 默认情况下，它使用从其启动的计算机的完全限定的域名（FQDN）名称。 您必须最小化窗口以避免任何意外选择窗口，因为更改焦点将暂停所有其他操作。
+代理由其名称唯一标识。 默认情况下，它使用从其启动的计算机的 FQDN 名称。 您必须最小化窗口以避免任何意外选择窗口，因为更改焦点将暂停所有其他操作。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [验证作为服务的验证](azure-stack-vaas-troubleshoot.md)
 - [作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)
-- [快速入门：使用验证作为服务门户计划第一次测试](azure-stack-vaas-schedule-test-pass.md)
+- [快速入门：使用 Azure Stack 集线器验证门户计划第一次测试](azure-stack-vaas-schedule-test-pass.md)

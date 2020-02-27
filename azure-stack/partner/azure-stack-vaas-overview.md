@@ -1,5 +1,6 @@
 ---
-title: Azure Stack 中心服务验证作为服务的概述
+title: 验证即服务概述
+titleSuffix: Azure Stack Hub
 description: Azure Stack 集线器验证即服务的概述。
 author: mattbriggs
 ms.topic: article
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 95cee26239a4549b87360e62c61a34449f6a0774
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 31d47f947c4c71847156ca4e49c4b370c872e920
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884080"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625282"
 ---
-# <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>什么是 Azure Stack 集线器的验证即服务？
+# <a name="validation-as-a-service-for-azure-stack-hub"></a>作为 Azure Stack 中心服务的身份验证
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -23,10 +24,10 @@ ms.locfileid: "76884080"
 
 VaaS 的主要用途是：
 
-- 正在验证新 Azure Stack 中心解决方案
-- 验证对 Azure Stack 中心软件的更改
-- 对部署过程中使用的解决方案伙伴包进行数字签名
-- 预览 VaaS 测试宣传资料
+- 正在验证新 Azure Stack 中心解决方案。
+- 验证对 Azure Stack 中心软件所做的更改。
+- 对部署过程中使用的解决方案伙伴包进行数字签名。
+- 预览 VaaS 测试宣传资料。
 
 ## <a name="validate-a-new-azure-stack-hub-solution"></a>验证新的 Azure Stack 中心解决方案
 
@@ -42,7 +43,7 @@ VaaS 的主要用途是：
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>获取数字签名的解决方案伙伴包
 
-除了验证 Azure Stack 集线器更新，合作伙伴还使用**包验证**工作流来验证对 OEM 自定义包的更新，其中包括部署 Azure Stack 集线器软件期间使用的 Azure Stack 中心合作伙伴特定驱动程序、固件和其他软件。 使用至少受支持的最小大小的解决方案，在当前版本的 Azure Stack 中心软件上部署要验证的包。 在执行测试之前，会将包提交给 VaaS。 如果测试成功，请通知[vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)包已完成测试，并应通过 Azure Stack 中心数字签名进行数字签名。 Microsoft 对包进行签名，并通知 Azure Stack 中心伙伴包可在 VaaS 门户中下载。
+除了验证 Azure Stack 集线器更新，合作伙伴还使用**包验证**工作流来验证对 OEM 自定义包的更新。 这些更新包括 Azure Stack 集线器合作伙伴特定的驱动程序、固件和 Azure Stack 中心软件部署过程中使用的其他软件。 使用至少受支持的最小大小的解决方案，在当前版本的 Azure Stack 中心软件上部署要验证的包。 在执行测试之前，会将包提交给 VaaS。 如果测试成功，请通知[vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)包已完成测试，并应通过 Azure Stack 中心数字签名进行数字签名。 Microsoft 对包进行签名，并通知 Azure Stack 中心伙伴包可在 Azure Stack 中心验证门户中下载。
 
 有关详细信息，请参阅 "[验证 OEM 包](azure-stack-vaas-validate-oem-package.md)"。
 
@@ -50,7 +51,7 @@ VaaS 的主要用途是：
 
 Microsoft 定期在 Azure Stack 中心提供新功能。 作为将这些功能提供给市场的开发过程的一部分，在**测试通过**工作流中提供了新的测试辅助功能。 测试通过工作流包括来自其他工作流的测试宣传资料，以允许执行非正式测试。 不要使用测试通过工作流提交要审批的结果。 使用解决方案验证和包验证工作流来获得解决方案的官方批准。
 
-有关详细信息，请参阅[快速入门：使用验证作为服务门户计划第一次测试](azure-stack-vaas-schedule-test-pass.md)。
+有关详细信息，请参阅[快速入门：使用 Azure Stack 集线器验证门户计划第一次测试](azure-stack-vaas-schedule-test-pass.md)。
 
 ## <a name="validation-workflow-tests-summary"></a>验证工作流测试摘要
 

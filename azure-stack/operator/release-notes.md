@@ -3,16 +3,16 @@ title: Azure Stack 集线器发行说明
 description: Azure Stack 集线器集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 40c727c97035b0f843ce84b0eafad47c77560938
-ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
+ms.openlocfilehash: 3225dce7a767dd973be62844c219dea5135bd91d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001635"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625214"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -61,7 +61,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>新功能
+### <a name="whats-new"></a>新增功能
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -114,7 +114,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
    **IKE 阶段1（主模式）参数**
 
-   | 属性              | 值|
+   | properties              | 值|
    |-|-|
    | SDK 版本           | IKEv2 |
    |Diffie-Hellman 组   | ECP384 |
@@ -124,7 +124,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
    **IKE 阶段2（快速模式）参数**
 
-   | 属性| 值|
+   | properties| 值|
    |-|-|
    |SDK 版本 |IKEv2 |
    |加密 & 哈希算法（加密）     | GCMAES256|
@@ -132,7 +132,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
    |SA 生存期（时间）  | 27,000 秒  |
    |SA 生存期（Kb） | 33553408     |
    |完全向前保密 (PFS) | ECP384 |
-   |死对等体检测 | 受支持|
+   |死对等体检测 | 支持|
 
    这些更改也会反映在[默认的 IPsec/IKE 建议](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)文档中。
 
@@ -200,14 +200,14 @@ Azure Stack 集线器修补程序仅适用于 Azure Stack 集线器集成系统;
 Azure Stack 集线器1910版必须应用于带有以下修补程序的1908版本：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1908.14.53](https://support.microsoft.com/help/4537661)
+- [Azure Stack 中心修补程序1.1908.19.62](https://support.microsoft.com/help/4541349)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>成功应用1910更新后
 
 安装此更新后，安装任何适用的修补程序。 有关详细信息，请参阅[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1910.17.95](https://support.microsoft.com/help/4537833)
+- [Azure Stack 中心修补程序1.1910.24.108](https://support.microsoft.com/help/4541350)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -231,7 +231,7 @@ Azure Stack 中心1908更新生成类型已**满**。 因此，1908更新的运�
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>新功能
+### <a name="whats-new"></a>新增功能
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -275,7 +275,7 @@ Azure Stack 集线器修补程序仅适用于 Azure Stack 集线器集成系统;
 Azure Stack 集线器1908版必须应用于带有以下修补程序的1907版本：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1907.18.56](https://support.microsoft.com/help/4528552)
+- [Azure Stack 中心修补程序1.1907.26.70](https://support.microsoft.com/help/4541348)
 
 Azure Stack 集线器1908更新需要从系统的硬件提供程序**Azure Stack 集线器 OEM 版本2.1 或更高版本**。 OEM 更新包括 Azure Stack 集线器系统硬件的驱动程序和固件更新。 有关应用 OEM 更新的详细信息，请参阅[Apply Azure Stack Hub 原始设备制造商更新](azure-stack-update-oem.md)
 
@@ -284,7 +284,7 @@ Azure Stack 集线器1908更新需要从系统的硬件提供程序**Azure Stack
 安装此更新后，安装任何适用的修补程序。 有关详细信息，请参阅[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1908.14.53](https://support.microsoft.com/help/4537661)
+- [Azure Stack 中心修补程序1.1908.19.62](https://support.microsoft.com/help/4541349)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -304,7 +304,7 @@ Azure Stack 中心1907更新生成类型为**Express**。 有关更新生成类�
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>新功能
+### <a name="whats-new"></a>新增功能
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -408,7 +408,7 @@ Azure Stack 集线器1907版必须应用于带有以下修补程序的1906版本
 安装此更新后，安装任何适用的修补程序。 有关详细信息，请参阅[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1907.18.56](https://support.microsoft.com/help/4528552)
+- [Azure Stack 中心修补程序1.1907.26.70](https://support.microsoft.com/help/4541348)
 ::: moniker-end
 
 ::: moniker range="azs-1906"
@@ -539,7 +539,7 @@ Azure Stack 集线器1906版必须应用于带有以下修补程序的1905版本
 > [!TIP]  
 > 订阅以下*RSS*或*Atom*源，与 Azure Stack 中心修补程序保持密切相同：
 >
-> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [技术](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
 > - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ## <a name="archive"></a>存档

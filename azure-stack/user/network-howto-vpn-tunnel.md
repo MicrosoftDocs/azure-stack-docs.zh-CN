@@ -7,12 +7,12 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 42ed5facf2b88aee8eb5fefd514ee31df8722ecc
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c1b48e551a1c94456174cbe5725da72d76f78219
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883014"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636329"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>如何在 Azure Stack 集线器中设置多个站点到站点 VPN 隧道
 

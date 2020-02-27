@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 623d2825c74d486b0500d5aa17e98d28234f0086
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 50a5a9498939f47cc8a688f1171d8b1a0cc4ca8a
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882992"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636295"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>如何在 Azure Stack 集线器中使用 GRE 创建 VPN 隧道
 

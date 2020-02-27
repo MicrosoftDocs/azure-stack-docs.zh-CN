@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解如何向 Azure 注册 Azure Stack 集线器集成系统，以便可以下载 Azure Marketplace 项并设置数据报告。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 2/02/2020
+ms.date: 02/25/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: c842a762ace6bd51f55240c292c434fc7bc96c92
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 3f8570f765b87736975a15c49b1a2a5ff4bdf55d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509647"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625316"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>向 Azure 注册 Azure Stack 集线器
 
@@ -506,17 +506,23 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 尝试注册 Azure Stack 中心时，可能会出现以下错误之一：
 
-- 无法检索 $hostName 的必需硬件信息。 请检查物理主机和连接，然后尝试重新运行注册。
+- 无法检索 `$hostName`的必需硬件信息。 请检查物理主机和连接，然后尝试重新运行注册。
 
-- 无法连接到 $hostName 以获取硬件信息-请检查物理主机和连接，然后尝试重新运行注册。
+- 无法连接到 `$hostName` 以获取硬件信息。 请检查物理主机和连接，然后尝试重新运行注册。
 
-> 原因：此问题通常是因为我们尝试从主机获取硬件详细信息，如 UUID、Bios 和 CPU，以尝试激活，但无法连接到物理主机。
+   原因：此问题通常是因为我们尝试从主机获取硬件详细信息，如 UUID、Bios 和 CPU，以尝试激活，但无法连接到物理主机。
 
-尝试访问 Marketplace 管理时，尝试联合产品时出现错误。 
-> 原因：当 Azure Stack 集线器无法访问注册资源时，通常会发生这种情况。 导致这种情况的一个常见原因是 Azure 订阅的目录租户更改时，它会重置注册。 如果更改了订阅的目录租户，则无法访问 Azure Stack 中心市场或报告使用情况。 若要解决此问题，需要重新注册。
+- 已注册 Cloud 标识符 [`GUID`]。 不允许重复使用云标识符。
 
-即使已使用断开连接的进程注册了 stamp，Marketplace 管理仍会要求注册并激活 Azure Stack 中心。
-> 原因：对于断开连接的环境，这是一个已知问题。 可以通过执行以下[步骤](azure-stack-registration.md#verify-azure-stack-hub-registration)来验证你的注册状态。 若要使用 Marketplace 管理，需要使用[脱机工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)。
+   原因：如果你的 Azure Stack 环境已经注册，则会发生这种情况。 如果要使用其他订阅或计费模式重新注册您的环境，[请参阅这些说明](#change-the-subscription-you-use)。
+
+- 尝试访问 Marketplace 管理时，尝试联合产品时出现错误。
+
+   原因：当 Azure Stack 集线器无法访问注册资源时，通常会发生这种情况。 导致这种情况的一个常见原因是 Azure 订阅的目录租户更改时，它会重置注册。 如果更改了订阅的目录租户，则无法访问 Azure Stack 中心市场或报告使用情况。 若要解决此问题，需要重新注册。
+
+- 即使已使用断开连接的进程注册了 stamp，Marketplace 管理仍会要求注册并激活 Azure Stack 中心。
+
+   原因：对于断开连接的环境，这是一个已知问题。 可以通过执行[以下步骤](azure-stack-registration.md#verify-azure-stack-hub-registration)来验证你的注册状态。 若要使用 Marketplace 管理，请使用[脱机工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)。
 
 ## <a name="next-steps"></a>后续步骤
 

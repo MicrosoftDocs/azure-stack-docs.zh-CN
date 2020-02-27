@@ -6,11 +6,11 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: a34e418db4f9f53b02020dc2bb61be67052b4f5f
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 01b6bf4815ea7fc0972c63dd5ac725f7aeffb90f
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76694183"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77651540"
 ---
-在解决方案仪表板上，创建或选择现有解决方案。 有关说明，请参阅[在 VaaS 门户中创建解决方案](../azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal)。
+在解决方案仪表板上，创建或选择现有解决方案。 有关说明，请参阅[在 VaaS 门户中创建解决方案](../azure-stack-vaas-key-concepts.md#create-a-solution-in-the-azure-stack-hub-validation-portal)。

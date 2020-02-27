@@ -1,6 +1,7 @@
 ---
-title: Azure Stack 中心验证作为服务的工作流常见参数
-description: Azure Stack 中心验证作为服务的工作流常见参数
+title: VaaS 中的常见工作流参数
+titleSuffix: Azure Stack Hub
+description: 了解 Azure Stack 集线器验证作为服务的常见工作流参数。
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: cc237792576ffa3a5bb3ad0a003da4284c9cc56f
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 9a53f489ac1fdf92afdf8ba841b1cbb4a030680b
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143694"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625384"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Azure Stack 中心验证作为服务的工作流常见参数
+# <a name="common-workflow-parameters-in-validation-as-a-service"></a>验证作为服务中的常见工作流参数
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -50,12 +51,12 @@ ms.locfileid: "77143694"
 
 ## <a name="test-parameters"></a>测试参数
 
-常见测试参数包括无法存储在配置文件中的敏感信息。 必须手动提供这些。
+常见测试参数包括无法存储在配置文件中的敏感信息。 必须手动提供这些参数。
 
 参数    | 说明
 -------------|-----------------
-租户管理员用户                            | Azure Active Directory 在 AAD 目录中由服务管理员预配租户管理员。 此用户执行租户级别的操作，例如部署模板来设置资源（Vm、存储帐户等）和执行工作负荷。 有关设置租户帐户的详细信息，请参阅[添加新的 Azure Stack 中心租户](../operator/azure-stack-add-new-user-aad.md)。
-服务管理员用户             | Azure Stack 中心部署期间指定的 Azure AD Directory 租户 Azure Active Directory 管理员。 在 ECE 配置文件中搜索 `AADTenant`，并选择 `UniqueName` 元素中的值。
+租户管理员用户                            | Azure Active Directory （Azure AD）租户管理员在 AAD 目录中由服务管理员设置。 此用户执行租户级别的操作，例如部署模板来设置资源（Vm、存储帐户等）和执行工作负荷。 有关设置租户帐户的详细信息，请参阅[添加新的 Azure Stack 中心租户](../operator/azure-stack-add-new-user-aad.md)。
+服务管理员用户             | Azure Stack 中心部署期间指定的 Azure AD directory 租户 Azure AD 管理员。 在 ECE 配置文件中搜索 `AADTenant`，并选择 `UniqueName` 元素中的值。
 云管理员用户               | Azure Stack 中心域管理员帐户（例如，`contoso\cloudadmin`）。 在 ECE 配置文件中搜索 `User Role="CloudAdmin"`，并选择 `UserName` 元素中的值。
 诊断连接字符串          | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅[生成诊断连接字符串](#generate-the-diagnostics-connection-string)。 |
 
@@ -79,8 +80,7 @@ ms.locfileid: "77143694"
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
 
 > [!NOTE]  
-> SAS URL 在生成 URL 时指定的结束时间过期。  
-在计划测试时，请确保 URL 有效期至少为30天，并确保测试执行所需的时间（建议三个月）。
+> SAS URL 在生成 URL 时指定的结束时间过期。 在计划测试时，请确保 URL 有效期至少为30天，并确保测试执行所需的时间（建议三个月）。
 
 ## <a name="next-steps"></a>后续步骤
 
