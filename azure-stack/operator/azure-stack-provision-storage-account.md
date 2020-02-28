@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: bc638be874518bec2e7b8a6db9935f93aa33e30f
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 77f0ebf58f20943de39975d913c7019578c73d0e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509681"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698158"
 ---
 # <a name="create-storage-accounts-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建存储帐户
 

@@ -5,13 +5,13 @@ author: mattbriggs
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 288dfd077d7f41bf5bb82a122c11a747c7054f91
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: ee08259248a49eef08ce0012d60be2705cc4f877
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884348"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704907"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Azure Stack 中心存储简介
 

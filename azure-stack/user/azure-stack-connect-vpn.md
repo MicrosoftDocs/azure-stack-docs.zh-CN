@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: scottnap
-ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: c0a03b453a574b04e6b4a8654e3375d552acc5f5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/24/2019
+ms.openlocfilehash: 13ac78c3f0a665e4319db4d3bf70b0274b5b8dd5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883913"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704363"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 中心连接到 Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "76883913"
 
 网络配置示例表显示了本文中的示例所使用的值。 您可以使用这些值，也可以参考这些值以更好地理解本文中的示例：
 
-|   |Azure Stack Hub|Azure|
+|   |Azure Stack 中心|Azure|
 |---------|---------|---------|
 |虚拟网络名称     |Azs-VNet|AzureVNet |
 |虚拟网络地址空间 |10.1.0.0/16|10.100.0.0/16|

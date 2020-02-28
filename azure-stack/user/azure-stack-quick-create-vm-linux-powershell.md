@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2404ad1cb352690ab2cb7c9077ee562cf0fdfb94
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: fef79314cbea08b6ea04ed91416a9bc753278747
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883281"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703768"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack 集线器中使用 PowerShell 创建 Linux 服务器 VM
 
@@ -21,7 +21,7 @@ ms.locfileid: "76883281"
 * 安装 NGINX web 服务器并查看默认主页。
 * 清理未使用的资源。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 * Azure Stack 集线器 Marketplace 中的 Linux 映像。 默认情况下，Azure Stack 集线器 Marketplace 没有 Linux 映像。 让 Azure Stack 集线器操作员提供所需的 Ubuntu Server 16.04 LTS 映像。 操作员可以使用将[Marketplace 项从 Azure 下载到 Azure Stack 中心](../operator/azure-stack-download-azure-marketplace-item.md)中的说明。
 

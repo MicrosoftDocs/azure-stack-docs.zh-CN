@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 9a1a9f4d5edcd7446d980489cfd475db51ed5d07
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 0b8b4babeba269f84d5c63deccdb9cb9fbe2978b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883459"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702357"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>升级 Azure Stack 集线器上的 Kubernetes 群集
 
@@ -74,7 +74,7 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 
 2. 收集运行 `upgrade` 命令所需的信息。 升级使用以下参数：
 
-    | 参数 | 示例 | Description |
+    | 参数 | 示例 | 说明 |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | 若要指示 AKS 引擎 Azure Stack 集线器使用 `AzureStackCloud`的目标平台。 |
     | location | local | Azure Stack 中心的区域名称。 对于 ASDK，区域设置为 `local`。 |

@@ -8,12 +8,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: c590aed504df1549e3c4a43ae282a304e579195a
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: a731c7c72f38fee0fb37fc8b82e55799d5b80d3b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037193"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696934"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack 集线器上支持的来宾操作系统
 
@@ -48,7 +48,7 @@ Marketplace 映像适用于即用即付或 BYOL （EA/SPLA）许可。 不支持
 >
 > Azure Stack 集线器1910及更高版本支持[cloud init](https://cloud-init.io/) 。
 
-| 分布 | 说明 | 发布者 | Azure Stack 中心市场 |
+| 分发 | 说明 | 发布者 | Azure Stack 中心市场 |
 | --- | --- | --- | --- |
 | 基于 CentOS 的6。9 | 64 位 | Rogue 波 | 是 |
 | 基于 CentOS 的7。5 | 64 位 | Rogue 波 | 是 |

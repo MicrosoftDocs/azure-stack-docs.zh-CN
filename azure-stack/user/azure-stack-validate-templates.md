@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1690e191e2aa610e69b1e204b9e685e5d8e90187
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884297"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705281"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>使用 Azure Stack 集线器中的模板验证工具
 
@@ -68,11 +68,11 @@ ms.locfileid: "76884297"
 
 ![模板验证报表](./media/azure-stack-validate-templates/image1.png)
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
 模板验证程序 cmdlet 支持以下参数。
 
-| 参数 | Description | 需要 |
+| 参数 | 说明 | 必选 |
 | ----- | -----| ----- |
 | `TemplatePath` | 指定以递归方式查找 Azure 资源管理器模板的路径。 | 是 |
 | `TemplatePattern` | 指定要匹配的模板文件的名称。 | 否 |

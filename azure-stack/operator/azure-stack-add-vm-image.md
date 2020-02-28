@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ae446d053c008fc2433f44ba8e7ffa7324972362
-ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
+ms.lastreviewed: 06/08/2019
+ms.openlocfilehash: 4d2f76e1af47800331aac44715b5b8630baceae1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075966"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701422"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>将自定义 VM 映像添加到 Azure Stack 集线器
 

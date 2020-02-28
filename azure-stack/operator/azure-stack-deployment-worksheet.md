@@ -7,12 +7,12 @@ ms.date: 04/19/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: a008aab83970941f6c81d14f36d6f1502369fe46
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 8c13121f5d591abca8a6c83771848d97cc9106db
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77510021"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700062"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Azure Stack 中心集成系统的部署工作表
 

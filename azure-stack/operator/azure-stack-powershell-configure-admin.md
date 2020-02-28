@@ -7,18 +7,18 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 1c894dbb431d1f171457ac0300d214cc2e2b7c0f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e0f10db1c9d983b4802812bd4274429387032c66
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881614"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698396"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>通过 PowerShell 连接到 Azure Stack 集线器
 
 可以将 Azure Stack 中心配置为使用 PowerShell 来管理资源，例如创建产品/服务、计划、配额和警报。 本主题有助于配置操作员环境
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 如果[通过 VPN 连接到 ASDK](../asdk/asdk-connect.md#connect-with-vpn)，请从[Azure Stack 开发工具包（ASDK）](../asdk/asdk-connect.md#connect-with-rdp)或基于 Windows 的外部客户端运行以下先决条件。
 
@@ -66,7 +66,7 @@ ms.locfileid: "76881614"
 
 ## <a name="test-the-connectivity"></a>测试连接
 
-完成所有设置后，请使用 PowerShell 在 Azure Stack 中心内创建资源。 例如，你可以为应用程序创建资源组，并添加虚拟机。 使用以下命令创建名为“MyResourceGroup”的资源组。
+完成所有设置后，请使用 PowerShell 在 Azure Stack 中心内创建资源。 例如，你可以为应用程序创建资源组，并添加虚拟机。 使用以下命令创建名为**MyResourceGroup**的资源组。
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

@@ -7,12 +7,12 @@ ms.date: 05/16/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: a9ebb725bed0472eaacc80e821840746966104dd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 96d1062b7b6b4c30d1d635965b51de27c0b49269
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874325"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703275"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>通过基础结构备份服务恢复 Azure Stack 集线器中的数据
 
@@ -29,7 +29,7 @@ ms.locfileid: "76874325"
 
 此服务包含以下功能：
 
-| 功能                                            | Description                                                                                                                                                |
+| Feature                                            | 说明                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 备份基础结构服务                     | 在 Azure Stack Hub 中跨基础结构服务的子集协调备份。 如果发生灾难，可以在重新部署过程中还原数据。 |
 | 导出的备份数据的压缩和加密 | 在将备份数据导出到管理员提供的外部存储位置之前，系统会对其进行压缩和加密。                |

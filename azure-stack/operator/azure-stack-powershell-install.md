@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 928af9066375407a2c018dad70568b8dc14e46b4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 40cd0cd279d98773e97bbae816dbd40ea2d1eba8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881554"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698192"
 ---
 # <a name="install-powershell-for-azure-stack-hub"></a>为 Azure Stack 集线器安装 PowerShell
 

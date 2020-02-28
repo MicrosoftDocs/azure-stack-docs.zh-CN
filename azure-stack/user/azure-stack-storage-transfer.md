@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: b1a69cb2029a278ecec992abbca00dc3b80b1211
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 6b0a31c0eea7f2973563c3f1e481cd2e830c41f8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883141"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704873"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>使用 Azure Stack 中心存储中的数据传输工具
 
@@ -61,7 +61,7 @@ AzCopy 是一个命令行实用程序，旨在使用具有最佳性能的简单�
 AzCopy 10.1 现在可以配置为使用较旧的 API 版本。 这为 Azure Stack 中心启用（有限）支持。
 若要配置 AzCopy 的 API 版本以支持 Azure Stack 中心，请将 `AZCOPY_DEFAULT_SERVICE_API_VERSION` 环境变量设置为 `2017-11-09`。
 
-| 操作系统 | 命令  |
+| 操作系统 | Command  |
 |--------|-----------|
 | **Windows** | 在命令提示符下，使用： `set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09`<br> 在 PowerShell 中使用： `$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"`|
 | **Linux** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
@@ -69,7 +69,7 @@ AzCopy 10.1 现在可以配置为使用较旧的 API 版本。 这为 Azure Stac
 
 在 AzCopy 10.1 中，Azure Stack 集线器支持以下功能：
 
-| 功能 | 支持的操作 |
+| Feature | 支持的操作 |
 | --- | --- |
 |管理容器|创建容器<br>列出容器的内容
 |管理作业|显示作业<br>恢复作业

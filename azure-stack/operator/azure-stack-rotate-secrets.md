@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 22be9075f6c1d8b25c6ce241ad24ed8e10630261
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 9eaa0ecdf3b8d544e916f5f94e106bc76dbe0e55
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509562"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697716"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack 中心旋转机密
 

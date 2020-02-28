@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: harik
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: be2da63bcb2eb986a14ebae417810ee4b585714d
-ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
+ms.lastreviewed: 01/11/2020
+ms.openlocfilehash: f81ca3e48387f806e591deea08c4b0c9c518cebd
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075949"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697529"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack 中心服务策略
 

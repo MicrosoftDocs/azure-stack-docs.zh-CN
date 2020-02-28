@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 1b72a2d71c2ff5e467486fa9672607cca78a38e9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876893"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701847"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
@@ -105,7 +105,7 @@ Appservice Azure Stack 中心快速入门模板中的 "文件[共享](https://gi
 > [!IMPORTANT]
 > 在运行资源提供程序安装程序之前，请确保已阅读每个应用服务版本随附的发行说明，以了解新功能、修复程序以及可能影响部署的任何已知问题。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 在运行应用服务安装程序之前，需要执行几个步骤，如在[Azure Stack 集线器上开始应用服务之前](azure-stack-app-service-before-you-get-started.md)所述：
 
 > [!TIP]
@@ -167,7 +167,7 @@ Appservice Azure Stack 中心快速入门模板中的 "文件[共享](https://gi
     - 目标： IP 地址
     - 目标 IP 地址范围：文件服务器的 Ip 范围
     - 目标端口范围：445
-    - 协议： TCP
+    - 协议：TCP
     - 操作：允许
     - 优先级：700
     - 名称： Outbound_Allow_SMB445
@@ -198,10 +198,10 @@ Appservice Azure Stack 中心快速入门模板中的 "文件[共享](https://gi
     |角色|默认|高可用建议|
     |-----|-----|-----|
     |控制器角色|2|2|
-    |管理角色|第|3|
-    |“发布者”角色|第|3|
-    |前端角色|第|3|
-    |共享辅助角色|第|2|
+    |管理角色|1|3|
+    |“发布者”角色|1|3|
+    |前端角色|1|3|
+    |共享辅助角色|1|2|
     |     |     |     |
 
     ![应用服务上的基础结构角色实例值](media/app-service-deploy-ha/12.png)

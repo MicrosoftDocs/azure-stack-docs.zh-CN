@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: f70f3d35267ab1bf484a76c870dedf0182fe43a9
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 2930b63dc02818eebc5b96a13c9c3d7bb5441566
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508100"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699059"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>监视 Azure Stack 集线器中的运行状况和警报
 

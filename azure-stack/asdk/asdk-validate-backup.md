@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 2ff4ec010243b27406a2ebb3149bc123aa01947d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ee86c3200cbef75f63de0b1aa8f7ac614e1878cc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873492"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690916"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 部署 Azure Stack 和预配用户资源（例如产品/服务、计划、配额和订阅）后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 如果出现灾难性的硬件或服务故障，则计划和运行定期基础结构备份将确保基础结构管理数据不会丢失。
@@ -24,7 +24,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 
 以下方案支持在 ASDK 上验证备份：
 
-|方案|用途|
+|场景|目的|
 |-----|-----|
 |通过集成解决方案验证基础结构备份。|临时验证备份中的数据是否有效。|
 |了解端到端恢复工作流。|使用 ASDK 验证整个备份和还原体验。|
@@ -32,7 +32,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 
 验证 ASDK 上的备份时，**不**支持以下方案：
 
-|方案|用途|
+|场景|目的|
 |-----|-----|
 |用于生成备份和还原的 ASDK 生成。|将 ASDK 的早期版本中的备份数据还原到较新版本。|
 |     |     |
@@ -48,7 +48,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 
 *当前 UI 安装程序仅支持加密密钥*
 
-|先决条件|Description|
+|先决条件|说明|
 |-----|-----|
 |备份共享路径|将用于恢复 Azure Stack 基础结构信息的最新 Azure Stack 备份的 UNC 文件共享路径。 此本地共享将在云恢复部署过程中创建。|
 |要还原的备份 ID|"Xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 格式为 "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 的备份 ID，用于标识要在云恢复期间还原的备份。|
@@ -61,7 +61,7 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 
 *当前 PowerShell 安装程序支持加密密钥或解密证书*
 
-|先决条件|Description|
+|先决条件|说明|
 |-----|-----|
 |备份共享路径|将用于恢复 Azure Stack 基础结构信息的最新 Azure Stack 备份的 UNC 文件共享路径。 此本地共享将在云恢复部署过程中创建。|
 |要还原的备份 ID|"Xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 格式为 "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 的备份 ID，用于标识要在云恢复期间还原的备份。|

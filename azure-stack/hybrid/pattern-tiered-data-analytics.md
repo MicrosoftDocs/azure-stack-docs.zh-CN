@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 91f23e7362ec0a1a733417dad1f48dc04b80d19f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5c19c6b407d4d05c3a4da26078050668d023c86a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875515"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700742"
 ---
 # <a name="tiered-data-for-analytics-pattern"></a>分析模式的分层数据
 
@@ -45,10 +45,10 @@ ms.locfileid: "76875515"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | Description |
+| 层 | 组件 | 说明 |
 |----------|-----------|-------------|
-| Azure | 存储空间 | [Azure 存储](/azure/storage/)帐户提供取证数据消耗终结点。 Azure 存储是 Microsoft 提供的适用于现代数据存储场景的云存储解决方案。 Azure 存储为适用于云的数据对象和文件系统服务提供了一个高度可缩放的对象存储。 它还提供可靠消息传送和 NoSQL 存储的消息存储。 |
-| Azure Stack Hub | 存储空间 | [Azure Stack 中心存储](/azure-stack/user/azure-stack-storage-overview)帐户用于多个服务：<br>- 用于原始数据存储的**Blob 存储**。 Blob 存储可以存储任何类型的文本或二进制数据，例如文档、媒体文件或应用程序安装程序。 每个 Blob 组织在容器中。 容器提供向对象组分配安全策略的有用方法。 一个存储帐户可以包含任意数目的容器，一个容器可以包含任意数目的 blob，最多可包含存储帐户的 500 TB 的容量限制。<br>用于数据存档 - **Blob 存储**。 对于冷数据存档，可通过低成本存储提供便利。 包含备份、媒体内容、科研数据、合规性和存档数据的冷数据示例。 通常，不常访问的任何数据都被视为 "冷存储"。 基于属性（如访问频率和保留期）来分层数据。 不常访问客户数据，但需要对热数据进行类似的延迟和性能。<br>为已处理的数据存储 - **队列存储**。 队列存储在应用程序组件之间提供云消息传送。 在设计规模应用程序时，应用程序组件通常是分离的，因此它们可以独立缩放。 队列存储提供了用于在应用程序组件之间进行通信的异步消息传送。  它们是在云中、在桌面上、在本地服务器上运行还是在移动设备上运行。 队列存储还支持管理异步任务以及构建过程工作流。 |
+| Azure | 存储 | [Azure 存储](/azure/storage/)帐户提供取证数据消耗终结点。 Azure 存储是 Microsoft 提供的适用于现代数据存储场景的云存储解决方案。 Azure 存储为适用于云的数据对象和文件系统服务提供了一个高度可缩放的对象存储。 它还提供可靠消息传送和 NoSQL 存储的消息存储。 |
+| Azure Stack 中心 | 存储 | [Azure Stack 中心存储](/azure-stack/user/azure-stack-storage-overview)帐户用于多个服务：<br>- 用于原始数据存储的**Blob 存储**。 Blob 存储可以存储任何类型的文本或二进制数据，例如文档、媒体文件或应用程序安装程序。 每个 Blob 组织在容器中。 容器提供向对象组分配安全策略的有用方法。 一个存储帐户可以包含任意数目的容器，一个容器可以包含任意数目的 blob，最多可包含存储帐户的 500 TB 的容量限制。<br>用于数据存档 - **Blob 存储**。 对于冷数据存档，可通过低成本存储提供便利。 包含备份、媒体内容、科研数据、合规性和存档数据的冷数据示例。 通常，不常访问的任何数据都被视为 "冷存储"。 基于属性（如访问频率和保留期）来分层数据。 不常访问客户数据，但需要对热数据进行类似的延迟和性能。<br>为已处理的数据存储 - **队列存储**。 队列存储在应用程序组件之间提供云消息传送。 在设计规模应用程序时，应用程序组件通常是分离的，因此它们可以独立缩放。 队列存储提供了用于在应用程序组件之间进行通信的异步消息传送。  它们是在云中、在桌面上、在本地服务器上运行还是在移动设备上运行。 队列存储还支持管理异步任务以及构建过程工作流。 |
 | | Azure Functions | [Azure Functions](/azure/azure-functions/)服务由[Azure Stack Hub](/azure-stack/operator/azure-stack-app-service-overview)资源提供程序上的 Azure App Service 提供。 Azure Functions 允许在简单的无服务器环境中执行代码，以运行脚本或代码来响应各种事件。 Azure Functions 扩展，无需使用所选的编程语言创建 VM 或发布 web 应用即可满足需求。 函数由解决方案用于：<br>- **数据**引入<br>- **数据 sterilization。** 手动触发的函数可以执行计划的数据处理、清理和存档。 示例可能包括每夜客户列表清理和每月报表处理。|
 
 ## <a name="issues-and-considerations"></a>问题和注意事项

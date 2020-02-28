@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: c39285cec673a7274304cb2dbe1179e5478ddc7d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 243baa06b2374fb42ffcd70fe7cb194e193d9e34
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884599"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702204"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>在 Fortinet FortiGate NVA 的 Azure Stack 集线器中建立 vnet 到 VNET 的连接
 
@@ -20,7 +20,7 @@ ms.locfileid: "76884599"
 
 本文介绍了当前 Azure Stack 集线器限制，该限制允许租户在两个环境中仅设置一个 VPN 连接。 用户将了解如何在 Linux 虚拟机上设置自定义网关，该网关允许跨不同 Azure Stack 集线器进行多个 VPN 连接。 本文中的过程使用每个 VNET 中的 FortiGate NVA 部署两个 Vnet：每个 Azure Stack 中心环境一个部署。 它还详细说明了在两个 Vnet 之间设置 IPSec VPN 所需的更改。 应为每个 Azure Stack 中心中的每个 VNET 重复本文中的步骤。 
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 -  访问具有可用容量的 Azure Stack 集线器集成系统，以部署此解决方案所需的计算、网络和资源要求。 
 
@@ -41,7 +41,7 @@ ms.locfileid: "76884599"
 
 ### <a name="deployment-one-forti1"></a>部署1： Forti1
 
-| FortiGate 实例名称 | Forti1 |
+| FortiGate 实例名称 | forti1 |
 |-----------------------------------|---------------------------|
 | BYOL 许可证/版本 | 版 |
 | FortiGate 管理用户名 | fortiadmin |

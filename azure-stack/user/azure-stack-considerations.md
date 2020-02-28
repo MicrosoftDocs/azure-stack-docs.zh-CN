@@ -5,13 +5,13 @@ author: sethmanheim
 ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 74e2e6986f3fac7ee6503c1b7417dffea44842b5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: 7b3f8fe96ddd33550f28860c0eaa77fa8cfa8c84
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883872"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704346"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>使用服务和构建应用时 Azure Stack 中心与 Azure 之间的差异
 
@@ -34,14 +34,14 @@ Azure Stack 中心是一种混合云平台，可让你从公司或服务提供�
 
 下表介绍 Azure Stack 中心与 Azure 之间的高级别差异。 为 Azure Stack 中心进行开发或使用 Azure Stack 中心服务时，请记住这些差异：
 
-| 区域 | Azure （全局） | Azure Stack Hub |
+| 区域 | Azure （全局） | Azure Stack 中心 |
 | -------- | ------------- | ----------|
 | 谁在运行？ | Microsoft | 你的组织或服务提供商。|
 | 你要联系谁获得支持？ | Microsoft | 对于集成系统，请联系你的 Azure Stack 中心操作员（在你的组织或服务提供商处）以获得支持。<br><br>有关 Azure Stack 开发工具包（ASDK）支持，请访问[Microsoft 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft 客户支持服务（CSS）提供官方支持。
 | 可用服务 | 请参阅[Azure 产品](https://azure.microsoft.com/services/?b=17.04b)列表。 可用服务因 Azure 区域而异。 | Azure Stack 中心支持部分 Azure 服务。 实际服务因你的组织或服务提供商选择提供的服务而异。
-| Azure 资源管理器终结点 * | https://management.azure.com | 对于 Azure Stack 集线器集成系统，请使用 Azure Stack 中心操作员提供的终结点。<br><br>对于开发工具包，请使用： [https://management.local.azurestack.external](https://management.local.azurestack.external )。
-| 门户 URL * | [https://portal.azure.com](https://portal.azure.com) | 对于 Azure Stack 集线器集成系统，请使用 Azure Stack 中心操作员提供的 URL。<br><br>对于开发工具包，请使用： [https://management.local.azurestack.external](https://portal.local.azurestack.external )。
-| 地区 | 您可以选择要部署到的区域。 | 对于 Azure Stack 集线器集成系统，请使用系统中可用的区域。<br><br>对于 Azure Stack 开发工具包（ASDK），该区域将始终为 "**本地**"。
+| Azure 资源管理器终结点 * | https://management.azure.com | 对于 Azure Stack 集线器集成系统，请使用 Azure Stack 中心操作员提供的终结点。<br><br>对于开发工具包，请使用： https://management.local.azurestack.external。
+| 门户 URL * | [https://portal.azure.com](https://portal.azure.com) | 对于 Azure Stack 集线器集成系统，请使用 Azure Stack 中心操作员提供的 URL。<br><br>对于开发工具包，请使用： https://portal.local.azurestack.external。
+| 区域 | 您可以选择要部署到的区域。 | 对于 Azure Stack 集线器集成系统，请使用系统中可用的区域。<br><br>对于 Azure Stack 开发工具包（ASDK），该区域将始终为 "**本地**"。
 | 资源组 | 资源组可以跨区域。 | 对于集成系统和开发工具包，仅有一个区域。
 |支持的命名空间、资源类型和 API 版本 | 尚未弃用的最新版本（或更早的版本）。 | Azure Stack 中心支持特定版本。 请参阅本文的[版本要求](#version-requirements)部分。
 | | |

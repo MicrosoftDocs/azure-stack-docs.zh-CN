@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 23c24a1ac4046ed169e8207e6e9ae84c04e2b0b9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 42a87396caeb4392b14e88dd122f78396efb8ead
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876093"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695489"
 ---
 # <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>Azure Stack 集线器上的应用服务 Update 5 发行说明
 
@@ -26,7 +26,7 @@ ms.locfileid: "76876093"
 
 Azure Stack 集线器 Update 5 内部版本号上的应用服务为**80.0.2.15**。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 开始部署之前，请参阅在[Azure Stack 中心部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
@@ -37,7 +37,7 @@ Azure Stack 集线器 Update 5 内部版本号上的应用服务为**80.0.2.15**
 - 备份应用服务和 master 数据库：
   - AppService_Hosting;
   - AppService_Metering;
-  - Master
+  - 主设备
 
 - 备份租户应用内容文件共享。
 
@@ -182,7 +182,7 @@ Azure Stack 中心 Update 5 上的 Azure App Service 包括以下改进和修补
  * 目标： IP 地址
  * 目标 IP 地址范围：文件服务器的 Ip 范围
  * 目标端口范围：445
- * 协议： TCP
+ * 协议：TCP
  * 操作：允许
  * 优先级：700
  * 名称： Outbound_Allow_SMB445

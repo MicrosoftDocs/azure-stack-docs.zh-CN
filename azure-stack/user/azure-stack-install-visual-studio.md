@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7c5183c88a973756685c5831d10d4f5c6aeb2ce0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/04/2020
+ms.openlocfilehash: 9fb0cf281fb97bc5cf255fb39507869b106d0a1b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883673"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702952"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>安装 Visual Studio 并连接到 Azure Stack 集线器
 

@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/28/2019
-ms.openlocfilehash: 81e8e8f470988d84441d238ef677950df2d2334b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ba64a3bfbef9601d9cc8d8a28176a84a9403326a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873611"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696016"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>准备 ASDK 主机计算机
 必须先准备好安装 ASDK 主机，然后才能在主计算机上安装 Azure Stack 开发工具包（ASDK）。 准备好主机后，它将从 Cloudbuilder.vhdx 虚拟机（VM）硬盘启动，开始 ASDK 部署。

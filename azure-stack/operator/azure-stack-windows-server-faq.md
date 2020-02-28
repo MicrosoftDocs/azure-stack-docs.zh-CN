@@ -8,12 +8,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 217bd904d7f0afb62f483f27ba2f800c6d93b6c7
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 72b21675e97a436499f53f00e4c7d25dfc1beb54
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147788"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696067"
 ---
 # <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Azure Stack 中心 Marketplace 中的 Windows Server 应用常见问题
 
@@ -89,7 +89,7 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 ### <a name="how-can-i-verify-that-my-vm-is-activated"></a>如何验证是否已激活 VM？
 
-在提升了权限的命令提示符下运行以下命令：
+在提升的命令提示符下运行以下命令：
 
 ```shell
 slmgr /dlv
@@ -99,7 +99,7 @@ slmgr /dlv
 
 ### <a name="my-vm-isnt-set-up-to-use-avma-how-can-i-fix-it"></a>我的 VM 未设置为使用 AVMA，如何修复？
 
-在提升了权限的命令提示符下运行以下命令：
+在提升的命令提示符下运行以下命令：
 
 ```shell
 slmgr /ipk <AVMA key>

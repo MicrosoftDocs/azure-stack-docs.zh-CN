@@ -7,12 +7,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 631a086b86fd7855780aa1cb6dba11dbfa799759
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 05b4fb4a3fedd1431e7850473a720fd4cc1bdf3d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879816"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696033"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
@@ -160,7 +160,7 @@ ms.locfileid: "76879816"
 - 原因：部署 SQL 资源提供程序（RP）版本1.1.47.0 时，门户不会显示与 SQL RP 关联的资产。
 - 修正：删除 RP，升级 stamp，并重新部署 SQL RP。
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
 
 ### <a name="load-balancer"></a>负载均衡器
 
@@ -246,7 +246,7 @@ ms.locfileid: "76879816"
 
 - 适用：此问题适用于1910及更早版本。
 - 原因：无法从运行非英语版本的 Windows 的计算机连接到特权终结点（ERC Vm）。
-- 修正：这是在版本晚于1910的版本中修复的已知问题。 一种解决方法是，可以使用**en-us**区域性运行**新的 pssession**并**输入-pssession** Powershell cmdlet;有关示例，请使用以下脚本设置区域性： https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1 。
+- 修正：这是在版本晚于1910的版本中修复的已知问题。 一种解决方法是，可以使用**en-us**区域性运行**新的 pssession**并**输入-pssession** Powershell cmdlet;有关示例，请使用以下脚本设置区域性： https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1。
 - 发生次数：罕见
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
@@ -321,7 +321,7 @@ ms.locfileid: "76879816"
 - 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
 - 发生次数：常见
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
 
 ### <a name="load-balancer"></a>负载均衡器
 
@@ -485,7 +485,7 @@ ms.locfileid: "76879816"
 - 修正：使用 SAS 选项上传 blob。
 - 发生次数：常见
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
 
 ### <a name="load-balancer"></a>负载均衡器
 
@@ -668,7 +668,7 @@ ms.locfileid: "76879816"
 - 修正：刷新门户，状态将更新为 "正在进行"。
 - 出现次数：间歇
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
 
 ### <a name="service-endpoints"></a>服务终结点
 

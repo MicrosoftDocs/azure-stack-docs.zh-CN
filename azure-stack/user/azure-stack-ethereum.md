@@ -7,12 +7,12 @@ ms.date: 06/03/2019
 ms.topic: tutorial
 ms.reviewer: seyadava
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: c981fb453389c4e088db94474dd757f7881dfc6b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a0a13af01fc539788d76377f357ca28db9b05234
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883694"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703071"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署以太坊区块链网络
 
@@ -31,7 +31,7 @@ ms.locfileid: "76883694"
 - 选择部署体系结构。
 - 部署独立的、协会领导人或联合会成员网络。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 [从 Marketplace](../operator/azure-stack-download-azure-marketplace-item.md)下载最新项目：
 
@@ -69,7 +69,7 @@ ms.locfileid: "76883694"
     
     ![编辑引线模板参数](./media/azure-stack-ethereum/edit-leader-parameters.png)
 
-    参数名 | Description | 允许的值 | 示例值
+    参数名称 | 说明 | 允许的值 | 示例值
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | 用作命名已部署资源的基础的字符串。 | 长度为1到6的字母数字字符。 | eth
     AUTHTYPE | 向 VM 进行身份验证的方法。 | 密码或 SSH 公钥。 | 密码
@@ -84,7 +84,7 @@ ms.locfileid: "76883694"
     NUMMININGNODES | 挖掘节点数。 | 介于2到15之间。 | 2
     MNNODEVMSIZE | 挖掘节点的 VM 大小。 | | Standard_A1
     MNSTORAGEACCOUNTTYPE | 挖掘节点的存储性能。 | | Standard_LRS
-    NUMTXNODES | 事务节点数。 | 介于1和5之间。 | 第
+    NUMTXNODES | 事务节点数。 | 介于1和5之间。 | 1
     TXNODEVMSIZE | 事务节点的 VM 大小。 | | Standard_A1
     TXSTORAGEACCOUNTTYPE | 事务节点的存储性能。 | | Standard_LRS
     BASEURL | 要从中获取部署模板的基 URL。 | 除非要自定义部署模板，否则请使用默认值。 | 
@@ -94,7 +94,7 @@ ms.locfileid: "76883694"
     
     ![领导者部署参数](./media/azure-stack-ethereum/leader-deployment-parameters.png)
 
-    参数名 | Description | 允许的值 | 示例值
+    参数名称 | 说明 | 允许的值 | 示例值
     ---------------|-------------|----------------|-------------
     订阅 | 要向其部署联合会网络的订阅。 | | 消耗订阅
     资源组 | 部署联盟网络的资源组。 | | EthereumResources
@@ -119,7 +119,7 @@ ms.locfileid: "76883694"
 5. 选择“保存”。
 6. 选择 "**编辑参数**" 并完成部署的模板参数。
 
-    参数名 | Description | 允许的值 | 示例值
+    参数名称 | 说明 | 允许的值 | 示例值
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | 用作命名已部署资源的基础的字符串。 | 长度为1到6的字母数字字符。 | eth
     AUTHTYPE | 向 VM 进行身份验证的方法 | 密码或 SSH 公钥。 | 密码
@@ -130,7 +130,7 @@ ms.locfileid: "76883694"
     NUMMININGNODES | 挖掘节点数。 | 介于2到15之间。 | 2
     MNNODEVMSIZE | 挖掘节点的 VM 大小。 | | Standard_A1
     MNSTORAGEACCOUNTTYPE | 挖掘节点的存储性能。 | | Standard_LRS
-    NUMTXNODES | 事务节点数。 | 介于1和5之间。 | 第
+    NUMTXNODES | 事务节点数。 | 介于1和5之间。 | 1
     TXNODEVMSIZE | 事务节点的 VM 大小。 | | Standard_A1
     TXSTORAGEACCOUNTTYPE | 事务节点的存储性能。 | | Standard_LRS
     CONSORTIUMDATA | 指向由其他成员的部署提供的相关联盟配置数据的 URL。 此值可在领导者的部署输出中找到。 | |
@@ -142,7 +142,7 @@ ms.locfileid: "76883694"
 7. 选择“确定”。
 8. 在 "**自定义部署**" 中，指定**订阅**、**资源组**和**资源组位置**。
 
-    参数名 | Description | 允许的值 | 示例值
+    参数名称 | 说明 | 允许的值 | 示例值
     ---------------|-------------|----------------|-------------
     订阅 | 要向其部署联合会网络的订阅。 | | 消耗订阅
     资源组 | 部署联盟网络的资源组。 | | MemberResources
@@ -176,7 +176,7 @@ ms.locfileid: "76883694"
     
     ![编辑连接模板参数](./media/azure-stack-ethereum/edit-connect-parameters.png)
 
-    参数名 | Description | 允许的值 | 示例值
+    参数名称 | 说明 | 允许的值 | 示例值
     ---------------|-------------|----------------|-------------
     MEMBERNAMEPREFIX | 领导者的名称前缀。 此值可在领导者的部署输出中找到。  | 长度为1到6的字母数字字符。 | |
     MEMBERROUTETABLENAME | 负责人的路由表的名称。 此值可在领导者的部署输出中找到。 |  | 
@@ -192,7 +192,7 @@ ms.locfileid: "76883694"
     
     ![连接部署参数](./media/azure-stack-ethereum/connect-deployment-parameters.png)
 
-    参数名 | Description | 允许的值 | 示例值
+    参数名称 | 说明 | 允许的值 | 示例值
     ---------------|-------------|----------------|-------------
     订阅 | 领导者的订阅。 | | 消耗订阅
     资源组 | 领导者的资源组。 | | EthereumResources

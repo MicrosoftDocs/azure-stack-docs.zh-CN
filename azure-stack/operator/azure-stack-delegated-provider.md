@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6fbc58a8c56361441394a2d4648b4eea5d817a40
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 95b7ca9d6ed5bf0c8fed0019b4b3954fd3a7d458
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882436"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700232"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Azure Stack 中心内委托服务
 
@@ -74,10 +74,10 @@ ms.locfileid: "76882436"
 
 1. 创建一个产品/服务，使用户能够成为委派的提供商：
 
-   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  [创建计划](azure-stack-create-plan.md)。
+   a.  [创建计划](azure-stack-create-plan.md)。
        此计划应仅包含订阅服务。 本文使用名为**为 planfordelegation**的计划作为示例。
 
-   b.保留“数据库类型”设置，即设置为“共享”。  根据此计划[创建产品/服务](azure-stack-create-offer.md)。 本文使用名为**为 offertodp**的产品/服务作为示例。
+   b.  根据此计划[创建产品/服务](azure-stack-create-offer.md)。 本文使用名为**为 offertodp**的产品/服务作为示例。
 
    c.  依次选择 "**订阅**"、"**添加**"，然后选择 "**新建租户订阅**"，将委托提供程序作为订阅者添加到此产品/服务。
 
@@ -120,9 +120,9 @@ ms.locfileid: "76882436"
 
 4. 公开委托的产品/服务现在只能通过委托门户来查看。 查找和更改此 URL：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  选择 "**浏览**"，然后选择 "**所有服务**"，然后在 "**常规**" 类别下选择 "**订阅**"。 选择委托的提供商订阅（例如， **DPSubscription**），然后选择 "**属性**"。
+    a.  选择 "**浏览**"，然后选择 "**所有服务**"，然后在 "**常规**" 类别下选择 "**订阅**"。 选择委托的提供商订阅（例如， **DPSubscription**），然后选择 "**属性**"。
 
-    b.保留“数据库类型”设置，即设置为“共享”。  将门户 URL 复制到一个单独的位置，例如 "记事本"。
+    b.  将门户 URL 复制到一个单独的位置，例如 "记事本"。
 
     ![在 Azure Stack Hub 用户门户中选择委托的提供商订阅](media/azure-stack-delegated-provider/dpportaluri.png)  
 

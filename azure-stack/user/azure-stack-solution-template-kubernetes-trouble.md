@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889535"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703615"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Azure Stack 中心排查 Kubernetes 部署问题
 
@@ -101,7 +101,7 @@ ms.locfileid: "76889535"
 
 4.  请参阅故障排除窗口。 每个已部署的资源提供以下信息：
     
-    | 属性 | Description |
+    | properties | 说明 |
     | ----     | ----        |
     | 资源 | 资源的名称。 |
     | 类型 | 资源提供程序和资源的类型。 |
@@ -115,7 +115,7 @@ ms.locfileid: "76889535"
 
 如果 Azure Stack 集线器门户没有提供足够的信息，无法进行故障排除或解决部署失败，下一步就是深入了解群集日志。 若要手动检索部署日志，通常需要连接到群集的主 Vm 之一。 更简单的替代方法是下载并运行 Azure Stack 中心团队提供的以下[Bash 脚本](https://aka.ms/AzsK8sLogCollectorScript)。 此脚本连接到 DVM 和群集的 Vm，收集相关的系统和群集日志，并将它们下载回你的工作站。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 你需要在用于管理 Azure Stack 集线器的计算机上具有 Bash 提示。 在 Windows 计算机上，可以通过安装[适用于 windows 的 Git](https://git-scm.com/downloads)来获取 Bash 提示。 安装后，在 "开始" 菜单中查找 " _Git Bash_ "。
 
@@ -136,7 +136,7 @@ ms.locfileid: "76889535"
 
 3. 查找脚本所需的信息并运行该脚本：
 
-    | 参数           | Description                                                                                                      | 示例                                                                       |
+    | 参数           | 说明                                                                                                      | 示例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d, --vmd-host      | 公共 IP 或 DVM 的完全限定的域名（FQDN）。 VM 名称以 `vmd-`开头。 | IP：192.168.102.38<br>DNS： myk8s. p p. test-azurestack |
     | -h、--help  | 打印命令用法。 | |

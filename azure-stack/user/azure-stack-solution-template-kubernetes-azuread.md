@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e8c8ad8581b9deff792ce2c095bbc3c5f9cee034
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 6324370313656f05c299f37c8e858109378209db
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883222"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701830"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>使用 Azure Active Directory 将 Kubernetes 部署到 Azure Stack 中心
 
@@ -21,7 +21,7 @@ ms.locfileid: "76883222"
 
 使用 Azure Active Directory （Azure AD）作为标识管理服务时，你可以按照本文中的步骤为 Kubernetes 部署和设置资源，只需要一个协调的操作即可。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 若要开始，请确保具有适当的权限，并且 Azure Stack 中心已准备就绪。
 
@@ -51,19 +51,19 @@ ms.locfileid: "76883222"
 
 1. 创建 Azure AD 应用程序。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 通过 [Azure 门户](https://portal.azure.com)登录到 Azure 帐户。  
-    b.保留“数据库类型”设置，即设置为“共享”。 选择 " **Azure Active Directory** > **应用注册**" > "**新注册**"。  
+    a. 通过 [Azure 门户](https://portal.azure.com)登录到 Azure 帐户。  
+    b. 选择 " **Azure Active Directory** > **应用注册**" > "**新注册**"。  
     c. 为应用提供名称和 URL。  
-    d.单击“下一步”。 选择**支持的帐户类型**。  
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。  添加应用程序的 URI `http://localhost`。 选择要创建的应用程序类型的 " **Web** "。 设置值后，选择 "**注册**"。
+    d. 选择**支持的帐户类型**。  
+    e.  添加应用程序的 URI `http://localhost`。 选择要创建的应用程序类型的 " **Web** "。 设置值后，选择 "**注册**"。
 
 1. 请记下**应用程序 ID**。 创建群集时，你将需要 ID。 该 ID 被称为 "**服务主体客户端 ID**"。
 
 1. 在服务主体的边栏选项卡中，选择 "**新建客户端密码**"。 **设置** > **键**。 需要为服务主体生成身份验证密钥。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 输入“说明”。
+    a. 输入**描述**。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 对于“过期”这一项，请选择“永不过期”。
+    b. 对于**过期**，选择 "**永不过期**"。
 
     c. 选择 **添加** 。 记下密钥字符串。 创建群集时，需要密钥字符串。 密钥被称为**服务主体客户端机密**。
 
@@ -83,7 +83,7 @@ ms.locfileid: "76883222"
 
 1. 选择为服务主体创建的应用程序名称。 可能需要在搜索框中键入名称。
 
-1. 单击“ **保存**”。
+1. 单击“保存”。
 
 ## <a name="deploy-kubernetes"></a>部署 Kubernetes
 
@@ -103,7 +103,7 @@ ms.locfileid: "76883222"
 
 1. 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。
 
-1. 选择资源组的“位置”。 这是你为 Azure Stack 集线器安装选择的区域。
+1. 选择资源组的**位置**。 这是你为 Azure Stack 集线器安装选择的区域。
 
 ### <a name="2-kubernetes-cluster-settings"></a>2. Kubernetes 群集设置
 
@@ -113,9 +113,9 @@ ms.locfileid: "76883222"
 
 1. 输入**LINUX VM 管理员用户名**。 构成 Kubernetes 群集和 DVM 的 Linux 虚拟机的用户名。
 
-1. 输入 **SSH 公钥**，用于向所有作为 Kubernetes 群集和 DVM 的一部分创建的 Linux 计算机授权。
+1. 输入用于授权到作为 Kubernetes 群集的一部分创建的所有 Linux 计算机的**SSH 公钥**和 DVM。
 
-1. 输入特定于区域的**主配置文件 DNS 前缀**。 此名称必须是区域唯一名称，如 `k8s-12345`。 尝试选择与资源组名称相同的最佳实践。
+1. 输入在区域中唯一的**主配置文件 DNS 前缀**。 此名称必须是区域唯一名称，如 `k8s-12345`。 尝试选择与资源组名称相同的最佳实践。
 
     > [!Note]  
     > 为每个群集使用新且唯一的主配置文件 DNS 前缀。
@@ -142,7 +142,7 @@ ms.locfileid: "76883222"
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-2. 检查设置。
+2. 查看设置。
 
 3. 选择 **"确定"** 以部署群集。
 

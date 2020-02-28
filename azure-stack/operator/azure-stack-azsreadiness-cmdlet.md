@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 067164db905e6649def7ecd06b0e15d166d286b9
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 588808f93ae23af3aaed37686474490bc402c566
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509375"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695472"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>AzsReadinessChecker cmdlet 参考
 

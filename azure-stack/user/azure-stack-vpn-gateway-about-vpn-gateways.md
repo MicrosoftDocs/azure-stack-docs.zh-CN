@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 11f27fd12b546a217cd65e65ce21dacc78abbb70
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883049"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705111"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>为 Azure Stack 集线器创建 VPN 网关
 
@@ -79,7 +79,7 @@ VPN 网关连接可以使用不同的配置。 确定哪种配置最适合自己
 为 Azure Stack 中心创建虚拟网络网关时，需指定要使用的网关 SKU。 支持以下 VPN 网关 SKU：
 
 * 基本
-* 标准
+* Standard
 * 高性能
 
 如果选择更高级的网关 SKU （如 Standard over Basic）或高性能（标准或基本），则会将更多的 Cpu 和网络带宽分配给网关。 如此一来，网关可以对虚拟网络支持更高的网络吞吐量。
@@ -96,7 +96,7 @@ Azure Stack 中心不支持超高性能网关 SKU，专用于快速路由。
 
 只能在**高性能网关**连接 SKU 上配置高可用性方案。 与 Azure 不同，Azure 通过主动/主动和主动/被动配置提供可用性，Azure Stack 集线器只支持主动/被动配置。
 
-### <a name="failover"></a>故障转移：
+### <a name="failover"></a>故障转移
 
 Azure Stack 中心有三个多租户网关基础结构 Vm。 其中两个 Vm 处于主动模式，第三个处于冗余模式。 利用活动 Vm，可以在这些 Vm 上创建 VPN 连接，并且在发生故障转移时，冗余 VM 才会接受 VPN 连接。 如果活动网关 VM 变得不可用，则在连接丢失一小段时间（几秒钟）后，VPN 连接将故障转移到冗余 VM。
 
@@ -106,7 +106,7 @@ Azure Stack 中心有三个多租户网关基础结构 Vm。 其中两个 Vm 处
 
 || VPN 网关吞吐量（1） | VPN 网关最大 IPsec 隧道数（2） |
 |-------|-------|-------|
-|**基本 SKU** **(3)** | 100 Mbps | 20 |
+|**基本 SKU** **（3）** | 100 Mbps | 20 |
 |**标准 SKU** | 100 Mbps | 20 |
 |**高性能 SKU** | 200 Mbps | 10 |
 

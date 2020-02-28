@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 77505a2d91ff4aac4174395a170ba040fb4e9ec7
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 055ab68f13f18afe2ddb9109aa25416c5c834887
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509817"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699314"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>管理 Azure Stack 中心存储帐户
 

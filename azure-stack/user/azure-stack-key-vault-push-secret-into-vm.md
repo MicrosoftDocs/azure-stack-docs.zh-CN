@@ -5,13 +5,13 @@ author: sethmanheim
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 2903a4c9f47b7f3b5d0161069f76d68eb9d19497
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883591"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702782"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>在 Azure Stack 中心部署具有安全存储的证书的 VM
 
@@ -36,7 +36,7 @@ ms.locfileid: "76883591"
 > [!NOTE]
 > 如果通过 VPN 进行连接，则可以从 Azure Stack 开发工具包（ASDK）或从外部客户端使用这些步骤。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 * 你必须订阅包含 Key Vault 服务的产品/服务。
 * [为 Azure Stack 集线器安装 PowerShell](../operator/azure-stack-powershell-install.md)。

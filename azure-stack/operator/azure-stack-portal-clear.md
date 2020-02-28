@@ -7,13 +7,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-monikerRange: azs-1802
-ms.openlocfilehash: c632161c32f6a20b7f9943df191ab0f0c0158720
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: bede8fc72cfcdd6f3376c49a87293fef3626c380
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881624"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698328"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>从 Azure Stack 中心清除门户用户数据
 

@@ -6,13 +6,13 @@ ms.topic: tutorial
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: ab2a177c9e2edc1b0362b03023148072fb885fb9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/13/2019
+ms.openlocfilehash: 9e8df158444b0cbb2b6efaea6f99766f36b26241
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883880"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704329"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>教程：使用社区模板创建 VM
 
@@ -79,7 +79,7 @@ Minikube 是一种可在本地运行 Kubernetes 的工具。 Minikube 在 VM 内
 
 6. 选择 "**参数**"，根据需要填写或修改可用字段，然后单击 **"确定"** 。
 
-    ![参数](media/azure-stack-create-vm-template/6.PNG)
+    ![parameters](media/azure-stack-create-vm-template/6.PNG)
 
 7. 选择要使用的订阅，然后创建或选择现有的资源组名称。 然后，选择 "**创建**" 以启动模板部署。
 
@@ -118,7 +118,7 @@ Minikube 是一种可在本地运行 Kubernetes 的工具。 Minikube 在 VM 内
 
     ![仪表板](media/azure-stack-create-vm-template/12.PNG)
 
-5. 若要部署示例应用程序，请访问官方 Kubernetes 文档页，并跳过 "创建 Minikube 群集" 部分，因为已创建了一个。 转到 https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/ 上的 "创建 node.js 应用程序" 一节。
+5. 若要部署示例应用程序，请访问官方 Kubernetes 文档页，并跳过 "创建 Minikube 群集" 部分，因为已创建了一个。 转到 https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/上的 "创建 node.js 应用程序" 一节。
 
 ## <a name="next-steps"></a>后续步骤
 

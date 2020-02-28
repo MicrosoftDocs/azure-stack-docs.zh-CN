@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 880c5dfb72d0f70cc8748f2528a3c36562bebe93
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a141beed4df6b34175f37d9e1e60e694f3ab71f2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878048"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700504"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳实践
 
@@ -26,7 +26,7 @@ ms.locfileid: "76878048"
 
 部署每个 Azure Stack 中心云后启用基础结构备份。 使用 Azure Stack 集线器 PowerShell，你可以从任何客户端/服务器（具有对操作员管理 API 终结点的访问权限）计划备份。
 
-### <a name="networking"></a>联网
+### <a name="networking"></a>网络
 
 路径的通用命名约定（UNC）字符串必须使用完全限定的域名（FQDN）。 如果无法进行名称解析，则可以使用 IP 地址。 UNC 字符串指定资源（如共享文件或设备）的位置。
 
@@ -84,7 +84,7 @@ MASBackup 文件夹是 Azure Stack 中心存储其备份数据的位置。 不�
 
 系统支持以下警报：
 
-| 警报                                                   | Description                                                                                     | 补救                                                                                                                                |
+| 警报                                                   | 说明                                                                                     | 补救                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | 备份失败，因为文件共享空间不足。 | 文件共享空间不足，备份控制器无法将备份文件导出到该位置。 | 添加更多存储容量，并再次尝试备份。 删除现有的备份（从最早的备份开始）以释放空间。                    |
 | 由于连接问题而导致备份失败。             | Azure Stack 中心和文件共享之间的网络出现问题。                          | 解决网络问题，然后重试备份。                                                                                            |

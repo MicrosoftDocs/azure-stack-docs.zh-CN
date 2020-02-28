@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: b866b99cca9e4db7fa522bd605512f0aeea632db
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: a44c4cee7948fe9f2cf4a55e7ed337c3932fd95c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037227"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704941"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>SQL Server 的 Azure Stack 集线器上的 Windows N 层应用程序
 

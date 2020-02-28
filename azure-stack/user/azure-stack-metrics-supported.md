@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: fcbde238f47759c8c962242f96fa35975e49d360
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b90458e58054cd0f42564558fd3cb5a8226d6c5d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884629"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702255"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack 中心 Azure Monitor 支持的指标
 
@@ -21,17 +21,17 @@ ms.locfileid: "76884629"
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
+| 指标 | 指标显示名称 | 单位 | 聚合类型 | 说明 | 维度 |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
 | CPU 百分比 | CPU 百分比 | 百分比 | 平均值 | VM 当前正在使用的已分配计算单元的百分比。 | 无维度 |
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
+| 指标 | 指标显示名称 | 单位 | 聚合类型 | 说明 | 维度 |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | 已用容量 | 字节 | 平均值 | 帐户使用的容量。 | 无维度 |
-| 事务 | 事务 | 计数 | 总计 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求，还请求生成错误的请求。 将 ResponseType 维度用于不同类型的响应。 | ResponseType、GeoType、ApiName |
-| 入口 | 入口 | 字节 | 总计 | 流入的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的入口，还包括在 Azure 中的入口。 | GeoType、ApiName |
+| 事务 | 事务 | Count | 总计 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求，还请求生成错误的请求。 将 ResponseType 维度用于不同类型的响应。 | ResponseType、GeoType、ApiName |
+| 流入量 | 流入量 | 字节 | 总计 | 流入的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的入口，还包括在 Azure 中的入口。 | GeoType、ApiName |
 | 流出量 | 流出量 | 字节 | 总计 | 流出的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的出口，还包括 Azure 中的出口。 因此，此数字不反映可计费的出口。 | GeoType、ApiName |
 | SuccessServerLatency | 成功服务器延迟 | 毫秒 | 平均值 | 由 Azure 存储用于处理成功请求的平均延迟（以毫秒为单位）。 此值不包括 AverageE2ELatency 中指定的网络延迟。 | GeoType、ApiName |
 | SuccessE2ELatency | 成功 E2E 延迟 | 毫秒 | 平均值 | 向存储服务或指定的 API 操作发出的成功请求的平均端到端延迟（以毫秒为单位）。 此值包括在 Azure 存储中读取请求、发送响应和接收响应确认所需的处理时间。 | GeoType、ApiName |
@@ -39,13 +39,13 @@ ms.locfileid: "76884629"
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
+| 指标 | 指标显示名称 | 单位 | 聚合类型 | 说明 | 维度 |
 |--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Blob 容量 | 字节 | 总计 | 存储帐户的 Blob 服务使用的存储量（以字节为单位）。 | /BlobType |
-| BlobCount | Blob 计数 | 计数 | 总计 | 存储帐户的 Blob 服务中的 blob 数。 | /BlobType |
-| ContainerCount | Blob 容器计数 | 计数 | 平均值 | 存储帐户的 Blob 服务中的容器数。 | 无维度 |
-| 事务 | 事务 | 计数 | 总计 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求，还请求生成错误的请求。 将 ResponseType 维度用于不同类型的响应。 | ResponseType、GeoType、ApiName |
-| 入口 | 入口 | 字节 | 总计 | 流入的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的入口，还包括在 Azure 中的入口。 | GeoType、ApiName |
+| BlobCount | Blob 计数 | Count | 总计 | 存储帐户的 Blob 服务中的 blob 数。 | /BlobType |
+| ContainerCount | Blob 容器计数 | Count | 平均值 | 存储帐户的 Blob 服务中的容器数。 | 无维度 |
+| 事务 | 事务 | Count | 总计 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求，还请求生成错误的请求。 将 ResponseType 维度用于不同类型的响应。 | ResponseType、GeoType、ApiName |
+| 流入量 | 流入量 | 字节 | 总计 | 流入的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的入口，还包括在 Azure 中的入口。 | GeoType、ApiName |
 | 流出量 | 流出量 | 字节 | 总计 | 流出的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的出口，还包括 Azure 中的出口。 因此，此数字不反映可计费的出口。 | GeoType、ApiName |
 | SuccessServerLatency | 成功服务器延迟 | 毫秒 | 平均值 | 由 Azure 存储用于处理成功请求的平均延迟（以毫秒为单位）。 此值不包括 AverageE2ELatency 中指定的网络延迟。 | GeoType、ApiName |
 | SuccessE2ELatency | 成功 E2E 延迟 | 毫秒 | 平均值 | 向存储服务或指定的 API 操作发出的成功请求的平均端到端延迟（以毫秒为单位）。 此值包括在 Azure 存储中读取请求、发送响应和接收响应确认所需的处理时间。 | GeoType、ApiName |
@@ -53,13 +53,13 @@ ms.locfileid: "76884629"
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
+| 指标 | 指标显示名称 | 单位 | 聚合类型 | 说明 | 维度 |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | 表容量 | 字节 | 平均值 | 存储帐户的表服务使用的存储量（以字节为单位）。 | 无维度 |
-| TableCount | 表计数 | 计数 | 平均值 | 存储帐户的表服务中的表数。 | 无维度 |
-| TableEntityCount | 表实体计数 | 计数 | 平均值 | 存储帐户的表服务中的表实体数。 | 无维度 |
-| 事务 | 事务 | 计数 | 总计 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求，还请求生成错误的请求。 将 ResponseType 维度用于不同类型的响应。 | ResponseType、GeoType、ApiName |
-| 入口 | 入口 | 字节 | 总计 | 流入的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的入口，还包括在 Azure 中的入口。 | GeoType、ApiName |
+| TableCount | 表计数 | Count | 平均值 | 存储帐户的表服务中的表数。 | 无维度 |
+| TableEntityCount | 表实体计数 | Count | 平均值 | 存储帐户的表服务中的表实体数。 | 无维度 |
+| 事务 | 事务 | Count | 总计 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求，还请求生成错误的请求。 将 ResponseType 维度用于不同类型的响应。 | ResponseType、GeoType、ApiName |
+| 流入量 | 流入量 | 字节 | 总计 | 流入的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的入口，还包括在 Azure 中的入口。 | GeoType、ApiName |
 | 流出量 | 流出量 | 字节 | 总计 | 流出的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的出口，还包括 Azure 中的出口。 因此，此数字不反映可计费的出口。 | GeoType、ApiName |
 | SuccessServerLatency | 成功服务器延迟 | 毫秒 | 平均值 | 由 Azure 存储用于处理成功请求的平均延迟（以毫秒为单位）。 此值不包括 AverageE2ELatency 中指定的网络延迟。 | GeoType、ApiName |
 | SuccessE2ELatency | 成功 E2E 延迟 | 毫秒 | 平均值 | 向存储服务或指定的 API 操作发出的成功请求的平均端到端延迟（以毫秒为单位）。 此值包括在 Azure 存储中读取请求、发送响应和接收响应确认所需的处理时间。 | GeoType、ApiName |
@@ -67,13 +67,13 @@ ms.locfileid: "76884629"
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-| 度量值 | 指标显示名称 | 单位 | 聚合类型 | Description | 维度 |
+| 指标 | 指标显示名称 | 单位 | 聚合类型 | 说明 | 维度 |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | 队列容量 | 字节 | 平均值 | 存储帐户的队列服务使用的存储量（以字节为单位）。 | 无维度 |
-| QueueCount | 队列计数 | 计数 | 平均值 | 存储帐户的队列服务中的队列数。 | 无维度 |
-| QueueMessageCount | 队列消息计数 | 计数 | 平均值 | 存储帐户的队列服务中队列消息的大致数目。 | 无维度 |
-| 事务 | 事务 | 计数 | 总计 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求，还请求生成错误的请求。 将 ResponseType 维度用于不同类型的响应。 | ResponseType、GeoType、ApiName |
-| 入口 | 入口 | 字节 | 总计 | 流入的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的入口，还包括在 Azure 中的入口。 | GeoType、ApiName |
+| QueueCount | 队列计数 | Count | 平均值 | 存储帐户的队列服务中的队列数。 | 无维度 |
+| QueueMessageCount | 队列消息计数 | Count | 平均值 | 存储帐户的队列服务中队列消息的大致数目。 | 无维度 |
+| 事务 | 事务 | Count | 总计 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求，还请求生成错误的请求。 将 ResponseType 维度用于不同类型的响应。 | ResponseType、GeoType、ApiName |
+| 流入量 | 流入量 | 字节 | 总计 | 流入的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的入口，还包括在 Azure 中的入口。 | GeoType、ApiName |
 | 流出量 | 流出量 | 字节 | 总计 | 流出的数据量（以字节为单位）。 此数字包括从外部客户端到 Azure 存储的出口，还包括 Azure 中的出口。 因此，此数字不反映可计费的出口。 | GeoType、ApiName |
 | SuccessServerLatency | 成功服务器延迟 | 毫秒 | 平均值 | 由 Azure 存储用于处理成功请求的平均延迟（以毫秒为单位）。 此值不包括 AverageE2ELatency 中指定的网络延迟。 | GeoType、ApiName |
 | SuccessE2ELatency | 成功 E2E 延迟 | 毫秒 | 平均值 | 向存储服务或指定的 API 操作发出的成功请求的平均端到端延迟（以毫秒为单位）。 此值包括在 Azure 存储中读取请求、发送响应和接收响应确认所需的处理时间。 | GeoType、ApiName |

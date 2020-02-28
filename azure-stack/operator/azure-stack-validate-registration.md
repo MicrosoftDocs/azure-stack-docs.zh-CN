@@ -8,12 +8,12 @@ ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 0bf57569d1f0f3af38f2fc1d276d02cc0e92439b
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 402f685b54991bc6bea5311720704a700ccea8db
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508066"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696220"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
 

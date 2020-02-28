@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 97cf7e77aa2a352d5b297b13fca0959722401530
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ce9ee8a982ade764947af3c6e2fb2f880cefc217
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884891"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702969"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>利用 Azure 资源管理器为 Azure Stack 中心开发模板
 
@@ -40,11 +40,11 @@ Azure 服务版本在 Azure 与 Azure Stack 中心之间可能会有所不同。
 | --- | --- |
 | 计算 |**2015-06-15** |
 | 网络 |**2015-06-15**， **2015-05-01-预览版** |
-| 存储空间 |**2016-01-01**、 **2015-06-15**、 **2015-05-01-预览** |
+| 存储 |**2016-01-01**、 **2015-06-15**、 **2015-05-01-预览** |
 | KeyVault | **2015-06-01** |
 | 应用服务 |**2015-08-01** |
 
-## <a name="template-functions"></a>模板功能
+## <a name="template-functions"></a>模板函数
 
 Azure 资源管理器[函数](/azure/azure-resource-manager/resource-group-template-functions)提供生成动态模板所需的功能。 例如，可以将函数用于如下任务：
 

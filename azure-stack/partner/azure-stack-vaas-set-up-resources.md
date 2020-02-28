@@ -9,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3dc72eb4dfac10e6e199b2cbfe9668666f83e122
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 779eeefa8b567cfb6b5c151c180a59b76468870a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625299"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704539"
 ---
-# <a name="set-up-azure-ad-and-storage-resources-for-validation-as-a-service"></a>设置用作服务验证的 Azure AD 和存储资源
+# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>教程：将验证的资源设置为服务
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 

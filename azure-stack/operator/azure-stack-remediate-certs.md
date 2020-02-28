@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
-ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 1adf2bdef69549393717fd5705858376447cd710
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 11/19/2019
+ms.openlocfilehash: a41bbb7551409b5767f975fc55834192342c82c5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509630"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697852"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>解决 Azure Stack 中心 PKI 证书的常见问题
 

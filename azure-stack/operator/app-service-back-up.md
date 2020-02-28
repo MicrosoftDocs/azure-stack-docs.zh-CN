@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 8e28461f730275b27b9fc252714cdfbfc7be5dc4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c559a90234b486f8501eeb7b0b8249e41dcdb8fa
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876637"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701473"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>Azure Stack 集线器上的备份应用服务
 

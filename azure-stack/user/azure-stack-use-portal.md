@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 7d580e9c7fe085232d23c6e8f2c3489491dbcf4c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c5f3a357295647f557e0b4ef9819aa1781779434
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884309"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705298"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>使用 Azure Stack 集线器用户门户
 
@@ -22,8 +22,8 @@ ms.locfileid: "76884309"
 
 你的 Azure Stack 中心操作员（你的组织中的服务提供商或管理员）将让你知道正确的 URL 来访问门户。
 
-- 对于集成系统，URL 根据操作员的区域和外部域名而变化，格式为 https://portal.&lt ;*区域*&gt; 。&lt;*FQDN*&gt; 。
-- 如果使用的是 Azure Stack 开发工具包（ASDK），则 https://portal.local.azurestack.external 门户地址。
+- 对于集成系统，URL 根据操作员的区域和外部域名而变化，格式为 https://portal.&lt;*区域*&gt;。&lt;*FQDN*&gt;。
+- 如果使用的是 Azure Stack 开发工具包（ASDK），则 https://portal.local.azurestack.external门户地址。
 - 所有 Azure Stack 中心部署的默认时区均设置为协调世界时（UTC）。 您可以在安装 Azure Stack 集线器时选择时区，但在安装过程中，它将自动恢复为默认值。
 
 ## <a name="customize-the-dashboard"></a>自定义仪表板

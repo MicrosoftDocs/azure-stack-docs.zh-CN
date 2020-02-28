@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 458dc41cd587ca78b979270611cb94ba109d7035
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 842291fc47d76ad40b9933bb6295efaa4446fe41
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880893"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696876"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>租户资源使用情况 API 参考
 
@@ -31,7 +31,7 @@ ms.locfileid: "76880893"
 | --- | --- |
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
 | **Parameter** | **说明** |
 | --- | --- |
@@ -79,7 +79,7 @@ GET
 | **Parameter** | **说明** |
 | --- | --- |
 | id |用量聚合的唯一 ID。 |
-| name |使用情况聚合的名称。 |
+| name |使用聚合的名称。 |
 | type |资源定义。 |
 | subscriptionId |Azure 用户的订阅标识符。 |
 | usageStartTime |此使用情况聚合所属的用量存储桶的 UTC 开始时间。 |

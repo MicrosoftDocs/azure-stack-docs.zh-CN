@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 262d0714c8a0d5979a1313dcff48947f676109ce
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a44af909dc3f3309c51f748b0f3b3f0275843c80
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883004"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705060"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -96,7 +96,7 @@ IPsec 和 IKE 协议标准支持各种组合的各种加密算法。 若要查�
 
 | Diffie-Hellman 组 | DHGroup   | PFSGroup      | 密钥长度    |
 |----------------------|-----------|---------------|---------------|
-| 第                    | DHGroup1  | PFS1          | 768 位 MODP  |
+| 1                    | DHGroup1  | PFS1          | 768 位 MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024 位 MODP |
 | 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | 2048 位 MODP |
 | 19                   | ECP256    | ECP256        | 256 位 ECP   |
@@ -113,7 +113,7 @@ IPsec 和 IKE 协议标准支持各种组合的各种加密算法。 若要查�
 
 有关创建站点到站点 VPN 连接的详细分步说明，请参阅[创建站点到站点 vpn 连接](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 在开始之前，请确保满足以下先决条件：
 

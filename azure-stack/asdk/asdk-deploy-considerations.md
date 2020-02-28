@@ -7,12 +7,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 9d466060f46f924441a8226c2f53ff3889b37429
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 889180858826685150fadb7ad3bef0ffb789b8ec
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873884"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695710"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK 要求和注意事项
 
@@ -20,7 +20,7 @@ ms.locfileid: "76873884"
 
 ## <a name="hardware"></a>硬件
 
-| 组件 | 最小值 | 推荐 |
+| 组件 | 最小值 | 建议 |
 | --- | --- | --- |
 | 磁盘驱动器：操作系统 |1个操作系统磁盘，最小为 200 GB，适用于系统分区（SSD 或 HDD）。 |1个 OS 磁盘，最小为 200 GB，适用于系统分区（SSD 或 HDD）。 |
 | 磁盘驱动器：常规开发工具包数据<sup>*</sup>  |4个磁盘。 每个磁盘提供至少 240 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |4个磁盘。 每个磁盘提供至少 400 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |
@@ -77,7 +77,7 @@ ms.locfileid: "76873884"
 ## <a name="operating-system"></a>操作系统
 |  | **要求** |
 | --- | --- |
-| **操作系统版本** |Windows Server 2016 或更高版本。 在部署开始之前，操作系统版本并不重要，因为你将主机计算机引导到 Azure Stack 安装中包含的 VHD。 操作系统和所有必需的修补程序已集成到映像中。 请勿使用任何密钥激活 ASDK 中使用的任何 Windows Server 实例。 |
+| **OS 版本** |Windows Server 2016 或更高版本。 在部署开始之前，操作系统版本并不重要，因为你将主机计算机引导到 Azure Stack 安装中包含的 VHD。 操作系统和所有必需的修补程序已集成到映像中。 请勿使用任何密钥激活 ASDK 中使用的任何 Windows Server 实例。 |
 
 > [!TIP]
 > 安装操作系统后，可以使用[Azure Stack 的部署检查器](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)来确认硬件是否满足所有要求。
@@ -93,7 +93,7 @@ ms.locfileid: "76873884"
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory 帐户
 若要使用 Azure AD 帐户部署 Azure Stack，必须在运行部署 PowerShell 脚本之前准备 Azure AD 帐户。 此帐户将成为 Azure AD 租户的全局管理员。 它用于为与 Azure AD 和图形 API 交互的所有 Azure Stack 服务预配和委托应用程序和服务主体。 它也用作默认提供商订阅的所有者（以后可以更改）。 你可以使用此帐户登录到 Azure Stack 系统的管理员门户。
 
-1. 创建一个 Azure AD 帐户，该帐户是至少一个 Azure AD 的目录管理员。 如果已经有一个，则可以使用该帐户。 否则，你可以免费创建一个[https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) （在中国，请改为访问 <https://go.microsoft.com/fwlink/?LinkID=717821> ）。 如果你打算以后向[Azure 注册 Azure Stack](asdk-register.md)，则还必须在此新创建的帐户中拥有订阅。
+1. 创建一个 Azure AD 帐户，该帐户是至少一个 Azure AD 的目录管理员。 如果已经有一个，则可以使用该帐户。 否则，你可以免费创建一个[https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) （在中国，请改为访问 <https://go.microsoft.com/fwlink/?LinkID=717821>）。 如果你打算以后向[Azure 注册 Azure Stack](asdk-register.md)，则还必须在此新创建的帐户中拥有订阅。
    
     保存这些凭据以用作服务管理员。此帐户可以配置和管理资源云、用户帐户、租户计划、配额和定价。 在门户中，他们可以创建网站云、VM 私有云、创建计划和管理用户订阅。
 1. 在 Azure AD 中创建至少一个测试用户帐户，以便以租户身份登录到 ASDK。

@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5071af80c5063db8d4fc127f2f64311b21785f12
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: c4d0335f03e0e6012423cfe7d7a7eb684872db3e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77510072"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700300"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-hub-switch-configuration"></a>在 Azure Stack 集线器交换机配置上修改特定设置
 

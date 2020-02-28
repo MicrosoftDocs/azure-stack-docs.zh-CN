@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 76ecac957ab7680032c31cd46db4b717a2f029e5
-ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
+ms.openlocfilehash: ba6e4483475b97b6803781f5b7c5d29d94cbe896
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76977880"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705128"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack 中心 VM 功能
 
@@ -20,7 +20,7 @@ Azure Stack 集线器虚拟机（Vm）提供按需的可缩放计算资源。 �
 
 ## <a name="vm-differences"></a>VM 差异
 
-| 功能 | Azure （全局） | Azure Stack Hub |
+| Feature | Azure （全局） | Azure Stack 中心 |
 | --- | --- | --- |
 | 虚拟机映像 | Azure Marketplace 提供了可用于创建 VM 的映像。 请参阅[Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1)页面，查看 azure marketplace 中提供的映像的列表。 | 默认情况下，Azure Stack 中心 Marketplace 中没有可用的映像。 Azure Stack 中心云管理员必须先将映像发布或下载到 Azure Stack 中心市场，然后用户才能使用。 |
 | VHD 生成 | 第两代 Vm 支持生成一个 Vm 时不支持的关键功能。 这些功能包括增加的内存、Intel 软件防护扩展（Intel SGX）和虚拟化永久性内存（vPMEM）。 在本地运行的两个 Vm 在 Azure 中不支持某些功能。 有关详细信息，请参阅[Azure 上的第2代 Vm 支持](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)  | Azure Stack 集线器仅支持代一代 Vm。 你可以将第一个 VM 从 VHDX 转换为 VHD 文件格式，并从动态扩展为固定大小磁盘。 无法更改 VM 的代。 有关详细信息，请参阅[Azure 上的第2代 Vm 支持](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)。 |
@@ -52,16 +52,16 @@ Azure Stack 中心施加了资源限制，以避免过度消耗资源（服务�
 |常规用途  |基本 A        |[A0-A4](azure-stack-vm-sizes.md#basic-a)                   |
 |常规用途  |标准 A     |[A0-A7](azure-stack-vm-sizes.md#standard-a)              |
 |常规用途  |Av2 系列     |[A1_v2-A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
-|常规用途  |D 系列       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
-|常规用途  |Dv2 系列     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|常规用途  |D 系列       |[D1-D4](azure-stack-vm-sizes.md#d-series)              |
+|常规用途  |Dv2 系列     |[D1_v2-D5_v2](azure-stack-vm-sizes.md#ds-series)        |
 |常规用途  |DS 系列      |[DS1-DS4](azure-stack-vm-sizes.md#dv2-series)            |
-|常规用途  |DSv2 系列    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|内存优化 |D 系列       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
-|内存优化 |DS 系列      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
-|内存优化 |Dv2 系列     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|内存优化 |DSv2 系列    |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|常规用途  |DSv2-series    |[DS1_v2-DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|内存优化 |D 系列       |[D11-D14](azure-stack-vm-sizes.md#mo-d)            |
+|内存优化 |DS 系列      |[DS11-DS14](azure-stack-vm-sizes.md#mo-ds)|
+|内存优化 |Dv2 系列     |[D11_v2-DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|内存优化 |DSv2-series    |[DS11_v2-DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 |计算优化|F 系列       |[F1 - F16](azure-stack-vm-sizes.md#f-series)    |
-|计算优化|FS 系列      |[F1s - F16s](azure-stack-vm-sizes.md#fs-series)    |
+|计算优化|Fs 系列      |[F1s - F16s](azure-stack-vm-sizes.md#fs-series)    |
 |计算优化|Fsv2 系列    |[F2s_v2-F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 
 VM 大小及其关联的资源数量在 Azure Stack 中心与 Azure 之间一致。 此一致性包括内存量、内核数，以及可以创建的数据磁盘的数量/大小。 但是，具有相同大小的 Vm 的性能取决于特定 Azure Stack 中心环境的基本特征。

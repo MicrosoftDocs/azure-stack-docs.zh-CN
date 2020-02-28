@@ -7,12 +7,12 @@ ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 183826f30cb85db6326327599dea9dd85b4c65df
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: fe76a0cd0763f7a5d8b1eddcba61402806a15c11
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509800"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699399"
 ---
 # <a name="integrate-physical-device-auditing-with-your-azure-stack-hub-datacenter"></a>将物理设备审核与 Azure Stack 中心数据中心集成
 

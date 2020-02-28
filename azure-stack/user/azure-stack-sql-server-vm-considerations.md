@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b764054e08af89ce20c123c7d3dd9659560e1297
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: ec1a5b07498e380eeef3989df1185537afef360f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884354"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704839"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>优化 Azure Stack 中心性能的 SQL server 最佳做法
 
@@ -38,10 +38,10 @@ ms.locfileid: "76884354"
 |区域|优化|
 |-----|-----|
 |VM 大小 |SQL Server Enterprise 版本的[DS3](azure-stack-vm-sizes.md)或更高版本。<br><br>SQL Server Standard edition 和 Web edition 的[DS2](azure-stack-vm-sizes.md)或更高版本。|
-|存储空间 |使用支持[高级存储](azure-stack-acs-differences.md)的 VM 系列。|
+|存储 |使用支持[高级存储](azure-stack-acs-differences.md)的 VM 系列。|
 |磁盘 |至少使用两个数据磁盘（一个用于日志文件，另一个用于数据文件和 TempDB），并根据容量需求选择磁盘大小。 在 SQL Server 安装过程中，将默认数据文件位置设置为这些磁盘。<br><br>避免使用操作系统或临时磁盘进行数据库存储或日志记录。<br>使用存储空间来条带化多个 Azure 数据磁盘，以提高 IO 吞吐量。<br><br>使用规定的分配大小格式化。|
 |I/O|对数据文件启用即时文件初始化。<br><br>以合理的较小固定增量限制数据库的自动增长（64 MB-256 MB）。<br><br>禁用数据库自动收缩。<br><br>在数据磁盘上设置默认的备份和数据库文件位置，而不是操作系统磁盘。<br><br>启用锁定页面。<br><br>应用 SQL Server service pack 和累积更新。|
-|功能特定|直接备份到 blob 存储（如果 SQL Server 使用版本支持）。|
+|特定于功能|直接备份到 blob 存储（如果 SQL Server 使用版本支持）。|
 |||
 
 有关*如何*和*为何*进行这些优化的详细信息，请查看以下部分中提供的详细信息和指南。

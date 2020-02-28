@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: f0620162767ea69c8c8221f13bd698f003424a58
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: d197a8b4464af8f331a11af2ba642ad053273bf9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509936"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699705"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>为 Azure Stack 中心生成证书签名请求
 

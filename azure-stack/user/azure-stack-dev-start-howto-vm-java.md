@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 6a696417b296da978b2d077c6f2c01b94a106d2e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884901"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704142"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 Java web 应用部署到 VM
 
@@ -24,7 +24,7 @@ ms.locfileid: "76884901"
 
 2. 在 "VM 网络" 窗格中，确保可访问以下端口：
 
-    | Port | 协议 | Description |
+    | 端口 | 协议 | 说明 |
     | --- | --- | --- |
     | 80 | HTTP | 超文本传输协议（HTTP）是用于从服务器传递网页的协议。 客户端通过 HTTP 连接 DNS 名称或 IP 地址。 |
     | 443 | HTTPS | 超文本传输协议（HTTPS）是 HTTP 的安全版本，它需要安全证书，并允许加密传输信息。 |
@@ -54,13 +54,13 @@ ms.locfileid: "76884901"
 
 1. 通过执行以下操作创建 Tomcat 用户：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 通过运行以下命令创建新的 Tomcat 组：
+    a. 通过运行以下命令创建新的 Tomcat 组：
 
     ```bash  
         sudo groupadd tomcat
     ```
      
-    b.保留“数据库类型”设置，即设置为“共享”。 创建新的 Tomcat 用户。 将此用户添加到包含 */opt/tomcat*主目录的 Tomcat 组。 将 Tomcat 部署到此目录：
+    b. 创建新的 Tomcat 用户。 将此用户添加到包含 */opt/tomcat*主目录的 Tomcat 组。 将 Tomcat 部署到此目录：
 
     ```bash  
         sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
@@ -68,9 +68,9 @@ ms.locfileid: "76884901"
 
 1. 通过执行以下操作来安装 Tomcat：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 从[tomcat 8 下载页](http://tomcat.apache.org/download-80.cgi)获取最新版本的 tomcat 8 的 tar URL。
+    a. 从[tomcat 8 下载页](http://tomcat.apache.org/download-80.cgi)获取最新版本的 tomcat 8 的 tar URL。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 使用 "连接" 链接来下载最新版本。 运行以下命令：
+    b. 使用 "连接" 链接来下载最新版本。 运行以下命令：
 
     ```bash  
         cd /tmp 
@@ -95,7 +95,7 @@ ms.locfileid: "76884901"
 
 1. 创建*systemd*服务文件，以便可以将 Tomcat 作为服务运行。
 
-   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 Tomcat 需要知道安装 Java 的位置。 此路径通常称为*JAVA_HOME*。 通过运行以下内容查找位置：
+   a. Tomcat 需要知道安装 Java 的位置。 此路径通常称为*JAVA_HOME*。 通过运行以下内容查找位置：
 
     ```bash  
         sudo update-java-alternatives -l
@@ -110,7 +110,7 @@ ms.locfileid: "76884901"
 
     可以通过从输出中获取路径并添加 */jre*来构造*JAVA_HOME*变量值。 例如，使用前面的示例 */usr/lib/jvm/java-1.8.0-openjdk-amd64/jre*。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 使用服务器中的值创建 systemd 服务文件：
+    b. 使用服务器中的值创建 systemd 服务文件：
 
     ```bash  
         sudo nano /etc/systemd/system/tomcat.service
@@ -146,9 +146,9 @@ ms.locfileid: "76884901"
         WantedBy=multi-user.target
     ```
 
-    d.单击“下一步”。 保存并关闭该文件。
+    d. 保存并关闭该文件。
 
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。 重载 systemd 守护程序，使其了解你的服务文件：
+    e. 重载 systemd 守护程序，使其了解你的服务文件：
 
     ```bash  
         sudo systemctl daemon-reload
@@ -188,13 +188,13 @@ ms.locfileid: "76884901"
 
 1. 若要允许自己访问 web 管理界面，请配置 Tomcat 服务器。 
 
-   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 编辑*tomcat-users*文件，并定义角色和用户，以便可以登录。 定义访问 `manager-gui` 和 `admin-gui`的用户。
+   a. 编辑*tomcat-users*文件，并定义角色和用户，以便可以登录。 定义访问 `manager-gui` 和 `admin-gui`的用户。
 
     ```bash  
         sudo nano /opt/tomcat/conf/tomcat-users.xml
     ```
 
-   b.保留“数据库类型”设置，即设置为“共享”。 将以下元素添加到 `<tomcat-users>` 部分：
+   b. 将以下元素添加到 `<tomcat-users>` 部分：
 
     ```XML  
         <role rolename="tomcat"/>
@@ -217,13 +217,13 @@ ms.locfileid: "76884901"
 
 1. Tomcat 限制了对来自服务器的连接的*管理器*和*主机管理器*应用的访问。 因为你要在 Azure Stack Hub 中的 VM 上安装 Tomcat，所以需要删除此限制。 通过编辑相应的*上下文 .xml*文件来更改这些应用的 IP 地址限制。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 在管理器应用中更新*上下文 .xml* ：
+    a. 在管理器应用中更新*上下文 .xml* ：
 
     ```bash  
         sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
     ```
 
-    b.保留“数据库类型”设置，即设置为“共享”。 注释掉 IP 地址限制以允许来自任何位置的连接，或者添加用于连接到 Tomcat 的计算机的 IP 地址。
+    b. 注释掉 IP 地址限制以允许来自任何位置的连接，或者添加用于连接到 Tomcat 的计算机的 IP 地址。
 
     ```XML  
     <Context antiResourceLocking="false" privileged="true" >
@@ -234,13 +234,13 @@ ms.locfileid: "76884901"
 
     c. 保存并关闭该文件。
 
-    d.单击“下一步”。 使用类似更新更新主机管理器应用的*上下文 .xml* ：
+    d. 使用类似更新更新主机管理器应用的*上下文 .xml* ：
 
     ```bash  
         sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml
     ```
 
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。 保存并关闭该文件。
+    e. 保存并关闭该文件。
 
 1. 若要用更改更新服务器，请重新启动 Tomcat 服务：
 
@@ -250,9 +250,9 @@ ms.locfileid: "76884901"
 
 1. 在与 Azure Stack 中心相同的网络中打开浏览器，然后打开服务器： yourmachine. *p p. test-azurestack： 8080*。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 若要查看 Tomcat 服务器的状态并验证你是否具有访问权限，请选择 "**服务器状态**"。
+    a. 若要查看 Tomcat 服务器的状态并验证你是否具有访问权限，请选择 "**服务器状态**"。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 用 Tomcat 凭据登录。
+    b. 用 Tomcat 凭据登录。
 
     ![Azure Stack 中心 VM 上的 Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
 
@@ -280,9 +280,9 @@ ms.locfileid: "76884901"
 
 1. 若要清除 webapps 文件夹，然后加载新的或更新的 WAR，请通过 FileZilla 连接到 VM。 有关说明，请参阅通过[FileZilla 与 SFTP 连接](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-sftp-with-filezilla)。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 清除*TOMCAT_HOME/webapps*。
+    a. 清除*TOMCAT_HOME/webapps*。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 将 WAR 添加到*TOMCAT_HOME/webapps* （例如 */opt/tomcat/webapps/* ）。
+    b. 将 WAR 添加到*TOMCAT_HOME/webapps* （例如 */opt/tomcat/webapps/* ）。
 
 1.  Tomcat 自动展开并部署应用程序。 您可以使用之前创建的 DNS 名称来查看它。 例如：
 

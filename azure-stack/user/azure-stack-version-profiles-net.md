@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6f8220f9a8683569c23460acf2890c9aa8407f30
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 37ffe5bd8325e309f8d9381cf058cfd07ac48480
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883087"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705196"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 API 版本配置文件与 .NET 配合使用
 
@@ -22,15 +22,15 @@ ms.locfileid: "76883087"
 
 API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配置文件来获取资源提供程序包中每种资源类型的最新、最稳定的版本。
 
-- 若要使用所有服务的最新版本，请使用包的 **latest** 配置文件。 该配置文件是 **Microsoft.Azure.Management** NuGet 包的一部分。
+- 若要使用所有服务的最新版本，请使用**最新**版本的包。 此配置文件属于**Microsoft Azure 管理**NuGet 包。
 
 - 若要使用与 Azure Stack 中心兼容的服务，请使用以下包之一：
-  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
-  - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+  - **Nupkg\_2019\_03\_01 <. *>.* 0.9.0。**
+  - **Nupkg\_2018\_03\_01 <. *>.* 0.9.0。**
 
-  确保将上述 NuGet 包的 **ResourceProvider** 部分更改为正确的提供程序。
+  确保上述 NuGet 包的**ResourceProvider**部分已更改为正确的提供程序。
 
-- 若要使用服务的最新 API 版本，请使用特定 NuGet 包的**最新**配置文件。 例如，如果想要单独使用**最新 API**版本的计算服务，请使用**最新**的**计算**包配置文件。 **latest** 配置文件是 **Microsoft.Azure.Management** NuGet 包的一部分。
+- 若要使用服务的最新 API 版本，请使用特定 NuGet 包的**最新**配置文件。 例如，如果想要单独使用**最新 API**版本的计算服务，请使用**最新**的**计算**包配置文件。 **最新**的配置文件属于**Microsoft Azure 管理**NuGet 包。
 
 - 若要对特定资源提供程序中的资源类型使用特定的 API 版本，请使用包中定义的特定 API 版本。
 
@@ -38,17 +38,17 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
 
 ## <a name="install-the-azure-net-sdk"></a>安装 Azure .NET SDK
 
-- 安装 Git。 有关说明，请参阅[入门 - 安装 Git][]。
+- 安装 Git。 有关说明，请参阅[入门-安装 Git][]。
 
 - 若要安装正确的 NuGet 包，请参阅[查找和安装包][]。
 
 - 需要安装的包取决于要使用的配置文件版本。 配置文件版本的包名称如下：
 
-  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+  - **Nupkg\_2019\_03\_01 <. *>.* 0.9.0。**
 
-  - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+  - **Nupkg\_2018\_03\_01 <. *>.* 0.9.0。**
 
-- 若要安装 Visual Studio Code 的正确 NuGet 包，请查看此下载链接：[NuGet 包管理器说明][]。
+- 若要为 Visual Studio Code 安装正确的 NuGet 包，请参阅以下链接下载[NuGet 包管理器说明][]。
 
 - 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关如何创建订阅的信息，请参阅[在 Azure Stack Hub 中创建对产品/服务的订阅][]。
 
@@ -56,11 +56,11 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
 
 - 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何将角色分配给服务主体的信息，请参阅为[向应用程序提供 Azure Stack 集线器的访问权限][]。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 若要将 .NET Azure SDK 与 Azure Stack 中心一起使用，必须提供以下值，并使用环境变量设置值。 若要设置环境变量，请参阅下表中针对特定操作系统的说明。
 
-| 值                     | 环境变量   | Description                                                                                                             |
+| 值                     | 环境变量   | 说明                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | 租户 ID                 | `AZURE_TENANT_ID `      | Azure Stack 中心[*租户 ID*][]的值。                                                                          |
 | 客户端 ID                 | `AZURE_CLIENT_ID `      | 在本文上一部分中创建服务主体时保存的服务主体应用 ID。 |
@@ -95,7 +95,7 @@ Azure 资源管理器是一种管理框架，它使管理员能够部署、管�
 
 请注意以下事项：
 
-- Azure Stack 开发工具包中的**ResourceManagerUrl** （ASDK）是： https://management.local.azurestack.external/ 。
+- Azure Stack 开发工具包中的**ResourceManagerUrl** （ASDK）是： https://management.local.azurestack.external/。
 
 - 集成系统中的**ResourceManagerUrl**为： `https://management.region.<fqdn>/`，其中 `<fqdn>` 是完全限定的域名。
 若要检索所需的元数据： `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`。
@@ -121,9 +121,9 @@ Azure 资源管理器是一种管理框架，它使管理员能够部署、管�
 
 - **\_2018\_03\_01 <. nupkg 的**：将此配置文件用于服务，以便与版本1808或更高版本的 > 中心兼容。
 
-- **Latest**：包含所有服务的最新版本的配置文件。 使用所有服务的最新版本。 该配置文件是 **Microsoft.Azure.Management** NuGet 包的一部分。
+- **最新**：包含所有服务的最新版本的配置文件。 使用所有服务的最新版本。 此配置文件属于**Microsoft Azure 管理**NuGet 包。
 
-有关 Azure Stack 集线器和 API 配置文件的详细信息，请参阅[API 配置文件的摘要][]。
+有关 Azure Stack 集线器和 API 配置文件的详细信息，请参阅[API 配置文件摘要][]。
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Azure .NET SDK API 配置文件使用情况
 
@@ -195,15 +195,15 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 - [在 Azure Stack 中心管理 API 版本配置文件](azure-stack-version-profiles.md)
 - [配置文件支持的资源提供程序 API 版本](azure-stack-profiles-azure-resource-manager-versions.md)
 
-  [入门 - 安装 Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+  [入门-安装 Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
   [查找和安装包]: /nuget/tools/package-manager-ui
   [NuGet 包管理器说明]: https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager
   [在 Azure Stack Hub 中创建对产品/服务的订阅]: ../operator/azure-stack-subscribe-plan-provision-vm.md
   [向应用程序提供 Azure Stack 集线器的访问权限]: ../operator/azure-stack-create-service-principals.md
-  [*租户 ID*]: ../operator/azure-stack-identity-overview.md
-  [*订阅 ID*]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
+  [* 租户 ID *]: ../operator/azure-stack-identity-overview.md
+  [* 订阅 ID *]: ../operator/service-plan-offer-subscription-overview.md#subscriptions
   [* Azure Stack 中心资源管理器终结点 *]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint
-  [API 配置文件的摘要]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
+  [API 配置文件摘要]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
   [Use Azure PowerShell to create a service principal with a certificate]: ../operator/azure-stack-create-service-principals.md
   [Run unit tests with Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017

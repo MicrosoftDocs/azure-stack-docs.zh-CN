@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 78482b149a8397b9cc441cd97da905b782f9b7d4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 03/13/20192
+ms.openlocfilehash: 9e9447baf9f5676cac8555513682bab8da750bb2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876314"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701167"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Azure Stack 中心中的应用服务服务器角色的容量规划
 
@@ -41,13 +41,13 @@ Azure App Service 控制器通常会消耗 CPU、内存和网络资源的低消�
 
 **建议的最小值**：两个 A1 标准实例
 
-前端根据 web 工作进程的可用性将请求路由到 web 工作进程。 为实现高可用性，应该有多个前端，并且可有两个以上的前端。 出于容量规划目的考虑，每个核心每秒可处理大约100请求。
+前端根据 web 工作进程的可用性将请求路由到 web 工作进程。 为实现高可用性，应该有多个前端，并且可有两个以上的前端。 对于容量规划用途，请设想每个核心每秒可处理大约 100 个请求。
 
 ## <a name="management-role"></a>管理角色
 
 **建议的最小值**：两个 A3 标准实例
 
-Azure 应用经典部署模型角色负责应用服务 Azure 资源管理器和 API 终结点、门户扩展（管理员、租户、函数门户）和数据服务。 在生产环境中，管理服务器角色通常只需要大约 4 GB RAM。 但是，在执行许多管理任务（如网站创建）时，它可能会遇到高 CPU 级别。 为实现高可用性，应将多个服务器分配给此角色，并且每个服务器至少有两个内核。
+Azure 应用经典部署模型角色负责应用服务 Azure 资源管理器和 API 终结点、门户扩展（管理员、租户、函数门户）和数据服务。 在生产环境中，管理服务器角色通常只需要大约 4 GB RAM。 但是，在执行大量管理任务（如网站创建）时，其 CPU 利用率水平可能较高。 为实现高可用性，应将多个服务器分配给此角色，并且每个服务器至少有两个内核。
 
 ## <a name="publisher-role"></a>发布者角色
 
@@ -70,7 +70,7 @@ Azure 应用经典部署模型角色负责应用服务 Azure 资源管理器和 
 
 在决定要使用的共享 web 工作进程角色数时，请查看以下注意事项：
 
-- **内存**：内存是 web 辅助角色最重要的资源。 在从磁盘交换虚拟内存时，内存不足会影响网站性能。 每台服务器需要大约 1.2 GB RAM 用于操作系统。 此阈值以上的 RAM 可用于运行网站。
+- **内存**：内存是 web 辅助角色最重要的资源。 内存不足在从磁盘交换虚拟内存时影响网站性能。 每台服务器需要大约 1.2 GB RAM 用于操作系统。 此阈值以上的 RAM 可用于运行网站。
 - **活动网站百分比**：通常，在 Azure Stack 中心部署的 Azure App Service 中，大约5% 的应用处于活动状态。 但是，在任何给定时刻处于活动状态的应用的百分比可以更高或更低。 如果活动应用速率为5%，则 Azure Stack 中心部署中 Azure App Service 的最大应用数应小于活动网站数的20倍（5 x 20 = 100）。
 - **平均内存占用量**：在生产环境中观察到的应用的平均内存占用量约为 70 MB。 使用此空间时，将按如下所示计算跨所有 web 辅助角色计算机或 Vm 分配的内存：
 

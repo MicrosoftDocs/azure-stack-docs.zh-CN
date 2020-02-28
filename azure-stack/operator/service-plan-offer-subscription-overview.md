@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: c67d880308bd946c2f73f0993bbd3a19be0342aa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0e5d71335fb5b7086341c7c06ec503aae1a8e728
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885167"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704771"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack 中心服务、计划、产品/服务、订阅概述
 
@@ -78,7 +78,7 @@ ms.locfileid: "76885167"
 
 外接程序计划是您向产品/服务添加的可选计划。 默认情况下，订阅中不包含附加计划。 外接程序计划是订阅服务器可以添加到其订阅中的其他计划（带有配额）。 例如，你可以为试用提供有限资源的基本计划，并为决定采用该服务的客户提供更重要资源的附加计划。
 
-## <a name="offers"></a>服务
+## <a name="offers"></a>产品
 
 "产品/服务" 是你创建的一个或多个计划的组，以便用户可以订阅它们。 例如： "产品/服务" Alpha 可以包含 "计划"，它提供一组计算服务和计划 B，后者提供一组存储和网络服务。
 
@@ -92,7 +92,7 @@ ms.locfileid: "76885167"
 
 **委托的提供程序**：你可以向其他人授予在你的环境中创建产品/服务的能力。 例如，如果你是服务提供商，则可以将此功能[委托](azure-stack-delegated-provider.md)给分销商。 或者，如果你是组织，可以委托给其他部门/子公司。
 
-## <a name="subscriptions"></a>订阅
+## <a name="subscriptions"></a>Subscriptions
 
 订阅允许用户访问你的产品/服务。 如果你是服务提供商的 Azure Stack 中心操作员，你的用户（租户）通过订阅产品/服务来购买你的服务。 如果你是组织中的 Azure Stack 中心运营商，则你的用户（员工）可以订阅所提供的服务而无需付费。
 

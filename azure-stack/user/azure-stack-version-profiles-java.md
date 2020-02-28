@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: da85abeff55d09684c561679bdc0f85e28440ed7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 6dc30839ba08a793ead0e857f17e97a90222f7a5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884243"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705213"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 Java 使用 API 版本配置文件
 
@@ -68,7 +68,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
 
 4. 需要安装的一组包取决于要使用的配置文件版本。 配置文件版本的包名称如下：
 
-   - **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**
+   - **.com\_2019\_03\_01\_混合**
    - **.com。 azure**
      - **最近**
 
@@ -78,11 +78,11 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
 
 7. 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何向服务主体分配角色的说明，请参阅为[应用程序提供对 Azure Stack 集线器的访问权限](../operator/azure-stack-create-service-principals.md)。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 若要将 Azure Java SDK 与 Azure Stack 中心一起使用，必须提供以下值，并使用环境变量设置值。 若要设置环境变量，请参阅表后针对操作系统的说明。
 
-| 值                     | 环境变量 | Description                                                                                                                                                                                                          |
+| 值                     | 环境变量 | 说明                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 租户 ID                 | `AZURE_TENANT_ID`            | Azure Stack 中心[租户 ID](../operator/azure-stack-identity-overview.md)。                                                          |
 | 客户端 ID                 | `AZURE_CLIENT_ID`             | 在上一部分中创建服务主体时保存的服务主体应用程序 ID。                                                                                              |
@@ -264,7 +264,7 @@ public static HashMap<String, String> getActiveDirectorySettings(String armEndpo
    git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
    ```
 
-2. 创建 Azure 服务主体并分配用于访问订阅的角色。 有关如何创建服务主体的说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](../operator/azure-stack-create-service-principals.md)。
+2. 创建 Azure 服务主体并分配用于访问订阅的角色。 有关创建服务主体的说明，请参阅[使用 Azure PowerShell 使用证书创建服务主体](../operator/azure-stack-create-service-principals.md)。
 
 3. 检索以下必需的环境变量：
 
@@ -284,7 +284,7 @@ public static HashMap<String, String> getActiveDirectorySettings(String armEndpo
    - `export ARM_ENDPOINT={your Azure Stack Hub Resource Manager URL}`
    - `export RESOURCE_LOCATION={location of Azure Stack Hub}`
 
-   在 Windows 中，请使用 **set** 而不是 **export**。
+   在 Windows 中，使用 "**设置**" 而不是 "**导出**"。
 
 5. 使用 `getActiveDirectorySettings` 函数检索 Azure 资源管理器元数据终结点。
 

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 8be3e34605d2759494a7315959285829c3ab41c6
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: fe4f63149af62d60391ab38bffe37cd3d8a39957
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508950"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696713"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>使用 Powershell 监视 Azure Stack 集线器中的更新
 

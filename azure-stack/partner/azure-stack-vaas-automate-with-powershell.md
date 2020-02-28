@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a85f43096cffa900bfefb801bdd28b26358e6219
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: c9372aed013c8af089e8e07a0474d6d0321ef53a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147761"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704737"
 ---
 # <a name="automate-azure-stack-hub-validation-with-powershell"></a>利用 PowerShell 自动 Azure Stack 集线器验证
 
@@ -266,7 +266,7 @@ $scriptParameters = @{
 | CloudAdminUserName | 云管理员用户名。  |
 | CloudAdminPassword | 云管理员的密码。  |
 | SolutionName | VaaS 解决方案的名称。 |
-| ProjectName | VaaS 工作流的名称。 |
+| 项目名称 | VaaS 工作流的名称。 |
 | DiagnosticsStorageConnection | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅[生成诊断连接字符串](azure-stack-vaas-parameters.md)。 |
 
 ## <a name="review-the-results"></a>查看结果

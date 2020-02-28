@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c25ceebdf82c7fe0e32259346d3d59558fdabc7
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: daef2c9685bd844ba99cadfa4f9f095fadc028be
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625367"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704499"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>验证作为服务的验证
 

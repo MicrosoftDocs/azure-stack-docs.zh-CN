@@ -7,12 +7,12 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: fdb31f29faa5fa1890be0fa12050a1cd8b1c56a8
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890113"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704448"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建和发布自定义 Azure Stack 中心市场项
 
@@ -22,7 +22,7 @@ ms.locfileid: "76890113"
 
 本文中的示例演示如何创建一个类型为 Windows 或 Linux 的 VM Marketplace 产品。
 
-## <a name="create-a-marketplace-item"></a>创建市场项目
+## <a name="create-a-marketplace-item"></a>创建 Marketplace 项
 
 > [!IMPORTANT]
 > 创建 VM marketplace 项之前，请按照[将 vm 映像添加到 Azure Stack 中心](azure-stack-add-vm-image.md)中的说明，将自定义 VM 映像上传到 Azure Stack 中心门户。 然后，按照本文中的说明对映像进行打包（创建 .azpkg）并将其上传到 Azure Stack 中心市场。
@@ -157,7 +157,7 @@ ms.locfileid: "76890113"
     >
     >
 
-## <a name="publish-a-marketplace-item"></a>发布市场项目
+## <a name="publish-a-marketplace-item"></a>发布 Marketplace 项
 
 1. 使用 PowerShell 或 Azure 存储资源管理器将 Marketplace 项（. .azpkg）上传到 Azure Blob 存储。 可以上传到本地 Azure Stack 中心存储或上传到 Azure 存储，这是包的临时位置。 请确保 blob 可公开访问。
 
@@ -206,7 +206,7 @@ ms.locfileid: "76890113"
 
 ### <a name="identity-information"></a>标识信息
 
-| 名称 | 需要 | 类型 | 约束 | Description |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | 名称 |X |String |[A-Za-z0-9]+ | |
 | 发布者 |X |String |[A-Za-z0-9]+ | |
@@ -214,23 +214,23 @@ ms.locfileid: "76890113"
 
 ### <a name="metadata"></a>元数据
 
-| 名称 | 需要 | 类型 | 约束 | Description |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |建议80个字符 |如果项目名称的长度超过80个字符，门户可能不会正确显示您的项目名称。 |
 | PublisherDisplayName |X |String |建议30个字符 |如果你的发布者名称长度超过30个字符，则它可能不会正确显示你的发布者名称。 |
 | PublisherLegalName |X |String |最多256个字符 | |
-| 摘要 |X |String |60到100个字符 | |
+| 总结 |X |String |60到100个字符 | |
 | LongSummary |X |String |140到256个字符 |尚不适用于 Azure Stack 中心。 |
-| Description |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500到5000个字符 | |
+| 说明 |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500到5000个字符 | |
 
-### <a name="images"></a>图像
+### <a name="images"></a>映像
 
 Marketplace 使用以下图标：
 
 | 名称 | 宽度 | 高度 | 说明 |
 | --- | --- | --- | --- |
 | 宽型 |255 px |115 px |始终需要 |
-| 大 |115 px |115 px |始终需要 |
+| 大型 |115 px |115 px |始终需要 |
 | 中型 |90 px |90 px |始终需要 |
 | 小型 |40 px |40 px |始终需要 |
 | 屏幕快照 |533 px |324 px |始终需要 |
@@ -243,7 +243,7 @@ Marketplace 使用以下图标：
 
 每个 Marketplace 项可以包含指向其他内容的各种链接。 这些链接指定为名称和 Uri 的列表：
 
-| 名称 | 需要 | 类型 | 约束 | Description |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最多64个字符。 | |
 | Uri |X |URI | | |
@@ -252,7 +252,7 @@ Marketplace 使用以下图标：
 
 除了上述元数据外，Marketplace 作者还可以提供以下形式的自定义键/值对数据：
 
-| 名称 | 需要 | 类型 | 约束 | Description |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最多25个字符。 | |
 | 值 |X |String |最多30个字符。 | |

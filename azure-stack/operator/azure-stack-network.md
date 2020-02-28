@@ -7,12 +7,12 @@ ms.date: 02/18/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: e77edd87f09f4e620c4388b8e5a277d49276bff2
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: c783a22ea284413d7db79ab4925db6d8c58858ea
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509426"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698481"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack 的网络集成规划
 

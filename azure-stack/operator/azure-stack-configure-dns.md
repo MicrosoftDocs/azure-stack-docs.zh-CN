@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 773ee77c1fcad3fa355e453355aa08e5887da974
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 6d5138868b07e2a3d552cd154976352266941760
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509154"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704465"
 ---
 # <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>更新 Azure Stack 集线器中的 DNS 转发器
 

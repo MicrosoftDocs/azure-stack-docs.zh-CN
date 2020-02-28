@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: 7b83fa18f8a550a718023c97ccab8d46b5b86564
-ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
+ms.lastreviewed: 1/16/2019
+ms.openlocfilehash: 63d50749d3877209dd81ca7a59a38e634b2d46e7
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075193"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697546"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack 中心基础结构安全控制
 

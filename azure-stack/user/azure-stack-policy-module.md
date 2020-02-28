@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 880d7eb5732a7ac28a08cfacf1108387a1f9c62e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7af2662c52de8085b6b77fa0c9a2b36f401168fc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883341"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703819"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>使用 Azure Stack 中心策略模块管理 Azure 策略
 

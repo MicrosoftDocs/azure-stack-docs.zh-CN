@@ -7,12 +7,12 @@ ms.date: 01/06/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 65f28a4de02bf8d52a15e19a1e5ea6a28ad7dce3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884190"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705145"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>在 Azure Stack 中心管理 API 版本配置文件
 
@@ -34,9 +34,9 @@ API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API �
 - 使用三个配置文件命名约定：
   - **最近**  
         包含在全球 Azure 中发布的最新 API 版本。
-  - **yyyy-mm-dd-hybrid**  
+  - **yyyy-mm-dd-混合**  
     此版本每年发布，侧重于跨多个云的一致性和稳定性。 此配置文件面向最佳 Azure Stack 集线器兼容性。
-  - **yyyy-mm-dd-profile** <br>
+  - **yyyy-mm-dd-配置文件** <br>
     平衡最佳稳定性和最新功能。
 
 ## <a name="azure-api-profiles-and-azure-stack-hub-compatibility"></a>Azure API 配置文件和 Azure Stack 集线器兼容性
@@ -49,7 +49,7 @@ API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API �
 **Yyyy-mm-dd-混合**  
 此配置文件每年3月和9月发布。 它具有与各种云的最佳稳定性和兼容性，旨在面向全球 Azure 和 Azure Stack 中心。 此配置文件中列出的 Azure API 版本将与 Azure Stack 集线器中列出的版本相同。 使用此配置文件开发混合云解决方案的代码。
 
-**yyyy-mm-dd-profile**  
+**yyyy-mm-dd-配置文件**  
 此配置文件在六月和十二月为全球 Azure 发布。 它无法与 Azure Stack 中心一起使用，并且通常会发生很多重大更改。 尽管它会平衡最佳稳定性和最新功能，但最**新与**此配置文件之间的区别是**最新**始终包含最新的 api 版本，而不考虑何时发布 API。 例如，如果为计算 API 创建了一个新的 API 版本明天，则该 API 版本将在**最新**版本中列出，而不是在**yyyy-mm-dd**配置文件中列出，因为此配置文件已存在。 **yyyy-mm-dd-profile**涵盖6月之前或之前发布的最新版本。
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure 资源管理器 API 配置文件

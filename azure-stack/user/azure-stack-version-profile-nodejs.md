@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b397ee97c5b1e7ea9cc1a47e60f24d21ae8d6f29
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: acdacb826d75a2df1aca49c9029a0ef02e6744ea
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884274"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705264"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 node.js 软件开发工具包（SDK）使用 API 版本配置文件
 
@@ -28,7 +28,7 @@ Node.js SDK 提供 Azure Stack 中心资源管理器工具。 SDK 中的资源�
 
 API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API 配置文件获取资源提供程序包中每个资源类型的最新且最稳定的版本。
 
-  -   若要使用所有服务的最新版本，请使用包的 **latest** 配置文件。
+  -   若要使用所有服务的最新版本，请使用**最新**版本的包。
 
   -   若要使用与 Azure Stack 中心兼容的服务，请使用 **\@azure/arm-资源配置**--03-03 或 **\@azure/arm--01.txt-03-03**
 
@@ -51,7 +51,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 | [资源](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
  | [Keyvault](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid) | @azure/arm-keyvault-profile-2019-03-01-hybrid |
 
-若要使用服务的最新 API 版本，请使用特定客户端库的**最新**配置文件。 例如，如果你想要单独使用最新的 API 版本的资源服务，请使用**资源管理客户端库**的 `azure-arm-resource` 配置文件。 软件包.
+若要使用服务的最新 API 版本，请使用特定客户端库的**最新**配置文件。 例如，如果你想要单独使用最新的 API 版本的资源服务，请使用**资源管理客户端库**的 `azure-arm-resource` 配置文件。 部署。
 
 使用包中定义的特定 API 版本获取资源提供程序的特定 API 版本。
 
@@ -60,7 +60,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 ## <a name="install-the-nodejs-sdk"></a>安装 node.js SDK
 
-1. 安装 Git。 有关说明，请参阅[入门 - 安装 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+1. 安装 Git。 有关说明，请参阅[入门-安装 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
 2. 安装或升级[到 node.js 的当前版本。](https://nodejs.org/en/download/) Node.js 还包括[npm](https://www.npmjs.com/) JavaScript 包管理器。
 
@@ -82,7 +82,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 若要将 node.js Azure SDK 与 Azure Stack 中心一起使用，必须提供以下值，并使用环境变量设置值。 若要设置环境变量，请参阅表后针对操作系统的说明。
 
-| 值 | 环境变量 | Description |
+| 值 | 环境变量 | 说明 |
 | --- | --- | --- |
 | 租户 ID | 租户\_ID | Azure Stack 中心[租户 ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview)的值。 |
 | 客户端 ID | 客户端\_ID | 在本文档的上一节中创建服务主体时保存的服务主体应用程序 ID。  |

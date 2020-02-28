@@ -7,18 +7,18 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 19056b0ad37511e75d462c201190c8e2f3a606e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1b3854ab04792ade8ca0b66cc63f1fdc2c0e60e9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883376"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703887"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>使用 FortiGate NVA 设置 Azure Stack 集线器的 VPN 网关
 
 本文介绍如何创建与 Azure Stack 中心之间的 VPN 连接。 VPN 网关是一种虚拟网络网关，用于在 Azure Stack 集线器和远程 VPN 网关中的虚拟网络之间发送加密流量。 以下过程使用资源组中的 FortiGate NVA （网络虚拟设备）部署一个 VNET。 它还提供了在 FortiGate NVA 上设置 IPSec VPN 的步骤。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 -  访问具有可用容量的 Azure Stack 集线器集成系统，以部署此解决方案所需的计算、网络和资源要求。 
 
@@ -44,7 +44,7 @@ ms.locfileid: "76883376"
 
 | 参数 | 值 |
 |-----------------------------------|---------------------------|
-| FortiGate 实例名称 | Forti1 |
+| FortiGate 实例名称 | forti1 |
 | BYOL 许可证/版本 | 版 |
 | FortiGate 管理用户名 | fortiadmin |
 | 资源组名称 | forti1-rg1 |
@@ -216,7 +216,7 @@ ms.locfileid: "76883376"
 | 远程网关 IP | 分配给 forti1 的公共 IP 地址–请参阅[激活 FORTIGATE NVA](#activate-the-fortigate-nva)。 |
 | 远程 IP 网络 | 172.16.0.0/16 （如果对 VNET 使用这些说明中的 IP 范围）。 |
 | Auth. Method = 预共享密钥（PSK） | 从步骤16开始。
-| SDK 版本 | 第 |
+| SDK 版本 | 1 |
 | IKE 模式 | Main （ID 保护） |
 | 阶段1提议算法 | AES128、AES256、AES128、AES256-SHA1 |
 | Diffie-hellman 组 | 14、5 |

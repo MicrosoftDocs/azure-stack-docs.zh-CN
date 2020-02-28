@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
-ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: c64c9b4b5a6f73f5dd8f5e323ff16a44589173cc
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 10/23/2019
+ms.openlocfilehash: 697f2bcdcd8ca33f76bf9c05566b4fb72015ff34
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508150"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696237"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Azure Stack 中心验证报告
 

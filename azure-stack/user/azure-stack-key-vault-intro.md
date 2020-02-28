@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ba509696f9c4636b541b3f7fa3751d306a27bb0b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 09db1c2e8daa34b566512ca6daee2480a86527df
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883612"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704040"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Azure Stack 中心中的 Key Vault 简介
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 * 订阅包含 Azure Key Vault 服务的产品/服务。  
 * PowerShell 已安装并[配置为与 Azure Stack 中心一起使用](azure-stack-powershell-configure-user.md)。

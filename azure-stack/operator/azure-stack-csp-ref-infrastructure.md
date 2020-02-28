@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: fdd08b3b689c069b4bc8c842e252c3b0c51c5580
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 548bcef83794230a196b8afc9d6db11767678df5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882537"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700368"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>云解决方案提供商的使用情况报告基础结构
 
@@ -35,7 +35,7 @@ Azure Stack 中心具有本地使用情况计量。 本地使用情况映射到 
 
 以下术语和概念用于 Azure Stack 中心中的使用情况和计费：
 
-| 条款 | 定义 |
+| 术语 | 定义 |
 | --- | --- |
 | 直接 CSP 合作伙伴 | 直接 CSP 合作伙伴直接从 Microsoft 接收适用于 Azure 的发票并 Azure Stack 集线器使用情况并直接向客户收取费用。 |
 | 间接 CSP | 间接经销商使用间接提供程序（也称为分发服务器）。 经销商招聘最终用户;间接提供商与 Microsoft 保持计费关系，管理客户计费，并提供其他服务，如产品支持。 |

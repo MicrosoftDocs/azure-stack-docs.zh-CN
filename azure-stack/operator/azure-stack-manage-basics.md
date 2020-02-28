@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 53515145d4cbc1ad49ca25261ab65ac8bafdfbb5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2b422b35b0e709ce7c400d4093b4fdd86093620f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882047"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699297"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack 集线器管理基础知识
 
@@ -38,8 +38,8 @@ ms.locfileid: "76882047"
 默认情况下，在部署 Azure Stack 中心时，Azure Stack 中心包含以下 "基础服务"：
 
 - 计算
-- 存储空间
-- 联网
+- 存储
+- 网络
 - Key Vault
 
 使用这些基础服务，可以使用最小配置向用户提供基础结构即服务（IaaS）。

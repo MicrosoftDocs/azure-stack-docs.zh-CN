@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: abb5e6d50b9ec99366578fd84e2d720fb52722a3
-ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
+ms.lastreviewed: 01/05/2020
+ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76977897"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704397"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack 中心 Vm 简介
 
@@ -61,7 +61,7 @@ Azure Stack 集线器中的 Vm 限制为第一代虚拟硬盘（VHD/VHDX）格�
 
 下表显示了如何查找图像的信息：
 
-|方法|Description|
+|方法|说明|
 |---------|---------|
 |Azure Stack 中心门户|选择要使用的映像时，系统会自动指定值。|
 |Azure Stack 中心 PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -84,7 +84,7 @@ VM 扩展通过部署后的配置和自动化任务为 VM 额外增加了功能�
 
 下表中的资源由 VM 使用，并需要在创建 VM 时存在或创建：
 
-|资源|需要|Description|
+|资源|必选|说明|
 |---------|---------|---------|
 |资源组|是|VM 必须包含在资源组中。|
 |存储帐户|否|如果使用托管磁盘，则 VM 不需要存储帐户来存储其虚拟硬盘。 <br>如果使用非托管磁盘，则 VM 需要存储帐户来存储其虚拟硬盘。|
@@ -97,7 +97,7 @@ VM 扩展通过部署后的配置和自动化任务为 VM 额外增加了功能�
 
 可以通过多种方式来创建 VM。 您的选择取决于您的环境。 下表提供的信息可帮助你开始创建 VM：
 
-|方法|文章|
+|方法|项目|
 |---------|---------|
 |Azure Stack 中心门户|使用 Azure Stack 中心门户创建 Windows VM<br>[使用 Azure Stack 中心门户创建 Linux VM](azure-stack-quick-linux-portal.md)|
 |模板|Azure Stack 集线器快速入门模板位于：<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
@@ -117,7 +117,7 @@ VM 扩展通过部署后的配置和自动化任务为 VM 额外增加了功能�
 
 下表显示了获取有关 VM 的信息的一些方法。
 
-|方法|Description|
+|方法|说明|
 |---------|---------|
 |Azure Stack 中心门户|在中心菜单中，单击“虚拟机”，并从列表中选择 VM。 在 VM 的页面上，可以访问概述信息、设置值以及监视指标。|
 |Azure PowerShell|管理 Vm 在 Azure 和 Azure Stack 集线器中是类似的。 有关使用 PowerShell 的详细信息，请参阅以下 Azure 主题：<br>[用 Azure PowerShell 模块创建和管理 Windows Vm](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|

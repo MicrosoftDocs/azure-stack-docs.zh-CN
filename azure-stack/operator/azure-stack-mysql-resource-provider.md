@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: f221fdd6436201df2f68b87c5b9b365d0add5fee
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: 73c916a193492662cdbb3ba20031c58932721053
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491979"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698583"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>在 Microsoft Azure Stack 中心使用 MySQL 数据库
 

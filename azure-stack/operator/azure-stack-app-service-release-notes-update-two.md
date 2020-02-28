@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 029601b9bac3bc3b14d2ab4202df072b6d9063de
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 05/18/2019
+ms.openlocfilehash: 2c80aafe3665b6ecb31e701483a5e903d0471e42
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875787"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703411"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Azure Stack 集线器上的应用服务 Update 2 发行说明
 
@@ -26,7 +26,7 @@ ms.locfileid: "76875787"
 
 Azure Stack 中心更新2内部版本号上的应用服务是**72.0.13698.10**。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 > [!IMPORTANT]
 > Azure Stack 中心的 Azure App Service 的新部署现在需要[三个使用者的通配符证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为在 Azure App Service 中处理 Kudu SSO 的方式。 新主题为： **\*\<区域\>\<domainname\>\<扩展\>**
@@ -78,7 +78,7 @@ Azure Stack 中心更新2上的 Azure App Service 包括以下改进和修补程
 * 目标： IP 地址
 * 目标 IP 地址范围：文件服务器的 Ip 范围
 * 目标端口范围：445
-* 协议： TCP
+* 协议：TCP
 * 操作：允许
 * 优先级：700
 * 名称： Outbound_Allow_SMB445

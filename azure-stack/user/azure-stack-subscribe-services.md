@@ -6,13 +6,13 @@ ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: ea0bf7287fd0463aa7b57a24386a30f7f3a1b754
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/13/2019
+ms.openlocfilehash: 244d5e214e2d1d42e5697a5aafd51c17d97465f6
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884327"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704890"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>教程：在 Azure Stack 中心创建和测试订阅
 
@@ -26,10 +26,10 @@ ms.locfileid: "76884327"
 学习内容：
 
 > [!div class="checklist"]
-> * 订阅套餐 
+> * 订阅产品 
 > * 测试产品/服务
 
-## <a name="subscribe-to-an-offer"></a>订阅套餐
+## <a name="subscribe-to-an-offer"></a>订阅产品
 
 若要以用户身份订阅产品/服务，请登录到 Azure Stack 集线器用户门户以检查 Azure Stack 中心操作员提供的可用服务。
 
@@ -39,7 +39,7 @@ ms.locfileid: "76884327"
 
 2. 在 "**显示名称**" 字段中，键入订阅的名称。 然后选择 "**产品/服务**"，在 "**选择产品/服务**" 部分中选择一个可用产品/服务。 然后选择“创建”。
 
-   ![创建套餐](media/azure-stack-subscribe-services/create-subscription.png)
+   ![创建产品](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
    > 刷新用户门户，开始使用你的订阅。

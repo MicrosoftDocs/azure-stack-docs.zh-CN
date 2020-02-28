@@ -8,14 +8,15 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ccaae2e6d7625687f7739cba4fa77eda3ab91520
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ROBOTS: NOINDEX
+ms.openlocfilehash: e41fe02946b3f08d34cdb0a6d81c08885ef9d71b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625452"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704601"
 ---
-# <a name="schedule-a-test-in-azure-stack-validation-portal"></a>在 Azure Stack 验证门户中计划测试
+# <a name="scheduling-a-test"></a>计划测试
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 

@@ -7,12 +7,12 @@ ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a6f728e69eacab25941ef0640a35243d390fa4c7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5bcfcb8a5e2af29b0d7b60774853fa35392d9f23
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883476"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702476"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>在 Azure Stack 集线器中创建虚拟机磁盘存储
 
@@ -125,7 +125,7 @@ ms.locfileid: "76883476"
 
     - 计划使用不同的容器来保存 .vhd 文件，而不是保留 OS 磁盘的容器。  
     - 将任何 VHD 上传到 Azure 之前，应按照[准备要上传到 Azure 的 Windows VHD 或 VHDX](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 进行操作。
-    - 开始迁移到[托管磁盘](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)之前，请先查看[规划迁移到托管磁盘](https://docs.microsoft.com/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks)。
+    - 开始迁移到[托管磁盘](https://docs.microsoft.com/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks)之前，请先查看[规划迁移到托管磁盘](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)。
     
     ![示例：上传 VHD 文件](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
@@ -295,7 +295,7 @@ $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName -Vhd
 ```
 
 
-#### <a name="create-new-virtual-machine"></a>创建新虚拟机
+#### <a name="create-new-virtual-machine"></a>新建虚拟机
 使用以下 PowerShell 命令设置 OS 映像，将网络配置添加到 VM，然后启动新的 VM。
 
 ```powershell

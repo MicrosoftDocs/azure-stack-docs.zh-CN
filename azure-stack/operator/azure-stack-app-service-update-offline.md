@@ -5,13 +5,13 @@ author: bryanla
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
-ms.reviewer: anwestg
-ms.openlocfilehash: c259504e1c4b70ccc5e6be6fc9b88f5e683bc5c9
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.reviewer: anwe
+ms.openlocfilehash: 65fb8a0adebb73fa8740f41d50eb83f869ac534a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568548"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700793"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的脱机更新 Azure App Service
 

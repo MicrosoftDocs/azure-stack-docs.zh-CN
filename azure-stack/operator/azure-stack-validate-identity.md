@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: ff09f519e23054fef26157a35e0c55200c0c8467
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 80c799091678f4bd063527078f1bcf0d4cb90f34
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508253"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696305"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识
 

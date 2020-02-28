@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: justinha
 ms.reviewer: shnatara
-ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: e6404ad425f75dfdbf714e9b4efbf81f4bfdddcb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/19/2019
+ms.openlocfilehash: b02795cf0058a9d63947c6143b0721c544ff9811
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878933"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701575"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>更改 Azure Stack 中心用户订阅的计费所有者
 

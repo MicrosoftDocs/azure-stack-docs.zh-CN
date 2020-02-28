@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 4b305b56c9da4a5511a98397df66cc0fa6be34a9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 505891a9f7131d474d0b37d08b1d24d08656718d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883786"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704227"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>Azure Stack 中心的常见部署
 
@@ -26,7 +26,7 @@ Azure Stack 集线器支持基础结构即服务（IaaS）和平台即服务（P
 
 在以下操作方法文章中，你在 Azure Stack Hub 中设置虚拟机（VM），然后将你的应用从开发工作站部署到 Azure Stack 中心。
 
-- [.NET Core (C#)](azure-stack-dev-start-howto-vm-dotnet.md)
+- [.NET Core （C#）](azure-stack-dev-start-howto-vm-dotnet.md)
 - [Java](azure-stack-dev-start-howto-vm-java.md)
 - [Go](azure-stack-dev-start-howto-vm-go.md)
 - [Ruby](azure-stack-dev-start-howto-vm-ruby.md)

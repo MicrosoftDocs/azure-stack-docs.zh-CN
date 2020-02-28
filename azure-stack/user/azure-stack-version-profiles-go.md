@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 0e6ff55da7a7d66152765a5058b7d281632fb5eb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d008a30991e41be6abc3f21f888acfbc8d46d69e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883065"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705230"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>结合使用 API 版本配置文件 Azure Stack 中心
 
@@ -31,7 +31,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compu
 
 ## <a name="install-the-azure-sdk-for-go"></a>安装 Azure SDK for Go
 
-1. 安装 Git。 有关说明，请参阅[入门 - 安装 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+1. 安装 Git。 有关说明，请参阅[入门-安装 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 2. 安装[中转编程语言](https://golang.org/dl)。 Azure 的 API 配置文件需要1.9 版或更高版本。
 3. 通过运行以下 bash 命令安装 Azure 中转 SDK 及其依赖项：
 
@@ -58,7 +58,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compu
 2. 从资源管理器终结点获取元数据信息。 终结点返回 JSON 文件，其中包含运行你的 "开始" 代码所需的信息。
 
    > [!NOTE]  
-   > Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`  
+   > Azure Stack 开发工具包中的**ResourceManagerUrl** （ASDK）是： `https://management.local.azurestack.external/`  
    > 集成系统中的**ResourceManagerUrl**为： `https://management.<region>.<fqdn>/`  
    > 若要检索所需的元数据： `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
@@ -117,7 +117,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compu
 
 有关使用中转 SDK 配置文件在 Azure Stack 集线器上创建虚拟网络的完整示例，请参阅[示例](#example)。
 
-## <a name="authentication"></a>身份验证
+## <a name="authentication"></a>Authentication
 
 若要使用转 SDK Azure Active Directory 获取**授权**者属性，请安装**AutoRest**模块。 这些模块应该已经安装了 "转向 SDK" 安装。 如果未安装，请[从 GitHub 安装身份验证包](https://github.com/Azure/go-autorest/tree/master/autorest/adal)。
 

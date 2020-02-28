@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 5f09af556a9541ac0d081a986ac4c2befb26b203
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: 15eaf26162b0d3f647d65dfab66e3d9327b2f357
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491758"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697138"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>使用 Azure Stack 集线器上的 SQL 数据库
 

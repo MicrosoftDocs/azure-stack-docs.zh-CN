@@ -9,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 31d47f947c4c71847156ca4e49c4b370c872e920
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 4f6255ee26eb686b78640f95b44ee5286693d081
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625282"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704635"
 ---
-# <a name="validation-as-a-service-for-azure-stack-hub"></a>作为 Azure Stack 中心服务的身份验证
+# <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>什么是 Azure Stack 集线器的验证即服务？
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 

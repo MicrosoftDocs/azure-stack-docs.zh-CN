@@ -7,12 +7,12 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 4e4f9eb8d9a1bf0966d75c2d4e47b94a998675f0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5b08cbf0ec316c8a5a2726800942f0d12a458db5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884468"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702085"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack 中心门户创建 Linux 服务器 VM
 
@@ -25,7 +25,7 @@ ms.locfileid: "76884468"
 > [!NOTE]  
 > 本文中的图像已更新，以匹配 Azure Stack 集线器版本1808中引入的更改。 除非托管磁盘外，版本1808添加了对使用*托管磁盘*的支持。 如果使用的是早期版本，则某些任务（如磁盘选择）的图像不同于 UI 中显示的内容。  
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 * Azure Stack 中心应用商店中的 Linux 映像
 
@@ -63,7 +63,7 @@ ms.locfileid: "76884468"
 
 Azure Stack 中心门户的地址取决于要连接到的 Azure Stack 中心产品：
 
-* 对于 ASDK 中，请转到 [https://portal.local.azurestack.external](https://portal.local.azurestack.external )。
+* 对于 ASDK，请参阅 https://portal.local.azurestack.external。
 
 * 对于 Azure Stack 集线器集成系统，请参阅 Azure Stack 中心操作员提供的 URL。
 
@@ -82,7 +82,7 @@ Azure Stack 中心门户的地址取决于要连接到的 Azure Stack 中心产�
     > [!Note]  
     > 请确保删除键的所有前导或尾随空格。
 
-   ![身份验证](media/azure-stack-quick-linux-portal/image3.png)
+   ![Authentication](media/azure-stack-quick-linux-portal/image3.png)
 
 1. 为 VM 大小选择**D1_v2** 。
 

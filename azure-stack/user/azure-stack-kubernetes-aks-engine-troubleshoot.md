@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: de9bceea3cd8fb7003afff8e5b654146aff8883b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 202a6269dfc978747b3d1c4dc754b19490911046
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884729"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702425"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>对 Azure Stack 集线器上的 AKS 引擎进行故障排除
 
@@ -118,7 +118,7 @@ ms.locfileid: "76884729"
 
 2. 查找 `getkuberneteslogs.sh` 脚本所需的参数。 此脚本将使用以下参数：
 
-    | 参数 | Description | 需要 | 示例 |
+    | 参数 | 说明 | 必选 | 示例 |
     | --- | --- | --- | --- |
     | -h、--help | 打印命令用法。 | 否 | 
     -u,--用户 | 群集 Vm 的管理员用户名 | 是 | azureuser<br>（默认值） |

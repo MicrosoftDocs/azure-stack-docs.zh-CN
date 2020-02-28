@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: db66156cfa1b4b5a2c97b5d17559ae2c48760ce0
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884225"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705179"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 API 版本配置文件与 Python 配合使用
 
@@ -43,11 +43,11 @@ Python SDK 支持以下 API 配置文件：
 4. 创建一个服务主体，并保存其 ID 和机密。 有关如何为 Azure Stack 中心创建服务主体的说明，请参阅为[应用程序提供对 Azure Stack 集线器的访问权限](../operator/azure-stack-create-service-principals.md)。
 5. 确保服务主体在订阅上具有“参与者/所有者”角色。 有关如何向服务主体分配角色的说明，请参阅为[应用程序提供对 Azure Stack 集线器的访问权限](../operator/azure-stack-create-service-principals.md)。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 若要将 Python Azure SDK 与 Azure Stack 中心一起使用，必须提供以下值，并使用环境变量设置值。 若要设置环境变量，请参阅下表中针对特定操作系统的说明。
 
-| 值 | 环境变量 | Description |
+| 值 | 环境变量 | 说明 |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | 租户 ID | `AZURE_TENANT_ID` | Azure Stack 中心[租户 ID](../operator/azure-stack-identity-overview.md)。 |
 | 客户端 ID | `AZURE_CLIENT_ID` | 在本文上一部分中创建服务主体时保存的服务主体应用 ID。 |
@@ -121,7 +121,7 @@ Python SDK 支持以下 API 配置文件：
   - 创建 Windows VM
 - 更新 VM：
   - 展开驱动器
-  - 标记一个 VM
+  - 标记 VM
   - 附加数据磁盘
   - 分离数据磁盘
 - 操作 VM：

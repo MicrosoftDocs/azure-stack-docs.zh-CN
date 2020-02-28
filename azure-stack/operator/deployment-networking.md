@@ -8,12 +8,12 @@ ms.date: 12/05/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: 958cdb4aeaa7ab2244632b99d5eebdf7eb8368a8
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 50d098253204e5643eb322264ea3a5331f815b72
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508049"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696084"
 ---
 # <a name="deployment-network-traffic"></a>部署网络流量
 

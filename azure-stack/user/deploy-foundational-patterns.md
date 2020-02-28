@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: d35fd71b0f380c2594bc9aee8507162d5d83bda9
-ms.sourcegitcommit: 7e55c8a4e4ef9c0a3494d42160c923b6585ed3bd
+ms.openlocfilehash: 28775cb3c279e2976a32a63fc21a8797bba6eb38
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77352106"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705077"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>部署基础模式概述
 

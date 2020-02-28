@@ -7,12 +7,12 @@ ms.date: 07/24/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 621c0abb4f2e50c72e5a024cc3c1e634e73fe0c2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 9423411f92845e149a2cb3427597ab2aa541b5da
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882229"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699756"
 ---
 # <a name="microsoft-azure-stack-hub-help-and-support"></a>Microsoft Azure Stack 中心帮助和支持
 

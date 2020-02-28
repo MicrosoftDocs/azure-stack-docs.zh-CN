@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: 759edb6cf4f106e59a1b847cb4dcafd4450665da
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890079"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701541"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>按需收集 Azure Stack 集线器诊断日志
 
@@ -168,8 +168,8 @@ if ($session) {
 
   |   |   |   |    |     |
   | - | - | - | -  |  -  |
-  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |Cacheservice.provider                   |IBC                            |OEM                       |尝试            |
+  |ACS                   |CA                             |HRP                            |OboService                |virtualMachines|
+  |ACSBlob               |Cacheservice.provider                   |IBC                            |OEM                       |WAS            |
   |ACSDownloadService    |计算                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
@@ -179,7 +179,7 @@ if ($session) {
   |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
   |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |存储空间                   |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |存储                   |         |
   |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
   |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
   |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |

@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 107b171dbe3fd55e61748dcde6fe6bcfc90ea16e
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 8a181823f47d62167ca2e2b033e2cbe0bf258ec0
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509613"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697886"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>替换 Azure Stack 集线器中的物理磁盘
 

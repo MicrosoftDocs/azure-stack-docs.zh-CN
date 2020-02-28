@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: fdcae656e142f8981a41875daada938b5ce360ab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 3/19/2019
+ms.openlocfilehash: 824352a27ae91b2bf0a351b9dc280c83bfb9d19a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884718"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703955"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>保护 Azure Stack 集线器上部署的 Vm
 
@@ -141,11 +141,11 @@ Azure Stack 中心部署的重要注意事项：
 
 |     | 建议 | 注释 |
 |-------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 将 Vm 备份/还原到已部署到数据中心的外部备份目标 | 推荐 | 利用现有的备份基础结构和操作技能。 请确保调整备份基础结构的大小，使其可以保护其他 VM 实例。 请确保备份基础结构不会接近于你的源。 可以将 Vm 还原到源 Azure Stack 中心、辅助 Azure Stack 中心实例或 Azure。 |
-| 将 Vm 备份/还原到专用于 Azure Stack 集线器的外部备份目标 | 推荐 | 你可以为 Azure Stack 中心购买新的备份基础结构或预配专用的备份基础结构。 请确保备份基础结构不会接近于你的源。 可以将 Vm 还原到源 Azure Stack 中心、辅助 Azure Stack 中心实例或 Azure。 |
-| 直接将 Vm 备份/还原到全局 Azure 或受信任的服务提供商 | 推荐 | 只要能够满足数据隐私和法规要求，就可以将备份存储在全球 Azure 或受信任的服务提供商。 理想情况下，服务提供商也会 Azure Stack 集线器上运行，以便在还原时获得操作体验的一致性。 |
-| 将 Vm 复制/故障转移到单独的 Azure Stack 集线器实例 | 推荐 | 在故障转移情况下，你需要让第二个 Azure Stack 中心云完全操作，因此可以避免应用程序停机时间延长。 |
-| 直接将 Vm 复制/故障转移到 Azure 或受信任的服务提供商 | 推荐 | 只要能够满足数据隐私和法规要求，就可以将数据复制到全球 Azure 或受信任的服务提供商。 理想情况下，服务提供商也会 Azure Stack 集线器上运行，以便在故障转移后获得操作体验的一致性。 |
+| 将 Vm 备份/还原到已部署到数据中心的外部备份目标 | 建议 | 利用现有的备份基础结构和操作技能。 请确保调整备份基础结构的大小，使其可以保护其他 VM 实例。 请确保备份基础结构不会接近于你的源。 可以将 Vm 还原到源 Azure Stack 中心、辅助 Azure Stack 中心实例或 Azure。 |
+| 将 Vm 备份/还原到专用于 Azure Stack 集线器的外部备份目标 | 建议 | 你可以为 Azure Stack 中心购买新的备份基础结构或预配专用的备份基础结构。 请确保备份基础结构不会接近于你的源。 可以将 Vm 还原到源 Azure Stack 中心、辅助 Azure Stack 中心实例或 Azure。 |
+| 直接将 Vm 备份/还原到全局 Azure 或受信任的服务提供商 | 建议 | 只要能够满足数据隐私和法规要求，就可以将备份存储在全球 Azure 或受信任的服务提供商。 理想情况下，服务提供商也会 Azure Stack 集线器上运行，以便在还原时获得操作体验的一致性。 |
+| 将 Vm 复制/故障转移到单独的 Azure Stack 集线器实例 | 建议 | 在故障转移情况下，你需要让第二个 Azure Stack 中心云完全操作，因此可以避免应用程序停机时间延长。 |
+| 直接将 Vm 复制/故障转移到 Azure 或受信任的服务提供商 | 建议 | 只要能够满足数据隐私和法规要求，就可以将数据复制到全球 Azure 或受信任的服务提供商。 理想情况下，服务提供商也会 Azure Stack 集线器上运行，以便在故障转移后获得操作体验的一致性。 |
 | 将备份目标部署到具有应用数据的同一 Azure Stack 中心云 | 不建议 | 避免将备份存储在同一 Azure Stack 中心云内。 云的计划外停机可以使你保持你的主数据和备份数据。 如果选择将备份目标部署为虚拟设备（出于备份和还原的优化目的），必须确保所有数据都已持续复制到外部备份位置。 |
 | 将物理备份设备部署到安装了 Azure Stack 集线器解决方案的同一机架中 | 不支持 | 目前，不能将任何其他设备连接到不属于原始解决方案的机架交换机顶部。 |
 
@@ -159,7 +159,7 @@ Azure Stack 中心部署的重要注意事项：
  - [使用 Azure 备份在 Azure Stack 集线器上备份文件和应用](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
  - [Azure Stack 中心 Azure 备份服务器支持](https://docs.microsoft.com/azure/backup/ ) 
  
- ### <a name="azure-site-recovery"></a>Azure 站点恢复
+ ### <a name="azure-site-recovery"></a>Azure Site Recovery
  - [Azure Stack 中心 Azure Site Recovery 支持](https://docs.microsoft.com/azure/site-recovery/)  
  
  ### <a name="partner-products"></a>合作伙伴产品

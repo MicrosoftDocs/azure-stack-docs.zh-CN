@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: abaa1405db1e3837c02cbc67e00cd3a593e9b98b
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568565"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701065"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>部署使用本地数据的应用，并使用 Azure 和 Azure Stack 集线器缩放跨云
 
@@ -51,7 +51,7 @@ ms.locfileid: "77568565"
 
 本教程还假定你具有 Azure 订阅。 如果没有订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 在开始此解决方案之前，请确保满足以下要求：
 
@@ -334,7 +334,7 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 
 3. 将**冷却**设置为**5**。
 
-4. 选择“添加”。
+4. 选择 **添加** 。
 
 5. 选择 " **+ 添加规则**"。
 
@@ -367,7 +367,7 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
    - 将**实例计数**设置为**1**。
    - 将**冷却**设置为**5**。
 
-2. 选择“添加”。
+2. 选择 **添加** 。
 
 ## <a name="create-a-traffic-manager-profile-and-configure-cross-cloud-scaling"></a>创建流量管理器配置文件并配置跨云缩放
 
@@ -385,7 +385,7 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
    - 在 "**资源组**" 中，为此配置文件创建新的资源组。
    - 在**资源组位置**中，选择资源组的位置。 此设置指的是资源组的位置，对全局部署的流量管理器配置文件没有影响。
 
-4. 选择 **“创建”** 。
+4. 选择“创建”。
 
     ![创建流量管理器配置文件](media/solution-deployment-guide-hybrid/image19.png)
 
@@ -397,7 +397,7 @@ Web 应用的每个实例都将使用不同的方法连接到 SQL 数据库。 A
 
 2. 在**流量管理器配置文件**中的 "**设置**" 下，选择 "**终结点**"。
 
-3. 选择“添加”。
+3. 选择 **添加** 。
 
 4. 在 "**添加终结点**" 中，将以下设置用于 Azure Stack 中心：
 

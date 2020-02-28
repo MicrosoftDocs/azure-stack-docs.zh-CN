@@ -7,12 +7,12 @@ ms.date: 05/31/2019
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 532617955020af0038f09f59b94bb3cfedde7094
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: beccdd382ad95229e136442651e8def37a3a9552
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77510106"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695370"
 ---
 # <a name="azure-stack-hub-storage-capacity-planning"></a>Azure Stack 中心存储容量规划
 

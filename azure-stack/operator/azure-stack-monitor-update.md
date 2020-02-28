@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 170bb21a8facd66fc5f581729a19f436fbd16fc1
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 14df72fda88f505e564b16519f583c8b6875ade7
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77507998"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698974"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack 集线器中的更新
 

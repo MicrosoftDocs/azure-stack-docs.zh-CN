@@ -6,13 +6,14 @@ manager: stefsch
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 418e27424f91d4c676565acc27bcde77962d76ec
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.reviewer: anwestg
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: d41455823c6905a947a703412664fc52ff45e1a8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875889"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701116"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>Azure Stack 集线器上的应用服务更新6发行说明
 
@@ -26,7 +27,7 @@ ms.locfileid: "76875889"
 
 Azure Stack 集线器上的应用服务 Update 6 内部版本号为**82.0.1.50**
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 开始部署之前[，请参阅入门文档之前](azure-stack-app-service-before-you-get-started.md)的。
 
@@ -37,7 +38,7 @@ Azure Stack 集线器上的应用服务 Update 6 内部版本号为**82.0.1.50**
 - 备份应用服务和 Master 数据库：
   - AppService_Hosting;
   - AppService_Metering;
-  - Master
+  - 主设备
 
 - 备份租户应用内容文件共享
 
@@ -84,7 +85,7 @@ Azure Stack 中心更新 6 Azure App Service 包括以下改进和修补程序�
  * 目标： IP 地址
  * 目标 IP 地址范围：文件服务器的 Ip 范围
  * 目标端口范围：445
- * 协议： TCP
+ * 协议：TCP
  * 操作：允许
  * 优先级：700
  * 名称： Outbound_Allow_SMB445
@@ -101,7 +102,7 @@ Azure Stack 中心更新 6 Azure App Service 包括以下改进和修补程序�
 
 - 部署选项（经典） UX 和部署凭据门户选项不可用
 
-为了达到部署选项和部署凭据 Azure Stack 中心部署中的用户体验，租户应使用此 URL 格式访问门户- https://portal.&lt ;*区域*&gt; 。&lt;*FQDN*&gt; /？ websitesExtension_oldvsts = true-对于 ASDK 将[https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) ，然后以正常方式导航到其应用程序。
+为了达到部署选项和部署凭据 Azure Stack 中心部署中的用户体验，租户应使用此 URL 格式访问门户- https://portal.&lt;*区域*&gt;。&lt;*FQDN*&gt;/？ websitesExtension_oldvsts = true-对于 ASDK 将[https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true) ，然后以正常方式导航到其应用程序。
 
 - Azure Function Monitoring 持续显示门户中的 "正在加载"
 

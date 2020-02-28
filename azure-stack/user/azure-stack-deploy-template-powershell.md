@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: e0398eb36834676fec53103bb07dbe24bdc57c5d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 9081464e05825cbd211f043818e841276a840303
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883817"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704261"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用 Powershell 部署模板
 
@@ -26,7 +26,7 @@ ms.locfileid: "76883817"
 > 尝试此示例之前，请确保已为 Azure Stack 集线器用户[配置了 PowerShell](azure-stack-powershell-configure-user.md) 。
 
 1. 浏览[test-azurestack](https://aka.ms/AzureStackGitHub)存储库，并找到 101-simple- **vm**模板。 将模板保存到以下位置： `C:\templates\azuredeploy-101-simple-windows-vm.json`。
-2. 打开提升权限的 PowerShell 命令提示符。
+2. 打开权限提升的 PowerShell 命令提示符。
 3. 将以下脚本中的 `username` 和 `password` 替换为你的用户名和密码，然后运行该脚本：
 
     ```powershell

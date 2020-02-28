@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 8d995550ead87f31a9024cc9c87ba45f0800a78d
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.lastreviewed: 01/13/2019
+ms.openlocfilehash: 3a0a62fe74b3420ccc321f79539cdce16aac6934
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568446"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701218"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署应用服务的先决条件
 
@@ -61,14 +61,14 @@ Azure Stack 集线器上的 Azure App Service 需要[从 Azure Marketplace 下�
 
 | 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | 必需 | AzS-ERCS01 | 特权终结点 |
-| CloudAdminCredential | 必需 | AzureStack\CloudAdmin | Azure Stack 中心云管理员的域帐户凭据 |
+| PrivilegedEndpoint | 必选 | AzS-ERCS01 | 特权终结点 |
+| CloudAdminCredential | 必选 | AzureStack\CloudAdmin | Azure Stack 中心云管理员的域帐户凭据 |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Azure App Service 的 ASDK 部署所需的证书
 
 *Create-appservicecerts.ps1*脚本与 Azure Stack 中心证书颁发机构合作，以创建应用服务所需的四个证书。
 
-| 文件名称 | 使用 |
+| 文件名 | 用途 |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | 应用服务默认 SSL 证书 |
 | api.appservice.local.azurestack.external.pfx | 应用服务 API SSL 证书 |
@@ -86,8 +86,8 @@ Azure Stack 集线器上的 Azure App Service 需要[从 Azure Marketplace 下�
 
 | 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| pfxPassword | 必需 | Null | 帮助保护证书私钥的密码 |
-| DomainName | 必需 | local.azurestack.external | Azure Stack 中心区域和域后缀 |
+| pfxPassword | 必选 | Null | 帮助保护证书私钥的密码 |
+| DomainName | 必选 | local.azurestack.external | Azure Stack 中心区域和域后缀 |
 
 ### <a name="certificates-required-for-azure-stack-hub-production-deployment-of-azure-app-service"></a>Azure App Service Azure Stack 中心生产部署所需的证书
 
@@ -357,12 +357,12 @@ GO
 
 | 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| DirectoryTenantName | 必需 | Null | Azure AD 租户 ID。 提供 GUID 或字符串。 例如，myazureaaddirectory.onmicrosoft.com。 |
-| AdminArmEndpoint | 必需 | Null | 管理员 Azure 资源管理器终结点。 例如，adminmanagement. test-azurestack。 |
-| TenantARMEndpoint | 必需 | Null | 租户 Azure 资源管理器终结点。 例如 "test-azurestack"。 |
-| AzureStackAdminCredential | 必需 | Null | Azure AD 服务管理员凭据。 |
-| CertificateFilePath | 必需 | Null | 之前生成的标识应用程序证书文件的**完整路径**。 |
-| CertificatePassword | 必需 | Null | 帮助保护证书私钥的密码。 |
+| DirectoryTenantName | 必选 | Null | Azure AD 租户 ID。 提供 GUID 或字符串。 例如，myazureaaddirectory.onmicrosoft.com。 |
+| AdminArmEndpoint | 必选 | Null | 管理员 Azure 资源管理器终结点。 例如，adminmanagement. test-azurestack。 |
+| TenantARMEndpoint | 必选 | Null | 租户 Azure 资源管理器终结点。 例如 "test-azurestack"。 |
+| AzureStackAdminCredential | 必选 | Null | Azure AD 服务管理员凭据。 |
+| CertificateFilePath | 必选 | Null | 之前生成的标识应用程序证书文件的**完整路径**。 |
+| CertificatePassword | 必选 | Null | 帮助保护证书私钥的密码。 |
 | 环境 | 可选 | AzureCloud | 可用的目标 Azure Active Directory 图形服务所支持的云环境的名称。  允许的值： "AzureCloud"、"AzureChinaCloud"、"AzureUSGovernment"、"AzureGermanCloud"。|
 
 ## <a name="create-an-active-directory-federation-services-app"></a>创建 Active Directory 联合身份验证服务应用
@@ -393,11 +393,11 @@ GO
 
 | 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | 必需 | Null | 管理员 Azure 资源管理器终结点。 例如，adminmanagement. test-azurestack。 |
-| PrivilegedEndpoint | 必需 | Null | 特权终结点。 例如 AzS-ERCS01。 |
-| CloudAdminCredential | 必需 | Null | Azure Stack 中心云管理员的域帐户凭据。 例如 Azurestack\CloudAdmin。 |
-| CertificateFilePath | 必需 | Null | 标识应用程序的证书 PFX 文件的**完整路径**。 |
-| CertificatePassword | 必需 | Null | 帮助保护证书私钥的密码。 |
+| AdminArmEndpoint | 必选 | Null | 管理员 Azure 资源管理器终结点。 例如，adminmanagement. test-azurestack。 |
+| PrivilegedEndpoint | 必选 | Null | 特权终结点。 例如 AzS-ERCS01。 |
+| CloudAdminCredential | 必选 | Null | Azure Stack 中心云管理员的域帐户凭据。 例如 Azurestack\CloudAdmin。 |
+| CertificateFilePath | 必选 | Null | 标识应用程序的证书 PFX 文件的**完整路径**。 |
+| CertificatePassword | 必选 | Null | 帮助保护证书私钥的密码。 |
 
 ## <a name="next-steps"></a>后续步骤
 

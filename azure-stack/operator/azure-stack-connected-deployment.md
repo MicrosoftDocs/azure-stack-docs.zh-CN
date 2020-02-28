@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: a4ab00ff732bcffd66d984757a279a3ad030b33d
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 7e00adbf4c0e83094b7425ed650126e8bb072b3d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77510123"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701592"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack 集线器集成系统的 Azure 连接的部署规划决策
 确定[将 Azure Stack 中心集成到混合云环境的方式](azure-stack-connection-models.md)后，可以完成 Azure Stack 中心部署决策。

@@ -7,12 +7,12 @@ ms.date: 06/03/2019
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 018a9a3b672f603a0b41e948f376855b0c686806
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 896dc2b2def823a91278fe77062b20146a3c6976
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509902"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699688"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Azure Stack 中心标识提供者概述
 

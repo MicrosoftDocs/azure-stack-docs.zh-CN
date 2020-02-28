@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 9c0f7213a961847e9d8abfd68419db0cab6d2f2c
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 212f68be85bfe4b129e84057cc63472e5259a41c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509766"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699195"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储容量
 
