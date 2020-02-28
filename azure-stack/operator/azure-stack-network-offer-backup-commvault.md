@@ -7,12 +7,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: d2d12e032e639cb9b272affb4beed3a3a439b2cb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8d2b9181c6db101113d1f60ef3ab5ab3a0929ed3
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881702"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698549"
 ---
 # <a name="add-commvault-to-the-azure-stack-hub-marketplace"></a>将 Commvault 添加到 Azure Stack 中心市场
 

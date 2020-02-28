@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 6e5171c105bd806895a04880e0bec0af5fab8855
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/30/2020
+ms.openlocfilehash: f852aa2165f51c0a57f09ea94b872de015535923
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883977"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77687387"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack 中心存储：差异和注意事项
 
@@ -22,13 +22,13 @@ Azure Stack 中心存储是 Microsoft Azure Stack 中心中的存储云服务集
 
 ## <a name="cheat-sheet-storage-differences"></a>备忘单：存储差异
 
-| 功能 | Azure （全局） | Azure Stack Hub |
+| Feature | Azure （全局） | Azure Stack 中心 |
 | --- | --- | --- |
 |文件存储|支持基于云的 SMB 文件共享|尚不支持
 |静态数据的 Azure 存储服务加密|256位 AES 加密。 使用 Key Vault 中的客户托管密钥支持加密。|BitLocker 128 位 AES 加密。 不支持使用客户托管的密钥进行加密。
 |存储帐户类型|常规用途 V1、V2 和 Blob 存储帐户|仅限常规用途 V1。
 |复制选项|本地冗余存储、异地冗余存储、读取访问异地冗余存储和区域冗余存储|本地冗余存储。
-|高级存储器|提供高性能和低延迟的存储。 仅支持高级存储帐户中的页 blob。|可以预配，但不能限制性能。 不会阻止使用块 blob，在高级存储帐户中追加 blob、表和队列。
+|高级存储|提供高性能和低延迟的存储。 仅支持高级存储帐户中的页 blob。|可以预配，但不能限制性能。 不会阻止使用块 blob，在高级存储帐户中追加 blob、表和队列。
 |托管磁盘|支持高级和标准|当使用版本1808或更高版本时支持。
 |Blob 名称|1024 个字符（2048 个字节）|880 个字符（1760 个字节）
 |块 blob 最大大小|4.75 TB（100 MB X 50,000 块）|对于1802更新或更新版本，4.75 TB （100 MB x 50000 块）。 对于以前的版本，50000 X 4 MB （约 195 GB）。
@@ -41,7 +41,7 @@ Azure Stack 中心存储是 Microsoft Azure Stack 中心中的存储云服务集
 |页 blob 页面大小|512 字节|4 KB
 |表分区键和行键大小|1024 个字符（2048 个字节）|400个字符（800个字节）
 |Blob 快照|一个 blob 的最大快照数没有限制。|一个 blob 的最大快照数为1000。
-|用于存储的 Azure AD 身份验证|预览中|尚不支持。
+|用于存储的 Azure AD 身份验证|预览|尚不支持。
 |不可变 Blob|公开提供|尚不支持。
 |用于存储的防火墙和虚拟网络规则|公开提供|尚不支持。|
 

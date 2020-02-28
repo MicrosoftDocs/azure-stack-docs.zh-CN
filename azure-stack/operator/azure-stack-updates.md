@@ -7,12 +7,12 @@ ms.date: 10/01/2019
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2931acb3fb3f46f4231a805675bb40307cb05584
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 69deade8a7084f751fda6d9f71ad3e7f3f5fc0f8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508712"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696579"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>管理 Azure Stack 集线器中的更新
 

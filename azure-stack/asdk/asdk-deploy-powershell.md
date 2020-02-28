@@ -7,18 +7,18 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: b31792ce210cfc7fc5c2d1ee4ba1b496b2d340f6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873798"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695659"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>使用 Powershell 从命令行部署 ASDK
 
 Azure Stack 开发工具包（ASDK）是一个测试和开发环境，可以部署它以评估和演示 Azure Stack 功能和服务。 若要启动并运行，需要准备环境硬件并运行一些脚本。 脚本需要花费几个小时来运行。 之后，你可以登录到管理员门户和用户门户，开始使用 Azure Stack。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 准备 ASDK 主计算机。 规划硬件、软件和网络。 承载 ASDK 的计算机必须满足硬件、软件和网络要求。 在使用 Azure Active Directory （Azure AD）或 Active Directory 联合身份验证服务（AD FS）之间进行选择。 在开始部署之前，请务必遵循这些先决条件，使安装过程顺利运行。
 
@@ -131,11 +131,11 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK Installazurestackpoc.ps1 可选参数
 
-|参数|必需/可选|Description|
+|参数|必需/可选|说明|
 |-----|-----|-----|
-|AdminPassword|需要|设置在 ASDK 部署过程中创建的所有 Vm 上的本地管理员帐户和所有其他用户帐户。 此密码必须与主机上当前的本地管理员密码匹配。|
-|InfraAzureDirectoryTenantName|需要|设置租户目录。 使用此参数可指定 Azure AD 帐户有权管理多个目录的特定目录。 Azure AD 租户的完整名称，格式为. onmicrosoft.com 或 Azure AD 验证的自定义域名。|
-|TimeServer|需要|使用此参数指定特定的时间服务器。 此参数必须作为有效的时间服务器 IP 地址提供。 服务器名称不受支持。|
+|AdminPassword|必选|设置在 ASDK 部署过程中创建的所有 Vm 上的本地管理员帐户和所有其他用户帐户。 此密码必须与主机上当前的本地管理员密码匹配。|
+|InfraAzureDirectoryTenantName|必选|设置租户目录。 使用此参数可指定 Azure AD 帐户有权管理多个目录的特定目录。 Azure AD 租户的完整名称，格式为. onmicrosoft.com 或 Azure AD 验证的自定义域名。|
+|TimeServer|必选|使用此参数指定特定的时间服务器。 此参数必须作为有效的时间服务器 IP 地址提供。 服务器名称不受支持。|
 |InfraAzureDirectoryTenantAdminCredential|可选|设置 Azure Active Directory 用户名和密码。 这些 Azure 凭据必须是组织 ID。|
 |InfraAzureEnvironment|可选|选择要用于注册此 Azure Stack 部署的 Azure 环境。 选项包括全球性 Azure、Azure-中国、Azure-美国政府。|
 |DNSForwarder|可选|DNS 服务器作为 Azure Stack 部署的一部分进行创建。 若要允许解决方案内部的计算机解析 stamp 之外的名称，请提供现有的基础结构 DNS 服务器。 戳记 DNS 服务器将未知的名称解析请求转发到此服务器。|

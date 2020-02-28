@@ -7,12 +7,12 @@ ms.date: 07/16/2019
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 0b0c1db89dba68b818d13056c141ae22db342000
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: fd67c1bc02c16bc15eb569418bcb5d4914eca222
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509409"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688655"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack 中心计算容量
 

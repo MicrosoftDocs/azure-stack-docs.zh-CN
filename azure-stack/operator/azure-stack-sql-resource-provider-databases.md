@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 673fd958d257a04d8c8d6f45350143c3c9d181ab
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 0d1e58fffc7bc5fcc6a2c54ad409752314d1d36b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491843"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697393"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 

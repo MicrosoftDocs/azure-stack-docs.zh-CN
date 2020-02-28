@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: e047f50dbdb9e7c645351fd83f9f1551f75c157e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f17ef9fad4dd595d4a8d1e51b4efc3c0dd029bef
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875159"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703360"
 ---
 # <a name="add-public-ip-addresses"></a>添加公共 IP 地址
 
@@ -36,7 +36,7 @@ ms.locfileid: "76875159"
 
 ## <a name="add-the-ip-address-range-to-azure-stack-hub"></a>将 IP 地址范围添加到 Azure Stack 中心
 
-1. 在浏览器中，请切换到管理员门户仪表板。 在此示例中，我们将使用 https://adminportal.local.azurestack.external 。
+1. 在浏览器中，请切换到管理员门户仪表板。 在此示例中，我们将使用 https://adminportal.local.azurestack.external。
 2. 以云操作员身份登录到 Azure Stack 中心管理员门户。
 3. 在默认仪表板上，找到 "区域管理" 列表，并选择要管理的区域。 在此示例中，我们使用 local。
 4. 找到 "资源提供程序" 磁贴，然后单击网络资源提供程序。

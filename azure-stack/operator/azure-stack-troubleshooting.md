@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f5c223e08207518bde315725fd69ddb3fb97a578
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: ef90476685a786549ed239429a222fbd561f6d15
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037261"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696747"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack 集线器中的问题
 

@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 863f50f0b780c92f776cfcccbd74502ca9c04d35
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 634447085daf7f690f877e3073120a45f903fbba
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881430"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697937"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>使用情况和计费注册错误代码
 

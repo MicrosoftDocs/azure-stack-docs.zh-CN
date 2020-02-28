@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: fadc0adbd8cad2ff92b3849d6c79c933a1bf3bfb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b09e23fafdfcdff83329e70538cd8d072081a678
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884425"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77687540"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>在 Azure Stack 中心部署 Service Fabric 群集
 
@@ -22,7 +22,7 @@ ms.locfileid: "76884425"
 
 Azure Stack 中心的 Service Fabric 群集不使用资源提供程序 ServiceFabric。 相反，在 Azure Stack 中心，Service Fabric 群集是使用[所需状态配置（DSC）](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)预安装软件的虚拟机规模集。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 部署 Service Fabric 群集需要以下各项：
 1. **群集证书**  
@@ -163,9 +163,9 @@ Azure Stack 中心的 Service Fabric 群集不使用资源提供程序 ServiceFa
 ### <a name="use-service-fabric-explorer"></a>使用 Service Fabric Explorer
 1.  确保浏览器有权访问管理员客户端证书，并且可以对 Service Fabric 群集进行身份验证。  
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 打开 Internet Explorer，并 > **内容**" > **证书**" 中转到 " **internet 选项**"。
+    a. 打开 Internet Explorer，并 > **内容**" > **证书**" 中转到 " **internet 选项**"。
   
-    b.保留“数据库类型”设置，即设置为“共享”。 在 "证书" 上，选择 "**导入**" 以启动*证书导入向导*，然后单击 "**下一步**"。 在 "*要导入的文件*" 页上，单击 "**浏览**"，然后选择提供给 Azure 资源管理器模板的**管理员客户端证书**。
+    b. 在 "证书" 上，选择 "**导入**" 以启动*证书导入向导*，然后单击 "**下一步**"。 在 "*要导入的文件*" 页上，单击 "**浏览**"，然后选择提供给 Azure 资源管理器模板的**管理员客户端证书**。
         
        > [!NOTE]  
        > 此证书不是以前添加到 Key Vault 的群集证书。  
@@ -174,15 +174,15 @@ Azure Stack 中心的 Service Fabric 群集不使用资源提供程序 ServiceFa
 
        ![个人信息交换](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
-    d.单击“下一步”。 在 "*证书存储*" 页上，选择 "**个人**"，然后完成该向导。  
+    d. 在 "*证书存储*" 页上，选择 "**个人**"，然后完成该向导。  
        ![证书存储](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. 查找 Service Fabric 群集的 FQDN：  
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 中转到与 Service Fabric 群集关联的资源组，并找到*公共 IP 地址*资源。 选择与公共 IP 地址关联的对象打开 "*公共 ip 地址*" 边栏选项卡。  
+    a. 中转到与 Service Fabric 群集关联的资源组，并找到*公共 IP 地址*资源。 选择与公共 IP 地址关联的对象打开 "*公共 ip 地址*" 边栏选项卡。  
 
       ![公共 IP 地址](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
-    b.保留“数据库类型”设置，即设置为“共享”。 在 "公共 IP 地址" 边栏选项卡上，FQDN 显示为 " *DNS 名称*"。  
+    b. 在 "公共 IP 地址" 边栏选项卡上，FQDN 显示为 " *DNS 名称*"。  
 
       ![DNS 名称](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
@@ -203,11 +203,11 @@ Azure Stack 中心的 Service Fabric 群集不使用资源提供程序 ServiceFa
 
 1. 安装完成后，请配置系统环境变量，以确保 Service Fabric cmdlet 可从 PowerShell 中访问。  
     
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 请参阅 **"控制面板"**  > **系统和安全** > **系统**"，然后选择"**高级系统设置**"。  
+    a. 请参阅 **"控制面板"**  > **系统和安全** > **系统**"，然后选择"**高级系统设置**"。  
     
       ![控制面板](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
-    b.保留“数据库类型”设置，即设置为“共享”。 在*系统属性*的 "**高级**" 选项卡上，选择 "**环境变量**"。  
+    b. 在*系统属性*的 "**高级**" 选项卡上，选择 "**环境变量**"。  
 
     c. 对于 "*系统变量*"、"编辑**路径**" 和 "确保**C：\\程序文件\\Microsoft Service Fabric\\bin\\fabric**\\fabric 位于环境变量列表的顶部。  
 

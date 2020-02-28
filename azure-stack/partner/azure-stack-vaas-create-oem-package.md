@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 61e71e891f68118a89f0295528f6aab21507da1c
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 64ecf37e0fff2e9380a2c13b6fe65a41ec84de08
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625469"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704703"
 ---
 # <a name="create-an-oem-package"></a>创建 OEM 包
 

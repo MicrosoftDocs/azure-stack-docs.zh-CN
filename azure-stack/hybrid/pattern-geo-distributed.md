@@ -5,14 +5,13 @@ author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
-ms.reviewer: anajod
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 37d4b517eec69ebab72aa3d82733829466b44fda
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.reviewer: anajod2019
+ms.openlocfilehash: aaea4465aaaf69db755186abed6473a636d52580
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875668"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689301"
 ---
 # <a name="geo-distributed-pattern"></a>地理分布模式
 

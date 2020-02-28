@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 1d6b32173b8b2fba921e7e15fc5f0073456e6031
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 69c7d14bef07e3664299c7e78ed1e8bf555f19dd
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509953"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699892"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>准备 Azure Stack 集线器中的扩展主机
 

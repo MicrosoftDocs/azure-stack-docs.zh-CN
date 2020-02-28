@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: bf1ae2d8c404f8cc52ab32b22c883ee15934c3b1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ebd9925b471d46dc67df29557f677b43d0221a1d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877470"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689539"
 ---
 # <a name="devops-pattern"></a>DevOps 模式
 

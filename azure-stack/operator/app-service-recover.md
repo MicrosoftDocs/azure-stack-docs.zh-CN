@@ -7,12 +7,12 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 7d8d994b7ca134d13c08a987e622027b5f4b7732
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e04fa2f3e9d03f1982ef67d4d19549b7b73a1f1a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875175"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701677"
 ---
 # <a name="app-service-recovery-on-azure-stack-hub"></a>Azure Stack 集线器上的应用服务恢复
 

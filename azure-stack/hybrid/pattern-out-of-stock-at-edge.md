@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 2fac02fc6bae0d8bfedebcbb059e376d616a5b87
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 144163b415a5d5aaa914b2c36ab036b587acd999
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875532"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688808"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>边缘模式的脱销检测
 
@@ -43,11 +43,11 @@ ms.locfileid: "76875532"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | Description |
+| 层 | 组件 | 说明 |
 |----------|-----------|-------------|
 | 本地硬件 | 网络照相机 | 需要一个网络摄像机，其中使用 HTTP 或 RTSP 源来提供用于推理的映像。 |
 | Azure | Azure IoT 中心 | [Azure IoT 中心](/azure/iot-hub/)处理边缘设备的设备预配和消息传递。 |
-|  | Azure 时序见解 | [Azure 时序见解](/azure/time-series-insights/)存储来自 IoT 中心的消息以进行可视化。 |
+|  | Azure Time Series Insights | [Azure 时序见解](/azure/time-series-insights/)存储来自 IoT 中心的消息以进行可视化。 |
 |  | Power BI | [Microsoft Power BI](https://powerbi.microsoft.com/)提供了面向业务的脱销事件的报告。 Power BI 提供了一个易于使用的仪表板界面，用于查看来自 Azure 流分析的输出。 |
 | Azure Stack 边缘或<br>Azure IoT Edge 设备 | Azure IoT Edge | [Azure IoT Edge](/azure/iot-edge/)协调本地容器的运行时并处理设备管理和更新。|
 | | Azure 项目脑电波 | 在 Azure Stack 边缘设备上，[项目脑电波](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)使用现场可编程的入口阵列（fpga）来加速 ML 推断。|

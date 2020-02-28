@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 76acf85ac6bdfa1576416a9fc583463a71ad95d8
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/13/2019
+ms.openlocfilehash: ac9c6707e0b6e179fdae3dac0b4ec94bad11e6d7
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876110"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688876"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Azure Stack 中心概述的 Azure App Service 和 Azure Functions 概述
 

@@ -2,13 +2,13 @@
 author: mattbriggs
 ms.topic: include
 ms.date: 1/22/2020
-ms.author: mabrigg
-ms.openlocfilehash: bd7e211fc222989a07150b665310e23f1100cf9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.author: mab
+ms.openlocfilehash: 17ac3861ecdee9cc8e94f71e6a5e9684a431c875
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876894"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696784"
 ---
 登录到管理员门户：
 

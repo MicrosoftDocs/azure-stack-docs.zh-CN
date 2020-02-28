@@ -457,9 +457,7 @@
 - name: 参考
   items:
     - name: Azure Stack 中心 PowerShell
-      href: /powershell/azure/azure-stack/overview
-- name: 相关内容
-  items:
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
     - name: Azure Stack 集线器用户文档
       href: /azure-stack/user/
     - name: ASDK 文档

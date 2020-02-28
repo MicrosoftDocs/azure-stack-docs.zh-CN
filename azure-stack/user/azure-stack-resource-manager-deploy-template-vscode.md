@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: b1dd38fcb9228bf4bcc6455462e5c6adc0e49007
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d70c44b35612ffb7642a0ee79b5820dba7b66532
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883247"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701881"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>通过 Visual Studio Code 部署到 Azure Stack 中心
 
@@ -33,7 +33,7 @@ ms.locfileid: "76883247"
 
 Azure Stack 中心部署架构通过 Visual Studio Code 中的 Azure 资源管理器模板支持混合配置文件。 可以在 JSON 模板中更改一行以引用架构，然后可以使用 IntelliSense 查看 Azure 兼容资源。 在架构中，查看 Azure Stack 集线器版本中支持的资源提供程序、类型和 API 版本。 该架构依赖于 API 配置文件来检索 Azure Stack 集线器的版本中支持的资源提供程序中的 API 终结点的特定版本。 你可以使用类型和 apiVersion 的单词完成，然后将限制为可用于 API 配置文件的 apiVersion 和资源类型。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Azure Stack 集线器的访问权限
@@ -50,7 +50,7 @@ Azure Stack 中心部署架构通过 Visual Studio Code 中的 Azure 资源管�
 
 ## <a name="get-a-template"></a>获取模板
 
-无需从头开始创建模板，只需从 Test-azurestack-Templates （ https://github.com/Azure/AzureStack-QuickStart-Templates) 中打开模板。 Test-azurestack-模板是将资源部署到 Azure Stack 中心的资源管理器模板的存储库。 
+无需从头开始创建模板，只需从 Test-azurestack-Templates （ https://github.com/Azure/AzureStack-QuickStart-Templates)中打开模板。 Test-azurestack-模板是将资源部署到 Azure Stack 中心的资源管理器模板的存储库。 
 
 本文中的模板称为 `101-vm-windows-create`。 该模板定义 Azure Stack 集线器的 Windows VM 的基本部署。  此模板还会部署一个虚拟网络（使用 DNS）、网络安全组和一个网络接口。
 

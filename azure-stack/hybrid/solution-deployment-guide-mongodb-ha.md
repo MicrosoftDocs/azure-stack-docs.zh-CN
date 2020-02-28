@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7611387047d80ad7c60f4402c7399d3d0d4e8b09
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: d9a0447938c44eec90d1d5cb2898e950cddbd7bf
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568328"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701371"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>将高度可用的 MongoDB 解决方案部署到 Azure 并 Azure Stack 中心
 

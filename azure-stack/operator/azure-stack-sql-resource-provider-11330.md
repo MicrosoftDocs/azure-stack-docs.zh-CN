@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 208f0556b125eed30063dc768d9b88875176d344
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.lastreviewed: 01/09/2020
+ms.openlocfilehash: 4aefe4e01950c7891bedb43eb1245f10608d1709
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491860"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697427"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL 资源提供程序1.1.33.0 发行说明
 

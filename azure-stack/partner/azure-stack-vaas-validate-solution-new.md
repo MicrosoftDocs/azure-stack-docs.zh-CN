@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b5380b644aeece0e12e692ebb578fe2b6d0c8792
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 6a743a27b836ad4e82d75f8a4c6b156340c354ad
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143958"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704533"
 ---
 # <a name="validate-a-new-azure-stack-hub-solution"></a>验证新的 Azure Stack 中心解决方案
 

@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 54435c9e3bb4a7fa6604c8108497acc569da2d71
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 0a725959e532744d9fff9300808c548943502c4e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508729"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696288"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>验证 Azure Stack 集线器的图形集成
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: e432e0a37dbcea7bf441594ba6669ee15578b3e4
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.lastreviewed: 11/20/2
+ms.openlocfilehash: 78dbba26d13914fe54111b315a0f01c48d53a26a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492047"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698668"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>在 Azure Stack 中心内删除 MySQL 资源提供程序
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 72a0fd215363911457271f65d636be37e3388c83
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: adc185b290d0006ed3a32584a7e3d8473ba2aa6c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037159"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689913"
 ---
 # <a name="hybrid-application-design-considerations"></a>混合应用程序设计注意事项 
 
@@ -50,13 +50,13 @@ Microsoft Azure 是唯一一致的混合云。 它可让你重复使用开发投
 
 表1中列出了要包含在清单中的常见应用程序组件。
 
-### <a name="table-1-common-app-components"></a>表 1。 常见应用程序组件
+### <a name="table-1-common-app-components"></a>表 1. 常见应用程序组件
 
 
 | 组件 | **混合应用程序指南** |
 | ---- | ---- |
 | 客户端连接 | 你的应用程序（在任何设备上）可以通过多种方式从单一入口点访问用户，其中包括：<br>-客户端-服务器模型，要求用户安装客户端以使用应用程序。 从 web 浏览器访问的基于服务器的应用程序。<br>-客户端连接可以在连接断开时包含通知，或在可能应用漫游费用时发出警报。 |
-| 身份验证  | 连接到应用程序的用户或连接到另一组件的一个组件都需要进行身份验证。 |
+| Authentication  | 连接到应用程序的用户或连接到另一组件的一个组件都需要进行身份验证。 |
 | API  | 您可以使用 API 集和类库向开发人员提供对应用程序的编程访问，并提供基于 Internet 标准的连接接口。 你还可以使用 Api 将应用程序分解为独立的操作逻辑单元。 |
 | 服务  | 您可以使用简洁的服务来提供应用程序的功能。 服务可以是运行应用程序的引擎。 |
 | 队列 | 你可以使用队列来组织应用程序组件的生命周期和状态的状态。 这些队列可为订阅方提供消息传送、通知和缓冲功能。 |
@@ -226,7 +226,7 @@ Microsoft Azure 是唯一一致的混合云。 它可让你重复使用开发投
 
 **审核您的系统。** 系统监视可以从应用程序组件和相关的云平台操作记录并聚合数据。
 
-## <a name="summary"></a>摘要
+## <a name="summary"></a>总结
 
 本文提供了在创作和设计混合应用程序的过程中要考虑的项的清单。 在部署应用程序之前查看这些要点可防止在生产中断时遇到这些问题，并可能需要重新访问设计。
 

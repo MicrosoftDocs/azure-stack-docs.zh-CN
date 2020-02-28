@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cc2a0a17c2bce21a46132dde503d0461430a6064
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: 6bc12104ef8ce325fe9b1773373ef235a33919e5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509460"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696951"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>配置 Azure Stack 集线器遥测
 

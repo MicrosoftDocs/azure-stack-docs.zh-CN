@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 388c01ce8a4c5c6834ab88f8fe28013c1208e728
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 0a3dfcc7d12baa6616f57908e87d24afaf1e927e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883898"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704380"
 ---
 # <a name="connect-to-azure-stack-hub"></a>连接到 Azure Stack 集线器
 
@@ -38,7 +38,7 @@ ms.locfileid: "76883898"
 > [!NOTE] 
 > 此 VPN 连接不提供与 Azure Stack 集线器基础结构 Vm 的连接。 
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 * 在本地计算机上安装[Azure Stack 集线器兼容 Azure PowerShell](../operator/azure-stack-powershell-install.md) 。  
 * 下载[处理 Azure Stack 中心所需的工具](../operator/azure-stack-powershell-download.md)。 
@@ -97,7 +97,7 @@ Add-AzsVpnConnection `
 
 ### <a name="test-the-vpn-connectivity"></a>测试 VPN 连接
 
-若要测试门户连接，请打开浏览器并中转到用户门户（ https://portal.local.azurestack.external/) 、登录，然后创建资源。  
+若要测试门户连接，请打开浏览器并中转到用户门户（ https://portal.local.azurestack.external/)、登录，然后创建资源。  
 
 ## <a name="next-steps"></a>后续步骤
 

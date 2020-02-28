@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 3225dce7a767dd973be62844c219dea5135bd91d
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 81cf8806b5aa24d7da78a6243d2806b732160314
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625214"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694452"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 

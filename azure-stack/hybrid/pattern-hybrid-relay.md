@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 945aaf9fa9d422418718c87545c238239220bc06
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890062"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688774"
 ---
 # <a name="hybrid-relay-pattern"></a>混合中继模式
 
@@ -39,12 +39,12 @@ ms.locfileid: "76890062"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | Description |
+| 层 | 组件 | 说明 |
 |----------|-----------|-------------|
 | Azure | Azure VM | Azure VM 为本地资源提供可公开访问的终结点。 |
 | | Azure 服务总线中继 | [Azure 服务总线中继](/azure/service-bus-relay/)提供基础结构，用于维护 Azure vm 与 AZURE STACK 中心 vm 之间的隧道和连接。|
-| Azure Stack Hub | 计算 | Azure Stack 中心 VM 提供混合中继隧道的服务器端。 |
-| | 存储空间 | 部署到 Azure Stack 集线器中的 AKS 引擎群集提供了一个可缩放的弹性引擎来运行人脸 API 容器。|
+| Azure Stack 中心 | 计算 | Azure Stack 中心 VM 提供混合中继隧道的服务器端。 |
+| | 存储 | 部署到 Azure Stack 集线器中的 AKS 引擎群集提供了一个可缩放的弹性引擎来运行人脸 API 容器。|
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
 

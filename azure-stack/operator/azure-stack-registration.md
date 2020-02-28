@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 3f8570f765b87736975a15c49b1a2a5ff4bdf55d
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 6af18b519f32975643dea10d81dfa9ed1f0588c5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625316"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697869"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>向 Azure 注册 Azure Stack 集线器
 

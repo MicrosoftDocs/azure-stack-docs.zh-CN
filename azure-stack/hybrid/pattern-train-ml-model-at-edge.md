@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a95102bcdc57bcad7116803768830f317ea48c4c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4df466a3b1b1e89be704302153e9e835f504445e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877288"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688859"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>在边缘模式训练机器学习（ML）模型
 
@@ -43,13 +43,13 @@ ms.locfileid: "76877288"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | Description |
+| 层 | 组件 | 说明 |
 |----------|-----------|-------------|
 | Azure | Azure 机器学习 | [Azure 机器学习](/azure/machine-learning/)协调 ML 模型的培训。 |
 | | Azure 容器注册表 | Azure ML 将模型打包到容器中，并将其存储在[Azure 容器注册表](/azure/container-registry/)中进行部署。|
-| Azure Stack Hub | 应用服务 | [应用服务 Azure Stack 集线器](/azure-stack/operator/azure-stack-app-service-overview)为边缘提供组件的基础。 |
+| Azure Stack 中心 | 应用服务 | [应用服务 Azure Stack 集线器](/azure-stack/operator/azure-stack-app-service-overview)为边缘提供组件的基础。 |
 | | 计算 | 使用 Docker 运行 Ubuntu 的 Azure Stack 集线器 VM 用于训练 ML 模型。 |
-| | 存储空间 | 可以在 Azure Stack Hub blob 存储中承载私有数据。 |
+| | 存储 | 可以在 Azure Stack Hub blob 存储中承载私有数据。 |
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
 

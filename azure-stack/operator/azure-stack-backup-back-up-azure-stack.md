@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 85006def262ed689aabba741e7f08f679c9f98c4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 09/05/2019
+ms.openlocfilehash: 10a7c60a18faa5528fb9c1917c62994b43bee51a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877827"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701031"
 ---
 # <a name="back-up-azure-stack-hub"></a>备份 Azure Stack 中心
 

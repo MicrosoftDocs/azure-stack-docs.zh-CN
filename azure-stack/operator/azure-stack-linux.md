@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: b5e15568b2943d34dd5456f924db59cfcf48cb7f
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 11/16/2019
+ms.openlocfilehash: 532f61b2b306dab833c35dab403226e70950d43a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890249"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699331"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>将 Linux 映像添加到 Azure Stack 中心市场
 

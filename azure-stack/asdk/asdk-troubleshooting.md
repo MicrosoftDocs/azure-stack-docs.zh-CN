@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d02b500fce65464ecc27e8fbbd6edbbf7c6882b3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 73e769358d0b6007a7849edd1cebaac0ade78d04
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873305"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77691341"
 ---
 # <a name="troubleshoot-the-asdk"></a>ASDK 故障排除
 本文提供 Azure Stack 开发工具包（ASDK）的常见故障排除信息。 有关 Azure Stack 集成系统的帮助，请参阅[Microsoft Azure Stack 故障排除](../operator/azure-stack-troubleshooting.md)。 
@@ -89,7 +89,7 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 
 可以在[管理存储帐户](../operator/azure-stack-manage-storage-accounts.md)中了解有关配置保留阈值和按需回收的详细信息。
 
-## <a name="storage"></a>存储空间
+## <a name="storage"></a>存储
 ### <a name="storage-reclamation"></a>存储回收
 回收的容量最多可能需要14小时才能在门户中显示。 空间回收取决于各种因素，包括块 blob 存储中内部容器文件的使用百分比。 因此，根据删除的数据量，无法保证垃圾回收器运行时可回收的空间量。
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: c44f5b06c034a65a79ddd8098b9abc8e220ea5b9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4d8f727178b4bbe6da6377f965a4863acf322abc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885090"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704754"
 ---
 # <a name="tutorial-test-a-service-offering"></a>教程：测试服务产品
 
@@ -24,7 +24,7 @@ ms.locfileid: "76885090"
 > * 创建订阅
 > * 创建和部署资源
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 开始本教程之前，必须先完成以下先决条件：
 
@@ -36,8 +36,8 @@ ms.locfileid: "76885090"
 
 1. 使用用户帐户登录到用户门户 
 
-   - 对于集成系统，URL 根据操作员的区域和外部域名，使用格式 https://portal.&lt ;*区域*&gt; 。&lt;*FQDN*&gt; 。
-   - 如果使用的是 Azure Stack 开发工具包，则门户地址为 [https://portal.local.azurestack.external](https://portal.local.azurestack.external )。
+   - 对于集成系统，URL 根据操作员的区域和外部域名，使用格式 https://portal.&lt;*区域*&gt;。&lt;*FQDN*&gt;。
+   - 如果使用的是 Azure Stack 开发工具包，则 https://portal.local.azurestack.external门户地址。
 
 1. 选择 "**获取订阅**" 磁贴。
 
@@ -45,7 +45,7 @@ ms.locfileid: "76885090"
 
 1. 在 "**获取订阅**" 的 "**显示名称**" 字段中，输入新订阅的名称。 选择 "**产品/服务**"，然后从 "**选择产品/服务**" 列表中选择你在上一教程中创建的产品/服务。 选择“创建”。
 
-   ![创建套餐](media/tutorial-test-offer/2-create-subscription.png)
+   ![创建产品](media/tutorial-test-offer/2-create-subscription.png)
 
 1. 若要查看订阅，请选择 "**所有服务**"，然后在 "**常规**" 类别下选择 "**订阅**"。 选择新订阅以查看与其关联的产品/服务及其属性。
 

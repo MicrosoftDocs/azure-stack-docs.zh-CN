@@ -8,12 +8,12 @@ ms.date: 07/18/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 0f0838d64dd205d56b0a82d487176296805f4ff3
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: cbc922a212c347a4e8a0a72cc5e609127b6d390f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509596"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697835"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>替换 Azure Stack 集线器缩放单位节点上的硬件组件
 

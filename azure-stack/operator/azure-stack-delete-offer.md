@@ -7,12 +7,12 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 61d55c3b11dd89894a062e71c51dc5cc3e89e01c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1f38bc4690e7dd7f5b30fdd0ae14896c02324c3e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882422"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700164"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>删除配额、计划、产品/服务和订阅
 

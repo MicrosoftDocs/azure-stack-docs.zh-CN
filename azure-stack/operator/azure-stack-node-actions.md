@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5941fb3d433512bad69c36a0620d6ec32988d44a
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 488c031e9ab51886d7a19fb80bd5b1a7512d3450
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509732"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698464"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack 中心中的缩放单位节点操作
 

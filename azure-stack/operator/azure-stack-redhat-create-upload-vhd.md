@@ -8,12 +8,12 @@ ms.date: 12/11/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 8d6a94214d45fcf9d008f93d1ce726d7af536d77
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: d3df1040faec4c14b08f358f49fe9a6e9404fdc0
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890232"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698056"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>为 Azure Stack 中心准备基于 Red Hat 的虚拟机
 
@@ -392,7 +392,7 @@ ms.locfileid: "76890232"
 1. 将 qcow2 映像转换为 VHD 格式。
 
     > [!NOTE]
-    > Qemu-img 版本中有一个已知 bug > = 2.2.1，导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img-img 2.2.0 或更低版本，或者更新到2.6 或更高版本。 参考： https://bugs.launchpad.net/qemu/+bug/1490611 。
+    > Qemu-img 版本中有一个已知 bug > = 2.2.1，导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img-img 2.2.0 或更低版本，或者更新到2.6 或更高版本。 参考： https://bugs.launchpad.net/qemu/+bug/1490611。
 
     首先将此映像转换为原始格式：
 
@@ -566,7 +566,7 @@ ms.locfileid: "76890232"
         
 1. 不要在操作系统磁盘上创建交换空间。
 
-    Azure Linux 代理可使用在 Azure 上预配 VM 后附加到 VM 的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是临时磁盘，并且在取消预配 VM 时可能会被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：
+    Azure Linux 代理可使用在 Azure 上预配 VM 后附加到 VM 的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是临时磁盘，并可能在取消预配 VM 时被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：
 
     ```sh
     ResourceDisk.Format=y
@@ -760,9 +760,9 @@ ms.locfileid: "76890232"
 
 1. 打开 VM 设置：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 将新的虚拟硬盘附加到 VM。 请务必选择“VHD 格式”和“固定大小”。
+    a. 将新的虚拟硬盘附加到 VM。 请务必选择“VHD 格式”和“固定大小”。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 将安装 ISO 附加到 DVD 光驱。
+    b. 将安装 ISO 附加到 DVD 光驱。
 
     c. 将 BIOS 设置为从 CD 启动。
 

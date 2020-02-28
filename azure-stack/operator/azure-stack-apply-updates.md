@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: 61f4e147d587a50793169575eac8abc6d33fce28
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.reviewer: ppace
+ms.openlocfilehash: 5d53ad361266aa6e2972ed291c023ed13815022e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509443"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77687506"
 ---
 # <a name="install-azure-stack-hub-updates"></a>安装 Azure Stack 中心更新
 

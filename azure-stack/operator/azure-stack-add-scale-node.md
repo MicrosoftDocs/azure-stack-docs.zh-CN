@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d138fe5c4203cc28cedfb44964d7b99d9fc72931
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876586"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688757"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>在 Azure Stack 集线器中添加其他缩放单位节点
 
@@ -67,7 +67,7 @@ Azure Stack 中心操作员可通过添加额外的物理计算机来增加现�
 使用以下任一示例 PowerShell 脚本之前，请将值*节点名称*和*IP 地址*替换为 Azure Stack 中心环境中的值。
 
   > [!Note]  
-  > 命名节点时，必须使名称长度小于15个字符。 你还不能使用包含空格的名称，也不能包含以下任何字符： `\`、`/`、`:`、`*`、`?`、`"`、`<`、`>`、`|`、`\`、`~`、`!`、`@`、`#`、`$`、`%`、`^`、`&``(``)`。
+  > 命名节点时，必须使名称长度小于15个字符。 你还不能使用包含空格的名称，也不能包含以下任何字符： `\`、`/`、`:`、`*`、`?`、`"`、`<`、`>`、`|`、`\`、`~`、`!`、`@`、`#`、`$`、`%`、`^`、`&``(``)`。`{``}``_`
 
 **添加节点：**
   ```powershell
@@ -96,7 +96,7 @@ Azure Stack 中心操作员可通过添加额外的物理计算机来增加现�
 ### <a name="status-for-the-add-node-operation"></a>添加节点操作的状态 
 **对于缩放单位：**
 
-|状态               |Description  |
+|状态               |说明  |
 |---------------------|---------|
 |正在运行              |所有节点正在积极地参与缩放单位。|
 |已停止              |缩放单位节点已关闭或无法访问。|
@@ -107,7 +107,7 @@ Azure Stack 中心操作员可通过添加额外的物理计算机来增加现�
 
 **对于缩放单位节点：**
 
-|状态                |Description  |
+|状态                |说明  |
 |----------------------|---------|
 |正在运行               |节点正在积极地参与缩放单位。|
 |已停止               |节点不可用。|

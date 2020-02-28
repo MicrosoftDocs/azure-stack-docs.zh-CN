@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 7fa4ac0f63b3f5243a6473c921012614bb01bfb2
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.lastreviewed: 01/13/2019
+ms.openlocfilehash: 7bfd1ec2ebf20abb3b6881fffe1588260fc4476e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568616"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703547"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>将 Azure App Service 部署到 Azure Stack 中心的脱机环境中
 
@@ -90,7 +90,7 @@ ms.locfileid: "77568616"
        1. 选择包含虚拟网络的 "**资源组**" 选项。
        2. 选择要部署到的**虚拟网络**名称。
        3. 为每个所需的角色子网选择正确的**子网**值。
-       4. 选择 **“下一步”** 。
+       4. 选择“**下一页**”。
 
       ![Azure App Service 安装程序中的虚拟网络和子网信息][5]
 
@@ -106,7 +106,7 @@ ms.locfileid: "77568616"
     1. 在 "**标识应用程序证书文件**" 框中，输入（或浏览到）证书文件的位置。
     1. 在 "**标识应用程序证书密码**" 框中，输入证书的密码。 此密码是你在使用脚本创建证书时记下的密码。
     1. 在 " **Azure 资源管理器根证书文件**" 框中，输入（或浏览到）证书文件的位置。
-    1. 选择 **“下一步”** 。
+    1. 选择“**下一页**”。
 
     ![在 Azure App Service 安装程序中输入应用程序 ID 和证书信息][10]
 
@@ -148,7 +148,7 @@ ms.locfileid: "77568616"
      >
      >
 
-    | 角色 | 最小实例 | 最低 SKU | 注意 |
+    | 角色 | 最小实例 | 最低 SKU | 说明 |
     | --- | --- | --- | --- |
     | 控制器 | 1 | Standard_A2-（2 vCPU，3584 MB） | 管理并维护 Azure App Service 云的运行状况。 |
     | 管理 | 1 | Standard_A2-（2个 vcpu，3584 MB） | 管理 Azure App Service Azure 资源管理器和 API 终结点、门户扩展（管理员、租户、函数门户）和数据服务。 若要支持故障转移，请将推荐的实例增加到2。 |
@@ -158,7 +158,7 @@ ms.locfileid: "77568616"
 
     ![在 Azure App Service 安装程序中设置角色层和 SKU 选项][14]
 
-1. 在 "**选择平台映像**" 框中，从 Azure App Service 云的计算资源提供程序中提供的映像中选择部署 Windows Server 2016 虚拟机（VM）映像。 选择 **“下一步”** 。
+1. 在 "**选择平台映像**" 框中，从 Azure App Service 云的计算资源提供程序中提供的映像中选择部署 Windows Server 2016 虚拟机（VM）映像。 选择“**下一页**”。
 
     > [!NOTE]
     > Windows Server 2016 Core 不是受支持的平台映像，*不适*用于 Azure Stack 中心的 Azure App Service。  不要将评估映像用于生产部署。 Azure Stack 中心的 Azure App Service 要求在用于部署的映像上激活 Microsoft .NET 3.5.1 SP1。 Marketplace 联合的 Windows Server 2016 映像未启用此功能。 因此，你必须创建并使用预先启用此功能的 Windows Server 2016 映像。
@@ -173,7 +173,7 @@ ms.locfileid: "77568616"
 1. 在下一页上：
      1. 输入辅助角色 VM 管理员用户名和密码。
      2. 输入 "其他角色" "VM 管理员用户名" 和 "密码"。
-     3. 选择 **“下一步”** 。
+     3. 选择“**下一页**”。
 
     ![在 Azure App Service 安装程序中输入角色 VM 管理员][16]
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 131a3e0cacc1d08df6f2f925845d8dbf21386162
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: 73970197e6d0b1c55e29e028e53d6639aa9c0afa
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876552"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695608"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>作为云解决方案提供商管理 Azure Stack 集线器的使用情况和计费
 

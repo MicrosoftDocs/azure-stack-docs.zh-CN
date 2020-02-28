@@ -5,13 +5,13 @@ author: sethmanheim
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: sethm
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: dd2b00ced084f4a069626f56d37eec1cdae238d6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/05/2020
+ms.openlocfilehash: b9afba6322b80d487f4ba7d4324adcd42a8fd85a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884830"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703003"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用 DNS
 
@@ -59,7 +59,7 @@ Azure Stack 集线器中的 DNS 类似于 Azure 中的 DNS，但有几个重要�
 
 若要详细了解 Azure DNS，请参阅[DNS 区域和记录](/azure/dns/dns-zones-records)。
 
-### <a name="tags"></a>标记
+### <a name="tags"></a>Tags
 
 Azure Stack 集线器 DNS 支持在 DNS 区域资源上使用 Azure 资源管理器标记。 它不支持 DNS 记录集上的标记。 作为替代方法，在 DNS 记录集上支持**元数据**，如下一节中所述。
 

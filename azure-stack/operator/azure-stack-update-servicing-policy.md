@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: d75813bf5383d7fa231261057d891a2ab7aa87e2
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.reviewer: ppace
+ms.openlocfilehash: 3a8f63772c5aa6b34e20da2dbea13ea994c7de16
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508900"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696645"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack 中心服务策略
 

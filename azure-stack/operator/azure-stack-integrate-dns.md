@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 50553f15d394b5640bb63cb2e675da9a9684469d
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 91d65a59d8db50162f5cf6c99f8d3ab1b5aeba86
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509885"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699654"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack 中心数据中心 DNS 集成
 

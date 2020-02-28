@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: b3d6f1c02e7c4cb526a97034b93dbbfd92fc057f
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 620e88bcf20f9744ab91d2450da2a8570369cc14
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77510140"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695183"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack 集线器集成系统连接模型
 如果你有兴趣购买 Azure Stack 集线器集成系统，则需要了解 Azure Stack 中心部署的[几个数据中心集成注意事项](azure-stack-datacenter-integration.md)，以确定系统如何适应你的数据中心。 此外，还需要决定将 Azure Stack 集线器集成到混合云环境中的方式。 本文概述了这些重要决策，其中包括 Azure 连接模型、标识存储选项和计费模型选项。

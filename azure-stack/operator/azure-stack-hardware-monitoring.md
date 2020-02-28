@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 4fe942e6a4230d9807780507de8b658a6e0ed4c3
-ms.sourcegitcommit: c653efe7cd5177bf61c1a321ba7f38c0cdf90346
+ms.openlocfilehash: dc7be7e80f6277c6788c9b572ad2d74031d811f1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77575136"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699722"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>监视 Azure Stack 集线器硬件组件
 

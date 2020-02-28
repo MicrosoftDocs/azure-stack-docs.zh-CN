@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: f8b9ed17aa19a2d0ed9403ace3876f4c8f3a25bf
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.lastreviewed: 11/20/2019
+ms.openlocfilehash: 7046eff5aa90504e2f02d7b7d24b1c2a74421270
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491775"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697172"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 

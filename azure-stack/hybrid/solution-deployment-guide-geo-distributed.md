@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3353977eb36701575a725f2e74f2275dac73bddd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2dbff36dba8739661b88b58ef27eec49597646bc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877640"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700997"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>创建地理分布式应用解决方案，以将流量定向到 Azure 和 Azure Stack 中心
 
@@ -61,7 +61,7 @@ ms.locfileid: "76877640"
 -   **应用的命名约定：** 由于将部署应用的多个实例，因此已部署应用的每个实例都需要一个名称。 使用应用服务环境时，可以在多个环境中使用相同的应用名称。 由于每个应用服务环境都有一个唯一的域后缀，因此开发人员可以选择在每个环境中重复使用完全相同的应用名称。 例如，开发人员可能具有名为的应用程序，如下所示： *myapp.foo1.p.azurewebsites.net*、 *myapp.foo2.p.azurewebsites.net*、 *myapp.foo3.p.azurewebsites.net*等。 对于此处使用的应用程序，每个应用程序实例都具有唯一的名称。 所用的应用实例名称是 *webfrontend1*、*webfrontend2* 和 *webfrontend3*。
 
 > [!Tip]  
-> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
 > 
 > [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
@@ -76,7 +76,7 @@ ms.locfileid: "76877640"
 > - 将应用程序版本指向多个云目标。
 > - 管理和配置 CD 进程。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 需要 Azure 订阅和 Azure Stack 中心安装。
 
@@ -235,7 +235,7 @@ Azure DevOps Services 为发布到多个环境（例如开发、过渡、QA 和�
 
 [Azure 应用服务](https://docs.microsoft.com/azure/app-service/overview)提供高度可缩放、自修复的 Web 托管服务。 
 
-![Azure App Service](media/solution-deployment-guide-geo-distributed/image27.png)
+![Azure 应用服务](media/solution-deployment-guide-geo-distributed/image27.png)
 
 > [!div class="checklist"]
 > - 将现有的自定义 DNS 名称映射到 Azure Web 应用。
@@ -248,7 +248,7 @@ Azure DevOps Services 为发布到多个环境（例如开发、过渡、QA 和�
 
 若要将实时站点及其 DNS 域名迁移到应用服务，请参阅[将活动 DNS 名称迁移到 Azure 应用服务](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain)。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 若要完成此解决方案：
 
@@ -308,7 +308,7 @@ Azure DevOps Services 为发布到多个环境（例如开发、过渡、QA 和�
 
 4. 在 Azure 门户中的应用页左侧导航窗格中，选择“自定义域”。
 
-5. 选择“添加主机名”旁边的 **+** 图标。
+5. 选择“添加主机名” **+旁边的**  图标。
 
 6. 键入完全限定的域名，如 `www.northwindcloud.com`。
 
@@ -316,9 +316,9 @@ Azure DevOps Services 为发布到多个环境（例如开发、过渡、QA 和�
 
 8. 如果指示，将其他类型（`A` 或 `TXT`）的其他记录添加到域名注册机构 DNS 记录。 Azure 将提供这些记录的值和类型：
 
-   a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。  要映射到应用 IP 地址的 A 记录。
+   a.  要映射到应用 IP 地址的 A 记录。
 
-   b.保留“数据库类型”设置，即设置为“共享”。  要映射到应用的默认主机名的**TXT**记录 < app_name > appname>.azurewebsites.net。 应用服务仅在配置时使用此记录来验证自定义域所有权。 验证后，删除 TXT 记录。
+   b.  要映射到应用的默认主机名的**TXT**记录 < app_name > appname>.azurewebsites.net。 应用服务仅在配置时使用此记录来验证自定义域所有权。 验证后，删除 TXT 记录。
 
 9. 在 "域注册器" 选项卡中完成此任务，然后重新验证，直到激活 "**添加主机名**" 按钮。
 
@@ -359,7 +359,7 @@ Azure DevOps Services 为发布到多个环境（例如开发、过渡、QA 和�
 > [!Note]  
 > 如果需要，请在 Azure 门户中获取客户 SSL 证书，并将其绑定到 web 应用。 有关详细信息，请参阅[应用服务证书教程](https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site)。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 若要完成此解决方案：
 
@@ -494,7 +494,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 1.  在 "**添加 SSL 绑定**" 页上，使用下拉菜单选择要保护的域名，并选择要使用的证书。
 
-1.  在“SSL 类型”中，选择是要使用 [**服务器名称指示 (SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication) 还是使用基于 IP 的 SSL。
+1.  在“SSL 类型”中，选择是要使用服务器名称指示 (SNI)[ **还是使用基于 IP 的 SSL。** ](https://en.wikipedia.org/wiki/Server_Name_Indication)
 
     - **基于 sni 的 ssl**：可以添加多个基于 SNI 的 ssl 绑定。 选择此选项可以使用多个 SSL 证书来保护同一 IP 地址上的多个域。 大多数新式浏览器（包括 Internet Explorer、Chrome、Firefox 和 Opera）都支持 SNI（在[服务器名称指示](https://wikipedia.org/wiki/Server_Name_Indication)中了解更全面的浏览器支持信息）。
 

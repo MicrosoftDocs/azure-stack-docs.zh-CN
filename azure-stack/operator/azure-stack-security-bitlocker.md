@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 48a74381c741e16ffa3d0bf9d2331fa5c7fe96ab
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 67d24f65e57df8827d8a8e91962ab3bc11cd6290
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509545"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697648"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Azure Stack 集线器中的静态数据加密
 

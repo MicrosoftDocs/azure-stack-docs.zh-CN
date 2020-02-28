@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e867e8e95c53d7dcf25b98edf9a2be7aceac526b
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: ad173a5678f847cbaf6e18114597c963bfcb3c73
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509664"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697903"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>为 Azure Stack 中心注册创建自定义角色
 

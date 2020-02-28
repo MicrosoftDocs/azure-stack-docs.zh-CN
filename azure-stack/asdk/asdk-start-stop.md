@@ -7,12 +7,12 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 68523f429fb49bfc28151f3d92f3bb3cd64a0b71
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1801174977ef0370e8433e6c41e2d8c13b497ae8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873458"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694027"
 ---
 # <a name="start-and-stop-the-asdk"></a>启动和停止 ASDK
 不建议只是重新启动 ASDK 主计算机。 相反，请按照本文中的过程操作，正确关闭并重启 ASDK 服务。

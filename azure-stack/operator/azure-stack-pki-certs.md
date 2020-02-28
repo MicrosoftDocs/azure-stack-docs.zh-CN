@@ -7,12 +7,12 @@ ms.date: 12/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 5ed0a7fa6091ee62a7de5e1938bd0094d7765512
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 99bec3441d7b6671024f5e1689c6f8504a2f57c1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509698"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698379"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack 中心公钥基础结构证书要求
 
@@ -83,7 +83,7 @@ Azure Stack 集线器具有公共基础结构网络，该网络使用分配给�
 
 |部署文件夹|必需的证书使用者和使用者可选名称（SAN）|范围（每个区域）|子域命名空间|
 |-----|-----|-----|-----|
-|ADFS|adfs. *&lt;fqdn >&lt;区域 >*<br>（SSL 证书）|ADFS|*> &lt;区域。&lt;fqdn >*|
+|ADFS|Adfs. *&lt;fqdn >&lt;区域 >*<br>（SSL 证书）|ADFS|*> &lt;区域。&lt;fqdn >*|
 |图形|图形. *&lt;fqdn >&lt;区域 >*<br>（SSL 证书）|图形|*> &lt;区域。&lt;fqdn >*|
 |
 

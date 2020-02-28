@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: bryanla
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 9f27013f36b3542e10640b6526eb396aa556e946
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.lastreviewed: 01/13/2019
+ms.openlocfilehash: a1939049c3eb8c4440e37e58b6acfafa91881406
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568667"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688961"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>在 Azure Stack 中心部署应用服务
 
@@ -83,7 +83,7 @@ ms.locfileid: "77568667"
      - 选择包含虚拟网络的**资源组**。
      - 选择要部署到的**虚拟网络**名称。
      - 为每个所需的角色子网选择正确的**子网**值。
-     - 选择 **“下一步”** 。
+     - 选择“**下一页**”。
 
    ![应用服务安装程序][4]
 
@@ -104,7 +104,7 @@ ms.locfileid: "77568667"
 
    d. 在 " **Azure 资源管理器根证书文件**" 框中，输入（或浏览到）证书文件的位置。
 
-   e. 选择 **“下一步”** 。
+   e. 选择“**下一页**”。
 
    ![应用服务安装程序][9]
 
@@ -129,7 +129,7 @@ ms.locfileid: "77568667"
     >[!NOTE]
     >对于生产部署，请遵循[Azure Stack 中心的 Azure App Service server 角色的容量规划](azure-stack-app-service-capacity-planning.md)中的指南。
 
-    | 角色 | 最小实例 | 最低 SKU | 注意 |
+    | 角色 | 最小实例 | 最低 SKU | 说明 |
     | --- | --- | --- | --- |
     | 控制器 | 1 | Standard_A2-（2 vCPU，3584 MB） | 管理并维护应用服务云的运行状况。 |
     | 管理 | 1 | Standard_A2-（2个 vcpu，3584 MB） | 管理应用服务 Azure 资源管理器和 API 终结点、门户扩展（管理员、租户、函数门户）和数据服务。 若要支持故障转移，请将推荐的实例增加到2。 |
@@ -142,7 +142,7 @@ ms.locfileid: "77568667"
     >[!NOTE]
     >**Windows Server 2016 Core 不是受支持的平台映像，不适用于 Azure Stack 中心的 Azure App Service。 不要将评估映像用于生产部署。**
 
-13. 在 "**选择平台映像**" 框中，从应用服务云的计算资源提供程序中提供的映像中选择部署 Windows Server 2016 虚拟机（VM）映像。 选择 **“下一步”** 。
+13. 在 "**选择平台映像**" 框中，从应用服务云的计算资源提供程序中提供的映像中选择部署 Windows Server 2016 虚拟机（VM）映像。 选择“**下一页**”。
 
 14. 在 "下一应用服务安装程序" 页上，执行以下步骤：
 
@@ -150,7 +150,7 @@ ms.locfileid: "77568667"
 
      b. 输入 "其他角色" "VM 管理员用户名" 和 "密码"。
 
-     c. 选择 **“下一步”** 。
+     c. 选择“**下一页**”。
 
     ![应用服务安装程序][15]
 

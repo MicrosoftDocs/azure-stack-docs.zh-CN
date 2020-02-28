@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: c1369ada357e8439e39fed4642996af86925522c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3d1f22bf65f088c9aa651498cd02c7669ba4abfb
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883450"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703938"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack 集线器托管磁盘：差异和注意事项
 
@@ -25,12 +25,12 @@ ms.locfileid: "76883450"
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>备忘单：托管磁盘差异
 
-| 功能 | Azure （全局） | Azure Stack Hub |
+| Feature | Azure （全局） | Azure Stack 中心 |
 | --- | --- | --- |
 |静态数据加密 |Azure 存储服务加密（SSE），Azure 磁盘加密（ADE）。     |BitLocker 128 位 AES 加密      |
-|图像          | 托管自定义映像 |受支持|
+|映像          | 托管自定义映像 |支持|
 |备份选项 | Azure 备份服务 |尚不支持 |
-|灾难恢复选项 | Azure 站点恢复 |尚不支持|
+|灾难恢复选项 | Azure Site Recovery |尚不支持|
 |磁盘类型     |高级 SSD、标准 SSD 和标准 HDD。 |高级 SSD，标准 HDD |
 |高级磁盘  |完全支持。 |可以预配，但不能限制性能  |
 |高级磁盘 IOPs  |取决于磁盘大小。  |每个磁盘 2300 IOPs |
@@ -43,7 +43,7 @@ ms.locfileid: "76883450"
 > [!NOTE]  
 > Azure Stack 集线器中的托管磁盘 IOPs 和吞吐量是 cap 数量，而不是预配的数量，可能会受到 Azure Stack 集线器中运行的硬件和工作负载的影响。
 
-## <a name="metrics"></a>指标
+## <a name="metrics"></a>度量值
 
 与存储指标之间也有一些差异：
 
@@ -217,7 +217,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmC
 应用1808更新或更高版本后，必须在使用托管磁盘之前进行以下配置更改：
 
 - 如果订阅是在1808更新之前创建的，请执行以下步骤来更新订阅。 否则，在此订阅中部署 Vm 可能会失败，并出现错误消息 "磁盘管理器中出现内部错误"。
-   1. 在 Azure Stack Hub 用户门户中，请参阅 "**订阅**"，并查找订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
+   1. 在 Azure Stack Hub 用户门户中，请参阅 "**订阅**"，并查找订阅。 单击 "**资源提供程序**"，然后单击 " **Microsoft. 计算**"，然后单击 "**重新注册**"。
    2. 在同一订阅下，中转到 "**访问控制（IAM）** "，并验证是否列出了**Azure Stack 集线器托管磁盘**。
 - 如果你使用多租户环境，请根据[此文](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-hub-with-the-guest-directory)中的步骤，要求你的云运营商（可能在你自己的组织中，或从服务提供商处）重新配置每个来宾目录。 否则，在与该来宾目录关联的订阅中部署 Vm 可能会失败，并出现错误消息 "磁盘管理器中出现内部错误"。
 

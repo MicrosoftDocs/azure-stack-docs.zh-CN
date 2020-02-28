@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: d909786e3cf3bacbf981fc2150f20084d283e81b
-ms.sourcegitcommit: c653efe7cd5177bf61c1a321ba7f38c0cdf90346
+ms.lastreviewed: 12/23/2019
+ms.openlocfilehash: a4882ca540b2a72d77195ee12a5d5ae0be87931d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77575144"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700011"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将 Marketplace 项下载到 Azure Stack 中心 
 
@@ -32,7 +32,7 @@ ms.locfileid: "77575144"
 
 如果 Azure Stack 中心连接到 internet，则可以使用管理员门户下载 marketplace 项。
 
-### <a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>必备条件
 
 Azure Stack 中心部署必须具有 internet 连接并已注册到 Azure。
 
@@ -73,7 +73,7 @@ Marketplace 联合工具也可用于连接的方案中。
 - **第1部分**：从 Marketplace 项下载。 在具有 internet 访问权限的计算机上，配置 PowerShell，下载联合工具，然后从 Azure Marketplace 下载项。
 - **第2部分**：上传并发布到 Azure Stack 中心市场。 将下载的文件移动到 Azure Stack 中心环境，然后将其发布到 Azure Stack 中心市场。
 
-### <a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>必备条件
 
 - 连接的环境（不必 Azure Stack 集线器）。 需要连接才能从 Azure 获取产品列表及其详细信息，并在本地下载所有内容。 完成此操作后，该过程的其余部分不需要 internet 连接。 它会创建以前下载的项的目录，以便在断开连接的环境中使用。
 

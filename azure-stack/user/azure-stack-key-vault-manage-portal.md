@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sethm
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 34fc01bd117d8ab7b4dec9483f37f762a1c8d835
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 50348aff594b058606aae49981e497f8b3515235
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884821"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702918"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>使用门户管理 Azure Stack 中心的 Key Vault
 
 本文介绍如何使用 Azure Stack 中心门户在 Azure Stack 中心创建和管理密钥保管库。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 你必须订阅包含 Azure Key Vault 服务的产品/服务。
 

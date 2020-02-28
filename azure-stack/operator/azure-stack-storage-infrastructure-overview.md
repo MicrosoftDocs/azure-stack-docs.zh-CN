@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
-ms.reviewer: jiahan
-ms.openlocfilehash: 4db040483ff841801081ef4f2acf60d9a9e3d4a0
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.reviewer: jiaha
+ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568633"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697087"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储基础结构
 
@@ -101,7 +101,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 | 操作状态 | 说明 |
 |---|---|
-| 确定 | 卷处于正常状态。 |
+| OK | 卷处于正常状态。 |
 | 最佳 | 数据不会跨驱动器均匀写入。<br> <br>**操作：** 请联系支持人员以优化存储池中的驱动器使用情况。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 还原失败的连接后，可能需要从备份还原。 |
 
 ### <a name="volume-health-state-warning"></a>卷运行状况状态：警告
@@ -148,7 +148,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 | 操作状态 | 说明 |
 |---|---|
-| 确定 | 卷处于正常状态。 |
+| OK | 卷处于正常状态。 |
 | 服务中 | 驱动器正在执行一些内部日常维护操作。 操作完成后，驱动器应返回到 "正常" 运行状况状态。 |
 
 ### <a name="drive-health-state-healthy"></a>驱动器运行状况状态：正常

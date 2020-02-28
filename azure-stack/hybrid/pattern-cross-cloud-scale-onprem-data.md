@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 51224171848b6109a7cd3d8eb2d5fa1fdcb70973
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f492eba4cd2fae28162eb47b990737a8f5b21c53
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875770"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689522"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>跨云缩放（本地数据）模式
 
@@ -34,17 +34,17 @@ ms.locfileid: "76875770"
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | Description |
+| 层 | 组件 | 说明 |
 |----------|-----------|-------------|
-| Azure | Azure App Service | [Azure App Service](/azure/app-service/)允许你构建和托管 web 应用、RESTful API 应用和 Azure Functions。 采用所选编程语言，无需管理基础结构。 |
+| Azure | Azure 应用服务 | [Azure App Service](/azure/app-service/)允许你构建和托管 web 应用、RESTful API 应用和 Azure Functions。 采用所选编程语言，无需管理基础结构。 |
 | | Azure 虚拟网络| [Azure 虚拟网络（VNet）](/azure/virtual-network/virtual-networks-overview)是 azure 中专用网络的基本构建基块。 VNet 使多个 Azure 资源类型（例如虚拟机（VM））能够安全地相互通信、internet 和本地网络。 此解决方案还演示了如何使用其他网络组件：<br>-应用程序和网关子网<br>-本地网络网关<br>-作为站点到站点 VPN 网关连接的虚拟网络网关<br>-一个公共 IP 地址<br>-点到站点 VPN 连接<br>-用于托管 DNS 域和提供名称解析的 Azure DNS |
-| | Azure Traffic Manager | [Azure 流量管理器](/azure/traffic-manager/traffic-manager-overview)是一种基于 DNS 的流量负载均衡器。 它允许你控制不同数据中心内服务终结点的用户流量分布。 |
+| | Azure 流量管理器 | [Azure 流量管理器](/azure/traffic-manager/traffic-manager-overview)是一种基于 DNS 的流量负载均衡器。 它允许你控制不同数据中心内服务终结点的用户流量分布。 |
 | | Azure Application Insights | [Application Insights](/azure/azure-monitor/app/app-insights-overview)是一种可扩展的应用程序性能管理服务，适用于在多个平台上构建和管理应用程序的 web 开发人员。|
 | | Azure Functions | [Azure Functions](/azure/azure-functions/)允许在无服务器环境中执行代码，无需先创建 VM 或发布 web 应用程序。 |
 | | Azure 自动缩放 | [自动缩放](/azure/azure-monitor/platform/autoscale-overview)是云服务、虚拟机和 Web 应用的内置功能。 此功能允许应用程序在需求更改时执行其最佳性能。 应用将调整流量峰值，在指标发生变化时通知你，并根据需要进行缩放。 |
-| Azure Stack Hub | IaaS 计算 | Azure Stack 集线器允许使用由 Azure 启用的应用程序模型、自助服务门户和 Api。 Azure Stack 集线器 IaaS 允许使用多种开源技术实现一致的混合云部署。 例如，解决方案示例使用 Windows Server VM 来 SQL Server。|
-| | Azure App Service | 与 Azure web 应用一样，该解决方案使用[Azure Stack 中心的 Azure App Service](/azure-stack/operator/azure-stack-app-service-overview)来托管 web 应用。 |
-| | 联网 | Azure Stack 中心虚拟网络的工作方式与 Azure 虚拟网络完全相同。 它使用许多相同的网络组件，包括自定义主机名。 
+| Azure Stack 中心 | IaaS 计算 | Azure Stack 集线器允许使用由 Azure 启用的应用程序模型、自助服务门户和 Api。 Azure Stack 集线器 IaaS 允许使用多种开源技术实现一致的混合云部署。 例如，解决方案示例使用 Windows Server VM 来 SQL Server。|
+| | Azure 应用服务 | 与 Azure web 应用一样，该解决方案使用[Azure Stack 中心的 Azure App Service](/azure-stack/operator/azure-stack-app-service-overview)来托管 web 应用。 |
+| | 网络 | Azure Stack 中心虚拟网络的工作方式与 Azure 虚拟网络完全相同。 它使用许多相同的网络组件，包括自定义主机名。 
 | Azure DevOps Services | 注册 | 快速设置持续集成生成、 测试和部署。 有关详细信息，请参阅[注册和登录到 Azure DevOps](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)。 |
 | | Azure Pipelines | 使用[Azure Pipelines](/azure/devops/pipelines/agents/agents?view=azure-devops)进行持续集成/持续交付。 Azure Pipelines 允许管理托管的生成和发布代理和定义。 |
 | | 代码存储库 | 利用多个代码存储库简化开发管道。 使用 GitHub 中的现有代码存储库、Bitbucket、Dropbox、OneDrive 和 Azure Repos。 |

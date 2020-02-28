@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873288"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690542"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>什么是 Azure Stack 开发工具包（ASDK）？
 [Microsoft Azure Stack 集线器集成系统](../operator/azure-stack-overview.md)的大小范围是4-16 个节点，由硬件合作伙伴和 Microsoft 共同支持。 使用 Azure Stack 集线器集成系统为生产工作负荷启用新方案。 如果你是管理集成系统基础结构并提供服务的 Azure Stack 中心操作员，请参阅我们的[操作员文档](/azure-stack/operator)。
@@ -36,7 +36,7 @@ ASDK 旨在提供 Azure 一致的混合云体验：
 ## <a name="asdk-and-multi-node-azure-stack-hub-differences"></a>ASDK 和多节点 Azure Stack 集线器差异
 单节点 ASDK 部署与多节点 Azure Stack 集线器部署的不同之处在于：
 
-|Description|ASDK|多节点 Azure Stack 集线器|
+|说明|ASDK|多节点 Azure Stack 集线器|
 |-----|-----|-----|
 |**缩放**|所有组件都安装在单节点服务器计算机上。|范围可以是4-16 个节点的大小。|
 |**复原能力**|单节点配置不提供高可用性|支持高可用性功能。|
@@ -51,8 +51,8 @@ ASDK 旨在提供 Azure 一致的混合云体验：
 ### <a name="foundational-services"></a>基础服务
 默认情况下，在部署 ASDK 时，Azure Stack 中心包含以下 "基础服务"：
 - 计算
-- 存储空间
-- 联网
+- 存储
+- 网络
 - Key Vault
 
 使用这些基础服务，可以使用最小配置向用户提供基础结构即服务（IaaS）。

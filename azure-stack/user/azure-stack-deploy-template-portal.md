@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 904a15c59cf2e9418d3615d25c11303fede04762
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8425b4f8492e57502ca93b0be802b63601f6ba34
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885028"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704312"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>在 Azure Stack 中心使用门户部署模板
 

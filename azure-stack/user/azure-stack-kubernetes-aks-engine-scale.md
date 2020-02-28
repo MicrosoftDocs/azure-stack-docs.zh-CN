@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 8956fd60436281c4bb3362b82df38f23d6278425
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cf436526a4c8cb9c549c8ee29036983ed398e97b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883498"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703989"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>缩放 Azure Stack 集线器上的 Kubernetes 群集
 
@@ -26,7 +26,7 @@ ms.locfileid: "76883498"
 
 Scale 命令使用以下参数查找群集定义文件并更新群集。
 
-| 参数 | 示例 | Description |
+| 参数 | 示例 | 说明 |
 | --- | --- | --- | 
 | azure-env | AzureStackCloud | 使用 Azure Stack 集线器时，环境名称需要设置为 `AzureStackCloud`。 | 
 | location | local | 这是 Azure Stack 中心实例的区域。 对于 ASDK，区域设置为 `local`。  | 

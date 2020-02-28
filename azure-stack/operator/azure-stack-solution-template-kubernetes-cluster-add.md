@@ -8,12 +8,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: bbd99b7085f96e24f2d1b2a74795be2a1584b656
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: aef1ce4167c2b95651dde1f4bd41de629b2d5b5c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881284"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697461"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>将 Kubernetes 添加到 Azure Stack 中心市场
 
@@ -42,15 +42,15 @@ ms.locfileid: "76881284"
 
 1. 选择 " **+ 创建资源**" > **提供并计划** > **订阅**以创建订阅。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 输入**显示名称**。
+    a. 输入**显示名称**。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 输入**用户**。 使用与租户关联的 Azure AD 帐户。
+    b. 输入**用户**。 使用与租户关联的 Azure AD 帐户。
 
     c. **提供程序说明**
 
-    d.单击“下一步”。 将**目录租户**设置为 Azure Stack 中心的 Azure AD 租户。 
+    d. 将**目录租户**设置为 Azure Stack 中心的 Azure AD 租户。 
 
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。 选择 "**产品/服务**"。 选择您创建的产品/服务的名称。 记下订阅 ID。
+    e. 选择 "**产品/服务**"。 选择您创建的产品/服务的名称。 记下订阅 ID。
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>在 AD FS 中创建服务主体和凭据
 

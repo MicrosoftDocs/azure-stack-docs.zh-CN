@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: b01f4b796f3d436f42da7cba5f2df60e1c666856
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a945800e999ce825c11d5300d02baa58bbfba9b8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884580"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703853"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>在 Azure Stack 集线器上备份存储帐户
 
@@ -102,7 +102,7 @@ AzCopy 是一个极佳的工具，可用于从本地文件系统、Azure 云存�
     schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\\&lt;script name>.bat
     ```
 
-    | 参数 | 说明 | 
+    | 参数 | 注意 | 
     | ---- | ---- |
     | /SC | 使用分钟计划。 |
     | /月 | 间隔为*XX*分钟。 |

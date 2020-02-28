@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: def9dd3fca3c7e3a2076ffdf79b96fa00e72fac5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 358837da19ad34f82f81a94da0c89b165574ea49
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882015"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699246"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用管理员门户
 
@@ -25,7 +25,7 @@ Azure Stack 中心有两个门户：管理员门户和用户门户。 作为 Azu
 | 环境 | 管理员门户 URL |   
 | -- | -- | 
 | ASDK| https://adminportal.local.azurestack.external  |
-| 集成系统 | https://adminportal.&lt ;*区域*&gt; 。&lt;*FQDN*&gt; | 
+| 集成系统 | https://adminportal.&lt;*区域*&gt;。&lt;*FQDN*&gt; | 
 | | |
 
 > [!TIP]

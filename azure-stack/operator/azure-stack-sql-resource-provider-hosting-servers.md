@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 919b0ed28e6214f8854a3a19012bb7f8cd952b6e
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: a30c3a4f745e46a5e7b58d4355f1c193d8702e28
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491809"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697308"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>添加 SQL 资源提供程序的宿主服务器
 

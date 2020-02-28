@@ -7,12 +7,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: 27fb31a29313543c3eec2b973cdf8e8ce32940fd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a644de92672305cdae82490b6a972620ea77924c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877317"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688739"
 ---
 # <a name="footfall-detection-pattern"></a>Footfall 检测模式
 
@@ -44,13 +44,13 @@ Contoso 想要找出一种不引人注目的、可通过隐私识别的方式来
 
 此解决方案使用以下组件：
 
-| 层 | 组件 | Description |
+| 层 | 组件 | 说明 |
 |----------|-----------|-------------|
 | 应用商店内硬件 | [自定义视觉 AI 开发工具包](https://azure.github.io/Vision-AI-DevKit-Pages/) | 使用仅捕获要分析的人员图像的本地 ML 模型提供存储中筛选。 通过 IoT 中心安全地预配和更新。<br><br>|
 | Azure | [Azure 事件中心](/azure/event-hubs/) | Azure 事件中心提供可缩放的平台，适用于与 Azure 流分析完美集成的引入匿名数据。 |
 |  | [Azure 流分析](/azure/stream-analytics/) | Azure 流分析作业聚合匿名数据，并将其分组到15秒的窗口中进行可视化。 |
 |  | [Microsoft Power BI](https://powerbi.microsoft.com/) | Power BI 提供了一个易于使用的仪表板界面，用于查看来自 Azure 流分析的输出。 |
-| Azure Stack Hub | [应用服务](../operator/azure-stack-app-service-overview.md) | 应用服务资源提供程序（RP）为边缘组件提供基。 包括 web 应用/Api 和函数的宿主和管理功能。 |
+| Azure Stack 中心 | [应用服务](../operator/azure-stack-app-service-overview.md) | 应用服务资源提供程序（RP）为边缘组件提供基。 包括 web 应用/Api 和函数的宿主和管理功能。 |
 | | Azure Kubernetes 服务[（AKS）引擎](https://github.com/Azure/aks-engine)群集 | 将 AKS 群集部署到 Azure Stack 集线器中的 AKS RP 提供可缩放的弹性引擎来运行人脸 API 容器。 |
 | | Azure 认知服务[人脸 API 容器](/azure/cognitive-services/face/face-how-to-install-containers)| 具有人脸 API 容器的 Azure 认知服务 RP 在 Contoso 的专用网络上提供了人口统计、情感和独特的访问者检测。 |
 | | Blob 存储 | 从 AI 开发工具包捕获的图像将上传到 Azure Stack 集线器的 blob 存储。 |

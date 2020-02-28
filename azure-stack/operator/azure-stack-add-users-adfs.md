@@ -7,12 +7,12 @@ ms.date: 06/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: fc60c23f47ea5e1afd68c6e4f6299d0bf83b4a24
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 79380d40282757e704f9dc0ef3bdaf977253ba14
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509392"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703343"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-active-directory-federation-services-ad-fs"></a>在 Active Directory 联合身份验证服务中添加新的 Azure Stack 集线器用户帐户（AD FS）
 

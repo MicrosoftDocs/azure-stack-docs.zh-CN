@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4bf4a7b868822300c39275b8763798007cdada29
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4d997735cdef07d1a0b8aeafe99fed9ee6155c82
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877368"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689454"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>跨云缩放模式
 

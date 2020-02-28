@@ -7,12 +7,12 @@ ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: 72f0e04d03a4304c4ed74f54dcd96f16e247f2a3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d7972047787ed9ae7a5c6525c8da7dc67717c502
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884262"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705247"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>通过 Azure CLI 管理和部署 Azure Stack 集线器的资源
 
@@ -156,7 +156,7 @@ ms.locfileid: "76884262"
 
 2. 注册您的环境。 运行 `az cloud register`时，请使用以下参数：
 
-    | 值 | 示例 | Description |
+    | 值 | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 为用户环境使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的**ResourceManagerUrl**是： `https://management.local.azurestack.external/` 集成系统中的**ResourceManagerUrl**是： `https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
@@ -269,7 +269,7 @@ az group create -n MyResourceGroup -l local
 
 2. 注册您的环境。 运行 `az cloud register`时，请使用以下参数：
 
-    | 值 | 示例 | Description |
+    | 值 | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 为用户环境使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的**ResourceManagerUrl**是： `https://management.local.azurestack.external/` 集成系统中的**ResourceManagerUrl**是： `https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
@@ -380,7 +380,7 @@ az group create -n MyResourceGroup -l local
 
 2. 注册您的环境。 运行 `az cloud register`时，请使用以下参数：
 
-    | 值 | 示例 | Description |
+    | 值 | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 为用户环境使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的**ResourceManagerUrl**是： `https://management.local.azurestack.external/` 集成系统中的**ResourceManagerUrl**是： `https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
@@ -486,7 +486,7 @@ az group create -n MyResourceGroup -l local
 
 2. 注册您的环境。 运行 `az cloud register`时，请使用以下参数。
 
-    | 值 | 示例 | Description |
+    | 值 | 示例 | 说明 |
     | --- | --- | --- |
     | 环境名称 | AzureStackUser | 为用户环境使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
     | 资源管理器终结点 | https://management.local.azurestack.external | ASDK 中的**ResourceManagerUrl**是： `https://management.local.azurestack.external/` 集成系统中的**ResourceManagerUrl**是： `https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |

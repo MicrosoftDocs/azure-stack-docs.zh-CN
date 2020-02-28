@@ -7,12 +7,12 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: aa4e5d10534f2ffe4c9b6cc948fcb7968213aab0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ec02ccd45773c97df71369b1e325120452ce7da1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884659"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702459"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>通过 Commvault 在 Azure Stack 集线器上备份 VM
 
@@ -53,15 +53,15 @@ ms.locfileid: "76884659"
 
 3. 配置 "创建虚拟机" 中的基本设置 **，1个基础知识**：
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 输入“名称”。
+    a. 输入“名称”。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 选择 "**标准 HHD**"。
+    b. 选择 "**标准 HHD**"。
     
     c. 输入**用户名**。
     
-    d.单击“下一步”。 输入**密码**。
+    d. 输入**密码**。
     
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。 确认密码。
+    e. 确认密码。
     
     f. 选择要备份的**订阅**。
     
@@ -75,19 +75,19 @@ ms.locfileid: "76884659"
 
 4. 选择 Commvault VM 的大小。 用于备份的 VM 大小至少应为 10 GB RAM 和 100 GB 的存储空间。
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png)。
+    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png) 列中的一个值匹配。
 
 5. 选择 Commvault VM 的设置。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 将可用性设置为**None**。
+    a. 将可用性设置为**None**。
     
-    b.保留“数据库类型”设置，即设置为“共享”。 对于 "使用托管磁盘"，选择 **"是"** 。
+    b. 对于 "使用托管磁盘"，选择 **"是"** 。
     
     c. 为**虚拟网络**选择默认 VNet。
     
-    d.单击“下一步”。 选择默认**子网**。
+    d. 选择默认**子网**。
     
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，然后单击“确定”。 选择默认的 "**公共 IP 地址**"。
+    e. 选择默认的 "**公共 IP 地址**"。
     
     f. 将 VM 保留在 "**基本**" 网络安全组中。
     
@@ -109,7 +109,7 @@ ms.locfileid: "76884659"
 
 你需要了解你的身份管理器是 Azure AD 还是 AD DFS。 下表包含在 Azure Stack 集线器中设置 Commvault 时所需的信息。
 
-| 元素 | Description | 源 |
+| 元素 | 说明 | 源 |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure 资源管理器 URL | Azure Stack 中心资源管理器终结点。 | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
 | 应用程序名称 |  |  |
@@ -124,8 +124,8 @@ ms.locfileid: "76884659"
 
 2. 在 Commvault VM 上安装 Azure Stack 集线器 PowerShell 和 Azure Stack 中心工具。
 
-    a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，然后单击“添加引用”。 有关安装 Azure Stack 集线器 PowerShell 的说明，请参阅[安装适用于 Azure Stack 中心的 PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)。  
-    b.保留“数据库类型”设置，即设置为“共享”。 有关安装 Azure Stack 集线器工具的说明，请参阅[从 GitHub 下载 Azure Stack 中心工具](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908)。
+    a. 有关安装 Azure Stack 集线器 PowerShell 的说明，请参阅[安装适用于 Azure Stack 中心的 PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)。  
+    b. 有关安装 Azure Stack 集线器工具的说明，请参阅[从 GitHub 下载 Azure Stack 中心工具](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908)。
 
 3. 在 Commvault VM 中安装 Commvault 后，打开 Commcell 控制台。 从 "开始" 中，选择**Commvault** > **Commvault Commcell 控制台**。
 

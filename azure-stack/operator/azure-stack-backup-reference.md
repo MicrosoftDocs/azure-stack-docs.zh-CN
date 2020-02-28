@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ee18141d01805b498a5f9fa1856d226b6738691c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878320"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703598"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务引用
 
@@ -147,10 +147,10 @@ Azure Stack 中心包含许多服务，其中包括门户（Azure 资源管理�
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | 备份类型                                                      | 仅满    | 基础结构备份控制器仅支持完整备份。 不支持增量备份。                                          |
 | 计划的备份                                                | 计划和手动  | 备份控制器支持计划备份和按需备份。                                                                                 |
-| 最大并发备份作业数                                   | 第            | 每个备份控制器实例仅支持一个活动备份作业。                                                                  |
+| 最大并发备份作业数                                   | 1            | 每个备份控制器实例仅支持一个活动备份作业。                                                                  |
 | 网络交换机配置                                     | 不在范围内 | 管理员必须使用 OEM 工具备份网络交换机配置。 请参阅每个 OEM 供应商提供的 Azure Stack 集线器的文档。 |
 | 硬件生命周期主机                                          | 不在范围内 | 管理员必须使用 OEM 工具备份硬件生命周期主机。 请参阅每个 OEM 供应商提供的 Azure Stack 集线器的文档。      |
-| 文件共享的最大数目                                    | 第            | 只能使用一个文件共享来存储备份数据。                                                                                        |
+| 文件共享的最大数目                                    | 1            | 只能使用一个文件共享来存储备份数据。                                                                                        |
 | 备份应用服务、函数、SQL、mysql 资源提供程序数据 | 不在范围内 | 请参阅已发布的用于部署和管理由 Microsoft 创建的增值 Rp 的指南。                                                  |
 | 备份第三方资源提供程序                              | 不在范围内 | 请参阅已发布的用于部署和管理由第三方供应商创建的增值 Rp 的指南。                                          |
 

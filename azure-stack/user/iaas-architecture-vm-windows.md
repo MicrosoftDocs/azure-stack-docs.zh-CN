@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 2aaa7ccf995ac9cc4f5cfc012441ca2317af3504
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1bd438802c00a1c00b10f81920c1756d22f83606
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885301"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704975"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>在 Azure Stack 集线器上运行 Windows 虚拟机
 
@@ -62,7 +62,7 @@ OS 磁盘是存储在 Azure Stack 集线器 blob 存储中的 VHD，因此即使
 
 所有 Nsg 都包含一组[默认规则](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)，其中包括阻止所有入站 Internet 流量的规则。 无法删除默认规则，但其他规则可以覆盖它们。 若要启用 Internet 流量，请创建允许特定端口的入站流量的规则（例如，HTTP 的端口80）。 若要启用 RDP，请添加允许 TCP 端口 3389 的入站流量的 NSG 规则。
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>操作
 
 **诊断**。 启用监视和诊断，包括基本运行状况指标、诊断基础结构日志和[启动诊断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)。 如果 VM 陷入不可启动状态，启动诊断有助于诊断启动故障。 创建用于存储日志的 Azure 存储帐户。 标准的本地冗余存储 (LRS) 帐户足以存储诊断日志。 有关详细信息，请参阅[启用监视和诊断](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data)。
 

@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: e5bdfa5a190b639ef0537c96f4b0e049817fba21
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: eb9cc45f3c8de162550cb7f882060a9506831d23
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882563"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704822"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>将使用情况和计费的租户添加到 Azure Stack 中心
 
@@ -69,7 +69,7 @@ Csp 通常为其 Azure Stack 中心部署中的多个最终客户（租户）提
 
 以下部分介绍了**move-azurermresource** cmdlet 的参数：
 
-| 参数 | Description |
+| 参数 | 说明 |
 | --- | --- |
 |registrationSubscriptionID | 用于初始 Azure Stack 中心注册的 Azure 订阅。|
 | customerSubscriptionID | 属于要注册的客户的 Azure 订阅（不 Azure Stack 中心）。 必须在 CSP 服务中创建。 在实践中，这意味着通过合作伙伴中心。 如果客户有多个 Azure Active Directory 租户，则必须在将用于登录到 Azure Stack 中心的租户中创建此订阅。 客户订阅 ID 必须使用小写字母。 |

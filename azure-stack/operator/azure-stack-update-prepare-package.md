@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 5532345fe383b19bb96ea2f240634e15004a22b4
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: fd31aa7b6d45243a71ec4ba690a39497b386ef8e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509018"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696730"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>准备 Azure Stack 中心更新包
 

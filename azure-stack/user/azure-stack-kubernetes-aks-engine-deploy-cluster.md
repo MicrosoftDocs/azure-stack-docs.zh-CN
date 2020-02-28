@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: f7d9b735a3b4936a5bb97e60e4c84f4b35b29baa
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: b8826fc929c571e39d36139bf724861ae9cc7fbd
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492285"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702697"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 

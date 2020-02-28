@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: e57de0bbcb51b4e1bf2d3d4501b57cbc5115927e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e6556ee12644140ace4553c4e613441440e00d14
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883761"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704159"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 "中转" web 应用部署到 VM
 
@@ -24,7 +24,7 @@ ms.locfileid: "76883761"
 
 2. 在 "VM 网络" 窗格中，确保可访问以下端口：
 
-    | Port | 协议 | Description |
+    | 端口 | 协议 | 说明 |
     | --- | --- | --- |
     | 80 | HTTP | 超文本传输协议（HTTP）是用于从服务器传递网页的协议。 客户端通过 HTTP 连接 DNS 名称或 IP 地址。 |
     | 443 | HTTPS | 超文本传输协议（HTTPS）是 HTTP 的安全版本，它需要安全证书，并允许加密传输信息。 |

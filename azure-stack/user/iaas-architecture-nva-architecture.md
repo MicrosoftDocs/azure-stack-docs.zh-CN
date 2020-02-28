@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: cdcf4eca724e4b8b215b0fcb32e2b81969ef10d0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 69516e7d50cb0635854d2b9168cb6bc308b229d8
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884150"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705026"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署高度可用的网络虚拟设备
 
@@ -48,7 +48,7 @@ ms.locfileid: "76884150"
 
 下面的体系结构描述了实现高度可用的 NVA 所需的资源和配置：
 
-| 解决方案 | 优势 | 注意事项 |
+| 解决方案 | 优点 | 注意事项 |
 | --- | --- | --- |
 | 具有第 7 层 NVA 的入口 | 所有 NVA 节点都处于活动状态。 | 需要一个可以终止连接和使用 SNAT 的 NVA。<br>需要为来自企业网络/Internet 和 Azure Stack 集线器的流量提供一组单独的 Nva。<br>仅可用于 Azure Stack 中心以外的流量。  |
 | 具有第 7 层 NVA 的出口 | 所有 NVA 节点都处于活动状态。 | 需要一个可以终止连接并实现源网络地址转换（SNAT）的 NVA。 |

@@ -10,12 +10,12 @@ ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 1aec8cbf3502321766b79a110b48e1c4cc0cedf1
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: a60a1c1f33ef17aa8ec2991c23b07cd1b23afef4
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508695"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696356"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>验证 Azure Stack 中心的 AD FS 集成
 

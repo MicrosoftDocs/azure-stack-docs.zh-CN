@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1236e501ce09b5e81124f8bc87821d1b5f11cfaa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883108"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705162"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>在 Azure Stack 中心使用带有 Ruby 的 API 版本配置文件
 
@@ -78,11 +78,11 @@ Azure 资源管理器 Ruby SDK 处于预览阶段，并且可能会在即将发�
 gem install 'azure_sdk'
 ```
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 若要将 Ruby Azure SDK 与 Azure Stack 中心一起使用，必须提供以下值，并使用环境变量设置值。 若要设置环境变量，请参阅下表中针对特定操作系统的说明。
 
-| 值 | 环境变量 | Description |
+| 值 | 环境变量 | 说明 |
 | --- | --- | --- |
 | 租户 ID | `AZURE_TENANT_ID` | Azure Stack 中心[租户 ID](../operator/azure-stack-identity-overview.md)。 |
 | 客户端 ID | `AZURE_CLIENT_ID` | 在本文上一部分中创建服务主体时保存的服务主体应用 ID。  |
@@ -233,7 +233,7 @@ end
 
 3. 使用 PowerShell 创建 Azure 服务主体，并检索所需的值。
 
-   有关如何创建服务主体的说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](../operator/azure-stack-create-service-principals.md)。
+   有关创建服务主体的说明，请参阅[使用 Azure PowerShell 使用证书创建服务主体](../operator/azure-stack-create-service-principals.md)。
 
    所需的值是：
 

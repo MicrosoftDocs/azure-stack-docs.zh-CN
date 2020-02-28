@@ -10,12 +10,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 1e5b2198bc830ea91babadab7a0a33ed5dc09f38
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972531"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696441"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>有关 Azure Stack 集线器使用情况的常见问题
 
@@ -37,7 +37,7 @@ ms.locfileid: "76972531"
 **单位**： IP 地址  
 **说明**：使用的 IP 地址计数。 如果调用使用情况 API 的每日粒度，则计量器将返回 IP 地址乘以小时数。  
   
-### <a name="storage"></a>存储空间
+### <a name="storage"></a>存储
   
 **计量 ID**： B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **计量器名称**： TableCapacity  
@@ -285,7 +285,7 @@ ms.locfileid: "76972531"
 **单位**： GB  
 **注意**：传入请求响应字节总数 + 总传出请求字节数 + 总传入 FTP 请求响应字节数 + 总传入 web 部署请求响应字节数。  
   
-## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Azure Stack 集线器使用情况 Api 如何与[Azure 使用情况 api](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) （当前在公共预览版中）进行比较？
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>Azure Stack 集线器使用情况 Api 如何与[Azure 使用情况 api](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) （当前在公共预览版中）进行比较？
 
 * 租户使用情况 API 与 Azure API 保持一致，但有一个例外： Azure Stack 中心当前不支持*showDetails*标志。
 * 提供者使用情况 API 仅适用于 Azure Stack 集线器。

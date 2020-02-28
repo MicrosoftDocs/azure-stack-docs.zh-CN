@@ -7,12 +7,12 @@ ms.date: 05/31/2019
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 8d703e1c8efb04573951ef68e7318f32c7deb64f
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 51b9530fdd67826616f6117c3c95dbe48b45303f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509188"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701626"
 ---
 # <a name="azure-stack-hub-capacity-planner"></a>Azure Stack 中心 Capacity Planner
 

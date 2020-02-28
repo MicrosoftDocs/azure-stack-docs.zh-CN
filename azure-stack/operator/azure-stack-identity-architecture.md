@@ -7,12 +7,12 @@ ms.date: 05/09/2019
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 528e008c5c3c166979ba4c3d4fa15d6a94cc0f87
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 42badc226bfd8339c497c752ee4b547c48a1250c
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509919"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699671"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack 中心的标识体系结构
 

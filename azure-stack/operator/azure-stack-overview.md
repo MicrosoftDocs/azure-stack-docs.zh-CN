@@ -7,12 +7,12 @@ ms.date: 11/08/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: d6fa05eb64f749c3d1e2371840b9de1afb8cb7d9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: afa7f02f451192640172665e18213d125e24b574
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881656"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698447"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack 集线器概述
 

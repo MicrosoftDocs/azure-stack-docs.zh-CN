@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 68111eb8179ac3c000c668407c266a7916761bb6
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: 976d602cea47131bef68b38add07e0bcaeeb9617
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568650"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698787"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署 MySQL 资源提供程序
 
@@ -21,7 +21,7 @@ ms.locfileid: "77568650"
 > [!IMPORTANT]
 > 仅支持资源提供程序在托管 SQL 或 MySQL 的服务器上创建项。 在不是由资源提供程序创建的主机服务器上创建的项可能会导致不匹配的状态。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 部署 Azure Stack 中心 MySQL 资源提供程序之前，需要准备好几个先决条件。 若要满足这些要求，请在可以访问特权终结点 VM 的计算机上完成本文中所述的步骤。
 
@@ -130,8 +130,8 @@ _仅适用于集成系统安装_。 必须提供[Azure Stack 中心部署 pki �
 | **DefaultSSLCertificatePassword** | .Pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 如果出现故障，要重试每个操作的次数。| 2 |
 | **RetryDuration** | 两次重试之间的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | 是 |
-| **DebugMode** | 防止在失败时自动清除。 | 是 |
+| **卸载** | 删除资源提供程序和所有关联的资源（请参阅以下注释）。 | 否 |
+| **DebugMode** | 防止在失败时自动清除。 | 否 |
 | **AcceptLicense** | 跳过提示以接受 GPL 许可证。  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 MySQL 资源提供程序

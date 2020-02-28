@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: thoroet
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 45dd07337aef61a1fcfecb855e0c113315b15271
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883209"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703717"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 

@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: bc8a6745b9c3e4323e37bc3b4a46291955d227a1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d5cfb45be74122ec07a7632f9f6c7ef04b6f8c4a
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883188"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701813"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>将 Azure 认知服务部署到 Azure Stack 中心
 
@@ -45,7 +45,7 @@ ms.locfileid: "76883188"
 
 本文介绍如何在 Azure Stack Hub 上的 Kubernetes 群集上部署 Azure 人脸 API。 可以使用相同的方法在 Azure Stack Hub Kubernetes 群集上部署其他认知服务容器。
 
-## <a name="prerequisites"></a>必备组件
+## <a name="prerequisites"></a>必备条件
 
 在开始之前，您需要：
 

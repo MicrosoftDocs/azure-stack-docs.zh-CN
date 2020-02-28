@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 18e0f405cbe4107fee320b9ffa1bff8711439bfd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 21cd92626a5ddb4e86e5f0dd7568dc1a875bd3c1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883983"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77687438"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>获取 Azure Stack 集线器的身份验证信息
 

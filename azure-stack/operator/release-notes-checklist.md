@@ -7,12 +7,12 @@ ms.date: 02/20/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: e1260cec62c2b1906f76004f04010e0f0857664e
-ms.sourcegitcommit: b501f9dc931bb0a1648b768f7ea47116b4dfda33
+ms.openlocfilehash: 545920d6ca4af3e19575a4b1673cca2f7e39a221
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213657"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694435"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack 中心更新活动清单
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 30e7ced54a4c2bc69cb5249b58b4844cd9a0b332
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: a3ca9d760969974d9ba6fd35f0907472d2271c61
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874767"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703496"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>在 Azure Stack 中心为应用服务配置部署源
 
@@ -27,7 +27,7 @@ Azure Stack 集线器上的应用服务支持从多个源代码管理提供程�
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>在应用服务管理中查看部署源
 
-1. 以服务管理员身份登录到 Azure Stack 中心管理门户（ https://adminportal.local.azurestack.external) 。
+1. 以服务管理员身份登录到 Azure Stack 中心管理门户（ https://adminportal.local.azurestack.external)。
 2. 浏览到**所有服务**并选择**应用服务**。
     ![应用服务资源提供程序管理][1]
 3. 单击“源代码管理配置”。 你可以看到所有已配置的部署源的列表。
@@ -37,19 +37,19 @@ Azure Stack 集线器上的应用服务支持从多个源代码管理提供程�
 
 若要完成此任务，必须具有 GitHub 帐户。 你可能想要为你的组织使用帐户，而不是个人帐户。
 
-1. 登录到 GitHub，浏览到 https://www.github.com/settings/developers ，然后单击 "**注册新应用程序**"。
+1. 登录到 GitHub，浏览到 https://www.github.com/settings/developers，然后单击 "**注册新应用程序**"。
     ![GitHub-注册新应用程序][3]
 2. 输入**应用程序名称**。 例如， **Azure Stack 集线器上的应用服务**。
 3. 输入“主页 URL”。 主页 URL 必须是 Azure Stack 中心门户地址。 例如， https://portal.local.azurestack.external 。
 4. 输入**应用程序说明**。
-5. 输入“授权回调 URL”。 在默认 Azure Stack 中心部署中，URL 的格式为 https://portal.local.azurestack.external/TokenAuthorize 。 如果你在其他域下运行，请将你的域名切换为 test-azurestack。
+5. 输入“授权回调 URL”。 在默认 Azure Stack 中心部署中，URL 的格式为 https://portal.local.azurestack.external/TokenAuthorize。 如果你在其他域下运行，请将你的域名切换为 test-azurestack。
 6. 单击“注册应用程序”。 将显示一个页面，其中列出了应用的**客户端 ID**和**客户端密码**。
     ![GitHub - 已完成应用程序注册][5]
 7. 在新的浏览器选项卡或窗口中，登录到 Azure Stack 中心管理门户（ https://adminportal.local.azurestack.external) 为服务管理员。
 8. 浏览到**资源提供程序**，并选择 "**应用服务资源提供程序管理员**"。
 9. 单击“源代码管理配置”。
 10. 将**客户端 ID**和**客户端密码**复制并粘贴到 GitHub 的相应输入框中。
-11. 单击“ **保存**”。
+11. 单击“保存”。
 
 ## <a name="configure-bitbucket"></a>配置 BitBucket
 
@@ -61,18 +61,18 @@ Azure Stack 集线器上的应用服务支持从多个源代码管理提供程�
     ![BitBucket 添加 OAuth 使用者][8]
 3. 输入使用者的**名称**。 例如， **Azure Stack 集线器上的应用服务**。
 4. 输入应用的**描述**。
-5. 输入“回调 URL”。 在默认 Azure Stack 中心部署中，回调 URL 的格式为 https://portal.local.azurestack.external/TokenAuthorize 。 如果在不同的域下运行，请将域名替换为 "test-azurestack"。 若要成功进行 BitBucket 集成，URL 必须遵循此处列出的大小写。
+5. 输入“回调 URL”。 在默认 Azure Stack 中心部署中，回调 URL 的格式为 https://portal.local.azurestack.external/TokenAuthorize。 如果在不同的域下运行，请将域名替换为 "test-azurestack"。 若要成功进行 BitBucket 集成，URL 必须遵循此处列出的大小写。
 6. 输入**URL**。 此 URL 应为 Azure Stack 中心门户 URL。 例如， https://portal.local.azurestack.external 。
 7. 选择所需**权限**：
     - **存储库**：*读取*
     - **Webhook**：*读取和写入*
-8. 单击“ **保存**”。 现在，可以在**OAuth 使用者**下看到此新应用以及**密钥**和**机密**。
+8. 单击“保存”。 现在，可以在**OAuth 使用者**下看到此新应用以及**密钥**和**机密**。
     ![BitBucket 应用程序列表][9]
 9.  在新的浏览器选项卡或窗口中，登录到 Azure Stack 中心管理门户（ https://adminportal.local.azurestack.external) 为服务管理员。
 10.  浏览到“资源提供程序”并选择“应用服务资源提供程序管理”。
 11. 单击“源代码管理配置”。
 12. 将该**密钥**复制并粘贴到 "**客户端 ID** " 输入框中，并将**密码**复制到 BitBucket 的 "**客户端密码**" 输入框中。
-13. 单击“ **保存**”。
+13. 单击“保存”。
 
 ## <a name="configure-onedrive"></a>配置 OneDrive
 
@@ -89,18 +89,18 @@ Azure Stack 集线器上的应用服务支持从多个源代码管理提供程�
 ![OneDrive 应用程序属性][11]
 5. 在“应用程序密码”下，单击“生成新密码”。 记下**生成的新密码**。 此密码是你的应用程序密码，单击 **"确定"** 后将无法检索它。
 6. 在 "**平台**" 下，单击 "**添加平台**"，然后选择 " **Web**"。
-7. 输入“重定向 URI”。 在默认 Azure Stack 中心部署中，重定向 URI 的格式为 https://portal.local.azurestack.external/TokenAuthorize 。 如果在不同的域下运行，请将域名切换为 test-azurestack。
+7. 输入“重定向 URI”。 在默认 Azure Stack 中心部署中，重定向 URI 的格式为 https://portal.local.azurestack.external/TokenAuthorize。 如果在不同的域下运行，请将域名切换为 test-azurestack。
 ![OneDrive 应用程序-添加 Web 平台][12]
 8.  - **委托权限**添加**Microsoft Graph 权限**。
     - **Files.ReadWrite.AppFolder**
     - **用户.读取**  
       ![OneDrive 应用程序 - Graph 权限][13]
-9. 单击“ **保存**”。
+9. 单击“保存”。
 10.  在新的浏览器选项卡或窗口中，登录到 Azure Stack 中心管理门户（ https://adminportal.local.azurestack.external) 为服务管理员。
 11.  浏览到“资源提供程序”并选择“应用服务资源提供程序管理”。
 12. 单击“源代码管理配置”。
 13. 将**应用程序 id**复制并粘贴到 "**客户端 id** " 输入框中，并将**密码**粘贴到 OneDrive 的 "**客户端密码**" 输入框中。
-14. 单击“ **保存**”。
+14. 单击“保存”。
 
 ## <a name="configure-dropbox"></a>配置 DropBox
 
@@ -118,13 +118,13 @@ Azure Stack 集线器上的应用服务支持从多个源代码管理提供程�
 ![Dropbox 应用程序注册][15]
 6. 单击“创建应用”。 将显示一个页面，其中列出了应用的设置，包括**应用密钥**和**应用密码**。
 7. 请确保将**应用文件夹名称**设置为**Azure Stack 集线器上的应用服务**。
-8. 设置**OAuth 2 重定向 URI** ，然后单击 "**添加**"。 在默认 Azure Stack 中心部署中，重定向 URI 的格式为 https://portal.local.azurestack.external/TokenAuthorize 。 如果在不同的域下运行，请将域切换为 test-azurestack。
+8. 设置**OAuth 2 重定向 URI** ，然后单击 "**添加**"。 在默认 Azure Stack 中心部署中，重定向 URI 的格式为 https://portal.local.azurestack.external/TokenAuthorize。 如果在不同的域下运行，请将域切换为 test-azurestack。
 ![Dropbox 应用程序配置][16]
 9.  在新的浏览器选项卡或窗口中，登录到 Azure Stack 中心管理门户（ https://adminportal.local.azurestack.external) 为服务管理员。
 10.  浏览到“资源提供程序”并选择“应用服务资源提供程序管理”。
 11. 单击“源代码管理配置”。
 12. 将**应用程序密钥**复制并粘贴到 "**客户端 ID** " 输入框中，并将应用密钥粘贴到 DropBox 的 " **客户端密码**" 输入框中。
-13. 单击“ **保存**”。
+13. 单击“保存”。
 
 ## <a name="next-steps"></a>后续步骤
 

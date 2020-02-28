@@ -3,20 +3,20 @@ title: 将 Azure Kubernetes Services （AKS）引擎必备组件添加到 Azure 
 description: 了解如何将 AKS 引擎必备组件添加到 Azure Stack 中心市场。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 59f49e3d59fa077f4308a62b567ee3dd147ba4f4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 9c728b17913379edb13683ed4b5f1615d391b922
+ms.sourcegitcommit: bbc4023c9a673c146de4a9e242311d429f7781eb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874784"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77782749"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>将 Azure Kubernetes Services （AKS）引擎必备组件添加到 Azure Stack 中心市场
 
-可以通过将本文中所述的项目添加到 Azure Stack 中心，使用户能够设置 Azure Kubernetes Services （AKS）引擎。 然后，用户可以通过单个协调的操作来部署 Kubernetes 群集。 本文将指导你完成将 AKS 引擎提供给连接和断开连接环境中的用户所需的步骤。 AKS 引擎依赖于服务主体标识，在 marketplace 中是自定义脚本扩展和 AKS 基本映像。
+可以通过将本文中所述的项目添加到 Azure Stack 中心，使用户能够设置 Azure Kubernetes Services （AKS）引擎。 然后，用户可以通过单个协调的操作来部署 Kubernetes 群集。 本文将指导你完成将 AKS 引擎提供给连接和断开连接环境中的用户所需的步骤。 AKS 引擎依赖于服务主体标识，在 marketplace 中是自定义脚本扩展和 AKS 基本映像。 AKS 引擎要求[Azure Stack 集线器 1910](release-notes.md?view=azs-1910)或更高版本运行。
 
 ## <a name="check-your-users-service-offering"></a>查看用户的服务产品
 

@@ -6,12 +6,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/04/2019
-ms.openlocfilehash: 2bf9af3db5a3577b62c59e92879a3680d9a3532a
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: cf2de02020eb7e05eedc4df605316ad35e1f401f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77519445"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690100"
 ---
 # <a name="azure-stack-hci-overview"></a>Azure Stack HCI 概述
 

@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 3dede51916863a79f720f463af2a031e597f844f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 19482e235690cae10411dde72587b0e4b95518f3
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878184"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695217"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>配置自动 Azure Stack 集线器诊断日志收集
 
@@ -22,7 +22,7 @@ ms.locfileid: "76878184"
 
 你需要获取 blob 容器的共享访问签名（SAS），然后才能配置自动日志收集。 使用 SAS 可以授予对存储帐户中资源的访问权限，而无需共享帐户密钥。 可以将 Azure Stack 中心日志文件保存到 Azure 中的 blob 容器，并提供可在其中使用 CSS 收集日志的 SAS URL。 
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 可以在 Azure 中使用新的或现有的 blob 容器。 若要在 Azure 中创建 blob 容器，你至少需要[存储 blob 参与者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)或[特定权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 全局管理员也具有必要的权限。 
 

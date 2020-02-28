@@ -7,12 +7,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0e5f87b0cb6920a32021795042a31b740c52adcf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7451338194742723d6b669f94dc11b4449570eda
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883362"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703836"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>通过 Azure Stack 集线器连接到 iSCSI 存储
 
@@ -76,10 +76,10 @@ ms.locfileid: "76883362"
 |------------------|---------------|------------------------------|
 |WindowsImageSKU         |2019-Datacenter   |请选择基本 Windows VM 映像
 |VMSize                  |Standard_D2_v2    |请输入 VM 大小
-|VMName                  |文件服务器        |VM 名称
+|VMName                  |FileServer        |VM 名称
 |adminUsername           |storageadmin      |新 VM 的管理员名称
 |adminPassword           |                  |新 Vm 的管理员帐户的密码。 默认值为订阅 ID
-|VNetName                |存储空间           |VNet 的名称。 这将用于标记资源
+|VNetName                |存储           |VNet 的名称。 这将用于标记资源
 |VNetAddressSpace        |10.10.0.0/23      |VNet 的地址空间
 |VNetInternalSubnetName  |内部          |VNet 内部子网名称
 |VNetInternalSubnetRange |10.10.1.0/24      |VNet 内部子网的地址范围
@@ -116,7 +116,7 @@ ms.locfileid: "76883362"
 
 |**输入**|default|**description**|
 |------------------|---------------|------------------------------|
-|RemoteServer         |文件服务器               |连接到 iSCSI 目标的服务器的名称
+|RemoteServer         |FileServer               |连接到 iSCSI 目标的服务器的名称
 |RemoteServerIPs      |1.1.1.1                  |ISCSI 流量将来自的 IP 地址
 |DiskFolder           |C:\iSCSIVirtualDisks     |将存储虚拟磁盘的文件夹和驱动器
 |DiskName             |DiskName                 |磁盘 VHDX 文件的名称

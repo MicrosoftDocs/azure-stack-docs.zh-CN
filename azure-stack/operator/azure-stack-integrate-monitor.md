@@ -7,12 +7,12 @@ ms.date: 06/05/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: a38c6f8aca4ad8203b576550dd01873cdeb9b7a8
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: 37cef4cbeb1aa471fcd4a1d63cf2933a113a1762
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509851"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699518"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>将外部监视解决方案与 Azure Stack 中心集成
 

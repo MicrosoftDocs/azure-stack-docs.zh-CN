@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4be33d9d12fe8f677a335f10f3b84b36433495d1
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: eeeda1d2b26ba6087e888ecd8ab847756c8e95fa
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890096"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699008"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Azure Stack 中心市场概述
 

@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 8af151ec976b9081ea1174be64bfc5ca6e7d5d83
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/23/2019
+ms.openlocfilehash: bd62be6a7a2990a7a405dd5c5e1ff44e64007b6f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881073"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696785"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>使用 Azure Stack 集线器创建高度可用的 SQL 数据库
 
@@ -121,7 +121,7 @@ ms.locfileid: "76881073"
 
 ### <a name="configure-contained-database-authentication"></a>配置包含的数据库身份验证
 
-在将包含的数据库添加到某一可用性组之前，请确保在承载该可用性组的可用性副本的每个服务器实例上，"包含的数据库身份验证服务器" 选项设置为1。 有关详细信息，请参阅[包含的数据库身份验证](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)。
+在将包含的数据库添加到某个可用性组前，请确保在托管该可用性组的可用性副本的每个服务器实例上将包含的数据库身份验证服务器选项设置为 1。 有关详细信息，请参阅[包含的数据库身份验证](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)。
 
 使用以下命令为可用性组中的每个 SQL Server 实例设置包含的数据库身份验证服务器选项：
 

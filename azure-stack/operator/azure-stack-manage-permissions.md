@@ -7,12 +7,12 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 37b1abb946b2b52e467554560a6340c379960f0d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f74f35a8b1124ed9678e6b4bc254d4d2cd05a84e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882061"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699263"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>使用基于角色的访问控制设置访问权限
 

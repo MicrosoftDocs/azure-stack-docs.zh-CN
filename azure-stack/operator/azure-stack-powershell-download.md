@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 301704daa5369fe290227b540d96bdc91c0c64b7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8d2f79d85055ef15f7dc0af3e1b36434f9c63d79
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881578"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698277"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>从 GitHub 下载 Azure Stack 中心工具
 
@@ -42,7 +42,7 @@ cd AzureStack-Tools-master
 
 **Test-azurestack**存储库包含支持以下 Azure Stack 中心功能的 PowerShell 模块：  
 
-| 功能 | Description | 谁可以使用此模块？ |
+| 功能 | 说明 | 谁可以使用此模块？ |
 | --- | --- | --- |
 | [云功能](../user/azure-stack-validate-templates.md) | 使用此模块获取云的云功能。 例如，你可以获取 API 版本和 Azure 资源管理器资源等云功能。 还可以获取 Azure Stack 中心和 Azure 云的 VM 扩展。 | 云操作员和用户 |
 | [Azure Stack 中心的资源管理器策略](../user/azure-stack-policy-module.md) | 使用此模块配置与 Azure Stack 中心具有相同的版本和服务可用性的 Azure 订阅或 Azure 资源组。 | 云操作员和用户 |

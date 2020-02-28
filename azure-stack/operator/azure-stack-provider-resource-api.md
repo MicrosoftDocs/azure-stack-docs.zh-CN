@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: c6c68b3455e7de78e116b3ef6ede1dde7172fb33
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 0dff4901d24f759404b69184506d1219273d90c5
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881547"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698107"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 
@@ -34,7 +34,7 @@ ms.locfileid: "76881547"
 
 ### <a name="arguments"></a>参数
 
-| 参数 | Description |
+| 参数 | 说明 |
 | --- | --- |
 | `armendpoint` |Azure Stack 中心环境的 Azure 资源管理器终结点。 Azure Stack 中心约定是 Azure 资源管理器终结点的名称采用 `https://adminmanagement.{domain-name}`格式。 例如，对于 Azure Stack 开发工具包（ASDK），如果域名为*test-azurestack*，则资源管理器终结点 `https://adminmanagement.local.azurestack.external`。 |
 | `subId` |发出调用的用户的订阅 ID。 |
@@ -80,10 +80,10 @@ meterID1",
 
 ### <a name="response-details"></a>响应详细信息
 
-| 参数 | Description |
+| 参数 | 说明 |
 | --- | --- |
 |`id` |用量聚合的唯一 ID。 |
-|`name` |使用情况聚合的名称。 |
+|`name` |使用聚合的名称。 |
 |`type` |资源定义。 |
 |`subscriptionId` |Azure Stack 中心用户的订阅标识符。 |
 |`usageStartTime`|此使用情况聚合所属的用量存储桶的 UTC 开始时间。|

@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: inhenkel
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 524c951717075b293b7829a31ac093a9061f46e8
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: 70e58880ec8ffa1776d507ff71d909d2385731f6
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509494"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77697104"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>启动和停止 Azure Stack 集线器
 

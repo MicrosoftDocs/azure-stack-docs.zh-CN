@@ -7,12 +7,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 97f1b58fc1d36a9cd3f26875625c2ae7ea67abdc
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f969435900f290aaae10942e223ade15cacf4769
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885321"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704958"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>在 Azure Stack 集线器上运行 Linux 虚拟机
 
@@ -76,7 +76,7 @@ sudo mount /dev/sdc1 /data1
 
 所有 Nsg 都包含一组[默认规则](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)，其中包括阻止所有入站 Internet 流量的规则。 无法删除默认规则，但其他规则可以覆盖它们。 若要启用 Internet 流量，请创建允许特定端口的入站流量的规则（例如，HTTP 的端口80）。 要启用 SSH，请添加允许 TCP 端口 22 的入站流量的 NSG 规则。
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>操作
 
 **SSH**。 在创建 Linux VM 之前，生成 2048 位 RSA 公共/专用密钥对。 创建 VM 时，使用公钥文件。 有关详细信息，请参阅[如何在 Azure 上将 SSH 与 Linux 配合使用](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)。
 

@@ -8,12 +8,12 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: b063f6b69d69f63ddb8adef25413e263e2fe9d4b
-ms.sourcegitcommit: 4386c482c1c320c06df00a7a6364bb84b8720493
+ms.openlocfilehash: 2fd22acfe6f47d3a12502d5528e1f3fd96294460
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77453420"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696475"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>在 Azure Stack 集线器中创建外接程序计划
 

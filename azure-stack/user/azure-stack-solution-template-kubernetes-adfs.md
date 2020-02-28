@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 78abed9225a2a7516db65f9163aac5d0db24ad04
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 06/18/20192
+ms.openlocfilehash: 5a1b36f7640f3259a4b18f087ebf4bad49f3c4ed
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884449"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703666"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>使用 Active Directory 联合服务将 Kubernetes 部署到 Azure Stack 中心
 
@@ -21,7 +21,7 @@ ms.locfileid: "76884449"
 
 可以按照本文中的步骤部署和设置 Kubernetes 的资源。 Active Directory 联合服务（AD FS）是标识管理服务时，请使用以下步骤。
 
-## <a name="prerequisites"></a>必备组件 
+## <a name="prerequisites"></a>必备条件 
 
 若要开始，请确保具有适当的权限，并且 Azure Stack 中心已准备就绪。
 
@@ -71,7 +71,7 @@ ms.locfileid: "76884449"
 
 1. 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。
 
-1. 选择资源组的“位置”。 这是你为 Azure Stack 集线器安装选择的区域。
+1. 选择资源组的**位置**。 这是你为 Azure Stack 集线器安装选择的区域。
 
 ### <a name="2-kubernetes-cluster-settings"></a>2. Kubernetes 群集设置
 
@@ -81,9 +81,9 @@ ms.locfileid: "76884449"
 
 1. 输入**LINUX VM 管理员用户名**。 构成 Kubernetes 群集和 DVM 的 Linux 虚拟机的用户名。
 
-1. 输入 **SSH 公钥**，用于向所有作为 Kubernetes 群集和 DVM 的一部分创建的 Linux 计算机授权。
+1. 输入用于授权到作为 Kubernetes 群集的一部分创建的所有 Linux 计算机的**SSH 公钥**和 DVM。
 
-1. 输入特定于区域的**主配置文件 DNS 前缀**。 此名称必须是区域唯一名称，如 `k8s-12345`。 尝试选择与资源组名称相同的最佳实践。
+1. 输入在区域中唯一的**主配置文件 DNS 前缀**。 此名称必须是区域唯一名称，如 `k8s-12345`。 尝试选择与资源组名称相同的最佳实践。
 
     > [!Note]  
     > 为每个群集使用新且唯一的主配置文件 DNS 前缀。
@@ -110,7 +110,7 @@ ms.locfileid: "76884449"
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-2. 检查设置。
+2. 查看设置。
 
 3. 选择 **"确定"** 以部署群集。
 

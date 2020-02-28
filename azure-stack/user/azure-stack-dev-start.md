@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 31df74f7c5f3db5c7651747601010109620e82cd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ab9ff25591b46df26fa68c33bcea237e57356667
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883737"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704091"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>在 Azure Stack 中心设置开发环境 
 
@@ -37,7 +37,7 @@ ms.locfileid: "76883737"
 作为云平台产品，Azure Stack 集线器同时支持这两种产品： 
 
 - 基础结构即服务 (IaaS) 
-- 平台即服务 (PaaS) 
+- 平台即服务（PaaS） 
 
 IaaS 和 PaaS 都通知如何设置开发计算机。 
 
@@ -53,7 +53,7 @@ PaaS 将基础结构层抽象化，以便将应用部署到运行该应用的终
 
 Azure Stack 中心使用 Azure 资源管理器的 Azure Stack 中心版本。 为了帮助你使用你的选择代码来处理 Azure Stack 中心资源管理器，我们提供了许多 Sdk，其中包括： 
 
-- [.NET/C#](azure-stack-version-profiles-net.md)
+- [NETC#](azure-stack-version-profiles-net.md)
 - [Java](azure-stack-version-profiles-java.md)
 - [Go](azure-stack-version-profiles-go.md)
 - [Ruby](azure-stack-version-profiles-ruby.md)
@@ -96,7 +96,7 @@ Azure Stack 中心使用 Azure 资源管理器的 Azure Stack 中心版本。 �
 
 2. 为代码安装 SDK： 
 
-     - [.NET/C#](azure-stack-version-profiles-net.md) 
+     - [NETC#](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
      - [Go](azure-stack-version-profiles-go.md) 
      - [Ruby](azure-stack-version-profiles-python.md) 
@@ -125,7 +125,7 @@ Azure Stack 中心使用 Azure 资源管理器的 Azure Stack 中心版本。 �
 
 2. 为代码安装 SDK： 
 
-     - [.NET/C#](azure-stack-version-profiles-net.md) 
+     - [NETC#](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
      - [Go](azure-stack-version-profiles-go.md) 
      - [Ruby](azure-stack-version-profiles-python.md) 
@@ -154,7 +154,7 @@ Azure Stack 中心使用 Azure 资源管理器的 Azure Stack 中心版本。 �
 
 2. 为代码安装 SDK： 
 
-     - [.NET/C#](azure-stack-version-profiles-net.md) 
+     - [NETC#](azure-stack-version-profiles-net.md) 
      - [Java](azure-stack-version-profiles-java.md) 
      - [Go](azure-stack-version-profiles-go.md)
      - [Ruby](azure-stack-version-profiles-python.md) 

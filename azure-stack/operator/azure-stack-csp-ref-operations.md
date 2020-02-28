@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 1f5f3011c1546970a1b94773b171e6419757c461
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882488"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700334"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>在 Azure Stack 集线器中注册使用情况跟踪的租户
 
@@ -35,9 +35,9 @@ ms.locfileid: "76882488"
 
 有关 Azure Stack 集线器和 API 配置文件的详细信息，请参阅[在 Azure Stack 中心管理 API 版本配置文件](../user/azure-stack-version-profiles.md)。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-| 参数                  | Description |
+| 参数                  | 说明 |
 |---                         | --- |
 | registrationSubscriptionID | 用于初始注册的 Azure 订阅。 |
 | customerSubscriptionID     | 属于要注册的客户的 Azure 订阅（不 Azure Stack 中心）。 必须通过合作伙伴中心在云解决方案提供商（CSP）产品/服务中创建。 如果客户有多个租户，请为租户创建订阅以登录到 Azure Stack 中心。 |
@@ -69,9 +69,9 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
  > [!NOTE]  
  > 如果未注册任何租户，则不会收到响应。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-| 参数                  | Description          |
+| 参数                  | 说明          |
 |---                         | ---                  |
 | registrationSubscriptionId | 用于初始注册的 Azure 订阅。   |
 | resourceGroup              | Azure 中存储注册的资源组。    |
@@ -117,9 +117,9 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 你可以删除已添加到注册的租户。 如果该租户仍在使用 Azure Stack 集线器上的资源，则使用初始 Azure Stack 中心注册中使用的订阅。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-| 参数                  | Description          |
+| 参数                  | 说明          |
 |---                         | ---                  |
 | registrationSubscriptionId | 注册的订阅 ID。   |
 | resourceGroup              | 用于注册的资源组。   |

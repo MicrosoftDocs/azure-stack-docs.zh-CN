@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 29eddba3dbe89229e57773af79dd88dfee746674
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 20ee0c2b59f3a8038afc443f9b3c1b12d606d95d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879986"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700827"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>在 Azure Stack 中心创建计划
 
@@ -41,7 +41,7 @@ ms.locfileid: "76879986"
   
    ![在 Azure Stack Hub 中选择新计划的服务](media/azure-stack-create-plan/services.png)
 
-6. 选择 "**配额**" 选项卡，或单击 "**下一步：配额 >** " 按钮。 在“Microsoft.Storage”的旁边，从下拉框中选择默认配额，或选择“新建”以创建自定义的配额。
+6. 选择 "**配额**" 选项卡，或单击 "**下一步：配额 >** " 按钮。 在 " **Microsoft 存储**" 旁边，从下拉框中选择 "默认配额"，或选择 "**新建**" 以创建自定义配额。
   
    ![在 Azure Stack 集线器中指定新计划的配额](media/azure-stack-create-plan/quotas.png)
 

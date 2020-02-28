@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 9aa6104e3f6a93d55db82d4bd9ae21ef54601bf2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3d05ff70909508701db2f4770ecb3efb9d860a6d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884177"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694537"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>为 Azure Stack 中心内的用户创建服务产品
 
@@ -68,7 +68,7 @@ ms.locfileid: "76884177"
 
 ::: moniker range=">=azs-1902"
 
-## <a name="create-an-offer"></a>创建套餐
+## <a name="create-an-offer"></a>创建产品
 
 在产品/服务创建过程中，将同时创建产品/服务和计划。 计划用作产品/服务的基本计划。 在计划创建过程中，可以指定在计划中提供的服务及其各自的配额。
 

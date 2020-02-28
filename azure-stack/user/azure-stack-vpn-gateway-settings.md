@@ -5,13 +5,13 @@ author: sethmanheim
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 2f0b520b4c615e56fea7575422b306c226188eb0
-ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: b762dfa9897ac732df7c09858ef3a5d25357f1d7
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075210"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705043"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>为 Azure Stack 中心配置 VPN 网关设置
 
@@ -157,7 +157,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE 阶段 1（主模式）参数
 
-| 属性              | 值|
+| properties              | 值|
 |-|-|
 | SDK 版本           | IKEv2 |
 |Diffie-hellman 组 *   | ECP384 |
@@ -167,7 +167,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE 阶段 2（快速模式）参数
 
-| 属性| 值|
+| properties| 值|
 |-|-|
 |SDK 版本 |IKEv2 |
 |加密 & 哈希算法（加密）     | GCMAES256|
@@ -180,7 +180,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 >[!NOTE]
 >对于版本1910及更高版本，Diffie-hellman 组、哈希算法和完全向前保密的默认值已更改。 如果 Azure Stack 中心位于1910以下的版本中，请使用以下参数的值：
 
->| 属性| 值|
+>| properties| 值|
 >|-|-|
 >|Diffie-Hellman 组   | DHGroup2 |
 >|哈希算法 | SHA256 |

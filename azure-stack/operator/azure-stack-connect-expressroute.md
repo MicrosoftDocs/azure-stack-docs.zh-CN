@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: f857fc92c5fec814ebd44aeb8bb12449f777586f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879425"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701490"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 中心连接到 Azure
 
@@ -34,7 +34,7 @@ ms.locfileid: "76879425"
 * 你对 Azure Stack 中心有一个基本的了解。
 * 你基本了解网络。
 
-### <a name="prerequisites"></a>必备组件
+### <a name="prerequisites"></a>必备条件
 
 若要使用 ExpressRoute 连接 Azure Stack 集线器和 Azure，必须满足以下要求：
 
