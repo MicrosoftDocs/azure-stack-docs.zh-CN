@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 859fe3b64b2dc21a07df1431f2da5abade3894f0
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 5f65b0ff096fbf84b140406b7cb98fdbdf5b0b11
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704210"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231683"
 ---
 # <a name="use-an-ssh-public-key"></a>使用 SSH 公钥
 

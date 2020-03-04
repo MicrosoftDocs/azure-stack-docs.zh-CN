@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 5e5827cd0667a46d30147b0b6283f2a94d67158f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0d8e3ec61eb5acfbe98efcae1ec0318cb15f661f
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701949"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231649"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>快速入门：在 Azure Stack 中心使用 Azure CLI 创建 Windows Server 虚拟机
 

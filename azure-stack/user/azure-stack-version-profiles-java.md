@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6dc30839ba08a793ead0e857f17e97a90222f7a5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c0be80757eb12daac9d452f79ed7c0f5b7326120
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705213"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231632"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>在 Azure Stack Hub 中通过 Java 使用 API 版本配置文件
 
@@ -40,7 +40,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
      <dependency>
      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
-     <version>1.0.0-beta</version>
+     <version>1.0.0-beta-1</version>
      </dependency>
      ```
 
@@ -62,7 +62,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 使用 API 配�
    <dependency>
    <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
-   <version>1.0.0-beta</version>
+   <version>1.0.0-beta-1</version>
    </dependency>
    ```
 
@@ -295,13 +295,13 @@ public static HashMap<String, String> getActiveDirectorySettings(String armEndpo
 
 6. 在**Pom**文件中，添加以下依赖项，以使用 2019-03-01 Azure Stack 集线器的**混合**配置文件。 此依赖关系为计算、网络、存储、Key Vault 和应用服务资源提供程序安装与此配置文件关联的模块：
 
-   ```xml
-   <dependency>
-   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
-   <artifactId>azure</artifactId>
-   <vers1s.0.0-beta</version>
-   </dependency>
-   ```
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
+      <artifactId>azure</artifactId>
+      <version>1.0.0-beta-1</version>
+    </dependency>
+    ```
 
 7. 在打开的用于设置环境变量的命令提示符下，输入以下命令：
 

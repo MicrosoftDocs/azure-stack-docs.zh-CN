@@ -7,13 +7,12 @@ ms.date: 01/22/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/22/2020
-ROBOTS: NOI
-ms.openlocfilehash: 0668ab364bb1b3dbe8b51b6a4742bd8227846298
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fcfd453cf6ccbbbc8f5e65b9db475ab4fdad33b0
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694792"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231598"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>在不同 ASDK 环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 

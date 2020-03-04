@@ -7,12 +7,12 @@ ms.date: 06/17/2019
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 4413e89597147acd43600a6c387cf1826a0eae5e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 72757c67a10e11eabd88d55fb4dee7adcb2fe558
+ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697597"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231564"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>配置 Azure Stack 中心安全控制
 
