@@ -8,11 +8,11 @@ ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
 ms.openlocfilehash: 0e5d71335fb5b7086341c7c06ec503aae1a8e728
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704771"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364125"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack 中心服务、计划、产品/服务、订阅概述
 
