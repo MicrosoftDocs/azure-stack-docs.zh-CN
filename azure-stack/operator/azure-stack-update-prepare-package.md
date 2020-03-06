@@ -2,17 +2,17 @@
 title: 准备 Azure Stack 中心更新包
 description: 了解如何准备 Azure Stack 中心更新包。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: fd31aa7b6d45243a71ec4ba690a39497b386ef8e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1911a07c1a22cbb58b7b7794addadb9cf01f0993
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696730"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367329"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>准备 Azure Stack 中心更新包
 

@@ -2,17 +2,17 @@
 title: Azure Stack 集线器集成系统的 Azure 断开连接部署决策
 description: 了解 Azure Stack 集线器集成系统的 Azure 断开连接部署，以及要考虑的规划决策。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 11/01/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 4b2cdd9f663f95ddd1fc3b3a23f7fce06da2c2c9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9f7ca860de1dd801ae35134683583a4ce8053dde
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699977"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368696"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack 集线器集成系统的 Azure 断开连接部署规划决策
 确定[将 Azure Stack 中心集成到混合云环境的方式](azure-stack-connection-models.md)后，可以完成 Azure Stack 中心部署决策。

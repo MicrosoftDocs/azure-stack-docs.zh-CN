@@ -8,12 +8,12 @@ ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: b6186a836ac38d94c3b15aa7de45ebc80a8accd1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: df143d08f3d5e4445020f4932a47de657805fa7c
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696186"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366409"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>全局 Azure、Azure Stack 集线器和 Azure Stack HCI 之间的差异
 
@@ -29,7 +29,7 @@ Microsoft Azure 是一组不断扩展的云服务，可帮助您的组织满足�
 
 全球 Azure 提供在全球54地区提供的100多个服务。 有关全球 Azure 服务的最新列表，请参阅[*可用产品（按区域*](https://azure.microsoft.com/regions/services)）。 Azure 中提供的服务按类别列出，还可以通过预览版公开发布或提供。
 
-有关全球 Azure 服务的详细信息，请参阅[Azure 入门](https://docs.microsoft.com/azure/#pivot=get-started&panel=get-started1)。
+有关全球 Azure 服务的详细信息，请参阅[Azure 入门](https://docs.microsoft.com/azure/?pivot=get-started&panel=get-started1)。
 
 ## <a name="azure-stack-hub"></a>Azure Stack 中心
 

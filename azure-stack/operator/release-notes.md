@@ -3,16 +3,16 @@ title: Azure Stack 集线器发行说明
 description: Azure Stack 集线器集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 03/05/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 81cf8806b5aa24d7da78a6243d2806b732160314
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d2d1eec85faaedaf35ba6461867c58670e917298
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694452"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366532"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -193,7 +193,10 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
 Azure Stack 中心定期发布修补程序。 将 Azure Stack 中心更新为1910之前，请务必安装最新的 Azure Stack 中心修补程序1908。
 
-Azure Stack 集线器修补程序仅适用于 Azure Stack 集线器集成系统;请勿尝试在 ASDK 上安装修补程序。
+> [!NOTE]
+> Azure Stack 中心修补程序版本是累积性的;只需安装最新的修补程序，即可获取该版本以前的任何修补程序版本中包含的所有修补程序。
+
+Azure Stack 集线器修补程序仅适用于 Azure Stack 集线器集成系统;不要尝试在 ASDK 上安装修补程序。
 
 ### <a name="prerequisites-before-applying-the-1910-update"></a>先决条件：在应用1910更新之前
 

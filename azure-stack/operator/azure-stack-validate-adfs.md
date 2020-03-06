@@ -5,17 +5,17 @@ description: 了解如何使用 Azure Stack 集线器就绪检查器来验证 Az
 services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 06/10/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a60a1c1f33ef17aa8ec2991c23b07cd1b23afef4
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 6c4ed64f3d7327004d3f508c54f98913c97af5fa
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696356"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366649"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>验证 Azure Stack 中心的 AD FS 集成
 

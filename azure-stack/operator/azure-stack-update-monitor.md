@@ -2,17 +2,17 @@
 title: 使用 Powershell 监视 Azure Stack 集线器中的更新
 description: 了解如何使用 Powershell 监视 Azure Stack 集线器中的更新
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: fe4f63149af62d60391ab38bffe37cd3d8a39957
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c611d901c62765462d5bccaee6894f5f7c0b0b18
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696713"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367278"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>使用 Powershell 监视 Azure Stack 集线器中的更新
 

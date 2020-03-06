@@ -2,17 +2,17 @@
 title: 在 Azure Stack 集线器交换机配置上修改特定设置
 description: 了解可在 Azure Stack 集线器交换机配置中自定义的内容。 原始设备制造商（OEM）创建配置后，请不要在不同意 OEM 或 Microsoft Azure Stack 中心工程团队同意的情况下进行更改。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 11/11/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c4d0335f03e0e6012423cfe7d7a7eb684872db3e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 19964b761478bb210d3377b177f05f708697167b
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700300"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368713"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-hub-switch-configuration"></a>在 Azure Stack 集线器交换机配置上修改特定设置
 

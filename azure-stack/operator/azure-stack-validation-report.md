@@ -3,17 +3,17 @@ title: Azure Stack 中心验证报告
 titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack 集线器就绪检查程序工具来生成验证报告。
 author: IngridAtMicrosoft
-ms.topic: conceptual
-ms.date: 01/07/2020
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 697f2bcdcd8ca33f76bf9c05566b4fb72015ff34
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 5cc3f24c62fc9c91637744cf031da39c6c7279fb
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696237"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366494"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Azure Stack 中心验证报告
 

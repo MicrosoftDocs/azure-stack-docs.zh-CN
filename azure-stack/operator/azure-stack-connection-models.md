@@ -2,17 +2,17 @@
 title: Azure Stack 集线器集成系统连接模型
 description: 确定 Azure Stack 集线器集成系统的连接模型和其他部署规划决策。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 620e88bcf20f9744ab91d2450da2a8570369cc14
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695183"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364038"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack 集线器集成系统连接模型
 如果你有兴趣购买 Azure Stack 集线器集成系统，则需要了解 Azure Stack 中心部署的[几个数据中心集成注意事项](azure-stack-datacenter-integration.md)，以确定系统如何适应你的数据中心。 此外，还需要决定将 Azure Stack 集线器集成到混合云环境中的方式。 本文概述了这些重要决策，其中包括 Azure 连接模型、标识存储选项和计费模型选项。

@@ -4,6 +4,10 @@
   items:
     - name: 什么是 Azure Stack HCI？
       href: overview.md
+- name: 管理
+  items:
+    - name: 创建卷
+      href: manage/create-volumes.md
 - name: 参考
   items:
     - name: Hyper-v PowerShell 命令

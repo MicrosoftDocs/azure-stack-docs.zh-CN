@@ -2,17 +2,17 @@
 title: 配置 Azure Stack 中心安全控制
 description: 了解如何在 Azure Stack 中心配置安全控制
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 06/17/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 72757c67a10e11eabd88d55fb4dee7adcb2fe558
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.openlocfilehash: 4cfc5ee7f9e2284b3f7f5c632980235b24d2e956
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231564"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367499"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>配置 Azure Stack 中心安全控制
 

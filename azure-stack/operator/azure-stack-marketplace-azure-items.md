@@ -7,12 +7,12 @@ ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 875aafa4602e9db34bfe98eb80a658c36b3d0041
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 00bd12eedab3afd24a29279998b03fb963d634e2
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700538"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368220"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>适用于 Azure Stack 集线器的 Azure Marketplace 项
 
@@ -45,7 +45,7 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | 易于部署、经济高效、以应用为中心的企业级解决方案，以及以用户为中心的解决方案。 这些映像会定期更新，其中包含最新的修补程序。 **重要信息：必须先删除2018年1月18日之前下载的映像，并将其替换为最新版本。** | Microsoft |
 | ![SharePoint Server 2013 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 试用版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2012 Datacenter 和 Visual Studio 2019 社区版上的 Microsoft SharePoint Server 2013 试用版。 | Microsoft |
-| ![SharePoint Server 2016 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 试用版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Windows Server 2016 Datacenter Microsoft SharePoint Server 2016 试用版。 | Microsoft |
+| ![SharePoint Server 2016 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 试用版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2016 Datacenter Microsoft SharePoint Server 2016 试用版。 | Microsoft |
 | ![Windows Server 2012 R2 上的 SQL Server 2014 SP3](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 上的 SQL Server 2014 SP3](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp3-ws2012r2) | SQL Server 2014 Service Pack 2。 **需要下载：** SQL IaaS 扩展。 | Microsoft |
 | ![免费许可证：Windows Server 2016 上的 SQL Server 2016 SP1 开发人员](media/azure-stack-marketplace-azure-items/sql.png) | [免费许可证：Windows Server 2016 上的 SQL Server 2016 SP1 开发人员](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | 适用于事务、数据仓库、商业智能和分析工作负荷的免费开发人员版本 SQL Server 2016 SP1。 **需要下载：** SQL IaaS 扩展。 | Microsoft |
 | ![免费许可证：Windows Server 2016 上的 SQL Server 2016 SP1 Express](media/azure-stack-marketplace-azure-items/sql.png) | [免费许可证：Windows Server 2016 上的 SQL Server 2016 SP1 Express](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp1-ws2016) | SQL Server 2016 SP1 的免费 express 版本。 **需要下载：** SQL IaaS 扩展。 | Microsoft |
@@ -246,7 +246,7 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![用于 Multipoint 的 NetFoundry 网关，Azure Stack 中心连接的零信任](media/azure-stack-marketplace-azure-items/netfoundry.png) | [用于 Multipoint 的 NetFoundry 网关，Azure Stack 中心连接的零信任](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | 在 Azure Stack 集线器和任何位置之间通过任何网络连接进行的仅限软件的多点连接，具有业界领先的零信任安全性、VPN 吞吐量的5倍和不受限制的并行用户。 | NetFoundry |
 | ![Palo Alto VM 系列下一代防火墙](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 系列下一代防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM 系列下一代防火墙使客户能够安全地将其应用程序和数据迁移到 Azure Stack 中心，并通过应用允许列表和威胁防护策略保护他们免受未知和未知的威胁。 **此映像需要部署模板;请参阅此[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)了解重要信息。**| Palo Alto Networks，Inc。 |
 | ![PT 应用程序防火墙](media/azure-stack-marketplace-azure-items/pt.png) | [PT 应用程序防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT 应用程序防火墙检测已知 & 未知漏洞，并阻止对 web 应用的攻击。 **下载这两个 PT Marketplace 项。** | 正面技术 |
-| ![Puppet 企业](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet 企业](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise 使你能够自动完成 Azure Stack 中心基础结构的整个生命周期。 **下载这两个 Puppet Marketplace 项。** | Puppet |
+| ![Puppet 企业](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet 企业](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-201818) | Puppet Enterprise 使你能够自动完成 Azure Stack 中心基础结构的整个生命周期。 **下载这两个 Puppet Marketplace 项。** | Puppet |
 | ![寻找快速恢复](media/azure-stack-marketplace-azure-items/quest.png) | [寻找快速恢复核心](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | 快速恢复高级数据保护在一个易于使用的软件解决方案中统一了备份、复制和恢复。 | 寻找软件 |
 | ![SIOS DataKeeper 群集版本](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper 群集版本](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper 在 Azure Stack 集线器中提供高可用性（HA）和灾难恢复（DR）。 只需在 Azure Stack 中心部署中将 SIOS DataKeeper software 作为成分添加到 Windows Server 故障转移群集（WSFC）环境中，即可无需共享存储。 | SIOS 技术公司。 |
 | ![SUSE Manager 3.1 代理（BYOS）](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 代理（BYOS）](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | 同类最佳开源基础结构管理。 | SUSE |

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 2dbff36dba8739661b88b58ef27eec49597646bc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: cc17789485bc4c1d0676d54751f4d5bc820c3a5e
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700997"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366273"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>创建地理分布式应用解决方案，以将流量定向到 Azure 和 Azure Stack 中心
 
@@ -113,7 +113,7 @@ ms.locfileid: "77700997"
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>在两个云中创建 web 应用部署
 
-1.  编辑**WebApplication**文件：选择 `Runtimeidentifier` 并添加 `win10-x64`。 （请参阅[自包含的部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。）
+1.  编辑**WebApplication**文件：选择 `Runtimeidentifier` 并添加 `win10-x64`。 （请参阅[自包含的部署](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)文档。）
 
     ![在 Visual Studio 中编辑 web 应用程序项目文件](media/solution-deployment-guide-geo-distributed/image3.png)
 
@@ -129,7 +129,7 @@ ms.locfileid: "77700997"
 
     ![将代码添加到生成定义](media/solution-deployment-guide-geo-distributed/image4.png)
 
-3. **运行生成**。 [自包含的部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布可在 Azure 和 Azure Stack 中心运行的项目。
+3. **运行生成**。 [自包含的部署生成](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)过程将发布可在 Azure 和 Azure Stack 中心运行的项目。
 
 **使用 Azure 托管代理**
 

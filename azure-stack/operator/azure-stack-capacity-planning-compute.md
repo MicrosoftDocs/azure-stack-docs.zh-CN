@@ -2,17 +2,17 @@
 title: Azure Stack 中心计算容量
 description: 了解 Azure Stack 中心部署的计算容量规划。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/16/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: fd67c1bc02c16bc15eb569418bcb5d4914eca222
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77688655"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366341"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack 中心计算容量
 
@@ -76,10 +76,10 @@ VM 位置的可用内存 = 总主机内存-复原保留-运行租户 Vm 所使�
 复原预留 = H + R * （（N-1） * H） + V * （N-2）
 
 > 其中：
-> - H = 单一服务器内存的大小
+> -    H = 单一服务器内存的大小
 > - N = 缩放单位的大小（服务器数）
-> - R = 操作系统的系统开销保留，在此公式中为 .15<sup>2</sup>
-> - V = 缩放单位中的最大 VM
+> -    R = 操作系统的系统开销保留，在此公式中为 .15<sup>2</sup>
+> -    V = 缩放单位中的最大 VM
 
 <sup>1</sup> Azure Stack 集线器基础结构开销 = 242 gb + （4 GB x # 节点）。 大约31个 Vm 用于承载 Azure Stack 集线器的基础结构，并且总消耗大约 242 GB + （4 GB x # 的节点）的内存和146虚拟核心。 这种 Vm 的基本原理是满足所需的服务分离，以满足安全性、可伸缩性、服务和修补要求。 此内部服务结构允许将来引入新的基础结构服务。
 

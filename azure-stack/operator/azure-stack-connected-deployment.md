@@ -2,17 +2,17 @@
 title: Azure Stack 集线器集成系统的 Azure 连接的部署决策
 description: 确定 Azure Stack 集线器集成系统的 Azure 连接部署的部署规划决策，包括计费和标识。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7e00adbf4c0e83094b7425ed650126e8bb072b3d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b8f8dfe95e50b81c7032e2e2348c2d4e6a6d888d
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701592"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364762"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack 集线器集成系统的 Azure 连接的部署规划决策
 确定[将 Azure Stack 中心集成到混合云环境的方式](azure-stack-connection-models.md)后，可以完成 Azure Stack 中心部署决策。

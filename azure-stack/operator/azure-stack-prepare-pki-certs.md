@@ -3,17 +3,17 @@ title: 准备 Azure Stack 中心 PKI 证书以进行部署或轮换
 titleSuffix: Azure Stack Hub
 description: 了解如何为 Azure Stack 中心集成系统部署或在现有 Azure Stack 中心环境中轮替机密准备 PKI 证书。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 09/16/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: e7b346f8c87e49980a57c39d0bebc6a88d21415f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3ad54cfdda10e5674b4f42edefdeda832a44aa5f
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698209"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367948"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>准备 Azure Stack 中心 PKI 证书以进行部署或轮换
 

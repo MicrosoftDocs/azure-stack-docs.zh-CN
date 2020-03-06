@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9788c875e5d2f40f2ed6e644537f4d13ffa80f5a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 41c6b4e5adf7b659bf9db30eb8a3906c257f5473
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701150"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366239"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>部署使用 Azure 和 Azure Stack 中心缩放跨云的应用
 
@@ -107,7 +107,7 @@ Azure Repos
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>为两个云中的应用服务创建独立的 web 应用部署
 
-1.  编辑**WebApplication**文件。 选择 `Runtimeidentifier` 并添加 `win10-x64`。 （请参阅[自包含的部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。） 
+1.  编辑**WebApplication**文件。 选择 `Runtimeidentifier` 并添加 `win10-x64`。 （请参阅[自包含的部署](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)文档。） 
 
     ![编辑 web 应用项目文件](media/solution-deployment-guide-cross-cloud-scaling/image3.png)
 
@@ -123,7 +123,7 @@ Azure Repos
 
     ![将代码添加到 web 应用](media/solution-deployment-guide-cross-cloud-scaling/image4.png)
 
-3. 运行生成。 [自包含的部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布在 Azure 和 Azure Stack 集线器上运行的项目。
+3. 运行生成。 [自包含的部署生成](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)过程将发布在 Azure 和 Azure Stack 集线器上运行的项目。
 
 ## <a name="use-an-azure-hosted-agent"></a>使用 Azure 托管代理
 
@@ -266,7 +266,7 @@ Azure Pipelines 和 Azure DevOps Services 为发布到多个环境（例如开�
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>为两个云中的应用服务创建独立的 web 应用部署
 
-1.  编辑**WebApplication**文件：选择 `Runtimeidentifier` 然后添加 `win10-x64`。 有关详细信息，请参阅[自包含的部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。
+1.  编辑**WebApplication**文件：选择 `Runtimeidentifier` 然后添加 `win10-x64`。 有关详细信息，请参阅[自包含的部署](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)文档。
 
 2.  使用团队资源管理器将代码签入 Azure Repos。
 
@@ -280,7 +280,7 @@ Azure Pipelines 和 Azure DevOps Services 为发布到多个环境（例如开�
 
 3.  在 "**参数**" 中，add **-r win10-x64** code。 此添加项是使用 .NET Core 触发独立部署所必需的。
 
-4.  运行生成。 [自包含的部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布可在 Azure 和 Azure Stack 中心运行的项目。
+4.  运行生成。 [自包含的部署生成](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)过程将发布可在 Azure 和 Azure Stack 中心运行的项目。
 
 #### <a name="use-an-azure-hosted-build-agent"></a>使用 Azure 托管生成代理
 

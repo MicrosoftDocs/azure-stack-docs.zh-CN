@@ -5,17 +5,17 @@ description: 了解如何使用 Azure Stack 中心就绪检查程序工具验证
 services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/23/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 210157878b6f5a97b4c9a99f9a7f734587a0da46
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 638a4b4d38088c725b417d3f9ee4a92b8c4e396d
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696339"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366460"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>验证 Azure Stack 中心 PKI 证书
 
