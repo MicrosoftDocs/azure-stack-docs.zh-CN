@@ -2,17 +2,17 @@
 title: Azure Stack 中心公钥基础结构证书要求
 description: 了解 Azure Stack 中心集成系统 Azure Stack 中心 PKI 证书部署要求。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 12/16/2019
+ms.topic: conceptual
+ms.date: 3/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 99bec3441d7b6671024f5e1689c6f8504a2f57c1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a63fcbb13defc0d7e679c0be7fb931c0e2570b37
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698379"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367567"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack 中心公钥基础结构证书要求
 
