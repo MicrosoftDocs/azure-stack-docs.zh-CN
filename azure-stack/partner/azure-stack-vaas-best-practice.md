@@ -9,11 +9,11 @@ ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: b3d911a07c7a234ce2284055ff67a7ca46f567a2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694147"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364729"
 ---
 # <a name="azure-stack-validation-best-practices"></a>Azure Stack 验证最佳实践
 
@@ -41,7 +41,7 @@ ms.locfileid: "77694147"
 
 对所有 VaaS 工作流运行使用一致的命名约定。 例如，在以下生成属性中构造工作流名称，如下所示：
 
-|内部版本号（主要） | Date | 解决方案大小 | 工作流名称
+|内部版本号（主要） | 日期 | 解决方案大小 | 工作流名称
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
 
