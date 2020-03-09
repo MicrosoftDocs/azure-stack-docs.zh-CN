@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
 ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705145"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364126"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>在 Azure Stack 中心管理 API 版本配置文件
 
