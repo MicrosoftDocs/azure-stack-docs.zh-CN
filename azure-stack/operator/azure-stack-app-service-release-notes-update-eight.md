@@ -4,16 +4,16 @@ description: 了解 Azure Stack 集线器上的应用服务的 update 8 中的�
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 03/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 56838a95c7c937c6fcbbe878ca284ce27d3d1397
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 82f43028253638f92866bb679a5ccb5478a5a56e
+ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695591"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935080"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Azure Stack 集线器上的应用服务 update 8 发行说明
 
@@ -177,9 +177,9 @@ Azure Stack 中心的 Azure App Service 的所有新部署都将对所有虚拟�
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. 将登录名迁移到包含的数据库用户。
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -226,37 +226,42 @@ Azure Stack 中心的 Azure App Service 的所有新部署都将对所有虚拟�
 
   新辅助进程无法获取所需的数据库连接字符串。  若要纠正这种情况，请连接到某个控制器实例（例如 CN0），并运行以下 PowerShell 脚本：
 
-  ```powershell
- 
+    ```powershell
+    
     [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.Web.Hosting")
-    $siteManager = New-Object Microsoft.Web.Hosting.SiteManager
-    $builder = New-Object System.Data.SqlClient.SqlConnectionStringBuilder -ArgumentList (Get-AppServiceConnectionString -Type Hosting)
-    $conn = New-Object System.Data.SqlClient.SqlConnection -ArgumentList $builder.ToString()
+    $siteManager = New-Object Microsoft.Web.Hosting.SiteManager
+
+    $builder = New-Object System.Data.SqlClient.SqlConnectionStringBuilder -ArgumentList (Get-AppServiceConnectionString -Type Hosting)
+    $conn = New-Object System.Data.SqlClient.SqlConnection -ArgumentList $builder.ToString()
 
     $siteManager.RoleServers | Where-Object {$_.IsWorker} | ForEach-Object {
-        $worker = $_
-        $dbUserName = "WebWorker_" + $worker.Name
+        $worker = $_
+        $dbUserName = "WebWorker_" + $worker.Name
 
-        if (!$siteManager.ConnectionContexts[$dbUserName]) {
-            $dbUserPassword = [Microsoft.Web.Hosting.Common.Security.PasswordHelper]::GenerateDatabasePassword()
+        if (!$siteManager.ConnectionContexts[$dbUserName]) {
+            $dbUserPassword = [Microsoft.Web.Hosting.Common.Security.PasswordHelper]::GenerateDatabasePassword()
+
             $conn.Open()
-            $command = $conn.CreateCommand()
-            $command.CommandText = "CREATE USER [$dbUserName] WITH PASSWORD = '$dbUserPassword'"
+            $command = $conn.CreateCommand()
+            $command.CommandText = "CREATE USER [$dbUserName] WITH PASSWORD = '$dbUserPassword'"
             $command.ExecuteNonQuery()
             $conn.Close()
+            
             $conn.Open()
-
-            $command = $conn.CreateCommand()
-            $command.CommandText = "ALTER ROLE [WebWorkerRole] ADD MEMBER [$dbUserName]"
+            $command = $conn.CreateCommand()
+            $command.CommandText = "ALTER ROLE [WebWorkerRole] ADD MEMBER [$dbUserName]"
             $command.ExecuteNonQuery()
             $conn.Close()
-
-            $builder.Password = $dbUserPassword
-            $builder["User ID"] = $dbUserName
-            $siteManager.ConnectionContexts.Add($dbUserName, $builder.ToString())
-        }
+            
+            $builder.Password = $dbUserPassword
+            $builder["User ID"] = $dbUserName
+            
+            $siteManager.ConnectionContexts.Add($dbUserName, $builder.ToString())
+        }
     }
+
     $siteManager.CommitChanges()
+        
     ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure Stack 上的云管理员操作 Azure App Service 的已知问题

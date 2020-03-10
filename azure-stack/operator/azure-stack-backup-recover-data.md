@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 00eba2158fcb4e5a2e18f88d0493e1bb2e7c3b3d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
+ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703581"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935061"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -28,7 +28,7 @@ Azure Stack 中心在你的数据中心内运行 Azure 服务，并可在小型�
 
 ## <a name="workflows"></a>工作流
 
-保护 Azure 入门的旅程开始，单独备份基础结构和应用/租户数据。 本文档介绍了如何保护基础结构。 
+保护 Azure Stack 中心的旅程首先，单独备份基础结构和应用/租户数据。 本文档介绍了如何保护基础结构。 
 
 ![Azure Stack 中心数据恢复工作流—部署](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
