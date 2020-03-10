@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
 ms.openlocfilehash: 8c0cd14dbeda4e2b7844aefaf10f4a8cf685d60d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700589"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364272"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK 的部署后配置
 

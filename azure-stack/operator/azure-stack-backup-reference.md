@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
 ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703598"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366324"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务引用
 

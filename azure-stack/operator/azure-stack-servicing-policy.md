@@ -9,11 +9,11 @@ ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: f81ca3e48387f806e591deea08c4b0c9c518cebd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697529"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367634"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack 中心服务策略
 

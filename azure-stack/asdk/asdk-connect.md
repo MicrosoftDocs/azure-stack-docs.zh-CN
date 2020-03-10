@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2019
 ms.openlocfilehash: 1b562d2a72f3da4d4ac9ef7045f5cbd5408f4afa
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695404"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364321"
 ---
 # <a name="connect-to-the-asdk"></a>连接到 ASDK
 

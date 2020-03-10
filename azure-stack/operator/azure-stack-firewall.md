@@ -2,17 +2,17 @@
 title: Azure Stack 中心集成系统 Azure Stack 集线器防火墙集成
 description: 了解 Azure Stack 中心集成系统 Azure Stack 集线器防火墙集成。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 11/15/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: f27d314e8537cabb9c1625d3496751eba0feb264
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d0929edd5db0ba45593d5d061f5d831df50f3d35
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699875"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366206"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Azure Stack 集线器防火墙集成
 建议使用防火墙设备来帮助保护 Azure Stack 中心。 防火墙可以帮助防御分布式拒绝服务（DDOS）攻击、入侵检测和内容检查等内容。 但是，它们也可能成为 Azure 存储服务（如 blob、表和队列）的吞吐量瓶颈。

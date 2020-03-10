@@ -10,11 +10,11 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: a6358b7b9baff76726b2bd1282f525184a071c05
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704669"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364813"
 ---
 # <a name="deploy-the-local-agent"></a>部署本地代理
 

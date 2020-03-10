@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 1c96ee9520285e0bc2b9784fa5d310a1ec2ae60f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704805"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366118"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>使用应用标识访问 Azure Stack 集线器资源
 

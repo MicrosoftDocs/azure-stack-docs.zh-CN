@@ -9,11 +9,11 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
 ms.openlocfilehash: a30c3a4f745e46a5e7b58d4355f1c193d8702e28
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697308"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367352"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>添加 SQL 资源提供程序的宿主服务器
 

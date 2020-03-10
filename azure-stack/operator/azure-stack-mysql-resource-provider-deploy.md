@@ -8,11 +8,11 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 976d602cea47131bef68b38add07e0bcaeeb9617
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698787"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368185"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>在 Azure Stack 集线器上部署 MySQL 资源提供程序
 

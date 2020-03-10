@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
 ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77690542"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78935087"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>什么是 Azure Stack 开发工具包（ASDK）？
 [Microsoft Azure Stack 集线器集成系统](../operator/azure-stack-overview.md)的大小范围是4-16 个节点，由硬件合作伙伴和 Microsoft 共同支持。 使用 Azure Stack 集线器集成系统为生产工作负荷启用新方案。 如果你是管理集成系统基础结构并提供服务的 Azure Stack 中心操作员，请参阅我们的[操作员文档](/azure-stack/operator)。

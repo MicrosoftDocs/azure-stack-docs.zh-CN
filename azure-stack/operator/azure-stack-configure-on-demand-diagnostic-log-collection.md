@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2019
 ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701541"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364106"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>按需收集 Azure Stack 集线器诊断日志
 
