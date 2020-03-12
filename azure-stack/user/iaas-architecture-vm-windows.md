@@ -3,16 +3,16 @@ title: 在 Azure Stack 集线器上运行 Windows 虚拟机
 description: 了解如何在 Azure Stack 集线器上运行 Windows 虚拟机。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 3/9/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 1bd438802c00a1c00b10f81920c1756d22f83606
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/9/2020
+ms.openlocfilehash: b3619d0096b7c14ec6f15aaf37f9bee774213e6a
+ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704975"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025222"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>在 Azure Stack 集线器上运行 Windows 虚拟机
 
@@ -75,7 +75,7 @@ OS 磁盘是存储在 Azure Stack 集线器 blob 存储中的 VHD，因此即使
 | **容错域** | 放置在可用性集中的 Vm 将以物理方式彼此隔离，方法是在多个容错域（Azure Stack 中心节点）之间均匀分配它们。 如果发生硬件故障，故障容错域中的 Vm 将在其他容错域中重新启动。 它们将保存在与其他 Vm 不同的容错域中，但可能会保留在同一可用性集中。 当硬件重新联机时，将重新平衡 Vm 以保持高可用性。 |
 | **更新域**| 更新域是 Azure 在可用性集中提供高可用性的另一种方法。 更新域是一组可同时进行维护的基础硬件逻辑组。 位于同一更新域中的 Vm 将在计划内维护期间一起重新启动。 当租户在可用性集中创建 Vm 时，Azure 平台会自动将 Vm 分布到这些更新域。 <br>在 Azure Stack 集线器中，Vm 在其基础主机更新之前，会在群集中的其他联机主机之间进行实时迁移。 由于在主机更新期间不会出现任何租户停机时间，因此，Azure Stack 集线器上的更新域功能只存在于与 Azure 的模板兼容性。 可用性集中的 Vm 会在门户上显示0作为其更新域的编号。 |
 
-**备份**有关保护 Azure Stack 中心 IaaS Vm 的建议，请参阅此文。
+**备份**有关保护 Azure Stack 中心 IaaS Vm 的建议，请参阅[保护 Azure Stack 中心部署的 vm](azure-stack-manage-vm-protect.md)。
 
 **停止 VM**。 Azure 对“已停止”和“已解除分配”状态做了区分。 当 VM 状态为已停止时（而不是当 VM 已解除分配时）将向你收费。 在 Azure Stack 集线器门户中，"**停止**" 按钮会释放 VM。 如果在已登录时通过 OS 关闭，VM 会停止，但不会解除分配，因此仍会产生费用。
 

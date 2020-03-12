@@ -9,18 +9,27 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: da111d514946a3f4e28783c004778ce1d88c937d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b842ea5de68cf64d498ec37ed86bb6e15b851395
+ms.sourcegitcommit: b4ebf81850d5ae487efe159b7d2225b4c2f73993
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704584"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79097750"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>验证即服务的发行说明
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 本文提供 Azure Stack 中心验证作为服务的发行说明。
+
+## <a name="version-4432"></a>版本4.4.3。2
+
+2020 2 月2日
+
+- 服务维护更新。
+
+- Bug 修复
+  - 修复了 Test101LinuxEmptyAttachedDiskManagedDisk、Test101WindowsEmptyAttachedDiskManagedDisk 的测试。
 
 ## <a name="version-4421"></a>版本4.4.2。1
 

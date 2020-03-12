@@ -8,6 +8,24 @@
   items:
     - name: 创建卷
       href: manage/create-volumes.md
+    - name: 扩展卷
+      href: manage/extend-volumes.md
+    - name: 删除卷
+      href: manage/delete-volumes.md
+    - name: 更换驱动器
+      href: manage/replace-drives.md
+- name: 概念
+  items:
+    - name: 选择驱动器
+      href: concepts/choose-drives.md
+    - name: 规划卷
+      href: concepts/plan-volumes.md
+    - name: 了解缓存
+      href: concepts/cache.md
+    - name: 容错和存储效率
+      href: concepts/fault-tolerance.md
+    - name: 群集和存储池仲裁
+      href: concepts/quorum.md
 - name: 参考
   items:
     - name: Hyper-v PowerShell 命令

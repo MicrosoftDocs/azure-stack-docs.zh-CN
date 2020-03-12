@@ -10,12 +10,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 638a4b4d38088c725b417d3f9ee4a92b8c4e396d
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: e8114d060e596f581cd23ec80b0b5f455567dc1f
+ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366460"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025249"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>验证 Azure Stack 中心 PKI 证书
 
@@ -47,7 +47,7 @@ ms.locfileid: "78366460"
 > [!IMPORTANT]  
 > PKI 证书是 PFX 文件，应将密码视为敏感信息。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在验证 Azure Stack 中心部署的 PKI 证书之前，系统应符合以下先决条件：
 
@@ -89,11 +89,11 @@ ms.locfileid: "78366460"
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. 在 PowerShell 窗口中，将 "`RegionName`" 和 "`FQDN`" 的值更改为适用于 Azure Stack 中心环境的，并运行以下 cmdlet：
+3. 在 PowerShell 窗口中，更改 `RegionName`的值、`FQDN` 并 `IdentitySystem` 适用于 Azure Stack 中心环境的，并运行以下 cmdlet：
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
 4. 检查输出并确保所有证书都通过所有测试。 例如：
@@ -236,7 +236,7 @@ ms.locfileid: "78366460"
 
 ## <a name="certificates"></a>证书
 
-| 目录 | 证书 |
+| Directory | 证书 |
 | ---    | ----        |
 | ACSBlob | `wildcard_blob_<region>_<externalFQDN>` |
 | ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |

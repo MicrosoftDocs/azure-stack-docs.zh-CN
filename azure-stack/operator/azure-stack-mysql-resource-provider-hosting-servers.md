@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: a0b0e654ac2698c1b9611924cca853bd1ff525de
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: b02ea9e241faea3aeaad76b85dbde9616e1edea5
+ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367431"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128420"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加 MySQL 宿主服务器
 
@@ -21,7 +21,7 @@ ms.locfileid: "78367431"
 > [!NOTE]
 > MySQL 资源提供程序应在默认提供程序订阅中创建，而 MySQL 宿主服务器应在可计费的用户订阅中创建。 不应使用资源提供程序服务器来托管用户数据库。
 
-MySQL 版本5.6、5.7 和8.0 可用于宿主服务器。 MySQL RP 不支持 caching_sha2_password 身份验证;将在下一版本中添加。 MySQL 8.0 服务器必须配置为使用 mysql_native_password。 也支持 MariaDB。
+MySQL 版本5.6、5.7 和8.0 可用于宿主服务器。 MySQL RP 不支持 caching_sha2_password 身份验证。 MySQL 8.0 服务器必须配置为使用 mysql_native_password。
 
 ## <a name="configure-external-access-to-the-mysql-hosting-server"></a>配置对 MySQL 宿主服务器的外部访问
 
