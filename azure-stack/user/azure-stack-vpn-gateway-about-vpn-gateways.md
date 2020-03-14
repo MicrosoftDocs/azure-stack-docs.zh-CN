@@ -7,11 +7,11 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366428"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294370"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>为 Azure Stack 集线器创建 VPN 网关
 

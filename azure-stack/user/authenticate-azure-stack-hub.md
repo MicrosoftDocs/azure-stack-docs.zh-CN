@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 21cd92626a5ddb4e86e5f0dd7568dc1a875bd3c1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 845be919279107e88a922dfd180e3fc8794e1a89
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77687438"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79293885"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>获取 Azure Stack 集线器的身份验证信息
 
@@ -68,7 +68,7 @@ ms.locfileid: "77687438"
 
 Azure 资源管理器终结点是用于 Azure Stack 中心的部署和管理服务的元数据终结点。 它提供一个管理层用于在 Azure 订阅中创建、更新和删除资源。
 
-对于集成系统，Azure 资源管理器终结点的 URL 是：<br>`https://management.<location>.<fqdn>.com`
+对于集成系统，Azure 资源管理器终结点的 URL 是：<br>`https://management.<location>.<fqdn>`
 
 若要获取指向属性（如库终结点、图形终结点、门户终结点、登录终结点和访问群体）的元数据终结点，URL 为： `<ResourceManager>/metadata/endpoints?api-version=1.0`
 

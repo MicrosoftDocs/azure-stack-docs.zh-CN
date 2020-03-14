@@ -9,11 +9,11 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 621bed34b4d5f633b1a104c03c0bca341ec21bdd
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364830"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294975"
 ---
 # <a name="validate-oem-packages"></a>验证 OEM 包
 

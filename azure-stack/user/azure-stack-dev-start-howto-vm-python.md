@@ -3,16 +3,16 @@ title: 将 Python web 应用部署到 Azure Stack 集线器中的虚拟机
 description: 将 Python web 应用部署到 Azure Stack 集线器中的虚拟机。
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3a5eb2667c290eba41a347209608db96c9ce5598
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/12/2020
+ms.openlocfilehash: 700589e985aa651a1a7ae4a5ffbc020b8e6a2d3f
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704125"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79313001"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>在 Azure Stack 集线器中将 Python web 应用部署到 VM
 
@@ -66,9 +66,9 @@ ms.locfileid: "77704125"
 1. 在 VM 上设置 Git 存储库。 在 SSH 会话中仍连接到 VM 时，请输入以下命令：
 
     ```bash  
-       git clone https://github.com/mattbriggs/flask-hello-world.git
+       git clone https://github.com/Azure-Samples/azure-stack-hub-flask-hello-world.git
     
-       cd flask-hello-world
+       cd azure-stack-hub-flask-hello-world
     ```
 
 2. 创建虚拟环境，并将其填充到所有包依赖项。 在 SSH 会话中仍连接到 VM 时，请输入以下命令：

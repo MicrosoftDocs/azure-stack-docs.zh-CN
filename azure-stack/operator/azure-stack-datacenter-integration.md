@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
 ms.openlocfilehash: c8ea0ea53574132d144ad7e205f78c5bebc41226
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368202"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294491"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Azure Stack 集线器集成系统的数据中心集成规划注意事项
 

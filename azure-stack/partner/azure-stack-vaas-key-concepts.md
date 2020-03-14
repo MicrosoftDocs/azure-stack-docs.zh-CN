@@ -10,11 +10,11 @@ ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5199a9f3b8dcf9a3ac43d9563688cba8da949ce3
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364730"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294161"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>作为服务关键概念的验证
 

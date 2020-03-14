@@ -8,11 +8,11 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
 ms.openlocfilehash: 207b99b9a3cbb6c030a6e79137d036820b3b3f60
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364073"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294205"
 ---
 # <a name="asdk-architecture"></a>ASDK 体系结构
 Azure Stack 开发工具包（ASDK）是在单个主机计算机上运行 Azure Stack 的单节点部署。 边缘路由组件安装在主计算机上，以提供 Azure Stack 的 NAT 和 VPN 功能。 Azure Stack 基础结构角色在物理主机计算机的 Hyper-v 层中运行。

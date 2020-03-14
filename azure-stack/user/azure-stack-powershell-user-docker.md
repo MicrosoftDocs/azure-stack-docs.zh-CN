@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: ef847871569a96a889a37c0f74e581cda5cc8712
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 2a23469b36bd05aaef1c6597fc0be6e0c1bab783
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701983"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79312966"
 ---
 # <a name="use-docker-to-run-powershell-in-azure-stack-hub"></a>使用 Docker 在 Azure Stack 集线器中运行 PowerShell
 
@@ -44,7 +44,7 @@ ms.locfileid: "77701983"
 
 Dockerfile 打开安装了 Windows PowerShell 5.1 的 Microsoft 映像*microsoft/windowsservercore*。 然后，该文件会加载 NuGet 和 Azure Stack 中心 PowerShell 模块，并从 Azure Stack 中心工具下载工具。
 
-1. 将[azure stack powershell 存储库下载](https://github.com/mattbriggs/azure-stack-powershell)为 ZIP 文件，或者克隆存储库。
+1. 将[azure stack powershell 存储库下载](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git)为 ZIP 文件，或者克隆存储库。
 
 2. 从终端打开存储库文件夹。
 

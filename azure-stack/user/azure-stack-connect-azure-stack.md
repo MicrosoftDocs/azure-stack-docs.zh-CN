@@ -8,11 +8,11 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 0a3dfcc7d12baa6616f57908e87d24afaf1e927e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364371"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294601"
 ---
 # <a name="connect-to-azure-stack-hub"></a>连接到 Azure Stack 集线器
 
@@ -38,7 +38,7 @@ ms.locfileid: "78364371"
 > [!NOTE] 
 > 此 VPN 连接不提供与 Azure Stack 集线器基础结构 Vm 的连接。 
 
-### <a name="prerequisites"></a>先决条件
+### <a name="prerequisites"></a>必备条件
 
 * 在本地计算机上安装[Azure Stack 集线器兼容 Azure PowerShell](../operator/azure-stack-powershell-install.md) 。  
 * 下载[处理 Azure Stack 中心所需的工具](../operator/azure-stack-powershell-download.md)。 

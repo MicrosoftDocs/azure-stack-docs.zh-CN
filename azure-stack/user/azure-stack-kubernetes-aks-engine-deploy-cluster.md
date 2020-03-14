@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: b8826fc929c571e39d36139bf724861ae9cc7fbd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702697"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79312949"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 
@@ -35,7 +35,7 @@ ms.locfileid: "77702697"
     > [!Note]  
     > 如果你已断开连接，则可以下载该文件，并将其手动复制到你计划对其进行编辑的已断开连接的计算机。 可以使用[PuTTY 或 WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html)等工具将文件复制到 Linux 计算机。
 
-2.  若要在编辑器中打开，可以使用 nano：
+2.  若要在编辑器中打开 API 模型，可以使用 nano：
 
     ```bash
     nano ./kubernetes-azurestack.json
@@ -88,9 +88,9 @@ ms.locfileid: "77702697"
     | 字段 | 说明 |
     | --- | --- |
     | adminUsername | 输入 VM 管理员用户名。 |
-    | ssh | 输入将用于通过 Vm 进行 SSH 身份验证的公钥。 如果使用的是 Putty，请打开 PuTTY 密钥生成器以加载 Putty 私钥，并使用 ssh-rsa 开头的公钥，如以下示例中所示。 您可以使用创建 Linux 客户端时生成的密钥，但**需要复制公钥，使其成为单个行文本，如示例中所示**。|
+    | ssh | 输入将用于通过 Vm 进行 SSH 身份验证的公钥。 使用 `ssh-rsa` 和键。 有关创建公钥的说明，请参阅[创建适用于 Linux 的 SSH 密钥](create-ssh-key-on-windows.md)。 |
 
-    ![PuTTY 密钥生成器](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
+    如果要部署到自定义虚拟网络，可以在将[Kubernetes 群集部署到自定义虚拟网络](kubernetes-aks-engine-custom-vnet.md)中的 API 模型中找到有关查找和添加所需的密钥和值的说明。
 
 ### <a name="more-information-about-the-api-model"></a>有关 API 模型的详细信息
 
@@ -120,7 +120,7 @@ ms.locfileid: "77702697"
     | api 模型 | ./kubernetes-azurestack.json | 群集配置文件的路径或 API 模型。 |
     | 输出-目录 | kube-rg | 输入要包含输出文件的目录的名称 `apimodel.json` 以及其他生成的文件。 |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 中心管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
-    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 这是你在创建服务时设置的客户端密码。 |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 创建服务时，请设置客户端机密。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
     以下是示例：

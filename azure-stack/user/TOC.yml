@@ -63,6 +63,8 @@
               href: azure-stack-install-visual-studio.md
             - name: 使用安全外壳
               href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: 使用 ssh 创建密钥 ssh-keygen
+              href: create-ssh-key-on-windows.md
             - name: 将 REST 客户端与 API 一起使用
               href: azure-stack-rest-api-use.md
         - name: 使用 Azure Stack 中心资源管理器模板
@@ -210,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-deploy-windows.md
                     - name: 部署群集
                       href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: 部署到自定义虚拟网络
+                      href: kubernetes-aks-engine-custom-vnet.md
                     - name: 缩放群集
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: 升级群集

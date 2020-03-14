@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
 ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368815"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294502"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>管理 Azure Stack 中心存储帐户
 

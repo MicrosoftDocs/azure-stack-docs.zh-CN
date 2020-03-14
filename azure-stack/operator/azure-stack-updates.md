@@ -2,17 +2,17 @@
 title: 管理更新
 description: 了解如何在 Azure Stack 中心管理更新
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 10/01/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 69deade8a7084f751fda6d9f71ad3e7f3f5fc0f8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 70079b0959f0e5dc5072ef83c68c8887cd006089
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696579"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294645"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>管理 Azure Stack 集线器中的更新
 

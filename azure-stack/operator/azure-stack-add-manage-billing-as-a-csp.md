@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
 ms.openlocfilehash: 73970197e6d0b1c55e29e028e53d6639aa9c0afa
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367009"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294700"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>作为云解决方案提供商管理 Azure Stack 集线器的使用情况和计费
 

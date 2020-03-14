@@ -8,11 +8,11 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
 ms.openlocfilehash: d0929edd5db0ba45593d5d061f5d831df50f3d35
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366206"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294513"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Azure Stack 集线器防火墙集成
 建议使用防火墙设备来帮助保护 Azure Stack 中心。 防火墙可以帮助防御分布式拒绝服务（DDOS）攻击、入侵检测和内容检查等内容。 但是，它们也可能成为 Azure 存储服务（如 blob、表和队列）的吞吐量瓶颈。

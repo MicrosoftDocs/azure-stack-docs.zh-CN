@@ -8,11 +8,11 @@ ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
 ms.openlocfilehash: 5af024f2b3d31e115e80d1e20883b0457037532e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366585"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79293930"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Azure Stack 集线器中的配额类型
 

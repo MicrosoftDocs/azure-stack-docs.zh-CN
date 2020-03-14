@@ -9,11 +9,11 @@ ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
 ms.openlocfilehash: ff351dcef91491e6d52aa61ff25f282968c963fe
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367568"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79294733"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack 中心部署 SQL Server 资源提供程序
 
