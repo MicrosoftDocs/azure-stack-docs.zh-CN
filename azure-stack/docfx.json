@@ -137,24 +137,11 @@
         "asdk/**/*.md": "Azure Stack Development Kit (ASDK)"
       }
     },
-    "template": [],
+     "template": [],
     "dest": "AzureStack",
     "markdownEngineName": "markdig",
     "groups": {
-      "asdk": {
-        "dest": "asdk",
-        "moniker_range": ">=azs-1802"
-      },
-      "operator": {
-        "dest": "operator",
-        "moniker_range": ">=azs-1802"
-      },
-      "partner": {
-        "dest": "partner",
-        "moniker_range": ">=azs-1802"
-      },
-      "user": {
-        "dest": "user",
+      "version-ash": {
         "moniker_range": ">=azs-1802"
       }
     }
