@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: ee86c3200cbef75f63de0b1aa8f7ac614e1878cc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/11/2020
+ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77690916"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512008"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 部署 Azure Stack 和预配用户资源（例如产品/服务、计划、配额和订阅）后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 如果出现灾难性的硬件或服务故障，则计划和运行定期基础结构备份将确保基础结构管理数据不会丢失。
@@ -46,21 +46,6 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 
 **UI 安装程序要求**
 
-*当前 UI 安装程序仅支持加密密钥*
-
-|先决条件|说明|
-|-----|-----|
-|备份共享路径|将用于恢复 Azure Stack 基础结构信息的最新 Azure Stack 备份的 UNC 文件共享路径。 此本地共享将在云恢复部署过程中创建。|
-|要还原的备份 ID|"Xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 格式为 "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 的备份 ID，用于标识要在云恢复期间还原的备份。|
-|时间服务器 IP|Azure Stack 部署需要有效的时间服务器 IP （如132.163.97.2）。|
-|外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含需要用此密码还原的外部证书。|
-|备份加密密钥|如果使用不推荐使用的加密密钥在中配置备份设置，则是必需的。 安装程序将支持至少三个版本的向后兼容模式下的加密密钥。 将备份设置更新为使用证书后，请参阅下表获取所需信息。|
-|     |     | 
-
-**PowerShell 安装程序要求**
-
-*当前 PowerShell 安装程序支持加密密钥或解密证书*
-
 |先决条件|说明|
 |-----|-----|
 |备份共享路径|将用于恢复 Azure Stack 基础结构信息的最新 Azure Stack 备份的 UNC 文件共享路径。 此本地共享将在云恢复部署过程中创建。|
@@ -68,7 +53,17 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 |时间服务器 IP|Azure Stack 部署需要有效的时间服务器 IP （如132.163.97.2）。|
 |外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含需要用此密码还原的外部证书。|
 |解密证书密码|可选。 仅当使用证书对备份进行加密时才需要。 密码适用于自签名证书的（.pfx），其中包含解密备份数据所需的私钥。|
-|备份加密密钥|可选。 如果备份设置仍配置有加密密钥，则是必需的。 安装程序将支持至少三个版本的向后兼容模式下的加密密钥。 将备份设置更新为使用证书后，必须提供解密证书的密码。|
+|     |     | 
+
+**PowerShell 安装程序要求**
+
+|先决条件|说明|
+|-----|-----|
+|备份共享路径|将用于恢复 Azure Stack 基础结构信息的最新 Azure Stack 备份的 UNC 文件共享路径。 此本地共享将在云恢复部署过程中创建。|
+|要还原的备份 ID|"Xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 格式为 "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 的备份 ID，用于标识要在云恢复期间还原的备份。|
+|时间服务器 IP|Azure Stack 部署需要有效的时间服务器 IP （如132.163.97.2）。|
+|外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含需要用此密码还原的外部证书。|
+|解密证书密码|密码适用于自签名证书的（.pfx），其中包含解密备份数据所需的私钥。|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>准备主机计算机 
@@ -137,23 +132,6 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 ### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>使用 PowerShell 在恢复模式下部署 ASDK
 
 修改环境的以下 PowerShell 命令，并运行这些命令以在云恢复模式下部署 ASDK：
-
-**使用 Installazurestackpoc.ps1 脚本启动包含加密密钥的云恢复。**
-
-```powershell
-cd C:\CloudDeployment\Setup     
-$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
-$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
-$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
-$key = Read-Host -AsSecureString -Prompt "Your backup encryption key"
-
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
- -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
- -BackupEncryptionKeyBase64 $key `
- -BackupStoreCredential $backupstorecredential `
- -BackupId "<Backup ID to restore>" `
- -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
-```
 
 **使用 Installazurestackpoc.ps1 脚本启动带有解密证书的云恢复。**
 

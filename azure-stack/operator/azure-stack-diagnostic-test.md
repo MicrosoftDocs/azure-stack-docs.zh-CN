@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 1cfae74381121534fea8a49dca4d048e749bc1e6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9b082876dca1e39f99ac0b98a7e438aa1231b3c2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699994"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512535"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>验证 Azure Stack 集线器系统状态
 
@@ -47,7 +47,7 @@ ms.locfileid: "77699994"
 
    有关详细信息，请参阅[参数注意事项](azure-stack-diagnostic-test.md#parameter-considerations)和[用例示例](azure-stack-diagnostic-test.md#use-case-examples)。
 
-1. 如果任何测试报表**失败**，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[若要在 Azure Stack 集线器集成系统上](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)或在 ASDK 上运行 get-azurestacklog，请参阅在[ASDK 系统上运行 get-azurestacklog](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
+1. 如果任何测试报表**失败**，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅如何[在 Azure Stack 集线器集成系统上运行 get-azurestacklog](azure-stack-get-azurestacklog.md)。
 
    Cmdlet 将收集由 Test-azurestack 生成的日志。 如果测试报告**警告**，我们建议您不要收集日志并联系 CSS。
 
@@ -234,6 +234,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack 集线器诊断工具和问题日志记录，请参阅[Azure Stack 集线器诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
+若要详细了解 Azure Stack 集线器诊断工具和问题日志记录，请参阅[Azure Stack 集线器诊断工具](azure-stack-diagnostic-log-collection-overview-tzl.md)。
 
 若要了解有关故障排除的详细信息，请参阅[Microsoft Azure Stack 集线器故障排除](azure-stack-troubleshooting.md)。

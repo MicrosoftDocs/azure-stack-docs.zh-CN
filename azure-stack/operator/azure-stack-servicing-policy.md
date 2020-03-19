@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: harik
-ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: f81ca3e48387f806e591deea08c4b0c9c518cebd
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: 9b1459fbb5e484e3fc0588e8c9717f8e09b6e309
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294590"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512395"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack 中心服务策略
 
@@ -45,10 +45,10 @@ Microsoft 期望每月发布一次软件更新包。 但是，在一个月中可
 
 有关特定更新（包括如何下载）的信息，请参阅该更新的发行说明：
 
+- [Azure Stack 中心2002更新](/azure-stack/operator/release-notes?view=azs-2002)
 - [Azure Stack 中心1910更新](/azure-stack/operator/release-notes?view=azs-1910)
 - [Azure Stack 中心1908更新](/azure-stack/operator/release-notes?view=azs-1908)
 - [Azure Stack 中心1907更新](/azure-stack/operator/release-notes?view=azs-1907)
-- [Azure Stack 中心1906更新](/azure-stack/operator/release-notes?view=azs-1906)
 
 ## <a name="hotfixes"></a>修补程序
 
@@ -58,12 +58,19 @@ Microsoft 期望每月发布一次软件更新包。 但是，在一个月中可
 
 有关当前可用的修补程序的信息，请参阅该更新的发行说明：
 
-- [Azure Stack 集线器1910修补程序](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
-- [Azure Stack 集线器1908修补程序](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1)
-- [Azure Stack 集线器1907修补程序](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)
-- [Azure Stack 集线器1906修补程序](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)
+- [Azure Stack 集线器2002修补程序](/azure-stack/operator/release-notes?view=azs-2002#hotfixes)
+- [Azure Stack 集线器1910修补程序](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-1)
+- [Azure Stack 集线器1908修补程序](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-2)
+- [Azure Stack 集线器1907修补程序](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>使系统保持受支持
+
+::: moniker range="azs-2002"
+
+> [!IMPORTANT]  
+> 在 Azure Stack 中心2002更新中，Microsoft 暂时扩展了我们的 Azure Stack 中心支持策略声明。 我们正在与世界各地的客户合作，他们对 COVID-19 作出回应，他们可能会作出有关其 Azure Stack 中心系统的重要决策，以及如何更新和管理这些系统，因此确保其数据中心业务运营继续正常运行。 为支持我们的客户，Microsoft 提供了临时支持策略更改扩展，以包括三个以前的更新版本。 因此，将支持新发布的2002更新以及三个以前的更新版本（例如1910、1908和1907）。
+
+::: moniker-end
 
 要使 Azure Stack 集线器实例保持在受支持的状态，实例必须运行最近发布的更新版本，或者运行上述两个更新版本中的任何一个。
 

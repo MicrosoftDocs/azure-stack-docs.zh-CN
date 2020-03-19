@@ -7,12 +7,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: c14c2cf0d65c29ea7b2968558e89a20b504d8f53
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a99519d12109716c296e58b4525748229513a747
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700470"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511957"
 ---
 # <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>自动 Azure Stack 中心日志收集的最佳实践 
 
@@ -20,7 +20,7 @@ ms.locfileid: "77700470"
 
 ## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>从多个 Azure Stack 集线器系统收集日志
 
-为要从中收集日志的每个 Azure Stack 集线器缩放单位设置一个 blob 容器。 有关如何配置 blob 容器的详细信息，请参阅[配置自动 Azure Stack 集线器诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)。 最佳做法是，只保存单个 blob 容器内相同 Azure Stack 集线器缩放单位的诊断日志。 
+为要从中收集日志的每个 Azure Stack 集线器缩放单位设置一个 blob 容器。 有关如何配置 blob 容器的详细信息，请参阅[配置自动 Azure Stack 集线器诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)。 最佳做法是，只保存单个 blob 容器内相同 Azure Stack 集线器缩放单位的诊断日志。 
 
 ## <a name="retention-policy"></a>保留策略
 
@@ -58,9 +58,9 @@ ms.locfileid: "77700470"
 
 ## <a name="managing-costs"></a>管理成本
 
-Azure [blob 存储费用](https://azure.microsoft.com/pricing/details/storage/blobs/)取决于每月保存的数据量以及数据冗余等其他因素。 如果没有现有的存储帐户，可以登录到 Azure 门户，单击 "**存储帐户**"，然后按照步骤[创建 AZURE BLOB 容器 SAS URL](azure-stack-configure-automatic-diagnostic-log-collection.md)。
+Azure [blob 存储费用](https://azure.microsoft.com/pricing/details/storage/blobs/)取决于每月保存的数据量以及数据冗余等其他因素。 如果没有现有的存储帐户，可以登录到 Azure 门户，单击 "**存储帐户**"，然后按照步骤[创建 AZURE BLOB 容器 SAS URL](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)。
 
-最佳做法是创建 Azure Blob 存储[生命周期管理策略](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)，以最大程度地减少正在进行的存储成本。 有关如何设置存储帐户的详细信息，请参阅[配置自动 Azure Stack 集线器诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)
+最佳做法是创建 Azure Blob 存储[生命周期管理策略](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)，以最大程度地减少正在进行的存储成本。 有关如何设置存储帐户的详细信息，请参阅[配置自动 Azure Stack 集线器诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)
 
 ## <a name="see-also"></a>另请参阅
 

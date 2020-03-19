@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 55609ca3ca8dc0dbb0d557422a9a5b4223450fc3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4a847578e73c5c9b518669a46340590242513686
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696458"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512343"
 ---
 # <a name="usage-connectivity-errors"></a>使用连接错误
 
@@ -47,7 +47,7 @@ Azure Stack 集线器使用情况数据由 Azure Stack 集线器中的[*Azure Br
 | 未授权               | Azure 桥无法将数据推送到 Azure 中的使用率服务，因为 Azure 服务无法对 Azure Stack 中心桥进行身份验证。 | 检查是否已修改注册资源，如果是，则重新注册 Azure Stack 集线器。 <br><br> 有时 Azure Stack 集线器和 Azure AD 之间的时间同步问题可能导致此失败。 在这种情况下，请确保 Azure Stack 集线器上的 XRP Vm 上的时间与 Azure AD 同步。 |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-此外，可能还需要通过执行以下[步骤](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)，为 AZURE BRIDGE、WAS 和 WASPublic 组件提供日志文件。
+此外，可能还需要为 Azure Bridge、WAS 和 WASPublic 组件提供日志文件。
 
 ## <a name="next-steps"></a>后续步骤
 

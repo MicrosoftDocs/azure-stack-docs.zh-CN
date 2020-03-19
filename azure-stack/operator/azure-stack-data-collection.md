@@ -3,16 +3,16 @@ title: Azure Stack 中心日志和客户数据处理
 description: 了解 Azure Stack 中心如何收集客户数据和信息。
 author: JustinHall
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 02/24/2020
 ms.author: justinha
 ms.reviewer: chengwei
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: cf61e4950752f6c41b204c7754b9c19b5307709e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 02/24/2020
+ms.openlocfilehash: fc7d819bce237b98c359bc7c4bc43bc478d84952
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700249"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512569"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack 中心日志和客户数据处理 
 
@@ -21,7 +21,7 @@ Microsoft 在与 Azure Stack 中心连接时，microsoft 是一个处理器或 s
 - 个人数据的处理;GDPR "数据保护条款"[中的 "](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)预配" 部分。
 - 欧盟一般数据保护条例[在线服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)的附件4中的条款。
 
-随着 Azure Stack 中心位于客户数据中心，Microsoft 是数据控制器，只是通过[诊断](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)、[遥测](azure-stack-telemetry.md)和[计费](azure-stack-usage-reporting.md)与 Microsoft 共享的数据。  
+随着 Azure Stack 中心位于客户数据中心，Microsoft 是数据控制器，只是通过[诊断](azure-stack-diagnostic-log-collection-overview-tzl.md)、[遥测](azure-stack-telemetry.md)和[计费](azure-stack-usage-reporting.md)与 Microsoft 共享的数据。  
 
 ## <a name="data-access-controls"></a>数据访问控制 
 被分配了调查特定支持案例的 Microsoft 员工将获得对加密数据的只读访问权限。 如果需要，Microsoft 员工还可以访问用于删除数据的工具。 审核和记录对客户数据的所有访问。  
@@ -41,7 +41,7 @@ Microsoft 支持按客户请求删除按需数据。 客户可以随时请求我
 对于按需数据删除操作，Microsoft 支持工程师有权访问该工具，使其可以按需删除数据。 完成后，他们可以向客户提供电话确认。
 
 ## <a name="diagnostic-data"></a>诊断数据
-作为支持过程的一部分，Azure Stack 中心操作员可以与 Azure Stack 中心支持和工程团队[共享诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)，以帮助进行故障排除。
+作为支持过程的一部分，Azure Stack 中心操作员可以与 Azure Stack 中心支持和工程团队[共享诊断日志](azure-stack-diagnostic-log-collection-overview-tzl.md)，以帮助进行故障排除。
 
 Microsoft 为客户提供了一个工具和脚本来收集和上载请求的诊断日志文件。 收集后，日志文件将通过与 Microsoft 的 HTTPS 受保护的加密连接进行传输。 由于 HTTPS 通过网络提供加密，因此传输中的加密不需要密码。 收到日志后，将对其进行加密和存储，直到在支持案例关闭90天后将其自动删除。
 

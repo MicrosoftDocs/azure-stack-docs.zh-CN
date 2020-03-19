@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0d9e1512cab3ad33bba5cfa2d4f57128edf51cf2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703615"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512586"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Azure Stack 中心排查 Kubernetes 部署问题
 
@@ -85,7 +85,7 @@ ms.locfileid: "77703615"
     - 请确保 VM 的完全限定的域名（FQDN）以重复的前缀开头。
 5.  如果 VM**正常**，则计算 DVM。 如果 DVM 有错误消息：
     - 公钥可能无效。 查看已创建的密钥。  
-    - 请与 Azure Stack 中心管理员联系，使用特权终结点检索 Azure Stack 中心的日志。 有关详细信息，请参阅[Azure Stack 集线器诊断工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
+    - 请与 Azure Stack 中心管理员联系，使用特权终结点检索 Azure Stack 中心的日志。 有关详细信息，请参阅[Azure Stack 集线器诊断工具](../operator/azure-stack-get-azurestacklog.md)。
 5. 如果你对部署有疑问，可以发布它，或查看是否有人在[Azure Stack 中心论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答了问题。 
 
 

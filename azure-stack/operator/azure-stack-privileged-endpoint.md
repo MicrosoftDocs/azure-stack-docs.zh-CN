@@ -7,12 +7,12 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 7dc570ede3f953b4886971ea827fe69b881b5b89
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698141"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512433"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>使用 Azure Stack 集线器中的特权终结点
 
@@ -20,7 +20,7 @@ ms.locfileid: "77698141"
 
 你可以使用 PEP 来执行以下任务：
 
-- 低级别任务，如[收集诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
+- 低级别任务，如[收集诊断日志](azure-stack-get-azurestacklog.md)。
 - 许多集成系统的部署后数据中心集成任务，如部署后添加域名系统（DNS）转发器、设置 Microsoft Graph 集成、Active Directory 联合身份验证服务（AD FS）集成、证书旋转等。
 - 与支持部门合作，以获取对集成系统的深层故障排除的临时、高级别访问权限。
 
@@ -197,4 +197,4 @@ PEP 记录你在 PowerShell 会话中执行的每个操作（及其相应的输�
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 集线器诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Azure Stack 集线器诊断工具](azure-stack-diagnostic-log-collection-overview-tzl.md)

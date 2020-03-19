@@ -7,18 +7,18 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 05d54d3db2429faa410cc67a46fba234d285a1af
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 792c639a5233a7d30dc86488059045a9516dfaa2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700045"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512552"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack 集线器诊断日志收集概述 
 
 Azure Stack 中心是一大集合组件，它们协同工作，彼此交互。 所有这些组件都生成其自己的唯一日志。 这会使诊断问题成为一项挑战性的任务，尤其是对于来自多个 Azure Stack 集线器组件的多个交互的错误。 为了应对这一挑战，我们设计了诊断日志收集体验。 
 
-在1907之前，使用[test-azurestack](azure-stack-diagnostic-test.md)中的诊断体验来验证系统运行状况，并使用[特权终结点（PEP）](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)收集日志以便进行故障排除。 
+在1907之前，使用[test-azurestack](azure-stack-diagnostic-test.md)中的诊断体验来验证系统运行状况，并使用[特权终结点（PEP）](azure-stack-get-azurestacklog.md)收集日志以便进行故障排除。 
 
 从1907版本开始，"**帮助和支持**" 页使用**诊断日志集合**添加了更简单的体验。 
 **诊断日志收集**是一项不断投入的投资，用来改善 Azure Stack 中心运营商在故障排除过程中的体验。 通过这些改进，操作员可以通过 Microsoft 客户支持服务（CSS）快速收集和共享诊断日志。 日志可以存储在 Azure 中的 blob 容器中，可以根据需要对其进行自定义。    
@@ -31,20 +31,20 @@ Azure Stack 中心是一大集合组件，它们协同工作，彼此交互。 �
 ![诊断日志收集选项的屏幕截图](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 **诊断日志收集**具有简单的用户界面，不需要 PowerShell。 即使基础结构服务出现故障，也可以可靠地收集日志。
-如果策略允许使用 CSS 共享诊断日志，则从1907版本开始，建议使用**诊断日志收集**方法。 如果 "帮助和支持" 中的**诊断日志收集**不可用，只应使用[PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)收集日志。
+如果策略允许使用 CSS 共享诊断日志，则从1907版本开始，建议使用**诊断日志收集**方法。 如果 "帮助和支持" 中的**诊断日志收集**不可用，只应使用[PEP](azure-stack-get-azurestacklog.md)收集日志。
 
 ## <a name="automatic-diagnostic-log-collection"></a>自动诊断日志收集 
 
-当[特定的运行状况警报](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts)处于活动状态时，自动诊断日志收集会启动从 Azure Stack 中心到 Azure 中的存储 blob 的诊断日志，并将其与 CSS 共享诊断日志所需的时间大大减少。 诊断日志仅在发出警报时收集。  
+当[特定的运行状况警报](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts)处于活动状态时，自动诊断日志收集会启动从 Azure Stack 中心到 Azure 中的存储 blob 的诊断日志，并将其与 CSS 共享诊断日志所需的时间大大减少。 诊断日志仅在发出警报时收集。  
 
-有关自动日志收集的详细信息，请参阅[配置自动 Azure Stack 集线器诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)。
+有关自动日志收集的详细信息，请参阅[配置自动 Azure Stack 集线器诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)。
 
 ## <a name="on-demand-diagnostic-log-collection"></a>按需诊断日志收集
 
 对于按需收集，当 Azure Stack 中心操作员手动触发集合时，诊断日志将从 Azure Stack 集线器上传到 Azure 中的存储 blob。
 CSS 将为 CSS 拥有的存储 blob 提供共享访问签名（SAS） URL。 Azure Stack 中心操作员可以单击 "**立即收集日志**"，然后输入 SAS URL。 然后，诊断日志将直接上传到 CSS blob，而无需中间共享。 
 
-有关按需收集日志的详细信息，请参阅[立即收集 Azure Stack 集线器诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection.md)。
+有关按需收集日志的详细信息，请参阅[立即发送 Azure Stack 集线器诊断日志](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md)。
 
 ## <a name="bandwidth-considerations"></a>带宽注意事项
 

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: f852aa2165f51c0a57f09ea94b872de015535923
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77687387"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511991"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack 中心存储：差异和注意事项
 
@@ -30,9 +30,11 @@ Azure Stack 中心存储是 Microsoft Azure Stack 中心中的存储云服务集
 |复制选项|本地冗余存储、异地冗余存储、读取访问异地冗余存储和区域冗余存储|本地冗余存储。
 |高级存储|提供高性能和低延迟的存储。 仅支持高级存储帐户中的页 blob。|可以预配，但不能限制性能。 不会阻止使用块 blob，在高级存储帐户中追加 blob、表和队列。
 |托管磁盘|支持高级和标准|当使用版本1808或更高版本时支持。
+|托管磁盘快照|公开提供|支持。
+|托管磁盘增量快照|公开提供|尚不支持。
 |Blob 名称|1024 个字符（2048 个字节）|880 个字符（1760 个字节）
 |块 blob 最大大小|4.75 TB（100 MB X 50,000 块）|对于1802更新或更新版本，4.75 TB （100 MB x 50000 块）。 对于以前的版本，50000 X 4 MB （约 195 GB）。
-|页 blob 快照复制|备份已连接到正在运行的 VM 的 Azure 非托管 VM 磁盘|尚不支持。
+|页 blob 快照复制|备份已连接到正在运行的 VM 的 Azure 非托管 VM 磁盘|在 API 中支持[异步操作](azure-stack-acs-differences.md)。
 |页 blob 增量快照复制|支持高级和标准 Azure 页 blob|尚不支持。
 |页 blob 计费|对于唯一页，无论它们是在 blob 中还是在快照中，都会产生费用。 在更新基本 blob 之前，不会对与 blob 关联的快照产生额外费用。|基本 blob 和关联快照会产生费用。 对于每个单独的快照，将产生额外的费用。
 |Blob 存储的存储层|热、冷和存档存储层。|尚不支持。

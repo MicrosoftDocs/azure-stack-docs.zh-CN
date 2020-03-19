@@ -3,16 +3,16 @@ title: Azure Stack 集线器发行说明
 description: Azure Stack 集线器集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: prchint
-ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: d2d1eec85faaedaf35ba6461867c58670e917298
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: ce8c4843bc8316a744e1cf3d4f13e744269a9183
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366532"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512093"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -20,11 +20,11 @@ ms.locfileid: "78366532"
 
 若要访问不同版本的发行说明，请使用左侧目录上方的 "版本选择器" 下拉列表。
 
-::: moniker range=">=azs-1906"
+::: moniker range=">=azs-1907"
 > [!IMPORTANT]  
 > 此更新包仅适用于 Azure Stack 集线器集成系统。 请勿将此更新包应用于 Azure Stack 开发工具包（ASDK）。
 ::: moniker-end
-::: moniker range="<azs-1906"
+::: moniker range="<azs-1907"
 > [!IMPORTANT]  
 > 如果 Azure Stack 集线器实例落后于两个以上的更新，则将其视为不符合。 必须[至少更新到支持的最低版本](azure-stack-servicing-policy.md#keep-your-system-under-support)。
 ::: moniker-end
@@ -42,6 +42,133 @@ ms.locfileid: "78366532"
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
 <!---------------------------------------------------------->
+::: moniker range="azs-2002"
+## <a name="2002-build-reference"></a>2002生成引用
+
+Azure Stack 中心2002更新内部版本号为**1.2002.0.35**。
+
+> [!IMPORTANT]  
+> 在 Azure Stack 中心2002更新中，Microsoft 暂时扩展了我们的[Azure Stack 中心支持策略声明](azure-stack-servicing-policy.md)。  我们正在与世界各地的客户合作，他们对 COVID-19 作出回应，他们可能会作出有关其 Azure Stack 中心系统的重要决策，以及如何更新和管理这些系统，因此确保其数据中心业务运营继续正常运行。 为支持我们的客户，Microsoft 提供了临时支持策略更改扩展，以包括三个以前的更新版本。  因此，将支持新发布的2002更新以及三个以前的更新版本（例如1910、1908和1907）。
+
+### <a name="update-type"></a>更新类型
+
+Azure Stack 中心2002更新生成类型已**满**。
+
+与以前的更新相比，2002更新包的大小较大。 增加的大小会导致下载时间较长。 此更新将在**准备**状态中保留较长时间，操作员预期此过程所花费的时间比以前的更新要长。 2002更新在我们的内部测试-4 节点中具有以下所需的运行时：15-42 小时、8个节点：20-50 小时、12个节点：20-60 小时、16个节点：25-70 个小时。 确切的更新运行时通常取决于您的系统上使用的容量、租户工作负荷、系统网络连接（如果已连接到 internet）以及系统硬件规范。 更短或更长时间的运行时不太常见，因此，如果更新失败，则不需要 Azure Stack 中心操作员执行操作。 此运行时近似值特定于2002更新，不应与其他 Azure Stack 中心更新进行比较。
+
+有关更新生成类型的详细信息，请参阅[管理 Azure Stack 集线器中的更新](azure-stack-updates.md)。
+
+<!-- ## What's in this update -->
+
+<!-- The current theme (if any) of this release. -->
+
+### <a name="whats-new"></a>新增功能
+
+<!-- What's new, also net new experiences and features. -->
+
+- 提供基于 AzureRM Azure Stack 集线器管理 PowerShell 模块的新版本（1.8.1）。
+- 2020年3月16日发布了新版本的 az. * Azure PowerShell 租户 Azure Stack 模块。 当前使用的 Azure Stack 租户资源管理器模块将继续运行，但在生成2002后将不再更新。
+- 在 Azure Stack 中心管理员门户上添加了新的警告警报，以报告有关配置的 syslog 服务器的连接问题。 警报标题是**syslog 客户端在发送 Syslog 消息时遇到网络问题**。
+- 添加了有关网络时间协议（NTP）服务器的网络时间协议（NTP） Azure Stack 的新警告警报。 警报标题**在 [node name] 上的时间源无效**。
+- [JAVA SDK](https://azure.microsoft.com/develop/java/)发布了新包，因为2002中的重大更改与 TLS 限制相关。 必须安装新的 Java SDK 依赖项。 可以在[Java 和 API 版本配置文件](../user/azure-stack-version-profiles-java.md?view=azs-1910#java-and-api-version-profiles)中找到相关说明。
+- 由于中断 API 更改，所有运行2002的系统都提供了 System Center Operations Manager Azure Stack 中心 MP 的新版本（1.0.5.10）。 API 更改会影响备份和存储性能仪表板，并且建议你先将所有系统更新为2002，然后再更新 MP。
+
+### <a name="improvements"></a>改进
+
+<!-- Changes and product improvements with tangible customer-facing value. -->
+
+- 此更新包含对更新过程的更改，可显著提高未来完全更新的性能。 在2002版本后，这些更改将在下一次完全更新后生效，尤其是提高更新主机操作系统的完整更新阶段的性能。 提高主机操作系统更新的性能会大大减少租户工作负荷在完全更新过程中受到影响的时间窗口。
+- Azure Stack 集线器就绪检查器工具现在使用分配给 AD Graph 的所有 TCP IP 端口来验证 AD Graph 集成。
+- 已更新了脱机联合工具的可靠性。 该工具在 GitHub 上不再可用，并已[移动到 PowerShell 库](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/)。 有关详细信息，请参阅[将 Marketplace 项下载到 Azure Stack 中心](azure-stack-download-azure-marketplace-item.md)。
+- [诊断日志收集](azure-stack-diagnostic-log-collection-overview-tzl.md)改进。 新体验通过不必提前配置 blob 存储帐户来简化和简化诊断日志收集。 存储环境已预先配置，因此你可以在打开支持案例之前发送日志，并花费更少的时间来支持调用。
+- [主动日志收集和按需日志收集](azure-stack-diagnostic-log-collection-overview-tzl.md) 所用的时间已降低80%。 日志收集时间比预期值长，但不需要 Azure Stack 中心操作员执行操作，除非日志收集失败。
+- 开始更新后，"更新" 边栏选项卡中将显示 Azure Stack 中心更新包的下载进度。 这仅适用于选择[通过自动下载准备更新包](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)的已连接 Azure Stack 集线器系统。
+- 网络控制器主机代理的可靠性改进。
+- 引入了一项名为 DNS 协调器的新的微服务，可提高修补和更新过程中内部 DNS 服务的复原逻辑。
+- 添加了新的请求验证，以便在创建 Vm 时为启动诊断存储帐户参数失败 blob Uri 无效。
+- 添加了 Rdagent 和主机代理的自动修正和日志记录改进，主机上的两个服务有助于 VM CRUD 操作。
+- 向 marketplace 管理添加了一项新功能，该功能使管理员能够阻止管理员下载与其 Azure Stack 不兼容的 marketplace 产品，因为 Azure Stack 版本或计费模式等各种属性。
+
+### <a name="changes"></a>更改
+
+- 管理员门户现在指示操作是否正在进行，并在 Azure Stack 区域旁显示一个图标。 当你将鼠标悬停在该图标上时，它会显示操作的名称。 这使您可以确定运行的系统后台操作;例如，可以运行几个小时的备份作业或存储扩展。
+
+- 以下管理员 Api 已弃用：
+
+  | 资源提供程序       | 资源              | 版本            |
+  |-------------------------|-----------------------|--------------------|
+  | Microsoft. Admin | 农场                 | 2015-12-01-预览 |
+  | Microsoft. Admin | 场/收购    | 2015-12-01-预览 |
+  | Microsoft. Admin | 场/共享          | 2015-12-01-预览 |
+  | Microsoft. Admin | 场/storageaccounts | 2015-12-01-预览 |
+
+- 以下管理员 Api 已替换为较新版本（2018-09-01）：
+
+  | 资源提供程序      | 资源              | 版本    |
+  |------------------------|-----------------------|------------|
+  | Microsoft. Admin | backupLocation         | 2016-05-01 |
+  | Microsoft. Admin | 备份                | 2016-05-01 |
+  | Microsoft. Admin | 操作             | 2016-05-01 |
+  
+### <a name="fixes"></a>修复项
+
+<!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
+
+- 修复了在虚拟机上的同一 NIC 上添加多个公共 IP 导致 internet 连接问题的问题。 现在，具有两个公共 Ip 的 NIC 会按预期方式工作。
+- 修复了一个问题，该问题导致系统引发警报，指出需要配置 Azure AD home 目录。
+- 修复了导致警报无法自动关闭的问题。 该警报指示必须配置 Azure AD 主目录，但在问题得到缓解后甚至不会关闭。
+- 修复了因更新资源提供程序内部故障而导致更新准备阶段失败的问题。
+- 修复了导致加载项资源提供程序操作在执行 Azure Stack 集线器机密旋转后失败的问题。
+- 修复了由于 ERCS 角色的内存压力导致 Azure Stack 集线器更新失败的常见原因。
+- 修复了更新边栏选项卡中的一个 bug，在该边栏选项卡中，更新状态显示为 "**正在安装**"，而不是在 Azure Stack 中心更新的准备阶段进行**准备**。
+- 解决了物理交换机上的 RSC 功能正在创建任何不一致并删除流过负载均衡器的流量的问题。 默认情况下，RSC 功能处于禁用状态。
+- 解决了向 VM 添加辅助 IP 导致 RDP 问题的问题。
+- 修复了正在缓存 NIC 的 MAC 地址，并将该地址分配给另一个资源的问题导致 VM 部署失败。
+- 修复了来自零售渠道的 Windows VM 映像无法通过 AVMA 激活的许可证的问题。
+- 修复了 VM 请求的虚拟核心数等于节点的物理内核时，无法创建 Vm 的问题。 我们现在允许 Vm 的虚拟内核数等于或小于节点的物理内核数。
+- 解决了我们不允许将许可证类型设置为 "null" 以将即用即付映像切换到 BYOL 的问题。
+- 修复了一个问题，允许将扩展添加到 VM 规模集。
+
+## <a name="security-updates"></a>安全更新
+
+有关 Azure Stack 中心更新的安全更新的信息，请参阅[Azure Stack 中心安全更新](release-notes-security-updates.md)。
+
+## <a name="update-planning"></a>更新规划
+
+在应用更新之前，请确保查看以下信息：
+
+- [已知问题](known-issues.md)
+- [安全更新](release-notes-security-updates.md)
+- [应用更新前后的活动清单](release-notes-checklist.md)
+
+## <a name="download-the-update"></a>下载更新
+
+可以从[Azure Stack 中心下载页](https://aka.ms/azurestackupdatedownload)下载 Azure Stack 中心2002更新包。
+
+## <a name="hotfixes"></a>修补程序
+
+Azure Stack 中心定期发布修补程序。 将 Azure Stack 中心更新为2002之前，请务必安装最新的 Azure Stack 中心修补程序1910。
+
+> [!NOTE]
+> Azure Stack 中心修补程序版本是累积性的;只需安装最新的修补程序，即可获取该版本以前的任何修补程序版本中包含的所有修补程序。
+
+Azure Stack 集线器修补程序仅适用于 Azure Stack 集线器集成系统;不要尝试在 ASDK 上安装修补程序。
+
+### <a name="prerequisites-before-applying-the-2002-update"></a>先决条件：在应用2002更新之前
+
+Azure Stack 集线器2002版必须应用于带有以下修补程序的1910版本：
+
+<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
+- [Azure Stack 中心修补程序1.1910.24.108](https://support.microsoft.com/help/4541350)
+
+### <a name="after-successfully-applying-the-2002-update"></a>成功应用2002更新后
+
+安装此更新后，安装任何适用的修补程序。 有关详细信息，请参阅[服务策略](azure-stack-servicing-policy.md)。
+
+<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
+- 没有适用于2002的 Azure Stack 集线器修补程序。
+::: moniker-end
+
 ::: moniker range="azs-1910"
 ## <a name="1910-build-reference"></a>1910生成引用
 
@@ -414,127 +541,7 @@ Azure Stack 集线器1907版必须应用于带有以下修补程序的1906版本
 - [Azure Stack 中心修补程序1.1907.26.70](https://support.microsoft.com/help/4541348)
 ::: moniker-end
 
-::: moniker range="azs-1906"
-## <a name="1906-build-reference"></a>1906生成引用
-
-Azure Stack 中心1906更新内部版本号为**1.1906.0.30**。
-
-### <a name="update-type"></a>更新类型
-
-Azure Stack 中心1906更新生成类型为**Express**。 有关更新生成类型的详细信息，请参阅[管理 Azure Stack 集线器中的更新](azure-stack-updates.md)一文。 完成1906更新所需的预期时间大约为10小时，而与 Azure Stack 中心环境中的物理节点数量无关。 确切的更新运行时将依赖于您的系统上使用的容量、租户工作负荷、系统网络连接（如果已连接到 internet）以及系统硬件规范。 持续时间比预期值长的运行时不太常见，因此，如果更新失败，则不需要 Azure Stack 中心操作员执行操作。 此运行时近似值特定于1906更新，不应与其他 Azure Stack 中心更新进行比较。
-
-## <a name="whats-in-this-update"></a>此更新中的内容
-
-<!-- The current theme (if any) of this release. -->
-
-<!-- What's new, also net new experiences and features. -->
-
-- 在特权终结点（PEP）中添加了**TLSPolicy** cmdlet，以强制所有终结点上的 TLS 1.2。 有关详细信息，请参阅[Azure Stack 中心安全控制](azure-stack-security-configuration.md)。
-
-- 在特权终结点（PEP）中添加了**TLSPolicy** cmdlet，以检索应用的 TLS 策略。 有关详细信息，请参阅[Azure Stack 中心安全控制](azure-stack-security-configuration.md)。
-
-- 添加了内部机密旋转过程，以便在系统更新过程中根据需要轮替内部 TLS 证书。
-
-- 添加了一项安全措施，通过强制实施内部机密循环来防止内部机密过期，以防对过期机密发出关键警报。 此防护不应作为常规操作过程来依赖。 在维护时段内应计划机密旋转。 有关详细信息，请参阅[Azure Stack 中心机密旋转](azure-stack-rotate-secrets.md)。
-
-- Visual Studio Code 现在支持使用 AD FS Azure Stack 中心部署。
-
-### <a name="improvements"></a>改进
-
-<!-- Changes and product improvements with tangible customer-facing value. -->
-
-- 特权终结点中的**GraphApplication** cmdlet 现在显示当前使用的证书的指纹。 此更新可改善 Azure Stack 中心部署 AD FS 时服务主体的证书管理。
-
-- 添加了新的运行状况监视规则，用于验证 AD Graph 和 AD FS 的可用性，包括能够引发警报。
-
-- 当基础结构备份服务移动到另一个实例时，对备份资源提供程序的可靠性进行了改进。
-
-- 对外部机密旋转过程进行性能优化，以便为维护时段的计划提供一致的执行时间。
-
-- **Test-azurestack** cmdlet 现在报告即将过期的内部机密（关键警报）。
-
-- 新参数适用于特权终结点中的**CustomAdfs** cmdlet，该 cmdlet 可在配置 AD FS 的联合身份验证信任时跳过证书吊销列表检查。
-
-- 1906版本引入了更新进度的更好的可见性，因此您可以确保更新不会暂停。 此更新将导致 "**更新**" 边栏选项卡中显示的更新步骤总数增加。 你还可能会注意到，在以前的更新中并行发生了更多的更新步骤。
-
-#### <a name="networking-updates"></a>网络更新
-
-- 已更新 DHCP 响应程序中设置的与 Azure 一致的租约时间。
-
-- 在资源部署失败的情况下，改进了资源提供程序的重试率。
-
-- 从负载均衡器和公共 IP 中删除了**标准**SKU 选项，因为当前不支持此选项。
-
-### <a name="changes"></a>更改
-
-- 现在，创建存储帐户体验与 Azure 一致。
-
-- 更改了内部机密过期警报触发器：
-  - 警告性警报现在会在密码过期之前90天引发。
-  - 关键警报现在会在密码过期前30天引发。
-
-- 更新了基础结构备份资源提供程序中的字符串，以获得一致的术语。
-
-### <a name="fixes"></a>修复项
-
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
-
-- 修复了调整托管磁盘 VM 的大小时失败，出现**内部操作错误**。
-
-- 修复了发生故障的用户映像创建导致管理映像的服务处于错误状态的问题;这会阻止删除失败映像并创建新映像。 1905修补程序中也修复了此问题。
-
-- 在成功执行内部机密旋转后，会自动关闭对过期内部机密发出的活动警报。
-
-- 修复了一个问题：如果更新的运行时间超过99小时，"更新历史记录" 选项卡中的更新持续时间将修整第一个数字。
-
-- **更新**边栏选项卡包含失败更新的**恢复**选项。
-
-- 在管理员和用户门户中，修复了 marketplace 中从搜索中错误地返回 Docker 扩展的问题，但无法采取进一步的操作，因为它在 Azure Stack 集线器中不可用。
-
-- 修复了模板部署 UI 中的问题，如果模板名称以 "_" 下划线开头，则不会填充参数。
-
-- 修复了虚拟机规模集创建体验提供基于 CentOS 的7.2 作为部署选项的问题。 CentOS 7.2 在 Azure Stack 集线器上不可用。 我们现在提供 Centos 7.5 作为部署选项
-
-- 你现在可以从 "**虚拟机规模集**" 边栏选项卡中删除规模集。
-
-## <a name="security-updates"></a>安全更新
-
-有关 Azure Stack 中心更新的安全更新的信息，请参阅[Azure Stack 中心安全更新](release-notes-security-updates.md)。
-
-## <a name="update-planning"></a>更新规划
-
-在应用更新之前，请确保查看以下信息：
-
-- [已知问题](known-issues.md)
-- [安全更新](release-notes-security-updates.md)
-- [应用更新前后的活动清单](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>下载更新
-
-可以从[Azure Stack 中心下载页](https://aka.ms/azurestackupdatedownload)下载 Azure Stack 中心1906更新包。
-
-## <a name="hotfixes"></a>修补程序
-
-Azure Stack 中心定期发布修补程序。 将 Azure Stack 中心更新为1906之前，请务必安装最新的 Azure Stack 中心修补程序1905。 更新后，安装任何[适用于1906的修补程序](#after-successfully-applying-the-1906-update)。
-
-Azure Stack 集线器修补程序仅适用于 Azure Stack 集线器集成系统;请勿尝试在 ASDK 上安装修补程序。
-
-### <a name="before-applying-the-1906-update"></a>在应用1906更新之前
-
-Azure Stack 集线器1906版必须应用于带有以下修补程序的1905版本：
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1905.3.48](https://support.microsoft.com/help/4510078)
-
-### <a name="after-successfully-applying-the-1906-update"></a>成功应用1906更新后
-
-安装此更新后，安装任何适用的修补程序。 有关详细信息，请参阅[服务策略](azure-stack-servicing-policy.md)。
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1906.15.60](https://support.microsoft.com/help/4524559)
-::: moniker-end
-
-::: moniker range=">=azs-1906"
+::: moniker range=">=azs-1907"
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
 可从基础结构网络访问 internet 的系统将在操作员门户中看到 "**更新可用**" 消息。 无 internet 访问权限的系统可以下载包含相应 .xml 的 .zip 文件并将其导入。
@@ -560,6 +567,9 @@ Azure Stack 集线器1906版必须应用于带有以下修补程序的1905版本
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1906"
+## <a name="1906-archived-release-notes"></a>1906存档的发行说明
+::: moniker-end
 ::: moniker range="azs-1905"
 ## <a name="1905-archived-release-notes"></a>1905存档的发行说明
 ::: moniker-end
@@ -600,8 +610,8 @@ Azure Stack 集线器1906版必须应用于带有以下修补程序的1905版本
 ## <a name="1802-archived-release-notes"></a>1802存档的发行说明
 ::: moniker-end
 
-::: moniker range="<azs-1906"
-可以[在 TechNet 库中访问 Azure Stack 中心发行说明的早期版本](https://aka.ms/azsarchivedrelnotes)。 这些存档的文档仅供参考目的提供，并不意味着对这些版本的支持。 有关 Azure Stack 中心支持的详细信息，请参阅[Azure Stack 中心维护策略](azure-stack-servicing-policy.md)。 若要获得更多帮助，请与 Microsoft 客户支持服务联系。
+::: moniker range="<azs-1907"
+可以[在 TechNet 库中访问 Azure Stack 中心发行说明的早期版本](https://aka.ms/azsarchivedrelnotes)。 这些存档文档仅供参考目的提供，并不表示支持这些版本。 有关 Azure Stack 中心支持的详细信息，请参阅[Azure Stack 中心维护策略](azure-stack-servicing-policy.md)。 若要获得更多帮助，请与 Microsoft 客户支持服务联系。
 ::: moniker-end
 
 

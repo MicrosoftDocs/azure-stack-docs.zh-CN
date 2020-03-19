@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: d6742ad75625eaed8f7e8c1ebec725fa1b62d53c
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 2c8211606ae797b4a88da1c268a7fb36b7de214b
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367516"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512365"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>启动和停止 Azure Stack 集线器
 
@@ -84,4 +84,4 @@ ms.locfileid: "78367516"
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解[Azure Stack 集线器诊断工具](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+详细了解[Azure Stack 集线器诊断工具](azure-stack-diagnostic-log-collection-overview-tzl.md)

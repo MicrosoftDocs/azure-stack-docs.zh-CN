@@ -1,49 +1,26 @@
 ---
-title: 按需收集 Azure Stack 集线器诊断日志
-description: 了解如何使用帮助和支持或特权终结点（PEP）在 Azure Stack 集线器中按需收集诊断日志。
+title: 使用特权终结点（PEP）收集诊断日志
+description: 了解如何使用管理员门户或 PowerShell 脚本在 Azure Stack 中心内收集诊断日志。
 author: justinha
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 03/05/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: f17f835c88851d03d7ef1905cbac96b9f6701d8e
+ms.lastreviewed: 03/05/2020
+ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
 ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512212"
+ms.locfileid: "79520459"
 ---
-# <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>按需收集 Azure Stack 集线器诊断日志
-
-在故障排除过程中，Microsoft 客户支持服务（CSS）可能需要分析诊断日志。 从1907版本开始，Azure Stack 集线器操作员可以使用 "**帮助和支持**" 将诊断日志上传到 Azure 中的 blob 容器。 建议使用 "**帮助和支持**"，而不是使用以前的 PowerShell 方法，因为它更简单。 但如果该门户不可用，操作员可以继续使用**get-azurestacklog**通过特权终结点（PEP）（就像以前的版本）收集日志。 本主题介绍了按需收集诊断日志的两种方式。
-
->[!Note]
->作为根据需要收集日志的替代方法，可以通过启用[自动诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)来简化故障排除过程。 如果需要调查系统运行状况条件，将自动上传日志以供 CSS 分析。 
-
-## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>使用 "帮助和支持" 来按需收集诊断日志
-
-若要解决某个问题，CSS 可能会请求 Azure Stack 中心操作员从上一周的特定时间范围内收集诊断日志。 在这种情况下，CSS 将向操作员提供用于上传集合的 SAS URL。 按照以下步骤使用 CSS 中的 SAS URL 配置按需日志收集：
-
-1. 打开 "**帮助和支持概述**"，然后单击 "**立即收集日志**"。 
-1. 选择过去7天的1-4 小时滑动窗口。 
-1. 选择本地时区。
-1. 输入 CSS 提供的 SAS URL。
-
-   ![按需日志收集的屏幕截图](media/azure-stack-automatic-log-collection/collect-logs-now.png)
-
->[!NOTE]
->如果启用了自动诊断日志收集，则 "**帮助和支持**" 将显示 "日志收集正在进行"。 如果单击 "**立即收集日志**" 以从特定时间收集日志，而在进行自动日志收集时，按需收集将在自动完成日志收集后开始。 
-
-## <a name="use-the-privileged-endpoint-pep-to-collect-diagnostic-logs"></a>使用特权终结点（PEP）收集诊断日志
+# <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>使用特权终结点（PEP）发送 Azure Stack 集线器诊断日志
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
 
+若要在集成系统上运行 Get-azurestacklog，需要有权访问特权终结点（PEP）。 下面是一个示例脚本，可使用 PEP 运行来收集日志。 如果要取消正在运行的日志集合，请在启动新的日志收集之前等待5分钟，然后输入 `Remove-PSSession -Session $session`。
 
-### <a name="run-get-azurestacklog-on-azure-stack-hub-integrated-systems"></a>在 Azure Stack 集线器集成系统上运行 Get-azurestacklog
-
-若要在集成系统上运行 Get-azurestacklog，需要有权访问特权终结点（PEP）。 下面是一个示例脚本，可以使用 PEP 运行该脚本来收集集成系统上的日志：
 
 ```powershell
 $ipAddress = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
@@ -58,22 +35,14 @@ $session = New-PSSession -ComputerName $ipAddress -ConfigurationName PrivilegedE
 $fromDate = (Get-Date).AddHours(-8)
 $toDate = (Get-Date).AddHours(-2) # Provide the time that includes the period for your issue
 
-Invoke-Command -Session $session { Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $session { Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
 if ($session) {
     Remove-PSSession -Session $session
 }
 ```
 
-### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>在 Azure Stack 开发工具包（ASDK）系统上运行 Get-azurestacklog
-
-使用以下步骤在 ASDK 主计算机上运行 `Get-AzureStackLog`。
-
-1. 在 ASDK 主机计算机上以**AzureStack\CloudAdmin**的身份登录。
-2. 以管理员身份打开新的 PowerShell 窗口。
-3. 运行**Get-azurestacklog** PowerShell cmdlet。
-
-#### <a name="examples"></a>示例
+### <a name="examples"></a>示例
 
 * 收集所有角色的所有日志：
 
@@ -111,6 +80,30 @@ if ($session) {
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
   ```
 
+* 收集值-添加 RPs 的日志。 一般语法为：
+ 
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvider <<value-add RP name>>
+  ```
+ 
+  收集 IoT 中心日志： 
+
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvider IotHub
+  ```
+ 
+  收集事件中心日志：
+
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvider eventhub
+  ```
+ 
+  收集 Azure Stack Edge 的日志：
+
+  ```powershell
+  Get-AzureStackLogs -FilterByResourceProvide databoxedge
+  ```
+
 * 收集日志并将其存储在指定的 Azure 存储 blob 容器中。 此操作的常规语法如下所示：
 
   ```powershell
@@ -144,7 +137,7 @@ if ($session) {
   9. 选择“创建”。
   10. 你将获得一个共享访问签名。 复制 URL 部分，并将其提供给 `-OutputSasUri` 参数。
 
-### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK 系统和集成系统的参数注意事项
+### <a name="parameter-considerations"></a>参数注意事项 
 
 * 参数**OutputSharePath**和**OutputShareCredential**用于将日志存储在用户指定的位置。
 
@@ -269,5 +262,4 @@ PowerShell cmdlet Get-azurestacklog 可用于从 Azure Stack 中心环境中的�
 * **ETW 日志**
 
 这些文件通过跟踪收集器收集并保存在共享中。 然后，可以根据需要使用 Get-azurestacklog 来收集它们。
-
 

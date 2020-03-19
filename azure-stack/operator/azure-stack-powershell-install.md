@@ -1,40 +1,41 @@
 ---
-title: 为 Azure Stack 集线器安装 PowerShell
+title: 安装 Azure Stack 集线器的 PowerShell AzureRM 模块
 description: 了解如何安装适用于 Azure Stack 集线器的 PowerShell。
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.reviewer: thoroet
+ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 40cd0cd279d98773e97bbae816dbd40ea2d1eba8
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: df0a87180e1e8ed4b2506d0f2b21406474ee93c1
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294843"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512450"
 ---
-# <a name="install-powershell-for-azure-stack-hub"></a>为 Azure Stack 集线器安装 PowerShell
+# <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>安装 Azure Stack 集线器的 PowerShell AzureRM 模块
 
-Azure PowerShell 提供了一组 cmdlet，这些 cmdlet 使用 Azure 资源管理器模型来管理你的 Azure Stack 集线器资源。
+Azure PowerShell AzureRM 提供了一组 cmdlet，这些 cmdlet 使用 Azure 资源管理器模型来管理你的 Azure Stack 集线器资源。
 
-若要使用云，需要安装 Azure Stack 集线器兼容的 PowerShell 模块。 Azure Stack 集线器使用**AzureRM**模块，而不是全球 Azure 中使用的较新**AzureAZ**模块。 还需要使用*API 配置文件*来指定 Azure Stack 中心资源提供程序的兼容终结点。
+若要使用云，需要安装 Azure Stack 集线器兼容的 PowerShell 模块。 Azure Stack 集线器可以使用**AzureRM**模块，而不是[更新的**AzureAZ**模块](powershell-install-az-module.md)。 
 
+还需要使用*API 配置文件*来指定 Azure Stack 中心资源提供程序的兼容终结点。
 API 配置文件提供了一种管理 Azure 与 Azure Stack 中心之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组受支持的 API 版本配置文件。 例如，Azure Stack 集线器支持特定的配置文件版本，如**2019-03-01-混合**。 安装配置文件时，会安装与指定配置文件相对应的 Azure 资源管理器 PowerShell 模块。
 
 可以在连接到 internet 的、部分连接或断开连接的情况下安装 Azure Stack 集线器兼容的 PowerShell 模块。 本文将指导你完成这些方案的详细说明。
 
 ## <a name="1-verify-your-prerequisites"></a>1. 验证你的先决条件
 
-开始使用 Azure Stack 集线器和 PowerShell 之前，必须具备以下先决条件：
+开始使用 Azure Stack 中心和 PowerShell AzureRM 模块之前，必须具备以下先决条件：
 
-- **PowerShell 版本5。0** <br>
-若要检查版本，请运行 $PSVersionTable，并比较**主要**版本**PSVersion** 。 如果没有 PowerShell 5.0，请遵循[安装 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)。
+- **PowerShell 版本5。1** <br>
+若要检查版本，请运行 $PSVersionTable，并比较**主要**版本**PSVersion** 。 如果没有 PowerShell 5.1，请遵循[安装 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)。
 
   > [!Note]
-  > PowerShell 5.0 需要 Windows 计算机。
+  > PowerShell 5.1 需要 Windows 计算机。
 
-- **在提升的命令提示符下运行 Powershell**。
+- **在提升的命令提示符下运行 PowerShell**。
 
 - **PowerShell 库访问** <br>
   需要对[PowerShell 库](https://www.powershellgallery.com)的访问权限。 库是 PowerShell 内容的中央存储库。 **PowerShellGet**模块包含用于发现、安装、更新和发布 PowerShell 项目的 cmdlet。 这些项目的示例包括来自 PowerShell 库和其他专用存储库的模块、DSC 资源、角色功能和脚本。 如果在断开连接的情况下使用 PowerShell，则必须从连接到 internet 的计算机中检索资源，并将其存储在断开连接的计算机可访问的位置。
@@ -49,7 +50,7 @@ API 配置文件提供了一种管理 Azure 与 Azure Stack 中心之间版本�
 打开提升权限的 PowerShell 提示符，并运行以下 cmdlet：
 
 ```powershell
-Import-Module -Name PowerShellGet -ErrorAction Stop
+Install-module -Name PowerShellGet -Force 
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
 ```
@@ -84,43 +85,51 @@ API 版本配置文件和所需的 Azure Stack 中心 PowerShell 模块将取决
 
 运行以下 PowerShell 脚本，在开发工作站上安装这些模块：
 
-- 对于 Azure Stack 集线器1910或更高版本：
+::: moniker range=">=azs-2002"
+对于 Azure Stack 集线器2002或更高版本：
 
-    ```powershell  
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRM.BootStrapper
+```powershell  
+# Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+Install-Module -Name AzureRM.BootStrapper
 
-    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.8.0
-    ```
+# Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.8.1
+```
 
-- 对于 Azure Stack 集线器1908或1903之后：
+::: moniker-end
+::: moniker range="azs-1910"
+对于 Azure Stack 集线器1910：
 
-    ```powershell  
-    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRM.BootStrapper
+```powershell  
+# Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+Install-Module -Name AzureRM.BootStrapper
 
-    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.7.2
-    ```
-  
-- 对于 Azure Stack 集线器版本1903或更早版本，请仅安装以下两个模块：
+# Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.8.0
+```
 
-    ```powershell  
-    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+> [!Note]  
+> - Azure Stack 中心模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md)。
 
-    Install-Module -Name AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.1
-    ```
+::: moniker-end
+::: moniker range="<=azs-1908"
+对于 Azure Stack 集线器1908或更早版本：
 
-    > [!Note]  
-    > - Azure Stack 中心模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md)。
-    > - Azure Stack 中心模块版本1.7.2 是一个重大更改版本。 若要从 Azure Stack 中心1.6.0 进行迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
-    > - AzureRM 模块版本2.4.0 附带了 cmdlet New-azurermstorageaccount 的重大更改。 此 cmdlet 需要指定 `-Force` 参数才能删除存储帐户，而无需确认。
-    > - 不需要安装**AzureRM**来安装 Azure Stack 集线器版本1901或更高版本的模块。
-    > - 除了在 Azure Stack 集线器版本1901或更高版本上使用上述 AzureRM 模块以外，不要安装2018-03-01 混合配置文件。
+```powershell  
+# Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+Install-Module -Name AzureRM.BootStrapper
+
+# Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.7.2
+```
+
+> [!Note]  
+> Azure Stack 中心模块版本1.7.2 是一个重大更改版本。 若要从 Azure Stack 中心1.6.0 进行迁移，请参阅[迁移指南](https://aka.ms/azspshmigration171)。
+
+::: moniker-end
 
 ### <a name="confirm-the-installation-of-powershell"></a>确认 PowerShell 的安装
 
@@ -131,7 +140,7 @@ Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-如果安装成功，则 `AzureRM` 和 `AzureStack` 模块将显示在输出中。
+如果安装成功，则 `AzureAz` 和 `AzureStack` 模块将显示在输出中。
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. 已断开连接：在没有 internet 连接的情况下安装 PowerShell
 
@@ -139,7 +148,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 登录到具有 internet 连接的计算机，然后使用以下脚本下载 Azure 资源管理器和 Azure Stack 集线器包，具体取决于 Azure Stack 集线器的版本。
 
-安装分为四个步骤：
+安装包括5个步骤：
 
 1. 将 Azure Stack 集线器 PowerShell 安装到连接的计算机。
 2. 启用其他存储功能。
@@ -149,48 +158,58 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ### <a name="install-azure-stack-hub-powershell"></a>安装 Azure Stack 中心 PowerShell
 
-- Azure Stack 集线器1910或更高版本。
+::: moniker range=">=azs-2002"
+Azure Stack 集线器2002或更高版本。
 
-    ```powershell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
+```powershell
 
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
-    ```
+Install-module -Name PowerShellGet -Force 
+Import-Module -Name PackageManagement -ErrorAction Stop
 
-- 对于 Azure Stack 集线器1908或1903之后：
+$Path = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.1
+```
+::: moniker-end
 
-    ```powershell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
+::: moniker range="azs-1910"
+Azure Stack 集线器1910。
 
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
-    ```
+```powershell
+Install-module -Name PowerShellGet -Force 
+Import-Module -Name PackageManagement -ErrorAction Stop
 
-- Azure Stack 集线器1903或更早版本。
+$Path = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
+```
 
-    ```powershell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
+> [!NOTE]  
+> Azure Stack 中心模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md)。
 
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.4.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.1
-    ```
+::: moniker-end
+::: moniker range="<=azs-1908"
+对于 Azure Stack 集线器1908或更早版本：
 
-    > [!Note]  
-    > - Azure Stack 中心模块版本1.8.0 是一项重大更改版本。 有关详细信息，请参阅[发行说明](release-notes.md)。
-    > Azure Stack 中心模块版本1.7.1 是一项重大更改。 若要从 Azure Stack 中心迁移1.6.0，请参阅[迁移指南](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)。
+```powershell
+Install-module -Name PowerShellGet -Force 
+Import-Module -Name PackageManagement -ErrorAction Stop
 
-    > [!NOTE]
-    > 在没有 internet 连接的计算机上，我们建议执行以下 cmdlet 来禁用遥测数据收集。 在不禁用遥测数据收集的情况下，你可能会遇到 cmdlet 性能下降的情况。 这仅适用于没有 internet 连接的计算机
-    > ```powershell
-    > Disable-AzureRmDataCollection
-    > ```
+$Path = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.2
+```
+
+> [!NOTE]  
+> Azure Stack 中心模块版本1.7.1 是一项重大更改。 若要从 Azure Stack 中心迁移1.6.0，请参阅[迁移指南](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)。
+
+::: moniker-end
+
+> [!NOTE]  
+> 在没有 internet 连接的计算机上，我们建议执行以下 cmdlet 来禁用遥测数据收集。 在不禁用遥测数据收集的情况下，你可能会遇到 cmdlet 性能下降的情况。 这仅适用于没有 internet 连接的计算机
+> ```powershell
+> Disable-AzureRmDataCollection
+> ```
 
 ### <a name="add-your-packages-to-your-workstation"></a>将包添加到工作站
 

@@ -3,22 +3,36 @@ title: ASDK 发行说明
 description: Azure Stack 开发工具包的改进、修复和已知问题（ASDK）。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: c73e7bc20b1eb1e2538f211d2aaa84dafbfa103b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: 6f7bec082564c9f7cb3a0c70cec7e8e7e48fbd35
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694112"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511804"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
 本文提供了有关 Azure Stack 开发工具包（ASDK）中的更改、修复和已知问题的信息。 如果你不确定要运行的版本，请[使用门户检查](../operator/azure-stack-updates.md)。
 
 订阅[![rss](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [rss 源](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)，随时了解 ASDK 的新增功能。
+
+::: moniker range="azs-2002"
+## <a name="build-12002035"></a>生成1.2002.0.35
+
+### <a name="new-features"></a>新增功能
+
+- 有关此版本中已修复问题、更改和新功能的列表，请参阅[Azure Stack 发行说明](../operator/release-notes.md)中的相关章节。
+
+### <a name="fixed-and-known-issues"></a>修复的问题和已知问题
+
+- 解密证书密码是一个新选项，用于指定自签名证书（.pfx）的密码，该证书包含解密备份数据所需的私钥。 仅当使用证书对备份进行加密时，才需要此密码。
+- 有关此版本中 Azure Stack 已知问题的列表，请参阅[已知问题](../operator/known-issues.md)一文。
+- 请注意，可用的 Azure Stack 修补程序不适用于 ASDK。
+::: moniker-end
 
 ::: moniker range="azs-1910"
 ## <a name="build-11910058"></a>生成1.1910.0.58
@@ -72,23 +86,4 @@ ms.locfileid: "77694112"
 - 有关此版本中已修复的 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明中的[此部分](/azure-stack/operator/release-notes?view=azs-1907#fixes-2)。
 - 有关已知问题的列表，请参阅[此文](/azure-stack/operator/known-issues?view=azs-1907)。
 - 请注意，[可用的 Azure Stack 修补程序](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)不适用于 Azure Stack ASDK。
-::: moniker-end
-
-::: moniker range="azs-1906"
-## <a name="build-11906030"></a>生成1.1906.0.30
-
-### <a name="new-features"></a>新增功能
-
-- 有关此版本中新功能的列表，请参阅 Azure Stack 发行说明中的[此部分](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1)。
-
-### <a name="changes"></a>更改
-
-- 添加了**AZS SRNG01**支持环 VM，该 VM 承载 Azure Stack 的日志收集服务。 有关详细信息，请参阅[虚拟机角色](asdk-architecture.md)。
-
-### <a name="fixed-and-known-issues"></a>修复的问题和已知问题
-
-- 使用某些 Marketplace 映像创建 VM 资源时，可能无法完成部署。 作为一种解决方法，你可以在 "**摘要**" 页中单击 "**下载模板和参数**" 链接，然后单击**模板**边栏选项卡中的 "**部署**" 按钮。
-- 有关此版本中已修复的 Azure Stack 问题的列表，请参阅 Azure Stack 发行说明中的[此部分](/azure-stack/operator/release-notes?view=azs-1906#fixes-3)。
-- 有关已知问题的列表，请参阅[此文](/azure-stack/operator/known-issues?view=azs-1906)。
-- 请注意，[可用的 Azure Stack 修补程序](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)不适用于 Azure Stack ASDK。
 ::: moniker-end

@@ -7,12 +7,12 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 1801174977ef0370e8433e6c41e2d8c13b497ae8
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 6798481e7645c4a1a49c6370b00b1851c32ff478
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694027"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511974"
 ---
 # <a name="start-and-stop-the-asdk"></a>启动和停止 ASDK
 不建议只是重新启动 ASDK 主计算机。 相反，请按照本文中的过程操作，正确关闭并重启 ASDK 服务。
@@ -81,4 +81,4 @@ Azure Stack 如果在 ASDK 主计算机上通电后，请按照以下步骤操�
 如果运行**test-azurestack**导致失败，请访问[Azure Stack 支持论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack)获取 ASDK 故障排除支持。 
 
 ## <a name="next-steps"></a>后续步骤 
-详细了解 Azure Stack 诊断工具和问题日志记录，请参阅[Azure Stack 诊断工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)。
+详细了解 Azure Stack 诊断工具和问题日志记录，请参阅[Azure Stack 诊断工具](../operator/azure-stack-get-azurestacklog.md)。

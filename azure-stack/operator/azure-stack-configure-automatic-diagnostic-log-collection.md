@@ -7,12 +7,12 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 19482e235690cae10411dde72587b0e4b95518f3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3464738aef30a44b6c50c05b06116641235ab96e
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695217"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512263"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>配置自动 Azure Stack 集线器诊断日志收集
 
@@ -68,7 +68,7 @@ ms.locfileid: "77695217"
 
 1. 单击“创建”。  
 
-复制 URL 并在[配置自动日志收集](azure-stack-configure-automatic-diagnostic-log-collection.md)时输入该 URL。 有关 SAS Url 的详细信息，请参阅[使用共享访问签名（SAS）](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)。 
+复制 URL 并在[配置自动日志收集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)时输入该 URL。 有关 SAS Url 的详细信息，请参阅[使用共享访问签名（SAS）](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)。 
 
 
 ## <a name="steps-to-configure-automatic-log-collection"></a>配置自动日志收集的步骤

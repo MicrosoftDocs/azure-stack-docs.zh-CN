@@ -134,8 +134,12 @@
           href: azure-stack-cli-admin.md
         - name: 设置管理环境
           items:
-            - name: 安装 Azure Stack 中心 PowerShell
+            - name: 安装 PowerShell RM
               href: azure-stack-powershell-install.md
+            - name: 安装 PowerShell Az
+              href: powershell-install-az-module.md
+            - name: 将 PowerShell AzureRM 迁移到 Az
+              href: migrate-azurerm-az.md
             - name: 下载工具
               href: azure-stack-powershell-download.md
             - name: 使用 PowerShell 连接
@@ -437,19 +441,23 @@
         - name: 帮助 & 支持门户
           items:
             - name: 概述
-              href: azure-stack-help-and-support-overview.md
+              href: azure-stack-help-and-support-overview-tzl.md
+            - name: 查找你的云 ID
+              href: azure-stack-find-cloud-id.md
             - name: 诊断日志集合
               items:
                 - name: 概述
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: 自动集合
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
+                - name: 主动发送日志
+                  href: azure-stack-configure-automatic-diagnostic-log-collection-tzl.md
+                - name: 立即发送日志
                   items:
-                    - name: 配置自动收集
-                      href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                    - name: 最佳做法
-                      href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
-                - name: 按需收集
-                  href: azure-stack-configure-on-demand-diagnostic-log-collection.md
+                    - name: 使用管理员门户
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md
+                    - name: 使用 PowerShell
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md
+                - name: Get-azurestacklog （PEP）
+                  href: azure-stack-get-azurestacklog.md
         - name: Azure Stack 中心验证
           href: azure-stack-diagnostic-test.md
         - name: 故障排除
