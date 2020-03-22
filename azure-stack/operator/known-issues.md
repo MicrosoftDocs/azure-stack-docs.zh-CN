@@ -7,12 +7,12 @@ ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a2f86835a9b1008417e427bc62229e94d6b00595
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: c8cf31eb645653e99a2968201810e064f5ed3f9f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512229"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069478"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
@@ -67,6 +67,12 @@ ms.locfileid: "79512229"
 - 修正：从 "**帐户类型**" 下拉列表中选择帐户类型，然后创建快照。
 - 发生次数：常见
 
+### <a name="alert-for-network-interface-disconnected"></a>网络接口断开连接警报
+
+- 适用：此问题适用于1908及更高版本。
+- 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
+- 发生次数：常见
+
 ## <a name="networking"></a>网络
 
 ### <a name="network-security-groups"></a>网络安全组
@@ -104,6 +110,12 @@ ms.locfileid: "79512229"
   - [指定自定义 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>计算
+
+### <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
+
+- 适用：此问题适用于2002及更高版本
+- 原因：当经历 VM 创建体验时，你会看到 VM 大小为： NV4as_v4。 对于基于 AMD Mi25 （Azure Stack 集线器 GPU 预览版）所需硬件的客户，将能够成功部署 VM。 所有其他客户具有此 VM 大小的 VM 部署失败。
+- 修正：按照设计准备 Azure Stack 集线器 GPU 预览。
 
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
 

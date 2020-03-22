@@ -3,16 +3,16 @@ title: 升级 Azure Stack 集线器上的 Kubernetes 群集
 description: 了解如何在 Azure Stack 集线器上升级 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 01/02/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 0b8b4babeba269f84d5c63deccdb9cb9fbe2978b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 50f63cee7776bd9093d986746ed613b38164b171
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702357"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069249"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>升级 Azure Stack 集线器上的 Kubernetes 群集
 

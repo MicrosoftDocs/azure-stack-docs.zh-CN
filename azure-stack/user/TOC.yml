@@ -2,6 +2,8 @@
   href: index.yml
 - name: 概述
   items:
+    - name: 什么是 Azure Stack 中心？
+      href: user-overview.md
     - name: 重要注意事项
       href: azure-stack-considerations.md
 - name: 快速入门

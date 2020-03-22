@@ -3,16 +3,16 @@ title: 在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 description: 如何从运行 AKS 引擎的客户端 VM 在 Azure Stack 集线器上部署 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 01befca97f7ab1be67d11e2e710f20932af10923
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79312949"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069266"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 
@@ -66,7 +66,7 @@ ms.locfileid: "79312949"
 
 6. 查找 `portalURL` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。
 
-7.  在数组 `masterProfile`中，设置以下字段：
+7.  在 `masterProfile`中，设置以下字段：
 
     | 字段 | 说明 |
     | --- | --- |
@@ -75,7 +75,7 @@ ms.locfileid: "79312949"
     | vmSize |  输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 
-8.  `agentPoolProfiles` 更新的数组中：
+8.  在 `agentPoolProfiles` 更新：
 
     | 字段 | 说明 |
     | --- | --- |
@@ -83,7 +83,7 @@ ms.locfileid: "79312949"
     | vmSize | 输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 
-9.  `linuxProfile` 更新的数组中：
+9.  在 `linuxProfile` 更新：
 
     | 字段 | 说明 |
     | --- | --- |

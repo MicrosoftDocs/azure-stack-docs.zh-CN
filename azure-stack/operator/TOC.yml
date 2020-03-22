@@ -136,10 +136,6 @@
           items:
             - name: 安装 PowerShell RM
               href: azure-stack-powershell-install.md
-            - name: 安装 PowerShell Az
-              href: powershell-install-az-module.md
-            - name: 将 PowerShell AzureRM 迁移到 Az
-              href: migrate-azurerm-az.md
             - name: 下载工具
               href: azure-stack-powershell-download.md
             - name: 使用 PowerShell 连接
@@ -252,7 +248,7 @@
           href: azure-stack-supported-os.md
         - name: 提供虚拟机规模集
           href: azure-stack-compute-add-scalesets.md
-        - name: Marketplace 常见问题解答中的 Windows Server
+        - name: Azure Stack 中心市场常见问题解答
           href: azure-stack-windows-server-faq.md
         - name: 提供 Linux 虚拟机
           href: azure-stack-linux.md

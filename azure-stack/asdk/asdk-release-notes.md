@@ -3,16 +3,16 @@ title: ASDK 发行说明
 description: Azure Stack 开发工具包的改进、修复和已知问题（ASDK）。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 6f7bec082564c9f7cb3a0c70cec7e8e7e48fbd35
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: 1c7b117a3c29355a53ac1aee1a8d8a7614cc1c8f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511804"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80068911"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
@@ -21,7 +21,7 @@ ms.locfileid: "79511804"
 订阅[![rss](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [rss 源](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)，随时了解 ASDK 的新增功能。
 
 ::: moniker range="azs-2002"
-## <a name="build-12002035"></a>生成1.2002.0.35
+## <a name="build-120021259"></a>生成1.2002.12.59
 
 ### <a name="new-features"></a>新增功能
 

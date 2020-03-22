@@ -1,47 +1,80 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Stack 集线器用户文档
+summary: Azure Stack 中心是一种混合云平台，可让你从公司或服务提供商的数据中心使用 Azure 服务。
 metadata:
   title: Azure Stack 中心文档-教程、API 参考
-  meta.description: azure-stack
-  services: azure-stack
-  author: mattbriggs
-  manager: femila
-  layout: LandingPage
-  ms.assetid: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  description: Azure Stack 中心是一种混合云平台，可让你从公司或服务提供商的数据中心使用 Azure 服务。
   ms.service: azure-stack
-  ms.tgt_pltfrm: from-team
-  ms.devlang: from-team
   ms.topic: landing-page
-  ms.date: 07/11/2019
+  author: mattbriggs
   ms.author: mabrigg
-abstract:
-  description: Azure Stack 中心是一种混合云平台，可让你从公司或服务提供商的数据中心使用 Azure 服务。 作为开发人员，你可以在 Azure Stack 集线器上构建应用。 然后，你可以将它们部署到 Azure Stack 集线器、Azure，或者可以构建真正利用 Azure Stack 中心云和 Azure 之间的连接的混合应用。 使用快速入门和教程了解如何创建资源和部署应用。<br/><br/>如果你是管理基础结构和提供服务的 Azure Stack 中心操作员，请参阅我们的<a href="../operator/">操作员文档</a>。<br/><br/>如果你是对 Azure Stack 开发工具包（ASDK）感兴趣的 Azure Stack 集线器用户，可以免费下载和使用的 Azure Stack 中心的单节点部署，请参阅我们的<a href="../asdk">ASDK 文档</a>。
-sections:
-  - title: Azure Stack 中心入门
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: '<a href="/azure-stack/user/azure-stack-dev-start"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_code-edit.svg" alt=""> <br><b>开发 Azure Stack 中心</a> 的解决方案</b> <p>使用 Windows 10、Linux 或 macOS 工作站为 Azure Stack 集线器开发应用程序。</p>'
-          - html: '<a href="https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt=""> <br><b>Azure Stack 中心 PowerShell</b></a> <p>从 PowerShell 轻松管理 Azure Stack 集线器资源。</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-version-profiles-azurecli2"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt=""> <br><b>Azure 命令行界面 (CLI)</b></a> <p>用于管理 Azure Stack 集线器资源的命令行体验。</p>'
-  - title: Azure Stack 集线器上的基础结构即服务（IaaS）
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: '<a href="/azure-stack/user/azure-stack-create-vm-template"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_package.svg" alt=""> <br><b>使用模板在 IaaS 中部署 VM。</b></a> <p>使用 Azure Stack 中心资源管理器模板创建 VM</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-quick-linux-portal"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_vmm-cloud.svg" alt=""> <br><b>快速入门-创建 VM</b></a> <p>创建 VM 来托管应用程序。</p>'
-          - html: '<a href="/azure-stack/user/azure-stack-dev-start-deploy-app"> <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-color.svg" alt=""> <br><b>托管在代码中编写的应用。</b></a> <p>使用、Java、Python、中转、Ruby 或 NodeJS 在 Azure Stack C#Hub 中设置 VM，并使用部署应用。</p>'
-  - title: Azure Stack 集线器上的平台即服务（PaaS）
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: <a href="/azure-stack/user/azure-stack-solution-template-service-fabric-cluster"> <img height="48" width="48" src="/azure-stack/user/media/index/service-fabric-cluster.png" alt=""> <br><b>部署 Service Fabric 群集</b></a> <p>在 Azure Stack 中心部署安全的 Service Fabric 群集。</p>
-          - html: <a href="/azure-stack/user/azure-stack-solution-template-kubernetes-deploy"> <img height="48" width="48" src="/azure-stack/user/media/index/kubernetes.png" alt=""> <br><b>部署 Kubernetes 群集</b></a> <p>通过单个协调的操作来部署和设置 Kubernetes 的资源。</p>
-          - html: <a href="/azure-stack/user/azure-stack-solution-template-cognitive-services"> <img height="48" width="48" src="/azure-stack/user/media/index/icon-cognitive-services.svg" alt=""> <br><b>部署 Azure 认知服务</b></a> <p>Azure 认知服务中的容器支持使你能够使用 Azure 中提供的相同 Api。</p>
+  ms.date: 03/19/2020
+  ms.openlocfilehash: a72fa2f57da84c18ee236c017fdd31a659946143
+  ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+  ms.translationtype: MT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 03/21/2020
+  ms.locfileid: "80069217"
+landingContent:
+- title: 关于 Azure Stack 集线器
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什么是 Azure Stack 中心？
+      url: user-overview.md
+    - text: Azure 与 Azure Stack 中心之间的差异
+      url: azure-stack-considerations.md
+- title: 入门
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 创建 Windows VM
+      url: azure-stack-quick-windows-portal.md
+    - text: 创建 Linux VM
+      url: azure-stack-quick-linux-portal.md
+  - linkListType: tutorial
+    links:
+    - text: 从模板创建 VM
+      url: azure-stack-create-vm-template.md
+    - text: 将C# web 应用部署到 Windows VM
+      url: azure-stack-dev-start-howto-vm-dotnet.md
+    - text: 部署 Java web 应用
+      url: azure-stack-dev-start-howto-vm-java.md
+    - text: 部署 Python Web 应用
+      url: azure-stack-dev-start-howto-vm-python.md
+- title: 配置客户端
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 安装 Azure Stack 中心 PowerShell
+      url: https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2Ftoc.json%3Fview%3Dazs-2002&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-2002&view=azs-2002
+    - text: 为 Azure Stack 集线器安装 CLI
+      url: azure-stack-version-profiles-azurecli2.md
+  - linkListType: sample
+    links:
+    - text: 使用 Docker 运行 PowerShell
+      url: azure-stack-powershell-user-docker.md
+    - text: 使用 Visual Studio Code
+      url: azure-stack-dev-start-vscode-azure.md
+- title: Azure Stack 集线器上的基础结构即服务（IaaS）
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 使用模板在 IaaS 中部署 VM
+      url: azure-stack-create-vm-template.md
+    - text: 配置虚拟网络
+      url: deploy-foundational-patterns.md
+    - text: 快速入门-创建 VM
+      url: azure-stack-quick-linux-portal.md
+    - text: 托管代码中编写的应用
+      url: azure-stack-dev-start-deploy-app.md
+- title: Azure Stack 集线器上的平台即服务（PaaS）
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 部署 Service Fabric 群集
+      url: azure-stack-solution-template-service-fabric-cluster.md
+    - text: 部署 Kubernetes 群集
+      url: azure-stack-kubernetes-aks-engine-overview.md
+    - text: 部署 Azure 认知服务
+      url: azure-stack-solution-template-cognitive-services.md

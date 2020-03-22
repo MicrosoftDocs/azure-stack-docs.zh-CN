@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511991"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069389"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack 中心存储：差异和注意事项
 
@@ -32,6 +32,7 @@ Azure Stack 中心存储是 Microsoft Azure Stack 中心中的存储云服务集
 |托管磁盘|支持高级和标准|当使用版本1808或更高版本时支持。
 |托管磁盘快照|公开提供|支持。
 |托管磁盘增量快照|公开提供|尚不支持。
+|处于运行状态的 VM 的托管磁盘快照|公开提供|尚不支持。
 |Blob 名称|1024 个字符（2048 个字节）|880 个字符（1760 个字节）
 |块 blob 最大大小|4.75 TB（100 MB X 50,000 块）|对于1802更新或更新版本，4.75 TB （100 MB x 50000 块）。 对于以前的版本，50000 X 4 MB （约 195 GB）。
 |页 blob 快照复制|备份已连接到正在运行的 VM 的 Azure 非托管 VM 磁盘|在 API 中支持[异步操作](azure-stack-acs-differences.md)。

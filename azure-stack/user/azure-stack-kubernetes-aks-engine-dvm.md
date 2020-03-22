@@ -3,16 +3,16 @@ title: 将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎
 description: 了解如何将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 67e194a91ccf27c5c823938000ab5dda478cc6d9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: f15c870a1b256ffa546672a3abde2fc68f9baa4f
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704006"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069007"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎
 
@@ -28,7 +28,7 @@ Kubernetes Azure Stack 中心市场项启动的部署成功完成后，可以在
 4.  在部署虚拟机上的会话中，可在以下路径找到 AKS 引擎： `./var/lib/waagent/custom-script/download/0/bin/aks-engine`
 5.  找到描述用作 aks 的输入的群集的 `.json` 文件。 作为 `/var/lib/waagent/custom-script/download/0/bin/azurestack.json`的文件。 请注意，该文件具有用于部署群集的服务主体凭据。 如果决定保留该文件，请注意将文件传输到受保护的存储区。
 6.  在 `/var/lib/waagent/custom-script/download/0/_output/<resource group name>`中找到由 AKS 引擎生成的输出目录。 在此目录中，查找路径 `/var/lib/waagent/custom-script/download/0/bin/apimodel.json``apimodel.json` 的输出。 目录和 `apimodel.json` 文件包含部署 Kubernetes 群集所需的所有生成的证书、密钥和凭据。 将这些资源存储在一个安全的位置。
-7.  在路径：处找到 Kubernetes 配置文件（通常称为**kubeconfig**文件），其中对应于 Azure Stack 集线器位置标识符。 如果计划设置**kubectl**来访问 Kubernetes 群集，此文件将很有用。
+7.  在路径 `$HOME/<output dir>/kubeconfig/kubeconfing.<location>.json`找到 **\<位置 >** 对应于 Azure Stack 集线器位置标识符的 Kubernetes 配置文件，通常称为 " **kubeconfig** " 文件。 如果计划设置**kubectl**来访问 Kubernetes 群集，此文件将很有用。
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>将 AKS 引擎用于新创建的群集
 

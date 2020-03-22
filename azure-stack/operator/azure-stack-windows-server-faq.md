@@ -1,25 +1,29 @@
 ---
-title: Azure Stack 中心 Marketplace 中的 Windows Server 应用常见问题
+title: Azure Stack 中心市场常见问题解答
 titleSuffix: Azure Stack Hub
 description: 适用于 Windows Server 的 Azure Stack 集线器 Marketplace 常见问题解答列表。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/27/2019
+ms.date: 03/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 72b21675e97a436499f53f00e4c7d25dfc1beb54
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696067"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069448"
 ---
-# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Azure Stack 中心 Marketplace 中的 Windows Server 应用常见问题
+# <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack 中心市场常见问题解答
 
-本文解答了有关[Azure Stack 中心 Marketplace](azure-stack-marketplace.md)中的 Windows Server 映像的常见问题。
+本文解答了有关[Azure Stack 中心 marketplace](azure-stack-marketplace.md)中的 Marketplace 项的一些常见问题。
 
 ## <a name="marketplace-items"></a>Marketplace 项
+
+### <a name="who-should-i-contact-for-support-issues-with-azure-stack-hub-marketplace-items"></a>对于 Azure Stack 中心市场项的支持问题，应联系谁？
+
+Azure Marketplace 支持指南还扩展到 Azure Stack 集线器 Marketplace 项。 发布者负责在 Azure Stack 中心市场为其产品提供技术支持。 若要了解有关 Azure Marketplace 项的支持指南的详细信息，请参阅 Azure Marketplace 常见问题解答一文中的[支持部分](/azure/marketplace/marketplace-faq-publisher-guide#customer-support)。
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>如何实现更新为较新的 Windows 映像吗？
 

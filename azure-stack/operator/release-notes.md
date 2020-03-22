@@ -3,16 +3,16 @@ title: Azure Stack 集线器发行说明
 description: Azure Stack 集线器集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ce8c4843bc8316a744e1cf3d4f13e744269a9183
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: a819dedd695175d6b4ff28e72965c53969a2f9b2
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512093"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069403"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -45,7 +45,7 @@ ms.locfileid: "79512093"
 ::: moniker range="azs-2002"
 ## <a name="2002-build-reference"></a>2002生成引用
 
-Azure Stack 中心2002更新内部版本号为**1.2002.0.35**。
+Azure Stack 中心2002更新内部版本号为**1.2002.12.59**。
 
 > [!IMPORTANT]  
 > 在 Azure Stack 中心2002更新中，Microsoft 暂时扩展了我们的[Azure Stack 中心支持策略声明](azure-stack-servicing-policy.md)。  我们正在与世界各地的客户合作，他们对 COVID-19 作出回应，他们可能会作出有关其 Azure Stack 中心系统的重要决策，以及如何更新和管理这些系统，因此确保其数据中心业务运营继续正常运行。 为支持我们的客户，Microsoft 提供了临时支持策略更改扩展，以包括三个以前的更新版本。  因此，将支持新发布的2002更新以及三个以前的更新版本（例如1910、1908和1907）。
@@ -67,7 +67,6 @@ Azure Stack 中心2002更新生成类型已**满**。
 <!-- What's new, also net new experiences and features. -->
 
 - 提供基于 AzureRM Azure Stack 集线器管理 PowerShell 模块的新版本（1.8.1）。
-- 2020年3月16日发布了新版本的 az. * Azure PowerShell 租户 Azure Stack 模块。 当前使用的 Azure Stack 租户资源管理器模块将继续运行，但在生成2002后将不再更新。
 - 在 Azure Stack 中心管理员门户上添加了新的警告警报，以报告有关配置的 syslog 服务器的连接问题。 警报标题是**syslog 客户端在发送 Syslog 消息时遇到网络问题**。
 - 添加了有关网络时间协议（NTP）服务器的网络时间协议（NTP） Azure Stack 的新警告警报。 警报标题**在 [node name] 上的时间源无效**。
 - [JAVA SDK](https://azure.microsoft.com/develop/java/)发布了新包，因为2002中的重大更改与 TLS 限制相关。 必须安装新的 Java SDK 依赖项。 可以在[Java 和 API 版本配置文件](../user/azure-stack-version-profiles-java.md?view=azs-1910#java-and-api-version-profiles)中找到相关说明。
@@ -80,6 +79,7 @@ Azure Stack 中心2002更新生成类型已**满**。
 - 此更新包含对更新过程的更改，可显著提高未来完全更新的性能。 在2002版本后，这些更改将在下一次完全更新后生效，尤其是提高更新主机操作系统的完整更新阶段的性能。 提高主机操作系统更新的性能会大大减少租户工作负荷在完全更新过程中受到影响的时间窗口。
 - Azure Stack 集线器就绪检查器工具现在使用分配给 AD Graph 的所有 TCP IP 端口来验证 AD Graph 集成。
 - 已更新了脱机联合工具的可靠性。 该工具在 GitHub 上不再可用，并已[移动到 PowerShell 库](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/)。 有关详细信息，请参阅[将 Marketplace 项下载到 Azure Stack 中心](azure-stack-download-azure-marketplace-item.md)。
+- 正在引入新的监视功能。 物理主机和基础结构 Vm 的低磁盘空间警报将由平台自动修正，并且仅当此操作失败时，该警报才会显示在 Azure Stack 中心管理员门户中，以供操作员执行操作。
 - [诊断日志收集](azure-stack-diagnostic-log-collection-overview-tzl.md)改进。 新体验通过不必提前配置 blob 存储帐户来简化和简化诊断日志收集。 存储环境已预先配置，因此你可以在打开支持案例之前发送日志，并花费更少的时间来支持调用。
 - [主动日志收集和按需日志收集](azure-stack-diagnostic-log-collection-overview-tzl.md) 所用的时间已降低80%。 日志收集时间比预期值长，但不需要 Azure Stack 中心操作员执行操作，除非日志收集失败。
 - 开始更新后，"更新" 边栏选项卡中将显示 Azure Stack 中心更新包的下载进度。 这仅适用于选择[通过自动下载准备更新包](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)的已连接 Azure Stack 集线器系统。
@@ -390,7 +390,7 @@ Azure Stack 中心1908更新生成类型已**满**。 因此，1908更新的运�
 
 有关 Azure Stack 中心更新的安全更新的信息，请参阅[Azure Stack 中心安全更新](release-notes-security-updates.md)。
 
-## <a name="download-the-update-1908"></a>下载更新
+## <a name="download-the-update"></a><a name="download-the-update-1908"></a>下载更新
 
 可以从[Azure Stack 中心下载页](https://aka.ms/azurestackupdatedownload)下载 Azure Stack 中心1908更新包。
 

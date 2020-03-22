@@ -7,20 +7,19 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: df0a87180e1e8ed4b2506d0f2b21406474ee93c1
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: b362ab1e4c555ae4de5be0feecd19d8cc8e6654a
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512450"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069436"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>安装 Azure Stack 集线器的 PowerShell AzureRM 模块
 
 Azure PowerShell AzureRM 提供了一组 cmdlet，这些 cmdlet 使用 Azure 资源管理器模型来管理你的 Azure Stack 集线器资源。
 
-若要使用云，需要安装 Azure Stack 集线器兼容的 PowerShell 模块。 Azure Stack 集线器可以使用**AzureRM**模块，而不是[更新的**AzureAZ**模块](powershell-install-az-module.md)。 
-
 还需要使用*API 配置文件*来指定 Azure Stack 中心资源提供程序的兼容终结点。
+
 API 配置文件提供了一种管理 Azure 与 Azure Stack 中心之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组受支持的 API 版本配置文件。 例如，Azure Stack 集线器支持特定的配置文件版本，如**2019-03-01-混合**。 安装配置文件时，会安装与指定配置文件相对应的 Azure 资源管理器 PowerShell 模块。
 
 可以在连接到 internet 的、部分连接或断开连接的情况下安装 Azure Stack 集线器兼容的 PowerShell 模块。 本文将指导你完成这些方案的详细说明。

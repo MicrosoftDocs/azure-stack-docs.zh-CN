@@ -3,16 +3,16 @@ title: Azure Stack 集线器上的 AKS 引擎是什么？
 description: 了解如何使用 AKS 引擎命令行工具来部署和管理 Azure 和 Azure Stack 集线器上的 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: e1cd3e10e8805ff286afd3d919892fcdc054d208
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: ac4604d438cf0be03e2dd8c2d6050456ff2ac3a5
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702629"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80068977"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Azure Stack 集线器上的 AKS 引擎是什么？
 
