@@ -27,7 +27,7 @@ ms.locfileid: "78368118"
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>验证 cmdlet 是否可用
-由于 cmdlet 是 Azure Stack 集线器1710更新包中的新 cmdlet，因此，1710更新过程需要在监视功能可用之前获得特定的时间点。 通常，如果管理员门户中的状态表明1710更新在 "**重新启动存储主机**" 步骤上，则可以使用 cmdlet。 具体而言，cmdlet 将在**步骤：运行步骤 2.6-Update PrivilegedEndpoint 白名单**中进行。
+由于 cmdlet 是 Azure Stack 集线器1710更新包中的新 cmdlet，因此，1710更新过程需要在监视功能可用之前获得特定的时间点。 通常，如果管理员门户中的状态表明1710更新在 "**重新启动存储主机**" 步骤上，则可以使用 cmdlet。 具体而言，cmdlet 将在**步骤：运行步骤 2.6-Update PrivilegedEndpoint 允许列表**中进行。
 
 你还可以通过从特权终结点查询命令列表来确定是否可以编程方式使用 cmdlet。 若要执行此查询，请从硬件生命周期主机或特权访问工作站运行以下命令。 此外，请确保特权终结点是受信任的主机。 有关详细信息，请参阅[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步骤1。
 
