@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a819dedd695175d6b4ff28e72965c53969a2f9b2
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: cd8569e5ea0f3537aa915207b7d52141d9444afa
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069403"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229543"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -45,7 +45,7 @@ ms.locfileid: "80069403"
 ::: moniker range="azs-2002"
 ## <a name="2002-build-reference"></a>2002生成引用
 
-Azure Stack 中心2002更新内部版本号为**1.2002.12.59**。
+Azure Stack 中心2002更新内部版本号为**1.2002.0.35**。
 
 > [!IMPORTANT]  
 > 在 Azure Stack 中心2002更新中，Microsoft 暂时扩展了我们的[Azure Stack 中心支持策略声明](azure-stack-servicing-policy.md)。  我们正在与世界各地的客户合作，他们对 COVID-19 作出回应，他们可能会作出有关其 Azure Stack 中心系统的重要决策，以及如何更新和管理这些系统，因此确保其数据中心业务运营继续正常运行。 为支持我们的客户，Microsoft 提供了临时支持策略更改扩展，以包括三个以前的更新版本。  因此，将支持新发布的2002更新以及三个以前的更新版本（例如1910、1908和1907）。
@@ -69,7 +69,7 @@ Azure Stack 中心2002更新生成类型已**满**。
 - 提供基于 AzureRM Azure Stack 集线器管理 PowerShell 模块的新版本（1.8.1）。
 - 在 Azure Stack 中心管理员门户上添加了新的警告警报，以报告有关配置的 syslog 服务器的连接问题。 警报标题是**syslog 客户端在发送 Syslog 消息时遇到网络问题**。
 - 添加了有关网络时间协议（NTP）服务器的网络时间协议（NTP） Azure Stack 的新警告警报。 警报标题**在 [node name] 上的时间源无效**。
-- [JAVA SDK](https://azure.microsoft.com/develop/java/)发布了新包，因为2002中的重大更改与 TLS 限制相关。 必须安装新的 Java SDK 依赖项。 可以在[Java 和 API 版本配置文件](../user/azure-stack-version-profiles-java.md?view=azs-1910#java-and-api-version-profiles)中找到相关说明。
+- [JAVA SDK](https://azure.microsoft.com/develop/java/)发布了新包，因为2002中的重大更改与 TLS 限制相关。 必须安装新的 Java SDK 依赖项。 可以在[Java 和 API 版本配置文件](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles)中找到相关说明。
 - 由于中断 API 更改，所有运行2002的系统都提供了 System Center Operations Manager Azure Stack 中心 MP 的新版本（1.0.5.10）。 API 更改会影响备份和存储性能仪表板，并且建议你先将所有系统更新为2002，然后再更新 MP。
 
 ### <a name="improvements"></a>改进
@@ -110,7 +110,7 @@ Azure Stack 中心2002更新生成类型已**满**。
   | Microsoft. Admin | 备份                | 2016-05-01 |
   | Microsoft. Admin | 操作             | 2016-05-01 |
   
-### <a name="fixes"></a>修复项
+### <a name="fixes"></a>修补程序
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
@@ -241,7 +241,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
    **IKE 阶段1（主模式）参数**
 
-   | properties              | 值|
+   | 属性              | 值|
    |-|-|
    | SDK 版本           | IKEv2 |
    |Diffie-Hellman 组   | ECP384 |
@@ -251,7 +251,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
    **IKE 阶段2（快速模式）参数**
 
-   | properties| 值|
+   | 属性| 值|
    |-|-|
    |SDK 版本 |IKEv2 |
    |加密 & 哈希算法（加密）     | GCMAES256|
@@ -284,12 +284,12 @@ Azure Stack 中心1910更新生成类型为**Express**。
    - **BRP**： <br />
            -支持符号 stack 基础结构备份的单一角色还原。 <br />
            -将参数 `RoleName` 添加到 cmdlet `Restore-AzsBackup`。
-   - **FRP**： API 版本 `2019-05-01`的**驱动器**和**卷**资源的重大更改。 Azure Stack 集线器1910和更高版本支持以下功能： <br />
+   - **FRP**： API 版本 `2019-05-01`的**驱动器**和**卷**资源的重大更改。 Azure Stack Hub 1910 和更高版本支持这些功能： <br />
             -`ID`、`Name`、`HealthStatus`和 `OperationalStatus` 的值已更改。 <br />
             -支持**驱动器**资源的 `FirmwareVersion`、`IsIndicationEnabled`、`Manufacturer`和 `StoragePool` 的新属性。 <br />
             -已不推荐使用**驱动器**资源的属性 `CanPool` 和 `CannotPoolReason`;改用 `OperationalStatus`。
 
-### <a name="fixes"></a>修复项
+### <a name="fixes"></a>修补程序
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
 
@@ -378,7 +378,7 @@ Azure Stack 中心1908更新生成类型已**满**。 因此，1908更新的运�
 
 - 硬件提供程序将发布 OEM 扩展包2.1 或更高版本（Azure Stack 集线器版本1908）。 OEM 扩展包2.1 或更高版本是 Azure Stack 集线器版本1908的必备组件。 有关如何下载 OEM 扩展包2.1 或更高版本的详细信息，请与系统的硬件提供商联系，并参阅[OEM 更新](azure-stack-update-oem.md#oem-contact-information)一文。  
 
-### <a name="fixes"></a>修复项
+### <a name="fixes"></a>修补程序
 
 - 修复了与未来 Azure Stack 中心 OEM 更新兼容的问题，以及使用客户用户映像的 VM 部署问题。 此问题已在1907修补程序[KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)中发现和修复。  
 - 修复了在 Test-azurestack for Fabric 环形运行状况中，OEM 固件更新和更正后的 misdiagnosis 的问题。 此问题已在1907修补程序[KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)中发现和修复。
@@ -475,7 +475,7 @@ Azure Stack 中心1907更新生成类型为**Express**。 有关更新生成类�
 
 - 特权终结点命令**BmcCredential**现在将更新基板管理控制器中的凭据。
 
-### <a name="fixes"></a>修复项
+### <a name="fixes"></a>修补程序
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
 - 修复了发布者、产品/服务和 SKU 在资源管理器模板中被视为区分大小写的问题：没有为部署提取映像，除非映像参数与发布者、产品/服务和 SKU 的大小写相同。

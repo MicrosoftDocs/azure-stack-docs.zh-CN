@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: cf0e3f35c6aec650f07d926157c2b73cef965126
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 288ece49e873da5820f6cb7dab70643418636704
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699552"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152303"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack 中心数据中心集成
 
@@ -43,8 +43,8 @@ ms.locfileid: "77699552"
 
 |组件|要求|
 |---------|---------|
-|图形|Microsoft Active Directory 2012/2012 R2/2016|
-|AD FS|Windows Server 2012/2012 R2/2016|
+|图形|Microsoft Active Directory 2012/2012 R2/2016 2019|
+|AD FS|Windows Server 2012/2012 R2/2016 2019|
 
 ## <a name="setting-up-graph-integration"></a>设置 Graph 集成
 
@@ -264,7 +264,7 @@ Microsoft 提供了一种用于配置信赖方信任的脚本，包括声明转�
 
 3. 若要添加信赖方信任，请在 AD FS 实例或场成员上运行以下 Windows PowerShell 命令。 请确保更新 AD FS 终结点，并指向在步骤1中创建的文件。
 
-   **对于 AD FS 2016**
+   **对于 AD FS 2016/2019**
 
    ```powershell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440

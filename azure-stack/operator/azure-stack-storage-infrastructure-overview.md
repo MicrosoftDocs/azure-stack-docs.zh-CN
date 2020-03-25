@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiaha
-ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4ac1d0de3775c22c0c982d79713847e7cd171f41
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697087"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152237"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>管理 Azure Stack 集线器的存储基础结构
 
@@ -25,9 +25,9 @@ ms.locfileid: "77697087"
 
 由 Windows Server 软件提供支持，Azure Stack 集线器使用存储空间直通（S2D）和 Windows Server 故障转移群集的组合来定义存储功能。 这种组合提供了性能、可缩放且可复原的存储服务。
 
-Azure Stack 集线器集成系统合作伙伴提供多种解决方案变体，包括各种存储灵活性。 当前可以选择三个驱动器类型的组合： NVMe （非易失性内存 express）、SATA/SAS SSD （固态硬盘）、HDD （硬盘驱动器）。
+Azure Stack 集线器集成系统合作伙伴提供多种解决方案变体，包括各种存储灵活性。 当前最多可以从三个支持的驱动器类型中选择两个驱动器类型： NVMe （非易失性内存 express）、SATA/SAS SSD （固态驱动器）、HDD （硬盘驱动器）。 
 
-存储空间直通使用缓存来最大程度地提高存储性能。 在具有一种或多种类型的驱动器的 Azure Stack 集线器设备中，存储空间直通自动使用 "最快" （NVMe &gt; SSD &gt; HDD）类型的所有驱动器进行缓存。 剩余的驱动器用于容量。 可以将驱动器分组为 "全部刷新" 或 "混合" 部署：
+存储空间直通使用缓存来最大程度地提高存储性能。 在具有一种驱动器类型（即 NVMe 或 SSD）的 Azure Stack 集线器设备上，所有驱动器都用于容量。 如果有两种驱动器类型，存储空间直通自动使用 "最快" （NVMe &gt; SSD &gt; HDD）类型的所有驱动器进行缓存。 剩余的驱动器用于容量。 可以将驱动器分组为 "全部刷新" 或 "混合" 部署：
 
 ![Azure Stack 中心存储基础结构](media/azure-stack-storage-infrastructure-overview/image1.png)
 
@@ -101,7 +101,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 | 操作状态 | 说明 |
 |---|---|
-| OK | 卷处于正常状态。 |
+| 确定 | 卷处于正常状态。 |
 | 最佳 | 数据不会跨驱动器均匀写入。<br> <br>**操作：** 请联系支持人员以优化存储池中的驱动器使用情况。 在执行此操作之前，请使用 https://aka.ms/azurestacklogfiles中的指南开始日志文件收集过程。 还原失败的连接后，可能需要从备份还原。 |
 
 ### <a name="volume-health-state-warning"></a>卷运行状况状态：警告
@@ -148,7 +148,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 | 操作状态 | 说明 |
 |---|---|
-| OK | 卷处于正常状态。 |
+| 确定 | 卷处于正常状态。 |
 | 服务中 | 驱动器正在执行一些内部日常维护操作。 操作完成后，驱动器应返回到 "正常" 运行状况状态。 |
 
 ### <a name="drive-health-state-healthy"></a>驱动器运行状况状态：正常

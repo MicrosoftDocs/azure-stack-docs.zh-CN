@@ -3,16 +3,16 @@ title: Azure Stack 集线器已知问题
 description: 了解 Azure Stack 集线器版本中的已知问题。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: c8cf31eb645653e99a2968201810e064f5ed3f9f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069478"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152143"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
@@ -73,7 +73,7 @@ ms.locfileid: "80069478"
 - 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
 - 发生次数：常见
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
 ### <a name="network-security-groups"></a>网络安全组
 
@@ -113,8 +113,8 @@ ms.locfileid: "80069478"
 
 ### <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
 
-- 适用：此问题适用于2002及更高版本
-- 原因：当经历 VM 创建体验时，你会看到 VM 大小为： NV4as_v4。 对于基于 AMD Mi25 （Azure Stack 集线器 GPU 预览版）所需硬件的客户，将能够成功部署 VM。 所有其他客户具有此 VM 大小的 VM 部署失败。
+- 适用：此问题适用于2002及更高版本。
+- 原因：遍历 VM 创建体验时，你会看到 VM 大小为： NV4as_v4。 对于具有基于 AMD Mi25 的 Azure Stack 集线器 GPU 预览所需硬件的客户，可以成功部署 VM。 所有其他客户具有此 VM 大小的 VM 部署失败。
 - 修正：按照设计准备 Azure Stack 集线器 GPU 预览。
 
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
@@ -284,7 +284,7 @@ ms.locfileid: "80069478"
 - 原因：访问活动日志时，门户只显示条目的第一页。 **加载更多结果**将不会加载附加条目。
 - 修正：调整筛选器中的时间范围以查看位于第一页之后的项。
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
 ### <a name="load-balancer"></a>负载均衡器
 
@@ -445,9 +445,9 @@ ms.locfileid: "80069478"
 - 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
 - 发生次数：常见
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
-### <a name="load-balancer"></a>负载均衡器
+### <a name="load-balancer"></a>负载平衡器
 
 - 适用：此问题适用于所有受支持的版本。 
 - 原因：将可用性集数 Set Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户上的一个表面问题，该功能仍然存在，并且已成功将 Vm 添加到后端池内部。 
@@ -609,9 +609,9 @@ ms.locfileid: "80069478"
 - 修正：使用 SAS 选项上传 blob。
 - 发生次数：常见
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
-### <a name="load-balancer"></a>负载均衡器
+### <a name="load-balancer"></a>负载平衡器
 
 - 适用：此问题适用于所有受支持的版本。 
 - 原因：将可用性集数 Set Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户上的一个表面问题，该功能仍然存在，并且已成功将 Vm 添加到后端池内部。 

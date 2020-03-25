@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a743a27b836ad4e82d75f8a4c6b156340c354ad
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: f52b4f20e0cf21201836e19894a7ea15159363f1
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704533"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229564"
 ---
 # <a name="validate-a-new-azure-stack-hub-solution"></a>验证新的 Azure Stack 中心解决方案
 
@@ -67,12 +67,7 @@ Azure Stack 中心解决方案是一种硬件清单（BoM），在满足 Windows
 
 2. 选择以下测试：
     - 云模拟引擎
-    - 计算 SDK 操作套件
     - 磁盘标识测试
-    - KeyVault 扩展 SDK 操作套件
-    - KeyVault SDK 操作套件
-    - 网络 SDK 操作套件
-    - 存储帐户 SDK 操作套件
 
 3. 从上下文菜单中选择 "**计划**" 以打开计划测试实例的提示。
 

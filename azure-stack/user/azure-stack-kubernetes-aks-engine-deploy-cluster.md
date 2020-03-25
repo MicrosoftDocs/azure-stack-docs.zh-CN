@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 01befca97f7ab1be67d11e2e710f20932af10923
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069266"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152167"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 
@@ -79,9 +79,12 @@ ms.locfileid: "80069266"
 
     | 字段 | 说明 |
     | --- | --- |
-    | count | 输入要用于部署的代理数。 |
+    | count | 输入要用于部署的代理数。 每个订阅使用的节点的最大数目为50。 如果要为每个订阅部署多个群集，请确保代理计数总计不超过50。 请确保使用[示例 API 模型 JSON 文件](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)中指定的配置项目。  |
     | vmSize | 输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
+
+
+
 
 9.  在 `linuxProfile` 更新：
 
@@ -115,7 +118,7 @@ ms.locfileid: "80069266"
     | --- | --- | --- |
     | azure-env | AzureStackCloud | 若要指示 AKS 引擎 Azure Stack 集线器使用 `AzureStackCloud`的目标平台。 |
     | 标识-系统 | adfs | 可选。 如果使用 Active Directory 联合服务（AD FS），则指定标识管理解决方案。 |
-    | location | local | Azure Stack 中心的区域名称。 对于 ASDK，区域设置为 `local`。 |
+    | 位置 | 本地 | Azure Stack 中心的区域名称。 对于 ASDK，区域设置为 `local`。 |
     | resource-group | kube-rg | 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。 |
     | api 模型 | ./kubernetes-azurestack.json | 群集配置文件的路径或 API 模型。 |
     | 输出-目录 | kube-rg | 输入要包含输出文件的目录的名称 `apimodel.json` 以及其他生成的文件。 |
@@ -123,7 +126,7 @@ ms.locfileid: "80069266"
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 创建服务时，请设置客户端机密。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
-    以下是示例：
+    下面是一个示例：
 
     ```bash  
     aks-engine deploy \
@@ -208,7 +211,7 @@ ms.locfileid: "80069266"
        kubectl get nodes
        ```
 
-       输出应与以下内容类似：
+       输出应如下所示：
 
        ```shell
        k8s-linuxpool-29969128-0   Ready      agent    9d    v1.15.5
