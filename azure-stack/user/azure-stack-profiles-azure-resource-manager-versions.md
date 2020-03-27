@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 3b3ea77dcbb59f2a0471225000aa48624bcb1a15
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.openlocfilehash: 883a39ac7c0d3f11d3f9242a7efaa8549e41f4cf
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231666"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302797"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Azure Stack 集线器中的配置文件支持的资源提供程序 API 版本
 
@@ -164,8 +164,8 @@ Azure 资源管理器使你可以部署和管理 Azure 解决方案的基础结�
 | 位置 | 2018-05-01 |
 | 操作 | 2018-05-01 |
 | 提供程序 | 2018-05-01 |
-| resourceGroups| 2018-05-01 |
-| 资源 | 2018-05-01/ |
+| ResourceGroups| 2018-05-01 |
+| 资源 | 2018-05-01 |
 | Subscriptions | 2018-05-01 |
 | 订阅/位置 | 2016-06-01 |
 | 订阅/operationresults | 2018-05-01 |
@@ -187,7 +187,7 @@ Azure 资源管理器使你可以部署和管理 Azure 解决方案的基础结�
 | 位置 | 2017-10-01 |
 | 位置/配额 | 2017-10-01 |
 | 操作 | 2017-10-01 |
-| storageAccounts | 2017-10-01 |
+| StorageAccounts | 2017-10-01 |
 | 用途 | 2017-10-01 |
 
 ## <a name="next-steps"></a>后续步骤

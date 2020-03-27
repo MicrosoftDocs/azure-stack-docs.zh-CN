@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 78dbba26d13914fe54111b315a0f01c48d53a26a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 60f8ab926bb868517c7b9feeb1c5c4325212607c
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698668"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302820"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>在 Azure Stack 中心内删除 MySQL 资源提供程序
 
@@ -37,7 +37,6 @@ ms.locfileid: "77698668"
     - **PrivilegedEndpoint**：特权终结点的 IP 地址或 DNS 名称。
     - **AzureEnvironment**：用于部署 Azure Stack 集线器的 Azure 环境。 仅 Azure AD 部署中需要。
     - **CloudAdminCredential**：访问特权终结点所需的云管理员凭据。
-    - **DirectoryTenantID**
     - **AzCredential**： Azure Stack 中心服务管理员帐户的凭据。 使用用于部署 Azure Stack 集线器的相同凭据。
 
 ## <a name="next-steps"></a>后续步骤
