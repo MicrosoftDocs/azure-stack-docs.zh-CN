@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 288ece49e873da5820f6cb7dab70643418636704
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: 999c1b2983342189ca86805a4139e3c7f77b5ceb
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152303"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367818"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack 中心数据中心集成
 
@@ -287,6 +287,13 @@ Microsoft 提供了一种用于配置信赖方信任的脚本，包括声明转�
    ```powershell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
+
+   **对于 AD FS 2002 及更高版本**
+
+   > [!NOTE]
+   > 在客户拥有的 ADFS 主机/场上执行 `Add-ADFSRelyingPartyTrust` 时，必须首先确保在 ADFS 主机/场上强制执行 TLS 1.2，否则尝试将导致以下错误消息：
+
+`Add-ADFSRelyingPartyTrust : The underlying connection was closed: An unexpected error occurred on a send.`
 
 ## <a name="spn-creation"></a>SPN 创建
 

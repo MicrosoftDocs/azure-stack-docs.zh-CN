@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 7b3f8fe96ddd33550f28860c0eaa77fa8cfa8c84
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704346"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362144"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>使用服务和构建应用时 Azure Stack 中心与 Azure 之间的差异
 
@@ -39,7 +39,7 @@ Azure Stack 中心是一种混合云平台，可让你从公司或服务提供�
 | 谁在运行？ | Microsoft | 你的组织或服务提供商。|
 | 你要联系谁获得支持？ | Microsoft | 对于集成系统，请联系你的 Azure Stack 中心操作员（在你的组织或服务提供商处）以获得支持。<br><br>有关 Azure Stack 开发工具包（ASDK）支持，请访问[Microsoft 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft 客户支持服务（CSS）提供官方支持。
 | 可用服务 | 请参阅[Azure 产品](https://azure.microsoft.com/services/?b=17.04b)列表。 可用服务因 Azure 区域而异。 | Azure Stack 中心支持部分 Azure 服务。 实际服务因你的组织或服务提供商选择提供的服务而异。
-| Azure 资源管理器终结点 * | https://management.azure.com | 对于 Azure Stack 集线器集成系统，请使用 Azure Stack 中心操作员提供的终结点。<br><br>对于开发工具包，请使用： https://management.local.azurestack.external。
+| Azure 资源管理器终结点 * | `https://management.azure.com` | 对于 Azure Stack 集线器集成系统，请使用 Azure Stack 中心操作员提供的终结点。<br><br>对于开发工具包，请使用： https://management.local.azurestack.external。
 | 门户 URL * | [https://portal.azure.com](https://portal.azure.com) | 对于 Azure Stack 集线器集成系统，请使用 Azure Stack 中心操作员提供的 URL。<br><br>对于开发工具包，请使用： https://portal.local.azurestack.external。
 | 区域 | 您可以选择要部署到的区域。 | 对于 Azure Stack 集线器集成系统，请使用系统中可用的区域。<br><br>对于 Azure Stack 开发工具包（ASDK），该区域将始终为 "**本地**"。
 | 资源组 | 资源组可以跨区域。 | 对于集成系统和开发工具包，仅有一个区域。

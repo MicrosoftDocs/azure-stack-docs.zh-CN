@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a44af909dc3f3309c51f748b0f3b3f0275843c80
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705060"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367793"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -64,9 +64,9 @@ IPsec 和 IKE 协议标准支持各种组合的各种加密算法。 若要查�
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2 加密                                     | AES256、AES192、AES128、DES3、DES                                        |
 | IKEv2 完整性                                      | SHA384、SHA256、SHA1、MD5                                                |
-| DH 组                                             | ECP384、ECP256、DHGroup14、DHGroup2048、DHGroup2、DHGroup1、None         |
+| DH 组                                             | ECP384、ECP256、DHGroup14、DHGroup2、DHGroup1、None                      |
 | IPsec 加密                                     | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、无 |
-| IPsec 完整性                                      | GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5                       |
+| IPsec 完整性                                      | GCMASE256、GCMAES192、GCMAES128                                          |
 | PFS 组                                            | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、无                         |
 | QM SA 生存期                                       | （可选：如果未指定，则使用默认值）<br />                         秒（整数; 最小值为 300/默认值27000秒）<br />                         Kb （integer; 1024/默认值 102400000 Kb） |
 | 流量选择器                                     | Azure Stack 集线器不支持基于策略的流量选择器。         |
