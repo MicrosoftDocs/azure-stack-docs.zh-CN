@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 3c7a68376ddb57d9e7fad1f936c8990243203b9c
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 121bbc5ff081a6a7773d69294175f979b89bcfc5
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294766"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402837"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack 的网络集成规划
 
@@ -25,7 +25,7 @@ ms.locfileid: "79294766"
 
 Azure Stack 解决方案需要一个可复原且具有高可用性的物理基础设施来支持其操作和服务。 若要将 Azure Stack 集成到网络，它需要从机箱顶部交换机（ToR）到最近的交换机或路由器的上行链路，此文档中称为 "边框"。 T) 可以 uplinked 到一对边框。 ToR 是由我们的自动化工具预配置的，因此，在使用 BGP 路由时，它需要在 ToR 与 Border 之间至少使用一次连接，并且在使用静态路由时，最少需要两个连接（每个 ToR 一个）任一路由选项。 这些连接仅限于 SFP + 或 SFP28 介质，1 GB 或 10 gb 或 25 GB。 请与原始设备制造商（OEM）硬件供应商联系以获取可用性。 下图显示了建议的设计：
 
-![建议 Azure Stack 网络设计](media/azure-stack-network/physical-network.png)
+![建议 Azure Stack 网络设计](media/azure-stack-network/physical-network.svg)
 
 
 ## <a name="logical-networks"></a>逻辑网络
@@ -50,7 +50,7 @@ Azure Stack 解决方案需要一个可复原且具有高可用性的物理基�
 
 Azure Stack 的网络基础结构包含在交换机上配置的多个逻辑网络。 下图显示了这些逻辑网络以及它们如何与架顶（TOR）、基板管理控制器（BMC）和边界（客户网络）交换机集成。
 
-![逻辑网络关系图和切换连接](media/azure-stack-network/NetworkDiagram.png)
+![逻辑网络关系图和切换连接](media/azure-stack-network/networkdiagram.svg)
 
 ### <a name="bmc-network"></a>BMC 网络
 
@@ -66,11 +66,14 @@ HLH 还承载部署 VM （DVM）。 在 Azure Stack 部署期间使用 DVM，并
 - **内部虚拟 IP 网络**：一个/25 网络，专用于软件负载平衡器仅限内部的 vip。
 - **容器网络**： A/23 （512 IPs）网络，专用于运行基础结构服务的容器之间仅限内部的流量。
 
-从1910开始，专用网络的大小将更改为专用 IP 空间的/20 （4096 Ip）。 此网络将专用于 Azure Stack 系统（不会路由到 Azure Stack 系统的边界交换机设备之外），可以在数据中心内的多个 Azure Stack 系统上重复使用。 网络专用于 Azure Stack 时，它不得与数据中心中的其他网络重叠。 有关专用 IP 空间的指导，建议遵循[RFC 1918](https://tools.ietf.org/html/rfc1918)。
+从1910版本开始，Azure Stack 集线器系统**需要**额外的/20 个专用内部 IP 空间。 此网络将专用于 Azure Stack 系统（不会路由到 Azure Stack 系统的边界交换机设备之外），可以在数据中心内的多个 Azure Stack 系统上重复使用。 网络专用于 Azure Stack 时，它不得与数据中心中的其他网络重叠。 /20 专用 IP 空间划分为多个网络，以便在容器上运行 Azure Stack 中心基础结构（如上文[1905 发行说明](release-notes.md?view=azs-1905)中所述）。 此外，这一新的专用 IP 空间使你能够在部署之前减少所需的可路由 IP 空间。 在容器中运行 Azure Stack 中心基础结构的目标是优化利用率和提高性能。 此外，还使用了/20 个专用 IP 空间来实现正在进行的工作，以便在部署之前减少所需的可路由 IP 空间。 有关专用 IP 空间的指导，建议遵循[RFC 1918](https://tools.ietf.org/html/rfc1918)。
 
-此/20 个专用 IP 空间将被划分为多个网络，以便在未来版本的容器上运行 Azure Stack 系统内部基础结构。 有关更多详细信息，请参阅[1910 发行说明](release-notes.md)。 此外，这一新的专用 IP 空间使你能够在部署之前减少所需的可路由 IP 空间。
+对于在1910之前部署的系统，此/20 子网将是在更新到1910后输入到系统中的附加网络。 额外的网络将需要通过**AzsPrivateNetwork** PEP cmdlet 提供给系统。
 
-对于在1910之前部署的系统，此/20 子网将是在更新到1910后输入到系统中的附加网络。 额外的网络将需要通过**AzsPrivateNetwork** PEP cmdlet 提供给系统。 有关此 cmdlet 的指导，请参阅[1910 发行说明](release-notes.md)。
+> [!NOTE]
+> 在1910之后，/20 输入作为下一个 Azure Stack 中心更新的先决条件。 当下一个 Azure Stack 中心更新1910版后，如果你尝试安装它，则更新将会失败，如果你尚未按照下述更正步骤中所述完成/20 输入。 在完成上述更正步骤之前，管理员门户中将显示一个警报。 请参阅[数据中心网络集成](azure-stack-network.md#private-network)一文，了解如何使用这个新的专用空间。
+
+**更正步骤**：若要进行修正，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备大小为/20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，并使用以下示例在 PEP 会话中运行以下 cmdlet （仅从1910开始提供）： `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 如果成功执行了该操作，则会收到消息 Azs，其中**添加到配置的内部网络范围**。如果成功完成，则警报将在管理员门户中关闭。 Azure Stack 集线器系统现在可以更新到下一个版本。
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack 基础结构网络
 此/24 网络专用于内部 Azure Stack 组件，因此它们之间可以互相通信和交换数据。 此子网可以从 Azure Stack 解决方案外部路由到你的数据中心，我们不建议在此子网上使用公用或 Internet 可路由的 IP 地址。 此网络被播发到边框，但其所有 Ip 都受访问控制列表（Acl）保护。 允许访问的 Ip 在大小相当于 a/27 网络和主机服务[（如特权终结点（PEP））](azure-stack-privileged-endpoint.md)和[Azure Stack 备份](azure-stack-backup-reference.md)的小型范围内。

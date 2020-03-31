@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cd8569e5ea0f3537aa915207b7d52141d9444afa
-ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
+ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80229543"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402822"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -269,11 +269,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
 - 将 marketplace 项从 Azure 下载到 Azure Stack 中心时，有一个新的用户界面，可用于在多个版本存在时指定项的版本。 已连接和已断开连接的方案中都提供了新的 UI。 有关详细信息，请参阅[将 marketplace 项从 Azure 下载到 Azure Stack 中心](azure-stack-download-azure-marketplace-item.md)。  
 
-- 从1910版本开始，Azure Stack 集线器系统**需要**额外的/20 个专用内部 IP 空间。 此网络专用于 Azure Stack 中心系统，可在数据中心内的多个 Azure Stack 集线器系统上重复使用。 网络专用于 Azure Stack 集线器时，它不得与数据中心内的网络重叠。 /20 专用 IP 空间划分为多个网络，以便在容器上运行 Azure Stack 中心基础结构（如上文[1905 发行说明](release-notes.md?view=azs-1905)中所述）。 在容器中运行 Azure Stack 中心基础结构的目标是优化利用率和提高性能。 此外，还使用了/20 个专用 IP 空间来实现正在进行的工作，以便在部署之前减少所需的可路由 IP 空间。
-
-  - 请注意，在1910之后，/20 输入作为下一个 Azure Stack 中心更新的先决条件。 当下一个 Azure Stack 中心更新1910版后，如果你尝试安装它，则更新将会失败，如果你尚未按照下述更正步骤中所述完成/20 输入。 在完成上述更正步骤之前，管理员门户中将显示一个警报。 请参阅[数据中心网络集成](azure-stack-network.md#private-network)一文，了解如何使用这个新的专用空间。
-
-  - 更正步骤：若要进行修正，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备大小为/20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，并使用以下示例在 PEP 会话中运行以下 cmdlet （仅从1910开始提供）： `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 如果成功执行了该操作，则会收到消息 Azs，其中**添加到配置的内部网络范围**。如果成功完成，则警报将在管理员门户中关闭。 Azure Stack 集线器系统现在可以更新到下一个版本。
+- 从1910版本开始，Azure Stack 集线器系统**需要**额外的/20 个专用内部 IP 空间。  有关详细信息，请参阅（Azure Stack 的网络集成规划） [network.md]。
   
 - 如果在上传过程中外部存储位置的容量用尽，则基础结构备份服务将删除部分上传的备份数据。  
 

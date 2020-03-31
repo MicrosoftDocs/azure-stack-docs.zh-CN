@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: 04a89e89be033cb0372395580f2cf618d7857fb7
+ms.sourcegitcommit: 8e480803ee0672eea328e4f14a8b75be94c8fc7f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069389"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80391466"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack 中心存储：差异和注意事项
 
@@ -22,7 +22,7 @@ Azure Stack 中心存储是 Microsoft Azure Stack 中心中的存储云服务集
 
 ## <a name="cheat-sheet-storage-differences"></a>备忘单：存储差异
 
-| Feature | Azure （全局） | Azure Stack 中心 |
+| 功能 | Azure （全局） | Azure Stack Hub |
 | --- | --- | --- |
 |文件存储|支持基于云的 SMB 文件共享|尚不支持
 |静态数据的 Azure 存储服务加密|256位 AES 加密。 使用 Key Vault 中的客户托管密钥支持加密。|BitLocker 128 位 AES 加密。 不支持使用客户托管的密钥进行加密。
@@ -44,9 +44,15 @@ Azure Stack 中心存储是 Microsoft Azure Stack 中心中的存储云服务集
 |页 blob 页面大小|512 字节|4 KB
 |表分区键和行键大小|1024 个字符（2048 个字节）|400个字符（800个字节）
 |Blob 快照|一个 blob 的最大快照数没有限制。|一个 blob 的最大快照数为1000。
-|用于存储的 Azure AD 身份验证|预览|尚不支持。
+|用于存储的 Azure AD 身份验证|公开提供|尚不支持。
 |不可变 Blob|公开提供|尚不支持。
 |用于存储的防火墙和虚拟网络规则|公开提供|尚不支持。|
+|将自定义域映射到 Blob 存储终结点|公开提供|尚不支持。|
+|Blob 存储中托管的静态网站|公开提供|尚不支持。|
+|通过客户托管的密钥加密静态存储数据|公开提供|尚不支持。|
+|用 CRC64 哈希验证事务数据完整性|公开提供|尚不支持。|
+|URL 中的数据服务器端同步副本|公开提供|尚不支持。|
+|Blob 存储的批处理 API|公开提供|尚不支持。|
 
 与存储指标之间也有一些差异：
 
@@ -59,8 +65,11 @@ Azure Stack 中心存储支持以下版本：
 
 Azure 存储服务 Api：
 
-1811更新或更新版本：
+2002更新或更新版本：
 
+- [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/version-2019-02-02)
+- [2018-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2018-11-09)
+- [2018-03-28](https://docs.microsoft.com/rest/api/storageservices/version-2018-03-28)
 - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
@@ -71,6 +80,8 @@ Azure 存储服务 Api：
 
 以前的版本：
 
+- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
@@ -78,8 +89,6 @@ Azure 存储服务 Api：
 - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure 存储服务管理 Api：
-
-1811更新或更新版本：
 
 - [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
@@ -89,17 +98,11 @@ Azure 存储服务管理 Api：
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-05-01-预览](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-以前的版本：
-
-- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-05-01-预览](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-
 ## <a name="powershell-version"></a>PowerShell 版本
 
 对于存储模块 PowerShell，请注意与 REST API 兼容的版本。 
 
-| 模块 | 支持的版本 | 使用情况 |
+| 模块 | 支持的版本 | 用法 |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure.存储 | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | 管理 Azure Stack 中心存储帐户中的 blob、队列和表 |
 | AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | 在 Azure Stack 中心创建和管理存储帐户 |
