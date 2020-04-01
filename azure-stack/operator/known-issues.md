@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152143"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479239"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
@@ -73,7 +73,7 @@ ms.locfileid: "80152143"
 - 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
 - 发生次数：常见
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
 
 ### <a name="network-security-groups"></a>网络安全组
 
@@ -111,6 +111,12 @@ ms.locfileid: "80152143"
 
 ## <a name="compute"></a>计算
 
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM 概述边栏选项卡未显示正确的计算机名称
+
+- 适用：此问题适用于2002及更高版本。
+- 原因：在 "概览" 边栏选项卡中查看 VM 的详细信息时，计算机名称显示为 " **（不可用）** "。
+- 修正：查看 "**设置**" 下的 "**属性**" 边栏选项卡。
+
 ### <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
 
 - 适用：此问题适用于2002及更高版本。
@@ -138,6 +144,11 @@ ms.locfileid: "80152143"
 - 适用：此问题适用于所有受支持的版本。
 - 原因：在包含3个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例在 Azure Stack 集线器环境的4节点上的更新过程中出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
 - 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在 Azure Stack 中心部署的4节点上，在更新过程中创建规模集实例仍不可用。
+
+### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>SQL VM 预配将在 ASDK 中失败
+- 适用：此问题仅适用于 ASDK 2002。 
+- 原因：在 ASDK 2002 中创建新的 SQL VM 时，可能会收到一条错误消息 **"扩展名为发布服务器 ' SqlIaaSAgent '"，类型为 ""，在扩展存储库中找不到类型处理程序版本 "2.0"。** Azure Stack 集线器中没有 "SqlIaaSAgent" 2.0。 
+
 
 ## <a name="resource-providers"></a>资源提供程序
 
@@ -284,7 +295,7 @@ ms.locfileid: "80152143"
 - 原因：访问活动日志时，门户只显示条目的第一页。 **加载更多结果**将不会加载附加条目。
 - 修正：调整筛选器中的时间范围以查看位于第一页之后的项。
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
 
 ### <a name="load-balancer"></a>负载均衡器
 
@@ -445,9 +456,9 @@ ms.locfileid: "80152143"
 - 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
 - 发生次数：常见
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
 
-### <a name="load-balancer"></a>负载平衡器
+### <a name="load-balancer"></a>负载均衡器
 
 - 适用：此问题适用于所有受支持的版本。 
 - 原因：将可用性集数 Set Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户上的一个表面问题，该功能仍然存在，并且已成功将 Vm 添加到后端池内部。 
@@ -609,9 +620,9 @@ ms.locfileid: "80152143"
 - 修正：使用 SAS 选项上传 blob。
 - 发生次数：常见
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
 
-### <a name="load-balancer"></a>负载平衡器
+### <a name="load-balancer"></a>负载均衡器
 
 - 适用：此问题适用于所有受支持的版本。 
 - 原因：将可用性集数 Set Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户上的一个表面问题，该功能仍然存在，并且已成功将 Vm 添加到后端池内部。 

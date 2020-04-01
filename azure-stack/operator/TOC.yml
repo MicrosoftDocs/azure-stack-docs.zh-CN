@@ -332,6 +332,34 @@
                   href: azure-stack-app-service-release-notes-update-seven.md
                 - name: Azure Stack 集线器上的应用服务 update 8 发行说明
                   href: azure-stack-app-service-release-notes-update-eight.md
+        - name: Azure Stack 集线器上的事件中心
+          items:
+            - name: 概述
+              href: event-hubs-rp-overview.md
+            - name: 容量计划
+              href: event-hubs-rp-capacity-planning.md
+            - name: 必备条件
+              href: event-hubs-rp-prerequisites.md
+            - name: 安装
+              href: event-hubs-rp-install.md
+            - name: 生命周期管理
+              items:
+                - name: 应用更新
+                  href: resource-provider-apply-updates.md
+                - name: 备份和还原
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: 收集日志
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: 运行状况 & 警报
+                  href: azure-stack-monitor-health.md
+                - name: 管理
+                  href: event-hubs-rp-manage.md
+                - name: 轮换机密
+                  href: azure-stack-rotate-secrets.md
+                - name: 服务更新公告
+                  href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: 删除
+              href: event-hubs-rp-remove.md
         - name: Azure Stack 集线器上的 MySQL
           items:
             - name: 概述

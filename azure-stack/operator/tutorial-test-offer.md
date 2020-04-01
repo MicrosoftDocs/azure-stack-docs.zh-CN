@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 4d8f727178b4bbe6da6377f965a4863acf322abc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704754"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423846"
 ---
 # <a name="tutorial-test-a-service-offering"></a>教程：测试服务产品
 
@@ -143,3 +143,4 @@ ms.locfileid: "77704754"
 - [在 Azure Stack 集线器上提供 SQL](azure-stack-sql-resource-provider.md)
 - [Azure Stack 中心提供 MySQL](azure-stack-mysql-resource-provider.md)
 - [在 Azure Stack 中心提供应用服务](azure-stack-app-service-overview.md)
+- [在 Azure Stack 中心提供事件中心](event-hubs-rp-overview.md)

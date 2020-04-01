@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 5af024f2b3d31e115e80d1e20883b0457037532e
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79293930"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423862"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Azure Stack 集线器中的配额类型
 
@@ -57,6 +57,12 @@ ms.locfileid: "79293930"
 | 最大 Nic |100 |订阅可以在此位置创建的网络接口的最大数目。 |
 | 最大负载均衡器 |50 |订阅可以在此位置创建的负载均衡器的最大数目。 |
 | 最大网络安全组 |50 |订阅可以在此位置创建的网络安全组的最大数量。 |
+
+## <a name="event-hubs-quota-types"></a>事件中心配额类型
+
+| 类型 | **默认值** | **说明** |
+| --- | --- | --- |
+| VM 核心的最大数目 | 10 | 订阅可以在此位置创建的内核的最大数目（例如，A3 VM 具有四个核心）。 |
 
 ## <a name="view-an-existing-quota"></a>查看现有配额
 

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.topic: conceptual
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: dc89de51c730bdd50000d004555b47d82ab08be6
-ms.sourcegitcommit: 8e480803ee0672eea328e4f14a8b75be94c8fc7f
+ms.openlocfilehash: 57ca779f776e51d8f491c8c9fe3e6a59a37b42ec
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80391485"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423816"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Azure Stack 中心存储开发工具入门
 
@@ -28,7 +28,7 @@ Microsoft Azure Stack 中心提供一组存储服务，其中包括 blob、表�
 对于存储客户端库，请注意与 REST API 兼容的版本。 还必须在代码中指定 Azure Stack 中心终结点。
 
 
-::: moniker range=">azs-2002"
+::: moniker range=">=azs-2002"
 ### <a name="2002-update-or-newer-versions"></a>2002更新或更新版本
 
 | 客户端库 | 支持 Azure Stack 集线器版本 | 链接 | 终结点规范 |

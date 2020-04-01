@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3d4230a29c184b8bb60821796f5fc5b7905ed5a2
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.openlocfilehash: 1abee3556ac45791831c6dcb9fc8dce05477e51e
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79089321"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479300"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack 集线器托管磁盘：差异和注意事项
 
@@ -25,7 +25,7 @@ ms.locfileid: "79089321"
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>备忘单：托管磁盘差异
 
-| 功能 | Azure （全局） | Azure Stack 中心 |
+| Feature | Azure （全局） | Azure Stack Hub |
 | --- | --- | --- |
 |静态数据加密 |Azure 存储服务加密（SSE），Azure 磁盘加密（ADE）。     |BitLocker 128 位 AES 加密      |
 |映像          | 托管自定义映像 |支持|
@@ -54,7 +54,8 @@ ms.locfileid: "79089321"
 
 Azure Stack 中心托管磁盘支持以下 API 版本：
 
-- 2017-03-30
+- 2017-03-30 
+- 2017-12-01 （仅限托管映像，无磁盘，无快照）
 
 ## <a name="convert-to-managed-disks"></a>转换为托管磁盘
 

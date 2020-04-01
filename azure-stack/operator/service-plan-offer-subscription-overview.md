@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 0e5d71335fb5b7086341c7c06ec503aae1a8e728
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: a5776189c1792844b6d9bf2ec229ec02936f82c1
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294381"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423882"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack 中心服务、计划、产品/服务、订阅概述
 
@@ -31,7 +31,7 @@ ms.locfileid: "79294381"
 1. 规划服务产品，使用：
 
    - 基础服务，如计算、存储、网络或 Key Vault。
-   - 增值服务，如应用服务、SQL Server 或 MySQL Server。
+   - 增值服务，例如事件中心、应用服务、SQL Server 或 MySQL 服务器。
 
 2. 创建一个包含一个或多个服务的计划。 创建计划时，请选择或创建用于定义计划中每个服务的资源限制的配额。
 3. 创建具有一个或多个计划的产品/服务。 产品/服务可以包含基本计划和可选的附加计划。
@@ -44,8 +44,9 @@ ms.locfileid: "79294381"
 
 你可以提供[基础结构即服务](https://azure.microsoft.com/overview/what-is-iaas/)（IaaS）服务，使用户能够构建按需计算基础结构，该基础结构在 Azure Stack Hub 用户门户中进行设置和管理。
 
-你还可以从 Microsoft 和其他第三方提供商为 Azure Stack 中心部署[平台即服务](https://azure.microsoft.com/overview/what-is-paas/)（PaaS）服务。 可以交付的 PaaS 服务包括但不限于：
+你还可以从 Microsoft 和第三方提供商为 Azure Stack 中心部署[平台即服务](https://azure.microsoft.com/overview/what-is-paas/)（PaaS）服务。 可以部署的 PaaS 服务包括但不限于：
 
+- [事件中心](event-hubs-rp-overview.md)
 - [应用服务](azure-stack-app-service-overview.md)
 - [SQL Server](azure-stack-sql-resource-provider-deploy.md)
 - [MySQL 服务器](azure-stack-mysql-resource-provider-deploy.md)

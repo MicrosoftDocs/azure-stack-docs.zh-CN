@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e2b6598137774a5bf654aef1f9a75827da4f108a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703632"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479314"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>访问 Azure Stack 集线器中的 Kubernetes 仪表板 
 
@@ -121,6 +121,14 @@ Kubernetes 包含一个 web 仪表板，可用于基本管理操作。 使用此
 您可以使用 "仪表板"。 有关 Kubernetes 仪表板的详细信息，请参阅[Kubernetes WEB UI 仪表板](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
 
 ![Azure Stack 中心 Kubernetes 仪表板](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+
+## <a name="troubleshooting"></a>故障排除
+
+### <a name="custom-virtual-networks"></a>自定义虚拟网络
+
+如果在将 Kubernetes 部署到[自定义虚拟网络](https://docs.microsoft.com/azure-stack/user/kubernetes-aks-engine-custom-vnet)后访问 Kubernetes 仪表板时遇到连接问题，请确保目标子网链接到 AKS 引擎创建的路由表和网络安全组资源。
+
+请确保网络安全组规则允许主节点和 Kubernetes 仪表板 pod IP 之间的通信。 这可以通过使用主节点上的 ping 命令进行验证。
 
 ## <a name="next-steps"></a>后续步骤 
 
