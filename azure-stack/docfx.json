@@ -112,7 +112,7 @@
     "externalReference": [],
     "globalMetadata": {
       "feedback_system": "GitHub",
-      "feedback_github_repo": "MicrosoftDocs/azure-stack-docs.de-DE",
+      "feedback_github_repo": "MicrosoftDocs/azure-stack-docs.zh-cn",
       "feedback_product_url": "https://feedback.azure.com/forums/344565-azure-stack",
       "breadcrumb_path": "/azure-stack/breadcrumb/toc.json",
       "extendBreadcrumb": true,
@@ -144,7 +144,8 @@
     "markdownEngineName": "markdig",
     "groups": {
       "version-ash": {
-        "moniker_range": ">=azs-1802"
+        "moniker_range": ">=azs-1802",
+        "dest": "version-ash"
       }
     }
   }
