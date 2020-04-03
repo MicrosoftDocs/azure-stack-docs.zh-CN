@@ -7,12 +7,12 @@ ms.date: 12/11/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: cf72ecf8d5c5e7bfbf4e640b6193319f9e16d511
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c43cddeca1067d1bbbe2ef0ec8a62ad3c041a50b
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79293941"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614495"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>在数据中心发布 Azure Stack 中心服务 
 
@@ -43,7 +43,7 @@ SSL 流量截获[不受支持](azure-stack-firewall.md#ssl-interception)，并�
 
 |终结点（VIP）|DNS 主机 A 记录|协议|端口|
 |---------|---------|---------|---------|
-|AD FS|Adfs. *&lt;fqdn >&lt;区域 >*|HTTPS|443|
+|AD FS|adfs. *&lt;fqdn >&lt;区域 >*|HTTPS|443|
 |门户（管理员）|Adminportal. *&lt;fqdn >&lt;区域 >*|HTTPS|443|
 |Adminhosting | *.adminhosting.>\<区域。\<fqdn > | HTTPS | 443 |
 |Azure 资源管理器（管理员）|Adminmanagement. *&lt;fqdn >&lt;区域 >*|HTTPS|443|
@@ -86,6 +86,7 @@ SSL 流量截获[不受支持](azure-stack-firewall.md#ssl-interception)，并�
 |Windows Defender|&#42;。 wdcp.microsoft.com<br>&#42;。 wdcpalt.microsoft.com<br>&#42;。 wd.microsoft.com<br>&#42;。 update.microsoft.com<br>&#42;。 download.microsoft.com<br>https：\//www.microsoft.com/pkiops/crl<br>https：\//www.microsoft.com/pkiops/certs<br>https：\//crl.microsoft.com/pki/crl/products<br>https：\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP-/27<br>公共基础结构网络|
 |NTP|（为部署提供的 NTP 服务器 IP）|UDP|123|公共 VIP-/27|
 |DNS|（为部署提供的 DNS 服务器 IP）|TCP<br>UDP|53|公共 VIP-/27|
+|SYSLOG|（为部署提供的 SYSLOG 服务器 IP）|TCP<br>UDP|6514<br>514|公共 VIP-/27|
 |CRL|（证书的 CRL 分发点下的 URL）|HTTP|80|公共 VIP-/27|
 |LDAP|为图形集成提供 Active Directory 林|TCP<br>UDP|389|公共 VIP-/27|
 |LDAP SSL|为图形集成提供 Active Directory 林|TCP|636|公共 VIP-/27|

@@ -7,12 +7,12 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: b8e955075553480b4178223a5475b44e3debd106
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 5ecb5bc2dace6b79d742a61c0c2cdf5f20ee305f
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702340"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614456"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>使用 Azure Stack 中心订阅复制器复制资源
 
@@ -98,7 +98,7 @@ Deployment_Files 将保存两个**DeployResourceGroups**和**DeployResources**�
 
     ![查看文件夹](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  将上下文设置为目标订阅，将文件夹更改为**Deployment_Files**，部署资源组，然后启动资源部署。
+3.  将上下文设置为目标订阅，将文件夹更改为**Deployment_Files**，部署资源组（运行 DeployResourceGroups 脚本），然后启动资源部署（运行 DeployResources 脚本）。
 
     ![配置并启动部署](./media/azure-stack-network-howto-backup-replicator/image6.png)
 

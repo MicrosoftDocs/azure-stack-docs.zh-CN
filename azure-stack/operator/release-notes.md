@@ -3,16 +3,16 @@ title: Azure Stack 集线器发行说明
 description: Azure Stack 集线器集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 03/31/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: de68806451d432cc4fd11ec289933e9c48444755
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402822"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614477"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -110,7 +110,7 @@ Azure Stack 中心2002更新生成类型已**满**。
   | Microsoft. Admin | 备份                | 2016-05-01 |
   | Microsoft. Admin | 操作             | 2016-05-01 |
   
-### <a name="fixes"></a>修补程序
+### <a name="fixes"></a>修复项
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
@@ -241,7 +241,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
    **IKE 阶段1（主模式）参数**
 
-   | 属性              | 值|
+   | properties              | 值|
    |-|-|
    | SDK 版本           | IKEv2 |
    |Diffie-Hellman 组   | ECP384 |
@@ -251,7 +251,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
    **IKE 阶段2（快速模式）参数**
 
-   | 属性| 值|
+   | properties| 值|
    |-|-|
    |SDK 版本 |IKEv2 |
    |加密 & 哈希算法（加密）     | GCMAES256|
@@ -275,7 +275,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
 - 基础结构备份服务将标识服务添加到 AAD 部署的备份负载。  
 
-- Azure Stack 中心 PowerShell 模块已更新为1910版本的版本1.8.0。<br>更改包括：
+- Azure Stack 中心 PowerShell 模块已更新为1910版本的版本1.8.0。<br>具体更改包括：
    - **新的 DRP 管理模块**：部署资源提供程序（DRP）支持将资源提供程序部署到 Azure Stack 中心。 这些命令与 Azure 资源管理器层交互，以便与 DRP 交互。
    - **BRP**： <br />
            -支持符号 stack 基础结构备份的单一角色还原。 <br />
@@ -285,7 +285,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
             -支持**驱动器**资源的 `FirmwareVersion`、`IsIndicationEnabled`、`Manufacturer`和 `StoragePool` 的新属性。 <br />
             -已不推荐使用**驱动器**资源的属性 `CanPool` 和 `CannotPoolReason`;改用 `OperationalStatus`。
 
-### <a name="fixes"></a>修补程序
+### <a name="fixes"></a>修复项
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
 
@@ -374,7 +374,7 @@ Azure Stack 中心1908更新生成类型已**满**。 因此，1908更新的运�
 
 - 硬件提供程序将发布 OEM 扩展包2.1 或更高版本（Azure Stack 集线器版本1908）。 OEM 扩展包2.1 或更高版本是 Azure Stack 集线器版本1908的必备组件。 有关如何下载 OEM 扩展包2.1 或更高版本的详细信息，请与系统的硬件提供商联系，并参阅[OEM 更新](azure-stack-update-oem.md#oem-contact-information)一文。  
 
-### <a name="fixes"></a>修补程序
+### <a name="fixes"></a>修复项
 
 - 修复了与未来 Azure Stack 中心 OEM 更新兼容的问题，以及使用客户用户映像的 VM 部署问题。 此问题已在1907修补程序[KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)中发现和修复。  
 - 修复了在 Test-azurestack for Fabric 环形运行状况中，OEM 固件更新和更正后的 misdiagnosis 的问题。 此问题已在1907修补程序[KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)中发现和修复。
@@ -401,7 +401,7 @@ Azure Stack 集线器修补程序仅适用于 Azure Stack 集线器集成系统;
 Azure Stack 集线器1908版必须应用于带有以下修补程序的1907版本：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Azure Stack 中心修补程序1.1907.29.80](https://support.microsoft.com/help/4555650)
 
 Azure Stack 集线器1908更新需要从系统的硬件提供程序**Azure Stack 集线器 OEM 版本2.1 或更高版本**。 OEM 更新包括 Azure Stack 集线器系统硬件的驱动程序和固件更新。 有关应用 OEM 更新的详细信息，请参阅[Apply Azure Stack Hub 原始设备制造商更新](azure-stack-update-oem.md)
 
@@ -471,7 +471,7 @@ Azure Stack 中心1907更新生成类型为**Express**。 有关更新生成类�
 
 - 特权终结点命令**BmcCredential**现在将更新基板管理控制器中的凭据。
 
-### <a name="fixes"></a>修补程序
+### <a name="fixes"></a>修复项
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
 - 修复了发布者、产品/服务和 SKU 在资源管理器模板中被视为区分大小写的问题：没有为部署提取映像，除非映像参数与发布者、产品/服务和 SKU 的大小写相同。
@@ -534,7 +534,7 @@ Azure Stack 集线器1907版必须应用于带有以下修补程序的1906版本
 安装此更新后，安装任何适用的修补程序。 有关详细信息，请参阅[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Azure Stack 中心修补程序1.1907.29.80](https://support.microsoft.com/help/4555650)
 ::: moniker-end
 
 ::: moniker range=">=azs-1907"

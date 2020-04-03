@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 611fec639fbcec478b79d44975b24f2d806df5bc
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: f93ce26acd7474def8495e6e0df28bd3b8669848
+ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364796"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80614429"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack 中心 VM 功能
 
@@ -20,7 +20,7 @@ Azure Stack 集线器虚拟机（Vm）提供按需的可缩放计算资源。 �
 
 ## <a name="vm-differences"></a>VM 差异
 
-| Feature | Azure （全局） | Azure Stack 中心 |
+| Feature | Azure （全局） | Azure Stack Hub |
 | --- | --- | --- |
 | 虚拟机映像 | Azure Marketplace 提供了可用于创建 VM 的映像。 请参阅[Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1)页面，查看 azure marketplace 中提供的映像的列表。 | 默认情况下，Azure Stack 中心 Marketplace 中没有可用的映像。 Azure Stack 中心云管理员必须先将映像发布或下载到 Azure Stack 中心市场，然后用户才能使用。 |
 | VHD 生成 | 第两代 Vm 支持生成一个 Vm 时不支持的关键功能。 这些功能包括增加的内存、Intel 软件防护扩展（Intel SGX）和虚拟化永久性内存（vPMEM）。 在本地运行的两个 Vm 在 Azure 中不支持某些功能。 有关详细信息，请参阅[Azure 上的第2代 Vm 支持](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)  | Azure Stack 集线器仅支持代一代 Vm。 你可以将第一个 VM 从 VHDX 转换为 VHD 文件格式，并从动态扩展为固定大小磁盘。 无法更改 VM 的代。 有关详细信息，请参阅[Azure 上的第2代 Vm 支持](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)。 |
@@ -108,6 +108,17 @@ Get-AzureRmResourceProvider | `
 - 运行 Windows Server 2012 或更早版本的 Vm 不会自动激活，必须使用[MAK 激活](https://technet.microsoft.com/library/ff793438.aspx)来激活。 若要使用 MAK 激活，你必须提供自己的产品密钥。
 
 Microsoft Azure 使用 KMS 激活来激活 Windows Vm。 如果将 VM 从 Azure Stack 中心移动到 Azure 并遇到激活问题，请参阅[排查 Azure WINDOWS VM 激活问题](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems)。 有关详细信息，请参阅[Azure vm 上的 Windows 激活故障疑难解答](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/)Azure 支持团队博客文章。
+
+## <a name="high-availability"></a>高可用性
+
+由于 Azure Stack 中心操作员计划的维护，你的 VM 可能会因计划内维护而重新启动。 为了实现 Azure 中多 VM 生产系统的高可用性，将 Vm 放置在一个[可用性集中](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)，以跨多个容错域和更新域传播它们。 在较小的 Azure Stack 中心范围内，可用性集中的容错域定义为缩放单位中的单个节点。  
+
+尽管 Azure Stack 中心的基础结构已对故障有弹性，但如果出现硬件故障，基础技术（故障转移群集）仍会对受影响的物理服务器上的 Vm 产生一些停机时间。 Azure Stack 中心支持拥有最多三个容错域的可用性集，以便与 Azure 保持一致。
+
+|                   |             |
+|-------------------|-------------|
+| **容错域** | 放置在可用性集中的 Vm 将以物理方式彼此隔离，方法是在多个容错域（Azure Stack 中心节点）之间均匀分配它们。 如果发生硬件故障，故障容错域中的 Vm 将在其他容错域中重新启动。 它们将保存在与其他 Vm 不同的容错域中，但可能会保留在同一可用性集中。 当硬件重新联机时，将重新平衡 Vm 以保持高可用性。 |
+| **更新域**| 更新域是 Azure 在可用性集中提供高可用性的另一种方法。 更新域是一组可同时进行维护的基础硬件逻辑组。 位于同一更新域中的 Vm 将在计划内维护期间一起重新启动。 当租户在可用性集中创建 Vm 时，Azure 平台会自动将 Vm 分布到这些更新域。 <br>在 Azure Stack 集线器中，Vm 在其基础主机更新之前，会在群集中的其他联机主机之间进行实时迁移。 由于在主机更新期间不会出现任何租户停机时间，因此，Azure Stack 集线器上的更新域功能只存在于与 Azure 的模板兼容性。 可用性集中的 Vm 会在门户上显示0作为其更新域的编号。 |
 
 ## <a name="next-steps"></a>后续步骤
 
