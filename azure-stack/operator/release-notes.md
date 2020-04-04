@@ -3,16 +3,16 @@ title: Azure Stack 集线器发行说明
 description: Azure Stack 集线器集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/02/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: de68806451d432cc4fd11ec289933e9c48444755
-ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
+ms.openlocfilehash: 681e0bd2a19a2e8284510fbe53470795dd84f69c
+ms.sourcegitcommit: dd4801cb2da0549cc01e7e5cd6a53690c53d80cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80614477"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638279"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -109,8 +109,18 @@ Azure Stack 中心2002更新生成类型已**满**。
   | Microsoft. Admin | backupLocation         | 2016-05-01 |
   | Microsoft. Admin | 备份                | 2016-05-01 |
   | Microsoft. Admin | 操作             | 2016-05-01 |
-  
-### <a name="fixes"></a>修复项
+
+- 使用 PowerShell 创建 Windows VM 时，如果希望 VM 部署扩展，请确保添加 `provisionvmagent` 标志。 如果没有此标志，则将创建不带来宾代理的 VM，并删除部署 VM 扩展的功能：
+
+   ```powershell
+   $VirtualMachine = Set-AzureRmVMOperatingSystem `
+     -VM $VirtualMachine `
+     -Windows `
+     -ComputerName "MainComputer" `
+     -Credential $Credential -ProvisionVMAgent
+  ```
+
+### <a name="fixes"></a>修补程序
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 
@@ -241,7 +251,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
    **IKE 阶段1（主模式）参数**
 
-   | properties              | 值|
+   | 属性              | 值|
    |-|-|
    | SDK 版本           | IKEv2 |
    |Diffie-Hellman 组   | ECP384 |
@@ -251,7 +261,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
    **IKE 阶段2（快速模式）参数**
 
-   | properties| 值|
+   | 属性| 值|
    |-|-|
    |SDK 版本 |IKEv2 |
    |加密 & 哈希算法（加密）     | GCMAES256|
@@ -275,7 +285,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
 
 - 基础结构备份服务将标识服务添加到 AAD 部署的备份负载。  
 
-- Azure Stack 中心 PowerShell 模块已更新为1910版本的版本1.8.0。<br>具体更改包括：
+- Azure Stack 中心 PowerShell 模块已更新为1910版本的版本1.8.0。<br>更改包括：
    - **新的 DRP 管理模块**：部署资源提供程序（DRP）支持将资源提供程序部署到 Azure Stack 中心。 这些命令与 Azure 资源管理器层交互，以便与 DRP 交互。
    - **BRP**： <br />
            -支持符号 stack 基础结构备份的单一角色还原。 <br />
@@ -285,7 +295,7 @@ Azure Stack 中心1910更新生成类型为**Express**。
             -支持**驱动器**资源的 `FirmwareVersion`、`IsIndicationEnabled`、`Manufacturer`和 `StoragePool` 的新属性。 <br />
             -已不推荐使用**驱动器**资源的属性 `CanPool` 和 `CannotPoolReason`;改用 `OperationalStatus`。
 
-### <a name="fixes"></a>修复项
+### <a name="fixes"></a>修补程序
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
 
@@ -374,7 +384,7 @@ Azure Stack 中心1908更新生成类型已**满**。 因此，1908更新的运�
 
 - 硬件提供程序将发布 OEM 扩展包2.1 或更高版本（Azure Stack 集线器版本1908）。 OEM 扩展包2.1 或更高版本是 Azure Stack 集线器版本1908的必备组件。 有关如何下载 OEM 扩展包2.1 或更高版本的详细信息，请与系统的硬件提供商联系，并参阅[OEM 更新](azure-stack-update-oem.md#oem-contact-information)一文。  
 
-### <a name="fixes"></a>修复项
+### <a name="fixes"></a>修补程序
 
 - 修复了与未来 Azure Stack 中心 OEM 更新兼容的问题，以及使用客户用户映像的 VM 部署问题。 此问题已在1907修补程序[KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44)中发现和修复。  
 - 修复了在 Test-azurestack for Fabric 环形运行状况中，OEM 固件更新和更正后的 misdiagnosis 的问题。 此问题已在1907修补程序[KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35)中发现和修复。
@@ -471,7 +481,7 @@ Azure Stack 中心1907更新生成类型为**Express**。 有关更新生成类�
 
 - 特权终结点命令**BmcCredential**现在将更新基板管理控制器中的凭据。
 
-### <a name="fixes"></a>修复项
+### <a name="fixes"></a>修补程序
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
 - 修复了发布者、产品/服务和 SKU 在资源管理器模板中被视为区分大小写的问题：没有为部署提取映像，除非映像参数与发布者、产品/服务和 SKU 的大小写相同。

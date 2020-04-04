@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
-ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
+ms.openlocfilehash: e5ffa0f8aab00ed26bb025958b95872eb11d1b76
+ms.sourcegitcommit: 821c05cac0db56d208f573369363e376180e2e84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479239"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80646327"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack 集线器已知问题
 
@@ -73,7 +73,7 @@ ms.locfileid: "80479239"
 - 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
 - 发生次数：常见
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
 ### <a name="network-security-groups"></a>网络安全组
 
@@ -126,7 +126,13 @@ ms.locfileid: "80479239"
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
 
 - 适用：此问题适用于所有受支持的版本。
-- 原因：创建新的 Windows 虚拟机（VM）时，可能会显示以下错误：**无法启动虚拟机 "VM-名称"。错误：无法更新 VM "vm-name" 的串行输出设置**。 如果在 VM 上启用启动诊断，但要删除启动诊断存储帐户，则会发生此错误。
+- 原因：创建新的虚拟机（VM）时，可能会显示以下错误：**无法启动虚拟机 "VM-名称"。错误：无法更新 VM "vm-name" 的串行输出设置**。 如果在 VM 上启用启动诊断，但要删除启动诊断存储帐户，则会发生此错误。
+- 修正：使用之前使用的同一名称重新创建存储帐户。
+- 发生次数：常见
+
+
+- 适用：此问题适用于所有受支持的版本。
+- 原因：尝试启动停止解除分配的虚拟机时，可能会显示以下错误：**找不到 VM 诊断存储帐户 "diagnosticstorageaccount"。确保不会删除存储帐户**。 如果尝试启动启用了启动诊断的 VM，但引用的启动诊断存储帐户已删除，则会发生此错误。
 - 修正：使用之前使用的同一名称重新创建存储帐户。
 - 发生次数：常见
 
@@ -295,7 +301,7 @@ ms.locfileid: "80479239"
 - 原因：访问活动日志时，门户只显示条目的第一页。 **加载更多结果**将不会加载附加条目。
 - 修正：调整筛选器中的时间范围以查看位于第一页之后的项。
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
 ### <a name="load-balancer"></a>负载均衡器
 
@@ -456,9 +462,9 @@ ms.locfileid: "80479239"
 - 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题是由 Windows Server 2019 中默认禁用此错误引起的。
 - 发生次数：常见
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
-### <a name="load-balancer"></a>负载均衡器
+### <a name="load-balancer"></a>负载平衡器
 
 - 适用：此问题适用于所有受支持的版本。 
 - 原因：将可用性集数 Set Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户上的一个表面问题，该功能仍然存在，并且已成功将 Vm 添加到后端池内部。 
@@ -620,9 +626,9 @@ ms.locfileid: "80479239"
 - 修正：使用 SAS 选项上传 blob。
 - 发生次数：常见
 
-## <a name="networking"></a>网络
+## <a name="networking"></a>联网
 
-### <a name="load-balancer"></a>负载均衡器
+### <a name="load-balancer"></a>负载平衡器
 
 - 适用：此问题适用于所有受支持的版本。 
 - 原因：将可用性集数 Set Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户上的一个表面问题，该功能仍然存在，并且已成功将 Vm 添加到后端池内部。 

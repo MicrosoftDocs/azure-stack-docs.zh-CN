@@ -27,7 +27,7 @@
       href: tutorial-test-offer.md
 - name: 概念
   items:
-    - name: 容量规划
+    - name: 容量计划
       items:
         - name: 概述
           href: azure-stack-capacity-planning-overview.md
@@ -41,7 +41,7 @@
       items:
         - name: 演练
           href: azure-stack-customer-journey.md
-        - name: 一般注意事项
+        - name: 常规注意事项
           href: azure-stack-datacenter-integration.md
         - name: 连接模型
           href: azure-stack-connection-models.md
@@ -206,7 +206,7 @@
           href: azure-stack-security-foundations.md
         - name: 配置安全性
           href: azure-stack-security-configuration.md
-        - name: 标识
+        - name: 身份
           items:
             - name: 标识概述
               href: azure-stack-identity-overview.md
@@ -338,7 +338,7 @@
               href: event-hubs-rp-overview.md
             - name: 容量计划
               href: event-hubs-rp-capacity-planning.md
-            - name: 必备条件
+            - name: 先决条件
               href: event-hubs-rp-prerequisites.md
             - name: 安装
               href: event-hubs-rp-install.md
@@ -349,7 +349,7 @@
                 - name: 备份和还原
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: 收集日志
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
                 - name: 运行状况 & 警报
                   href: azure-stack-monitor-health.md
                 - name: 管理
