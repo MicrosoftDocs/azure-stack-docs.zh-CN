@@ -1,34 +1,34 @@
 ---
 title: 在 Azure Stack HCI 中创建卷
-description: 如何使用 Windows 管理中心和 PowerShell 在 Azure Stack HCI 中创建卷。
+description: 如何使用 Windows Admin Center 和 PowerShell 在 Azure Stack HCI 中创建卷。
 author: khdownie
 ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: b195a55314935282f43f99bf02bda1d2bc298b54
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78370405"
 ---
 # <a name="creating-volumes-in-azure-stack-hci"></a>在 Azure Stack HCI 中创建卷
 
-> 适用于： Windows Server 2019
+> 适用于：Windows Server 2019
 
-本主题介绍如何使用 Windows 管理中心和 Windows PowerShell 在存储空间直通群集上创建卷，如何处理卷上的文件，以及如何在卷上启用重复数据删除和压缩。
+本主题介绍如何使用 Windows Admin Center 和 Windows PowerShell 在存储空间直通群集中创建卷、如何处理卷中的文件，以及如何在卷中启用重复数据删除和压缩。
 
 ## <a name="create-a-three-way-mirror-volume"></a>创建三向镜像卷
 
-使用 Windows 管理中心创建三向镜像卷：
+若要使用 Windows Admin Center 创建三向镜像卷：
 
-1. 在 Windows 管理中心，连接到存储空间直通群集，然后从 "**工具**" 窗格中选择 "**卷**"。
-2. 在 "**卷**" 页上，选择 "**清单**" 选项卡，然后选择 "**创建卷**"。
-3. 在 "**创建卷**" 窗格中，输入卷的名称，并将**复原**保留为**三向镜像**。
-4. 在**HDD 上**，指定卷的大小。 例如 5 TB （tb）。
-5. 选择“创建”。
+1. 在 Windows Admin Center 中连接到存储空间直通群集，然后在“工具”窗格中选择“卷”。  
+2. 在“卷”页上选择“库存”选项卡，然后选择“创建卷”。   
+3. 在“创建卷”窗格中输入卷的名称，并将“复原”保留为“三向镜像”。   
+4. 在“HDD 上的大小”中指定卷的大小。  例如 5 TB。
+5. 选择“创建”  。
 
-创建卷可能需要几分钟的时间，具体取决于大小。 右上方的通知将通知你创建卷的时间。 新卷将出现在 "清单" 列表中。
+创建卷可能需要几分钟时间，具体取决于大小。 卷创建好之后，右上方会显示通知。 新卷将显示在“库存”列表中。
 
 观看有关如何创建三向镜像卷的快速视频。
 
@@ -45,7 +45,7 @@ ms.locfileid: "78370405"
 3. 在 "**创建卷**" 窗格中，输入卷的名称。
 4. 在**复原能力**中，选择**镜像加速的奇偶校验**。
 5. 在 "**奇偶校验百分比**" 中，选择奇偶校验百分比。
-6. 选择“创建”。
+6. 选择“创建”。 
 
 观看有关如何创建镜像加速奇偶校验卷的快速视频。
 
@@ -82,7 +82,7 @@ ms.locfileid: "78370405"
 
     Windows 管理中心使你可以在不同工作负荷的现成配置文件之间进行选择，而不是复杂的设置。 如果你不确定，请使用默认设置。
 
-6. 选择“启用”。
+6. 选择“启用”****。
 
 观看有关如何打开重复数据删除和压缩的快速视频。
 
@@ -90,33 +90,33 @@ ms.locfileid: "78370405"
 
 ## <a name="create-volumes-using-windows-powershell"></a>使用 Windows PowerShell 创建卷
 
-首先，从 Windows "开始" 菜单启动 Windows PowerShell。 建议使用新的**Volume** cmdlet 创建 Azure Stack HCI 的卷。 它提供最快、最直接的体验。 此单个 cmdlet 自动创建虚拟磁盘、对其进行分区和格式化、创建具有匹配名称的卷，并将其添加到群集共享卷-所有操作都可以轻松完成。
+首先，从 Windows "开始" 菜单启动 Windows PowerShell。 建议使用新的**Volume** cmdlet 创建 Azure Stack HCI 的卷。 它可以提供最快且最直接的体验。 此单个 cmdlet 会自动创建虚拟磁盘，对其进行分区和格式化，使用匹配的名称创建卷，并将其添加到群集共享卷 － 这些全都在一个简单的步骤中完成。
 
-**新卷**cmdlet 具有四个参数，你将始终需要提供这些参数：
+**New-Volume** cmdlet 具有你将始终需要提供的四个参数：
 
-- **FriendlyName：** 任何所需的字符串，例如 *"Volume1"*
-- **文件系统：** **CSVFS_ReFS** （推荐）或**CSVFS_NTFS**
-- **StoragePoolFriendlyName：** 存储池的名称，例如 *"S2D On ClusterName"*
-- **大小：** 卷的大小，例如 *"10tb"*
+- **FriendlyName：** 所需的任何字符串，例如 *“Volume1”*
+- **FileSystem**：**CSVFS_ReFS**（推荐）或 **CSVFS_NTFS**
+- **StoragePoolFriendlyName：** 你的存储池名称，例如 *“S2D on ClusterName”*
+- **Size：** 卷的大小，例如 *“10 TB”*
 
    > [!NOTE]
-   > Windows （包括 PowerShell）使用二进制（以2为底）数字进行计数，而驱动器通常使用十进制（以10为基数）数字进行标记。 这说明了在 Windows 中出现 "1 tb" 驱动器（定义为1000000000000字节）的原因，如 "909 GB" 中所示。 这是正常情况。 使用**新卷**创建卷时，应在二进制（以2为基数）数字中指定**大小**参数。 例如，指定 "909GB" 或 "0.909495 TB" 将创建一个大约为1000000000000字节的卷。
+   > Windows 以及 PowerShell 使用二进制（基数为 2）数字进行计数，而系统经常使用十进制（基数为 10）数字来标记驱动器。 这可以说明定义为 1,000,000,000,000 字节的“1 TB”驱动器在 Windows 中显示为大约“909 GB”的原因。 这是正常情况。 使用 **New-Volume** 创建卷时，你应使用二进制（基数为 2）数字指定 **Size** 参数。 例如，指定“909 GB”或“0.909495TB”将创建大约 1,000,000,000,000 字节的卷。
 
-### <a name="example-with-2-or-3-servers"></a>示例：包含2个或3个服务器
+### <a name="example-with-2-or-3-servers"></a>示例：具有 2 个或 3 个服务器
 
-为了更轻松地进行部署，如果部署只有两台服务器，存储空间直通会自动使用双向镜像以实现复原。 如果你的部署只有三台服务器，它会自动使用三向镜像。
+为使操作更简单，如果你的部署仅涉及两个服务器，则存储空间直通将自动使用双向镜像进行复原。 如果你的部署仅涉及三个服务器，则它将自动使用三向镜像。
 
 ```PowerShell
 New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB
 ```
 
-### <a name="example-with-4-servers"></a>示例：包含4台以上的服务器
+### <a name="example-with-4-servers"></a>示例：具有 4 个以上的服务器
 
-如果有4个或更多服务器，可以使用可选的**ResiliencySettingName**参数来选择复原类型。
+如果你具有四个或更多个服务器，则可以使用可选的 **ResiliencySettingName** 参数来选择复原类型。
 
--   **ResiliencySettingName：** **镜像**或**奇偶校验**。
+-   **ResiliencySettingName**：**镜像**或**奇偶校验**。
 
-在下面的示例中， *"Volume2"* 使用三向镜像，而 *"Volume3"* 使用双重奇偶校验（通常称为 "擦除编码"）。
+在以下示例中，*“Volume2”* 使用三向镜像，*“Volume3”* 使用双奇偶校验（通常称为“擦除编码”）。
 
 ```PowerShell
 New-Volume -FriendlyName "Volume2" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -Size 1TB -ResiliencySettingName Mirror
@@ -125,25 +125,25 @@ New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 ### <a name="example-using-storage-tiers"></a>示例：使用存储层
 
-在具有三种类型的驱动器的部署中，一个卷可以跨越 SSD 和 HDD 层，使其部分保存在每个驱动器上。 同样，在具有四个或更多服务器的部署中，一个卷可以混合使用镜像和双奇偶校验，使其部分保存在每个服务器上。
+在涉及三种驱动器类型的部署中，一个卷可以跨越 SSD 和 HDD 层以在每类驱动器上驻留一部分。 同样，在涉及四个或更多个服务器的部署中，一个卷可以混合镜像和双奇偶校验以在每个服务器上驻留一部分。
 
-为了帮助你创建此类卷，存储空间直通提供了名为*性能*和*容量*的默认层级模板。 它们封装了更快容量驱动器（如果适用）上的三向镜像的定义，以及速度较慢的容量驱动器上的双重奇偶校验（如果适用）。
+为了帮助你创建此类卷，存储空间直通会提供称为*性能*和*容量*的默认层模板。 它们会在较快的容量驱动器（如果适用）上封装三向镜像的定义，在较慢的容量驱动器（如果适用）上封装双奇偶校验。
 
-可以通过运行**StorageTier** cmdlet 来查看这些文件。
+你可以通过运行**Get-StorageTier** cmdlet 查看它们。
 
 ```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
 ```
 
-![存储层 PowerShell 屏幕快照](media/creating-volumes/storage-tiers-screenshot.png)
+![存储层 PowerShell 屏幕截图](media/creating-volumes/storage-tiers-screenshot.png)
 
-若要创建分层卷，请使用**新的 Volume** Cmdlet 的**StorageTierFriendlyNames**和**StorageTierSizes**参数引用这些层模板。 例如，以下 cmdlet 创建了一个卷，其中混合了三向镜像和双奇偶校验（30:70 比例）。
+若要创建分层卷，请使用 **New-Volume** cmdlet 的 **StorageTierFriendlyNames** 和 **StorageTierSizes** 参数引用这些层模板。 例如，以下 cmdlet 会创建一个按 30:70 的比例混合三向镜像和双奇偶校验的卷。
 
 ```PowerShell
 New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyName S2D* -StorageTierFriendlyNames Performance, Capacity -StorageTierSizes 300GB, 700GB
 ```
 
-大功告成！ 根据需要重复此步骤以创建多个卷。
+大功告成！ 根据需要重复操作以创建多个卷。
 
 ## <a name="next-steps"></a>后续步骤
 

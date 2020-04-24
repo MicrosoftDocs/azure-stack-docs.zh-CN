@@ -1,42 +1,42 @@
 ---
-title: 在 Azure Stack 集线器中使用 PowerShell 创建 Linux VM
-description: 在 Azure Stack 集线器中使用 PowerShell 创建 Linux VM。
+title: 在 Azure Stack Hub 中使用 PowerShell 创建 Linux VM
+description: 在 Azure Stack Hub 中使用 PowerShell 创建 Linux VM。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5e0fb0ec59451874ce641006a626d8de82392f94
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.openlocfilehash: 2b66bee551c9f562b10fe0690e0387217b6d67ea
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231615"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660496"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack 集线器中使用 PowerShell 创建 Linux 服务器 VM
+# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack Hub 中使用 PowerShell 创建 Linux 服务器 VM
 
-你可以使用 Azure Stack 中心 PowerShell 创建 Ubuntu Server 16.04 LTS 虚拟机（VM）。 本文介绍如何创建和使用虚拟机。 本文还介绍了如何执行以下操作：
+可以使用 Azure Stack Hub PowerShell 创建 Ubuntu Server 16.04 LTS 虚拟机 (VM)。 在本文中，我们将创建和使用虚拟机。 本文还介绍以下操作：
 
-* 使用远程客户端连接到 VM。
-* 安装 NGINX web 服务器并查看默认主页。
+* 通过远程客户端连接到 VM。
+* 安装 NGINX Web 服务器并查看默认主页。
 * 清理未使用的资源。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-* Azure Stack 集线器 Marketplace 中的 Linux 映像。 默认情况下，Azure Stack 集线器 Marketplace 没有 Linux 映像。 让 Azure Stack 集线器操作员提供所需的 Ubuntu Server 16.04 LTS 映像。 操作员可以使用将[Marketplace 项从 Azure 下载到 Azure Stack 中心](../operator/azure-stack-download-azure-marketplace-item.md)中的说明。
+* Azure Stack Hub 市场中的 Linux 映像。 默认情况下，Azure Stack Hub 市场中没有 Linux 映像。 让 Azure Stack Hub 操作员提供你需要的 Ubuntu Server 16.04 LTS 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack Hub](../operator/azure-stack-download-azure-marketplace-item.md) 中的说明。
 
-* Azure Stack 中心需要 Azure CLI 的特定版本来创建和管理其资源。 
-  * 如果没有为 Azure Stack 中心配置 PowerShell，请参阅[安装适用于 Azure Stack 中心的 powershell](../operator/azure-stack-powershell-install.md)。 
-  * 设置 Azure Stack 中心 PowerShell 后，你将连接到 Azure Stack 中心环境。 有关说明，请参阅[使用 PowerShell 作为用户连接到 Azure Stack 集线器](azure-stack-powershell-configure-user.md)。
+* Azure Stack Hub 需要使用特定版本的 Azure CLI 来创建和管理其资源。 
+  * 如果未针对 Azure Stack Hub 配置 PowerShell，请参阅[安装用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。 
+  * 设置 Azure Stack Hub PowerShell 后，需连接到 Azure Stack Hub 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack Hub](azure-stack-powershell-configure-user.md)。
 
-* 名为*id_rsa*的公用安全外壳（SSH）密钥保存在 Windows 用户配置文件的*SSH*目录中。 有关创建 SSH 密钥的详细信息，请参阅[使用 ssh 公钥](azure-stack-dev-start-howto-ssh-public-key.md)。
+* Windows 用户配置文件的 *.ssh* 目录中保存的名为 *id_rsa.pub* 的安全外壳 (SSH) 公钥。 有关如何创建 SSH 密钥的详细信息，请参阅[使用 SSH 公钥](azure-stack-dev-start-howto-ssh-public-key.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是可在其中部署和管理 Azure Stack 中心资源的逻辑容器。 若要创建资源组，请运行以下代码块： 
+资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack Hub 资源。 若要创建资源组，请运行以下代码块： 
 
 > [!NOTE]
-> 我们为以下代码示例中的所有变量分配了值。 不过，您可以分配自己的值。
+> 我们在以下代码示例中为所有变量分配了值。 但是，你可以分配自己的值。
 
 ```powershell  
 # Create variables to store the location and resource group names.
@@ -50,7 +50,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>创建存储资源
 
-创建存储帐户，该帐户将用于存储启动诊断输出。
+创建用于存储启动诊断输出的存储帐户。
 
 ```powershell  
 # Create variables to store the storage account name and the storage account SKU information
@@ -72,7 +72,7 @@ Set-AzureRmCurrentStorageAccount `
 
 ## <a name="create-networking-resources"></a>创建网络资源
 
-创建虚拟网络、子网和公共 IP 地址。 这些资源用于提供与 VM 的网络连接。
+创建虚拟网络、子网和公共 IP 地址。 这些资源用来与 VM 建立网络连接。
 
 ```powershell
 # Create a subnet configuration
@@ -100,7 +100,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>创建网络安全组和网络安全组规则
 
-网络安全组使用入站和出站规则保护 VM。 为端口3389创建入站规则，以允许传入远程桌面连接，并为端口80创建入站规则，以允许传入的 web 流量。
+网络安全组使用入站和出站规则来保护 VM。 为端口 3389 创建一个入站规则来允许传入的远程桌面连接，为端口 80 创建一个入站规则来允许传入的 Web 流量。
 
 ```powershell
 # Create variables to store the network security group and rules names.
@@ -141,7 +141,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-vm"></a>创建 VM
 
-创建 VM 配置。 此配置包括部署 VM 时要使用的设置（例如，用户凭据、大小和 VM 映像）。
+创建 VM 配置。 此配置包含部署 VM 时序使用的设置（例如：用户凭据、大小和 VM 映像）。
 
 ```powershell
 # Define a credential object
@@ -195,7 +195,7 @@ New-AzureRmVM `
 ## <a name="vm-quick-create-full-script"></a>VM 快速创建：完整脚本
 
 > [!NOTE]
-> 此步骤实质上是将上面的代码合并在一起，但使用密码而不是 SSH 密钥进行身份验证。
+> 此步骤实际上是将前面的代码合并到一起，但使用密码而不是 SSH 密钥进行身份验证。
 
 ```powershell
 ## Create a resource group
@@ -363,23 +363,23 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-vm"></a>连接到 VM
 
-部署 VM 后，为其配置 SSH 连接。 若要获取 VM 的公共 IP 地址，请使用[get-azurermpublicipaddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)命令：
+部署 VM 后，为其配置一个 SSH 连接。 若要获取 VM 的公共 IP 地址，请使用 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 命令：
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-在已安装 SSH 的客户端系统中，使用以下命令连接到 VM。 如果使用的是 Windows，则可以使用[PuTTY](https://www.putty.org/)创建连接。
+从安装有 SSH 的客户端系统中，使用以下命令连接到 VM。 如果在 Windows 上操作，可以使用 [PuTTY](https://www.putty.org/) 创建连接。
 
 ```
 ssh <Public IP Address>
 ```
 
-出现提示时，请以**azureuser**的身份登录。 如果在创建 SSH 密钥时使用了通行短语，则必须提供通行短语。
+出现提示时，以 **azureuser** 身份登录。 如果在创建 SSH 密钥时使用了通行短语，则必须提供该通行短语。
 
-## <a name="install-the-nginx-web-server"></a>安装 NGINX web 服务器
+## <a name="install-the-nginx-web-server"></a>安装 NGINX Web 服务器
 
-若要更新包资源并安装最新的 NGINX 包，请运行以下脚本：
+若要更新包源并安装最新的 NGINX 包，请运行以下脚本：
 
 ```bash
 #!/bin/bash
@@ -393,13 +393,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>查看 NGINX 欢迎页
 
-安装 NGINX web 服务器并在 VM 上打开端口80后，可以使用 VM 的公共 IP 地址访问 web 服务器。 打开 web 浏览器，并中转到 ```http://<public IP address>```。
+在 VM 上安装 NGINX Web 服务器并打开端口 80 后，可通过 VM 的公共 IP 地址访问 Web 服务器。 打开 Web 浏览器并转到 ```http://<public IP address>```。
 
-![NGINX web 服务器欢迎页](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
+![NGINX Web 服务器欢迎页](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 
-你可以通过使用[remove-azurermresourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)命令来清除不再需要的资源。 若要删除资源组及其所有资源，请运行以下命令：
+可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令清理不再需要的资源。 若要删除资源组及其所有资源，请运行以下命令：
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -407,4 +407,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你部署了一个基本的 Linux 服务器 VM。 若要详细了解 Azure Stack 集线器 Vm，请参阅[Azure Stack 中心 vm 的注意事项](azure-stack-vm-considerations.md)。
+在本快速入门中，你已部署了一台基本的 Linux 服务器 VM。 若要了解 Azure Stack Hub VM 的详细信息，请访问 [Azure Stack Hub 中 VM 的注意事项](azure-stack-vm-considerations.md)。

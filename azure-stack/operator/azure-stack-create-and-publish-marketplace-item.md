@@ -1,37 +1,37 @@
 ---
-title: 在 Azure Stack Hub 中创建和发布 Marketplace 项
-description: 了解如何创建和发布 Azure Stack 集线器 Marketplace 项。
+title: 在 Azure Stack Hub 中创建和发布市场项
+description: 了解如何创建并发布 Azure Stack Hub 市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704448"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660719"
 ---
-# <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建和发布自定义 Azure Stack 中心市场项
+# <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建并发布自定义 Azure Stack Hub 市场项
 
-发布到 Azure Stack 中心市场的每个项目都使用 Azure 库包（.azpkg）格式。 使用*Azure Gallery Packager*工具，你可以创建自定义 Azure 库包，你可以将其上传到 Azure Stack 中心市场，然后用户便可以下载这些包。 部署过程使用 Azure 资源管理器模板。
+发布到 Azure Stack Hub 市场的每个项都使用 Azure 库包 (.azpkg) 格式。 使用 *Azure Gallery Packager* 工具可以创建自定义 Azure 库包，然后可将此包上传到 Azure Stack Hub 市场供用户下载。 部署过程使用 Azure 资源管理器模板。
 
-## <a name="marketplace-items"></a>Marketplace 项
+## <a name="marketplace-items"></a>市场项
 
-本文中的示例演示如何创建一个类型为 Windows 或 Linux 的 VM Marketplace 产品。
+本文中的示例演示如何创建 Windows 或 Linux 类型的单个 VM 市场套餐。
 
-## <a name="create-a-marketplace-item"></a>创建 Marketplace 项
+## <a name="create-a-marketplace-item"></a>创建市场项
 
 > [!IMPORTANT]
-> 创建 VM marketplace 项之前，请按照[将 vm 映像添加到 Azure Stack 中心](azure-stack-add-vm-image.md)中的说明，将自定义 VM 映像上传到 Azure Stack 中心门户。 然后，按照本文中的说明对映像进行打包（创建 .azpkg）并将其上传到 Azure Stack 中心市场。
+> 在创建 VM 市场项之前，请将自定义 VM 映像上传到 Azure Stack Hub 门户，并根据[将 VM 映像添加到 Azure Stack Hub](azure-stack-add-vm-image.md) 中的说明操作。 然后，根据本文中的说明打包映像（创建 .azpkg），并将其上传到 Azure Stack Hub 市场。
 
-若要创建自定义 marketplace 项，请执行以下操作：
+若要创建自定义市场项，请执行以下操作：
 
-1. 下载[Azure Gallery Packager 工具](https://aka.ms/azsmarketplaceitem)和示例 Azure Stack 中心库包。 此下载包括自定义 VM 模板。 提取 .zip 文件，并在文件夹**自定义 vm**下，可以使用 Linux 或可用的 Windows 模板。 您可以决定重新使用预置的模板，并使用您将在 Azure Stack 中心门户上显示的项的产品详细信息来修改各自的参数。 或者，你可以只是重新使用可用的 .azpkg 文件，并跳过以下步骤来自定义你自己的库包。
+1. 下载 [Azure Gallery Packager 工具](https://aka.ms/azsmarketplaceitem)和示例 Azure Stack Hub 库包。 下载内容包括自定义的 VM 模板。 解压缩 .zip 文件，在文件夹 **Custom VMs** 下，可以使用适用的 Linux 或 Windows 模板。 可以决定重复使用预制的模板，并使用要显示在 Azure Stack Hub 门户中的项的产品详细信息修改相应的参数。 或者，可以只重复使用可用的 .azpkg 文件，并跳过后续的自定义自己库包的步骤。
 
-2. 创建 Azure 资源管理器模板或使用我们的 Windows/Linux 示例模板。 在步骤1中下载的包装器工具 .zip 文件中提供了这些示例模板。 您可以使用模板和更改文本字段，也可以从 GitHub 下载预配置的模板。 有关 Azure 资源管理器模板的详细信息，请参阅[azure 资源管理器模板](/azure/azure-resource-manager/resource-group-authoring-templates)。
+2. 创建 Azure 资源管理器模板，或使用适用于 Windows/Linux 的示例模板。 在步骤 1 下载的打包器工具 .zip 文件中已提供这些示例模板。 可以使用模板并更改文本字段，或者从 GitHub 下载预配置的模板。 有关 Azure 资源管理器模板的详细信息，请参阅 [Azure 资源管理器模板](/azure/azure-resource-manager/resource-group-authoring-templates)。
 
 3. 库包应包含以下结构：
 
@@ -41,12 +41,12 @@ ms.locfileid: "77704448"
 
    ![部署模板结构的屏幕截图](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. 将以下突出显示的值（包含数字的值）替换为在[上传自定义映像](azure-stack-add-vm-image.md)时提供的值。
+4. 将 Manifest.json 模板中突出显示的以下值（带编号的值）替换为在[上传自定义映像](azure-stack-add-vm-image.md)时提供的值。
 
    > [!NOTE]  
-   > 切勿对 Azure 资源管理器模板中的任何机密（如产品密钥、密码或任何客户身份信息）进行硬编码。 模板 JSON 文件在库中发布后无需进行身份验证即可访问。 将所有机密存储在[Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter)中，并从该模板中调用这些机密。
+   > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
 
-   以下模板是清单 json 文件的示例：
+   以下模板是 Manifest.json 文件的示例：
 
     ```json
     {
@@ -105,7 +105,7 @@ ms.locfileid: "77704448"
     }
     ```
 
-    以下列表说明了示例模板中前面编号的值：
+    以下列表解释了示例模板中的上述带有编号的值：
 
     - （1）-产品/服务的名称。
     - （2）–发布服务器的名称，不含空格。
@@ -118,7 +118,7 @@ ms.locfileid: "77704448"
     - （9）–显示此模板的类别的名称。
     - （10）–每个图标的路径和名称。
 
-5. 对于引用**ms 资源**的所有字段，必须更改**字符串/资源 json**文件中的相应值：
+5. 对于引用 **ms-resource** 的所有字段，必须在 **strings/resources.json** 文件中更改相应的值：
 
     ```json
     {
@@ -133,35 +133,35 @@ ms.locfileid: "77704448"
 
     ![包显示](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![包显示](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
-6. 若要确保资源可以成功部署，请用[Azure Stack 中心 api](../user/azure-stack-profiles-azure-resource-manager-versions.md)测试模板。
+6. 为确保资源可以成功部署，请使用 [Azure Stack Hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md) 测试该模板。
 
-7. 如果模板依赖于虚拟机（VM）映像，请按照说明[将 VM 映像添加到 Azure Stack 中心](azure-stack-add-vm-image.md)。
+7. 如果你的模板依赖于虚拟机 (VM) 映像，请根据说明[将 VM 映像添加到 Azure Stack Hub](azure-stack-add-vm-image.md)。
 
-8. 将 Azure 资源管理器模板保存在 **/Contoso.TodoList/DeploymentTemplates/** 文件夹中。
+8. 将 Azure Resource Manager 模板保存在 **/Contoso.TodoList/DeploymentTemplates/** 文件夹中。
 
-9. 选择适用于 Marketplace 项的图标和文本。 将图标添加到 "**图标**" 文件夹，并将文本添加到 "**字符串**" 文件夹中的**资源**文件。 为图标使用**小型**、**中型**、**大型**和**广泛**的命名约定。 有关这些大小的详细说明，请参阅[Marketplace 项用户界面参考](#reference-marketplace-item-ui)。
+9. 为市场项选择图标和文本。 将图标添加到 **Icons** 文件夹，并向 **Strings** 文件夹中的 **resources** 文件添加文本。 为图标使用 **small**、**medium**、**large** 和 **wide** 命名约定。 有关这些大小的详细说明，请参阅[市场项 UI 参考](#reference-marketplace-item-ui)。
 
     > [!NOTE]
-    > 正确生成 Marketplace 项需要四个图标大小（小、中、大、宽）。
+    > 为正确生成市场项，需要全部四个图标大小（small、medium、large、wide）。
 
-10. 若要进一步编辑 .Manifest，请参阅[引用： Marketplace 项清单。 json](#reference-marketplace-item-manifestjson)。
+10. 若要进一步编辑 Manifest.json，请参阅[参考：市场项 manifest.json](#reference-marketplace-item-manifestjson)。
 
-11. 完成修改文件后，请将其转换为 .azpkg 文件。 你可以使用**AzureGallery**工具和你先前下载的示例库包执行转换。 运行以下命令：
+11. 修改完文件后，请将其转换为 .azpkg 文件。 可以使用 **AzureGallery.exe** 工具以及前面下载的示例库包来执行转换。 运行以下命令：
 
     ```shell
     .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
     ```
 
     > [!NOTE]
-    > 输出路径可以是你选择的任何路径，并且不必位于 C：驱动器下。 但是，必须存在到 .manifest 文件和输出包的完整路径。 例如，如果输出路径 `C:\<path>\galleryPackageName.azpkg`，则文件夹 `C:\<path>` 必须存在。
+    > 输出路径可以是所选的任何路径，且不一定要在 C: 驱动器下。 但是，manifest.json 文件和输出包的完整路径必须存在。 例如，如果输出路径为 `C:\<path>\galleryPackageName.azpkg`，则文件夹 `C:\<path>` 必须存在。
     >
     >
 
-## <a name="publish-a-marketplace-item"></a>发布 Marketplace 项
+## <a name="publish-a-marketplace-item"></a>发布市场项
 
-1. 使用 PowerShell 或 Azure 存储资源管理器将 Marketplace 项（. .azpkg）上传到 Azure Blob 存储。 可以上传到本地 Azure Stack 中心存储或上传到 Azure 存储，这是包的临时位置。 请确保 blob 可公开访问。
+1. 使用 PowerShell 或 Azure 存储资源管理器将市场项 (.azpkg) 上传到 Azure Blob 存储。 可以上传到本地 Azure Stack Hub 存储或上传到 Azure 存储，即包的临时位置。 请确保 blob 可公开访问。
 
-2. 若要将库包导入 Azure Stack 中心，第一步是将（RDP）远程连接到客户端 VM，以便将刚刚创建的文件复制到 Azure Stack 中心。
+2. 若要将库包导入 Azure Stack Hub 中，首先请远程连接 (RDP) 到客户端 VM，以便将刚刚创建的文件复制到 Azure Stack Hub。
 
 3. 添加上下文：
 
@@ -171,112 +171,112 @@ ms.locfileid: "77704448"
     Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
     ```
 
-4. 运行以下脚本，将资源导入到库中：
+4. 运行以下脚本，将资源导入库中：
 
     ```powershell
     Add-AzsGalleryItem -GalleryItemUri `
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. 验证你是否具有可用于存储项的有效存储帐户。 可以从 Azure Stack 中心管理员门户获取 `GalleryItemURI` 值。 选择 "**存储帐户-> Blob 属性"-> URL**，扩展名为 .azpkg。 存储帐户仅供暂时使用，以便发布到 marketplace。
+5. 确认是否可以提供一个有效的存储帐户来存储项。 可以从 Azure Stack Hub 管理员门户获取 `GalleryItemURI` 值。 选择“存储帐户”>“Blob 属性”->“URL”，扩展名为 .azpkg。  存储帐户仅供暂时使用，以便能够发布到市场。
 
-   完成库包并使用**AzsGalleryItem 将**其上传后，自定义 VM 现在应显示在 Marketplace 上，并显示在 "**创建资源**" 视图中。 请注意，自定义库包在**Marketplace 管理**中不可见。
+   完成库包并使用 **Add-AzsGalleryItem** 将其上传之后，自定义 VM 现在应会显示在市场中以及“创建资源”视图中。  请注意，“市场管理”中不显示自定义库包。 
 
-   [![已上传自定义 marketplace 项](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "已上传自定义 marketplace 项")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+   [![已上传自定义市场项](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "已上传自定义市场项")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
 
-6. 成功将项目发布到 marketplace 后，可以从存储帐户中删除内容。
+6. 成功将项发布到市场后，可以删除存储帐户中的内容。
 
    > [!CAUTION]  
-   > 现在无需身份验证即可访问所有默认库项目和自定义库项目：  
+   > 现在，无需身份验证，即可通过以下 URL 访问所有默认的库项目和自定义库项目：  
    `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
    `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 
-6. 可以使用**AzureRMGalleryItem** Cmdlet 删除 Marketplace 项。 例如：
+6. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如：
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
    > [!NOTE]
-   > 删除项后，Marketplace UI 可能会显示错误。 若要修复此错误，请单击门户中的 "**设置**"。 然后，在 "**门户自定义**" 下选择 "**放弃修改**"。
+   > 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”  。 然后，在“门户自定义”下选择“放弃修改”。  
    >
    >
 
-## <a name="reference-marketplace-item-manifestjson"></a>参考： Marketplace 项清单。 json
+## <a name="reference-marketplace-item-manifestjson"></a>参考：市场项 manifest.json
 
 ### <a name="identity-information"></a>标识信息
 
-| 名称 | 必选 | 类型 | 约束 | 说明 |
+| 名称 | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | 名称 |X |String |[A-Za-z0-9]+ | |
 | 发布者 |X |String |[A-Za-z0-9]+ | |
 | 版本 |X |String |[SemVer v2](https://semver.org/) | |
 
-### <a name="metadata"></a>元数据
+### <a name="metadata"></a>Metadata
 
-| 名称 | 必选 | 类型 | 约束 | 说明 |
+| 名称 | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |建议80个字符 |如果项目名称的长度超过80个字符，门户可能不会正确显示您的项目名称。 |
-| PublisherDisplayName |X |String |建议30个字符 |如果你的发布者名称长度超过30个字符，则它可能不会正确显示你的发布者名称。 |
-| PublisherLegalName |X |String |最多256个字符 | |
-| 总结 |X |String |60到100个字符 | |
-| LongSummary |X |String |140到256个字符 |尚不适用于 Azure Stack 中心。 |
-| 说明 |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500到5000个字符 | |
+| DisplayName |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法正确地显示项名称。 |
+| PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法正确地显示发布者名称。 |
+| PublisherLegalName |X |String |最多 256 个字符 | |
+| 摘要 |X |String |60 到 100 个字符 | |
+| LongSummary |X |String |140 到 256 个字符 |在 Azure Stack Hub 中尚不适用。 |
+| 说明 |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 到 5,000 个字符 | |
 
 ### <a name="images"></a>映像
 
-Marketplace 使用以下图标：
+市场使用以下图标：
 
-| 名称 | 宽度 | 高度 | 说明 |
+| 名称 | 宽度 | 高度 | 注释 |
 | --- | --- | --- | --- |
-| 宽型 |255 px |115 px |始终需要 |
-| 大型 |115 px |115 px |始终需要 |
-| 中型 |90 px |90 px |始终需要 |
-| 小型 |40 px |40 px |始终需要 |
-| 屏幕快照 |533 px |324 px |始终需要 |
+| Wide |255 px |115 px |始终必需 |
+| 大型 |115 px |115 px |始终必需 |
+| 中型 |90 px |90 px |始终必需 |
+| 小型 |40 px |40 px |始终必需 |
+| 屏幕快照 |533 px |324 px |始终必需 |
 
-### <a name="categories"></a>类别
+### <a name="categories"></a>Categories
 
-每个 Marketplace 项都应使用一个类别进行标记，该类别标识项在门户 UI 上的显示位置。 您可以选择 Azure Stack 中心（**计算**、**数据 + 存储**等）中的现有类别之一，或者选择一个新类别。
+应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack Hub 中的现有类别之一（“计算”、“数据 + 存储”等），也可以选择新建一个。  
 
 ### <a name="links"></a>链接
 
-每个 Marketplace 项可以包含指向其他内容的各种链接。 这些链接指定为名称和 Uri 的列表：
+每个市场项可以包括指向其他内容的各种链接。 链接以名称和 URI 的列表形式进行指定：
 
-| 名称 | 必选 | 类型 | 约束 | 说明 |
+| 名称 | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |最多64个字符。 | |
+| DisplayName |X |String |最多 64 个字符。 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>其他属性
 
-除了上述元数据外，Marketplace 作者还可以提供以下形式的自定义键/值对数据：
+除了前面的元数据之外，市场作者可以采用以下形式提供自定义键/值对数据：
 
-| 名称 | 必选 | 类型 | 约束 | 说明 |
+| 名称 | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |最多25个字符。 | |
-| 值 |X |String |最多30个字符。 | |
+| DisplayName |X |String |最多 25 个字符。 | |
+| Value |X |String |最多 30 个字符。 | |
 
-### <a name="html-sanitization"></a>HTML 净化
+### <a name="html-sanitization"></a>HTML 清理
 
-对于允许 HTML 的任何字段，[允许使用以下元素和属性](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization)：
+对于允许使用 HTML 的任何字段，将[允许使用以下元素和属性](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization)：
 
 `h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i`
 
-## <a name="reference-marketplace-item-ui"></a>参考： Marketplace 项 UI
+## <a name="reference-marketplace-item-ui"></a>参考：市场项 UI
 
-Azure Stack 中心门户中显示的 Marketplace 项的图标和文本如下所示。
+在 Azure Stack Hub 门户中显示的市场项的图标和文本将如下所示。
 
 ### <a name="create-blade"></a>“创建”边栏选项卡
 
 ![创建边栏选项卡-Azure Stack 集线器 Marketplace 项](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
-### <a name="marketplace-item-details-blade"></a>Marketplace 项详细信息边栏选项卡
+### <a name="marketplace-item-details-blade"></a>市场项详细信息边栏选项卡
 
-![Azure Stack 集线器 Marketplace 项详细信息边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Azure Stack Hub 市场项详细信息边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Stack 中心市场概述](azure-stack-marketplace.md)
-- [下载 Marketplace 项](azure-stack-download-azure-marketplace-item.md)
+- [Azure Stack Hub 市场概述](azure-stack-marketplace.md)
+- [下载市场项](azure-stack-download-azure-marketplace-item.md)
 - [Azure 资源管理器模板的格式和结构](/azure/azure-resource-manager/resource-group-authoring-templates)

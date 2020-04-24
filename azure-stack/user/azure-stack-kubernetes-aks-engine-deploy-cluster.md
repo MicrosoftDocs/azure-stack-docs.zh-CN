@@ -8,15 +8,15 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80152167"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 
-可以通过运行 AKS 引擎的客户端 VM 在 Azure Stack 集线器上部署 Kubernetes 群集。 在本文中，我们将介绍如何编写群集规范，如何使用 `apimodel.json` 文件部署群集，以及如何通过使用 Helm 部署 MySQL 来检查群集。
+可以通过运行 AKS 引擎的客户端 VM 在 Azure Stack 集线器上部署 Kubernetes 群集。 在本文中，我们将介绍如何编写群集规范，如何使用该`apimodel.json`文件部署群集，以及如何通过使用 Helm 部署 MySQL 来检查群集。
 
 ## <a name="define-a-cluster-specification"></a>定义群集规范
 
@@ -44,15 +44,15 @@ ms.locfileid: "80152167"
     > [!Note]  
     > 如果尚未安装 nano，可以在 Ubuntu 上安装 nano： `sudo apt-get install nano`。
 
-3.  在 kubernetes-test-azurestack 文件中，查找 `orchestratorRelease`。 选择一个受支持的 Kubernetes 版本。 例如，1.14、1.15。 这些版本经常会更新。 将版本指定为 "x"，而不是 "xx. x"。 有关当前版本的列表，请参阅[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)。 可以通过运行以下 AKS 引擎命令来查找支持的版本：
+3.  在 kubernetes-test-azurestack 文件中查找`orchestratorRelease`。 选择一个受支持的 Kubernetes 版本。 例如，1.14、1.15。 这些版本经常会更新。 将版本指定为 "x"，而不是 "xx. x"。 有关当前版本的列表，请参阅[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)。 可以通过运行以下 AKS 引擎命令来查找支持的版本：
 
     ```bash
     aks-engine get-versions
     ```
 
-4.  查找 `customCloudProfile` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。 
+4.  查找`customCloudProfile`并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。 
 
-5. 如果正在使用 AD FS，请添加 `"identitySystem":"adfs"`。 例如，
+5. 如果`"identitySystem":"adfs"`使用 AD FS，则添加。 例如，应用于对象的
 
     ```JSON  
         "customCloudProfile": {
@@ -64,34 +64,34 @@ ms.locfileid: "80152167"
     > [!Note]  
     > 如果对标识系统使用 Azure AD，则无需添加**identitySystem**字段。
 
-6. 查找 `portalURL` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。
+6. 查找`portalURL`并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。
 
-7.  在 `masterProfile`中，设置以下字段：
+7.  在`masterProfile`中，设置以下字段：
 
-    | 字段 | 说明 |
+    | 字段 | 描述 |
     | --- | --- |
     | dnsPrefix | 输入用于标识 Vm 主机名的唯一字符串。 例如，基于资源组名称的名称。 |
     | count |  输入要用于部署的主机数。 HA 部署的最小值为3，但不允许对非 HA 部署使用1。 |
-    | vmSize |  输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
+    | vmSize |  输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如`Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 
-8.  在 `agentPoolProfiles` 更新：
+8.  `agentPoolProfiles`更新：
 
-    | 字段 | 说明 |
+    | 字段 | 描述 |
     | --- | --- |
     | count | 输入要用于部署的代理数。 每个订阅使用的节点的最大数目为50。 如果要为每个订阅部署多个群集，请确保代理计数总计不超过50。 请确保使用[示例 API 模型 JSON 文件](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)中指定的配置项目。  |
-    | vmSize | 输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如 `Standard_D2_v2`。 |
+    | vmSize | 输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如`Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 
 
 
 
-9.  在 `linuxProfile` 更新：
+9.  `linuxProfile`更新：
 
-    | 字段 | 说明 |
+    | 字段 | 描述 |
     | --- | --- |
     | adminUsername | 输入 VM 管理员用户名。 |
-    | ssh | 输入将用于通过 Vm 进行 SSH 身份验证的公钥。 使用 `ssh-rsa` 和键。 有关创建公钥的说明，请参阅[创建适用于 Linux 的 SSH 密钥](create-ssh-key-on-windows.md)。 |
+    | ssh | 输入将用于通过 Vm 进行 SSH 身份验证的公钥。 使用`ssh-rsa`和键。 有关创建公钥的说明，请参阅[创建适用于 Linux 的 SSH 密钥](create-ssh-key-on-windows.md)。 |
 
     如果要部署到自定义虚拟网络，可以在将[Kubernetes 群集部署到自定义虚拟网络](kubernetes-aks-engine-custom-vnet.md)中的 API 模型中找到有关查找和添加所需的密钥和值的说明。
 
@@ -106,7 +106,7 @@ ms.locfileid: "80152167"
 
 向 Azure Stack 中心操作员询问：
 
-- 验证系统的运行状况，并建议运行 `Test-AzureStack` 和 OEM 供应商的硬件监视工具。
+- 验证系统的运行状况，并建议 " `Test-AzureStack`运行" 和 OEM 供应商的硬件监视工具。
 - 验证系统容量，包括内存、存储和公共 Ip 等资源。
 - 提供与你的订阅关联的配额的详细信息，以便你可以验证是否有足够的空间来容纳你计划使用的 Vm 数量。
 
@@ -116,17 +116,17 @@ ms.locfileid: "80152167"
 
     | 参数 | 示例 | 说明 |
     | --- | --- | --- |
-    | azure-env | AzureStackCloud | 若要指示 AKS 引擎 Azure Stack 集线器使用 `AzureStackCloud`的目标平台。 |
+    | azure-env | AzureStackCloud | 指示 AKS 引擎，指出目标平台 Azure Stack 集线器使用`AzureStackCloud`。 |
     | 标识-系统 | adfs | 可选。 如果使用 Active Directory 联合服务（AD FS），则指定标识管理解决方案。 |
-    | 位置 | 本地 | Azure Stack 中心的区域名称。 对于 ASDK，区域设置为 `local`。 |
+    | location | local | Azure Stack 中心的区域名称。 对于 ASDK，区域设置为`local`。 |
     | resource-group | kube-rg | 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。 |
     | api 模型 | ./kubernetes-azurestack.json | 群集配置文件的路径或 API 模型。 |
-    | 输出-目录 | kube-rg | 输入要包含输出文件的目录的名称 `apimodel.json` 以及其他生成的文件。 |
-    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 中心管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
-    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 创建服务时，请设置客户端机密。 |
+    | 输出-目录 | kube-rg | 输入要包含输出文件`apimodel.json`以及其他生成的文件的目录的名称。 |
+    | 客户端-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 中心管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
+    | 客户端-密码 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 创建服务时，请设置客户端机密。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
-    下面是一个示例：
+    以下是示例：
 
     ```bash  
     aks-engine deploy \
@@ -141,13 +141,13 @@ ms.locfileid: "80152167"
     --identity-system adfs # required if using AD FS
     ```
 
-2.  如果由于某种原因在创建输出目录后执行失败，你可以更正此问题并重新运行该命令。 如果要重新运行部署并在以前使用相同的输出目录，则 AKS 引擎将返回一个错误，指出该目录已存在。 您可以使用标志： `--force-overwrite`覆盖现有目录。
+2.  如果由于某种原因在创建输出目录后执行失败，你可以更正此问题并重新运行该命令。 如果要重新运行部署并在以前使用相同的输出目录，则 AKS 引擎将返回一个错误，指出该目录已存在。 可以使用标志： `--force-overwrite`覆盖现有的目录。
 
 3.  将 AKS 引擎群集配置保存在安全的加密位置。
 
-    找到 `apimodel.json`的文件。 将其保存到安全位置。 此文件将用作所有其他 AKS 引擎操作的输入。
+    找到该文件`apimodel.json`。 将其保存到安全位置。 此文件将用作所有其他 AKS 引擎操作的输入。
 
-    生成的 `apimodel.json` 包含在输入 API 模型中使用的服务主体、机密和 SSH 公钥。 它还包含 AKS 引擎执行所有其他操作所需的所有其他元数据。 如果丢失，AKS 引擎将无法配置群集。
+    生成`apimodel.json`的包含在输入 API 模型中使用的服务主体、机密和 SSH 公钥。 它还包含 AKS 引擎执行所有其他操作所需的所有其他元数据。 如果丢失，AKS 引擎将无法配置群集。
 
     密码**未加密**。 将该文件保存在安全的安全位置。 
 
@@ -211,7 +211,7 @@ ms.locfileid: "80152167"
        kubectl get nodes
        ```
 
-       输出应如下所示：
+       输出应与以下内容类似：
 
        ```shell
        k8s-linuxpool-29969128-0   Ready      agent    9d    v1.15.5

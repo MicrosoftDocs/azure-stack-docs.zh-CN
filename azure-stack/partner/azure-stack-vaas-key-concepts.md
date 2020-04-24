@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5199a9f3b8dcf9a3ac43d9563688cba8da949ce3
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294161"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>作为服务关键概念的验证
@@ -57,7 +57,7 @@ VaaS 工作流在 VaaS 解决方案的上下文中运行。 它表示一组测�
 
 有关工作流属性和参数的详细信息，请参阅[Azure Stack Hub 验证即服务的工作流常见参数](azure-stack-vaas-parameters.md)。
 
-## <a name="tests"></a>测试
+## <a name="tests"></a>计数
 
 VaaS 中的测试包含一套针对 Azure Stack 中心解决方案运行的操作。 测试具有不同的预期用途（例如功能或可靠性），并面向 Azure Stack 集线器的一项或多项服务。 每个测试都定义了其自己的一组参数，其中一些参数由包含工作流的常用参数指定。
 

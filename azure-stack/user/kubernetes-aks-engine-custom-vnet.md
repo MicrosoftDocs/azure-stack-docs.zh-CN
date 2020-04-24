@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: aac2f9a0991bdae7f15d7fc54517a880ab384785
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80068947"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>将 Kubernetes 群集部署到 Azure Stack 集线器上的自定义虚拟网络 
@@ -27,11 +27,11 @@ ms.locfileid: "80068947"
 在虚拟网络中创建新的子网。 你将需要获取子网资源 ID 和 IP 地址范围。 部署群集时，将在 API 模型中使用资源 ID 和范围。
 
 1. 在 Azure Stack 中心实例中打开 Azure Stack 集线器用户门户。
-2. 选择“所有资源”，
+2. 选择“所有资源”，****
 3. 在 "搜索" 框中输入虚拟网络的名称。
-4. 选择 "**子**网" > " **+** 子网" 以添加子网。
-5. 使用 CIDR 表示法添加**名称**和**地址范围**。 选择“确定”。
-4. 在 "**虚拟网络**" 边栏选项卡中选择 "**属性**"。 复制**资源 ID**，然后添加 `/subnets/<nameofyoursubnect>`。 你将使用此值作为群集的 API 模型中 `vnetSubnetId` 密钥的值。 子网的资源 ID 使用以下格式：<br>`/subscriptions/SUB_ID/resourceGroups/RG_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME`
+4. 选择 "**子** > 网 **+ 子**网" 以添加子网。
+5. 使用 CIDR 表示法添加**名称**和**地址范围**。 选择“确定”  。
+4. 在 "**虚拟网络**" 边栏选项卡中选择 "**属性**"。 复制**资源 ID**，然后添加`/subnets/<nameofyoursubnect>`。 你将在群集的 API 模型中将此`vnetSubnetId`值用作密钥的值。 子网的资源 ID 使用以下格式：<br>`/subscriptions/SUB_ID/resourceGroups/RG_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME`
 
     ![虚拟网络资源 ID](media/kubernetes-aks-engine-custom-vnet/virtual-network-id.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "80068947"
     
     ![虚拟网络 CIDR 块](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
-6. 在 "子网" 边栏选项卡中，记下地址范围和虚拟网络 CIDR 块，例如： `10.1.0.0 - 10.1.0.255 (256 addresses)` 和 `10.1.0.0/24`。
+6. 在 "子网" 边栏选项卡中，记下地址范围和虚拟网络 CIDR 块，例如： `10.1.0.0 - 10.1.0.255 (256 addresses)`和`10.1.0.0/24`。
 
 
 
@@ -54,18 +54,18 @@ AKS 引擎支持部署到现有的虚拟网络中。 将部署到现有子网中
 放置 IP 地址块时，子网需要以下现有 IP 地址的分配：
  - 前四个 IP 地址和最后一个 IP 地址已保留，不能在任何 Azure 子网中使用
  - 应将16个 IP 地址的缓冲区保持为打开状态。
- - 群集的第一个 IP 的值应接近地址空间的末尾，以免发生 IP 冲突。 如果可能，请将 `firstConsecutiveStaticIP` 属性分配到子网中可用 IP 地址空间*末尾*附近的 ip 地址。
+ - 群集的第一个 IP 的值应接近地址空间的末尾，以免发生 IP 冲突。 如果可能，请将`firstConsecutiveStaticIP`属性分配给子网中可用 ip 地址空间*末尾*附近的 ip 地址。
 
 在以下示例中，你可以看到这些各种注意事项如何填写子网中的 IP 范围。 这适用于三个母版。 如果你使用的子网包含256地址，例如 10.1.0.0/24，则需要在207设置第一个连续的静态 IP 地址。 下表显示了地址和注意事项：
 
-| /24 子网的范围 | Number | 注意 |
+| /24 子网的范围 | 数字 | 注意 |
 | --- | --- | --- |
 | 10.1.0.0-10.1.03 | 4 | 在 Azure 子网中保留。 |
 | **10.1.0.224**-10.1.0.238 | 14 | AKS 引擎定义的群集的 IP 地址计数。<br><br> 3个主机的3个 IP 地址<br>10个 IP 地址用于预留空间<br>1负载均衡器的 IP 地址 |
 | 10.1.0.239 - 10.1.0.255 | 16 | 16个 IP 地址缓冲区。 |
 | 10.1.0.256 | 1 | 在 Azure 子网中保留。 |
 
-在此示例中，`firstConsecutiveStaticIP` 属性将 `10.1.0.224`。
+在此示例中， `firstConsecutiveStaticIP`属性将为`10.1.0.224`。
 
 对于较大的子网（例如/16 个以上60000的地址），可能找不到将静态 IP 分配设置到网络空间末尾的情况。 设置群集静态 IP 地址范围，使其远离 IP 空间中的前24个地址，以便在声明地址时可以恢复群集。
 
@@ -79,7 +79,7 @@ AKS 引擎支持部署到现有的虚拟网络中。 将部署到现有子网中
 | 字段 | 示例 | 说明 |
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | 指定子网的资源 ID。  |
-| firstConsecutiveStaticIP | 10.1.0.224 | 为 `firstConsecutiveStaticIP` 配置属性分配一个在所需子网中可用 IP 地址空间*末尾*附近的 ip 地址。 `firstConsecutiveStaticIP` 仅适用于主池。 |
+| firstConsecutiveStaticIP | 10.1.0.224 | 为`firstConsecutiveStaticIP`配置属性分配一个在所需子网中可用 ip 地址空间*末尾*附近的 ip 地址。 `firstConsecutiveStaticIP`仅适用于主池。 |
 
 在**agentPoolProfiles**中，设置以下值：
 
@@ -108,14 +108,14 @@ AKS 引擎支持部署到现有的虚拟网络中。 将部署到现有子网中
 
 ## <a name="deploy-your-cluster"></a>部署群集
 
-将值添加到 API 模型后，可以使用 AKS 引擎通过使用 `deploy` 命令从客户端计算机部署群集。 有关说明，请参阅[部署 Kubernetes 群集](azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster)。
+将值添加到 API 模型后，可使用`deploy`命令使用 AKS 引擎从客户端计算机部署群集。 有关说明，请参阅[部署 Kubernetes 群集](azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster)。
 
 ## <a name="set-the-route-table-and-network-security-group"></a>设置路由表和网络安全组
 
-部署群集后，请在 Azure Stack 用户门户中返回到虚拟网络。 设置 "子网" 边栏选项卡中的路由表和网络安全组（NSG）。 例如，如果不使用 Azure CNI，则在 `kubernetesConfig` API 模型配置对象中 `networkPlugin`： `kubenet`。 成功将群集部署到自定义虚拟网络后，从群集资源组中的**网络**边栏选项卡获取路由表资源的 ID。
+部署群集后，请在 Azure Stack 用户门户中返回到虚拟网络。 设置 "子网" 边栏选项卡中的路由表和网络安全组（NSG）。 如果不使用 Azure CNI，例如`networkPlugin`： `kubenet`在`kubernetesConfig` API 模型配置对象中。 成功将群集部署到自定义虚拟网络后，从群集资源组中的**网络**边栏选项卡获取路由表资源的 ID。
 
 1. 在 Azure Stack 中心实例中打开 Azure Stack 集线器用户门户。
-2. 选择“所有资源”，
+2. 选择“所有资源”，****
 3. 在 "搜索" 框中输入虚拟网络的名称。
 4. 选择 "**子网**"，然后选择包含群集的子网的名称。
     

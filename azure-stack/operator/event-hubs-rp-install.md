@@ -9,10 +9,10 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 ms.openlocfilehash: e07d311c8edbe140834a020af489ae49d8380d86
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423967"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>如何在 Azure Stack 集线器上安装事件中心
@@ -37,10 +37,10 @@ ms.locfileid: "80423967"
 
 如果 Azure Stack 集线器具有 Internet 连接，请按照以下说明操作：
 
-1. 登录到 Azure Stack 中心管理员门户。
+1. 登录到 Azure Stack Hub 管理员门户。
 2. 选择左侧的 " **Marketplace 管理**"。
-3. 选择“资源提供程序”。
-4. 选择 " **+ 从 Azure 添加**"。
+3. 选择“资源提供程序”****。
+4. 选择“+ 从 Azure 添加”。****
 5. 使用搜索栏搜索 "事件中心"。
 6. 在搜索结果中选择 "事件中心" 行。 
 7. 在 "事件中心" 下载页上，选择要安装的事件中心版本，然后选择页面底部的 "**下载**"。 
@@ -49,7 +49,7 @@ ms.locfileid: "80423967"
 请注意，会随事件中心一起下载其他软件包，其中包括：
 
 - Microsoft Azure Stack 中心外接程序 RP 仅限内部 Windows Server
-- PowerShell 所需状态配置
+- PowerShell Desired State Configuration
 
 下载过程完成后，请跳到 "[安装必备组件" 部分](#install-prerequisites)。
 
@@ -88,7 +88,7 @@ ms.locfileid: "80423967"
 2. 选择 "**将证书添加**到证书文件" 字段右侧的 "浏览" 按钮。
 3. 选择在完成先决条件时购买的 .pfx 证书文件。 有关详细信息，请参阅[安装先决条件](event-hubs-rp-prerequisites.md)。 
 
-4. 输入提供的密码，为事件中心 SSL 证书创建安全字符串。 然后选择“添加”。
+4. 输入提供的密码，为事件中心 SSL 证书创建安全字符串。 然后选择“添加”  。
    ![Marketplace 管理事件中心-添加证书](media/event-hubs-rp-install/7-marketplace-management-install-prepare-secrets-add-cert.png)
 
 ### <a name="install-resource-provider"></a>安装资源提供程序
@@ -110,7 +110,7 @@ ms.locfileid: "80423967"
 现在，你需要注册事件中心资源提供程序。 注册使你可以使用 "事件中心管理" 页来管理服务。
 
 1. 在管理员门户中，选择左上角的 "**所有服务**"。
-2. 选择 **订阅**。 你会看到一个订阅列表。 
+2. 选择 "**订阅**"。 你会看到一个订阅列表。 
    > [!NOTE]
    > 请确保不要选择**用户订阅**
 3. 选择 "**订阅**" 页上的 "**默认提供程序订阅**"。
@@ -121,11 +121,11 @@ ms.locfileid: "80423967"
    ![未注册的资源提供程序](media/event-hubs-rp-install/12-default-subscription-rps-unregistered.png)
 8. 几秒钟后，请选择 "**刷新**"。 此时，你应该会看到资源提供程序的状态为 "已注册"。 
 9. 现在，应会看到 "Microsoft EventHub" 和 "Microsoft"，其状态为 "已注册"。
-   ![注册的资源提供程序](media/event-hubs-rp-install/13-default-subscription-rps-registered.png)
+   ![已注册资源提供程序](media/event-hubs-rp-install/13-default-subscription-rps-registered.png)
 
 10. 返回 "**所有服务**" 页。
 11. 搜索 "事件中心"。 现在应会看到 "事件中心"，这是 "事件中心管理" 页的入口点。 
-   可用的 ![服务-事件中心](media/event-hubs-rp-install/14-all-service-event-hubs.png)
+   ![可用服务-事件中心](media/event-hubs-rp-install/14-all-service-event-hubs.png)
  
 ## <a name="next-steps"></a>后续步骤
 

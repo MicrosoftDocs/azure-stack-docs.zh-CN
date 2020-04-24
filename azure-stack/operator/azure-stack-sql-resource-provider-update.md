@@ -1,7 +1,7 @@
 ---
-title: 更新 Azure Stack 中心 SQL 资源提供程序
+title: 更新 Azure Stack Hub SQL 资源提供程序
 titleSuffix: Azure Stack Hub
-description: 了解如何更新 Azure Stack 中心 SQL 资源提供程序。
+description: 了解如何更新 Azure Stack Hub SQL 资源提供程序。
 author: bryanla
 ms.topic: article
 ms.date: 11/11/2019
@@ -9,59 +9,59 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 43099dfb4bfb2ffe50e6c8ccdfc05633ff4f3a6e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77697155"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
-Azure Stack 中心更新到新版本时，可能会发布新的 SQL 资源提供程序。 尽管现有的资源提供程序会继续工作，但建议尽快更新到最新版本。
+当 Azure Stack Hub 更新到新版本时，可能会发布新的 SQL 资源提供程序。 虽然现有的资源提供程序可以继续使用，但仍建议尽快更新到最新的内部版本。
 
-从 SQL 资源提供程序版本1.1.33.0 版本开始，更新是累积的，无论是从版本1.1.24.0 或更高版本开始，都无需按照它们发布的顺序进行安装。 例如，如果运行的是 SQL 资源提供程序的版本1.1.24.0，则可以升级到1.1.33.0 或更高版本，而无需先安装版本1.1.30.0。 若要查看可用的资源提供程序版本以及支持它们的 Azure Stack 中心版本，请参阅[部署资源提供程序必备组件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表。
+从 SQL 资源提供程序 1.1.33.0 版开始，更新是累积性的，只要你从 1.1.24.0 版或更高版本开始，就不需要按照发布的顺序安装更新。 例如，如果运行的是 1.1.24.0 版的 SQL 资源提供程序，则可以升级到 1.1.33.0 版或更高版本，而无需先安装 1.1.30.0 版。 若要查看可用的资源提供程序版本，以及支持它们的 Azure Stack Hub 版本，请参阅[部署资源提供程序的先决条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
-若要更新资源提供程序，请使用*updatesqlprovider.ps1*脚本。 使用具有本地管理权限的服务帐户，并且是订阅的**所有者**。 此脚本包含在下载新的 SQL 资源提供程序中。 更新过程类似于用于[部署资源提供程序](./azure-stack-sql-resource-provider-deploy.md)的过程。 更新脚本使用与 Deploysqlprovider.ps1 脚本相同的参数，你将需要提供证书信息。
+若要更新资源提供程序，请使用 *UpdateSQLProvider.ps1* 脚本。 使用具有本地管理权限且是订阅的**所有者**的服务帐户。 新 SQL 资源提供程序的下载包中提供此脚本。 更新过程类似于[部署资源提供程序](./azure-stack-sql-resource-provider-deploy.md)时使用的过程。 更新脚本与 DeploySqlProvider.ps1 脚本使用相同的参数，你需要提供证书信息。
 
  > [!IMPORTANT]
- > 升级资源提供程序之前，请查看发行说明，了解新功能、修复程序以及可能影响部署的任何已知问题。
+ > 在升级资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
-## <a name="update-script-processes"></a>更新脚本进程
+## <a name="update-script-processes"></a>更新脚本过程
 
-*Updatesqlprovider.ps1*脚本使用最新的资源提供程序代码创建新的虚拟机（VM）。
+*UpdateSQLProvider.ps1* 脚本可使用最新的资源提供程序代码创建新的虚拟机 (VM)。
 
 > [!NOTE]
-> 建议从 Marketplace 管理下载最新的 Windows Server 2016 Core 映像。 如果需要安装更新，可以将**单个**MSU 包置于本地依赖项路径中。 如果此位置有多个 MSU 文件，此脚本将失败。
+> 建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
 
-*Updatesqlprovider.ps1*脚本创建新的 vm 后，该脚本将从旧的提供程序 VM 迁移以下设置：
+*UpdateSQLProvider.ps1* 脚本在创建新的 VM 后，会从旧的提供程序 VM 中迁移以下设置：
 
 * 数据库信息
 * 宿主服务器信息
-* 所需的 DNS 记录
+* 必要的 DNS 记录
 
 ## <a name="update-script-parameters"></a>更新脚本参数
 
-运行**Updatesqlprovider.ps1** PowerShell 脚本时，可以从命令行指定以下参数。 如果不是，或者任何参数验证失败，系统会提示提供所需的参数。
+运行 **UpdateSQLProvider.ps1** PowerShell 脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
 
 | 参数名称 | 说明 | 注释或默认值 |
 | --- | --- | --- |
-| **CloudAdminCredential** | 访问特权终结点所需的云管理员凭据。 | _必需_ |
-| **AzCredential** | Azure Stack 中心服务管理员帐户的凭据。 使用用于部署 Azure Stack 集线器的相同凭据。 | _必需_ |
+| **CloudAdminCredential** | 访问特权终结点时所需的云管理员凭据。 | _必需_ |
+| **AzCredential** | Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 | _必需_ |
 | **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
-| **AzureEnvironment** | 用于部署 Azure Stack 中心的服务管理员帐户的 Azure 环境。 仅 Azure AD 部署中需要。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
-| **DependencyFilesLocalPath** | 还必须将证书 .pfx 文件放在此目录中。 | _对于单一节点是可选的，但对于多节点是必需的_ |
-| **DefaultSSLCertificatePassword** | .Pfx 证书的密码。 | _必需_ |
-| **MaxRetryCount** | 如果出现故障，要重试每个操作的次数。| 2 |
-| **RetryDuration** |两次重试之间的超时间隔（秒）。 | 120 |
+| **AzureEnvironment** | 用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
+| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 |  对单节点为可选，但对多节点为必选 |
+| **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
+| **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
+| **RetryDuration** |每两次重试的超时间隔（秒）。 | 120 |
 | **卸载** | 删除资源提供程序和所有关联的资源。 | 否 |
 | **DebugMode** | 防止在失败时自动清除。 | 否 |
 
 ## <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
 > [!NOTE]
-> 此更新过程仅适用于 Azure Stack 集线器集成系统。
+> 此更新过程仅适用于 Azure Stack Hub 集成系统。
 
-如果要将 SQL 资源提供程序版本更新为1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm 和 Azure Stack 集线器模块。 如果要更新到 SQL 资源提供程序版本1.1.47.0，部署脚本将自动下载并安装所需的 PowerShell 模块，使你能够通过路径 C:\Program Files\SqlMySqlPsh。
+如果要将 SQL 资源提供程序版本更新为 1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 如果要更新到 SQL 资源提供程序版本 1.1.47.0，则部署脚本会自动下载所需的 PowerShell 模块并将其安装到路径 C:\Program Files\SqlMySqlPsh。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
@@ -72,9 +72,9 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
 > [!NOTE]
-> 在断开连接的情况下，需要下载所需的 PowerShell 模块，并手动注册存储库。 可以在[部署 SQL 资源提供程序](azure-stack-sql-resource-provider-deploy.md)中获取详细信息
+> 在断开连接的情况下，需要下载所需的 PowerShell 模块并手动注册存储库，这是先决条件。 可以在[部署 SQL 资源提供程序](azure-stack-sql-resource-provider-deploy.md)中获取详细信息
 
-下面是使用*updatesqlprovider.ps1*脚本的示例，你可以从提升的 PowerShell 控制台中运行该脚本。 请确保根据需要更改变量信息和密码：  
+下面是 *UpdateSQLProvider.ps1* 脚本的使用示例，该脚本可以通过提升的 PowerShell 控制台来运行。 请务必根据需要更改变量信息和密码：  
 
 ```powershell
 # Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but this might have been changed at installation.
@@ -122,7 +122,7 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
  ```
 
-资源提供程序更新脚本完成后，关闭当前 PowerShell 会话。
+资源提供程序更新脚本完成后，请关闭当前的 PowerShell 会话。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,60 +1,60 @@
 ---
-title: Azure Stack 中心集成系统 Azure Stack 集线器防火墙集成
-description: 了解 Azure Stack 中心集成系统 Azure Stack 集线器防火墙集成。
+title: Azure Stack Hub 集成系统的 Azure Stack Hub 防火墙集成
+description: 了解 Azure Stack Hub 集成系统的 Azure Stack Hub 防火墙集成。
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: d0929edd5db0ba45593d5d061f5d831df50f3d35
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c33c2dbcdb662f23072ef7aca83364643c3cdf0c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294513"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244185"
 ---
-# <a name="azure-stack-hub-firewall-integration"></a>Azure Stack 集线器防火墙集成
-建议使用防火墙设备来帮助保护 Azure Stack 中心。 防火墙可以帮助防御分布式拒绝服务（DDOS）攻击、入侵检测和内容检查等内容。 但是，它们也可能成为 Azure 存储服务（如 blob、表和队列）的吞吐量瓶颈。
+# <a name="azure-stack-hub-firewall-integration"></a>Azure Stack Hub 防火墙集成
+建议使用防火墙设备来帮助保护 Azure Stack Hub。 防火墙有助于防止分布式拒绝服务 (DDOS) 攻击之类的攻击，以及执行入侵检测和内容检查。 但是，它们也可能成为 Azure 存储服务（例如 Blob、表和队列）的吞吐量瓶颈。
 
- 如果使用了断开连接的部署模式，则必须发布 AD FS 终结点。 有关详细信息，请参阅[数据中心集成标识一文](azure-stack-integrate-identity.md)。
+ 如果使用断开连接部署模式，则必须发布 AD FS 终结点。 有关详细信息，请参阅[数据中心集成标识一文](azure-stack-integrate-identity.md)。
 
-Azure 资源管理器（管理员）、管理员门户和 Key Vault （管理员）终结点不一定需要外部发布。 例如，作为服务提供商，你可以通过仅从网络内部管理 Azure Stack 集线器（而不是从 internet）来限制攻击面。
+Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员）终结点不一定需要外部发布。 例如，作为服务提供商，你可以只允许从网络内管理 Azure Stack Hub，不允许从 Internet 进行管理，这样就可以限制攻击面。
 
-对于企业组织，外部网络可以是现有公司网络。 在这种情况下，必须发布终结点才能从企业网络 Azure Stack 集线器。
+对于企业组织，外部网络可能是现有的公司网络。 在这种情况下，必须发布可以从公司网络操作 Azure Stack Hub 的终结点。
 
 ### <a name="network-address-translation"></a>网络地址转换
-建议使用网络地址转换（NAT）方法，以便在部署期间允许部署虚拟机（DVM）访问外部资源和 internet，以及在期间使用紧急恢复控制台（ERCS） Vm 或特权终结点（PEP）注册和故障排除。
+网络地址转换 (NAT) 是建议采用的方法，它允许部署虚拟机 (DVM) 在部署期间访问外部资源和 Internet，以及在注册和故障排除期间访问紧急恢复控制台 (ERCS) VM 或特权终结点 (PEP)。
 
-NAT 也可以替代外部网络上的公共 IP 地址或公共 Vip。 但是，不建议这样做，因为它会限制租户用户体验并增加复杂性。 一个选项是一个 NAT，在池中每个用户 IP 仍需要一个公共 IP。 另一个选项是 "多对一个 NAT"，它需要用户可以使用的所有端口的每个用户 VIP 的 NAT 规则。
+还可以使用 NAT 作为外部网络上的公共 IP 地址或公共 VIP 的替代方法。 但是，不建议这样做，因为它限制了租户用户体验并增加了复杂性。 一个选项是一对一 NAT，仍然要求池中的每个用户 IP 有一个公共 IP。 另一个选项是多对一 NAT，需要针对用户可能使用的所有端口按用户 VIP 采用 NAT 规则。
 
-使用用于公共 VIP 的 NAT 的部分缺点是：
-- NAT 在管理防火墙规则时增加了开销，因为用户在软件定义的网络（SDN）堆栈中控制自己的终结点及其自己的发布规则。 用户必须与 Azure Stack 中心操作员联系，才能发布其 Vip 并更新端口列表。
-- 尽管 NAT 使用限制了用户体验，但它为操作员提供了对发布请求的完全控制权。
-- 对于使用 Azure 的混合云方案，请考虑 Azure 不支持使用 NAT 设置到终结点的 VPN 隧道。
+下面是对公共 VIP 使用 NAT 的一些缺点：
+- NAT 增加了管理防火墙规则时的开销，因为用户在软件定义的网络 (SDN) 堆栈中控制其自己的终结点和其自己的发布规则。 用户必须联系 Azure Stack Hub 操作员才能发布其 VIP 以及更新端口列表。
+- 虽然使用 NAT 会限制用户体验，但它使得操作员能够完全控制发布请求。
+- 对于采用 Azure 的混合云方案，请注意 Azure 不支持使用 NAT 设置到终结点的 VPN 隧道。
 
 ### <a name="ssl-interception"></a>SSL 拦截
-目前建议在所有 Azure Stack 集线器流量上禁用任何 SSL 拦截（例如解密卸载）。 如果在将来的更新中受支持，将提供有关如何为 Azure Stack 中心启用 SSL 拦截的指南。
+目前建议在所有 Azure Stack Hub 流量上禁用任何 SSL 拦截（例如解密卸载）。 如果将来的更新支持此功能，那时将会提供有关如何为 Azure Stack Hub 启用 SSL 拦截的指南。
 
 ## <a name="edge-firewall-scenario"></a>边缘防火墙方案
-在边缘部署中，Azure Stack 集线器直接部署在边缘路由器或防火墙后面。 在这些情况下，防火墙支持在边框的上方（方案1），其中支持主动-主动和主动-被动防火墙配置，或者充当边框设备（方案2），其中仅支持主动-主动防火墙配置依赖于相等成本多路径（ECMP）进行故障转移的 BGP 或静态路由。
+在边缘部署中，Azure Stack Hub 直接部署在边缘路由器或防火墙后面。 在这些方案中，支持将防火墙放置在边界上方（例如方案 1，在这种情况下它支持主动-主动和主动-被动防火墙配置）或让防火墙充当边界设备（例如方案 2，在这种情况下它仅支持依赖于等成本多路径 (ECMP) 的主动-主动防火墙配置，并使用 BGP 或静态路由进行故障转移）。
 
-公共可路由 IP 地址是在部署时为外部网络中的公共 VIP 池指定的。 在边缘方案中，出于安全考虑，不建议使用任何其他网络上的公共可路由 Ip。 此方案使用户能够体验到 Azure 等公有云中的完全自控制云体验。  
+在部署时会为外部网络中的公共 VIP 池指定公共的可路由 IP 地址。 在边缘方案中，出于安全考虑，建议不要在任何其他网络上使用公共的可路由 IP。 与在 Azure 之类的公有云中一样，此方案使得用户能够获得完全的自控云体验。  
 
-![Azure Stack 集线器边缘防火墙示例](./media/azure-stack-firewall/firewallScenarios.png)
+![Azure Stack Hub 边缘防火墙示例](./media/azure-stack-firewall/firewallScenarios.svg)
 
-## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>企业 intranet 或外围网络防火墙方案
-在企业 intranet 或外围部署中，Azure Stack 集线器部署在多分区防火墙上，或部署在边缘防火墙与内部企业网络防火墙之间。 然后，在安全区域、外围网络（或 DMZ）与不安全区域之间分配其流量，如下所述：
+## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>企业 Intranet 或外围网络防火墙方案
+在企业 Intranet 或外围部署中，Azure Stack Hub 部署在多区域防火墙上，或者部署在边缘防火墙与内部的公司网络防火墙之间。 然后，其流量将分布在安全的外围网络（或 DMZ）与不安全的区域之间，如下所述：
 
-- **安全区域**：这是使用内部或公司可路由 IP 地址的内部网络。 可以通过防火墙上的 NAT 对安全网络进行分割，使其具有 internet 出站访问权限，并且通常可以通过内部网络从数据中心内的任何位置进行访问。 所有 Azure Stack 集线器网络应驻留在安全区域中，外部网络的公共 VIP 池除外。
-- **外围区域**。 外围网络是指通常会在外部或面向 internet 的应用程序（如 Web 服务器）上部署。 它通常由防火墙进行监视，以避免在允许来自 internet 的指定入站流量的情况下出现 DDoS 和入侵（黑客）的攻击。 只有 Azure Stack 集线器的外部网络公共 VIP 池应驻留在 DMZ 区域中。
-- 不**安全区域**。 这是外部网络，即 internet。 不建议在**不**安全区域部署 Azure Stack 中心。
+- **安全区域**：这是使用内部或公司可路由 IP 地址的内部网络。 安全网络可以拆分，可以通过防火墙上的 NAT 进行 Internet 出站访问，并且通常可以通过内部网络从你的数据中心内的任何位置进行访问。 除了外部网络的公共 VIP 池之外，所有 Azure Stack Hub 网络都应当位于安全区域中。
+- **外围区域**。 外围网络通常是部署外部或面向 Internet 的应用（例如 Web 服务器）的地方。 通常由防火墙对其进行监视，以避免诸如 DDoS 和入侵（黑客进攻）之类的攻击，同时仍允许来自 Internet 的指定入站流量。 只有 Azure Stack Hub 的外部网络公共 VIP 池应当位于 DMZ 区域中。
+- **不安全区域**。 这是指外部网络，即 Internet。 建议**不要**将 Azure Stack Hub 部署在不安全区域中。
 
-![Azure Stack 集线器外围网络示例](./media/azure-stack-firewall/perimeter-network-scenario.png)
+![Azure Stack Hub 外围网络示例](./media/azure-stack-firewall/perimeter-network-scenario.svg)
 
 ## <a name="learn-more"></a>了解详细信息
-了解有关[Azure Stack 中心终结点使用的端口和协议的](azure-stack-integrate-endpoints.md)详细信息。
+详细了解 [Azure Stack Hub 终结点使用的端口和协议](azure-stack-integrate-endpoints.md)。
 
 ## <a name="next-steps"></a>后续步骤
-[Azure Stack 中心 PKI 要求](azure-stack-pki-certs.md)
+[Azure Stack Hub PKI 要求](azure-stack-pki-certs.md)
 

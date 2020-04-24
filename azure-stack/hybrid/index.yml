@@ -1,26 +1,26 @@
 ### YamlMime:Landing
 title: Azure 混合模式和解决方案文档
-summary: 了解如何在应用程序开发中利用混合模式和解决方案示例。 Azure 和 Azure Stack 允许开发混合应用程序，这种应用程序构建在一套智能云和智能边缘服务之上。
+summary: 了解如何在应用开发中利用混合模式和解决方案示例。 Azure 和 Azure Stack 支持基于一组智能云和智能边缘服务开发混合应用程序。
 metadata:
   title: Azure 混合模式和解决方案文档
-  description: 了解如何在应用程序开发中利用混合模式和解决方案示例。 Azure 和 Azure Stack 允许开发混合应用程序，这种应用程序构建在一套智能云和智能边缘服务之上。
+  description: 了解如何在应用开发中利用混合模式和解决方案示例。 Azure 和 Azure Stack 支持基于一组智能云和智能边缘服务开发混合应用程序。
   ms.service: azure-stack
   ms.topic: landing-page
   author: BryanLa
   ms.author: bryanla
   ms.date: 10/31/2019
   ms.openlocfilehash: 923e8aa2af78b5d23ba1f25d8b0eb5b80edc4f0a
-  ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/06/2019
+  ms.lasthandoff: 04/14/2020
   ms.locfileid: "73639846"
 landingContent:
 - title: 关于混合模式和解决方案
   linkLists:
   - linkListType: overview
     links:
-    - text: 什么是混合模式和解决方案示例？
+    - text: 混合模式和解决方案示例是怎样的？
       url: overview-patterns-solution-examples.md
   - linkListType: concept
     links:
@@ -36,7 +36,7 @@ landingContent:
       url: pattern-cicd-pipeline.md
     - text: Footfall 检测（零售）
       url: pattern-retail-footfall-detection.md
-    - text: 地理分布式应用程序
+    - text: 地理分散的应用
       url: pattern-geo-distributed.md
 - title: 部署混合解决方案示例
   linkLists:
@@ -48,7 +48,7 @@ landingContent:
       url: https://aka.ms/hybriddevopsdeploy
     - text: Footfall 检测（零售）
       url: solution-deployment-guide-retail-footfall-detection.md
-    - text: 地理分布式应用程序
+    - text: 地理分散的应用
       url: solution-deployment-guide-geo-distributed.md
 - title: 零售 footfall 检测方案
   linkLists:

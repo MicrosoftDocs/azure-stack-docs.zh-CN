@@ -1,6 +1,6 @@
 ---
-title: 更改 Azure Stack 中心用户订阅的计费所有者
-description: 了解如何更改 Azure Stack 中心用户订阅的计费所有者。
+title: 更改 Azure Stack Hub 用户订阅的计费所有者
+description: 了解如何更改 Azure Stack Hub 用户订阅的计费所有者。
 author: justinha
 ms.topic: conceptual
 ms.date: 09/17/2019
@@ -8,39 +8,39 @@ ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2019
 ms.openlocfilehash: b02795cf0058a9d63947c6143b0721c544ff9811
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701575"
 ---
-# <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>更改 Azure Stack 中心用户订阅的计费所有者
+# <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>更改 Azure Stack Hub 用户订阅的计费所有者
 
-Azure Stack 中心操作员可以使用 PowerShell 来更改用户订阅的计费所有者。 例如，更改所有者的一个原因是替换离开组织的用户。
+Azure Stack Hub 操作员可以使用 PowerShell 更改用户订阅的计费所有者。 例如，更改所有者的一个原因是替换已离职的用户。
 
-向订阅分配了两种类型的*所有者*：
+会将两种类型的所有者分配到订阅： 
 
-- **计费所有者**：默认情况下，计费所有者是从产品/服务获取订阅的用户帐户，然后拥有该订阅的计费关系。 此帐户也是订阅的管理员。 对于订阅，只能有一个用户帐户具有这种指定。 计费所有者通常是组织或团队主管。
+- **计费所有者**：默认情况下，计费所有者是从套餐获取订阅，然后拥有该订阅的计费关系的用户帐户。 此帐户也是订阅的管理员。 在一个订阅中，只能指定一个此类用户帐户。 计费所有者通常是组织或团队主管。
 
-  你可以使用 PowerShell cmdlet [AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription)来更改计费所有者。  
+  可以使用 PowerShell cmdlet [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) 更改计费所有者。  
 
-- **通过 RBAC 角色添加的所有者**-其他用户可以使用[基于角色的访问控制](azure-stack-manage-permissions.md)（RBAC）授予**所有者**角色。 可以添加任意数量的其他用户帐户作为所有者来补充计费所有者。 其他所有者也是订阅的管理员，并且具有订阅的所有特权，但无权删除计费所有者。
+- **通过 RBAC 角色添加的所有者** - 可以使用[基于角色的访问控制](azure-stack-manage-permissions.md) (RBAC) 向其他用户授予**所有者**角色。 可将任意数量的其他用户帐户添加为所有者，以补充计费所有者。 其他所有者也是订阅的管理员，拥有订阅的所有特权，但无权删除计费所有者。
 
-  你可以使用 PowerShell 来管理其他所有者。 有关详细信息，请参阅[此文章](/azure/role-based-access-control/role-assignments-powershell)。
+  可以使用 PowerShell 来管理其他所有者。 有关详细信息，请参阅[此文章](/azure/role-based-access-control/role-assignments-powershell)。
 
 ## <a name="change-the-billing-owner"></a>更改计费所有者
 
-运行以下脚本以更改用户订阅的计费所有者。 用于运行脚本的计算机必须连接到 Azure Stack 集线器，并运行 Azure Stack 中心 PowerShell 模块1.3.0 或更高版本。 有关详细信息，请参阅[Install Azure Stack Hub PowerShell](azure-stack-powershell-install.md)。
+运行以下脚本更改用户订阅的计费所有者。 用于运行该脚本的计算机必须连接到 Azure Stack Hub 并运行 Azure Stack Hub PowerShell 模块 1.3.0 或更高版本。 有关详细信息，请参阅[安装 Azure Stack Hub PowerShell](azure-stack-powershell-install.md)。
 
 >[!NOTE]
 >在多租户 Azure Stack 中心，新所有者必须与现有所有者位于同一目录中。 你必须首先[邀请该用户作为你目录](/azure/active-directory/b2b/add-users-administrator)中的来宾，然后才能向另一个目录中的用户提供订阅的所有权。
 
-在脚本运行之前将其替换为以下值：
+运行脚本之前，请替换脚本中的以下值：
 
 - **$ArmEndpoint**：你的环境的资源管理器终结点。
 - **$TenantId**：你的租户 ID。
 - **$SubscriptionId**：你的订阅 ID。
-- **$OwnerUpn**：作为新的计费所有者添加的帐户（例如**用户\@example.com**）。
+- **$OwnerUpn**：作为新的计费所有者添加的帐户（例如**user\@example.com**）。
 
 ```powershell
 # Set up Azure Stack Hub admin environment

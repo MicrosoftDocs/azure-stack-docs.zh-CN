@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 集线器上的应用服务 Update 2 发行说明
-description: 了解 Azure Stack 集线器上的应用服务更新2中的改进、修复和已知问题。
+title: Azure Stack Hub 上的应用服务 Update 2 发行说明
+description: 了解 Azure Stack Hub 上的应用服务 Update 2 中的改进、修复和已知问题。
 author: bryanla
 manager: stefsch
 ms.topic: article
@@ -9,85 +9,85 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
 ms.openlocfilehash: 2c80aafe3665b6ecb31e701483a5e903d0471e42
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703411"
 ---
-# <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Azure Stack 集线器上的应用服务 Update 2 发行说明
+# <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Azure Stack Hub 上的应用服务 Update 2 发行说明
 
-这些发行说明介绍 Azure Stack 中心更新 2 Azure App Service 的改进、修复和已知问题。 已知问题分为三部分：直接与部署相关的问题、更新过程的问题以及生成（安装后）的问题。
+这些发行说明介绍 Azure Stack Hub 上的 Azure 应用服务 Update 2 中的改进、修复和已知问题。 已知问题分为三个部分：与部署直接相关的问题、更新过程问题，以及内部版本（安装后）的问题。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.2 之前，将1804更新应用到 Azure Stack 集线器集成系统或部署最新的 Azure Stack 开发工具包（ASDK）。
+> 请将 1804 更新应用于 Azure Stack Hub 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.2。
 
 ## <a name="build-reference"></a>内部版本参考
 
-Azure Stack 中心更新2内部版本号上的应用服务是**72.0.13698.10**。
+Azure Stack Hub 上的应用服务 Update 2 的内部版本号为 **72.0.13698.10**。
 
-### <a name="prerequisites"></a>必备条件
+### <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
-> Azure Stack 中心的 Azure App Service 的新部署现在需要[三个使用者的通配符证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为在 Azure App Service 中处理 Kudu SSO 的方式。 新主题为： **\*\<区域\>\<domainname\>\<扩展\>**
+> 基于 Azure Stack Hub 的 Azure 应用服务的新部署现在要求提供[三使用者通配型证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。 新的使用者是 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 
-开始部署之前，请参阅在[Azure Stack 中心部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
+在开始部署之前，请参阅[在 Azure Stack Hub 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
-### <a name="new-features-and-fixes"></a>新增功能和修补程序
+### <a name="new-features-and-fixes"></a>新功能和修复
 
-Azure Stack 中心更新2上的 Azure App Service 包括以下改进和修补程序：
+Azure Stack Hub 上的 Azure 应用服务 Update 2 包含以下改进和修复：
 
-- **应用服务租户、管理、功能门户和 Kudu 工具**的更新。 与 Azure Stack 中心门户 SDK 版本一致。
+- 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
 
-- 将**Azure Functions 运行时**更新为**1.0.11612**。
+- 将 **Azure Functions 运行时**更新到 **v1.0.11612**。
 
-- 核心服务的更新，可提高可靠性和错误消息，从而更容易诊断常见问题。
+- 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
-- **以下应用程序框架和工具的更新**：
-  - 添加了 .NET Framework 4.7。1
-  - 已添加**node.js**版本：
-    - NodeJS 6.12。3
-    - NodeJS 8.9。4
-    - NodeJS 8.10。0
-    - NodeJS 8.11。1
-  - 添加了**NPM**版本：
+- **针对以下应用程序框架和工具的更新**：
+  - 增加了 .NET Framework 4.7.1
+  - 增加了 **Node.JS** 版本：
+    - NodeJS 6.12.3
+    - NodeJS 8.9.4
+    - NodeJS 8.10.0
+    - NodeJS 8.11.1
+  - 增加了 **NPM** 版本：
     - 5.6.0
-  - 更新的 .NET Core 组件与公有云中 Azure App Service 一致。
-  - 已更新 Kudu
+  - 更新了 .NET Core 组件，使其与公有云中的 Azure 应用服务保持一致。
+  - 更新了 Kudu
 
-- 已启用自动交换部署槽功能-[配置自动交换](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)。
+- 启用了部署槽位自动交换功能 - [配置自动交换](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)。
 
-- 已启用生产功能的测试-[在生产中进行测试的简介](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)。
+- 启用了在生产中测试功能 - [在生产中测试简介](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)。
 
-- Azure Functions 代理启用-[使用 Azure Functions 代理](https://docs.microsoft.com/azure/azure-functions/functions-proxies)。
+- 启用了 Azure Functions 代理 - [使用 Azure Functions 代理](https://docs.microsoft.com/azure/azure-functions/functions-proxies)。
 
-- 已为添加应用服务管理扩展 UX UX：
-  - 机密旋转
+- 针对以下项添加了应用服务管理扩展 UX 支持：
+  - 机密轮换
   - 证书轮换
   - 系统凭据轮换
-  - 连接字符串旋转
+  - 连接字符串轮换
 
 ### <a name="known-issues-post-installation"></a>已知问题（安装后）
 
-- 在现有虚拟网络中部署应用服务时，辅助角色无法访问文件服务器，并且文件服务器仅在专用网络上可用。
+- 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
-如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加一个出站安全规则，该规则启用辅助子网和文件服务器之间的 SMB 流量。 在管理员门户中转到 WorkersNsg，并使用以下属性添加出站安全规则：
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理员门户中的 WorkersNsg 并添加包含以下属性的出站安全规则：
 
 * 源：任意
-* 源端口范围： *
-* 目标： IP 地址
-* 目标 IP 地址范围：文件服务器的 Ip 范围
+* 源端口范围：*
+* 目标：IP 地址
+* 目标 IP 地址范围：文件服务器的 IP 范围
 * 目标端口范围：445
 * 协议：TCP
 * 操作：允许
 * 优先级：700
-* 名称： Outbound_Allow_SMB445
+* 姓名：Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的云管理员操作 Azure App Service 的已知问题
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>云管理员在操作基于 Azure Stack Hub 的 Azure 应用服务时的已知问题
 
-请参阅[Azure Stack 中心1804发行说明](azure-stack-update-1903.md)中的文档
+请参阅 [Azure Stack Hub 1804 发行说明](azure-stack-update-1903.md)中的文档
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关 Azure App Service 的概述，请参阅[Azure Stack 集线器概述](azure-stack-app-service-overview.md)中的 Azure App Service。
-- 有关如何准备在 Azure Stack 集线器上部署应用服务的详细信息，请参阅[在 Azure Stack 中心部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
+- 有关 Azure 应用服务的概述，请参阅[基于 Azure Stack Hub 的 Azure 应用服务概述](azure-stack-app-service-overview.md)。
+- 若要详细了解如何完成基于 Azure Stack Hub 的应用服务的部署准备，请参阅[在 Azure Stack Hub 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。

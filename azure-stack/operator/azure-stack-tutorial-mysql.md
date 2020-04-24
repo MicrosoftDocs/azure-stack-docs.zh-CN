@@ -9,17 +9,17 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
 ms.openlocfilehash: 327b63e2b21ea545fd6e0d175d531862ceeac0d6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696917"
 ---
 # <a name="create-highly-available-mysql-databases"></a>创建高度可用的 MySQL 数据库
 
 作为 Azure Stack 中心操作员，你可以将服务器虚拟机（Vm）配置为托管 MySQL Server 数据库。 Azure Stack 中心成功创建并管理 MySQL 群集后，订阅 MySQL 服务的用户可以轻松地创建高度可用的 MySQL 数据库。
 
-本文介绍如何使用 Azure Stack Marketplace 项创建[具有复制群集的 MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster)。 此解决方案使用多个 Vm 将数据库从主节点复制到可配置的副本数。 创建群集后，可以将其作为 Azure Stack 中心 MySQL 宿主服务器添加，然后用户可以创建高度可用的 MySQL 数据库。
+本文介绍如何使用 Azure Stack Marketplace 项创建[具有复制群集的 MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster)。 此解决方案使用多个 VM 将数据库从主节点复制到多个可配置的副本。 创建群集后，可以将其作为 Azure Stack 中心 MySQL 宿主服务器添加，然后用户可以创建高度可用的 MySQL 数据库。
 
 > [!IMPORTANT]
 > **使用复制**Azure Stack Marketplace 项的 MySQL 可能不适用于所有 Azure 云订阅环境。 尝试在本教程的其余部分进行操作之前，请验证 marketplace 项在你的订阅中是否可用。
@@ -64,11 +64,11 @@ ms.locfileid: "77696917"
 
 2. 如果尚未分配订阅，请从仪表板中选择 "**获取订阅**"。 在边栏选项卡中，键入订阅的名称，然后选择 "产品/服务"。 建议你在自己的订阅中保留 MySQL 群集部署，以防止意外删除。
 
-3. 选择 **\+** **创建资源** > **计算**，然后**使用复制创建 MySQL**。
+3. 选择 " **\+** **创建资源** > " "**计算**"，然后选择 "**使用复制的 MySQL**"。
 
    ![Azure Stack 中心中的自定义模板部署](media/azure-stack-tutorial-mysqlrp/img1.png)
 
-4. 在 "**基本**信息" 页上提供基本的部署信息。 查看默认值并根据需要进行更改，然后选择 **"确定"** 。
+4. 在 "**基本**信息" 页上提供基本的部署信息。 查看默认值并根据需要进行更改，然后选择 **"确定"**。
 
     至少提供以下信息：
 
@@ -82,7 +82,7 @@ ms.locfileid: "77696917"
 
      ![部署基础知识-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/img2.png)
 
-5. 在 "**环境配置**" 页上，提供以下信息，然后选择 **"确定"** ：
+5. 在 "**环境配置**" 页上，提供以下信息，然后选择 **"确定"**：
 
    - 用于安全外壳（SSH）身份验证的密码或 SSH 公钥。 如果使用密码，则它必须包含字母、数字，并且**可以**包含特殊字符。
    - VM 大小（默认为标准 D1 v2 Vm）。
@@ -90,7 +90,7 @@ ms.locfileid: "77696917"
 
      ![环境配置-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/img3.png)
 
-6. 查看部署**摘要**。 还可以选择下载自定义模板和参数，然后选择 **"确定"** 。
+6. 查看部署**摘要**。 还可以选择下载自定义模板和参数，然后选择 **"确定"**。
 
    ![摘要-创建包含复制的 MySQL](media/azure-stack-tutorial-mysqlrp/img4.png)
 
@@ -139,7 +139,7 @@ ms.locfileid: "77696917"
 
 3. 创建 Azure Stack 中心 MySQL 宿主服务器用来连接 MySQL 的远程访问用户帐户，然后退出 SSH 客户端。
 
-    运行以下命令，使用前面创建的根密码以 root 身份登录 MySQL。 创建新的管理员用户，并根据环境要求 *\<用户名\>* 和 *\<密码\>* 。 在此示例中，创建的用户的名称为**sqlsa** ，并使用强密码：
+    运行以下命令，使用前面创建的根密码以 root 身份登录 MySQL。 创建新的管理员用户，并根据环境要求替换* \<用户名\> *和* \<密码\> * 。 在此示例中，创建的用户的名称为**sqlsa** ，并使用强密码：
 
    ```mysql
    mysql -u root -p
@@ -172,7 +172,7 @@ ms.locfileid: "77696917"
 
 ## <a name="create-a-highly-available-mysql-database"></a>创建高度可用的 MySQL 数据库
 
-创建并配置 MySQL 群集并将其作为 Azure Stack 中心 MySQL 宿主服务器添加到 Azure Stack 中心操作员后，具有订阅的租户用户（包括 MySQL Server 数据库功能）可以通过按照本部分中的步骤进行操作。
+创建并配置 MySQL 群集并将其作为 Azure Stack 中心 MySQL 宿主服务器添加到 Azure Stack 中心操作员后，具有订阅的租户用户（包括 MySQL Server 数据库功能）可以按照本部分中的步骤创建高度可用的 MySQL 数据库。
 
 > [!NOTE]
 > 使用订阅提供 MySQL 服务器功能（Mysqladapter.dbadapter 服务）作为租户用户，从 Azure Stack 中心用户门户运行这些步骤。
@@ -180,7 +180,7 @@ ms.locfileid: "77696917"
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. 选择 **\+** **创建资源** > **数据 \+ 存储**，然后选择 " **MySQL 数据库**"。
+2. 依次**\+** 选择 "**创建资源** > " "**数据\+存储**" 和 " **MySQL 数据库**"。
 
     提供所需的数据库属性信息，包括名称、排序规则、要使用的订阅以及要用于部署的位置。
 
@@ -190,7 +190,7 @@ ms.locfileid: "77696917"
 
    ![在 Azure Stack 集线器用户门户中选择 SKU](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 
-4. 选择 "**登录**" > **创建新的登录名**，然后提供要用于新数据库的 MySQL 身份验证凭据。 完成后，选择 **"确定"** ，然后选择 "**创建**" 以开始数据库部署过程。
+4. 选择 "**登录** > " "**创建新的登录名**"，然后提供要用于新数据库的 MySQL 身份验证凭据。 完成后，选择 **"确定"** ，然后选择 "**创建**" 以开始数据库部署过程。
 
    ![在 Azure Stack Hub 用户门户中添加登录名](./media/azure-stack-tutorial-mysqlrp/createdb3.png)
 

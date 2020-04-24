@@ -3,16 +3,16 @@ title: 对 Azure Stack 集线器上的 AKS 引擎进行故障排除
 description: 本文包含 Azure Stack 集线器上的 AKS 引擎的故障排除步骤。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/17/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: d362eb0bf418cf292953afc50fe993dc4867253c
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.lastreviewed: 4/17/2020
+ms.openlocfilehash: 8768628e246c439c86bba80f4faac2ff9ae1973d
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069301"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624970"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>对 Azure Stack 集线器上的 AKS 引擎进行故障排除
 
@@ -116,13 +116,13 @@ ms.locfileid: "80069301"
     tar xvf diagnosis-v0.1.1.tar.gz -C ./
     ```
 
-2. 查找 `getkuberneteslogs.sh` 脚本所需的参数。 此脚本将使用以下参数：
+2. 查找`getkuberneteslogs.sh`脚本所需的参数。 此脚本将使用以下参数：
 
-    | 参数 | 说明 | 必选 | 示例 |
+    | 参数 | 说明 | 必需 | 示例 |
     | --- | --- | --- | --- |
     | -h、--help | 打印命令用法。 | 否 | 
     -u,--用户 | 群集 Vm 的管理员用户名 | 是 | azureuser<br>（默认值） |
-    | -i、--file | 与用于创建 Kubernetes 群集的公钥关联的 RSA 私钥（有时名为 "id_rsa"）  | 是 | `./rsa.pem` （Putty）<br>`~/.ssh/id_rsa` （SSH） |
+    | -i、--identity-file | 与用于创建 Kubernetes 群集的公钥关联的 RSA 私钥（有时名为 "id_rsa"）  | 是 | `./rsa.pem`Putty<br>`~/.ssh/id_rsa`SSH |
     |   -g, --resource-group    | Kubernetes 群集资源组 | 是 | k8sresourcegroup |
     |   -n、--user-namespace               | 从指定命名空间中的容器收集日志（始终收集 kube 系统日志） | 否 |   monitoring |
     |       --api 模型                    | 将 apimodel 文件保存在 Azure Stack 中心存储帐户中。 如果同时提供了--apimodel 参数，则会将文件上传到存储帐户。 | 否 | `./apimodel.json` |
@@ -142,15 +142,15 @@ ms.locfileid: "80069301"
 
 ## <a name="review-custom-script-extension-error-codes"></a>查看自定义脚本扩展错误代码
 
-你可以在运行群集中查看由自定义脚本扩展（CSE）创建的错误代码列表。 CSE 错误有助于诊断问题的根本原因。 Kubernetes 群集中使用的 Ubuntu 服务器的 CSE 支持许多 AKS 引擎操作。 有关 CSE 退出代码的详细信息，请参阅[cse_helpers。](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh)
+你可以在运行群集中查看由自定义脚本扩展（CSE）创建的错误代码列表。 CSE 错误有助于诊断问题的根本原因。 Kubernetes 群集中使用的 Ubuntu 服务器的 CSE 支持许多 AKS 引擎操作。 有关 CSE 退出代码的详细信息，请参阅[cse_helpers。](https://github.com/Azure/aks-engine/blob/master/pkg/engine/cse.go)
 
 ### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>向 Microsoft 支持工程师提供 Kubernetes 日志
 
-如果在收集和检查日志后仍无法解决问题，则可能需要开始创建支持票证的过程，并提供通过使用 `--upload-logs` 参数集运行 `getkuberneteslogs.sh` 收集的日志。 
+如果在收集和检查日志后仍无法解决问题，则可能需要开始创建支持票证的过程，并提供通过使用`getkuberneteslogs.sh` `--upload-logs`参数集运行收集的日志。 
 
 请与 Azure Stack 中心操作员联系。 操作员使用日志中的信息来创建支持案例。
 
-在解决任何支持问题的过程中，Microsoft 支持工程师可能会要求 Azure Stack 中心操作员收集 Azure Stack 中心系统日志。 你可能需要向操作员提供通过运行 `getkuberneteslogs.sh`上传 Kubernetes 日志的存储帐户信息。
+在解决任何支持问题的过程中，Microsoft 支持工程师可能会要求 Azure Stack 中心操作员收集 Azure Stack 中心系统日志。 你可能需要向操作员提供存储帐户信息，你可以在其中通过运行`getkuberneteslogs.sh`上载 Kubernetes 日志。
 
 操作员可以运行**Get-azurestacklog** PowerShell cmdlet。 此命令使用参数（`-InputSaSUri`）来指定存储 Kubernetes 日志的存储帐户。
 
@@ -164,9 +164,9 @@ ms.locfileid: "80069301"
 2. 使用以下格式添加标题： C`SE error: exit code <INSERT_YOUR_EXIT_CODE>`。
 3. 在此问题中包含以下信息：
 
-    - 用于部署群集的群集配置文件 `apimodel json`。 在 GitHub 上发布所有机密和密钥之前，请将其删除。  
-     - 以下**kubectl**命令的输出 `get nodes`。  
-     - `/var/log/azure/cluster-provision.log` 和 `/var/log/cloud-init-output.log` 的内容
+    - 用于部署群集的群集`apimodel json`配置文件。 在 GitHub 上发布所有机密和密钥之前，请将其删除。  
+     - 以下**kubectl**命令`get nodes`的输出。  
+     - `/var/log/azure/cluster-provision.log`和的内容`/var/log/cloud-init-output.log`
 
 ## <a name="next-steps"></a>后续步骤
 

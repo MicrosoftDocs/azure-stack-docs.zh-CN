@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中心 MySQL 资源提供程序1.1.47.0 发行说明
-description: 查看发行说明，了解 Azure Stack Hub MySQL 资源提供程序1.1.47.0 更新中的新增功能。
+title: Azure Stack Hub MySQL 资源提供程序 1.1.47.0 发行说明
+description: 查看发行说明以了解 Azure Stack Hub MySQL 资源提供程序 1.1.47.0 更新中的新增功能。
 author: justinha
 ms.topic: article
 ms.date: 11/26/2019
@@ -8,42 +8,42 @@ ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
 ms.openlocfilehash: 4984f36b4632f2bcb204c93ef409ea82a7f299f5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77698821"
 ---
-# <a name="mysql-resource-provider-11470-release-notes"></a>MySQL 资源提供程序1.1.47.0 发行说明
+# <a name="mysql-resource-provider-11470-release-notes"></a>MySQL 资源提供程序 1.1.47.0 发行说明
 
-这些发行说明介绍了 MySQL 资源提供程序版本1.1.47.0 中的改进和已知问题。
+本发行说明描述 MySQL 资源提供程序 1.1.47.0 版中的改进和已知问题。
 
 ## <a name="build-reference"></a>内部版本参考
-下载 MySQL 资源提供程序二进制文件，然后运行自解压缩程序，将内容提取到临时目录中。 资源提供程序至少有一个对应的 Azure Stack 中心生成。 安装此版本的 MySQL 资源提供程序所需的最低 Azure Stack 中心版本如下所示：
+下载 MySQL 资源提供程序二进制文件，然后运行自解压程序，将内容解压缩到一个临时目录。 资源提供程序具有相应的最低 Azure Stack Hub 版本。 下面列出了安装此 MySQL 资源提供程序版本所需的最低 Azure Stack Hub 发行版：
 
-> |最低 Azure Stack 中心版本|MySQL 资源提供程序版本|
+> |最低 Azure Stack Hub 版本|MySQL 资源提供程序版本|
 > |-----|-----|
-> |版本1910（1.1910.0.58）|[MySQL RP 版本1.1.47。0](https://aka.ms/azurestackmysqlrp11470)|  
+> |版本 1910 (1.1910.0.58)|[MySQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|  
 > |     |     |
 
 > [!IMPORTANT]
-> 在部署最新版本的 MySQL 资源提供程序之前，将支持的最低 Azure Stack 中心更新应用到 Azure Stack 中心集成系统或部署最新 Azure Stack 开发工具包（ASDK）。
+> 在部署最新版本的 MySQL 资源提供程序之前，请先将支持的最低 Azure Stack Hub 更新版应用到 Azure Stack Hub 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)。
 
-## <a name="new-features-and-fixes"></a>新增功能和修补程序
+## <a name="new-features-and-fixes"></a>新功能和修复
 
-此版本的 Azure Stack 集线器 MySQL 资源提供程序是一个修补程序版本，可使资源提供程序与1910更新中的某些最新门户更改兼容，无需任何新功能。
+此版本的 Azure Stack Hub MySQL 资源提供程序是一个修补程序版本，可使资源提供程序与 1910 更新中的某些最新门户更改兼容，而没有任何新功能。
 
-它还支持当前最新的 Azure Stack 中心 API 版本配置文件 2019-03-01-混合和 Azure Stack 中心 PowerShell 模块1.8.0。 因此，在部署和更新过程中，无需安装特定的模块历史记录版本。
+它还支持当前最新的 Azure Stack Hub API 版本配置文件 2019-03-01-hybrid 和 Azure Stack Hub PowerShell 模块 1.8.0。 因此，部署和更新期间无需安装模块的特定历史版本。
 
-建议在 Azure Stack 集线器升级到1910版本后应用 MySQL 资源提供程序修补程序1.1.47.0。
+建议在将 Azure Stack Hub 升级到 1910 版本后应用 MySQL 资源提供程序修补程序 1.1.47.0。
 
 ## <a name="known-issues"></a>已知问题
 
 无。
 
 ## <a name="next-steps"></a>后续步骤
-[了解有关 MySQL 资源提供程序的详细信息](azure-stack-mysql-resource-provider.md)。
+[详细了解 MySQL 资源提供程序](azure-stack-mysql-resource-provider.md)。
 
 [准备部署 MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md#prerequisites)。
 
-[从以前的版本升级 MySQL 资源提供程序](azure-stack-mysql-resource-provider-update.md)。 
+[从旧版升级 MySQL 资源提供程序](azure-stack-mysql-resource-provider-update.md)。 

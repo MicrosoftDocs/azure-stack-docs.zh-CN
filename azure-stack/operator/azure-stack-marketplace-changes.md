@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中心 Marketplace 中的新增功能
-description: Azure Stack 中心 Marketplace 中的更改和更新。
+title: Azure Stack Hub 市场中的新增内容
+description: Azure Stack Hub 市场中的更改和更新。
 author: sethmanheim
 ms.topic: article
 ms.date: 01/22/2020
@@ -8,22 +8,22 @@ ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
 ms.openlocfilehash: 3a78dabf7e4bae13d4fcea5d672d79110ddb44b7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77699093"
 ---
-# <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack 中心市场更改
+# <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
-本文介绍大约最近3个月内[Azure Stack 中心市场项](azure-stack-marketplace-azure-items.md)的最新添加、更新、更改和删除。 本部分中的信息经常更新，因此请经常回来查看。
+本文介绍近 3 个月来最新添加、更新、更改和删除的 [Azure Stack Hub 市场项](azure-stack-marketplace-azure-items.md)。 此部分中的信息经常更新，因此请经常回来查看是否有更改。
 
-[Azure Stack 中心 marketplace 项](azure-stack-marketplace-azure-items.md)项目始终包含可用 Azure Stack 中心市场项的最新列表。
+[Azure Stack Hub 市场项](azure-stack-marketplace-azure-items.md)一文始终包含可用 Azure Stack Hub 市场项的最新列表。
 
-## <a name="new-marketplace-items"></a>新建 Marketplace 项
+## <a name="new-marketplace-items"></a>新增市场项
 
-- 06/27/2019： SIOS Datakeeper 群集版本
-- 06/27/2019： Veeam 备份 & 复制
+- 06/27/2019：SIOS Datakeeper Cluster Edition
+- 06/27/2019：Veeam 备份和复制
 - 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器即用即付
 - 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器 BYOL
 - 06/27/2019： Windows Server 2019 Datacenter 即用即付
@@ -51,16 +51,16 @@ ms.locfileid: "77699093"
 - 12/26/2019：检查点 CloudGuard IaaS 单一网关
 - 01/21/2020： Teradici Cloud Access 软件
 
-## <a name="deprecated-marketplace-items"></a>弃用的 Marketplace 项
+## <a name="deprecated-marketplace-items"></a>弃用市场项
 
 - Bitnami Codiad
 - Bitnami X2Engine 销售 CRM
 - Bitnami SugarCRM
 - Bitnami node.js 高可用性群集
 - A10 vThunder： L4-L7 应用程序交付控制器，全局服务器负载平衡（GSLB），SSL 见解
-- Check Point vSEC 安全管理
+- Check Point vSEC Security Management
 
-## <a name="updated-marketplace-items"></a>更新的 Marketplace 项
+## <a name="updated-marketplace-items"></a>更新弃用市场项
 
 - 07/11/2019： Thales CipherTrust 云密钥管理器-版本1.0。7
 - 07/16/2019： Windows Server 2016 Datacenter Server Core BYOL-version 2016.127.20190522
@@ -91,6 +91,6 @@ ms.locfileid: "77699093"
 
 有关 Azure Stack 中心 Marketplace 的详细信息，请参阅以下文章：
 
-- [Azure Marketplace 概述](azure-stack-marketplace.md)
+- [Azure 市场概述](azure-stack-marketplace.md)
 - [适用于 Azure Stack 集线器的 Azure Marketplace 项](azure-stack-marketplace-azure-items.md)
 - [创建并发布 Azure Stack 中心市场项](azure-stack-create-and-publish-marketplace-item.md)

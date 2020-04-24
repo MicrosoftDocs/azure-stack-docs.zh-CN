@@ -1,7 +1,7 @@
 ---
-title: 替换物理磁盘
+title: 更换物理磁盘
 titleSuffix: Azure Stack Hub
-description: 了解如何替换 Azure Stack 集线器中的物理磁盘。
+description: 了解如何更换 Azure Stack Hub 中的物理磁盘。
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
@@ -9,18 +9,18 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
 ms.openlocfilehash: ec161fd296785f42049b7b2917142f08b47ac910
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367840"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack-hub"></a>替换 Azure Stack 集线器中的物理磁盘
+# <a name="replace-a-physical-disk-in-azure-stack-hub"></a>更换 Azure Stack Hub 中的物理磁盘
 
-本文介绍替换 Azure Stack 集线器中的物理磁盘的一般过程。 如果物理磁盘发生故障，应尽快更换。
+本文介绍更换 Azure Stack Hub 中的物理磁盘的一般过程。 如果物理磁盘发生故障，应尽快更换。
 
 > [!Note]  
-> 替换物理数据驱动器**不**需要将缩放单位节点提前置于维护模式（排出）范围中。 此外，在物理驱动器被替换后，不需要使用 Azure Stack 中心管理员门户来修复缩放单位节点。 以下文章提供了在需要修复时[替换 Azure Stack 集线器缩放单位节点上的硬件组件](azure-stack-replace-component.md)的详细信息。
+> 更换物理数据驱动器**不**需要将缩放单位节点提前置于维护模式（清空）状态。 此外，在更换物理驱动器后，不需要使用 Azure Stack Hub 管理员门户来修复缩放单位节点。 以下文章详细介绍了何时需要修复：[更换 Azure Stack Hub 缩放单元节点上的硬件组件](azure-stack-replace-component.md)。
 
 可以将此过程用于具有热插拔磁盘的部署。
 
@@ -29,28 +29,28 @@ ms.locfileid: "78367840"
 ## <a name="review-disk-alert-information"></a>查看磁盘警报信息
 磁盘发生故障时，你将收到一个警报，告知你与物理磁盘的连接已丢失。
 
-![显示 Azure Stack 集线器管理中的物理磁盘的连接丢失的警报](media/azure-stack-replace-disk/DiskAlert.png)
+![在 Azure Stack Hub 管理中显示物理磁盘连接丢失的警报](media/azure-stack-replace-disk/DiskAlert.png)
 
-如果打开警报，则警报描述将包含必须替换的磁盘的缩放单位节点和确切物理槽位置。 Azure Stack 集线器进一步通过使用 LED 指示器功能帮助你确定故障磁盘。
+如果打开该警报，警报说明包含必须更换之磁盘的缩放单元节点和确切物理插槽位置。 Azure Stack Hub 会使用 LED 指示器功能来进一步帮助你确定发生故障的磁盘。
 
-## <a name="replace-the-physical-disk"></a>替换物理磁盘
+## <a name="replace-the-physical-disk"></a>更换物理磁盘
 
 请按照 OEM 硬件供应商的 FRU 说明进行实际磁盘更换。
 
 > [!note]
-> 一次将一个缩放单位节点的磁盘替换为一个。 等待虚拟磁盘修复作业完成，然后再转到下一个缩放单位节点。
+> 每次更换一个缩放单元节点的磁盘。 等待虚拟磁盘修复作业完成，然后移到下一个缩放单元节点。
 
-若要防止在集成系统中使用不受支持的磁盘，系统将阻止供应商不支持的磁盘。 如果尝试使用不受支持的磁盘，则新的警报会告诉你磁盘已被隔离，因为不支持该模式或固件。
+为了防止在集成系统中使用不支持的磁盘，系统会阻止供应商不支持的磁盘。 如果尝试使用不支持的磁盘，则会有新警报通知你因为不支持该磁盘的型号或固件，所以已将该磁盘隔离。
 
-替换磁盘后，Azure Stack 集线器会自动发现新磁盘并启动虚拟磁盘修复过程。
+更换磁盘后，Azure Stack Hub 会自动发现新磁盘，并启动虚拟磁盘修复过程。
 
-## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-hub-powershell"></a>使用 Azure Stack 中心 PowerShell 检查虚拟磁盘修复状态
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-hub-powershell"></a>使用 Azure Stack Hub PowerShell 查看虚拟磁盘修复的状态
 
-替换磁盘后，可以通过使用 Azure Stack 中心 PowerShell 来监视虚拟磁盘运行状况状态和修复作业进度。
+更换磁盘后，可以使用 Azure Stack Hub PowerShell 监视虚拟磁盘运行状况和修复作业进度。
 
-1. 检查是否已安装 Azure Stack Hub PowerShell。 有关详细信息，请参阅为[Azure Stack 集线器安装 PowerShell](azure-stack-powershell-install.md)。
-2. 使用 PowerShell 作为操作员连接到 Azure Stack 集线器。 有关详细信息，请参阅[使用 PowerShell 作为操作员连接到 Azure Stack 集线器](azure-stack-powershell-configure-admin.md)。
-3. 运行以下 cmdlet 以验证虚拟磁盘运行状况和修复状态：
+1. 检查是否已安装 Azure Stack Hub PowerShell。 有关详细信息，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+2. 以操作员身份使用 PowerShell 连接到 Azure Stack Hub。 有关详细信息，请参阅[以操作员身份使用 PowerShell 连接到 Azure Stack Hub](azure-stack-powershell-configure-admin.md)。
+3. 运行以下 cmdlet 以验证虚拟磁盘运行状况并修复状态：
 
     ```powershell  
     $scaleunit=Get-AzsScaleUnit
@@ -58,10 +58,10 @@ ms.locfileid: "78367840"
     Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
     ```
 
-    ![Powershell 中的 Azure Stack 集线器卷运行状况](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+    ![PowerShell 中的 Azure Stack Hub 卷运行状况](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
 
-4. 验证 Azure Stack 集线器系统状态。 有关说明，请参阅[验证 Azure Stack 集线器系统状态](azure-stack-diagnostic-test.md)。
-5. 或者，你可以运行以下命令来验证替换的物理磁盘的状态。
+4. 验证 Azure Stack Hub 系统状态。 有关说明，请参阅[验证 Azure Stack Hub 系统状态](azure-stack-diagnostic-test.md)。
+5. 或者，可以运行以下命令来验证更换的物理磁盘的状态。
 
     ```powershell  
     $scaleunit=Get-AzsScaleUnit
@@ -70,11 +70,11 @@ ms.locfileid: "78367840"
     Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
     ```
 
-    ![已将 Azure Stack 集线器中的物理磁盘替换为 Powershell](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+    ![已通过 PowerShell 更换 Azure Stack Hub 中的物理磁盘](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
 ## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>使用特权终结点检查虚拟磁盘修复状态
 
-替换磁盘后，可以使用特权终结点监视虚拟磁盘运行状况状态并修复作业进度。 请在任何连接到特权终结点的计算机上执行以下步骤。
+更换磁盘后，可以使用特权终结点监视虚拟磁盘运行状况和修复作业进度。 从任何可以通过网络连接到特权终结点的计算机，按照下列步骤进行操作。
 
 1. 打开 Windows PowerShell 会话并连接到特权终结点。
 
@@ -90,21 +90,21 @@ ms.locfileid: "78367840"
         Get-VirtualDisk -CimSession s-cluster
     ```
 
-   ![VirtualDisk 命令的 Powershell 输出](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
+   ![Get-VirtualDisk 命令的 Powershell 输出](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
-3. 运行以下命令以查看当前存储作业状态：
+3. 运行以下命令以查看当前的存储作业状态：
 
     ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
 
-    ![Get-storagejob 命令的 Powershell 输出](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+    ![Get-StorageJob 命令的 Powershell 输出](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-4. 验证 Azure Stack 集线器系统状态。 有关说明，请参阅[验证 Azure Stack 集线器系统状态](azure-stack-diagnostic-test.md)。
+4. 验证 Azure Stack Hub 系统状态。 有关说明，请参阅[验证 Azure Stack Hub 系统状态](azure-stack-diagnostic-test.md)。
 
 ## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>使用特权终结点排查虚拟磁盘修复问题
 
-如果虚拟磁盘修复作业出现堵塞，请运行以下命令来重新启动该作业：
+如果虚拟磁盘修复作业出现停滞，请运行以下命令来重新启动作业：
 
 ```powershell
 Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk

@@ -1,22 +1,22 @@
 ---
-title: 删除 Azure Stack HCI 中的卷
+title: 在 Azure Stack HCI 中删除卷
 description: 如何使用 Windows 管理中心和 PowerShell 删除 Azure Stack HCI 中的卷。
 author: khdownie
 ms.author: v-kedow
 ms.topic: article
 ms.date: 03/17/2020
 ms.openlocfilehash: cf556a9b6c130907e8607d8e5b9436b71756a3d4
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79511889"
 ---
-# <a name="deleting-volumes-in-azure-stack-hci"></a>删除 Azure Stack HCI 中的卷
+# <a name="deleting-volumes-in-azure-stack-hci"></a>在 Azure Stack HCI 中删除卷
 
-> 适用于： Windows Server 2019
+> 适用于：Windows Server 2019
 
-本主题说明如何使用 Windows 管理中心删除[存储空间直通](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)群集上的卷。
+本主题说明如何使用 Windows Admin Center 在[存储空间直通](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)群集上删除卷。
 
 观看有关如何使用 Windows 管理中心删除卷的快速视频。
 

@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: ae72fcbeccdb4500cf9182c01e2913188abd2895
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80068994"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>使用 Azure Stack 中心的容器 Azure Monitor
@@ -34,7 +34,7 @@ ms.locfileid: "80068994"
 
 还可以使用[Helm](https://helm.sh/)图在群集中安装监视代理。 按照以下文章[Azure Monitor –容器](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers)中的说明进行操作。
 
-## <a name="method-two"></a>方法2
+## <a name="method-two"></a>方法二
 
 可以在 AKS 引擎群集规范 json 文件中指定**加载**项。 文件也称为 API 模型。 在此加载项中，提供用于存储监视信息的 Azure Log Analytics 工作区的 base64 编码版本的**WorkspaceGUID**和**WorkspaceKey** 。
 

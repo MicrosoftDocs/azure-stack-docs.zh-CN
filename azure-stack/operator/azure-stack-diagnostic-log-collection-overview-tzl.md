@@ -7,14 +7,16 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 8f97ecd20e7ef8db69033268baf96060e1315751
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: b1c1048a8ad8bdb8d16d2e86c82febc8c74b03af
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79520426"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624935"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack 集线器诊断日志收集概述 
+
+::: moniker range=">= azs-2002"
 
 Azure Stack 中心是 Windows 组件和本地 Azure 服务彼此交互的大集合。 所有这些组件和服务都生成各自的日志集。 为了使 Microsoft 客户支持服务（CSS）能够有效地诊断问题，我们为诊断日志收集提供了无缝体验。 
 
@@ -64,18 +66,74 @@ Azure Stack 操作员可以使用管理员门户或 PowerShell 将诊断日志�
 
 使用发送日志收集的日志现在会上传到 Microsoft 托管和受控的存储。 Microsoft 在支持案例的上下文中对这些日志进行访问，并改善 Azure Stack 集线器的运行状况。 
 
+
+
 ## <a name="bandwidth-considerations"></a>带宽注意事项
 
 诊断日志集合的平均大小取决于它是主动运行还是手动运行。 **主动日志收集**的平均大小约为 2 GB。 **发送日志**的集合大小现在取决于收集的小时数。
 
-下表列出了对 Azure 进行有限连接或按流量计费的环境的注意事项。
-
+下表列出了在以受限或计量方式连接到 Azure 时的环境注意事项。
 
 | 网络连接 | 影响 |
 |--------------------|--------|
-| 低带宽/高延迟连接 | 日志上传需要较长的时间才能完成 | 
-| 共享连接 | 上传还可能会影响共享网络连接的其他应用程序/用户 |
-| 计量连接 | 你的 ISP 可能会额外收取额外的网络使用量 | 
+| 低带宽/高延迟连接 | 完成日志上传的时间会延长。 | 
+| 共享连接 | 上传也可能影响共享网络连接的其他应用程序/用户 |
+| 计量连接 | ISP 可能会针对你额外使用网络的情况收取额外费用 | 
+
+::: moniker-end
+::: moniker range="<= azs-1910"
+
+## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>从多个 Azure Stack 集线器系统收集日志
+
+为要从中收集日志的每个 Azure Stack 集线器缩放单位设置一个 blob 容器。 有关如何配置 blob 容器的详细信息，请参阅[配置自动 Azure Stack 集线器诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)。 最佳做法是，只保存单个 blob 容器内相同 Azure Stack 集线器缩放单位的诊断日志。 
+
+## <a name="retention-policy"></a>保留策略
+
+创建 Azure Blob 存储[生命周期管理规则](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)，管理日志保留策略。 建议将诊断日志保留 30 天。 若要在 Azure 存储中创建生命周期管理规则，请登录到 Azure 门户，单击“存储帐户”，接着单击 Blob 容器，然后在“Blob 服务”下单击“生命周期管理”。************
+
+![屏幕截图，显示 Azure 门户中的生命周期管理](media/azure-stack-automatic-log-collection/blob-storage-lifecycle-management.png)
+
+
+## <a name="sas-token-expiration"></a>SAS 令牌过期
+
+将 SAS URL 到期时间设置为两年。 如果续订存储帐户密钥，请确保重新生成 SAS URL。 应按最佳做法管理 SAS 令牌。 有关详细信息，请参阅[使用 SAS 时的最佳做法](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas)。
+
+
+## <a name="bandwidth-consumption"></a>带宽消耗
+
+进行诊断日志收集时日志的平均大小各不相同，具体取决于日志收集是按需的还是自动的。 
+
+对于按需日志收集，进行日志收集时日志的大小取决于需要收集多少小时。 可以从过去七天选择 1-4 小时滑动窗口。 
+
+启用诊断日志自动收集时，服务会对是否存在严重警报进行监视。 
+在严重警报出现并持续大约 30 分钟后，服务会收集并上传相应的日志。 
+该日志收集的日志大小平均约为 2 GB。 
+如果修补升级失败，就会启动日志自动收集，但前提是严重警报出现并持续约 30 分钟。 建议[按指南监视修补升级](azure-stack-updates.md)。
+警报监视、日志收集和上传对用户透明。 
+
+
+
+在正常系统中，根本不会收集日志。 
+在运行不正常的系统中，可能会每天运行两到三次日志收集，但通常只运行一次。 
+在最糟糕的情况下，每天可能运行多达十次。  
+
+用户可以根据下表考虑在以受限或计量方式连接到 Azure 时启用日志自动收集对环境的影响。
+
+| 网络连接 | 影响 |
+|--------------------|--------|
+| 低带宽/高延迟连接 | 完成日志上传的时间会延长。 | 
+| 共享连接 | 上传也可能影响共享网络连接的其他应用程序/用户 |
+| 计量连接 | ISP 可能会针对你额外使用网络的情况收取额外费用 |
+
+
+## <a name="managing-costs"></a>管理成本
+
+Azure [Blob 存储费用](https://azure.microsoft.com/pricing/details/storage/blobs/)取决于每月保存的数据量以及其他因素，例如数据冗余。 
+如果没有现有的存储帐户，可以登录到 Azure 门户，单击“存储帐户”，**** 然后按步骤[创建 Azure Blob 容器 SAS URL](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)。
+
+最佳做法是创建 Azure Blob 存储[生命周期管理策略](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)，尽量降低持续产生的存储成本。 有关如何设置存储帐户的详细信息，请参阅[配置自动 Azure Stack 集线器诊断日志收集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)
+
+::: moniker-end
 
 ## <a name="see-also"></a>另请参阅
 

@@ -1,67 +1,67 @@
 ---
-title: Azure Stack 中心数据中心 DNS 集成
+title: Azure Stack Hub 数据中心 DNS 集成
 description: 了解如何将 Azure Stack Hub DNS 与数据中心 DNS 集成。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 91d65a59d8db50162f5cf6c99f8d3ab1b5aeba86
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d16aea039103c69302c8f84aa7de078907f1efce
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699654"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244065"
 ---
-# <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack 中心数据中心 DNS 集成
+# <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack Hub 数据中心 DNS 集成
 
-若要能够从外部 Azure Stack 中心访问 Azure Stack 中心终结点（如**门户**、 **adminportal**、**管理**和**ADMINMANAGEMENT** ），需要将 Azure Stack Hub dns 服务与托管要在 AZURE STACK 集线器中使用的 dns 区域的 dns 服务器集成。
+若要能够从 Azure Stack Hub 外部访问 Azure Stack Hub 终结点（例如**门户**、**adminportal**、**管理**和 **adminmanagement**），需将 Azure Stack Hub DNS 服务与托管 DNS 区域（要在 Azure Stack Hub 中使用）的 DNS 服务器集成。
 
-## <a name="azure-stack-hub-dns-namespace"></a>Azure Stack 中心 DNS 命名空间
+## <a name="azure-stack-hub-dns-namespace"></a>Azure Stack Hub DNS 命名空间
 
-部署 Azure Stack 中心时，需要提供一些与 DNS 相关的重要信息。
+部署 Azure Stack Hub 时，必须提供与 DNS 相关的一些重要信息。
 
 
 |字段  |说明  |示例|
 |---------|---------|---------|
-|区域|Azure Stack 中心部署的地理位置。|`east`|
-|外部域名|要用于 Azure Stack 中心部署的区域的名称。|`cloud.fabrikam.com`|
-|内部域名|用于 Azure Stack 集线器中的基础结构服务的内部区域的名称。 它与目录服务集成并是专用的（无法从 Azure Stack 中心部署外部访问）。|`azurestack.local`|
-|DNS 转发器|用于在公司 intranet 或公共 internet 上转发在 Azure Stack 中心外托管的 DNS 查询、DNS 区域和记录的 DNS 服务器。 部署后，可以通过[ **AzSDnsForwarder** Cmdlet](#editing-dns-forwarder-ips)编辑 DNS 转发器的值。 
-|命名前缀（可选）|需要 Azure Stack 中心基础结构角色实例计算机名称的命名前缀。  如果未提供，则默认值为 `azs`。|`azs`|
+|区域|Azure Stack Hub 部署的地理位置。|`east`|
+|外部域名|需要用于 Azure Stack Hub 部署的区域的名称。|`cloud.fabrikam.com`|
+|内部域名|在 Azure Stack Hub 中用于基础结构服务的内部区域的名称。 它是目录服务集成的和专用的（无法从 Azure Stack Hub 部署外部访问）。|`azurestack.local`|
+|DNS 转发器|一种 DNS 服务器，用于转发托管在 Azure Stack Hub 外部的 DNS 查询、DNS 区域和记录，不管是在公司 Intranet 上还是公共 Internet 上。 部署后，可以使用 [**Set-AzSDnsForwarder** cmdlet](#editing-dns-forwarder-ips) 编辑 DNS 转发器值。 
+|命名前缀（可选）|需要在 Azure Stack Hub 基础结构角色实例计算机名称中使用的命名前缀。  如果不提供，则默认值为 `azs`。|`azs`|
 
-Azure Stack 中心部署和终结点的完全限定的域名（FQDN）是区域参数和外部域名参数的组合。 使用上表中的示例中的值，此 Azure Stack 中心部署的 FQDN 将是以下名称：
+Azure Stack Hub 部署和终结点的完全限定域名 (FQDN) 是区域参数和外部域名参数的组合。 使用上表中示例的值时，此 Azure Stack Hub 部署的 FQDN 将是以下名称：
 
 `east.cloud.fabrikam.com`
 
-同样，此部署的某些终结点的示例类似于以下 Url：
+同样，此部署的部分终结点的示例将如以下 URL 所示：
 
 `https://portal.east.cloud.fabrikam.com`
 
 `https://adminportal.east.cloud.fabrikam.com`
 
-若要将此示例 DNS 命名空间用于 Azure Stack 中心部署，需要满足以下条件：
+若要使用 Azure Stack Hub 部署的这个示例 DNS 命名空间，需要满足以下条件：
 
-- 区域 `fabrikam.com` 将注册到域注册机构和/或内部企业 DNS 服务器中，这取决于你的名称解析要求。
-- 子域 `cloud.fabrikam.com` 存在于 `fabrikam.com`区域下。
-- 承载区域的 DNS 服务器 `fabrikam.com` 和 `cloud.fabrikam.com` 可从 Azure Stack 中心部署中访问。
+- 区域 `fabrikam.com` 已注册到域注册机构和/或公司内部 DNS 服务器，具体取决于名称解析要求。
+- 子域 `cloud.fabrikam.com` 存在于区域 `fabrikam.com` 下。
+- 托管区域 `fabrikam.com` 和 `cloud.fabrikam.com` 的 DNS 服务器可以从 Azure Stack Hub 部署访问。
 
-若要从 Azure Stack 中心外解析 Azure Stack 中心终结点和实例的 DNS 名称，需要将承载 Azure Stack 中心外部 DNS 区域的 DNS 服务器与托管要使用的父区域的 DNS 服务器集成。
+若要从 Azure Stack Hub 外部解析 Azure Stack Hub 终结点和实例的 DNS 名称，需将为 Azure Stack Hub 托管外部 DNS 区域的 DNS 服务器与托管需要使用的父区域的 DNS 服务器集成。
 
 ### <a name="dns-name-labels"></a>DNS 名称标签
 
-Azure Stack 中心支持将 DNS 名称标签添加到公共 IP 地址，以允许对公共 IP 地址进行名称解析。 使用 DNS 标签，用户可以轻松访问按名称托管在 Azure Stack 集线器中的应用和服务。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间如下所示：
+Azure Stack Hub 支持向公共 IP 地址添加 DNS 名称标签，以允许对公共 IP 地址进行名称解析。 DNS 标签是一种方便用户通过名称访问 Azure Stack Hub 中托管的应用和服务的方法。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间如下所示：
 
 `*.east.cloudapp.cloud.fabrikam.com`
 
-因此，如果某个租户在公共 IP 地址资源的 DNS 名称标签字段中指示值**myapp** ，则它会在 Azure Stack HUB 外部 DNS 服务器上的区域**East.cloudapp.cloud.fabrikam.com**中创建一个**myapp**记录。 生成的完全限定的域名如下所示：
+因此，如果租户在公共 IP 地址资源的 DNS 名称标签字段中指定值 **Myapp**，则会在 Azure Stack Hub 外部 DNS 服务器上的 **east.cloudapp.cloud.fabrikam.com** 区域中为 **myapp** 创建一条 A 记录。 生成的完全限定域名如下所示：
 
 `myapp.east.cloudapp.cloud.fabrikam.com`
 
-如果要利用此功能并使用此命名空间，则必须将承载 Azure Stack 中心外部 DNS 区域的 DNS 服务器与托管要使用的父区域的 DNS 服务器集成。 这是一个与 Azure Stack 中心服务终结点的命名空间不同的命名空间，因此你必须创建其他委托或条件转发规则。
+如果要利用此功能并使用此命名空间，则必须将托管 Azure Stack Hub 的外部 DNS 区域的 DNS 服务器与托管也要使用的父区域的 DNS 服务器集成。 这是一个与 Azure Stack Hub 服务终结点的命名空间不同的命名空间，因此你必须创建一个额外的委托或条件转发规则。
 
-有关 DNS 名称标签工作方式的详细信息，请参阅[在 Azure Stack Hub 中使用 dns](../user/azure-stack-dns.md)。
+有关 DNS 名称标签的工作原理的详细信息，请参阅[在 Azure Stack Hub 中使用 DNS](../user/azure-stack-dns.md)。
 
 ## <a name="resolution-and-delegation"></a>解析和委托
 
@@ -70,91 +70,89 @@ Azure Stack 中心支持将 DNS 名称标签添加到公共 IP 地址，以允�
 - 权威 DNS 服务器托管 DNS 区域。 它只应答这些区域中的 DNS 记录查询。
 - 递归 DNS 服务器不托管 DNS 区域。 它调用权威 DNS 服务器来收集所需的数据，以应答所有 DNS 查询。
 
-Azure Stack 中心包含权威 DNS 服务器和递归 DNS 服务器。 递归服务器用于解析内部专用区域以外的所有内容的名称和该 Azure Stack 中心部署的外部公共 DNS 区域。
+Azure Stack Hub 包括权威 DNS 服务器和递归 DNS 服务器。 递归服务器用于解析所有项的名称，该 Azure Stack Hub 部署的内部专用区域和外部公用 DNS 区域除外。
 
-![Azure Stack 中心 DNS 体系结构](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
+![Azure Stack Hub DNS 体系结构](media/azure-stack-integrate-dns/Integrate-DNS-01.svg)
 
-## <a name="resolving-external-dns-names-from-azure-stack-hub"></a>解析 Azure Stack 集线器中的外部 DNS 名称
+## <a name="resolving-external-dns-names-from-azure-stack-hub"></a>通过 Azure Stack Hub 解析外部 DNS 名称
 
-若要解析 Azure Stack 中心外部的终结点的 DNS 名称（例如： www\.bing.com），需要提供 Azure Stack 集线器可用于转发 Azure Stack 中心不具有权威的 DNS 请求的 DNS 服务器。 对于部署，Azure Stack 集线器的 DNS 服务器将请求转发到部署工作表（在 "DNS 转发器" 字段中）。 请在此字段中至少提供两台服务器，以获得容错能力。 如果没有这些值，Azure Stack 中心部署将失败。 部署后，可以通过[ **AzSDnsForwarder** Cmdlet](#editing-dns-forwarder-ips)编辑 DNS 转发器的值。 
+若要解析 Azure Stack Hub 外部终结点的 DNS 名称（例如：www\.bing.com），需提供可供 Azure Stack Hub 用来转发 DNS 请求的 DNS 服务器（Azure Stack Hub 对这些请求来说并不权威）。 进行部署时，DNS 服务器（Azure Stack Hub 向其转发请求）在部署工作表（位于“DNS 转发器”字段中）中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 没有这些值，Azure Stack Hub 部署会失败。 部署后，可以使用 [**Set-AzSDnsForwarder** cmdlet](#editing-dns-forwarder-ips) 编辑 DNS 转发器值。 
 
-
-
-### <a name="configure-conditional-dns-forwarding"></a>配置条件 DNS 转发
+### <a name="configure-conditional-dns-forwarding"></a>配置条件性 DNS 转发
 
 > [!IMPORTANT]
 > 这仅适用于 AD FS 部署。
 
-若要启用现有 DNS 基础结构的名称解析，请配置条件转发。
+若要通过现有的 DNS 基础结构启用名称解析，请配置条件性转发。
 
-若要添加条件转发器，必须使用特权终结点。
+若要添加条件性转发器，必须使用特权终结点。
 
-对于此过程，请使用数据中心网络中的计算机，该计算机可以与 Azure Stack 集线器中的特权终结点进行通信。
+对于此过程，请使用能够与 Azure Stack Hub 中的特权终结点通信的数据中心网络中的计算机。
 
-1. 打开提升的 Windows PowerShell 会话（以管理员身份运行），并连接到特权终结点的 IP 地址。 使用凭据进行 CloudAdmin authentication。
+1. 打开提升了权限的 Windows PowerShell 会话（以管理员身份运行），连接到特权终结点的 IP 地址。 使用进行 CloudAdmin 身份验证的凭据。
 
-   ```
+   ```PowerShell
    $cred=Get-Credential 
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred
    ```
 
-2. 连接到特权终结点后，请运行以下 PowerShell 命令。 将提供的示例值替换为要使用的 DNS 服务器的域名和 IP 地址。
+2. 连接到特权终结点后，运行以下 PowerShell 命令。 将提供的示例值替换为要使用的 DNS 服务器的域名和 IP 地址。
 
-   ```
+   ```PowerShell
    Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
 
-## <a name="resolving-azure-stack-hub-dns-names-from-outside-azure-stack-hub"></a>从 Azure Stack 中心外解析 Azure Stack 集线器 DNS 名称
-权威服务器是保存外部 DNS 区域信息以及任何用户创建的区域的服务器。 与这些服务器集成，以启用区域委派或条件性转发，以便从 Azure Stack 中心外解析 Azure Stack 集线器 DNS 名称。
+## <a name="resolving-azure-stack-hub-dns-names-from-outside-azure-stack-hub"></a>从 Azure Stack Hub 外部解析 Azure Stack Hub DNS 名称
+权威服务器是指保存了外部 DNS 区域信息以及任何用户创建的区域的服务器。 与这些服务器集成即可启用区域委托或条件性转发，以便从 Azure Stack Hub 外部解析 Azure Stack Hub DNS 名称。
 
 ## <a name="get-dns-server-external-endpoint-information"></a>获取 DNS 服务器外部终结点信息
 
-若要将 Azure Stack 中心部署与 DNS 基础结构集成，需要以下信息：
+若要将 Azure Stack Hub 部署与 DNS 基础结构集成，需提供以下信息：
 
-- DNS 服务器 Fqdn
+- DNS 服务器 FQDN
 - DNS 服务器 IP 地址
 
-Azure Stack 中心 DNS 服务器的 Fqdn 采用以下格式：
+Azure Stack Hub DNS 服务器的 FQDN 具有以下格式：
 
 `<NAMINGPREFIX>-ns01.<REGION>.<EXTERNALDOMAINNAME>`
 
 `<NAMINGPREFIX>-ns02.<REGION>.<EXTERNALDOMAINNAME>`
 
-使用示例值，DNS 服务器的 Fqdn 为：
+使用示例值时，DNS 服务器的 FQDN 如下所示：
 
 `azs-ns01.east.cloud.fabrikam.com`
 
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-此信息也会在名为 `AzureStackStampInformation.json`的文件中的所有 Azure Stack 中心部署结束时创建。 此文件位于部署虚拟机的 `C:\CloudDeployment\logs` 文件夹中。 如果不确定哪些值用于 Azure Stack 中心部署，可以从此处获取这些值。
+在名为 `AzureStackStampInformation.json` 的文件中，此信息也会在所有 Azure Stack Hub 部署的末尾创建。 该文件位于部署虚拟机的 `C:\CloudDeployment\logs` 文件夹中。 如果不确定对 Azure Stack Hub 部署使用了什么值，可以从该文件中获取这些值。
 
-如果部署虚拟机不再可用或无法访问，可以通过连接到特权终结点并运行 `Get-AzureStackStampInformation` PowerShell cmdlet 来获取这些值。 有关详细信息，请参阅[特权终结点](azure-stack-privileged-endpoint.md)。
+如果部署虚拟机不再可用或无法访问，则可连接到特权终结点并运行 `Get-AzureStackStampInformation` PowerShell cmdlet，以便获取这些值。 有关详细信息，请参阅[特权终结点](azure-stack-privileged-endpoint.md)。
 
-## <a name="setting-up-conditional-forwarding-to-azure-stack-hub"></a>设置 Azure Stack 集线器的条件转发
+## <a name="setting-up-conditional-forwarding-to-azure-stack-hub"></a>设置到 Azure Stack Hub 的条件性转发
 
-将 Azure Stack 中心与 DNS 基础结构集成的最简单且最安全的方法是从承载父区域的服务器执行区域的条件性转发。 如果你可以直接控制托管 Azure Stack 中心外部 DNS 命名空间的父区域的 DNS 服务器，则建议使用此方法。
+若要将 Azure Stack Hub 与 DNS 基础结构集成，最简单也最安全的方式是将区域从托管父区域的服务器进行条件性转发。 如果可以直接控制为 Azure Stack Hub 外部 DNS 命名空间托管父区域的 DNS 服务器，建议使用此方法。
 
-如果你不熟悉如何使用 DNS 执行条件性转发，请参阅以下 TechNet 文章：为[域名分配条件转发器](https://technet.microsoft.com/library/cc794735)或特定于你的 DNS 解决方案的文档。
+如果你不熟悉如何使用 DNS 进行条件转发，请参阅以下 TechNet 文章：[为域名分配条件转发器](https://technet.microsoft.com/library/cc794735)，或特定于 DNS 解决方案的文档。
 
-如果你指定了外部 Azure Stack 中心 DNS 区域，使其看起来像公司域名的子域，则无法使用条件转发。 必须配置 DNS 委派。
+如果已将外部 Azure Stack Hub DNS 区域指定为类似公司域名的子域那样，则无法使用条件性转发。 必须配置 DNS 委托。
 
 示例：
 
-- 公司 DNS 域名： `contoso.com`
-- Azure Stack 中心外部 DNS 域名： `azurestack.contoso.com`
+- 公司 DNS 域名：`contoso.com`
+- Azure Stack Hub 外部 DNS 域名：`azurestack.contoso.com`
 
-## <a name="editing-dns-forwarder-ips"></a>编辑 DNS 转发器 Ip
+## <a name="editing-dns-forwarder-ips"></a>编辑 DNS 转发器 IP
 
-DNS 转发器 Ip 是在部署 Azure Stack 中心期间设置的。 但是，如果转发器 Ip 需要出于任何原因进行更新，则可以通过连接到特权终结点并运行 `Get-AzSDnsForwarder` 和 `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` PowerShell cmdlet 来编辑这些值。 有关详细信息，请参阅[特权终结点](azure-stack-privileged-endpoint.md)。
+DNS 转发器 IP 是在 Azure Stack Hub 部署期间设置的。 但是，如果由于任何原因需要更新转发器 IP，则可以通过连接到特权终结点并运行 `Get-AzSDnsForwarder` 和 `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` PowerShell cmdlet 来编辑值。 有关详细信息，请参阅[特权终结点](azure-stack-privileged-endpoint.md)。
 
-## <a name="delegating-the-external-dns-zone-to-azure-stack-hub"></a>将外部 DNS 区域委派到 Azure Stack 中心
+## <a name="delegating-the-external-dns-zone-to-azure-stack-hub"></a>将外部 DNS 区域委托到 Azure Stack Hub
 
-若要从 Azure Stack 中心部署外部解析 DNS 名称，需要设置 DNS 委派。
+若要从 Azure Stack Hub 部署外部来解析 DNS 名称，需设置 DNS 委托。
 
-每个注册机构都有自身的 DNS 管理工具，可以更改域的名称服务器记录。 在注册机构的 DNS 管理页中，编辑 NS 记录，并将区域的 NS 记录替换为 Azure Stack 集线器中的记录。
+每个注册机构都有自身的 DNS 管理工具，可以更改域的名称服务器记录。 在注册机构的 DNS 管理页中，请编辑 NS 记录并将区域的 NS 记录替换为 Azure Stack Hub 中的相应记录。
 
-大多数 DNS 注册机构要求你至少提供两个 DNS 服务器来完成委派。
+大多数 DNS 注册机构要求至少提供两个 DNS 服务器才能完成委托。
 
 ## <a name="next-steps"></a>后续步骤
 

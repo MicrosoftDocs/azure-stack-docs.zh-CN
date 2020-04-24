@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: 50f63cee7776bd9093d986746ed613b38164b171
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069249"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>升级 Azure Stack 集线器上的 Kubernetes 群集
@@ -20,7 +20,7 @@ ms.locfileid: "80069249"
 
 使用 AKS 引擎，可以升级最初使用工具部署的群集。 您可以使用 AKS 引擎来维护群集。 维护任务类似于任何 IaaS 系统。 你应了解新更新的可用性，并使用 AKS 引擎来应用这些更新。
 
-升级命令将更新 Kubernetes 版本和基本操作系统映像。 每次运行升级命令时，对于群集的每个节点，AKS 引擎都将使用与所使用的**AKS**版本关联的 AKS 基础映像创建新的 VM。 您可以使用 `aks-engine upgrade` 命令来维护群集中每个主节点和代理节点的货币。 
+升级命令将更新 Kubernetes 版本和基本操作系统映像。 每次运行升级命令时，对于群集的每个节点，AKS 引擎都将使用与所使用的**AKS**版本关联的 AKS 基础映像创建新的 VM。 你可以使用`aks-engine upgrade`命令来维护群集中每个主节点和代理节点的货币。 
 
 Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工具和 VM 映像。 
 
@@ -28,11 +28,11 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 
 -   Kubernetes
 -   Azure Stack 中心 Kubernetes 提供程序
--   基本操作系统
+-   基操作系统
 
 升级生产群集时，请考虑以下事项：
 
--   是否对目标群集使用正确的群集规范（`apimodel.json`）和资源组？
+-   是否对目标群集使用正确的群集`apimodel.json`规范（）和资源组？
 -   是否正在为客户端计算机使用可靠的计算机来运行 AKS 引擎以及要从其执行升级操作的计算机？
 -   请确保你有备份群集并且它可操作。
 -   如果可能，请从 Azure Stack 中心环境中的 VM 运行命令，以减少网络跃点和可能的连接故障。
@@ -70,19 +70,19 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
     1.6.9   1.9.10, 1.9.11
     ```
 
-    例如，根据 `get-versions` 命令的输出，如果当前 Kubernetes 版本是 "1.13.5"，则可以升级到 "1.13.7，1.14.1，1.14.3"。
+    例如，根据`get-versions`命令的输出，如果当前 Kubernetes 版本是 "1.13.5"，则可以升级到 "1.13.7，1.14.1，1.14.3"。
 
-2. 收集运行 `upgrade` 命令所需的信息。 升级使用以下参数：
+2. 收集运行`upgrade`命令所需的信息。 升级使用以下参数：
 
     | 参数 | 示例 | 说明 |
     | --- | --- | --- |
-    | azure-env | AzureStackCloud | 若要指示 AKS 引擎 Azure Stack 集线器使用 `AzureStackCloud`的目标平台。 |
-    | location | local | Azure Stack 中心的区域名称。 对于 ASDK，区域设置为 `local`。 |
+    | azure-env | AzureStackCloud | 指示 AKS 引擎，指出目标平台 Azure Stack 集线器使用`AzureStackCloud`。 |
+    | location | local | Azure Stack 中心的区域名称。 对于 ASDK，区域设置为`local`。 |
     | resource-group | kube-rg | 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
     | api 模型 | ./kubernetes-azurestack.json | 群集配置文件的路径或 API 模型。 |
-    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 中心管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
-    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 这是你在创建服务时设置的客户端密码。 |
+    | 客户端-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 中心管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
+    | 客户端-密码 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 这是你在创建服务时设置的客户端密码。 |
     | 标识-系统 | adfs | 可选。 如果使用 Active Directory 联合服务（AD FS），则指定标识管理解决方案。 |
 
 3. 准备好值后，运行以下命令：
@@ -104,10 +104,10 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>仅升级 OS 映像的步骤
 
-1. 查看[支持的 kubernetes 版本表](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)，确定你是否具有计划升级所需的 AKS 和 Aks 基本映像版本。 查看 aks 运行的版本： `aks-engine version`。
-2. 相应地升级 AKS 引擎，在安装了 AKS 的计算机上运行： `./get-akse.sh --version vx.xx.x` 将**替换为目标版本。**
+1. 查看[支持的 kubernetes 版本表](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)，确定你是否具有计划升级所需的 AKS 和 Aks 基本映像版本。 若要查看 aks 的版本，请运行： `aks-engine version`。
+2. 请在安装了 AKS 的计算机上相应地升级 AKS 引擎，并将`./get-akse.sh --version vx.xx.x` **替换为目标**版本。
 3. 要求 Azure Stack 中心操作员在你计划使用的 Azure Stack 中心市场中添加所需的 AKS 基本映像版本。
-4. 使用已在使用的 Kubernetes 的相同版本运行 `aks-engine upgrade` 命令，但添加 `--force`。 你可以查看[强制升级](#forcing-an-upgrade)的示例。
+4. 使用已`aks-engine upgrade`在使用的相同版本的 Kubernetes 运行该命令，但将添加`--force`。 你可以查看[强制升级](#forcing-an-upgrade)的示例。
 
 
 ## <a name="forcing-an-upgrade"></a>强制升级

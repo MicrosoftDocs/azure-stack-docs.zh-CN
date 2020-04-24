@@ -1,7 +1,7 @@
 ---
 title: 启动和停止
 titleSuffix: Azure Stack Hub
-description: 了解如何启动和停止 Azure Stack 集线器。
+description: 了解如何启动和停止 Azure Stack Hub。
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
@@ -9,23 +9,23 @@ ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
 ms.openlocfilehash: 2c8211606ae797b4a88da1c268a7fb36b7de214b
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512365"
 ---
-# <a name="start-and-stop-azure-stack-hub"></a>启动和停止 Azure Stack 集线器
+# <a name="start-and-stop-azure-stack-hub"></a>启动和停止 Azure Stack Hub
 
-按照本文中的过程操作，正确关闭并重新启动 Azure Stack 中心服务。 *停止*将物理关闭并关闭整个 Azure Stack 中心环境。 *开始*在所有基础结构角色上通电，并将租户资源返回到关机之前的电源状态。
+请遵循本文中的过程正确关闭并重启 Azure Stack Hub 服务。  停止会以物理方式关闭整个 Azure Stack Hub 环境并将其断电。 启动会打开所有基础结构角色的电源，并使租户资源回到关闭前的电源状态。 
 
-## <a name="stop-azure-stack-hub"></a>停止 Azure Stack 集线器
+## <a name="stop-azure-stack-hub"></a>停止 Azure Stack Hub
 
-通过以下步骤停止或关闭 Azure Stack 集线器：
+使用以下步骤停止或关闭 Azure Stack Hub：
 
-1. 准备 Azure Stack 中心环境的租户资源上运行的所有工作负荷，以供即将关闭。
+1. 针对即将进行的关闭准备在 Azure Stack Hub 环境的租户资源上运行的所有工作负荷。
 
-2. 从具有网络访问权限的计算机上打开特权终结点会话（PEP） ERCS Azure Stack 中心 Vm。 有关说明，请参阅[使用 Azure Stack 集线器中的特权终结点](azure-stack-privileged-endpoint.md)。
+2. 从可以通过网络访问 Azure Stack Hub ERCS VM 的计算机打开特权终结点会话 (PEP)。 有关说明，请参阅[使用 Azure Stack Hub 中的特权终结点](azure-stack-privileged-endpoint.md)。
 
 3. 从 PEP 运行：
 
@@ -33,26 +33,26 @@ ms.locfileid: "79512365"
       Stop-AzureStack
     ```
 
-4. 等待所有物理 Azure Stack 中心节点关闭。
+4. 等待所有物理 Azure Stack Hub 节点关闭电源。
 
 > [!Note]
-> 可以按照提供 Azure Stack 集线器硬件的原始设备制造商（OEM）中的说明来验证物理节点的电源状态。
+> 可以按照提供 Azure Stack Hub 硬件的原始设备制造商 (OEM) 的指示，确认物理节点的电源状态。
 
-## <a name="start-azure-stack-hub"></a>开始 Azure Stack 集线器
+## <a name="start-azure-stack-hub"></a>启动 Azure Stack Hub
 
-启动 Azure Stack 集线器，并执行以下步骤。 不管 Azure Stack 中心停止的方式如何，请执行这些步骤。
+使用以下步骤启动 Azure Stack Hub。 请按照下列步骤操作，而不论 Azure Stack Hub 是如何停止的。
 
-1. 开启 Azure Stack 中心环境中的每个物理节点。 按照为 Azure Stack 中心提供硬件的 OEM 中的说明，验证物理节点的开机说明。
+1. 将 Azure Stack Hub 环境中每个物理节点的电源打开。 按照提供 Azure Stack Hub 硬件的 OEM 的指示，确认物理节点的电源开启指示。
 
-2. 等待 Azure Stack 集线器基础结构服务启动。 Azure Stack 集线器基础结构服务可能需要两个小时才能完成启动过程。 可以通过[ **ActionStatus** Cmdlet](#get-the-startup-status-for-azure-stack-hub)验证 Azure Stack 集线器的开始状态。
+2. 等待直到 Azure Stack Hub 基础结构服务启动。 Azure Stack Hub 基础结构服务完成启动过程可能需要两个小时。 可以使用 [**Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack-hub) 确认 Azure Stack Hub 的启动状态。
 
-3. 确保你的所有租户资源都已返回到关闭前的状态。 工作负荷管理器启动后，在租户资源上运行的工作负荷可能需要重新配置。
+3. 确保所有租户资源都已恢复到关闭之前的状态。 在工作负荷管理器启动后，可能需要重新配置在租户资源上运行的工作负荷。
 
-## <a name="get-the-startup-status-for-azure-stack-hub"></a>获取 Azure Stack 中心的启动状态
+## <a name="get-the-startup-status-for-azure-stack-hub"></a>获取 Azure Stack Hub 的启动状态
 
-通过以下步骤获取 Azure Stack 集线器启动例程的启动：
+使用以下步骤获取 Azure Stack Hub 启动例程的启动状态：
 
-1. 从具有网络访问权限的计算机上打开特权终结点会话，Azure Stack 集线器 ERCS Vm。
+1. 从可以通过网络访问 Azure Stack Hub ERCS VM 的计算机打开特权终结点会话。
 
 2. 从 PEP 运行：
 
@@ -60,11 +60,11 @@ ms.locfileid: "79512365"
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack-hub"></a>Azure Stack 集线器的启动和关闭疑难解答
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack-hub"></a>针对 Azure Stack Hub 的启动和关闭进行故障排除
 
-如果在 Azure Stack 集线器环境上通电后，基础结构和租户服务不能成功启动两小时，请执行以下步骤。
+如果打开 Azure Stack Hub 环境的电源两小时后基础结构和租户服务未成功启动，请执行以下步骤。
 
-1. 从具有网络访问权限的计算机上打开特权终结点会话，Azure Stack 集线器 ERCS Vm。
+1. 从可以通过网络访问 Azure Stack Hub ERCS VM 的计算机打开特权终结点会话。
 
 2. 运行：
 
@@ -72,7 +72,7 @@ ms.locfileid: "79512365"
       Test-AzureStack
       ```
 
-3. 查看输出并解决所有运行状况错误。 有关详细信息，请参阅[运行 Azure Stack 集线器的验证测试](azure-stack-diagnostic-test.md)。
+3. 查看输出并解决任何运行状况错误。 有关详细信息，请参阅[运行 Azure Stack Hub 的验证测试](azure-stack-diagnostic-test.md)。
 
 4. 运行：
 
@@ -84,4 +84,4 @@ ms.locfileid: "79512365"
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解[Azure Stack 集线器诊断工具](azure-stack-diagnostic-log-collection-overview-tzl.md)
+详细了解 [Azure Stack Hub 诊断工具](azure-stack-diagnostic-log-collection-overview-tzl.md)

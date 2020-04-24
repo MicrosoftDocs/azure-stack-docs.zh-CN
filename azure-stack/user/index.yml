@@ -1,26 +1,26 @@
 ### YamlMime:Landing
 title: Azure Stack 集线器用户文档
-summary: Azure Stack 中心是一种混合云平台，可让你从公司或服务提供商的数据中心使用 Azure 服务。
+summary: Azure Stack Hub 是一个混合云平台，可用于通过公司或服务提供商的数据中心使用 Azure 服务。
 metadata:
   title: Azure Stack 中心文档-教程、API 参考
-  description: Azure Stack 中心是一种混合云平台，可让你从公司或服务提供商的数据中心使用 Azure 服务。
+  description: Azure Stack Hub 是一个混合云平台，可用于通过公司或服务提供商的数据中心使用 Azure 服务。
   ms.service: azure-stack
   ms.topic: landing-page
   author: mattbriggs
   ms.author: mabrigg
   ms.date: 03/19/2020
   ms.openlocfilehash: a72fa2f57da84c18ee236c017fdd31a659946143
-  ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 03/21/2020
+  ms.lasthandoff: 04/14/2020
   ms.locfileid: "80069217"
 landingContent:
 - title: 关于 Azure Stack 集线器
   linkLists:
   - linkListType: overview
     links:
-    - text: 什么是 Azure Stack 中心？
+    - text: 什么是 Azure Stack Hub？
       url: user-overview.md
     - text: Azure 与 Azure Stack 中心之间的差异
       url: azure-stack-considerations.md
@@ -36,9 +36,9 @@ landingContent:
     links:
     - text: 从模板创建 VM
       url: azure-stack-create-vm-template.md
-    - text: 将C# web 应用部署到 Windows VM
+    - text: 将 C# Web 应用部署到 Windows VM
       url: azure-stack-dev-start-howto-vm-dotnet.md
-    - text: 部署 Java web 应用
+    - text: 部署 Java Web 应用
       url: azure-stack-dev-start-howto-vm-java.md
     - text: 部署 Python Web 应用
       url: azure-stack-dev-start-howto-vm-python.md
@@ -56,7 +56,7 @@ landingContent:
       url: azure-stack-powershell-user-docker.md
     - text: 使用 Visual Studio Code
       url: azure-stack-dev-start-vscode-azure.md
-- title: Azure Stack 集线器上的基础结构即服务（IaaS）
+- title: Azure Stack Hub 上的基础结构即服务 (IaaS)
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -64,11 +64,11 @@ landingContent:
       url: azure-stack-create-vm-template.md
     - text: 配置虚拟网络
       url: deploy-foundational-patterns.md
-    - text: 快速入门-创建 VM
+    - text: 快速入门 - 创建 VM
       url: azure-stack-quick-linux-portal.md
     - text: 托管代码中编写的应用
       url: azure-stack-dev-start-deploy-app.md
-- title: Azure Stack 集线器上的平台即服务（PaaS）
+- title: Azure Stack Hub 上的平台即服务 (PaaS)
   linkLists:
   - linkListType: how-to-guide
     links:

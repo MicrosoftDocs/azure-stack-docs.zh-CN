@@ -1,6 +1,6 @@
 ---
-title: 准备 Azure Stack 集线器中的扩展主机
-description: 了解如何在 Azure Stack Hub 中准备扩展主机，该主机在1808版后通过 Azure Stack 中心更新包自动启用。
+title: 在 Azure Stack Hub 中准备扩展主机
+description: 了解如何在 Azure Stack Hub 中准备扩展主机，扩展主机是通过版本 1808 之后的 Azure Stack Hub 更新包自动启用的。
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.date: 1/22/2020
@@ -8,46 +8,46 @@ ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
 ms.openlocfilehash: 69c7d14bef07e3664299c7e78ed1e8bf555f19dd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77699892"
 ---
-# <a name="prepare-for-extension-host-in-azure-stack-hub"></a>准备 Azure Stack 集线器中的扩展主机
+# <a name="prepare-for-extension-host-in-azure-stack-hub"></a>在 Azure Stack Hub 中准备扩展主机
 
-扩展主机通过减少所需的 TCP/IP 端口数来保护 Azure Stack 集线器。 本文介绍如何准备在1808更新后通过 Azure Stack 中心更新包自动启用的扩展主机 Azure Stack 集线器。 本文适用于 Azure Stack 中心更新1808、1809和1811。
+扩展主机通过减少所需的 TCP/IP 端口数来保护 Azure Stack Hub。 本文讨论了为 Azure Stack Hub 准备扩展主机，扩展主机是通过 1808 更新之后的一个 Azure Stack Hub 更新程序包自动启用的。 本文适用于 Azure Stack Hub 更新 1808、1809 和 1811。
 
 ## <a name="certificate-requirements"></a>证书要求
 
-扩展主机实现了两个新的域命名空间，以保证每个门户扩展的唯一主机条目。 新域命名空间需要另外两个通配符证书，以确保安全通信。
+扩展主机实施了两个新的域命名空间来为每个门户扩展保证主机条目的唯一性。 新的域命名空间需要两个额外的通配符证书来确保安全的通信。
 
-该表显示新的命名空间和关联的证书：
+下表显示了新的命名空间和关联的证书：
 
-| 部署文件夹 | 必需的证书使用者和使用者可选名称（SAN） | 范围（每个区域） | 子域命名空间 |
+| 部署文件夹 | 所需的证书使用者和使用者可选名称 (SAN) | 范围（按区域） | 子域命名空间 |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| 管理扩展主机 | *.adminhosting.>\<区域。\<fqdn > （通配符 SSL 证书） | 管理扩展主机 | adminhosting.>\<区域。\<fqdn > |
-| 公用扩展主机 | *。托管。>\<区域。\<fqdn > （通配符 SSL 证书） | 公用扩展主机 | 提供.>\<区域。\<fqdn > |
+| 管理扩展主机 | *.adminhosting.\<region>.\<fqdn>（通配符 SSL 证书） | 管理扩展主机 | adminhosting.\<region>.\<fqdn> |
+| 公共扩展主机 | *.hosting.\<region>.\<fqdn>（通配符 SSL 证书） | 公共扩展主机 | hosting.\<region>.\<fqdn> |
 
-有关详细证书要求，请参阅[Azure Stack 中心公钥基础结构证书要求](azure-stack-pki-certs.md)。
+有关详细的证书要求，请参阅 [Azure Stack Hub 公钥基础结构证书要求](azure-stack-pki-certs.md)。
 
 ## <a name="create-certificate-signing-request"></a>创建证书签名请求
 
-利用 Azure Stack 集线器准备情况检查程序工具，你可以为两个新的和必需的 SSL 证书创建证书签名请求。 按照[Azure Stack 集线器证书签名请求生成](azure-stack-get-pki-certs.md)一文中的步骤进行操作。
+使用 Azure Stack Hub 就绪性检查器工具可以为两个新的必需 SSL 证书创建证书签名请求。 请按照 [Azure Stack Hub 证书签名请求生成](azure-stack-get-pki-certs.md)一文中的步骤进行操作。
 
 > [!Note]  
 > 你可以跳过此步骤，具体取决于你请求 SSL 证书的方式。
 
 ## <a name="validate-new-certificates"></a>验证新证书
 
-1. 在硬件生命周期主机或 Azure Stack 集线器管理工作站上以提升的权限打开 PowerShell。
-2. 运行以下 cmdlet 以安装 Azure Stack 集线器就绪检查器工具：
+1. 使用提升的权限在硬件生命周期主机或 Azure Stack Hub 管理工作站上打开 PowerShell。
+2. 运行以下 cmdlet 来安装 Azure Stack Hub 就绪性检查器工具：
 
     ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
-3. 运行以下脚本以创建所需的文件夹结构：
+3. 运行以下脚本来创建必需的文件夹结构：
 
     ```powershell  
     New-Item C:\Certificates -ItemType Directory
@@ -60,10 +60,10 @@ ms.locfileid: "77699892"
     ```
 
     > [!Note]  
-    > 如果你通过部署 Azure Active Directory 联合服务（AD FS），则必须在脚本中将以下目录添加到 **$directories** ： `ADFS`，`Graph`。
+    > 如果使用 Azure Active Directory 联合身份验证服务 (AD FS) 进行部署，则必须在脚本中的 **$directories** 中添加以下目录：`ADFS`、`Graph`。
 
-4. 将当前在 Azure Stack 集线器中使用的现有证书放在相应的目录中。 例如，将**管理 ARM**证书放在 `Arm Admin` 文件夹中。 然后将新创建的托管证书放在 `Admin extension host` 和 `Public extension host` 目录中。
-5. 运行以下 cmdlet 以开始证书检查：
+4. 将现有的证书（目前在 Azure Stack Hub 中使用）置于相应的目录中。 例如，将 **Admin ARM** 证书置于 `Arm Admin` 文件夹中。 然后，将新创建的托管证书置于 `Admin extension host` 和 `Public extension host` 目录中。
+5. 运行以下 cmdlet 来启动证书检查：
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
@@ -76,11 +76,11 @@ ms.locfileid: "77699892"
 
 ## <a name="import-extension-host-certificates"></a>导入扩展主机证书
 
-使用可连接到 Azure Stack 集线器特权终结点的计算机，以执行后续步骤。 确保你可以从该计算机访问新的证书文件。
+使用可以连接到 Azure Stack Hub 特权终结点的计算机执行后续步骤。 请确保可以从该计算机访问新的证书文件。
 
-1. 使用可连接到 Azure Stack 集线器特权终结点的计算机，以执行后续步骤。 请确保从该计算机访问新的证书文件。
-2. 打开 PowerShell ISE 以执行下一个脚本块。
-3. 导入管理宿主终结点的证书。
+1. 使用可以连接到 Azure Stack Hub 特权终结点的计算机执行后续步骤。 请确保可以从该计算机访问新的证书文件。
+2. 打开 PowerShell ISE 以执行接下来的脚本块。
+3. 导入用于管理托管终结点的证书。
 
     ```powershell  
 
@@ -99,7 +99,7 @@ ms.locfileid: "77699892"
             Import-AdminHostingServiceCert $AdminHostingCertContent $certPassword
     }
     ```
-4. 导入托管终结点的证书。
+4. 导入用于托管终结点的证书。
     ```powershell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
@@ -120,23 +120,23 @@ ms.locfileid: "77699892"
 ### <a name="update-dns-configuration"></a>更新 DNS 配置
 
 > [!Note]  
-> 如果你使用 DNS 区域委派进行 DNS 集成，则不需要执行此步骤。
-如果已将单个主机 A 记录配置为发布 Azure Stack 集线器终结点，则需要创建两个其他主机 A 记录：
+> 如果使用了 DNS 区域委派进行 DNS 集成，则此步骤不是必需的。
+如果已配置了单独的主机 A 记录来发布 Azure Stack Hub 终结点，则需要创建两个额外的主机 A 记录：
 
 | IP | 主机名 | 类型 |
 |----|------------------------------|------|
-| \<IP > | *.Adminhosting.>\<区域。\<FQDN > | A |
-| \<IP > | *.提供.>\<区域。\<FQDN > | A |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
 
-可以通过运行 cmdlet AzureStackStampInformation，使用特权终结点检索分配**的**ip。
+可以通过运行 cmdlet **Get-AzureStackStampInformation** 使用特权终结点检索已分配的 IP。
 
 ### <a name="ports-and-protocols"></a>端口和协议
 
-[Azure Stack 中心数据中心集成-发布终结点一](azure-stack-integrate-endpoints.md)文介绍了需要入站通信的端口和协议，这些端口和协议需要入站通信才能在扩展主机推出之前发布 Azure Stack 中心。
+[Azure Stack Hub 数据中心集成 - 发布终结点](azure-stack-integrate-endpoints.md)一文介绍了在推出扩展主机之前进行入站通信以发布 Azure Stack Hub 所需的端口和协议。
 
-### <a name="publish-new-endpoints"></a>发布新终结点
+### <a name="publish-new-endpoints"></a>发布新的终结点
 
-需要通过防火墙发布两个新的终结点。 可以使用以下代码检索公共 VIP 池中分配的 Ip，这些代码必须从 Azure Stack 中心[环境的特权终结点](azure-stack-privileged-endpoint.md)中运行。
+需要通过防火墙发布两个新的终结点。 可以使用以下代码从公共 VIP 池检索已分配的 IP，该代码必须通过 Azure Stack Hub [环境的特权终结点](azure-stack-privileged-endpoint.md)运行。
 
 ```powershell
 # Create a PEP Session
@@ -178,24 +178,24 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ```
 
 > [!Note]  
-> 请在启用扩展主机之前进行此更改。 这使得 Azure Stack 中心门户可以连续访问。
+> 请在启用扩展主机前进行此更改。 这使得 Azure Stack Hub 门户持续可访问。
 
-| 终结点（VIP） | 协议 | 端口 |
+| 终结点 (VIP) | 协议 | 端口 |
 |----------------|----------|-------|
-| 管理宿主 | HTTPS | 443 |
+| 管理员托管 | HTTPS | 443 |
 | Hosting | HTTPS | 443 |
 
-### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>更新现有发布规则（扩展主机的启用后）
+### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>更新现有的发布规则（在启用扩展主机后）
 
 > [!Note]  
-> 1808 Azure Stack 集线器更新包**尚未启用扩展**主机。 它允许您通过导入所需的证书来准备扩展主机。 在1808更新后，不要通过 Azure Stack 集线器更新包在扩展主机自动启用之前关闭任何端口。
+> 1808 Azure Stack Hub 更新包**尚未**启用扩展主机。 它让你通过导入所需的证书来准备扩展主机。 在通过 1808 更新之后的 Azure Stack Hub 更新包自动启用扩展主机之前，请不要关闭任何端口。
 
-必须在现有防火墙规则中关闭以下现有终结点端口。
+在现有的防火墙规则中，必须关闭以下终结点端口。
 
 > [!Note]  
 > 建议在成功验证后关闭这些端口。
 
-| 终结点（VIP） | 协议 | 端口 |
+| 终结点 (VIP) | 协议 | 端口 |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
 | 门户（管理员） | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
 | 门户（用户） | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |
@@ -205,4 +205,4 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ## <a name="next-steps"></a>后续步骤
 
 - 了解[防火墙集成](azure-stack-firewall.md)。
-- 了解[Azure Stack 集线器证书签名请求生成](azure-stack-get-pki-certs.md)。
+- 了解 [Azure Stack Hub 证书签名请求生成](azure-stack-get-pki-certs.md)。

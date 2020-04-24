@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 4df466a3b1b1e89be704302153e9e835f504445e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688859"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>在边缘模式训练机器学习（ML）模型
@@ -30,9 +30,9 @@ ms.locfileid: "77688859"
 
 在对模型进行训练后，会向 Azure ML 注册，并将其添加到 Azure 容器注册表以进行部署。 对于这种模式迭代，Azure Stack 中心训练 VM 必须可通过公共 Internet 访问。 
 
-[![在边缘体系结构上定型 ml 模型](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
+[![在边缘体系结构上训练 ml 模型](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
 
-解决方案的工作原理如下： 
+该解决方案的工作原理如下： 
 
 1. 使用 Azure ML 作为计算目标部署和注册 Azure Stack 中心 VM。
 2. 在 Azure ML 中创建了一个使用 Azure Stack 中心 VM 作为计算目标的实验。
@@ -47,13 +47,13 @@ ms.locfileid: "77688859"
 |----------|-----------|-------------|
 | Azure | Azure 机器学习 | [Azure 机器学习](/azure/machine-learning/)协调 ML 模型的培训。 |
 | | Azure 容器注册表 | Azure ML 将模型打包到容器中，并将其存储在[Azure 容器注册表](/azure/container-registry/)中进行部署。|
-| Azure Stack 中心 | 应用服务 | [应用服务 Azure Stack 集线器](/azure-stack/operator/azure-stack-app-service-overview)为边缘提供组件的基础。 |
+| Azure Stack Hub | 应用服务 | [应用服务 Azure Stack 集线器](/azure-stack/operator/azure-stack-app-service-overview)为边缘提供组件的基础。 |
 | | 计算 | 使用 Docker 运行 Ubuntu 的 Azure Stack 集线器 VM 用于训练 ML 模型。 |
 | | 存储 | 可以在 Azure Stack Hub blob 存储中承载私有数据。 |
 
 ## <a name="issues-and-considerations"></a>问题和注意事项
 
-决定如何实现此解决方案时，请注意以下几点：
+在决定如何实现此解决方案时，请考虑以下几点：
 
 ### <a name="scalability"></a>可伸缩性 
 
@@ -77,7 +77,7 @@ ms.locfileid: "77688859"
 - 有关 ML 和相关主题的概述，请参阅[Azure 机器学习文档](/azure/machine-learning)。
 - 请参阅[Azure 容器注册表](/azure/container-registry/)，了解如何为容器部署生成、存储和管理映像。
 - 请参阅[Azure Stack 集线器上的应用服务](/azure-stack/operator/azure-stack-app-service-overview)，详细了解资源提供程序和部署方式。
-- 有关最佳实践的详细信息，请参阅[混合应用程序设计注意事项](overview-app-design-considerations.md)，并回答其他问题。
-- 请参阅[Azure Stack 系列产品和解决方案](/azure-stack)，详细了解产品和解决方案的整个产品组合。
+- 请参阅[混合应用程序设计注意事项](overview-app-design-considerations.md)，其中详细介绍了最佳做法，并解答了其他问题。
+- 请参阅 [Azure Stack 产品和解决方案系列](/azure-stack)详细了解产品和解决方案的整个阵容。
 
-准备好测试解决方案示例时，请[在边缘部署指南中继续学习训练 ML 模型](https://aka.ms/edgetrainingdeploy)。 部署指南提供了有关部署和测试其组件的分步说明。
+准备好测试解决方案示例时，请[在边缘部署指南中继续学习训练 ML 模型](https://aka.ms/edgetrainingdeploy)。 该部署指南逐步说明了如何部署和测试 Azure Stack 的组件。

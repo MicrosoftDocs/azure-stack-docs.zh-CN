@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
 ms.openlocfilehash: 3820d5483a0a7051ea51cc4ce7489d2cfe9f2d42
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77687489"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>使用 Azure 和 Azure Stack 中心部署基于 AI 的 footfall 检测解决方案
@@ -26,10 +26,10 @@ ms.locfileid: "77687489"
 > - 使用自定义视觉 AI 开发工具包在边缘进行推断。
 
 > [!Tip]  
-> ![hybrid-pillars](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack 中心为本地环境带来了云计算的灵活性和革新，使你能够在任何位置构建和部署混合应用，从而实现了唯一的混合云。  
+> ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
+> Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack Hub 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
 > 
-> [混合应用程序的设计注意事项](overview-app-design-considerations.md)查看软件质量的支柱（放置、可伸缩性、可用性、复原能力、可管理性和安全性），以便设计、部署和操作混合应用程序。 设计注意事项有助于优化混合应用设计，并最大程度减少生产环境中的挑战。
+> [混合应用程序的设计注意事项](overview-app-design-considerations.md)一文回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
 ## <a name="prerequisites"></a>必备条件 
 
@@ -52,7 +52,7 @@ ms.locfileid: "77687489"
 - 注册 Power BI 帐户。
 - Azure 认知服务人脸 API 订阅密钥和终结点 URL。 可以获取[试用认知服务](https://azure.microsoft.com/try/cognitive-services/?api=face-api)免费试用版。 或者，按照[创建认知服务帐户](/azure/cognitive-services/cognitive-services-apis-create-account)中的说明进行操作。
 - 安装以下开发资源：
-  - [Azure CLI 2.0](../user/azure-stack-version-profiles-azurecli2.md)
+  - [Azure CLI 2。0](../user/azure-stack-version-profiles-azurecli2.md)
   - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community)
   - [Porter](https://porter.sh/)。 使用 Porter 来部署云应用程序，使用为你提供的 CNAB 捆绑清单。
   - [Visual Studio Code](https://code.visualstudio.com/)
@@ -64,7 +64,7 @@ ms.locfileid: "77687489"
 
 首先，使用 Porter CLI 生成凭据集，然后部署云应用程序。  
 
-1. 从 https://github.com/azure-samples/azure-intelligent-edge-patterns克隆或下载解决方案示例代码。 
+1. 从中https://github.com/azure-samples/azure-intelligent-edge-patterns克隆或下载解决方案示例代码。 
 
 1. Porter 将生成一组将自动部署应用程序的凭据。 在运行凭据生成命令之前，请确保具有以下各项：
 
@@ -83,7 +83,7 @@ ms.locfileid: "77687489"
 1. Porter 还需要一组要运行的参数。 创建参数文本文件，并输入以下名称/值对。 如果需要有关任何所需值的帮助，请咨询 Azure Stack 中心管理员。
 
    > [!NOTE] 
-   > `resource suffix` 值用于确保部署的资源在 Azure 中具有唯一的名称。 它必须是字母和数字的唯一字符串，不能超过8个字符。
+   > 此`resource suffix`值用于确保部署的资源在 Azure 中具有唯一的名称。 它必须是字母和数字的唯一字符串，不能超过8个字符。
 
     ```
     azure_stack_tenant_arm="Your Azure Stack Hub tenant endpoint"
@@ -131,7 +131,7 @@ ms.locfileid: "77687489"
 1. Porter 还需要一组要运行的参数。 创建参数文本文件，并输入以下文本。 如果您不知道某些必需的值，请向您的 Azure Stack 中心管理员咨询。
 
     > [!NOTE]
-    > `deployment suffix` 值用于确保部署的资源在 Azure 中具有唯一的名称。 它必须是字母和数字的唯一字符串，不能超过8个字符。
+    > 此`deployment suffix`值用于确保部署的资源在 Azure 中具有唯一的名称。 它必须是字母和数字的唯一字符串，不能超过8个字符。
 
     ```
     iot_hub_name="Name of the IoT Hub deployed"
@@ -146,15 +146,15 @@ ms.locfileid: "77687489"
     porter install footfall-camera –tag intelligentedge/footfall-camera-deployment:0.1.0 –creds footfall-camera-deployment –param-file "path-to-camera-parameters-file.txt"
     ```
 
-5. 查看 `https://<camera-ip>:3000/`上的照相机馈送，其中 `<camara-ip>` 为相机 IP 地址，以验证相机的部署是否已完成。 此步骤可能需要长达10分钟的时间。
+5. 通过查看上`https://<camera-ip>:3000/`的相机源来验证相机的部署是否已完成，其中`<camara-ip>`是相机 IP 地址。 此步骤可能需要长达10分钟的时间。
 
 ## <a name="configure-azure-stream-analytics"></a>配置 Azure 流分析
 
 现在，数据已从照相机流向 Azure 流分析，我们需要手动授权它与 Power BI 通信。
 
-1.  从 "Azure 门户打开"**所有资源**"，并将*footfall\[yoursuffix\]* 作业。
+1.  从 Azure 门户打开 "**所有资源**" 和*footfall\[\] yoursuffix*作业。
 
-2.  在“流分析作业”窗格的“作业拓扑”部分，选择“输出”选项。
+2.  在“流分析作业”窗格的“作业拓扑”**** 部分，选择“输出”**** 选项。
 
 3.  选择**流量输出**输出接收器。
 
@@ -166,7 +166,7 @@ ms.locfileid: "77687489"
 
 6.  请在 "**概述**" 窗格中，选择 "**开始**"，开始将数据发送到 Power BI。
 
-7.  选择“现在”作为作业输出启动时间，然后选择“启动”。 可以在通知栏中查看作业状态。
+7.  选择“现在”作为作业输出启动时间，然后选择“启动”。******** 可以在通知栏中查看作业状态。
 
 ## <a name="create-a-power-bi-dashboard"></a>创建 Power BI 仪表板
 
@@ -174,7 +174,7 @@ ms.locfileid: "77687489"
 
 2.  在 Power BI 工作区中，选择 " **+ 创建**" 创建名为 " *Footfall 分析*" 的新仪表板。
 
-3.  在窗口顶部，选择“添加磁贴”。 然后选择“自定义流数据”和“下一步”。 选择**数据**集下的**footfall 数据集**。 从 "**可视化效果类型**" 下拉列表中选择 "**卡**"，并向**字段**添加**age** 。 选择“下一步”，为磁贴输入一个名称，然后选择“应用”，创建该磁贴。
+3.  在窗口顶部，选择“添加磁贴”****。 然后选择“自定义流数据”和“下一步”。******** 选择**数据**集下的**footfall 数据集**。 从 "**可视化效果类型**" 下拉列表中选择 "**卡**"，并向**字段**添加**age** 。 选择“下一步”****，为磁贴输入一个名称，然后选择“应用”，创建该磁贴。****
 
 4.  您可以根据需要添加其他字段和卡。
 

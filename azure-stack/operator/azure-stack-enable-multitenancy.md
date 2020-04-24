@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack Hub 中配置多租户
-description: 了解如何在 Azure Stack 中心内启用和禁用多个 Azure Active Directory 租户。
+description: 了解如何在 Azure Stack Hub 中启用和禁用多个 Azure Active Directory 租户。
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
@@ -8,40 +8,40 @@ ms.author: inhenkel
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: ba5c757a08b63c80ce86a9f8890f82fa696066a5
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294689"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>在 Azure Stack Hub 中配置多租户
 
-可以将 Azure Stack 中心配置为支持多个 Azure Active Directory （Azure AD）租户中的用户，使他们能够使用 Azure Stack 中心内的服务。 例如，请考虑以下情况：
+可以配置 Azure Stack Hub，以支持多个 Azure Active Directory (Azure AD) 租户中的用户，允许他们使用 Azure Stack Hub 中的服务。 例如，考虑以下方案：
 
 - 你是安装 Azure Stack 集线器的 contoso.onmicrosoft.com 的服务管理员。
 - Mary 是来宾用户所在的 fabrikam.onmicrosoft.com 的目录管理员。
 - Mary 的公司从公司接收 IaaS 和 PaaS 服务，并需要允许来宾目录（fabrikam.onmicrosoft.com）的用户登录并使用 contoso.onmicrosoft.com 中的 Azure Stack 集线器资源。
 
-本指南提供了在这种情况下，在 Azure Stack Hub 中配置多租户所需的步骤。 在这种情况下，你和 Mary 必须完成一些步骤，使来自 Fabrikam 的用户能够登录并使用 Contoso 中 Azure Stack 中心部署提供的服务。
+本指南提供了此方案上下文中所需的步骤，用于在 Azure Stack Hub 中配置多租户。 在此方案中，你和 Mary 必须完成相关步骤以使 Fabrikam 中的用户能够登录并使用 Contoso 中部署的 Azure Stack Hub 提供的服务。
 
 ## <a name="enable-multi-tenancy"></a>启用多租户
 
-在 Azure Stack Hub 中配置多租户之前，需要考虑以下几个先决条件：
+在 Azure Stack Hub 中配置多租户之前，需要考虑几个先决条件：
   
- - 你和 Mary 必须协调每个 Azure Stack 目录中安装的管理步骤（Contoso）和来宾目录（Fabrikam）。
- - 请确保已为 Azure Stack 集线器[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-admin.md)了 PowerShell。
- - [下载 Azure Stack 中心工具](azure-stack-powershell-download.md)，并导入 "连接" 和 "标识" 模块：
+ - 你和 Mary 必须在安装 Azure Stack Hub 的目录 (Contoso) 和来宾目录 (Fabrikam) 之间协调管理步骤。
+ - 确保已[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-admin.md)适用于 Azure Stack Hub 的 PowerShell。
+ - [下载 Azure Stack Hub 工具](azure-stack-powershell-download.md)，并导入“连接和标识”模块：
 
     ```powershell
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
-### <a name="configure-azure-stack-hub-directory"></a>配置 Azure Stack 中心目录
+### <a name="configure-azure-stack-hub-directory"></a>配置 Azure Stack Hub 目录
 
-在本部分中，会将 Azure Stack 集线器配置为允许来自 Fabrikam Azure AD directory 租户的登录。
+在本部分，你将配置 Azure Stack Hub 以允许从 Fabrikam Azure AD 目录租户登录。
 
-通过将 Azure 资源管理器配置为接受来自来宾目录租户的用户和服务主体，使来宾目录租户（Fabrikam）加入到 Azure Stack 中心。
+通过将 Azure 资源管理器配置为接受来自来宾目录租户的用户和服务主体，将来宾目录租户 (Fabrikam) 加入到 Azure Stack Hub。
 
 Contoso.onmicrosoft.com 的服务管理员运行以下命令：
 
@@ -74,9 +74,9 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>配置来宾目录
 
-Azure Stack 中心操作员启用了要与 Azure Stack 中心一起使用的 Fabrikam 目录后，Mary 必须向 Fabrikam 的目录租户注册 Azure Stack Hub。
+在 Azure Stack Hub 操作员使得 Fabrikam 目录能够与 Azure Stack Hub 一起使用后，Mary 必须向 Fabrikam 的目录租户注册 Azure Stack Hub。
 
-#### <a name="registering-azure-stack-hub-with-the-guest-directory"></a>向来宾目录注册 Azure Stack 集线器
+#### <a name="registering-azure-stack-hub-with-the-guest-directory"></a>将 Azure Stack Hub 注册到来宾目录
 
 Mary （Fabrikam 的目录管理员）在 guest directory fabrikam.onmicrosoft.com 中运行以下命令：
 
@@ -94,23 +94,23 @@ Register-AzSWithMyDirectoryTenant `
 ```
 
 > [!IMPORTANT]
-> 如果 Azure Stack 中心管理员将来安装新服务或更新，则可能需要再次运行此脚本。
+> 如果 Azure Stack Hub 管理员将来要安装新服务或更新，则你可能需要再次运行此脚本。
 >
-> 请随时再次运行此脚本，检查目录中 Azure Stack 中心应用的状态。
+> 随时可以再次运行此脚本来检查目录中的 Azure Stack Hub 应用的状态。
 >
-> 如果已注意到在托管磁盘（1808更新中引入）中创建 Vm 的问题，则添加了一个新的**磁盘资源提供程序**，要求再次运行此脚本。
+> 如果已注意到在托管磁盘中创建 VM 时存在的问题（在 1808 更新中引入），则已添加新的**磁盘资源提供程序**，从而需要再次运行此脚本。
 
-### <a name="direct-users-to-sign-in"></a>指示用户登录
+### <a name="direct-users-to-sign-in"></a>指导用户登录
 
-现在，你和 Mary 已经完成了加入 Mary 目录的步骤，Mary 可以指示 Fabrikam 用户登录。 Fabrikam 用户（具有 fabrikam.onmicrosoft.com 后缀的用户）通过访问 https\://portal.local.azurestack.external. 登录
+现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。 Fabrikam 用户（具有 fabrikam.onmicrosoft.com 后缀的用户）通过访问 https\://portal.local.azurestack.external. 登录
 
-Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmicrosoft.com 的用户）中的所有[外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles)使用 https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com. 登录。 如果他们不使用此 URL，则会将其发送到其默认目录（Fabrikam），并收到一条错误消息，指出管理员尚未同意。
+Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmicrosoft.com 的用户）的所有[外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles)，以使用 https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com. 登录 如果他们未使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
 
 ## <a name="disable-multi-tenancy"></a>禁用多租户
 
-如果不再需要 Azure Stack 中心中的多个租户，可以按顺序执行以下步骤来禁用多租户：
+如果 Azure Stack Hub 中不再需要有多个租户，可以按顺序执行以下步骤来禁用多租户：
 
-1. 作为来宾目录（此方案中 Mary）的管理员，请运行*AzsWithMyDirectoryTenant*。 Cmdlet 从新目录中卸载所有 Azure Stack 中心应用。
+1. 以来宾目录的管理员身份（在此场景中为 Mary）运行 *Unregister-AzsWithMyDirectoryTenant*。 该 cmdlet 从新目录中卸载所有 Azure Stack Hub 应用。
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -125,7 +125,7 @@ Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmi
      -Verbose 
     ```
 
-2. 作为 Azure Stack 中心的服务管理员（在此方案中为），请运行*AzSGuestDirectoryTenant*。
+2. 以 Azure Stack Hub 的服务管理员身份（在此场景中是你）运行 *Unregister-AzSGuestDirectoryTenant*。
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -147,11 +147,11 @@ Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmi
     ```
 
     > [!WARNING]
-    > 必须按顺序执行 "禁用多租户" 步骤。 如果步骤 #2 首先完成，步骤 #1 会失败。
+    > 禁用多租户步骤必须按顺序执行。 如果首先完成步骤 1，则步骤 2 将失败。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [管理委派的提供商](azure-stack-delegated-provider.md)
-- [Azure Stack 集线器关键概念](azure-stack-overview.md)
-- [作为云解决方案提供商管理 Azure Stack 集线器的使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)
-- [将使用情况和计费的租户添加到 Azure Stack 中心](azure-stack-csp-howto-register-tenants.md)
+- [管理委派提供程序](azure-stack-delegated-provider.md)
+- [Azure Stack Hub 的重要概念](azure-stack-overview.md)
+- [管理充当云解决方案提供商的 Azure Stack Hub 的用量和计费](azure-stack-add-manage-billing-as-a-csp.md)
+- [将租户添加到 Azure Stack Hub 以获取用量和计费信息](azure-stack-csp-howto-register-tenants.md)

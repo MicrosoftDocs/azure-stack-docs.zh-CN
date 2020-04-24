@@ -1,83 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Stack 中心操作员文档
+### YamlMime:Landing
+title: Azure Stack Hub 操作员文档
+summary: Microsoft Azure Stack 中心是一种混合云平台，可让你从数据中心提供 Azure 服务。 了解如何管理 Azure Stack 中心。
 metadata:
-  title: Azure Stack 中心文档-教程、API 参考
-  meta.description: azure-stack
+  title: Azure Stack Hub 文档 - 教程和 API 参考
+  description: 了解如何管理 Azure Stack Hub 集成系统基础结构以及如何使用我们的快速入门和教程提供服务。
   services: azure-stack
-  author: justinha
-  manager: femila
-  layout: LandingPage
-  ms.assetid: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   ms.service: azure-stack
-  ms.tgt_pltfrm: from-team
-  ms.devlang: from-team
   ms.topic: landing-page
-  ms.date: 07/09/2019
+  author: justinha
   ms.author: justinha
-abstract:
-  description: Microsoft Azure Stack 中心是一种混合云平台，可让你从数据中心提供 Azure 服务。 了解如何通过我们的快速入门和教程来管理 Azure Stack 集线器集成系统基础结构以及如何提供服务。<br/><br/>如果你是使用服务或生成 Azure Stack 中心应用的 Azure Stack 集线器用户，请参阅我们的<a href="/azure-stack/user">用户文档</a>。<br/><br/>如果你是对 Azure Stack 开发工具包（ASDK）感兴趣的 Azure Stack 中心操作员，可免费下载和使用的 Azure Stack 中心的单节点部署，请参阅我们的<a href="/azure-stack/asdk">ASDK 文档</a>。
-sections:
-  - title: Azure Stack 中心入门
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-manage-portals">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_portal.svg" alt="">
-              <br><b>使用管理门户</b></a>
-              <p>使用管理门户进行日常管理，并 Azure Stack 中心的操作。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-powershell-install">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
-              <br><b>Azure Stack 中心 PowerShell</b></a>
-              <p>从 PowerShell 轻松管理 Azure Stack 集线器资源。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
-              <br><b>容量规划</b></a>
-              <p>了解不同的计算资源分配如何适应各种硬件产品。</p>
-  - title: 提供 Azure Stack 中心服务
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-sql-resource-provider">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_SQL.svg" alt="hybrid cloud app ci/cd">
-              <br>将<b>SQL 提供为 PaaS</b></a>
-              <p>使用 SQL Server 资源提供程序将 SQL 数据库作为 Azure Stack 中心的服务提供。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-mysql-resource-provider">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_mysql.svg" alt="hybrid cloud app identity">
-              <br>将<b>MySQL 作为 PaaS</a> 提供</b>
-              <p>使用 MySQL 资源提供程序提供 MySQL 数据库即服务 Azure Stack 中心。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-app-service-overview">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
-              <br><b>提供 Azure App Service 作为 PaaS</b></a>
-              <p>帮助用户为任意平台或设备创建 web 应用程序和 Api。</p>
-  - title: 管理 Azure Stack 集线器
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-updates">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_upgrade.svg" alt="">
-              <br><b>更新 Azure Stack 中心</b></a>
-              <p>Microsoft 每个月捆绑一个程序包，使 Azure Stack Hub 集成系统保持最新状态。 </p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-backup-infrastructure-backup">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_usb.svg" alt="">
-              <br><b>备份 Azure Stack 中心</b></a>
-              <p>使用基础结构备份服务备份和还原配置和服务数据。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-security-configuration">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" alt="">
-              <br><b>配置 Azure Stack 集线器安全性</b></a>
-              <p>Azure Stack 集线器旨在抵御新式威胁并满足合规性标准。</p>
+  ms.date: 04/13/2020
+  ms.openlocfilehash: 16a63e28a67b6dfc9d68b29df343e130ae4abca0
+  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.translationtype: MT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81274083"
+landingContent:
+- title: 关于 Azure Stack 集线器
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什么是 Azure Stack Hub？
+      url: azure-stack-overview.md
+    - text: 什么是 Azure Stack HCI？
+      url: azure-stack-hci-overview.md
+  - linkListType: whats-new
+    links:
+    - text: 安全更新
+      url: azure-stack-release-notes-security-updates.md
+    - text: 发行说明
+      url: azure-stack-release-notes-1908.md
+    - text: Azure Stack 中心 Capacity Planner
+      url: azure-stack-capacity-planning-overview.md
+- title: 入门
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 使用管理门户
+      url: azure-stack-manage-portals.md
+    - text: 向用户提供服务
+      url: tutorial-offer-services.md
+    - text: 测试服务产品
+      url: tutorial-test-offer.md
+  - linkListType: concept
+    links:
+    - text: 比较连接模型
+      url: azure-stack-connection-models.md
+    - text: 连接的部署
+      url: azure-stack-connected-deployment.md
+    - text: 断开连接的部署
+      url: azure-stack-disconnected-deployment.md
+- title: Azure Stack 中心工具
+  linkLists:
+  - linkListType: download
+    links:
+    - text: 从 GitHub 下载 Azure Stack 中心工具
+      url: azure-stack-powershell-download.md
+    - text: 安装 Azure Stack PowerShell
+      url: azure-stack-powershell-install.md
+    - text: 与 Azure Stack PowerShell 连接
+      url: azure-stack-powershell-configure-admin.md
+    - text: 下载 Azure Stack 开发工具包（ASDK）
+      url: ../asdk/asdk-download.md
+- title: 试用 Azure Stack 集线器
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 准备 ASDK 主机
+      url: ../asdk/asdk-prepare-host.md
+    - text: 安装 ASDK
+      url: ../asdk/asdk-install.md
+    - text: ASDK 管理基础知识
+      url: ../asdk/asdk-admin-basics.md
+- title: 提供服务
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 为虚拟机创建产品/服务
+      url: azure-stack-tutorial-tenant-vm.md
+    - text: 创建高度可用的 MySQL 数据库
+      url: azure-stack-tutorial-mysql.md
+    - text: 创建适用于任何平台的应用
+      url: azure-stack-app-service-overview.md
+- title: 管理 Azure Stack 中心
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 监视运行状况和警报
+      url: azure-stack-monitor-health.md
+    - text: 安装更新并监视进度
+      url: azure-stack-apply-updates.md
+    - text: 备份和还原配置和服务数据
+      url: azure-stack-backup-infrastructure-backup.md

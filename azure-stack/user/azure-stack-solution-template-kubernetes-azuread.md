@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
 ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79313205"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>使用 Azure Active Directory 将 Kubernetes 部署到 Azure Stack 中心
@@ -25,13 +25,13 @@ ms.locfileid: "79313205"
 
 若要开始，请确保具有适当的权限，并且 Azure Stack 中心已准备就绪。
 
-1. 验证是否可以在 Azure Active Directory （Azure AD）租户中创建应用程序。 对于 Kubernetes 部署，你需要这些权限。
+1. 验证是否可以在 Azure Active Directory (Azure AD) 租户中创建应用程序。 需要这些权限才能进行 Kubernetes 部署。
 
-    有关检查权限的说明，请参阅[检查 Azure Active Directory 权限](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)。
+    有关如何检查权限的说明，请参阅[检查 Azure Active Directory 权限](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)。
 
-1. 生成 SSH 公钥和私钥对，用于登录到 Azure Stack 集线器上的 Linux VM。 创建群集时需要公钥。
+1. 生成 SSH 公钥和私钥对，用于登录到 Azure Stack 集线器上的 Linux VM。 在创建群集时需要此公钥。
 
-    有关生成密钥的说明，请参阅[SSH 密钥生成](azure-stack-dev-start-howto-ssh-public-key.md)。
+    有关如何生成密钥的说明，请参阅 [SSH 密钥生成](azure-stack-dev-start-howto-ssh-public-key.md)。
 
 1. 请检查 Azure Stack 中心租户门户中是否有有效的订阅，以及是否有足够的公共 IP 地址可用于添加新的应用程序。
 
@@ -43,63 +43,63 @@ ms.locfileid: "79313205"
 
 在 Azure 中设置服务主体。 服务主体允许应用程序访问 Azure Stack 集线器资源。
 
-1. 登录到全局[Azure 门户](https://portal.azure.com)。
+1. 登录到全球 [Azure 门户](https://portal.azure.com)。
 
-1. 检查是否已使用与 Azure Stack 中心实例关联的 Azure AD 租户登录。 可以通过单击 Azure 工具栏中的 "筛选器" 图标来切换登录。
+1. 检查是否已使用与 Azure Stack 中心实例关联的 Azure AD 租户登录。 可以通过单击 Azure 工具栏上的筛选器图标切换你的登录。
 
-    ![选择 AD 租户](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
+    ![选择你的 AD 租户](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
 
 1. 创建 Azure AD 应用程序。
 
-    a. 通过 [Azure 门户](https://portal.azure.com)登录到 Azure 帐户。  
-    b. 选择 " **Azure Active Directory** > **应用注册**" > "**新注册**"。  
+    a. 通过[Azure 门户](https://portal.azure.com)登录到 Azure 帐户。  
+    b. 选择**Azure Active Directory** > **应用注册** > "**新注册**"。  
     c. 为应用提供名称和 URL。  
-    d. 选择**支持的帐户类型**。  
-    e.  添加应用程序的 URI `http://localhost`。 选择要创建的应用程序类型的 " **Web** "。 设置值后，选择 "**注册**"。
+    d. 选择“支持的帐户类型”。****  
+    e.  添加`http://localhost`应用程序的 URI。 选择“Web”**** 作为要创建的应用程序的类型。 设置这些值后，选择“注册”****。
 
-1. 请记下**应用程序 ID**。 创建群集时，你将需要 ID。 该 ID 被称为 "**服务主体客户端 ID**"。
+1. 请记下**应用程序 ID**。 在创建群集时需要此 ID。 此 ID 称为“服务主体客户端 ID”。****
 
-1. 在服务主体的边栏选项卡中，选择 "**新建客户端密码**"。 **设置** > **键**。 需要为服务主体生成身份验证密钥。
+1. 在服务主体的边栏选项卡中，选择 "**新建客户端密码**"。 **设置** > **密钥**。 需要为服务主体生成身份验证密钥。
 
-    a. 输入**描述**。
+    a. 输入“说明”****。
 
-    b. 对于**过期**，选择 "**永不过期**"。
+    b. 对于“过期”这一项，请选择“永不过期”。********
 
-    c. 选择 **添加** 。 记下密钥字符串。 创建群集时，需要密钥字符串。 密钥被称为**服务主体客户端机密**。
+    c. 选择 **添加** 。 记下密钥字符串。 在创建群集时需要此密钥字符串。 此密钥称为“服务主体客户端机密”。****
 
 ## <a name="give-the-service-principal-access"></a>为服务主体提供访问权限
 
-向服务主体授予对订阅的访问权限，以便主体能够创建资源。
+为服务主体提供对订阅的访问权限，使该主体能够创建资源。
 
 1.  登录到[Azure Stack 中心门户](https://portal.local.azurestack.external/)。
 
-1. 选择 "**所有服务**" > **订阅**。
+1. 选择 "**所有服务** > " "**订阅**"。
 
-1. 选择操作员为使用 Kubernetes 群集创建的订阅。
+1. 选择你的操作员创建的用于使用 Kubernetes 群集的订阅。
 
 1. 选择 "**访问控制（IAM）** " > 选择 "**添加角色分配**"。
 
-1. 选择 "**参与者**" 角色。
+1. 选择“参与者”角色。****
 
 1. 选择为服务主体创建的应用程序名称。 可能需要在搜索框中键入名称。
 
-1. 单击“ **保存**”。
+1. 单击 **“保存”** 。
 
 ## <a name="deploy-kubernetes"></a>部署 Kubernetes
 
 1. 打开[Azure Stack 集线器门户](https://portal.local.azurestack.external)。
 
-1. 选择 " **+ 创建资源**" > **计算** > **Kubernetes 群集**"。 单击“创建”。
+1. 选择 " **+ 创建资源** > " "**计算** > " "**Kubernetes 群集**"。 单击“**创建**”。
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1. 基础知识
 
-1. 选择创建 Kubernetes 群集中的**基础知识**。
+1. 在“创建 Kubernetes 群集”中选择“基本信息”。****
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
-1. 选择**订阅**ID。
+1. 选择**订阅** ID。
 
 1. 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。
 
@@ -107,26 +107,26 @@ ms.locfileid: "79313205"
 
 ### <a name="2-kubernetes-cluster-settings"></a>2. Kubernetes 群集设置
 
-1. 选择 "创建 Kubernetes 群集中的**Kubernetes 群集设置**"。
+1. 在“创建 Kubernetes 群集”中选择“Kubernetes 群集设置”。****
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
 
 1. 输入**LINUX VM 管理员用户名**。 构成 Kubernetes 群集和 DVM 的 Linux 虚拟机的用户名。
 
-1. 输入用于授权到作为 Kubernetes 群集的一部分创建的所有 Linux 计算机的**SSH 公钥**和 DVM。
+1. 输入 **SSH 公钥**，用于向所有作为 Kubernetes 群集和 DVM 的一部分创建的 Linux 计算机授权。
 
-1. 输入在区域中唯一的**主配置文件 DNS 前缀**。 此名称必须是区域唯一名称，如 `k8s-12345`。 尝试选择与资源组名称相同的最佳实践。
+1. 输入特定于区域的**主配置文件 DNS 前缀**。 这必须是特定于区域的名称，例如 `k8s-12345`。 最佳做法是尝试选择与资源组名称相同的名称。
 
     > [!Note]  
     > 为每个群集使用新且唯一的主配置文件 DNS 前缀。
 
-1. 选择**Kubernetes 主池配置文件计数**。 计数包含主池中的节点数。 可能有1到7之间。 此值应为奇数。
+1. 选择**Kubernetes 主池配置文件计数**。 此计数包含主池中的节点数。 其范围为 1 到 7。 此值应当为奇数。
 
-1. 选择**Kubernetes 主 vm 的 VMSize**。 这将指定 Kubernetes 主 Vm 的 VM 大小。 
+1. 选择“Kubernetes 主 VM 的 VMSize”。**** 这将指定 Kubernetes 主 Vm 的 VM 大小。 
 
 1. 选择**Kubernetes 节点池配置文件计数**。 此计数包含群集中的代理数。 
 
-1. 选择**Kubernetes 节点 vm 的 VMSize**。 这将指定 Kubernetes 节点 Vm 的 VM 大小。 
+1. 选择**Kubernetes 节点 vm 的 VMSize**。 这指定 Kubernetes 节点 VM 的 VM 大小。 
 
 1. 为 Azure Stack Hub 安装选择**Azure Stack 集线器标识系统** **Azure AD** 。
 
@@ -138,13 +138,13 @@ ms.locfileid: "79313205"
 
 ### <a name="3-summary"></a>3. 摘要
 
-1. 选择 "摘要"。 边栏选项卡会显示 Kubernetes 群集配置设置的验证消息。
+1. 选择“摘要”。 此边栏选项卡显示针对 Kubernetes 群集配置设置的验证消息。
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-2. 查看设置。
+2. 复查你的设置。
 
-3. 选择 **"确定"** 以部署群集。
+3. 选择“确定”**** 以部署群集。
 
 > [!TIP]  
 >  如果你对部署有任何疑问，则可以发布问题，或者查看是否有人在[Azure Stack 中心论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答了问题。

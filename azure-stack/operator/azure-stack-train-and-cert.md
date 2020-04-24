@@ -9,13 +9,13 @@ ms.author: inhenkel
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemm
 ms.openlocfilehash: 984a8dc52409c22481148c28ac47939543680896
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696832"
 ---
-# <a name="azure-stack-hub-training-and-certification"></a>Azure Stack 中心培训和认证
+# <a name="azure-stack-hub-training-and-certification"></a>Azure Stack Hub 培训和认证
 
 *适用于： Azure Stack 集线器集成系统*
 

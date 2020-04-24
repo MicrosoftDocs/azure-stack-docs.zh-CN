@@ -9,10 +9,10 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 ms.openlocfilehash: 2a1525f4b91998479d368714aa3a88df6ecfcef9
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423956"
 ---
 # <a name="how-to-remove-event-hubs-on-azure-stack-hub"></a>如何在 Azure Stack 集线器上删除事件中心
@@ -29,9 +29,9 @@ ms.locfileid: "80423956"
 
 若要删除用户创建的事件中心和所有相关资源，请完成以下步骤：
 
-1. 登录到 Azure Stack 中心管理员门户。
+1. 登录到 Azure Stack Hub 管理员门户。
 2. 选择左侧的 " **Marketplace 管理**"。
-3. 选择“资源提供程序”。
+3. 选择“资源提供程序”****。
 4. 从资源提供程序列表中选择 "**事件中心**"。 你可能希望通过在提供的 "搜索" 文本框中输入 "事件中心" 来筛选列表。
 
    [![删除事件中心1](media/event-hubs-rp-remove/1-uninstall.png)](media/event-hubs-rp-remove/1-uninstall.png#lightbox)

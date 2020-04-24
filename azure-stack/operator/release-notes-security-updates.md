@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 集线器发行说明-1910 的安全更新
-description: 了解 Azure Stack 集线器的1910安全更新。
+title: Azure Stack Hub 发行说明 - 1910 安全更新
+description: 了解 Azure Stack Hub 的 1910 安全更新。
 author: sethmanheim
 ms.topic: article
 ms.date: 03/18/2020
@@ -8,15 +8,15 @@ ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/18/2020
 ms.openlocfilehash: dda2620e88ac6fcd8b4ce8ed9167d83f39af4737
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069418"
 ---
-# <a name="azure-stack-hub-security-updates"></a>Azure Stack 中心安全更新
+# <a name="azure-stack-hub-security-updates"></a>Azure Stack Hub 安全更新
 
-本文列出了 Azure Stack 集线器最后四个更新中的所有安全更新。 此信息仅供参考。
+本文列出 Azure Stack Hub 最近四个更新中的所有安全更新。 提供此信息仅供参考之用。
 
 ::: moniker range="azs-2002"
 ## <a name="2002-update"></a>2002更新
@@ -155,16 +155,16 @@ ms.locfileid: "80069418"
 ::: moniker-end
 
 ::: moniker range="azs-1910"
-## <a name="1910-update"></a>1910更新
+## <a name="1910-update"></a>1910 更新
 
-Azure Stack 中心的这一更新不包括托管 Azure Stack 中心的基础操作系统的安全更新。 此更新包含 Azure Stack 中心基础结构的组件的安全更新：
+Azure Stack Hub 的此更新不包括托管 Azure Stack Hub 的基础操作系统的安全更新。 此更新包含 Azure Stack Hub 基础结构组件的安全更新：
 
 - [CVE-2019-1234](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1234)
 
 ::: moniker-end
 
 ::: moniker range="azs-1908"
-## <a name="1908-update"></a>1908更新
+## <a name="1908-update"></a>1908 更新
 
 - [CVE-2019-1214](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-1214)
 - [CVE-2019-1215](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-1215)
@@ -363,17 +363,17 @@ Azure Stack 中心的这一更新不包括托管 Azure Stack 中心的基础操�
 - [CVE-2019-1065](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-1065)
 - [CVE-2019-1069](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-1069)
 
-由于 Windows 更新的累积性，此更新还包含上个月的安全负载。 此标识符列表反映了8月、8月和9月2019的安全负载。
-有关这些漏洞的详细信息，请单击前面的链接，或参阅 Microsoft 知识库文章[4516077](https://support.microsoft.com/help/4516077)。
+由于 Windows 更新的累积特性，此更新还包含前几个月的安全有效负载。 此 CVE 列表反映了 2019 年 6 月、7 月、8 月和 9 月的安全有效负载。
+有关这些漏洞的详细信息，请单击上述链接，或者查看 Microsoft 知识库文章 [4516077](https://support.microsoft.com/help/4516077)。
 ::: moniker-end
 
 ::: moniker range="azs-1907"
-## <a name="1907-update"></a>1907更新
+## <a name="1907-update"></a>1907 更新
 
-Azure Stack 中心的这一更新不包括托管 Azure Stack 中心的基础操作系统的安全更新。
+Azure Stack Hub 的此更新不包括托管 Azure Stack Hub 的基础操作系统的安全更新。
 ::: moniker-end
 
 ## <a name="next-steps"></a>后续步骤
 
 - [查看更新活动清单](release-notes-checklist.md)
-- [查看已知问题的列表](known-issues.md)
+- [查看已知问题列表](known-issues.md)

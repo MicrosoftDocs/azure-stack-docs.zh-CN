@@ -1,31 +1,31 @@
 ---
-title: 将 Kubernetes 群集部署到 Azure Stack 集线器上的自定义虚拟网络
-description: 了解如何将 Kubernetes 群集部署到 Azure Stack 集线器上的自定义虚拟网络。
+title: 将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络
+description: 了解如何将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络。
 author: mattbriggs
 ms.topic: article
 ms.date: 2/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: e82ddb48b3858acdf25163976854f538400da54b
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069202"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624971"
 ---
-# <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>在 Azure Stack 集线器上创建适用于 Linux 的 SSH 密钥
+# <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>在 Azure Stack Hub 上为 Linux 创建 SSH 密钥
 
-可以在 Windows 计算机上为 Linux 计算机创建 SSH （安全外壳）密钥。 使用本文中的步骤生成的公钥，通过 Vm 进行 SSH 身份验证。 如果你使用的是 windows 计算机，请在 Windows 上安装 Ubuntu，以使用 bash、ssh、git 和 Windows 上的 Ubuntu 来获取终端。 运行**ssh-keygen** ，创建密钥。
+可以在 Windows 计算机上为 Linux 计算机创建 SSH （安全外壳）密钥。 使用本文中步骤生成的公钥对 VM 进行 SSH 身份验证。 如果使用的是 Windows 计算机，请在 Windows 上安装 Ubuntu，以获取具有 bash、ssh、git、apt 等的实用程序。 运行 **ssh-keygen** 来创建密钥。
 
-## <a name="open-bash-on-windows"></a>在 Windows 上打开 bash
+## <a name="open-bash-on-windows"></a>在 Windows 上打开 Bash
 
-1. 如果计算机上没有安装适用于 Linux 的 Windows 子系统，请[在 Windows 上安装 Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)。  
-    有关使用适用于 Linux 的 Windows 子系统的详细信息，请参阅[适用于 linux 的 Windows 子系统文档](https://docs.microsoft.com/windows/wsl/about)。
+1. 如果你没有在计算机上安装适用于 Linux 的 Windows 子系统，请[在 Windows 上安装 Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)。  
+    有关使用适用于 Linux 的 Windows 子系统的详细信息，请参阅[适用于 Linux 的 Windows 子系统的文档](https://docs.microsoft.com/windows/wsl/about)。
 
-2. 在工具栏中键入**Ubuntu** ，然后选择 "**打开**"。
+2. 在工具栏中键入 **Ubuntu**，然后选择“打开”  。
 
-## <a name="create-a-key-with-ssh-keygen"></a>使用 ssh 创建密钥 ssh-keygen
+## <a name="create-a-key-with-ssh-keygen"></a>使用 ssh-keygen 创建密钥
 
 1. 在 bash 提示符下键入以下命令：
 
@@ -33,16 +33,16 @@ ms.locfileid: "80069202"
     ssh-keygen -t rsa
     ```
 
-    Bash 显示以下提示：
+    Bash 将显示以下提示：
 
     ```bash
     Generating public/private rsa key pair.
     Enter file in which to save the key (/home/username/.ssh/id_rsa):
     ```
 
-2. 键入文件名和密码。 再次键入通行短语。
+2. 键入文件名和通行短语。 再次键入通行短语。
 
-    Bash 显示以下内容：
+    Bash 将显示以下提示：
 
     ```bash
     Generating public/private rsa key pair.
@@ -67,13 +67,13 @@ ms.locfileid: "80069202"
     +----[SHA256]-----+
     ```
 
-3. 查看和公共 ssh 密钥：
+3. 查看公共 ssh 密钥：
 
     ```bash
     cat /home/<username>/<filename>
     ```
 
-    Bash 显示如下所示的内容：
+    Bash 会显示如下所示的内容：
 
     ```bash
     ssh-rsa AAAAB3NzaC1ycTHISISANEXAMPLEDITqEJRNrf6tXy9c0vKnMhiol1BFzHFV3
@@ -84,13 +84,13 @@ ms.locfileid: "80069202"
     aignia880qOtQrvNEvyhgZOM5oDhgE3IJ username@machine
     ```
 
-4. 将 `ssh-rsa [...]` 的文本复制到 `username@machinename`。 请确保文本不包含任何回车符。 使用 AKS 引擎创建 VM 或 Kubernetes 群集时，可以使用此文本。
+4. 复制文本 `ssh-rsa [...]`，一直复制到 `username@machinename`。 请确保文本不包含任何回车符。 使用 AKS 引擎创建 VM 或 Kubernetes 群集时，可以使用此文本。
 
-5. 如果使用的是 Windows 计算机，可以使用 **\\\\wsl $** 来访问 Linux 文件。
+5. 如果你使用的是 Windows 计算机，可以使用 **\\\\wsl$** 来访问 Linux 文件。
 
-    1. 在工具栏中键入 `\\wsl$`。 你的分发将打开的默认窗口。
+    1. 在工具栏中键入 `\\wsl$`。 你的发行版的默认窗口随即打开。
 
-    2. 导航到： `\\wsl$\Ubuntu\home\<username>` 并找到公钥和私钥，并将其保存到安全位置。
+    2. 导航到：`\\wsl$\Ubuntu\home\<username>`，找到公钥和私钥，并将其保存到一个安全位置。
 
 ## <a name="next-steps"></a>后续步骤
 

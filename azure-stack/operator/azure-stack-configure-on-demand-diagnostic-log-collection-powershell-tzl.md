@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 03/05/2020
 ms.openlocfilehash: ca6240cb4f1e54c5e5fbfda79c46697909612063
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79520294"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-to-azure-using-the-privileged-endpoint-pep"></a>使用特权终结点将 Azure Stack 集线器诊断日志发送到 Azure （PEP）
@@ -43,15 +43,15 @@ if ($session) {
 
 ## <a name="parameter-considerations"></a>参数注意事项 
 
-* **FromDate**和**ToDate**参数可用于收集特定时间段的日志。 如果未指定这些参数，则默认情况下，将收集过去四小时的日志。
+* 可以使用 **FromDate** 和 **ToDate** 参数来收集特定时间段的日志。 如果未指定这些参数，则默认收集过去四小时的日志。
 
-* 使用**FilterByNode**参数按计算机名称筛选日志。 例如：
+* 使用 **FilterByNode** 参数按计算机名筛选日志。 例如：
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByNode azs-xrp01
   ```
 
-* 使用**FilterByLogType**参数按类型筛选日志。 可以选择按文件、共享或 WindowsEvent 进行筛选。 例如：
+* 使用 **FilterByLogType** 参数按类型筛选日志。 可以选择按文件、共享或 WindowsEvent 进行筛选。 例如：
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByLogType File

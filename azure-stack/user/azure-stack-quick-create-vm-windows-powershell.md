@@ -1,44 +1,44 @@
 ---
-title: 在 Azure Stack 集线器中使用 PowerShell 创建 Windows Server VM
+title: 在 Azure Stack Hub 中使用 PowerShell 创建 Windows Server VM
 description: 在 Azure Stack Hub 中使用 PowerShell 创建 Windows Server VM。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 14192029c2bbac427b6609abfc62b06e0ef937cb
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 1bc8316cad8574d09401f803982f853dcb7e2e93
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703734"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660357"
 ---
-# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack 集线器中使用 PowerShell 创建 Windows Server VM
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack Hub 中使用 PowerShell 创建 Windows Server VM
 
-可以通过使用 Azure Stack 中心 PowerShell 来创建 Windows Server 2016 虚拟机（VM）。 按照本文中的步骤创建并使用 VM。 本文还提供了以下步骤：
+可以使用 Azure Stack Hub PowerShell 创建 Windows Server 2016 虚拟机 (VM)。 请按照本文中的步骤创建和使用 VM。 本文还提供了执行以下操作的步骤：
 
-* 使用远程客户端连接到 VM。
-* 安装 IIS web 服务器并查看默认主页。
+* 通过远程客户端连接到 VM。
+* 安装 IIS Web 服务器并查看默认主页。
 * 清理资源。
 
 > [!NOTE]
->  如果通过 VPN 进行连接，则可以从 Azure Stack 开发工具包或基于 Windows 的外部客户端运行本文中所述的步骤。
+>  可以通过 Azure Stack 开发工具包或基于 Windows 的外部客户端（如果已通过 VPN 建立连接）运行本文中所述的步骤。
 
 ## <a name="prerequisites-for-windows-server-vm"></a>Windows Server VM 的先决条件
 
-* 请确保 Azure Stack 中心操作员已将**Windows Server 2016**映像添加到 Azure Stack 中心市场。
+* 确保 Azure Stack Hub 操作员已将“Windows Server 2016”  映像添加到 Azure Stack Hub 市场。
 
-* Azure Stack 中心需要 Azure PowerShell 的特定版本来创建和管理资源。 如果没有为 Azure Stack 中心配置 PowerShell，请按照[安装](../operator/azure-stack-powershell-install.md)powershell 的步骤进行操作。
+* Azure Stack Hub 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack Hub 配置 PowerShell，请遵循[安装](../operator/azure-stack-powershell-install.md) PowerShell 的步骤。
 
-* 设置 Azure Stack 中心 PowerShell 后，需要连接到 Azure Stack 中心环境。 有关说明，请参阅[使用 PowerShell 作为用户连接到 Azure Stack 集线器](azure-stack-powershell-configure-user.md)。
+* 设置 Azure Stack Hub PowerShell 后，将需要连接到 Azure Stack Hub 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack Hub](azure-stack-powershell-configure-user.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是在其中部署和管理 Azure Stack 中心资源的逻辑容器。 从开发工具包或 Azure Stack 集线器集成系统中，运行以下代码块以创建资源组。 
+资源组是在其中部署和管理 Azure Stack Hub 资源的逻辑容器。 在开发工具包或 Azure Stack Hub 集成系统中，运行以下代码块创建资源组。 
 
 > [!NOTE]
-> 将为代码示例中的所有变量分配值。 不过，如果需要，可以指定新值。
+> 代码示例中为所有变量都分配了值。 但是，如果愿意，也可以分配新值。
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -74,7 +74,7 @@ Set-AzureRmCurrentStorageAccount `
 
 ## <a name="create-networking-resources"></a>创建网络资源
 
-创建虚拟网络、子网和公共 IP 地址。 这些资源用于提供与 VM 的网络连接。
+创建虚拟网络、子网和公共 IP 地址。 这些资源用来与 VM 建立网络连接。
 
 ```powershell
 # Create a subnet configuration
@@ -101,7 +101,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>创建网络安全组和网络安全组规则
 
-网络安全组使用入站和出站规则保护 VM。 让我们为端口3389创建入站规则，以允许传入的远程桌面连接，并为端口80创建入站规则，以允许传入的 web 流量。
+网络安全组使用入站和出站规则来保护 VM。 让我们创建端口 3389 的入站规则以允许传入的远程桌面连接，并创建端口 80 的入站规则以允许传入的 Web 流量。
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -199,14 +199,14 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-vm"></a>连接到 VM
 
-若要远程登录到上一步中创建的 VM，需要其公共 IP 地址。 运行以下命令以获取 VM 的公共 IP 地址：
+若要远程连接到在上一步骤中创建的 VM，需要使用其公共 IP 地址。 运行以下命令，获取 VM 的公共 IP 地址：
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-使用以下命令创建与 VM 的远程桌面会话。 将 IP 地址替换为你的 VM 的 *publicIPAddress*。 出现提示时，输入创建 VM 时使用的用户名和密码。
+使用以下命令创建与 VM 的远程桌面会话。 将 IP 地址替换为你的 VM 的 *publicIPAddress*。 出现提示时，请输入创建 VM 时使用的用户名和密码。
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -214,7 +214,7 @@ mstsc /v <publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>通过 PowerShell 安装 IIS
 
-现在，已登录到 Azure VM，可以使用单行 PowerShell 安装 IIS，并启用本地防火墙规则以允许 web 流量。 打开 PowerShell 提示符并运行以下命令：
+登录到 Azure VM 后，可以使用单行 PowerShell 安装 IIS，并启用本地防火墙规则以允许 Web 流量。 打开 PowerShell 提示符并运行以下命令：
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -222,13 +222,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>查看 IIS 欢迎页
 
-如果已安装 IIS，并在 VM 上打开端口80，则可以使用任何浏览器查看默认的 IIS 欢迎页。 使用上一节中所述的*publicIpAddress*访问默认页面。
+IIS 已安装，并且已打开 VM 上的端口 80，可以使用任何浏览器查看默认的 IIS 欢迎页。 请使用前面部分中记录的 *publicIpAddress* 来访问默认页面。
 
 ![IIS 默认站点](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
 ## <a name="delete-the-vm"></a>删除 VM
 
-如果不再需要资源组，请使用以下命令删除包含 VM 及其相关资源的资源组：
+不再有需要时，可使用以下命令删除包含 VM 及其相关资源的资源组：
 
 ```powershell
 Remove-AzureRmResourceGroup `
@@ -237,4 +237,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，已部署了一个简单的 Windows VM。 若要详细了解 Azure Stack 集线器 vm，请继续[Azure Stack 中心 vm 功能](azure-stack-vm-considerations.md)。
+在本快速入门中，我们部署了一个简单的 Windows VM。 若要详细了解 Azure Stack Hub VM，请继续阅读 [Azure Stack Hub VM 功能](azure-stack-vm-considerations.md)。

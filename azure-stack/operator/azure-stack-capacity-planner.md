@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中心 Capacity Planner
-description: 了解如何使用 Azure Stack 中心 Capacity Planner 用于部署的电子表格。
+title: Azure Stack Hub Capacity Planner
+description: 了解如何使用 Azure Stack Hub Capacity Planner 电子表格进行部署。
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/31/2019
@@ -8,77 +8,77 @@ ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
 ms.openlocfilehash: 51b9530fdd67826616f6117c3c95dbe48b45303f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701626"
 ---
-# <a name="azure-stack-hub-capacity-planner"></a>Azure Stack 中心 Capacity Planner
+# <a name="azure-stack-hub-capacity-planner"></a>Azure Stack Hub Capacity Planner
 
-Azure Stack 中心 Capacity Planner 是一个电子表格，其中显示了不同的计算资源分配如何适应选择的硬件产品。
+Azure Stack Hub Capacity Planner 是显示不同计算资源分配如何配合硬件产品/服务选择的电子表格。
 
 ## <a name="worksheet-descriptions"></a>工作表说明
 
-下表描述了 Azure Stack 中心 Capacity Planner 中的每个工作表，可以从[https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner)下载该工作表。
+下表描述了 Azure Stack Hub Capacity Planner 中每个工作表（可从 [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner) 下载）。
 
 |工作表名称|说明|
 |-----|-----|
-|版本免责声明|计算器的用途、版本号和发布日期。|
-|Instructions|为虚拟机（Vm）的集合制定容量规划模型的分步说明。|
-|DefinedSolutionSKUs|表，最多有五个硬件定义。 这些项是示例。 更改详细信息以匹配正在考虑的系统配置。|
-|DefineByVMFootprint|通过比较不同大小和 Vm 数量的配置，查找相应的硬件 SKU。|
-|DefineByWorkloadFootprint|通过创建 Azure Stack 集线器工作负载的集合来查找适当的硬件 SKU。|
+|Version-Disclaimer|计算器用途、版本号和发行日期。|
+|Instructions|有关为虚拟机 (VM) 集合的容量规划建模的分步说明。|
+|DefinedSolutionSKUs|包含最多五个硬件定义的表。 这些条目都是示例。 请根据要考虑的系统配置更改详细信息。|
+|DefineByVMFootprint|将配置与不同的 VM 大小和数量进行比较，以找出适当的硬件 SKU。|
+|DefineByWorkloadFootprint|通过创建 Azure Stack Hub 工作负荷的集合来找到相应的硬件 SKU。|
 |  |  |
 
 ## <a name="definedsolutionskus-instructions"></a>DefinedSolutionSKUs 说明
 
-此工作表最多包含五个硬件定义示例。 更改详细信息以匹配正在考虑的系统配置。
+此工作表最多包含五个硬件定义示例。 请根据要考虑的系统配置更改详细信息。
 
-### <a name="hardware-selections-provided-by-authorized-hardware-partners"></a>授权硬件合作伙伴提供的硬件选择
+### <a name="hardware-selections-provided-by-authorized-hardware-partners"></a>由授权硬件合作伙伴提供的硬件选择
 
-Azure Stack 中心作为集成系统提供，由解决方案合作伙伴安装软件。 解决方案合作伙伴提供自己的 Azure Stack 集线器容量规划工具的权威版本。 使用这些工具最终讨论解决方案容量。
+Azure Stack Hub 作为由解决方案合作伙伴安装了软件的集成系统提供。 解决方案合作伙伴提供他们自己的 Azure Stack Hub 容量规划工具授权版本。 最终的解决方案容量介绍中使用了这些工具。
 
-### <a name="multiple-ways-to-model-computing-resources"></a>建模计算资源的多种方法
+### <a name="multiple-ways-to-model-computing-resources"></a>计算资源建模的多种方式
 
-Azure Stack 中心内的资源建模 Capacity Planner 取决于 Azure Stack 集线器 Vm 的各种大小。 Vm 的大小从最小的基本0到最大的 Standard_Fsv2。 可以通过两种不同的方式为计算资源分配建模：
+Azure Stack Hub Capacity Planner 内的资源模型取决于各种不同的 Azure Stack Hub VM 大小。 VM 大小的范围从最小的“基本 0”到最大的 Standard_Fsv2。 可以使用两种方式为计算资源分配建模：
 
-- 选择特定的硬件产品并查看不同资源的组合。
+- 选择特定的硬件产品/服务，并查看各种资源的组合中有哪些适用。
 
-- 创建 VM 分配的特定组合，并让 Azure 资源计算器显示可支持此 VM 配置的可用硬件 Sku。
+- 创建 VM 分配的特定组合，并让 Azure 资源计算器显示哪些可用硬件 SKU 能够支持该 VM 配置。
 
-此工具提供了两种分配 VM 资源的方法：作为 VM 资源分配的单个集合，或者作为最多六个不同工作负荷配置的集合。 每个工作负荷配置可以包含不同的可用 VM 资源分配。 下一节将介绍如何创建和使用其中每个分配模型的分步说明。 应修改此工作表的非背景阴影单元或 SKU 下拉列表中包含的值。 在阴影单元格中所做的更改可能会破坏资源计算。
+此工具提供了两种用于分配 VM 资源的方法：作为 VM 资源分配的单个集合，或者作为最多六个不同工作负荷配置的集合。 每个工作负荷配置可以包含可用 VM 资源的一个不同分配。 以下部分逐步说明如何创建和使用其中的每个分配模型。 包含于非背景阴影数据格，或此任务表之 SKU 下拉列表内的唯一值，应进行修改。阴影数据格内所作之更改可能中断资源的计算。 在着色的单元格内所做的更改可能会破坏资源计算。
 
 ## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint 说明
 
-若要使用各种大小和 Vm 数量的单个集合创建模型，请选择 " **DefineByVMFootprint** " 选项卡，然后执行以下步骤：
+若要使用各种大小和数量的 VM 的单个集合创建模型，请选择“DefineByVMFootprint”选项卡并执行以下步骤  ：
 
-1. 在此工作表的右上角，使用提供的下拉列表框控件来选择要在每个硬件系统（SKU）中安装的初始服务器数（4到16个）。 在建模过程中，可以随时修改此数量的服务器，以了解这会如何影响资源分配模型的总体可用资源。
-2. 如果要针对某个特定硬件配置对各种 VM 资源分配进行建模，请在页面右上角的 "**当前 SKU** " 标签下直接找到蓝色下拉列表框。 下拉此列表框，并选择所需的硬件 SKU。
-3. 现已准备好开始向模型中添加不同大小的 Vm。 若要包含特定 VM 类型，请在该 VM 条目左侧的蓝色 "带外框" 框中输入数量值。
+1. 在此工作表的右上角，使用提供的下拉列表框控件选择想要安装在每个硬件系统 (SKU) 中的服务器的初始数量（在 4 到 16 之间）。 在建模过程可以随时修改此服务器数量，以便查看此值如何影响资源分配模型的整体可用资源。
+2. 如果要针对一个特定的硬件配置为各种 VM 资源分配建模，请在页面的右上角找到“当前 SKU”选项卡正下方的蓝色下拉列表框  。 下拉此列表框，然后选择所需的硬件 SKU。
+3. 现在可以开始将各种大小的 VM 添加到模型。 若要包含特定 VM 类型，请将数量值输入到该 VM 条目左侧的蓝色空心框中。
 
    > [!NOTE]
-   > VM 总存储空间指的是 VM 数据磁盘的总容量（受支持磁盘的数量乘以单个磁盘的最大容量 [1 TB]）。 根据配置指示器，我们已填充可用的存储配置表，因此，你可以为每个 Azure Stack 中心 VM 选择所需的存储资源级别。 但是，请务必注意，可以根据需要添加或更改可用存储配置表。 <br><br>每个 VM 都以最初分配的本地临时存储开始。 若要反映 temp 存储的精简设置，可以将本地-临时号码更改为下拉菜单中的任何内容，包括允许的最大临时存储量。
+   > VM 存储总量是指 VM 的数据磁盘的总容量（受支持的磁盘的数目乘以单个磁盘的最大容量 [1 TB]）。 我们已根据配置指示器填充了“可用存储配置”表，以便你可以为每个 Azure Stack Hub VM 选择所需级别的存储资源。 但是，请务必注意，你可以根据需要添加或更改“可用存储配置”表。 <br><br>每个 VM 从最初分配的本地临时存储开始。 为反映临时存储的精简预配，local-temp 数量可以更改为包括最大可允许临时存储量的下拉菜单中的任何内容。
 
-4. 添加 Vm 时，会看到图表显示了可用的 SKU 资源的变化。 这些图表使你可以查看在建模过程中添加各种 Vm 大小和数量的影响。 查看更改效果的另一种方法是，观看可用 Vm 列表正下方列出的已**使用**和**仍可用**的数字。 这些数字根据当前所选的硬件 SKU 来反映估算值。
-5. 创建 Vm 集后，可以通过选择 "**建议的 SKU**" 找到建议的硬件 sku。 此按钮位于页面的右上角，位于**当前 SKU**标签的正下方。 使用此按钮，你可以修改 VM 配置，并查看支持每个配置的硬件。
+4. 添加 VM 时，你将看到显示可用 SKU 资源更改的图表。 在这些图表中可以查看在建模过程中添加各种大小和数量的 VM 的效果。 查看更改效果的另一种方法是观察“可用 VM”列表正下方列出的“已使用”和“仍可用”数目   。 这些数字反映了基于当前所选硬件 SKU 估计的值。
+5. 创建 VM 集后，可以选择“建议的 SKU”查找建议的硬件 SKU。  此按钮位于页面的右上角，紧靠在“当前 SKU”标签之下。  使用此按钮，可以随后修改 VM 配置并查看哪一硬件支持每个配置。
 
 ## <a name="definebyworkloadfootprint-instructions"></a>DefineByWorkloadFootprint 说明
 
-若要通过使用 Azure Stack 集线器工作负荷的集合来创建模型，请选择 " **DefineByWorkloadFootprint** " 选项卡，然后执行以下步骤序列。 使用可用 VM 资源创建 Azure Stack 集线器工作负荷。
+若要使用 Azure Stack Hub 工作负荷的集合创建模型，请选择“DefineByWorkloadFootprint”选项卡并执行这一序列的步骤  。 使用可用 VM 资源创建 Azure Stack Hub 工作负荷。
 
 > [!TIP]
-> 若要更改为 Azure Stack 中心 VM 提供的存储大小，请参阅上一节的步骤3中的说明。
+> 若要为 Azure Stack Hub VM 更改提供的存储大小，请参阅上一部分的步骤 3 中的说明。
 
-1. 在此工作表的右上角，使用提供的下拉列表框控件来选择要在每个硬件系统（SKU）中安装的初始服务器数（4到16个）。
-2. 如果要针对某个特定硬件配置对各种 VM 资源分配进行建模，请在页面右上角的 "**当前 SKU** " 标签下直接找到蓝色下拉列表框。 下拉此列表框，并选择所需的硬件 SKU。
-3. 在**DefineByVMFootprint**页上，为所需的每个 Azure Stack 中心 vm 选择适当的存储大小。 上一部分的步骤3中描述了此过程。 DefineByVMFootprint 工作表中定义了每个 VM 的存储大小。
-4. 从**DefineByWorkloadFootprint**页的左上角开始，为多达六个不同的工作负荷类型创建配置。 输入该工作负荷中包含的每个 VM 类型的数量。 为此，可将数值置于该工作负荷的名称下直接的列中。 您可以修改工作负荷名称以反映此特定配置将支持的工作负荷的类型。
-5. 您可以通过在 "**数量**" 标签的正下方输入列底部的值，来包含每个工作负荷类型的特定数量。
-6. 创建工作负荷类型和数量后，请选择页面右上角的 "**建议的 sku** "，并将其直接置于**当前 SKU**标签之下。 提供足够的资源来支持工作负荷的总体配置的最小 SKU 将显示。
-7. 可以通过修改为硬件 SKU 选择的服务器数，或更改工作负荷配置中的 VM 分配或数量，来完成进一步的建模。 关联的关系图显示即时反馈，其中显示了所做更改对总体资源消耗的影响。
-8. 如果对更改感到满意，请再次选择**建议的 sku** ，以显示建议用于新配置的 sku。 你还可以选择下拉菜单来选择所需的 SKU。
+1. 在此工作表的右上角，使用提供的下拉列表框控件选择想要安装在每个硬件系统 (SKU) 中的服务器的初始数量（在 4 到 16 之间）。
+2. 如果要针对一个特定的硬件配置为各种 VM 资源分配建模，请在页面的右上角找到“当前 SKU”选项卡正下方的蓝色下拉列表框  。 下拉此列表框，然后选择所需的硬件 SKU。
+3. 在“DefineByVMFootprint”页上，为所需的每个 Azure Stack Hub VM 选择适当的存储大小。  上一部分的步骤 3 已介绍此过程。 每个 VM 的存储大小在 DefineByVMFootprint 工作表中定义。
+4. 从“DefineByWorkloadFootprint”页的左上角开始，针对最多六个不同的工作负荷类型创建配置  。 为每个包含在该工作负荷中的 VM 类型输入数量。 为此，可将数值放入该工作负荷的名称正下方的列中。 可以修改工作负荷名称以反映此特定配置将支持的工作负荷类型。
+5. 可以包括每个工作负荷类型的特定数量，方法是在“数量”标签正下方该列的底部输入一个值  。
+6. 创建好工作负荷类型和数量后，选择页右上角“当前 SKU”标签正下面的“建议的 SKU”   。 此时会显示具有足够的资源、可支持此工作负荷的整体配置的最小 SKU。
+7. 进一步的建模可通过修改为硬件 SKU 选择的服务器数量或更改工作负荷配置中的 VM 分配或数量完成。 关联的图表将显示说明所做的更改如何影响总体资源消耗情况的即时反馈。
+8. 如果你对更改感到满意，请再次选择“建议的 SKU”，以显示新配置的建议 SKU。  也可以从下拉菜单中选择所需的 SKU。
 
 ## <a name="next-steps"></a>后续步骤
 
-了解[Azure Stack 集线器的数据中心集成注意事项](azure-stack-datacenter-integration.md)。
+了解 [Azure Stack Hub 的数据中心集成注意事项](azure-stack-datacenter-integration.md)。

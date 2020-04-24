@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
 ms.openlocfilehash: 5fa9c506b2e030adbf521191a623579f56f1ae0f
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79294249"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>部署 Kubernetes，将容器与 Azure Stack 中心配合使用
@@ -23,12 +23,12 @@ ms.locfileid: "79294249"
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 和容器
 
-你可以使用 Azure Stack 中心上的 AKS 引擎生成的 Azure 资源管理器模板来安装 Kubernetes。 [Kubernetes](https://kubernetes.io)是一个开源系统，用于自动部署、缩放和管理容器中的应用程序。 [容器](https://www.docker.com/what-container)在映像中。 容器映像类似于虚拟机（VM），但与 VM 不同，容器只包含运行应用程序所需的资源，例如代码、运行时、特定的库和设置。
+你可以使用 Azure Stack 中心上的 AKS 引擎生成的 Azure 资源管理器模板来安装 Kubernetes。 [Kubernetes](https://kubernetes.io) 是一个开源系统，可以自动部署、缩放和管理容器中的应用程序。 [容器](https://www.docker.com/what-container)在映像中。 容器映像类似于虚拟机（VM），但与 VM 不同，容器只包含运行应用程序所需的资源，例如代码、运行时、特定的库和设置。
 
-你可以使用 Kubernetes 来执行以下操作：
+可以使用 Kubernetes 执行以下操作：
 
 - 开发可以大规模伸缩、升级并可快速部署的应用程序。 
-- 简化应用程序的设计，并通过不同的 Helm 应用程序提高其可靠性。 [Helm](https://github.com/kubernetes/helm) 是一种开放源打包工具，有助于安装和管理 Kubernetes 应用程序的生命周期。
+- 通过不同的 Helm 应用程序简化应用程序的设计并改进其可靠性。 [Helm](https://github.com/kubernetes/helm) 是一种开放源打包工具，有助于安装和管理 Kubernetes 应用程序的生命周期。
 - 轻松监视和诊断应用程序的运行状况。
 
 只需对支持群集的节点所需的计算使用情况收费。 有关详细信息，请参阅[Azure Stack 中心中的使用情况和计费](../operator/azure-stack-billing-and-chargeback.md)。
@@ -45,9 +45,9 @@ ms.locfileid: "79294249"
 
 ## <a name="connect-to-your-cluster"></a>连接到群集
 
-你现在已准备好连接到群集。 可在群集资源组中找到 master，并将其命名为 `k8s-master-<sequence-of-numbers>`。 使用 SSH 客户端连接到主节点。 在主节点上，可以使用**kubectl**（Kubernetes 命令行客户端）来管理群集。 有关说明，请参阅[Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview)。
+你现在已准备好连接到群集。 master 可以在群集资源组中找到，其名称为 `k8s-master-<sequence-of-numbers>`。 使用 SSH 客户端连接到 master。 在 master 上，可以使用 **kubectl**（Kubernetes 命令行客户端）来管理群集。 有关说明，请参阅 [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview)。
 
-你还可以找到**Helm**程序包管理器，用于将应用程序安装和部署到群集。 有关在群集上安装和使用 Helm 的说明，请参阅[helm.sh](https://helm.sh/)。
+你可能还会发现，**Helm** 包管理器适用于将应用安装和部署到群集中。 若要了解如何通过群集来安装和使用 Helm，请参阅 [helm.sh](https://helm.sh/)。
 
 ## <a name="next-steps"></a>后续步骤
 

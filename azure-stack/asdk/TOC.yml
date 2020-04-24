@@ -3,7 +3,7 @@
 - name: 概述
   expanded: true
   items:
-    - name: 什么是 ASDK？
+    - name: 什么是 ASDK?
       href: asdk-what-is.md
     - name: ASDK 发行说明
       href: asdk-release-notes.md
@@ -23,11 +23,11 @@
       items:
         - name: 下载并提取开发工具包
           href: asdk-download.md
-        - name: 准备 ASDK 主机计算机
+        - name: 准备 ASDK 主机
           href: asdk-prepare-host.md
-        - name: 部署 ASDK-安装程序
+        - name: 部署 ASDK - 安装程序
           href: asdk-install.md
-        - name: 部署 ASDK-PowerShell
+        - name: 部署 ASDK - PowerShell
           href: asdk-deploy-powershell.md
         - name: 部署后配置
           href: asdk-post-deploy.md
@@ -35,15 +35,15 @@
           href: asdk-redeploy.md
     - name: 注册 ASDK
       href: asdk-register.md
-    - name: 配置 Azure Stack 集线器遥测设置
+    - name: 配置 Azure Stack Hub 遥测设置
       href: asdk-telemetry.md
     - name: 启动和停止 ASDK
       href: asdk-start-stop.md
-    - name: 验证 Azure Stack 中心备份
+    - name: 验证 Azure Stack Hub 备份
       href: asdk-validate-backup.md
     - name: 连接到 ASDK
       href: asdk-connect.md
-    - name: 故障排除
+    - name: 疑难解答
       href: asdk-troubleshooting.md
 - name: 参考
   items:
@@ -51,11 +51,11 @@
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: CLI
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
-- name: 相关
+- name: 相关内容
   items:
-    - name: Azure Stack 中心操作员文档
+    - name: Azure Stack Hub 操作员文档
       href: /azure-stack/operator
-    - name: Azure Stack 集线器用户文档
+    - name: Azure Stack Hub 用户文档
       href: /azure-stack/user/
 - name: 资源
   items:

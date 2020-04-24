@@ -1,7 +1,7 @@
 ---
 title: 静态数据加密
 titleSuffix: Azure Stack Hub
-description: 了解 Azure Stack 集线器如何通过静态加密来保护数据。
+description: 了解 Azure Stack Hub 如何使用静态加密来保护数据。
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
@@ -9,51 +9,51 @@ ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
 ms.openlocfilehash: 19680b9e8317e419c0b696d79213f29bcbee2263
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367600"
 ---
-# <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Azure Stack 集线器中的静态数据加密
+# <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Azure Stack Hub 中的静态数据加密
 
-Azure Stack 集线器使用静态加密在存储子系统级别保护用户和基础结构数据。 使用带有128位 AES 加密的 BitLocker 加密 Azure Stack 集线器的存储子系统。 BitLocker 密钥保存在内部密钥存储中。
+Azure Stack Hub 使用静态加密来保护存储子系统级别的用户数据和基础结构数据。 Azure Stack Hub 的存储子系统按照 128 位 AES 加密法使用 BitLocker 进行加密。 BitLocker 密钥保存在内部机密存储中。
 
-静态数据加密是对许多主要符合性标准（例如，PCI-DSS、FedRAMP、HIPAA）的常见要求。 Azure Stack 集线器使你可以满足这些要求，无需额外的工作或配置。 有关 Azure Stack 中心如何帮助满足合规性标准的详细信息，请参阅[Microsoft 服务信任门户](https://aka.ms/AzureStackCompliance)。
+静态数据加密是许多主流合规标准（例如 PCI-DSS、FedRAMP、HIPAA）的共同要求。 Azure Stack Hub 使你无需进行额外的工作或配置即可满足这些要求。 有关 Azure Stack Hub 如何帮助你符合合规性标准的详细信息，请参阅 [Microsoft 服务信任门户](https://aka.ms/AzureStackCompliance)。
 
 > [!NOTE]
-> 静态数据加密可以保护数据免受物理上窃取一个或多个硬盘驱动器的人员的访问。 静态数据加密不能防止通过网络截获的数据（传输中的数据）、当前使用的数据（内存中的数据），或者更常见的情况是在系统启动并运行时 exfiltrated 数据。
+> 静态数据加密可防止窃取一个或多个硬盘实物的人员访问你的数据。 静态数据加密不能防止通过网络截取数据（传输中的数据），也无法保护当前正在使用的数据（内存中的数据），或者更一般而言，在系统已启动且正在运行时无法防止数据泄露。
 
-## <a name="retrieving-bitlocker-recovery-keys"></a>正在检索 BitLocker 恢复密钥
+## <a name="retrieving-bitlocker-recovery-keys"></a>检索 BitLocker 恢复密钥
 
-静态数据的 Azure Stack 中心 BitLocker 密钥在内部进行管理。 无需为常规操作或系统启动期间提供。 但是，支持方案可能要求 BitLocker 恢复密钥使系统处于联机状态。  
+静态数据的 Azure Stack Hub BitLocker 密钥在内部进行管理。 你不需要为常规操作或在系统启动期间提供这些密钥。 但是，支持方案可能要求提供 BitLocker 恢复密钥来让系统联机。  
 
 > [!WARNING]
-> 检索 BitLocker 恢复密钥并将其存储在 Azure Stack 中心以外的安全位置。 在某些支持方案中没有恢复密钥可能会导致数据丢失，并且需要从备份映像还原系统。
+> 检索 BitLocker 恢复密钥，并将其存储在 Azure Stack Hub 外部的安全位置。 在某些支持方案中，不提供恢复密钥可能会导致数据丢失，并需要从备份映像还原系统。
 
-检索 BitLocker 恢复密钥需要访问[特权终结点](azure-stack-privileged-endpoint.md)（PEP）。 在 PEP 会话中，运行 AzsRecoveryKeys cmdlet。
+检索 BitLocker 恢复密钥需要访问[特权终结点](azure-stack-privileged-endpoint.md) (PEP)。 在 PEP 会话中运行 Get-AzsRecoveryKeys cmdlet。
 
 ```powershell
 ##This cmdlet retrieves the recovery keys for all the volumes that are encrypted with BitLocker.
 Get-AzsRecoveryKeys
 ```
 
-*AzsRecoveryKeys* cmdlet 的可选参数：
+*Get-AzsRecoveryKeys* cmdlet 的可选参数：
 
 | 参数 | 说明 | 类型 | 必选 |
 |---------|---------|---------|---------|
-|*raw* | 返回每个加密卷的恢复密钥、计算机名称和密码 id 之间的映射的原始数据。  | 开关 | 否（设计用于支持方案）|
+|*raw* | 返回每个加密卷的恢复密钥、计算机名和密码 ID 之间映射的原始数据。  | 开关 | 否（专为支持方案设计）|
 
 ## <a name="troubleshoot-issues"></a>排查问题
 
-在极大的情况下，BitLocker 解锁请求可能会失败，导致无法启动特定卷。 如果没有 BitLocker 恢复密钥，此故障可能会导致停机，并可能导致数据丢失，具体取决于体系结构的某些组件的可用性。
+在极端情况下，BitLocker 解锁请求可能失败，并导致特定卷无法启动。 如果没有 BitLocker 恢复密钥，根据某些体系结构组件的可用性，这种失败可能会导致停机以及潜在的数据丢失。
 
 > [!WARNING]
-> 检索 BitLocker 恢复密钥并将其存储在 Azure Stack 中心以外的安全位置。 在某些支持方案中没有恢复密钥可能会导致数据丢失，并且需要从备份映像还原系统。
+> 检索 BitLocker 恢复密钥，并将其存储在 Azure Stack Hub 外部的安全位置。 在某些支持方案中，不提供恢复密钥可能会导致数据丢失，并需要从备份映像还原系统。
 
-如果怀疑系统遇到了 BitLocker 问题（例如 Azure Stack 集线器未能启动），请联系支持人员。 支持需要你的 BitLocker 恢复密钥。 对于该特定 VM/主机/卷，可以使用 FRU 操作来解决大部分 BitLocker 相关问题。 对于其他情况，可以执行手动解锁过程，使用 BitLocker 恢复密钥。 如果 BitLocker 恢复密钥不可用，则唯一的选择是从备份映像还原。 根据上一次备份的完成时间，你可能会遇到数据丢失。
+如果你怀疑系统遇到 BitLocker 问题（例如 Azure Stack Hub 无法启动），请与客户支持联系。 支持人员需要你的 BitLocker 恢复密钥。 对该特定 VM/主机/卷执行 FRU 操作可以解决大多数 BitLocker 相关问题。 对于其他情况，可以使用 BitLocker 恢复密钥执行手动解锁过程。 如果 BitLocker 恢复密钥不可用，唯一的选择是从备份映像进行还原。 根据上一次备份的完成时间，你可能会遇到数据丢失的情况。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [详细了解 Azure Stack 中心安全性](azure-stack-security-foundations.md)。
-- 有关 BitLocker 如何保护 Csv 的详细信息，请参阅[通过 BitLocker 保护群集共享卷和存储区域网络](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker)。
+- [详细了解 Azure Stack Hub 安全性](azure-stack-security-foundations.md)。
+- 有关 BitLocker 如何保护 CSV 的详细信息，请参阅[使用 BitLocker 保护群集共享卷和存储区域网络](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker)。

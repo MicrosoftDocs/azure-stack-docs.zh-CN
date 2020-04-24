@@ -8,15 +8,15 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: 96a4fb569660c14cc864518406effa8a733d5111
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80108397"
 ---
-# <a name="what-is-azure-stack-hub"></a>什么是 Azure Stack 中心？
+# <a name="what-is-azure-stack-hub"></a>什么是 Azure Stack Hub？
 
-Azure Stack 中心是一种混合云平台，可让你从公司或服务提供商的数据中心使用 Azure 服务。 作为开发人员，你可以在 Azure Stack 集线器上构建应用。 然后，你可以将它们部署到 Azure Stack 集线器、Azure，或者可以构建真正利用 Azure Stack 中心云和 Azure 之间的连接的混合应用。 使用快速入门和教程了解如何创建资源和部署应用。
+Azure Stack Hub 是一个混合云平台，可用于通过公司或服务提供商的数据中心使用 Azure 服务。 开发人员可以在 Azure Stack Hub 上生成应用。 然后，可将这些应用部署到 Azure Stack Hub 或 Azure，也可生成利用 Azure Stack Hub 云与 Azure 之间的连接的真正混合式应用。 使用快速入门和教程了解如何创建资源和部署应用。
 
 ## <a name="how-to-use-azure-stack-hub"></a>如何使用 Azure Stack 中心
 
@@ -26,4 +26,4 @@ Azure Stack 中心是一种混合云平台，可让你从公司或服务提供�
 
 ## <a name="next-steps"></a>后续步骤
 
-[开发 Azure Stack 中心解决方案](azure-stack-dev-start.md)
+[开发 Azure Stack Hub 的解决方案](azure-stack-dev-start.md)

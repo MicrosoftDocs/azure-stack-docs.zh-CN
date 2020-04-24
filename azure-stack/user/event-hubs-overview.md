@@ -9,17 +9,17 @@ ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
 ms.openlocfilehash: c7c1d11d2ef432ddc8b750fde5cb6970c4076db4
-ms.sourcegitcommit: 48e493256b0b8bd6cea931cd68a9bd932ca77090
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80614379"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Azure Stack 集线器上的事件中心概述
 
 [!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
-利用 Azure Stack 集线器上的事件中心，你可以实现混合云方案。 支持流式处理和基于事件的解决方案，适用于本地和 Azure 云处理。 无论方案是混合（连接）还是断开连接，解决方案都可支持大规模处理事件/流。 你的方案仅受事件中心群集大小的约束，你可以根据需要对其进行设置。 
+使用 Azure Stack Hub 上的事件中心可以实现混合云方案。 支持使用基于流式处理和事件的解决方案进行本地处理和 Azure 云处理。 无论方案是混合（联网）还是离线的，解决方案都支持大规模的事件/流处理。 你的方案仅受事件中心群集大小的约束，你可以根据需要对其进行设置。 
 
 ## <a name="run-event-processing-tasks-and-build-event-driven-applications-on-site"></a>在站点上运行事件处理任务并生成事件驱动的应用程序
 
@@ -40,9 +40,9 @@ ms.locfileid: "80614379"
 
 ## <a name="features"></a>功能 
 
-事件中心版本（在 Azure Stack 中心和 Azure 上）提供了高性能的奇偶校验。 此奇偶校验意味着 Sdk、示例、PowerShell、CLI 和门户提供类似的体验，但有几个不同之处。 下表总结了各版本之间存在的功能可用性的高级别差异。  
+（Azure Stack Hub 和 Azure 上的）事件中心版本提供高度的功能奇偶一致性。 这种奇偶一致性意味着 SDK、示例、PowerShell、CLI 和门户提供类似的体验（差异很小）。 下表总结了各版本之间存在的功能可用性的高级别差异。  
 
-| Feature | Azure Stack 集线器上的事件中心 | Azure 事件中心 |
+| 功能 | Azure Stack Hub 上的事件中心 | Azure 事件中心 |
 |-|-|-|-|
 | 操作员管理员体验 | ✔ | ✘ |
 | Kafka 支持 | ✔ | ✔ |

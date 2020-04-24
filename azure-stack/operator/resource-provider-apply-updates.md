@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
 ms.openlocfilehash: 13ea59064ff653ff24fac97a867725c5d9f036d0
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80424418"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>如何更新 Azure Stack 中心资源提供程序
@@ -23,9 +23,9 @@ ms.locfileid: "80424418"
 
 资源提供程序使用用于应用 Azure Stack 中心更新的相同更新功能进行更新。
 
-1. 登录到 Azure Stack 中心管理员门户。
+1. 登录到 Azure Stack Hub 管理员门户。
 2. 选择左侧的 "**所有服务**" 链接，然后在 "**管理**" 部分下选择 "**更新**"。
-   ![所有服务 "页面](media/resource-provider-apply-updates/1-all-services.png)
+   ![所有服务页](media/resource-provider-apply-updates/1-all-services.png)
 
 3. 在 "**更新**" 页上，可以在 "**资源提供程序**" 部分下找到资源提供程序的更新。
 

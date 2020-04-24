@@ -6,15 +6,15 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 03/24/2020
 ms.openlocfilehash: c1f1ddbfb9f362261a8e55d32a0d8c28b7b64629
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80402861"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>将 GPU 附加到 Azure Stack HCI 上的 Ubuntu Linux VM
 
-> 适用于： Windows Server 2019
+> 适用于：Windows Server Standard 2012 R2
 
 本主题提供有关如何使用用于 Ubuntu 虚拟机（VM）的离散设备分配（DDA）技术 Azure Stack HCI 安装和配置 NVIDIA 图形处理单元（GPU）的分步说明。
 本文档假设你已部署 Azure Stack HCI 群集并安装了 Vm。
@@ -25,10 +25,10 @@ ms.locfileid: "80402861"
 2. 打开每个服务器的电源。
 3. 使用装有 NVIDIA GPU 的服务器上的管理权限登录。
 4. 打开**设备管理器**，导航到 "*其他设备*" 部分。 应该会看到一个设备作为 "3D 视频控制器" 列出。
-5. 右键单击 "3D 视频控制器" 以打开 "**属性**" 页。 单击 **“详细信息”** 。 在 "**属性**" 下的下拉列表中，选择 "位置路径"。
+5. 右键单击 "3D 视频控制器" 以打开 "**属性**" 页。 单击 **“详细信息”**。 在 "**属性**" 下的下拉列表中，选择 "位置路径"。
 6. 请注意以下屏幕截图中突出显示的字符串 PCIRoot 的值。 右键单击 "**值**" 并复制/保存它。
     :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="位置路径屏幕快照":::
-7. 用提升的权限打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将*LocationPath*值替换为你在步骤6中获得的设备的值。
+7. 以提升的权限打开 Windows PowerShell 并执行`Dismount-VMHostAssignableDevice` cmdlet，将 DDA 的 GPU 设备卸除到 VM。 将*LocationPath*值替换为你在步骤6中获得的设备的值。
     ```PowerShell
     Dismount-VMHostAssignableDevice -LocationPath "PCIROOT(16)#PCI(0000)#PCI(0000)" -force
     ```
@@ -215,7 +215,7 @@ ms.locfileid: "80402861"
     sudo nano /etc/iotedge/config.yaml
     ```
 
-    查找文件的预配配置，并取消注释 "手动设置配置" 部分。 用 IoT Edge 设备的连接字符串更新 device_connection_string 的值。 请确保注释掉任何其他预配部分。请确保预配：行没有前面的空格，并且嵌套项缩进了两个空格：
+    查找文件的预配配置，并取消注释 "手动设置配置" 部分。 使用 IoT Edge 设备的连接字符串更新 device_connection_string 的值。 请确保注释掉任何其他预配部分。请确保预配：行没有前面的空格，并且嵌套项缩进了两个空格：
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/manual-provisioning.png" alt-text="手动预配配置屏幕快照":::
 

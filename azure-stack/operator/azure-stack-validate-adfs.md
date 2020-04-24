@@ -1,7 +1,7 @@
 ---
 title: 验证 AD FS 集成
 titleSuffix: Azure Stack Hub
-description: 了解如何使用 Azure Stack 集线器就绪检查器来验证 Azure Stack 中心的 AD FS 集成。
+description: 了解如何使用 Azure Stack Hub 就绪性检查器来验证 Azure Stack Hub 的 AD FS 集成。
 services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -11,63 +11,63 @@ ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
 ms.openlocfilehash: 6c4ed64f3d7327004d3f508c54f98913c97af5fa
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366649"
 ---
-# <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>验证 Azure Stack 中心的 AD FS 集成
+# <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>验证 Azure Stack Hub 的 AD FS 集成
 
-使用 Azure Stack 集线器就绪检查器工具（AzsReadinessChecker）来验证你的环境是否已准备好与 Azure Stack 中心 Active Directory 联合身份验证服务（AD FS）集成。 开始数据中心集成之前或 Azure Stack 中心部署之前，请验证 AD FS 集成。
+使用 Azure Stack Hub 就绪性检查器工具 (AzsReadinessChecker) 来验证环境是否已准备好将 Azure Stack Hub 与 Active Directory 联合身份验证服务 (AD FS) 相集成。 在开始数据中心集成或 Azure Stack Hub 部署之前，请先验证 AD FS 集成。
 
-就绪检查程序将验证：
+就绪性检查器会验证下列项：
 
-* *联合元数据*包含用于联合的有效 XML 元素。
-* 可以检索*AD FS SSL 证书*，并且可以生成信任链。 在戳记上，AD FS 必须信任 SSL 证书链。 证书必须由用于 Azure Stack 中心部署证书的相同*证书颁发机构*进行签名，或者由受信任的根证书颁发机构伙伴进行签名。 有关受信任的根颁发机构伙伴的完整列表，请参阅[TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
-* *AD FS 签名证书*是受信任的，并且未接近过期。
+* 联合元数据包含用于联合身份验证的有效 XML 元素。 
+* 可以检索 AD FS SSL 证书，并可以生成信任链。  在戳记上，AD FS 必须信任 SSL 证书链。 证书必须由签署 Azure Stack Hub 部署证书的同一证书颁发机构  签名，或者由受信任的根颁发机构合作伙伴签名。 有关受信任根颁发机构合作伙伴的完整列表，请参阅 [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
+* AD FS 签名证书受信任且不会在近期过期。 
 
-有关 Azure Stack 中心数据中心集成的详细信息，请参阅[Azure Stack 中心数据中心集成-标识](azure-stack-integrate-identity.md)。
+有关 Azure Stack Hub 数据中心集成的详细信息，请参阅 [Azure Stack Hub 数据中心集成 - 标识](azure-stack-integrate-identity.md)。
 
-## <a name="get-the-readiness-checker-tool"></a>获取就绪状态检查器工具
+## <a name="get-the-readiness-checker-tool"></a>获取就绪性检查器工具
 
-从[PowerShell 库](https://aka.ms/AzsReadinessChecker)下载最新版本的 Azure Stack 集线器就绪检查器工具（AzsReadinessChecker）。  
+从 [PowerShell 库](https://aka.ms/AzsReadinessChecker)下载最新版本的 Azure Stack Hub 就绪性检查器工具 (AzsReadinessChecker)。  
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 必须满足以下先决条件。
 
 **运行该工具的计算机：**
 
-* 具有域连接的 windows 10 或 Windows Server 2016。
-* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，并查看*主要*版本和*次要*版本：  
+* 已建立域连接的 Windows 10 或 Windows Server 2016。
+* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：    
     ```powershell
     $PSVersionTable.PSVersion
     ```
-* 最新版本的[Microsoft Azure Stack 集线器就绪检查](https://aka.ms/AzsReadinessChecker)程序工具。
+* 最新版本的 [Microsoft Azure Stack Hub 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 
 **Active Directory 联合身份验证服务环境：**
 
-至少需要以下一种形式的元数据：
+至少需要下列其中一种形式的元数据：
 
 - AD FS 联合元数据的 URL。 例如：`https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`。
-* 联合元数据 XML 文件。 例如： Federationmetadata.xml。
+* 联合元数据 XML 文件。 例如：FederationMetadata.xml。
 
 ## <a name="validate-ad-fs-integration"></a>验证 AD FS 集成
 
-1. 在满足先决条件的计算机上，打开管理 PowerShell 提示符，然后运行以下命令以安装 AzsReadinessChecker：
+1. 在满足先决条件的计算机上，打开一个管理 PowerShell 提示符，然后运行以下命令来安装 AzsReadinessChecker：
 
     ```powershell
     Install-Module Microsoft.AzureStack.ReadinessChecker -Force
     ```
 
-1. 在 PowerShell 提示符下，运行以下命令以启动验证。 将 **-CustomADFSFederationMetadataEndpointUri**的值指定为联合元数据的 URI。
+1. 在 PowerShell 提示符下，运行以下命令开始验证。 指定 **-CustomADFSFederationMetadataEndpointUri** 的值作为联合元数据的 URI。
 
      ```powershell
      Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
      ```
 
-1. 运行该工具后，查看输出。 确认 AD FS 集成要求状态是否为 "正常"。 验证成功类似于以下示例：
+1. 运行该工具后，查看输出。 确认状态是否为 OK（表示符合 AD FS 集成要求）。 验证成功时会显示类似于以下示例的输出：
 
     ```powershell
     Invoke-AzsADFSValidation v1.1809.1001.1 started.
@@ -90,26 +90,26 @@ ms.locfileid: "78366649"
     Invoke-AzsADFSValidation Completed
     ```
 
-在生产环境中，通过操作员工作站测试证书信任链并不完全表明 Azure Stack 中心基础结构中的 PKI 信任状态。 Azure Stack 集线器戳记的公共 VIP 网络需要与 PKI 基础结构的 CRL 建立连接。
+在生产环境中，从操作员工作站测试证书信任链无法完全指示 Azure Stack Hub 基础结构中的 PKI 信任状态。 Azure Stack Hub 标记的公共 VIP 网络需要与 PKI 基础结构的 CRL 建立连接。
 
 ## <a name="report-and-log-file"></a>报表和日志文件
 
-每次验证运行时，都会将结果记录到**AzsReadinessChecker**和**AzsReadinessCheckerReport**中。 这些文件的位置在 PowerShell 中显示验证结果。
+每次运行验证时，它都会将结果记录到 **AzsReadinessChecker.log** 和 **AzsReadinessCheckerReport.json** 中。 这些文件的位置会随验证结果一起显示在 PowerShell 中。
 
-验证文件可帮助你在部署 Azure Stack 集线器或调查验证问题之前共享状态。 这两个文件都保留每个后续验证检查的结果。 报表向部署团队确认身份配置。 日志文件可帮助您的部署或支持团队调查验证问题。
+验证文件可以帮助你在部署 Azure Stack Hub 之前共享状态，或者调查验证问题。 这两个文件都会持久保留每个后续验证检查的结果。 报告将向部署团队提供标识配置确认。 日志文件可以帮助你的部署或支持团队调查验证问题。
 
-默认情况下，这两个文件都将写入 `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`。
+这两个文件默认写入到 `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`。
 
 使用：
 
-* `-OutputPath`： run 命令末尾的*path*参数，用于指定不同的报表位置。
-* `-CleanReport`： run 命令末尾的参数，用于清除以前报表信息的 AzsReadinessCheckerReport。 有关详细信息，请参阅[Azure Stack 中心验证报告](azure-stack-validation-report.md)。
+* `-OutputPath`：在 run 命令的末尾使用 *path* 参数可以指定不同的报告位置。
+* `-CleanReport`：在 run 命令的末尾使用该参数可以清除先前报告信息的 AzsReadinessCheckerReport.json。 有关详细信息，请参阅 [Azure Stack Hub 验证报告](azure-stack-validation-report.md)。
 
 ## <a name="validation-failures"></a>验证失败
 
-如果验证检查失败，将在 PowerShell 窗口中显示有关失败的详细信息。 该工具还会将信息记录到*AzsReadinessChecker*。
+如果验证检查失败，则有关失败的详细信息将显示在 PowerShell 窗口中。 该工具还会将信息记录到 *AzsReadinessChecker.log* 中。
 
-下面的示例提供了有关常见验证失败的指导。
+下面的示例针对常见的验证失败提供了指导。
 
 ### <a name="command-not-found"></a>找不到命令
 
@@ -117,9 +117,9 @@ ms.locfileid: "78366649"
 Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 ```
 
-**原因**： PowerShell Autoload 未能正确加载就绪检查器模块。
+**原因**：PowerShell Autoload 无法正常加载就绪性检查器模块。
 
-**解决方法**：显式导入就绪状态检查器模块。 将以下代码复制并粘贴到 PowerShell，并将 `<version>` 更新为当前安装的版本的编号。
+**解决方法**：显式导入就绪性检查器模块。 复制以下代码并将其粘贴到 PowerShell 中，然后使用当前安装的版本号更新 `<version>`。
 
 ```powershell
 Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force
@@ -127,5 +127,5 @@ Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.R
 
 ## <a name="next-steps"></a>后续步骤
 
-[查看准备情况报表](azure-stack-validation-report.md)  
-[一般 Azure Stack 集线器集成注意事项](azure-stack-datacenter-integration.md)  
+[查看就绪性报表](azure-stack-validation-report.md)  
+[有关 Azure Stack Hub 集成的一般注意事项](azure-stack-datacenter-integration.md)  

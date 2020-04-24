@@ -12,11 +12,11 @@
         - name: 混合
           tocHref: /azure-stack/hybrid/
           topicHref: /azure-stack/hybrid/index
-        - name: 集线器运算符
+        - name: 中心操作员
           tocHref: /azure-stack/operator/
           topicHref: /azure-stack/operator/index
           items:
-            - name: 操作方法指南/备份 Azure Stack
+            - name: 操作指南/备份 Azure Stack
               tocHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
               topicHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
               items:

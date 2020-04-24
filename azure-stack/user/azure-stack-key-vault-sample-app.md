@@ -1,42 +1,42 @@
 ---
-title: 允许应用访问 Azure Stack 中心 Key Vault 机密
-description: 了解如何在 Azure Stack Hub 中运行从密钥保管库检索密钥和机密的示例应用。
+title: 允许应用访问 Azure Stack Hub Key Vault 机密
+description: 了解如何运行从 Azure Stack Hub 中的密钥保管库检索密钥和机密的示例应用。
 author: sethmanheim
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
 ms.openlocfilehash: 16973c1c381cfecb611370f940f92a7695f9434f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702765"
 ---
-# <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>允许应用访问 Azure Stack 中心 Key Vault 机密
+# <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>允许应用访问 Azure Stack Hub Key Vault 机密
 
-请按照本文中的步骤运行示例应用程序， **HelloKeyVault**从 Azure Stack 集线器中的密钥保管库检索密钥和机密。
+按照本文中的步骤运行示例应用 **HelloKeyVault**，从 Azure Stack Hub 中的密钥保管库检索密钥和机密。
 
 ## <a name="prerequisites"></a>必备条件
 
-如果[通过 VPN 进行连接](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)，则可以从[Azure Stack 开发工具包](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)或基于 Windows 的外部客户端安装以下系统必备组件：
+如果已[通过 VPN 建立连接](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)，可以从 [Azure Stack 开发工具包](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)或从基于 Windows 的外部客户端安装以下必备组件：
 
-* 安装[Azure Stack 集线器兼容的 Azure PowerShell 模块](../operator/azure-stack-powershell-install.md)。
-* 下载[处理 Azure Stack 中心所需的工具](../operator/azure-stack-powershell-download.md)。
+* 安装 [Azure Stack Hub 兼容的 Azure PowerShell 模块](../operator/azure-stack-powershell-install.md)。
+* 下载[使用 Azure Stack Hub 所需的工具](../operator/azure-stack-powershell-download.md)。
 
 ## <a name="create-a-key-vault-and-register-an-app"></a>创建密钥保管库并注册应用
 
-为示例应用程序做好准备：
+若要准备示例应用程序，请执行以下操作：
 
 * 在 Azure Stack Hub 中创建密钥保管库。
-* 在 Azure Active Directory （Azure AD）中注册应用。
+* 在 Azure Active Directory (Azure AD) 中注册应用。
 
 使用 Azure 门户或 PowerShell 来准备示例应用。
 
 > [!NOTE]
-> 默认情况下，PowerShell 脚本在 Active Directory 中创建一个新应用程序。 但是，你可以注册一个现有的应用程序。
+> 默认情况下，此 PowerShell 脚本会在 Active Directory 中创建一个新的应用。 不过，你也可以注册现有的某个应用程序。
 
-运行以下脚本之前，请确保为 `aadTenantName` 和 `applicationPassword` 变量提供值。 如果未指定 `applicationPassword`的值，则此脚本会生成一个随机密码。
+在运行以下脚本之前，请确保为 `aadTenantName` 和 `applicationPassword` 变量提供值。 如果没有为 `applicationPassword` 指定值，此脚本会生成随机密码。
 
 ```powershell
 $vaultName           = 'myVault'
@@ -122,27 +122,27 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 Write-Host
 ```
 
-下图显示了用于创建密钥保管库的脚本的输出：
+下图显示用于创建密钥保管库的脚本的输出：
 
 ![具有访问密钥的密钥保管库](media/azure-stack-key-vault-sample-app/settingsoutput.png)
 
-记下前面脚本返回的**VaultUrl**、 **AuthClientId**和**AuthClientSecret**值。 使用这些值来运行**HelloKeyVault**应用程序。
+请记下前面脚本返回的 **VaultUrl**、**AuthClientId** 和 **AuthClientSecret** 值。 将使用这些值运行 **HelloKeyVault** 应用程序。
 
 ## <a name="download-and-configure-the-sample-application"></a>下载并配置示例应用程序
 
-从 Azure [Key Vault 客户端示例](https://www.microsoft.com/download/details.aspx?id=45343)页下载密钥保管库示例。 提取开发工作站上 .zip 文件的内容。 Samples 文件夹中有两个应用。 本文使用**HelloKeyVault**。
+从 Azure [密钥保管库客户端示例](https://www.microsoft.com/download/details.aspx?id=45343)页下载密钥保管库示例。 将 .zip 文件的内容解压缩到开发工作站上。 samples 文件夹中有两个应用。 本文使用 **HelloKeyVault**。
 
-加载**HelloKeyVault**示例：
+若要加载 **HelloKeyVault** 示例，请执行以下操作：
 
-1. 浏览到**KeyVault** > **示例** > **HelloKeyVault**文件夹。
-2. 在 Visual Studio 中打开**HelloKeyVault**应用。
+1. 浏览到 **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** 文件夹。
+2. 在 Visual Studio 中打开 **HelloKeyVault** 应用。
 
 ### <a name="configure-the-sample-application"></a>配置示例应用程序
 
 在 Visual Studio 中：
 
-1. 打开 HelloKeyVault\App.config 文件并查找 `<appSettings>` 元素。
-2. 用创建密钥保管库时返回的值更新**VaultUrl**、 **AuthClientId**和**AuthCertThumbprint**键。 默认情况下，App.config 文件的 `AuthCertThumbprint`占位符。 将此占位符替换 `AuthClientSecret`。
+1. 打开 HelloKeyVault\App.config 文件，找到 `<appSettings>` 元素。
+2. 使用创建密钥保管库时返回的值更新 **VaultUrl**、**AuthClientId** 和 **AuthCertThumbprint** 密钥。 默认情况下，App.config 文件有一个用于 `AuthCertThumbprint` 的占位符。 请将此占位符替换为 `AuthClientSecret`。
 
    ```xml
    <appSettings>
@@ -158,12 +158,12 @@ Write-Host
 
 ## <a name="run-the-app"></a>运行应用
 
-当你运行**HelloKeyVault**时，应用程序会登录 Azure AD，然后使用 `AuthClientSecret` 令牌向 Azure Stack 集线器中的密钥保管库进行身份验证。
+运行 **HelloKeyVault** 时，应用会登录到 Azure AD，然后使用 `AuthClientSecret` 令牌向 Azure Stack Hub 中的密钥保管库进行身份验证。
 
-可以使用**HelloKeyVault**示例执行以下操作：
+可以使用 **HelloKeyVault** 示例执行以下操作：
 
 * 对密钥和机密执行基本操作，例如创建、加密、包装和删除。
-* 将 `encrypt` 和 `decrypt` 等参数传递到**HelloKeyVault**，并将指定更改应用到密钥保管库。
+* 向 `encrypt`HelloKeyVault`decrypt` 传递诸如 **和** 之类的参数，以及向密钥保管库应用指定的更改。
 
 ## <a name="next-steps"></a>后续步骤
 

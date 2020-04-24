@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: ca48b252525ea6869233f23158a05962056aa7a4
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069179"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>在 Azure Stack 集线器中的 Windows 上安装 AKS 引擎
@@ -36,7 +36,7 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 3. [使用 PowerShell 说明安装 Chocolatey。](https://chocolatey.org/install#install-with-powershellexe) 
 
     根据 Chocolaty 网站： Chocolatey 是适用于 Windows 的程序包管理器，例如 apt 或 yum，但适用于 Windows。 它旨在作为一个分散框架，用于快速安装所需的应用程序和工具。 它构建于 NuGet 基础结构上，该基础结构当前使用 PowerShell 来将包从发行版传送到你的门、err、computer。
-4. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack 中心市场中必须提供 AKS 基本引擎。 运行命令时，必须指定 `--version v0.43.0`版本。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
+4. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack 中心市场中必须提供 AKS 基本引擎。 运行命令时，必须指定版本`--version v0.43.0`。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
 5. 在权限提升的提示符下运行以下命令，并包括版本号：
 
     ```PowerShell  
@@ -50,7 +50,7 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 
 可以安装客户端 VM 来管理从 Internet 断开连接 Azure Stack 集线器上的 Kubernetes 群集。
 
-1.  在有权访问 Internet 的计算机上，请访问 GitHub [Azure/aks](https://github.com/Azure/aks-engine/releases/latest)。 下载 Windows 计算机的存档（* gz），例如 `aks-engine-v0.38.8-windows-amd64.tar.gz`。
+1.  在有权访问 Internet 的计算机上，请访问 GitHub [Azure/aks](https://github.com/Azure/aks-engine/releases/latest)。 下载 Windows 计算机的存档（* gz），例如`aks-engine-v0.38.8-windows-amd64.tar.gz`。
 
 2.  在 Azure Stack Hub 实例中创建一个存储帐户，以使用 AKS 引擎二进制文件上传存档文件（* gz）。 有关使用 Azure 存储资源管理器的说明，请参阅[使用 Azure Stack 集线器 Azure 存储资源管理器](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se)。
 

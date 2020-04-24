@@ -9,10 +9,10 @@ ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
 ms.openlocfilehash: e9f500da4cab68688a6dd33374cfbc1cc166828d
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80424033"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>如何在 Azure Stack 集线器上管理事件中心
@@ -25,7 +25,7 @@ ms.locfileid: "80424033"
 
 使用以下步骤来访问 "事件中心管理" 页：
 
-1. 登录到 Azure Stack 中心管理员门户。
+1. 登录到 Azure Stack Hub 管理员门户。
 2. 从左侧窗格中选择 "**所有服务**"。
 3. 搜索 "事件中心"，然后选择服务。 如果找不到事件中心服务，则必须先[安装](event-hubs-rp-install.md)资源提供程序。
 4. 显示 "事件中心管理概述" 页。 你将在左窗格中找到四个部分：
@@ -60,7 +60,7 @@ ms.locfileid: "80424033"
 | 服务已降级 | | | |
 | | EventHub-InternalServerError | 警告 | 过去六个小时内发生内部服务器错误。 |
 | | EventHub-服务器繁忙 | 警告 | 过去六个小时内出现服务器忙错误。 |
-| Client | | | |
+| 客户端 | | | |
 | | EventHub-关于 microsoft.relay | 警告 | 过去六个小时内发生客户端错误。 |
 | 资源 | | | |
 | | EventHub-PendingDeletingResources | 警告 | 过去6小时内的挂起删除资源的总和大于100。 |

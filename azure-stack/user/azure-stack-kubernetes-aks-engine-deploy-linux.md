@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: 23ffcd6e92ba442447dfa43459344904af514d14
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069104"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>在 Azure Stack 集线器中的 Linux 上安装 AKS 引擎
@@ -33,7 +33,7 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 
 1. 在 Azure Stack 集线器中创建 Linux VM。 有关说明，请参阅[快速入门：使用 Azure Stack 集线器门户创建 Linux 服务器 VM](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)。
 2. 连接到 VM。
-3. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack 中心市场中必须提供 AKS 基本映像。 运行命令时，必须指定 `--version v0.43.0`版本。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
+3. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)表中查找 AKS 引擎的版本。 Azure Stack 中心市场中必须提供 AKS 基本映像。 运行命令时，必须指定版本`--version v0.43.0`。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
 4. 运行以下命令：
 
     ```bash  
@@ -49,13 +49,13 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 
 可以安装客户端 VM 来管理从 Internet 断开连接 Azure Stack 集线器上的 Kubernetes 群集。
 
-1.  在有权访问 Internet 的计算机上，请访问 GitHub [Azure/aks](https://github.com/Azure/aks-engine/releases/latest)。 下载适用于 Linux 计算机的存档（* gz），例如 `aks-engine-v0.xx.x-linux-amd64.tar.gz`。
+1.  在有权访问 Internet 的计算机上，请访问 GitHub [Azure/aks](https://github.com/Azure/aks-engine/releases/latest)。 下载适用于 Linux 计算机的存档（* gz），例如`aks-engine-v0.xx.x-linux-amd64.tar.gz`。
 
 2.  在 Azure Stack Hub 实例中创建一个存储帐户，以使用 AKS 引擎二进制文件上传存档文件（* gz）。 有关使用 Azure 存储资源管理器的说明，请参阅[使用 Azure Stack 集线器 Azure 存储资源管理器](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se)。
 
 3. 在 Azure Stack 集线器中创建 Linux VM。 有关说明，请参阅[快速入门：使用 Azure Stack 集线器门户创建 Linux 服务器 VM](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)。
 
-3.  从上传存档文件的 Azure Stack 中心存储帐户 blob URL （* gz），将文件下载到管理 VM。 将存档提取到目录 `/usr/local/bin`。
+3.  从上传存档文件的 Azure Stack 中心存储帐户 blob URL （* gz），将文件下载到管理 VM。 将存档提取到目录`/usr/local/bin`。
 
 4. 连接到 VM。
 
@@ -91,7 +91,7 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
 
 在 ASDK 上运行 AKS 引擎的客户端 VM 时，需要添加证书。
 
-当你使用 ASDK 时，Azure 资源管理器终结点使用自签名证书时，需要显式将此证书添加到计算机的受信任证书存储区中。 可以在 ASDK 中部署的任何 VM 中找到 ASDK 根证书。 例如，在 Ubuntu VM 中，你将在此目录 `/var/lib/waagent/Certificates.pem`中找到它。 
+当你使用 ASDK 时，Azure 资源管理器终结点使用自签名证书时，需要显式将此证书添加到计算机的受信任证书存储区中。 可以在 ASDK 中部署的任何 VM 中找到 ASDK 根证书。 例如，在 Ubuntu VM 中，你将在此目录`/var/lib/waagent/Certificates.pem`中找到它。 
 
 将证书文件复制到以下命令：
 

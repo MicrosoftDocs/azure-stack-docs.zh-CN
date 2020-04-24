@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
 ms.openlocfilehash: 9c728b17913379edb13683ed4b5f1615d391b922
-ms.sourcegitcommit: bbc4023c9a673c146de4a9e242311d429f7781eb
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77782749"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>将 Azure Kubernetes Services （AKS）引擎必备组件添加到 Azure Stack 中心市场
@@ -46,7 +46,7 @@ Kubernetes 群集将需要 Azure Stack 中心中的服务主体（SPN）和基�
 
 1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
 
-1. 选择 " **+ 从 Azure 添加**"。
+1. 选择“+ 从 Azure 添加”。****
 
 1. 输入 `AKS Base`。
 
@@ -65,16 +65,16 @@ Kubernetes 群集将需要 Azure Stack 中心中的服务主体（SPN）和基�
 
 1. 打开[管理门户](https://adminportal.local.azurestack.external)。
 
-1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
+1. 选择“所有服务”****，然后在“管理”**** 类别下，选择“市场管理”****。
 
-1. 选择 " **+ 从 Azure 添加**"。
+1. 选择“+ 从 Azure 添加”。****
 
 1. 输入 `Custom Script for Linux`。
 
-1. 选择包含以下配置文件的脚本：
-   - **产品/服务**：适用于 Linux 2.0 的自定义脚本
+1. 选择具有以下配置文件的服务器：
+   - **套餐**：适用于 Linux 2.0 的自定义脚本
    - **版本**：2.0.6 （或最新版本）
-   - **发布者**： Microsoft Corp
+   - **发布者**：Microsoft Corp
 
      > [!Note]  
      > 可能列出了适用于 Linux 的自定义脚本的多个版本。 你将需要添加项的最后一个版本。
