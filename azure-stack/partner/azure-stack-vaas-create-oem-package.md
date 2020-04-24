@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中创建 OEM 扩展包。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 64ecf37e0fff2e9380a2c13b6fe65a41ec84de08
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c38a2738fcdfcb61c032982ce4ae0d2ea88d6e3f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704703"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661472"
 ---
 # <a name="create-an-oem-package"></a>创建 OEM 包
 
@@ -28,11 +28,11 @@ Azure Stack 中心 OEM 扩展包是将 OEM 特定内容添加到 Azure Stack 中
 
 1. 标识包的以下内容：
     - 包含包内容的 zip 文件。
-    - 名为 `oemMetadata.xml`的清单文件，其内容与包内容的根目录中的 `metadata.xml` 文件的内容相同。
+    - 名为`oemMetadata.xml`的清单文件，在内容上应与包内容`metadata.xml`的根目录中的文件相同。
 
 2. 选择 "内容文件" 并创建一个 zip 文件：
 
-    创建 oem 扩展包时 ![Zip 文件内容](media/vaas-create-oem-package-1.png) ![在创建 OEM 扩展包时压缩项内容](media/vaas-create-oem-package-2.png)
+    ![创建 oem 扩展包](media/vaas-create-oem-package-1.png) ![时压缩文件内容在创建 oem 扩展包时压缩项内容](media/vaas-create-oem-package-2.png)
 
 3. 重命名生成的文件，使其具有足够的描述性来识别它。
 

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack 中心验证即服务的发行说明。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b842ea5de68cf64d498ec37ed86bb6e15b851395
-ms.sourcegitcommit: b4ebf81850d5ae487efe159b7d2225b4c2f73993
+ms.openlocfilehash: 5c5aa3342acd37708231720663d10eacc7c2388b
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79097750"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661180"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>验证即服务的发行说明
 
@@ -40,7 +40,7 @@ ms.locfileid: "79097750"
   - 用于计算测试的 bug 修复-TestVMOperations
 
 - 已知问题：
-  - 如果下面的测试用例无法在 OEM 验证工作流过程中运行，请联系 vaashelp@microsoft.com：
+  - 如果vaashelp@microsoft.com下面的测试用例无法在 OEM 验证工作流过程中运行，请联系：
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
 
@@ -52,7 +52,7 @@ ms.locfileid: "79097750"
   - VaaS PowerShell 扩展更新：现在支持包验证工作流自动化。 有关使用此扩展的位置和分步说明的详细信息，请参阅 Azure Stack 集线器 VaaS 自动使用 PowerShell。
 
 - 已知问题：
-  - 如果下面的测试用例无法在 OEM 验证工作流过程中运行，请联系 vaashelp@microsoft.com：
+  - 如果vaashelp@microsoft.com下面的测试用例无法在 OEM 验证工作流过程中运行，请联系：
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
 
@@ -64,7 +64,7 @@ ms.locfileid: "79097750"
 - 测试内容更新：
   - 每月 Azure Stack 中心更新验证（版本 5.1.46.0-> 5.1.49.0）。
   - OEM 扩展包验证（版本 5.1.46.0-> 5.1.49.0）。
-  - 已保留5.1.46.0 的结果。 如果已成功在5.1.46.0 上运行，请在提交结果时通知 vaashelp@microsoft.com。
+  - 已保留5.1.46.0 的结果。 如果已成功在5.1.46.0 上运行，请在vaashelp@microsoft.com提交结果时通知。
 
 - Bug 修复
   - 修复了更新 .zip 包含特殊字符的情况下，每月 Azure Stack 集线器更新验证失败的问题。
@@ -77,7 +77,7 @@ ms.locfileid: "79097750"
     1. 单击 "启动" （不是任务栏上的 PowerShell），查找 "PowerShell"，然后以管理员身份打开。
     1. 键入 mstest.exe 并验证它是否可用作命令。
     1. 重新启动代理并重新运行测试。
-  - 有时，云模拟引擎会报告 \*vm 测试失败。 尝试重新运行之前，请联系 vaashelp@microsoft.com。
+  - 有时，云模拟引擎会报告\*vm 测试失败。 请vaashelp@microsoft.com在尝试重新运行前联系。
 
 
 2019年10月29日
@@ -93,10 +93,10 @@ ms.locfileid: "79097750"
     工作流不再需要手动干预，并且可以计划无缝运行。
 - OEM 包验证工作流中的云模拟引擎（版本 > 5.1.30.0 5.1.46.0）已更新，以加快验证时间：运行时间缩短到1小时。
 - OEM 包验证工作流中的云模拟引擎与 Azure Stack 中心更新工作流（版本 5.1.30.0-> 5.1.46.0）要求在两个不同的父文件夹中验证更新，子文件夹中没有其他更新。
-- OEM 包验证工作流中的云模拟引擎与 Azure Stack 中心更新工作流（版本 5.1.30.0-> 5.1.46.0）要求按以下顺序计划测试–每月 Azure Stack 集线器更新验证测试、OEM 扩展包验证测试，最后是云模拟引擎。
+- OEM 包验证工作流中的云模拟引擎与 Azure Stack 中心更新工作流（版本 5.1.30.0-> 5.1.46.0）要求按以下顺序计划测试–每月 Azure Stack 集线器更新验证测试、OEM 扩展包验证测试，以及最终的云模拟引擎。
 - VaaS 代理更新：更新的 VaaS 代理现在使用 Azure Stack 中心云管理员凭据来查询 stamp，以便自动填充数据工作流。
 
-    此更新需要更新并重新启动所有代理。 请参阅以下说明，了解如何更新 VaaS 代理： https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
+    此更新需要更新并重新启动所有代理。 有关如何更新 VaaS 代理的说明，请参阅以下说明：https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
 - VaaS 门户 UI 更新：代理选择表已移到测试计划窗格上方，以方便进行测试。
 
     计划作业时，如果 VaaS 代理已正确更新，则不再需要输入 stamp 信息。
@@ -126,7 +126,7 @@ ms.locfileid: "79097750"
 1. 正常运行 OEM 更新。
 2. 在成功应用包后执行 Test-azurestack，并保存输出。
 3. 取消测试。
-4. 将保存的输出发送到 VaaSHelp@microsoft.com，以接收通过运行的结果。
+4. 将保存的输出发送VaaSHelp@microsoft.com到，以接收该运行的传递结果。
 
 ## <a name="version-402"></a>版本4.0。2
 
@@ -140,7 +140,7 @@ ms.locfileid: "79097750"
 
 - VaaS 先决条件：
 
-    `Install-VaaSPrerequisites` 不再需要云管理员凭据。 如果运行的是最新版本的 cmdlet，请参阅[下载并安装本地代理](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent)以获取用于安装必备组件的已修改命令。 命令如下：
+    `Install-VaaSPrerequisites`不再需要云管理员凭据。 如果运行的是最新版本的 cmdlet，请参阅[下载并安装本地代理](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent)以获取用于安装必备组件的已修改命令。 命令如下：
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -157,7 +157,7 @@ ms.locfileid: "79097750"
 
 - VaaS 先决条件和 VHD 更新：
 
-    `Install-VaaSPrerequisites` 现在需要云管理员凭据才能解决包验证期间的问题。 [下载并安装本地代理](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent)中的文档已更新为以下代码：
+    `Install-VaaSPrerequisites`现在需要云管理员凭据才能解决在包验证期间出现的问题。 [下载并安装本地代理](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent)中的文档已更新为以下代码：
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -170,7 +170,7 @@ ms.locfileid: "79097750"
                               -CloudAdminCredentials $CloudAdminCreds
     ```
     > [!NOTE]
-    > 脚本所需的 `$CloudAdminCreds` 适用于正在验证的 Azure Stack 中心实例。 它们不是 VaaS 租户使用的 Azure Active Directory 凭据。
+    > 脚本`$CloudAdminCreds`所需的脚本适用于正在验证的 Azure Stack 中心实例。 它们不是 VaaS 租户使用的 Azure Active Directory 凭据。
 
 - 本地代理更新：
 
@@ -178,7 +178,7 @@ ms.locfileid: "79097750"
 
 - PowerShell 自动化更新：
 
-    已对需要最新版本的脚本包 `LaunchVaaSTests` PowerShell 脚本进行了更改。 有关安装最新版本的脚本包的说明，请参阅[启动测试通过工作流](azure-stack-vaas-automate-with-powershell.md)。
+    对需要最新`LaunchVaaSTests`版本的脚本包的 PowerShell 脚本进行了更改。 有关安装最新版本的脚本包的说明，请参阅[启动测试通过工作流](azure-stack-vaas-automate-with-powershell.md)。
 
 - 作为服务门户的验证：
 
@@ -192,7 +192,7 @@ ms.locfileid: "79097750"
 
   - 交互式功能验证：
 
-    现可在测试通过工作流中提供针对某些功能的集中式反馈。 `OEM Update on Azure Stack Hub 1806 RC Validation 5.1.4.0` 测试检查是否已正确应用特定更新，然后收集反馈。
+    现可在测试通过工作流中提供针对某些功能的集中式反馈。 `OEM Update on Azure Stack Hub 1806 RC Validation 5.1.4.0`测试将检查是否已正确应用了特定的更新，然后再收集反馈。
 
 ## <a name="next-steps"></a>后续步骤
 

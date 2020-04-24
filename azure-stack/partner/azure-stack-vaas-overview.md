@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack 集线器验证即服务的概述。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f6255ee26eb686b78640f95b44ee5286693d081
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 7c42c9029e1e1292865f0da239d3dafcb78e5543
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704635"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661217"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>什么是 Azure Stack 集线器的验证即服务？
 
@@ -37,15 +37,15 @@ VaaS 的主要用途是：
 
 ## <a name="validate-changes-to-the-azure-stack-hub-software"></a>验证对 Azure Stack 中心软件所做的更改
 
-合作伙伴使用**包验证**工作流来检查其解决方案是否适用于最新的 Azure Stack 中心软件更新。 必须在 Microsoft 推荐的硬件环境中运行包验证工作流，其中修补和更新（P & U）用于应用更新。 建议也在基线生成上运行工作流。
+合作伙伴使用**包验证**工作流来检查其解决方案是否适用于最新的 Azure Stack 中心软件更新。 必须在 Microsoft 推荐的硬件环境中运行包验证工作流，其中修补和更新（P&U）用于应用更新。 建议也在基线生成上运行工作流。
 
-有关详细信息，请参阅[通过 Microsoft 验证软件更新](azure-stack-vaas-validate-microsoft-updates.md)。
+有关详细信息，请参阅[验证来自 Microsoft 的软件更新](azure-stack-vaas-validate-microsoft-updates.md)。
 
-## <a name="get-digitally-signed-solution-partner-packages"></a>获取数字签名的解决方案伙伴包
+## <a name="get-digitally-signed-solution-partner-packages"></a>获取进行了数字签名的解决方案合作伙伴程序包
 
 除了验证 Azure Stack 集线器更新，合作伙伴还使用**包验证**工作流来验证对 OEM 自定义包的更新。 这些更新包括 Azure Stack 集线器合作伙伴特定的驱动程序、固件和 Azure Stack 中心软件部署过程中使用的其他软件。 使用至少受支持的最小大小的解决方案，在当前版本的 Azure Stack 中心软件上部署要验证的包。 在执行测试之前，会将包提交给 VaaS。 如果测试成功，请通知[vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)包已完成测试，并应通过 Azure Stack 中心数字签名进行数字签名。 Microsoft 对包进行签名，并通知 Azure Stack 中心伙伴包可在 Azure Stack 中心验证门户中下载。
 
-有关详细信息，请参阅 "[验证 OEM 包](azure-stack-vaas-validate-oem-package.md)"。
+有关详细信息，请参阅[验证 OEM 程序包](azure-stack-vaas-validate-oem-package.md)。
 
 ## <a name="preview-vaas-test-collateral"></a>预览 VaaS 测试宣传资料
 

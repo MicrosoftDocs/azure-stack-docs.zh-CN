@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 验证门户中管理测试。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b01cea3fb30b2b707ac778a7878c03861b68c3ba
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 68c3ec6dadd71c5e72ecf0c9efa3592f9c4f9ec7
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704652"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661229"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>监视和管理 VaaS 门户中的测试
 
@@ -67,10 +67,10 @@ ms.locfileid: "77704652"
 | 创建 | 计划测试的时间。 |
 | Started | 测试开始执行的时间。 |
 | Duration | 测试运行的时间长度。 |
-| 状态 | 测试的状态或结果。 执行前或正在进行的状态有： `Pending`，`Running`。 终端状态为： `Cancelled`、`Failed`、`Aborted``Succeeded`。 |
+| 状态 | 测试的状态或结果。 执行前或正在进行的状态为： `Pending`、。 `Running` 终端状态为： `Cancelled`、 `Failed`、 `Aborted`和`Succeeded`。 |
 | 代理名称 | 运行测试的代理的名称。 |
-| 操作总数 | 在测试期间尝试的操作的总数。 |
-| 传递的操作 | 测试过程中成功的操作的数目。 |
+| 总操作数 | 在测试期间尝试的操作的总数。 |
+| 通过的操作数 | 测试过程中成功的操作的数目。 |
 |  失败的操作 | 测试过程中失败的操作的数目。 |
 
 ### <a name="actions"></a>操作
@@ -88,8 +88,8 @@ ms.locfileid: "77704652"
 | 发布者 | 测试的发行者。 |
 | 类别 |  测试的目的。 |
 | 目标服务 | 正在测试的 Azure Stack 中心服务。 |
-| 说明 | 测试的说明。 |
-| 估计持续时间（分钟） | 测试的预期运行时。 |
+| 说明 | 对测试的说明。 |
+| 估计持续时间(分钟) | 测试的预期运行时。 |
 | 链接 | 有关测试或联系点的任何相关信息。 |
 
 #### <a name="view-test-instance-parameters"></a>查看测试实例参数
@@ -112,7 +112,7 @@ ms.locfileid: "77704652"
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>下载已完成测试实例的日志
 
-选择上下文菜单中的 "**下载日志**"，在测试执行过程中下载日志输出的 `.zip` 文件。 此操作仅适用于已完成的测试，这意味着它们的状态为 "`Cancelled`"、"`Failed`"、"`Aborted`" 或 "`Succeeded`"。
+从上下文菜单中选择 "**下载日志**" 可`.zip`在测试执行过程中下载日志输出的文件。 此操作仅适用于已完成的测试，这意味着它们的状态`Cancelled`为、 `Failed` `Aborted`、或。 `Succeeded`
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>重新计划测试实例或计划测试
 
@@ -134,7 +134,7 @@ ms.locfileid: "77704652"
 
 #### <a name="cancel-a-test-instance"></a>取消测试实例
 
-如果计划的测试的状态为 `Pending` 或 `Running`，则可以取消该测试。  
+如果计划的测试的状态为或`Pending` `Running`，则可以将其取消。  
 
 1. 从上下文菜单中选择 "**取消**"，以打开用于取消测试实例的提示。
 

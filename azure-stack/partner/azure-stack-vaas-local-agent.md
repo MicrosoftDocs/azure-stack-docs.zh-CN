@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何以服务的形式部署 Azure Stack 集线器验证的本地代理。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a6358b7b9baff76726b2bd1282f525184a071c05
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: ff20f82244adbbf4b1aebebd31bbf99e716bd6ce
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79294007"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661277"
 ---
 # <a name="deploy-the-local-agent"></a>部署本地代理
 
@@ -35,9 +35,9 @@ ms.locfileid: "79294007"
 
 将代理下载到满足你的数据中心先决条件的计算机，并且有权访问所有 Azure Stack 中心终结点。 此计算机不应是 Azure Stack 中心系统的一部分，也不应托管在 Azure Stack 中心云中。
 
-### <a name="machine-prerequisites"></a>计算机必备组件
+### <a name="machine-prerequisites"></a>计算机先决条件
 
-检查您的计算机是否满足以下条件：
+检查计算机是否符合以下条件：
 
 - 访问所有 Azure Stack 中心终结点。
 - 已安装 .NET 4.6 和 PowerShell 5.0。
@@ -79,13 +79,13 @@ ms.locfileid: "79294007"
     ```
 
 > [!Note]  
-> `Install-VaaSPrerequisites` cmdlet 下载大型 VM 映像文件。 如果网络速度缓慢，可以将文件下载到本地文件服务器，并手动将 VM 映像添加到测试环境。 有关详细信息，请参阅[处理慢速网络连接](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)。
+> `Install-VaaSPrerequisites`cmdlet 下载大型 VM 映像文件。 如果网络速度缓慢，可以将文件下载到本地文件服务器，并手动将 VM 映像添加到测试环境。 有关详细信息，请参阅[处理网络连接过慢的问题](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)。
 
-**参数**
+**Parameters**
 
 | 参数 | 说明 |
 | --- | --- |
-| `AadServiceAdminUser` | Azure AD 租户的全局管理员用户。 例如：vaasadmin@contoso.onmicrosoft.com。 |
+| `AadServiceAdminUser` | Azure AD 租户的全局管理员用户。 例如： vaasadmin@contoso.onmicrosoft.com。 |
 | `AadServiceAdminPassword` | 全局管理员用户的密码。 |
 | `CloudAdminUserName` | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如： AzusreStack\CloudAdmin。 有关详细信息，请参阅[VaaS 的工作流通用参数](azure-stack-vaas-parameters.md)。 |
 | `CloudAdminPassword` | 云管理员帐户的密码。|
@@ -96,21 +96,21 @@ ms.locfileid: "79294007"
 
 这些测试运行远程操作。 运行测试的计算机必须有权访问 Azure Stack 中心终结点，否则测试将不起作用。 如果使用的是 VaaS 本地代理，请使用运行代理的计算机。 可以通过运行以下检查来检查计算机是否可以访问 Azure Stack 中心终结点：
 
-1. 检查是否可以访问基 URI。 打开 CMD 提示符或 bash shell 并运行以下命令，并将 `<EXTERNALFQDN>` 替换为您的环境的外部完全限定的域名（FQDN）：
+1. 检查是否可以访问基本 URI。 打开 CMD 提示符或 bash shell 并运行以下命令，并将替换`<EXTERNALFQDN>`为您的环境的外部完全限定的域名（FQDN）：
 
     ```bash
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. 打开浏览器并中转到 `https://adminportal.<EXTERNALFQDN>`，以检查是否可以访问 MA 门户。
+2. 打开浏览器并前往`https://adminportal.<EXTERNALFQDN>` ，以检查是否可以访问 ma 门户。
 
-3. 使用创建测试通过时提供的 "Azure AD 服务管理员名称" 和 "密码" 值登录。
+3. 使用创建测试轮次时提供的 Azure AD 服务管理员用户名和密码值进行登录。
 
-4. 按照[Azure Stack 集线器的运行验证测试](../operator/azure-stack-diagnostic-test.md)中所述，运行**test-azurestack** PowerShell cmdlet 来检查系统的运行状况。 在启动任何测试之前修复所有警告和错误。
+4. 按照[Azure Stack 集线器的运行验证测试](../operator/azure-stack-diagnostic-test.md)中所述，运行**test-azurestack** PowerShell cmdlet 来检查系统的运行状况。 在启动测试之前，请解决任何警告和错误。
 
 ## <a name="run-the-local-agent"></a>运行本地代理
 
-1. 在提升的提示符下打开 Windows PowerShell。
+1. 在提升权限的提示符窗口中打开 Windows PowerShell。
 
 2. 运行以下命令：
 
@@ -126,7 +126,7 @@ ms.locfileid: "79294007"
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u $VaaSUserId -t $VaaSTenantId -x $CloudAdmindUserName -y $CloudAdminPassword
     ```
 
-      **参数**  
+      **Parameters**  
 
     | 参数 | 说明 |
     | --- | --- |
@@ -136,15 +136,15 @@ ms.locfileid: "79294007"
     | `VaaSTenantId` | 为注册为服务的 Azure 帐户 Azure AD 租户 ID。 |
 
     > [!Note]  
-    > 运行代理时，当前工作目录必须是任务引擎主机可执行文件**VaaSOnPrem**的位置。
+    > 运行代理时，当前工作目录必须是任务引擎主机可执行文件 **Microsoft.VaaSOnPrem.TaskEngineHost.exe** 的位置。
 
-如果看不到任何报告的错误，则本地代理已成功。 下面的示例文本显示在控制台窗口中。
+如果没有看到系统报告任何错误，则本地代理已成功。 以下示例文本显示在控制台窗口中。
 
 `Heartbeat was sent successfully.`
 
-![已启动代理](media/started-agent.png)
+![启动的代理](media/started-agent.png)
 
-代理由其名称唯一标识。 默认情况下，它使用从其启动的计算机的 FQDN 名称。 您必须最小化窗口以避免任何意外选择窗口，因为更改焦点将暂停所有其他操作。
+代理可以通过名称进行唯一标识。 默认情况下，它使用从其启动的计算机的 FQDN 名称。 您必须最小化窗口以避免任何意外选择窗口，因为更改焦点将暂停所有其他操作。
 
 ## <a name="next-steps"></a>后续步骤
 

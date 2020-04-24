@@ -1,20 +1,20 @@
 ---
-title: 利用 PowerShell 自动 Azure Stack 验证
+title: 使用 PowerShell 自动执行 Azure Stack 验证
 titleSuffix: Azure Stack Hub
 description: 了解如何通过 PowerShell 自动化 Azure Stack 验证。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 11/26/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c9372aed013c8af089e8e07a0474d6d0321ef53a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a3b7919f920dc173a3378328bbfff427b9820d48
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704737"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661430"
 ---
 # <a name="automate-azure-stack-hub-validation-with-powershell"></a>利用 PowerShell 自动 Azure Stack 集线器验证
 
@@ -36,9 +36,9 @@ ms.locfileid: "77704737"
 
 ## <a name="download-the-automation-scripts"></a>下载自动化脚本
 
-1. 打开提升权限的 PowerShell 提示符。
+1. 打开提升的 PowerShell 提示符。
 
-2. 运行以下脚本以下载自动化脚本：
+2. 运行以下脚本来下载自动化脚本：
 
 ```powershell
 # Review and update the $RootFolder parameter
@@ -170,7 +170,7 @@ $scriptParameters = @{
 & .\RunVaaSAutomation.ps1 @scriptParameters
 ```
 
-## <a name="launch-the-test-pass-workflow"></a>启动测试通过工作流
+## <a name="launch-the-test-pass-workflow"></a>启动测试轮次工作流
 
 若要了解如何通过 VaaS 端口运行测试通过工作流，请参阅[计划测试](azure-stack-vaas-schedule-test-pass.md)。
 
@@ -261,8 +261,8 @@ $scriptParameters = @{
 | VaaSAccountTenantId | 你的 VaaS 租户 GUID。 |
 | ServiceAdminUserName | Azure Stack 中心服务管理员帐户。  |
 | ServiceAdminPassword | Azure Stack 中心服务密码。  |
-| TenantAdminUserName | 主要租户的管理员。  |
-| TenantAdminPassword | 主要租户的密码。  |
+| TenantAdminUserName | 主租户的管理员。  |
+| TenantAdminPassword | 主租户的密码。  |
 | CloudAdminUserName | 云管理员用户名。  |
 | CloudAdminPassword | 云管理员的密码。  |
 | SolutionName | VaaS 解决方案的名称。 |

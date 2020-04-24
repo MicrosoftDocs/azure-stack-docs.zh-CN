@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何为具有验证即服务的 Azure Stack 集线器创建交互式功能验证测试。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a1ef4a77bdc4f4dd83a7bced78c85d64ae7836c3
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 5529164b909099156219086dd8a4895c223ed5a3
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704720"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661288"
 ---
 # <a name="interactive-feature-verification-testing"></a>交互式功能验证测试  
 
@@ -68,7 +68,7 @@ ms.locfileid: "77704720"
 
     ![磁盘标识测试中的文档和验证链接](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
-7. 选择“**下一页**”。
+7. 选择“下一步”  。
 
     ![选择下一步— Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
