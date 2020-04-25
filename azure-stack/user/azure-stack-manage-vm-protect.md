@@ -7,12 +7,12 @@ ms.date: 02/18/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b5618fb39e9fc24fc8a086c99a7e1dd71f6b7a65
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512603"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150230"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>保护在 Azure Stack Hub 上部署的 VM
 
@@ -64,7 +64,7 @@ RPO 是指发生灾难期间，可接受数据丢失的最大持续时间。 例
 
 #### <a name="backup-using-disk-snapshot-for-stopped-vms"></a>使用磁盘快照备份已停止的 Vm
 
-备份产品可以保护连接到已停止 VM 的 IaaS VM 配置和磁盘。 与 Azure Stack 中心 Api 集成的备份产品，用于捕获 VM 配置和创建磁盘快照。 如果可以对应用程序进行计划停机，则在启动备份工作流之前，请确保 VM 处于停止状态。  
+备份产品可以保护连接到已停止 VM 的 IaaS VM 配置和磁盘。 使用与 Azure Stack 中心 Api 集成的备份产品来捕获 VM 配置和创建磁盘快照。 如果可以对应用程序进行计划停机，则在启动备份工作流之前，请确保 VM 处于停止状态。  
 
 #### <a name="backup-using-disk-snapshot-snapshot-for-running-vms"></a>使用磁盘快照快照进行备份以运行 Vm
 
