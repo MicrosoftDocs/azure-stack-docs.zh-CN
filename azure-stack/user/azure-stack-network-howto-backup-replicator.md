@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: e7997669d6a8ffa5809fdb0ccd852f4abcb08284
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660522"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173907"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>使用 Azure Stack Hub 订阅复制器复制资源
 
@@ -72,7 +72,7 @@ Azure 订阅复制器采用模块化设计。 此工具使用核心处理器来�
 
 ## <a name="add-additional-resource-types"></a>添加其他资源类型
 
-添加资源类型的过程很简单。 开发人员必须创建自定义处理器，以及 Azure 资源管理器模板或 Azure 资源管理器模板生成器。 上述操作完成后，开发人员还必须将资源类型添加到 **$resourceType** 参数的 ValidateSet，以及 resource_retriever.ps1 中的 **$resourceTypes** 数组。 在将资源类型添加到 **$resourceTypes ** 数组时，必须以正确的顺序添加。 数组顺序确定资源的部署顺序，因此要考虑到依赖项。 最后，如果自定义处理器使用 Azure 资源管理器模板生成器，则必须将资源类型名称添加到 **post_process.ps1** 中的 **$customTypes** 数组。
+添加资源类型的过程很简单。 开发人员必须创建自定义处理器，以及 Azure 资源管理器模板或 Azure 资源管理器模板生成器。 上述操作完成后，开发人员还必须将资源类型添加到 **$resourceType** 参数的 ValidateSet，以及 resource_retriever.ps1 中的 **$resourceTypes** 数组。 将资源类型添加到 **$resourceTypes**数组时，必须按正确的顺序添加。 数组顺序确定资源的部署顺序，因此要考虑到依赖项。 最后，如果自定义处理器使用 Azure 资源管理器模板生成器，则必须将资源类型名称添加到 **post_process.ps1** 中的 **$customTypes** 数组。
 
 ## <a name="run-azure-subscription-replicator"></a>运行 Azure 订阅复制器
 

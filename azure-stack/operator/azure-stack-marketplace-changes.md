@@ -3,16 +3,16 @@ title: Azure Stack Hub 市场中的新增内容
 description: Azure Stack Hub 市场中的更改和更新。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 04/27/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 4efff54a69adc2150aec88791738a9d564df55ee
-ms.sourcegitcommit: 3809903f51e254fadfa8c653d5b441278540319e
+ms.openlocfilehash: 9852799c59e7ddf2c33a93f5af4feee69718d4ab
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82139471"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166967"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -22,16 +22,13 @@ ms.locfileid: "82139471"
 
 ## <a name="new-marketplace-items"></a>新增市场项
 
-- 06/27/2019：SIOS Datakeeper Cluster Edition
-- 06/27/2019：Veeam 备份和复制
-- 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器即用即付
-- 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器 BYOL
-- 06/27/2019： Windows Server 2019 Datacenter 即用即付
-- 06/27/2019： Windows Server 2019 Datacenter BYOL
-- 06/27/2019： Windows Server 2019 Datacenter Server Core 即用即付
-- 06/27/2019： Windows Server 2019 Datacenter Server Core BYOL
-- 06/27/2019： Windows Server 2019 Datacenter With 容器即用即付
-- 06/27/2019： Windows Server 2019 Datacenter With 容器 BYOL
+- 01/21/2020： Teradici Cloud Access 软件
+- 12/26/2019： CloudGuard IaaS 高可用性
+- 12/26/2019：检查点 CloudGuard IaaS 安全管理
+- 12/26/2019：检查点 CloudGuard IaaS 单一网关
+- 10/16/2019： SIOS DataKeeper 群集版本
+- 08/19/2019： Iguazio 数据科学平台
+- 08/09/2019： Oracle Linux
 - 08/05/2019： Bitnami Drupal
 - 08/05/2019： Bitnami etcd
 - 08/05/2019： Bitnami Grafana
@@ -43,13 +40,16 @@ ms.locfileid: "82139471"
 - 08/05/2019： Bitnami NAT
 - 08/05/2019： Bitnami 审阅板
 - 08/05/2019： Bitnami Composr
-- 08/09/2019： Oracle Linux
-- 08/19/2019： Iguazio 数据科学平台
-- 10/16/2019： SIOS DataKeeper 群集版本
-- 12/26/2019： CloudGuard IaaS 高可用性
-- 12/26/2019：检查点 CloudGuard IaaS 安全管理
-- 12/26/2019：检查点 CloudGuard IaaS 单一网关
-- 01/21/2020： Teradici Cloud Access 软件
+- 06/27/2019： SIOS Datakeeper 群集版本
+- 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器即用即付
+- 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器 BYOL
+- 06/27/2019： Windows Server 2019 Datacenter 即用即付
+- 06/27/2019： Windows Server 2019 Datacenter BYOL
+- 06/27/2019： Windows Server 2019 Datacenter Server Core 即用即付
+- 06/27/2019： Windows Server 2019 Datacenter Server Core BYOL
+- 06/27/2019： Windows Server 2019 Datacenter With 容器即用即付
+- 06/27/2019： Windows Server 2019 Datacenter With 容器 BYOL
+- 06/27/2019： Veeam 备份 & 复制
 
 ## <a name="deprecated-marketplace-items"></a>弃用市场项
 
@@ -62,6 +62,16 @@ ms.locfileid: "82139471"
 
 ## <a name="updated-marketplace-items"></a>更新弃用市场项
 
+- 04/20/2020： Windows Server 2012 Datacenter-BYOL-version 3.127.20190521
+- 04/20/2020： Windows Server 2012 R2 Datacenter-按使用情况付费-版本4.127.20200205
+- 04/20/2020： Windows Server 2012 R2 Datacenter-BYOL-version 4.127.20200205
+- 04/20/2020： Windows Server 2012 Datacenter-按使用情况付费-版本3.127.20200205
+- 04/20/2020： Windows Server 2016 Datacenter-BYOL 版本2020.01
+- 04/20/2020： Windows Server 2016 Datacenter Server Core-按使用情况付费-版本2020.01
+- 04/20/2020： Windows Server 2016 Datacenter Server BYOL-版本2020.01
+- 04/20/2020：包含容器的 Windows Server 2016 Datacenter-使用-版本2020.01
+- 04/20/2020：包含容器的 Windows Server 2016 Datacenter-BYOL 2020.01
+- 04/20/2020： Windows Server 2016 Datacenter-按使用情况付费-版本2020.01
 - 04/17/2020： Bitnami AbanteCart-版本1.2.2002091007
 - 04/17/2020： Bitnami ActiveMQ-版本5.15.2003260344
 - 04/17/2020： Bitnami Akeneo-版本3.2.2004030743
@@ -202,7 +212,18 @@ ms.locfileid: "82139471"
 - 04/17/2020： Bitnami MariaDB Galera 群集-版本1.0.35
 - 04/17/2020： Bitnami Jenkins 群集-版本1.0.69
 - 04/17/2020： Bitnami RabbitMQ 群集-版本1.0.37
-- 07/11/2019： Thales CipherTrust 云密钥管理器-版本1.0。7
+- 10/1/2019： Microsoft JsonADDomain 扩展-版本1.3。4
+- 09/25/2019： Debian 8-版本8.0.20190806
+- 09/24/2019： F5-网络大 IP 虚拟版-版本14.1.200000
+- 09/12/2019： Service Fabric 版本1.0。3
+- 09/02/2019： AKS 基本映像-版本2019.08.09 和版本2019.08.21
+- 08/30/2019： Azure Stack Hub Kubernetes 群集-版本0.5。1
+- 08/08/2019：适用于 Linux 的 CloudLink SecureVM 扩展-版本6。8
+- 08/08/2019：适用于 Windows 的 CloudLink SecureVM 扩展-版本6。8
+- 07/30/2019： SQLIaaSExtension-版本1.3.20180
+- 07/30/2019： SQL Server 2017 （速成版、开发人员版、标准版和企业版）-版本14.0.20190410
+- 07/30/2019： SQL Server 2016 SP1 （速成版、开发人员版、标准版和企业版）-版本13.2.20190410
+- 07/30/2019： SQL Server 2016 SP2 （Express、Developer、Standard 和 Enterprise edition）-版本13.2.20190410
 - 07/16/2019： Windows Server 2016 Datacenter Server Core BYOL-version 2016.127.20190522
 - 07/16/2019： Windows Server 2016 Datacenter Server Core 即用即付-版本2016.127.20190522
 - 07/16/2019： Windows Server 2016 Datacenter With 容器 BYOL-版本2016.127.20190522
@@ -213,19 +234,7 @@ ms.locfileid: "82139471"
 - 07/16/2019： Windows Server 2008 R2 即用即付-版本2.127.20190522
 - 07/16/2019： Windows Server 2012 R2 Datacenter BYOL-version 4.127.20190522
 - 07/16/2019： Windows Server 2012 R2 Datacenter 即用即付-版本4.127.20190522
-- 07/30/2019： SQL Server 2016 SP1 （速成版、开发人员版、标准版和企业版）-版本13.2.20190410
-- 07/30/2019： SQL Server 2016 SP2 （Express、Developer、Standard 和 Enterprise edition）-版本13.2.20190410
-- 07/30/2019： SQL Server 2017 （速成版、开发人员版、标准版和企业版）-版本14.0.20190410
-- 07/30/2019： SQLIaaSExtension-版本1.3.20180
-- 08/08/2019：适用于 Linux 的 CloudLink SecureVM 扩展-版本6。8
-- 08/08/2019：适用于 Windows 的 CloudLink SecureVM 扩展-版本6。8
-- 08/30/2019： Azure Stack Hub Kubernetes 群集-版本0.5。1
-- 09/02/2019： AKS 基本映像-版本2019.08.09 和版本2019.08.21
-- 09/12/2019： Service Fabric 版本1.0。3
-- 09/24/2019： F5-网络大 IP 虚拟版-版本14.1.200000
-- 09/25/2019： Debian 8-版本8.0.20190806
-- 10/1/2019： Microsoft JsonADDomain 扩展-版本1.3。4
-
+- 07/11/2019： Thales CipherTrust 云密钥管理器-版本1.0。7
 
 ## <a name="next-steps"></a>后续步骤
 

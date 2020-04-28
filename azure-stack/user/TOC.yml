@@ -151,7 +151,7 @@
                   href: azure-stack-storage-transfer.md
                 - name: 连接存储资源管理器
                   href: azure-stack-storage-connect-se.md
-            - name: Network (网络)
+            - name: 网络
               items:
                 - name: 概述
                   href: azure-stack-network-overview.md

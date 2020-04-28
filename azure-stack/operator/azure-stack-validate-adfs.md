@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: 了解如何使用 Azure Stack Hub 就绪性检查器来验证 Azure Stack Hub 的 AD FS 集成。
 services: azure-stack
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6c4ed64f3d7327004d3f508c54f98913c97af5fa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a8809c9f3a041d6bb4812c58d614693ce2d5431a
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78366649"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173992"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>验证 Azure Stack Hub 的 AD FS 集成
 

@@ -1,18 +1,18 @@
 ---
 title: 将 AD FS 标识与 Azure Stack Hub 数据中心集成
 description: 了解如何将 Azure Stack Hub AD FS 标识提供者与数据中心 AD FS 集成。
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: article
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 31ef13db3d0a195d0d9505dec2fabf4124448a0f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 38e3d36b5269dac3ee3c4190aff001b4ed4921b4
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243793"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173941"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack Hub 数据中心集成
 
@@ -310,7 +310,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 有关创建 SPN 的详细信息，请参阅[为 AD FS 创建服务主体](azure-stack-create-service-principals.md)。
 
 
-## <a name="troubleshooting"></a>疑难解答
+## <a name="troubleshooting"></a>故障排除
 
 ### <a name="configuration-rollback"></a>配置回滚
 

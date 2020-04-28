@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6edf0f42664f86ffca5bd25aef86892b017c98c9
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80152167"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167086"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 
@@ -50,9 +50,9 @@ ms.locfileid: "80152167"
     aks-engine get-versions
     ```
 
-4.  查找`customCloudProfile`并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。 
+4.  查找`customCloudProfile`并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。 
 
-5. 如果`"identitySystem":"adfs"`使用 AD FS，则添加。 例如，应用于对象的
+5. 如果`"identitySystem":"adfs"`使用 AD FS，则添加。 例如，
 
     ```JSON  
         "customCloudProfile": {
@@ -64,14 +64,14 @@ ms.locfileid: "80152167"
     > [!Note]  
     > 如果对标识系统使用 Azure AD，则无需添加**identitySystem**字段。
 
-6. 查找`portalURL`并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。
+6. 查找`portalURL`并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。
 
 7.  在`masterProfile`中，设置以下字段：
 
     | 字段 | 描述 |
     | --- | --- |
     | dnsPrefix | 输入用于标识 Vm 主机名的唯一字符串。 例如，基于资源组名称的名称。 |
-    | count |  输入要用于部署的主机数。 HA 部署的最小值为3，但不允许对非 HA 部署使用1。 |
+    | 计数 |  输入要用于部署的主机数。 HA 部署的最小值为3，但不允许对非 HA 部署使用1。 |
     | vmSize |  输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如`Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 
@@ -79,7 +79,7 @@ ms.locfileid: "80152167"
 
     | 字段 | 描述 |
     | --- | --- |
-    | count | 输入要用于部署的代理数。 每个订阅使用的节点的最大数目为50。 如果要为每个订阅部署多个群集，请确保代理计数总计不超过50。 请确保使用[示例 API 模型 JSON 文件](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)中指定的配置项目。  |
+    | 计数 | 输入要用于部署的代理数。 每个订阅使用的节点的最大数目为50。 如果要为每个订阅部署多个群集，请确保代理计数总计不超过50。 请确保使用[示例 API 模型 JSON 文件](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)中指定的配置项目。  |
     | vmSize | 输入[Azure Stack 集线器支持的大小](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)，例如`Standard_D2_v2`。 |
     | 发行版 | 输入 `aks-ubuntu-16.04`。 |
 
@@ -123,7 +123,7 @@ ms.locfileid: "80152167"
     | api 模型 | ./kubernetes-azurestack.json | 群集配置文件的路径或 API 模型。 |
     | 输出-目录 | kube-rg | 输入要包含输出文件`apimodel.json`以及其他生成的文件的目录的名称。 |
     | 客户端-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 中心管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
-    | 客户端-密码 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 创建服务时，请设置客户端机密。 |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 创建服务时，请设置客户端机密。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
 
     以下是示例：

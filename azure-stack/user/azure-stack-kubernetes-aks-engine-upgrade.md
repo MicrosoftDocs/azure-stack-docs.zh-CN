@@ -3,16 +3,16 @@ title: 升级 Azure Stack 集线器上的 Kubernetes 群集
 description: 了解如何在 Azure Stack 集线器上升级 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 50f63cee7776bd9093d986746ed613b38164b171
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 4/23/2020
+ms.openlocfilehash: 2e8d4c04cbfce4f7140ecdd873da5323cb1e1e7d
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069249"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167035"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>升级 Azure Stack 集线器上的 Kubernetes 群集
 
@@ -47,30 +47,16 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 
 以下说明使用执行升级的最少步骤。 如需更多详细信息，请参阅[升级 Kubernetes 群集](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md)一文。
 
-1. 需要首先确定可用于升级的版本。 此版本依赖于当前拥有的版本，然后使用该版本值执行升级。
+1. 需要首先确定可用于升级的版本。 此版本依赖于当前拥有的版本，然后使用该版本值执行升级。 最新更新支持的 Kubernetes 版本为1.14.7 和1.15.10。 按照此表来了解可用的升级：
 
-    运行以下命令：
+| 当前版本 | 可用升级 |
+| --- | --- |
+|1.14.7 | 1.15.10 |
+|1.14.8 | 1.15.10 |
+|1.15.4 | 1.15.10 |
+|1.15.5 | 1.15.10 |
 
-    ```bash  
-    $ aks-engine get-versions
-    Version Upgrades
-    1.15.0
-    1.14.3  1.15.0
-    1.14.1  1.14.3, 1.15.0
-    1.13.7  1.14.1, 1.14.3
-    1.13.5  1.13.7, 1.14.1, 1.14.3
-    1.12.8  1.13.5, 1.13.7
-    1.12.7  1.12.8, 1.13.5, 1.13.7
-    1.11.10 1.12.7, 1.12.8
-    1.11.9  1.11.10, 1.12.7, 1.12.8
-    1.10.13 1.11.9, 1.11.10
-    1.10.12 1.10.13, 1.11.9, 1.11.10
-    1.9.11  1.10.12, 1.10.13
-    1.9.10  1.9.11, 1.10.12, 1.10.13
-    1.6.9   1.9.10, 1.9.11
-    ```
-
-    例如，根据`get-versions`命令的输出，如果当前 Kubernetes 版本是 "1.13.5"，则可以升级到 "1.13.7，1.14.1，1.14.3"。
+有关 AKS 引擎、AKS 基本映像和 Kubernetes 版本的完整映射，请参阅[支持的 AKS 引擎版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)。
 
 2. 收集运行`upgrade`命令所需的信息。 升级使用以下参数：
 
@@ -82,7 +68,7 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入订阅 ID。 有关详细信息，请参阅[订阅产品/服务](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) |
     | api 模型 | ./kubernetes-azurestack.json | 群集配置文件的路径或 API 模型。 |
     | 客户端-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体 GUID。 Azure Stack 中心管理员创建服务主体时标识为应用程序 ID 的客户端 ID。 |
-    | 客户端-密码 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 这是你在创建服务时设置的客户端密码。 |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | 输入服务主体密码。 这是你在创建服务时设置的客户端密码。 |
     | 标识-系统 | adfs | 可选。 如果使用 Active Directory 联合服务（AD FS），则指定标识管理解决方案。 |
 
 3. 准备好值后，运行以下命令：

@@ -1,38 +1,38 @@
 ---
-title: 用于在边缘使用 Azure 和 Azure Stack 中心训练机器学习（ML）模型的模式。
-description: 了解如何使用 Azure 和 Azure Stack 中心服务在边缘执行 ML 模型培训。
+title: 在边缘模式训练机器学习模型
+description: 了解如何在 Azure 和 Azure Stack 集线器的边缘执行机器学习模型定型。
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4df466a3b1b1e89be704302153e9e835f504445e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 604553ad11961d42063685c1a4b70388605c0db8
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688859"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166933"
 ---
-# <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>在边缘模式训练机器学习（ML）模型
+# <a name="train-machine-learning-model-at-the-edge-pattern"></a>在边缘模式训练机器学习模型
 
-从仅存在于本地的数据生成可移植 ML 模型。
+从仅在本地存在的数据生成便携式机器学习（ML）模型。
 
 ## <a name="context-and-problem"></a>上下文和问题
 
 很多组织想要使用数据科学家理解的工具从其本地数据或旧数据中解除见解。 [Azure 机器学习](/azure/machine-learning/)提供了用于训练、调整和部署 ML 和深度学习模型的云本机工具。  
 
-但是，某些数据太大，无法发送到云，或者出于法规原因无法发送到云。 使用此模式，数据科学家可以使用 Azure 机器学习来使用本地数据和计算来定型模型。 
+但是，某些数据太大，无法发送到云，或者出于法规原因无法发送到云。 使用此模式，数据科学家可以使用 Azure 机器学习来使用本地数据和计算来定型模型。
 
 ## <a name="solution"></a>解决方案
 
-边缘模式的定型使用 Azure Stack 集线器上运行的虚拟机（VM）。 VM 在 Azure ML 中注册为计算目标，使其只能访问本地可用的数据。 在这种情况下，数据存储在 Azure Stack 集线器的 blob 存储中。 
+边缘模式的定型使用 Azure Stack 集线器上运行的虚拟机（VM）。 VM 在 Azure ML 中注册为计算目标，从而使其访问仅在本地可用的数据。 在这种情况下，数据存储在 Azure Stack 集线器的 blob 存储中。
 
-在对模型进行训练后，会向 Azure ML 注册，并将其添加到 Azure 容器注册表以进行部署。 对于这种模式迭代，Azure Stack 中心训练 VM 必须可通过公共 Internet 访问。 
+在对模型进行训练后，会向 Azure ML 注册，并将其添加到 Azure 容器注册表以进行部署。 对于这种模式迭代，Azure Stack 中心训练 VM 必须可通过公共 internet 访问。
 
-[![在边缘体系结构上训练 ml 模型](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
+[![在边缘体系结构上训练 ML 模型](media/pattern-train-ml-model-at-edge/solution-architecture.png)](media/pattern-train-ml-model-at-edge/solution-architecture.png)
 
-该解决方案的工作原理如下： 
+此模式的工作方式如下：
 
 1. 使用 Azure ML 作为计算目标部署和注册 Azure Stack 中心 VM。
 2. 在 Azure ML 中创建了一个使用 Azure Stack 中心 VM 作为计算目标的实验。
@@ -55,9 +55,9 @@ ms.locfileid: "77688859"
 
 在决定如何实现此解决方案时，请考虑以下几点：
 
-### <a name="scalability"></a>可伸缩性 
+### <a name="scalability"></a>可伸缩性
 
-若要启用此解决方案进行缩放，需要在 Azure Stack 集线器上创建适当大小的虚拟机以进行培训。
+若要启用此解决方案进行缩放，需要在 Azure Stack 集线器上创建适当大小的 VM 以进行培训。
 
 ### <a name="availability"></a>可用性
 
@@ -65,19 +65,20 @@ ms.locfileid: "77688859"
 
 ### <a name="manageability"></a>可管理性
 
-确保模型和试验经过适当的注册、版本控制和标记，以避免在模型部署过程中出现混乱。 
+确保模型和试验经过适当的注册、版本控制和标记，以避免在模型部署过程中出现混乱。
 
 ### <a name="security"></a>安全性
 
-此模式允许 Azure ML 访问本地可能的敏感数据。 确保用于通过 SSH 连接到 Azure Stack 中心 VM 的帐户具有强密码，而训练脚本不会将数据保留或上传到云。 
+此模式允许 Azure ML 访问本地可能的敏感数据。 确保用于通过 SSH 连接到 Azure Stack 中心 VM 的帐户具有强密码，并且训练脚本不会将数据保留或上传到云。
 
 ## <a name="next-steps"></a>后续步骤
 
 若要详细了解本文中介绍的主题：
+
 - 有关 ML 和相关主题的概述，请参阅[Azure 机器学习文档](/azure/machine-learning)。
 - 请参阅[Azure 容器注册表](/azure/container-registry/)，了解如何为容器部署生成、存储和管理映像。
 - 请参阅[Azure Stack 集线器上的应用服务](/azure-stack/operator/azure-stack-app-service-overview)，详细了解资源提供程序和部署方式。
-- 请参阅[混合应用程序设计注意事项](overview-app-design-considerations.md)，其中详细介绍了最佳做法，并解答了其他问题。
-- 请参阅 [Azure Stack 产品和解决方案系列](/azure-stack)详细了解产品和解决方案的整个阵容。
+- 有关最佳实践的详细信息，请参阅[混合应用程序设计注意事项](overview-app-design-considerations.md)。
+- 请参阅[Azure Stack 系列产品和解决方案](/azure-stack)，详细了解产品和解决方案的整个产品组合。
 
 准备好测试解决方案示例时，请[在边缘部署指南中继续学习训练 ML 模型](https://aka.ms/edgetrainingdeploy)。 该部署指南逐步说明了如何部署和测试 Azure Stack 的组件。

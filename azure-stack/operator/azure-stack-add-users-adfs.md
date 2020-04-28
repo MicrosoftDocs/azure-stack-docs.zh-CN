@@ -1,18 +1,18 @@
 ---
 title: 在 AD FS 中添加 Azure Stack Hub 用户
 description: 了解如何为 Active Directory 联合身份验证服务 (AD FS) 部署添加 Azure Stack Hub 用户。
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: article
 ms.date: 06/03/2019
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 79380d40282757e704f9dc0ef3bdaf977253ba14
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 97dcbd84699a99710add6bec510cdce33f8a8e06
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703343"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173890"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-active-directory-federation-services-ad-fs"></a>在 Active Directory 联合身份验证服务 (AD FS) 中添加新的 Azure Stack Hub 用户帐户
 

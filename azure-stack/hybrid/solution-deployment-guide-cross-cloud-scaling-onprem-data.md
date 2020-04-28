@@ -1,24 +1,24 @@
 ---
-title: 部署使用本地数据的应用程序，并使用 Azure 和 Azure Stack Hub 进行跨云缩放
-description: 了解如何部署使用本地数据的应用程序，并使用 Azure 和 Azure Stack Hub 进行跨云缩放。
+title: 部署混合应用，包含可跨云缩放的本地数据
+description: 了解如何部署使用本地数据的应用程序，以及如何使用 Azure 和 Azure Stack 集线器缩放跨云。
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ce9536548a7968f565cb653fb91cc2aa074f50ba
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701065"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167052"
 ---
-# <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>部署使用本地数据的应用程序，并使用 Azure 和 Azure Stack Hub 进行跨云缩放
+# <a name="deploy-hybrid-app-with-on-premises-data-that-scales-cross-cloud"></a>部署混合应用，包含可跨云缩放的本地数据
 
-本解决方案指南介绍如何部署跨越 Azure 和 Azure Stack Hub 的混合应用程序，并使用单个本地数据源。
+本解决方案指南演示如何部署跨 Azure 和 Azure Stack 中心的混合应用，并使用单个本地数据源。
 
-使用混合云解决方案，可以结合私有云在合规性方面的优势与公有云的可伸缩性。 此外，开发人员可以利用 Microsoft 开发人员生态系统，并在云和本地环境中运用其技能。
+使用混合云解决方案，可以结合私有云在合规性方面的优势与公有云的可伸缩性。 你的开发人员还可以利用 Microsoft 开发人员生态系统，并将其技能应用到云和本地环境。
 
 ## <a name="overview-and-assumptions"></a>概述和假设
 
@@ -40,29 +40,29 @@ ms.locfileid: "77701065"
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack 中心是 Azure 的扩展。 Azure Stack Hub 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
 > 
-> [混合应用程序的设计注意事项](overview-app-design-considerations.md)一文回顾了设计、部署和运行混合应用程序所需的软件质量要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
+> [混合应用设计注意事项](overview-app-design-considerations.md)一文介绍了用于设计、部署和操作混合应用的软件质量（放置、可伸缩性、可用性、复原能力、可管理性和安全性）的支柱。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
 ### <a name="assumptions"></a>假设
 
 本教程假定你对全球 Azure 和 Azure Stack 中心有基本的了解。 若要在开始本教程之前了解详细信息，请查看以下文章：
 
- - [Azure 简介](https://azure.microsoft.com/overview/what-is-azure/)
- - [Azure Stack Hub 的重要概念](../operator/azure-stack-overview.md)
+- [Azure 简介](https://azure.microsoft.com/overview/what-is-azure/)
+- [Azure Stack Hub 的重要概念](../operator/azure-stack-overview.md)
 
-本教程还假设你有一个 Azure 订阅。 如果没有订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
+本教程还假设你有一个 Azure 订阅。 如果没有订阅，请在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先决条件
 
 在开始此解决方案之前，请确保符合以下要求：
 
-- Azure Stack 开发工具包 (ASDK) 或 Azure Stack Hub 集成系统的订阅。 若要部署 Azure Stack 开发工具包，请遵照[使用安装程序部署 ASDK](../asdk/asdk-install.md) 中的说明操作。
+- Azure Stack 开发工具包 (ASDK) 或 Azure Stack Hub 集成系统的订阅。 若要部署 ASDK，请按照[使用安装程序部署 ASDK](../asdk/asdk-install.md)中的说明进行操作。
 - Azure Stack Hub 安装中应包含以下组件：
   - Azure 应用服务。 请与 Azure Stack Hub 操作员协作，在环境中部署并配置 Azure 应用服务。 在本教程中，应用服务必须至少有一 (1) 个可用的专用辅助角色。
   - Windows Server 2016 映像。
   - 包含 Microsoft SQL Server 映像的 Windows Server 2016。
   - 相应的计划和产品/服务。
-  - Web 应用的域名。 如果没有域名，可以从 GoDaddy、Bluehost 和 InMotion 等域提供商购买。
-- 受信任的证书颁发机构（例如 LetsEncrypt）为域颁发的 SSL 证书。
+  - Web 应用的域名。 如果没有域名，可以从 GoDaddy、Bluehost 和 InMotion 等域提供商处购买一个。
+- 来自受信任的证书颁发机构（如 LetsEncrypt）的域的 SSL 证书。
 - 与 SQL Server 数据库通信且支持 Application Insights 的 Web 应用。 可以从 GitHub 下载 [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) 示例应用。
 - Azure 虚拟网络与 Azure Stack Hub 虚拟网络之间的混合网络。 有关详细说明，请参阅[使用 Azure 和 Azure Stack Hub 配置混合云连接](solution-deployment-guide-connectivity.md)。
 
@@ -78,13 +78,13 @@ ms.locfileid: "77701065"
 
 3. 在“市场”中选择“计算”，然后选择“更多”。    在“更多”下面，选择“免费 SQL Server 许可证:   Windows Server 上的 SQL Server 2017 Developer”映像。
 
-    ![选择虚拟机映像](media/solution-deployment-guide-hybrid/image2.png)
+    ![在 Azure Stack 集线器用户门户中选择虚拟机映像](media/solution-deployment-guide-hybrid/image2.png)
 
 4. 在“免费 SQL Server 许可证:   Windows Server 上的 SQL Server 2017 Developer”中，选择“创建”。
 
 5. 在“基本信息”>“配置基本设置”中，提供虚拟机 (VM) 的**名称**、SQL Server SA 的**用户名**，以及 SA 的**密码**。   在“订阅”下拉列表中，选择要部署到的订阅。  对于“资源组”，请使用“选择现有项”，并将 VM 放到 Azure Stack Hub Web 应用所在的同一资源组中。  
 
-    ![配置 VM 的基本设置](media/solution-deployment-guide-hybrid/image3.png)
+    ![在 Azure Stack 集线器用户门户中为 VM 配置基本设置](media/solution-deployment-guide-hybrid/image3.png)
 
 6. 在“大小”下面，选择 VM 的大小。  对于本教程，建议使用 A2_Standard 或 DS2_V2_Standard。
 
@@ -102,10 +102,11 @@ ms.locfileid: "77701065"
    - **诊断存储帐户**：根据需要创建新帐户。
    - 选择“确定”以保存配置。 
 
-     ![配置可选功能](media/solution-deployment-guide-hybrid/image4.png)
+     ![在 Azure Stack 集线器用户门户中配置可选 VM 功能](media/solution-deployment-guide-hybrid/image4.png)
 
 8. 在“SQL Server 设置”下面配置以下设置： 
-   - 对于“SQL 连接”，请选择“公共(Internet)”。  
+
+   - 对于 " **SQL 连接**"，请选择 "**公共（Internet）**"。
    - 对于“端口”，请保留默认值 **1433**。 
    - 对于“SQL 身份验证”，请选择“启用”。  
 
@@ -114,15 +115,15 @@ ms.locfileid: "77701065"
 
    - 对于剩余的设置，请保留默认值。 选择“确定”  。
 
-     ![配置 SQL Server 设置](media/solution-deployment-guide-hybrid/image5.png)
+     ![在 Azure Stack 集线器用户门户中配置 SQL Server 设置](media/solution-deployment-guide-hybrid/image5.png)
 
-9. 在“摘要”中检查虚拟机配置，然后选择“确定”开始部署。  
+9. 在 "**摘要**" 中，查看 VM 配置，然后选择 **"确定"** 以启动部署。
 
-    ![配置摘要](media/solution-deployment-guide-hybrid/image6.png)
+    ![Azure Stack 集线器用户门户中的配置摘要](media/solution-deployment-guide-hybrid/image6.png)
 
 10. 创建新 VM 需要花费一段时间。 可以在“虚拟机”中查看 VM 的状态。 
 
-    ![虚拟机](media/solution-deployment-guide-hybrid/image7.png)
+    ![Azure Stack 集线器用户门户中的虚拟机状态](media/solution-deployment-guide-hybrid/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack-hub"></a>在 Azure 和 Azure Stack Hub 中创建 Web 应用
 
@@ -134,7 +135,7 @@ Azure 应用服务简化了运行和管理 Web 应用的过程。 由于 Azure S
 
 2. 在 Azure Stack Hub 中重复上述步骤 (1)。
 
-### <a name="add-route-for-azure-stack-hub"></a>添加 Azure Stack Hub 的路由
+### <a name="add-route-for-azure-stack-hub"></a>为 Azure Stack 中心添加路由
 
 Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使用户能够访问你的应用。 如果 Azure Stack Hub 可从 Internet 访问，请记下 Azure Stack Hub Web 应用的面向公众的 IP 地址或 URL。
 
@@ -152,13 +153,13 @@ Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使
 
 在混合网络中，Azure 端的虚拟网络网关必须允许点到站点连接，以便与 Azure 应用服务集成。
 
-1. 在 Azure 中，导航到虚拟网络网关页。 在“设置”下面，选择“点到站点配置”。  
+1. 在 Azure 中，请参阅 "虚拟网络网关" 页。 在“设置”下面，选择“点到站点配置”。  
 
-    ![“点到站点”选项](media/solution-deployment-guide-hybrid/image8.png)
+    ![Azure 虚拟网络网关上的点到站点选项](media/solution-deployment-guide-hybrid/image8.png)
 
 2. 选择“立即配置”以配置点到站点连接。 
 
-    ![开始进行点到站点配置](media/solution-deployment-guide-hybrid/image9.png)
+    ![在 Azure 虚拟网络网关上启动点到站点配置](media/solution-deployment-guide-hybrid/image9.png)
 
 3. 在“点到站点”配置页上的“地址池”中，输入要使用的专用 IP 地址范围。  
 
@@ -167,23 +168,23 @@ Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使
 
    在“隧道类型”下面，取消选中“IKEv2 VPN”。   选择“保存”完成点到站点配置。 
 
-   ![“点到站点”设置](media/solution-deployment-guide-hybrid/image10.png)
+   ![Azure 虚拟网络网关上的点到站点设置](media/solution-deployment-guide-hybrid/image10.png)
 
 ### <a name="integrate-the-azure-app-service-app-with-the-hybrid-network"></a>将 Azure 应用服务应用与混合网络集成
 
 1. 若要将应用连接到 Azure VNet，请遵照[网关所需的 VNet 集成](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration)中的说明操作。
 
-2. 导航到托管 Web 应用的应用服务计划的“设置”。  在“设置”中，选择“网络”。  
+2. 请参阅托管 web 应用的应用服务计划的 "**设置**"。 在“设置”中，选择“网络”。  
 
-    ![配置网络](media/solution-deployment-guide-hybrid/image11.png)
+    ![为应用服务计划配置网络](media/solution-deployment-guide-hybrid/image11.png)
 
 3. 在“VNET 集成”中，选择“单击此处进行管理”。  
 
-    ![管理 VNET 集成](media/solution-deployment-guide-hybrid/image12.png)
+    ![为应用服务计划管理 VNET 集成](media/solution-deployment-guide-hybrid/image12.png)
 
 4. 选择要配置的 VNET。 在“路由到 VNET 的 IP 地址”下面，输入 Azure VNet、Azure Stack Hub VNet 和点到站点地址空间的 IP 地址范围。  选择“保存”以验证并保存这些设置。 
 
-    ![路由的 IP 地址范围](media/solution-deployment-guide-hybrid/image13.png)
+    ![要在虚拟网络集成中路由的 IP 地址范围](media/solution-deployment-guide-hybrid/image13.png)
 
 若要详细了解应用服务如何与 Azure VNet 集成，请参阅[将应用与 Azure 虚拟网络集成](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)。
 
@@ -191,13 +192,13 @@ Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使
 
 需将 Azure Stack Hub 虚拟网络中的本地网络网关配置为路由来自应用服务点到站点地址范围的流量。
 
-1. 在 Azure Stack Hub 中，导航到“本地网络网关”。  在“设置”下，选择“配置”   。
+1. 在 Azure Stack Hub 中，请参阅 "**本地网络网关**"。 在“设置”下，选择“配置”   。
 
-    ![网关配置选项](media/solution-deployment-guide-hybrid/image14.png)
+    ![Azure Stack 中心本地网络网关中的网关配置选项](media/solution-deployment-guide-hybrid/image14.png)
 
 2. 在“地址空间”中，输入 Azure 中虚拟网络网关的点到站点地址范围。 
 
-    ![点到站点地址空间](media/solution-deployment-guide-hybrid/image15.png)
+    ![Azure Stack 中心本地网络网关中的点到站点地址空间](media/solution-deployment-guide-hybrid/image15.png)
 
 3. 选择“保存”以验证并保存配置。 
 
@@ -221,7 +222,7 @@ Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使
 
 ### <a name="configure-custom-domains-in-azure-stack-hub"></a>在 Azure Stack Hub 中配置自定义域
 
-1. 通过[将 A 记录映射到 Azure 应用服务](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record)，将 **azurestack.northwind.com** 主机名添加到 Azure Stack Hub Web 应用。 对应用服务应用请使用可通过 Internet 路由的 IP 地址。
+1. 通过[将 A 记录映射到 Azure 应用服务](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record)，将 **azurestack.northwind.com** 主机名添加到 Azure Stack Hub Web 应用。 使用应用服务应用的可通过 internet 路由的 IP 地址。
 
 2. 通过[将 CNAME 映射到 Azure 应用服务](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record)，将 **app.northwind.com** 主机名添加到 Azure Stack Hub Web 应用。 使用在前一步骤 (1) 中配置的主机名作为 CNAME 的目标。
 
@@ -235,7 +236,7 @@ Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使
 
 将 SSL 添加到 Azure：
 
-1. 确保获取的 SSL 证书对于所创建的子域有效。 （也可以使用通配符证书。）
+1. 确保获取的 SSL 证书对于创建的子域有效。 （也可以使用通配符证书。）
 
 2. 在 Azure 中，按照[将现有的自定义 SSL 证书绑定到 Azure Web 应用](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)一文的“准备 Web 应用”和“绑定 SSL 证书”部分的说明操作。   为“SSL 类型”选择“基于 SNI 的 SSL”。  
 
@@ -243,11 +244,11 @@ Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使
 
 将 SSL 添加到 Azure Stack Hub：
 
-- 重复适用于 Azure 的步骤 1-3。
+1. 重复适用于 Azure 的步骤 1-3。
 
 ## <a name="configure-and-deploy-the-web-app"></a>配置并部署 Web 应用
 
-你将配置应用代码，以便向正确的 Application Insights 实例报告遥测，并为 Web 应用配置正确的连接字符串。 若要详细了解 Application Insights，请参阅[什么是 Application Insights？](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
+你将配置应用程序代码，以便向正确的 Application Insights 实例报告遥测，并为 web 应用配置正确的连接字符串。 若要详细了解 Application Insights，请参阅[什么是 Application Insights？](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
 
 ### <a name="add-application-insights"></a>添加 Application Insights
 
@@ -257,10 +258,10 @@ Azure Stack Hub 上的应用服务必须可从公共 Internet 进行路由，使
 
 ### <a name="configure-dynamic-connection-strings"></a>配置动态连接字符串
 
-Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 Azure 中的应用使用 SQL Server 虚拟机 (VM) 的专用 IP 地址，Azure Stack Hub 中的应用使用 SQL Server VM 的公共 IP 地址。
+Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 Azure 中的应用使用 SQL Server VM 的专用 IP 地址，Azure Stack 中心中的应用使用 SQL Server VM 的公共 IP 地址。
 
 > [!Note]  
-> 在 Azure Stack Hub 集成系统上，公共 IP 地址不应通过 Internet 路由。 在 Azure Stack 开发工具包 (ASDK) 上，公共 IP 地址不能在 ASDK 外部路由。
+> 在 Azure Stack 集线器集成系统上，公共 IP 地址不应可通过 internet 路由。 在 ASDK 上，公共 IP 地址不能在 ASDK 外部路由。
 
 可以使用应用服务环境变量将不同的连接字符串传递给应用的每个实例。
 
@@ -301,21 +302,21 @@ Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 A
 
 1. 在 Azure 中，找到要横向扩展的站点的应用服务计划，然后选择“横向扩展(应用服务计划)”。 
 
-    ![向外扩展](media/solution-deployment-guide-hybrid/image16.png)
+    ![横向扩展 Azure App Service](media/solution-deployment-guide-hybrid/image16.png)
 
 2. 选择“启用自动缩放”。 
 
-    ![启用自动缩放](media/solution-deployment-guide-hybrid/image17.png)
+    ![在 Azure App Service 中启用自动缩放](media/solution-deployment-guide-hybrid/image17.png)
 
 3. 在“自动缩放设置名称”中输入名称。  对于“默认”自动缩放规则，请选择“基于指标缩放”。   将“实例限制”设置为“最小值:   1”、“最大值:  10”和“默认值:  1”。
 
-    ![配置自动缩放](media/solution-deployment-guide-hybrid/image18.png)
+    ![在 Azure App Service 中配置自动缩放](media/solution-deployment-guide-hybrid/image18.png)
 
 4. 选择“+添加规则”  。
 
 5. 在“指标源”中，选择“当前资源”。   对规则使用以下条件和操作。
 
-**条件**
+#### <a name="criteria"></a>条件
 
 1. 在“时间聚合”下面，选择“平均”。  
 
@@ -326,7 +327,7 @@ Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 A
    - 将“阈值”设置为 **50**。 
    - 将“持续时间”设置为 **10**。 
 
-**操作**
+#### <a name="action"></a>操作
 
 1. 在“操作”下面，选择“计数增量”。  
 
@@ -341,15 +342,15 @@ Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 A
 6. 在“指标源”中，选择“当前资源”。  
 
    > [!Note]  
-   > 当前资源将包含应用服务计划的名称/GUID，“资源类型”和“资源”下拉列表不可用。  
+   > 当前资源将包含应用服务计划的名称/GUID，并且 "**资源类型**" 和 "**资源**" 下拉列表将不可用。
 
 ### <a name="enable-automatic-scale-in"></a>启用自动横向缩减
 
 当流量减少时，Azure Web 应用可以自动减少活动实例的数目，以降低成本。 此操作的力度不如横向扩展，并可尽量降低对应用用户造成的影响。
 
-1. 导航到“默认”横向扩展条件，选择“+ 添加规则”。   对规则使用以下条件和操作。
+1. 中转到**默认**的 scale out 条件，然后选择 " **+ 添加规则**"。 对规则使用以下条件和操作。
 
-**条件**
+#### <a name="criteria"></a>条件
 
 1. 在“时间聚合”下面，选择“平均”。  
 
@@ -360,7 +361,7 @@ Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 A
    - 将“阈值”设置为 **30**。 
    - 将“持续时间”设置为 **10**。 
 
-**操作**
+#### <a name="action"></a>操作
 
 1. 在“操作”下面，选择“计数减量”。  
 
@@ -427,7 +428,7 @@ Web 应用的每个实例都会使用不同的方法连接到 SQL 数据库。 A
 
 配置这两个终结点之后，选择“终结点”时，它们会列在“流量管理器配置文件”中。   以下屏幕截图中的示例显示了两个终结点及其状态和配置信息。
 
-![终结点](media/solution-deployment-guide-hybrid/image20.png)
+![流量管理器配置文件中的终结点](media/solution-deployment-guide-hybrid/image20.png)
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>设置 Application Insights 监视和警报
 
@@ -437,11 +438,11 @@ Azure Application Insights 可让你监视应用，并根据配置的条件发�
 
 ### <a name="create-an-alert-from-metrics"></a>从指标创建警报
 
-导航到用于本教程的资源组，然后选择 Application Insights 实例打开“Application Insights”。 
+在本教程中，请参阅资源组，然后选择 Application Insights 实例以打开**Application Insights**。
 
 ![Application Insights](media/solution-deployment-guide-hybrid/image21.png)
 
-你将使用此视图来创建扩展警报和缩减警报。
+使用此视图可以创建扩展警报和缩小警报。
 
 ### <a name="create-the-scale-out-alert"></a>创建扩展警报
 
@@ -464,7 +465,7 @@ Azure Application Insights 可让你监视应用，并根据配置的条件发�
 
 9. 在菜单栏上选择“保存”。 
 
-### <a name="create-the-scale-in-alert"></a>创建缩减警报
+### <a name="create-the-scale-in-alert"></a>创建扩展警报
 
 1. 在“配置”下，选择“警报(经典)”。  
 2. 选择“添加指标警报(经典)”  。
@@ -485,13 +486,13 @@ Azure Application Insights 可让你监视应用，并根据配置的条件发�
 
 9. 在菜单栏上选择“保存”。 
 
-以下屏幕截图显示了扩展和缩放警报。
+以下屏幕截图显示了向外扩展和向外缩放的警报。
 
-   ![警报（经典）](media/solution-deployment-guide-hybrid/image22.png)
+   ![Application Insights 警报（经典）](media/solution-deployment-guide-hybrid/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack-hub"></a>在 Azure 与 Azure Stack Hub 之间重定向流量
 
-可以配置为在 Azure 与 Azure Stack Hub 之间手动或自动切换 Web 应用流量。
+可以在 Azure 与 Azure Stack 中心之间配置手动或自动切换 web 应用流量。
 
 ### <a name="configure-manual-switching-between-azure-and-azure-stack-hub"></a>配置 Azure 与 Azure Stack Hub 之间的手动切换
 
@@ -499,22 +500,22 @@ Azure Application Insights 可让你监视应用，并根据配置的条件发�
 
 1. 在 Azure 门户中，选择你的流量管理器配置文件。
 
-    ![流量管理器终结点](media/solution-deployment-guide-hybrid/image20.png)
+    ![Azure 门户中的流量管理器终结点](media/solution-deployment-guide-hybrid/image20.png)
 
 2. 选择“终结点”。 
 3. 选择“Azure 终结点”。 
 4. 在“状态”下面，依次选择“已启用”、“保存”。   
 
-    ![启用 Azure 终结点](media/solution-deployment-guide-hybrid/image23.png)
+    ![在 Azure 门户中启用 Azure 终结点](media/solution-deployment-guide-hybrid/image23.png)
 
 5. 在流量管理器配置文件的“终结点”中，选择“外部终结点”。  
 6. 在“状态”下面，依次选择“已禁用”、“保存”。   
 
-    ![禁用 Azure Stack Hub 终结点](media/solution-deployment-guide-hybrid/image24.png)
+    ![禁用 Azure Stack 中心终结点 Azure 门户](media/solution-deployment-guide-hybrid/image24.png)
 
 配置终结点之后，应用流量将转到 Azure 横向扩展 Web 应用，而不是 Azure Stack Hub Web 应用。
 
- ![终结点已更改](media/solution-deployment-guide-hybrid/image25.png)
+ ![Azure web 应用流量中的终结点更改](media/solution-deployment-guide-hybrid/image25.png)
 
 若要将流量回送到 Azure Stack Hub，请使用上述步骤执行以下操作：
 

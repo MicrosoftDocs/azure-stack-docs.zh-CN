@@ -2,18 +2,18 @@
 title: 验证 Azure 图形集成
 titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack Hub 就绪性检查器来验证 Azure Stack Hub 的图形集成。
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 541be4667328f6ac3906c785329b8816558c8b84
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e4af68d1d4f9a44bb957f318f0f13ec1d2c9ecdd
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78366632"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173830"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>验证 Azure Stack Hub 的图形集成
 

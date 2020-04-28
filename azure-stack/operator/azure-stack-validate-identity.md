@@ -2,18 +2,18 @@
 title: 验证 Azure 标识
 titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack Hub 就绪性检查器来验证 Azure 标识。
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3c2eb6b0efc0bc6f0111ed342ef16e19223f0a85
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0852c977494dcd91545b1ea13430811b83eeeddb
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78366511"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173822"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识
 
