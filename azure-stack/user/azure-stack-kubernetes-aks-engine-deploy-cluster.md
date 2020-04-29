@@ -3,16 +3,16 @@ title: 在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 description: 如何从运行 AKS 引擎的客户端 VM 在 Azure Stack 集线器上部署 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 6edf0f42664f86ffca5bd25aef86892b017c98c9
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.lastreviewed: 4/23/2020
+ms.openlocfilehash: 85f9e789db3ce86b04b490be83f355eb73e7329e
+ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167086"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82218817"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集
 
@@ -44,11 +44,7 @@ ms.locfileid: "82167086"
     > [!Note]  
     > 如果尚未安装 nano，可以在 Ubuntu 上安装 nano： `sudo apt-get install nano`。
 
-3.  在 kubernetes-test-azurestack 文件中查找`orchestratorRelease`。 选择一个受支持的 Kubernetes 版本。 例如，1.14、1.15。 这些版本经常会更新。 将版本指定为 "x"，而不是 "xx. x"。 有关当前版本的列表，请参阅[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)。 可以通过运行以下 AKS 引擎命令来查找支持的版本：
-
-    ```bash
-    aks-engine get-versions
-    ```
+3.  在 kubernetes-test-azurestack 文件中，找到 orchestratorRelease 和 orchestratorVersion。 选择一个受支持的 Kubernetes 版本。 例如， `orchestratorRelease`使用1.14 或1.15，并分别`orchestratorVersion`使用1.14.7 或1.15.10。 将指定`orchestratorRelease`为 x. xx，将 orchestratorVersion 指定为 x. x. x。 有关当前版本的列表，请参阅[支持的 AKS 引擎版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)
 
 4.  查找`customCloudProfile`并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external` 。 
 

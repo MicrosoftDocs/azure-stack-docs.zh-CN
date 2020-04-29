@@ -3,16 +3,16 @@ title: Azure Stack 中心中的 VM 更新和管理自动化
 description: 了解如何使用 Azure 自动化中的用于 VM 的 Azure Monitor、更新管理、更改跟踪和清单解决方案来管理 Azure Stack 中心部署的 Windows 和 Linux Vm。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 733405cc09444b88d8b81750f73be805b339e1d3
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/27/2020
+ms.openlocfilehash: 7ef6b1fe7bcaa0cba1138c194847c40076f3ec6e
+ms.sourcegitcommit: 29734b4ca6917b86674c17de9f41b0aaf367a838
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661481"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82223049"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack 中心中的 VM 更新和管理自动化
 使用以下 Azure 自动化解决方案功能管理使用 Azure Stack 中心部署的 Windows 和 Linux 虚拟机（Vm）：
@@ -28,7 +28,7 @@ ms.locfileid: "81661481"
 > [!IMPORTANT]
 > 这些解决方案与用于管理 Azure Vm 的解决方案相同。 使用相同的工具，通过相同的方式管理 Azure 和 Azure Stack 中心 Vm。 将更新管理、更改跟踪、清单和用于 VM 的 Azure Monitor 解决方案与 Azure Stack 中心结合使用时，Azure Stack 中心 Vm 也会与 Azure Vm 定价相同。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 使用这些功能更新和管理 Azure Stack 中心 Vm 之前，必须先满足一些先决条件。 其中包括 Azure 门户中必须执行的步骤，还包括 Azure Stack 中心管理门户。
 
 ### <a name="in-the-azure-portal"></a>在 Azure 门户中
@@ -51,7 +51,7 @@ ms.locfileid: "81661481"
 
 5. 重复步骤2-4 以启用所有这三种解决方案。 
 
-   [![](media/vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
+   [![](media//vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media//vm-update-management/1-lg.PNG)
 
 ### <a name="enable-azure-monitor-for-vms"></a>启用用于 VM 的 Azure Monitor
 
@@ -70,11 +70,11 @@ ms.locfileid: "81661481"
 ### <a name="in-the-azure-stack-hub-administrator-portal"></a>在 Azure Stack 中心管理员门户
 在 Azure 门户中启用 Azure 自动化解决方案之后，接下来需要以云管理员身份登录到 Azure Stack 中心管理员门户，并在 Azure Stack 中心市场下载适用于 Linux 扩展的**Azure Monitor、更新和配置管理**以及**Azure Monitor、更新和配置管理**。
 
-   ![Azure Monitor、更新和配置管理扩展应用商店项](media/vm-update-management/2.PNG) 
+   ![Azure Monitor、更新和配置管理扩展应用商店项](media//vm-update-management/2.PNG) 
 
 若要启用用于 VM 的 Azure Monitor Map 解决方案并深入了解网络依赖项，请下载**Azure Monitor Dependency Agent**：
 
-   ![Azure Monitor Dependency Agent](media/vm-update-management/2-dependency.PNG) 
+   ![Azure Monitor Dependency Agent](media//vm-update-management/2-dependency.PNG) 
 
 ## <a name="enable-update-management-for-azure-stack-hub-vms"></a>为 Azure Stack 中心 Vm 启用更新管理
 按照以下步骤为 Azure Stack 中心 Vm 启用更新管理。
@@ -83,15 +83,15 @@ ms.locfileid: "81661481"
 
 2. 在 Azure Stack 集线器用户门户中，前往要为其启用这些解决方案的 Vm 的 "扩展" 边栏选项卡，单击 " **+ 添加**"，选择 " **Azure 更新和配置管理**" 扩展，然后单击 "**创建**"：
 
-   [![](media/vm-update-management/3-sm.PNG "VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
+   [![](media//vm-update-management/3-sm.PNG "VM extension blade")](media//vm-update-management/3-lg.PNG)
 
 3. 提供以前创建的 WorkspaceID 和主密钥，将代理链接到 LogAnalytics 工作区。 然后单击 **"确定"** 以部署扩展。
 
-   [![](media/vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/4-lg.PNG#lightbox) 
+   [![](media//vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media//vm-update-management/4-lg.PNG) 
 
 4. 如[更新管理文档](https://docs.microsoft.com/azure/automation/automation-update-management)中所述，需要为要管理的每个 VM 启用更新管理解决方案。 若要为向工作区报告的所有 Vm 启用解决方案，请选择 "**更新管理**"，单击 "**管理计算机**"，然后选择 "**在所有可用的和未来的计算机上启用**" 选项。
 
-   [![](media/vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media/vm-update-management/5-lg.PNG#lightbox) 
+   [![](media//vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media//vm-update-management/5-lg.PNG) 
 
    > [!TIP]
    > 重复此步骤，为向工作区报告的 Azure Stack 中心 Vm 启用每个解决方案。 
@@ -100,12 +100,28 @@ ms.locfileid: "81661481"
 
 扫描 Vm 后，它们将显示在更新管理解决方案的 Azure 自动化帐户中： 
 
-   [![](media/vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
+   [![](media//vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media//vm-update-management/6-lg.PNG) 
 
 > [!IMPORTANT]
 > 可能需要 30 分钟到 6 小时，仪表板才会显示受托管计算机提供的已更新数据。
 
 Azure Stack 中心 Vm 现在可以与 Azure Vm 一起包含在计划的更新部署中。
+
+##  <a name="create-an-update-deployment-schedule"></a>创建更新部署计划
+
+若要创建更新部署计划，必须使用 PowerShell cmdlet 或 Azure REST API 传递计算机。 使用以下 PowerShell 示例来安排你的计算机。 可以将**[AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** cmdlet 与`ForUpdateConfiguration`参数一起使用来创建一个计划。 然后，使用**[AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** cmdlet 并将 Azure Stack 集线器计算机传递到`NonAzureComputer`参数。 若要运行此脚本，需要使用 global [Azure PowerShell Az 模块](https://docs.microsoft.com/powershell/azure/)。
+
+以下示例介绍如何执行此操作：
+
+```Powershell  
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
+
+New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>启用 Azure Stack 中心运行的用于 VM 的 Azure Monitor
 VM 已安装**Azure Monitor、更新和配置管理**，并且安装了**Azure Monitor Dependency Agent**扩展后，它将开始报告[用于 VM 的 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)解决方案中的数据。 

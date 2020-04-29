@@ -3,16 +3,16 @@ title: 设置 Azure Stack 集线器上的 AKS 引擎的先决条件
 description: 建立在 Azure Stack 集线器上运行 ASK Engine 的要求。
 author: mattbriggs
 ms.topic: article
-ms.date: 03/23/2020
+ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 03/23/2020
-ms.openlocfilehash: f89dd7e1036f3c45df184b498c309fe128fe03ba
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/28/2020
+ms.openlocfilehash: 774e96c6366f9922d7fb59b564fd57998c327dca
+ms.sourcegitcommit: 29734b4ca6917b86674c17de9f41b0aaf367a838
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80152201"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82223032"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>设置 Azure Stack 集线器上的 AKS 引擎的先决条件
 
@@ -30,24 +30,20 @@ ms.locfileid: "80152201"
 
 | 先决条件 | 说明 | 必需 | 说明 |
 | --- | --- | --- | --- | --- |
-| Azure Stack 集线器1910或更高版本 | AKS 引擎需要 Azure Stack 集线器1910或更高版本。 | 必需 | 如果你不确定 Azure Stack 集线器的版本，请与云操作员联系。 |
-| Linux 自定义脚本扩展 | Linux 自定义脚本扩展2。0<br>套餐：适用于 Linux 2.0 的自定义脚本<br>版本：2.0.6 （或最新版本）<br>发布者：Microsoft Corp | 必需 | 如果订阅中没有此项，请与云操作员联系。 |
-| AKS 基本 Ubuntu 映像 | AKS 基础映像<br>产品/服务： aks<br> 2019.10.24 （或更高版本）<br>发布者： microsoft-aks<br>SKU： aks-1604-201910 | 必需 | 如果订阅中没有此项，请与云操作员联系。 有关版本依赖关系的详细信息，请参阅[将引擎与基本映像版本相匹配](#matching-engine-to-base-image-version)。<br> 如果你是 Azure Stack 中心的云操作员，并且想要提供 AKS 引擎，请按照[将 AKS 引擎添加到 Azure Stack 中心市场](../operator/azure-stack-aks-engine.md)中的说明进行操作。 |
-| 服务主体标识（SPN） |  需要通过 Azure 资源管理器部署或配置资源的应用程序必须以服务主体来表示。 | 必需 | 对于此项目，可能需要联系 Azure Stack 中心操作员。<br>如果使用 Azure Active Directory （AAD）服务主体标识，则需要从 Kubernetes 群集中的 Vm 访问 Internet，以便可以使用 AAD 对服务主体进行身份验证。 如果没有 internet 访问权限，Kubernetes 群集将无法正常运行。<br>有关说明，请参阅[使用应用标识访问资源](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) |
-| （SPN）分配的**参与者**角色 | 若要允许应用程序使用其服务主体访问订阅中的资源，必须将该服务主体分配到特定资源的某个角色。 | 必需 | 有关说明，请参阅[分配角色](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role) |
-
-
-将以下内容添加到 "服务主体" 要求描述： ""
-
+| Azure Stack 集线器1910或更高版本 | AKS 引擎需要 Azure Stack 集线器1910或更高版本。 | 必选 | 如果你不确定 Azure Stack 集线器的版本，请与云操作员联系。 |
+| Linux 自定义脚本扩展 | Linux 自定义脚本扩展2。0<br>套餐：适用于 Linux 2.0 的自定义脚本<br>版本：2.0.6 （或最新版本）<br>发布者：Microsoft Corp | 必选 | 如果订阅中没有此项，请与云操作员联系。 |
+| AKS 基本 Ubuntu 映像 | AKS 基本 Ubuntu 16.04-LTS Image 发行版，三月2020，version：2020.03.19 | 必选 | 如果订阅中没有此项，请与云操作员联系。 有关版本依赖关系的详细信息，请参阅[将引擎与基本映像版本相匹配](#matching-engine-to-base-image-version)。<br> 如果你是 Azure Stack 中心的云操作员，并且想要提供 AKS 引擎，请按照[将 AKS 引擎添加到 Azure Stack 中心市场](../operator/azure-stack-aks-engine.md)中的说明进行操作。 |
+| 服务主体标识（SPN） |  需要通过 Azure 资源管理器部署或配置资源的应用程序必须以服务主体来表示。 | 必选 | 对于此项目，可能需要联系 Azure Stack 中心操作员。<br>如果使用 Azure Active Directory （AAD）服务主体标识，则需要从 Kubernetes 群集中的 Vm 访问 Internet，以便可以使用 AAD 对服务主体进行身份验证。 如果没有 internet 访问权限，Kubernetes 群集将无法正常运行。<br>有关说明，请参阅[使用应用标识访问资源](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals) |
+| （SPN）分配的**参与者**角色 | 若要允许应用程序使用其服务主体访问订阅中的资源，必须将该服务主体分配到特定资源的某个角色。 | 必选 | 有关说明，请参阅[分配角色](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role) |
 
 
 可以设置以下项。
 
 | 先决条件 | 说明 | 必需 | 说明 |
 | --- | --- | --- | --- |
-| Azure Stack 中心订阅 | 通过订阅访问 Azure Stack 中心提供的产品/服务。 产品/服务包含可供你使用的服务。 | 必需 | 若要能够在 Azure Stack 中心部署任何租户工作负荷，需要首先获取[Azure Stack 中心订阅](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services)。 |
+| Azure Stack 中心订阅 | 通过订阅访问 Azure Stack 中心提供的产品/服务。 产品/服务包含可供你使用的服务。 | 必选 | 若要能够在 Azure Stack 中心部署任何租户工作负荷，需要首先获取[Azure Stack 中心订阅](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services)。 |
 | 资源组 | 资源组是用于保存 Azure 解决方案相关资源的容器。 如果未指定现有的资源组，则该工具将为你创建一个。 | 可选 | [使用 Azure 门户管理 Azure 资源管理器资源组](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
-| 私有公钥 | 若要在托管 web 应用的 Azure Stack 中心实例中使用从开发计算机到服务器 VM 的开放 SSH 连接，需创建安全外壳（SSH）公钥和私钥对。 | 必需 | 有关如何生成密钥的说明，请参阅 [SSH 密钥生成](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key)。|
+| 私有公钥 | 若要在托管 web 应用的 Azure Stack 中心实例中使用从开发计算机到服务器 VM 的开放 SSH 连接，需创建安全外壳（SSH）公钥和私钥对。 | 必选 | 有关如何生成密钥的说明，请参阅 [SSH 密钥生成](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key)。|
 
 
 > [!Note]  
@@ -55,12 +51,12 @@ ms.locfileid: "80152201"
 
 ## <a name="matching-engine-to-base-image-version"></a>使引擎与基本映像版本匹配
 
-AKS 引擎使用生成的映像**AKS 基本映像**。 任何 AKS 引擎版本都依赖于 Azure Stack 中心操作员在 Azure Stack 中心提供的特定映像版本。 可以在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)中找到一个表，其中列出了 AKS 引擎版本和相应支持的 Kubernetes 版本。 例如，AKS 引擎版本`v0.43.0`依赖于 AKS 基础`2019.10.24`映像的版本。 请 Azure Stack 中心操作员将特定映像版本从 Azure Marketplace 下载到 Azure Stack 中心市场。
+AKS 引擎将自定义的 Ubuntu 服务器操作系统部署到每个群集节点映像， **AKS Base Ubuntu 16.04-LTS 映像发行版**。 任何 AKS 引擎版本都依赖于 Azure Stack 中心操作员在 Azure Stack 中心提供的特定映像版本。 可以在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)中找到一个表，其中列出了 AKS 引擎版本和相应支持的 Kubernetes 版本。 例如，AKS 引擎版本`v0.48.0`依赖于 AKS 基`2020.03.19` Ubuntu 16.04-LTS 映像发行版的版本。 请 Azure Stack 中心操作员将特定映像版本从 Azure Marketplace 下载到 Azure Stack 中心市场。
 
-如果 Azure Stack 中心 Marketplace 中的映像不可用，则会触发此错误。 例如，如果你当前使用的是 AKS engine 版本 v 0.43.0，而 AKS 基本映像`2019.10.24`版本不可用，则在运行 AKS 引擎时，你将看到以下错误： 
+如果 Azure Stack 中心 Marketplace 中的映像不可用，则会触发此错误。 例如，如果你当前使用的是 AKS engine 版本 v 0.48.0，而 AKS Base Ubuntu 16.04-LTS 映像发行版`2020.03.19`版本不可用，则在运行 AKS 引擎时，你将看到以下错误： 
 
 ```Text  
-The platform image 'microsoft-aks:aks:aks-ubuntu-1604-201908:2019.08.09' is not available. 
+The platform image 'microsoft-aks:aks:aks-ubuntu-1604-202003:2020.03.19' is not available. 
 Verify that all fields in the storage profile are correct.
 ```
 
@@ -68,8 +64,8 @@ Verify that all fields in the storage profile are correct.
 
 ```bash  
 $ aks-engine version
-Version: v0.39.1
-GitCommit: 6fff62731
+Version: v0.48.0
+GitCommit: 44a35c00c
 GitTreeState: clean
 ```
 

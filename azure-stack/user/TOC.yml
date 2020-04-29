@@ -212,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: 支持策略
                       href: azure-stack-kubernetes-aks-engine-support.md
+                    - name: AKS 引擎发行说明
+                      href: kubernetes-aks-engine-release-notes.md
                     - name: 设置先决条件
                       href: azure-stack-kubernetes-aks-engine-set-up.md
                     - name: 创建 Linux 客户端
