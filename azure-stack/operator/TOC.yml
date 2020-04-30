@@ -344,7 +344,7 @@
               href: event-hubs-rp-overview.md
             - name: 容量计划
               href: event-hubs-rp-capacity-planning.md
-            - name: 必备条件
+            - name: 先决条件
               href: event-hubs-rp-prerequisites.md
             - name: 安装
               href: event-hubs-rp-install.md
@@ -496,6 +496,8 @@
   items:
     - name: Azure Stack Hub PowerShell
       href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+    - name: Azure Stack 中心特权终结点
+      href: ../reference/pep-2002/
     - name: Azure Stack Hub 用户文档
       href: /azure-stack/user/
     - name: ASDK 文档

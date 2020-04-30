@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: b57b58e9b245c912d7717cc05a3d8d4c20034f76
-ms.sourcegitcommit: a82a80eb6a110ca0c463add6131ad73cf51b06d3
+ms.openlocfilehash: 3411c1b81634f2bf37ec1724ebb96aedb485fd5d
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82070147"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556341"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -137,7 +137,7 @@ Azure Stack 中心2002更新生成类型已**满**。
 - 修复了由于 ERCS 角色的内存压力导致 Azure Stack 集线器更新失败的常见原因。
 - 修复了更新边栏选项卡中的一个 bug，在该边栏选项卡中，更新状态显示为 "**正在安装**"，而不是在 Azure Stack 中心更新的准备阶段进行**准备**。
 - 解决了物理交换机上的 RSC 功能正在创建任何不一致并删除流过负载均衡器的流量的问题。 默认情况下，RSC 功能处于禁用状态。
-- 解决了向 VM 添加辅助 IP 导致 RDP 问题的问题。
+- 解决了 NIC 上的多个 IP 配置导致流量被误操作并阻止出站连接的问题。 
 - 修复了正在缓存 NIC 的 MAC 地址，并将该地址分配给另一个资源的问题导致 VM 部署失败。
 - 修复了来自零售渠道的 Windows VM 映像无法通过 AVMA 激活的许可证的问题。
 - 修复了 VM 请求的虚拟核心数等于节点的物理内核时，无法创建 Vm 的问题。 我们现在允许 Vm 的虚拟内核数等于或小于节点的物理内核数。
@@ -199,7 +199,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”****。
 
 - 现在，在发生错误时，Azure Stack Hub 运行状况和监视系统可针对各种硬件组件引发警报。 这些警报需要其他配置。 有关详细信息，请参阅[监视 Azure Stack Hub 硬件组件](azure-stack-hardware-monitoring.md)。
 
-- [Azure Stack 集线器的 cloud init 支持](/azure/virtual-machines/linux/using-cloud-init)：云初始化是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 安装程序包和写入文件，或者配置用户和安全。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。 市场中的 Ubuntu 映像已更新为支持使用 cloud-init 进行预配。
+- [Azure Stack 集线器的 cloud init 支持](/azure/virtual-machines/linux/using-cloud-init)：云初始化是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。 市场中的 Ubuntu 映像已更新为支持使用 cloud-init 进行预配。
 
 - 与 Azure 一样，Azure Stack Hub 现在支持所有 Windows Azure Linux 代理版本。
 
@@ -244,7 +244,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”****。
 
    **IKE 阶段 1（主模式）参数**
 
-   | Property              | 值|
+   | properties              | 值|
    |-|-|
    | SDK 版本           | IKEv2 |
    |Diffie-Hellman 组   | ECP384 |
@@ -254,7 +254,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”****。
 
    **IKE 阶段 2（快速模式）参数**
 
-   | Property| 值|
+   | properties| 值|
    |-|-|
    |SDK 版本 |IKEv2 |
    |加密和哈希算法（加密）     | GCMAES256|
