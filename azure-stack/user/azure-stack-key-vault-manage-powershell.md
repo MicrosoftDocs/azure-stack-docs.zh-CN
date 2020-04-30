@@ -3,15 +3,15 @@ title: 使用 PowerShell 管理 Azure Stack Hub 中的 Key Vault
 description: 了解如何使用 PowerShell 管理 Azure Stack Hub 中的 Key Vault。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0c7dc4bffba85c60213df4e57c3fc95f756259df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5ca8221d9a85a6dad874969525006f789e6b7084
+ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704057"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580161"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>使用 PowerShell 管理 Azure Stack Hub 中的 Key Vault
 
@@ -145,14 +145,16 @@ Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 
 在以下示例中，保管库名称为 **ContosoKeyVault**，要授权的应用的客户端 ID 为 **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**。 若要授权此应用，请运行以下命令。 也可指定 **PermissionsToKeys** 参数，为用户、应用或安全组设置权限。
 
+对配置 Azure Stack 集线器环境的 ADFS 使用 Set-azurermkeyvaultaccesspolicy 时，应提供参数 BypassObjectIdValidation
+
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
 
 如果要授权同一应用读取保管库中的机密，请运行以下 cmdlet：
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
 
 ## <a name="next-steps"></a>后续步骤
