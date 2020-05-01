@@ -7,12 +7,12 @@ ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: c745325c720ed37f93b12fee844a6ebc0b829cca
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c2c7dde1ef4da6b75be3d7c46228bd23ca8bf979
+ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812435"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82596816"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack Hub 连接到 Azure
 
@@ -50,7 +50,6 @@ ms.locfileid: "80812435"
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>创建虚拟网络和虚拟机 (VM) 子网
 
 1. 使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.com/)。
-
 2. 在用户门户中，选择“+ 创建资源”。 
 3. 转到**市场**，然后选择“网络”。 
 4. 选择“虚拟网络”  。
@@ -174,7 +173,7 @@ ms.locfileid: "80812435"
 7. 对于“资源组”，可以创建资源组，也可以选择“使用现有项”（如果已有了一个）。********
 8. 验证默认位置。
 9. 选择“固定到仪表板”****。
-10. 选择“创建”。 
+10. 选择“创建”  。
 
 ### <a name="create-the-gateway-subnet"></a>创建网关子网
 
@@ -199,7 +198,7 @@ ms.locfileid: "80812435"
 7. 在“名称”中键入 **Azs-GW-PiP**，然后选择“确定”。********
 8. 对于“VPN 类型”，默认选择“基于路由”。******** 保留“基于路由”VPN 类型。****
 
-9. 验证“订阅”和“位置”是否正确。******** 可将资源固定到仪表板。 选择“创建”。 
+9. 验证“订阅”和“位置”是否正确。******** 可将资源固定到仪表板。 选择“创建”  。
 
 ### <a name="create-the-local-network-gateway"></a>创建本地网关
 

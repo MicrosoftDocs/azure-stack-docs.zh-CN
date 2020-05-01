@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: a1e49ef9138c04557c8cd0a54b11ada30d97f334
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772636"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605623"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub 概述
 
@@ -65,7 +65,7 @@ Azure Stack Hub 使用 Azure Active Directory (Azure AD) 或 Active Directory �
 
 Azure Stack Hub 使用与 Azure 相同的操作模型。 Azure Stack Hub 操作员可以向租户用户提供各种服务和应用，类似于 Microsoft 向租户用户提供 Azure 服务。 
 
-![显示 Azure Stack Hub 作业角色的关系图](./media/azure-stack-overview/azure-stack-job-roles.png)
+![显示 Azure Stack Hub 作业角色的关系图](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
 可以通过管理员门户、用户门户或 [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 每个 Azure Stack Hub 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack Hub 操作员**可以使用管理员门户来管理 Azure Stack Hub，以及执行如下所述的操作：创建租户套餐，保持集成式系统的运行状况及监视其状态。 用户门户提供自助服务体验让用户使用云资源，例如虚拟机 (VM)、存储帐户和 Web 应用。
 

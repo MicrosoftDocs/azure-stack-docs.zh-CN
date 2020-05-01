@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 1b68435317136afdbfcc5d1ade16b18a2210baad
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 5d2f30813cc0a7a42e376ec7fb9c76be1f7994eb
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772710"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605675"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack Hub 连接到 Azure
 
@@ -55,7 +55,7 @@ ms.locfileid: "81772710"
 
 下图显示多个租户如何从 Azure Stack Hub 基础结构通过 ExpressRoute 路由器连接到 Azure：
 
-![使用 ExpressRoute 的多租户连接](media/azure-stack-connect-expressroute/Architecture.png)
+![使用 ExpressRoute 的多租户连接](media/azure-stack-connect-expressroute/architecture.svg)
 
 本文中的示例使用此图中所示的相同多租户体系结构，通过 ExpressRoute 专用对等互连将 Azure Stack Hub 连接到 Azure。 连接方式是使用站点到站点 VPN 连接从 Azure Stack Hub 中的虚拟网络网关连接到 ExpressRoute 路由器。
 
@@ -328,7 +328,7 @@ ASDK 是自主性的，与部署物理主机的网络相隔离。 网关连接�
 
 可以使用以下 ExpressRoute 路由器配置示意图作为指导来配置 ExpressRoute 路由器。 此图显示了两个租户（租户 1 和租户 2）及其各自的 ExpressRoute 线路。 每个租户链接到各自在 ExpressRoute 路由器的 LAN 和 WAN 端的 VRF（虚拟路由和转发）。 此配置可确保在两个租户之间保持端到端隔离。 在学习示例配置的过程中，请记下路由器接口中使用的 IP 地址。
 
-![ExpressRoute 路由器配置](media/azure-stack-connect-expressroute/EndToEnd.png)
+![ExpressRoute 路由器配置](media/azure-stack-connect-expressroute/endtoend.svg)
 
 可以使用任何支持 IKEv2 VPN 和 BGP 的路由器，来终止 Azure Stack Hub 的站点到站点 VPN 连接。 同一路由器用于通过 ExpressRoute 线路连接到 Azure。
 
