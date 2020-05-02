@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 144dcd2ca714a1654bd7add2b415c0ce35126d9b
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: a1cf522176e6943ad1975a402affbb81d1aeea4f
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032767"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643501"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -54,7 +54,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 本文中的说明可帮助你设置和配置 IPsec/IKE 策略，如下图所示：
 
-![设置和配置 IPsec/IKE 策略](media/azure-stack-vpn-s2s/site-to-site.png)
+![设置和配置 IPsec/IKE 策略](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>第 2 部分 - 支持的加密算法和密钥强度
 
@@ -109,7 +109,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 本部分逐步介绍如何创建采用 IPsec/IKE 策略的站点到站点 VPN 连接。 以下步骤将创建下图所示的连接：
 
-![site-to-site-policy](media/azure-stack-vpn-s2s/site-to-site.png)
+![site-to-site-policy](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 有关创建站点到站点 VPN 连接的详细分步说明，请参阅[创建站点到站点 VPN 连接](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)。
 

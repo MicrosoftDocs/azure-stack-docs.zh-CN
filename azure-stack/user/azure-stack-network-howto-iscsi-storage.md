@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: f691ba0cfeadae0d359473db881601e90478276c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 27442f9bc5107d9dbeb07b19f1f53b84facc5a06
+ms.sourcegitcommit: e591e8531e8fee07a8315fdca29cf8f45a766c81
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660890"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82687432"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>使用 Azure Stack Hub 连接到 iSCSI 存储
 
@@ -24,7 +24,7 @@ ms.locfileid: "81660890"
 
 下图显示了托管在 Azure Stack Hub 上的 VM，其中包含从本地 Windows 计算机（物理或虚拟机）装载的 iSCSI 磁盘，它允许通过 iSCSI 协议将 Azure Stack Hub 外部的存储装载到 Azure Stack Hub 托管的 VM 内部。
 
-![替换文字](./media/azure-stack-network-howto-iscsi-storage/overview.png)
+![替换文字](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>要求
 
@@ -57,7 +57,7 @@ ms.locfileid: "81660890"
 
 下图显示了通过模板部署的资源，这些资源用于创建可供连接到 iSCSI 目标的 iSCSI 客户端。 此模板将部署 VM 和其他资源，此外，它还运行 prepare-iSCSIClient.ps1 并重新启动 VM。
 
-![替换文字](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.png)
+![替换文字](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>部署过程
 
@@ -68,7 +68,7 @@ ms.locfileid: "81660890"
 3. 使用模板输出的 IP 地址和服务器名称作为 iSCSI 目标（可以是虚拟机或物理服务器）上脚本的输入输出参数，来运行 `Create-iSCSITarget.ps1`。
 4. 使用 iSCSI 目标服务器的外部 IP 地址作为输入来运行 `Connect-toiSCSITarget.ps1` 脚本。 
 
-![替换文字](./media/azure-stack-network-howto-iscsi-storage/process.png)
+![替换文字](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>azuredeploy.json 的输入
 
@@ -97,7 +97,7 @@ ms.locfileid: "81660890"
 
 也可以在现有虚拟机上运行脚本，以从 iSCSI 客户端连接到 iSCSI 目标。 下面是自行创建 iSCSI 目标的流程。 下图显示 PowerShell 脚本的执行流。 这些脚本可在 Script 目录中找到：
 
-![替换文字](./media/azure-stack-network-howto-iscsi-storage/script-flow.png)
+![替换文字](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 

@@ -7,12 +7,12 @@ ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: c2c7dde1ef4da6b75be3d7c46228bd23ca8bf979
-ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
+ms.openlocfilehash: 186559752531021ff74833ac71184e692d40a04d
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596816"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643590"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack Hub 连接到 Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "82596816"
 
 下图显示了完成后的连接配置示意图：
 
-![站点到站点 VPN 连接配置](media/azure-stack-connect-vpn/image2.png)
+![站点到站点 VPN 连接配置](media/azure-stack-connect-vpn/azure-stack-connect-vpn-image2.svg)
 
 ### <a name="network-configuration-example-values"></a>网络配置示例值
 
