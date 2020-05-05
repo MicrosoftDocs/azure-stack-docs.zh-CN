@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 9abcc23505279f417e53f896e58e76dd9205691f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0676354bb902ccafed49281c12296440a8aa8c5e
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702323"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742439"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>使用 Azure Stack Hub 上的 Azure Monitor
 
-本文概述了 Azure Stack Hub 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 的运行以及有关如何使用 Azure Stack Hub 中的 Azure Monitor 的其他信息。 
+本文概述了 Azure Stack Hub 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 的运行以及有关如何使用 Azure Stack Hub 中的 Azure Monitor 的其他信息。
 
 有关 Azure Monitor 的概述，请参阅全球 Azure 文章[Azure Stack 集线器上的 Azure Monitor 入门](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)。
 
@@ -42,7 +42,7 @@ Azure 监视器是一款平台服务，提供一个中心位置来让用户监�
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor 源：计算子集
 
-![Azure Stack Hub 上的 Azure Monitor 源 - 计算子集](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Stack Hub 上的 Azure Monitor 源 - 计算子集](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.svg)
 
 Azure Stack Hub 中的 **Microsoft.Compute** 资源提供程序包括：
  - 虚拟机 
@@ -76,7 +76,7 @@ Azure Stack Hub 中的 **Microsoft.Compute** 资源提供程序包括：
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure Monitor 源：所有其他项
 
-![Azure Monitor Azure Stack 中心源-其他所有内容](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Monitor Azure Stack 中心源-其他所有内容](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.svg)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>资源 - 指标和诊断日志
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub 中的缩放单元节点操作
 description: 了解缩放单元节点操作，包括开机、关机、禁用、恢复以及如何在 Azure Stack Hub 集成系统中查看节点状态。
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4874b93acf9e869a3b8e66f42191d5419e48fece
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 17ecab0f42c89d6c25daba98652d8dc9d1a9e3b0
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79293974"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777740"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
 
@@ -55,6 +55,35 @@ ms.locfileid: "79293974"
 | 维护 | 节点已暂停，没有处于运行状态的活动用户工作负荷。 |
 | 需要修正 | 检测到错误，需要修复节点。 |
 
+### <a name="azure-stack-hub-shows-adding-status-after-an-operation"></a>Azure Stack 集线器显示了操作后添加状态
+
+Azure Stack 中心可能会显示操作节点状态，如在执行了排出、恢复、修复、关闭或启动等操作后**添加**。
+如果 Fabric 资源提供程序角色缓存在操作之后未刷新，可能会发生这种情况。 
+
+在应用以下步骤之前，请确保当前没有正在进行的操作。 更新终结点以与环境匹配。
+
+1. 打开 PowerShell 并添加 Azure Stack 中心环境。 这需要在你的计算机上[安装 Azure Stack Hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) 。
+
+   ```powershell
+   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+   Add-AzureRmAccount -Environment AzureStack
+   ```
+
+2. 运行以下命令以重新启动构造资源提供程序角色。
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. 验证受影响的缩放单位节点的操作状态是否已更改为**正在运行**。 可以使用管理员门户或以下 PowerShell 命令：
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. 如果节点操作状态仍显示为 "**正在添加**，则继续" 以打开支持事件。
+
+
 ## <a name="scale-unit-node-actions"></a>缩放单元节点操作
 
 查看缩放单元节点的相关信息时，也可以执行节点操作，例如：
@@ -66,11 +95,11 @@ ms.locfileid: "79293974"
 
 节点的工作状态确定了哪些选项可用。
 
-需要安装 Azure Stack Hub PowerShell 模块。 这些 cmdlet 位于 **Azs.Fabric.Admin** 模块中。 若要安装或验证适用于 Azure Stack Hub 的 PowerShell 的安装，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+需要安装 Azure Stack 集线器 PowerShell 模块。 这些 cmdlet 位于 **Azs.Fabric.Admin** 模块中。 若要安装或验证 Azure Stack 集线器的 PowerShell 安装，请参阅[安装适用于 Azure Stack 中心的 powershell](azure-stack-powershell-install.md)。
 
 ## <a name="stop"></a>停止
 
-“停止”操作会关闭节点。  它的作用如同按下电源按钮。 它不会向操作系统发送关闭信号。 对于计划的停止操作，请始终先尝试关闭操作。
+“停止”操作会关闭节点。**** 它的作用如同按下电源按钮。 它不会向操作系统发送关闭信号。 对于计划的停止操作，请始终先尝试关闭操作。
 
 当节点处于挂起状态，不再响应请求时，通常使用此操作。
 
@@ -86,7 +115,7 @@ ms.locfileid: "79293974"
 
 ## <a name="start"></a>开始
 
-“启动”操作会打开节点。  它的作用如同按下电源按钮。
+“启动”操作会打开节点。**** 它的作用如同按下电源按钮。
 
 若要运行启动操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
@@ -100,7 +129,7 @@ ms.locfileid: "79293974"
 
 ## <a name="drain"></a>清空
 
-“清空”操作将所有活动工作负荷移到该特定缩放单元中的剩余节点。 
+“清空”操作将所有活动工作负荷移到该特定缩放单元中的剩余节点。****
 
 在现场更换组件期间（例如，更换整个节点），通常使用此操作。
 
@@ -117,7 +146,7 @@ ms.locfileid: "79293974"
 
 ## <a name="resume"></a>恢复
 
-“恢复”操作恢复已禁用的节点，并将其标记为活动，可用于放置工作负荷。  之前在节点上运行的工作负荷不会故障回复。 （如果在节点上使用清空操作，请务必关机。 将节点重新开机时，系统不会将它标记为可放置工作负荷的活动状态。 准备就绪后，必须使用恢复操作将节点标记为活动。）
+“恢复”操作恢复已禁用的节点，并将其标记为活动，可用于放置工作负荷。**** 之前在节点上运行的工作负荷不会故障回复。 （如果在节点上使用清空操作，请务必关机。 将节点重新开机时，系统不会将它标记为可放置工作负荷的活动状态。 准备就绪后，必须使用恢复操作将节点标记为活动。）
 
 若要运行恢复操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
@@ -130,10 +159,10 @@ ms.locfileid: "79293974"
 ## <a name="repair"></a>Repair
 
 > [!CAUTION]  
-> 固件分级对于本文中所述的操作的成功至关重要。 当 Azure Stack Hub 自动化部署操作系统时，缺少此步骤可能会导致系统不稳定、性能降低、安全威胁或失败。 更换硬件时，请始终参阅硬件合作伙伴的文档，以确保应用的固件与 [Azure Stack Hub 管理员门户](azure-stack-updates.md)中显示的 OEM 版本匹配。<br><br>
+> 固件分级对于本文中所述的操作的成功至关重要。 缺少此步骤可能会导致系统不稳定、性能降低、安全线程或 Azure Stack 集线器自动化部署操作系统时出现故障。 在更换硬件时，请始终咨询硬件合作伙伴的文档，以确保应用的固件与[Azure Stack 中心管理员门户](azure-stack-updates.md)中显示的 OEM 版本相匹配。<br><br>
 有关详细信息和合作伙伴文档的链接，请参阅[更换硬件组件](azure-stack-replace-component.md)。
 
-| 硬件合作伙伴 | 区域 | 代码 |
+| 硬件合作伙伴 | Region | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cisco | All | [适用于 Microsoft Azure Stack 集线器操作指南的 Cisco 集成系统](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[适用于 Microsoft Azure Stack 集线器的 Cisco 集成系统的发行说明](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
 | Dell EMC | All | [适用于 Microsoft Azure Stack 中心14G 的云（需要帐户和登录）](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[适用于 Microsoft Azure Stack 中心13G 的云（需要帐户和登录）](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
@@ -175,4 +204,6 @@ ms.locfileid: "79293974"
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解 Azure Stack 集线器 Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。
+- [安装 Azure Stack PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)
+- [了解 Azure Stack 集线器 Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [监视添加节点操作](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node#monitor-add-node-operations)

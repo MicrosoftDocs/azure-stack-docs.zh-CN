@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d6f93b5aa35a6475472df4ff213d98f684a4f7bb
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 99a8425901213d50c17175ab946aeff78a5aa81d
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661110"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742601"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>将存储扩展到 Azure Stack Hub
 
@@ -30,7 +30,7 @@ ms.locfileid: "81661110"
 
 下图描绘了一种方案，其中，运行工作负荷的单个虚拟机连接并利用外部（在 VM 和 Azure Stack Hub 本身的外部）存储来读取/写入数据。本文重点说明简单的文件检索，但你也可以扩展本示例，使其适用于更复杂的方案，例如远程存储数据库文件。
 
-![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
+![](./media/azure-stack-network-howto-extend-datacenter/azure-stack-network-howto-extend-datacenter-image1.svg)
 
 在该图中，你会看到 Azure Stack 集线器系统上的 VM 已部署了多个 Nic。 从这两种冗余，以及存储最佳做法，在目标和目标之间有多个路径，这一点很重要。 让情况变得更为复杂的是，Azure Stack Hub 中的 VM 同时有公共和专用 IP，就像在 Azure 中的情况一样。 如果外部存储必须连接到该 VM，就只能通过公共 IP 进行连接，因为专用 IP 主要用于 Azure Stack Hub 系统内部的 vNet 和子网。 外部存储无法与 VM 的专用 IP 空间通信，除非它能通过站点到站点 VPN 连接到 vNet 本身。 因此，在本示例中，我们将重点介绍通过公共 IP 空间进行的通信。 请注意，在图中的公共 IP 空间内，有 2 个不同的公共 IP 池子网。 默认情况下，Azure Stack Hub 只需要一个用于公共 IP 地址的池即可，但考虑到冗余路由，可以添加另一个池。 但由于无法选择特定池中的 IP 地址，实际上 VM 最后可能具有来自同一池、但跨多个虚拟网络卡的公共 IP。
 

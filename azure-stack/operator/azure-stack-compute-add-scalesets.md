@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中提供虚拟机规模集
 description: 了解云操作员如何向 Azure Stack Hub 市场中添加虚拟机规模集。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: f0b23df25ef2e9fffe9c5f43ee649ecfe5f74092
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d4383a9848ff2fd3e5f5da1fb71d88c71056bbd2
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695285"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777825"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>在 Azure Stack Hub 中提供虚拟机规模集
 
@@ -76,7 +76,7 @@ Azure Stack Hub 上的虚拟机规模集与 Azure 上的虚拟机规模集类似
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>缩放虚拟机规模集
 
-可以缩放虚拟机规模集的大小以使其更大或更小。
+你可以更改虚拟机规模集的大小，使其更大或更小。
 
 1. 在门户中，选择你的规模集，然后选择“缩放”  。
 

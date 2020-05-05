@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中委托套餐
 description: 了解如何委托任务（例如创建套餐和注册用户）。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 95b7ca9d6ed5bf0c8fed0019b4b3954fd3a7d458
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4f32bc3e12689f75ad5c7e5b04e7fb36049271b3
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700232"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742521"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>在 Azure Stack Hub 中委托套餐
 
@@ -36,11 +36,11 @@ ms.locfileid: "77700232"
 
 ## <a name="delegation-steps"></a>委托步骤
 
-设置委托的过程包括两个基本步骤：
+设置委派的步骤有两个：
 
-1. **创建委托的提供商订阅**：让用户订阅仅包含订阅服务的套餐。 然后，订阅此套餐的用户可通过为其他用户注册委托的套餐，将这些套餐扩展到其他用户。
+1. **创建委派的提供商订阅**：仅将用户订阅到包含订阅服务的产品/服务。 然后，订阅此套餐的用户可通过为其他用户注册委托的套餐，将这些套餐扩展到其他用户。
 
-2. **将套餐委托给受委托的提供商**：此套餐可让委托的提供商创建订阅，或将套餐扩展到其用户。 委托的提供商现在可以接受该套餐，并将其提供给其他用户。
+2. **将套餐委托给受委托的提供商**：此套餐可让委托的提供商创建订阅，或将套餐扩展到其用户。 委托的提供商现在可以接受该产品/服务，并将其扩展到其他用户。
 
 下图显示设置委托的步骤：
 
@@ -54,11 +54,11 @@ ms.locfileid: "77700232"
 
 ## <a name="delegation-walkthrough"></a>委托演练
 
-以下部分提供有关设置委托的提供商、委托套餐，以及验证用户是否可以注册委托套餐的演练。
+以下各节描述了设置委托提供程序、委托产品/服务和验证用户是否可以注册委托产品/服务的步骤。
 
 ### <a name="set-up-roles"></a>设置角色
 
-若要使用此演练，除了 Azure Stack Hub 操作员帐户以外，还需要两个 Azure AD 帐户。 如果没有这两个帐户，则必须创建这些帐户。 这些帐户可以属于任何 Azure AD 用户，称为委托的提供商和用户。
+若要使用此演练，除了 Azure Stack Hub 操作员帐户以外，还需要两个 Azure AD 帐户。 如果没有这两个帐户，则必须创建这些帐户。 这些帐户可以属于任何 Azure AD 用户，并且称为*委托的提供商*和*用户*。
 
 | **角色** | **组织权限** |
 | --- | --- |
@@ -66,7 +66,7 @@ ms.locfileid: "77700232"
 | User |User |
 
  > [!NOTE]
- > 对于 CSP 经销商，若要创建此委托的提供商，这些用户必须在租户目录（用户 Azure AD）中存在。 Azure Stack Hub 操作员必须[先载入](azure-stack-enable-multitenancy.md)该租户 Azure AD，然后遵循[这些步骤](azure-stack-csp-howto-register-tenants.md)设置用量和计费。
+ > 对于 CSP-经销商，创建此委托提供商要求这些用户位于租户目录（用户 Azure AD）中。 Azure Stack Hub 操作员必须[先载入](azure-stack-enable-multitenancy.md)该租户 Azure AD，然后遵循[这些步骤](azure-stack-csp-howto-register-tenants.md)设置用量和计费。
 
 ### <a name="identify-the-delegated-provider"></a>确定委托的提供商
 
@@ -114,13 +114,13 @@ ms.locfileid: "77700232"
    ![在 Azure Stack Hub 用户门户中分配名称](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >必须知道，委托的提供商只能选择委托给他们的套餐。 他们无法对这些套餐进行更改。 只有 Azure Stack Hub 操作员能够更改这些套餐。 例如，只有操作员可以更改其计划和配额。 委托的提供商不会根据基础计划和附加计划来构造套餐。
+   >必须知道，委托的提供商只能选择委托给他们的套餐。 它们不能对这些产品/服务进行更改;只有 Azure Stack 中心操作员可以更改这些产品/服务。 例如，只有操作员可以更改其计划和配额。 委托的提供商不会根据基础计划和附加计划来构造套餐。
 
-3. 委托的提供商通过自己的门户 URL 公开这些套餐。 若要公开套餐，请依次选择“浏览”、“套餐”。   选择产品/服务，然后选择“更改状态”。 
+3. 委托的提供商通过自己的门户 URL 公开这些套餐。 若要公开套餐，请依次选择“浏览”、“套餐”。******** 选择产品/服务，然后选择“更改状态”。****
 
 4. 目前，只能通过委托门户查看公开的已委托套餐。 若要查找和更改此 URL，请执行以下操作：
 
-    a.  依次选择“浏览”、“所有服务”，然后在“常规”类别下面选择“订阅”。     选择委托的提供商订阅（例如 **DPSubscription**），然后选择“属性”。 
+    a.  依次选择“浏览”、“所有服务”，然后在“常规”类别下面选择“订阅”。**************** 选择委托的提供商订阅（例如 **DPSubscription**），然后选择“属性”。****
 
     b.  将门户 URL 复制到单独的位置，例如记事本。
 
@@ -135,9 +135,9 @@ ms.locfileid: "77700232"
    >[!NOTE]
    >除非使用委托的门户，否则委托的套餐不可见。
 
-1. 在仪表板中，选择“获取订阅”  。 可以看到，只向用户提供由委托的提供商创建的委托的套餐。
+1. 在仪表板中，选择“获取订阅”****。 可以看到，只向用户提供由委托的提供商创建的委托的套餐。
 
-   ![在 Azure Stack Hub 用户门户中查看并选择套餐](media/azure-stack-delegated-provider/image8.png)
+   ![在 Azure Stack 集线器用户门户中查看和选择产品/服务](media/azure-stack-delegated-provider/image8.png)
 
 委托套餐的过程已完成。 现在，用户可以通过获取套餐订阅来注册此套餐。
 

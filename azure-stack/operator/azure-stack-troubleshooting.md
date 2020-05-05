@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: 了解如何排查 Azure Stack Hub 的问题，包括 VM、存储和应用服务的问题。
 author: justinha
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 04/30/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d85ee89edc6b36fb9eca84f59867621b37e8dd5a
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512326"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777876"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -33,6 +33,7 @@ ms.locfileid: "79512326"
 * [如何在 Azure Stack 集线器中使用诊断工具](azure-stack-diagnostics.md)
 * [如何验证 Azure Stack 集线器系统状态](azure-stack-diagnostic-test.md)
 * [更新包发布节奏](azure-stack-servicing-policy.md#update-package-release-cadence)
+* [验证节点状态并对其进行故障排除](azure-stack-node-actions.md)
 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>来宾 VM 支持的操作系统和大小
 

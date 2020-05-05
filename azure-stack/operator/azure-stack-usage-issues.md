@@ -3,16 +3,16 @@ title: Azure Stack Hub 中的使用情况连接问题和错误
 description: 排查 Azure Stack Hub 使用情况问题和错误。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 4a847578e73c5c9b518669a46340590242513686
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a2c7ed968eeb6cbe9245590c6c0a75479294c916
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512343"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742401"
 ---
 # <a name="usage-connectivity-errors"></a>使用情况连接错误
 

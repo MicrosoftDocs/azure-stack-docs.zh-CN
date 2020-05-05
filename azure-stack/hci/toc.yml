@@ -18,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: 更换驱动器
       href: manage/replace-drives.md
+    - name: 使用 Azure Site Recovery
+      href: manage/azure-site-recovery.md
     - name: 使用 Azure Monitor 进行监视
       href: manage/azure-monitor.md
     - name: 将 GPU 附加到 Linux VM
@@ -66,7 +68,7 @@
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
     - name: Azure 混合服务
       href: /windows-server/manage/windows-admin-center/azure
-    - name: Storage Spaces Direct
+    - name: 存储空间直通
       href: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
     - name: 故障转移群集
       href: /windows-server/failover-clustering/failover-clustering-overview

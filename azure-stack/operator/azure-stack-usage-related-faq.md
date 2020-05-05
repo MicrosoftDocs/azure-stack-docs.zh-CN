@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696441"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742417"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>有关 Azure Stack Hub 用量的常见问题解答
 
@@ -304,15 +304,15 @@ ms.locfileid: "77696441"
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>这些用量 API 错误代码的含义是什么？
 
-| **HTTP 状态代码** | **错误代码** | **描述** |
+| **HTTP 状态代码** | **错误代码** | **说明** |
 | --- | --- | --- |
-| 400/错误的请求 |*NoApiVersion* |未提供 *api-version* 查询参数。 |
-| 400/错误的请求 |*InvalidProperty* |属性缺失或使用了无效值。 响应正文中错误代码内的消息指示缺少属性。 |
-| 400/错误的请求 |*RequestEndTimeIsInFuture* |*ReportedEndTime* 的值是将来时间。 此参数不允许使用将来的值。 |
-| 400/错误的请求 |*SubscriberIdIsNotDirectTenant* |提供程序 API 调用使用的订阅 ID 不是调用方的有效租户。 |
-| 400/错误的请求 |*SubscriptionIdMissingInRequest* |缺少调用方的订阅 ID。 |
-| 400/错误的请求 |*InvalidAggregationGranularity* |请求的聚合粒度无效。 有效值为 daily 和 hourly。 |
-| 503 |*ServiceUnavailable* |由于服务繁忙或调用受到限制，发生了可重试的错误。 |
+| 400/错误的请求 |NoApiVersion |缺少`api-version`查询参数。 |
+| 400/错误的请求 |InvalidProperty |属性缺失或使用了无效值。 响应正文中错误代码内的消息指示缺少属性。 |
+| 400/错误的请求 |RequestEndTimeIsInFuture |的值为`ReportedEndTime`将来的值。 此参数不允许将来的时间值。 |
+| 400/错误的请求 |SubscriberIdIsNotDirectTenant |提供程序 API 调用使用的订阅 ID 不是调用方的有效租户。 |
+| 400/错误的请求 |SubscriptionIdMissingInRequest |缺少调用方的订阅 ID。 |
+| 400/错误的请求 |InvalidAggregationGranularity |请求的聚合粒度无效。 有效值为 daily 和 hourly。 |
+| 503 |ServiceUnavailable |由于服务繁忙或调用受到限制，发生了可重试的错误。 |
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>VM 收费政策是什么？
 
