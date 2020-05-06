@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a810579dd3dd50b58b357921657e87103dbfe59a
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: ff314d46e51af89207b1a6299771bd891a995e71
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166984"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847497"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>使用 Azure 和 Azure Stack Hub 配置混合云连接
 
@@ -43,7 +43,7 @@ ms.locfileid: "82166984"
 
 Azure OEM/硬件合作伙伴可以部署生产 Azure Stack 中心，所有用户都可以部署 Azure Stack 开发工具包（ASDK）。
 
-- 使用生产 Azure Stack 中心或从https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1部署 ASDK。
+- 使用生产 Azure Stack 中心或部署 ASDK。
    >[!Note]
    >部署 ASDK 可能需要长达 7 小时的时间，因此请进行相应的计划。
 
@@ -60,7 +60,7 @@ Azure Stack Hub 操作员必须部署应用服务、创建计划和套餐、创�
 - [Azure 简介](https://azure.microsoft.com/overview/what-is-azure/)
 - [Azure Stack Hub 的重要概念](../operator/azure-stack-overview.md)
 
-### <a name="before-you-begin"></a>开始之前
+### <a name="before-you-begin"></a>准备阶段
 
 在开始配置混合云连接之前，请确保满足以下条件：
 

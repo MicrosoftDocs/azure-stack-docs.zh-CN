@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: e90993c07692a19cc24cf9fab8171489edb270b0
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: cf6895cac1c0be2b55c99ff51ebccc0f46350437
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580118"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847718"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>Azure Stack Hub 上的应用服务 Update 6 发行说明
 
@@ -26,7 +26,7 @@ ms.locfileid: "82580118"
 
 Azure Stack 中心更新6内部版本号上的应用服务是**82.0.1.50**。
 
-### <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>必备条件
 
 开始部署之前，请参阅[在 Azure Stack 集线器上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
@@ -34,16 +34,21 @@ Azure Stack 中心更新6内部版本号上的应用服务是**82.0.1.50**。
 
 - 确保所有角色都已准备好在 Azure Stack 中心管理员门户中 Azure App Service 管理。
 
+- 在 Azure Stack 中心管理员门户中使用应用服务管理来备份应用服务机密
+
 - 备份应用服务和 master 数据库：
   - AppService_Hosting；
   - AppService_Metering；
-  - 主设备
+  - 主
 
 - 备份租户应用内容文件共享。
 
+  > [!Important]
+  > 云操作员负责维护和操作文件服务器，并 SQL Server。  资源提供程序不管理这些资源。  云操作员负责备份应用服务数据库和租户内容文件共享。
+
 - 将**自定义脚本扩展**版本**1.9.1**与 Azure Stack 中心市场联合。
 
-### <a name="new-features-and-fixes"></a>新功能和修复
+## <a name="new-features-and-fixes"></a>新功能和修复
 
 Azure Stack 中心更新 6 Azure App Service 包括以下改进和修补程序：
 
@@ -70,14 +75,14 @@ Azure Stack 中心更新 6 Azure App Service 包括以下改进和修补程序�
 - **对所有角色的基础操作系统的更新**：
   - [适用于 x64 系统的 Windows Server 2016 的 2019-04 累积更新 (KB4493473)](https://support.microsoft.com/help/4493473/windows-10-update-kb4493473)
 
-### <a name="post-deployment-steps"></a>部署后步骤
+## <a name="post-deployment-steps"></a>部署后步骤
 
 > [!IMPORTANT]
 > 如果已向应用服务资源提供程序提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)，并同步数据库，以防止在发生数据库故障转移时任何服务中断。
 
-### <a name="known-issues-post-installation"></a>已知问题（安装后）
+## <a name="known-issues-post-installation"></a>已知问题（安装后）
 
-- 如 Azure Stack Hub 上的 Azure 应用服务部署文档中所述，当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
+- 在现有虚拟网络中部署应用服务时，辅助角色无法访问文件服务器，并且文件服务器仅在专用网络上可用，如 Azure Stack 中心部署文档的 Azure App Service 中所述。
 
 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 转到管理员门户中的 WorkersNsg 并添加包含以下属性的出站安全规则：
 
@@ -91,11 +96,11 @@ Azure Stack 中心更新 6 Azure App Service 包括以下改进和修补程序�
 * 优先级：700
 * 名称：Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的云管理员操作 Azure App Service 的已知问题
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的云管理员操作 Azure App Service 的已知问题
 
 请参阅[Azure Stack 中心1908发行说明](/azure-stack/operator/release-notes?view=azs-1908)中的文档。
 
-### <a name="known-issues-for-tenants-deploying-apps-on-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心 Azure App Service 上部署应用的租户的已知问题
+## <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心 Azure App Service 上部署应用程序的租户的已知问题
 
 - 部署中心灰显/不可用。
 
@@ -107,7 +112,7 @@ Azure Stack 中心更新 6 Azure App Service 包括以下改进和修补程序�
 
 - Azure function monitoring 持续显示门户中的 "正在加载"。
 
-    尝试监视用户门户中的各个函数时，将看不到任何调用日志、成功计数或错误计数。 若要重新启用此功能，请依次转到“Function App”、“平台功能”、“应用程序设置”。     添加一个名为**AzureWebJobsDashboard**的新应用设置，并将值设置为与 AzureWebJobsStorage 中设置的相同的值。 然后，在该函数的 "监视" 视图中，可以看到监视信息。
+    尝试监视用户门户中的各个函数时，将看不到任何调用日志、成功计数或错误计数。 若要重新启用此功能，请依次转到“Function App”、“平台功能”、“应用程序设置”。************  添加一个名为**AzureWebJobsDashboard**的新应用设置，并将值设置为与 AzureWebJobsStorage 中设置的相同的值。 然后，在该函数的 "监视" 视图中，可以看到监视信息。
 
 ## <a name="next-steps"></a>后续步骤
 

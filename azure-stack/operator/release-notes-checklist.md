@@ -3,16 +3,16 @@ title: Azure Stack Hub 更新活动清单
 description: 为系统准备最新 Azure Stack Hub 更新的清单。
 author: sethmanheim
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: c966aa9689f97265b2bca2e9b246f266ac4a11c7
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 03f2b9d80b4fde1f0c7b73b3c24a2d5e799d4d49
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777775"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799843"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack Hub 更新活动清单
 

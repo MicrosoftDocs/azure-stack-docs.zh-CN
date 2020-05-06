@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 3411c1b81634f2bf37ec1724ebb96aedb485fd5d
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ccb21762eded64a5e1a5430c80ebfc4e69617375
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556341"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848245"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -37,7 +37,7 @@ ms.locfileid: "82556341"
 - [安全更新](release-notes-security-updates.md)
 - [应用更新之前和之后的活动清单](release-notes-checklist.md)
 
-有关对更新和更新过程进行故障排除的帮助，请参阅[对 Azure Stack Hub 的修补和更新问题进行故障排除](azure-stack-updates-troubleshoot.md)。
+有关对更新和更新过程进行故障排除的帮助，请参阅[对 Azure Stack Hub 的修补和更新问题进行故障排除](azure-stack-troubleshooting.md)。
 
 ## <a name="download-the-update"></a>下载更新
 
@@ -244,7 +244,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”****。
 
    **IKE 阶段 1（主模式）参数**
 
-   | properties              | 值|
+   | properties              | “值”|
    |-|-|
    | SDK 版本           | IKEv2 |
    |Diffie-Hellman 组   | ECP384 |
@@ -254,7 +254,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”****。
 
    **IKE 阶段 2（快速模式）参数**
 
-   | properties| 值|
+   | properties| “值”|
    |-|-|
    |SDK 版本 |IKEv2 |
    |加密和哈希算法（加密）     | GCMAES256|
@@ -278,7 +278,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”****。
 
 - 基础结构备份服务将标识服务添加到 AAD 部署的备份有效负载。  
 
-- Azure Stack 中心 PowerShell 模块已更新为1910版本的版本1.8.0。<br>更改包括：
+- Azure Stack 中心 PowerShell 模块已更新为1910版本的版本1.8.0。<br>具体更改包括：
    - **新的 DRP 管理模块**：部署资源提供程序（DRP）支持将资源提供程序部署到 Azure Stack 中心。 这些命令与 Azure 资源管理器层交互，从而与 DRP 交互。
    - **BRP**： <br />
            - 支持 Azure stack 基础结构备份的单个角色还原。 <br />

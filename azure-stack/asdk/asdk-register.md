@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 2f0af3bd550b31e70f7c1e722ab79149c57c1a2f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e93b5b16d30017dd7a1ea50d2f990ee983c8f124
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700640"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847123"
 ---
 # <a name="register-the-asdk-with-azure"></a>将 ASDK 注册到 Azure
 
@@ -209,7 +209,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 可以使用“区域管理”磁贴，验证  Azure Stack 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。
 
-1. 登录到 [Azure Stack 管理员门户](https://adminportal.local.azurestack.external)。
+1. 登录到 Azure Stack 管理员门户`https://adminportal.local.azurestack.external`。
 
 2. 在“仪表板”中，选择“区域管理”。 
 

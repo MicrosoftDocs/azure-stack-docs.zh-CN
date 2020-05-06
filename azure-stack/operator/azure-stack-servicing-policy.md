@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 服务策略以及如何使集成系统保持受支持状态。
 author: sethmanheim
 ms.topic: article
-ms.date: 02/07/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9b1459fbb5e484e3fc0588e8c9717f8e09b6e309
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512395"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848143"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub 服务策略
 
@@ -80,13 +80,19 @@ Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布
 
 Microsoft 软件更新包是非累积性的，其先决条件是需要前一个更新包或修补程序。 如果决定延后一个或多个更新，如果想要获取最新版本，请考虑整体运行时。
 
+### <a name="resource-provider-version-support"></a>资源提供程序版本支持
+
+对于 Azure Stack 中心资源提供程序，请务必注意，只支持与受支持版本的 Azure Stack 中心兼容的给定资源提供程序的最新发布版本，即使你可能使用的是仍处于支持窗口中的旧版本 Azure Stack 集线器。
+
+有关资源提供程序兼容性的详细信息，请参阅该特定资源提供程序的发行说明。
+
 ## <a name="get-support"></a>获取支持
 
 Azure Stack 中心遵循与 Azure 相同的支持过程。 企业客户可以遵循[如何创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)中所述的过程。 如果你是云解决方案提供商（CSP）的客户，请联系你的 CSP 以获得支持。 有关详细信息，请参阅 [Azure 支持常见问题解答](https://azure.microsoft.com/support/faq/)。
 
-若要帮助解决更新问题，请参阅[解决 Azure Stack 集线器修补程序和更新问题时的最佳做法](azure-stack-updates-troubleshoot.md)。
+若要帮助解决更新问题，请参阅[解决 Azure Stack 集线器修补程序和更新问题时的最佳做法](azure-stack-troubleshooting.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [管理 Azure Stack 集线器中的更新](azure-stack-updates.md)
-- [排查 Azure Stack Hub 修补程序和更新问题的最佳做法](azure-stack-updates-troubleshoot.md)
+- [排查 Azure Stack Hub 修补程序和更新问题的最佳做法](azure-stack-troubleshooting.md)

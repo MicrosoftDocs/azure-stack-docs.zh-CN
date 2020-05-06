@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0175e0880edbecc4cb30e05df94cf26e518b8d0e
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: d21df4d1a16f7ea56ec02a1aa1e7821bb7fe4484
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173967"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848228"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack Hub 的标识体系结构
 
@@ -26,7 +26,7 @@ ms.locfileid: "82173967"
 |------------------------------|----------|-------|
 |连接到 Internet     |是       |可选|
 |对多租户的支持     |是       |否      |
-|在市场中提供商品 |是       |是（需要使用[脱机市场联合](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)工具）|
+|在市场中提供商品 |是       |是（需要使用[脱机市场联合](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)工具）|
 |对 Active Directory 身份验证库 (ADAL) 的支持 |是 |是|
 |支持 Azure CLI、Visual Studio 和 PowerShell 等工具  |是 |是|
 |通过 Azure 门户创建服务主体     |是 |否|

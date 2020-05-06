@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用
 description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b59adea78b5325a449bd52b211edc5e04ea5e566
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294799"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836234"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -44,7 +44,7 @@ API 配置文件是资源提供程序和服务版本的组合。 可以使用 AP
 
 - 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关创建订阅的说明，请参阅[在 Azure Stack Hub 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)一文。
 - 创建服务主体并保存其 ID 和机密。 有关为 Azure Stack Hub 创建服务主体的说明，请参阅[使用应用标识访问资源](../operator/azure-stack-create-service-principals.md)一文。
-- 确保服务主体在订阅上分配有“参与者/所有者”角色。 有关如何将角色分配给服务主体的说明，请参阅[使用应用标识访问资源](../operator/azure-stack-create-service-principals.md)一文。
+- 确保服务主体在订阅上分配有“参与者/所有者”角色。 有关如何向服务主体分配角色的说明，[请访问使用应用标识访问资源](../operator/azure-stack-create-service-principals.md)一文。
 
 ## <a name="install-the-rubygem-packages"></a>安装 RubyGem 包
 

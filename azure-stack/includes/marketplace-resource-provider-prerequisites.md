@@ -6,14 +6,14 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.reviewer: bryanla
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e1e2c3c6c3d1149b2cd034c2f5e4abfdf26e712f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d84b6a7d7f4ec1777b8e58e8cafc9ba64726393f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423978"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847841"
 ---
-如果已从 Azure Stack 中心市场安装了资源提供程序，则可能已完成了常见的先决条件，可以跳过本部分。 否则，请先完成以下先决条件： 
+如果已安装资源提供程序，则可能已完成以下先决条件，可跳过此部分。 否则，请在继续之前完成这些操作： 
 
 1. [向 Azure 注册 Azure Stack 中心实例](../operator/azure-stack-registration.md)（如果尚未这样做）。 此步骤是必需的，因为你将从 Azure 连接到 marketplace 并将其下载到 marketplace。
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ba27bf06a7cf65bd40155a80c8d8877b2ac68805
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.openlocfilehash: 7ddddf7802def5bc5c41bea9771d86f9e1ca300d
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150310"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847208"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>使用 Azure 和 Azure Stack 中心部署基于 AI 的 footfall 检测解决方案
 
@@ -31,7 +31,7 @@ ms.locfileid: "82150310"
 > 
 > [混合应用设计注意事项](overview-app-design-considerations.md)一文介绍了用于设计、部署和操作混合应用的软件质量（放置、可伸缩性、可用性、复原能力、可管理性和安全性）的支柱。 这些设计注意事项有助于优化混合应用设计，从而最大限度地减少生产环境中的难题。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在开始本部署指南之前，请确保：
 
@@ -52,7 +52,7 @@ ms.locfileid: "82150310"
 - 注册 Power BI 帐户。
 - Azure 认知服务人脸 API 订阅密钥和终结点 URL。 可以通过试用[认知服务](https://azure.microsoft.com/try/cognitive-services/?api=face-api)免费试用版。 或者，按照[创建认知服务帐户](/azure/cognitive-services/cognitive-services-apis-create-account)中的说明进行操作。
 - 安装以下开发资源：
-  - [Azure CLI 2。0](../user/azure-stack-version-profiles-azurecli2.md)
+  - [Azure CLI 2.0](../user/azure-stack-version-profiles-azurecli2.md)
   - [Docker CE](https://hub.docker.com/search/?type=edition&offering=community)
   - [Porter](https://porter.sh/)。 你可以使用 Porter 来部署使用为你提供的 CNAB 捆绑清单的云应用。
   - [Visual Studio Code](https://code.visualstudio.com/)
@@ -154,7 +154,7 @@ ms.locfileid: "82150310"
 
 1. 在 Azure 门户中，打开 "**所有资源**"，并打开*footfall\[yoursuffix\] *作业。
 
-2. 在“流分析作业”窗格的“作业拓扑”**** 部分，选择“输出”**** 选项。
+2. 在“流分析作业”窗格的“作业拓扑”  部分，选择“输出”  选项。
 
 3. 选择**流量输出**输出接收器。
 
@@ -166,7 +166,7 @@ ms.locfileid: "82150310"
 
 6. 请在 "**概述**" 窗格中，选择 "**开始**"，开始将数据发送到 Power BI。
 
-7. 选择“现在”作为作业输出启动时间，然后选择“启动”。******** 可以在通知栏中查看作业状态。
+7. 选择“现在”作为作业输出启动时间，然后选择“启动”。   可以在通知栏中查看作业状态。
 
 ## <a name="create-a-power-bi-dashboard"></a>创建 Power BI 仪表板
 
@@ -174,7 +174,7 @@ ms.locfileid: "82150310"
 
 2. 在 Power BI 工作区中，选择 " **+ 创建**" 创建名为 " *Footfall 分析*" 的新仪表板。
 
-3. 在窗口顶部，选择“添加磁贴”****。 然后选择“自定义流数据”和“下一步”。******** 选择**数据**集下的**footfall 数据集**。 从 "**可视化效果类型**" 下拉列表中选择 "**卡**"，并向**字段**添加**age** 。 选择“下一步”****，为磁贴输入一个名称，然后选择“应用”，创建该磁贴。****
+3. 在窗口顶部，选择“添加磁贴”  。 然后选择“自定义流数据”和“下一步”。   选择**数据**集下的**footfall 数据集**。 从 "**可视化效果类型**" 下拉列表中选择 "**卡**"，并向**字段**添加**age** 。 选择“下一步”  ，为磁贴输入一个名称，然后选择“应用”，创建该磁贴。 
 
 4. 您可以根据需要添加其他字段和卡。
 

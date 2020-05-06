@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 943f391d709f772ec3ed5aa0c99bd738f5de679a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 21d7b22181283a0e634cb0bdd0cc5912f8dac84c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368118"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848177"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack Hub 中的更新
 
@@ -161,8 +161,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 特权终结点适用于 Azure Stack Hub 环境中的所有 ERCS VM。 由于未与高度可用的终结点建立连接，因此可能会遇到偶发性中断、警告或错误消息。 这些消息可能指示会话已断开，或者与 ECE 服务通信时出错。 此行为是预期的行为。 可以在几分钟后重试此操作，或者在其他某个 ERCS VM 上新建特权终结点会话。
 
+有关更新疑难解答的详细信息，请参阅[Azure Stack 疑难解答](azure-stack-troubleshooting.md)
+
 ## <a name="next-steps"></a>后续步骤
 
-- [在 Azure Stack Hub 中管理更新](azure-stack-updates.md)
+- [管理 Azure Stack 集线器中的更新](azure-stack-updates.md)
 
 

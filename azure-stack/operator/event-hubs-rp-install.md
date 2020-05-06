@@ -8,34 +8,29 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e07d311c8edbe140834a020af489ae49d8380d86
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: d92c8c8514020d3b33e236232aa07b95ade9f798
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423967"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848194"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>如何在 Azure Stack 集线器上安装事件中心
 
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
+[!INCLUDE [preview banner](../includes/event-hubs-preview.md)]
 
 本文介绍如何下载和安装事件中心资源提供程序，使其可用于订阅的客户。
 
 ## <a name="download-packages"></a>下载包
 
-必须先下载资源提供程序及其相关的包，然后才能在 Azure Stack 集线器上安装事件中心。 你有两个选项，具体取决于你的具体情况还是要求：
-
-- 在连接的情况下下载事件中心。
-- 在断开连接或部分连接的情况下下载事件中心。
-
-如果你不熟悉 Azure Stack 中心管理员门户的**Marketplace 管理**功能，请花时间查看[从 Azure 下载 Marketplace 项并发布到 Azure Stack 中心](azure-stack-download-azure-marketplace-item.md)的时间。 本文将指导你完成将项从 Azure 下载到 Azure Stack 中心应用程序的过程。 它涵盖连接和断开连接的方案。 
-
-### <a name="download-event-hubs---connected-scenario"></a>下载事件中心连接的方案
+必须先使用 Marketplace 管理功能下载资源提供程序及其相关程序包，然后才能在 Azure Stack 集线器上安装事件中心。 如果你不熟悉 Marketplace 管理，请花时间查看[从 Azure 下载 Marketplace 项并发布到 Azure Stack 集线器](azure-stack-download-azure-marketplace-item.md)的时间。 本文将指导你完成将项从 Azure 下载到 Azure Stack 中心应用程序的过程。 它涵盖连接和断开连接的方案。 
 
 > [!NOTE]
 > 下载过程可能需要30分钟到2小时的时间，具体取决于 Azure Stack 中心实例上的网络延迟和现有包。 
 
-如果 Azure Stack 集线器具有 Internet 连接，请按照以下说明操作：
+::: zone pivot="state-connected"
+对于连接的方案，请按照以下说明操作：
 
 1. 登录到 Azure Stack Hub 管理员门户。
 2. 选择左侧的 " **Marketplace 管理**"。
@@ -49,26 +44,24 @@ ms.locfileid: "80423967"
 请注意，会随事件中心一起下载其他软件包，其中包括：
 
 - Microsoft Azure Stack 中心外接程序 RP 仅限内部 Windows Server
-- PowerShell Desired State Configuration
+- PowerShell 所需状态配置
+::: zone-end
 
-下载过程完成后，请跳到 "[安装必备组件" 部分](#install-prerequisites)。
+::: zone pivot="state-disconnected"
+对于断开连接或部分连接的情况，请将包下载到本地计算机，然后将它们导入 Azure Stack 中心实例。
 
-### <a name="download-event-hubs---disconnected-or-partially-connected-scenario"></a>下载事件中心-断开连接或部分连接的方案
-
-首先，将包下载到本地计算机，然后将它们导入 Azure Stack 中心实例。
-
-1. 如果尚未这样做，请按照[下载 Marketplace 项-断开连接或部分连接的方案](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)中的说明进行操作。 在此处下载并运行 Marketplace 联合工具，该工具允许你下载事件中心包。
+1. 如果尚未这样做，请按照[下载 Marketplace 项-断开连接或部分连接的方案](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)中的说明进行操作。 在此处下载并运行 Marketplace 联合工具，该工具允许你下载事件中心包。
 2. 在联合工具的 "Azure Marketplace 项" 窗口打开后，查找并选择 "事件中心"，将所需的包下载到你的本地计算机。
 3. 下载完成后，将包导入到 Azure Stack 中心实例，并发布到 Marketplace。 
+::: zone-end
 
 ## <a name="installation"></a>安装 
 
-1. 如果尚未登录，请登录到 Azure Stack 中心管理员门户。
-2. 选择左侧的 " **Marketplace 管理**"，并选择 "**资源提供程序**"。
-3. 下载事件中心和其他所需的软件后， **Marketplace 管理**应显示状态为 "未安装" 的 "事件中心" 包。 可能存在显示 "已下载" 状态的其他包。 选择要安装的 "事件中心" 行。
+1. 如果尚未登录，请登录到 Azure Stack 中心管理员门户，在左侧选择 " **Marketplace 管理**"，选择 "**资源提供程序**"。
+2. 下载事件中心和其他所需的软件后， **Marketplace 管理**会显示状态为 "未安装" 的 "事件中心" 包。 可能存在显示 "已下载" 状态的其他包。 选择要安装的 "事件中心" 行。
    [![Marketplace 管理下载的包](media/event-hubs-rp-install/2-marketplace-management-downloaded.png)](media/event-hubs-rp-install/2-marketplace-management-downloaded.png#lightbox)
  
-4. "事件中心安装包" 页面应在顶部显示蓝色横幅。 选择标题，开始安装事件中心。
+3. "事件中心安装包" 页面在顶部显示蓝色横幅。 选择标题，开始安装事件中心。
    [![Marketplace 管理事件中心-开始安装](media/event-hubs-rp-install/3-marketplace-management-install-ready.png)](media/event-hubs-rp-install/3-marketplace-management-install-ready.png#lightbox)
 
 ### <a name="install-prerequisites"></a>安装先决条件

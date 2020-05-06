@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 8faeca7cf964ce459ebc10cc047c7b9475deeec4
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: 824dd1304f027c1348eff2faad29d3f187e9732f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580075"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847735"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>Azure Stack Hub 上的应用服务 Update 7 发行说明
 
@@ -26,7 +26,7 @@ ms.locfileid: "82580075"
 
 Azure Stack 集线器 Update 7 内部版本号上的应用服务为**84.0.2.10**。
 
-### <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
 开始部署之前，请参阅[在 Azure Stack 集线器上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
@@ -34,22 +34,27 @@ Azure Stack 集线器 Update 7 内部版本号上的应用服务为**84.0.2.10**
 
 - 确保所有角色都已准备好在 Azure Stack 中心管理员门户中 Azure App Service 管理。
 
+- 在 Azure Stack 中心管理员门户中使用应用服务管理来备份应用服务机密
+
 - 备份应用服务和 master 数据库：
   - AppService_Hosting；
   - AppService_Metering；
-  - Master
+  - 主
 
 - 备份租户应用内容文件共享。
 
+  > [!Important]
+  > 云操作员负责维护和操作文件服务器，并 SQL Server。  资源提供程序不管理这些资源。  云操作员负责备份应用服务数据库和租户内容文件共享。
+
 - 将**自定义脚本扩展**版本**1.9.3**与 Azure Stack 中心市场联合。
 
-### <a name="new-features-and-fixes"></a>新功能和修复
+## <a name="new-features-and-fixes"></a>新功能和修复
 
-Azure Stack Hub 上的 Azure 应用服务 Update 7 包含以下改进和修复：
+Azure Stack 中心更新7上的 Azure App Service 包括以下改进和修补程序：
 
 - [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372)远程代码执行漏洞的解决方法。
 
-- **应用服务租户、管理员、功能门户和 Kudu 工具**的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
+- **应用服务租户、管理员、功能门户和 Kudu 工具**的更新。 与 Azure Stack 中心门户 SDK 版本一致。
 
 - 将 **Azure Functions 运行时**更新到 **v1.0.12582**。
 
@@ -90,12 +95,12 @@ Azure Stack Hub 上的 Azure 应用服务 Update 7 包含以下改进和修复�
 
   **现有**部署-如果你已修改控制器上的设置，则值将从**False**更改为 "**已禁用**"，并且以前值 " **True** " 将变为 "**自动**"。
 
-### <a name="post-deployment-steps"></a>部署后步骤
+## <a name="post-deployment-steps"></a>部署后步骤
 
 > [!IMPORTANT]
 > 如果已向应用服务资源提供程序提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)，并同步数据库，以防止在发生数据库故障转移时任何服务中断。
 
-### <a name="known-issues-post-installation"></a>已知问题（安装后）
+## <a name="known-issues-post-installation"></a>已知问题（安装后）
 
 - 在现有虚拟网络中部署应用服务时，辅助角色无法访问文件服务器，并且文件服务器仅在专用网络上可用，如 Azure Stack 中心部署文档的 Azure App Service 中所述。
 
@@ -111,7 +116,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 7 包含以下改进和修复�
 * 优先级：700
 * 名称：Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的云管理员操作 Azure App Service 的已知问题
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure Stack 中心的云管理员操作 Azure App Service 的已知问题
 
 请参阅[Azure Stack 中心1907发行说明](azure-stack-release-notes-1907.md)中的文档
 

@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 3f9741019a28548e9f20308312d62ea68e757795
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e8a8d2f156d2608db01a652225540a73722f16fc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81308240"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848211"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "81308240"
 > [!IMPORTANT]  
 > 需要注册才能支持完整的 Azure Stack Hub 功能，包括在市场中提供商品。 如果你在使用即用即付计费模型时未注册，则将违反 Azure Stack 集线器许可条款。 若要详细了解 Azure Stack 中心许可模式，请参阅[如何购买页](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在注册之前，请先完成以下先决条件：
 
@@ -481,15 +481,15 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | 参数 | 类型 | 说明 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | 用于[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的凭据。 用户名采用 **AzureStackDomain\CloudAdmin** 格式。 |
-| PrivilegedEndpoint | 字符串 | 预先配置的远程 PowerShell 控制台，提供日志收集和其他部署后任务等功能。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
+| PrivilegedEndpoint | String | 预先配置的远程 PowerShell 控制台，提供日志收集和其他部署后任务等功能。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
 | AzureContext | PSObject |  |
-| ResourceGroupName | 字符串 |  |
+| ResourceGroupName | String |  |
 | ResourceGroupLocation | String |  |
 | BillingModel | String | 订阅使用的计费模式。 此参数允许的值：Capacity、PayAsYouUse 和 Development。 |
-| MarketplaceSyndicationEnabled | True/False | 确定市场管理功能在门户中是否可用。 如果通过 Internet 连接进行注册，请设置为 true。 如果在断开连接的环境中进行注册，请设置为 false。 对于断开连接的注册，可以使用[脱机联合工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)下载市场项。 |
+| MarketplaceSyndicationEnabled | True/False | 确定市场管理功能在门户中是否可用。 如果通过 Internet 连接进行注册，请设置为 true。 如果在断开连接的环境中进行注册，请设置为 false。 对于断开连接的注册，可以使用[脱机联合工具](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)下载市场项。 |
 | UsageReportingEnabled | True/False | 默认情况下，Azure Stack 中心报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。 此参数的允许值：True、False。 |
-| AgreementNumber | 字符串 | 为此 Azure Stack 的容量 SKU 排序所依据的 EA 协议号码。 |
-| RegistrationName | 字符串 | 如果要使用相同的 Azure 订阅 ID 在 Azure Stack 中心的多个实例上运行注册脚本，请设置注册的唯一名称。 参数的默认值为 **AzureStackRegistration**。 但是，如果在 Azure Stack 中心的多个实例上使用相同的名称，则脚本将失败。 |
+| AgreementNumber | String | 为此 Azure Stack 的容量 SKU 排序所依据的 EA 协议号码。 |
+| RegistrationName | String | 如果要使用相同的 Azure 订阅 ID 在 Azure Stack 中心的多个实例上运行注册脚本，请设置注册的唯一名称。 参数的默认值为 **AzureStackRegistration**。 但是，如果在 Azure Stack 中心的多个实例上使用相同的名称，则脚本将失败。 |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -503,14 +503,14 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 | 参数 | 类型 | 说明 |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | 用于[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的凭据。 用户名采用 **AzureStackDomain\CloudAdmin** 格式。 |
-| PrivilegedEndpoint | 字符串 |  预先配置的远程 PowerShell 控制台，提供日志收集和其他部署后任务等功能。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
+| PrivilegedEndpoint | String |  预先配置的远程 PowerShell 控制台，提供日志收集和其他部署后任务等功能。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
 | AzureContext | PSObject |  |
-| ResourceGroupName | 字符串 |  |
+| ResourceGroupName | String |  |
 | ResourceGroupLocation | String |  |
 | BillingModel | String | 订阅使用的计费模式。 此参数允许的值：Capacity、PayAsYouUse 和 Development。 |
 | MarketplaceSyndicationEnabled | True/False |  |
 | UsageReportingEnabled | True/False | 默认情况下，Azure Stack 中心报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。 此参数的允许值：True、False。 |
-| AgreementNumber | 字符串 |  |
+| AgreementNumber | String |  |
 
 ## <a name="registration-failures"></a>注册失败
 
@@ -532,7 +532,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 ::: zone pivot="state-disconnected"
 - 即使已使用断开连接的进程注册了 stamp，Marketplace 管理仍会要求注册并激活 Azure Stack 中心。
 
-   原因：这是已断开连接的环境的已知问题，需要[验证注册状态](#verify-azure-stack-hub-registration)。 若要使用 Marketplace 管理，请使用[脱机工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)。
+   原因：这是已断开连接的环境的已知问题，需要[验证注册状态](#verify-azure-stack-hub-registration)。 若要使用 Marketplace 管理，请使用[脱机工具](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)。
 ::: zone-end
 
 ## <a name="next-steps"></a>后续步骤

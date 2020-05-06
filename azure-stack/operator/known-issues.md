@@ -3,16 +3,16 @@ title: Azure Stack Hub 已知问题
 description: 了解 Azure Stack Hub 发行版中的已知问题。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: df81020ce365f25587c406aaf13617281769834d
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 35eeee27c2084d0ceec565dea5cecc1ce71ecf7f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556413"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848092"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -38,7 +38,7 @@ ms.locfileid: "82556413"
 
 应用2002更新后，管理员门户中可能会错误地显示 "时间源无效" 的警报。 此误报警报可被忽略，并将在即将发布的版本中得到解决。 
 
-有关其他已知 Azure Stack 中心更新问题，请参阅[Azure Stack 中心的更新疑难解答](azure-stack-updates-troubleshoot.md)。
+有关其他已知 Azure Stack 中心更新问题，请参阅[Azure Stack 中心的更新疑难解答](azure-stack-troubleshooting.md)。
 
 ## <a name="portal"></a>门户
 
@@ -75,17 +75,23 @@ ms.locfileid: "82556413"
 - 原因：当电缆与网络适配器断开连接时，管理员门户中不会显示警报。 此问题的原因是 Windows Server 2019 中默认会禁用此故障。
 - 发生次数：常见
 
+### <a name="access-control-iam"></a>访问控制 (IAM)
+
+- 适用：此问题适用于所有受支持的版本。
+- 原因： IAM 扩展已过期。 Azure Stack Hub 随附的 Ibiza 门户引入了新的行为，如果用户针对未在全局订阅选择器（用户门户中的“目录 + 订阅”）中选择的订阅打开“访问控制(IAM)”边栏选项卡，则会导致 RBAC 扩展失败。******** 该边栏选项卡反复显示“正在加载”，且用户无法将新角色添加到订阅。**** “添加”边栏选项卡也反复显示“正在加载”。********
+- 修正：确保在 "**目录 + 订阅**" 菜单中选中订阅。 可以从门户顶部、在 "**通知**" 按钮附近或通过显示的 "**所有资源**" 边栏选项卡上的快捷方式访问该菜单 **。打开目录 + 订阅设置**。 必须在此菜单中选择该订阅。
+
 ## <a name="networking"></a>网络
 
 ### <a name="network-security-groups"></a>网络安全组
 
 - 适用于：此问题适用于所有支持的版本。 
 - 原因：无法在 NSG 中创建显式**DenyAllOutbound**规则，因为这将阻止 VM 部署所需的所有基础结构的内部通信完成。
-- 发生次数：通用
+- 发生次数：常见
 
 - 适用：此问题适用于所有受支持的版本。 
 - 原因：创建入站或出站网络安全规则时，**协议**选项显示**ICMP**选项。 Azure Stack 中心目前不支持此。 此问题已修复，并且不会显示在下一 Azure Stack 集线器版本中。
-- 发生次数：通用
+- 发生次数：常见
 
 ### <a name="network-interface"></a>网络接口
 
@@ -94,11 +100,11 @@ ms.locfileid: "82556413"
 - 适用：此问题适用于所有受支持的版本。
 - 原因：无法将新的网络接口添加到处于**运行**状态的虚拟机。
 - 修正：在添加或删除网络接口之前停止虚拟机。
-- 发生次数：通用
+- 发生次数：常见
 
 #### <a name="primary-network-interface"></a>主网络接口
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：无法更改 VM 的主 NIC。 删除或分离主要 NIC 导致启动 VM 时出现问题。
 - 发生次数：常见
 
@@ -160,7 +166,7 @@ ms.locfileid: "82556413"
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>在 4 节点的 Azure Stack Hub 环境中进行修补和更新时出现故障
 
-- 适用：此问题适用于所有受支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：在包含3个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例在 Azure Stack 集线器环境的4节点上的更新过程中出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
 - 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在 4 节点 Azure Stack Hub 部署中进行更新时，仍然不能创建规模集实例。
 
@@ -203,13 +209,13 @@ ms.locfileid: "82556413"
 ::: moniker range="azs-1910"
 ## <a name="update"></a>更新
 
-有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-updates-troubleshoot.md)。
+有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md)。
 
 ## <a name="portal"></a>门户
 
 ### <a name="administrative-subscriptions"></a>管理订阅
 
-- 适用：此问题适用于所有受支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：不应使用1804版中引入的两个管理订阅。 这两种订阅类型为“计量订阅”和“消耗订阅”。********
 - 修正：如果在这两个订阅上运行了资源，请在用户订阅中重新创建这些资源。
 - 发生次数：常见
@@ -218,11 +224,11 @@ ms.locfileid: "82556413"
 
 - 适用：此问题适用于所有受支持的版本。
 - 原因：在管理员门户中，用户订阅的 "**锁定**" 边栏选项卡具有两个称为 "**订阅**" 的按钮。
-- 发生次数：常见
+- 发生次数：通用
 
 ### <a name="subscription-permissions"></a>订阅权限
 
-- 适用：此问题适用于所有受支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：无法使用 Azure Stack 中心门户查看订阅的权限。
 - 修正：使用[PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
@@ -235,7 +241,7 @@ ms.locfileid: "82556413"
 
 ### <a name="upload-blob-with-oauth-error"></a>使用 OAuth 上传 Blob 时出错
 
-- 适用：此问题适用于所有受支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中，当你尝试使用**OAuth （预览版）** 选项上载 blob 时，该任务将失败并出现错误消息。
 - 修正：使用 SAS 选项上传 blob。
 - 发生次数：常见
@@ -245,7 +251,6 @@ ms.locfileid: "82556413"
 - 适用：此问题适用于所有受支持的版本。
 - 原因：在用户门户中，当你尝试上传上传边栏选项卡中的 blob 时，有一个选择**aad**或**密钥身份验证**的选项，但 Azure Stack 集线器不支持**AAD** 。
 - 发生次数：常见
-
 
 ### <a name="alert-for-network-interface-disconnected"></a>网络接口已断开连接的警报
 
@@ -261,10 +266,9 @@ ms.locfileid: "82556413"
 
 ### <a name="vpn-troubleshoot-and-metrics"></a>VPN 故障排除和指标
 
-- 适用：此问题适用于所有受支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中，vpn 网关资源中的**Vpn 故障排除**功能和**度量值**将出现，但是 Azure Stack 集线器不支持此功能。
 - 发生次数：常见
-
 
 ### <a name="delete-a-storage-container"></a>删除存储容器
 
@@ -275,7 +279,7 @@ ms.locfileid: "82556413"
 
 ### <a name="refresh-button-on-virtual-machines-fails"></a>虚拟机上的刷新按钮失效
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：在用户门户中，导航到 "**虚拟机**" 并尝试使用顶部的按钮刷新时，这些状态无法准确更新。
 - 修正：无论是否已单击 "刷新" 按钮，状态将每隔5分钟自动更新一次。 请等待 5 分钟，然后检查状态。
 - 发生次数：常见
@@ -294,7 +298,7 @@ ms.locfileid: "82556413"
 
 ### <a name="storage-account-configuration"></a>存储帐户配置
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：在用户门户中创建存储帐户并查看其**配置**时，无法保存配置更改，因为这会导致 AJAX 错误。
 - 发生次数：常见
 
@@ -409,14 +413,14 @@ ms.locfileid: "82556413"
 
 - 适用：此问题适用于1910及更早版本。
 - 原因：无法从运行非英语版本的 Windows 的计算机连接到特权终结点（ERC Vm）。
-- 修正：这是在版本晚于1910的版本中修复的已知问题。 解决方法之一是，使用 **en-US** 区域性运行 **New-PSSession** 和 **Enter-PSSession** Powershell cmdlet；有关示例，请使用以下脚本来设置区域性：https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1。
+- 修正：这是在版本晚于1910的版本中修复的已知问题。 一种解决方法是，可以使用**en-us**区域性运行**新的 pssession**并**输入-pssession** PowerShell cmdlet;有关示例，请使用以下脚本设置区域性： https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1。
 - 发生次数：罕见
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>在 4 节点的 Azure Stack Hub 环境中进行修补和更新时出现故障
 
-- 适用：此问题适用于所有受支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：在包含3个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例在 Azure Stack 集线器环境的4节点上的更新过程中出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
 - 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在 4 节点 Azure Stack Hub 部署中进行更新时，仍然不能创建规模集实例。
 
@@ -434,7 +438,7 @@ ms.locfileid: "82556413"
 - 适用：此问题适用于所有受支持的版本。
 - 原因：尝试安装 Azure Stack 中心更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
 - 修正：从版本1901（1.1901.0.95）开始，你可以通过单击 "**立即更新**" （不**继续**）来解决此问题。 然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题仍然存在，建议使用 "[安装更新" 部分](azure-stack-apply-updates.md#install-updates-and-monitor-progress)手动上载更新包。
-- 发生次数：常见
+- 发生次数：通用
 
 ## <a name="portal"></a>门户
 
@@ -489,7 +493,7 @@ ms.locfileid: "82556413"
 ### <a name="load-balancer"></a>负载均衡器
 
 - 适用：此问题适用于所有受支持的版本。 
-- 原因：将可用性集数 Set Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户的表面问题；此功能仍在起作用，VM 在内部已成功添加到后端池。 
+- 原因：将可用性集 Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户的表面问题；此功能仍在起作用，VM 在内部已成功添加到后端池。 
 - 发生次数：常见
 
 ### <a name="network-security-groups"></a>网络安全组
@@ -593,8 +597,8 @@ ms.locfileid: "82556413"
 
 - 适用：此问题适用于所有受支持的版本。    
 - 原因： "虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡，该选项卡要求提供**Application insights 帐户**。 这是新的边栏选项卡的结果，在 Azure Stack 集线器中尚不支持。
-- 补救措施：无。
-- 发生次数：通用
+- 修正：无。
+- 发生次数：常见
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -653,7 +657,7 @@ ms.locfileid: "82556413"
 ### <a name="load-balancer"></a>负载均衡器
 
 - 适用：此问题适用于所有受支持的版本。 
-- 原因：将可用性集数 Set Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户的表面问题；此功能仍在起作用，VM 在内部已成功添加到后端池。 
+- 原因：将可用性集 Vm 添加到负载均衡器的后端池时，门户上会显示一条错误消息，指出**无法保存负载均衡器后端池**。 这是门户的表面问题；此功能仍在起作用，VM 在内部已成功添加到后端池。 
 - 发生次数：常见
 
 ### <a name="network-security-groups"></a>网络安全组
@@ -672,37 +676,37 @@ ms.locfileid: "82556413"
 
 #### <a name="addingremoving-network-interface"></a>添加/删除网络接口
 
-- 适用：此问题适用于所有受支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：无法将新的网络接口添加到处于**运行**状态的虚拟机。
 - 修正：添加/删除网络接口之前停止虚拟机。
-- 发生次数：常见
+- 发生次数：通用
 
 #### <a name="primary-network-interface"></a>主要网络接口
 
-- 适用：此问题适用于所有受支持的版本。
-- 原因：无法将新的网络接口添加到处于**运行**状态的虚拟机。
-- 修正：添加/删除网络接口之前停止虚拟机。
-- 发生次数：常见
+- 适用于：此问题适用于所有支持的版本。
+- 原因：新网络接口无法添加到处于“正在运行”状态的 VM。 
+- 补救措施：添加/删除网络接口之前，先停止虚拟机。
+- 发生次数：通用
 
 ### <a name="virtual-network-gateway"></a>虚拟网络网关
 
 #### <a name="alerts"></a>警报
 
-- 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack Hub 目前不支持此功能。
-- 发生次数：常见
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户中，“虚拟网络网关”边栏选项卡显示使用“警报”的选项。   Azure Stack Hub 目前不支持此功能。
+- 发生次数：通用
 
 #### <a name="active-active"></a>主动-主动
 
-- 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack Hub 目前不支持此功能。
-- 发生次数：常见
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户（创建期间）和“虚拟网络网关”的资源菜单中，看到用于启用“主动-主动”配置的选项。   Azure Stack Hub 目前不支持此功能。
+- 发生次数：通用
 
 #### <a name="vpn-troubleshooter"></a>VPN 故障排除程序
 
-- 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack Hub 目前不支持此功能。
-- 发生次数：常见
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在用户门户中，“连接”边栏选项卡显示一项名为“VPN 故障排除程序”的功能。   Azure Stack Hub 目前不支持此功能。
+- 发生次数：通用
 
 ### <a name="network-connection-type"></a>网络连接类型
 
@@ -725,7 +729,7 @@ ms.locfileid: "82556413"
 
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
 
-- 适用：此问题适用于所有受支持的版本。
+- 适用于：此问题适用于所有支持的版本。
 - 原因：创建新的 Windows 虚拟机（VM）时，可能会显示以下错误：**无法启动虚拟机 "VM-名称"。错误：无法更新 VM "vm-name" 的串行输出设置**。 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
 - 修正：使用之前使用的同一名称重新创建存储帐户。
 - 发生次数：常见
@@ -764,14 +768,14 @@ ms.locfileid: "82556413"
 - 适用：此问题适用于1906版本。
 - 原因：在1906中存在一个已知问题，其中包含用于创建资源的自定义角色和权限分配。 即使您拥有正确的权限，也可能会面临创建资源的问题。
 - 修正：若要缓解此问题，请更新到版本1907。
-- 发生次数：常见
+- 发生次数：通用
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡
 
 - 适用：此问题适用于1906和1907版本。    
 - 原因： "虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡，该选项卡要求提供**Application insights 帐户**。 这是新的边栏选项卡的结果，在 Azure Stack 集线器中尚不支持。
 - 修正：无。
-- 发生次数：常见
+- 发生次数：通用
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

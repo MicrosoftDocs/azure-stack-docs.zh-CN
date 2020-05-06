@@ -1,20 +1,20 @@
 ---
-title: 使用 Powershell 在 Azure Stack Hub 中监视更新
-description: 了解如何使用 Powershell 在 Azure Stack Hub 中监视更新
+title: 使用 PowerShell 监视 Azure Stack 集线器中的更新
+description: 了解如何使用 PowerShell 监视 Azure Stack 集线器中的更新
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: c611d901c62765462d5bccaee6894f5f7c0b0b18
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0adeafb421c30eaf8753c735b16b85471173a5fc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367278"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848126"
 ---
-# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>使用 Powershell 在 Azure Stack Hub 中监视更新
+# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>使用 PowerShell 监视 Azure Stack 集线器中的更新
 
 可以使用 Azure Stack Hub 管理终结点来监视和管理更新。 它们可通过 PowerShell 进行访问。 有关在 Azure Stack Hub 上使用 PowerShell 进行设置的说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
 
@@ -43,7 +43,9 @@ Get-AzsUpdateRun -UpdateName Microsoft1.0.180302.1
 ```powershell
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
+## <a name="troubleshoot"></a>故障排除
+有关更新疑难解答的详细信息，请参阅[Azure Stack 疑难解答](azure-stack-troubleshooting.md)
 
 ## <a name="next-steps"></a>后续步骤
 
--   [在 Azure Stack Hub 中管理更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+-   [管理 Azure Stack 集线器中的更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

@@ -2,21 +2,21 @@
 title: 将 Java WAR 部署到 Azure Stack Hub 中的虚拟机
 description: 将 Java WAR 部署到 Azure Stack Hub 中的虚拟机。
 author: mattbriggs
-ms.topic: overview
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7ab1370ef77a246b1ccda4ab525040edf9cb596a
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.lastreviewed: 05/05/2020
+ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704142"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836200"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>将 Java Web 应用部署到 Azure Stack Hub 中的 VM
 
-可以创建一个虚拟机 (VM) 来托管 Azure Stack Hub 中的 Python Web 应用。 在本文中，我们将在 Azure Stack Hub 中的 Linux VM 上安装并配置一个 Apache Tomcat 服务器。 然后，将 Java Web 应用程序资源 (WAR) 文件加载到该服务器。 WAR 文件用于分发 Java 存档 (JAR) 文件，以及包含 Java 资源（例如类、文本、图像、XML 和 HTML）其他用于交付 Web 应用程序的资源的压缩文件。
+你可以创建虚拟机（VM）以在 Azure Stack 中心内托管你的 Java web 应用。 本文介绍如何安装、打开正确的端口，以及如何在 Azure Stack 集线器中的 Linux VM 上配置 Apache Tomcat 服务器。 然后，将 Java Web 应用程序资源 (WAR) 文件加载到该服务器。 WAR 文件用于分发 Java 存档 (JAR) 文件，以及包含 Java 资源（例如类、文本、图像、XML 和 HTML）其他用于交付 Web 应用程序的资源的压缩文件。
 
 ## <a name="create-a-vm"></a>创建 VM
 

@@ -8,12 +8,12 @@ ms.date: 04/30/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d85ee89edc6b36fb9eca84f59867621b37e8dd5a
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 4c3488ac0f8b022d7d0e21ce09cfb3160f346d5c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777876"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848109"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -117,8 +117,32 @@ Azure Stack 中心内的用户可以是订阅、资源组或服务的每个实�
 
 如果在断开连接的情况下使用集成系统，则建议使用企业证书颁发机构（CA）。 以 Base-64 格式导出根证书，然后将其导入 Azure 存储资源管理器。 请确保从资源管理器终结点删除尾部反`/`斜杠（）。 有关详细信息，请参阅[准备连接到 Azure Stack 集线器](/azure-stack/user/azure-stack-storage-connect-se)。
 
-## <a name="troubleshooting-app-service"></a>应用服务故障排除
+## <a name="troubleshoot-app-service"></a>应用服务故障排除
 
 ### <a name="create-aadidentityappps1-script-fails"></a>Create-AADIdentityApp.ps1 脚本失败
 
-如果应用服务所需的 Create-aadidentityapp.ps1 脚本失败，请确保在运行脚本时包含所需`-AzureStackAdminCredential`的参数。 有关详细信息，请参阅[在 Azure Stack 集线器上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app)。
+如果应用服务所需的 Create-aadidentityapp.ps1 脚本失败，请确保在运行脚本时包含所需`-AzureStackAdminCredential`的参数。 有关详细信息，请参阅[在 Azure Stack 集线器上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app)。
+
+## <a name="troubleshoot-azure-stack-hub-updates"></a>Azure Stack 集线器更新疑难解答
+
+Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单的方式应用更新包。 虽然不常见，但在修补和更新过程中可能会出现问题。 如果在修补和更新过程中遇到问题，建议执行以下步骤：
+
+0. **先决条件**：确保已遵循[更新活动清单](release-notes-checklist.md)并已[配置自动日志收集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)。
+
+1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
+
+2. 如果无法解决问题，请创建[Azure Stack 集线器支持票证](azure-stack-help-and-support-overview-tzl.md)。 在出现问题时，请确保为时间跨度[收集日志](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md)。
+
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>常见 Azure Stack Hub 修补程序和更新问题
+
+*适用于： Azure Stack 集线器集成系统*
+
+### <a name="preparationfailed"></a>PreparationFailed
+
+**适用**：此问题适用于所有受支持的版本。
+
+**原因**：尝试安装 Azure Stack 中心更新时，更新的状态可能会失败，并将状态更改为`PreparationFailed`。 对于连接到 Internet 的系统，这通常表明由于 Internet 连接不稳定，无法正确下载更新包。 
+
+**修正**：你可以通过单击 "**立即安装**" 来解决此问题。 如果此问题仍然存在，建议按照[安装更新](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)部分的说明手动上传更新包。
+
+**发生次数**：常见

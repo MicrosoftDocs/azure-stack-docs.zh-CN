@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a95ce4d59e5374cab351c165405895f552478f6b
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 7ad15c36d2c3e8ae4442bd153cefd71bd26cc0bc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167069"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847412"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>使用 Azure 和 Azure Stack Hub 部署可跨云缩放的应用
 
@@ -40,7 +40,7 @@ ms.locfileid: "82167069"
 - Azure 订阅。 如果需要，请在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 - Azure Stack 中心集成系统或部署 Azure Stack 开发工具包（ASDK）。
   - 有关安装 Azure Stack 集线器的说明，请参阅[安装 ASDK](../asdk/asdk-install.md)。
-  - 有关 ASDK 部署后自动化脚本，请参阅：[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1)
+  - 有关 ASDK 部署后自动化脚本，请参阅：[https://github.com/mattmcspirit/azurestack/](https://github.com/mattmcspirit/azurestack)
   - 此项安装可能需要几个小时才能完成。
 - 将[应用服务](../operator/azure-stack-app-service-deploy.md) PaaS 服务部署到 Azure Stack Hub。
 - 在 Azure Stack 中心环境中[创建计划/产品/服务](../operator/service-plan-offer-subscription-overview.md)。

@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 1b562d2a72f3da4d4ac9ef7045f5cbd5408f4afa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 44fa05f5841952d581a35d8394300e96333bfc4f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294425"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847072"
 ---
 # <a name="connect-to-the-asdk"></a>连接到 ASDK
 
@@ -33,9 +33,9 @@ ms.locfileid: "79294425"
 
 2. 在 ASDK 主计算机上，打开服务器管理器 (ServerManager.exe)。 选择“本地服务器”，禁用“IE 增强的安全配置”，然后关闭服务器管理器。  
 
-3. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 操作员凭据登录到管理员门户。 ASDK 管理员门户地址为 [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)。
+3. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 操作员凭据登录到管理员门户。 ASDK 管理员门户地址为 `https://adminportal.local.azurestack.external`。
 
-4. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 用户凭据登录到用户门户。 ASDK 用户门户地址为 [https://portal.local.azurestack.external](https://portal.local.azurestack.external)。
+4. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 用户凭据登录到用户门户。 ASDK 用户门户地址为 `https://portal.local.azurestack.external`。
 
 > [!NOTE]
 > 有关何时使用哪个帐户的详细信息，请参阅 [ASDK 管理基础知识](asdk-admin-basics.md#what-account-should-i-use)。
@@ -118,7 +118,7 @@ Add-AzsVpnConnection `
 
 ### <a name="test-vpn-connectivity"></a>测试 VPN 连接
 
-若要测试门户连接，请打开浏览器，然后转到用户门户 (https://portal.local.azurestack.external/) 或管理员门户 (https://adminportal.local.azurestack.external/) 。
+若要测试门户连接，请打开浏览器，然后在`https://portal.local.azurestack.external/`或管理员门户`https://adminportal.local.azurestack.external/`中，选择 "用户门户"。
 
 使用相应的订阅凭据登录，以创建和管理资源。  
 

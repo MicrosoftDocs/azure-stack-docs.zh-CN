@@ -4,16 +4,16 @@ description: 了解 Azure Stack 中心的 Azure App Service 计费。
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e5ab25785223d1361553f995d22196cd594a6f0a
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: 3717308e28b7dfa62534ee1abd4e71ff06361d50
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150275"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847939"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure Stack Hub 上的 Azure 应用服务计费概述和常见问题解答
 
@@ -71,23 +71,26 @@ Azure Stack 中心云操作员选择将 Azure Stack 集线器上的 Azure App Se
 
 云运营商提供免费和共享的 SKU 会产生费用，由于这些 SKU 托管在共享的辅助角色中。 若要尽量降低成本，可以选择将共享辅助角色层缩减到最低限度。
 
+> [!IMPORTANT] 
+> 新安装的 Azure Stack 中心2020到第 2 Azure App Service 上的共享辅助角色的安装程序默认值已更改。  默认情况下，使用 A4_v2 计算 SKU 预配共享辅助角色，操作员可以在安装时或安装后对其进行更改。
+
 例如，若要提供免费和共享的应用服务计划 SKU，并提供基于用量的功能，至少需要 1 个可用的 A1 实例。 共享辅助角色是多租户的，因此可以托管多个客户应用，每个应用由应用服务沙箱单独隔离和保护。 以这种方式缩放共享的辅助角色层，可将支出限制为每月 1 个 vCPU 的成本。
 
 然后，你可以选择创建一个用于计划的配额，该配额仅提供免费和共享的 Sku，并限制你的客户可以创建的免费和共享应用服务计划数。
 
 ## <a name="sample-scripts-to-assist-with-billing"></a>用于帮助计费的脚本示例
 
-Azure 应用服务团队创建了 PowerShell 脚本示例，以帮助客户查询 Azure Stack Hub 使用情况服务。 云运营商可以使用这些示例脚本为租户准备计费。 示例脚本位于 GitHub 上的 [Azure Stack Hub 工具存储库](https://github.com/Azure/AzureStack-tools)中。 应用服务脚本位于 [Usage 下的 AppService 文件夹](https://aka.ms/aa6zku8)中。
+Azure App Service 团队创建了一个示例 PowerShell 脚本，用于帮助查询 Azure Stack 中心使用情况服务。 云运营商可以使用这些示例脚本为租户准备计费。 示例脚本位于 GitHub 的[Azure Stack 集线器工具存储库](https://github.com/Azure/AzureStack-tools)中。 应用服务脚本位于 [Usage 下的 AppService 文件夹](https://aka.ms/aa6zku8)中。
 
 可用的脚本示例如下：
 
-- [Get-AppServiceBillingRecords](https://aka.ms/aa6zku2)：此示例从 Azure Stack Hub 用量 API 提取 Azure Stack Hub 上的 Azure 应用服务计费记录。
-- [Get-AppServiceSubscriptionUsage](https://aka.ms/aa6zku6)：此示例计算每个订阅的 Azure Stack Hub 上的 Azure 应用服务用量金额。 此脚本根据用量 API 中的数据和云运营商对每种计量所提供的价格，计算用量金额。
-- [Suspend-UserSubscriptions](https://aka.ms/aa6zku7)：此示例根据云运营商指定的用量限制来暂停或启用订阅。
+- [AppServiceBillingRecords](https://aka.ms/aa6zku2)：此示例从 Azure Stack 中心使用情况 API 中获取 Azure Stack 中心计费记录 Azure App Service。
+- [AppServiceSubscriptionUsage](https://aka.ms/aa6zku6)：此示例计算每个订阅的 Azure Stack 中心用量量 Azure App Service。 此脚本根据用量 API 中的数据和云运营商对每种计量所提供的价格，计算用量金额。
+- [UserSubscriptions](https://aka.ms/aa6zku7)：此示例根据云操作员指定的使用量限制挂起或启用订阅。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Stack Hub 租户资源用量 API](azure-stack-tenant-resource-usage-api.md)
+- [Azure Stack 中心租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md)
 
 <!--Image references-->
 [1]: ./media/app-service-billing-faq/app-service-worker-tiers.png

@@ -3,22 +3,22 @@ title: 管理 Azure Stack Hub 中的 API 版本配置文件
 description: 了解 Azure Stack Hub 中的 API 版本配置文件。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f72f0e79fe7b890c65c630ff00ec3870d4756c5e
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294887"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836217"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>管理 Azure Stack Hub 中的 API 版本配置文件
 
 API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API 版本。 可以使用 API 配置文件以不同的语言创建自定义客户端。 每个客户端都使用 API 配置文件来与 Azure Stack Hub 的正确的资源提供程序和 API 版本通信。
 
-可以创建一个应用来与 Azure 资源提供程序配合运行，而无需明确区分与 Azure Stack Hub 兼容的每个资源提供程序 API 的版本。 只需将应用对应到某个配置文件，SDK 就能还原到正确的 API 版本。
+你可以创建一个应用来使用 Azure 资源提供程序，而无需确切知道每个资源提供程序 API 与 Azure Stack 中心兼容的版本。 只需将应用对应到某个配置文件，SDK 就能还原到正确的 API 版本。
 
 本主题帮助读者了解：
 

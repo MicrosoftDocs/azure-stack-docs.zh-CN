@@ -7,12 +7,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 889180858826685150fadb7ad3bef0ffb789b8ec
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 98298b405bd818cb3cd1f67d52d1735a4cc3edd4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294414"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846953"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK 要求和注意事项
 
@@ -28,7 +28,9 @@ ms.locfileid: "79294414"
 | 计算：内存 |192-GB RAM。 |256-GB RAM。 |
 | 计算：BIOS |Hyper-V 已启用（提供 SLAT 支持）。 |Hyper-V 已启用（提供 SLAT 支持）。 |
 | 网络：NIC |Windows Server 2012 R2 认知。 不要求使用专用功能。 | Windows Server 2012 R2 认知。 不要求使用专用功能。 |
-| 硬件徽标认证 |[针对 Windows Server 2012 R2 的认证](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)。 |[Windows Server 2016 认证](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)。 |
+| 硬件徽标认证 |[针对 Windows Server 2012 R2 的认证](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
+|[Windows Server 2016 认证](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
+|
 
 <sup>*</sup>如果计划从 Azure 添加多个[市场项](../operator/azure-stack-create-and-publish-marketplace-item.md)，则需要的容量比这个建议的容量要大。
 
@@ -107,7 +109,7 @@ ASDK 是一种单节点系统，设计用于验证 Azure Stack 集成系统的�
 
 部署后，不需要 Azure AD 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 此类操作的示例包括资源提供程序安装程序脚本或需要授予权限的新功能。 可以暂时恢复帐户的全局管理员权限，也可以使用*默认提供程序订阅*所有者的单独全局管理员帐户。
 
-## <a name="network"></a>Network (网络)
+## <a name="network"></a>网络
 ### <a name="switch"></a>开关
 交换机上的一个可用于 ASDK 计算机的端口。  
 

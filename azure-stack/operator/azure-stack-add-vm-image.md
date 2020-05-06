@@ -7,12 +7,12 @@ ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2019
-ms.openlocfilehash: 4d2f76e1af47800331aac44715b5b8630baceae1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 167a9c9d46be7ac77e59e2be7ede1c09e43fda70
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701422"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847922"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>将自定义 VM 映像添加到 Azure Stack Hub
 
@@ -172,7 +172,7 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
 
 ## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>以 Azure Stack Hub 操作员的身份使用门户删除 VM 映像
 
-1. 打开 Azure Stack Hub [管理员门户](https://adminportal.local.azurestack.external)。
+1. 打开 Azure Stack 中心 [管理员门户] `https://adminportal.local.azurestack.external`。
 
 2. 如果 VM 映像有关联的市场项，请选择“市场管理”，然后选择要删除的 VM 市场项。 
 

@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
-ms.openlocfilehash: 2c80aafe3665b6ecb31e701483a5e903d0471e42
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9c9838a93c0ee46ce0556cd86e9f6ae8b4c7c9d4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703411"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848041"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Azure Stack Hub 上的应用服务 Update 2 发行说明
 
@@ -26,14 +26,14 @@ ms.locfileid: "77703411"
 
 Azure Stack Hub 上的应用服务 Update 2 的内部版本号为 **72.0.13698.10**。
 
-### <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
-> 基于 Azure Stack Hub 的 Azure 应用服务的新部署现在要求提供[三使用者通配型证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。 新的使用者是 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
+> Azure Stack 中心的 Azure App Service 的新部署现在需要三个使用者的通配符证书，因为在 Azure App Service 中处理 Kudu SSO 的方式。 新的使用者是 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 
 在开始部署之前，请参阅[在 Azure Stack Hub 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
-### <a name="new-features-and-fixes"></a>新功能和修复
+## <a name="new-features-and-fixes"></a>新功能和修复
 
 Azure Stack Hub 上的 Azure 应用服务 Update 2 包含以下改进和修复：
 
@@ -67,7 +67,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 2 包含以下改进和修复�
   - 系统凭据轮换
   - 连接字符串轮换
 
-### <a name="known-issues-post-installation"></a>已知问题（安装后）
+## <a name="known-issues-post-installation"></a>已知问题（安装后）
 
 - 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
 
@@ -83,7 +83,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 2 包含以下改进和修复�
 * 优先级：700
 * 姓名：Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>云管理员在操作基于 Azure Stack Hub 的 Azure 应用服务时的已知问题
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>云管理员在操作基于 Azure Stack Hub 的 Azure 应用服务时的已知问题
 
 请参阅 [Azure Stack Hub 1804 发行说明](azure-stack-update-1903.md)中的文档
 

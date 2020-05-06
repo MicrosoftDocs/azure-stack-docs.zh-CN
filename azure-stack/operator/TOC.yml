@@ -34,7 +34,11 @@
         - name: 计算
           href: azure-stack-capacity-planning-compute.md
         - name: 存储
-          href: azure-stack-capacity-planning-storage.md
+          items:
+            - name: 存储容量规划
+              href: azure-stack-capacity-planning-storage.md
+            - name: 存储基础结构概述
+              href: azure-stack-storage-infrastructure-overview.md
         - name: Azure Stack 中心 Capacity Planner
           href: azure-stack-capacity-planner.md
     - name: 数据中心集成
@@ -168,8 +172,6 @@
                   href: azure-stack-update-monitor.md
                 - name: 使用特权终结点
                   href: azure-stack-monitor-update.md
-            - name: 排查更新问题
-              href: azure-stack-updates-troubleshoot.md
         - name: 监视运行状况和警报
           href: azure-stack-monitor-health.md
         - name: 监视硬件组件
@@ -187,7 +189,7 @@
             - name: 管理存储容量
               href: azure-stack-manage-storage-shares.md
             - name: 管理存储基础结构
-              href: azure-stack-storage-infrastructure-overview.md
+              href: azure-stack-manage-storage-infrastructure.md
             - name: 管理物理内存容量
               href: azure-stack-manage-storage-physical-memory-capacity.md
             - name: 添加缩放单元节点
@@ -294,50 +296,52 @@
               href: azure-stack-app-service-overview.md
             - name: 应用服务容量规划
               href: azure-stack-app-service-capacity-planning.md
-            - name: 开始操作之前
-              href: azure-stack-app-service-before-you-get-started.md
-            - name: 部署应用服务
-              href: azure-stack-app-service-deploy.md
-            - name: 部署应用服务以实现高可用性
-              href: app-service-deploy-ha.md
-            - name: 脱机部署应用服务
-              href: azure-stack-app-service-deploy-offline.md
-            - name: 更新应用服务
-              href: azure-stack-app-service-update.md
-            - name: 脱机更新应用服务
-              href: azure-stack-app-service-update-offline.md
-            - name: 添加应用服务基础结构角色
-              href: azure-stack-app-service-add-worker-roles.md
-            - name: 配置部署源
-              href: azure-stack-app-service-configure-deployment-sources.md
-            - name: 轮换应用服务机密和证书
-              href: app-service-rotate-certificates.md
-            - name: 备份应用服务
-              href: app-service-back-up.md
-            - name: 恢复应用服务
-              href: app-service-recover.md
-            - name: 删除应用服务
-              href: app-service-remove.md
             - name: 应用服务计费常见问题解答
               href: app-service-billing-faq.md
+            - name: 先决条件
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: 部署
+              items:
+                - name: 部署应用服务
+                  href: azure-stack-app-service-deploy.md
+                - name: 部署应用服务以实现高可用性
+                  href: app-service-deploy-ha.md
+            - name: 生命周期管理
+              items:
+                - name: 更新应用服务
+                  href: azure-stack-app-service-update.md
+                - name: 添加应用服务基础结构角色
+                  href: azure-stack-app-service-add-worker-roles.md
+                - name: 配置部署源
+                  href: azure-stack-app-service-configure-deployment-sources.md
+                - name: 轮换应用服务机密和证书
+                  href: app-service-rotate-certificates.md
+                - name: 备份应用服务
+                  href: app-service-back-up.md
+                - name: 恢复应用服务
+                  href: app-service-recover.md
+                - name: 删除应用服务
+                  href: app-service-remove.md
             - name: Azure Stack 集线器上的应用服务发行说明
               items:
-                - name: Azure Stack 集线器上的应用服务 update 1 发行说明
-                  href: azure-stack-app-service-release-notes-update-one.md
-                - name: Azure Stack 集线器上的应用服务 update 2 发行说明
-                  href: azure-stack-app-service-release-notes-update-two.md
-                - name: Azure Stack 集线器上的应用服务 update 3 发行说明
-                  href: azure-stack-app-service-release-notes-update-three.md
-                - name: Azure Stack 集线器上的应用服务更新4发行说明
-                  href: azure-stack-app-service-release-notes-update-four.md
-                - name: Azure Stack 集线器上的应用服务 update 5 发行说明
-                  href: azure-stack-app-service-release-notes-update-five.md
-                - name: Azure Stack 集线器上的应用服务更新6发行说明
-                  href: azure-stack-app-service-release-notes-update-six.md
-                - name: Azure Stack 集线器上的应用服务更新7发行说明
-                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: Azure Stack 集线器2020第2季度上的应用服务发行说明
+                  href: app-service-release-notes-2020-Q2.md
                 - name: Azure Stack 集线器上的应用服务 update 8 发行说明
                   href: azure-stack-app-service-release-notes-update-eight.md
+                - name: Azure Stack 集线器上的应用服务更新7发行说明
+                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: Azure Stack 集线器上的应用服务更新6发行说明
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: Azure Stack 集线器上的应用服务 update 5 发行说明
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: Azure Stack 集线器上的应用服务更新4发行说明
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: Azure Stack 集线器上的应用服务 update 3 发行说明
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: Azure Stack 集线器上的应用服务 update 2 发行说明
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: Azure Stack 集线器上的应用服务 update 1 发行说明
+                  href: azure-stack-app-service-release-notes-update-one.md
         - name: Azure Stack Hub 上的事件中心
           items:
             - name: 概述
