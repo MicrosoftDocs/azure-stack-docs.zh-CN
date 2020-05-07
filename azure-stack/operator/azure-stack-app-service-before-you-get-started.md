@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f24c75f90b466f72f980996fde03e791deb0a5f4
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: c3512a441116f57f74921cec38d5937b89a1978c
+ms.sourcegitcommit: d04b8f2d431ec1e12bcf5aa976fb06ec109caa25
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847839"
+ms.locfileid: "82868477"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署应用服务的先决条件
 
@@ -113,7 +113,7 @@ Azure 应用服务需要使用文件服务器。 在生产部署中，必须将�
 [参考体系结构快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)现已推出，可用于部署文件服务器和 SQL Server。 此模板在虚拟网络中支持 Active Directory 基础结构，配置为支持 Azure Stack Hub 上 Azure App Service 的高度可用部署。
 
 > [!NOTE]
-> ASDK 实例必须能够从 GitHub 下载资源，才能完成部署。
+> 集成的系统实例必须能够从 GitHub 下载资源，才能完成部署。
 
 #### <a name="steps-to-deploy-a-custom-file-server"></a>部署自定义文件服务器的步骤
 

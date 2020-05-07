@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 36c2fabf06df1725938b512752f40f70728dd8e9
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 57cdd5ed496d0792f2d36f1e12d5fb8fce1d4370
+ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848279"
+ms.locfileid: "82861395"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>Azure Stack 集线器2020第2季度上的应用服务发行说明
 
@@ -25,7 +25,7 @@ ms.locfileid: "82848279"
 
 Azure Stack 集线器2020第2季度内部版本号上的应用服务是**87.0.2.10**
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 在开始部署之前，请参阅[准备工作文档](azure-stack-app-service-before-you-get-started.md)。
 
@@ -84,16 +84,16 @@ Azure Stack Update 第2季度 Azure App Service 包括以下改进和修补程�
 
 - **更新了新部署的默认虚拟机和规模集 sku**：若要保持与我们的公有云服务保持一致，Azure Stack 中心的 Azure App Service 的新部署将为适用于运行资源提供程序的基础计算机和规模集使用以下 sku
   
-  | 角色 | 最小实例数 | 最小 SKU |
-  | --- | --- | --- |
-  | 控制器 | 2 | Standard_A4_v2-（4核，8192 MB） |
-  | 管理 | 1 | Standard_D3_v2-（4核，14336 MB） |
-  | 发布者 | 1 | Standard_A2_v2-（2核，4096 MB） |
-  | FrontEnd | 1 | Standard_A4_v2-（4核，8192 MB） |
-  | 共享辅助角色 | 1 | Standard_A4_v2-（4核，8192 MB） |
-  | 小型专用辅助角色 | 1 | Standard_A1_v2-（1个核心，2048 MB） |
-  | 中型专用工作线程 | 1 | Standard_A2_v2-（2核，4096 MB） |
-  | 大型专用辅助角色 | 1 | Standard_A4_v2-（4核，8192 MB） |
+  | 角色 | 最小 SKU |
+  | --- | --- |
+  | 控制器 | Standard_A4_v2-（4核，8192 MB） |
+  | 管理 | Standard_D3_v2-（4核，14336 MB） |
+  | 发布者 | Standard_A2_v2-（2核，4096 MB） |
+  | FrontEnd | Standard_A4_v2-（4核，8192 MB） |
+  | 共享辅助角色 | Standard_A4_v2-（4核，8192 MB） |
+  | 小型专用辅助角色 | Standard_A1_v2-（1个核心，2048 MB） |
+  | 中型专用工作线程 | Standard_A2_v2-（2核，4096 MB） |
+  | 大型专用辅助角色 | Standard_A4_v2-（4核，8192 MB） |
 
 对于 ASDK 部署，可以将实例向下扩展到更低的 Sku，以减少核心和内存提交，但会遇到性能下降。
 

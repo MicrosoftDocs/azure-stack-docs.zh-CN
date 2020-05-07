@@ -7,12 +7,12 @@ ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: abbf82a61c27a58833d286639b281989d3a29fd7
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
+ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166950"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82861378"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>将 Azure Kubernetes Services （AKS）引擎必备组件添加到 Azure Stack 中心市场
 
@@ -38,7 +38,7 @@ Kubernetes 群集将需要 Azure Stack 中心中的服务主体（SPN）和基�
 
 ## <a name="add-the-aks-base-image"></a>添加 AKS 基础映像
 
-可以通过从 Azure 获取项，将 AKS 基本映像添加到 marketplace。 但是，如果 Azure Stack 集线器断开连接，请使用以下说明[从 Azure 下载 marketplace 项](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario)以添加该项目。 添加在步骤5中指定的项目。
+可以通过从 Azure 获取项，将 AKS 基本映像添加到 marketplace。 但是，如果 Azure Stack 集线器断开连接，请使用以下说明[从 Azure 下载 marketplace 项](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)以添加该项目。 添加在步骤5中指定的项目。
 
 将以下项目添加到 marketplace：
 
@@ -61,7 +61,7 @@ Kubernetes 群集将需要 Azure Stack 中心中的服务主体（SPN）和基�
 
 ## <a name="add-a-custom-script-extension"></a>添加自定义脚本扩展
 
-可以通过从 Azure 获取项，将自定义脚本添加到 marketplace。 但是，如果 Azure Stack 集线器断开连接，请使用[从 Azure 下载 marketplace 项中](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario)的说明来添加该项。  添加在步骤5中指定的项目。
+可以通过从 Azure 获取项，将自定义脚本添加到 marketplace。 但是，如果 Azure Stack 集线器断开连接，请使用[从 Azure 下载 marketplace 项中](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)的说明来添加该项。  添加在步骤5中指定的项目。
 
 1. 打开[管理门户](https://adminportal.local.azurestack.external)。
 
