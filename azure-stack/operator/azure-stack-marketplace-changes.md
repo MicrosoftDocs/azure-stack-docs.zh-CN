@@ -3,16 +3,16 @@ title: Azure Stack Hub 市场中的新增内容
 description: Azure Stack Hub 市场中的更改和更新。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 9852799c59e7ddf2c33a93f5af4feee69718d4ab
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: db8eafe9aceeb9e1e901f0f2677f52535e70c0d3
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166967"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908523"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -57,6 +57,7 @@ ms.locfileid: "82166967"
 - Bitnami X2Engine 销售 CRM
 - Bitnami SugarCRM
 - Bitnami node.js 高可用性群集
+- Bitnami ProcessMaker Enterprise Edition
 - A10 vThunder： L4-L7 应用程序交付控制器，全局服务器负载平衡（GSLB），SSL 见解
 - Check Point vSEC Security Management
 

@@ -3,16 +3,16 @@ title: 从 Azure Stack Hub 中按需清除门户用户数据。
 description: 为 Azure Stack Hub 操作员介绍如何按 Azure Stack Hub 用户的请求清除门户用户数据。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: bede8fc72cfcdd6f3376c49a87293fef3626c380
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9acb9e391de7965aac281f08175d58635b5bb554
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698328"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967754"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>从 Azure Stack Hub 中清除门户用户数据
 
@@ -128,7 +128,7 @@ Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需�
 
    ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $AzsAdminDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
-   
+
    ## Replace the following value with the directory tenant ID of the user to clear.
    $DirectoryTenantId = "3160cbf5-c227-49dd-8654-86e924c0b72f"
 

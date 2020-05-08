@@ -3,16 +3,16 @@ title: 可用于 Azure Stack Hub 的 Azure 市场项
 description: 了解哪些 Azure 市场项可以在 Azure Stack Hub 中使用。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: e701a5356b5dd5f87ec8154c35da0156d462632d
-ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
+ms.openlocfilehash: 52224bb7a08d367cd4696b39d6f353c01a95952b
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82799897"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967805"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>可用于 Azure Stack Hub 的 Azure 市场项
 
@@ -105,7 +105,7 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![Apache Guacamole](media/azure-stack-marketplace-azure-items/guacamole.png) | [Apache Guacamole](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.guacamole) | Apache Guacamole 是一种开源远程桌面网关，使用户能够仅使用 web 浏览器从任何位置访问他们的计算机。 它支持 VNC、SSH 和 RDP 等标准协议。 | Bitnami |
 | ![Canvas LMS](media/azure-stack-marketplace-azure-items/canvaslms.png) | [画布 LMS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.canvaslms) | 开源学习管理系统。 | Bitnami |
 | ![Cassandra](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra) | 可用性高且可缩放的开源数据库。 | Bitnami |
-| ![Cassandra 群集](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Apache Cassandra 是一种开源分布式数据库管理系统，旨在跨多个商用服务器处理大量数据，从而提供高可用性且无单点故障。 **此解决方案模板还需要 Debian 8 以及适用于 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![Cassandra 群集](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Apache Cassandra 是一种开源分布式数据库管理系统，旨在跨多个商用服务器处理大量数据，从而提供高可用性且无单点故障。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![CiviCRM](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.civicrm) | 简单的基于 Web 的关系管理系统。 | Bitnami |
 | ![CMS Made Simple](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [CMS Made Simple](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cmsmadesimple) | 快速轻松地创建和管理网站。 | Bitnami |
 | ![Composr](media/azure-stack-marketplace-azure-items/composr.png) | [Composr](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.ocportal) | Composr 是包含高级内容、社交、交互式和动态功能的 CMS。 完全灵活、可通过主题和扩展：适用于几乎任何类型的网站。 | Bitnami |
@@ -120,12 +120,12 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![DreamFactory](media/azure-stack-marketplace-azure-items/dreamfactory.png) | [DreamFactory](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.dreamfactory) | 开源 REST API，使用 SQL、NoSQL、BLOB 之类的服务。 | Bitnami |
 | ![Drupal](media/azure-stack-marketplace-azure-items/drupal.png) | [Drupal](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.drupal) | Drupal 是世界上最常用的开源内容管理系统之一。 它已预先配置 Ctools 和 Views 模块，Drush，让我们加密自动配置支持。 | Bitnami |
 | ![Elasticsearch](media/azure-stack-marketplace-azure-items/elasticsearch.png) | [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.elastic-search) | 灵活且功能强大的开源分析引擎。 | Bitnami |
-| ![Elasticsearch 群集](media/azure-stack-marketplace-azure-items/elasticsearch.png) | [Elasticsearch 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.elasticsearch-cluster) | Elasticsearch 是一种分布式搜索和分析引擎。 它用于 web 搜索、日志监视和实时分析。 适用于大数据应用程序。
- | Bitnami |
+| ![Elasticsearch 群集](media/azure-stack-marketplace-azure-items/elasticsearch.png) | [Elasticsearch 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.elasticsearch-cluster) | Elasticsearch 是一种分布式搜索和分析引擎。 它用于 web 搜索、日志监视和实时分析。 适用于大数据应用程序。 | Bitnami |
 | ![ELK](media/azure-stack-marketplace-azure-items/elk.png) | [ELK](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.elk) | 由 Elasticsearch、Kibana、Logstash 组成的大数据套件。 | Bitnami |
 | ![ERPNext](media/azure-stack-marketplace-azure-items/erpnext.png) | [ERPNext](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.erpnext) | 开源企业资源规划 (ERP) 平台。 | Bitnami |
 | ![EspoCRM](media/azure-stack-marketplace-azure-items/espocrm.png) | [EspoCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.espocrm) | 简单的 CRM 系统，可帮助管理客户关系。 | Bitnami |
 | ![etcd](media/azure-stack-marketplace-azure-items/etcd.png) | [etcd](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.etcd) | etcd 是一个分布式键-值存储，旨在在群集中安全存储数据。 etcd 在生产环境中广泛用于可靠性、容错和易用性。 | Bitnami |
+| ![etcd 群集](media/azure-stack-marketplace-azure-items/etcd.png) | [etcd 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.etcd-cluster) | etcd 是一个分布式键-值存储，旨在在群集中安全存储数据。 etcd 在生产环境中广泛用于可靠性、容错和易用性。 此解决方案预配了可配置的 etcd 节点数，以创建容错、分布式和可靠的键-值存储。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![eXo Platform](media/azure-stack-marketplace-azure-items/exoplatform.png) | [eXo Platform](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.exoplatform) | 专为企业设计的开源社交软件。 | Bitnami |
 | ![Fat Free CRM](media/azure-stack-marketplace-azure-items/fatfreecrm.png) | [Fat Free CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.fatfreecrm) | 基于 Ruby on Rails 的开源 CRM。 | Bitnami |
 | ![GitLab Community Edition](media/azure-stack-marketplace-azure-items/bitnami.png) | [GitLab Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.gitlab) | 快速、安全的 Git 管理软件。 | Bitnami |
@@ -137,12 +137,12 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![Horde Groupware Webmail](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [Horde Groupware Webmail](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hordegroupwarewebmail) | 基于浏览器的企业就绪型免费通信套件。 | Bitnami |
 | ![JasperReports](media/azure-stack-marketplace-azure-items/jasper.png) | [JasperReports](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jasperreports) | JasperReports 服务器是独立且可嵌入的报表服务器。 它是一个中心信息中心，可以嵌入到 web 和移动应用程序中，可以将报告和分析嵌入到其中。 | Bitnami |
 | ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | 集成服务器，支持以下 SCM 工具：CVS、Subversion 和 Git。 | Bitnami |
-| ![Jenkins 群集](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) | Jenkins CI 是开源持续集成服务器。  **此解决方案模板还需要 Debian 8 以及适用于 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![Jenkins 群集](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) | Jenkins CI 是开源持续集成服务器。  此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![JFrog Artifactory](media/azure-stack-marketplace-azure-items/jfrogartifactory.png) | [JFrog Artifactory](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.artifactory) | 由领先的发布者提供的二进制存储库软件。 | Bitnami |
 | ![Joomla](media/azure-stack-marketplace-azure-items/joomla.png) | [Joomla!](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.joomla) | 用户友好型 CMS，可以方便地生成网站。 | Bitnami |
 | ![JRuby](media/azure-stack-marketplace-azure-items/jruby.png) | [JRuby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jrubystack) | Ruby 的高性能 Java 实现。 | Bitnami |
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | 强大的分布式发布-订阅消息传送系统。 | Bitnami |
-| ![Kafka 群集](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka 是一种发布-订阅式消息传送，已经重新构思为一种分布式提交日志。 此解决方案通过预配多个 Kafka 中转站和 Zookeeper 实例来改进 Kafka 群集的可靠性。 **此解决方案模板还需要 Debian 8 以及适用于 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![Kafka 群集](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka 是一种发布-订阅式消息传送，已经重新构思为一种分布式提交日志。 此解决方案通过预配多个 Kafka 中转站和 Zookeeper 实例来改进 Kafka 群集的可靠性。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![特别行政区](media/azure-stack-marketplace-azure-items/kong.png) | [特别行政区](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kong) | 特别行政区是一个开源微服务 API 网关和平台，旨在管理高可用性、容错和分布式系统的微服务请求。 | Bitnami |
 | ![Kubernetes 沙盒](media/azure-stack-marketplace-azure-items/sandbox.png) | [Kubernetes 沙盒](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kubernetessandbox) | Bitnami Kubernetes 沙盒为 containerised 应用提供完整、易于部署的开发环境。 这是一种真实的环境，用于在 Kubernetes 中学习和开发服务。 | Bitnami |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | 完全集成且已做好运行准备的开发环境。 | Bitnami |
@@ -154,7 +154,8 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![Mahara](media/azure-stack-marketplace-azure-items/mahara.png) | [Mahara](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mahara) | 常用的开源 ePortfolio 和社交网络 Web 应用。 | Bitnami |
 | ![Magento](media/azure-stack-marketplace-azure-items/magento.png) | [Magento](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.magento) | 常用的电子商务软件和平台。 | Bitnami |
 | ![Mantis](media/azure-stack-marketplace-azure-items/mantis.png) | [Mantis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mantis) | 高级 Bug 跟踪系统。 | Bitnami |
-| ![MariaDB with Replication](media/azure-stack-marketplace-azure-items/mariadb.png) | [MariaDB with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mariadb-cluster) | MariaDB 是一种开放源代码社区开发的 SQL 数据库服务器，该服务器广泛使用，因为其企业功能、灵活性和与领先技术公司的协作。 此解决方案使用多个 VM 将数据库从主节点复制到多个可配置的副本。 **此解决方案模板还需要 Debian 8 以及适用于 Linux 2.0 扩展的自定义脚本。**| Bitnami |
+| ![MariaDB](media/azure-stack-marketplace-azure-items/mariadb.png) | [MariaDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mariadb) | MariaDB 是一种社区开发的开源 SQL 数据库服务器，因其企业功能、灵活性以及与领先科技公司的合作而在全世界广泛使用。 | Bitnami |
+| ![MariaDB with Replication](media/azure-stack-marketplace-azure-items/mariadb.png) | [MariaDB with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mariadb-cluster) | MariaDB 是一种开放源代码社区开发的 SQL 数据库服务器，该服务器广泛使用，因为其企业功能、灵活性和与领先技术公司的协作。 此解决方案使用多个 VM 将数据库从主节点复制到多个可配置的副本。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![MariaDB Galera 群集](media/azure-stack-marketplace-azure-items/mariadb.png) | [MariaDB Galera 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multi-tier-mariadb-galera) | MariaDB Galera 是一种用于同步复制和高可用性的多主数据库群集解决方案。| Bitnami |
 | ![Matomo](media/azure-stack-marketplace-azure-items/matomo.png) | [Matomo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.piwik) | Matomo （以前称为 Piwik）是一种实时 web 分析计划。 它提供了有关网站访问者的详细报告：他们所用的搜索引擎和关键字、常用页面等。 | Bitnami |
 | ![Mattermost Team Edition](media/azure-stack-marketplace-azure-items/mattermostteamedition.png) | [Mattermost Team Edition](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mattermost) | 开源工作区消息传送解决方案。 | Bitnami |
@@ -162,16 +163,17 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![MEAN](media/azure-stack-marketplace-azure-items/mean.png) | [格林威治时间](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mean) | 适用于 mongoDB 和 Node.js 的常用开发环境。 | Bitnami |
 | ![MediaWiki](media/azure-stack-marketplace-azure-items/mediawiki.png) | [MediaWiki](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mediawiki) | 功能强大的可缩放 Wiki 实现。 | Bitnami |
 | ![Memcached](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached) | 高性能分布式内存对象缓存系统。 | Bitnami |
-| ![Memcached Multiple Instances](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached Multiple Instances](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached-multipleinstances) | Memcached 是一种高性能分布式内存对象缓存系统。 此解决方案预配多个 Memcached 节点，为你的应用创建高性能、可经受故障的分布式缓存。 **此解决方案模板还需要 Debian 8 以及适用于 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![Memcached Multiple Instances](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached Multiple Instances](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached-multipleinstances) | Memcached 是一种高性能分布式内存对象缓存系统。 此解决方案预配多个 Memcached 节点，为你的应用创建高性能、可经受故障的分布式缓存。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![MODX](media/azure-stack-marketplace-azure-items/modx.png) | [MODX](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.modx) | 直观的 Web CMS。 | Bitnami |
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | 以 C++ 编写的高性能开源 NoSQL 数据库。 | Bitnami |
-| ![MongoDB with Replication](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | 以 C++ 编写的高性能开源 NoSQL 数据库。 **此解决方案模板要求 Azure Stack 集线器处于版本1807或更高版本，并且还需要 Debian 8 和 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![MongoDB with Replication](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | 以 C++ 编写的高性能开源 NoSQL 数据库。 此解决方案模板要求 Azure Stack 集线器处于版本1807或更高版本，并且还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | 为在线学习社区设计的有效 CMS。 | Bitnami |
 | ![Moodle 多层](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle 多层](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle-multi-tier) | Moodle 是一种在世界各地的大学、学校和公司广泛使用的开源联机学习管理系统（LMS）。 它是模块化的，可高度适应任何类型的联机学习。 | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | 免费的开源论坛软件。 | Bitnami |
 | ![MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql) | 最常用的数据库系统。 | Bitnami |
-| ![MySQL with Replication](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql-cluster) | MySQL 是一种快速、可靠、可缩放且易用的开源关系数据库系统。 MySQL Server 适用于任务关键型重负荷生产系统，并且可以嵌入到大规模部署软件中。 此解决方案使用多个 VM 将数据库从主节点复制到多个可配置的副本。 **此解决方案模板还需要 Debian 8 以及适用于 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![MySQL with Replication](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql-cluster) | MySQL 是一种快速、可靠、可缩放且易用的开源关系数据库系统。 MySQL Server 适用于任务关键型重负荷生产系统，并且可以嵌入到大规模部署软件中。 此解决方案使用多个 VM 将数据库从主节点复制到多个可配置的副本。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![NAT](media/azure-stack-marketplace-azure-items/nats.png) | [NAT](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nats) | NAT 是一种开源、轻型和高性能的消息系统。 它非常适合用于分布式系统，并支持新式的云体系结构和发布-订阅、请求-答复和队列模型。 | Bitnami |
+| ![NAT 群集](media/azure-stack-marketplace-azure-items/nats.png) | [NAT 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nats-cluster) | NAT 是一种开源、轻型和高性能的消息系统。 它非常适合用于分布式系统，并支持新式云体系结构和发布-订阅、请求-答复和排队模型。 此解决方案预配了可配置的 NAT 节点数量，以创建高性能分布式消息传递系统。 | Bitnami |
 | ![Neos](media/azure-stack-marketplace-azure-items/neos.png) | [Neos](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.neos) | 通用的开源内容管理系统。 | Bitnami |
 | ![Neo4j](media/azure-stack-marketplace-azure-items/neo4j.png) | [Neo4j](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.neo4j) | Neo4j 是一个高性能的图形存储，包含成熟且可靠的数据库中的所有功能，例如友好的查询语言和 ACID 事务。| Bitnami |
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | 完整的 PHP、 MySQL 和 Nginx 开发环境。 | Bitnami |
@@ -197,16 +199,16 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![Plone](media/azure-stack-marketplace-azure-items/plone.png) | [Plone](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.plone) | 免费开源虚拟设备。 | Bitnami |
 | ![Pootle](media/azure-stack-marketplace-azure-items/pootle.png) | [Pootle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.pootle) | 适用于翻译项目的易用 Web 门户。 | Bitnami |
 | ![PostgreSQL](media/azure-stack-marketplace-azure-items/postgresql.png) | [PostgreSQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.postgresql) | 很高级的开源数据库。 | Bitnami |
+| ![PostgreSQL with Replication](media/azure-stack-marketplace-azure-items/postgresql.png) | [PostgreSQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.postgres-cluster) | PostgreSQL （Postgres）是一种开源对象关系数据库系统。 符合 ACID，它支持外键、联接、视图、触发器和存储过程。 它了解可靠性和数据完整性。 此解决方案使用多个 VM 将数据库从主节点复制到多个可配置的副本。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![PrestaShop](media/azure-stack-marketplace-azure-items/prestashop.png) | [PrestaShop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.prestashop) | 开源电子商务网站生成器。 | Bitnami |
-| ![Process Maker 社区版](media/azure-stack-marketplace-azure-items/processmaker.png) | [Process Maker 社区版](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.processmakeropensourceedition) | 业务流程管理和工作流自动化平台。 | Bitnami |
-| ![Process Maker 企业版](media/azure-stack-marketplace-azure-items/processmaker.png) | [Process Maker 企业版](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.processmakerenterprise) | 开源工作流和业务流程管理软件。 | Bitnami |
+| ![ProcessMaker 社区版](media/azure-stack-marketplace-azure-items/processmaker.png) | [Process Maker 社区版](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.processmakeropensourceedition) | 业务流程管理和工作流自动化平台。 | Bitnami |
 | ![ProcessWire](media/azure-stack-marketplace-azure-items/processwire.png) | [ProcessWire](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.processwire) | 常用 PHP5 开源 CMS。 | Bitnami |
 | ![Publify](media/azure-stack-marketplace-azure-items/publify.png) | [Publify](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.publify) | 基于 Ruby on Rails 的博客创建平台。 | Bitnami |
 | ![RabbitMQ](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq) | 提供通用平台的高效消息传递代理。 | Bitnami |
-| ![RabbitMQ 群集](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ 是一种消息传送代理，可向应用提供公共平台用于发送和接收消息，以及在收到消息之前有效地使用消息。 此解决方案使用多个 VM 在 RabbitMQ 群集中预配多个节点，形成单一的逻辑中转站。 **此解决方案模板还需要 Debian 8 以及适用于 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![RabbitMQ 群集](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ 是一种消息传送代理，可向应用提供公共平台用于发送和接收消息，以及在收到消息之前有效地使用消息。 此解决方案使用多个 VM 在 RabbitMQ 群集中预配多个节点，形成单一的逻辑中转站。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![Re:dash](media/azure-stack-marketplace-azure-items/redash.png) | [Re：短线](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | 开源数据可视化和协作平台。 | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | 功能强大的开源键-值存储。 | Bitnami |
-| ![Redis 高可用性](media/azure-stack-marketplace-azure-items/redis.png) | [Redis 高可用性](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | 功能强大的开源键-值存储。 **此解决方案模板要求 Azure Stack 集线器处于版本1807或更高版本，并且还需要 Debian 8 和 Linux 2.0 扩展的自定义脚本。** | Bitnami |
+| ![Redis 高可用性](media/azure-stack-marketplace-azure-items/redis.png) | [Redis 高可用性](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | 功能强大的开源键-值存储。 此解决方案模板要求 Azure Stack 集线器处于版本1807或更高版本，并且还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | 强大的项目管理 web 应用。 | Bitnami |
 | ![Redmine+Agile](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine+Agile](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | 已预先配置敏捷插件的项目管理应用程序。 | Bitnami |
 | ![ReportServer 社区](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer 社区](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | 开源商业智能平台。 | Bitnami |
@@ -235,10 +237,12 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![WildFly](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | 包括 Apache、WildFly、MySQL 和 Java 的应用程序服务器。 | Bitnami |
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | 最常用且已准备就绪的 CMS。 | Bitnami |
 | ![WordPress 多站点](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress 多站点](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress-multisite) | WordPress 是世界上最受欢迎的博客和内容管理平台。 使用 WordPress Multisite，通过从同一服务器和界面管理多个博客和网站来节省资源。 | Bitnami |
+| ![WordPress 多层](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress 多层](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multi-tier-wordpress) | WordPress 是世界上最受欢迎的博客和内容管理平台。 强大而又简单的一点，从学生到全球公司的所有人都可以使用它来构建漂亮的功能网站。 此解决方案使用两个虚拟机，一个用于应用程序前端，另一个用于数据库。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![WordPress with NGINX and SSL](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress with NGINX and SSL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpresspro) | WordPress with NGINX 和 SSL 将最流行的博客应用程序与 NGINX web 服务器的强大功能相结合。 它还简化了对证书进行加密以保护证书的配置。 | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS 和 Web 门户程序，适用于创建动态网站。 | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 开源 CRM 系统：移动、社交和游戏化。 | Bitnami |
 | ![ZooKeeper](media/azure-stack-marketplace-azure-items/zookeeper.png) | [ZooKeeper](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeeper) | ZooKeeper 为分布式应用程序提供了一种可靠、集中的配置数据和服务注册。 | Bitnami |
+| ![ZooKeeper 群集](media/azure-stack-marketplace-azure-items/zookeeper.png) | [ZooKeeper 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeepermultitier) | ZooKeeper 为分布式应用程序提供了一种可靠、集中的配置数据和服务注册。 此解决方案为分布式应用程序提供可伸缩、可靠且集中的数据存储和协调服务。 它还预配了可配置的节点数量，它们共同构成了容错 ZooKeeper 群集。 它还可以与其他应用程序（如 Kafka）集成。 此解决方案模板还需要**Debian 9**和**适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![Check Point CloudGuard IaaS 高可用性](media/azure-stack-marketplace-azure-items/checkpoint.png) | [CloudGuard IaaS 高可用性](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 此解决方案部署2个成员检查点 CloudGuard IaaS 群集。 每个成员有2个网络接口。 | 检查点 |
 | ![Check Point CloudGuard IaaS 安全管理](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point CloudGuard IaaS 安全管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 此解决方案使用单个网络接口部署单一检查点安全管理服务器。 | 检查点 |
 | ![Check Point CloudGuard IaaS 单一网关](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point CloudGuard IaaS 单一网关](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 此解决方案部署具有2个网络接口的单一检查点 CloudGuard IaaS 安全网关。 部署完成后，应设置用户定义的路由（Udr），以便通过网关路由流量。 | 检查点 |

@@ -3,15 +3,15 @@ title: 配置 Azure Stack Hub 的 VPN 网关设置
 description: 了解并配置 Azure Stack Hub 的 VPN 网关设置。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 6af8d30fc7902e716d974c5ad66049e3a6037f47
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6ff4822e3093dd636bdd5b83fb3150eb9036d9ec
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812418"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967771"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>配置 Azure Stack Hub 的 VPN 网关设置
 

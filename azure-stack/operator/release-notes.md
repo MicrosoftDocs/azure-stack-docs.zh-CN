@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ccb21762eded64a5e1a5430c80ebfc4e69617375
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 8226df545751176539bbd00932ab7ec0ec48ede4
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848245"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908586"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack 集线器发行说明
 
@@ -244,7 +244,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”****。
 
    **IKE 阶段 1（主模式）参数**
 
-   | properties              | “值”|
+   | 属性              | 值|
    |-|-|
    | SDK 版本           | IKEv2 |
    |Diffie-Hellman 组   | ECP384 |
@@ -254,7 +254,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”****。
 
    **IKE 阶段 2（快速模式）参数**
 
-   | properties| “值”|
+   | 属性| 值|
    |-|-|
    |SDK 版本 |IKEv2 |
    |加密和哈希算法（加密）     | GCMAES256|
@@ -272,7 +272,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”****。
 
 - 将 marketplace 项从 Azure 下载到 Azure Stack 中心时，有一个新的用户界面，可用于在多个版本存在时指定项的版本。 新 UI 可用于联网场景和离线场景。 有关详细信息，请参阅[将市场项从 Azure 下载到 Azure Stack Hub](azure-stack-download-azure-marketplace-item.md)。  
 
-- 从版本 1910 开始，Azure Stack Hub 系统**需要**额外的 /20 专用内部 IP 空间。  有关详细信息，请参阅（Azure Stack 的网络集成规划） [network.md]。
+- 从版本 1910 开始，Azure Stack Hub 系统**需要**额外的 /20 专用内部 IP 空间。 有关详细信息，请参阅[网络集成规划 Azure Stack](azure-stack-network.md) 。
   
 - 如果在上传过程中外部存储位置耗尽了容量，基础结构备份服务将会删除部分上传的备份数据。  
 

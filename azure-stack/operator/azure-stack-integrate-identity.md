@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 38e3d36b5269dac3ee3c4190aff001b4ed4921b4
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173941"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908600"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack Hub 数据中心集成
 
@@ -219,7 +219,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 
 如果确定要手动运行命令，请遵循以下步骤：
 
-1. 将以下内容复制到数据中心的 AD FS 实例或场成员上的 .txt 文件中（例如，保存为 c:\ClaimRules.txt）：
+1. 将以下内容复制到数据中心的 AD FS 实例或场成员上的 .txt 文件中（例如，保存为 c:\ClaimIssuanceRules.txt）：
 
    ```text
    @RuleTemplate = "LdapClaims"
@@ -310,7 +310,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 有关创建 SPN 的详细信息，请参阅[为 AD FS 创建服务主体](azure-stack-create-service-principals.md)。
 
 
-## <a name="troubleshooting"></a>故障排除
+## <a name="troubleshooting"></a>疑难解答
 
 ### <a name="configuration-rollback"></a>配置回滚
 

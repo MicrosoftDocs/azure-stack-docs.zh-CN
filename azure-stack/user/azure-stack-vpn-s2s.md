@@ -3,15 +3,15 @@ title: 配置 IPsec/IKE 站点到站点 VPN 连接
 description: 了解并配置 Azure Stack Hub 中站点到站点 VPN 或 VNet 到 VNet 连接的 IPsec/IKE 策略。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a1cf522176e6943ad1975a402affbb81d1aeea4f
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 2456bd234b8affaecf061871ca701f45088f17c4
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643501"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967788"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -119,7 +119,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 - Azure 订阅。 如果还没有 Azure 订阅，可以激活[MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或注册[免费帐户](https://azure.microsoft.com/pricing/free-trial/)。
 
-- Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。
+- Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅为[Azure Stack 集线器安装 powershell](../operator/azure-stack-powershell-install.md)。
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>步骤 1 - 创建虚拟网络、VPN 网关和本地网关
 

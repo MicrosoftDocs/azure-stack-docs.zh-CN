@@ -3,16 +3,16 @@ title: 向 Azure Stack Hub 发出 API 请求
 description: 了解如何从 Azure 检索身份验证令牌，以向 Azure Stack Hub 发出 API 请求。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d44158342b1bca1aec575d51fb7144a8c88e88d1
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703717"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967737"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -22,11 +22,11 @@ ms.locfileid: "77703717"
 
 Api 要求客户端向 Microsoft Azure 登录终结点进行身份验证。 该终结点将返回一个要在发送到 Azure Stack Hub API 的每个请求的标头中使用的令牌。 Microsoft Azure 使用 Oauth 2.0。
 
-本文提供了使用 **cURL** 实用工具创建 Azure Stack Hub 请求的示例。 cURL 是一个命令行工具，它有一个用于传输数据的库。 这些示例演练了检索令牌以访问 Azure Stack Hub API 的过程。 大多数编程语言都提供了 Oauth 2.0 库，这些库提供可靠的令牌管理，并可以处理刷新令牌等任务。
+本文提供了使用 **cURL** 实用工具创建 Azure Stack Hub 请求的示例。 cURL 是一个命令行工具，它有一个用于传输数据的库。 这些示例说明了检索令牌以访问 Azure Stack 集线器 Api 的过程。 大多数编程语言都提供了 Oauth 2.0 库，这些库提供可靠的令牌管理，并可以处理刷新令牌等任务。
 
 查看配合常规 REST 客户端（例如 **cURL**）使用 Azure Stack Hub REST API 的整个过程有助于了解基础请求，以及应可在响应有效负载中收到的内容。
 
-本文并未探索可用于检索令牌的所有选项，例如交互式登录或创建专用应用 ID。 若要获取有关这些主题的信息，请参阅 [Azure REST API 参考](/rest/api/)。
+本文并未探索可用于检索令牌的所有选项，例如交互式登录或创建专用应用 ID。 有关这些主题的信息，请参阅[Azure REST API 引用](/rest/api/)。
 
 ## <a name="get-a-token-from-azure"></a>从 Azure 获取令牌
 

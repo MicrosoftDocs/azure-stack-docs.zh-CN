@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 086d8008e44e50268aec29ff4d2c28a8d65b88ab
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bc59808b0b1ebb954812882442cb6dc2d8b02e83
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80806862"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908488"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 SQL Server 资源提供程序
 
@@ -161,19 +161,19 @@ $tempDir = 'C:\TEMP\SQLRP'
 
 # The service admin account can be Azure Active Directory or Active Directory Federation Services.
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
 # Set credentials for the new resource provider VM local admin account.
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
 # Add the cloudadmin credential that's required for privileged endpoint access.
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
 # Change the following as appropriate.
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
 # For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
