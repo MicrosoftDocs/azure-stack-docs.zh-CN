@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e0f10db1c9d983b4802812bd4274429387032c66
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 20f50ffdaee8ca24cfc0c0406d846d3f5e830396
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698396"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988274"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>使用 PowerShell 连接到 Azure Stack Hub
 
@@ -62,7 +62,7 @@ ms.locfileid: "77698396"
   ```
 
 > [!Note]  
-> AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 若要详细了解如何在设置服务主体时将 Azure Stack Hub 和 AD FS 作为标识管理服务，请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
+> AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 有关使用 Azure Stack 中心和 AD FS 作为标识管理服务设置服务主体的详细信息，请参阅[管理 AD FS 应用标识](azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity)。
 
 ## <a name="test-the-connectivity"></a>测试连接
 
