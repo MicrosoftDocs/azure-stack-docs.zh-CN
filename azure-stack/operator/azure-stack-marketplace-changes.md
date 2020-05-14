@@ -1,26 +1,26 @@
 ---
-title: Azure Stack Hub 市场中的新增内容
-description: Azure Stack Hub 市场中的更改和更新。
+title: Azure Stack 中心应用商店中的新增功能
+description: 查看 Azure Stack Hub Marketplace 中的新增功能，包括新的、不推荐使用和更新的 marketplace 项。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 05/13/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: db8eafe9aceeb9e1e901f0f2677f52535e70c0d3
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.openlocfilehash: 5d915c34d5752e2b496705a90215715121127409
+ms.sourcegitcommit: e83191c952a89d4ac52bf2606eb2b45075e6a8ba
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908523"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83382482"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
-本文介绍近 3 个月来最新添加、更新、更改和删除的 [Azure Stack Hub 市场项](azure-stack-marketplace-azure-items.md)。 此部分中的信息经常更新，因此请经常回来查看是否有更改。
+本文列出了最近三个月内[Azure Stack 中心市场项](azure-stack-marketplace-azure-items.md)的最近添加、更新、更改和删除。 此部分中的信息经常更新，因此请经常回来查看是否有更改。
 
 [Azure Stack Hub 市场项](azure-stack-marketplace-azure-items.md)一文始终包含可用 Azure Stack Hub 市场项的最新列表。
 
-## <a name="new-marketplace-items"></a>新增市场项
+## <a name="new-marketplace-items"></a>新建 marketplace 项
 
 - 01/21/2020： Teradici Cloud Access 软件
 - 12/26/2019： CloudGuard IaaS 高可用性
@@ -51,7 +51,7 @@ ms.locfileid: "82908523"
 - 06/27/2019： Windows Server 2019 Datacenter With 容器 BYOL
 - 06/27/2019： Veeam 备份 & 复制
 
-## <a name="deprecated-marketplace-items"></a>弃用市场项
+## <a name="deprecated-marketplace-items"></a>弃用的 marketplace 项
 
 - Bitnami Codiad
 - Bitnami X2Engine 销售 CRM
@@ -61,18 +61,154 @@ ms.locfileid: "82908523"
 - A10 vThunder： L4-L7 应用程序交付控制器，全局服务器负载平衡（GSLB），SSL 见解
 - Check Point vSEC Security Management
 
-## <a name="updated-marketplace-items"></a>更新弃用市场项
+## <a name="updated-marketplace-items"></a>更新的 marketplace 项
 
+- 05/07/2020： Bitnami ActiveMQ-版本5.15.2003260344
+- 05/07/2020： Bitnami Akeneo-版本 4-3.2.2004230142
+- 05/07/2020： Bitnami Alfresco 社区-版本201911.0.2004242008
+- 05/07/2020： Bitnami Apache Solr-版本8.5.2004201607
+- 05/07/2020： Bitnami JFrog Artifactory 开源版本6.19.2005041054
+- 05/07/2020： Bitnami Cassandra-版本3.11.2003302002
+- 05/07/2020： Bitnami CiviCRM-版本5.24.2004230742
+- 05/07/2020： Bitnami CMS 使其变得简单-版本2.2.2004220149
+- 05/07/2020： Bitnami concrete5-版本8.5.2004220952
+- 05/07/2020： Bitnami HashiCorp Consul-version 1.7.2003252309
+- 05/07/2020： Bitnami Coppermine-版本1.6.2004220101
+- 05/07/2020： Bitnami CouchDB-版本3.0.2004090905
+- 05/07/2020： Bitnami Diaspora-版本0.7.2004220228
+- 05/07/2020： Bitnami Discourse-版本2.4.2004222352
+- 05/07/2020： Bitnami Django-版本2.2.2004220952
+- 05/07/2020： Bitnami DokuWiki-版本20180422.0.2004220151
+- 05/07/2020： Bitnami Dolibarr-版本11.0.2004220907
+- 05/07/2020： Bitnami DreamFactory-版本4.1.2004221304
+- 05/07/2020： Bitnami Drupal-版本8.8.2004220309
+- 05/07/2020： Bitnami Elasticsearch-版本7.6.2003312054
+- 05/07/2020： Bitnami ELK-版本7.6.2003312108
+- 05/07/2020： Bitnami ERPNext-12.7.2004231458
+- 05/07/2020： Bitnami EspoCRM-版本5.8.2004220156
+- 05/07/2020： Bitnami etcd-版本3.4.2004020147
+- 05/07/2020： Bitnami Exo 除外平台-版本5.2.2004241913
+- 05/07/2020： Bitnami Fat Free CRM-version 0.18.2004220211
+- 05/07/2020： Bitnami 的 Ghost 版本3.14.2005041054
+- 05/07/2020： Bitnami GitLab CE-版本12.10.2004241755
+- 05/07/2020： Bitnami Grafana-版本6.7.2004231501
+- 05/07/2020： Bitnami Apache Guacamole-版本1.1.2003260344
+- 05/07/2020： Bitnami Hadoop-版本3.2.2004242040
+- 05/07/2020： Bitnami HHVM-版本3.30.2004220056
+- 05/07/2020： Bitnami 大量
+- 05/07/2020： Bitnami JasperReports-版本7.5.2004220219
+- 05/07/2020： Bitnami Jenkins-版本2.204.2003061428
+- 05/07/2020： Bitnami Joomla！ -版本3.9.2004220511
+- 05/07/2020： Bitnami JRuby-版本9.2.2004241917
+- 05/07/2020： Bitnami Kafka-版本2.5.2004152349
+- 05/07/2020： Bitnami 特别行政区-版本2.0.2004232326
+- 05/07/2020： Bitnami Kubernetes 沙箱-版本1.18.2004090333
+- 05/07/2020： Bitnami 灯泡-版本7.3.2004241853
+- 05/07/2020： Bitnami LAPP-版本7.3.2004241251
+- 05/07/2020： Bitnami Let 的聊天版本0.4.2004221148
+- 05/07/2020： Bitnami Liferay-版本7.3.2004231024
+- 05/07/2020： Bitnami LimeSurvey-版本4.2.2005041206
+- 05/07/2020： Bitnami Live Helper Chat-版本3.31.2004220209
+- 05/07/2020： Bitnami Magento-版本2.3.2004220952
+- 05/07/2020： Bitnami Mahara-版本 10-19.10.2004220207
+- 05/07/2020： Bitnami Mantis-版本2.24.2004220951
+- 05/07/2020： Bitnami MariaDB-版本10.4.2003252212
+- 05/07/2020： Bitnami Mattermost 团队版-版本5.22.2005041054
+- 05/07/2020： Bitnami Mautic-版本2.16.2004220323
+- 05/07/2020： Bitnami 均值-version 4.2.2004281603
+- 05/07/2020： Bitnami MediaWiki-版本1.34.2004220952
+- 05/07/2020： Bitnami Memcached-版本1.6.2004132340
+- 05/07/2020： Bitnami MODX-版本2.7.2004220204
+- 05/07/2020： Bitnami MongoDB-version 4.2.2004170936
+- 05/07/2020： Bitnami Moodle-版本3.8.2004220952
+- 05/07/2020： Bitnami MyBB-版本1.8.2004230613
+- 05/07/2020： Bitnami MySQL-版本8.0.2003252232
+- 05/07/2020： Bitnami NAT-版本2.1.2004010828
+- 05/07/2020： Bitnami Neo4j 4.0.2003311444
+- 05/07/2020： Bitnami NGINX 开源-版本1.16.2004221209
+- 05/07/2020： Bitnami Noalyss-版本7.3.2004220120
+- 05/07/2020： Bitnami Node.js-版本12.16.2004281743
+- 05/07/2020： Bitnami Composr-版本10.0.2004220137
+- 05/07/2020： Bitnami Odoo-版本13.0.2004220418
+- 05/07/2020： Bitnami 打开 Atrium-版本2.645.2004220952
+- 05/07/2020： Bitnami OpenCart-版本3.0.2004230142
+- 05/07/2020： Bitnami 打开 edX-版本576663.2.2004250743
+- 05/07/2020： Bitnami Openfire-版本4.5.2004241829
+- 05/07/2020： Bitnami OpenProject-版本10.3.2004220618
+- 05/07/2020： Bitnami OrangeHRM-版本4.3.2004220223
+- 05/07/2020： Bitnami OroCRM-版本4.0.2004220319
+- 05/07/2020： Bitnami Osclass-版本3.9.2004221629
+- 05/07/2020： Bitnami ownCloud-版本10.4.2004231341
+- 05/07/2020： Bitnami OXID eShop-version 6.2.2004220516
+- 05/07/2020： Bitnami Parse 服务器版本4.2.2004091706
+- 05/07/2020： Bitnami Phabricator-版本2020.7.2004220220
+- 05/07/2020： Bitnami phpBB-版本3.3.2004220456
+- 05/07/2020： Bitnami phpList-版本3.5.2004240140
+- 05/07/2020： Bitnami Pimcore-版本6.6.2004220524
+- 05/07/2020： Bitnami Matomo-版本3.13.2004221147
+- 05/07/2020： Bitnami Plone-版本5.2.2004231024
+- 05/07/2020： Bitnami Pootle-版本2.8.2004221629
+- 05/07/2020： Bitnami PostgreSQL-版本12.2.2003252203
+- 05/07/2020： Bitnami PrestaShop-版本1.7.2004220522
+- 05/07/2020： Bitnami ProcessMaker 社区-版本3.3.2004220909
+- 05/07/2020： Bitnami ProcessWire-版本3.0.2004230142
+- 05/07/2020： Bitnami Publify-版本9.1.2004220128
+- 05/07/2020： Bitnami RabbitMQ-版本3.8.2003252248
+- 05/07/2020： Bitnami Re：8.0.2004231503 版
+- 05/07/2020： Bitnami Redis-版本5.0.2004271447
+- 05/07/2020： Bitnami Redmine-版本4.1.2004220530
+- 05/07/2020： Bitnami ReportServer 社区-版本3.1.2004220515
+- 05/07/2020： Bitnami ResourceSpace-版本9.2.2004240738
+- 05/07/2020： Bitnami 审阅板-版本3.0.2004220506
+- 05/07/2020： Bitnami Roundcube-版本1.4.2004220454
+- 05/07/2020： Bitnami Ruby-版本2.5.2004220936
+- 05/07/2020： Bitnami SEO 面板-版本4.3.2004220952
+- 05/07/2020： Bitnami Shopware-版本6.1.2004231024
+- 05/07/2020： Bitnami SilverStripe-版本4.5.2004220952
+- 05/07/2020： Bitnami 简单计算机论坛-版本2.0.2004220454
+- 05/07/2020： Bitnami SonarQube-版本 4-8.2.2004250108
+- 05/07/2020： Bitnami Spree-版本4.1.2004220518
+- 05/07/2020： Bitnami Subversion-版本1.13.2004220556
+- 05/07/2020： Bitnami SuiteCRM-版本7.11.2004220532
+- 05/07/2020： Bitnami TensorFlow 服务-版本2.1.2004131848
+- 05/07/2020： Bitnami TestLink-版本1.9.2004220510
+- 05/07/2020： Bitnami Tiki Wiki CMS 组件-版本21.0.2004221629
+- 05/07/2020： Bitnami 小小 RSS-版本202004.0.2004220952
+- 05/07/2020： Bitnami Tomcat-version 8.5.2004091906
+- 05/07/2020： Bitnami 跟踪-版本1.4.2004220504
+- 05/07/2020： Bitnami TYPO3-版本9.5.2004221628
+- 05/07/2020： Bitnami Weblate-版本4.0.2004231024
+- 05/07/2020： Bitnami WildFly-版本19.0.2004011057
+- 05/07/2020： Bitnami WordPress-版本5.4.2004221628
+- 05/07/2020： Bitnami WordPress Multisite-版本5.4.2004221629
+- 05/07/2020： Bitnami WordPress with NGINX and SSL-version 5.4.2004221147
+- 05/07/2020： Bitnami XOOPS-版本2.5.2004220506
+- 05/07/2020： Bitnami ZooKeeper-版本3.6.2004302354
+- 05/07/2020： Bitnami Zurmo-版本3.2.2004220512
+- 04/20/2020： Windows Server 2019 Datacenter BYOL-version 2019.127.20200213
+- 04/20/2020： Windows Server 2019 Datacenter Payg-version 2019.127.20200213
+- 04/20/2020： Windows Server 2019 Datacenter Server Core BYOL-版本 2019.127.-20200204
+- 04/20/2020： Windows Server 2019 Datacenter Server Core Payg-版本 2019.127.-20200204
+- 04/20/2020： Windows Server 2019 Datacenter With 容器 BYOL-版本 2019.127.-20200204
+- 04/20/2020： Windows Server 2019 Datacenter With 容器 Payg-版本 2019.127.-20200204
+- 04/20/2020： Windows Server 2019 Datacenter Core With 容器 BYOL-版本 2019.-127.20200204
+- 04/20/2020： Windows Server 2019 Datacenter Core With 容器 Payg-版本2019.127.20200204
+- 04/20/2020： Windows Server 2016 Datacenter-BYOL-version 2016.127.20200131
+- 04/20/2020： Windows Server 2016 Datacenter-按使用情况付费-版本2016.127.20200131
+- 04/20/2020： Windows Server 2016 Datacenter Server Core-BYOL-version 2016.127.20200131
+- 04/20/2020： Windows Server 2016 Datacenter Server Core-按使用情况付费-版本2016.127.20200131
+- 04/20/2020：包含容器的 Windows Server 2016 Datacenter-BYOL-version 2016.127.20200131
+- 04/20/2020：包含容器的 Windows Server 2016 Datacenter-使用-版本2016.127.20200131
 - 04/20/2020： Windows Server 2012 Datacenter-BYOL-version 3.127.20190521
 - 04/20/2020： Windows Server 2012 R2 Datacenter-按使用情况付费-版本4.127.20200205
 - 04/20/2020： Windows Server 2012 R2 Datacenter-BYOL-version 4.127.20200205
 - 04/20/2020： Windows Server 2012 Datacenter-按使用情况付费-版本3.127.20200205
-- 04/20/2020： Windows Server 2016 Datacenter-BYOL 版本2020.01
-- 04/20/2020： Windows Server 2016 Datacenter Server Core-按使用情况付费-版本2020.01
-- 04/20/2020： Windows Server 2016 Datacenter Server BYOL-版本2020.01
-- 04/20/2020：包含容器的 Windows Server 2016 Datacenter-使用-版本2020.01
-- 04/20/2020：包含容器的 Windows Server 2016 Datacenter-BYOL 2020.01
-- 04/20/2020： Windows Server 2016 Datacenter-按使用情况付费-版本2020.01
+- 04/20/2020： Windows Server 2012 R2 Datacenter BYOL-version 4.127.20200205
+- 04/20/2020： Windows Server 2012 R2 Datacenter 按使用情况付费-版本4.127.20200205
+- 04/20/2020： Windows Server 2012 Datacenter BYOL-version 3.127.20200205
+- 04/20/2020： Windows Server 2012 Datacenter 按使用情况付费-版本3.127.20200205
+- 04/20/2020： Windows Server 2008 R2 SP1 BYOL-版本2.127.20200206
+- 04/20/2020： Windows Server 2008 R2 SP1 按使用版本2.127.20200206
 - 04/17/2020： Bitnami AbanteCart-版本1.2.2002091007
 - 04/17/2020： Bitnami ActiveMQ-版本5.15.2003260344
 - 04/17/2020： Bitnami Akeneo-版本3.2.2004030743
@@ -224,7 +360,7 @@ ms.locfileid: "82908523"
 - 07/30/2019： SQLIaaSExtension-版本1.3.20180
 - 07/30/2019： SQL Server 2017 （速成版、开发人员版、标准版和企业版）-版本14.0.20190410
 - 07/30/2019： SQL Server 2016 SP1 （速成版、开发人员版、标准版和企业版）-版本13.2.20190410
-- 07/30/2019： SQL Server 2016 SP2 （Express、Developer、Standard 和 Enterprise edition）-版本13.2.20190410
+- 07/30/2019： SQL Server 2016 SP2 （速成版、开发人员版、标准版和企业版）-版本13.2.20190410
 - 07/16/2019： Windows Server 2016 Datacenter Server Core BYOL-version 2016.127.20190522
 - 07/16/2019： Windows Server 2016 Datacenter Server Core 即用即付-版本2016.127.20190522
 - 07/16/2019： Windows Server 2016 Datacenter With 容器 BYOL-版本2016.127.20190522

@@ -7,12 +7,12 @@ ms.date: 04/09/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/09/2020
-ms.openlocfilehash: 39431c7e217410f7bae78fe114595ec6c90399b5
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.openlocfilehash: 3a39329ba8c99e919b2466705553e11b49424c45
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150244"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374735"
 ---
 # <a name="rotate-app-service-on-azure-stack-hub-secrets-and-certificates"></a>轮换 Azure Stack Hub 上的应用服务的机密和证书
 
@@ -111,7 +111,7 @@ ms.locfileid: "82150244"
 
 1. 请访问 "**订阅**"，然后选择 "**默认提供程序订阅**"。
 
-1. 选择 "**访问控制（IAM）** "，并选择 " **test-azurestack<guid> -AppService** "。
+1. 选择 "**访问控制（IAM）** "，并选择 " **test-azurestack <guid> -AppService** "。
 
 1. 记下**对象 ID**，此值是必须在 AD FS 中更新的服务主体的 ID。
 

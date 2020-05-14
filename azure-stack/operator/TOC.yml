@@ -499,10 +499,16 @@
 - name: 参考
   items:
     - name: Azure Stack Hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
     - name: Azure Stack 中心特权终结点
       href: ../reference/pep-2002/
-    - name: Azure Stack Hub 用户文档
+    - name: Azure Stack 中心管理员 REST Api
+      href: /rest/api/azure-stack/
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
+- name: 相关内容
+  items:
+    - name: Azure Stack 集线器用户文档
       href: /azure-stack/user/
     - name: ASDK 文档
       href: /azure-stack/asdk/

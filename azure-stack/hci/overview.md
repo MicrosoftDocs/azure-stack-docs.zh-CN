@@ -6,12 +6,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/04/2019
-ms.openlocfilehash: 3b08b5e65c0cff4ab82494261fb1663b16bf757d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2b7ab4dbb4eefe867c207b9db4329cbae1bfef4a
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812401"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202459"
 ---
 # <a name="azure-stack-hci-solutions-overview"></a>Azure Stack HCI 解决方案概述
 
@@ -99,6 +99,10 @@ Azure Stack HCI 与 Azure Stack Hub 使用相同的虚拟化和软件定义存�
 
 ## <a name="video-based-learning"></a>基于视频的学习
 
+此处提供了 Azure 扩展网络视频：
+
+- [通过 Windows Server 和混合网络实现到 Azure 的无缝连接](https://www.youtube.com/watch?v=do2_4Y2p9dk)
+
 下面是一些来自 Microsoft Ignite 2019 研讨会的视频：
 
 - [Microsoft Ignite Live 2019-与 Azure Stack HCI 入门](https://www.youtube.com/watch?v=vueHIBqNIEU)
@@ -155,7 +159,7 @@ Azure Stack HCI 解决方案遵循传统的购买模式。 可以向 Azure Stack
 
 ### <a name="how-do-i-buy-azure-stack-hci-solutions"></a>如何购买 Azure Stack HCI 解决方案？
 
-请执行下列步骤：
+请执行这些步骤：
 
 1. 从首选的硬件合作伙伴购买经 Microsoft 验证的硬件系统。
 1. 安装用于管理的 Windows Server 2019 Datacenter edition 和 Windows 管理中心，并为云服务连接到 Azure 的功能。

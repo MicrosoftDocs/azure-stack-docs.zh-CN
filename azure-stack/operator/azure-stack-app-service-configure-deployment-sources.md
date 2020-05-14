@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 1829d56488501e03a18f27e87f1fd0742626e3be
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: f679f4a609f7be2798a664dc4a748e56f8b0d2fb
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580151"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374904"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>为 Azure Stack Hub 上的应用服务配置部署源
 
@@ -40,14 +40,14 @@ Azure Stack Hub 上的应用服务支持从多个源代码管理提供程序执�
 
 必须具有 GitHub 帐户才能完成此任务。 建议使用组织帐户，而不是个人帐户。
 
-1. 登录到 GitHub，中转到https://www.github.com/settings/developers，然后选择 "**注册新应用程序**"。
+1. 登录到 GitHub，中转到 https://www.github.com/settings/developers ，然后选择 "**注册新应用程序**"。
 
     ![GitHub - 注册新应用程序][3]
 
 2. 输入**应用程序名称**。 例如，**Azure Stack Hub 上的应用服务**。
 3. 输入“主页 URL”。  主页 URL 必须是 Azure Stack Hub 门户地址。 例如， `https://portal.<region>.<FQDN>` 。 有关 Azure Stack 中心完全限定的域名（FQDN）的详细信息，请参阅[Azure Stack 中心 DNS 命名空间](azure-stack-integrate-dns.md#azure-stack-hub-dns-namespace)。
 4. 输入**应用程序说明**。
-5. 输入“授权回调 URL”。**** 在默认 Azure Stack 中心部署中，URL 的格式`https://portal.<region>.<FQDN>/TokenAuthorize`为。 
+5. 输入“授权回调 URL”。**** 在默认 Azure Stack 中心部署中，URL 的格式为 `https://portal.<region>.<FQDN>/TokenAuthorize` 。 
 6. 选择 "**注册应用程序**"。 此时会显示一个页面，其中列出了应用的“客户端 ID”和“客户端机密”。  
 
     ![GitHub - 已完成应用程序注册][5]
@@ -73,7 +73,7 @@ Azure Stack Hub 上的应用服务支持从多个源代码管理提供程序执�
 3. 输入使用者的**名称**。 例如，**Azure Stack Hub 上的应用服务**。
 4. 为应用输入**说明**。
 5. 输入“回调 URL”。  在默认的 Azure Stack Hub 部署中，该回调 URL 采用 `https://portal.<region>.<FQDN>/TokenAuthorize` 格式。 要使 BitBucket 集成成功，该 URL 的大小写必须与此处所列相同。
-6. 输入 **URL**。 此 URL 应为 Azure Stack 中心门户 URL。 例如，`https://portal.<region>.<FQDN>` 。
+6. 输入 **URL**。 此 URL 应为 Azure Stack 中心门户 URL。 例如 `https://portal.<region>.<FQDN>`。
 7. 选择所需**权限**：
 
     - **存储库**：*读取*
@@ -96,7 +96,7 @@ Azure Stack Hub 上的应用服务支持从多个源代码管理提供程序执�
 > [!NOTE]
 > 当前不支持 OneDrive for business 帐户。
 
-1. 使用 Microsoft 帐户https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm登录并登录。
+1. https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm使用 Microsoft 帐户登录并登录。
 2. 在 **"我的应用程序**" 下，选择 "**添加应用**"。
 
     ![OneDrive 应用程序][10]
@@ -108,14 +108,14 @@ Azure Stack Hub 上的应用服务支持从多个源代码管理提供程序执�
 
 5. 在 "**应用程序机密**" 下，选择 "**生成新密码**"。 记下**生成的新密码**。 此密码是你的应用程序机密，你选择 **"确定"** 后将无法检索它。
 6. 在 "**平台**" 下，选择 "**添加平台**"，然后选择 " **Web**"。
-7. 输入“重定向 URI”。**** 在默认 Azure Stack 中心部署中，重定向 URI 的格式`https://portal.<region>.<FQDN>/TokenAuthorize`为。
+7. 输入“重定向 URI”。**** 在默认 Azure Stack 中心部署中，重定向 URI 的格式为 `https://portal.<region>.<FQDN>/TokenAuthorize` 。
 
     ![OneDrive 应用程序 - 添加 Web 平台][12]
 
-8. 添加**Microsoft Graph 权限** - **委托权限**。
+8. 添加**Microsoft Graph 权限**  -  **委托权限**。
 
     - **Files.ReadWrite.AppFolder**
-    - **用户。读取** ![OneDrive 应用程序-Graph 权限][13]
+    - **用户。读取** ![ OneDrive 应用程序-Graph 权限][13]
 
 9. 选择“保存”。 
 10. 在新的浏览器选项卡或窗口中，以服务管理员身份登录到 Azure Stack 中心管理员门户。
@@ -129,7 +129,7 @@ Azure Stack Hub 上的应用服务支持从多个源代码管理提供程序执�
 > [!NOTE]
 > 必须使用一个 DropBox 帐户来完成此任务。 建议使用组织帐户，而不是个人帐户。
 
-1. 请参阅https://www.dropbox.com/developers/apps ，并使用 DropBox 帐户凭据登录。
+1. 请参阅 https://www.dropbox.com/developers/apps ，并使用 DropBox 帐户凭据登录。
 2. 选择“创建应用”****。
 
     ![Dropbox 应用][14]
@@ -142,7 +142,7 @@ Azure Stack Hub 上的应用服务支持从多个源代码管理提供程序执�
 
 6. 选择 "**创建应用**"。 此时会出现一个页面，其中列出了应用的设置，包括**应用密钥**和**应用机密**。
 7. 请确保将**应用文件夹名称**设置为**Azure Stack 集线器上的应用服务**。
-8. 设置**OAuth 2 重定向 URI** ，然后选择 "**添加**"。 在默认 Azure Stack 中心部署中，重定向 URI 的格式`https://portal.<region>.<FQDN>/TokenAuthorize`为。
+8. 设置**OAuth 2 重定向 URI** ，然后选择 "**添加**"。 在默认 Azure Stack 中心部署中，重定向 URI 的格式为 `https://portal.<region>.<FQDN>/TokenAuthorize` 。
 
     ![Dropbox 应用程序配置][16]
 
@@ -150,7 +150,7 @@ Azure Stack Hub 上的应用服务支持从多个源代码管理提供程序执�
 10. 请访问 "**资源提供程序**" 并选择 "**应用服务资源提供程序管理员**"。
 11. 选择 "**源代码管理配置**"。
 12. 将**应用程序密钥**复制并粘贴到 "**客户端 ID** " 输入框中，并将应用密钥粘贴到 DropBox 的 " **App secret** **客户端密码**" 输入框中。
-13. 选择“保存”。 
+13. 选择“保存”  。
 
 ## <a name="next-steps"></a>后续步骤
 

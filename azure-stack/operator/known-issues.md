@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 35eeee27c2084d0ceec565dea5cecc1ce71ecf7f
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848092"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202443"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -36,7 +36,7 @@ ms.locfileid: "82848092"
 ::: moniker range="azs-2002"
 ## <a name="update"></a>更新
 
-应用2002更新后，管理员门户中可能会错误地显示 "时间源无效" 的警报。 此误报警报可被忽略，并将在即将发布的版本中得到解决。 
+应用 2002 更新后，管理员门户中可能会错误地显示“时间源无效”警报。 这个警报是可忽略的误报，会在即将发布的版本中得到解决。 
 
 有关其他已知 Azure Stack 中心更新问题，请参阅[Azure Stack 中心的更新疑难解答](azure-stack-troubleshooting.md)。
 
@@ -196,7 +196,7 @@ ms.locfileid: "82848092"
 
 - 适用：此问题适用于发布2002。
 - 原因：如果 stamp 包含应用服务资源提供程序（RP）版本1.7 及更低版本，则在更新 stamp 后，应用服务的边栏选项卡将不会加载。
-- 修正：将 RP 更新到版本1.8。
+- 补救措施：将 RP 更新为[2020 第 2](azure-stack-app-service-update.md)版。
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -413,7 +413,7 @@ ms.locfileid: "82848092"
 
 - 适用：此问题适用于1910及更早版本。
 - 原因：无法从运行非英语版本的 Windows 的计算机连接到特权终结点（ERC Vm）。
-- 修正：这是在版本晚于1910的版本中修复的已知问题。 一种解决方法是，可以使用**en-us**区域性运行**新的 pssession**并**输入-pssession** PowerShell cmdlet;有关示例，请使用以下脚本设置区域性： https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1。
+- 修正：这是在版本晚于1910的版本中修复的已知问题。 一种解决方法是，可以使用**en-us**区域性运行**新的 pssession**并**输入-pssession** PowerShell cmdlet;有关示例，请使用以下脚本设置区域性： https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1 。
 - 发生次数：罕见
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集

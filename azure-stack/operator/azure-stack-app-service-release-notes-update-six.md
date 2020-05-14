@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: cf6895cac1c0be2b55c99ff51ebccc0f46350437
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 974b338ff7da9bd4442d4aadc02d475bd01686df
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847718"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374625"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>Azure Stack Hub 上的应用服务 Update 6 发行说明
 
@@ -108,7 +108,7 @@ Azure Stack 中心更新 6 Azure App Service 包括以下改进和修补程序�
 
 - 部署选项（经典） UX 和部署凭据门户选项不可用。
 
-    若要访问 Azure Stack 中心部署中的 "部署选项" 和 "部署凭据" 用户体验，租户应使用以下 URL 格式`https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;/?websitesExtension_oldvsts=true`访问门户：-对于 ASDK `https://portal.local.azurestack.external/?websitesExtension_oldvsts=true`，应使用此 URL 格式，然后导航到其应用。
+    若要访问 Azure Stack 中心部署中的 "部署选项" 和 "部署凭据" 用户体验，租户应使用以下 URL 格式访问门户：-对于 ASDK，应使用此 URL 格式 `https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;/?websitesExtension_oldvsts=true` `https://portal.local.azurestack.external/?websitesExtension_oldvsts=true` ，然后导航到其应用。
 
 - Azure function monitoring 持续显示门户中的 "正在加载"。
 

@@ -4,16 +4,17 @@ titleSuffix: Azure Stack
 description: 了解如何管理 Azure Stack Hub 的存储基础结构。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 5/5/2020
+ms.date: 5/11/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: de6da5b42a88d2c1f9689fe8c43d898bc7a0bf5e
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.custom: contperfq4
+ms.openlocfilehash: 0712caec89d3a6e2203ca780b4877b330953c61c
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848160"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202496"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack 中心存储基础结构概述
 
@@ -41,7 +42,7 @@ Azure Stack Hub 集成式系统合作伙伴提供众多的解决方案版本，�
 
 ![Azure Stack Hub 存储基础结构](media/azure-stack-storage-infrastructure-overview/image3.png)
 
-有关存储的可用配置，可以查看 Azure Stack 中心 OEM 合作伙伴（https://azure.microsoft.com/overview/azure-stack/partners/)有关详细规范，请参阅。
+有关存储的可用配置，可以查看 Azure Stack 中心 OEM 合作伙伴（ https://azure.microsoft.com/overview/azure-stack/partners/) 有关详细规范，请参阅。
 
 > [!Note]  
 > 可以在同时采用 HDD 和 SSD（或 NVMe）驱动器的混合部署中提供 Azure Stack Hub 设备。 但是，速度较快的驱动器类型将用作缓存驱动器，所有剩余驱动器将以池的形式用作容量驱动器。 租户数据（Blob、表、队列和磁盘）放在容量驱动器上。 预配高级磁盘或选择高级存储帐户类型并不意味着保证将对象分配到 SSD 或 NVMe 驱动器。

@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 5bdf06b740d8a2c12f96494c52a683f50fe31340
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 27e7073d2b266cb5fa8c7c36739219bc29660e87
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847803"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374599"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Azure Stack Hub 上的应用服务 Update 8 发行说明
 
@@ -96,9 +96,9 @@ Azure Stack 中心的 Azure App Service 的所有新部署都将对所有虚拟�
 
 执行下列操作之一，然后在安装程序中选择 "重试"。
 
-- 从 now `appservice_hostingAdmin`辅助 SQL 节点复制登录名;
+- `appservice_hostingAdmin`从 now 辅助 SQL 节点复制登录名;
 
-    **或**
+    **或者**
 
 - 将 SQL 群集故障转移到以前的活动节点。
 

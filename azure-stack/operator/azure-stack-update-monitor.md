@@ -1,24 +1,24 @@
 ---
-title: 使用 PowerShell 监视 Azure Stack 集线器中的更新
-description: 了解如何使用 PowerShell 监视 Azure Stack 集线器中的更新
+title: 监视 Azure Stack 集线器中的 PowerShell 更新
+description: 了解如何在 Azure Stack Hub 中通过 PowerShell 监视更新。
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0adeafb421c30eaf8753c735b16b85471173a5fc
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 3e6f5ebac251ca18dd15d269ad23ac1632a4794c
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848126"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374992"
 ---
-# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>使用 PowerShell 监视 Azure Stack 集线器中的更新
+# <a name="monitor-updates-with-powershell-in-azure-stack-hub"></a>监视 Azure Stack 集线器中的 PowerShell 更新
 
 可以使用 Azure Stack Hub 管理终结点来监视和管理更新。 它们可通过 PowerShell 进行访问。 有关在 Azure Stack Hub 上使用 PowerShell 进行设置的说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
 
-可以使用以下 PowerShell cmdlet 来管理更新：
+你可以使用以下 PowerShell cmdlet 来管理你的更新：
 
 | Cmdlet | 说明 |
 |------------------------------------------------------|-------------|
@@ -30,7 +30,7 @@ ms.locfileid: "82848126"
 
 ## <a name="get-a-list-of-update-runs"></a>获取更新运行列表
 
-若要获取更新运行命令的列表，请执行以下操作：
+若要获取更新运行列表，请运行以下命令：
 
 ```powershell
 Get-AzsUpdateRun -UpdateName Microsoft1.0.180302.1
@@ -43,9 +43,11 @@ Get-AzsUpdateRun -UpdateName Microsoft1.0.180302.1
 ```powershell
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
-## <a name="troubleshoot"></a>故障排除
-有关更新疑难解答的详细信息，请参阅[Azure Stack 疑难解答](azure-stack-troubleshooting.md)
+
+## <a name="troubleshoot"></a>疑难解答
+
+有关更新疑难解答的详细信息，请参阅[Azure Stack 故障排除](azure-stack-troubleshooting.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
--   [管理 Azure Stack 集线器中的更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+- [管理 Azure Stack 集线器中的更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

@@ -3,16 +3,16 @@ title: 管理更新
 description: 了解如何在 Azure Stack Hub 中管理更新
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 48bc8e2df857b2e1c352ffaa55ef900672d4f78b
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772506"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374612"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>在 Azure Stack Hub 中管理更新
 
@@ -49,7 +49,7 @@ ms.locfileid: "81772506"
 
 若要继续获得支持，必须在 Azure Stack Hub 环境中保留支持的 Azure Stack Hub 软件版本。 有关详细信息，请参阅 [Azure Stack Hub 服务策略](azure-stack-update-servicing-policy.md)。
 
-## <a name="where-to-get-notice-of-an-update"></a>在何处获取更新通知
+## <a name="how-to-know-an-update-is-available"></a>如何了解可用更新
 
 更新通知根据多种因素而异，例如，是否与 Internet 建立了连接，以及更新的类型。
 

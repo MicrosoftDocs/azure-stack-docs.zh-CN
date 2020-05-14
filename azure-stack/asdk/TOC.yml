@@ -53,9 +53,9 @@
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: 相关内容
   items:
-    - name: Azure Stack Hub 操作员文档
+    - name: Azure Stack 中心操作员文档
       href: /azure-stack/operator
-    - name: Azure Stack Hub 用户文档
+    - name: Azure Stack 集线器用户文档
       href: /azure-stack/user/
 - name: 资源
   items:

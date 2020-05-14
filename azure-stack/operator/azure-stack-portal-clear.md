@@ -1,22 +1,22 @@
 ---
-title: 从 Azure Stack Hub 中按需清除门户用户数据。
-description: 为 Azure Stack Hub 操作员介绍如何按 Azure Stack Hub 用户的请求清除门户用户数据。
+title: 从 Azure Stack 中心按需清除门户用户数据
+description: 了解如何在 Azure Stack 集线器用户请求时清除门户用户数据。
 author: sethmanheim
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 9acb9e391de7965aac281f08175d58635b5bb554
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: e419ebd632fabac6985b1a763b4661d75307e4ba
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967754"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375083"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>从 Azure Stack Hub 中清除门户用户数据
 
-Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需清除门户用户数据。 Azure Stack Hub 用户可以通过固定磁贴和更改仪表板布局来自定义门户。 用户还可以根据个人喜好更改主题和调整默认语言。
+Azure Stack 中心操作员可以在 Azure Stack 集线器用户请求时按需清除门户用户数据。 Azure Stack Hub 用户可以通过固定磁贴和更改仪表板布局来自定义门户。 用户还可以根据个人喜好更改主题和调整默认语言。
 
 门户用户数据包括 Azure Stack Hub 用户门户中的收藏夹和最近访问的资源。 本文介绍如何清除门户用户数据。
 
@@ -33,7 +33,7 @@ Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需�
 - 用于访问管理员资源管理器终结点的 Azure Stack Hub 管理员凭据。
 
 > [!NOTE]
-> 如果你尝试从来宾目录（多租户）中删除受邀用户的门户用户信息，必须在该目录中拥有读取权限。 有关详细信息，请参阅[本文稍后的 CSP 方案](#clear-portal-user-data-in-guest-directory)。
+> 如果尝试从已从来宾目录（多租户）邀请的用户中删除门户用户信息，则必须对该目录具有 "读取" 权限。 有关详细信息，请参阅[本文稍后的 CSP 方案](#clear-portal-user-data-in-guest-directory)。
 
 ## <a name="clear-portal-user-data-using-a-user-principal-name"></a>使用用户主体名称清除门户用户数据
 
@@ -43,7 +43,7 @@ Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需�
 
 对于此过程，请使用能够与 Azure Stack Hub 的管理员资源管理器终结点通信的计算机。
 
-1. 以提升的权限打开 Windows PowerShell 会话（以管理员身份运行），导航到 **AzureStack-Tools-master** 目录中的根文件夹，然后导入所需的 PowerShell 模块：
+1. 打开提升的 Windows PowerShell 会话（以管理员身份运行），中转到**test-azurestack**目录中的根文件夹，然后导入所需的 PowerShell 模块：
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -72,19 +72,19 @@ Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需�
    ```
 
    > [!NOTE]
-   > `azureStackDirectoryTenantId` 是可选项。 如果未指定此值，脚本将在 Azure Stack Hub 中已注册的所有租户目录中搜索用户主体名称，然后清除所有匹配用户的门户数据。
+   > `azureStackDirectoryTenantId` 是可选项。 如果未指定此值，则脚本将在 Azure Stack Hub 中注册的所有租户目录中搜索用户主体名称，然后清除所有匹配用户的门户数据。
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>在来宾目录中清除门户用户数据
 
-在此方案中，Azure Stack Hub 操作员对用户所在的来宾目录没有访问权限。 如果你是云解决方案提供商 (CSP)，这是一种常见方案。
+在此方案中，Azure Stack Hub 操作员对用户所在的来宾目录没有访问权限。 这是云解决方案提供商（CSP）的常见方案。
 
 要使 Azure Stack Hub 操作员能够删除门户用户数据，至少需要获取用户对象 ID。
 
-用户必须查询该对象 ID，并将其提供给 Azure Stack Hub 操作员。 操作员对用户所在的目录没有访问权限。
+用户必须查询该对象 ID，并将其提供给 Azure Stack Hub 操作员。 操作员无权访问该用户所在的目录。
 
 ### <a name="user-retrieves-the-user-object-id"></a>用户检索用户对象 ID
 
-1. 以提升的权限打开 Windows PowerShell 会话（以管理员身份运行），导航到 **AzureStack-Tools-master** 目录中的根文件夹，然后导入所需的 PowerShell 模块。
+1. 打开提升的 Windows PowerShell 会话（以管理员身份运行），中转到**test-azurestack**目录中的根文件夹，然后导入必要的 PowerShell 模块。
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -114,7 +114,7 @@ Azure Stack Hub 操作员可以根据 Azure Stack Hub 用户的请求，按需�
 
 以 Azure Stack Hub 操作员的身份收到用户对象 ID 后，运行以下命令删除门户用户数据：
 
-1. 以提升的权限打开 Windows PowerShell 会话（以管理员身份运行），导航到 **AzureStack-Tools-master** 目录中的根文件夹，然后导入所需的 PowerShell 模块。
+1. 打开提升的 Windows PowerShell 会话（以管理员身份运行），中转到**test-azurestack**目录中的根文件夹，然后导入必要的 PowerShell 模块。
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1

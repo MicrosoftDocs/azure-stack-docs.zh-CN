@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81478853"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202419"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>使用 Azure Stack 集线器创建高度可用的 SQL 数据库
 
@@ -60,11 +60,11 @@ ms.locfileid: "81478853"
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. 选择**\+** "**创建资源** > " "**自定义**"，然后**模板部署**"。
+2. 选择 **\+** "**创建资源**  >  " "**自定义**"，然后**模板部署**"。
 
    ![Azure Stack 中心管理员门户中的自定义模板部署](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-1.png)
 
-3. 在 "**自定义部署**" 边栏选项卡中，选择 "**编辑模板** > **快速入门模板**"，然后使用可用自定义模板下拉列表选择 " **sql-2016-alwayson** " 模板。 依次选择“确定”和“保存”********。
+3. 在 "**自定义部署**" 边栏选项卡中，选择 "**编辑模板**  >  **快速入门模板**"，然后使用可用自定义模板下拉列表选择 " **sql-2016-alwayson** " 模板。 依次选择“确定”和“保存”********。
 
    [![Azure Stack 中心管理员门户中编辑模板](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png "选择快速入门模板")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png#lightbox)
 
@@ -84,7 +84,7 @@ ms.locfileid: "81478853"
 
 6. 在用户门户中，选择 "**资源组**"，然后选择为自定义部署创建的资源组的名称（此示例的**资源组**）。 查看部署状态，确保所有部署已成功完成。
     
-    接下来，查看 "资源组" 项，然后选择 " **\<SQLPIPsql\>资源组名称**" "公共 IP 地址" 项。 记录负载均衡器公共 IP 的公共 IP 地址和完全 FQDN。 需要为 Azure Stack 中心操作员提供此服务，以便他们可以利用此 SQL AlwaysOn 可用性组创建 SQL 宿主服务器。
+    接下来，查看 "资源组" 项，然后选择 " **SQLPIPsql \< 资源组名称 \> ** " "公共 IP 地址" 项。 记录负载均衡器公共 IP 的公共 IP 地址和完全 FQDN。 需要为 Azure Stack 中心操作员提供此服务，以便他们可以利用此 SQL AlwaysOn 可用性组创建 SQL 宿主服务器。
 
    > [!NOTE]
    > 模板部署需要几个小时才能完成。
@@ -95,13 +95,18 @@ ms.locfileid: "81478853"
 
 创建具有自动种子设定的可用性组时，SQL Server 会自动为该组中的每个数据库创建辅助副本，无需任何其他手动干预。 此度量值可确保 AlwaysOn 数据库的高可用性。
 
-使用这些 SQL 命令为 AlwaysOn 可用性组配置自动种子设定。 根据`<InstanceName>`需要，将替换为主实例`<availability_group_name>` SQL Server 名称和 AlwaysOn 可用性组名称。
+使用这些 SQL 命令为 AlwaysOn 可用性组配置自动种子设定。 `<PrimaryInstanceName>`将替换为主实例 SQL Server 名称， `<SecondaryInstanceName>` 将辅助实例替换为 SQL Server 名称，并 `<availability_group_name>` 根据需要替换为 AlwaysOn 可用性组名称。
 
 在主 SQL 实例上：
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON '<InstanceName>'
+      MODIFY REPLICA ON '<PrimaryInstanceName>'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON '<SecondaryInstanceName>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
@@ -136,7 +141,7 @@ ms.locfileid: "81478853"
 
 创建并正确配置 SQL Server AlwayOn 可用性组后，Azure Stack 中心操作员必须创建 Azure Stack 中心 SQL 宿主服务器。 SQL 宿主服务器使用户可以使用额外的容量来创建数据库。
 
-请确保在创建 SQL AlwaysOn 可用性组的资源组（**SQLPIPsql\<资源组名称\>**）时，为之前记录的 SQL 负载均衡器的公共 IP 使用公共 ip 或完全 FQDN。 此外，还需要了解用于访问 AlwaysOn 可用性组中的 SQL 实例的 SQL Server 身份验证凭据。
+请确保在创建 SQL AlwaysOn 可用性组的资源组（**SQLPIPsql \< 资源组名称 \> **）时，为之前记录的 sql 负载均衡器的公共 ip 使用公共 ip 或完全 FQDN。 此外，还需要了解用于访问 AlwaysOn 可用性组中的 SQL 实例的 SQL Server 身份验证凭据。
 
 > [!NOTE]
 > 必须通过 Azure Stack 中心操作员从 Azure Stack 中心管理员门户运行此步骤。
@@ -158,7 +163,7 @@ ms.locfileid: "81478853"
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. 选择 " **\+** **创建资源** > " "**数据\+存储**"，然后选择 " **SQL 数据库**"。
+2. 选择 **\+** "**创建资源**  >  " "**数据 \+ 存储**"，然后选择 " **SQL 数据库**"。
 
     提供所需的数据库属性信息。 此信息包括名称、排序规则、最大大小和要用于部署的订阅、资源组和位置。
 
@@ -168,7 +173,7 @@ ms.locfileid: "81478853"
 
    ![在 Azure Stack 集线器用户门户中选择 SKU](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
-4. 选择 "**登录** > " "**创建新的登录名**"，然后提供要用于新数据库的 SQL 身份验证凭据。 完成后，选择 **"确定"** ，然后选择 "**创建**" 以开始数据库部署过程。
+4. 选择 "**登录**" "  >  **创建新的登录名**"，然后提供要用于新数据库的 SQL 身份验证凭据。 完成后，选择 **"确定"** ，然后选择 "**创建**" 以开始数据库部署过程。
 
    ![在 Azure Stack Hub 用户门户中创建登录名](./media/azure-stack-tutorial-sqlrp/createdb3.png)
 
