@@ -326,11 +326,11 @@
 - name: 参考
   items:
     - name: Azure Stack Hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?view='
     - name: Azure Stack 中心管理员 REST Api
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view='
 - name: 相关内容
   items:
     - name: Azure Stack 中心操作员文档

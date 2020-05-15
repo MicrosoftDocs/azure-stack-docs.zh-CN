@@ -298,7 +298,7 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: 应用服务计费常见问题解答
               href: app-service-billing-faq.md
-            - name: 先决条件
+            - name: 必备条件
               href: azure-stack-app-service-before-you-get-started.md
             - name: 部署
               items:
@@ -348,7 +348,7 @@
               href: event-hubs-rp-overview.md
             - name: 容量计划
               href: event-hubs-rp-capacity-planning.md
-            - name: 先决条件
+            - name: 必备条件
               href: event-hubs-rp-prerequisites.md
             - name: 安装
               href: event-hubs-rp-install.md
@@ -494,18 +494,18 @@
                   href: azure-stack-get-azurestacklog.md
         - name: Azure Stack 中心验证
           href: azure-stack-diagnostic-test.md
-        - name: 疑难解答
+        - name: 故障排除
           href: azure-stack-troubleshooting.md
 - name: 参考
   items:
     - name: Azure Stack Hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?'
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview?view='
     - name: Azure Stack 中心特权终结点
       href: ../reference/pep-2002/
     - name: Azure Stack 中心管理员 REST Api
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?'
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view='
 - name: 相关内容
   items:
     - name: Azure Stack 集线器用户文档

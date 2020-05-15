@@ -7,12 +7,12 @@ ms.date: 05/13/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 5d915c34d5752e2b496705a90215715121127409
-ms.sourcegitcommit: e83191c952a89d4ac52bf2606eb2b45075e6a8ba
+ms.openlocfilehash: 1899fa20bb274229b5da066d8d55eb0d97e2123e
+ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83382482"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83403871"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -187,11 +187,11 @@ ms.locfileid: "83382482"
 - 05/07/2020： Bitnami Zurmo-版本3.2.2004220512
 - 04/20/2020： Windows Server 2019 Datacenter BYOL-version 2019.127.20200213
 - 04/20/2020： Windows Server 2019 Datacenter Payg-version 2019.127.20200213
-- 04/20/2020： Windows Server 2019 Datacenter Server Core BYOL-版本 2019.127.-20200204
-- 04/20/2020： Windows Server 2019 Datacenter Server Core Payg-版本 2019.127.-20200204
-- 04/20/2020： Windows Server 2019 Datacenter With 容器 BYOL-版本 2019.127.-20200204
-- 04/20/2020： Windows Server 2019 Datacenter With 容器 Payg-版本 2019.127.-20200204
-- 04/20/2020： Windows Server 2019 Datacenter Core With 容器 BYOL-版本 2019.-127.20200204
+- 04/20/2020： Windows Server 2019 Datacenter Server Core BYOL-version 2019.127.20200204
+- 04/20/2020： Windows Server 2019 Datacenter Server Core Payg-version 2019.127.20200204
+- 04/20/2020： Windows Server 2019 Datacenter With 容器 BYOL-版本2019.127.20200204
+- 04/20/2020： Windows Server 2019 Datacenter With 容器 Payg-版本2019.127.20200204
+- 04/20/2020： Windows Server 2019 Datacenter Core With 容器 BYOL-版本2019.127.20200204
 - 04/20/2020： Windows Server 2019 Datacenter Core With 容器 Payg-版本2019.127.20200204
 - 04/20/2020： Windows Server 2016 Datacenter-BYOL-version 2016.127.20200131
 - 04/20/2020： Windows Server 2016 Datacenter-按使用情况付费-版本2016.127.20200131
@@ -199,7 +199,7 @@ ms.locfileid: "83382482"
 - 04/20/2020： Windows Server 2016 Datacenter Server Core-按使用情况付费-版本2016.127.20200131
 - 04/20/2020：包含容器的 Windows Server 2016 Datacenter-BYOL-version 2016.127.20200131
 - 04/20/2020：包含容器的 Windows Server 2016 Datacenter-使用-版本2016.127.20200131
-- 04/20/2020： Windows Server 2012 Datacenter-BYOL-version 3.127.20190521
+- 04/20/2020： Windows Server 2012 Datacenter-BYOL-version 3.127.20200205
 - 04/20/2020： Windows Server 2012 R2 Datacenter-按使用情况付费-版本4.127.20200205
 - 04/20/2020： Windows Server 2012 R2 Datacenter-BYOL-version 4.127.20200205
 - 04/20/2020： Windows Server 2012 Datacenter-按使用情况付费-版本3.127.20200205

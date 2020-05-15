@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
+ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202419"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83403853"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>使用 Azure Stack 集线器创建高度可用的 SQL 数据库
 
@@ -35,8 +35,8 @@ ms.locfileid: "83202419"
 > [!IMPORTANT]
 > 要使用 Azure Stack 中心快速入门模板，需要满足以下所有要求。
 
-- [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) marketplace 映像。
-- Windows Server 2016 服务器映像上的 SQL Server 2016 SP1 或 SP2 （企业版、标准版或开发人员版）。 本文使用[Windows Server 2016 marketplace 映像上的 SQL Server 2016 SP2 企业版](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016)。
+- Windows Server 2016 Datacenter marketplace 映像。
+- Windows Server 2016 服务器映像上的 SQL Server 2016 SP1 或 SP2 （企业版或开发人员）。 本文使用 Windows Server 2016 marketplace 映像上的 SQL Server 2016 SP2 企业版。
 - [SQL Server IaaS 扩展](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)版本1.3.20180 或更高版本。 SQL IaaS 扩展会安装 Marketplace SQL Server 所有 Windows 版本的项目所需的必要组件。 它允许在 SQL 虚拟机（Vm）上配置 SQL 特定的设置。 如果本地 marketplace 中未安装该扩展，则 SQL 的预配会失败。
 - Windows 版本1.9.1 或更高版本[的自定义脚本扩展](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension)。 自定义脚本扩展是一种工具，可用于自动启动部署后 VM 自定义任务。
 - [PowerShell Desired State Configuration （DSC）](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm)版本2.76.0.0 或更高版本。 DSC 是 Windows PowerShell 中的一个管理平台，可用于部署和管理软件服务的配置数据。 该平台还管理这些服务的运行环境。
@@ -45,7 +45,7 @@ ms.locfileid: "83202419"
 
 ## <a name="create-a-sql-server-alwayson-availability-group"></a>创建 SQL Server AlwaysOn 可用性组
 
-使用本部分中的步骤，通过使用[SQL-2016-AlwaysOn Azure Stack 中心快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson)部署 SQL Server AlwaysOn 可用性组。 此模板在 Always On 可用性组中部署两个 SQL Server Enterprise、标准或开发人员实例。 它创建以下资源：
+使用本部分中的步骤，通过使用[SQL-2016-AlwaysOn Azure Stack 中心快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson)部署 SQL Server AlwaysOn 可用性组。 此模板在 Always On 可用性组中部署两个 SQL Server Enterprise 或开发人员实例。 它创建以下资源：
 
 - 网络安全组。
 - 虚拟网络。
@@ -53,7 +53,7 @@ ms.locfileid: "83202419"
 - 四个公共 IP 地址（一个用于 AD，两个用于每个 SQL VM，另一个用于绑定到 SQL AlwaysOn 侦听器的公共负载均衡器）。
 - 一个外部负载均衡器，适用于其公共 IP 绑定到 SQL AlwaysOn 侦听器的 SQL Vm。
 - 一个 VM （Windows Server 2016）配置为包含单一域的新林的域控制器。
-- 两个 Vm （Windows Server 2016）配置了 SQL Server 2016 SP1 或 SP2 Enterprise、Standard 或 Developer Edition 和群集。 它们必须是 marketplace 映像。
+- 两个虚拟机（Windows Server 2016）配置了 SQL Server 2016 SP1 或 SP2 Enterprise 或 Developer Edition 和群集。 它们必须是 marketplace 映像。
 - 一个 VM （Windows Server 2016）配置为群集的文件共享见证。
 - 一个包含 SQL 和文件共享见证 Vm 的可用性集。
 
