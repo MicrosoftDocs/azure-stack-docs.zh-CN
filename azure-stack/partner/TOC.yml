@@ -50,8 +50,8 @@
       href: /azure/active-directory/
 - name: 资源
   items:
-    - name: Azure Stack 中心路线图
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack 中心道路地图
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack Hub MSDN 论坛
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
     - name: Azure Stack 中心文档反馈

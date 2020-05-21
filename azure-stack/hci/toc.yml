@@ -18,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: 更换驱动器
       href: manage/replace-drives.md
+    - name: 管理群集
+      href: manage/cluster.md
     - name: 使用 Azure Site Recovery
       href: manage/azure-site-recovery.md
     - name: 使用 Azure Monitor 进行监视

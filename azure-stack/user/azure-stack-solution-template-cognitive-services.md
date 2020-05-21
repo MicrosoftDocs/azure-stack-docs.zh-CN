@@ -3,25 +3,41 @@ title: 将 Azure 认知服务部署到 Azure Stack 中心
 description: 了解如何将 Azure 认知服务部署到 Azure Stack 中心。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/13/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff5dd1ccb8193e9dae3d97401793773e3e28fb4d
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 05/13/2020
+ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
+ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660178"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83554975"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>将 Azure 认知服务部署到 Azure Stack 中心
 
-> [!Note]  
-> Azure Stack 集线器上的 Azure 认知服务处于预览阶段。
-
-可以将 Azure 认知服务与 Azure Stack 集线器上的容器支持配合使用。 Azure 认知服务中的容器支持可让你使用 Azure 提供的相同丰富 API。 使用容器可以灵活部署和托管 [Docker 容器](https://www.docker.com/what-container)中提供的服务。 容器支持目前以预览版提供，适用于 Azure 认知服务的一部分，包括[计算机视觉](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)、人[脸](https://docs.microsoft.com/azure/cognitive-services/face/overview)和[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)以及[语言理解](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)（LUIS）的部分。
+可以将 Azure 认知服务与 Azure Stack 集线器上的容器支持配合使用。 Azure 认知服务中的容器支持可让你使用 Azure 提供的相同丰富 API。 使用容器可以灵活部署和托管 [Docker 容器](https://www.docker.com/what-container)中提供的服务。 
 
 容器化是一种软件分发方法，其中应用或服务（包括其依赖项和配置）打包为容器映像。 只需进行少量的修改或无需修改，即可将映像部署到容器主机。 每个容器与其他容器和基础操作系统相隔离。 系统本身仅具有运行映像所需的组件。 容器主机的占用空间比虚拟机更小。 你还可以从映像创建用于短期任务的容器，并且在不再需要时可以将其删除。
+
+容器支持当前适用于 Azure 认知服务的子集：
+
+- 语言理解
+- 文本分析（情绪3.0）
+
+> [!IMPORTANT]
+> Azure Stack 中心的 Azure 认知服务的子集目前提供公共预览版。
+> 提供评审版本时没有服务级别协议，不建议用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
+对于 Azure 认知服务的子集，容器支持目前为公共预览版：
+
+- 读取（光学字符识别 \[ OCR]）
+- 关键短语提取
+- 语言检测
+- 异常探测器
+- 窗体识别器
+- 语音到文本（自定义，标准）
+- 文本到语音转换（自定义、标准）
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>在 Azure Stack 中心使用具有认知服务的容器
 
@@ -45,7 +61,7 @@ ms.locfileid: "81660178"
 
 本文介绍如何在 Azure Stack Hub 上的 Kubernetes 群集上部署 Azure 人脸 API。 可以使用相同的方法在 Azure Stack Hub Kubernetes 群集上部署其他认知服务容器。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 在开始之前，您需要：
 
@@ -66,7 +82,7 @@ ms.locfileid: "81660178"
 
 ## <a name="create-a-kubernetes-secret"></a>创建 Kubernetes 机密 
 
-使用 Kubectl create secret 命令访问专用容器注册表。 将`<username>`替换为用户名， `<password>`将替换为从 Azure 认知服务团队收到的凭据中提供的密码。
+使用 Kubectl create secret 命令访问专用容器注册表。 将替换 `<username>` 为用户名，将替换为 `<password>` 从 Azure 认知服务团队收到的凭据中提供的密码。
 
 ```bash  
     kubectl create secret docker-registry <secretName> \
@@ -128,7 +144,7 @@ spec:
 
 有关重要字段的详细信息：
 
-| 字段 | 说明 |
+| 字段 | 注释 |
 | --- | --- |
 | replicaNumber | 定义要创建的实例的初始副本。 以后可以在部署后对其进行缩放。 |
 | ImageLocation | 指示 ACR 中特定认知服务容器映像的位置。 例如，人脸服务：`aicpppe.azurecr.io/microsoft/cognitive-services-face` |
@@ -141,12 +157,37 @@ spec:
 使用以下命令部署认知服务容器：
 
 ```bash  
-    Kubectl apply -f <yamlFineName>
+    Kubectl apply -f <yamlFileName>
 ```
 使用以下命令监视部署方式： 
 ```bash  
     Kubectl get pod - watch
 ```
+
+## <a name="configure-http-proxy-settings"></a>配置 HTTP 代理设置
+
+辅助角色节点需要代理和 SSL。 若要配置 HTTP 代理来发出出站请求，请使用以下两个参数：
+
+- **HTTP_PROXY** -要使用的代理，例如`https://proxy:8888`
+- **HTTP_PROXY_CREDS** –例如，对代理进行身份验证所需的任何凭据 `username:password` 。
+
+### <a name="set-up-the-proxy"></a>设置代理
+
+1. 将 `http-proxy.conf` 文件添加到这两个位置：
+    - `/etc/system/system/docker.service.d/`
+    - `/cat/etc/environment/`
+
+2. 验证是否可以使用认知服务团队提供的凭据登录到容器，并 `docker pull` 在以下容器中执行： 
+
+    `docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest`
+
+    运行：
+
+    `docker run hello-world pull`
+
+### <a name="ssl-interception-setup"></a>SSL 侦听设置
+
+1. 将**https 截获**证书添加到 `/usr/local/share/ca-certificates` ，并将其更新为 `update-ca-certificates` 。 
 
 ## <a name="test-the-cognitive-service"></a>测试认知服务
 

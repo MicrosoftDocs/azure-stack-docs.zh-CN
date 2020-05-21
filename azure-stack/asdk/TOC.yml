@@ -59,8 +59,8 @@
       href: /azure-stack/user/
 - name: 资源
   items:
-    - name: Azure Stack 路线图
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack 路标图
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack MSDN 论坛
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Azure Stack 文档反馈

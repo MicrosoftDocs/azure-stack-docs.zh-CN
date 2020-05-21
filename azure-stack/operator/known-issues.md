@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
+ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202443"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83721872"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -85,7 +85,7 @@ ms.locfileid: "83202443"
 
 ### <a name="network-security-groups"></a>网络安全组
 
-- 适用于：此问题适用于所有支持的版本。 
+- 适用：此问题适用于所有受支持的版本。 
 - 原因：无法在 NSG 中创建显式**DenyAllOutbound**规则，因为这将阻止 VM 部署所需的所有基础结构的内部通信完成。
 - 发生次数：常见
 
@@ -166,7 +166,7 @@ ms.locfileid: "83202443"
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>在 4 节点的 Azure Stack Hub 环境中进行修补和更新时出现故障
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：在包含3个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例在 Azure Stack 集线器环境的4节点上的更新过程中出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
 - 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在 4 节点 Azure Stack Hub 部署中进行更新时，仍然不能创建规模集实例。
 
@@ -215,7 +215,7 @@ ms.locfileid: "83202443"
 
 ### <a name="administrative-subscriptions"></a>管理订阅
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：不应使用1804版中引入的两个管理订阅。 这两种订阅类型为“计量订阅”和“消耗订阅”。********
 - 修正：如果在这两个订阅上运行了资源，请在用户订阅中重新创建这些资源。
 - 发生次数：常见
@@ -224,11 +224,11 @@ ms.locfileid: "83202443"
 
 - 适用：此问题适用于所有受支持的版本。
 - 原因：在管理员门户中，用户订阅的 "**锁定**" 边栏选项卡具有两个称为 "**订阅**" 的按钮。
-- 发生次数：通用
+- 发生次数：常见
 
 ### <a name="subscription-permissions"></a>订阅权限
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：无法使用 Azure Stack 中心门户查看订阅的权限。
 - 修正：使用[PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
@@ -241,7 +241,7 @@ ms.locfileid: "83202443"
 
 ### <a name="upload-blob-with-oauth-error"></a>使用 OAuth 上传 Blob 时出错
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：在用户门户中，当你尝试使用**OAuth （预览版）** 选项上载 blob 时，该任务将失败并出现错误消息。
 - 修正：使用 SAS 选项上传 blob。
 - 发生次数：常见
@@ -264,12 +264,6 @@ ms.locfileid: "83202443"
 - 原因：在用户门户中，选择托管磁盘时，如果磁盘类型为 "高级 SSD"，则下拉列表将显示**操作系统磁盘**。 该选项旁的工具提示指出**可以使用 Azure 免费帐户免费访问某些 OS 磁盘大小**;但是，这对 Azure Stack 中心无效。 此外，该列表包含“符合免费帐户的条件”，而这对 Azure Stack Hub 而言也是不正确的。****
 - 发生次数：常见
 
-### <a name="vpn-troubleshoot-and-metrics"></a>VPN 故障排除和指标
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中，vpn 网关资源中的**Vpn 故障排除**功能和**度量值**将出现，但是 Azure Stack 集线器不支持此功能。
-- 发生次数：常见
-
 ### <a name="delete-a-storage-container"></a>删除存储容器
 
 - 适用：此问题适用于所有受支持的版本。
@@ -282,12 +276,6 @@ ms.locfileid: "83202443"
 - 适用：此问题适用于所有受支持的版本。
 - 原因：在用户门户中，导航到 "**虚拟机**" 并尝试使用顶部的按钮刷新时，这些状态无法准确更新。
 - 修正：无论是否已单击 "刷新" 按钮，状态将每隔5分钟自动更新一次。 请等待 5 分钟，然后检查状态。
-- 发生次数：常见
-
-### <a name="virtual-network-gateway"></a>虚拟网络网关
-
-- 适用：此问题适用于所有受支持的版本。
-- 原因：在用户门户中，创建路由表时，"**虚拟网络网关**" 将显示为 "下一跃点类型" 选项;但 Azure Stack 集线器不支持此项。
 - 发生次数：常见
 
 ### <a name="storage-account-options"></a>存储帐户选项
@@ -364,6 +352,12 @@ ms.locfileid: "83202443"
 
 ### <a name="virtual-network-gateway"></a>虚拟网络网关
 
+#### <a name="next-hop-type"></a>下一跃点类型
+
+- 适用：此问题适用于所有受支持的版本。
+- 原因：在用户门户中，创建路由表时，"**虚拟网络网关**" 将显示为 "下一跃点类型" 选项;但 Azure Stack 集线器不支持此项。
+- 发生次数：常见
+
 #### <a name="alerts"></a>警报
 
 - 适用：此问题适用于所有受支持的版本。
@@ -380,6 +374,10 @@ ms.locfileid: "83202443"
 
 - 适用：此问题适用于所有受支持的版本。
 - 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack Hub 目前不支持此功能。
+- 发生次数：常见
+
+- 适用：此问题适用于所有受支持的版本。
+- 原因：在用户门户中，vpn 网关资源中的**Vpn 故障排除**功能和**度量值**将出现，但是 Azure Stack 集线器不支持此功能。
 - 发生次数：常见
 
 #### <a name="documentation"></a>文档
@@ -420,7 +418,7 @@ ms.locfileid: "83202443"
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>在 4 节点的 Azure Stack Hub 环境中进行修补和更新时出现故障
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：在包含3个容错域的可用性集中创建 Vm 并创建虚拟机规模集实例在 Azure Stack 集线器环境的4节点上的更新过程中出现**FabricVmPlacementErrorUnsupportedFaultDomainSize**错误。
 - 修正：你可以在可用性集中创建单个 Vm，其中包含2个容错域。 但是，在 4 节点 Azure Stack Hub 部署中进行更新时，仍然不能创建规模集实例。
 
@@ -438,7 +436,7 @@ ms.locfileid: "83202443"
 - 适用：此问题适用于所有受支持的版本。
 - 原因：尝试安装 Azure Stack 中心更新时，更新的状态可能会失败，并将状态更改为**PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
 - 修正：从版本1901（1.1901.0.95）开始，你可以通过单击 "**立即更新**" （不**继续**）来解决此问题。 然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题仍然存在，建议使用 "[安装更新" 部分](azure-stack-apply-updates.md#install-updates-and-monitor-progress)手动上载更新包。
-- 发生次数：通用
+- 发生次数：常见
 
 ## <a name="portal"></a>门户
 
@@ -525,6 +523,12 @@ ms.locfileid: "83202443"
 - 发生次数：常见
 
 ### <a name="virtual-network-gateway"></a>虚拟网络网关
+
+#### <a name="next-hop-type"></a>下一跃点类型
+
+- 适用：此问题适用于所有受支持的版本。
+- 原因：在用户门户中，创建路由表时，"**虚拟网络网关**" 将显示为 "下一跃点类型" 选项;但 Azure Stack 集线器不支持此项。
+- 发生次数：常见
 
 #### <a name="alerts"></a>警报
 
@@ -676,37 +680,43 @@ ms.locfileid: "83202443"
 
 #### <a name="addingremoving-network-interface"></a>添加/删除网络接口
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：无法将新的网络接口添加到处于**运行**状态的虚拟机。
 - 修正：添加/删除网络接口之前停止虚拟机。
-- 发生次数：通用
+- 发生次数：常见
 
 #### <a name="primary-network-interface"></a>主要网络接口
 
-- 适用于：此问题适用于所有支持的版本。
-- 原因：新网络接口无法添加到处于“正在运行”状态的 VM。 
-- 补救措施：添加/删除网络接口之前，先停止虚拟机。
-- 发生次数：通用
+- 适用：此问题适用于所有受支持的版本。
+- 原因：无法将新的网络接口添加到处于**运行**状态的虚拟机。
+- 修正：添加/删除网络接口之前停止虚拟机。
+- 发生次数：常见
 
 ### <a name="virtual-network-gateway"></a>虚拟网络网关
 
+#### <a name="next-hop-type"></a>下一跃点类型
+
+- 适用：此问题适用于所有受支持的版本。
+- 原因：在用户门户中，创建路由表时，"**虚拟网络网关**" 将显示为 "下一跃点类型" 选项;但 Azure Stack 集线器不支持此项。
+- 发生次数：常见
+
 #### <a name="alerts"></a>警报
 
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中，“虚拟网络网关”边栏选项卡显示使用“警报”的选项。   Azure Stack Hub 目前不支持此功能。
-- 发生次数：通用
+- 适用：此问题适用于所有受支持的版本。
+- 原因：在用户门户中，"**虚拟网络网关**" 边栏选项卡会显示使用**警报**的选项。 Azure Stack Hub 目前不支持此功能。
+- 发生次数：常见
 
 #### <a name="active-active"></a>主动-主动
 
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户（创建期间）和“虚拟网络网关”的资源菜单中，看到用于启用“主动-主动”配置的选项。   Azure Stack Hub 目前不支持此功能。
-- 发生次数：通用
+- 适用：此问题适用于所有受支持的版本。
+- 原因：在用户门户中创建时，在**虚拟网络网关**的 "资源" 菜单中，你将看到一个启用**主动-主动**配置的选项。 Azure Stack Hub 目前不支持此功能。
+- 发生次数：常见
 
 #### <a name="vpn-troubleshooter"></a>VPN 故障排除程序
 
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中，“连接”边栏选项卡显示一项名为“VPN 故障排除程序”的功能。   Azure Stack Hub 目前不支持此功能。
-- 发生次数：通用
+- 适用：此问题适用于所有受支持的版本。
+- 原因：在用户门户中，"**连接**" 边栏选项卡显示名为 " **VPN 疑难解答**" 的功能。 Azure Stack Hub 目前不支持此功能。
+- 发生次数：常见
 
 ### <a name="network-connection-type"></a>网络连接类型
 
@@ -729,7 +739,7 @@ ms.locfileid: "83202443"
 
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
 
-- 适用于：此问题适用于所有支持的版本。
+- 适用：此问题适用于所有受支持的版本。
 - 原因：创建新的 Windows 虚拟机（VM）时，可能会显示以下错误：**无法启动虚拟机 "VM-名称"。错误：无法更新 VM "vm-name" 的串行输出设置**。 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
 - 修正：使用之前使用的同一名称重新创建存储帐户。
 - 发生次数：常见
@@ -768,14 +778,14 @@ ms.locfileid: "83202443"
 - 适用：此问题适用于1906版本。
 - 原因：在1906中存在一个已知问题，其中包含用于创建资源的自定义角色和权限分配。 即使您拥有正确的权限，也可能会面临创建资源的问题。
 - 修正：若要缓解此问题，请更新到版本1907。
-- 发生次数：通用
+- 发生次数：常见
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡
 
 - 适用：此问题适用于1906和1907版本。    
 - 原因： "虚拟机诊断设置" 边栏选项卡中有一个 "**接收器**" 选项卡，该选项卡要求提供**Application insights 帐户**。 这是新的边栏选项卡的结果，在 Azure Stack 集线器中尚不支持。
 - 修正：无。
-- 发生次数：通用
+- 发生次数：常见
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

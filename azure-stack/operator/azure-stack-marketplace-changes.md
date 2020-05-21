@@ -3,16 +3,16 @@ title: Azure Stack 中心应用商店中的新增功能
 description: 查看 Azure Stack Hub Marketplace 中的新增功能，包括新的、不推荐使用和更新的 marketplace 项。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 05/18/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 1899fa20bb274229b5da066d8d55eb0d97e2123e
-ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
+ms.openlocfilehash: 952c77069126288bfe41f9775140aea44071580a
+ms.sourcegitcommit: 458ffe9638bd358e6b5d9e79145b4c1b70c3bacd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83403871"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83550140"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -63,6 +63,9 @@ ms.locfileid: "83403871"
 
 ## <a name="updated-marketplace-items"></a>更新的 marketplace 项
 
+- 05/15/2020： Bitnami AbanteCart-版本1.2.2004220207
+- 05/15/2020： Bitnami Canvas LMS-版本2020.5.2005120909
+- 05/15/2020： Bitnami Neos-版本5.2.2005130917
 - 05/07/2020： Bitnami ActiveMQ-版本5.15.2003260344
 - 05/07/2020： Bitnami Akeneo-版本 4-3.2.2004230142
 - 05/07/2020： Bitnami Alfresco 社区-版本201911.0.2004242008
