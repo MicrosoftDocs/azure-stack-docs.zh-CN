@@ -6,7 +6,7 @@
       href: overview.md
 - name: 入门
   items:
-    - name: 使用 Windows 管理中心 Azure Stack HCI
+    - name: 在 Windows 管理中心使用 Azure Stack HCI
       href: get-started.md
 - name: 管理
   items:
@@ -20,11 +20,17 @@
       href: manage/replace-drives.md
     - name: 管理群集
       href: manage/cluster.md
+    - name: 添加或删除服务器
+      href: manage/add-cluster.md
     - name: 使用 Azure Site Recovery
       href: manage/azure-site-recovery.md
     - name: 使用 Azure Monitor 进行监视
       href: manage/azure-monitor.md
-    - name: 将 GPU 附加到 Linux VM
+    - name: 管理 VM
+      href: manage/vm.md
+    - name: 通过 PowerShell 管理 Vm
+      href: manage/vm-powershell.md
+    - name: 将 GPU 连接到 Linux VM
       href: manage/attach-gpu-to-linux-vm.md
 - name: 概念
   items:
@@ -40,17 +46,17 @@
       href: concepts/quorum.md
 - name: 参考
   items:
-    - name: Hyper-v PowerShell 命令
+    - name: Hyper-V PowerShell 命令
       href: /powershell/module/hyper-v
     - name: 存储 PowerShell 命令
       href: /powershell/module/storage
-    - name: Clusterawareupdating.dll PowerShell 命令
+    - name: ClusterAwareUpdating PowerShell 命令
       href: /powershell/module/clusterawareupdating
     - name: FailoverClusters PowerShell 命令
       href: /powershell/module/failoverclusters
     - name: StorageReplica PowerShell 命令
       href: /powershell/module/storagereplica
-    - name: Get-netadapter PowerShell 命令
+    - name: NetAdapter PowerShell 命令
       href: /powershell/module/netadapter
     - name: NetQoS PowerShell 命令
       href: /powershell/module/netqos
@@ -66,7 +72,7 @@
       href: /azure/databox-online/data-box-edge-overview
     - name: Windows Server
       href: /windows-server/
-    - name: Windows Admin Center
+    - name: Windows 管理中心
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
     - name: Azure 混合服务
       href: /windows-server/manage/windows-admin-center/azure

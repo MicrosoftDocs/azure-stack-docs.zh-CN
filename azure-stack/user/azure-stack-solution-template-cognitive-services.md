@@ -3,16 +3,16 @@ title: 将 Azure 认知服务部署到 Azure Stack 中心
 description: 了解如何将 Azure 认知服务部署到 Azure Stack 中心。
 author: mattbriggs
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 05/13/2020
-ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
-ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
+ms.lastreviewed: 05/21/2020
+ms.openlocfilehash: 07af0665b2bc7993a90100edccc0a4831700c432
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83554975"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780768"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>将 Azure 认知服务部署到 Azure Stack 中心
 
@@ -174,7 +174,7 @@ spec:
 ### <a name="set-up-the-proxy"></a>设置代理
 
 1. 将 `http-proxy.conf` 文件添加到这两个位置：
-    - `/etc/system/system/docker.service.d/`
+    - `/etc/system/systemd/docker.service.d/`
     - `/cat/etc/environment/`
 
 2. 验证是否可以使用认知服务团队提供的凭据登录到容器，并 `docker pull` 在以下容器中执行： 

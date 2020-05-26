@@ -47,7 +47,7 @@
               items:
                 - name: Azure Stack Hub PowerShell 概述
                   href: azure-stack-powershell-overview.md
-                - name: 安装 Azure Stack 中心 PowerShell
+                - name: 安装 Azure Stack Hub PowerShell
                   href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: 使用 PowerShell 连接
@@ -97,6 +97,8 @@
           items:
             - name: 概述
               href: azure-stack-version-profiles.md
+            - name: 配置文件支持的资源提供程序 API
+              href: azure-stack-profiles-azure-resource-manager-versions.md
             - name: .NET
               href: azure-stack-version-profiles-net.md
             - name: Java
@@ -109,8 +111,6 @@
               href: azure-stack-version-profiles-python.md
             - name: NodeJS
               href: azure-stack-version-profile-nodejs.md
-            - name: 配置文件支持的资源提供程序 API
-              href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: 使用资源提供程序
       items:
         - name: 安全性、合规性和标识
@@ -175,7 +175,7 @@
                   href: azure-stack-understanding-dns.md
                 - name: Azure Stack Hub 中的 DNS
                   href: azure-stack-dns.md
-            - name: Key Vault
+            - name: 密钥保管库
               items:
                 - name: 概述
                   href: azure-stack-key-vault-intro.md

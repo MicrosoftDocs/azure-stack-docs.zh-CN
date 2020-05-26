@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: cda4a78a507f94d5e40f723cb5489a9e79990d50
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 497a051c67b05683a874de955c069256c19bba9a
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988286"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780793"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
 
@@ -51,7 +51,7 @@ ms.locfileid: "82988286"
 
 - 已注册 Azure Stack 集线器资源提供程序（有关详细信息，请参阅以下注册 Azure Stack 中心资源提供程序部分）。
 
-注册后，不需要 Azure Active Directory (Azure AD) 全局管理员权限。 但是，某些操作可能需要全局管理员凭据（例如，资源提供程序安装程序脚本或需要授予权限的新功能）。 可以暂时恢复帐户的全局管理员权限，也可以使用*默认提供程序订阅*所有者的单独全局管理员帐户。
+注册后，不需要 Azure Active Directory (Azure AD) 全局管理员权限。 但是，某些操作可能需要全局管理员凭据（例如，资源提供程序安装程序脚本或需要授予权限的新功能）。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 
 注册 Azure Stack 中心的用户是 Azure AD 中服务主体的所有者。 只有注册 Azure Stack 中心的用户可以修改 Azure Stack 中心注册。 如果非管理员用户不是注册服务主体的所有者尝试注册或重新注册 Azure Stack 集线器，则这些用户可能会遇到403响应。 403 响应表明用户权限不足，无法完成此操作。
 
@@ -70,7 +70,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 确保输出返回的是 **FullLanguageMode**。 如果返回了其他任何语言模式，则需要在另一台计算机上运行注册，或者将语言模式设置为 **FullLanguageMode**，然后才能继续。
 
-### <a name="install-powershell-for-azure-stack-hub"></a>为 Azure Stack 集线器安装 PowerShell
+### <a name="install-powershell-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell
 
 使用最新的 PowerShell 进行 Azure Stack 中心向 Azure 注册。
 
@@ -148,7 +148,7 @@ Run: Get-AzureStackStampInformation
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. 接下来，在同一个 PowerShell 会话中，确保已登录到正确的 Azure PowerShell 上下文。 此上下文是以前用于注册 Azure Stack 中心资源提供程序的 Azure 帐户。 要运行的 Powershell：
+6. 接下来，在同一个 PowerShell 会话中，确保已登录到正确的 Azure PowerShell 上下文。 此上下文是以前用于注册 Azure Stack 中心资源提供程序的 Azure 帐户。 要运行的 PowerShell：
 
    ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
@@ -252,7 +252,7 @@ Run: Get-AzureStackStampInformation
 
 ### <a name="connect-to-azure-and-register"></a>连接到 Azure 并注册
 
-在连接到 Internet 的计算机上，执行相同的步骤以导入 RegisterWithAzure.psm1 模块，并登录到正确的 Azure Powershell 上下文。 然后调用 Register-AzsEnvironment。 指定可注册到 Azure 的注册令牌。 如果要使用相同的 Azure 订阅 ID 注册 Azure Stack 中心的多个实例，请指定唯一的注册名称。
+在连接到 internet 的计算机上，执行相同的步骤以导入 Registerwithazure.psm1 模块，并登录到正确的 Azure PowerShell 上下文。 然后调用 Register-AzsEnvironment。 指定可注册到 Azure 的注册令牌。 如果要使用相同的 Azure 订阅 ID 注册 Azure Stack 中心的多个实例，请指定唯一的注册名称。
 
 需要注册令牌和唯一令牌名称。
 
@@ -357,22 +357,40 @@ Run: Get-AzureStackStampInformation
 - 更改计费模式时。
 - 调整基于容量的计费（添加/删除节点）时。
 
+### <a name="prerequisites"></a>先决条件
+
+需要[管理员门户](#verify-azure-stack-hub-registration)中的以下信息来续订或更改注册：
+
+| 管理员门户 | Cmdlet 参数 | 注释 | 
+|-----|-----|-----|
+| 注册订阅 ID | 订阅 | 在上一次注册期间使用的订阅 ID |
+| 注册资源组 | ResourceGroupName | 以前的注册资源所在的资源组 |
+| 注册名称 | RegistrationName | 在上一次注册期间使用的注册名称 |
+
 ### <a name="change-the-subscription-you-use"></a>更改使用的订阅
 
-若要更改使用的订阅，必须先运行 **Remove-AzsRegistration** cmdlet，并确保登录到正确的 Azure PowerShell 上下文。 然后运行**set-azsregistration** ，其中`<billing model>`包含任何更改的参数。 运行**set-azsregistration**时，必须登录到注册过程中使用的订阅，并使用和`ResourceGroupName`参数的值，如管理员`RegistrationName`门户中所示的 "[查找当前注册" 详细信息](#verify-azure-stack-hub-registration)：
+若要更改使用的订阅，必须先运行 **Remove-AzsRegistration** cmdlet，并确保登录到正确的 Azure PowerShell 上下文。 然后，**将 set-azsregistration**与任何已更改的参数（包括）一起运行 `<billing model>` 。 运行**set-azsregistration**时，必须登录到注册过程中使用的订阅，并使用和参数的值， `RegistrationName` `ResourceGroupName` 如[管理员门户](#verify-azure-stack-hub-registration)中所示：
 
   ```powershell  
+  # select the subscription used during the registration (shown in portal)
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # unregister using the parameter values from portal
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # switch to new subscription id
+  Select-AzureRmSubscription -Subscription '<New subscription ID>'
+  # register 
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
   ```
 
-### <a name="change-the-billing-model-or-how-to-offer-features"></a>更改计费模型或功能提供方式
+### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>更改计费模式，提供功能的方式，或重新注册实例
 
-若要更改安装的计费模型或功能提供方式，可以调用注册函数来设置新值。 不需要先删除当前注册。
+如果您想要更改计费模式、如何提供功能，或者您想要重新注册您的实例，则本部分适用。 对于所有这些情况，都可以调用注册函数来设置新值。 不需要先删除当前注册。 登录到[管理员门户](#verify-azure-stack-hub-registration)中显示的订阅 ID，然后使用新值重新运行注册， `BillingModel` 同时使 `RegistrationName` 和 `ResourceGroupName` 参数值与[管理员门户](#verify-azure-stack-hub-registration)中显示的值相同：
 
   ```powershell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # select the subscription used during the registration
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 ::: zone-end
 
@@ -389,7 +407,7 @@ Run: Get-AzureStackStampInformation
 
 若要删除 Azure Stack 集线器中的激活资源，请在 Azure Stack 中心环境中运行以下 PowerShell cmdlet：  
 
-  ```Powershell
+  ```powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
@@ -397,33 +415,32 @@ Run: Get-AzureStackStampInformation
 
 可以使用用于创建资源的注册令牌：  
 
-  ```Powershell
+  ```powershell
   $RegistrationToken = "<registration token>"
   Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
-或者，可以使用注册名称：
+或者，你可以从[管理员门户](#verify-azure-stack-hub-registration)使用注册名称和注册资源组名称：
 
-  ```Powershell
-  $RegistrationName = "AzureStack-<unique-registration-name>"
-  Unregister-AzsEnvironment -RegistrationName $RegistrationName
+  ```powershell
+  Unregister-AzsEnvironment -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 
 ### <a name="re-register-using-connected-steps"></a>使用连接的步骤重新注册
 
-如果将计费模型从 "已断开连接" 状态的 "容量计费" 更改为 "已连接" 状态下的消耗计费，则你将在[连接的模型步骤](azure-stack-registration.md?pivots=state-connected#change-the-billing-model-or-how-to-offer-features)之后重新注册。 
+如果将计费模型从 "已断开连接" 状态的 "容量计费" 更改为 "已连接" 状态下的消耗计费，则你将在[连接的模型步骤](azure-stack-registration.md?pivots=state-connected#change-billing-model-how-features-are-offered-or-re-register-your-instance)之后重新注册。 
 
 >[!Note] 
 >这不会更改你的标识模型，只更改计费机制，你仍将使用 ADFS 作为标识源。
 
 ### <a name="re-register-using-disconnected-steps"></a>使用适用于联网场景的步骤重新注册
 
-现已在离线场景中完全取消注册，接下来必须重复上述步骤，在离线场景中注册 Azure Stack Hub 环境。
+你现在已在断开连接的情况下完全取消注册，并且必须重复执行在断开连接的情况下注册 Azure Stack 集线器环境的步骤。
 ::: zone-end
 
 ### <a name="disable-or-enable-usage-reporting"></a>禁用或启用使用情况报告
 
-对于使用容量计费模型的 Azure Stack Hub 环境，请将 **UsageReportingEnabled** 参数与 **Set-AzsRegistration** 或 **Get-AzsRegistrationToken** cmdlet 配合使用，以便关闭使用情况报告功能。 默认情况下，Azure Stack Hub 报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。
+对于使用容量计费模型的 Azure Stack 集线器环境，请使用**set-azsregistration**或**AzsRegistrationToken** cmdlet 关闭使用**UsageReportingEnabled**参数的使用情况报告。 默认情况下，Azure Stack 中心报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。
 
 ::: zone pivot="state-connected"
 运行以下 PowerShell cmdlet：
@@ -482,15 +499,15 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | 参数 | 类型 | 说明 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | 用于[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的凭据。 用户名采用 **AzureStackDomain\CloudAdmin** 格式。 |
-| PrivilegedEndpoint | 字符串 | 预先配置的远程 PowerShell 控制台，提供日志收集和其他部署后任务等功能。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
+| PrivilegedEndpoint | String | 预先配置的远程 PowerShell 控制台，提供日志收集和其他部署后任务等功能。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
 | AzureContext | PSObject |  |
-| ResourceGroupName | 字符串 |  |
-| ResourceGroupLocation | 字符串 |  |
-| BillingModel | 字符串 | 订阅使用的计费模式。 此参数允许的值：Capacity、PayAsYouUse 和 Development。 |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | 订阅使用的计费模式。 此参数允许的值：Capacity、PayAsYouUse 和 Development。 |
 | MarketplaceSyndicationEnabled | True/False | 确定市场管理功能在门户中是否可用。 如果通过 Internet 连接进行注册，请设置为 true。 如果在断开连接的环境中进行注册，请设置为 false。 对于断开连接的注册，可以使用[脱机联合工具](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)下载市场项。 |
 | UsageReportingEnabled | True/False | 默认情况下，Azure Stack 中心报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。 此参数的允许值：True、False。 |
-| AgreementNumber | 字符串 | 为此 Azure Stack 的容量 SKU 排序所依据的 EA 协议号码。 |
-| RegistrationName | 字符串 | 如果要使用相同的 Azure 订阅 ID 在 Azure Stack 中心的多个实例上运行注册脚本，请设置注册的唯一名称。 参数的默认值为 **AzureStackRegistration**。 但是，如果在 Azure Stack 中心的多个实例上使用相同的名称，则脚本将失败。 |
+| AgreementNumber | String | 为此 Azure Stack 的容量 SKU 排序所依据的 EA 协议号码。 |
+| RegistrationName | String | 如果要使用相同的 Azure 订阅 ID 在 Azure Stack 中心的多个实例上运行注册脚本，请设置注册的唯一名称。 参数的默认值为 **AzureStackRegistration**。 但是，如果在 Azure Stack 中心的多个实例上使用相同的名称，则脚本将失败。 |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -504,26 +521,26 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 | 参数 | 类型 | 说明 |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | 用于[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的凭据。 用户名采用 **AzureStackDomain\CloudAdmin** 格式。 |
-| PrivilegedEndpoint | 字符串 |  预先配置的远程 PowerShell 控制台，提供日志收集和其他部署后任务等功能。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
+| PrivilegedEndpoint | String |  预先配置的远程 PowerShell 控制台，提供日志收集和其他部署后任务等功能。 有关详细信息，请参阅[使用特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)一文。 |
 | AzureContext | PSObject |  |
-| ResourceGroupName | 字符串 |  |
-| ResourceGroupLocation | 字符串 |  |
-| BillingModel | 字符串 | 订阅使用的计费模式。 此参数允许的值：Capacity、PayAsYouUse 和 Development。 |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | 订阅使用的计费模式。 此参数允许的值：Capacity、PayAsYouUse 和 Development。 |
 | MarketplaceSyndicationEnabled | True/False |  |
 | UsageReportingEnabled | True/False | 默认情况下，Azure Stack 中心报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。 此参数的允许值：True、False。 |
-| AgreementNumber | 字符串 |  |
+| AgreementNumber | String |  |
 
 ## <a name="registration-failures"></a>注册失败
 
 尝试注册 Azure Stack 中心时，可能会出现以下错误之一：
 
-- 无法为检索必需的`$hostName`硬件信息。 请检查物理主机和连接，然后尝试重新运行注册。
+- 无法为检索必需的硬件信息 `$hostName` 。 请检查物理主机和连接，然后尝试重新运行注册。
 
-- 无法连接到`$hostName`以获取硬件信息。 请检查物理主机和连接，然后尝试重新运行注册。
+- 无法连接到 `$hostName` 以获取硬件信息。 请检查物理主机和连接，然后尝试重新运行注册。
 
    原因：这通常是因为我们尝试从主机获取硬件详细信息（例如 UUID、Bios 和 CPU）以尝试激活，但却无法完成它，因为无法连接到物理主机。
 
-- Cloud identifier [`GUID`] 已经注册。 不允许重复使用云标识符。
+- Cloud identifier [ `GUID` ] 已经注册。 不允许重复使用云标识符。
 
    原因：如果你的 Azure Stack 环境已经注册，则会发生这种情况。 如果要使用不同的订阅或计费模式重新注册您的环境，请按照[续订或更改注册步骤](#renew-or-change-registration)操作。
 
