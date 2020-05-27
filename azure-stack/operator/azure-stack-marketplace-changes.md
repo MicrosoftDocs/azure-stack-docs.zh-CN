@@ -3,16 +3,16 @@ title: Azure Stack 中心应用商店中的新增功能
 description: 查看 Azure Stack Hub Marketplace 中的新增功能，包括新的、不推荐使用和更新的 marketplace 项。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 05/22/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 952c77069126288bfe41f9775140aea44071580a
-ms.sourcegitcommit: 458ffe9638bd358e6b5d9e79145b4c1b70c3bacd
+ms.lastreviewed: 05/22/2020
+ms.openlocfilehash: 9d9f86dce51b13960a7543636e79954a71992a84
+ms.sourcegitcommit: f2203f070c17e19ba1a41d681662bac3ab50ed12
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550140"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83854348"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -63,6 +63,24 @@ ms.locfileid: "83550140"
 
 ## <a name="updated-marketplace-items"></a>更新的 marketplace 项
 
+- 5/21/2020： Ubuntu Server 16.04 LTS-version 16.04.202004290
+- 5/21/2020： Ubuntu Server 18.04 LTS-version 18.04.202004080
+- 5/21/2020： Windows Server 2008 R2 SP1 BYOL-版本7601.24552.2004101827
+- 5/21/2020： Windows Server 2008 R2 SP1 按使用版本7601.24552.2004101827
+- 5/21/2020： Windows Server 2012 Datacenter BYOL-version 9200.23016.2004101828
+- 5/21/2020： Windows Server 2012 Datacenter 按使用情况付费-版本9200.23016.2004101828
+- 5/21/2020： Windows Server 2012 R2 Datacenter BYOL-version 9600.19676.2004101829
+- 5/21/2020： Windows Server 2012 R2 Datacenter 按使用情况付费-版本9600.19676.2004101829
+- 5/21/2020： Windows Server 2016 Datacenter BYOL-version 14393.3630.2004101604
+- 5/21/2020： Windows Server 2016 Datacenter 按使用情况付费-版本14393.3630.2004101604
+- 5/21/2020： Windows Server 2016 Datacenter Server Core BYOL-version 14393.3630.2004101604
+- 5/21/2020： Windows Server 2016 Datacenter Server Core 按使用情况付费-版本14393.3630.2004101604
+- 5/21/2020： Windows Server 2019 Datacenter Server Core BYOL-version 17763.1158.2004131759
+- 5/21/2020： Windows Server 2019 Datacenter Server Core 按使用情况付费-版本17763.1158.2004131759
+- 5/21/2020： Windows Server 2019 Datacenter BYOL-version 17763.1158.2004131759
+- 5/21/2020： Windows Server 2019 Datacenter 按使用情况付费-版本17763.1158.2004131759
+- 5/21/2020： Windows Server 2019 Datacenter with 容器 BYOL-版本17763.1158.2004131759
+- 5/21/2020：使用容器作为使用版本17763.1158.2004131759 的 Windows Server 2019 Datacenter
 - 05/15/2020： Bitnami AbanteCart-版本1.2.2004220207
 - 05/15/2020： Bitnami Canvas LMS-版本2020.5.2005120909
 - 05/15/2020： Bitnami Neos-版本5.2.2005130917
@@ -381,5 +399,5 @@ ms.locfileid: "83550140"
 有关 Azure Stack 中心 Marketplace 的详细信息，请参阅以下文章：
 
 - [Azure 市场概述](azure-stack-marketplace.md)
-- [适用于 Azure Stack 集线器的 Azure Marketplace 项](azure-stack-marketplace-azure-items.md)
+- [可用于 Azure Stack Hub 的 Azure 市场项](azure-stack-marketplace-azure-items.md)
 - [创建并发布 Azure Stack 中心市场项](azure-stack-create-and-publish-marketplace-item.md)

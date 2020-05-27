@@ -20,6 +20,8 @@
       href: manage/replace-drives.md
     - name: 管理群集
       href: manage/cluster.md
+    - name: 使用 PowerShell 管理群集
+      href: manage/cluster-powershell.md
     - name: 添加或删除服务器
       href: manage/add-cluster.md
     - name: 使用 Azure Site Recovery
