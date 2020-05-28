@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中部署受保护的 Service Fabric 群集
 description: 了解如何在 Azure Stack Hub 中部署受保护的 Service Fabric 群集
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: b09e23fafdfcdff83329e70538cd8d072081a678
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: 4ccbdfe93f8ed960002c251e0d18e24f29a9b229
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77687540"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111857"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署 Service Fabric 群集
 

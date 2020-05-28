@@ -3,16 +3,16 @@ title: 使用 Azure Stack Hub 门户部署模板
 description: 了解如何使用 Azure Stack Hub 门户部署模板。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 8425b4f8492e57502ca93b0be802b63601f6ba34
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ffcc181f0d5693b1c525f871ff5ba92f0b508b04
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704312"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112132"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>使用 Azure Stack Hub 门户部署模板
 

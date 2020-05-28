@@ -3,16 +3,16 @@ title: 将 Fortinet FortiGate 添加到 Azure Stack 中心市场
 description: 了解如何将 Fortinet FortiGate 添加到 Azure Stack 中心市场，使用户能够创建网络解决方案。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: fb9c8bbb16bcbbee5e1316522aff99752354ef7f
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 12dc8715b90aa257953b5dc13bf671c9264aea8d
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375116"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111168"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>使用 Fortinet FortiGate 在 Azure Stack Hub 中提供网络解决方案
 

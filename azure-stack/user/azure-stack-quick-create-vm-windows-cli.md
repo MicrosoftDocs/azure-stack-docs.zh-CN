@@ -3,15 +3,15 @@ title: 使用 Azure CLI 在 Azure Stack Hub 中创建 Windows 虚拟机
 description: 使用 Azure CLI 在 Azure Stack Hub 中创建 Windows 虚拟机
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 0d8e3ec61eb5acfbe98efcae1ec0318cb15f661f
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 5c4c9c5f173b65051ba86e02ae7623a24a406f39
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "78231649"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111840"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>快速入门：使用 Azure CLI 在 Azure Stack Hub 中 创建 Windows Server 虚拟机
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-可以使用 [az vm create](/cli/azure/vm#az-vm-create) 命令创建虚拟机 (VM)。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理员用户名，并Demouser@123使用作为管理员密码。 将这些值更改为适合你的环境的值。
+可以使用 [az vm create](/cli/azure/vm#az-vm-create) 命令创建虚拟机 (VM)。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理员用户名，并使用 Demouser@123 作为管理员密码。 将这些值更改为适合你的环境的值。
 
 ```cli
 az vm create \

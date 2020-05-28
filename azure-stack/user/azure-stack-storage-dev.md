@@ -3,16 +3,16 @@ title: Azure Stack Hub 存储开发工具入门
 description: 使用 Azure Stack Hub 存储开发工具的入门指南
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.topic: conceptual
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 939479350718ae2176f7d1531e64ad71301e0596
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bc682604e5c57c3a878c7c5dc17a0bfc18e36e60
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423816"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111791"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Azure Stack Hub 存储开发工具入门
 

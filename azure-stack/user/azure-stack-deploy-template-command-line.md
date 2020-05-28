@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中使用命令行部署模板
 description: 了解如何使用 Azure 跨平台命令行接口 (CLI) 将模板部署到 Azure Stack Hub。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: fc01d7ebab8855580470a7d4e29ab86851b88280
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 362047bbfa88538140630311f5bdee07508db8a4
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704278"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112112"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用命令行部署模板
 

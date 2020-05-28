@@ -3,16 +3,16 @@ title: Azure Stack Hub 中的 PowerShell
 description: Azure Stack Hub 中的 PowerShell 具有一些模块和上下文。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: b54e8a184c90408c0d27054446a91f09c34749fb
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643458"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111809"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Azure Stack Hub 中的 PowerShell 入门
 
@@ -51,7 +51,7 @@ Azure Stack 中心向云操作员公开一组资源提供程序，以便操作�
 
 ### <a name="azure-stack-hub-privileged-endpoint"></a>Azure Stack 中心特权终结点
 
-对于 Azure Stack 集线器中的操作员活动，如测试安装和访问日志，操作员可以与特权终结点（PEP）交互。 PEP 是预先配置的远程 PowerShell 控制台，可为操作员提供刚好足够的访问权限来让他们完成特定的任务。 终结点使用 PowerShell Just Enough Administration (JEA) 公开一组受限的 cmdlet。 有关详细信息，请参阅[使用 Azure Stack 集线器中的特权终结点](../operator/azure-stack-privileged-endpoint.md)。
+对于 Azure Stack 集线器中的操作员活动，如测试安装和访问日志，操作员可以与特权终结点（PEP）交互。 PEP 是预先配置的远程 PowerShell 控制台，可为操作员提供刚好足够的访问权限来让他们完成特定的任务。 终结点使用 PowerShell Just Enough Administration (JEA) 公开一组受限的 cmdlet。 有关详细信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../operator/azure-stack-privileged-endpoint.md)。
 
 ### <a name="azure-stack-hub-tools"></a>Azure Stack 中心工具
 

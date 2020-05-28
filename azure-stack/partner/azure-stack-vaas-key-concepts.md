@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack 集线器验证即服务的关键概念。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5199a9f3b8dcf9a3ac43d9563688cba8da949ce3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9525f1f6286f5621832db5b20b3593fde6bf3546
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294161"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112095"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>作为服务关键概念的验证
 

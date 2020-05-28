@@ -3,16 +3,16 @@ title: 将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎
 description: 了解如何将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: f15c870a1b256ffa546672a3abde2fc68f9baa4f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7fd43ca4e9ccd6eda5f09198a7b2efe1e9da073a
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069007"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111397"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎
 
@@ -26,13 +26,18 @@ Kubernetes Azure Stack 中心市场项启动的部署成功完成后，可以在
 2.  在资源组中，找到 "部署 VM"。 名称以前缀： **vmd-** 开头。
 3.  选择部署 VM。 在 "概述" 中，请查看公共 IP 地址。 使用此地址和控制台应用（如 Putty）与 VM 建立 SSH 会话。
 4.  在部署虚拟机上的会话中，可在以下路径找到 AKS 引擎：`./var/lib/waagent/custom-script/download/0/bin/aks-engine`
-5.  找到描述`.json`用作 aks 的输入的分类的文件。 以为形式的`/var/lib/waagent/custom-script/download/0/bin/azurestack.json`文件。 请注意，该文件具有用于部署群集的服务主体凭据。 如果决定保留该文件，请注意将文件传输到受保护的存储区。
-6.  在处`/var/lib/waagent/custom-script/download/0/_output/<resource group name>`找到由 AKS 引擎生成的输出目录。 在此目录中，查找路径`apimodel.json` `/var/lib/waagent/custom-script/download/0/bin/apimodel.json`中的输出。 目录和`apimodel.json`文件包含部署 Kubernetes 群集所需的所有生成的证书、密钥和凭据。 将这些资源存储在一个安全的位置。
-7.  在路径`$HOME/<output dir>/kubeconfig/kubeconfing.<location>.json`中找到 Kubernetes 配置文件（通常称为**kubeconfig**文件，其中** \<location>** 对应于 Azure Stack 中心位置标识符）。 如果计划设置**kubectl**来访问 Kubernetes 群集，此文件将很有用。
+5.  找到 `.json` 描述用作 aks 的输入的分类的文件。 以为形式的文件 `/var/lib/waagent/custom-script/download/0/bin/azurestack.json` 。 请注意，该文件具有用于部署群集的服务主体凭据。 如果决定保留该文件，请注意将文件传输到受保护的存储区。
+6.  在处找到由 AKS 引擎生成的输出目录 `/var/lib/waagent/custom-script/download/0/_output/<resource group name>` 。 在此目录中，查找路径中的输出 `apimodel.json` `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` 。 目录和 `apimodel.json` 文件包含部署 Kubernetes 群集所需的所有生成的证书、密钥和凭据。 将这些资源存储在一个安全的位置。
+<<<<<<< HEAD
+7.  在路径中找到 Kubernetes 配置文件（通常称为**kubeconfig**文件）， `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` 其中 **<location>** 与 Azure Stack 中心位置标识符相对应。 如果计划设置**kubectl**来访问 Kubernetes 群集，此文件将很有用。
+=======
+7.  在路径中找到 Kubernetes 配置文件（通常称为**kubeconfig**文件）， `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` 其中 **`<location>`** 与 Azure Stack 中心位置标识符相对应。 如果计划设置**kubectl**来访问 Kubernetes 群集，此文件将很有用。
+
+>>>>>>> bd9784471c39194c2918fd281a81b031ee90bafb
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>将 AKS 引擎用于新创建的群集
 
-找到 aks、输入 apimodel 文件、输出目录和输出 apimodel 文件后，将其存储在安全的位置，即可在任何 Linux VM 上使用 AKS 引擎二进制文件和输出`apimodel.json` 。
+找到 aks、输入 apimodel 文件、输出目录和输出 apimodel 文件后，将其存储在安全的位置，即可在 `apimodel.json` 任何 LINUX VM 上使用 aks 引擎二进制文件和输出。
 
 1.  若要继续使用 AKS 引擎，若要执行**升级**和**缩放**等操作，请将**AKS**二进制文件复制到目标计算机。 如果将同一**vmd**计算机用于目录。
 

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack 集线器验证作为服务的常见工作流参数。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a9fce93fb66793ec933d2a8182811bd0577a2588
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f7932714642568c1d41a94d55a212af1bcc385ad
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79293996"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112047"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Azure Stack 中心验证作为服务的工作流常见参数
 
@@ -47,7 +47,7 @@ ms.locfileid: "79293996"
 
 ### <a name="locate-values-in-the-ece-configuration-file"></a>在 ECE 配置文件中查找值
 
-还可以在位于 DVM `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787`上的**ECE 配置文件**中手动找到环境参数值。
+还可以在位于 DVM 上的**ECE 配置文件**中手动找到环境参数值 `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` 。
 
 ## <a name="test-parameters"></a>测试参数
 
@@ -56,8 +56,8 @@ ms.locfileid: "79293996"
 参数    | 说明
 -------------|-----------------
 租户管理员用户                            | Azure Active Directory （Azure AD）租户管理员在 AAD 目录中由服务管理员设置。 此用户执行租户级别的操作，例如部署模板来设置资源（Vm、存储帐户等）和执行工作负荷。 有关设置租户帐户的详细信息，请参阅[添加新的 Azure Stack 中心租户](../operator/azure-stack-add-new-user-aad.md)。
-服务管理员用户             | Azure Stack 中心部署期间指定的 Azure AD directory 租户 Azure AD 管理员。 `AADTenant`在 ECE 配置文件中搜索，然后在`UniqueName`元素中选择值。
-云管理员用户               | Azure Stack 中心域管理员帐户（例如`contoso\cloudadmin`）。 `User Role="CloudAdmin"`在 ECE 配置文件中搜索，然后在`UserName`元素中选择值。
+服务管理员用户             | Azure Stack 中心部署期间指定的 Azure AD directory 租户 Azure AD 管理员。 `AADTenant`在 ECE 配置文件中搜索，然后在元素中选择值 `UniqueName` 。
+云管理员用户               | Azure Stack 中心域管理员帐户（例如 `contoso\cloudadmin` ）。 `User Role="CloudAdmin"`在 ECE 配置文件中搜索，然后在元素中选择值 `UserName` 。
 诊断连接字符串          | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅[生成诊断连接字符串](#generate-the-diagnostics-connection-string)。 |
 
 > [!IMPORTANT]

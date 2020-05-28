@@ -3,16 +3,16 @@ title: 访问 Azure Stack 集线器中的 Kubernetes 仪表板
 description: 了解如何访问 Azure Stack 集线器中的 Kubernetes 仪表板
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 82c3a0c7c43494a3a1a2790ba4672c3d498a61cd
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80479314"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111550"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>访问 Azure Stack 集线器中的 Kubernetes 仪表板 
 
@@ -48,13 +48,13 @@ Kubernetes 包含一个 web 仪表板，可用于基本管理操作。 使用此
 1. 从 Azure Stack 中心仪表板获取群集主机的公共 IP 地址和用户名。 若要获取此信息：
 
     - 登录到[Azure Stack 中心门户](https://portal.local.azurestack.external/)
-    - 选择 "**所有服务** > " "**所有资源**"。 在群集资源组中查找主节点。 主节点命名为`k8s-master-<sequence-of-numbers>`。 
+    - 选择 "**所有服务**" "  >  **所有资源**"。 在群集资源组中查找主节点。 主节点命名为 `k8s-master-<sequence-of-numbers>` 。 
 
 2. 在门户中打开主节点。 复制**公共 IP**地址。 单击 "**连接**"，在 "**使用 VM 本地帐户登录**" 框中获取用户名。 这是创建群集时所设置的相同用户名。 使用公共 IP 地址，而不使用 "连接" 边栏选项卡中列出的专用 IP 地址。
 
 3.  打开 SSH 客户端以连接到主节点。 如果在 Windows 上操作，可以使用 [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) 创建连接。 你将使用主节点的公共 IP 地址、用户名，并添加在创建群集时使用的私钥。
 
-4.  当终端连接时，键入`kubectl`以打开 Kubernetes 命令行客户端。
+4.  当终端连接时，键入 `kubectl` 以打开 Kubernetes 命令行客户端。
 
 5. 运行以下命令：
 
@@ -76,9 +76,9 @@ Kubernetes 包含一个 web 仪表板，可用于基本管理操作。 使用此
     kubectl -n kube-system get secrets
     ```
 
-    请记下 kubernetes\<> 值。 
+    记下 kubernetes 的标记 \<XXXXX> 值。 
 
-8.  获取令牌并将其保存。 将`kubernetes-dashboard-token-<####>`更新为上一步中的机密值。
+8.  获取令牌并将其保存。 将更新为 `kubernetes-dashboard-token-<####>` 上一步中的机密值。
 
     ```Bash  
     kubectl -n kube-system describe secret kubernetes-dashboard-token-<####>| awk '$1=="token:"{print $2}' 
@@ -93,7 +93,7 @@ Kubernetes 包含一个 web 仪表板，可用于基本管理操作。 使用此
     - 私有机密
     - 使用**SFTP SSH 文件传输协议**
 
-2. 将`/etc/kubernetes/certs/client.pfx`和`/etc/kubernetes/certs/ca.crt`复制到 Azure Stack 集线器管理计算机。
+2. 将 `/etc/kubernetes/certs/client.pfx` 和复制 `/etc/kubernetes/certs/ca.crt` 到 Azure Stack 集线器管理计算机。
 
 3. 记下文件位置。 使用位置更新脚本，然后使用提升的提示符打开 PowerShell。 运行更新的脚本：  
 
@@ -107,16 +107,16 @@ Kubernetes 包含一个 web 仪表板，可用于基本管理操作。 使用此
 
 1. 在 Web 浏览器上禁用弹出窗口阻止程序。
 
-2. 当你运行该命令`kubectl cluster-info`时，将浏览器指向所述的 URL。 例如： https：\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https： kubernetes：/proxy 
+2. 当你运行该命令时，将浏览器指向所述的 URL `kubectl cluster-info` 。 例如： https： \/ /azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https： kubernetes：/proxy 
 3. 选择客户端证书。
 4. 输入令牌。 
-5. 重新连接到主节点上的 bash 命令行并为授予权限`kubernetes-dashboard`。 运行以下命令：
+5. 重新连接到主节点上的 bash 命令行并为授予权限 `kubernetes-dashboard` 。 运行以下命令：
 
     ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
 
-    此脚本提供`kubernetes-dashboard`云管理员权限。 有关详细信息，请参阅[for 已启用 RBAC 的群集](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)。
+    此脚本提供 `kubernetes-dashboard` 云管理员权限。 有关详细信息，请参阅[for 已启用 RBAC 的群集](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)。
 
 您可以使用 "仪表板"。 有关 Kubernetes 仪表板的详细信息，请参阅[Kubernetes WEB UI 仪表板](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 
 

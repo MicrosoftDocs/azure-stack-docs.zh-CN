@@ -3,16 +3,16 @@ title: 使用 Visual Studio Code 部署到 Azure Stack Hub
 description: 作为用户，我希望在 Visual Studio Code 中创建 Azure 资源管理器模板，并使用部署架构来准备与我的 Azure Stack Hub 版本兼容的模板。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: d70c44b35612ffb7642a0ee79b5820dba7b66532
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 8f0205425b49ee9e828056e5613a8166d02d95d9
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701881"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111630"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>使用 Visual Studio Code 部署到 Azure Stack Hub
 
@@ -64,7 +64,7 @@ Azure Stack Hub 部署架构通过 Visual Studio Code 中的 Azure 资源管理�
     ```bash  
     CD AzureStack-QuickStart-Templates
     ```
-5. 选择“打开”以打开存储库中位于  **处的文件。** `/101-vm-windows-create/azuredeploy.json`
+5. 选择“打开”以打开存储库中位于 `/101-vm-windows-create/azuredeploy.json` 处的文件。
 6. 将该文件保存到自己的工作区中；如果已创建存储库的分支，则可以在原位操作。
 7. 在文件仍保持打开的情况下，将 `$Schema` 字段更改为 `https://schema.management.azure.com/schemas/2019-03-01-hybrid/deploymentTemplate.json#`。
 8. 可以通过清除 apiProfile 字段值来检查部署架构是否正常运行。
