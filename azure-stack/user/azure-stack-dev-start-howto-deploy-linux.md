@@ -3,16 +3,16 @@ title: 将 Linux VM 部署到 Azure Stack Hub
 description: 将应用部署到 Azure Stack Hub。
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 63fffbf1a9dcc5048286f93b18b20eb72174b8cd
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704193"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146948"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署用于托管 Web 应用的 Linux VM
 
@@ -97,7 +97,7 @@ ms.locfileid: "77704193"
 
     g. 选择“基本”或“高级”**网络安全组**。******** 设置允许或拒绝发往 VM 的网络流量的规则。 
 
-    h. 若要设置使用常用或自定义协议对 VM 设置的访问，请选择“公共入站端口”。**** 该服务会指定此规则的目标协议和端口范围。 可以选择预先定义的服务（例如远程桌面协议 (RDP) 或 SSH），或提供自定义端口范围。 
+    h.如果该值不存在，请单击“添加行”。 若要设置使用常用或自定义协议对 VM 设置的访问，请选择“公共入站端口”。**** 该服务会指定此规则的目标协议和端口范围。 可以选择预先定义的服务（例如远程桌面协议 (RDP) 或 SSH），或提供自定义端口范围。 
         对于 Web 服务器，请使用打开的 HTTP (80)、HTTPS (443) 和 SSH (22)。 如果你打算使用 RDP 连接来管理计算机，请打开端口 3389。
 
     i. 若要将扩展添加到 VM，请选择“扩展”。**** 扩展可为虚拟机添加新功能，例如配置管理或防病毒保护。 
@@ -106,7 +106,7 @@ ms.locfileid: "77704193"
 
     k. 若要指定用于保存指标的存储帐户，请选择“诊断存储帐户”。**** 指标将写入存储帐户，你可以使用自己的工具对其进行分析。 
 
-    l. 选择“确定”  。
+    l. 选择“确定”。
 
 1. 查看**4。摘要**：
     - 门户将验证你的设置。
@@ -137,13 +137,13 @@ ms.locfileid: "77704193"
 
 1. 对于“协议”，请保留默认选项“任何”。********
 
-1. 对于“操作”，请选择“允许”。********
+1. 对于“操作”，请选择“允许”。  
 
 1. 对于“优先级”，请保留默认选项。****
 
 1. 输入**名称**和**说明**，以帮助记住打开端口的原因。
 
-1. 选择 **添加** 。
+1. 选择“添加”  。
 
 #### <a name="add-a-dns-name-for-your-server"></a>添加服务器的 DNS 名称
 
@@ -153,7 +153,7 @@ ms.locfileid: "77704193"
 
 1. 搜索你的 VM。 你可能已将 VM 固定到仪表板；或者，可以在“搜索资源”框中搜索该 VM。****
 
-1. 选择“概述”。 
+1. 选择“概述”。
 
 1. 在“VM”下选择“配置”。********
 

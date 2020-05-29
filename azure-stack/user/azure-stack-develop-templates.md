@@ -3,16 +3,16 @@ title: 为 Azure Stack Hub 开发模板
 description: 了解如何开发 Azure 资源管理器模板来实现 Azure 与 Azure Stack Hub 之间的应用可移植性。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ce9ee8a982ade764947af3c6e2fb2f880cefc217
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: dd43abbf1194aa4aaa3ca1cc75a3e2ff6262bbbc
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702969"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146744"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>使用 Azure 资源管理器开发 Azure Stack Hub 的模板
 

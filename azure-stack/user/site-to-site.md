@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 5277e908fa9f3c5d8fbcebf28b4d766045d03187
-ms.sourcegitcommit: 999c6cd0ab64cd2d695feb8405a9c720c9ae755b
+ms.openlocfilehash: 773c8a0758d00ece537b6d80b0e0735655adb275
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83342900"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158395"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>排查站点到站点 VPN 连接问题
 
@@ -27,11 +27,13 @@ ms.locfileid: "83342900"
 IPsec/IKEV2 的 Azure Stack 集线器默认参数已[从 1910 build 开始](../user/azure-stack-vpn-gateway-settings.md#ike-phase-1-main-mode-parameters)更改。请联系你的 Azure Stack 中心操作员获取有关生成版本的详细信息。
 
 > [!IMPORTANT]
-> 使用 S2S 隧道时，数据包将与其他标头进一步封装。 此封装增加了数据包的总大小。 在这些情况下，必须将 TCP **MSS**固定在**1350**。 如果 VPN 设备不支持 MSS 钳位，则可以改为将隧道接口上的 MTU 设置为**1400**字节。 有关详细信息，请参阅[虚拟网络 TCPIP 性能优化](/azure/virtual-network/virtual-network-tcpip-performance-tuning)。
+> 使用 S2S 隧道时，数据包将与其他标头进一步封装。 此封装增加了数据包的总大小。 在这些情况下，必须将 TCP **MSS** 固定在 **1350**。 如果 VPN 设备不支持 MSS 钳位，则可以改为将隧道接口上的 MTU 设置为**1400**字节。 有关详细信息，请参阅[虚拟网络 TCPIP 性能优化](/azure/virtual-network/virtual-network-tcpip-performance-tuning)。
 
 - 确认 VPN 配置是基于路由的（IKEv2）。 Azure Stack 中心不支持基于策略的（IKEv1）配置。
 
 - 检查是否使用的是[已验证的 VPN 设备和操作系统版本](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable)。 如果设备是未经验证的 VPN 设备，你可能需要与设备制造商联系，了解是否存在兼容性问题。
+
+- 验证 Azure Stack 中心虚拟网络和本地网络之间没有重叠的 IP 范围。 这可能会导致路由问题。 
 
 - 验证 VPN 对等 Ip：
 

@@ -3,15 +3,15 @@ title: Azure Stack Hub 存储简介
 description: 了解 Azure Stack Hub 存储服务。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 69f47c34f55935d73ffb1349b8c90624d6311449
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: d45b8069915ea920d6366daeefdfb53953301102
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742367"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146982"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Azure Stack Hub 存储简介
 

@@ -3,16 +3,16 @@ title: 将 Go Web 应用部署到 Azure Stack Hub 中的虚拟机
 description: 如何将 Go Web 应用部署到 Azure Stack Hub 中的 VM
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: e6556ee12644140ace4553c4e613441440e00d14
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: c81ef85db48cbb45e104666ef1d9974bd56aa3ff
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77704159"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146897"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>将 Go Web 应用部署到 Azure Stack Hub 中的 VM
 

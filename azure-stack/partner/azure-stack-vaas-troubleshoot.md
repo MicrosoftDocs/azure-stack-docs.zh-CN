@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1bcca404c451190ccf1d0b82e93aea655e069044
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 310a8a8d958428af2ce29f6c465a788e64870b8e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661390"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146965"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>验证作为服务的验证
 
@@ -40,17 +40,26 @@ ms.locfileid: "81661390"
 
 ## <a name="vm-images"></a>VM 映像
 
+### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>在脚本中上传 VM 映像时出现故障 `VaaSPreReq`
+请参阅下面的部分来**处理慢速网络连接**。 它提供将 VM 映像上传到 Azure Stack 戳记的手动步骤。
+
 ### <a name="handle-slow-network-connectivity"></a>处理慢速网络连接
 
-可以将 PIR 映像下载到本地数据中心内的某个共享。 然后，就可以检查映像了。
+#### <a name="1-verify-that-the-environment-is-healthy"></a>1. 验证环境是否正常
+
+1. 从 "DVM"/"跳转" 框中检查是否可以使用管理员凭据成功登录到管理门户。
+
+2. 确认没有任何警报或警告。
+
+3. 如果环境正常运行，请按照以下部分中的步骤，手动上传 VaaS 测试运行所需的 VM 映像。
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
-#### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>在网络流量慢速的情况下将 PIR 映像下载到本地共享
+#### <a name="2-download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>2. 将 PIR 映像下载到本地共享，以防网络流量缓慢
 
 1. 下载 AzCopy： [vaasexternaldependencies （AzCopy）](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)。
 
-2. 提取 AzCopy，并将其更改到包含`AzCopy.exe`的目录。
+2. 提取 AzCopy，并将其更改到包含的目录 `AzCopy.exe` 。
 
 3. 从提升的提示符下打开 Windows PowerShell。 运行以下命令：
 
@@ -67,7 +76,7 @@ ms.locfileid: "81661390"
 > [!Note]  
 > LocalFileShare 是共享路径或本地路径。
 
-#### <a name="verifying-pir-image-file-hash-value"></a>验证 PIR 映像文件哈希值
+#### <a name="3-verifying-pir-image-file-hash-value"></a>3. 验证 PIR 图像文件哈希值
 
 可以使用 **Get-HashFile** cmdlet 获取所下载的公用映像存储库映像文件的哈希值来检查映像的完整性。
 
@@ -81,45 +90,54 @@ ms.locfileid: "81661390"
 | OpenLogic-CentOS-69-20180105 | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest .vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>在`VaaSPreReq`脚本中上传 VM 映像时出现故障
+#### <a name="4-upload-vm-images-to-a-storage-account"></a>4. 将 VM 映像上传到存储帐户
 
-首先检查环境是否正常：
+1. 使用现有存储帐户，或在 Azure 中创建新的存储帐户。
 
-1. 从 "DVM"/"跳转" 框中检查是否可以使用管理员凭据成功登录到管理员门户。
-1. 确认没有任何警报或警告。
+2. 创建要将图像上传到的容器。
 
-如果环境正常运行，请手动上传 VaaS 测试运行所需的五个 VM 映像：
+3. 使用 Azcopy 工具将 VM 映像从上面的 [*LocalFileShare*] （下载 vm 映像的位置）上传到刚刚创建的容器。
+    > [!IMPORTANT]
+    > 将容器的 "公共访问级别" 更改为 "Blob （仅限 blob 的匿名读取访问）"
 
-1. 以服务管理员身份登录到管理员门户。 你可以从 ECE 存储区或你的 stamp 信息文件中找到管理员门户 URL。 有关说明，请参阅[环境参数](azure-stack-vaas-parameters.md#environment-parameters)。
-1. **Compute** > 选择 **"更多服务** > " "**资源提供程序** > **"。**
-1. 选择 " **VM 映像**" 边栏选项卡顶部的 " **+ 添加**" 按钮。
-1. 修改或检查第一个 VM 映像的以下字段的值：
+#### <a name="5-upload-vm-images-to-azure-stack-environment"></a>5. 将 VM 映像上传到 Azure Stack 环境
+
+1. 以服务管理员身份登录到管理门户。 你可以从 ECE 存储区或你的 stamp 信息文件中找到管理门户 URL。 有关说明，请参阅[环境参数](azure-stack-vaas-parameters.md#environment-parameters)。
+
+2. 选择 "**更多服务**" "  >  **资源提供程序**"  >  **Compute**  >  **VM Images**。
+
+3. 选择 " **VM 映像**" 边栏选项卡顶部的 " **+ 添加**" 按钮。
+
+4. 修改或检查第一个 VM 映像的以下字段的值：
+
     > [!IMPORTANT]
     > 并非所有默认值对于现有 marketplace 项都是正确的。
 
-    | 字段  | 值  |
+    | 字段  | Value  |
     |---------|---------|
     | 发布者 | MicrosoftWindowsServer |
     | 产品/服务 | WindowsServer |
-    | 操作系统类型 | Windows |
+    | OS 类型 | Windows |
     | SKU | 2012-R2-Datacenter |
     | 版本 | 1.0.0 |
-    | OS 磁盘 Blob URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+    | OS 磁盘 Blob URI | https://<*存储帐户* >/< *容器名称*>/windowsserver2012r2datacenterbyol.vhd |
 
-1. 选择“创建”**** 按钮。
-1. 为剩余的 VM 映像重复此操作。
 
-所有五个 VM 映像的属性如下所示：
+5. 选择“创建”**** 按钮。
 
-| 发布者  | 产品/服务  | 操作系统类型 | SKU | 版本 | OS 磁盘 Blob URI |
+6. 为剩余的 VM 映像重复此操作。
+
+所有必需的 VM 映像的属性如下所示：
+
+| 发布者  | 产品/服务  | OS 类型 | SKU | 版本 | OS 磁盘 Blob URI |
 |---------|---------|---------|---------|---------|---------|
-| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
-| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
-| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
-| credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |
+| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://[*存储帐户*]/[*容器名称*]/WindowsServer2012R2DatacenterBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://[*存储帐户*]/[*容器名称*]/Server2016DatacenterFullBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://[*存储帐户*]/[*容器名称*]/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://[*存储帐户*]/[*容器名称*]/Ubuntu1404LTS.vhd |
+| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://[*存储帐户*]/[*容器名称*]/Ubuntu1604-20170619.1.vhd |
+| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://[*存储帐户*]/[*容器名称*]/OpenLogic-CentOS-69-20180105.vhd |
+| Credativ | Debian | Linux | 8 | 1.0.0 | https://[*存储帐户*]/[*容器名称*]/Debian8_latest .vhd |
 
 ## <a name="next-steps"></a>后续步骤
 

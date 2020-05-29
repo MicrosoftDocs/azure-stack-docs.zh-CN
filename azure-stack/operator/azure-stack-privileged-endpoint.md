@@ -7,12 +7,12 @@ ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
-ms.openlocfilehash: 8c68e7dd4aa40d448e76050e4c657ee4cea9763b
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ff1a4f255f81c10c29c87320bdb71fcbaf9b234b
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556409"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158344"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>使用 Azure Stack Hub 中的特权终结点
 
@@ -88,6 +88,8 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
 3. 在连接后，提示符将更改为 **[*IP 地址或 ERCS VM 名称*]:PS>** 或 **[azs-ercs01]:PS>** ，具体取决于环境。 在此处运行 `Get-Command` 可查看可用的 cmdlet 列表。
 
+    可以在[Azure Stack 中心特权终结点引用](../reference/pep-2002/index.md)中找到 cmdlet 引用
+
    其中的许多 cmdlet 仅供集成系统环境使用（例如与数据中心集成相关的 cmdlet）。 在 ASDK 中，以下 cmdlet 已经过验证：
 
    - Clear-Host
@@ -157,7 +159,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
      出现提示时，请使用以下凭据：
 
-     - **用户名**：指定 CloudAdmin 帐户，格式** &lt;为*Azure Stack 中心域*&gt;\cloudadmin**。 （对于 ASDK，用户名为 **azurestack\cloudadmin**。）
+     - **用户名**：指定 CloudAdmin 帐户，格式为** &lt; *Azure Stack 中心域* &gt; \cloudadmin**。 （对于 ASDK，用户名为 **azurestack\cloudadmin**。）
      - **密码**：输入安装 AzureStackAdmin 域管理员帐户期间提供的相同密码。
 
 3. 将 PEP 会话导入到本地计算机：
@@ -183,10 +185,10 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 
    该 cmdlet 使用下表中的参数：
 
-   | 参数 | 描述 | 类型 | 必需 |
+   | 参数 | 说明 | 类型 | 必须 |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | 定义为“fileshareIP\sharefoldername”的外部文件共享的路径 | 字符串 | 是|
-   | *Credential* | 用于访问文件共享的凭据 | SecureString |   是 |
+   | *TranscriptsPathDestination* | 定义为“fileshareIP\sharefoldername”的外部文件共享的路径 | String | 是|
+   | *凭据* | 用于访问文件共享的凭据 | SecureString |   是 |
 
 
 将脚本日志文件成功传送到文件共享后，它们会自动从 PEP 中删除。 

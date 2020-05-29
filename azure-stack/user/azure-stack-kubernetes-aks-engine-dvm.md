@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 7fd43ca4e9ccd6eda5f09198a7b2efe1e9da073a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 222212a26362a617322b65f93509a0cd2a313999
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111397"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146863"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎
 
@@ -28,12 +28,8 @@ Kubernetes Azure Stack 中心市场项启动的部署成功完成后，可以在
 4.  在部署虚拟机上的会话中，可在以下路径找到 AKS 引擎：`./var/lib/waagent/custom-script/download/0/bin/aks-engine`
 5.  找到 `.json` 描述用作 aks 的输入的分类的文件。 以为形式的文件 `/var/lib/waagent/custom-script/download/0/bin/azurestack.json` 。 请注意，该文件具有用于部署群集的服务主体凭据。 如果决定保留该文件，请注意将文件传输到受保护的存储区。
 6.  在处找到由 AKS 引擎生成的输出目录 `/var/lib/waagent/custom-script/download/0/_output/<resource group name>` 。 在此目录中，查找路径中的输出 `apimodel.json` `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` 。 目录和 `apimodel.json` 文件包含部署 Kubernetes 群集所需的所有生成的证书、密钥和凭据。 将这些资源存储在一个安全的位置。
-<<<<<<< HEAD
-7.  在路径中找到 Kubernetes 配置文件（通常称为**kubeconfig**文件）， `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` 其中 **<location>** 与 Azure Stack 中心位置标识符相对应。 如果计划设置**kubectl**来访问 Kubernetes 群集，此文件将很有用。
-=======
-7.  在路径中找到 Kubernetes 配置文件（通常称为**kubeconfig**文件）， `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` 其中 **`<location>`** 与 Azure Stack 中心位置标识符相对应。 如果计划设置**kubectl**来访问 Kubernetes 群集，此文件将很有用。
+7.  在路径中找到 Kubernetes 配置文件（通常称为**kubeconfig**文件）， `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` 其中 **\<location>** 与 Azure Stack 中心位置标识符相对应。 如果计划设置**kubectl**来访问 Kubernetes 群集，此文件将很有用。
 
->>>>>>> bd9784471c39194c2918fd281a81b031ee90bafb
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>将 AKS 引擎用于新创建的群集
 
@@ -47,4 +43,3 @@ Kubernetes Azure Stack 中心市场项启动的部署成功完成后，可以在
 
 - 了解[Azure Stack 集线器上的 AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)  
 - [对 Azure Stack 集线器上的 AKS 引擎进行故障排除](azure-stack-kubernetes-aks-engine-troubleshoot.md)  
-

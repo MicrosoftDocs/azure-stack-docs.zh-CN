@@ -3,16 +3,16 @@ title: 如何在 Azure Stack Hub 中使用 SSH 公钥
 description: 如何使用 SSH 公钥
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 5f65b0ff096fbf84b140406b7cb98fdbdf5b0b11
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 1b5a83d8fa6626233acc3abbde69494310cbd06e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79294150"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146914"
 ---
 # <a name="use-an-ssh-public-key"></a>使用 SSH 公钥
 
@@ -32,7 +32,7 @@ ms.locfileid: "79294150"
 
 1. 在“参数”下选择“RSA”。  
 
-1. 在“已生成密钥中的位数”中，输入 **2048**。   
+1. 在“已生成密钥中的位数”中，输入 **2048**。  
 
 1. 然后选择“生成”  。
 
@@ -77,13 +77,13 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 
     ![PuTTY 配置窗格](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-connect.png)
 
-2. 在“主机名(或 IP 地址)”框中，输入用户名和计算机的公共 IP 地址（例如  **）。username@192.XXX.XXX.XX** 
+2. 在“主机名(或 IP 地址)”框中，输入用户名和计算机的公共 IP 地址（例如 **username@192.XXX.XXX.XX** ）。 
 3. 检查“端口”是否为“22”，“连接类型”是否为“SSH”。    
 4. 在“类别”树中，展开“SSH”和“身份验证”。   
 
     ![PuTTY 配置窗格 - SSH 私钥](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. 在“用于身份验证的私钥文件”框的旁边选择“浏览”，然后搜索公钥和私钥对的私钥文件 (  filename>.ppk **)。** *\<*
+5. 在 "**身份验证的私钥文件**" 框旁边，选择 "**浏览**"，然后搜索公钥和私钥对的私钥文件（* \<filename> . .ppk*）。
 6. 在“类别”树中选择“会话”。  
 
     ![PuTTY 配置窗格 -“保存的会话”框](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
@@ -100,7 +100,7 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 
 1. [下载并安装 FileZilla](https://filezilla-project.org/download.php)。
 1. 打开 FileZilla。
-1. 选择“文件” **“站点管理器”。**  >  
+1. 选择“文件” > “站点管理器”。 
 
     ![FileZilla 站点管理器窗格](media/azure-stack-dev-start-howto-ssh-public-key/005-filezilla-file-manager.png)
 
@@ -109,18 +109,18 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 1. 在“登录类型”框中，选择“正常”。  
 1. 输入用户名和密码。
 1. 选择“确定”  。
-1. 选择“编辑” **“设置”。**  >  
+1. 选择“编辑” > “设置”。 
 
     ![FileZilla 设置窗格](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
 1. 在“选择页”树中展开“连接”，然后选择“SFTP”。   
-1. 选择“添加密钥文件”，然后输入私钥文件（例如  filename>.ppk *）。\<*
+1. 选择 "**添加密钥文件**"，然后输入私钥文件（例如， * \<filename> . .ppk*）。
 1. 选择“确定”  。
 
 ### <a name="open-your-connection"></a>打开连接
 
 1. 打开 FileZilla。
-1. 选择“文件” **“站点管理器”。**  >  
+1. 选择“文件” > “站点管理器”。 
 1. 选择站点名称，然后选择“连接”。 
 
 ## <a name="next-steps"></a>后续步骤

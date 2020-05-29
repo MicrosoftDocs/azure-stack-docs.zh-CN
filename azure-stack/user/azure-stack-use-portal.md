@@ -3,16 +3,16 @@ title: 使用 Azure Stack Hub 用户门户
 description: 了解如何访问和使用 Azure Stack Hub 中的用户门户。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c5f3a357295647f557e0b4ef9819aa1781779434
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f60094812a5bc0b27a05ec7e66ac7bf65d747d76
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705298"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147016"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>使用 Azure Stack Hub 用户门户
 

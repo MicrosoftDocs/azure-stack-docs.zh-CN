@@ -3,16 +3,16 @@ title: Azure Stack Hub VM 功能
 description: 了解使用 Azure Stack Hub 中的 VM 时的不同功能和注意事项。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/3/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: f93ce26acd7474def8495e6e0df28bd3b8669848
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c90231d96f3f076b0824222fba43c8d9ef680fa5
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80614429"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146778"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM 功能
 
@@ -111,7 +111,7 @@ Microsoft Azure 使用 KMS 激活来激活 Windows Vm。 如果将 VM 从 Azure 
 
 ## <a name="high-availability"></a>高可用性
 
-由于 Azure Stack 中心操作员计划的维护，你的 VM 可能会因计划内维护而重新启动。 为了在 Azure 中实现多 VM 生产系统的高可用性，可以将 VM 置于横跨多个容错域和更新域的[可用性集](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)中。 在较小规模的 Azure Stack Hub 中，可用性集中的容错域定义为缩放单元中的单个节点。  
+由于 Azure Stack Hub 操作员计划的计划内维护，你的VM 可能需要重新启动。 为了在 Azure 中实现多 VM 生产系统的高可用性，可以将 VM 置于横跨多个容错域和更新域的[可用性集](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)中。 在较小规模的 Azure Stack Hub 中，可用性集中的容错域定义为缩放单元中的单个节点。  
 
 在发生硬件故障时，虽然 Azure Stack Hub 的基础结构已具备故障还原能力，但基础技术（故障转移群集功能）的局限仍会导致受影响物理服务器上的 VM 出现停机。 为了与 Azure 保持一致，Azure Stack Hub 支持的可用性集最多有三个容错域。
 
@@ -122,4 +122,4 @@ Microsoft Azure 使用 KMS 激活来激活 Windows Vm。 如果将 VM 从 Azure 
 
 ## <a name="next-steps"></a>后续步骤
 
-[在 Azure Stack 集线器中使用 PowerShell 创建 Windows VM](azure-stack-quick-create-vm-windows-powershell.md)
+[在 Azure Stack Hub 中使用 PowerShell 创建 Windows VM](azure-stack-quick-create-vm-windows-powershell.md)

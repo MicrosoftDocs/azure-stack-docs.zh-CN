@@ -3,16 +3,16 @@ title: 将租户添加到 Azure Stack Hub 以获取用量和计费信息
 description: 了解如何将租户添加到 Azure Stack Hub 以获取用量和计费信息。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 5/28/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: d5a846d762d0dab8d07a16c7a7b6f147d8a92324
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.lastreviewed: 5/28/2020
+ms.openlocfilehash: 08185a25c608c735aa99ca7f7d2b060c8b67042b
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82167018"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158378"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>将租户添加到 Azure Stack Hub 以获取用量和计费信息
 
@@ -56,7 +56,7 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
    ```
 
    >[!NOTE]
-   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用**add-azurermaccount**： `Remove-AzureRmAccount-Scope Process`登录之前运行以下 cmdlet。
+   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用**add-azurermaccount**：登录之前运行以下 cmdlet `Remove-AzureRmAccount-Scope Process` 。
 
 2. 键入 Azure 凭据。
 3. 在 PowerShell 会话中运行：
@@ -72,7 +72,7 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
 | 参数 | 说明 |
 | --- | --- |
 |registrationSubscriptionID | 用于 Azure Stack Hub 初始注册的 Azure 订阅。|
-| customerSubscriptionID | 属于要注册的客户的 Azure 订阅（非 Azure Stack Hub）。 必须在 CSP 套餐中创建。 实际上，这意味着通过合作伙伴中心。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack Hub 的租户中创建此订阅。 客户订阅 ID 必须使用小写字母。 |
+| customerSubscriptionID | 属于要注册的客户的 Azure 订阅（非 Azure Stack Hub）。 必须在 CSP 套餐中创建。 实际上，这意味着通过合作伙伴中心。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack Hub 的租户中创建此订阅。 客户订阅 ID 区分大小写。 |
 | resourceGroup | Azure 中用于存储注册的资源组。 |
 | registrationName | Azure Stack Hub 的注册名称。 它是 Azure 中存储的对象。 
 
