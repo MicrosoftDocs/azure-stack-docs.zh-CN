@@ -6,12 +6,13 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 372df0bdb99ce06b22912e9e5c175af07620f5f4
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ROBOTS: nosnippet
+ms.openlocfilehash: 572a550d6f9101fd8b118290d14deda96229b0f9
+ms.sourcegitcommit: b9f595d63969bfefc541daff07dc459441ec5b9a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988316"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84214612"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>使用应用标识访问 Azure Stack Hub 资源
 
@@ -130,7 +131,7 @@ ms.locfileid: "82988316"
 
    ```
    
-2. 脚本完成后，会显示应用注册信息，包括服务主体的凭据。 `ClientID`和`Thumbprint`经过身份验证，并在以后被授权访问 Azure 资源管理器管理的资源。
+2. 脚本完成后，会显示应用注册信息，包括服务主体的凭据。 `ClientID`和 `Thumbprint` 经过身份验证，并在以后被授权访问 Azure 资源管理器管理的资源。
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -237,7 +238,7 @@ ms.locfileid: "82988316"
      $SpObject
      ```
 
-2. 脚本完成后，会显示应用注册信息，包括服务主体的凭据。 `ClientID`和`ClientSecret`经过身份验证，并在以后被授权访问 Azure 资源管理器管理的资源。
+2. 脚本完成后，会显示应用注册信息，包括服务主体的凭据。 `ClientID`和 `ClientSecret` 经过身份验证，并在以后被授权访问 Azure 资源管理器管理的资源。
 
      ```shell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
@@ -337,7 +338,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 3. 选择“访问控制(IAM)”页。支持 RBAC 的所有资源都会提供此页。****
 4. 选择 **+ 添加**
 5. 在“角色”下，选择要将应用分配到哪个角色。****
-6. 在“选择”下，使用完整或部分应用名称来搜索你的应用程序。**** 在注册期间，应用程序名称将生成*为 test-azurestack\<-\>-\<YourAppName\>ClientId*。 例如，如果使用的应用程序名为 *App2*，在创建期间分配的客户端 ID 为 *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*，则完整名称为 *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*。 可以搜索确切的字符串，也可以只搜索其一部分，例如 *Azurestack* 或 *Azurestack-App2*。
+6. 在“选择”下，使用完整或部分应用名称来搜索你的应用程序。**** 注册过程中，应用程序名称将生成为*test-azurestack \<YourAppName\> - \<ClientId\> -*。 例如，如果使用的应用程序名为 *App2*，在创建期间分配的客户端 ID 为 *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*，则完整名称为 *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*。 可以搜索确切的字符串，也可以只搜索其一部分，例如 *Azurestack* 或 *Azurestack-App2*。
 7. 找到应用后，请选择它，然后它会显示在“已选择的成员”下。****
 8. 选择“保存”  完成角色分配。
 

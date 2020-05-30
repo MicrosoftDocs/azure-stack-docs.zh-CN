@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 773c8a0758d00ece537b6d80b0e0735655adb275
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: 361fefb0cfac67d5d55c9b3391da68877d695da3
+ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158395"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203113"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>排查站点到站点 VPN 连接问题
 
@@ -33,7 +33,7 @@ IPsec/IKEV2 的 Azure Stack 集线器默认参数已[从 1910 build 开始](../u
 
 - 检查是否使用的是[已验证的 VPN 设备和操作系统版本](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable)。 如果设备是未经验证的 VPN 设备，你可能需要与设备制造商联系，了解是否存在兼容性问题。
 
-- 验证 Azure Stack 中心虚拟网络和本地网络之间没有重叠的 IP 范围。 这可能会导致路由问题。 
+- 验证 Azure Stack 中心虚拟网络和本地网络之间没有重叠的 IP 范围。 这可能会导致连接问题。 
 
 - 验证 VPN 对等 Ip：
 

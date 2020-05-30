@@ -3,20 +3,22 @@ title: 在 Azure Stack Hub 中添加公共 IP 地址
 description: 了解如何向 Azure Stack Hub 添加公共 IP 地址。
 author: justinha
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/28/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 8cd89a90cb29c802c79e900e07cdb50bfe9c0894
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 423f274dab5569273cc35ec4aac6b082326217f3
+ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847905"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203130"
 ---
 # <a name="add-public-ip-addresses"></a>添加公共 IP 地址
 
-本文将外部地址称作公共 IP 地址。 在 Azure Stack Hub 的上下文中，公共 IP 地址是可从 Azure Stack Hub 外部访问的 IP 地址。 无论此外部网络是公共 internet 可路由还是位于 intranet 上并使用专用地址空间，本文的目的都是相同的，这些步骤是相同的。
+本文将外部地址称作公共 IP 地址。 在 Azure Stack Hub 的上下文中，公共 IP 地址是可从 Azure Stack Hub 外部访问的 IP 地址。 无论此外部网络是公共 internet 可路由还是位于 intranet 上并使用专用地址空间，本文的目的都是相同的。 
+
+虽然你可以设置多个 IP 池，但无法选择要使用的池。 Azure Stack 中心将所有 IP 池作为一个线程。 创建资源时，无法选择要分配的 IP。
 
 > [!IMPORTANT]
 > 本文中的步骤仅适用于使用合作伙伴工具包 1809 或更高版本部署的系统。 在版本 1809 之前部署的系统需要更新机架安装式 (TOR) 交换机访问控制列表 (ACL)，才能允许新的公共 VIP 池范围。 如果运行早期的交换机配置，请在 OEM 的配合下为新的公共 IP 池添加相应的“允许”ACL，或使用最新的合作伙伴工具包重新配置交换机，以防新的公共 IP 地址遭到阻止。
