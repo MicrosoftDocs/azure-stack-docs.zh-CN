@@ -6,17 +6,15 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ROBOTS: nosnippet
-ms.openlocfilehash: 572a550d6f9101fd8b118290d14deda96229b0f9
-ms.sourcegitcommit: b9f595d63969bfefc541daff07dc459441ec5b9a
+ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
+ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84214612"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262661"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>使用应用标识访问 Azure Stack Hub 资源
-
-需要通过 Azure 资源管理器部署或配置资源的应用程序必须由其自己的标识表示。 正如用户由称为用户主体的安全主体表示一样，应用由服务主体表示。 服务主体提供应用的标识，只允许向应用委托必要的权限。  
+<meta name="robots" content="nosnippet">需要通过 Azure 资源管理器部署或配置资源的应用程序必须由其自己的标识表示。 正如用户由称为用户主体的安全主体表示一样，应用由服务主体表示。 服务主体提供应用的标识，只允许向应用委托必要的权限。  
 
 例如，你可能有一个使用 Azure 资源管理器来清点 Azure 资源的配置管理应用。 在这种情况下，你可以创建服务主体，向该服务主体授予 "读取者" 角色，并将配置管理应用限制为只读访问。
 
