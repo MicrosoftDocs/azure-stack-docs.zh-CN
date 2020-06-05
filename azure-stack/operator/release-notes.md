@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 05/29/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d8da583fbf954857e2331ce963ec2ae7f0883ea2
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
+ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780807"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84329208"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -52,7 +52,7 @@ ms.locfileid: "83780807"
 Azure Stack Hub 2002 更新内部版本号为 **1.2002.0.35**。
 
 > [!IMPORTANT]  
-> 在 Azure Stack 中心2002更新中，Microsoft 暂时扩展了我们的[Azure Stack 中心支持策略声明](azure-stack-servicing-policy.md)。  我们正在与世界各地应对 COVID-19 的客户合作，这些客户可能正在就其 Azure Stack Hub 系统以及如何更新和管理这些系统做出重要决策，以确保其数据中心业务操作继续正常运行。 为支持我们的客户，Microsoft 提供了临时支持策略更改扩展，以包括三个以前的更新版本。  因此，将支持新发布的 2002 更新以及以前的三个更新版本（例如 1910、1908 和 1907）之一。
+> 在 Azure Stack 中心2002更新中，Microsoft 暂时扩展了我们的[Azure Stack 中心支持策略声明](azure-stack-servicing-policy.md)。  我们正在与世界各地应对 COVID-19 的客户合作，这些客户可能正在就其 Azure Stack Hub 系统以及如何更新和管理这些系统做出决定，以确保其数据中心业务操作继续正常运行。 为支持我们的客户，Microsoft 提供了临时支持策略更改扩展，以包括三个以前的更新版本。  因此，将支持新发布的 2002 更新以及以前的三个更新版本（例如 1910、1908 和 1907）之一。
 
 ### <a name="update-type"></a>更新类型
 
@@ -162,14 +162,14 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 必须在包含以下修补程序的版本 1910 中应用 Azure Stack Hub 版本 2002：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1910.40.138](https://support.microsoft.com/help/4558082)
+- [Azure Stack 中心修补程序1.1910.42.142](https://support.microsoft.com/help/4564874)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>成功应用 2002 更新之后
 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.2002.24.85](https://support.microsoft.com/help/4558081)
+- [Azure Stack 中心修补程序1.2002.28.93](https://support.microsoft.com/help/4562966)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -244,7 +244,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”。
 
    **IKE 阶段 1（主模式）参数**
 
-   | 属性              | Value|
+   | Property              | Value|
    |-|-|
    | SDK 版本           | IKEv2 |
    |Diffie-Hellman 组   | ECP384 |
@@ -326,7 +326,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1910.40.138](https://support.microsoft.com/help/4558082)
+- [Azure Stack 中心修补程序1.1910.42.142](https://support.microsoft.com/help/4564874)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
