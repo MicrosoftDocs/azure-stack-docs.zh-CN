@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 15908ca3057cb347f1dd02c7ee5113c0e9d0b9de
-ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
+ms.openlocfilehash: 66760fd19b90e55ab27e2c1f2509f0a9b9cb51ae
+ms.sourcegitcommit: d943f7d6e665e3334125f8a15a0343fd28d8f2a9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708278"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84452407"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 
@@ -59,7 +59,7 @@ ms.locfileid: "83708278"
 ### <a name="disks"></a>磁盘
 Azure Stack 集线器支持在虚拟机中使用托管磁盘和非托管磁盘，同时作为操作系统（OS）和数据磁盘。
 
-**托管磁盘**通过管理与 VM 磁盘关联的存储帐户简化了 Azure IaaS VM 的磁盘管理。 只需指定所需磁盘的大小，Azure Stack 中心就会为你创建和管理磁盘。 有关详细信息，请参阅[托管磁盘概述](/azure/virtual-machines/windows/managed-disks-overview)。
+**托管磁盘**通过管理与 VM 磁盘关联的存储帐户简化了 Azure IaaS VM 的磁盘管理。 只需指定所需的磁盘大小，Azure Stack Hub 即可为你创建和管理磁盘。 有关详细信息，请参阅[托管磁盘概述](/azure/virtual-machines/windows/managed-disks-overview)。
 
 建议对 VM 使用托管磁盘，以便更轻松地进行管理和容量平衡。 不需在使用托管磁盘之前准备存储帐户和容器。 创建多个托管磁盘时，会将这些磁盘分配到多个卷中，这有助于平衡卷的容量。  
 
@@ -152,7 +152,7 @@ Azure Stack 集线器支持在虚拟机中使用托管磁盘和非托管磁盘�
 
 有关详细信息，请参阅[管理 Azure Stack 中心存储帐户](azure-stack-manage-storage-accounts.md#reclaim)的 "回收容量" 一节。
 
-::: moniker range="<azs-2002"
+::: moniker range="<azs-1910"
 
 ### <a name="migrate-a-container-between-volumes"></a>在卷之间迁移容器
 *此选项仅适用于 Azure Stack 集线器集成系统。*
@@ -242,7 +242,7 @@ Azure Stack 集线器支持在虚拟机中使用托管磁盘和非托管磁盘�
 管理空间的最极端方法涉及移动 VM 磁盘。 由于移动附加容器（一个包含 VM 磁盘的容器）非常复杂，因此请联系 Microsoft 支持部门来完成此操作。
 
 ::: moniker-end
-::: moniker range=">=azs-2002"
+::: moniker range=">=azs-1910"
 
 ### <a name="migrate-a-managed-disk-between-volumes"></a>在卷之间迁移托管磁盘
 *此选项仅适用于 Azure Stack 集线器集成系统。*
@@ -263,7 +263,10 @@ Azure Stack 集线器支持在虚拟机中使用托管磁盘和非托管磁盘�
    $StorageSubSystem = (Get-AzsStorageSubSystem -ScaleUnit $ScaleUnit.Name)[0]
    $Volumes = (Get-AzsVolume -ScaleUnit $ScaleUnit.Name -StorageSubSystem $StorageSubSystem.Name | Where-Object {$_.VolumeLabel -Like "ObjStore_*"})
    $SourceVolume  = ($Volumes | Sort-Object RemainingCapacityGB)[0]
-   $Disks = Get-AzsDisk -Status All -ScaleUnit $ScaleUnit.name -VolumeLabel $SourceVolume.VolumeLabel | Select-Object -First 10
+   $VolumeName = $SourceVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationSource = "\\SU1FileServer."+$VolumeName+"\SU1_"+$SourceVolume.VolumeLabel
+   $Disks = Get-AzsDisk -Status All -SharePath $MigrationSource | Select-Object -First 10
    ```
    然后检查 $disks：
 
@@ -277,13 +280,16 @@ Azure Stack 集线器支持在虚拟机中使用托管磁盘和非托管磁盘�
 
    ```powershell
    $DestinationVolume  = ($Volumes | Sort-Object RemainingCapacityGB -Descending)[0]
+   $VolumeName = $DestinationVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationTarget = "\\SU1FileServer."+$VolumeName+"\SU1_"+$DestinationVolume.VolumeLabel
    ```
 
 4. 开始迁移托管磁盘。 迁移是异步操作。 如果在第一次迁移完成之前开始迁移其他磁盘，请使用作业名称跟踪每个磁盘的状态。
 
    ```powershell
    $jobName = "MigratingDisk"
-   Start-AzsDiskMigrationJob -Disks $Disks -TargetScaleUnit $ScaleUnit.name -TargetVolumeLabel $DestinationVolume.VolumeLabel -Name $jobName
+   Start-AzsDiskMigrationJob -Disks $Disks -TargetShare $MigrationTarget -Name $jobName
    ```
 
 5. 使用作业名称来检查迁移作业的状态。 磁盘迁移完成后， **MigrationStatus**设置为**完成**。
