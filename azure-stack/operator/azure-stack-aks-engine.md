@@ -3,16 +3,16 @@ title: 将 Azure Kubernetes Services （AKS）引擎必备组件添加到 Azure 
 description: 了解如何将 AKS 引擎必备组件添加到 Azure Stack 中心市场。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/27/2020
+ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
-ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
+ms.lastreviewed: 6/08/2020
+ms.openlocfilehash: 77d2e6b826f6bc6517d0dd5ed941019a460557e9
+ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861378"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84533699"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>将 Azure Kubernetes Services （AKS）引擎必备组件添加到 Azure Stack 中心市场
 
@@ -46,16 +46,16 @@ Kubernetes 群集将需要 Azure Stack 中心中的服务主体（SPN）和基�
 
 1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
 
-1. 选择“+ 从 Azure 添加”。****
+1. 选择“+ 从 Azure 添加”。
 
 1. 输入 `AKS Base`。
 
-1. 选择与 AKS 引擎版本匹配的映像版本。 可以在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)中找到 AKS 基本映像到 AKS 引擎版本的列表。 
+1. 选择与 AKS 引擎版本匹配的映像版本。 可以在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)中找到 AKS 基本映像到 AKS 引擎版本的列表。 
 
     在列表中，选择：
     - **发布者**： Azure Kubernetes 服务
     - **产品/服务**： aks
-    - **版本**： AKS 基本映像 16.04-LTS Image 发行版，10月2019（2019.10.24 或 Version 映射到 AKS engine）
+    - **版本**： AKS Base Ubuntu 16.04-LTS Image 发行版，三月2020（2020.03.19 或版本映射到 AKS engine）
 
 1. 选择 "**下载"。**
 
@@ -67,7 +67,7 @@ Kubernetes 群集将需要 Azure Stack 中心中的服务主体（SPN）和基�
 
 1. 选择“所有服务”****，然后在“管理”**** 类别下，选择“市场管理”****。
 
-1. 选择“+ 从 Azure 添加”。****
+1. 选择“+ 从 Azure 添加”。
 
 1. 输入 `Custom Script for Linux`。
 

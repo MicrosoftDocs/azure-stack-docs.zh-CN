@@ -3,16 +3,16 @@ title: 管理更新
 description: 了解如何在 Azure Stack Hub 中管理更新
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 06/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 03c233690ffa3148c04aabb49d69c6bc28f07eb1
+ms.sourcegitcommit: 0f1483e17d7e7fa5b4c5c457eab13373eb4b3fdc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374612"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84506445"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>在 Azure Stack Hub 中管理更新
 
@@ -49,7 +49,7 @@ ms.locfileid: "83374612"
 
 若要继续获得支持，必须在 Azure Stack Hub 环境中保留支持的 Azure Stack Hub 软件版本。 有关详细信息，请参阅 [Azure Stack Hub 服务策略](azure-stack-update-servicing-policy.md)。
 
-## <a name="how-to-know-an-update-is-available"></a>如何了解可用更新
+## <a name="how-to-know-an-update-is-available"></a>如何知道推出了更新
 
 更新通知根据多种因素而异，例如，是否与 Internet 建立了连接，以及更新的类型。
 
@@ -63,36 +63,51 @@ ms.locfileid: "83374612"
 
     OEM 更新取决于制造商。 需要与 OEM 建立信道，以便了解需要应用的来自 OEM 的更新。 有关 OEM 和 OEM 更新过程的详细信息，请参阅[应用 Azure Stack Hub 原始设备制造商 (OEM) 更新](azure-stack-update-oem.md)。
 
-## <a name="update-processes"></a>更新过程
+### <a name="major-version-to-major-version"></a>主版本到主要版本
+
+主要版本到主要版本的更新必须是分步操作：
+
+- 当前环境只能更新到下一个主版本
+- 不能跳过主要版本更新。
+
+例如，如果你的环境为1.x，则最新的可用更新版本为3.x，你应将更新为1.x，然后再更新为1.x。
+
+### <a name="hotfixes-within-major-versions"></a>主要版本中的修补程序
+
+在同一主版本号内，Azure Stack 可能会发布多个修补程序。 随着修补程序的累积性，最新的更新包包含所有过去的修补程序。 可以通过跳过修补程序编号来更新到最新的修补程序。
+
+例如，如果你在中的版本。MV. x. x. x. x. x. x. x. x. x. x. x. x。 即使中有版本的更新也是如此。MV. x 和 IN。MV. x，可以直接在 node.js. x 中安装。 你将在中获取中的所有修补程序。MV. x 和 IN。自动。
+
+## <a name="update-process"></a>更新过程
 
 知道有可用的更新后，使用以下步骤应用更新。
 
-![Azure Stack Hub 更新过程](./media/azure-stack-updates/azure-stack-update-process.svg)
+![Azure Stack 中心更新过程](./media/azure-stack-updates/azure-stack-update-process.svg)
 
 1. **规划更新**。
 
-    准备好 Azure Stack Hub，使更新过程能够尽量顺畅地进行，并尽量减轻对用户造成的影响。 向用户通知任何可能的服务中断，然后遵循准备要更新的实例的步骤操作。 请务必遵循 [Azure Stack Hub 更新前查检表](release-notes-checklist.md)中的**所有**步骤，确保完成应用更新所需的先决步骤。 另外，请确保根据要应用的更新类型安排适当的维护时段。
+    准备 Azure Stack 中心，使更新过程尽可能顺利地进行，以便对用户的影响降至最低。 通知用户任何可能发生的服务中断，然后按照步骤准备要更新的实例。 务必按照[Azure Stack 中心更新前清单](release-notes-checklist.md)中的**所有**步骤操作，确保已完成应用更新所需的 presteps。 另外，请确保为要应用的更新类型安排适当的维护时段。
 
 2. **上传和准备更新包**。
 
-    对于已连接到 Internet 的 Azure Stack Hub 环境，Azure Stack Hub 软件更新和修补程序会自动导入系统并做好更新准备。
+    对于连接 internet 的 Azure Stack 集线器环境，Azure Stack 中心软件更新和修补程序会自动导入到系统中并准备好进行更新。
 
-    对于已断开 Internet 连接的 Azure Stack Hub 环境，以及 Internet 连接质量很差或间歇性连接的环境，更新包将通过 Azure Stack Hub 管理员门户导入 Azure Stack Hub 存储。 有关上传和准备更新包的详细步骤，请参阅[上传和准备 Azure Stack Hub 更新包](azure-stack-update-prepare-package.md)。
+    对于 internet 断开连接 Azure Stack 集线器环境和具有弱或间歇性 internet 连接的环境，更新包通过 Azure Stack 中心管理员门户导入到 Azure Stack 中心存储中。 有关上传和准备更新包的更多步骤，请参阅[上传和准备 Azure Stack 中心更新包](azure-stack-update-prepare-package.md)。
 
-    无论 Azure Stack Hub 系统是否建立了 Internet 连接，都需要手动将所有 OEM 更新包导入到环境中。 有关导入和准备更新包的详细步骤，请参阅[上传和准备 Azure Stack Hub 更新包](azure-stack-update-prepare-package.md)。
+    不管 Azure Stack 集线器系统的 internet 连接，所有 OEM 更新包都将手动导入到你的环境中。 有关导入和准备更新包的更多步骤，请参阅[上传和准备 Azure Stack 中心更新包](azure-stack-update-prepare-package.md)。
 
 3. **应用更新**。
 
-    使用 Azure Stack Hub 中的“更新”边栏选项卡应用更新。  在更新过程中，可以监视更新进度和进行故障排除。 有关详细信息，请参阅[应用 Azure Stack Hub 更新](azure-stack-apply-updates.md)。
+    使用 Azure Stack 集线器中的**更新**边栏选项卡应用更新。 在更新过程中，监视更新进度并对其进行故障排除。 有关详细信息，请参阅[应用 Azure Stack 的中心更新](azure-stack-apply-updates.md)。
 
 ## <a name="the-update-resource-provider"></a>更新资源提供程序
 
-Azure Stack Hub 包含用于处理 Microsoft 软件更新应用程序的更新资源提供程序。 此提供程序将检查所有物理主机、Service Fabric 应用和运行时以及所有基础结构虚拟机及其关联的服务上是否应用了更新。
+Azure Stack 中心包含一个更新资源提供程序，用于处理 Microsoft 软件更新的应用程序。 此提供程序检查是否在所有物理主机、Service Fabric 应用和运行时以及所有基础结构虚拟机及其关联服务上应用了更新。
 
-当更新安装时，由于更新进程以 Azure Stack Hub 中的各种子系统（例如，物理主机和基础结构虚拟机）为目标，因此你可以查看高级状态。
+当更新安装时，你可以查看高级状态，因为更新过程针对 Azure Stack 集线器中的各种子系统（例如，物理主机和基础结构虚拟机）。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要开始更新过程，请按照 [Azure Stack Hub 更新活动清单](release-notes-checklist.md)中的步骤操作。
-- 若要了解支持的 Azure Stack Hub 版本，请参阅 [Azure Stack Hub 服务策略](azure-stack-servicing-policy.md)。  
-- 若要详细了解当前更新和最近的更新，请参阅 [Azure Stack Hub 发行说明](release-notes.md)。
+- 若要开始更新过程，请按照中的步骤操作[Azure Stack 中心更新活动清单](release-notes-checklist.md)。
+- 若要了解支持的 Azure Stack 中心版本，请参阅[Azure Stack 中心维护策略](azure-stack-servicing-policy.md)。  
+- 若要了解有关当前更新和最新更新的详细信息，请参阅[Azure Stack 中心发行说明](release-notes.md)。
