@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294502"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630927"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>管理 Azure Stack Hub 存储帐户
 
@@ -22,9 +22,9 @@ ms.locfileid: "79294502"
 
 可在 Azure Stack Hub 中通过执行以下步骤查看区域中的存储帐户列表：
 
-1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
+1. 登录到管理员门户 `https://adminportal.local.azurestack.external` 。
 
-2. 选择“所有服务” **“存储”** “存储帐户” >    >   。
+2. 选择“所有服务” > “存储” > “存储帐户”  。
 
    ![Azure Stack Hub 存储帐户](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -89,8 +89,8 @@ ms.locfileid: "79294502"
 
 **更改保留期：**
 
-1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
-2. 在“管理”  下选择“所有服务” >   “区域管理”  。
+1. 登录到管理员门户 `https://adminportal.local.azurestack.external` 。
+2. 在“管理”下选择“所有服务” > “区域管理”。
 3. 选择“资源提供程序”   > “存储”   >   “设置”。 路径为主目录 > *区域* - 资源提供程序 > 存储。
 4. 选择“配置”，然后编辑保留期值。 
 

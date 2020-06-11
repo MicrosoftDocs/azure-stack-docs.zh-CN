@@ -3,15 +3,15 @@ title: 使用门户管理 Azure Stack Hub 中的 Key Vault
 description: 了解如何使用 Azure Stack Hub 门户管理 Azure Stack Hub 中的 Key Vault。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 50348aff594b058606aae49981e497f8b3515235
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5413c37b0574e022716a1a0d333c18e78a818937
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702918"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666374"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-the-portal"></a>使用门户管理 Azure Stack Hub 中的 Key Vault
 
@@ -23,7 +23,7 @@ ms.locfileid: "77702918"
 
 ## <a name="create-a-key-vault"></a>创建 key vault
 
-1. 登录到[用户门户](https://portal.local.azurestack.external)。
+1. 登录到用户门户 `https://portal.local.azurestack.external` 。
 
 2. 从仪表板中依次选择“+ 创建资源”、“安全 + 标识”、“Key Vault”。   
 
@@ -49,7 +49,7 @@ ms.locfileid: "77702918"
 
 ### <a name="create-a-key"></a>创建密钥
 
-1. 登录到 Azure Stack Hub [用户门户](https://portal.local.azurestack.external)。
+1. 登录到 Azure Stack 集线器用户门户 `https://portal.local.azurestack.external` 。
 
 2. 从仪表板中选择“所有资源”  ，选择先前创建的密钥保管库，然后选择“密钥”  磁贴。
 
@@ -69,7 +69,7 @@ ms.locfileid: "77702918"
 
 ### <a name="create-a-secret"></a>创建机密
 
-1. 登录到[用户门户](https://portal.local.azurestack.external)。
+1. 登录到用户门户 `https://portal.local.azurestack.external` 。
 
 2. 从仪表板中选择“所有资源”  ，选择先前创建的密钥保管库，然后选择“机密”  磁贴。
 

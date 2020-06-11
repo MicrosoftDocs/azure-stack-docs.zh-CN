@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
-ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
+ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83403853"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630974"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>使用 Azure Stack 集线器创建高度可用的 SQL 数据库
 
@@ -35,8 +35,8 @@ ms.locfileid: "83403853"
 > [!IMPORTANT]
 > 要使用 Azure Stack 中心快速入门模板，需要满足以下所有要求。
 
-- Windows Server 2016 Datacenter marketplace 映像。
-- Windows Server 2016 服务器映像上的 SQL Server 2016 SP1 或 SP2 （企业版或开发人员）。 本文使用 Windows Server 2016 marketplace 映像上的 SQL Server 2016 SP2 企业版。
+- Windows Server 2016 Datacenter。
+- Windows Server 2016 服务器映像上的 SQL Server 2016 SP1 或 SP2 （企业版、标准版或开发人员版）。 
 - [SQL Server IaaS 扩展](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)版本1.3.20180 或更高版本。 SQL IaaS 扩展会安装 Marketplace SQL Server 所有 Windows 版本的项目所需的必要组件。 它允许在 SQL 虚拟机（Vm）上配置 SQL 特定的设置。 如果本地 marketplace 中未安装该扩展，则 SQL 的预配会失败。
 - Windows 版本1.9.1 或更高版本[的自定义脚本扩展](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension)。 自定义脚本扩展是一种工具，可用于自动启动部署后 VM 自定义任务。
 - [PowerShell Desired State Configuration （DSC）](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm)版本2.76.0.0 或更高版本。 DSC 是 Windows PowerShell 中的一个管理平台，可用于部署和管理软件服务的配置数据。 该平台还管理这些服务的运行环境。
@@ -64,7 +64,7 @@ ms.locfileid: "83403853"
 
    ![Azure Stack 中心管理员门户中的自定义模板部署](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-1.png)
 
-3. 在 "**自定义部署**" 边栏选项卡中，选择 "**编辑模板**  >  **快速入门模板**"，然后使用可用自定义模板下拉列表选择 " **sql-2016-alwayson** " 模板。 依次选择“确定”和“保存”********。
+3. 在 "**自定义部署**" 边栏选项卡中，选择 "**编辑模板**  >  **快速入门模板**"，然后使用可用自定义模板下拉列表选择 " **sql-2016-alwayson** " 模板。 依次选择“确定”和“保存” 。
 
    [![Azure Stack 中心管理员门户中编辑模板](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png "选择快速入门模板")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png#lightbox)
 
@@ -84,7 +84,7 @@ ms.locfileid: "83403853"
 
 6. 在用户门户中，选择 "**资源组**"，然后选择为自定义部署创建的资源组的名称（此示例的**资源组**）。 查看部署状态，确保所有部署已成功完成。
     
-    接下来，查看 "资源组" 项，然后选择 " **SQLPIPsql \< 资源组名称 \> ** " "公共 IP 地址" 项。 记录负载均衡器公共 IP 的公共 IP 地址和完全 FQDN。 需要为 Azure Stack 中心操作员提供此服务，以便他们可以利用此 SQL AlwaysOn 可用性组创建 SQL 宿主服务器。
+    接下来，查看 "资源组" 项，并选择 " **SQLPIPsql \<resource group name\> ** " 公共 IP 地址项。 记录负载均衡器公共 IP 的公共 IP 地址和完全 FQDN。 需要为 Azure Stack 中心操作员提供此服务，以便他们可以利用此 SQL AlwaysOn 可用性组创建 SQL 宿主服务器。
 
    > [!NOTE]
    > 模板部署需要几个小时才能完成。
@@ -141,7 +141,7 @@ ms.locfileid: "83403853"
 
 创建并正确配置 SQL Server AlwayOn 可用性组后，Azure Stack 中心操作员必须创建 Azure Stack 中心 SQL 宿主服务器。 SQL 宿主服务器使用户可以使用额外的容量来创建数据库。
 
-请确保在创建 SQL AlwaysOn 可用性组的资源组（**SQLPIPsql \< 资源组名称 \> **）时，为之前记录的 sql 负载均衡器的公共 ip 使用公共 ip 或完全 FQDN。 此外，还需要了解用于访问 AlwaysOn 可用性组中的 SQL 实例的 SQL Server 身份验证凭据。
+请确保在创建 SQL AlwaysOn 可用性组的资源组（**SQLPIPsql \<resource group name\> **）时，为之前记录的 sql 负载均衡器的公共 IP 使用公共 IP 或完全 FQDN。 此外，还需要了解用于访问 AlwaysOn 可用性组中的 SQL 实例的 SQL Server 身份验证凭据。
 
 > [!NOTE]
 > 必须通过 Azure Stack 中心操作员从 Azure Stack 中心管理员门户运行此步骤。

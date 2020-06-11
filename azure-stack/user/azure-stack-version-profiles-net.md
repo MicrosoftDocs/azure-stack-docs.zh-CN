@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: bb13b13f48aa9ccab231e255e0dcb5547b61615a
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: f7b0aaf51e8e1b5f14e54762c710cd24ed25d5f1
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82835911"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631098"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 .NET 配合使用
 
@@ -95,7 +95,7 @@ Azure 资源管理器是一种管理框架，可供管理员用来部署、管�
 
 请注意以下事项：
 
-- Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为： https://management.local.azurestack.external/ 。
+- Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为： `https://management.local.azurestack.external/` 。
 
 - 集成系统中的 **ResourceManagerUrl** 为 `https://management.region.<fqdn>/`，其中 `<fqdn>` 是完全限定的域名。
 检索所需的元数据：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`。

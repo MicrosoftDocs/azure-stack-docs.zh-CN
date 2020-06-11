@@ -3,20 +3,20 @@ title: 在 Azure Stack Hub 中使用模板验证工具
 description: 使用模板验证工具检查部署到 Azure Stack Hub 的模板。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7e003a8b42e479fcc732b8e1146fceb6128cf5f1
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705281"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666271"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用模板验证工具
 
-使用模板验证工具检查 Azure 资源管理器[模板](azure-stack-arm-templates.md)是否已准备好部署到 Azure Stack Hub。 模板验证工具作为 Azure Stack Hub 工具 GitHub 存储库的一部分提供。 使用[从 GitHub 下载工具](../operator/azure-stack-powershell-download.md)中所述的步骤下载 Azure Stack Hub 工具。
+使用模板验证工具检查 Azure 资源管理器[模板](azure-stack-arm-templates.md)是否已准备好部署到 Azure Stack Hub。 Azure Stack 中心工具 GitHub 存储库中提供了模板验证工具。 使用[从 GitHub 下载工具](../operator/azure-stack-powershell-download.md)中所述的步骤下载 Azure Stack Hub 工具。
 
 ## <a name="overview"></a>概述
 
@@ -29,7 +29,7 @@ ms.locfileid: "77705281"
 
 使用模板验证程序之前，先运行 **AzureRM.CloudCapabilities** PowerShell 模块以生成 JSON 文件。
 
->[!NOTE]
+> [!NOTE]
 > 如果更新集成系统，或添加任何新服务或虚拟扩展，应重新运行该模块。
 
 1. 请确保已连接到 Azure Stack Hub。 这些步骤可从 Azure Stack 开发工具包 (ASDK) 主机执行，也可以使用 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 从工作站连接。

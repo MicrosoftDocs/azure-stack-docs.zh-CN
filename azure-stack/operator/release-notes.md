@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/29/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
-ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
+ms.openlocfilehash: 50ff7fc42cc6993c4ceeb009515cdad62ce980de
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84329208"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636880"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -157,6 +157,8 @@ Azure Stack Hub 定期发布修补程序。 将 Azure Stack Hub 更新到 2002 �
 
 Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿尝试在 ASDK 上安装修补程序。
 
+有关修补程序的详细信息，请参阅[Azure Stack 集线器维护策略](azure-stack-servicing-policy.md#hotfixes)。
+
 ### <a name="prerequisites-before-applying-the-2002-update"></a>先决条件：应用 2002 更新之前
 
 必须在包含以下修补程序的版本 1910 中应用 Azure Stack Hub 版本 2002：
@@ -166,7 +168,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 ### <a name="after-successfully-applying-the-2002-update"></a>成功应用 2002 更新之后
 
-安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
+安装此更新之后，请安装所有适用的修补程序。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
 - [Azure Stack 中心修补程序1.2002.28.93](https://support.microsoft.com/help/4562966)

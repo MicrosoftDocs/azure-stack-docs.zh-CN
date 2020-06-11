@@ -8,12 +8,12 @@ ms.date: 03/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: bd8867b4bd7fae79f82752a0f4cdbd1457efc0ef
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 092d73339eb2ea733cb0fb67404bf52cc9539343
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80229537"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630759"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>将 Kubernetes 添加到 Azure Stack 中心市场
 
@@ -28,7 +28,7 @@ ms.locfileid: "80229537"
 
 为 Kubernetes marketplace 项创建计划、产品/服务和订阅。 也可以使用现有计划和套餐。
 
-1. 登录到[管理员门户。](https://adminportal.local.azurestack.external)
+1. 登录到管理员门户 `https://adminportal.local.azurestack.external` 。
 
 1. 创建一个计划作为基本计划。 有关说明，请参阅[在 Azure Stack Hub 中创建计划](azure-stack-create-plan.md)。
 
@@ -38,9 +38,9 @@ ms.locfileid: "80229537"
 
 1. 选择“套餐”边栏选项卡中的“概述”。****
 
-1. 选择“更改状态”。**** 选择“公共”。 
+1. 选择“更改状态”。**** 选择“公共”。
 
-1. 选择 " **+ 创建资源** > " "**产品/服务"，并计划** > **订阅**以创建订阅。
+1. 选择 " **+ 创建资源**" "  >  **产品/服务"，并计划**  >  **订阅**以创建订阅。
 
     a. 输入**显示名称**。
 
@@ -60,11 +60,11 @@ ms.locfileid: "80229537"
 
 将以下 Ubuntu 服务器映像添加到 Azure Stack 集线器 Marketplace：
 
-1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
+1. 登录到管理员门户 `https://adminportal.local.azurestack.external` 。
 
 1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
 
-1. 选择“+ 从 Azure 添加”。****
+1. 选择“+ 从 Azure 添加”。
 
 1. 输入 `Ubuntu Server`。
 
@@ -80,11 +80,11 @@ ms.locfileid: "80229537"
 
 从 Azure Stack 中心市场添加 Kubernetes：
 
-1. 打开[管理员门户](https://adminportal.local.azurestack.external)。
+1. 打开管理员门户 `https://adminportal.local.azurestack.external` 。
 
 1. 选择“所有服务”****，然后在“管理”**** 类别下，选择“市场管理”****。
 
-1. 选择“+ 从 Azure 添加”。****
+1. 选择“+ 从 Azure 添加”。
 
 1. 输入 `Custom Script for Linux`。
 
@@ -100,11 +100,11 @@ ms.locfileid: "80229537"
 
 ## <a name="add-kubernetes-to-the-marketplace"></a>将 Kubernetes 添加到市场
 
-1. 打开[管理员门户](https://adminportal.local.azurestack.external)。
+1. 打开管理员门户 `https://adminportal.local.azurestack.external` 。
 
 1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
 
-1. 选择“+ 从 Azure 添加”。****
+1. 选择“+ 从 Azure 添加”。
 
 1. 输入 `Kubernetes`。
 
@@ -131,7 +131,7 @@ ms.locfileid: "80229537"
     Get-AzsGalleryItem | Select Name
     ```
     
-3. 记录当前项的名称，如`Microsoft.AzureStackKubernetesCluster.0.3.0`。
+3. 记录当前项的名称，如 `Microsoft.AzureStackKubernetesCluster.0.3.0` 。
 
 4. 使用以下 PowerShell cmdlet 删除项：
 

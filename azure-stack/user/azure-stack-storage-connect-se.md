@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 701b2a0c6bae3fa4f246877f49f73aca8482b0de
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a72179e26ab4c873aa67ece9e207f4e6f4e71579
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660381"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631241"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack Hub 订阅或存储帐户
 
@@ -98,7 +98,7 @@ ms.locfileid: "81660381"
 
     ![添加帐户 - 存储资源管理器](media/azure-stack-storage-connect-se/add-an-account.png)
 
-3. 选择“下一步”  。 在“连接到 Azure 存储”对话框中的“Azure 环境”下，选择“使用自定义环境”，然后单击“下一步”。************
+3. 选择“**下一页**”。 在“连接到 Azure 存储”对话框中的“Azure 环境”下，选择“使用自定义环境”，然后单击“下一步”。************
 
     ![连接到 Azure 存储](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "81660381"
     | 字段 | 说明 |
     | ---   | ---   |
     | 环境名称 | 用户可以自定义此字段。 |
-    | Azure 资源管理器终结点 | Azure Stack 开发工具包的 Azure 资源管理器资源终结点示例。<br>对于运营商：https://adminmanagement.local.azurestack.external <br> 对于用户：https://management.local.azurestack.external |
+    | Azure 资源管理器终结点 | Azure Stack 开发工具包的 Azure 资源管理器资源终结点示例。<br>对于运营商：`https://adminmanagement.local.azurestack.external` <br> 对于用户：`https://management.local.azurestack.external` |
 
     如果你正在 Azure Stack 集线器集成系统，但不知道管理终结点，请与你的操作员联系。
 
@@ -145,7 +145,7 @@ ms.locfileid: "81660381"
 
     ![附加名称和密钥](./media/azure-stack-storage-connect-se/azure-stack-attach-name-and-key.png)
 
-5. 选择“连接”  。
+5. 选择“连接”。
 6. 成功附加存储帐户后，会显示该存储帐户，其名称后面追加了“(外部、其他)”**** 字样。
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1b4db2cf67231f8660948af43d4935bbcf9c846c
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: d94f9130825493ea521441a43a58aa053ff2cc05
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111891"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631403"
 ---
 # <a name="connect-to-azure-stack-hub"></a>连接到 Azure Stack Hub
 
@@ -28,7 +28,7 @@ ms.locfileid: "84111891"
 
 2. 在开发工具包计算机上打开服务器管理器，单击“本地服务器”，关闭“Internet Explorer 增强的安全性”，然后关闭服务器管理器。 
 
-3. 若要打开门户，请转到 https://portal.local.azurestack.external/) ，并使用用户凭据登录。
+3. 若要打开门户，请参阅 `https://portal.local.azurestack.external/` 并使用用户凭据进行登录。
 
 
 ## <a name="connect-to-azure-stack-hub-with-vpn"></a>使用 VPN 连接到 Azure Stack Hub
@@ -97,7 +97,7 @@ Add-AzsVpnConnection `
 
 ### <a name="test-the-vpn-connectivity"></a>测试 VPN 连接
 
-若要测试门户连接，请打开浏览器并转到用户门户 (https://portal.local.azurestack.external/) ，登录，然后创建资源。  
+若要测试门户连接，请打开浏览器并中转到用户门户 `https://portal.local.azurestack.external/` ，登录，并创建资源。  
 
 ## <a name="next-steps"></a>后续步骤
 

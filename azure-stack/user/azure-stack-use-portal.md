@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f60094812a5bc0b27a05ec7e66ac7bf65d747d76
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 26225b1b6ba55ed0f5934130e361f1dbab4b664e
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147016"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631383"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>使用 Azure Stack Hub 用户门户
 
@@ -23,7 +23,7 @@ ms.locfileid: "84147016"
 Azure Stack Hub 操作员（服务提供商或组织中的管理员）将会告知用于访问门户的正确 URL。
 
 - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt ;*region*&gt;.&lt;*FQDN*&gt; 。
-- 如果使用的是 Azure Stack 开发工具包 (ASDK)，则门户地址为 https://portal.local.azurestack.external 。
+- 如果使用的是 Azure Stack 开发工具包 (ASDK)，则门户地址为 `https://portal.local.azurestack.external` 。
 - 所有 Azure Stack Hub 部署的默认时区都设置为协调世界时 (UTC)。 在安装 Azure Stack Hub 时，你可以选择时区，但是，在安装期间，它将自动还原为默认设置 UTC。
 
 ## <a name="customize-the-dashboard"></a>自定义仪表板

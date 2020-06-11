@@ -7,16 +7,16 @@ ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 6/08/2020
-ms.openlocfilehash: 77d2e6b826f6bc6517d0dd5ed941019a460557e9
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: 7090ac774da41e8f7f1bc319a9956cba8f8b0f4a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533699"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630440"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>将 Azure Kubernetes Services （AKS）引擎必备组件添加到 Azure Stack 中心市场
 
-可以通过将本文中所述的项目添加到 Azure Stack 中心，使用户能够设置 Azure Kubernetes Services （AKS）引擎。 然后，用户可以通过单个协调的操作来部署 Kubernetes 群集。 本文将指导你完成将 AKS 引擎提供给连接和断开连接环境中的用户所需的步骤。 AKS 引擎依赖于服务主体标识，在 marketplace 中是自定义脚本扩展和 AKS 基本映像。 AKS 引擎要求[Azure Stack 集线器 1910](release-notes.md?view=azs-1910)或更高版本运行。
+可以通过将本文中所述的项目添加到 Azure Stack 中心，使用户能够设置 Azure Kubernetes Services （AKS）引擎。 然后，用户可以通过单个协调的操作来部署 Kubernetes 群集。 本文将指导你完成将 AKS 引擎提供给连接和断开连接环境中的用户所需的步骤。 AKS 引擎依赖于服务主体标识，在 marketplace 中是自定义脚本扩展和 AKS 基本映像。 AKS 引擎要求你运行[Azure Stack 集线器 1910](release-notes.md?view=azs-1910)或更高版本。
 
 ## <a name="check-your-users-service-offering"></a>查看用户的服务产品
 
@@ -42,7 +42,7 @@ Kubernetes 群集将需要 Azure Stack 中心中的服务主体（SPN）和基�
 
 将以下项目添加到 marketplace：
 
-1. 登录到[管理门户](https://adminportal.local.azurestack.external)。
+1. 登录到管理门户 `https://adminportal.local.azurestack.external` 。
 
 1. 选择 "**所有服务**"，然后在 "**管理**" 类别下选择 " **Marketplace 管理**"。
 
@@ -63,7 +63,7 @@ Kubernetes 群集将需要 Azure Stack 中心中的服务主体（SPN）和基�
 
 可以通过从 Azure 获取项，将自定义脚本添加到 marketplace。 但是，如果 Azure Stack 集线器断开连接，请使用[从 Azure 下载 marketplace 项中](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)的说明来添加该项。  添加在步骤5中指定的项目。
 
-1. 打开[管理门户](https://adminportal.local.azurestack.external)。
+1. 打开管理门户 `https://adminportal.local.azurestack.external` 。
 
 1. 选择“所有服务”****，然后在“管理”**** 类别下，选择“市场管理”****。
 

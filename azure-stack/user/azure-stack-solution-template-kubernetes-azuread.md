@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ee0410467a7e2608580da5c209a97f86a60b675a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313205"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631203"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>使用 Azure Active Directory 将 Kubernetes 部署到 Azure Stack 中心
 
@@ -21,7 +21,7 @@ ms.locfileid: "79313205"
 
 使用 Azure Active Directory （Azure AD）作为标识管理服务时，你可以按照本文中的步骤为 Kubernetes 部署和设置资源，只需要一个协调的操作即可。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 若要开始，请确保具有适当的权限，并且 Azure Stack 中心已准备就绪。
 
@@ -51,15 +51,15 @@ ms.locfileid: "79313205"
 
 1. 创建 Azure AD 应用程序。
 
-    a. 通过[Azure 门户](https://portal.azure.com)登录到 Azure 帐户。  
-    b. 选择**Azure Active Directory** > **应用注册** > "**新注册**"。  
+    a. 通过 [Azure 门户](https://portal.azure.com)登录到 Azure 帐户。  
+    b. 选择“Azure Active Directory” > “应用注册” > “新建注册”。    
     c. 为应用提供名称和 URL。  
     d. 选择“支持的帐户类型”。****  
-    e.  添加`http://localhost`应用程序的 URI。 选择“Web”**** 作为要创建的应用程序的类型。 设置这些值后，选择“注册”****。
+    e.  添加 `http://localhost` 应用程序的 URI。 选择“Web”**** 作为要创建的应用程序的类型。 设置这些值后，选择“注册”  。
 
 1. 请记下**应用程序 ID**。 在创建群集时需要此 ID。 此 ID 称为“服务主体客户端 ID”。****
 
-1. 在服务主体的边栏选项卡中，选择 "**新建客户端密码**"。 **设置** > **密钥**。 需要为服务主体生成身份验证密钥。
+1. 在服务主体的边栏选项卡中，选择 "**新建客户端密码**"。 **设置**  > **键**。 需要为服务主体生成身份验证密钥。
 
     a. 输入“说明”****。
 
@@ -71,9 +71,9 @@ ms.locfileid: "79313205"
 
 为服务主体提供对订阅的访问权限，使该主体能够创建资源。
 
-1.  登录到[Azure Stack 中心门户](https://portal.local.azurestack.external/)。
+1.  登录到 Azure Stack 中心门户 `https://portal.local.azurestack.external/` 。
 
-1. 选择 "**所有服务** > " "**订阅**"。
+1. 选择 "**所有服务**" "  >  **订阅**"。
 
 1. 选择你的操作员创建的用于使用 Kubernetes 群集的订阅。
 
@@ -83,13 +83,13 @@ ms.locfileid: "79313205"
 
 1. 选择为服务主体创建的应用程序名称。 可能需要在搜索框中键入名称。
 
-1. 单击 **“保存”** 。
+1. 单击“ **保存**”。
 
 ## <a name="deploy-kubernetes"></a>部署 Kubernetes
 
-1. 打开[Azure Stack 集线器门户](https://portal.local.azurestack.external)。
+1. 打开 Azure Stack 集线器门户 `https://portal.local.azurestack.external` 。
 
-1. 选择 " **+ 创建资源** > " "**计算** > " "**Kubernetes 群集**"。 单击“**创建**”。
+1. 选择 " **+ 创建资源**" "计算" "  >  **Compute**  >  **Kubernetes 群集**"。 单击“创建”。
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

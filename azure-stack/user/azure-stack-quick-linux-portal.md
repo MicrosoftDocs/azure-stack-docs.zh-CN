@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 75056bbadb3ab5792bd51ed3dcb348ef3d42aa3e
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 5a9d6902d317af76145dde564cef56ac2f42dce8
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660424"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631272"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack Hub 门户创建 Linux 服务器 VM
 
@@ -63,7 +63,7 @@ ms.locfileid: "81660424"
 
 Azure Stack Hub 门户的地址取决于要连接到的 Azure Stack Hub 产品：
 
-* 对于 ASDK，请转到 https://portal.local.azurestack.external 。
+* 对于 ASDK，请转到 `https://portal.local.azurestack.external` 。
 
 * 对于 Azure Stack Hub 集成系统，请转到 Azure Stack Hub 操作员提供的 URL。
 
@@ -152,7 +152,7 @@ sudo apt-get -y install nginx
 
 在 VM 上安装 NGINX 并打开端口 80 后，可通过 VM 的公共 IP 地址访问 Web 服务器。 （该公共 IP 地址显示在 VM 的“概述”页上。） 
 
-打开 Web 浏览器并转到 http://\<公共 IP 地址>。 
+打开 web 浏览器，并中转到*http:// \<public IP address> *。
 
 ![NGINX Web 服务器欢迎页](media/azure-stack-quick-linux-portal/linux-05a.png)
 

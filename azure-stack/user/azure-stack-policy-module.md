@@ -3,15 +3,15 @@ title: 使用 Azure Stack Hub 策略模块
 description: 了解如何限制 Azure 订阅使其行为像 Azure Stack Hub 订阅
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 7af2662c52de8085b6b77fa0c9a2b36f401168fc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f39bbf689cd3b847b29c2d5b046721029078a5dd
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703819"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666475"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>使用 Azure Stack Hub 策略模块管理 Azure Policy
 
@@ -30,7 +30,7 @@ ms.locfileid: "77703819"
 
 ## <a name="apply-policy-to-azure-subscription"></a>将策略应用于 Azure 订阅
 
-可以使用以下命令针对 Azure 订阅应用默认 Azure Stack Hub 策略。 在运行这些命令之前，请将 `Azure subscription name` 替换为 Azure 订阅的名称：
+你可以使用以下命令将默认 Azure Stack 中心策略应用到你的 Azure 订阅。 在运行这些命令之前，请将 `Azure subscription name` 替换为 Azure 订阅的名称：
 
 ```powershell
 Add-AzureRmAccount

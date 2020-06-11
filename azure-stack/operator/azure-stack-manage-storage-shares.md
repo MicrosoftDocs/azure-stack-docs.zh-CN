@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 66760fd19b90e55ab27e2c1f2509f0a9b9cb51ae
-ms.sourcegitcommit: d943f7d6e665e3334125f8a15a0343fd28d8f2a9
+ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84452407"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631003"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 
@@ -90,7 +90,7 @@ Azure Stack 集线器支持在虚拟机中使用托管磁盘和非托管磁盘�
 ### <a name="use-the-administrator-portal"></a>使用管理员门户
 云操作员可以使用管理员门户来查看所有共享的存储容量。
 
-1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
+1. 登录到管理员门户 `https://adminportal.local.azurestack.external` 。
 2. 选择 "**所有服务**" > "**存储** > **文件共享**" 以打开 "文件共享" 列表，您可以在其中查看使用情况信息。
 
     ![示例： Azure Stack 中心管理员门户中的存储文件共享](media/azure-stack-manage-storage-shares/storage-file-shares.png)

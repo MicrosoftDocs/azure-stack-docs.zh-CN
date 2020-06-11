@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: adca3be6659d140dcf05776d04696ff7302a9ab3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2dbef9bd19fac12541f738fc530dbf58f5c85c35
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313126"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631211"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>使用 Active Directory 联合服务将 Kubernetes 部署到 Azure Stack 中心
 
@@ -21,7 +21,7 @@ ms.locfileid: "79313126"
 
 可以按照本文中的步骤部署和设置 Kubernetes 的资源。 Active Directory 联合服务（AD FS）是标识管理服务时，请使用以下步骤。
 
-## <a name="prerequisites"></a>必备条件 
+## <a name="prerequisites"></a>先决条件 
 
 若要开始，请确保具有适当的权限，并且 Azure Stack 中心已准备就绪。
 
@@ -55,9 +55,9 @@ ms.locfileid: "79313126"
 
 ## <a name="deploy-kubernetes"></a>部署 Kubernetes
 
-1. 打开[Azure Stack 集线器门户](https://portal.local.azurestack.external)。
+1. 打开 Azure Stack 集线器门户 `https://portal.local.azurestack.external` 。
 
-1. 选择 " **+ 创建资源** > " "**计算** > " "**Kubernetes 群集**"。 选择“创建”。 
+1. 选择 " **+ 创建资源**" "计算" "  >  **Compute**  >  **Kubernetes 群集**"。 选择“创建”。
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

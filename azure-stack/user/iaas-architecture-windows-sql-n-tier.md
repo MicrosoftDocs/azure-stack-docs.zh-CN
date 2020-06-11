@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e331be14abdeceeb2fef462fba47c4871a320e7f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: ee2352e6e7ee6b6e6a7322bcdb66ea4d24797eb8
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81659899"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631137"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Azure Stack Hub 上使用 SQL Server 的 Windows N 层应用程序
 
@@ -34,7 +34,7 @@ ms.locfileid: "81659899"
 
 -   **虚拟网络和子网**。 每个 Azure VM 都会部署到可细分为子网的虚拟网络中。 为每个层创建一个单独的子网。
 
--   **第 7 层负载均衡器**。 由于应用程序网关在 Azure Stack 集线器上尚不可用，因此[Azure Stack 中心市场位置](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908)有一些替代项，例如： [KEMP LoadMaster 负载均衡器 ADC 内容开关](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 大 IP 虚拟版](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)或[A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **第 7 层负载均衡器**。 由于应用程序网关在 Azure Stack 集线器上尚不可用，因此[Azure Stack 中心市场位置](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908)有一些替代项，例如： [KEMP LoadMaster 负载均衡器 ADC 内容开关](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [f5 大 IP 虚拟版](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)或[A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
 -   **负载均衡器**。 使用 [Azure 负载均衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)可将网络流量从 Web 层分配到业务层，以及从业务层分配到 SQL Server。
 
@@ -80,7 +80,7 @@ ms.locfileid: "81659899"
 
 不要将 VM 直接向 Internet 公开，而是改为给每个 VM 提供专用 IP 地址。 客户端使用与第 7 层负载均衡器相关联的公共 IP 地址进行连接。
 
-定义用于将网络流量定向到 VM 的负载均衡器规则。 例如，若要启用 HTTP 流量，请将前端配置中的端口 80 映射到后端地址池上的端口 80。 当客户端将 HTTP 请求发送到端口 80 时，负载均衡器会通过使用包括源 IP 地址的[哈希算法](/azure/load-balancer/concepts-limitations#load-balancer-concepts)选择后端 IP 地址。 客户端请求将在后端地址池中的所有 VM 之间分配。
+定义用于将网络流量定向到 VM 的负载均衡器规则。 例如，若要启用 HTTP 流量，请将前端配置中的端口 80 映射到后端地址池上的端口 80。 当客户端将 HTTP 请求发送到端口 80 时，负载均衡器会通过使用包括源 IP 地址的[哈希算法](https://docs.microsoft.com/azure/load-balancer/concepts#limitations)选择后端 IP 地址。 客户端请求将在后端地址池中的所有 VM 之间分配。
 
 ### <a name="network-security-groups"></a>网络安全组
 

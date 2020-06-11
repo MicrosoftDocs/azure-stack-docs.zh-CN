@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 04/20/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 30743cf5a2edf880c155e443c0608dc7d3f8f55f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 3f51aa2c8d1d2987d3823e8fefe953d4cc6cc890
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660208"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631075"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Azure Stack 中心排查 Kubernetes 部署问题
 
@@ -48,7 +48,7 @@ ms.locfileid: "81660208"
         1. 从 Azure 资源管理器元数据终结点获取库终结点。
         2. 从 Azure 资源管理器元数据终结点获取 Active Directory 资源 ID。
         3. 加载 AKS 引擎的 API 模型。
-        4. 将 AKS 引擎部署到 Kubernetes 群集并将 Azure Stack 中心云配置文件保存到`/etc/kubernetes/azurestackcloud.json`。
+        4. 将 AKS 引擎部署到 Kubernetes 群集并将 Azure Stack 中心云配置文件保存到 `/etc/kubernetes/azurestackcloud.json` 。
 3. 创建主 VM。
 
 4. 下载并运行自定义脚本扩展。
@@ -93,7 +93,7 @@ ms.locfileid: "81660208"
 
 部署 Kubernetes 群集时，可以查看部署状态以检查任何问题。
 
-1. 打开[Azure Stack 集线器门户](https://portal.local.azurestack.external)。
+1. 打开 Azure Stack 集线器门户 `https://portal.local.azurestack.external` 。
 2. 选择“资源组”****，然后选择在部署 Kubernetes 群集时使用的资源组名称。
 3. 依次选择“部署”****、“部署名称”****。
 
@@ -101,12 +101,12 @@ ms.locfileid: "81660208"
 
 4.  请参阅故障排除窗口。 部署的每个资源提供以下信息：
     
-    | 属性 | 说明 |
+    | Property | 描述 |
     | ----     | ----        |
     | 资源 | 资源的名称。 |
     | 类型 | 资源提供程序和资源的类型。 |
     | 状态 | 项状态。 |
-    | TimeStamp | 时间的 UTC 时间戳。 |
+    | 时间戳 | 时间的 UTC 时间戳。 |
     | 操作详细信息 | 操作详细信息，例如操作中涉及的资源提供程序、资源终结点和资源名称。 |
 
     每个项都有绿色或红色的状态图标。
@@ -115,7 +115,7 @@ ms.locfileid: "81660208"
 
 如果 Azure Stack 集线器门户没有提供足够的信息，无法进行故障排除或解决部署失败，下一步就是深入了解群集日志。 若要手动检索部署日志，通常需要连接到群集的主 Vm 之一。 更简单的替代方法是下载并运行 Azure Stack 中心团队提供的以下[Bash 脚本](https://aka.ms/AzsK8sLogCollectorScript)。 此脚本连接到 DVM 和群集的 Vm，收集相关的系统和群集日志，并将它们下载回你的工作站。
 
-### <a name="prerequisites"></a>必备条件
+### <a name="prerequisites"></a>先决条件
 
 你需要在用于管理 Azure Stack 集线器的计算机上具有 Bash 提示。 在 Windows 计算机上，可以通过安装[适用于 windows 的 Git](https://git-scm.com/downloads)来获取 Bash 提示。 安装后，在 "开始" 菜单中查找 " _Git Bash_ "。
 
@@ -123,7 +123,7 @@ ms.locfileid: "81660208"
 
 按照以下步骤收集和下载群集日志：
 
-1. 打开 Bash 提示符。 在 Windows 计算机中，打开_Git Bash_或运行： `C:\Program Files\Git\git-bash.exe`。
+1. 打开 Bash 提示符。 在 Windows 计算机中，打开_Git Bash_或运行： `C:\Program Files\Git\git-bash.exe` 。
 
 2. 在 Bash 提示符下运行以下命令，下载日志收集器脚本：
 
@@ -136,7 +136,7 @@ ms.locfileid: "81660208"
 
 3. 查找脚本所需的信息并运行该脚本：
 
-    | 参数           | 说明                                                                                                      | 示例                                                                       |
+    | 参数           | 描述                                                                                                      | 示例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d、--vmd 主机      | 公共 IP 或 DVM 的完全限定的域名（FQDN）。 该 VM 名称以 `vmd-` 开头。 | IP: 192.168.102.38<br>DNS： myk8s. p p.. test-azurestack |
     | -h、--help  | 打印命令用法。 | |
@@ -151,7 +151,7 @@ ms.locfileid: "81660208"
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. 几分钟后，该脚本会将收集的日志输出到名为`KubernetesLogs_{{time-stamp}}`的目录。 可在其中找到属于群集的每个 VM 的目录。
+4. 几分钟后，该脚本会将收集的日志输出到名为的目录 `KubernetesLogs_{{time-stamp}}` 。 可在其中找到属于群集的每个 VM 的目录。
 
     日志收集器脚本还将在日志文件中查找错误，如果发现已知问题，则包括故障排除步骤。 请确保运行最新版本的脚本，以增加查找已知问题的机会。
 

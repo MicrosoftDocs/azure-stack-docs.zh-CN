@@ -1,18 +1,18 @@
 ---
 title: 管理更新
 description: 了解如何在 Azure Stack Hub 中管理更新
-author: IngridAtMicrosoft
+author: sethmanheim
 ms.topic: how-to
-ms.date: 06/04/2020
-ms.author: inhenkel
+ms.date: 06/09/2020
+ms.author: sethm
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: 03c233690ffa3148c04aabb49d69c6bc28f07eb1
-ms.sourcegitcommit: 0f1483e17d7e7fa5b4c5c457eab13373eb4b3fdc
+ms.reviewer: niy
+ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84506445"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636863"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>在 Azure Stack Hub 中管理更新
 
@@ -65,18 +65,13 @@ ms.locfileid: "84506445"
 
 ### <a name="major-version-to-major-version"></a>主版本到主要版本
 
-主要版本到主要版本的更新必须是分步操作：
+从主要版本到主要版本的更新必须是循序渐进的：当前环境只能更新到下一个主要版本，无法跳过主要版本更新。
 
-- 当前环境只能更新到下一个主版本
-- 不能跳过主要版本更新。
-
-例如，如果你的环境为1.x，则最新的可用更新版本为3.x，你应将更新为1.x，然后再更新为1.x。
+例如，如果你的 Azure Stack 集线器环境为1908日，且最新的可用更新版本为 2002. x，则你应从1908更新为1910，然后更新为2002。
 
 ### <a name="hotfixes-within-major-versions"></a>主要版本中的修补程序
 
-在同一主版本号内，Azure Stack 可能会发布多个修补程序。 随着修补程序的累积性，最新的更新包包含所有过去的修补程序。 可以通过跳过修补程序编号来更新到最新的修补程序。
-
-例如，如果你在中的版本。MV. x. x. x. x. x. x. x. x. x. x. x. x。 即使中有版本的更新也是如此。MV. x 和 IN。MV. x，可以直接在 node.js. x 中安装。 你将在中获取中的所有修补程序。MV. x 和 IN。自动。
+在同一主版本号内，Azure Stack 集线器可能会发布多个修补程序。 修补程序是累积的;最新的修补程序包包括该版本过去的所有修补程序。 有关详细信息，请参阅[修补程序](azure-stack-servicing-policy.md#hotfixes)。
 
 ## <a name="update-process"></a>更新过程
 

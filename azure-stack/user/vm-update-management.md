@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 7ef6b1fe7bcaa0cba1138c194847c40076f3ec6e
-ms.sourcegitcommit: 29734b4ca6917b86674c17de9f41b0aaf367a838
+ms.openlocfilehash: 838ce4ab909019ce14569a8c5ad5da0b19457a90
+ms.sourcegitcommit: f082a8aa7e9cfaeab21b750d58520db58147ff1a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82223049"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84679699"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack 中心中的 VM 更新和管理自动化
 使用以下 Azure 自动化解决方案功能管理使用 Azure Stack 中心部署的 Windows 和 Linux 虚拟机（Vm）：
@@ -109,7 +109,7 @@ Azure Stack 中心 Vm 现在可以与 Azure Vm 一起包含在计划的更新部
 
 ##  <a name="create-an-update-deployment-schedule"></a>创建更新部署计划
 
-若要创建更新部署计划，必须使用 PowerShell cmdlet 或 Azure REST API 传递计算机。 使用以下 PowerShell 示例来安排你的计算机。 可以将**[AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** cmdlet 与`ForUpdateConfiguration`参数一起使用来创建一个计划。 然后，使用**[AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** cmdlet 并将 Azure Stack 集线器计算机传递到`NonAzureComputer`参数。 若要运行此脚本，需要使用 global [Azure PowerShell Az 模块](https://docs.microsoft.com/powershell/azure/)。
+若要创建更新部署计划，必须使用 PowerShell cmdlet 或 Azure REST API 传递计算机。 使用以下 PowerShell 示例来安排你的计算机。 可以将**[AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule)** cmdlet 与参数一起使用 `ForUpdateConfiguration` 来创建一个计划。 然后，使用**[AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsoftwareupdateconfiguration)** cmdlet 并将 Azure Stack 集线器计算机传递到 `NonAzureComputer` 参数。 若要运行此脚本，需要使用 global [Azure PowerShell Az 模块](https://docs.microsoft.com/powershell/azure/)。
 
 以下示例介绍如何执行此操作：
 

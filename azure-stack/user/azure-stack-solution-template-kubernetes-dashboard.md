@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 82c3a0c7c43494a3a1a2790ba4672c3d498a61cd
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 0efcac6635a94b3fdc5551f9aa61b5c774e93905
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111550"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631188"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>访问 Azure Stack 集线器中的 Kubernetes 仪表板 
 
@@ -47,7 +47,7 @@ Kubernetes 包含一个 web 仪表板，可用于基本管理操作。 使用此
 
 1. 从 Azure Stack 中心仪表板获取群集主机的公共 IP 地址和用户名。 若要获取此信息：
 
-    - 登录到[Azure Stack 中心门户](https://portal.local.azurestack.external/)
+    - 登录到 Azure Stack 中心门户 `https://portal.local.azurestack.external/` 。
     - 选择 "**所有服务**" "  >  **所有资源**"。 在群集资源组中查找主节点。 主节点命名为 `k8s-master-<sequence-of-numbers>` 。 
 
 2. 在门户中打开主节点。 复制**公共 IP**地址。 单击 "**连接**"，在 "**使用 VM 本地帐户登录**" 框中获取用户名。 这是创建群集时所设置的相同用户名。 使用公共 IP 地址，而不使用 "连接" 边栏选项卡中列出的专用 IP 地址。

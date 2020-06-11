@@ -8,12 +8,12 @@ ms.date: 04/03/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 04/03/2020
-ms.openlocfilehash: 66fbcf3b94ae89f5f0946ee34582d69cea4ea97e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 156a28bc0f1eccf096b7651f895e34a9a290d7a5
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979352"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630769"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub 管理基础知识
 
@@ -49,7 +49,7 @@ ms.locfileid: "80979352"
 - IoT 中心
 - 事件中心
 
-这些服务在提供给用户之前，需要进行额外的配置。 有关详细信息，请参阅**教程**和操作**方法指南** > 在我们的[Azure Stack 中心运营商文档](https://docs.microsoft.com/azure-stack/operator/)中**提供服务**。
+这些服务在提供给用户之前，需要进行额外的配置。 有关详细信息，请参阅**教程**和操作**方法指南**  >  在我们的[Azure Stack 中心运营商文档](https://docs.microsoft.com/azure-stack/operator/)中**提供服务**。
 
 ### <a name="service-roadmap"></a>服务路线图
 
@@ -86,19 +86,19 @@ Azure Stack 中心使用 Azure 资源管理器作为其基础部署、管理和�
 - [使用基于角色的访问控制设置访问权限](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-permissions)。 （此任务并不限于管理员。）
 - [监视基础结构运行状况](https://docs.microsoft.com/azure-stack/operator/azure-stack-monitor-health)。
 - 管理[网络](https://docs.microsoft.com/azure-stack/operator/azure-stack-viewing-public-ip-address-consumption)和[存储](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-accounts)资源。
-- [启动和停止 Azure Stack 集线器](https://docs.microsoft.com/azure-stack/operator/azure-stack-start-and-stop&branch=release-tzl)。
-- [操作扩展存储](https://docs.microsoft.com/azure-stack/tdc/extended-storage-operator-guide&branch=release-tzl)。
-- [管理 IoT 中心](https://docs.microsoft.com/azure-stack/operator/iot-hub-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&.bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
+- [启动和停止 Azure Stack 集线器](azure-stack-start-and-stop.md)。
+- [操作扩展存储](../user/azure-stack-network-howto-extend-datacenter.md)。
+- [管理 IoT 中心](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)。
 - [管理事件中心](https://docs.microsoft.com/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
 - [管理应用服务](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
-- 更换损坏的硬件。 下面是可[替换部件](https://docs.microsoft.com/azure-stack/tdc/cru-replaceable-parts&branch=release-tzl)的列表。
+- 更换损坏的硬件。 下面是可[替换部件](azure-stack-replace-component.md)的列表。
 - [获取支持](https://docs.microsoft.com/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
 
 ## <a name="operator-tasks"></a>操作员任务
 
 下面是一个操作员的每日、每周和每月任务的列表：
 
-# <a name="daily"></a>[日历](#tab/daily)
+# <a name="daily"></a>[每天](#tab/daily)
 
 1. 检查警报。
 2. 检查备份状态。
@@ -106,12 +106,12 @@ Azure Stack 中心使用 Azure 资源管理器作为其基础部署、管理和�
 4. 在 OneFS 中检查 Isilon 系统运行状况和事件。
 5. 检查 Isilon 容量。
 
-# <a name="weekly"></a>每周[](#tab/weekly)
+# <a name="weekly"></a>[每周](#tab/weekly)
 
 1. 检查容量。
-2. 在`isi status –verbose` Avocent 连接中运行。
+2. `isi status –verbose`在 Avocent 连接中运行。
 
-# <a name="monthly"></a>[每月一次](#tab/monthly)
+# <a name="monthly"></a>[每月](#tab/monthly)
 
 1. 应用每月更新包（Microsoft & OEM）。
 2. 使用 ASDK 验证备份。
@@ -126,7 +126,7 @@ Azure Stack 中心使用 Azure 资源管理器作为其基础部署、管理和�
 3. 应用修补程序包。
 4. 应用修补程序包。
 5. 展开容量（节点 & IPSpace）。
-6. 在`isi status –verbose` Avocent 连接中运行。
+6. `isi status –verbose`在 Avocent 连接中运行。
 7. 还原存储帐户。
 8. 停止系统。
 9. 诊断日志收集。
@@ -141,9 +141,9 @@ Azure Stack 中心使用 Azure 资源管理器作为其基础部署、管理和�
 
 在 Azure Stack 集线器中使用服务和构建应用之前，用户必须先了解相关信息。 例如，必须了解特定的 PowerShell 和 API 版本要求。 此外，Azure 中的服务与 Azure Stack 集线器中的等效服务之间存在一些功能差异。 请确保用户参阅以下文章：
 
-- [使用服务和构建应用时 Azure Stack 中心与 Azure 之间的差异](https://docs.microsoft.com/azure-stack/user/azure-stack-considerations)
-- [Azure Stack 中心 VM 功能](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-considerations)
-- [Azure Stack 中心存储：差异和注意事项](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences)
+- [使用服务和生成应用时 Azure Stack Hub 与 Azure 之间的差异](https://docs.microsoft.com/azure-stack/user/azure-stack-considerations)
+- [Azure Stack Hub VM 功能](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-considerations)
+- [Azure Stack Hub 存储：差异和注意事项](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences)
 
 这些文章中的信息总结了 Azure 中服务与 Azure Stack 中心之间的差异。 是对全球 Azure 文档中 Azure 服务的可用信息的补充。
 

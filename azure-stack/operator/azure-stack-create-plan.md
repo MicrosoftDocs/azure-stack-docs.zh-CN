@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 20ee0c2b59f3a8038afc443f9b3c1b12d606d95d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c762f4c8c75fbfd6755c25877c52fbb68c88f7ca
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700827"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631124"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建计划
 
@@ -21,7 +21,7 @@ ms.locfileid: "77700827"
 ::: moniker range=">=azs-1902"
 ## <a name="create-a-plan-1902-and-later"></a>创建计划（1902 和更高版本）
 
-1. 登录到 [Azure Stack Hub 管理员门户](https://adminportal.local.azurestack.external)。
+1. 登录到 Azure Stack 中心管理员门户 `https://adminportal.local.azurestack.external` 。
 
 2. 若要创建用户可以订阅的计划和套餐，请依次选择“创建资源”、“套餐 + 计划”、“计划”。   
   
@@ -65,7 +65,7 @@ ms.locfileid: "77700827"
 ::: moniker range="<=azs-1901"
 ## <a name="create-a-plan-1901-and-earlier"></a>创建计划（1901 和更低版本）
 
-1. 登录到 [Azure Stack Hub 管理员门户](https://adminportal.local.azurestack.external)。
+1. 登录到 Azure Stack 中心管理员门户 `https://adminportal.local.azurestack.external` 。
 
 2. 若要创建用户可以订阅的计划和套餐，请依次选择“新建”、“套餐 + 计划”、“计划”。   
   

@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: fe2cb87c666e8c3447eca46bdcb49c71514bccdc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ab12123410971dcbff3a4750650dd5508ca93efe
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704482"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631151"
 ---
 # <a name="create-an-offer-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建套餐
 
@@ -21,7 +21,7 @@ ms.locfileid: "77704482"
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-offer-1902-and-later"></a>创建套餐（1902 和更高版本）
 
-1. 登录到 [Azure Stack Hub 管理员门户](https://adminportal.local.azurestack.external)，依次选择“+ 创建资源”、“套餐 + 计划”、“套餐”。   
+1. 登录到 Azure Stack 中心管理员门户， `https://adminportal.local.azurestack.external` 选择 " **+ 创建资源**"，然后选择 " **+ 计划**"，然后**提供**。
 
    ![在 Azure Stack Hub 中创建套餐](media/azure-stack-create-offer/offers.png)
 
@@ -68,7 +68,7 @@ ms.locfileid: "77704482"
 ::: moniker range="<=azs-1901"
 ## <a name="create-an-offer-1901-and-earlier"></a>创建套餐（1901 和更低版本）
 
-1. 登录到 [Azure Stack Hub 管理员门户](https://adminportal.local.azurestack.external)，依次选择“+ 创建资源”、“租户套餐 + 计划”、“套餐”。   
+1. 登录到 Azure Stack 中心管理员门户， `https://adminportal.local.azurestack.external` 选择 " **+ 创建资源**"，然后选择 "**租户产品 + 计划**"，然后**提供**。
 
    ![在 Azure Stack Hub 中创建套餐](media/azure-stack-create-offer/image01.png)
   
