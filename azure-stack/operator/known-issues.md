@@ -7,12 +7,12 @@ ms.date: 06/10/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 235b3232c9ace0ab95b8a041abb521ba1bba55ac
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: 198e6441daae7331eda2502ad7dfc2aea32a08b3
+ms.sourcegitcommit: 9c4c3487ca79b4e077b415611051cd4ad471277c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666441"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84766348"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -138,6 +138,10 @@ ms.locfileid: "84666441"
   - [指定自定义的 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>计算
+### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>无法在门户上创建 Standard_DS2_v2 VM 大小的 VMSS
+
+- 适用：此问题适用于2002版本。
+- 原因：存在一个门户 bug，该 bug 阻止 VMSS 创建 Standard_DS2_v2 VM 大小。 创建一个将会出现错误： "{" code "：" DeploymentFailed "，" message "：" 至少一个资源部署操作失败。 请列出部署操作以获取详细信息。 https://aka.ms/arm-debug有关使用情况详细信息，请参阅。 "，" 详细信息 "： [{" 代码 "：" BadRequest "，" 消息 "：" {\r\n \" 错误 \" ： {\R\n \" code \" ： \" NetworkProfileValidationError \" ，\r\n \" message \" ： \" 虚拟机大小 Standard_DS2_v2 不在 vm 大小允许的 Vm 大小的允许列表中，对于 vm 规模集/subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss.，为索引0的 vm 启用 允许的大小：。 \"\r\n} \r\n} "}]}" 修正：使用 PowerShell 或 resource manager 模板创建 VMSS。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM 概述边栏选项卡未显示正确的计算机名称
 
