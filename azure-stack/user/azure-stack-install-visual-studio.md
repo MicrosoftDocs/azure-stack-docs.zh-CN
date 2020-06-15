@@ -3,16 +3,16 @@ title: 安装 Visual Studio 并连接到 Azure Stack Hub
 description: 了解如何安装 Visual Studio 并连接到 Azure Stack Hub。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: 9fb0cf281fb97bc5cf255fb39507869b106d0a1b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c9d8ad6293735db1a65d6f24e7a53a869535af6d
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702952"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744923"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>安装 Visual Studio 并连接到 Azure Stack Hub
 
@@ -32,7 +32,7 @@ ms.locfileid: "77702952"
 
 5. [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。
 
-6. 安装完成后，重启操作系统。
+6. 安装完成后，重新启动计算机。
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>使用 Azure AD 连接到 Azure Stack Hub
 
@@ -40,7 +40,7 @@ ms.locfileid: "77702952"
 
 2. 在“视图”  菜单中，选择“云资源管理器”  。
 
-3. 在新窗格中选择“添加帐户”，然后使用 Azure Active Directory (Azure AD) 凭据登录。   
+3. 选择 "**管理帐户**"，然后在 "新建" 窗格中，用 Azure Active Directory （Azure AD）凭据登录。  
 
     ![登录并连接到 Azure Stack Hub 后的 Cloud Explorer 屏幕截图](./media/azure-stack-install-visual-studio/image2.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "77702952"
 
 2. 在“工具”中选择“选项”。  
 
-3. 展开**导航窗格**中的“环境”，然后选择“帐户”。  
+3. 展开导航窗格中的 "**环境**"，然后选择 "**帐户**"。
 
 4. 选择“添加”，然后输入“用户 Azure 资源管理器终结点”。  对于 Azure Stack 开发工具包 (ASDK)，URL 为：`https://management.local.azurestack/external`。  对于 Azure Stack Hub 集成系统，URL 为：`https://management.[Region}.[External FQDN]`。
 

@@ -3,15 +3,15 @@ title: Azure Stack Hub 中的 DNS
 description: 了解 Azure Stack Hub 中的 DNS 以及如何创建和管理 DNS 区域。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: b9afba6322b80d487f4ba7d4324adcd42a8fd85a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7ab3775b0424a8cba0b84bc3d3ccb40705b192fb
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703003"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744890"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>使用 Azure Stack Hub 中的 DNS
 
@@ -43,7 +43,7 @@ Azure Stack Hub 支持以下 Azure DNS 功能：
 
 可以在 Azure Stack Hub 中创建和管理 DNS 区域和记录。
 
-Azure Stack Hub 使用与 Azure DNS API 一致的 API 提供与 Azure 类似的 DNS 服务。  通过将域托管在 Azure Stack Hub DNS 中，可以使用相同的凭据、API 和工具来管理 DNS 记录。 还可以使用与其他 Azure 服务相同的计费和支持功能。
+Azure Stack Hub 使用与 Azure DNS API 一致的 API 提供与 Azure 类似的 DNS 服务。 通过将域托管在 Azure Stack Hub DNS 中，可以使用相同的凭据、API 和工具来管理 DNS 记录。 还可以使用与其他 Azure 服务相同的计费和支持功能。
 
 Azure Stack Hub DNS 的基础结构比 Azure 的更为精简。 Azure Stack Hub 部署的大小和位置会影响 DNS 的范围、规模和性能。 这还意味着性能、可用性、全局分发和高可用性可能会因部署而异。
 
@@ -53,9 +53,9 @@ Azure Stack Hub 中的 DNS 类似于 Azure 中的 DNS，但有几个重要例外
 
 * **不支持 AAAA 记录**：Azure Stack Hub 不支持 AAAA 记录，因为 Azure Stack Hub 不支持 IPv6 地址。 这是 Azure DNS 与 Azure Stack Hub DNS 之间的主要差异。
 
-* **不是多租户**：Azure Stack Hub 中的 DNS 服务不是多租户的。 租户不能创建相同的 DNS 区域。 只有第一个尝试创建该区域的订阅会成功，以后的请求都会失败。 这是 Azure DNS 与 Azure Stack Hub DNS 之间另一个主要差异。
+* **不是多租户**的： Azure Stack 集线器中的 DNS 服务不是多租户的。 租户不能创建相同的 DNS 区域。 只有第一个尝试创建该区域的订阅会成功，以后的请求都会失败。 这是 Azure DNS 与 Azure Stack Hub DNS 之间另一个主要差异。
 
-* **标记、元数据和 Etag**：Azure Stack Hub 在处理标记、元数据、Etag 和限制的方式方面也有一些细微差异。
+* **标记、元数据和 etag**： Azure Stack 集线器处理标记、元数据、etag 和限制的方式之间存在细微的差异。
 
 若要了解有关 Azure DNS 的更多信息，请参阅 [DNS 区域和记录](/azure/dns/dns-zones-records)。
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2a71320a660c7dbf74ad885226bb7fcbfa78b35f
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 459d6177015cbca40d2f8f830eba85dc87be18c7
+ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111402"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730673"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub 网络的差异和注意事项
 
@@ -52,6 +52,7 @@ Azure Stack Hub 网络具有许多由 Azure 网络提供的功能。 但是，�
 |  | 网关大小调整 | Azure 支持在部署后调整网关大小。 | 不支持调整大小。 |
 |  | 可用性配置 | 主动/主动 | 主动/被动 |
 |  | UsePolicyBasedTrafficSelectors | Azure 支持将基于策略的流量选择器与基于路由的网关连接配合使用。 | 尚不支持。 |
+|  | 监视和警报 | Azure 使用 Azure Monitor 来提供设置 VPN 资源警报的功能。 | 尚不支持。|
 | 负载均衡器 | SKU | 支持基本和标准负载均衡器。 | 仅支持基本负载均衡器。<br>不支持 SKU 属性。<br>基本 SKU 负载均衡器/路径/的前端 IP 配置不能超过 5 个。  |
 |  | 区域 | 支持可用性区域。 | 尚不支持 |
 |  | 服务终结点的入站 NAT 规则支持 | Azure 支持为入站 NAT 规则指定服务终结点。 | Azure Stack Hub 尚不支持服务终结点，因此无法指定这些设置。 |

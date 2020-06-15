@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中创建和发布市场项
 description: 了解如何创建并发布 Azure Stack Hub 市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 195b6ef3b15ada39664871557ed7efe2d613f5cd
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660719"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744940"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建并发布自定义 Azure Stack Hub 市场项
 
@@ -113,7 +113,7 @@ ms.locfileid: "81660719"
     - （4）-客户看到的名称。
     - （5）-客户看到的发布者名称。
     - （6）-发布者合法名称。
-    - （7）- **UIDefinition**文件的存储位置的路径。  
+    - （7）-存储**UIDefinition.js**文件的路径。  
     - （8）-JSON 主模板文件的路径和名称。
     - （9）–显示此模板的类别的名称。
     - （10）–每个图标的路径和名称。
@@ -233,7 +233,7 @@ ms.locfileid: "81660719"
 | 大型 |115 px |115 px |始终必需 |
 | 中型 |90 px |90 px |始终必需 |
 | 小型 |40 px |40 px |始终必需 |
-| 屏幕快照 |533 px |324 px |始终必需 |
+| 屏幕快照 |533 px |324 px |可选 |
 
 ### <a name="categories"></a>Categories
 
