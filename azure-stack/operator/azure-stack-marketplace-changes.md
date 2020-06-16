@@ -3,16 +3,16 @@ title: Azure Stack 中心应用商店中的新增功能
 description: 查看 Azure Stack Hub Marketplace 中的新增功能，包括新的、不推荐使用和更新的 marketplace 项。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 17a4a5d617332a38ac33af38b97452f5bd2975ff
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 6625f45fcb593d510a8774d112199fc3d7ed1698
+ms.sourcegitcommit: 893d55bd3e680ec8b23358c04dec73efaa68a73e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146812"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783446"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -56,13 +56,14 @@ ms.locfileid: "84146812"
 - Bitnami Codiad
 - Bitnami X2Engine 销售 CRM
 - Bitnami SugarCRM
-- Bitnami node.js 高可用性群集
+- Bitnami Node.js 高可用性群集
 - Bitnami ProcessMaker Enterprise Edition
 - A10 vThunder： L4-L7 应用程序交付控制器，全局服务器负载平衡（GSLB），SSL 见解
 - Check Point vSEC Security Management
 
 ## <a name="updated-marketplace-items"></a>更新的 marketplace 项
 
+- 6/12/2020： Bitnami Grafana-版本6.7.2006040249
 - 5/21/2020： Ubuntu Server 16.04 LTS-version 16.04.202004290
 - 5/21/2020： Ubuntu Server 18.04 LTS-version 18.04.202004080
 - 5/21/2020： Windows Server 2008 R2 SP1 BYOL-版本7601.24552.2004101827
@@ -148,7 +149,7 @@ ms.locfileid: "84146812"
 - 05/07/2020： Bitnami Neo4j 4.0.2003311444
 - 05/07/2020： Bitnami NGINX 开源-版本1.16.2004221209
 - 05/07/2020： Bitnami Noalyss-版本7.3.2004220120
-- 05/07/2020： Bitnami Node.js-版本12.16.2004281743
+- 05/07/2020： Bitnami Node.js-version 12.16.2004281743
 - 05/07/2020： Bitnami Composr-版本10.0.2004220137
 - 05/07/2020： Bitnami Odoo-版本13.0.2004220418
 - 05/07/2020： Bitnami 打开 Atrium-版本2.645.2004220952
