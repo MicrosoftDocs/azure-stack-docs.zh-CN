@@ -3,22 +3,22 @@ title: 使用社区模板创建 VM
 description: 了解如何使用 Azure Stack 开发工具包（ASDK）通过预定义模板和 GitHub 自定义模板来创建 VM。
 author: sethmanheim
 ms.topic: tutorial
-ms.date: 01/23/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9e8df158444b0cbb2b6efaea6f99766f36b26241
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: dc666d486f0b36a043ba8da969312879ad785e50
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77704329"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813824"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>教程：使用社区模板创建 VM
 
 作为 Azure Stack 中心操作员或用户，你可以使用[自定义 GitHub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)创建虚拟机（VM），而不是从 Azure Stack 中心市场手动部署模板。
 
-在本教程中，你将了解：
+在本教程中，你将了解如何执行以下操作：
 
 > [!div class="checklist"]
 > * 使用 Azure Stack 集线器快速入门模板
@@ -31,7 +31,7 @@ Azure Stack 集线器快速入门模板存储在 GitHub[全局 Azure Stack 中�
 
 随着时间的推移，很多 GitHub 用户已贡献到存储库，导致收集超过400的部署模板。 这是一个很好的起点，可以了解如何将各种类型的环境部署到 Azure Stack 中心。
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 这些模板中的部分模板是由社区成员创建的，不是由 Microsoft 创建的。 每个模板按照其所有者而非 Microsoft 的许可协议进行许可。 Microsoft 不对这些模板负责，也不检查其安全性、符合性或性能方面的问题。 任何 Microsoft 支持计划或服务均不支持社区模板，并 "按原样" 提供，且没有任何形式的保证。
 
 如果要将 Azure 资源管理器模板加入 GitHub，请在[test-azurestack](https://github.com/Azure/AzureStack-QuickStart-Templates)存储库中做出贡献。 若要了解有关此存储库以及如何参与此存储库的详细信息，请参阅[自述文件](https://aka.ms/aa6zktg)。
@@ -118,11 +118,11 @@ Minikube 是一种工具，方便用户在本地运行 Kubernetes。 Minikube �
 
     ![仪表板](media/azure-stack-create-vm-template/12.PNG)
 
-5. 若要部署示例应用程序，请访问官方 Kubernetes 文档页，并跳过 "创建 Minikube 群集" 部分，因为已创建了一个。 跳到“创建 Node.js 应用程序”部分，网址为 https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/。
+5. 若要部署示例应用程序，请访问官方 Kubernetes 文档页，并跳过 "创建 Minikube 群集" 部分，因为已创建了一个。 请参阅[创建 Node.js 应用程序](https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/)部分。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你将了解：
+在本教程中，你已学习了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 了解 Azure Stack 集线器快速入门模板

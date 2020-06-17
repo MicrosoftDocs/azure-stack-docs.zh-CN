@@ -8,12 +8,12 @@ ms.date: 05/13/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: 4910a7aaa2462cb53c4ce89246c92a60f61d5017
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375005"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819512"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -21,7 +21,7 @@ ms.locfileid: "83375005"
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
-这些部分包含指向介绍发送到 Microsoft 客户支持服务（CSS）的常见问题的文档的链接。
+这些部分包括介绍发送到 Microsoft 支持部门常见问题的文档的链接。
 
 ### <a name="purchase-considerations"></a>购买注意事项
 
@@ -32,17 +32,17 @@ ms.locfileid: "83375005"
 
 * [如何在 Azure Stack 集线器中使用诊断工具](azure-stack-diagnostics.md)
 * [如何验证 Azure Stack 集线器系统状态](azure-stack-diagnostic-test.md)
-* [更新包发布节奏](azure-stack-servicing-policy.md#update-package-release-cadence)
+* [更新包发布频率](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [验证节点状态并对其进行故障排除](azure-stack-node-actions.md)
 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>来宾 VM 支持的操作系统和大小
 
 * [Azure Stack 集线器上支持的来宾操作系统](azure-stack-supported-os.md)
-* [Azure Stack 中心支持的 VM 大小](../user/azure-stack-vm-sizes.md)
+* [Azure Stack Hub 中支持的 VM 大小](../user/azure-stack-vm-sizes.md)
 
 ### <a name="azure-marketplace"></a>Azure 市场
 
-* [适用于 Azure Stack 集线器的 Azure Marketplace 项](azure-stack-marketplace-azure-items.md)
+* [可用于 Azure Stack Hub 的 Azure 市场项](azure-stack-marketplace-azure-items.md)
 
 ### <a name="manage-capacity"></a>管理容量
 
@@ -68,9 +68,9 @@ Azure Stack 中心内的用户可以是订阅、资源组或服务的每个实�
 
 * [教程：使用 Azure PowerShell 为 Azure 资源创建自定义角色](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
 
-### <a name="manage-usage-and-billing-as-a-csp"></a>以 CSP 身份管理用量和计费
+### <a name="manage-usage-and-billing-as-a-csp"></a>以 CSP 身份管理使用情况和计费
 
-* [以 CSP 身份管理用量和计费](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
+* [以 CSP 身份管理使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
 * [创建 CSP 或应用订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
 
 选择用于 Azure Stack 中心的共享服务帐户的类型。 可用于注册多租户 Azure Stack 中心的订阅类型包括：
@@ -80,7 +80,7 @@ Azure Stack 中心内的用户可以是订阅、资源组或服务的每个实�
 
 ### <a name="get-scale-unit-metrics"></a>获取缩放单元指标
 
-可以使用 PowerShell 获取戳记使用情况信息，不需 CSS 的帮助。 若要获取戳记使用率，请执行以下操作：
+你可以使用 PowerShell 来获取戳记使用情况信息，而无需 Microsoft 支持部门的帮助。 若要获取戳记使用率，请执行以下操作：
 
 1. 创建 PEP 会话。
 2. 运行 `test-azurestack`。
@@ -121,7 +121,7 @@ Azure Stack 中心内的用户可以是订阅、资源组或服务的每个实�
 
 ### <a name="create-aadidentityappps1-script-fails"></a>Create-AADIdentityApp.ps1 脚本失败
 
-如果应用服务所需的 Create-aadidentityapp.ps1 脚本失败，请确保在运行脚本时包含所需的 `-AzureStackAdminCredential` 参数。 有关详细信息，请参阅[在 Azure Stack 集线器上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app)。
+如果应用服务所需的 Create-AADIdentityApp.ps1 脚本失败，请确保 `-AzureStackAdminCredential` 在运行脚本时包含所需的参数。 有关详细信息，请参阅[在 Azure Stack 集线器上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app)。
 
 ## <a name="troubleshoot-azure-stack-hub-updates"></a>Azure Stack 集线器更新疑难解答
 
@@ -131,18 +131,18 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
 
-2. 如果无法解决问题，请创建[Azure Stack 集线器支持票证](azure-stack-help-and-support-overview-tzl.md)。 在出现问题时，请确保为时间跨度[收集日志](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md)。
+2. 如果无法解决问题，请创建[Azure Stack 集线器支持票证](azure-stack-help-and-support-overview-tzl.md)。 请确保已针对发生问题的时间跨度[收集日志](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md)。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>常见 Azure Stack Hub 修补程序和更新问题
 
-*适用于： Azure Stack 集线器集成系统*
+*适用于：Azure Stack Hub 集成系统*
 
 ### <a name="preparationfailed"></a>PreparationFailed
 
-**适用**：此问题适用于所有受支持的版本。
+**适用于**：此问题适用于所有支持的版本。
 
-**原因**：尝试安装 Azure Stack 中心更新时，更新的状态可能会失败，并将状态更改为 `PreparationFailed` 。 对于连接到 Internet 的系统，这通常表明由于 Internet 连接不稳定，无法正确下载更新包。 
+**原因：** 尝试安装 Azure Stack Hub 更新时，更新的状态可能会失败并将状态更改为 `PreparationFailed`。 对于连接到 Internet 的系统，这通常表明由于 Internet 连接不稳定，无法正确下载更新包。 
 
-**修正**：你可以通过单击 "**立即安装**" 来解决此问题。 如果此问题仍然存在，建议按照[安装更新](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)部分的说明手动上传更新包。
+**补救措施**：可以通过再次单击“立即安装”来解决此问题。 如果此问题仍然存在，建议按照[安装更新](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)部分的说明手动上传更新包。
 
-**发生次数**：常见
+**发生率**：通用

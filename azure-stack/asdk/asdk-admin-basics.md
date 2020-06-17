@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 75e20d593f1fb07e55655a7128c12b5417835dfe
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 70d2cfd7ce2dddd73117783c97003178281927d9
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82846885"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819378"
 ---
 # <a name="asdk-admin-basics"></a>ASDK 管理基础知识
 如果你不熟悉 Azure Stack 开发工具包 (ASDK) 的管理，请参考本文。 本指南概述评估环境中 Azure Stack 操作员的角色。 熟悉此信息可确保测试用户能够尽快提高工作效率。
@@ -33,7 +33,7 @@ ms.locfileid: "82846885"
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>使用哪些工具进行管理？
-你可以使用 Azure Stack 管理员门户`https://adminportal.local.azurestack.external`或 PowerShell 来管理 Azure Stack。 若要了解基本概念，最简单的方式是使用门户。 若要使用 PowerShell，需要安装[适用于 Azure Stack 的 PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) 并[从 GitHub 下载 Azure Stack 工具](asdk-post-deploy.md#download-the-azure-stack-tools)。
+你可以使用 Azure Stack 管理员门户 `https://adminportal.local.azurestack.external` 或 PowerShell 来管理 Azure Stack。 若要了解基本概念，最简单的方式是使用门户。 若要使用 PowerShell，需要安装[适用于 Azure Stack 的 PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) 并[从 GitHub 下载 Azure Stack 工具](asdk-post-deploy.md#download-the-azure-stack-tools)。
 
 Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组织机制。 若要管理 Azure Stack 并帮助支持用户，应了解 Azure 资源管理器。 有关详细信息，请参阅 [Azure 资源管理器入门白皮书](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)。
 
@@ -41,7 +41,7 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 可以使用 ASDK 来了解需要提供哪些服务，以及如何通过[创建计划、套餐和配额](../operator/azure-stack-tutorial-tenant-vm.md)来提供这些服务。 此外还需向市场添加项，例如虚拟机 (VM) 映像。 最简单的方法是[将市场项从 Azure 下载到 Azure Stack](../operator/azure-stack-create-and-publish-marketplace-item.md)。
 
 > [!NOTE]
-> 如果要测试计划、产品/服务和服务，应使用用户门户`https://portal.local.azurestack.external`;不是管理员门户`https://adminportal.local.azurestack.external`。
+> 如果要测试计划、产品/服务和服务，应使用用户门户， `https://portal.local.azurestack.external` 而不是管理员门户 `https://adminportal.local.azurestack.external` 。
 
 除了提供服务外，你还必须负责 Azure Stack 操作员的所有常规职责，使 ASDK 保持启动且正在运行。 这些职责包括以下事项：
 - 为 Azure AD 或 AD FS 部署添加用户帐户。
@@ -53,10 +53,10 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 ## <a name="where-to-get-support"></a>从何处获取支持
 对于 ASDK，可以在 [Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中提出与支持相关的问题。
 
-还可以通过单击管理员门户右上角的“帮助”  (问号) 来访问论坛。 然后单击“帮助 + 支持”  打开“帮助 + 支持”**概述**，其中包含指向论坛的链接。 我们会定期监视 MSDN 论坛。  
+还可以通过单击管理员门户右上角的“帮助”(问号) 来访问论坛。 然后单击“帮助 + 支持”打开“帮助 + 支持”**概述**，其中包含指向论坛的链接。 我们会定期监视 MSDN 论坛。  
 
 > [!IMPORTANT]
-> 由于 ASDK 是一个评估环境，因此我们不会通过 Microsoft 客户支持服务 (CSS) 提供官方支持。
+> 由于 ASDK 是一个评估环境，因此没有通过 Microsoft 支持部门提供的官方支持。
 
 ## <a name="next-steps"></a>后续步骤
 [部署 ASDK](asdk-install.md)

@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80891072"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819249"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub 基础结构安全控制
 
@@ -48,56 +48,54 @@ Azure Stack Hub 基础结构组件使用以 TLS 1.2 加密的通道进行通信�
 
 ## <a name="secret-management"></a>机密管理
 
-Azure Stack Hub 基础结构使用许多机密（例如密码）来运行。 其中的大多数机密会自动轮换，因为它们是每隔 24 小时轮换一次的组托管服务帐户 (gMSA)。
+Azure Stack 集线器基础结构使用多种机密（如密码和证书）来发挥作用。 与内部服务帐户关联的大多数密码每24小时自动轮换一次，因为它们是[组托管服务帐户（gMSA）](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)，这是由内部域控制器直接管理的一种域帐户。
 
-对于剩余的不属于 gMSA 的机密，可以使用特权终结点中的脚本以手动方式轮换。
+Azure Stack 集线器基础结构对其所有内部证书使用4096位 RSA 密钥。 相同的密钥长度证书还可以用于外部终结点。 有关机密和证书轮换的详细信息，请参阅[在 Azure Stack 中心旋转机密](azure-stack-rotate-secrets.md)。
 
-Azure Stack Hub 基础结构对其所有内部证书使用 4096 位 RSA 密钥。 相同密钥长度的证书还可用于外部终结点。 有关机密和证书轮换的详细信息，请参阅[在 Azure Stack Hub 中轮换机密](azure-stack-rotate-secrets.md)。
+## <a name="windows-defender-application-control"></a>Microsoft Defender 应用程序控制
 
-## <a name="windows-defender-application-control"></a>Windows Defender 应用程序控制
+Azure Stack Hub 利用最新的 Windows Server 安全功能。 其中一个安全功能是 Windows Defender 应用程序控制（WDAC，以前称为代码完整性），它提供可执行文件允许列表，并确保只有已授权代码在 Azure Stack Hub 基础结构中运行。
 
-Azure Stack Hub 使用最新的 Windows Server 安全功能。 其中的一项功能是 Windows Defender 应用程序控制（WDAC，前称为“代码完整性”）。此功能提供可执行文件白名单，确保只有已授权的代码可在 Azure Stack Hub 基础结构中运行。
+经授权的代码是由 Microsoft 或 OEM 合作伙伴签名的。 已签名的经授权代码包括在由 Microsoft 定义的策略中指定的允许的软件列表中。 换句话说，只能执行已获批准在 Azure Stack 中心基础结构中运行的软件。 任何执行未经授权代码的尝试都会被阻止，并且会生成警报。 Azure Stack Hub 强制实施用户模式代码完整性 (UMCI) 和虚拟机监控程序代码完整性 (HVCI)。
 
-经授权的代码是由 Microsoft 或 OEM 合作伙伴签名的。 已签名的经授权代码包括在由 Microsoft 定义的策略中指定的允许的软件列表中。 换而言之，只能执行已批准在 Azure Stack Hub 基础结构中运行的软件。 系统会阻止任何执行未经授权代码的企图并生成警报。 Azure Stack Hub 强制实施用户模式代码完整性 (UMCI) 和虚拟机监控程序代码完整性 (HVCI)。
-
-WDAC 策略也会阻止第三方代理或软件在 Azure Stack Hub 基础结构中运行。
-有关 WDAC 的详细信息，请参阅 [Windows Defender 应用程序控制和基于虚拟化的代码完整性保护](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)。
+WDAC 策略还阻止第三方代理或软件在 Azure Stack 中心基础结构中运行。
+有关 WDAC 的详细信息，请参阅[Windows Defender 应用程序控制和基于虚拟化的代码完整性保护](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)。
 
 ## <a name="credential-guard"></a>Credential Guard
 
-Azure Stack Hub 中的另一项 Windows Server 安全功能是 Windows Defender Credential Guard，它可用于防止 Azure Stack Hub 基础结构凭据遭到“传递哈希”和“传递票证”攻击。
+Azure Stack 中心中的另一项 Windows Server 安全功能是 Windows Defender Credential Guard，用于保护来自哈希传递和传递票证攻击的 Azure Stack 中心基础结构凭据。
 
 ## <a name="antimalware"></a>反恶意软件
 
-Azure Stack Hub 中的每个组件（Hyper-V 主机和虚拟机）受到 Windows Defender Antivirus 的保护。
+Azure Stack 集线器中的每个组件（Hyper-v 主机和虚拟机）都受到 Windows Defender 防病毒保护。
 
-在联网场景中，防病毒定义和引擎更新每天应用多次。 在离线场景中，反恶意软件更新作为 Azure Stack Hub 的每月更新的一部分应用。 在离线场景中，如果需要更频繁地更新 Windows Defender 的定义，Azure Stack Hub 还支持导入 Windows Defender 更新。 有关详细信息，请参阅[更新 Azure Stack Hub 上的 Windows Defender Antivirus](azure-stack-security-av.md)。
+在联网场景中，防病毒定义和引擎更新每天应用多次。 在断开连接的情况下，将作为每月 Azure Stack 中心更新的一部分应用反恶意软件更新。 如果在断开连接的情况下需要更频繁地更新 Windows Defender 的定义，Azure Stack 中心还支持导入 Windows Defender 更新。 有关详细信息，请参阅[更新 Azure Stack 集线器上的 Windows Defender 防病毒](azure-stack-security-av.md)。
 
 ## <a name="secure-boot"></a>安全启动
 
-Azure Stack Hub 在所有 Hyper-V 主机和基础结构虚拟机上强制实施安全启动。 
+Azure Stack 中心在所有 Hyper-v 主机和基础结构虚拟机上强制实施安全启动。 
 
 ## <a name="constrained-administration-model"></a>受约束的管理模型
 
-Azure Stack Hub 中的管理通过三个入口点进行控制，每个入口点都有特定的用途：
+Azure Stack 中心中的管理由三个入口点控制，每个入口点都有特定用途：
 
 - [管理员门户](azure-stack-manage-portals.md)针对日常管理操作提供点击式体验。
 - Azure 资源管理器通过 PowerShell 和 Azure CLI 使用的 REST API 公开管理员门户的所有管理操作。
-- 对于特定的低级操作（例如数据中心集成或支持方案），Azure Stack Hub 公开一个称作[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。
+- 对于特定的低级别操作（例如，数据中心集成或支持方案），Azure Stack 集线器公开了称为[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。
 
 ## <a name="network-controls"></a>网络控制措施
 
-Azure Stack Hub 基础结构附带了多个网络访问控制列表 (ACL) 层。 ACL 可防止用户对基础结构组件进行未经授权的访问，并将基础结构通信限制为基础结构在运行时需要访问的路径。
+Azure Stack 集线器基础结构附带了多层网络访问控制列表（ACL）。 ACL 可防止用户对基础结构组件进行未经授权的访问，并将基础结构通信限制为基础结构在运行时需要访问的路径。
 
 在三个层中实施网络 ACL：
 
-- 第 1 层：机架顶部交换机
-- 第 2 层：软件定义的网络
-- 第 3 层：主机和 VM 操作系统防火墙
+- 第1层：架顶交换机
+- 第2层：软件定义的网络
+- 第3层：主机和 VM 操作系统防火墙
 
 ## <a name="regulatory-compliance"></a>法规符合性
 
-Azure Stack Hub 已通过了由第三方独立审核公司执行的正式功能评估。 因此，我们提供了介绍 Azure Stack Hub 基础结构如何满足多个主要合规标准的适用控制措施的文档。 此文档不是 Azure Stack Hub 的认证，因为标准包括多个与人员相关的和多个与流程相关的控制措施。 但是，客户可以使用此文档来启动其认证流程。
+Azure Stack 中心已通过与第三方无关的审核公司进行了正式的功能评估。 因此，有关 Azure Stack 中心基础结构如何满足来自多种主要符合性标准的适用控件的文档。 该文档并不是 Azure Stack 集线器的认证，因为这些标准包括多个与人员相关的和与流程相关的控件。 但是，客户可以使用此文档来启动其认证流程。
 
 评估包括以下标准：
 

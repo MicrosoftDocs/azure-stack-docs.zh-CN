@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 3ed7d53efe5a77362332d4a2216935fee4dd7270
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: d7951500afe21ec0800328230d6b5f1653934c40
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630842"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819192"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用管理员门户
 
@@ -77,8 +77,8 @@ Azure Stack Hub 中有两种门户：管理员门户和用户门户。 Azure Sta
 
 如果单击管理员门户右上角的“帮助”图标（问号），单击“帮助 + 支持”，然后单击“支持”下的“新建支持请求”，则会出现以下结果之一：
 
-- 如果使用的是集成系统，此操作会打开一个站点，可在其中直接向 Microsoft 客户支持服务 (CSS) 创建支持票证。 若要了解何时应该获取 Microsoft 支持或原始设备制造商 (OEM) 硬件供应商支持，请参阅[在何处获取支持](azure-stack-manage-basics.md#where-to-get-support)。
-- 如果使用的是 ASDK，则此操作会直接打开 [Azure Stack Hub 论坛站点](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack)。 我们会定期关注这些论坛。 由于 ASDK 是一个评估环境，因此没有通过 Microsoft CSS 提供的官方支持。
+- 如果你使用的是集成系统，此操作将打开一个站点，你可以在其中直接使用 Microsoft 支持部门打开支持票证。 若要了解何时应该获取 Microsoft 支持或原始设备制造商 (OEM) 硬件供应商支持，请参阅[在何处获取支持](azure-stack-manage-basics.md#where-to-get-support)。
+- 如果使用的是 ASDK，则此操作会直接打开 [Azure Stack Hub 论坛站点](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack)。 我们会定期关注这些论坛。 由于 ASDK 是一个评估环境，因此没有通过 Microsoft 支持部门提供的官方支持。
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>快速访问 Azure 路线图
 

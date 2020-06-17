@@ -3,15 +3,15 @@ title: 为 Azure Stack Hub 创建 VPN 网关
 description: 为 Azure Stack Hub 创建和配置 VPN 网关。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
+ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294370"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84813728"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>为 Azure Stack Hub 创建 VPN 网关
 
@@ -25,8 +25,8 @@ VPN 网关是一种虚拟网络网关，可以通过公共连接发送加密的�
 
 在为 Azure Stack Hub 创建和配置 VPN 网关之前，请查看 [Azure Stack Hub 网络的注意事项](azure-stack-network-differences.md)，以了解 Azure Stack Hub 的配置与 Azure 的不同之处。
 
->[!NOTE]
->在 Azure 中，所选 VPN 网关 SKU 的带宽吞吐量必须分配给连接到网关的所有连接。 但在 Azure Stack Hub 中，VPN 网关 SKU 的带宽值会应用于连接到网关的每个连接资源。
+> [!NOTE]
+> 在 Azure 中，所选 VPN 网关 SKU 的带宽吞吐量必须分配给连接到网关的所有连接。 但在 Azure Stack Hub 中，VPN 网关 SKU 的带宽值会应用于连接到网关的每个连接资源。
 >
 > 例如：
 >
@@ -48,7 +48,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 ### <a name="deployment-tools"></a>部署工具
 
-可以使用一个配置工具（如 Azure 门户）创建和配置资源。 稍后，可以切换到 PowerShell 等其他工具来配置其他资源或修改现有资源（如果适用）。 目前，无法在 Azure 门户中配置每个资源和资源设置。 每个连接拓扑的文章中的说明指定了何时需要特定配置工具。
+可以使用一个配置工具（如 Azure 门户）创建和配置资源。 稍后，可以切换到另一个工具（如 PowerShell）来配置其他资源或修改现有资源（如果适用）。 目前，无法在 Azure 门户中配置每个资源和资源设置。 每个连接拓扑的文章中的说明指定了何时需要特定配置工具。
 
 ## <a name="connection-topology-diagrams"></a>连接拓扑图
 
@@ -116,8 +116,8 @@ Azure Stack Hub 中有三个多租户网关基础结构 VM。 其中两个 VM �
 **(2)** - 最大隧道数是所有订阅的每个 Azure Stack Hub 部署的总数。  
 **(3)** - 基本 SKU 不支持 BGP 路由。
 
->[!NOTE]
->在两个 Azure Stack Hub 部署之间只能创建一个站点到站点 VPN 连接。 这是因为平台中的某个限制仅允许同一 IP 地址具有单个 VPN 连接。 由于 Azure Stack Hub 利用多租户网关，该网关将单一公共 IP 用于 Azure Stack Hub 系统中的所有 VPN 网关，因此两个 Azure Stack Hub 系统之间只能有一个 VPN 连接。 此限制也适用于将多个站点到站点 VPN 连接连接到使用单一 IP 地址的任何 VPN 网关。 Azure Stack Hub 不允许使用同一 IP 地址创建多个本地网络网关资源。
+> [!NOTE]
+> 在两个 Azure Stack Hub 部署之间只能创建一个站点到站点 VPN 连接。 这是因为平台中的某个限制仅允许同一 IP 地址具有单个 VPN 连接。 由于 Azure Stack Hub 利用多租户网关，该网关将单一公共 IP 用于 Azure Stack Hub 系统中的所有 VPN 网关，因此两个 Azure Stack Hub 系统之间只能有一个 VPN 连接。 此限制也适用于将多个站点到站点 VPN 连接连接到使用单一 IP 地址的任何 VPN 网关。 Azure Stack Hub 不允许使用同一 IP 地址创建多个本地网络网关资源。
 
 ## <a name="next-steps"></a>后续步骤
 

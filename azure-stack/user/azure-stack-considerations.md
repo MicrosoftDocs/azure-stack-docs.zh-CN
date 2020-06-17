@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 06/11/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 66a47e7eb896fbe8cd6e30ea5f6de8bdc71e77e5
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: fb5f30d97d1c12a94b5366a358dc21450965fd93
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744891"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819535"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>使用服务和生成应用时 Azure Stack Hub 与 Azure 之间的差异
 
@@ -37,7 +37,7 @@ Azure Stack Hub 运营商会告知有哪些服务可供你使用，以及如何�
 | 区域 | Azure（公有云） | Azure Stack Hub |
 | -------- | ------------- | ----------|
 | 由谁运营？ | Microsoft | 你的组织或服务提供商。|
-| 寻求支持的联系对象是谁？ | Microsoft | 对于集成环境，请联系你的组织或服务提供商的 Azure Stack Hub 运营商来获取支持。<br><br>有关 Azure Stack 开发工具包（ASDK）支持，请访问[Microsoft 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft 客户支持服务（CSS）提供官方支持。
+| 寻求支持的联系对象是谁？ | Microsoft | 对于集成环境，请联系你的组织或服务提供商的 Azure Stack Hub 运营商来获取支持。<br><br>有关 Azure Stack 开发工具包（ASDK）支持，请访问[Microsoft 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)。 由于开发工具包是一个评估环境，因此没有通过 Microsoft 支持部门提供的官方支持。
 | 可用服务 | 参阅 [Azure 产品](https://azure.microsoft.com/services/?b=17.04b)列表。 可用服务因 Azure 区域而异。 | Azure Stack Hub 支持部分 Azure 服务。 实际服务因你的组织或服务提供商选择提供的服务而异。
 | Azure 资源管理器终结点* | `https://management.azure.com` | 对于 Azure Stack Hub 集成系统，请使用 Azure Stack Hub 操作员提供的终结点。<br><br>对于开发工具包，请使用 `https://management.local.azurestack.external` 。
 | 门户 URL* | [https://portal.azure.com](https://portal.azure.com) | 对于 Azure Stack Hub 集成系统，请使用 Azure Stack Hub 操作员提供的 URL。<br><br>对于开发工具包，请使用 `https://portal.local.azurestack.external` 。

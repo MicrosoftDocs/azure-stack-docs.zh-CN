@@ -7,12 +7,12 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 50ff7fc42cc6993c4ceeb009515cdad62ce980de
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: adb3d5d995b9bb267dacf957a9a7f15582114484
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636880"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819459"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -224,7 +224,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”。
     - 与 Azure Arc 集成。
     - 与容器 Azure Monitor 集成。
   - 使用带有 AKS 引擎的 Windows 容器。
-  - 接收针对其部署的 CSS 和工程支持。
+  - 接收针对其部署的 Microsoft 支持部门和工程支持。
 
 ### <a name="improvements"></a>改进
 
@@ -246,7 +246,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”。
 
    **IKE 阶段 1（主模式）参数**
 
-   | Property              | Value|
+   | properties              | Value|
    |-|-|
    | SDK 版本           | IKEv2 |
    |Diffie-Hellman 组   | ECP384 |
@@ -431,7 +431,7 @@ Azure Stack Hub 1907 更新内部版本类型为“快速”。 有关更新内�
 
 <!-- What's new, also net new experiences and features. -->
 
-- 正式推出 Azure Stack Hub 诊断日志收集服务，以加速和改善诊断日志的收集。 Azure Stack 集线器诊断日志收集服务提供了一种简单的方法来收集和共享 Microsoft 客户支持服务（CSS）的诊断日志。 此诊断日志收集服务可在 Azure Stack Hub 管理员门户中提供新的用户体验，让操作员设置在引发特定的关键警报时自动将诊断日志上传到存储 Blob。 该服务还可用于按需执行相同的操作。 有关详细信息，请参阅[诊断日志收集](azure-stack-diagnostic-log-collection-overview.md)一文。
+- 正式推出 Azure Stack Hub 诊断日志收集服务，以加速和改善诊断日志的收集。 Azure Stack 集线器诊断日志收集服务提供了一种简单的方法来收集和共享 Microsoft 支持部门的诊断日志。 此诊断日志收集服务可在 Azure Stack Hub 管理员门户中提供新的用户体验，让操作员设置在引发特定的关键警报时自动将诊断日志上传到存储 Blob。 该服务还可用于按需执行相同的操作。 有关详细信息，请参阅[诊断日志收集](azure-stack-diagnostic-log-collection-overview.md)一文。
 
 - 正式推出 Azure Stack Hub 网络基础结构验证作为 Azure Stack Hub 验证工具 **Test-AzureStack** 的一部分。 Azure Stack Hub 网络基础结构将成为 **Test-AzureStack** 的一部分，可识别 Azure Stack Hub 的网络基础结构是否发生故障。 此测试绕过 Azure Stack Hub 软件定义的网络来检查网络基础结构的连接。 它会演示如何从公共 VIP 连接到配置的 DNS 转发器、NTP 服务器和标识终结点。 此外，在使用 Azure AD 作为标识提供者时，它会检查与 Azure 的连接；使用 ADFS 时，它会检查与联合服务器的连接。 有关详细信息，请参阅 [Azure Stack Hub 验证工具](azure-stack-diagnostic-test.md)一文。
 

@@ -3,16 +3,16 @@ title: Azure Stack 中心应用商店中的新增功能
 description: 查看 Azure Stack Hub Marketplace 中的新增功能，包括新的、不推荐使用和更新的 marketplace 项。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/15/2020
+ms.date: 06/16/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 6625f45fcb593d510a8774d112199fc3d7ed1698
-ms.sourcegitcommit: 893d55bd3e680ec8b23358c04dec73efaa68a73e
+ms.openlocfilehash: 6649f7d282c869fbd348310a2bfdf883727282ff
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783446"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819369"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -63,6 +63,7 @@ ms.locfileid: "84783446"
 
 ## <a name="updated-marketplace-items"></a>更新的 marketplace 项
 
+- 6/16/2020： SQLIaaSExtension-版本1.3.20370
 - 6/12/2020： Bitnami Grafana-版本6.7.2006040249
 - 5/21/2020： Ubuntu Server 16.04 LTS-version 16.04.202004290
 - 5/21/2020： Ubuntu Server 18.04 LTS-version 18.04.202004080
