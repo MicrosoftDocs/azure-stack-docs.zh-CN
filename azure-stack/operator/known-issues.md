@@ -3,16 +3,16 @@ title: Azure Stack Hub 已知问题
 description: 了解 Azure Stack Hub 发行版中的已知问题。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 06/17/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 198e6441daae7331eda2502ad7dfc2aea32a08b3
-ms.sourcegitcommit: 9c4c3487ca79b4e077b415611051cd4ad471277c
+ms.openlocfilehash: 68b83e78f29e60d4dac2b980dd9fd4aefb3bcf66
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84766348"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977166"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -141,7 +141,8 @@ ms.locfileid: "84766348"
 ### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>无法在门户上创建 Standard_DS2_v2 VM 大小的 VMSS
 
 - 适用：此问题适用于2002版本。
-- 原因：存在一个门户 bug，该 bug 阻止 VMSS 创建 Standard_DS2_v2 VM 大小。 创建一个将会出现错误： "{" code "：" DeploymentFailed "，" message "：" 至少一个资源部署操作失败。 请列出部署操作以获取详细信息。 https://aka.ms/arm-debug有关使用情况详细信息，请参阅。 "，" 详细信息 "： [{" 代码 "：" BadRequest "，" 消息 "：" {\r\n \" 错误 \" ： {\R\n \" code \" ： \" NetworkProfileValidationError \" ，\r\n \" message \" ： \" 虚拟机大小 Standard_DS2_v2 不在 vm 大小允许的 Vm 大小的允许列表中，对于 vm 规模集/subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss.，为索引0的 vm 启用 允许的大小：。 \"\r\n} \r\n} "}]}" 修正：使用 PowerShell 或 resource manager 模板创建 VMSS。
+- 原因：存在一个门户 bug，该 bug 阻止 VMSS 创建 Standard_DS2_v2 VM 大小。 创建一个将会出现错误： "{" code "：" DeploymentFailed "，" message "：" 至少一个资源部署操作失败。 请列出部署操作以获取详细信息。 https://aka.ms/arm-debug有关使用情况详细信息，请参阅。 "，" 详细信息 "： [{" 代码 "：" BadRequest "，" 消息 "：" {\r\n \" 错误 \" ： {\R\n \" code \" ： \" NetworkProfileValidationError \" ，\r\n \" message \" ： \" 虚拟机大小 Standard_DS2_v2 不在 vm 大小允许的 Vm 大小的允许列表中，对于 vm 规模集/subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss.，为索引0的 vm 启用 允许的大小：。 \"\r\n} \r\n} "}]"
+- 修正：使用 PowerShell 或 resource manager 模板创建 VMSS。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM 概述边栏选项卡未显示正确的计算机名称
 
@@ -151,7 +152,7 @@ ms.locfileid: "84766348"
 
 ### <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
 
-- 适用于：此问题适用于 2002 及更高版本。
+- 适用：此问题适用于版本2002和更高版本。
 - 原因：完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 拥有基于 AMD Mi25 的 Azure Stack Hub GPU 预览版所需的硬件的客户可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。
 - 补救措施：按照设计为 Azure Stack Hub GPU 预览版做准备。
 
@@ -162,6 +163,7 @@ ms.locfileid: "84766348"
 - 补救措施：使用以前所用的相同名称重新创建存储帐户。
 - 发生次数：通用
 
+### <a name="vm-boot-diagnostics"></a>VM 启动诊断
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：尝试启动“已停止-解除分配”的虚拟机时，可能会显示以下错误：“找不到 VM 诊断存储帐户 "diagnosticstorageaccount"。请确保未删除存储帐户”。 如果尝试在启用了启动诊断的情况下启动 VM，但引用的启动诊断存储帐户被删除，则会发生此错误。
@@ -395,6 +397,8 @@ ms.locfileid: "84766348"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：在用户门户中，“连接”边栏选项卡显示一项名为“VPN 故障排除程序”的功能。  Azure Stack Hub 目前不支持此功能。
 - 发生次数：通用
+
+#### <a name="vpn-troubleshooter"></a>VPN 故障排除程序
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：用户门户显示 VPN 网关资源中的“VPN 故障排除”功能和“指标”，但这在 Azure Stack Hub 中不受支持。 

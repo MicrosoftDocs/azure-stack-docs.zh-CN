@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: c90231d96f3f076b0824222fba43c8d9ef680fa5
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 4559eb88c044d38182a14f1bafecf2f7019cd5cb
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146778"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977132"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM 功能
 
@@ -36,6 +36,7 @@ Azure Stack Hub 虚拟机 (VM) 提供可按需缩放的计算资源。 在部署
 | 虚拟机规模集|支持自动缩放。|不支持自动缩放。<br><br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。 |
 | 云见证 | 从 Azure Stack Hub 中提供的存储帐户属性中选择终结点。 | [Cloud 见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)是一种故障转移群集仲裁见证，使用 Microsoft Azure 在群集仲裁上提供投票。<br>与 Azure Stack 中心相比，全球 Azure 中的终结点可能如下所示：<br>对于全球 Azure：<br>`https://mywitness.blob.core.windows.net/`<br>对于 Azure Stack Hub：<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | 虚拟机诊断 | 支持 Linux VM 诊断。 | Azure Stack Hub 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。 |
+| 嵌套虚拟化 VM 大小 | 支持 | 不支持 |
 
 ## <a name="vm-sizes"></a>VM 大小
 
