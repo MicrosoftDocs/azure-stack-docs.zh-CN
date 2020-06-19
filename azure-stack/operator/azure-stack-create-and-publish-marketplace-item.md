@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 195b6ef3b15ada39664871557ed7efe2d613f5cd
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
+ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744940"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85069135"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建并发布自定义 Azure Stack Hub 市场项
 
@@ -149,7 +149,7 @@ ms.locfileid: "84744940"
 11. 修改完文件后，请将其转换为 .azpkg 文件。 可以使用 **AzureGallery.exe** 工具以及前面下载的示例库包来执行转换。 运行以下命令：
 
     ```shell
-    .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
+    .\AzureGallery.exe package -m c:\<path>\<gallery package name>\manifest.json -o c:\Temp
     ```
 
     > [!NOTE]
@@ -175,7 +175,7 @@ ms.locfileid: "84744940"
 
     ```powershell
     Add-AzsGalleryItem -GalleryItemUri `
-    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
     ```
 
 5. 确认是否可以提供一个有效的存储帐户来存储项。 可以从 Azure Stack Hub 管理员门户获取 `GalleryItemURI` 值。 选择“存储帐户”>“Blob 属性”->“URL”，扩展名为 .azpkg。  存储帐户仅供暂时使用，以便能够发布到市场。
