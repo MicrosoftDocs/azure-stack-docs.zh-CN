@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中配置多租户
 description: 了解如何在 Azure Stack Hub 中启用和禁用多个 Azure Active Directory 租户。
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ffad503fec50952eca492e16ca0051e69d1c1f14
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
+ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173873"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85107164"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>在 Azure Stack Hub 中配置多租户
 
@@ -76,7 +76,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 在 Azure Stack Hub 操作员使得 Fabrikam 目录能够与 Azure Stack Hub 一起使用后，Mary 必须向 Fabrikam 的目录租户注册 Azure Stack Hub。
 
-#### <a name="registering-azure-stack-hub-with-the-guest-directory"></a>将 Azure Stack Hub 注册到来宾目录
+#### <a name="register-azure-stack-hub-with-the-guest-directory"></a>向来宾目录注册 Azure Stack 集线器
 
 Mary （Fabrikam 的目录管理员）在 guest directory fabrikam.onmicrosoft.com 中运行以下命令：
 
@@ -94,7 +94,7 @@ Register-AzSWithMyDirectoryTenant `
 ```
 
 > [!IMPORTANT]
-> 如果 Azure Stack Hub 管理员将来要安装新服务或更新，则你可能需要再次运行此脚本。
+> 如果 Azure Stack 集线器管理员将来安装新服务或更新，则可能需要再次运行此脚本。
 >
 > 随时可以再次运行此脚本来检查目录中的 Azure Stack Hub 应用的状态。
 >
@@ -102,9 +102,9 @@ Register-AzSWithMyDirectoryTenant `
 
 ### <a name="direct-users-to-sign-in"></a>指导用户登录
 
-现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。 Fabrikam 用户（具有 fabrikam.onmicrosoft.com 后缀的用户）通过访问 https\://portal.local.azurestack.external. 登录
+现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。 Fabrikam 用户（具有 fabrikam.onmicrosoft.com 后缀的用户）通过访问 https//portal.local.azurestack.external. 登录 \:
 
-Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmicrosoft.com 的用户）的所有[外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles)，以使用 https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com. 登录 如果他们未使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
+Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmicrosoft.com 的用户）的所有[外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles)，以使用 https//portal.local.azurestack.external/fabrikam.onmicrosoft.com. 登录 \: 如果不使用此 URL，则会将其发送到其默认目录（Fabrikam），并收到一条错误消息，指出管理员尚未同意。
 
 ## <a name="disable-multi-tenancy"></a>禁用多租户
 
@@ -125,7 +125,7 @@ Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmi
      -Verbose 
     ```
 
-2. 以 Azure Stack Hub 的服务管理员身份（在此场景中是你）运行 *Unregister-AzSGuestDirectoryTenant*。
+2. 作为 Azure Stack 中心的服务管理员（在此方案中为），请运行*AzSGuestDirectoryTenant*。
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -149,9 +149,45 @@ Mary 将引导 Fabrikam 目录（Fabrikam 目录中不含后缀为 fabrikam.onmi
     > [!WARNING]
     > 禁用多租户步骤必须按顺序执行。 如果首先完成步骤 1，则步骤 2 将失败。
 
+## <a name="retrieve-azure-stack-hub-identity-health-report"></a>检索 Azure Stack 集线器标识运行状况报告 
+
+替换 `<region>` 、 `<domain>` 和 `<homeDirectoryTenant>` 占位符，然后执行以下 Cmdlet 作为 Azure Stack 中心管理员。
+
+```powershell
+
+$AdminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+$DirectoryName = "<homeDirectoryTenant>.onmicrosoft.com"
+$healthReport = Get-AzsHealthReport -AdminResourceManagerEndpoint $AdminResourceManagerEndpoint -DirectoryTenantName $DirectoryName
+Write-Host "Healthy directories: "
+$healthReport.directoryTenants | Where status -EQ 'Healthy' | Select -Property tenantName,tenantId,status | ft
+
+
+Write-Host "Unhealthy directories: "
+$healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property tenantName,tenantId,status | ft
+```
+
+### <a name="update-azure-ad-tenant-permissions"></a>更新 Azure AD 租户权限
+
+此操作会清除 Azure Stack 中心中的警报，指示目录需要更新。 从**test-azurestack/identity**文件夹中运行以下命令：
+
+```powershell
+Import-Module ..\Connect\AzureStack.Connect.psm1
+Import-Module ..\Identity\AzureStack.Identity.psm1
+
+$adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+
+# This is the primary tenant Azure Stack is registered to:
+$homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com"
+
+Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
+   -DirectoryTenantName $homeDirectoryTenantName -Verbose
+```
+
+此脚本将提示你输入 Azure AD 租户上的管理凭据，并需要几分钟时间才能运行。 运行 cmdlet 后，应清除警报。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [管理委派提供程序](azure-stack-delegated-provider.md)
-- [Azure Stack Hub 的重要概念](azure-stack-overview.md)
-- [管理充当云解决方案提供商的 Azure Stack Hub 的用量和计费](azure-stack-add-manage-billing-as-a-csp.md)
-- [将租户添加到 Azure Stack Hub 以获取用量和计费信息](azure-stack-csp-howto-register-tenants.md)
+- [Azure Stack 集线器关键概念](azure-stack-overview.md)
+- [作为云解决方案提供商管理 Azure Stack 集线器的使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)
+- [将使用情况和计费的租户添加到 Azure Stack 中心](azure-stack-csp-howto-register-tenants.md)
