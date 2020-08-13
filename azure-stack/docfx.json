@@ -85,7 +85,6 @@
           "**/*.yml"
         ],
         "exclude": [
-         
           "asdk/**",
           "operator/**",
           "partner/**",
@@ -176,7 +175,6 @@
           "**/*.gif"
         ],
         "exclude": [
-          
           "asdk/**",
           "operator/**",
           "partner/**",
@@ -217,6 +215,9 @@
         "asdk/**/*.md": "Azure Stack Development Kit (ASDK)",
         "hci/**/*.md": "Azure Stack HCI",
         "hybrid/**/*.md": "Azure Stack"
+      },
+      "ms.subservice": {
+        "hci/**/*.md": "azure-stack-hci"
       }
     },
      "template": [],
