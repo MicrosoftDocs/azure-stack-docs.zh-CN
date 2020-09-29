@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: a30c3a4f745e46a5e7b58d4355f1c193d8702e28
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0345c3290b717385d8080dc6be771660ea22a2e1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294678"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487900"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>为 SQL 资源提供程序添加托管服务器
 
@@ -41,7 +41,7 @@ ms.locfileid: "79294678"
 
 可通过市场管理功能获取 SQL IaaS VM 映像。 这些映像与 Azure 中提供的 SQL VM 相同。
 
-在使用市场项部署 SQL VM 之前，请确保始终下载最新版本的 **SQL IaaS 扩展**。 IaaS 扩展和相应的门户增强功能可提供自动修补和备份等附加功能。 有关此扩展的详细信息，请参阅[使用 SQL Server 代理扩展在 Azure VM 上自动完成管理任务](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)。
+在使用市场项部署 SQL VM 之前，请确保始终下载最新版本的 **SQL IaaS 扩展**。 IaaS 扩展和相应的门户增强功能可提供自动修补和备份等附加功能。 有关此扩展的详细信息，请参阅[使用 SQL Server 代理扩展在 Azure VM 上自动完成管理任务](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)。
 
 > [!NOTE]
 > 对于市场上 Windows 映像中的所有 SQL，SQL IaaS 扩展都是_必需_的；如果没有下载该扩展，则 VM 将无法部署。 该扩展不用于基于 Linux 的 SQL VM 映像。
@@ -66,7 +66,7 @@ ms.locfileid: "79294678"
 
 * 使用 BitLocker 加密所有 Azure Stack Hub 存储，因此 Azure Stack Hub 上的任何 SQL 实例都将使用加密的 Blob 存储。
 * SQL 资源提供程序完全支持 TLS 1.2。 确保通过 SQL RP 管理的任何 SQL Server 仅针对 TLS 1.2 进行配置，并且 RP 默认使用该配置。  SQL Server 的所有支持版本都支持 TLS 1.2。 有关详细信息，请参阅[针对 Microsoft SQL Server 的 TLS 1.2 支持](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)。
-* 使用 SQL Server 配置管理器设置 **ForceEncryption** 选项，确保与 SQL Server 之间的所有通信始终经过加密。 有关详细信息，请参阅[将服务器配置为强制加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections)。
+* 使用 SQL Server 配置管理器设置 **ForceEncryption** 选项，确保与 SQL Server 之间的所有通信始终经过加密。 有关详细信息，请参阅[将服务器配置为强制加密连接](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections)。
 * 确保任何客户端应用也通过加密的连接进行通信。
 * RP 配置为信任 SQL Server 实例使用的证书。
 
@@ -106,15 +106,15 @@ ms.locfileid: "79294678"
 
 配置 SQL Always On 实例需要执行附加的步骤，并需要三个 VM（或物理机）。本文假设你已深入了解 Always On 可用性组。 有关详细信息，请参阅以下文章：
 
-* [Azure 虚拟机上的 SQL Server Always On 可用性组简介](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On 可用性组 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Azure 虚拟机上的 SQL Server Always On 可用性组简介](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On 可用性组 (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > SQL 适配器资源提供程序仅支持适用于 Always On 可用性组的 SQL 2016 SP1 企业版或更高版本的实例。  此适配器配置需要新的 SQL 功能，例如自动种子设定。
 
 ### <a name="automatic-seeding"></a>自动种子设定
 
-必须在每个 SQL Server 实例的每个可用性组上启用[自动种子设定](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group)。
+必须在每个 SQL Server 实例的每个可用性组上启用[自动种子设定](/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group)。
 
 若要在所有实例上启用自动种子设定，请在每个辅助实例的主要副本上编辑并运行以下 SQL 命令：
 
@@ -136,7 +136,7 @@ ms.locfileid: "79294678"
 
 ### <a name="configure-contained-database-authentication"></a>配置包含的数据库身份验证
 
-将包含的数据库添加到可用性组之前，请确保在托管可用性组可用性副本的每个服务器实例上，包含的数据库身份验证服务器选项已设置为 1。 有关详细信息，请参阅[包含的数据库身份验证服务器配置选项](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)。
+将包含的数据库添加到可用性组之前，请确保在托管可用性组可用性副本的每个服务器实例上，包含的数据库身份验证服务器选项已设置为 1。 有关详细信息，请参阅[包含的数据库身份验证服务器配置选项](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)。
 
 使用以下命令设置每个实例的包含的数据库身份验证服务器选项：
 

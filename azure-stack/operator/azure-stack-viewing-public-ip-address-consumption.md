@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: f210f5939f60eb996f7c72b9552cf09d11f8de91
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b96485e74286cbbbd2ff20f2378dc7c452849b52
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696203"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487390"
 ---
 # <a name="manage-network-resources-in-azure-stack-hub"></a>在 Azure Stack Hub 中管理网络资源
 
@@ -29,7 +29,7 @@ Azure Stack Hub 使用静态 MAC 地址池自动生成 MAC 地址并将其分配
 
 你可能会遇到 VM 的 MAC 地址重复的情况，具体取决于虚拟网络如何与现有公司网络进行连接。
 
-使用 Azure Stack Hub 管理员 PowerShell 模块中的 cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) 可以找到有关 MAC 地址池利用率的详细信息。
+使用 Azure Stack Hub 管理员 PowerShell 模块中的 cmdlet [Get-AzsMacAddressPool](/powershell/module/azs.fabric.admin/get-azsmacaddresspool) 可以找到有关 MAC 地址池利用率的详细信息。
 
 ## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>查看 Azure Stack Hub 中的公共 IP 地址使用情况
 

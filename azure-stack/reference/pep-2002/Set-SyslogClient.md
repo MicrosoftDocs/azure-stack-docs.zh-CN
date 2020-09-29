@@ -1,20 +1,20 @@
 ---
-title: Azure Stack 中心的 SyslogClient 特权终结点
-description: 适用于 PowerShell Azure Stack 特权终结点的参考-SyslogClient
+title: Azure Stack Hub 的 Set-SyslogClient 特权终结点
+description: PowerShell Azure Stack 特权终结点 - Set-SyslogClient 的参考信息
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: ecb66bdceef8ee4da5018f0f2ceac81cd7d57061
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: f1c96a8e9ac8c3a5b67d32d94d93d08f689fb553
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562714"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86485979"
 ---
-# <a name="set-syslogclient"></a>SyslogClient
+# <a name="set-syslogclient"></a>Set-SyslogClient
 
 ## <a name="synopsis"></a>摘要
 导入并应用 syslog 客户端终结点证书。
@@ -26,11 +26,11 @@ Set-SyslogClient [-OutputSeverity <Object>] [-PfxBinary <Object>] [-RemoveCertif
  [-AsJob]
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-pfxbinary"></a>-PfxBinary
 二进制格式的证书。
-使用 "**获取内容**" 提取证书文件中的字节数组。
+使用 Get-Content 从证书文件中提取字节数组。
 
 ```yaml
 Type: Object
@@ -106,4 +106,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

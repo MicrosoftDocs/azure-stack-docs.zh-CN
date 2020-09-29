@@ -1,18 +1,18 @@
 ---
-title: Azure Stack 中心的 PrivilegedEndpoint 特权终结点
-description: 适用于 PowerShell 的引用 Azure Stack 特权终结点-PrivilegedEndpoint
+title: Azure Stack Hub 的 Close-PrivilegedEndpoint 特权终结点
+description: PowerShell Azure Stack 特权终结点 - Close-PrivilegedEndpoint 参考
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 19d1484644b51ab69ffb8c2eea594847deedf05b
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: c7c02385d723c34841627850c9f656cd2885de57
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563176"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487305"
 ---
 # <a name="close-privilegedendpoint"></a>Close-PrivilegedEndpoint
 
@@ -22,7 +22,7 @@ ms.locfileid: "82563176"
 Close-PrivilegedEndpoint [[-TranscriptsPathDestination] <Object>] [[-Credential] <Object>] [-AsJob]
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-credential"></a>-Credential
 
@@ -71,4 +71,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

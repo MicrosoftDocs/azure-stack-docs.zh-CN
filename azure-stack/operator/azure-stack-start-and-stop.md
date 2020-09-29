@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 2c8211606ae797b4a88da1c268a7fb36b7de214b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 730e4dd823509f7a8c738f3d02bd10c82529834c
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512365"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487781"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>启动和停止 Azure Stack Hub
 
@@ -80,8 +80,8 @@ ms.locfileid: "79512365"
       Start-AzureStack
     ```
 
-5. 如果运行**test-azurestack**导致失败，请联系 Microsoft 支持部门。
+5. 如果运行 **test-azurestack** 导致失败，请联系 Microsoft 支持部门。
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解 [Azure Stack Hub 诊断工具](azure-stack-diagnostic-log-collection-overview-tzl.md)
+详细了解 [Azure Stack Hub 诊断工具](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)

@@ -1,23 +1,23 @@
 ---
-title: Azure Stack 中心的 CustomAdfs 特权终结点
-description: 适用于 PowerShell 的引用 Azure Stack 特权终结点 CustomAdfs
+title: Azure Stack Hub 的 Register-CustomAdfs 特权终结点
+description: PowerShell Azure Stack 特权终结点的引用 - Register-CustomAdfs
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: fd40c3930705d450d7e48b373f209b6e2ce7d218
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 743b8f5d8f1a2a6cb9f6e44fc61510a5da394ef6
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562945"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486557"
 ---
-# <a name="register-customadfs"></a>注册-CustomAdfs
+# <a name="register-customadfs"></a>Register-CustomAdfs
 
 ## <a name="synopsis"></a>摘要
-用于将自定义 Active Directory 联合身份验证服务（AD FS）注册为声明提供程序的脚本 AD FS Azure Stack
+用于通过使用 Azure Stack AD FS 将自定义 Active Directory 联合身份验证服务 (AD FS) 注册为声明提供程序的脚本
 
 ## <a name="syntax"></a>语法
 
@@ -28,7 +28,7 @@ Register-CustomAdfs [-CustomADFSFederationMetadataEndpointUri <Object>]
 ```
 
 ## <a name="description"></a>说明
-用于将自定义 Active Directory 联合身份验证服务（AD FS）注册为声明提供程序的脚本 AD FS Azure Stack
+用于通过使用 Azure Stack AD FS 将自定义 Active Directory 联合身份验证服务 (AD FS) 注册为声明提供程序的脚本
 
 ## <a name="examples"></a>示例
 
@@ -41,7 +41,7 @@ Register-CustomAdfs -CustomAdfsName "Contoso" -CustomADFSFederationMetadataEndpo
 ```
 Register-CustomAdfs -CustomAdfsName "Contoso" -CustomADFSFederationMetadataFile "c:\temp\FederationMetadata.xml" -TimeoutInSecs 1000
 ```
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-customadfsname"></a>-CustomAdfsName
  
@@ -150,4 +150,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的详细信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

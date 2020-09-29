@@ -1,25 +1,25 @@
 ---
-title: Azure Stack 中心的 DirectoryService 特权终结点
-description: 适用于 PowerShell 的引用 Azure Stack 特权终结点 DirectoryService
+title: Azure Stack Hub 的 Register-DirectoryService 特权终结点
+description: PowerShell Azure Stack 特权终结点参考 - Register-DirectoryService
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 4ac71d57c0f2e5028883a4bede539fdf89a45afb
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 13bf0dba6cfd1ce63ec4754a9c87ef22ad347409
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562901"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486506"
 ---
-# <a name="register-directoryservice"></a>注册-DirectoryService
+# <a name="register-directoryservice"></a>Register-DirectoryService
 
 ## <a name="synopsis"></a>摘要
-用于向图形服务注册客户 Active Directory （Azure AD）的脚本。
-**CustomADGlobalCatalog**是自定义 Active Directory 的全局编录。
-这将是`RootDomain` **ADForest** cmdlet 的输出中的值。
+用于将客户 Active Directory (Azure AD) 注册到 Graph 服务的脚本。
+CustomADGlobalCatalog**** 是自定义 Active Directory 的全局编录。
+这将是 Get-ADForest**** cmdlet 的输出中的 `RootDomain` 值。
 
 ## <a name="syntax"></a>语法
 
@@ -29,9 +29,9 @@ Register-DirectoryService [-Force] [[-TimeoutInSecs] <Object>] [-SkipRootDomainV
 ```
 
 ## <a name="description"></a>说明
-用于向图形服务注册客户 Active Directory 的脚本。
-**CustomADGlobalCatalog**是自定义 Active Directory 的全局编录。
-这将是`RootDomain` **ADForest** cmdlet 的输出中的值。
+用于将客户 Active Directory 注册到 Graph 服务的脚本。
+CustomADGlobalCatalog**** 是自定义 Active Directory 的全局编录。
+这将是 Get-ADForest**** cmdlet 的输出中的 `RootDomain` 值。
 
 ## <a name="examples"></a>示例
 
@@ -40,7 +40,7 @@ Register-DirectoryService [-Force] [[-TimeoutInSecs] <Object>] [-SkipRootDomainV
 Register-DirectoryService -CustomADGlobalCatalog "contoso.com" -CustomADAdminCredential (Get-Credential) -TimeoutInSecs 1000
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-customadglobalcatalog"></a>-CustomADGlobalCatalog
  
@@ -149,4 +149,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+若要了解如何访问和使用特权终结点，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

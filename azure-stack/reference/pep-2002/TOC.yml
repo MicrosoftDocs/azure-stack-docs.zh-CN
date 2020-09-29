@@ -1,92 +1,92 @@
-- name: Azure Stack 中心特权终结点引用
+- name: Azure Stack Hub 特权终结点参考
   href: index.md
   expanded: true
   items:
     - name: Close-PrivilegedEndpoint
       href: Close-PrivilegedEndpoint.md
-    - name: ActionStatus
+    - name: Get-ActionStatus
       href: Get-ActionStatus.md
     - name: Get-AzureStackLog
       href: Get-AzureStackLog.md
     - name: Get-AzureStackStampInformation
       href: Get-AzureStackStampInformation.md
-    - name: AzureStackSupportConfiguration
+    - name: Get-AzureStackSupportConfiguration
       href: Get-AzureStackSupportConfiguration.md
-    - name: CloudAdminPasswordRecoveryToken
+    - name: Get-CloudAdminPasswordRecoveryToken
       href: Get-CloudAdminPasswordRecoveryToken.md
-    - name: CloudAdminUserList
+    - name: Get-CloudAdminUserList
       href: Get-CloudAdminUserList.md
     - name: Get-ClusterLog
       href: Get-ClusterLog.md
-    - name: GraphApplication
+    - name: Get-GraphApplication
       href: Get-GraphApplication.md
     - name: Get-StorageJob
       href: Get-StorageJob.md
-    - name: SupportSessionInfo
+    - name: Get-SupportSessionInfo
       href: Get-SupportSessionInfo.md
-    - name: SupportSessionToken
+    - name: Get-SupportSessionToken
       href: Get-SupportSessionToken.md
-    - name: SyslogClient
+    - name: Get-SyslogClient
       href: Get-SyslogClient.md
-    - name: SyslogServer
+    - name: Get-SyslogServer
       href: Get-SyslogServer.md
     - name: Get-ThirdPartyNotices
       href: Get-ThirdPartyNotices.md
-    - name: TLSPolicy
+    - name: Get-TLSPolicy
       href: Get-TLSPolicy.md
     - name: Get-VirtualDisk
       href: Get-VirtualDisk.md
     - name: Invoke-AzureStackOnDemandLog
       href: Invoke-AzureStackOnDemandLog.md
-    - name: 新-AzureBridgeServicePrincipal
+    - name: New-AzureBridgeServicePrincipal
       href: New-AzureBridgeServicePrincipal.md
-    - name: 新-AzureStackActivation
+    - name: New-AzureStackActivation
       href: New-AzureStackActivation.md
     - name: New-CloudAdminUser
       href: New-CloudAdminUser.md
-    - name: 新-GraphApplication
+    - name: New-GraphApplication
       href: New-GraphApplication.md
-    - name: 新-RegistrationToken
+    - name: New-RegistrationToken
       href: New-RegistrationToken.md
-    - name: 注册-CustomAdfs
+    - name: Register-CustomAdfs
       href: Register-CustomAdfs.md
-    - name: 注册-CustomDnsServer
+    - name: Register-CustomDnsServer
       href: Register-CustomDnsServer.md
-    - name: 注册-DirectoryService
+    - name: Register-DirectoryService
       href: Register-DirectoryService.md
-    - name: AzureStackActivation
+    - name: Remove-AzureStackActivation
       href: Remove-AzureStackActivation.md
     - name: Remove-CloudAdminUser
       href: Remove-CloudAdminUser.md
-    - name: GraphApplication
+    - name: Remove-GraphApplication
       href: Remove-GraphApplication.md
-    - name: 修复-VirtualDisk
+    - name: Repair-VirtualDisk
       href: Repair-VirtualDisk.md
-    - name: 重置-DatacenterIntegrationConfiguration
+    - name: Reset-DatacenterIntegrationConfiguration
       href: Reset-DatacenterIntegrationConfiguration.md
-    - name: AzureStackDiagnosticLog
+    - name: Send-AzureStackDiagnosticLog
       href: Send-AzureStackDiagnosticLog.md
     - name: Set-CloudAdminUserPassword
       href: Set-CloudAdminUserPassword.md
-    - name: GraphApplication
+    - name: Set-GraphApplication
       href: Set-GraphApplication.md
-    - name: ServiceAdminOwner
+    - name: Set-ServiceAdminOwner
       href: Set-ServiceAdminOwner.md
-    - name: SyslogClient
+    - name: Set-SyslogClient
       href: Set-SyslogClient.md
-    - name: SyslogServer
+    - name: Set-SyslogServer
       href: Set-SyslogServer.md
-    - name: 设置-遥测
+    - name: Set-Telemetry
       href: Set-Telemetry.md
-    - name: TLSPolicy
+    - name: Set-TLSPolicy
       href: Set-TLSPolicy.md
-    - name: Test-azurestack
+    - name: Start-AzureStack
       href: Start-AzureStack.md
-    - name: Start-secretrotation
+    - name: Start-SecretRotation
       href: Start-SecretRotation.md
     - name: Stop-AzureStack
       href: Stop-AzureStack.md
     - name: Test-AzureStack
       href: Test-AzureStack.md
-    - name: SupportSession
+    - name: Unlock-SupportSession
       href: Unlock-SupportSession.md

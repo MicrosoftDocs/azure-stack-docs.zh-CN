@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 2369ffbd1d3fc72c9d2df7ff87be6131f7aabcd7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 01f02fcf624db0a8ce47084ec5aa331e0831014b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703309"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489277"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>使用 PowerShell 为 Azure Stack Hub 启用备份
 
@@ -42,7 +42,7 @@ ms.locfileid: "77703309"
 | `$frequencyInHours` | “频率(小时)”决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。|
 | `$retentionPeriodInDays` | “保留期(天)”决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。|
 | `$encryptioncertpath` | 适用于 1901 及更高版本。 参数在 Azure Stack Hub 模块 1.7 及更高版本中提供。 加密证书路径指定 .CER 文件的文件路径，文件中的公钥用于数据加密。 |
-| `$encryptionkey` | 适用于内部版本 1811 或更低版本。 参数在 Azure Stack Hub 模块 1.6 或更低版本中提供。 加密密钥用于数据加密。 使用 [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet 来生成新密钥。 |
+| `$encryptionkey` | 适用于内部版本 1811 或更低版本。 参数在 Azure Stack Hub 模块 1.6 或更低版本中提供。 加密密钥用于数据加密。 使用 [New-AzsEncryptionKeyBase64](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet 来生成新密钥。 |
 |     |     |
 
 ### <a name="enable-backup-on-1901-and-later-using-certificate"></a>使用证书在 1901 及更高版本上启用备份

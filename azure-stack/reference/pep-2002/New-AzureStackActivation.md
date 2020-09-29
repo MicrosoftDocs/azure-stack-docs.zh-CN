@@ -1,20 +1,20 @@
 ---
-title: Azure Stack 中心的 AzureStackActivation 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-AzureStackActivation
+title: Azure Stack Hub 的 New-AzureStackActivation 特权终结点
+description: PowerShell Azure Stack 特权终结点 - New-AzureStackActivation 参考
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: fdd30f54973d5e1d6485e89b30c1ae811c950822
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 01182266cd53c060114e5ea555d9839a2b1b90bf
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563055"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486761"
 ---
-# <a name="new-azurestackactivation"></a>新-AzureStackActivation
+# <a name="new-azurestackactivation"></a>New-AzureStackActivation
 
 ## <a name="synopsis"></a>摘要
 激活 Azure Stack Hub。
@@ -25,7 +25,7 @@ ms.locfileid: "82563055"
 New-AzureStackActivation [[-TimeoutInSeconds] <Object>] [[-ActivationKey] <Object>] [-AsJob]
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-activationkey"></a>-ActivationKey
  
@@ -74,4 +74,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: c559a90234b486f8501eeb7b0b8249e41dcdb8fa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3b12c794550c3d39809369ae86117d9c684e1a53
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701473"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489787"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>备份 Azure Stack Hub 上的应用服务
 
@@ -34,13 +34,13 @@ ms.locfileid: "77701473"
 
 1. 以服务管理员身份登录到 Azure Stack Hub 管理员门户。
 
-2. 浏览到“应用服务” **“机密”。**  ->   
+2. 浏览到“应用服务” -> “机密”。  
 
 3. 选择“下载机密”。 
 
    ![在 Azure Stack Hub 管理员门户中下载机密](./media/app-service-back-up/download-secrets.png)
 
-4. 准备好下载机密时，单击“保存”，并将应用服务机密 (**SystemSecrets.JSON**) 文件存储到安全位置。  
+4. 准备好下载机密时，单击“保存”，并将应用服务机密 (**SystemSecrets.JSON**) 文件存储到安全位置。 
 
    ![在 Azure Stack Hub 管理员门户中保存机密](./media/app-service-back-up/save-secrets.png)
 
@@ -61,7 +61,7 @@ ms.locfileid: "77701473"
   ```
 
 > [!NOTE]
-> 如果需要备份 SQL AlwaysOn 数据库，请遵照[这些说明](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017)操作。 
+> 如果需要备份 SQL AlwaysOn 数据库，请遵照[这些说明](/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017)操作。 
 
 成功备份所有数据库之后，请将 .bak 文件连同应用服务机密信息一起复制到安全位置。
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Stack 中心的 Get-clusterlog 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-Get-clusterlog
+title: Azure Stack Hub 的 Get-ClusterLog 特权终结点
+description: PowerShell Azure Stack 特权终结点 - Get-ClusterLog 的参考信息
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 0faba2f2e026c156b4e20a17cd5bb5249c99478f
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ec984252235334b5706a79a510852868c8f40dba
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562516"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487101"
 ---
 # <a name="get-clusterlog"></a>Get-ClusterLog
 
@@ -24,9 +24,9 @@ Get-ClusterLog [-SkipClusterState] [-InputObject <Object>] [-Cluster <Object>] [
  [-PerformanceHistoryTimeFrame <Object>] [-Health] [-ExportClusterPerformanceHistory] [-UseLocalTime] [-AsJob]
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
-### <a name="-cluster"></a>-群集
+### <a name="-cluster"></a>-Cluster
  
 
 ```yaml
@@ -71,7 +71,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### <a name="-health"></a>-运行状况
+### <a name="-health"></a>-Health
 生成群集运行状况日志。
 
 ```yaml
@@ -225,4 +225,4 @@ Accept wildcard characters: False
 
 [https://go.microsoft.com/fwlink/?LinkId=216212](https://go.microsoft.com/fwlink/?LinkId=216212)
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

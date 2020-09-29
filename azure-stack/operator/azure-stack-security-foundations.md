@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819249"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487866"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub 基础结构安全控制
 
@@ -48,9 +48,9 @@ Azure Stack Hub 基础结构组件使用以 TLS 1.2 加密的通道进行通信�
 
 ## <a name="secret-management"></a>机密管理
 
-Azure Stack 集线器基础结构使用多种机密（如密码和证书）来发挥作用。 与内部服务帐户关联的大多数密码每24小时自动轮换一次，因为它们是[组托管服务帐户（gMSA）](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)，这是由内部域控制器直接管理的一种域帐户。
+Azure Stack 集线器基础结构使用多种机密（如密码和证书）来发挥作用。 与内部服务帐户关联的大多数密码每24小时自动轮换一次，因为它们是 [组托管服务帐户 (gMSA) ](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)，这种类型的域帐户直接由内部域控制器管理。
 
-Azure Stack 集线器基础结构对其所有内部证书使用4096位 RSA 密钥。 相同的密钥长度证书还可以用于外部终结点。 有关机密和证书轮换的详细信息，请参阅[在 Azure Stack 中心旋转机密](azure-stack-rotate-secrets.md)。
+Azure Stack 集线器基础结构对其所有内部证书使用4096位 RSA 密钥。 相同的密钥长度证书还可以用于外部终结点。 有关机密和证书轮换的详细信息，请参阅 [在 Azure Stack 中心旋转机密](azure-stack-rotate-secrets.md)。
 
 ## <a name="windows-defender-application-control"></a>Microsoft Defender 应用程序控制
 
@@ -59,7 +59,7 @@ Azure Stack Hub 利用最新的 Windows Server 安全功能。 其中一个安�
 经授权的代码是由 Microsoft 或 OEM 合作伙伴签名的。 已签名的经授权代码包括在由 Microsoft 定义的策略中指定的允许的软件列表中。 换句话说，只能执行已获批准在 Azure Stack 中心基础结构中运行的软件。 任何执行未经授权代码的尝试都会被阻止，并且会生成警报。 Azure Stack Hub 强制实施用户模式代码完整性 (UMCI) 和虚拟机监控程序代码完整性 (HVCI)。
 
 WDAC 策略还阻止第三方代理或软件在 Azure Stack 中心基础结构中运行。
-有关 WDAC 的详细信息，请参阅[Windows Defender 应用程序控制和基于虚拟化的代码完整性保护](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)。
+有关 WDAC 的详细信息，请参阅 [Windows Defender 应用程序控制和基于虚拟化的代码完整性保护](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)。
 
 ## <a name="credential-guard"></a>Credential Guard
 
@@ -67,9 +67,9 @@ Azure Stack 中心中的另一项 Windows Server 安全功能是 Windows Defende
 
 ## <a name="antimalware"></a>反恶意软件
 
-Azure Stack 集线器中的每个组件（Hyper-v 主机和虚拟机）都受到 Windows Defender 防病毒保护。
+Azure Stack 集线器中的每个组件 (Hyper-v 主机和虚拟机) 都受到 Windows Defender 防病毒保护。
 
-在联网场景中，防病毒定义和引擎更新每天应用多次。 在断开连接的情况下，将作为每月 Azure Stack 中心更新的一部分应用反恶意软件更新。 如果在断开连接的情况下需要更频繁地更新 Windows Defender 的定义，Azure Stack 中心还支持导入 Windows Defender 更新。 有关详细信息，请参阅[更新 Azure Stack 集线器上的 Windows Defender 防病毒](azure-stack-security-av.md)。
+在联网场景中，防病毒定义和引擎更新每天应用多次。 在断开连接的情况下，将作为每月 Azure Stack 中心更新的一部分应用反恶意软件更新。 如果在断开连接的情况下需要更频繁地更新 Windows Defender 的定义，Azure Stack 中心还支持导入 Windows Defender 更新。 有关详细信息，请参阅 [更新 Azure Stack 集线器上的 Windows Defender 防病毒](azure-stack-security-av.md)。
 
 ## <a name="secure-boot"></a>安全启动
 
@@ -81,11 +81,11 @@ Azure Stack 中心中的管理由三个入口点控制，每个入口点都有�
 
 - [管理员门户](azure-stack-manage-portals.md)针对日常管理操作提供点击式体验。
 - Azure 资源管理器通过 PowerShell 和 Azure CLI 使用的 REST API 公开管理员门户的所有管理操作。
-- 对于特定的低级别操作（例如，数据中心集成或支持方案），Azure Stack 集线器公开了称为[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。
+- 对于特定的低级操作 (例如，数据中心集成或支持方案) ，Azure Stack 集线器公开了称为 [特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。
 
 ## <a name="network-controls"></a>网络控制措施
 
-Azure Stack 集线器基础结构附带了多层网络访问控制列表（ACL）。 ACL 可防止用户对基础结构组件进行未经授权的访问，并将基础结构通信限制为基础结构在运行时需要访问的路径。
+Azure Stack 集线器基础结构附带了多层网络访问控制列表 (ACL) 。 ACL 可防止用户对基础结构组件进行未经授权的访问，并将基础结构通信限制为基础结构在运行时需要访问的路径。
 
 在三个层中实施网络 ACL：
 
@@ -107,6 +107,6 @@ Azure Stack 中心已通过与第三方无关的审核公司进行了正式的�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [配置 Azure Stack 中心安全控制](azure-stack-security-configuration.md)
+- [配置 Azure Stack Hub 安全控制](azure-stack-security-configuration.md)
 - [了解如何在 Azure Stack 中心旋转机密](azure-stack-rotate-secrets.md)
 - [适用于 Azure Stack 集线器的 PCI DSS 和 CSA-CCM 文档](https://aka.ms/azurestackcompliance)

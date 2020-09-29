@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.author: justinha
 ms.reviewer: chengwei
 ms.lastreviewed: 02/24/2020
-ms.openlocfilehash: fc7d819bce237b98c359bc7c4bc43bc478d84952
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 881df3896d832f3f25ae3d81eda2ec904d308796
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512569"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488988"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack Hub 日志和客户数据处理 
 
@@ -21,7 +21,7 @@ Microsoft 在与 Azure Stack 中心连接时，microsoft 是一个处理器或 s
 - [联机服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)的“数据保护条款”部分中的“个人数据的处理；GDPR”条款。
 - [联机服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)附件 4 中的“欧盟一般数据保护条例条款”。
 
-随着 Azure Stack 中心位于客户数据中心，Microsoft 是数据控制器，只是通过[诊断](azure-stack-diagnostic-log-collection-overview-tzl.md)、[遥测](azure-stack-telemetry.md)和[计费](azure-stack-usage-reporting.md)与 Microsoft 共享的数据。  
+随着 Azure Stack 中心位于客户数据中心，Microsoft 是数据控制器，只是通过 [诊断](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)、 [遥测](azure-stack-telemetry.md)和 [计费](azure-stack-usage-reporting.md)与 Microsoft 共享的数据。  
 
 ## <a name="data-access-controls"></a>数据访问控制 
 被分配了调查特定支持案例的 Microsoft 员工将获得对加密数据的只读访问权限。 如果需要，Microsoft 员工还可以访问用于删除数据的工具。 对客户数据的所有访问都会受到审核和记录。  
@@ -41,17 +41,17 @@ Microsoft 支持按客户请求删除按需数据。 客户可以请求我们的
 对于按需数据删除操作，Microsoft 支持工程师有权访问该工具，使其可以按需删除数据。 他们可以在完成删除后通过电话向客户提供确认。
 
 ## <a name="diagnostic-data"></a>诊断数据
-在支持过程中，Azure Stack Hub 操作员可与 Azure Stack Hub 支持和工程团队[共享诊断日志](azure-stack-diagnostic-log-collection-overview-tzl.md)，以方便进行故障排除。
+在支持过程中，Azure Stack Hub 操作员可与 Azure Stack Hub 支持和工程团队[共享诊断日志](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)，以方便进行故障排除。
 
 Microsoft 为客户提供了一个工具和脚本来收集和上载请求的诊断日志文件。 收集后，日志文件将通过与 Microsoft 的 HTTPS 受保护的加密连接进行传输。 由于 HTTPS 提供在线加密，因此传输中加密无需密码。 Azure 收到日志后，会加密并存储日志，在关闭支持案例 90 天后自动将其删除。
 
 ## <a name="telemetry-data"></a>遥测数据
-[Azure Stack 集线器遥测](azure-stack-telemetry.md)会自动通过连接的用户体验将系统数据上传到 Microsoft。 Azure Stack Hub 操作员可以随时控制自定义遥测功能和隐私设置。
+[Azure Stack 集线器遥测](azure-stack-telemetry.md) 会自动通过连接的用户体验将系统数据上传到 Microsoft。 Azure Stack Hub 操作员可以随时控制自定义遥测功能和隐私设置。
 
 Microsoft 不打算收集敏感数据，如信用卡号、用户名和密码、电子邮件地址等。 如果我们确定敏感信息是无意中收集到的，我们会予以删除。
 
 ## <a name="billing-data"></a>账单数据
-[Azure Stack 集线器计费](azure-stack-usage-reporting.md)利用全球 Azure 的计费和使用情况管道，因此与 Microsoft 符合性准则一致。
+[Azure Stack 集线器计费](azure-stack-usage-reporting.md) 利用全球 Azure 的计费和使用情况管道，因此与 Microsoft 符合性准则一致。
 
 Azure Stack 中心操作员可以将 Azure Stack 中心配置为将使用情况信息转发到 Azure 进行计费。 对于选择即用即付计费模型的 Azure Stack 集线器集成系统客户，此配置是必需的。 用量报告通过遥测单独进行控制，选择容量模式的集成系统 Azure Stack 客户或 Azure Stack 开发工具包用户无需使用此功能。 对于上述方案，可以使用[注册脚本](azure-stack-usage-reporting.md)来禁用用量报告。
 

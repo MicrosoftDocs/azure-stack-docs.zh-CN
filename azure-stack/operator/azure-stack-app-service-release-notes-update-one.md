@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 2e8a4e4fe4de85e981bb0f33366b003c5ee907f8
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 48ba500c7b9315c4fbc8a622b99d4707f4eb86a7
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847752"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489617"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Azure Stack Hub 上的应用服务 Update 1 发行说明
 
@@ -29,7 +29,7 @@ Azure Stack Hub 上的应用服务 Update 1 的内部版本号为 **69.0.13698.9
 ## <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
-> Azure Stack 中心的 Azure App Service 的新部署现在需要三个使用者的通配符证书，因为在 Azure App Service 中处理 Kudu SSO 的方式。 新的使用者是 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
+> 基于 Azure Stack Hub 的 Azure 应用服务的新部署现在要求提供三使用者通配型证书，因为在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。 新使用者为“\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>”
 
 在开始部署之前，请参阅[在 Azure Stack Hub 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
@@ -73,7 +73,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 1 包含以下改进和修复�
     - 已将**适用于 Windows 的 Git** 更新到 v2.14.1
     - 已将 **Mercurial** 更新到 v4.5.0
 
-  - 增加了对“仅限 HTTPS”  功能的支持，该功能位于应用服务用户门户的“自定义域”功能中。
+  - 增加了对“仅限 HTTPS”功能的支持，该功能位于应用服务用户门户的“自定义域”功能中。
 
   - 增加了在 Azure Functions 的自定义存储选取器中对存储连接进行验证的功能。
 
@@ -136,7 +136,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 1 包含以下改进和修复�
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. 浏览到 Azure Stack Hub 管理员门户中“虚拟机”下的 **CN0-VM**，单击“连接”，以便通过控制器实例打开远程桌面会话。  使用在部署应用服务期间指定的凭据。
+2. 浏览到 Azure Stack Hub 管理员门户中“虚拟机”下的 **CN0-VM**，单击“连接”，以便通过控制器实例打开远程桌面会话。 使用在部署应用服务期间指定的凭据。
 3. 以管理员身份启动 **PowerShell** 并执行以下脚本：
 
     ```powershell
@@ -203,7 +203,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 1 包含以下改进和修复�
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>云管理员在操作基于 Azure Stack Hub 的 Azure 应用服务时的已知问题
 
-请参阅 [Azure Stack Hub 1802 发行说明](azure-stack-update-1903.md)中的文档
+请参阅 [Azure Stack Hub 1802 发行说明](./release-notes.md?view=azs-2002)中的文档
 
 ## <a name="next-steps"></a>后续步骤
 

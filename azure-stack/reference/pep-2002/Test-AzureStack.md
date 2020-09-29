@@ -1,23 +1,23 @@
 ---
-title: Azure Stack 中心的 Test-azurestack 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-Test-azurestack
+title: Azure Stack Hub 的 Test-AzureStack 特权终结点
+description: PowerShell Azure Stack 特权终结点 - Test-AzureStack 参考信息
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: e2c3b6213d31880b262501eb123d37eab7ec0a48
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 4b64f3fa38b474fddb930915059f6406d25fd3c8
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563363"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86485945"
 ---
 # <a name="test-azurestack"></a>Test-AzureStack
 
 ## <a name="synopsis"></a>摘要
-验证 Azure Stack 中心的状态。
+验证 Azure Stack Hub 的状态。
 
 ## <a name="syntax"></a>语法
 
@@ -29,24 +29,24 @@ Test-AzureStack [-BackupShareCredential <Object>] [-Include <Object>] [-Detailed
 ```
 
 ## <a name="description"></a>说明
-如果未检测到任何错误，Test-azurestack 返回`$true`。
-如果检测到错误，它将`$false`返回。
+如果未检测到任何错误，Test-AzureStack 将返回 `$true`。
+如果检测到错误，它将返回 `$false`。
 
 ## <a name="examples"></a>示例
 
 ### <a name="example-1"></a>示例 1
 
-若要运行无操作员和用户方案的 Test-azurestack：
+在无操作员和用户方案的情况下运行 Test-AzureStack：
 ```
 [azs-ercs01\]: PS\>Test-AzureStack
 ```
 
-若要运行 Test-azurestack 和用户方案：
+在有操作员和用户方案的情况下运行 Test-AzureStack：
 ```
 [azs-ercs01\]: PS\>Test-AzureStack -ServiceAdminCredentials \<PSCredential\>
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-serviceadmincredentials"></a>-ServiceAdminCredentials
  
@@ -198,7 +198,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### <a name="-group"></a>-组
+### <a name="-group"></a>-Group
  
 
 ```yaml
@@ -259,8 +259,8 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-whatif"></a>-WhatIf
-显示在此 cmdlet 运行的情况下将会发生什么。
-此 cmdlet 未运行。
+显示运行该 cmdlet 时会发生什么情况。
+cmdlet 未运行。
 
 ```yaml
 Type: SwitchParameter
@@ -306,4 +306,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

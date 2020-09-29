@@ -4,14 +4,14 @@ groups:
   title: 网络状态
   prompt: 选择部署连接模型
   pivots:
-  - id: state-connected
-    title: 连续
   - id: state-disconnected
     title: 已断开连接
+  - id: state-connected
+    title: 连续
 metadata:
-  ms.openlocfilehash: dab1da09224730a6ed2da6b0b3a021212e9a79f5
-  ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+  ms.openlocfilehash: a91d721e1e6a8833d018ec8901d01d462d5be45b
+  ms.sourcegitcommit: fe48fd5310004d68a4f28589e4d311708babb634
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81308257"
+  ms.lasthandoff: 07/09/2020
+  ms.locfileid: "86210027"

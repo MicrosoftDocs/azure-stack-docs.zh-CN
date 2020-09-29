@@ -7,12 +7,13 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.custom: conteperfq4
+ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908600"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488614"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack Hub 数据中心集成
 
@@ -63,7 +64,7 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
 将 Azure Stack Hub [公共 VIP 网络](azure-stack-network.md#public-vip-network)子网添加到最靠近 Azure Stack Hub 的 Active Directory 站点。 例如，假设 Active Directory 包含两个站点：Seattle 和 Redmond。 如果 Azure Stack Hub 部署在 Seattle 站点，则你可以将 Azure Stack Hub 公共 VIP 网络子网添加到 Seattle 的 Active Directory 站点。
 
-有关 Active Directory 站点的详细信息，请参阅[设计站点拓扑](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)。
+有关 Active Directory 站点的详细信息，请参阅[设计站点拓扑](/windows-server/identity/ad-ds/plan/designing-the-site-topology)。
 
 > [!Note]  
 > 如果 Active Directory 只有一个站点，则可以跳过此步骤。 如果配置了全方位的子网，请验证 Azure Stack Hub 公共 VIP 网络子网是否不属于该子网。
@@ -219,7 +220,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 
 如果确定要手动运行命令，请遵循以下步骤：
 
-1. 将以下内容复制到数据中心的 AD FS 实例或场成员上的 .txt 文件中（例如，保存为 c:\ClaimIssuanceRules.txt）：
+1. 将以下内容复制到数据中心的 AD FS 实例或场成员上的 .txt 文件（例如，另存为 c:\ClaimIssuanceRules.txt 的文件）中：
 
    ```text
    @RuleTemplate = "LdapClaims"
@@ -259,7 +260,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
    ```
 
     > [!Note]  
-    > Windows 集成身份验证 (WIA) 支持的用户代理字符串对于你的 AD FS 部署而言可能已过时，需要更新才能支持最新的客户端。 可以在[为不支持 WIA 的设备配置基于 Intranet 窗体的身份验证](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)一文中阅读有关更新 WIA 支持的用户代理字符串的更多信息。<br><br>有关启用基于窗体的身份验证策略的步骤，请参阅[配置身份验证策略](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies)。
+    > Windows 集成身份验证 (WIA) 支持的用户代理字符串对于你的 AD FS 部署而言可能已过时，需要更新才能支持最新的客户端。 可以在[为不支持 WIA 的设备配置基于 Intranet 窗体的身份验证](/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)一文中阅读有关更新 WIA 支持的用户代理字符串的更多信息。<br><br>有关启用基于窗体的身份验证策略的步骤，请参阅[配置身份验证策略](/windows-server/identity/ad-fs/operations/configure-authentication-policies)。
 
 3. 若要添加信赖方信任，请在 AD FS 实例或场成员上运行以下 Windows PowerShell 命令。 请务必更新 AD FS 终结点，并指向步骤 1 中创建的文件。
 
@@ -290,7 +291,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
    **对于 AD FS 2002 及更高版本**
 
    > [!NOTE]
-   > 在客户`Add-ADFSRelyingPartyTrust`拥有的 adfs 主机/场上执行时，必须首先确保在 adfs 主机/场上强制执行 tls 1.2，否则尝试将导致以下错误消息：
+   > 在客户所拥有的 ADFS 主机/场上执行 `Add-ADFSRelyingPartyTrust` 时，必须首先确保 ADFS 主机/场上强制执行了 TLS1.2，否则尝试执行将导致以下错误消息：
 
 `Add-ADFSRelyingPartyTrust : The underlying connection was closed: An unexpected error occurred on a send.`
 
@@ -298,9 +299,9 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 
 在许多情况下，需要使用服务主体名称 (SPN) 进行身份验证。 下面是一些示例：
 
-- CLI 用法与 Azure Stack 中心的 AD FS 部署。
-- 与 AD FS 一起部署时，适用于 Azure Stack 中心的 System Center 管理包。
-- 部署时，Azure Stack 中心中的资源提供程序 AD FS。
+- 使用 CLI 在 Azure Stack Hub 中部署 AD FS。
+- 使用 AD FS 部署时的 System Center Management Pack for Azure Stack Hub。
+- 使用 AD FS 部署时 Azure Stack Hub 中的资源提供程序。
 - 各种应用。
 - 需要非交互式登录。
 
@@ -310,7 +311,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 有关创建 SPN 的详细信息，请参阅[为 AD FS 创建服务主体](azure-stack-create-service-principals.md)。
 
 
-## <a name="troubleshooting"></a>疑难解答
+## <a name="troubleshooting"></a>故障排除
 
 ### <a name="configuration-rollback"></a>配置回滚
 

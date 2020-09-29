@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d16aea039103c69302c8f84aa7de078907f1efce
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: be6ea1e8dbf8b17e02a4117f5f2d20cb9cfbbcfe
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81244065"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488716"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack Hub 数据中心 DNS 集成
 
@@ -133,7 +133,7 @@ Azure Stack Hub DNS 服务器的 FQDN 具有以下格式：
 
 若要将 Azure Stack Hub 与 DNS 基础结构集成，最简单也最安全的方式是将区域从托管父区域的服务器进行条件性转发。 如果可以直接控制为 Azure Stack Hub 外部 DNS 命名空间托管父区域的 DNS 服务器，建议使用此方法。
 
-如果你不熟悉如何使用 DNS 进行条件转发，请参阅以下 TechNet 文章：[为域名分配条件转发器](https://technet.microsoft.com/library/cc794735)，或特定于 DNS 解决方案的文档。
+如果你不熟悉如何使用 DNS 进行条件转发，请参阅以下 TechNet 文章：[为域名分配条件转发器](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794735(v=ws.10))，或特定于 DNS 解决方案的文档。
 
 如果已将外部 Azure Stack Hub DNS 区域指定为类似公司域名的子域那样，则无法使用条件性转发。 必须配置 DNS 委托。
 

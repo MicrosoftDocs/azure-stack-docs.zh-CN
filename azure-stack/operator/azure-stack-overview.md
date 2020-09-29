@@ -7,12 +7,13 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: a1e49ef9138c04557c8cd0a54b11ada30d97f334
-ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
+ms.custom: conteperfq4
+ms.openlocfilehash: 5acbe557c58d33785e0c227c2014264fbcd06a06
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605623"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488410"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub 概述
 
@@ -42,7 +43,7 @@ Azure Stack Hub 体系结构允许在远程位置的边缘，或者在间歇性�
 
 Azure Stack 集线器集成系统通过 Microsoft 和硬件合作伙伴的合作关系提供，创建了一个解决方案，提供了云进度的创新和计算管理简易性。 由于 Azure Stack Hub 以集成式硬件和软件系统的形式提供，因此你可以获得所需的灵活性和控制度，以及云中的创新能力。
 
-Azure Stack Hub 集成系统的大小范围为 4-16 台服务器（称为“缩放单元”）  。 硬件合作伙伴和 Microsoft 共同支持集成系统。 下图显示了缩放单元示例。 
+Azure Stack Hub 集成系统的大小范围为 4-16 台服务器（称为“缩放单元”）**。 硬件合作伙伴和 Microsoft 共同支持集成系统。 下图显示了缩放单元示例。 
 
 ![显示 Azure Stack Hub 集成系统的关系图](./media/azure-stack-overview/azure-stack-integrated-system.svg)上获取。 
 
@@ -67,13 +68,13 @@ Azure Stack Hub 使用与 Azure 相同的操作模型。 Azure Stack Hub 操作�
 
 ![显示 Azure Stack Hub 作业角色的关系图](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
-可以通过管理员门户、用户门户或 [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 每个 Azure Stack Hub 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack Hub 操作员**可以使用管理员门户来管理 Azure Stack Hub，以及执行如下所述的操作：创建租户套餐，保持集成式系统的运行状况及监视其状态。 用户门户提供自助服务体验让用户使用云资源，例如虚拟机 (VM)、存储帐户和 Web 应用。
+可以通过管理员门户、用户门户或 [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 每个 Azure Stack Hub 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack Hub 操作员**可以使用管理员门户来管理 Azure Stack Hub，以及执行如下所述的操作：创建租户套餐，保持集成式系统的运行状况及监视其状态。 用户门户提供自助服务体验让用户使用云资源，例如虚拟机 (VM)、存储帐户和 Web 应用。
 
 > 有关使用管理门户管理 Azure Stack Hub 的详细信息，请参阅 [Azure Stack Hub 管理员门户快速入门](azure-stack-manage-portals.md)。
 
-作为 Azure Stack 中心操作员，你可以提供[vm](azure-stack-tutorial-tenant-vm.md)、 [web 应用](azure-stack-app-service-overview.md)、高可用性[SQL Server](azure-stack-tutorial-sql.md)和[MySQL Server](azure-stack-tutorial-mysql.md)数据库。 他们还可以使用 [Azure Stack Hub 快速入门 Azure 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来部署 SharePoint、Exchange 等。
+作为 Azure Stack 中心操作员，你可以提供 [vm](./tutorial-offer-services.md?view=azs-2002)、 [web 应用](azure-stack-app-service-overview.md)、高可用性 [SQL Server](azure-stack-tutorial-sql.md)和 [MySQL Server](azure-stack-tutorial-mysql.md) 数据库。 他们还可以使用 [Azure Stack Hub 快速入门 Azure 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来部署 SharePoint、Exchange 等。
 
-操作员可以通过[管理员门户](azure-stack-manage-portals.md)或 [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 可以使用计划、配额、套餐和订阅来配置 Azure Stack Hub，以向租户[提供服务](service-plan-offer-subscription-overview.md)。 租户用户可以订阅多个套餐。 套餐可以包含一个或多个计划，计划可以包含一个或多个服务。 操作员还可以管理容量以及对警报做出响应。
+操作员可以通过[管理员门户](azure-stack-manage-portals.md)或 [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 可以使用计划、配额、套餐和订阅来配置 Azure Stack Hub，以向租户[提供服务](service-plan-offer-subscription-overview.md)。 租户用户可以订阅多个套餐。 套餐可以包含一个或多个计划，计划可以包含一个或多个服务。 操作员还可以管理容量以及对警报做出响应。
 
 用户使用操作员提供的服务。 用户可以预配、监视和管理他们订阅的服务，例如 Web 应用、存储和 VM。 用户可以通过用户门户或 PowerShell 来管理 Azure Stack Hub。
 
@@ -89,13 +90,13 @@ Azure Stack Hub 使用与 Azure 相同的操作模型。 Azure Stack Hub 操作�
 
 - **计算**：Azure Stack Hub 租户可以通过计算资源提供程序创建自己的 VM。 计算资源提供程序包含用于创建 VM 和 VM 扩展的功能。 VM 扩展服务可帮助为 Windows 与 Linux VM 提供 IaaS 功能。 例如，可以使用计算资源提供程序预配一个 Linux VM，并在部署期间运行 Bash 脚本来配置该 VM。
 - **网络资源提供程序**：网络资源提供程序为私有云提供了一系列软件定义的网络 (SDN) 和网络功能虚拟化 (NFV) 功能。 可以使用网络资源提供程序创建软件负载均衡器、公共 IP、网络安全组和虚拟网络等资源。
-- **存储资源提供程序**：存储资源提供程序提供了四种 Azure 一致性存储服务： [blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage)、[队列](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage)、[表](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage)和[Key Vault](https://docs.microsoft.com/azure/key-vault/)帐户管理，提供机密（如密码和证书）的管理和审核。 存储资源提供程序还提供存储云管理服务，用于简化 Azure 一致性存储服务的服务提供程序管理。 Azure 存储可为存储和检索大量非结构化数据提供弹性，例如 Azure Blob 的文档与媒体文件，以及具有 Azure 表的结构化 NoSQL 数据。
+- **存储资源提供程序**：存储资源提供程序提供了四种 Azure 一致性存储服务： [blob](/azure/storage/common/storage-introduction#blob-storage)、 [队列](/azure/storage/common/storage-introduction#queue-storage)、 [表](/azure/storage/common/storage-introduction#table-storage)和 [Key Vault](/azure/key-vault/) 帐户管理，提供机密（如密码和证书）的管理和审核。 存储资源提供程序还提供存储云管理服务，用于简化 Azure 一致性存储服务的服务提供程序管理。 Azure 存储可为存储和检索大量非结构化数据提供弹性，例如 Azure Blob 的文档与媒体文件，以及具有 Azure 表的结构化 NoSQL 数据。
 
 ### <a name="optional-resource-providers"></a>可选的资源提供程序
 
 在 Azure Stack Hub 中可以部署和使用三个可选的 PaaS 资源提供程序：
 
-- **应用服务**： [Azure Stack 中心的 Azure App Service](azure-stack-app-service-overview.md)是 Microsoft Azure 可用于 Azure Stack 中心的 PaaS 产品/服务。 该服务可让你的内部或外部客户为任何平台或设备创建 Web 应用、API 应用和 Azure Functions 应用。
+- **应用服务**： [Azure Stack 中心的 Azure App Service](azure-stack-app-service-overview.md) 是 Microsoft Azure 可用于 Azure Stack 中心的 PaaS 产品/服务。 该服务可让你的内部或外部客户为任何平台或设备创建 Web 应用、API 应用和 Azure Functions 应用。
 - **SQL Server**：使用 [SQL Server 资源提供程序](azure-stack-sql-resource-provider.md)将 SQL 数据库作为 Azure Stack Hub 的一项服务提供。 安装资源提供程序并将其连接到一个或多个 SQL Server 实例后，你和你的用户可以创建云原生应用的数据库、使用 SQL 的网站，以及使用 SQL 的其他工作负荷。
 - **MySQL Server**：可以使用 [MySQL Server 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)将 MySQL 数据库公开为 Azure Stack Hub 服务。 MySQL 资源提供程序以服务的形式在 Windows Server 2019 Server Core VM 上运行。
 

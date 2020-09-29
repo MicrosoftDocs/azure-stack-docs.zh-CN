@@ -8,16 +8,16 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 8f0ad292f8d9772c53c332d2cad7af8bd606594a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 31ef55554646065a5d61cc21abf4e72b7fcb4eda
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697733"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488087"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>在 Azure Stack Hub 上更新 Windows Defender 防病毒
 
-[Windows Defender 防病毒](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)是一种反恶意软件解决方案，可提供安全性和病毒防护功能。 每个 Azure Stack Hub 基础结构组件（Hyper-V 主机和虚拟机）均受到 Windows Defender 防病毒的保护。 为了获得最新的保护，需要定期更新 Windows Defender 防病毒定义、引擎和平台。 如何应用更新取决于配置。
+[Windows Defender 防病毒](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)是一种反恶意软件解决方案，可提供安全性和病毒防护功能。 每个 Azure Stack Hub 基础结构组件（Hyper-V 主机和虚拟机）均受到 Windows Defender 防病毒的保护。 为了获得最新的保护，需要定期更新 Windows Defender 防病毒定义、引擎和平台。 如何应用更新取决于配置。
 
 ## <a name="connected-scenario"></a>已连接的场景
 
@@ -83,7 +83,7 @@ Get-AzsDefenderManualUpdate
 
    ![Azure Stack Hub Defender - 上传](./media/azure-stack-security-av/image4.png) 
 
-8. 在“上传 Blob”下，单击文件夹图标，浏览到 Windows Defender 更新 **mpam-fe.exe** 文件，然后在文件资源管理器窗口中单击“打开”。   
+8. 在“上传 Blob”下，单击文件夹图标，浏览到 Windows Defender 更新 *mpam-fe.exe* 文件，然后在文件资源管理器窗口中单击“打开”。  
 
 9. 在“上传 blob”  下，单击“上传”  。 
 

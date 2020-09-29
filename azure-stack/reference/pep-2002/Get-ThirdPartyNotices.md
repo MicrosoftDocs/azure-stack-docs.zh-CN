@@ -1,18 +1,18 @@
 ---
-title: Azure Stack 中心的 Thirdpartynotices.txt 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-Thirdpartynotices.txt
+title: Azure Stack Hub 的 Get-ThirdPartyNotices 特权终结点
+description: PowerShell Azure Stack 特权终结点参考 - Get-ThirdPartyNotices
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 22e9cdca08cdfc539e8d2082434ca2fd8f8fdef1
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: b8fa6ed85f18948a11b2b55dbff12ad73e4825af
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563121"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486863"
 ---
 # <a name="get-thirdpartynotices"></a>Get-ThirdPartyNotices
 
@@ -22,7 +22,7 @@ ms.locfileid: "82563121"
 Get-ThirdPartyNotices [-AsJob]
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-asjob"></a>-AsJob
 
@@ -41,4 +41,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+若要了解如何访问和使用特权终结点，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

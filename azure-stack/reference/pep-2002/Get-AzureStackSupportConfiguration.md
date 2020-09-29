@@ -1,20 +1,20 @@
 ---
-title: Azure Stack 中心的 AzureStackSupportConfiguration 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-AzureStackSupportConfiguration
+title: Azure Stack Hub 的 Get-AzureStackSupportConfiguration 特权终结点
+description: PowerShell Azure Stack 特权终结点的引用 - Get-AzureStackSupportConfiguration
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 710201cc045b356037a54e6f7f0eeee63284b0d6
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 97f6bd0fb751885a2a4a4553aba0d7a9329e5458
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562549"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487220"
 ---
-# <a name="get-azurestacksupportconfiguration"></a>AzureStackSupportConfiguration
+# <a name="get-azurestacksupportconfiguration"></a>Get-AzureStackSupportConfiguration
 
 ## <a name="synopsis"></a>摘要
 获取支持服务配置设置。
@@ -31,17 +31,17 @@ Get-AzureStackSupportConfiguration [-IncludeRegistrationObjectId] [-AsJob]
 ## <a name="examples"></a>示例
 
 ### <a name="example-1"></a>示例 1
-下面的示例获取注册详细信息（如果标记已注册）或 null。
+下面的示例在标记已注册的情况下获取注册详细信息，否则显示为 null。
 
 ```
 PS  C:\> Get-AzureStackSupportConfiguration
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-includeregistrationobjectid"></a>-IncludeRegistrationObjectId
 可选。
-需要 internet 连接。
+需要建立 Internet 连接。
 检索注册标识对象 ID。
 
 ```yaml
@@ -71,9 +71,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="notes"></a>说明
-要求支持 VM 具有 internet 连接。
+## <a name="notes"></a>注释
+要求“支持 VM”具有 Internet 连接。
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

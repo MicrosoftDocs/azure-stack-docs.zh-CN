@@ -1,40 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Stack 中心合作伙伴文档
+summary: 了解如何验证要托管 Azure Stack 集线器的硬件。 作为服务的验证是一种本机 Azure 服务，旨在供与 Microsoft 共同提供产品/服务的解决方案合作伙伴使用。
 metadata:
-  title: Azure Stack 集线器合作伙伴 D\documentation-教程、API R\reference
-  description: 了解如何验证要托管 Azure Stack 集线器的硬件。 作为服务的验证是一种本机 Azure 服务，旨在供与 Microsoft 合作 Azure Stack 中心产品的解决方案合作伙伴使用。
-  services: azure-stack
-  author: mattbriggs
-  manager: femila
+  title: Azure Stack 中心合作伙伴
+  description: 了解如何验证要托管 Azure Stack 集线器的硬件。 作为服务的验证是一种本机 Azure 服务，旨在供与 Microsoft 共同提供产品/服务的解决方案合作伙伴使用。
   ms.service: azure-stack
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: partner
   ms.topic: landing-page
-  ms.date: 07/25/2018
+  author: mattbriggs
   ms.author: mabrigg
-  ms.reviewer: johnhas
-abstract:
-  description: 你可以使用 "验证即服务" 来检查你的硬件以与 Azure Stack 中心一起使用。 此服务是一项本机 Azure 服务，旨在供与 Microsoft 联合工程 Azure Stack 中心产品的解决方案合作伙伴使用。
-sections:
-  - title: 5 分钟快速入门
-    items:
-      - type: paragraph
-        text: 了解如何使用验证作为服务门户来计划硬件上的测试。
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/i_account-management.svg
-            text: 使用验证即服务门户计划第一次测试
-            href: azure-stack-vaas-schedule-test-pass.md
-  - title: 分步教程
-    items:
-      - type: paragraph
-        text: 了解如何验证 Azure Stack 集线器硬件。
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">验证新的 Azure Stack 中心解决方案</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">验证 OEM 程序包</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">验证来自 Microsoft 的软件更新</a>
+  ms.date: 06/22/2020
+  ms.openlocfilehash: 1e1deb2af682bbe732d374873e0b0ccbd292fce7
+  ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+  ms.translationtype: MT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 06/22/2020
+  ms.locfileid: "85197015"
+landingContent:
+- title: 关于 Azure Stack 集线器的验证即服务
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什么是验证即服务？
+      url: azure-stack-vaas-overview.md
+  - linkListType: whats-new
+    links:
+    - text: 发行说明
+      url: azure-stack-vaas-release-notes.md
+- title: 入门
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 了解如何使用验证作为服务门户
+      url: azure-stack-vaas-schedule-test-pass.md
+    - text: 验证解决方案
+      url: azure-stack-vaas-validate-solution-new.md
+- title: 如何使用
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 验证新的 Azure Stack 中心解决方案
+      url: azure-stack-vaas-validate-solution-new.md
+    - text: 验证 OEM 程序包
+      url: azure-stack-vaas-validate-oem-package.md
+    - text: 验证来自 Microsoft 的软件更新
+      url: azure-stack-vaas-validate-microsoft-updates.md
+    - text: 验证作为服务的验证
+      url: azure-stack-vaas-troubleshoot.md
+  - linkListType: concept
+    links:
+    - text: 关键概念
+      url: azure-stack-vaas-key-concepts.md
+    - text: 最佳做法
+      url: azure-stack-vaas-best-practice.md
+    - text: 通用参数
+      url: azure-stack-vaas-parameters.md

@@ -1,23 +1,23 @@
 ---
-title: Azure Stack 中心的 Get-azurestacklog 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-Get-azurestacklog
+title: Azure Stack Hub 的 Get-AzureStackLog 特权终结点
+description: PowerShell Azure Stack 特权终结点 - Get-AzureStackLog 参考
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: d7e7ff712e1d8f7c062d7b3a7f38d97b80085e31
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 34e25cafddde8b39077ae82bbc74b363c251a06b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563187"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487237"
 ---
 # <a name="get-azurestacklog"></a>Get-AzureStackLog
 
 ## <a name="synopsis"></a>摘要
-通过超时从 Azure Stack 中心的各种角色获取日志。
+从具有超时的 Azure Stack Hub 的各种角色获取日志。
 适用于多节点或单节点环境。
 
 ## <a name="syntax"></a>语法
@@ -30,7 +30,7 @@ Get-AzureStackLog [-FilterByRole <Object>] [-CustomerConfigurationFilePath <Obje
  [-PerformVMLogRecovery] [-IncludeDumpFile] [-AsJob]
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-filterbyrole"></a>-FilterByRole
  
@@ -108,7 +108,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-fromdate"></a>-FromDate
-这将从上一小时开始获取日志。
+这将获取从上一小时开始的日志。
 
 ```yaml
 Type: Object
@@ -123,7 +123,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-todate"></a>-ToDate
-这将在当前日期之前获得日志
+这将获取截至当前日期的日志
 
 ```yaml
 Type: Object
@@ -138,7 +138,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-inputsasuri"></a>-InputSasUri
-要从中下载日志的 Blob 服务 SAS Uri。
+要由其下载日志的 Blob 服务 SAS URI。
 
 ```yaml
 Type: Object
@@ -153,7 +153,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-outputpath"></a>-OutputPath
-要放置 zip 文件的根文件夹路径。
+要将 zip 文件置于的根文件夹路径。
 
 ```yaml
 Type: Object
@@ -168,7 +168,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-outputsharepath"></a>-OutputSharePath
-共享路径，在其中移动收集的日志。
+要将收集的日志移动到的共享路径。
 
 ```yaml
 Type: Object
@@ -198,7 +198,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-outputsasuri"></a>-OutputSasUri
-Blob SAS Uri 用于移动收集的日志的位置。
+要将收集的日志移动到的 Blob SAS URI。
 
 ```yaml
 Type: Object
@@ -243,7 +243,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-includedumpfile"></a>-IncludeDumpFile
-默认情况下禁用转储文件收集。
+默认禁用转储文件收集。
 
 ```yaml
 Type: SwitchParameter
@@ -258,7 +258,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-performvmlogrecovery"></a>-PerformVMLogRecovery
-对`Off`、 `OffCritical`、 `Paused`、 `PausedCritical` vm 执行 WindowsEvents 日志恢复。
+对 `Off`、`OffCritical`、`Paused` 和 `PausedCritical` VM 执行 WindowsEvents 日志恢复。
 
 ```yaml
 Type: SwitchParameter
@@ -289,4 +289,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

@@ -1,20 +1,20 @@
 ---
-title: Azure Stack 中心的 VirtualDisk 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-VirtualDisk
+title: Azure Stack Hub 的 Repair-VirtualDisk 特权终结点
+description: PowerShell Azure Stack 特权终结点 - Repair-VirtualDisk 参考
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: ef7fa22c00b11f93ff39e0ce03fa91383c2cffc7
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: d6aedfb0b45bbc450322b24c81b3b576b6d512a3
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562912"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486404"
 ---
-# <a name="repair-virtualdisk"></a>修复-VirtualDisk
+# <a name="repair-virtualdisk"></a>Repair-VirtualDisk
 
 ## <a name="syntax"></a>语法
 
@@ -162,8 +162,8 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-whatif"></a>-WhatIf
-显示在此 cmdlet 运行的情况下将会发生什么。
-此 cmdlet 未运行。
+显示运行该 cmdlet 时会发生什么情况。
+cmdlet 未运行。
 
 ```yaml
 Type: SwitchParameter
@@ -181,15 +181,15 @@ Accept wildcard characters: False
 
 ### <a name="systemstring"></a>System.String[]
 
-### <a name="microsoftmanagementinfrastructureciminstance"></a>CimInstance []。
+### <a name="microsoftmanagementinfrastructureciminstance"></a>Microsoft.Management.Infrastructure.CimInstance[]
 
 ## <a name="outputs"></a>Outputs
 
-### <a name="microsoftmanagementinfrastructureciminstance"></a>CimInstance。
+### <a name="microsoftmanagementinfrastructureciminstance"></a>Microsoft.Management.Infrastructure.CimInstance
 
-### <a name="microsoftmanagementinfrastructureciminstancerootmicrosoftwindowsstoragemsft_virtualdisk"></a>CimInstance # ROOT/Microsoft/Windows/Storage/MSFT_VirtualDisk
+### <a name="microsoftmanagementinfrastructureciminstancerootmicrosoftwindowsstoragemsft_virtualdisk"></a>Microsoft.Management.Infrastructure.CimInstance#ROOT/Microsoft/Windows/Storage/MSFT_VirtualDisk
 
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

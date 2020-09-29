@@ -1,18 +1,18 @@
 ---
-title: Azure Stack 中心的 VirtualDisk 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-VirtualDisk
+title: Azure Stack Hub 的 Get-VirtualDisk 特权终结点
+description: PowerShell Azure Stack 特权终结点参考 - Get-VirtualDisk
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: fb5440d4af4747961b0e56947c83b2aa7805fdca
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 9f78266cfc2ab11a943aba26e196ff496531d232
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563209"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486829"
 ---
 # <a name="get-virtualdisk"></a>Get-VirtualDisk
 
@@ -29,7 +29,7 @@ Get-VirtualDisk [-NoRedundancy] [-MaskingSet <Object>] [-StorageEnclosure <Objec
  [-AssociatedObjects] [-Name <Object>] [-ThrottleLimit <Object>] [-AsJob] [-StorageJob <Object>]
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-asjob"></a>-AsJob
 
@@ -294,7 +294,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### <a name="-storagejob"></a>-Get-storagejob
+### <a name="-storagejob"></a>-StorageJob
 ```yaml
 Type: Object
 Parameter Sets: (All)
@@ -447,7 +447,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### <a name="-usage"></a>-用法
+### <a name="-usage"></a>-Usage
 
 ```yaml
 Type: Object
@@ -466,15 +466,15 @@ Accept wildcard characters: False
 
 ### <a name="systemstring"></a>System.String[]
 
-### <a name="microsoftmanagementinfrastructureciminstance"></a>CimInstance。
+### <a name="microsoftmanagementinfrastructureciminstance"></a>Microsoft.Management.Infrastructure.CimInstance
 
 ## <a name="outputs"></a>Outputs
 
-### <a name="microsoftmanagementinfrastructureciminstance"></a>CimInstance。
+### <a name="microsoftmanagementinfrastructureciminstance"></a>Microsoft.Management.Infrastructure.CimInstance
 
-### <a name="microsoftmanagementinfrastructureciminstancerootmicrosoftwindowsstoragemsft_virtualdisk"></a>CimInstance # ROOT/Microsoft/Windows/Storage/MSFT_VirtualDisk
+### <a name="microsoftmanagementinfrastructureciminstancerootmicrosoftwindowsstoragemsft_virtualdisk"></a>Microsoft.Management.Infrastructure.CimInstance#ROOT/Microsoft/Windows/Storage/MSFT_VirtualDisk
 
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+若要了解如何访问和使用特权终结点，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

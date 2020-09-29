@@ -1,23 +1,23 @@
 ---
-title: Azure Stack 中心的 GraphApplication 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-GraphApplication
+title: Azure Stack Hub 的 Get-GraphApplication 特权终结点
+description: PowerShell Azure Stack 特权终结点参考 - Get-GraphApplication
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: baccf889139b2a91b23b55ef9bb86387991558da
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: a100b974a3d622c0b9bb51d850d9a8435d72f549
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562560"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487084"
 ---
-# <a name="get-graphapplication"></a>GraphApplication
+# <a name="get-graphapplication"></a>Get-GraphApplication
 
 ## <a name="synopsis"></a>摘要
-GraphApplication 是一个包装函数，用于获取指定应用程序名称或标识符的图形应用程序信息。
+Get-GraphApplication 是一个包装器函数，用于获取指定应用程序名称或标识符的 Graph 应用程序信息。
 
 ## <a name="syntax"></a>语法
 
@@ -26,7 +26,7 @@ Get-GraphApplication [[-ApplicationIdentifier] <Object>] [-ApplicationName <Obje
 ```
 
 ## <a name="description"></a>说明
-调用 ADFS 计算机上的 GraphApplicationGroup 以获取图形应用程序信息。
+对 ADFS 计算机调用 Get-GraphApplicationGroup 可获取 Graph 应用程序信息。
 
 ## <a name="examples"></a>示例
 
@@ -35,10 +35,10 @@ Get-GraphApplication [[-ApplicationIdentifier] <Object>] [-ApplicationName <Obje
 Get-GraphApplication -ApplicationName $ApplicationName
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-applicationidentifier"></a>-ApplicationIdentifier
-应用程序在 AD FS 中注册的应用程序标识符。
+在 AD FS 中注册的应用程序的应用程序标识符。
 
 ```yaml
 Type: Object
@@ -84,4 +84,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+若要了解如何访问和使用特权终结点，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

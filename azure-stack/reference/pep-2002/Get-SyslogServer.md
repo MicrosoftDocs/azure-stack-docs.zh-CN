@@ -1,20 +1,20 @@
 ---
-title: Azure Stack 中心的 SyslogServer 特权终结点
-description: PowerShell Azure Stack 特权终结点引用-SyslogServer
+title: Azure Stack Hub 的 Get-SyslogServer 特权终结点
+description: PowerShell Azure Stack 特权终结点参考 - Get-SyslogServer
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 3dcc09fbcd05edbf42ceb4f560b8232209e21fc6
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: c0aa9de3fc819a44a21f7cec0bd9acc804fd0457
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563231"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486914"
 ---
-# <a name="get-syslogserver"></a>SyslogServer
+# <a name="get-syslogserver"></a>Get-SyslogServer
 
 ## <a name="synopsis"></a>摘要
 获取 syslog 服务器终结点。
@@ -32,7 +32,7 @@ Get-SyslogServer [-AsJob]
 Get-SyslogServer
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-asjob"></a>-AsJob
 
@@ -51,4 +51,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。
