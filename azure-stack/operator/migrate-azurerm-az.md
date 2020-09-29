@@ -1,25 +1,25 @@
 ---
-title: 将 Azure PowerShell 脚本从 AzureRM 迁移到 Azure Stack 中心中的 Az
-description: 了解将脚本从 AzureRM 模块迁移到 Azure Stack 集线器中的新 Az 模块的步骤和工具。
+title: 在 Azure Stack Hub 中将 Azure PowerShell 脚本从 AzureRM 迁移到 Az
+description: 了解在 Azure Stack Hub 中将脚本从 AzureRM 模块迁移到新的 Az 模块所需的步骤和工具。
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 08/24/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: bcfd4b467013a6f207efa37bc02917d3800e3eb0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9b41f2f25e2c9c727d397dedd3f95e9683080e25
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81395142"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764743"
 ---
-# <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>从 AzureRM 迁移到 Azure Stack 中心 Azure PowerShell Az
+# <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>在 Azure Stack Hub 中从 AzureRM 迁移到 Azure PowerShell Az
 
 Az 模块与 AzureRM 具有功能奇偶一致性，但 Az 模块使用更短且更一致的 cmdlet 名称。
 为 AzureRM cmdlet 编写的脚本不会自动与新模块配合工作。 为了简化转换，Az 提供了工具，以便你可以使用 AzureRM 运行现有的脚本。 不迁移到新的命令集十分省事，但本文将帮助你开始转换到新的模块。
 
-若要查看 AzureRM 与 Az 之间的中断性变更的完整列表，请参阅 [Az 1.0.0 迁移指南](https://docs.microsoft.com/powershell/azure/migrate-az-1.0.0)
+若要查看 AzureRM 与 Az 之间的中断性变更的完整列表，请参阅 [Az 1.0.0 迁移指南](/powershell/azure/migrate-az-1.0.0)
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>检查已安装的 AzureRM 版本
 
@@ -31,9 +31,9 @@ Az 模块可以与 AzureRM 模块并排安装，但不建议这样做。 在执�
 Get-InstalledModule -Name AzureRM -AllVersions
 ```
 
-## <a name="check-current-scripts-work-with-azurerm"></a>检查当前脚本使用 AzureRM
+## <a name="check-current-scripts-work-with-azurerm"></a>检查当前脚本是否适用于 AzureRM
 
-这是最重要的步骤！ 运行现有脚本，并确保它们适用于_最新_版本的 AzureRM （__2.5.0__）。 如果脚本不起作用，请务必阅读 [AzureRM 迁移指南](/powershell/azure/azurerm/migration-guide.6.0.0)。
+这是最重要的步骤！ 运行现有脚本，并确保这些脚本适用于最新版本的 AzureRM (2.5.0)。 如果脚本不起作用，请务必阅读 [AzureRM 迁移指南](/powershell/azure/azurerm/migration-guide.6.0.0)。
 
 ## <a name="install-the-azure-powershell-az-module"></a>安装 Azure Powershell Az 模块
 
@@ -41,15 +41,15 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 若要安装 Azure PowerShell Az 模块，请执行以下步骤：
 
-* __建议使用__：[卸载 AzureRM 模块](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
-  请确保删除所有__ 已安装的 AzureRM 版本，不只是最新版本。
-* [安装 Az 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* __建议__：[卸载 AzureRM 模块](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
+  请确保删除所有已安装的 AzureRM 版本，不只是最新版本。
+* [安装 Az 模块](/powershell/azure/install-az-ps)
 
 ## <a name="enable-azurerm-compatibility-aliases"></a>启用 AzureRM 兼容性别名 
 
 > [!IMPORTANT]
 >
-> 只有已卸载了 AzureRM 的所有版本时，才应启用兼容模式。__ 在 AzureRM cmdlet 仍然可用的情况下启用兼容模式可能会导致不可预知的行为。 如果决定保留已安装的 AzureRM，请跳过此步骤，但请注意，任何 AzureRM cmdlet 都将使用旧模块，不会调用任何 Az cmdlet。
+> 只有已卸载了 AzureRM 的所有版本时，才应启用兼容模式。 在 AzureRM cmdlet 仍然可用的情况下启用兼容模式可能会导致不可预知的行为。 如果决定保留已安装的 AzureRM，请跳过此步骤，但请注意，任何 AzureRM cmdlet 都将使用旧模块，不会调用任何 Az cmdlet。
 
 卸载 AzureRM 并且脚本可以与最新的 AzureRM 版本配合工作后，下一步骤是为 Az 模块启用兼容模式。 使用以下命令启用兼容性：
 
@@ -136,7 +136,7 @@ Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
 当你做好禁用别名的准备以后，`Disable-AzureRmAlias` 会删除创建的别名。 若要获得完整的详细信息，请查看 [Disable-AzureRmAlias 参考](/powershell/module/az.accounts/disable-azurermalias)。
 
 > [!IMPORTANT]
-> 禁用别名时，请确保在启用了别名的所有范围内禁用别名。__
+> 禁用别名时，请确保在启用了别名的所有范围内禁用别名。
 
 ### <a name="module-name-changes"></a>模块名称更改
 
@@ -144,7 +144,7 @@ Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
 
 | AzureRM 模块 | Az 模块 |
 |----------------|-----------|
-| Azure.存储 | Az.Storage |
+| Azure.Storage | Az.Storage |
 | Azure.AnalysisServices | Az.AnalysisServices |
 | AzureRM.Profile | Az.Accounts |
 | AzureRM.Insights | Az.Monitor |
@@ -155,9 +155,9 @@ Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob
 | AzureRM.UsageAggregates | Az.Billing |
 | AzureRM.Consumption | Az.Billing |
 
-模块名称更改意味着使用 `#Requires` 或 `Import-Module` 来加载特定模块的任何脚本都需要更改为使用新模块。 对于其中的 cmdlet 后缀尚未更改的模块，这意味着，虽然模块名称已更改，但指示操作空间的后缀尚未更改。__
+模块名称更改意味着使用 `#Requires` 或 `Import-Module` 来加载特定模块的任何脚本都需要更改为使用新模块。 对于其中的 cmdlet 后缀尚未更改的模块，这意味着，虽然模块名称已更改，但指示操作空间的后缀尚未更改。
 
-#### <a name="migrating-requires-and-import-module-statements"></a>迁移需要和导入模块语句
+#### <a name="migrating-requires-and-import-module-statements"></a>迁移 requires 和 import module 语句
 
 使用 `#Requires` 或 `Import-Module` 来声明对 AzureRM 模块的依赖关系的脚本必须更新为使用新的模块名称。 例如：
 
@@ -225,7 +225,7 @@ RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
 
 将 Az 与 Windows 版 PowerShell 5.1 配合使用需要安装 .NET Framework 4.7.2。 使用 PowerShell Core 6.x 或更高版本不需要 .NET Framework。
 
-### <a name="temporary-removal-of-user-login-using-pscredential"></a>使用 PSCredential 暂时删除用户登录
+### <a name="temporary-removal-of-user-login-using-pscredential"></a>暂时删除了使用 PSCredential 的用户登录
 
 由于 .NET Standard 的身份验证流发生更改，我们暂时删除了通过 PSCredential 进行的用户登录。 将在 2019 年 1 月 15 日的 Windows 版 PowerShell 5.1 中重新引入此功能。 [此 GitHub 问题](https://github.com/Azure/azure-powershell/issues/7430)中详细讨论了这方面的内容。
 
@@ -306,7 +306,7 @@ RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
 ### <a name="azstorage-previously-azurestorage-and-azurermstorage"></a>Az.Storage（以前的 Azure.Storage 和 AzureRM.Storage）
 
 - 为了支持仅使用存储帐户名称创建 Oauth 存储上下文，默认参数集已更改为 `OAuthParameterSet`
-  - 示例：`$ctx = New-AzureStorageContext -StorageAccountName $accountName`
+  - 示例： `$ctx = New-AzureStorageContext -StorageAccountName $accountName`
 - `Location` 参数在 `Get-AzStorageUsage` cmdlet 中已成为必需参数
 - 存储 API 方法现在使用基于任务的异步模式 (TAP)，而非使用同步 API 调用。 以下示例演示新的异步命令：
 
@@ -393,5 +393,5 @@ $task.Wait()
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解 Azure Stack 集线器上的 PowerShell，请参阅[Azure Stack 中心的 powershell 入门](../user/azure-stack-powershell-overview.md)
-- 安装 PowerShell Az 模块，请参阅[为 Azure Stack 中心安装 Powershell Az module](powershell-install-az-module.md)
+- 若要详细了解 Azure Stack Hub 上的 PowerShell，请参阅 [Azure Stack Hub 中的 PowerShell 入门](../user/azure-stack-powershell-overview.md)
+- 若要安装 PowerShell Az 模块，请参阅[安装适用于 Azure Stack Hub 的 PowerShell Az 模块](powershell-install-az-module.md)

@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: df742ed6c0a2b082aaddd4498c313474a47c6227
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 455ad320466d1306b1bded888ff8ff0c0fbb52c7
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80362177"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489957"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -21,15 +21,15 @@ Azure Stack 系统数据或遥测数据通过互连用户体验自动上传到 M
 遥测可为 Azure Stack 操作员提供宝贵的见解来让他们洞察企业部署，并提供有助于构思 Azure Stack 新版本的看法。
 
 > [!NOTE]
-> Azure Stack 还可以配置为将用量信息转发到 Azure 进行计费。 选择即用即付计费模式的多节点 Azure Stack 客户一定要这样做。 用量报告通过遥测单独进行控制，选择容量模式的多节点 Azure Stack 客户或 Azure Stack 开发工具包 (ASDK) 用户无需使用此功能。 对于这些情况，可以[使用注册脚本](../operator/azure-stack-usage-reporting.md)关闭使用情况报告。
+> Azure Stack 还可以配置为将用量信息转发到 Azure 进行计费。 选择即用即付计费模式的多节点 Azure Stack 客户一定要这样做。 用量报告通过遥测单独进行控制，选择容量模式的多节点 Azure Stack 客户或 Azure Stack 开发工具包 (ASDK) 用户无需使用此功能。 对于这些情况，可以 [使用注册脚本](../operator/azure-stack-usage-reporting.md)关闭使用情况报告。
 
-Azure Stack 遥测基于*Windows Server 2016 连接的用户体验和 Telemetr*y 组件，后者使用[windows 事件跟踪（ETW）](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx)跟踪日志记录技术来收集和存储遥测事件和数据。 Azure Stack 组件使用相同的日志记录技术，发布使用公共操作系统事件日志记录和跟踪 API 收集的事件与数据。 Azure Stack 组件的示例包括网络资源提供程序、存储资源提供程序、监视资源提供程序和更新资源提供程序。 互连用户体验与遥测组件使用 SSL 加密数据，并使用证书关联通过 HTTPS 将遥测数据传输到 Microsoft 数据管理服务。
+Azure Stack 遥测基于 *Windows Server 2016 连接的用户体验和 Telemetr*y 组件，后者使用 [Windows 的事件跟踪 (ETW) ](/windows/win32/tracelogging/trace-logging-about) 跟踪日志记录技术来收集和存储遥测事件和数据。 Azure Stack 组件使用相同的日志记录技术，发布使用公共操作系统事件日志记录和跟踪 API 收集的事件与数据。 Azure Stack 组件的示例包括网络资源提供程序、存储资源提供程序、监视资源提供程序和更新资源提供程序。 互连用户体验与遥测组件使用 SSL 加密数据，并使用证书关联通过 HTTPS 将遥测数据传输到 Microsoft 数据管理服务。
 
 > [!NOTE]
 > 若要支持遥测数据流，必须在网络中开放端口 443 (HTTPS)。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务 (`https://v10.vortex-win.data.microsoft.com`) 和`https://settings-win.data.microsoft.com` 来下载配置信息。
 
 ## <a name="privacy-considerations"></a>隐私注意事项
-ETW 服务将遥测数据发回到受保护的云存储。 最小特权原则支配遥测数据的访问。 只有具有有效业务需求的 Microsoft 人员才能访问遥测数据。 Microsoft 不会与第三方共享客户的个人数据，除非客户自行决定或[Azure Stack 隐私声明](https://privacy.microsoft.com/PrivacyStatement)中所述的有限目的。 我们与 OEM 和合作伙伴共享业务报告，其中包含匿名的聚合遥测信息。 数据共享决策由 Microsoft 内部团队（包括隐私、法律和数据管理利益干系人）做出。
+ETW 服务将遥测数据发回到受保护的云存储。 最小特权原则支配遥测数据的访问。 只有具有有效业务需求的 Microsoft 人员才能访问遥测数据。 Microsoft 不会与第三方共享客户的个人数据，除非客户自行决定或 [Azure Stack 隐私声明](https://privacy.microsoft.com/PrivacyStatement)中所述的有限目的。 我们与 OEM 和合作伙伴共享业务报告，其中包含匿名的聚合遥测信息。 数据共享决策由 Microsoft 内部团队（包括隐私、法律和数据管理利益干系人）做出。
 
 Microsoft 相信并实践信息最小化。 我们尽量只收集所需的信息，并且只在服务所需或进行分析时才存储这些信息。 许多有关 Azure Stack 系统和 Azure 服务工作原则的信息在六个月内删除。 汇总或聚合的数据保留更长一段时间。
 
@@ -72,9 +72,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 遥测级别可累积，分类为四个级别 (0-3)：
 
-**0 （安全）**：仅安全数据。 帮助保护操作系统所需的信息，包括互连用户体验与遥测组件设置和 Windows Defender 相关的数据。 在此级别不会发出任何 Azure Stack 特定的遥测数据。
+**0（安全）** ：仅限安全数据。 帮助保护操作系统所需的信息，包括互连用户体验与遥测组件设置和 Windows Defender 相关的数据。 在此级别不会发出任何 Azure Stack 特定的遥测数据。
 
-**1 （基本）**：安全数据和基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。 将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
+**1（基本）** ：安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。 将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
 
 - **基本设备信息**，帮助了解生态系统中本机和虚拟化 Windows Server 2016 实例的类型与配置，其中包括：
   - 计算机属性，例如 OEM 和型号。
@@ -82,12 +82,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
   - 处理器和内存属性，例如核心数、内存大小。
   - 存储属性，例如驱动器数目、类型和大小。
 - **遥测功能**，包括已上传事件、已删除事件的百分比，以及上次上传时间。
-- **与质量相关的信息**，可帮助 Microsoft 大致了解 Azure Stack 的执行方式。 示例是针对特定硬件配置发出的严重警报计数。
+- **与质量相关的信息** ，可帮助 Microsoft 大致了解 Azure Stack 的执行方式。 示例是针对特定硬件配置发出的严重警报计数。
 - **兼容性数据**，帮助了解系统和 VM 上已安装哪些资源提供程序，以及识别潜在的兼容性问题。
 
-**2 （增强）**：其他见解，包括如何使用操作系统和其他 Azure Stack 服务、它们的执行方式、高级可靠性数据以及来自基本级别和安全级别的数据。
+**2（增强）** ：其他见解，包括操作系统和其他 Azure Stack 服务的用法、运行状况、高级可靠性数据，以及来自“基本”和“安全”级别的数据。
 
-**3 （完整）**：确定和帮助解决问题所需的所有数据，以及安全、基本和增强级别的数据。
+**3（完整）** ：识别及帮助解决问题所需的全部数据，加上来自“安全”、“基本”和“增强”级别的数据。
 
 > [!NOTE]
 > 默认遥测级别值为 2（增强）。

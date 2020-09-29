@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 8c0cd14dbeda4e2b7844aefaf10f4a8cf685d60d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9417d3b691e3394d254ce1d599748233bf78213a
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294436"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865126"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK 的部署后配置
 
@@ -47,7 +47,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
   # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
   Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.8.0
+  Install-Module -Name AzureStack -RequiredVersion 1.8.2
   ```
 
   如果安装成功，输出中会显示 AzureRM 和 AzureStack 模块。
@@ -118,7 +118,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 对于使用 Azure AD 的部署，需要为 ASDK 安装[启用多租户](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
 
 > [!NOTE]
-> 当使用非用于注册 Azure Stack 的域的管理员或用户帐户登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果已向 fabrikam.onmicrosoft.com 注册了 Azure Stack，并且登录的用户帐户为admin@contoso.com，则用于登录用户门户的 URL 应为： https//portal.local.azurestack.external/fabrikam.onmicrosoft.com.\:
+> 当使用非用于注册 Azure Stack 的域的管理员或用户帐户登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果已向 fabrikam.onmicrosoft.com 注册了 Azure Stack，并且登录的用户帐户为，则用于 admin@contoso.com 登录用户门户的 URL 应为： https \: //portal.local.azurestack.external/fabrikam.onmicrosoft.com。
 
 ## <a name="next-steps"></a>后续步骤
 

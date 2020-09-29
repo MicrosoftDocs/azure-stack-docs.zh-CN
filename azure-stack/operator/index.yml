@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Stack Hub 操作员文档
-summary: Microsoft Azure Stack 中心是一种混合云平台，可让你从数据中心提供 Azure 服务。 了解如何管理 Azure Stack 中心。
+summary: Microsoft Azure Stack Hub 是一种混合云平台，通过它可从数据中心提供 Azure 服务。 了解如何管理 Azure Stack Hub。
 metadata:
   title: Azure Stack Hub 文档 - 教程和 API 参考
   description: 了解如何管理 Azure Stack Hub 集成系统基础结构以及如何使用我们的快速入门和教程提供服务。
@@ -10,28 +10,28 @@ metadata:
   author: justinha
   ms.author: justinha
   ms.date: 04/13/2020
-  ms.openlocfilehash: 16a63e28a67b6dfc9d68b29df343e130ae4abca0
-  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.openlocfilehash: e344e301c9fa5d83caa03a857e529a43266b4cdb
+  ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/14/2020
-  ms.locfileid: "81274083"
+  ms.lasthandoff: 07/24/2020
+  ms.locfileid: "87133565"
 landingContent:
-- title: 关于 Azure Stack 集线器
+- title: 关于 Azure Stack Hub
   linkLists:
   - linkListType: overview
     links:
     - text: 什么是 Azure Stack Hub？
       url: azure-stack-overview.md
     - text: 什么是 Azure Stack HCI？
-      url: azure-stack-hci-overview.md
+      url: ../hci/overview.md
   - linkListType: whats-new
     links:
     - text: 安全更新
-      url: azure-stack-release-notes-security-updates.md
+      url: ./release-notes-security-updates.md?view=azs-2002
     - text: 发行说明
-      url: azure-stack-release-notes-1908.md
-    - text: Azure Stack 中心 Capacity Planner
+      url: ./release-notes.md?view=azs-2002
+    - text: Azure Stack Hub Capacity Planner
       url: azure-stack-capacity-planning-overview.md
 - title: 入门
   linkLists:
@@ -41,7 +41,7 @@ landingContent:
       url: azure-stack-manage-portals.md
     - text: 向用户提供服务
       url: tutorial-offer-services.md
-    - text: 测试服务产品
+    - text: 测试服务套餐
       url: tutorial-test-offer.md
   - linkListType: concept
     links:
@@ -51,19 +51,21 @@ landingContent:
       url: azure-stack-connected-deployment.md
     - text: 断开连接的部署
       url: azure-stack-disconnected-deployment.md
-- title: Azure Stack 中心工具
+- title: Azure Stack Hub 工具
   linkLists:
   - linkListType: download
     links:
-    - text: 从 GitHub 下载 Azure Stack 中心工具
+    - text: 从 GitHub 下载 Azure Stack Hub 工具
       url: azure-stack-powershell-download.md
     - text: 安装 Azure Stack PowerShell
       url: azure-stack-powershell-install.md
+    - text: 使用 Docker 运行 PowerShell
+      url: ../user/azure-stack-powershell-user-docker.md
     - text: 与 Azure Stack PowerShell 连接
       url: azure-stack-powershell-configure-admin.md
-    - text: 下载 Azure Stack 开发工具包（ASDK）
+    - text: 下载 Azure Stack 开发工具包 (ASDK)
       url: ../asdk/asdk-download.md
-- title: 试用 Azure Stack 集线器
+- title: 试用 Azure Stack Hub
   linkLists:
   - linkListType: deploy
     links:
@@ -78,12 +80,12 @@ landingContent:
   - linkListType: deploy
     links:
     - text: 为虚拟机创建产品/服务
-      url: azure-stack-tutorial-tenant-vm.md
+      url: ./tutorial-offer-services.md?view=azs-2002
     - text: 创建高度可用的 MySQL 数据库
       url: azure-stack-tutorial-mysql.md
-    - text: 创建适用于任何平台的应用
+    - text: 创建面向任何平台的应用
       url: azure-stack-app-service-overview.md
-- title: 管理 Azure Stack 中心
+- title: 管理 Azure Stack Hub
   linkLists:
   - linkListType: how-to-guide
     links:

@@ -1,29 +1,29 @@
 ---
-title: 将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络
-description: 了解如何将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络。
+title: 在 Azure Stack Hub 上为 Linux 创建 SSH 密钥
+description: 了解如何在 Azure Stack 集线器上创建适用于 Linux 的 SSH 密钥
 author: mattbriggs
 ms.topic: article
-ms.date: 2/28/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
-ms.reviewer: waltero
+ms.reviewer: sijuman
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
-ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+ms.openlocfilehash: 8b6ddaa6dab41cccce5759622ec15f4e5e886956
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624971"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250735"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>在 Azure Stack Hub 上为 Linux 创建 SSH 密钥
 
-可以在 Windows 计算机上为 Linux 计算机创建 SSH （安全外壳）密钥。 使用本文中步骤生成的公钥对 VM 进行 SSH 身份验证。 如果使用的是 Windows 计算机，请在 Windows 上安装 Ubuntu，以获取具有 bash、ssh、git、apt 等的实用程序。 运行 **ssh-keygen** 来创建密钥。
+可以在 Windows 计算机上为 Linux 计算机创建 SSH（安全外壳）密钥。 使用本文中步骤生成的公钥对 VM 进行 SSH 身份验证。 如果你使用的是 Windows 计算机，请在 Windows 上安装 Ubuntu，以便通过 bash、ssh、git、apt 等实用工具获取终端。 运行 **ssh-keygen** 来创建密钥。
 
 ## <a name="open-bash-on-windows"></a>在 Windows 上打开 Bash
 
 1. 如果你没有在计算机上安装适用于 Linux 的 Windows 子系统，请[在 Windows 上安装 Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)。  
-    有关使用适用于 Linux 的 Windows 子系统的详细信息，请参阅[适用于 Linux 的 Windows 子系统的文档](https://docs.microsoft.com/windows/wsl/about)。
+    有关使用适用于 Linux 的 Windows 子系统的详细信息，请参阅[适用于 Linux 的 Windows 子系统的文档](/windows/wsl/about)。
 
-2. 在工具栏中键入 **Ubuntu**，然后选择“打开”  。
+2. 在工具栏中键入 **Ubuntu**，然后选择“打开”。
 
 ## <a name="create-a-key-with-ssh-keygen"></a>使用 ssh-keygen 创建密钥
 
@@ -94,5 +94,5 @@ ms.locfileid: "81624971"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
-- [快速入门：使用 Azure Stack 中心门户创建 Linux 服务器 VM](azure-stack-quick-linux-portal.md)
+- [使用 Azure Stack Hub 上的 AKS 引擎部署 Kubernetes 群集](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
+- [快速入门：使用 Azure Stack Hub 门户创建 Linux 服务器 VM](azure-stack-quick-linux-portal.md)

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: e42be131f23690611aa4509911644753bea53c4e
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: c17ba69fedfd51681c5038efde591115ce54bddf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666356"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567512"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>在 Azure Stack Hub Key Vault 中存储服务主体凭据
 
@@ -92,6 +92,6 @@ Azure Stack Hub 中的 Key Vault 可帮助保护云应用和服务使用的加�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用服务主体](azure-stack-create-service-principals.md)
+- [使用服务主体](../operator/azure-stack-create-service-principals.md?view=azs-2002)
 - [通过门户管理 Azure Stack Hub 中的 Key Vault](azure-stack-key-vault-manage-portal.md)  
 - [使用 PowerShell 管理 Azure Stack Hub 中的 Key Vault](azure-stack-key-vault-manage-powershell.md)

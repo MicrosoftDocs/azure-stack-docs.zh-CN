@@ -3,22 +3,22 @@ title: 使用 PowerShell 连接到 Azure Stack Hub
 description: 了解如何使用 PowerShell 连接到 Azure Stack Hub。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 56782d79483f544dc019b4c162ed9af1a1163e4b
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.lastreviewed: 8/4/2020
+ms.openlocfilehash: 3001d06deb81e275f3b62127cb555d3afceaff3c
+ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111230"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810790"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>使用 PowerShell 连接到 Azure Stack Hub
 
 可以将 Azure Stack Hub 配置为使用 PowerShell 来管理资源，例如创建套餐、计划、配额以及警报。 本主题有助于配置操作员环境
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 如果[已通过 VPN 连接到 ASDK](../asdk/asdk-connect.md#connect-with-vpn)，请通过 [Azure Stack 开发工具包 (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) 或基于 Windows 的外部客户端运行以下先决条件操作。
 
@@ -61,12 +61,11 @@ ms.locfileid: "84111230"
   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
   ```
 
-> [!Note]  
-> AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 有关使用 Azure Stack 中心和 AD FS 作为标识管理服务设置服务主体的详细信息，请参阅[管理 AD FS 应用标识](azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity)。
+[!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
 
 ## <a name="test-the-connectivity"></a>测试连接
 
-完成所有设置后，请使用 PowerShell 在 Azure Stack Hub 中创建资源。 例如，可以为应用创建资源组并添加虚拟机。 使用以下命令创建名为“MyResourceGroup”  的资源组。
+完成所有设置后，请使用 PowerShell 在 Azure Stack Hub 中创建资源。 例如，可以为应用创建资源组并添加虚拟机。 使用以下命令创建名为“MyResourceGroup”的资源组。
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
@@ -76,4 +75,4 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [为 Azure Stack Hub 开发模板](../user/azure-stack-develop-templates.md)。
 - [使用 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)。
-  - [Azure Stack Hub 模块参考](https://docs.microsoft.com/powershell/azure/azure-stack/overview)。
+  - [Azure Stack Hub 模块参考](/powershell/azure/azure-stack/overview)。

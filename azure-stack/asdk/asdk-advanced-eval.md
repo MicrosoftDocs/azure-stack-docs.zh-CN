@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 2c4a83ea024f83c0181cfe77c598519746deaeed
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d8a97ea33b810c258e81ed42ace9a571f5de7bfd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695353"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489855"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>高级 ASDK 评估任务
 在熟悉 Azure Stack 开发工具包 (ASDK) 服务的基本功能后，可以通过测试更高级的方案，来进一步加深对 Azure Stack 的了解。 Azure Stack 操作员文档中全面阐述了这些更高级的评估任务。
@@ -28,12 +28,12 @@ Azure Stack 操作员经常需要委托他人来管理创建套餐以及注册�
 ## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>将 SQL 数据库提供给 Azure Stack 用户使用
 Azure Stack 操作员可以创建套餐，使用户（租户）能够创建 SQL 数据库，以配合其云原生应用、网站和工作负荷使用。 通过向用户提供这些基于云的按需自定义数据库的访问权限，可以节省用户的时间和资源。
 
-使用 SQL Server 资源提供程序适配器可[将 SQL 数据库作为 Azure Stack 的服务提供给 Azure Stack 用户](../operator/azure-stack-tutorial-sql-server.md)。 安装资源提供程序之后，请将它连接到一个或多个 SQL Server 实例。
+使用 SQL Server 资源提供程序适配器可[将 SQL 数据库作为 Azure Stack 的服务提供给 Azure Stack 用户](../operator/azure-stack-sql-resource-provider.md?view=azs-2002)。 安装资源提供程序之后，请将它连接到一个或多个 SQL Server 实例。
 
 ## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>将 Web 和 API 应用提供给 Azure Stack 用户使用
 Azure Stack 操作员可以创建套餐，允许用户（租户）创建 Azure Functions、Web 和 API 应用。 通过向用户提供这些基于云的按需应用的访问权限，可以节省用户的时间和资源。
 
-部署应用服务资源提供程序，[将 Web 和 API 应用提供给 Azure Stack 用户使用](../operator/azure-stack-tutorial-app-service.md)。
+部署应用服务资源提供程序，[将 Web 和 API 应用提供给 Azure Stack 用户使用](../operator/azure-stack-app-service-overview.md?view=azs-2002)。
 
 ## <a name="next-steps"></a>后续步骤
 

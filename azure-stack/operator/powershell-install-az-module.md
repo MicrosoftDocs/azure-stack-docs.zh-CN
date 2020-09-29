@@ -3,26 +3,28 @@ title: 安装适用于 Azure Stack Hub 的 PowerShell Az 模块
 description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 912e40cef34de0831a92817077ac9e33f33a0434
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.lastreviewed: 06/22/2020
+ms.openlocfilehash: bc10f4dc985172deccef997d55520d656121867a
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813769"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865160"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell Az 预览版模块
 
 本文介绍如何使用 PowerShellGet 安装 Azure PowerShell Az 和兼容的 Azure Stack Hub 管理员模块。 Az 模块可以在 Windows、macOS 和 Linux 平台上安装。
 
+还可以在 Docker 容器中运行 Azure Stack Hub 的 Az 模块。 有关说明，请参阅[使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell](../user/azure-stack-powershell-user-docker.md)。
+
 如果要安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块，请参阅[安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块](azure-stack-powershell-install.md)。
 
 > [!IMPORTANT]
 > PowerShell Az 模块目前为公共预览版。
-> 此预览版在即将发布的版本中可能存在重大更改。有关详细信息，请参阅[Microsoft Azure 预览版的补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此预览版在即将发布的版本中可能存在重大更改。有关详细信息，请参阅 [Microsoft Azure 预览版的补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 > 可能不会有新的 AzureRM 模块版本。 AzureRM 模块仅受关键修补程序支持。 今后，Azure Stack 只会提供 Az 版本
 
 可以使用 API 配置文件为 Azure Stack Hub 资源提供程序指定兼容的终结点。
@@ -33,9 +35,9 @@ API 配置文件提供一种管理 Azure 与 Azure Stack Hub 之间版本差异�
 
 ## <a name="1-verify-your-prerequisites"></a>1.验证先决条件
 
-仅[带 Update 2002 的 Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#2002-build-reference) 和最新[修补程序](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#hotfixes)支持 Az 模块。
+仅[带 Update 2002 的 Azure Stack Hub](./release-notes.md?view=azs-2002#2002-build-reference) 和最新[修补程序](./release-notes.md?view=azs-2002#hotfixes)支持 Az 模块。
 
-Azure PowerShell 适用于 Windows 上的 PowerShell 5.1 或更高版本，或者所有平台上的 PowerShell Core 6.x 及更高版本。 你应该安装适用于你的操作系统的[最新版本的 PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core)。 在 PowerShell Core 上运行时，Azure PowerShell 没有额外要求。
+Azure PowerShell 适用于 Windows 上的 PowerShell 5.1 或更高版本，或者所有平台上的 PowerShell Core 6.x 及更高版本。 你应该安装适用于你的操作系统的[最新版本的 PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)。 在 PowerShell Core 上运行时，Azure PowerShell 没有额外要求。
 
 若要检查 PowerShell 版本，请运行以下命令：
 
@@ -46,12 +48,12 @@ $PSVersionTable.PSVersion
 ### <a name="prerequisites-for-windows"></a>Windows 先决条件
 若要在 Windows 上的 PowerShell 5.1 中使用 Azure PowerShell，请执行以下操作：
 
-1. 在必要时更新到 [Windows PowerShell 5.1](https://docs.microsoft.com//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)。 如果是在 Windows 10 平台上，则已安装 PowerShell 5.1。
-2. 安装 [.NET Framework 4.7.2 或更高版本](https://docs.microsoft.com//dotnet/framework/install)。
+1. 在必要时更新到 [Windows PowerShell 5.1](/powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell)。 如果是在 Windows 10 平台上，则已安装 PowerShell 5.1。
+2. 安装 [.NET Framework 4.7.2 或更高版本](/dotnet/framework/install)。
 3. 确保你具有最新版本的 PowerShellGet。 运行 `Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force`。 
 
 ## <a name="2-prerequisites-for-linux-and-mac"></a>2.Linux 和 Mac 先决条件
-需要 PowerShell Core 6.x 或更高版本。 请访问[链接](https://docs.microsoft.com//powershell/scripting/install/installing-powershell-core-on-windows)获取说明
+需要 PowerShell Core 6.x 或更高版本。 请访问[链接](/powershell/scripting/install/installing-powershell-core-on-windows)获取说明
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3.卸载 Azure Stack Hub PowerShell 模块的现有版本
 
@@ -77,14 +79,14 @@ Azure Stack Az 模块将在 Azure Stack Hub 2002 或更高版本上运行。 此
 ```powershell  
 Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
 Install-AzProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 2.0.0-preview -AllowPrerelease
+Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 ```
 
 > [!Note]  
 > Azure Stack Hub 模块版本 2.0.0 是一项中断性变更。 有关详细信息，请参阅[在 Azure Stack Hub 中从 AzureRM 迁移到 Azure PowerShell Az](migrate-azurerm-az.md)。
 
 > [!WARNING]
-> 对于适用于 Windows 的 PowerShell 5.1，不能同时安装 AzureRM 和 Az 模块。 如果需要确保 AzureRM 在系统上可用，请为 PowerShell Core 6.x 或更高版本安装 Az 模块。 为此，请[安装 PowerShell Core 6.x 或更高版本](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)，然后在 PowerShell Core 终端中按照这些说明操作。
+> 对于适用于 Windows 的 PowerShell 5.1，不能同时安装 AzureRM 和 Az 模块。 如果需要确保 AzureRM 在系统上可用，请为 PowerShell Core 6.x 或更高版本安装 Az 模块。 为此，请[安装 PowerShell Core 6.x 或更高版本](/powershell/scripting/install/installing-powershell-core-on-windows)，然后在 PowerShell Core 终端中按照这些说明操作。
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5.离线：不通过 Internet 连接安装
 
@@ -105,7 +107,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.0-preview -AllowPrerelease
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 或更高版本。
 
-可以使用 AzureRM 或 Az 预览版模块。 对于 RM 模块，请参阅[安装 PowerShell AzureRM 模块](azure-stack-powershell-install.md)中的说明。 以下代码保存可信联机存储库中的模块 https://www.powershellgallery.com/ 。
+可以使用 AzureRM 或 Az 预览版模块。 对于 RM 模块，请参阅[安装 PowerShell AzureRM 模块](azure-stack-powershell-install.md)中的说明。 以下代码保存可信联机存储库 https://www.powershellgallery.com/ 中的模块。
 
 ```powershell
 
@@ -114,7 +116,7 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 $savedModulesPath = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $savedModulesPath -Force -RequiredVersion 0.10.0-preview
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.0-preview
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.1-preview
 ```
 ::: moniker-end
 
@@ -130,7 +132,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 2. 登录到已断开连接的工作站，将包从 USB 设备复制到工作站中的某个位置。
 
-3. 在断开连接的工作站上手动启动 NuGet 提供程序。 有关说明，请参阅[在未连接到 Internet 的计算机上手动启动 NuGet 提供程序](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)。
+3. 在断开连接的工作站上手动启动 NuGet 提供程序。 有关说明，请参阅[在未连接到 Internet 的计算机上手动启动 NuGet 提供程序](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)。
 
 4. 将此位置注册为默认存储库，并从此存储库安装 AzureRM 和 `AzureStack` 模块：
 
@@ -145,13 +147,9 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
 
-   Install-Module -Name Az.BootStrapper -Repository $RepoName -Scope AllUsers -AllowPrerelease
+   Install-Module -Name AzureStack -Repository $RepoName -RequiredVersion 2.0.2-preview -AllowPrerelease -Scope AllUsers
 
-   Set-BootstrapRepo -Repo $RepoName
-
-   Install-AzProfile -Profile '2019-03-01-hybrid' -Force -Scope AllUsers
-
-   Install-Module -Name AzureStack -Repository $RepoName -RequiredVersion 2.0.0-preview -AllowPrerelease -Scope AllUsers
+   Install-Module -Name Az -Repository $RepoName -RequiredVersion 0.10.0-preview -AllowPrerelease -Scope AllUsers
    ```
 
 ### <a name="confirm-the-installation-of-powershell"></a>确认已安装 PowerShell

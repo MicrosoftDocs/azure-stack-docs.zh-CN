@@ -7,20 +7,20 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 4ccbdfe93f8ed960002c251e0d18e24f29a9b229
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 5347225398e6494d89ba70d6468a6657d13b58e0
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111857"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564762"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署 Service Fabric 群集
 
 使用 Azure 市场中的“Service Fabric 群集”项在 Azure Stack Hub 中部署受保护的 Service Fabric 群集。  
 
-有关使用 Service Fabric 的详细信息，请参阅 Azure 文档中的 [Azure Service Fabric 概述](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)和 [Service Fabric 群集安全方案](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
+有关使用 Service Fabric 的详细信息，请参阅 Azure 文档中的 [Azure Service Fabric 概述](/azure/service-fabric/service-fabric-overview)和 [Service Fabric 群集安全方案](/azure/service-fabric/service-fabric-cluster-security)。
 
-Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsoft.ServiceFabric。 相反，在 Azure Stack Hub 中，Service Fabric 群集是一个虚拟机规模集，具有使用 [Desired State Configuration (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) 的预安装软件。
+Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsoft.ServiceFabric。 相反，在 Azure Stack Hub 中，Service Fabric 群集是一个虚拟机规模集，具有使用 [Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) 的预安装软件。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -29,13 +29,13 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
    这是在部署 Service Fabric 时添加到 Key Vault 的 X.509 服务器证书。 
    - 此证书中的 **CN** 必须与创建的 Service Fabric 群集的完全限定域名 (FQDN) 匹配。 
    - 证书格式必须是 PFX，因为需要公钥和私钥。 
-     请参阅创建此服务器端证书所要满足的[要求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
+     请参阅创建此服务器端证书所要满足的[要求](/azure/service-fabric/service-fabric-cluster-security)。
 
      > [!NOTE]  
      > 可以使用自签名的证书取代 X.509 服务器证书进行测试。 自签名的证书不需要与群集的 FQDN 匹配。
 
 1. **管理员客户端证书**  
-   这是客户端用于在 Service Fabric 群集中进行身份验证的证书，可以是自签名的证书。 请参阅创建此客户端证书所要满足的[要求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
+   这是客户端用于在 Service Fabric 群集中进行身份验证的证书，可以是自签名的证书。 请参阅创建此客户端证书所要满足的[要求](/azure/service-fabric/service-fabric-cluster-security)。
 
 1. **必须在 Azure Stack Hub 市场中提供以下各项：**
     - **Windows Server 2016** - 模板使用 Windows Server 2016 映像来创建群集。  
@@ -188,7 +188,7 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
 
 1. 若要查找 Service Fabric Explorer 的 URL 和客户端连接终结点，请查看模板部署的结果。
 
-1. 在浏览器中转到 <https://*FQDN*:19080>。 将 *FQDN* 替换为在步骤 2 中获取的 Service Fabric 群集 FQDN。   
+1. 在浏览器中转到 `https://*FQDN*:19080`。 将 *FQDN* 替换为在步骤 2 中获取的 Service Fabric 群集 FQDN。   
    如果使用了自签名证书，屏幕上会显示一条警告，指出连接不安全。 若要继续访问网站，请依次选择“更多信息”、“继续访问网页”。   
 
 1. 若要在站点中进行身份验证，必须选择要使用的证书。 选择“更多选项”，选择适当的证书，然后单击“确定”连接到 Service Fabric Explorer。   
@@ -199,7 +199,7 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
 
 ### <a name="use-service-fabric-powershell"></a>使用 Service Fabric PowerShell
 
-1. 从在 Azure Service Fabric 文档中的[Windows 上准备开发环境](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)中安装*Microsoft Azure Service Fabric SDK* 。  
+1. 从在 Azure Service Fabric 文档中的[Windows 上准备开发环境](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)中安装*Microsoft Azure Service Fabric SDK* 。  
 
 1. 安装完成后，配置系统环境变量，确保可从 PowerShell 访问 Service Fabric cmdlet。  
     
@@ -233,4 +233,4 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
 
 ## <a name="next-steps"></a>后续步骤
 
-[将 Kubernetes 部署到 Azure Stack 中心](azure-stack-solution-template-kubernetes-deploy.md)
+[将 Kubernetes 部署到 Azure Stack Hub](azure-stack-solution-template-kubernetes-deploy.md)

@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 11/04/2019
-  ms.openlocfilehash: 9a0a1b733882ca77cdce2d6ccc0395ce31c891f1
-  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.openlocfilehash: db4c148d445567e2d0beec20e7b2130610292e28
+  ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/14/2020
-  ms.locfileid: "77568356"
+  ms.lasthandoff: 07/22/2020
+  ms.locfileid: "86947293"
 highlightedContent:
   items:
   - title: Azure Stack 系列公告
@@ -23,13 +23,13 @@ highlightedContent:
     url: http://aka.ms/AzsFamAnnounce
   - title: 比较 Azure Stack 系列的产品和解决方案
     itemType: overview
-    url: /azure-stack/operator/compare-azure-azure-stack
+    url: ./operator/compare-azure-azure-stack.md
 productDirectory:
   items:
   - title: Azure Stack Hub
     imageSrc: media/index/azure-stack-hub.svg
     links:
-    - url: /azure-stack/operator/azure-stack-overview
+    - url: ./operator/azure-stack-overview.md
       text: 什么是 Azure Stack Hub？
   - title: Azure Stack Edge
     imageSrc: media/index/azure-stack-edge.svg
@@ -39,7 +39,7 @@ productDirectory:
   - title: Azure Stack HCI
     imageSrc: media/index/azure-stack-hci.svg
     links:
-    - url: /azure-stack/hci/overview
+    - url: ./hci/overview.md
       text: Azure Stack HCI 概述
 conceptualContent:
   title: 混合模式和解决方案示例
@@ -63,10 +63,10 @@ conceptualContent:
       text: DevOps 混合 CI/CD
     - url: /azure-stack/hybrid/pattern-retail-footfall-detection
       itemType: architecture
-      text: Footfall 检测（零售）
+      text: 客流量检测（零售）
     - url: /azure-stack/hybrid/pattern-geo-distributed
       itemType: architecture
-      text: 地理分散的应用
+      text: 地区分布式应用
   - title: 部署混合解决方案示例
     links:
     - url: /azure-stack/hybrid/solution-deployment-guide-cross-cloud-scaling
@@ -77,41 +77,41 @@ conceptualContent:
       text: DevOps 混合 CI/CD
     - url: /azure-stack/hybrid/solution-deployment-guide-retail-footfall-detection
       itemType: tutorial
-      text: Footfall 检测（零售）
+      text: 客流量检测（零售）
     - url: /azure-stack/hybrid/solution-deployment-guide-geo-distributed
       itemType: tutorial
-      text: 地理分散的应用
+      text: 地区分布式应用
 additionalContent:
   sections:
   - title: Azure Stack Hub
     items:
-    - title: 操作员
+    - title: 运算符
       links:
-      - url: /azure-stack/operator/azure-stack-manage-portals
+      - url: ./operator/azure-stack-manage-portals.md
         text: 使用管理员门户
-      - url: /azure-stack/operator/release-notes
+      - url: ./operator/release-notes.md
         text: 发行说明
-      - url: /azure-stack/operator/azure-stack-servicing-policy
+      - url: ./operator/azure-stack-servicing-policy.md
         text: Azure Stack Hub 服务策略
-      - url: /azure-stack/operator/azure-stack-create-service-principals
+      - url: ./operator/azure-stack-create-service-principals.md
         text: 使用应用标识访问资源
     - title: 用户
       links:
-      - url: /azure-stack/user/azure-stack-quick-windows-portal
+      - url: ./user/azure-stack-quick-windows-portal.md
         text: 部署 VM
-      - url: /azure-stack/user/azure-stack-vm-sizes
+      - url: ./user/azure-stack-vm-sizes.md
         text: 支持的 VM 大小
-      - url: /azure-stack/user/azure-stack-considerations
+      - url: ./user/azure-stack-considerations.md
         text: 构建应用的重要注意事项
-      - url: /azure-stack/user/azure-stack-key-vault-manage-portal
+      - url: ./user/azure-stack-key-vault-manage-portal.md
         text: 创建和管理密钥保管库
     - title: Azure Stack 开发工具包 (ASDK)
       links:
-      - url: /azure-stack/asdk/asdk-deploy-considerations
+      - url: ./asdk/asdk-deploy-considerations.md
         text: ASDK 要求和注意事项
-      - url: /azure-stack/asdk/asdk-download
+      - url: ./asdk/asdk-download.md
         text: 下载并提取 ASDK
-      - url: /azure-stack/asdk/asdk-prepare-host
+      - url: ./asdk/asdk-prepare-host.md
         text: 准备 ASDK 主机
   - title: Azure Stack Edge
     items:
@@ -128,9 +128,9 @@ additionalContent:
     - title: 开发
       links:
       - url: /azure/databox-online/data-box-edge-create-iot-edge-module
-        text: '开发 IoT Edge 模块（c #）'
+        text: " (c # 开发 IoT Edge 模块 ) "
       - url: /samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules
-        text: 'IoT Edge 模块示例（c #）'
+        text: 'C # (IoT Edge 模块示例 ) '
   - title: Azure Stack HCI
     items:
     - title: 解决方案
@@ -142,7 +142,7 @@ additionalContent:
     - title: 管理
       links:
       - url: /windows-server/manage/windows-admin-center/understand/windows-admin-center
-        text: Windows Admin Center
+        text: Windows 管理中心
       - url: /windows-server/manage/windows-admin-center/azure
         text: Azure 混合服务
     - title: 基础技术

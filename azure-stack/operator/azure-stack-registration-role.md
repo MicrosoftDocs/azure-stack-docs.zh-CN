@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解如何创建自定义角色，以避免使用全局管理员身份注册 Azure Stack Hub。
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/27/2020
+ms.date: 08/05/2020
 ms.author: bryanla
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: cb9dd6e3049a4d3287bf60dd939bca4d1a0335da
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: cb2da0dc57069647ecefd8ccc278526f7f35f57d
+ms.sourcegitcommit: b69c8334571094721b26e6bdebd639f4fd294dd0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173924"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87839226"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>为 Azure Stack Hub 注册创建自定义角色
 
@@ -24,7 +24,7 @@ ms.locfileid: "82173924"
 
 * **Azure AD 租户中的应用注册权限：** 管理员具有应用注册权限。 用户的权限是租户中所有用户的全局设置。 若要查看或更改设置，请参阅[创建可访问资源的 Azure AD 应用和服务主体](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
 
-    “用户可以注册应用程序”设置必须设置为“是”才能让用户帐户注册 Azure Stack Hub。   如果 "应用注册" 设置设置为 "**否**"，则不能使用用户帐户注册 Azure Stack 中心，必须使用全局管理员帐户。
+    “用户可以注册应用程序”设置必须设置为“是”才能让用户帐户注册 Azure Stack Hub。   如果 "应用注册" 设置设置为 " **否**"，则不能使用用户帐户注册 Azure Stack 中心，必须使用全局管理员帐户。
 
 * **一组足够高的 Azure 订阅权限：** 属于“所有者”角色的用户具有足够的权限。 对于其他帐户，可以通过分配自定义角色来分配权限集，如以下部分所述。
 
@@ -53,7 +53,7 @@ ms.locfileid: "82173924"
         "Microsoft.Authorization/roleAssignments/delete",
         "Microsoft.Authorization/permissions/read",
         "Microsoft.Authorization/locks/read",
-        "Microsoft.Authorization/locks/write
+        "Microsoft.Authorization/locks/write"
       ],
       "NotActions": [
       ],
@@ -79,7 +79,7 @@ ms.locfileid: "82173924"
 
 创建了注册自定义角色之后，将该角色分配给将用于注册 Azure Stack Hub 的用户帐户。
 
-1. 使用对 Azure 订阅具有足够权限的帐户登录，以委托权限，如 "[所有者](/azure/role-based-access-control/built-in-roles#owner)" 或 "[用户访问管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)"。
+1. 使用对 Azure 订阅具有足够权限的帐户登录，以委托权限，如 " [所有者](/azure/role-based-access-control/built-in-roles#owner) " 或 " [用户访问管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)"。
 2. 在“订阅”中，选择“访问控制(IAM)”>“添加角色分配”。  
 3. 在“角色”  中，选择已创建的自定义角色：Azure Stack Hub 注册角色  。
 4. 选择要分配到该角色的用户。

@@ -7,15 +7,15 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: efc23ad5694ba7828c2dc5c5ba5de09be3591e04
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: bc828444a67e1489f2d5b4b51fc0cbd18e6f0641
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819276"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489923"
 ---
 # <a name="troubleshoot-the-asdk"></a>排查 ASDK 问题
-本文提供了 Azure Stack 开发工具包 (ASDK) 的常见故障排除信息。 有关 Azure Stack 集成系统的帮助，请参阅[Microsoft Azure Stack 故障排除](../operator/azure-stack-troubleshooting.md)。 
+本文提供了 Azure Stack 开发工具包 (ASDK) 的常见故障排除信息。 有关 Azure Stack 集成系统的帮助，请参阅 [Microsoft Azure Stack 故障排除](../operator/azure-stack-troubleshooting.md)。 
 
 由于 ASDK 是一个评估环境，因此 Microsoft 支持部门不提供支持。 如果遇到了文档未记录的问题，可以在 [Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)上获得专家的帮助。 
 
@@ -36,10 +36,10 @@ ms.locfileid: "84819276"
 
 如果在模板验证期间遇到错误消息，该消息指出系统不允许参数 'osProfile'，请确保对以下组件使用正确的 API 版本：
 
-- [计算](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [网络](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+- [计算](../user/azure-stack-profiles-azure-resource-manager-versions.md#microsoftcompute)
+- [网络](../user/azure-stack-profiles-azure-resource-manager-versions.md#microsoftnetwork)
 
-若要将 VHD 从 Azure 复制到 Azure Stack，请使用 [AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy)。 请联系供应商以解决映像本身的问题。 若要详细了解 Azure Stack 的 WALinuxAgent 要求，请参阅 [Azure LinuX 代理](../operator/azure-stack-linux.md#azure-linux-agent)。
+若要将 VHD 从 Azure 复制到 Azure Stack，请使用 [AzCopy 7.3.0](../user/azure-stack-storage-transfer.md#download-and-install-azcopy)。 请联系供应商以解决映像本身的问题。 若要详细了解 Azure Stack 的 WALinuxAgent 要求，请参阅 [Azure LinuX 代理](../operator/azure-stack-linux.md#azure-linux-agent)。
 
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>部署因缺少外部访问而失败
 如果部署在需要外部访问的阶段失败，则会返回一个异常，如以下示例所示：

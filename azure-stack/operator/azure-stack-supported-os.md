@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: 了解在 Azure Stack Hub 上可以使用哪些来宾操作系统。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 17af4430f84f744a6ff4c8994ff453939fadb747
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 2275f00f8df77b3822537ca73ec35b342b477617
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661246"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250293"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack Hub 支持的来宾操作系统
 
@@ -35,7 +35,7 @@ Azure Stack Hub 支持下表中列出的 Windows 来宾操作系统：
 > [!NOTE]
 > 若要在 Azure Stack Hub 上部署 Windows 10 客户端操作系统，必须具备 [Windows 每用户授权](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)，或者通过合格多租户托管商 ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) 购买。
 
-Marketplace 映像适用于即用即付或 BYOL （EA/SPLA）许可。 不支持在单个 Azure Stack 集线器实例上同时使用这两者。 在部署期间，Azure Stack Hub 会将适当版本的来宾代理注入到映像中。
+Marketplace 映像适用于即用即付或 BYOL (EA/SPLA) 许可。 不支持在单个 Azure Stack 集线器实例上同时使用这两者。 在部署期间，Azure Stack Hub 会将适当版本的来宾代理注入到映像中。
 
 Datacenter 版本可在 Azure Stack Hub 市场中下载；客户可以自带包含其他版本的服务器映像。 Azure Stack Hub 市场中未提供 Windows 客户端映像。
 

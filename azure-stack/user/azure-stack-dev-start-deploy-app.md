@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: f162a244e97d2346851ff4b13b6bdd04033e33fb
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: fa94f2bb29b75a2fcbbdbc7707a69d9ba2f8d0cf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146846"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567597"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>适用于 Azure Stack Hub 的常见部署
 
@@ -36,4 +36,4 @@ Azure Stack Hub 同时支持基础结构即服务 (IaaS) 和平台即服务 (Paa
 ## <a name="next-steps"></a>后续步骤
 
 - [在 Azure Stack Hub 中设置开发环境](azure-stack-dev-start.md)。
-- [在 Azure Stack 集线器中设置持续集成/持续交付（CI/CD）管道](azure-stack-solution-pipeline.md)。
+- [Azure Stack 集线器中 (CI/CD) 管道设置持续集成/持续交付](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops)。

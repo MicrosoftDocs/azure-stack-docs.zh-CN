@@ -3,15 +3,15 @@ title: Azure Stack Hub 中的 Key Vault 简介
 description: 了解 Key Vault 如何管理 Azure Stack Hub 中的密钥和机密。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/10/2020
 ms.author: sethm
-ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 9842d0aa2892218b9d3e8ef527df8f83574487b8
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.lastreviewed: 08/10/2020
+ms.openlocfilehash: 7387778055a50b138766cc7f8c416b206f4b9db9
+ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666458"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88501069"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Azure Stack Hub 中的 Key Vault 简介
 
@@ -39,7 +39,7 @@ Azure Stack Hub 中的 Key Vault 可帮助保护云应用和服务使用的加�
 * 授权用户或应用访问密钥保管库，以便他们随后可以管理或使用其密钥和机密。
 * 配置密钥用法（例如，签名或加密）。
 
-然后，操作员可以向开发人员提供统一资源标识符 (URI)，以便从其应用调用。 操作员还可以向安全管理员提供密钥使用情况日志记录信息。
+然后，操作员可以向开发人员提供统一资源标识符 (URI)，以便从其应用调用。
 
 开发人员还可使用 API 直接管理密钥。 有关详细信息，请参阅 [Key Vault 开发人员指南](/azure/key-vault/key-vault-developers-guide)。
 
@@ -47,25 +47,25 @@ Azure Stack Hub 中的 Key Vault 可帮助保护云应用和服务使用的加�
 
 以下方案说明 Key Vault 如何帮助满足开发人员和安全管理员的需求。
 
-### <a name="developer-for-an-azure-stack-hub-app"></a>Azure Stack Hub 应用开发人员
+### <a name="developer-for-an-azure-stack-hub-app"></a>Azure Stack 中心应用的开发人员
 
-**问题：** 我想要编写使用密钥进行签名和加密的 Azure Stack Hub 应用。 我希望这些密钥在应用外部，以便解决方案适用于地理位置分散的应用。
+**问题：** 我要为使用密钥进行签名和加密的 Azure Stack 集线器编写应用。 我希望这些密钥在应用外部，以便解决方案适用于地理位置分散的应用。
 
-**说明：** 密钥会存储在保管库中，根据需要由 URI 调用。
+**语句：** 密钥存储在保管库中，并在需要时由 URI 调用。
 
 ### <a name="developer-for-software-as-a-service-saas"></a>软件即服务 (SaaS) 开发人员
 
-**问题：** 对于客户的密钥和机密，我不想承担任何实际或潜在的法律责任。 我希望客户拥有并管理其密钥，这样我就可以集中精力做我最擅长的事情，即提供核心软件功能。
+**问题：** 对于客户的密钥和机密，我不想承担责任或潜在责任。 我希望客户拥有并管理其密钥，这样我就可以集中精力做我最擅长的事情，即提供核心软件功能。
 
-**说明：** 客户可以在 Azure Stack Hub 中导入和管理自己的密钥。
+**语句：** 客户可在 Azure Stack 中心导入和管理他们自己的密钥。
 
 ### <a name="chief-security-officer-cso"></a>首席安全官 (CSO)
 
-**问题：** 我想要确保我的组织掌控密钥生命周期，并可监视密钥的使用。
+**问题：** 我想要确保我的组织掌控密钥生命周期，并可监视密钥使用情况。
 
-**说明：** Key Vault 的设计可确保 Microsoft 无法看到或提取你的密钥。 当应用需要使用客户密钥来执行加密操作时，Key Vault 会代表应用来使用密钥。 应用不会看到客户密钥。 即使我们使用多个 Azure Stack Hub 服务和资源，你可以从 Azure Stack Hub 中的单一位置管理密钥。 不论你在 Azure Stack Hub 中有几个保管库、保管库支持哪些区域以及使用哪些应用使用这些保管库，保管库都可提供单一界面。
+**说明：** Key Vault 的设计可确保 Microsoft 无法看到或提取你的密钥。 当应用需要使用客户密钥来执行加密操作时，Key Vault 会代表应用来使用密钥。 应用不会看到客户密钥。 尽管我们使用多个 Azure Stack 中心服务和资源，但你可以从 Azure Stack 集线器中的单个位置管理密钥。 无论在 Azure Stack 集线器中有多少保管库、支持的区域以及哪些应用使用这些保管库，保管库都提供单个接口。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [通过门户管理 Azure Stack Hub 中的 Key Vault](azure-stack-key-vault-manage-portal.md)  
-* [使用 PowerShell 管理 Azure Stack Hub 中的 Key Vault](azure-stack-key-vault-manage-powershell.md)
+* [通过门户管理 Azure Stack 中心的 Key Vault](azure-stack-key-vault-manage-portal.md)  
+* [使用 PowerShell 管理 Azure Stack 中心的 Key Vault](azure-stack-key-vault-manage-powershell.md)

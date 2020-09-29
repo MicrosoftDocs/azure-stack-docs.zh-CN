@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: ed14d3a482a61b3daad827d559ef96926b65c551
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: e2b53b4b99b02267a6f88b22a2ee373695445081
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848058"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250191"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>Azure Stack Hub 上的应用服务 Update 3 发行说明
 
@@ -75,7 +75,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 3 包含以下改进和修复�
 >
 >
 
-1. [将 AppService 数据库（appservice_hosting 和 appservice_metering）添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。
+1. [将 AppService 数据库（appservice_hosting 和 appservice_metering）添加到可用性组](/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。
 
 1. 启用包含的数据库。
     ```sql
@@ -126,9 +126,9 @@ Azure Stack Hub 上的 Azure 应用服务 Update 3 包含以下改进和修复�
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. 将登录名迁移到包含的数据库用户。
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -188,7 +188,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 3 包含以下改进和修复�
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>云管理员在操作基于 Azure Stack Hub 的 Azure 应用服务时的已知问题
 
-请参阅“Azure Stack Hub 1807 发行说明”中的文档。
+请参阅 Azure Stack 中心1807发行说明中的文档。
 
 ## <a name="next-steps"></a>后续步骤
 

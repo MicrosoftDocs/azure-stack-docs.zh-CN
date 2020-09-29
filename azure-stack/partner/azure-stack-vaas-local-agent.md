@@ -4,23 +4,23 @@ titleSuffix: Azure Stack Hub
 description: 了解如何以服务的形式部署 Azure Stack 集线器验证的本地代理。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff20f82244adbbf4b1aebebd31bbf99e716bd6ce
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 7661177ec292d7c0b678f05d95c33d90f8e57c2c
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661277"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764777"
 ---
 # <a name="deploy-the-local-agent"></a>部署本地代理
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-了解如何使用验证即服务（VaaS）本地代理来运行验证测试。 运行验证测试之前，必须先部署本地代理。
+了解如何使用验证即服务 (VaaS) 本地代理来运行验证测试。 运行验证测试之前，必须先部署本地代理。
 
 > [!Note]  
 > 确保运行本地代理的计算机不会失去对 internet 的出站访问权限。 只有有权代表租户使用 VaaS 的用户才可以访问此计算机。
@@ -49,7 +49,7 @@ ms.locfileid: "81661277"
 ### <a name="download-and-install-the-local-agent"></a>下载并安装本地代理
 
 1. 在将用于运行测试的计算机上，在提升的提示符下打开 Windows PowerShell。
-2. 运行以下命令以下载并安装本地代理依赖项，并将公用映像存储库（PIR）映像（OS VHD）复制到 Azure Stack 中心环境。
+2. 运行以下命令下载并安装本地代理依赖项，并将公共映像存储库 (PIR) 映像 (OS VHD) 复制到 Azure Stack 中心环境。
 
     ```powershell
     # Review and update the following five parameters
@@ -79,15 +79,15 @@ ms.locfileid: "81661277"
     ```
 
 > [!Note]  
-> `Install-VaaSPrerequisites`cmdlet 下载大型 VM 映像文件。 如果网络速度缓慢，可以将文件下载到本地文件服务器，并手动将 VM 映像添加到测试环境。 有关详细信息，请参阅[处理网络连接过慢的问题](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)。
+> `Install-VaaSPrerequisites` cmdlet 下载大型 VM 映像文件。 如果网络速度缓慢，可以将文件下载到本地文件服务器，并手动将 VM 映像添加到测试环境。 有关详细信息，请参阅[处理网络连接过慢的问题](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)。
 
-**Parameters**
+**参数**
 
 | 参数 | 说明 |
 | --- | --- |
-| `AadServiceAdminUser` | Azure AD 租户的全局管理员用户。 例如： vaasadmin@contoso.onmicrosoft.com。 |
+| `AadServiceAdminUser` | Azure AD 租户的全局管理员用户。 例如：vaasadmin@contoso.onmicrosoft.com。 |
 | `AadServiceAdminPassword` | 全局管理员用户的密码。 |
-| `CloudAdminUserName` | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如： AzusreStack\CloudAdmin。 有关详细信息，请参阅[VaaS 的工作流通用参数](azure-stack-vaas-parameters.md)。 |
+| `CloudAdminUserName` | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如： AzusreStack\CloudAdmin。 有关详细信息，请参阅 [VaaS 的工作流通用参数](azure-stack-vaas-parameters.md)。 |
 | `CloudAdminPassword` | 云管理员帐户的密码。|
 
 ![下载本地代理的先决条件](media/installing-prereqs.png)
@@ -96,13 +96,13 @@ ms.locfileid: "81661277"
 
 这些测试运行远程操作。 运行测试的计算机必须有权访问 Azure Stack 中心终结点，否则测试将不起作用。 如果使用的是 VaaS 本地代理，请使用运行代理的计算机。 可以通过运行以下检查来检查计算机是否可以访问 Azure Stack 中心终结点：
 
-1. 检查是否可以访问基本 URI。 打开 CMD 提示符或 bash shell 并运行以下命令，并将替换`<EXTERNALFQDN>`为您的环境的外部完全限定的域名（FQDN）：
+1. 检查是否可以访问基本 URI。 打开 CMD 提示符或 bash shell 并运行以下命令，并将替换 `<EXTERNALFQDN>` 为外部完全限定的域名 (您的环境的 FQDN) ：
 
     ```bash
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. 打开浏览器并前往`https://adminportal.<EXTERNALFQDN>` ，以检查是否可以访问 ma 门户。
+2. 打开浏览器并前往，以 `https://adminportal.<EXTERNALFQDN>` 检查是否可以访问 Ma 门户。
 
 3. 使用创建测试轮次时提供的 Azure AD 服务管理员用户名和密码值进行登录。
 
@@ -126,13 +126,13 @@ ms.locfileid: "81661277"
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u $VaaSUserId -t $VaaSTenantId -x $CloudAdmindUserName -y $CloudAdminPassword
     ```
 
-      **Parameters**  
+      **参数**  
 
     | 参数 | 说明 |
     | --- | --- |
-    | `CloudAdminUserName` | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如： AzusreStack\CloudAdmin。 有关详细信息，请参阅[VaaS 的工作流通用参数](azure-stack-vaas-parameters.md)。 |
+    | `CloudAdminUserName` | 可以访问和运行特权终结点中的允许命令的云管理员用户。 例如： AzusreStack\CloudAdmin。 有关详细信息，请参阅 [VaaS 的工作流通用参数](azure-stack-vaas-parameters.md) 。 |
     | `CloudAdminPassword` | 云管理员帐户的密码。|
-    | `VaaSUserId` | 用于登录 Azure Stack 中心验证门户的用户 ID。 例如： UserName\@Contoso.com）。 |
+    | `VaaSUserId` | 用于登录 Azure Stack 中心验证门户的用户 ID。 例如： UserName \@ Contoso.com) 。 |
     | `VaaSTenantId` | 为注册为服务的 Azure 帐户 Azure AD 租户 ID。 |
 
     > [!Note]  

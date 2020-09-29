@@ -3,23 +3,23 @@ title: Azure Stack 验证最佳实践
 description: 了解验证即服务的最佳实践。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: cfb2e4d71f821c23dd076842a0b4f3963a5599cc
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 176f944b449ca2dabb6424965f78693d00e7cdce
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661259"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764370"
 ---
 # <a name="azure-stack-validation-best-practices"></a>Azure Stack 验证最佳实践
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-本文介绍了有关在验证即服务（VaaS）中管理资源的最佳实践。 有关 VaaS 资源的概述，请参阅[作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)。
+本文介绍了在验证即服务 (VaaS) 中管理资源的最佳做法。 有关 VaaS 资源的概述，请参阅 [作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)。
 
 ## <a name="solution-management"></a>解决方案管理
 
@@ -41,10 +41,10 @@ ms.locfileid: "81661259"
 
 对所有 VaaS 工作流运行使用一致的命名约定。 例如，在以下生成属性中构造工作流名称，如下所示：
 
-|内部版本号（主要） | 日期 | 解决方案大小 | 工作流名称
+| (主要) 的生成号 | Date | 解决方案大小 | 工作流名称
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)
+- 了解 [作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)

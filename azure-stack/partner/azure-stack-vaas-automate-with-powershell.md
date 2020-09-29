@@ -4,21 +4,21 @@ titleSuffix: Azure Stack Hub
 description: 了解如何通过 PowerShell 自动化 Azure Stack 验证。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a3b7919f920dc173a3378328bbfff427b9820d48
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4d6cb5cdfe6cd294e54ae9f2fa5fc78e6d71548a
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661430"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764726"
 ---
 # <a name="automate-azure-stack-hub-validation-with-powershell"></a>利用 PowerShell 自动 Azure Stack 集线器验证
 
-验证即服务（VaaS）可让你使用**RunVaaSAutomation**脚本自动启动测试。
+作为服务的验证 (VaaS) 提供使用 **RunVaaSAutomation.ps1** 脚本自动启动测试的能力。
 
 此脚本可用于：
 
@@ -30,13 +30,13 @@ ms.locfileid: "81661430"
 
 以下链接包含有关如何通过 VaaS 门户运行测试的信息。 使用脚本之前，应了解必需的参数及其值：
 
-* SolutionValidation 工作流：[验证新的 Azure Stack 中心解决方案](azure-stack-vaas-validate-solution-new.md)
-* PackageValidation 工作流：[验证 OEM 包](azure-stack-vaas-validate-oem-package.md)
-* TestPass 工作流：[计划测试](azure-stack-vaas-schedule-test-pass.md)
+* SolutionValidation 工作流： [验证新的 Azure Stack 中心解决方案](azure-stack-vaas-validate-solution-new.md)
+* PackageValidation 工作流： [验证 OEM 包](azure-stack-vaas-validate-oem-package.md)
+* TestPass 工作流： [计划测试](azure-stack-vaas-schedule-test-pass.md)
 
 ## <a name="download-the-automation-scripts"></a>下载自动化脚本
 
-1. 打开提升的 PowerShell 提示符。
+1. 打开提升的 PowerShell 命令提示符。
 
 2. 运行以下脚本来下载自动化脚本：
 
@@ -54,7 +54,7 @@ Set-Location "$RootFolder\RunVaaSAutomation"
 
 ## <a name="launch-the-solution-validation-workflow"></a>启动解决方案验证工作流
 
-若要了解如何通过 VaaS 门户运行解决方案验证工作流，请参阅[验证 OEM 包](azure-stack-vaas-validate-oem-package.md)。
+若要了解如何通过 VaaS 门户运行解决方案验证工作流，请参阅 [验证 OEM 包](azure-stack-vaas-validate-oem-package.md)。
 
 运行以下具有适当参数值的脚本：
 
@@ -109,7 +109,7 @@ $scriptParameters = @{
 
 ## <a name="launch-package-validation-workflow"></a>启动包验证工作流
 
-若要了解如何通过 VaaS 端口运行包验证工作流，请参阅[验证 OEM 包](azure-stack-vaas-validate-oem-package.md)。
+若要了解如何通过 VaaS 端口运行包验证工作流，请参阅 [验证 OEM 包](azure-stack-vaas-validate-oem-package.md)。
 
 运行以下具有适当参数值的脚本：
 
@@ -172,7 +172,7 @@ $scriptParameters = @{
 
 ## <a name="launch-the-test-pass-workflow"></a>启动测试轮次工作流
 
-若要了解如何通过 VaaS 端口运行测试通过工作流，请参阅[计划测试](azure-stack-vaas-schedule-test-pass.md)。
+若要了解如何通过 VaaS 端口运行测试通过工作流，请参阅 [计划测试](azure-stack-vaas-schedule-test-pass.md)。
 
 运行以下具有适当参数值的脚本：
 
@@ -252,7 +252,7 @@ $scriptParameters = @{
 
 ## <a name="parameter-table"></a>参数表
 
-有关详细信息，请参阅[Workflow common parameters](azure-stack-vaas-parameters.md)。
+有关详细信息，请参阅 [Workflow common parameters](azure-stack-vaas-parameters.md)。
 
 | 参数 | 说明 |
 | --- | --- |
@@ -267,13 +267,13 @@ $scriptParameters = @{
 | CloudAdminPassword | 云管理员的密码。  |
 | SolutionName | VaaS 解决方案的名称。 |
 | 项目名称 | VaaS 工作流的名称。 |
-| DiagnosticsStorageConnection | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅[生成诊断连接字符串](azure-stack-vaas-parameters.md)。 |
+| DiagnosticsStorageConnection | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅 [生成诊断连接字符串](azure-stack-vaas-parameters.md)。 |
 
 ## <a name="review-the-results"></a>查看结果
 
 测试日志和报表保存在当前工作文件夹下。 
 
-有关其他选项，请参阅[在 VaaS 门户中监视和管理测试](azure-stack-vaas-monitor-test.md)。
+有关其他选项，请参阅 [在 VaaS 门户中监视和管理测试](azure-stack-vaas-monitor-test.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 19680b9e8317e419c0b696d79213f29bcbee2263
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 08/06/2020
+ms.openlocfilehash: 2aa24a852e5388a36b1103c2a61f5aa70930d84d
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367600"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939524"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Azure Stack Hub 中的静态数据加密
 
@@ -35,14 +35,14 @@ Azure Stack Hub 使用静态加密来保护存储子系统级别的用户数据�
 
 ```powershell
 ##This cmdlet retrieves the recovery keys for all the volumes that are encrypted with BitLocker.
-Get-AzsRecoveryKeys
+Get-AzsRecoveryKeys -raw
 ```
 
-*Get-AzsRecoveryKeys* cmdlet 的可选参数：
+Get-AzsRecoveryKeys cmdlet 的参数：
 
 | 参数 | 说明 | 类型 | 必选 |
 |---------|---------|---------|---------|
-|*raw* | 返回每个加密卷的恢复密钥、计算机名和密码 ID 之间映射的原始数据。  | 开关 | 否（专为支持方案设计）|
+|*raw* | 返回每个加密卷的恢复密钥、计算机名和密码 ID 之间映射的数据。  | 开关 | 否，但建议使用 |
 
 ## <a name="troubleshoot-issues"></a>排查问题
 
@@ -56,4 +56,4 @@ Get-AzsRecoveryKeys
 ## <a name="next-steps"></a>后续步骤
 
 - [详细了解 Azure Stack Hub 安全性](azure-stack-security-foundations.md)。
-- 有关 BitLocker 如何保护 CSV 的详细信息，请参阅[使用 BitLocker 保护群集共享卷和存储区域网络](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker)。
+- 有关 BitLocker 如何保护 CSV 的详细信息，请参阅[使用 BitLocker 保护群集共享卷和存储区域网络](/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker)。

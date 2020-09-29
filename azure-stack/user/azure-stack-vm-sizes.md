@@ -3,16 +3,16 @@ title: Azure Stack Hub 中支持的 VM 大小
 description: Azure Stack Hub 中支持的 VM 大小参考。
 author: mattbriggs
 ms.topic: reference
-ms.date: 03/23/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 03/23/2020
-ms.openlocfilehash: cce150e9e7698ea98035dc4f9104595100686cb7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3eb2a58c3ab915be9cf8cf1139880409830429f7
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80152184"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250752"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack Hub 中支持的 VM 大小
 
@@ -20,7 +20,7 @@ ms.locfileid: "80152184"
 
 Azure Stack Hub 上的磁盘 IOPS（每秒输入/输出操作次数）是 VM 大小（而不是磁盘类型）的函数。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。 施加的 IOPS 限制是一种上限（最大可能值），目的是防止邻域干扰。 它不是你会在特定 VM 大小上获得的 IOPS 的保证。
 
-VM vCPU 取决于每个节点的内核数。 例如，核心或逻辑处理器小于64的系统将不支持 VM 大小 Standard_F64s_v2。
+VM vCPU 取决于每个节点的核心数。 例如，核心或逻辑处理器的数目小于 64 的系统将不支持 VM 大小 Standard_F64s_v2。
 
 ## <a name="vm-general-purpose"></a>VM 常规用途
 
@@ -29,7 +29,7 @@ VM vCPU 取决于每个节点的内核数。 例如，核心或逻辑处理器�
 ### <a name="basic-a"></a>基本 A
 
 > [!NOTE]
-> 通过门户[创建虚拟机规模集](../operator/azure-stack-compute-add-scalesets.md) (VMSS) 时，不再能够使用“基本 A”VM 大小。** 若要按照此大小来创建 VMSS，请使用 PowerShell 或模板。
+> 通过门户[创建虚拟机规模集](../operator/azure-stack-compute-add-scalesets.md) (VMSS) 时，不再能够使用“基本 A”VM 大小。 若要按照此大小来创建 VMSS，请使用 PowerShell 或模板。
 
 |大小 - 大小\名称 |vCPU     |内存 | 最大临时磁盘大小 | 最大 OS 磁盘吞吐量：(IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘吞吐量 (IOPS) | 最大 NIC 数 |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
@@ -42,7 +42,7 @@ VM vCPU 取决于每个节点的内核数。 例如，核心或逻辑处理器�
 ### <a name="standard-a"></a>标准 A 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |    
 |----------------|--|------|----|----|----|-------|---------|
-|**Standard_A0** |1 |0.768 |20  |500 |500 |1x500  |2 |
+|**Standard_A0** |1 |0.768 |20 个  |500 |500 |1x500  |2 |
 |**Standard_A1** |1 |1.75  |70  |500 |500 |2x500  |2 |
 |**Standard_A2** |2 |3.5   |135 |500 |500 |4x500  |2 |
 |**Standard_A3** |4 |7     |285 |500 |500 |8x500  |2 |
@@ -52,15 +52,15 @@ VM vCPU 取决于每个节点的内核数。 例如，核心或逻辑处理器�
 |**Standard_A7** |8 |56    |605 |500 |500 |16x500 |4 |
 
 ### <a name="av2-series"></a>Av2 系列
-*需要 Azure Stack 集线器版本1804或更高版本*
+*需要 Azure Stack Hub 1804 或更高版本*
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
 |-----------------|----|----|-----|-----|------|--------------|---------|
-|**Standard_A1_v2**  |1   |2   |10   |500 |1000  |2/2x500   |2 |
-|**Standard_A2_v2**  |2   |4   |20   |500 |2000  |4/4x500   |2 |
+|**Standard_A1_v2**  |1   |2   |10 个   |500 |1000  |2/2x500   |2 |
+|**Standard_A2_v2**  |2   |4   |20 个   |500 |2000  |4/4x500   |2 |
 |**Standard_A4_v2**  |4   |8   |40   |500 |4000  |8/8x500   |4 |
 |**Standard_A8_v2**  |8   |16  |80   |500 |8000  |16/16x500 |8 |
-|**Standard_A2m_v2** |2   |16  |20   |500 |2000  |4/4x500   |2 |
+|**Standard_A2m_v2** |2   |16  |20 个   |500 |2000  |4/4x500   |2 |
 |**Standard_A4m_v2** |4   |32  |40   |500 |4000  |8/8x500   |4 |
 |**Standard_A8m_v2** |8   |64  |80   |500 |8000  |16/16x500 |8 |
 
@@ -90,7 +90,7 @@ VM vCPU 取决于每个节点的内核数。 例如，核心或逻辑处理器�
 |**Standard_D4_v2** |8   |28  |400  |500 |24000 |32/32x500 |8 |
 |**Standard_D5_v2** |16  |56  |800  |500 |48000 |64/64x500 |8 |
 
-### <a name="dsv2-series"></a>DSv2-series
+### <a name="dsv2-series"></a>DSv2 系列
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
 |--------------------|----|----|----|-----|------|-------------|---------|
 |**Standard_DS1_v2** |1   |3.5 |7   |1000 |4000  |4 / 4x2300   |2 |
@@ -102,7 +102,7 @@ VM vCPU 取决于每个节点的内核数。 例如，核心或逻辑处理器�
 
 ## <a name="compute-optimized"></a>计算优化
 ### <a name="f-series"></a>F 系列
-*需要 Azure Stack 集线器版本1804或更高版本*
+*需要 Azure Stack Hub 1804 或更高版本*
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
 |-----------------|----|----|-----|----|------|------------|---------|
@@ -114,7 +114,7 @@ VM vCPU 取决于每个节点的内核数。 例如，核心或逻辑处理器�
 
 
 ### <a name="fs-series"></a>Fs 系列
-*需要 Azure Stack 集线器版本1804或更高版本*  
+*需要 Azure Stack Hub 1804 或更高版本*  
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
 |------------------|----|----|----|-----|------|-------------|---------|
@@ -126,7 +126,7 @@ VM vCPU 取决于每个节点的内核数。 例如，核心或逻辑处理器�
 
 
 ### <a name="fsv2-series"></a>Fsv2 系列
-*需要 Azure Stack 集线器版本1804或更高版本* 
+*需要 Azure Stack Hub 1804 或更高版本* 
 
 |大小     |vCPU     |内存 (GiB) | 临时存储 (GiB)  | 最大 OS 磁盘吞吐量 (IOPS) | 最大临时存储吞吐量 (IOPS) | 最大数据磁盘数/吞吐量 (IOPS) | 最大 NIC 数 |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
@@ -178,4 +178,4 @@ VM vCPU 取决于每个节点的内核数。 例如，核心或逻辑处理器�
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack 中心 VM 功能](azure-stack-vm-considerations.md)
+[Azure Stack Hub VM 功能](azure-stack-vm-considerations.md)

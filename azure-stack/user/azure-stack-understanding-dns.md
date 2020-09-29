@@ -7,16 +7,16 @@ ms.date: 09/16/2019
 ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3209c3a51b491bcdf2779e95c58f41cb124cd3f3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 466e44156181e53a92181ecb462b8b4ff0074317
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704856"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566526"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用 iDNS 
 
-iDNS 是一种 Azure Stack Hub 网络功能，可用于解析外部 DNS 名称（例如，https:\//www.bing.com）。它还可用于注册内部虚拟网络名称。 如此一来，就可按名称（而非 IP 地址）解析同一虚拟网络上的虚拟机 (VM)。 使用此方法，不再需要提供自定义 DNS 服务器条目。 有关 DNS 的详细信息，请参阅 [Azure DNS 概述](https://docs.microsoft.com/azure/dns/dns-overview)。
+iDNS 是一种 Azure Stack Hub 网络功能，可用于解析外部 DNS 名称（例如，https:\//www.bing.com）。它还可用于注册内部虚拟网络名称。 如此一来，就可按名称（而非 IP 地址）解析同一虚拟网络上的虚拟机 (VM)。 使用此方法，不再需要提供自定义 DNS 服务器条目。 有关 DNS 的详细信息，请参阅 [Azure DNS 概述](/azure/dns/dns-overview)。
 
 ## <a name="what-does-idns-do"></a>iDNS 有什么作用？
 
@@ -36,7 +36,7 @@ iDNS 不允许针对可从虚拟网络外部解析的名称创建 DNS 记录。
 
 ![DNS 名称标签示例](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-如上图所示，Azure 将在 DNS 中为在区域**westus.cloudapp.azure.com**下指定的 dns 名称标签创建 "A" 记录。 前缀和后缀将组合在一起，以构成一个[完全限定的域名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)（FQDN），可以从公共 internet 上的任何位置解析该域名（FQDN）。
+如上图所示，Azure 将在 DNS 中为在区域 **westus.cloudapp.azure.com**下指定的 dns 名称标签创建 "A" 记录。 前缀和后缀将组合在一起，以构成可从公共 internet 上的任何位置解析 (FQDN) 的 [完全限定域名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 。
 
 Azure Stack Hub 仅支持将 iDNS 用于内部名称注册，因此它无法执行以下操作：
 
@@ -171,7 +171,7 @@ Address:  172.31.12.76
 概括而言，在以上内容中可以看到：
  
 *   每个 VNet 具有自身的区域，其中包含所有专用 IP 地址的 A 记录，这些记录由 VM 名称和 VNet 的 DNS 后缀（其 GUID）组成。
-    *   \<VM 名称>.\<VNet GUID\>.internal.\<区域>.\<Stack 内部 FQDN>
+    *   \<vmname>.\<vnetGUID\>.内部。 \<region>\<stackinternalFQDN>
     *   此过程是自动完成的
 *   如果使用公共 IP 地址，则也可以为其创建 DNS 标签。 这些地址的解析方式类似于其他任何外部地址。
  
