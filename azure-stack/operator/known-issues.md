@@ -3,16 +3,16 @@ title: Azure Stack Hub 已知问题
 description: 了解 Azure Stack Hub 发行版中的已知问题。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 09/28/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: d86149b041abd3737ed03696e2c041bbd24f0392
-ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
+ms.openlocfilehash: b52944255569197e9390db879f690f9e5d5a21d5
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90836482"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495773"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -20,11 +20,11 @@ ms.locfileid: "90836482"
 
 若要访问不同版本的已知问题，请使用左侧目录上方的版本选择器下拉列表。
 
-::: moniker range=">=azs-1908"
+::: moniker range=">=azs-1910"
 > [!IMPORTANT]  
 > 在应用更新之前，请先查看本部分。
 ::: moniker-end
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 > [!IMPORTANT]  
 > 如果 Azure Stack Hub 实例落后于两个以上的更新，则认为它不符合。 必须[至少更新到最低支持版本才能获得支持](azure-stack-servicing-policy.md#keep-your-system-under-support)。 
 ::: moniker-end
@@ -595,196 +595,7 @@ ms.locfileid: "90836482"
 <!-- ### Marketplace -->
 ::: moniker-end
 
-::: moniker range="azs-1908"
-## <a name="1908-update-process"></a>1908 更新过程
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：尝试安装 Azure Stack Hub 更新时，更新状态可能会失败并将状态更改为 **PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。
-- 补救措施：从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。  然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。 如果此问题持续存在，建议按照[“安装更新”部分](azure-stack-apply-updates.md#install-updates-and-monitor-progress)的说明手动上传更新包。
-- 发生次数：通用
-
-## <a name="portal"></a>门户
-
-### <a name="administrative-subscriptions"></a>管理订阅
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：不应使用版本 1804 中引入的两个管理订阅。 这两种订阅类型为“计量订阅”和“消耗订阅”。 
-- 补救措施：如果有资源在这两个订阅上运行，请在用户订阅中重新创建这些资源。
-- 发生次数：通用
-
-### <a name="subscriptions-properties-blade"></a>“订阅属性”边栏选项卡
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在管理员门户中，订阅的“属性”边栏选项卡未正确加载
-- 补救措施：可以在“订阅概述”边栏选项卡的“概要”窗格中查看这些订阅属性 。
-- 发生次数：通用
-
-### <a name="duplicate-subscription-button-in-lock-blade"></a>“锁定”边栏选项卡中的重复“订阅”按钮
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在管理员门户中，用户订阅的“锁定”边栏选项卡有两个按钮，其带有“订阅”标签。
-- 发生次数：通用
-
-### <a name="subscription-permissions"></a>订阅权限
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：无法使用 Azure Stack Hub 门户查看订阅的权限。
-- 补救措施：使用 [PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
-- 发生次数：通用
-
-### <a name="storage-account-settings"></a>存储帐户设置
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中，存储帐户的“配置”边栏选项卡显示用于更改**安全传输类型**的选项。 Azure Stack Hub 目前不支持此功能。
-- 发生次数：通用
-
-### <a name="upload-blob"></a>上传 blob
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中尝试使用“OAuth(preview)”选项上传 Blob 时，任务将会失败并出现错误消息。
-- 补救措施：使用 SAS 选项上传 Blob。
-- 发生次数：通用
-
-### <a name="alert-for-network-interface-disconnected"></a>网络接口已断开连接的警报
-
-- 适用于：此问题适用于 1908 版本。
-- 原因：当线缆与网络适配器断开连接时，管理员门户中不显示警报。 此问题的原因是 Windows Server 2019 中默认会禁用此故障。
-- 发生次数：通用
-
-## <a name="networking"></a>网络
-
-### <a name="load-balancer"></a>负载均衡器
-
-- 适用于：此问题适用于所有支持的版本。 
-- 原因：将可用性集 VM 添加到负载均衡器的后端池时，门户上显示错误消息，指出“未能保存负载均衡器后端池”。 这是门户的表面问题；此功能仍在起作用，VM 在内部已成功添加到后端池。 
-- 发生次数：通用
-
-### <a name="network-security-groups"></a>网络安全组
-
-- 适用于：此问题适用于所有支持的版本。 
-- 原因：无法在 NSG 中创建显式 **DenyAllOutbound** 规则，因为这会使 VM 部署所需的基础结构无法完成所有内部通信。
-- 发生次数：通用
-
-### <a name="service-endpoints"></a>服务终结点
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中，“虚拟网络”边栏选项卡显示使用“服务终结点”的选项。  Azure Stack Hub 目前不支持此功能。
-- 发生次数：通用
-
-### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>如果 NIC 未附加到运行中的 VM，则无法删除 NSG
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：如果取消关联 NSG 和未附加到运行中 VM 的 NIC，则该对象的更新 (PUT) 操作会在网络控制器层失败。 NSG 将在网络资源提供程序层（而不是网络控制器上）更新，因此 NSG 转变为失败状态。
-- 补救措施：将与 NSG 相关联的 NIC 附加到运行中的 VM，然后取消与 NSG 的关联，或者删除与 NSG 关联的所有 NIC。
-- 发生次数：通用
-
-### <a name="network-interface"></a>Linux
-
-#### <a name="addingremoving-network-interface"></a>添加/删除网络接口
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：新网络接口无法添加到处于“正在运行”状态的 VM。
-- 补救措施：添加/删除网络接口之前，先停止虚拟机。
-- 发生次数：通用
-
-#### <a name="primary-network-interface"></a>主要网络接口
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：新网络接口无法添加到处于“正在运行”状态的 VM。
-- 补救措施：添加/删除网络接口之前，先停止虚拟机。
-- 发生次数：通用
-
-### <a name="virtual-network-gateway"></a>虚拟网络网关
-
-#### <a name="next-hop-type"></a>下一跃点类型
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中创建路由表时，“虚拟网络网关”显示为下一跃点类型选项；但是，Azure Stack Hub 不支持此类型。
-- 发生次数：通用
-
-#### <a name="alerts"></a>警报
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中，“虚拟网络网关”边栏选项卡显示使用“警报”的选项。  Azure Stack Hub 目前不支持此功能。
-- 发生次数：通用
-
-#### <a name="active-active"></a>主动-主动
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户（创建期间）和“虚拟网络网关”的资源菜单中，看到用于启用“主动-主动”配置的选项。  Azure Stack Hub 目前不支持此功能。
-- 发生次数：通用
-
-#### <a name="vpn-troubleshooter"></a>VPN 故障排除程序
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中，“连接”边栏选项卡显示一项名为“VPN 故障排除程序”的功能。  Azure Stack Hub 目前不支持此功能。
-- 发生次数：通用
-
-#### <a name="documentation"></a>文档
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：虚拟网络网关概述页中的文档链接链接到特定于 Azure 的文档，而不是 Azure Stack Hub 文档。 使用以下链接获取 Azure Stack Hub 文档：
-
-  - [网关 SKU](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
-  - [高可用性连接](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [在 Azure Stack Hub 上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [ExpressRoute 线路](azure-stack-connect-expressroute.md)
-  - [指定自定义的 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
-
-## <a name="compute"></a>计算
-
-### <a name="vm-boot-diagnostics"></a>VM 启动诊断
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：创建新的 Windows 虚拟机 (VM) 时，可能会显示以下错误：**无法启动虚拟机 'vm-name'。错误：无法更新 VM 'vm-name' 的串行输出设置**。 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
-- 补救措施：使用以前所用的相同名称重新创建存储帐户。
-- 发生次数：通用
-
-### <a name="virtual-machine-scale-set"></a>虚拟机规模集
-
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>在 4 节点的 Azure Stack Hub 环境中进行修补和更新时出现故障
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：在包含 3 个容错域的可用性集中创建 VM 以及创建虚拟机规模集实例失败，在一个 4 节点 Azure Stack Hub 环境中进行更新时出现 **FabricVmPlacementErrorUnsupportedFaultDomainSize** 错误。
-- 补救措施：可以在包含 2 个容错域的可用性集中成功创建单一 VM。 但是，在 4 节点 Azure Stack Hub 上进行更新时，仍然不能创建规模集实例。
-
-### <a name="ubuntu-ssh-access"></a>Ubuntu SSH 访问
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。
-- 补救措施：在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
-- 发生次数：通用
-
-### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>虚拟机规模集重置密码无法进行
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：规模集 UI 中出现新的密码重置边栏选项卡，但 Azure Stack Hub 尚不支持在规模集上重置密码。
-- 补救措施：无。
-- 发生次数：通用
-
-### <a name="rainy-cloud-on-scale-set-diagnostics"></a>规模集诊断上出现哭泣的云
-
-- 适用于：此问题适用于所有支持的版本。
-- 原因：虚拟机规模集概述页显示空白图表。 单击该空白图表会打开“哭泣的云”边栏选项卡。 这是规模集诊断信息的图表（例如 CPU 百分比），但这不是当前 Azure Stack Hub 内部版本支持的功能。
-- 补救措施：无。
-- 发生次数：通用
-
-### <a name="virtual-machine-diagnostic-settings-blade"></a>虚拟机诊断设置边栏选项卡
-
-- 适用于：此问题适用于所有支持的版本。    
-- 原因：虚拟机诊断设置边栏选项卡包含“接收器”选项卡，用于请求 **Application Insights 帐户** 。 这是新边栏选项卡中的结果，Azure Stack Hub 中尚不支持此功能。
-- 补救措施：无。
-- 发生次数：通用
-
-<!-- ## Storage -->
-<!-- ## SQL and MySQL-->
-<!-- ## App Service -->
-<!-- ## Usage -->
-<!-- ### Identity -->
-<!-- ### Marketplace -->
-::: moniker-end
-
-::: moniker range=">=azs-1908"
+::: moniker range=">=azs-1910"
 ## <a name="archive"></a>Archive
 
 若要访问旧版本的已存档已知问题，请使用左侧目录上方的版本选择器下拉列表，然后选择要查看的版本。
@@ -798,6 +609,9 @@ ms.locfileid: "90836482"
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1908"
+## <a name="1908-archived-known-issues"></a>1908存档的已知问题
+::: moniker-end
 ::: moniker range="azs-1907"
 ## <a name="1907-archived-known-issues"></a>1907 已存档的已知问题
 ::: moniker-end
@@ -844,6 +658,6 @@ ms.locfileid: "90836482"
 ## <a name="1802-archived-known-issues"></a>1802 已存档的已知问题
 ::: moniker-end
 
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 可以访问 [TechNet 库中旧版本 Azure Stack Hub 的已知问题](https://aka.ms/azsarchivedrelnotes)。 提供这些已存档文档仅供参考，并不意味着支持这些版本。 有关 Azure Stack Hub 支持的信息，请参阅 [Azure Stack Hub 服务策略](azure-stack-servicing-policy.md)。 如需进一步的帮助，请联系 Microsoft 客户支持服务。
 ::: moniker-end

@@ -1,18 +1,18 @@
 ---
 title: 在数据中心发布 Azure Stack Hub 服务
 description: 了解如何在数据中心发布 Azure Stack Hub 服务。
-author: daniellefoto
+author: myoung
 ms.topic: article
 ms.date: 09/24/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 860c254c5f013f72e18fd2e9727d8bac66c1742f
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: ed9f2a8eeeeb2cfdfcc4e96c1672d7da8fff64b2
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230591"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495739"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>在数据中心发布 Azure Stack Hub 服务
 
@@ -93,7 +93,7 @@ SSL 流量拦截[不受支持](azure-stack-firewall.md#ssl-interception)，并�
 |LDAP GC|为 Graph 集成提供的 Active Directory 林|TCP|3268|公共 VIP - /27|
 |LDAP GC SSL|为 Graph 集成提供的 Active Directory 林|TCP|3269|公共 VIP - /27|
 |AD FS|为 AD FS 集成提供的 AD FS 元数据终结点|TCP|443|公共 VIP - /27|
-| 诊断日志收集 |https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | 公共 VIP - /27 |
+| 诊断日志收集 |https：//*. .net<br>https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | 公共 VIP - /27 |
 |     |     |     |     |     |
 
 使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 通过负载均衡的 Url，Microsoft 可以更新和更改后端终结点，而不会影响客户。 Microsoft 不会共享负载平衡的 Url 的 IP 地址列表。 使用支持按 URL 而不是按 IP 筛选的设备。

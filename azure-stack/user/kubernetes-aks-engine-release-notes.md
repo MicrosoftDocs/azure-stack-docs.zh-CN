@@ -3,16 +3,16 @@ title: Azure Stack 集线器上的 Azure Kubernetes Service (AKS) 引擎的发�
 description: 了解更新 Azure Stack Hub 上的 AKS 引擎需要采取的步骤。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 5207fa80a97581847d309a460a31039695183e1c
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.lastreviewed: 09/28/2020
+ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717931"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495756"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上的 AKS 引擎发行说明
 ::: moniker range=">=azs-2002"
@@ -103,6 +103,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 
 ## <a name="whats-new"></a>新增功能
 
+- 将 Azure Stack 的 Linux VHD 更新到 2020.09.14 #[3828](https://github.com/Azure/aks-engine/pull/3828)
 - 添加对 Azure Stack 上的 K8s v 1.17.11 的支持 [#3702](https://github.com/Azure/aks-engine/pull/3702)
 - 添加对 Azure Stack 上的 K8s v 1.16.14 的支持 [#3704](https://github.com/Azure/aks-engine/pull/3704)
 - Linux VHD 更新到 2020.09.14 [#3750](https://github.com/Azure/aks-engine/pull/3750)
