@@ -6,24 +6,24 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: ea2ccd33bc64c01b4ab5ba56024a54aa82453e63
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 7d0a11f8a559f1f40ae797392f27caa815129c69
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112027"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920773"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>使用 Azure Stack Hub 上的 Azure Monitor
 
 本文概述了 Azure Stack Hub 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 的运行以及有关如何使用 Azure Stack Hub 中的 Azure Monitor 的其他信息。
 
-有关 Azure Monitor 的概述，请参阅全球 Azure 文章[Azure Stack 集线器上的 Azure Monitor 入门](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)。
+有关 Azure Monitor 的概述，请参阅全球 Azure 文章 [Azure Stack 集线器上的 Azure Monitor 入门](/azure/monitoring-and-diagnostics/monitoring-get-started)。
 
 ![Azure Stack Hub Monitor 边栏选项卡](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
 Azure 监视器是一款平台服务，提供一个中心位置来让用户监视 Azure 资源。 通过 Azure Monitor 直观显示、查询、路由和存档来自 Azure 内部资源的指标和日志并对其采取其他操作。 可以通过使用 Azure Stack Hub 管理员门户、Monitor PowerShell Cmdlet、跨平台 CLI 或 Azure Monitor REST API 来处理此数据。 有关 Azure Stack Hub 支持的具体连接，请参阅[如何使用 Azure Stack Hub 中的监视数据](azure-stack-metrics-monitor.md)。
 
-> [!Note]
+> [!NOTE]
 > 指标和诊断日志不可用于 Azure Stack 开发工具包。
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上的 Azure Monitor 的先决条件
@@ -31,10 +31,10 @@ Azure 监视器是一款平台服务，提供一个中心位置来让用户监�
 在你的订阅的套餐资源提供程序设置上注册 **Microsoft.insights** 资源提供程序。 你可以验证该资源提供程序在与你的订阅关联的套餐中是否可用：
 
 1. 打开 Azure Stack Hub 用户门户。
-2. 选择 **订阅**。
+2. 选择“订阅”。****
 3. 选择要注册的订阅。
-4. 在“设置”下，选择“资源提供程序”。   
-5. 在列表中找到 **Microsoft.Insights**，并验证状态是否为“已注册”  。
+4. 在“设置”下，选择“资源提供程序”。**** **** 
+5. 在列表中找到 **Microsoft.Insights**，并验证状态是否为“已注册”****。
 
 ## <a name="overview-of-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上的 Azure Monitor 概述
 
@@ -62,7 +62,7 @@ Azure Stack Hub 中的 **Microsoft.Compute** 资源提供程序包括：
  - 故障转储
  - 客户错误日志
 
-> [!Note]  
+> [!NOTE]  
 > Azure Stack Hub 上的 Linux 诊断扩展不受支持。
 
 ### <a name="host-and-guest-vm-metrics"></a>宿主和来宾 VM 指标
@@ -71,7 +71,7 @@ Azure Stack Hub 中的 **Microsoft.Compute** 资源提供程序包括：
 
 ### <a name="activity-log"></a>活动日志
 
-可以在活动日志中搜索有关 Azure Stack Hub 基础结构看到的计算资源的信息。 日志包含多种信息，例如创建或销毁资源的时间。 Azure Stack Hub 上的活动日志与 Azure 是一致的。 有关详细信息，请参阅 [Azure 上的活动日志概述](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)的说明。 
+可以在活动日志中搜索有关 Azure Stack Hub 基础结构看到的计算资源的信息。 日志包含多种信息，例如创建或销毁资源的时间。 Azure Stack Hub 上的活动日志与 Azure 是一致的。 有关详细信息，请参阅 [Azure 上的活动日志概述](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)的说明。 
 
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure Monitor 源：所有其他项
@@ -114,13 +114,13 @@ Azure Stack Hub 中的 **Microsoft.Compute** 资源提供程序包括：
 可以使用以下方法之一处理数据跟踪、路由和检索。 并非所有方法都适用于所有操作或数据类型。 
 
  - [Azure Stack Hub 用户门户](azure-stack-use-portal.md)
- - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
- - [跨平台的命令行接口 (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
- - [REST API](https://docs.microsoft.com/rest/api/monitor)
+ - [PowerShell](/azure/monitoring-and-diagnostics/insights-powershell-samples)
+ - [跨平台的命令行接口 (CLI)](/azure/monitoring-and-diagnostics/insights-cli-samples)
+ - [REST API](/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  
-> 如果在查看 VM 的性能图表时遇到“资源未找到”  错误，请确保已在与 VM 关联的订阅上注册了 Microsoft.insights。
+> 如果在查看 VM 的性能图表时遇到“资源未找到”**** 错误，请确保已在与 VM 关联的订阅上注册了 Microsoft.insights。
 
 ## <a name="next-steps"></a>后续步骤
 

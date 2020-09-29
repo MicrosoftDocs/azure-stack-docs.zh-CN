@@ -3,16 +3,16 @@ title: 从 GitHub 下载 Azure Stack Hub 工具
 description: 了解如何下载操作 Azure Stack Hub 时所需的工具。
 author: mattbriggs
 ms.topic: article
-ms.date: 6/13/2020
+ms.date: 8/28/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 6/13/2020
-ms.openlocfilehash: 2ab627803b1c811f131694ab58a8c53da6104774
-ms.sourcegitcommit: 9c4c3487ca79b4e077b415611051cd4ad471277c
+ms.lastreviewed: 8/28/2020
+ms.openlocfilehash: 8aa2c3cad35af9d6c887217ea977a92eae7428cf
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84766361"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448446"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>从 GitHub 下载 Azure Stack Hub 工具
 
@@ -20,7 +20,7 @@ ms.locfileid: "84766361"
 
 ## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>获取适用于 Azure Stack Hub AzureRM 模块的工具
 
-若要获取这些工具，请从 `master` 分支克隆 GitHub 存储库，或运行以下脚本来下载 AzureStack-Tools 文件夹：
+若要获取这些工具，请 `master` 在提升权限的 PowerShell 提示符下运行以下脚本，从分支克隆 GitHub 存储库或下载 **test-azurestack** 文件夹：
 
 ```powershell
 # Change directory to the root directory.
@@ -55,10 +55,10 @@ cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/az.zip `
-  -OutFile master.zip
+  -OutFile az.zip
 
 # Expand the downloaded files.
-expand-archive master.zip `
+expand-archive az.zip `
   -DestinationPath . `
   -Force
 

@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中添加缩放单元节点
 description: 了解如何将缩放单元节点添加到 Azure Stack Hub 中的缩放单元。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 09/09/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.lastreviewed: 08/03/2020
+ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772596"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621293"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加更多的缩放单元节点
 
@@ -27,14 +27,14 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
 
 添加新节点的操作可能需要数小时或数天才能完成。 添加其他缩放单元节点时，对系统上运行的工作负载没有影响。
 
-> [!Note]  
+> [!NOTE]  
 > 在添加缩放单元节点的操作已在进行时，请勿尝试任何下述操作：
 >
 >  - 更新 Azure Stack Hub
 >  - 轮换证书
 >  - 停止 Azure Stack Hub
 >  - 修复缩放单元节点
-
+>  - 添加另一个节点 (前面的添加节点操作失败也被视为 "正在进行") 
 
 ## <a name="add-scale-unit-nodes"></a>添加缩放单元节点
 
@@ -51,7 +51,7 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
 
 可以使用管理员门户或 PowerShell 来添加新节点。 “添加节点”操作首先将新的缩放单元节点添加为可用计算容量，然后自动扩展存储容量。 容量之所以可以自动扩展，是因为 Azure Stack Hub 是一个超聚合的系统，其中的计算和存储是一起缩放的。  
 
-### <a name="use-the-administrator-portal"></a>使用管理员门户
+### <a name="administrator-portal"></a>[管理员门户](#tab/portal)
 
 1. 以 Azure Stack Hub 操作员身份登录到 Azure Stack Hub 管理员门户。
 2. 导航到“+ 创建资源”   > “容量”   > “缩放单元节点”  。
@@ -60,7 +60,7 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
    ![添加节点详细信息](media/azure-stack-add-scale-node/select-node2.png)
  
 
-### <a name="use-powershell"></a>使用 PowerShell
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
 使用 **New-AzsScaleUnitNodeObject** cmdlet 添加一个节点。  
 
@@ -77,11 +77,28 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+使用 **Add-AzsScaleUnitNode** cmdlet 添加一个节点。  
+
+在使用下述某个示例 PowerShell 脚本之前，请将 name_of_new_node、name_of_scale_unit_cluster、BMCIP_address_of_new_node 值替换为你的 Azure Stack Hub 环境的值。
+
+  > [!Note]  
+  > 为节点命名时，必须确保名称的长度不到 15 个字符。 另外，不能使用包含空格或下述任何字符的名称：`\`、`/`、`:`、`*`、`?`、`"`、`<`、`>`、`|`、`\`、`~`、`!`、`@`、`#`、`$`、`%`、`^`、`&`、`(`、`)`、`{`、`}`、`_`。
+
+**添加节点：**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
+---
+
 ## <a name="monitor-add-node-operations"></a>监视“添加节点”操作 
 使用管理员门户或 PowerShell 来获取“添加节点”操作的状态。 “添加节点”操作可能需要数小时或数天来完成。
 
 ### <a name="use-the-administrator-portal"></a>使用管理员门户 
-若要监视添加新节点的操作，请在管理员门户中查看缩放单元或缩放单元节点对象。 为此，请转到“区域管理”   >   “缩放单元”。 接下来，选择要查看的缩放单元或缩放单元节点。 
+若要监视添加新节点的操作，请在管理员门户中查看缩放单元或缩放单元节点对象。 为此，请转到“区域管理” > “缩放单元”。 接下来，选择要查看的缩放单元或缩放单元节点。 
 
 ### <a name="use-powershell"></a>使用 PowerShell
 缩放单元和缩放单元节点的状态可以使用 PowerShell 来检索，如下所示：
@@ -120,7 +137,7 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
 ## <a name="troubleshooting"></a>故障排除
 下面是添加节点时的常见问题。 
 
-**场景 1：** “添加缩放单元节点”操作失败，但一个或多个节点在列出时，其状态为“已停止”。  
+**场景 1：**“添加缩放单元节点”操作失败，但一个或多个节点在列出时，其状态为“已停止”。  
 - 修正：使用修复操作来修复一个或多个节点。 一次只能运行一个修复操作。
 
 **场景 2：** 添加了一个或多个缩放单元节点，但存储扩展失败。 在这种情况下，缩放单元节点对象报告的状态为“正在运行”，但“配置存储”任务未启动。  

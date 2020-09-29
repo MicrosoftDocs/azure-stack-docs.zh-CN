@@ -8,16 +8,16 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 134839230eef3bb76c8df82cb2bd79b5127dfed9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697257"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364824"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
-SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护操作，需要更新 VM 的安全性。 若要使用“最低特权”原则执行此操作，请使用 [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) 终结点 *DBAdapterMaintenance*。 资源提供程序安装包包含此操作的脚本。
+SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护操作，需要更新 VM 的安全性。 若要使用“最低特权”原则执行此操作，请使用 [PowerShell Just Enough Administration (JEA)](/powershell/scripting/learn/remoting/jea/overview) 终结点 *DBAdapterMaintenance*。 资源提供程序安装包包含此操作的脚本。
 
 ## <a name="patching-and-updating"></a>修补和更新
 
@@ -44,10 +44,11 @@ SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护
 - [部署期间提供的](azure-stack-pki-certs.md)外部 SSL 证书。
 - 部署期间提供的资源提供程序 VM 本地管理员帐户密码。
 - 资源提供程序诊断用户 (dbadapterdiag) 密码。
+-  (版本 >= 1.1.47.0) 部署期间生成的 Key Vault 证书。
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>用于轮换机密的 PowerShell 示例
 
-**同时更改所有机密。**
+**同时更改所有密码。**
 
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
@@ -57,7 +58,8 @@ SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd  `
-    -VMLocalCredential $localCreds
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **更改诊断用户密码。**
@@ -91,18 +93,30 @@ SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
+**更改 Key Vault 证书密码。**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
+```
+
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 参数
 
-|参数|说明|
-|-----|-----|
-|AzCredential|Azure Stack Hub 服务管理员帐户凭据。|
-|CloudAdminCredential|Azure Stack Hub 云管理域帐户凭据。|
-|PrivilegedEndpoint|用于访问 Get-AzureStackStampInformation 的特权终结点。|
-|DiagnosticsUserPassword|诊断用户帐户密码。|
-|VMLocalCredential|MySQLAdapter VM 上的本地管理员帐户。|
-|DefaultSSLCertificatePassword|默认 SSL 证书 (*pfx) 密码。|
-|DependencyFilesLocalPath|依赖项文件本地路径。|
-|     |     |
+|参数|说明|注释|
+|-----|-----|-----|
+|AzureEnvironment|用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment**或使用中国 Azure Active Directory、 **AzureChinaCloud**。|可选|
+|AzCredential|Azure Stack 中心服务管理员帐户凭据。|必需|
+|CloudAdminCredential|Azure Stack 中心云管理域帐户凭据。|必需|
+|PrivilegedEndpoint|用于访问 Get-AzureStackStampInformation 的特权终结点。|必需|
+|DiagnosticsUserPassword|诊断用户帐户密码。|可选|
+|VMLocalCredential|MySQLAdapter VM 上的本地管理员帐户。|可选|
+|DefaultSSLCertificatePassword|默认 SSL 证书 ( * .pfx) 密码。|可选|
+|DependencyFilesLocalPath|依赖项文件本地路径。|可选|
+|KeyVaultPfxPassword|用于为数据库适配器生成 Key Vault 证书的密码。|可选|
+|     |     |     |
 
 ### <a name="known-issues"></a>已知问题
 
@@ -180,7 +194,7 @@ $session | Remove-PSSession
 
 ### <a name="endpoint-requirements-and-process"></a>终结点要求和过程
 
-安装或更新资源提供程序时，将创建 **dbadapterdiag** 用户帐户。 此帐户用于收集诊断日志。
+安装或更新资源提供程序时，会创建 **dbadapterdiag** 用户帐户。 此帐户用于收集诊断日志。
 
 >[!NOTE]
 >dbadapterdiag 帐户密码与部署或更新提供程序期间在 VM 上创建的本地管理员所用的密码相同。
@@ -228,18 +242,18 @@ $session | Remove-PSSession
 
 1. 登录到 Azure Stack Hub 管理员门户。
 
-2. 从左侧窗格中选择“虚拟机”，搜索 SQL 资源提供程序适配器 VM，然后选择该 VM  。
+2. 从左侧窗格中选择“虚拟机”，搜索 SQL 资源提供程序适配器 VM，然后选择该 VM****。
 
-3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志    。
+3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志************。
 ![转到诊断设置](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
 4. 添加 **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** 用于收集 SQL 资源提供程序操作事件日志。
 ![添加事件日志](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”   。
+5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”********。
 ![添加 IIS 日志](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
-6. 最后，选择“保存”以保存所有诊断设置  。
+6. 最后，选择“保存”以保存所有诊断设置****。
 
 为 SQL 资源提供程序配置事件日志和 IIS 日志收集后，即可在名为 **sqladapterdiagaccount** 的系统存储帐户中找到日志。
 

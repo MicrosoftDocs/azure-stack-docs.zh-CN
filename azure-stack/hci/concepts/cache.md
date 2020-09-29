@@ -1,126 +1,107 @@
 ---
-title: 了解 Azure Stack HCI 中的缓存
+title: 了解 Azure Stack HCI 中的存储池缓存
 description: 存储空间直通和 Azure Stack HCI 中读取和写入缓存的工作原理。
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: f1fc40a6475b8e51a063491cc120e2c4236cbeea
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/04/2020
+ms.openlocfilehash: 9a15b953ffe2229d7f92bea998392b8570f481de
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79025663"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742522"
 ---
-# <a name="understanding-the-cache-in-azure-stack-hci"></a>了解 Azure Stack HCI 中的缓存
+# <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>了解 Azure Stack HCI 中的存储池缓存
 
->适用于：Windows Server 2019
+> 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-[存储空间直通](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)提供一个内置的服务器端缓存用于实现最佳存储性能。 此缓存是一个大型的持久性实时读取和写入缓存。  启用存储空间直通时，系统会自动配置该缓存。 在大多数情况下，无需进行任何手动管理。
-缓存的工作原理取决于现有的驱动器类型。
+Azure Stack HCI 提供内置的服务器端缓存功能，以最大程度地提高存储性能。 此缓存是一个大型的持久性实时读取和写入缓存。 部署 Azure Stack HCI 后，会自动配置缓存。 在大多数情况下，无需进行任何手动管理。 缓存的工作原理取决于现有的驱动器类型。
 
-以下视频详细说明了存储空间直通的缓存工作原理，以及其他设计注意事项。
+以下视频详细介绍了如何针对存储空间直通、Azure Stack HCI 后的底层存储虚拟化技术以及其他设计注意事项，了解缓存的工作原理。
 
 <strong>存储空间直通设计注意事项</strong><br>（20 分钟）<br>
 <iframe src="https://channel9.msdn.com/Blogs/windowsserver/Design-Considerations-for-Storage-Spaces-Direct/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="drive-types-and-deployment-options"></a>驱动器类型和部署选项
 
-存储空间直通目前适用于三种类型的存储设备：
+Azure Stack HCI 目前使用四种类型的驱动器：
 
-<table>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/cache/NVMe-100px.png">
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            NVMe（高速非易失性内存）
-        </td>
-    </tr>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/cache/SSD-100px.png">
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            SATA/SAS SSD（固态硬盘）
-        </td>
-    </tr>
-    <tr style="border: 0;">
-        <td style="padding: 10px; border: 0; width:70px">
-            <img src="media/cache/HDD-100px.png">
-        </td>
-        <td style="padding: 10px; border: 0;" valign="middle">
-            HDD（硬盘驱动器）
-        </td>
-    </tr>
-</table>
+| 驱动器类型 | 描述 |
+|----------------------|--------------------------|
+|![PMem](media/choose-drives/pmem-100px.png)|PMem 是指永久性内存，一种新的低延迟、高性能存储类型。|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**（非易失性快速内存）是指直接位于 PCIe 总线上的固态硬盘。 常见外形规格为 2.5 英寸 U.2、PCIe 附加卡 (AIC) 和 M.2。 NVMe 提供较高的 IOPS 和 IO 吞吐量，延迟也比目前支持的除 PMem 外的任何其他驱动器类型低。|
+|![SSD](media/choose-drives/SSD-100-px.png)|**SSD** 是指通过传统 SATA 或 SAS 连接的固态硬盘。|
+|![HDD](media/choose-drives/HDD-100-px.png)|**HDD** 是指旋转式的磁性硬盘，可提供巨量存储容量。|
 
-有六种组合方式，可以归为两个类别：“全闪存”和“混合”。
+这些类型可按各种方式进行组合，我们将其划分成两大类别：“全闪存”和“混合”。
 
-### <a name="all-flash-deployment-possibilities"></a>全闪存部署可能性
+### <a name="all-flash-deployment-possibilities"></a>全闪存部署的可行性
 
 “全部闪存”部署旨在最大化存储性能，不包括机械硬盘 (HDD)。
 
-![All-Flash-Deployment-Possibilities](media/cache/All-Flash-Deployment-Possibilities.png)
+![关系图显示了所有闪存部署，包括适用于容量的 N V M e，N v M e 用于缓存，适用于容量的 s D，S D 用于容量。](media/cache/All-Flash-Deployment-Possibilities.png)
 
-### <a name="hybrid-deployment-possibilities"></a>混合部署可能性
+### <a name="hybrid-deployment-possibilities"></a>混合部署的可行性
 
 混合部署旨在平衡性能和容量或者最大化容量，包括机械硬盘 (HDD)。
 
-![Hybrid-Deployment-Possibilities](media/cache/Hybrid-Deployment-Possibilities.png)
+![关系图显示了混合部署，包括 N V M e for 缓存，其中包含用于容量的 H D D，为容量添加了用于缓存，S D 用于缓存，为容量提供了 h D d，为容量提供了用于缓存的 N V M e。](media/cache/Hybrid-Deployment-Possibilities.png)
 
 ## <a name="cache-drives-are-selected-automatically"></a>自动选择缓存驱动器
 
-在具有多个驱动器类型的部署中，存储空间直通自动将所有“最快”类型的驱动器用于缓存。 剩余的驱动器用于提供容量。
+在具有多种类型的驱动器的部署中，Azure Stack HCI 自动使用 "最快" 类型的所有驱动器进行缓存。 剩余的驱动器用于提供容量。
 
-根据以下层次结构确定“最快的”类型。
+可根据以下层次结构来确定“最快”的类型。
 
-![Drive-Type-Hierarchy](media/cache/Drive-Type-Hierarchy.png)
+![关系图显示了顺序为 N V M e、S D、无标记磁盘（表示 H D D）的速度更快的磁盘类型。](media/cache/Drive-Type-Hierarchy.png)
 
-例如，如果同时有 NVMe 和 SSD，NVMe 将为 SSD 提供缓存。
+例如，如果你有 NVMe 和 SSD，则 NVMe 将为 SSD 提供缓存。
 
-如果同时有 SSD 和 HDD，SSD 将为 HDD 提供缓存。
+如果你有 SSD 和 HDD，则 SSD 将为 HDD 提供缓存。
 
    >[!NOTE]
-   > 缓存驱动器不构成可用的存储容量。 存储在缓存中的所有数据也会存储在其他位置，或在取消暂存后立即存储到其他位置。 这意味着部署的总原始存储容量仅为容量驱动器的总和。
+   > 缓存驱动器不会贡献可用的存储容量。 存储在缓存中的所有数据也会存储在其他位置，或者在解除暂存后存储在其他位置。 这意味着，部署的原始总存储容量只是容量驱动器的总和。
 
-当所有驱动器的类型相同时，不会自动配置缓存。 你可以选择手动配置耐用性较高的驱动器，使其为相同类型但耐用性较低的驱动器提供缓存，请参阅[手动配置](#manual-configuration)一节了解操作方法。
+如果所有驱动器属于同一类型，则不会自动配置缓存。 可以选择手动将持久性较高的驱动器配置为针对同一类型的持久性较低的驱动器提供缓存 – 请参阅[手动配置](#manual-configuration)部分了解操作方法。
 
    >[!TIP]
-   > 在全 NVMe 或全 SSD 部署中（特别是在规模非常小的部署中），不将任何驱动器“耗费”在缓存上可以极大地提高存储效率。
+   > 在全部使用 NVMe 或全部使用 SSD 的部署中，尤其是在极小规模的部署中，不让任何驱动器“支出”容量用于缓存可在一定程度上改善存储效率。
 
 ## <a name="cache-behavior-is-set-automatically"></a>自动设置缓存行为
 
-根据要提供缓存的驱动器类型自动确定缓存的行为。 为固态硬盘提供缓存时（例如，为 SSD 提供 NVMe 缓存），只缓存写入内容。 为硬盘驱动器提供缓存（例如，SSD 为 HDD 提供缓存）时，可以缓存读取和写入。
+根据要提供缓存的驱动器类型自动确定缓存的行为。 为固态硬盘提供缓存时（例如，为 SSD 提供 NVMe 缓存），只缓存写入内容。 为机械硬盘提供缓存时（例如 SSD 为 HDD 提供缓存），读取和写入内容都将缓存。
 
-![Cache-Read-Write-Behavior](media/cache/Cache-Read-Write-Behavior.png)
+![比较所有闪存的缓存的关系图，其中缓存了写入，其中缓存了读，但混合了读取和写入。](media/cache/Cache-Read-Write-Behavior.png)
 
-### <a name="write-only-caching-for-all-flash-deployments"></a>适用于全闪存部署的只写缓存
+### <a name="write-only-caching-for-all-flash-deployments"></a>全闪存部署的只写缓存
 
-为固态硬盘（NVMe 或 SSD）提供缓存时，只能缓存写入。 由于许多写入和重新写入可以在缓存中合并，然后仅根据需要取消暂存，因此可以降低容量驱动器的磨损，从而降低容量驱动器的累计流量并延长其生命周期。 因此，我们建议选择[耐用性较高、优化写入](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day)的驱动器用于缓存。 容量驱动器可合理地采用较低的写入耐用性。
+为固态硬盘（NVMe 或 SSD）提供缓存时，只缓存写入内容。 由于许多写入和重写可能在缓存中合并，并只在需要时才解除暂存，因此可以减小容量驱动器的磨损，减少发往容量驱动器的累积流量，并延长驱动器的寿命。 出于此原因，我们建议选择[持久性较高且已经过写入优化](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day)的驱动器用于缓存。 容量驱动器可能合理地具有较低的写入持久性。
 
-由于读取不会显著影响闪存的生命周期，并且固态驱动器通常提供较低的读取延迟，因此不缓存读取：直接从容量驱动器提供读取（除非数据最近写入，尚未取消暂存）。 这允许缓存完全专用于写入，从而最大限度地提高其有效性。
+由于读取操作不会显著影响闪存的寿命，并且固态硬盘一贯提供较低的读取延迟，因此不会缓存读取数据：读取数据直接从容量驱动器提供（除非数据是最近才写入的，以致尚未解除暂存）。 这样，缓存就可以专门用于写入，并将其有效性最大化。
 
-这就导致写入特性（例如，写入延迟）由缓存驱动器规定，而读取特性由容量驱动器规定。 两者一致、可预测并且统一。
+因此，写入特征（例如写入延迟）由缓存驱动器来支配，而读取特征则是由容量驱动器来支配。 两者都是一致、可预测且统一的。
 
 ### <a name="readwrite-caching-for-hybrid-deployments"></a>混合部署的读取/写入缓存
 
-为硬盘驱动器 (HDD) 提供缓存时可以缓存读取*和*写入，为两者提供了类似闪存的低延迟（速度通常高出 ~10 倍）。 读取缓存存储最近和常用的读取数据以进行快速访问，可最大限度地减少 HDD 的随机流量。 （由于寻找和旋转延迟，对 HDD 的随机访问导致产生了大量的延迟和丢失的时间。）对写入进行缓存以吸收突发流量，并且如前所述，合并写入和重新写入，并最大限度地减少容量驱动器的累计流量。
+为机械硬盘 (HDD) 提供缓存时，会同时缓存读取和写入内容，以便为读取和写入操作提供类似于闪存的延迟（通常可将延迟改善大约 10 倍）。 读取缓存存储最近和经常读取的数据以进行快速访问，并尽量减少发往 HDD 的随机流量。 （由于 HDD 的寻轨和旋转延迟，随机访问 HDD 时出现的滞后时间和时间损失会很明显。）写入内容将会缓存，以缓解数据突发，并与前面所述一样，写入和重写将会合并，以将发往容量驱动器的累积流量减到最小。
 
-存储空间直通实现了一种算法，即在取消暂存之前取消随机的写入以模拟磁盘的 IO 模式，即使在来自工作负荷（例如虚拟机）的实际 IO 是随机的情况下，这种模式也似乎是序列化的， 这可以实现 IOPS 和 HDD 吞吐量的最大化。
+Azure Stack HCI 实现了一种算法，该算法在取消对它们的执行操作之前进行反随机化写入，将 IO 模式模拟到磁盘上，即使是从工作负荷 (的实际 IO （例如虚拟机) 是随机的）。 这可以将 HDD 的 IOPS 和吞吐量最大化。
 
-### <a name="caching-in-deployments-with-drives-of-all-three-types"></a>在部署中使用所有三种类型的驱动器进行缓存
+### <a name="caching-in-deployments-with-nvme-ssd-and-hdd"></a>在 NVMe、SSD 和 HDD 的部署中进行缓存
 
-当存在所有三种类型的驱动器时，NVMe 驱动器为 SSD 和 HDD 提供缓存。 缓存行为如上所述：只可为 SSD 缓存写入，可为 HDD 缓存读取和写入。 为 HDD 提供缓存的负担均衡分布在缓存驱动器中。
+使用所有上述三种类型的驱动器时，NVMe 驱动器将为 SSD 和 HDD 提供缓存。 行为如上所述：对于 SSD，仅缓存写入；对于 HDD，同时缓存读取和写入。 HDD 的缓存负担均匀分散在各个缓存驱动器之间。
 
 ## <a name="summary"></a>摘要
 
-此表总结了哪些驱动器用于缓存、哪些驱动器用作容量空间，以及每个部署可能性对应于哪些缓存行为。
+下表汇总了哪些驱动器用于缓存、哪些驱动器用于容量，以及每种部署可行性的缓存行为。
 
 | 部署     | 缓存驱动器                        | 容量驱动器 | 缓存行为（默认）  |
 | -------------- | ----------------------------------- | --------------- | ------------------------- |
-| 所有 NVMe         | 无（可选：手动配置） | NVMe            | 只写（如果已配置）  |
-| 所有 SSD          | 无（可选：手动配置） | SSD             | 只写（如果已配置）  |
+| 全使用 NVMe         | 无（可选：手动配置） | NVMe            | 只写（如果已配置）  |
+| 全使用 SSD          | 无（可选：手动配置） | SSD             | 只写（如果已配置）  |
 | NVMe + SSD       | NVMe                                | SSD             | 只写                  |
 | NVMe + HDD       | NVMe                                | HDD             | 读取 + 写入                |
 | SSD + HDD        | SSD                                 | HDD             | 读取 + 写入                |
@@ -128,65 +109,65 @@ ms.locfileid: "79025663"
 
 ## <a name="server-side-architecture"></a>服务器端体系结构
 
-在驱动器级别实现缓存：一台服务器中的单独缓存驱动器被绑定至相同服务器中的一个或多个容量驱动器。
+缓存在驱动器级别实现：一台服务器中的每个缓存驱动器绑定到同一台服务器中的一个或多个容量驱动器。
 
-由于缓存位于其余 Windows 软件定义的存储堆栈之下，它没有（也不需要）任何概念感知（例如存储空间或容错）。 你可以将其视为创建“混合”驱动器（部分闪存、部分磁盘），此驱动器之后将呈现给 Windows。 与实际混合驱动器一样，热数据和冷数据在物理媒介的较快部分和较慢部分之间的实时移动对外部来说几乎是不可见的。
+由于缓存的级别低于剩余 Windows 软件定义的存储堆栈，因此它不运用，也无需意识到“存储空间”或“容错”之类的概念。 可将它看作是创建“混合”（一部分是快闪，一部分是磁盘）驱动器，然后将其提供给 Windows。 与实际的混合驱动器一样，在外部几乎看不到物理媒体上速度较快和较慢部分之间冷热数据的实时移动。
 
-鉴于存储空间直通中的复原至少是服务器级别（这意味着数据副本通常写入不同的服务器中；每个服务中最多存在一个副本），缓存中的数据与不在缓存中的数据一样受益于复原。
+考虑到 Azure Stack HCI 中的复原至少是服务器级 (意味着数据副本始终写入不同的服务器;对于每个服务器) ，每个服务器最多只有一个副本，因为缓存中的数据与缓存中的数据不是相同的复原。
 
-![Cache-Server-Side-Architecture](media/cache/Cache-Server-Side-Architecture.png)
+![关系图表示通过存储空间层中的三向镜像联接的三个服务器，这些服务器访问 N V M e 驱动器（可访问未标记容量驱动器）的缓存层。](media/cache/Cache-Server-Side-Architecture.png)
 
-例如，使用三向镜像时，任何数据的三个副本都被写入到不同的服务器中，它们将在服务器中进入缓存。 无论它们稍后是否取消暂存，三个副本将始终存在。
+例如，在使用三向镜像时，任何数据的三个副本将写入不同的服务器，然后从服务器进入缓存。 无论以后是否解除暂存这些副本，都始终有三个副本。
 
 ## <a name="drive-bindings-are-dynamic"></a>驱动器绑定是动态的
 
-缓存驱动器和容量驱动器之间的绑定比率可以是从 1:1 到 1:12 及更高的任意比率。 无论是添加还是删除驱动器（例如，纵向扩展或失败后），比率都会自动调节。 这意味着，你随时可以独立添加缓存驱动器或容量驱动器。
+缓存驱动器与容量驱动器之间的绑定可以采用任何比率，从 1:1 到 1:12 甚至更高都可以。 每当添加或移除驱动器（例如扩展时或在故障后）时，这种绑定会动态调整。 这意味着，只要有需要，都可以单独添加缓存驱动器或容量驱动器。
 
-![Dynamic-Binding](media/cache/Dynamic-Binding.gif)
+![动态关系图显示了两个 N V M e 缓存驱动器，它们动态映射到前四个，然后是六个容量驱动器。](media/cache/Dynamic-Binding.gif)
 
-为了对称，我们建议将容量驱动器的数量设置为缓存驱动器数量的倍数。 例如，如果你有 4 个缓存驱动器，则使用 8 个容量驱动器（1:2 的比率），这样一来，你所能体验到的性能将比使用 7 个或 9 个容量驱动器都要高。
+为了对称，容量驱动器的数目最好是缓存驱动器数目的倍数。 例如，如果你有 4 个缓存驱动器，则配置 8 个容量驱动器（1:2 比例）的性能比配置 7 个或 9 个容量驱动器更均衡。
 
 ## <a name="handling-cache-drive-failures"></a>处理缓存驱动器故障
 
-当缓存驱动器发生故障时，*本地服务器*将丢失任何尚未取消暂存的写入，这意味着它们只存在于其他副本（位于其他服务器）中。 和其他任何驱动器发生故障后一样，存储空间能够通过咨询正常运行的副本自动恢复。
+当某个缓存驱动器发生故障时，任何尚未解除暂存的写入内容都不会丢进本地服务器，这意味着，它们只存在于其他副本（其他服务器）中。 就像在其他任何驱动器发生故障后一样，存储空间可以通过查阅幸存的副本来自动恢复。
 
-在短时间内，与丢失缓存的驱动器绑定的容量驱动器将显示不正常。 一旦（自动）发生缓存重绑定且（自动）完成数据修复，它们将恢复显示为正常。
+有一小段时间，绑定到丢失的缓存驱动器的容量驱动器会显示为不正常。 发生缓存重新绑定（自动）并完成数据修复（自动）之后，这些驱动器将继续显示为正常。
 
-这种情况就是每台服务器需要至少两个缓存驱动器才能保障性能的原因。
+因为会发生这种情况，每台服务器至少需要两个缓存驱动器才能保留良好的性能。
 
-![Handling-Failure](media/cache/Handling-Failure.gif)
+![动态关系图显示两个映射到六个容量驱动器的 D 缓存驱动器，直到一个缓存驱动器发生故障时，这会导致所有六个驱动器映射到剩余的缓存驱动器。](media/cache/Handling-Failure.gif)
 
-然后，你可以像更换其他任何驱动器一样，更换缓存驱动器。
+然后，可以像更换其他任何驱动器一样更换缓存驱动器。
 
    >[!NOTE]
-   > 你可能需要关闭电源才能安全更换外接卡 (AIC) 或 M.2 外形规格的 NVMe。
+   > 可能需要关闭电源来安全更换外形规格为附加卡 (AIC) 或 M.2 的 NVMe。
 
 ## <a name="relationship-to-other-caches"></a>与其他缓存之间的关系
 
-Windows 软件定义存储堆栈中有多个其他无关的缓存。 示例包括存储空间回写缓存和群集共享卷 (CSV) 内存中读取缓存。
+Windows 软件定义的存储堆栈中有多个其他不相关的缓存。 例如，存储空间写回缓存，以及群集共享卷 (CSV) 内存中读取缓存。
 
-如果具有存储空间直通，不应从其默认行为中修改存储空间回写缓存。 例如，不应使用 **New-Volume** cmdlet 上的 **-WriteCacheSize** 等参数。
+对于 Azure Stack HCI，不应根据默认行为修改存储空间回写缓存。 例如，不应在 **New-Volume** cmdlet 中使用 **-WriteCacheSize** 之类的参数。
 
-你可以选择是否使用 CSV 缓存，由你决定。 存储空间直通中的 CSV 缓存默认关闭，但它们不会以任何方式与本主题中描述的新缓存冲突。 在某些情况下，这可以提供有价值的性能改善。 有关详细信息，请参阅[如何启用 CSV 缓存](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional)。
+你可以自行决定是否使用 CSV 缓存。 默认情况下，它在 Azure Stack HCI 中处于启用状态，但不会以任何方式与本主题中所述的缓存发生冲突。 在某些情况下，它可以提供宝贵的性能增益。 有关详细信息，请参阅 [将 CSV 内存中读取缓存与 AZURE STACK HCI 配合使用](../manage/use-csv-cache.md)。
 
 ## <a name="manual-configuration"></a>手动配置
 
-大多数部署无需进行手动配置。 如果需要，请参阅以下各节。 
+大多数部署无需进行手动配置。 如果需要手动配置，请参阅以下部分。
 
-如果需要在安装后更改缓存设备模型，请编辑运行状况服务的支持组件文档，如[运行状况服务概述](/windows-server/failover-clustering/health-service-overview#supported-components-document)中所述。
+如果需要在设置后对缓存设备型号进行更改，请根据[运行状况服务概述](/windows-server/failover-clustering/health-service-overview#supported-components-document)中所述，编辑运行状况服务的支持组件文档。
 
-### <a name="specify-cache-drive-model"></a>指定缓存驱动器模型
+### <a name="specify-cache-drive-model"></a>指定缓存驱动器型号
 
-在所有驱动器类型相同的部署（例如，全 NVMe 或全 SSD 部署）中不会配置缓存，这是因为在相同类型的驱动器中，Windows 无法自动区分写入耐用性等特性。
+在所有驱动器都属于同一类型的部署中（例如，全使用 NVMe 或全使用 SSD 的部署），由于 Windows 无法自动分辨同一类型的驱动器的特征（例如写入持久性），因此不会配置缓存。
 
-若要使用耐用性较高的驱动器为相同类型但耐用性较低的驱动器提供缓存，你可以指定用于 **Enable-ClusterS2D** cmdlet 的 **-CacheDeviceModel** 参数的驱动器模型。 启用存储空间直通后，这一模型的所有驱动器将全部用于缓存。
+若要使用持久性较高的驱动器为类型相同但持久性较低的驱动器提供缓存，可以使用 **Enable-ClusterS2D** cmdlet 的 **-CacheDeviceModel** 参数指定要使用的驱动器型号。 将使用该模型的所有驱动器进行缓存。
 
    >[!TIP]
-   > 请务必与 **Get-PhysicalDisk** 输出中显示的模型字符串完全匹配。
+   > 请确保型号字符串与 **Get-PhysicalDisk** 输出中显示的字符串完全一样。
 
 ####  <a name="example"></a>示例
 
-首先，获取物理磁盘列表：
+首先获取物理磁盘的列表：
 
 ```PowerShell
 Get-PhysicalDisk | Group Model -NoElement
@@ -201,31 +182,31 @@ Count Name
    16 CONTOSO NVME-1520
 ```
 
-然后输入以下命令，并指定缓存设备模型：
+然后输入以下命令并指定缓存设备型号：
 
 ```PowerShell
 Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 ```
 
-通过在 PowerShell 中运行 **Get-PhysicalDisk** 并验证其 **Usage** 属性是否显示 **"Journal"**，你可以验证预期的驱动器是否用于缓存。
+可以验证所需的驱动器是否正用于缓存，方法是在 PowerShell 中运行 **Get-PhysicalDisk**，并确认其 **Usage** 属性是否显示 **"Journal"** 。
 
-### <a name="manual-deployment-possibilities"></a>手动部署可能性
+### <a name="manual-deployment-possibilities"></a>手动部署的可行性
 
-手动配置可以实现以下部署可能性：
+手动配置支持以下部署可行性：
 
-![Exotic-Deployment-Possibilities](media/cache/Exotic-Deployment-Possibilities.png)
+![关系图显示了部署的可能性，包括 N V M e 用于缓存和容量、S D 用于缓存和容量、S D 用于缓存以及混合 S D 和 x d D 的容量。](media/cache/Exotic-Deployment-Possibilities.png)
 
 ### <a name="set-cache-behavior"></a>设置缓存行为
 
-可以替代默认缓存行为。 例如，即使在全闪存部署中，你也可以将默认缓存行为设置为缓存读取。 除非确定默认缓存行为不适用于你的工作负荷，否则我们不鼓励修改默认行为。
+可以重写缓存的默认行为。 例如，即使在全闪存部署中，也可将其设置为缓存读取。 除非你确定默认行为不符合工作负荷，否则我们不建议修改行为。
 
-若要重写此行为，请使用**ClusterStorageSpacesDirect** cmdlet 及其 **-CacheModeSSD**和 **-CacheModeHDD**参数。 为固态硬盘提供缓存时，**CacheModeSSD** 参数设为缓存行为。 为硬盘驱动器提供缓存时，**CacheModeHDD** 参数设为缓存行为。 启用存储空间直通后可以随时进行设置。
+若要重写行为，请结合 **-CacheModeSSD** 与 **-CacheModeHDD** 参数使用 **Set-ClusterStorageSpacesDirect** cmdlet。 **CacheModeSSD** 参数设置在为固态硬盘提供缓存时的缓存行为。 **CacheModeHDD** 参数设置在为机械硬盘提供缓存时的缓存行为。
 
-你可以使用**ClusterStorageSpacesDirect**来验证是否已设置了行为。
+可以使用 **Get-ClusterStorageSpacesDirect** 来验证是否已设置该行为。
 
 #### <a name="example"></a>示例
 
-首先，获取存储空间直通设置：
+首先获取存储空间直通设置：
 
 ```PowerShell
 Get-ClusterStorageSpacesDirect
@@ -238,7 +219,7 @@ CacheModeHDD : ReadWrite
 CacheModeSSD : WriteOnly
 ```
 
-然后，执行以下操作：
+然后执行以下操作：
 
 ```PowerShell
 Set-ClusterStorageSpacesDirect -CacheModeSSD ReadWrite
@@ -255,21 +236,21 @@ CacheModeSSD : ReadWrite
 
 ## <a name="sizing-the-cache"></a>调整缓存大小
 
-应调整缓存大小以适应应用程序和工作负荷的工作集（在任何给定时间主动读取或写入的数据）。
+应该根据应用程序和工作负荷的工作集（在任何给定时间主动读取或写入的数据）来调整缓存大小。
 
-这在使用硬盘驱动器的混合部署中尤其重要。 如果活动工作集超过缓存大小，或如果活动工作集过快设置偏离，会增加读取缓存遗漏并需要更主动地取消写入暂存，从而影响总体性能。
+在使用机械硬盘的混合部署中，调整缓存大小特别重要。 如果活动工作集超过缓存大小，或者活动工作集改变速度太快，则读取缓存未命中次数将会增加，并且需要更频繁地解除暂存写入内容，因而会损害整体性能。
 
-你可以使用 Windows 中的内置性能监视器 (PerfMon.exe) 工具检查缓存遗漏率。 具体来说，你可以将**群集存储混合磁盘**计数器集中的**每秒缓存遗漏读取**与部署中的 IOPS 整体读取进行比较。 每个“混合磁盘”对应一个容量驱动器。
+可以使用 Windows 的内置性能监视器 (PerfMon.exe) 实用工具来检查缓存未命中率。 具体而言，可将“群集存储混合磁盘”计数器集中的“缓存未命中读取次数/秒”与部署的整体读取 IOPS 进行比较。  每个“混合磁盘”对应于一个容量驱动器。
 
-例如，2 个缓存驱动器绑定 4 个容量驱动器会导致每台服务器中有 4 个“混合磁盘”对象实例。
+例如，绑定到 4 个容量驱动器的 2 个缓存驱动器在每台服务器上产生 4 个“混合磁盘”对象实例。
 
 ![Performance-Monitor](media/cache/PerfMon.png)
 
-虽然没有通用的法则，但是，如果遗漏缓存的读取过多可能会使容量大小不足，你应考虑添加缓存驱动器以扩展缓存。 你随时可以独立添加缓存驱动器或容量驱动器。
+不存在通用的法则，但如果过多的读取未命中缓存，则可能表示缓存的大小不足，你应该考虑添加缓存驱动器来扩展缓存。 随时都可以单独添加缓存驱动器或容量驱动器。
 
 ## <a name="next-steps"></a>后续步骤
 
-有关其他存储知识，另请参阅：
+若要学习更多存储知识，另请参阅：
 
 - [容错和存储效率](fault-tolerance.md)
 - [群集和池仲裁](quorum.md)

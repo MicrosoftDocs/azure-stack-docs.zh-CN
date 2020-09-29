@@ -3,16 +3,16 @@ title: 部署 Azure Stack Hub 上的基础模式
 description: 了解如何部署 Azure Stack Hub 的基础模式。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: b41b0fd7d9ce86a8e56fb8f445e52c224df65a65
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: df603935dc192894dcb96837dc92fa4bc88f239e
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533750"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818396"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>部署基础模式的概述
 
@@ -43,7 +43,7 @@ ms.locfileid: "84533750"
 使用存储模式可以增加 Azure Stack Hub 的存储选项。 Azure Stack Hub 中的存储是有限的。 连接到现有数据中心内的资源。 查找有关在 Azure Stack Hub 中创建 Windows VM 以连接到外部 iSCSI 目标的说明。 可以了解如何启用多路径 I/O (MPIO) 等重要功能，以优化性能以及 VM 与外部存储之间的连接。
 
 | iSCSI 存储 | 扩展存储 |
-| --- | --- | --- |
+| --- | --- |
 | ![连接到 iSCSI 存储](media/deploy-foundational-patterns/icon-storage-87-storage-accounts-classic.svg)<br>[连接到 iSCSI 存储](azure-stack-network-howto-iscsi-storage.md) | ![扩展数据中心](media/deploy-foundational-patterns/icon-storage-88-recovery-services-vaults.svg)<br>[扩展数据中心](azure-stack-network-howto-extend-datacenter.md) |
 
 ## <a name="backup"></a>备份
@@ -53,9 +53,9 @@ ms.locfileid: "84533750"
 
 
 |  备份  |  复制  |
-| --- | --- | --- |
+| --- | --- |
 | ![使用 Commvault 在 Azure Stack Hub 上备份 VM](media/deploy-foundational-patterns/icon-storage-100-import-export-jobs.svg)<br>[使用 Commvault 在 Azure Stack Hub 上备份 VM](azure-stack-network-howto-backup-commvault.md) | ![复制订阅资源](media/deploy-foundational-patterns/icon-storage-94-data-box.svg)<br>[复制订阅资源](azure-stack-network-howto-backup-replicator.md) |
-|  | ![在 Azure Stack Hub 上备份存储帐户](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[在 Azure Stack Hub 上备份存储帐户](azure-stack-network-howto-backup-storage.md)  |
+|  ![在 Azure Stack Hub 上备份存储帐户](media/deploy-foundational-patterns/icon-storage-93-storage-sync-services.svg)<br>[在 Azure Stack Hub 上备份存储帐户](azure-stack-network-howto-backup-storage.md)  | |
 
 ## <a name="github-samples"></a>GitHub 示例
 
@@ -63,4 +63,4 @@ ms.locfileid: "84533750"
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure 混合模式和解决方案文档](\hybrid\app-solutions)
+[Azure 混合模式和解决方案文档](/hybrid/app-solutions)

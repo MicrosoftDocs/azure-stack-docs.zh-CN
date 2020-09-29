@@ -21,7 +21,7 @@
       href: azure-stack-quick-create-vm-linux-powershell.md
     - name: 创建 Linux VM - CLI
       href: azure-stack-quick-create-vm-linux-cli.md
-    - name: 创建事件中心群集-门户
+    - name: 创建事件中心群集 - 门户
       href: event-hubs-quickstart-cluster-portal.md
 - name: 教程
   items:
@@ -48,12 +48,12 @@
                 - name: Azure Stack Hub PowerShell 概述
                   href: azure-stack-powershell-overview.md
                 - name: 安装 Azure Stack Hub PowerShell
-                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: 使用 PowerShell 连接
                   href: azure-stack-powershell-configure-user.md
                 - name: 下载 Azure Stack Hub 工具
-                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-powershell-download.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: 使用 Docker 运行 PowerShell
                   href: azure-stack-powershell-user-docker.md
@@ -67,7 +67,7 @@
               href: azure-stack-install-visual-studio.md
             - name: 使用安全外壳
               href: azure-stack-dev-start-howto-ssh-public-key.md
-            - name: 使用 ssh 创建密钥 ssh-keygen
+            - name: 使用 ssh-keygen 创建密钥
               href: create-ssh-key-on-windows.md
             - name: 将 REST 客户端与 API 配合使用
               href: azure-stack-rest-api-use.md
@@ -85,7 +85,7 @@
               items:
                 - name: 使用门户进行部署
                   href: azure-stack-deploy-template-portal.md
-                - name: 使用 PowerShell 部署
+                - name: 使用 PowerShell 进行部署
                   href: azure-stack-deploy-template-powershell.md
                 - name: 使用 CLI 进行部署
                   href: azure-stack-deploy-template-command-line.md
@@ -118,7 +118,7 @@
             - name: 使用基于角色的访问控制
               href: azure-stack-manage-permissions.md
             - name: 使用应用标识访问资源
-              href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 使用服务
           items:
             - name: 计算
@@ -129,16 +129,34 @@
                   href: azure-stack-vm-considerations.md
                 - name: VM 大小
                   href: azure-stack-vm-sizes.md
+                - name: 支持的 GPU VM
+                  href: gpu-vms-about.md
                 - name: 管理 VM 磁盘
                   href: azure-stack-manage-vm-disks.md
                 - name: 托管磁盘注意事项
                   href: azure-stack-managed-disk-considerations.md
+                - name: 托管磁盘模板
+                  href: virtual-machines-use-managed-disks-template.md
+                - name: 删除带依赖项的 VM
+                  href: delete-vm.md
                 - name: 保护 VM
                   href: azure-stack-manage-vm-protect.md
+                - name: VM 已知问题
+                  href: troubleshoot-vm-known-issues.md
                 - name: VM 更新和管理
                   href: vm-update-management.md
                 - name: SQL Server VM 注意事项
                   href: azure-stack-sql-server-vm-considerations.md
+                - name: 迁移 VM
+                  items:
+                    - name: 迁移 Vm 概述
+                      href: vm-move-overview.md
+                    - name: Azure 中的 VM
+                      href: vm-move-from-azure.md
+                    - name: 本地上的专用 VM
+                      href: vm-move-specialized.md
+                    - name: 本地上的一般化 VM
+                      href: vm-move-generalized.md
             - name: 存储
               items:
                 - name: 概述
@@ -212,7 +230,7 @@
               items:
                 - name: AKS 引擎
                   items:
-                    - name: Azure Stack 集线器上的 AKS 引擎
+                    - name: Azure Stack Hub 上的 AKS 引擎
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: 支持策略
                       href: azure-stack-kubernetes-aks-engine-support.md
@@ -234,9 +252,11 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: AKS 引擎疑难解答
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
-                    - name: 使用容器 Azure Monitor
-                      href: 'https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup'
-                - name: Marketplace 项
+                    - name: 对容器使用 Azure Monitor
+                      href: /azure/azure-monitor/insights/container-insights-hybrid-setup
+                    - name: 在 Azure Stack Hub 上使用 AKS 引擎的已知问题
+                      href: azure-stack-kubernetes-aks-engine-known-issues.md
+                - name: 市场项
                   items:
                     - name: 部署 Kubernetes 群集
                       href: azure-stack-solution-template-kubernetes-deploy.md
@@ -246,7 +266,7 @@
                       href: azure-stack-solution-template-kubernetes-adfs.md
                     - name: 启用 Kubernetes 仪表板
                       href: azure-stack-solution-template-kubernetes-dashboard.md
-                    - name: 从 Marketplace 项移动 AKS 引擎
+                    - name: 从市场项转移 AKS 引擎
                       href: azure-stack-kubernetes-aks-engine-dvm.md
                     - name: 对 Kubernetes 群集进行故障排除
                       href: azure-stack-solution-template-kubernetes-trouble.md
@@ -254,7 +274,7 @@
               href: azure-stack-solution-template-cognitive-services.md
     - name: 部署应用
       items:
-        - name: '将 C# Web 应用部署到 Windows VM'
+        - name: 将 C# Web 应用部署到 Windows VM
           href: azure-stack-dev-start-howto-vm-dotnet.md
         - name: 将 Web 应用部署到 Linux VM
           items:
@@ -277,11 +297,11 @@
           items:
             - name: VNet 与 VM 对等互连
               href: azure-stack-network-howto-vnet-peering.md
-            - name: 使用第三方 Nva （Fortinet Fortigate NVA）
+            - name: 使用第三方 NVA (Fortinet Fortigate NVA)
               items:
                 - name: VNet 与 FortiGate 对等互连
                   href: azure-stack-network-howto-vnet-to-vnet.md
-                - name: 设置 VPN 到本地
+                - name: 将 VPN 设置到本地
                   href: azure-stack-network-howto-vnet-to-onprem.md
                 - name: VNET 到 VNET 连接
                   href: azure-stack-network-howto-vnet-to-vnet-stacks.md
@@ -303,9 +323,9 @@
               href: azure-stack-network-howto-extend-datacenter.md
         - name: 备份和恢复
           items:
-            - name: 通过 Commvault 在 Azure Stack 集线器上备份 VM
+            - name: 使用 Commvault 在 Azure Stack Hub 上备份 VM
               href: azure-stack-network-howto-backup-commvault.md
-            - name: 在 Azure Stack 集线器上备份存储帐户
+            - name: 在 Azure Stack Hub 上备份存储帐户
               href: azure-stack-network-howto-backup-storage.md
             - name: 复制订阅资源
               href: azure-stack-network-howto-backup-replicator.md
@@ -326,23 +346,25 @@
 - name: 参考
   items:
     - name: Azure Stack Hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
-    - name: Azure Stack 中心管理员 REST Api
+      href: /powershell/azure/azure-stack/overview
+    - name: Azure Stack Hub 管理员 REST API
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+      href: /cli/azure/reference-index?view=azure-cli-latest
 - name: 相关内容
   items:
-    - name: Azure Stack 中心操作员文档
-      href: /azure-stack/operator/
+    - name: Azure Stack Hub 操作员文档
+      href: ../operator/index.yml
     - name: ASDK 文档
-      href: /azure-stack/asdk/
+      href: ../asdk/index.yml
+    - name: Azure 混合云文档
+      href: /hybrid
 - name: 资源
   items:
     - name: Azure Stack 中心道路地图
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
-    - name: Azure Stack Hub MSDN 论坛
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure Stack 中心 Microsoft Q&
+      href: /answers/questions/topics/single/50514.html
     - name: Azure Stack 中心文档反馈
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 定价信息
@@ -350,4 +372,4 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: 培训和认证
-      href: /azure-stack/operator/azure-stack-train-and-cert
+      href: ../operator/azure-stack-train-and-cert.md

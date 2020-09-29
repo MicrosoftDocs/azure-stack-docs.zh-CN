@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中创建和发布市场项
 description: 了解如何创建并发布 Azure Stack Hub 市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
-ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
+ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85069135"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621310"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建并发布自定义 Azure Stack Hub 市场项
 
@@ -22,10 +22,14 @@ ms.locfileid: "85069135"
 
 本文中的示例演示如何创建 Windows 或 Linux 类型的单个 VM 市场套餐。
 
-## <a name="create-a-marketplace-item"></a>创建市场项
+### <a name="prerequisites"></a>先决条件
 
-> [!IMPORTANT]
-> 在创建 VM 市场项之前，请将自定义 VM 映像上传到 Azure Stack Hub 门户，并根据[将 VM 映像添加到 Azure Stack Hub](azure-stack-add-vm-image.md) 中的说明操作。 然后，根据本文中的说明打包映像（创建 .azpkg），并将其上传到 Azure Stack Hub 市场。
+创建 VM marketplace 项之前，请执行以下操作：
+
+1. 按照 [将 vm 映像添加到 Azure Stack 中心](azure-stack-add-vm-image.md)中的说明，将自定义 VM 映像上传到 Azure Stack 中心门户。 
+2. 按照本文中的说明将映像打包 (创建 .azpkg) 并将其上传到 Azure Stack 中心市场。
+
+## <a name="create-a-marketplace-item"></a>创建市场项
 
 若要创建自定义市场项，请执行以下操作：
 
@@ -41,10 +45,12 @@ ms.locfileid: "85069135"
 
    ![部署模板结构的屏幕截图](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. 将 Manifest.json 模板中突出显示的以下值（带编号的值）替换为在[上传自定义映像](azure-stack-add-vm-image.md)时提供的值。
+4. 将 Manifest.json 模板中突出显示的以下值（带编号的值）替换为在[上传自定义映像](azure-stack-add-vm-image.md#add-a-platform-image)时提供的值。
 
    > [!NOTE]  
    > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
+
+   建议在发布自己的自定义模板之前，尝试原样发布示例，并确保它在你的环境中正常工作。 验证此步骤生效后，请从库中删除该示例，并进行迭代更改，直到对结果满意为止。
 
    以下模板是 Manifest.json 文件的示例：
 
@@ -61,29 +67,19 @@ ms.locfileid: "85069135"
        "longSummary": "ms-resource:longSummary",
        "description": "ms-resource:description",
        "longDescription": "ms-resource:description",
-       "uiDefinition": {
-          "path": "UIDefinition.json" (7)
-          },
        "links": [
         { "displayName": "ms-resource:documentationLink", "uri": "http://go.microsoft.com/fwlink/?LinkId=532898" }
         ],
        "artifacts": [
           {
-             "name": "<Template name>",
-             "type": "Template",
-             "path": "DeploymentTemplates\\<Template name>.json", (8)
              "isDefault": true
           }
        ],
-       "categories":[ (9)
-          "Custom",
-          "<Template name>"
-          ],
        "images": [{
           "context": "ibiza",
           "items": [{
              "id": "small",
-             "path": "icons\\Small.png", (10)
+             "path": "icons\\Small.png", (7)
              "type": "icon"
              },
              {
@@ -107,16 +103,13 @@ ms.locfileid: "85069135"
 
     以下列表解释了示例模板中的上述带有编号的值：
 
-    - （1）-产品/服务的名称。
-    - （2）–发布服务器的名称，不含空格。
-    - （3）–模板的版本，不含空格。
-    - （4）-客户看到的名称。
-    - （5）-客户看到的发布者名称。
-    - （6）-发布者合法名称。
-    - （7）-存储**UIDefinition.js**文件的路径。  
-    - （8）-JSON 主模板文件的路径和名称。
-    - （9）–显示此模板的类别的名称。
-    - （10）–每个图标的路径和名称。
+    -  (1) –产品/服务的名称。
+    -  (2) –发布服务器的名称，不含空格。
+    -  (3) –模板的版本，不含空格。
+    -  (4) –客户看到的名称。
+    -  (5) –客户看到的发布者名称。
+    -  (6) –发布者合法名称。
+    -  (7) –每个图标的路径和名称。
 
 5. 对于引用 **ms-resource** 的所有字段，必须在 **strings/resources.json** 文件中更改相应的值：
 
@@ -130,8 +123,6 @@ ms.locfileid: "85069135"
     "documentationLink": "Documentation"
     }
     ```
-
-    ![包显示](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![包显示](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. 为确保资源可以成功部署，请使用 [Azure Stack Hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md) 测试该模板。
 
@@ -178,27 +169,27 @@ ms.locfileid: "85069135"
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
     ```
 
-5. 确认是否可以提供一个有效的存储帐户来存储项。 可以从 Azure Stack Hub 管理员门户获取 `GalleryItemURI` 值。 选择“存储帐户”>“Blob 属性”->“URL”，扩展名为 .azpkg。  存储帐户仅供暂时使用，以便能够发布到市场。
+5. 确认是否可以提供一个有效的存储帐户来存储项。 可以从 Azure Stack Hub 管理员门户获取 `GalleryItemURI` 值。 选择“存储帐户”>“Blob 属性”->“URL”，扩展名为 .azpkg。 存储帐户仅供暂时使用，以便能够发布到市场。
 
-   完成库包并使用 **Add-AzsGalleryItem** 将其上传之后，自定义 VM 现在应会显示在市场中以及“创建资源”视图中。  请注意，“市场管理”中不显示自定义库包。 
+   完成库包并使用 **Add-AzsGalleryItem** 将其上传之后，自定义 VM 现在应会显示在市场中以及“创建资源”视图中。 请注意，“市场管理”中不显示自定义库包。
 
    [![已上传自定义市场项](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "已上传自定义市场项")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
 
 6. 成功将项发布到市场后，可以删除存储帐户中的内容。
 
-   > [!CAUTION]  
-   > 现在，无需身份验证，即可通过以下 URL 访问所有默认的库项目和自定义库项目：  
-   `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
-   `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
+   现在，无需身份验证，即可通过以下 URL 访问所有默认的库项目和自定义库项目：
 
-6. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如：
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+7. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如：
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
    > [!NOTE]
-   > 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”  。 然后，在“门户自定义”下选择“放弃修改”。  
+   > 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”。 然后，在“门户自定义”下选择“放弃修改”。 
    >
    >
 
@@ -237,7 +228,7 @@ ms.locfileid: "85069135"
 
 ### <a name="categories"></a>Categories
 
-应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack Hub 中的现有类别之一（“计算”、“数据 + 存储”等），也可以选择新建一个。  
+应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack Hub 中的现有类别之一（“计算”、“数据 + 存储”等），也可以选择新建一个。 
 
 ### <a name="links"></a>链接
 

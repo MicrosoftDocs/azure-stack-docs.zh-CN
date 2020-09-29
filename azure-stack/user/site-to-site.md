@@ -1,51 +1,54 @@
 ---
-title: 排查 Azure Stack 集线器中的站点到站点 VPN 连接问题
-description: 在本地网络与 Azure Stack 中心虚拟网络之间配置站点到站点 VPN 连接后，可以执行的故障排除步骤。
+title: 在 Azure Stack Hub 中排查站点到站点 VPN 连接问题
+description: 配置本地网络与 Azure Stack Hub 虚拟网络之间的站点到站点 VPN 连接后可以执行的故障排除步骤。
 author: sethmanheim
 ms.author: sethm
 ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 361fefb0cfac67d5d55c9b3391da68877d695da3
-ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
+ms.openlocfilehash: e4385f7b1ac22f36f069e9ac4d5b35011e290982
+ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203113"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89510932"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>排查站点到站点 VPN 连接问题
 
-本文介绍在本地网络与 Azure Stack 中心虚拟网络之间配置站点到站点（S2S） VPN 连接后可以执行的故障排除步骤，并且该连接突然停止工作且无法重新连接。
+本文介绍了在本地网络和 Azure Stack Hub 虚拟网络之间配置站点到站点 (S2S) VPN 连接后，如果该连接突然停止工作且无法重新连接，你可以采取哪些故障排除步骤。
 
-如果本文未解决 Azure Stack 中心问题，则可以访问[Azure Stack 中心 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)。
+如果本文未解决你的 Azure Stack Hub 问题，可以访问 [Azure Stack Hub MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)。
 
-还可提交 Azure 支持请求。 请参阅[Azure Stack 中心支持](../operator/azure-stack-manage-basics.md#where-to-get-support)。
+还可提交 Azure 支持请求。 请参阅 [Azure Stack Hub 支持](../operator/azure-stack-manage-basics.md#where-to-get-support)。
+
+> [!NOTE]
+> 在两个 Azure Stack 中心部署之间，只能创建一个站点到站点 VPN 连接。 这是因为平台中的某个限制仅允许同一 IP 地址具有单个 VPN 连接。 由于 Azure Stack 中心利用多租户网关，该网关为 Azure Stack 中心系统中的所有 VPN 网关使用单个公共 IP，因此在两个 Azure Stack 集线器系统之间只能有一个 VPN 连接。 此限制也适用于将多个站点到站点 VPN 连接连接到使用单一 IP 地址的任何 VPN 网关。 Azure Stack 集线器不允许使用同一个 IP 地址创建多个本地网络网关资源。
 
 ## <a name="initial-troubleshooting-steps"></a>初始故障排除步骤
 
-IPsec/IKEV2 的 Azure Stack 集线器默认参数已[从 1910 build 开始](../user/azure-stack-vpn-gateway-settings.md#ike-phase-1-main-mode-parameters)更改。请联系你的 Azure Stack 中心操作员获取有关生成版本的详细信息。
+IPsec/IKEV2 的 Azure Stack Hub 默认参数已更改[（从内部版本 1910 开始）](../user/azure-stack-vpn-gateway-settings.md#ike-phase-1-main-mode-parameters)。有关内部版本的详细信息，请与 Azure Stack Hub 操作员联系。
 
 > [!IMPORTANT]
-> 使用 S2S 隧道时，数据包将与其他标头进一步封装。 此封装增加了数据包的总大小。 在这些情况下，必须将 TCP **MSS** 固定在 **1350**。 如果 VPN 设备不支持 MSS 钳位，则可以改为将隧道接口上的 MTU 设置为**1400**字节。 有关详细信息，请参阅[虚拟网络 TCPIP 性能优化](/azure/virtual-network/virtual-network-tcpip-performance-tuning)。
+> 使用 S2S 隧道时，数据包将与其他标头一起进一步封装。 此封装会增加数据包的总大小。 在这些情况下，必须将 TCP **MSS** 固定在 **1350**。 如果 VPN 设备不支持 MSS 钳位，则可以改为在隧道接口上将 MTU 设置为 1400 字节。 有关详细信息，请参阅[虚拟网络 TCPIP 性能优化](/azure/virtual-network/virtual-network-tcpip-performance-tuning)。
 
-- 确认 VPN 配置是基于路由的（IKEv2）。 Azure Stack 中心不支持基于策略的（IKEv1）配置。
+- 确认 VPN 配置基于路由 (IKEv2)。 Azure Stack Hub 不支持基于策略的 (IKEv1) 配置。
 
-- 检查是否使用的是[已验证的 VPN 设备和操作系统版本](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable)。 如果设备是未经验证的 VPN 设备，你可能需要与设备制造商联系，了解是否存在兼容性问题。
+- 检查是否使用的是[已验证的 VPN 设备和操作系统版本](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable)。 如果设备是未经验证的 VPN 设备，可能需要与设备制造商联系，了解是否存在兼容性问题。
 
-- 验证 Azure Stack 中心虚拟网络和本地网络之间没有重叠的 IP 范围。 这可能会导致连接问题。 
+- 验证 Azure Stack Hub 虚拟网络与本地网络之间是否没有重叠的 IP 范围。 这可能会导致连接问题。 
 
-- 验证 VPN 对等 Ip：
+- 验证 VPN 对等 IP：
 
-  - Azure Stack 中心中**本地网络网关**对象的 IP 定义应与本地设备 IP 匹配。
+  - Azure Stack Hub 的“本地网关”对象中的 IP 定义应与本地设备 IP 匹配。
 
-  - 在本地设备上设置 Azure Stack 中心网关 IP 定义应与 Azure Stack 中心网关 IP 匹配。
+  - 在本地设备中设置的 Azure Stack Hub 网关 IP 定义应与 Azure Stack Hub 网关 IP 匹配。
 
-## <a name="status-not-connected---intermittent-disconnects"></a>状态 "未连接"-间歇断开连接
+## <a name="status-not-connected---intermittent-disconnects"></a>“未连接”状态 - 间歇性断开连接
 
 - 比较本地 VPN 设备与 AzSH 虚拟网络 VPN 的共享密钥，确保密钥匹配。 若要查看 AzSH VPN 连接的共享密钥，请使用以下方法之一：
 
-  - **Azure Stack 中心租户门户**：中转到已创建的 VPN 网关站点到站点连接。 在 "**设置**" 部分中，选择 "**共享密钥**"。
+  - **Azure Stack Hub 租户门户**：转到创建的 VPN 网关站点到站点连接。 在“设置”部分中，选择“共享密钥”。
 
       :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN 连接":::
 
@@ -55,26 +58,26 @@ IPsec/IKEV2 的 Azure Stack 集线器默认参数已[从 1910 build 开始](../u
       Get-AzureRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
       ```
 
-## <a name="status-connected--traffic-not-flowing"></a>状态 "已连接" –流量未流动
+## <a name="status-connected--traffic-not-flowing"></a>“已连接”状态 - 流量未流动
 
-- 检查并删除网关子网中的用户定义路由（UDR）和网络安全组（Nsg），然后测试结果。 如果问题得到解决，请验证 NSG 或 UDR 应用的设置。
+- 检查并删除网关子网中的用户定义的路由 (UDR) 和网络安全组 (NSG)，然后测试结果。 如果问题得到解决，请验证 NSG 或 UDR 应用的设置。
 
-   网关子网上用户定义的路由可能会限制某些流量，并允许其他流量。 这使得 VPN 连接看起来对于某些流量不可靠，而对于其他流量很有用。
+   网关子网上用户定义的路由可能会限制某些流量，并允许其他流量。 这使得 VPN 连接看起来对于某些流量不可靠，而对于其他流量很可靠。
 
 - 检查本地 VPN 设备的外部接口地址。 
 
-  - 如果 VPN 设备面向 internet 的 IP 地址包含在 Azure Stack 集线器的 "**本地网络**" 定义中，则可能会遇到偶尔断开连接。
+  - 如果 VPN 设备面向 Internet 的 IP 地址包含在 Azure Stack Hub 的“本地网络”定义中，可能会出现偶发的断开连接现象。
 
-  - 设备的外部接口必须直接连接到 internet。 在 internet 和设备之间不应存在网络地址转换或防火墙。
+  - 设备的外部接口必须直接位于 Internet 上。 在 Internet 和设备之间应该没有网络地址转换或防火墙。
 
-  - 若要将防火墙群集配置为具有虚拟 IP，必须中断群集并直接向使用网关可以通过其接口的公共接口公开 VPN 设备。
+  - 若要将防火墙群集配置为具有虚拟 IP，必须断开群集并直接向可以通过网关与之连接的公共接口公开 VPN 设备。
 
 - 验证子网是否完全匹配。
 
-  - 验证虚拟网络地址空间与 Azure Stack 中心虚拟网络和本地定义之间的完全匹配。
+  - 验证 Azure Stack Hub 虚拟网络和本地定义之间的虚拟网络地址空间是否完全匹配。
 
-  - 验证“本地网络网关”与本地网络本地定义之间的子网是否完全匹配。****
+  - 验证“本地网络网关”与本地网络本地定义之间的子网是否完全匹配。
 
 ## <a name="create-a-support-ticket"></a>创建支持票证
 
-如果前面的步骤都无法解决你的问题，请创建[支持票证](../operator/azure-stack-manage-basics.md#where-to-get-support)，并使用按[需日志收集工具](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md)来提供日志。
+如果前面的步骤都无法解决你的问题，请创建[支持票证](../operator/azure-stack-manage-basics.md#where-to-get-support)并使用[按需日志收集工具](../operator/azure-stack-diagnostic-log-collection-overview.md)来提供日志。

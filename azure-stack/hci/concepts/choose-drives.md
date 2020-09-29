@@ -1,46 +1,49 @@
 ---
 title: 为 Azure Stack HCI 选择驱动器
-description: 如何为 Azure Stack HCI 中的存储空间直通选择驱动器。
+description: 如何为 Azure Stack HCI 选择驱动器。
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/06/2020
-ms.openlocfilehash: ee51dc973c26335cfb6c75de991508a6063e0993
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/01/2020
+ms.openlocfilehash: a1283982ba04acd8de0b54c02fbc0bb88da9ebc6
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80806666"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742305"
 ---
-# <a name="choosing-drives-for-azure-stack-hci"></a>为 Azure Stack HCI 选择驱动器
+# <a name="choose-drives-for-azure-stack-hci"></a>为 Azure Stack HCI 选择驱动器
 
->适用于：Windows Server 2019
+> 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-本主题提供有关如何根据 Azure Stack HCI 的性能和容量要求，为[存储空间直通](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)选择驱动器的指导。
+本主题提供有关如何根据 Azure Stack HCI 的性能和容量要求选择驱动器的指导。
 
 ## <a name="drive-types"></a>驱动器类型
 
-存储空间直通目前适用于三种类型的驱动器：
+Azure Stack HCI 目前使用四种类型的驱动器：
 
-|||
+| 驱动器类型 | 描述 |
 |----------------------|--------------------------|
-|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**（非易失性快速内存）是指直接位于 PCIe 总线上的固态硬盘。 常见外形规格为 2.5 英寸 U.2、PCIe 附加卡 (AIC) 和 M.2。 NVMe 提供较高的 IOPS 和 IO 吞吐量，延迟也比目前支持的其他任何驱动器类型更低。|
+|![PMem](media/choose-drives/pmem-100px.png)|PMem 是指永久性内存，一种新的低延迟、高性能存储类型。|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe**（非易失性快速内存）是指直接位于 PCIe 总线上的固态硬盘。 常见外形规格为 2.5 英寸 U.2、PCIe 附加卡 (AIC) 和 M.2。 NVMe 提供较高的 IOPS 和 IO 吞吐量，延迟也比目前支持的除 PMem 外的任何其他驱动器类型低。|
 |![SSD](media/choose-drives/SSD-100-px.png)|**SSD** 是指通过传统 SATA 或 SAS 连接的固态硬盘。|
 |![HDD](media/choose-drives/HDD-100-px.png)|**HDD** 是指旋转式的磁性硬盘，可提供巨量存储容量。|
 
 ## <a name="built-in-cache"></a>内置缓存
 
-存储空间直通提供内置的服务器端缓存。 此缓存是一个大型的持久性实时读取和写入缓存。 在包含多种类型的驱动器的部署中，该缓存自动配置为使用“最快”类型的所有驱动器。 剩余的驱动器用于提供容量。
+Azure Stack HCI 提供内置的服务器端缓存功能。 此缓存是一个大型的持久性实时读取和写入缓存。 在包含多种类型的驱动器的部署中，该缓存自动配置为使用“最快”类型的所有驱动器。 剩余的驱动器用于提供容量。
 
-有关详细信息，请查看[了解存储空间直通中的缓存](/windows-server/storage/storage-spaces/understand-the-cache)。
+有关详细信息，请参阅 [了解 AZURE STACK HCI 中的缓存](cache.md)。
 
 ## <a name="option-1--maximizing-performance"></a>选项 1 - 最大化性能
 
-若要实现跨任意数据的随机读取和写入的可预测且一致的 submillisecond 延迟，或实现非常高的 IOPS （我们已[在 6000000](https://www.youtube.com/watch?v=0LviCzsudGY&t=28m)到 1 Tb 以上）或 IO 吞吐量（我们已[超过 1 Tb/s](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=16m50s)！），应执行 "全部刷新"。
+若要在随机读取和写入到任何数据时实现可预测且一致的 submillisecond 延迟，或者为了实现极高的 IOPS (我们已完成 [超过 13000000](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-new-hci-industry-record-13-7-million-iops-with-windows/ba-p/428314)！ ) 或 IO 吞吐量 (我们已完成超过 500 GB/秒的读取) ，应转为 "全部刷新"。
 
-目前有三种方法可以实现此目的：
+有多种方法可以实现此目的：
 
-![All-Flash-Deployment-Possibilities](media/choose-drives/All-Flash-Deployment-Possibilities.png)
+![关系图显示了部署选项，包括适用于容量的所有 N V M e、适用于容量的 N V M e 缓存，以及适用于容量的所有 S d。](media/choose-drives/All-Flash-Deployment-Possibilities.png)
 
 1. **全使用 NVMe。** 全部使用 NVMe 可以提供无与伦比的性能，包括最容易预测的低延迟。 如果所有驱动器的型号相同，则不会配置缓存。 也可以混用高持久性和低持久性的 NVMe 型号，并将前者配置为针对后者中的写入内容提供缓存（[需要进行设置](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration)）。
 
@@ -55,13 +58,13 @@ ms.locfileid: "80806666"
 
 在包含各种应用程序和工作负荷的环境中，有些环境会提出严格的性能要求，而有些环境则要求提供相当大的存储容量，在这种情况下，应“混合”使用 NVMe 或 SSD 来为较大的 HDD 提供缓存。
 
-![Hybrid-Deployment-Possibilities](media/choose-drives/Hybrid-Deployment-Possibilities.png)
+![关系图显示了部署的可能性，包括 N V M e for cache with H D D for 容量，S S 用于缓存，带有用于容量的 H D D，以及适用于容量的混合 S D 和 H D D 的缓存的 N V M E。](media/choose-drives/Hybrid-Deployment-Possibilities.png)
 
 1. **NVMe + HDD**。 NVMe 驱动器通过缓存来加速读取和写入操作。 缓存读取可让 HDD 专注于写入。 缓存写入可以消减 IO 突发，使写入内容可以合并，并仅在需要时才将其解除暂存，这种人为的序列化方式可将 HDD IOPS 和 IO 吞吐量最大化。 此方式提供类似于 NVMe 的写入特征，而对于频繁读取或最近读取的数据，它还提供类似于 NVMe 的读取特征。
 
 2. **SSD + HDD**。 与前面类似，SSD 将通过缓存读取和写入内容来加速这两种操作。 此方式提供类似于 SSD 的写入特征，并针对频繁读取或最近读取的数据提供类似于 SSD 的读取特征。
 
-    还有一个额外的特殊选项：使用上述所有三种类型的驱动器。 
+    还有一个额外的特殊选项：使用上述所有三种类型的驱动器。
 
 3. **NVMe + SSD + HDD。** 使用所有三种类型的驱动器时，NVMe 将同时为 SSD 和 HDD 提供缓存。 此选项的吸引力在于，可以在同一群集中的 SSD 和 HDD 上创建并列的卷，而这些卷全部可以通过 NVMe 来加速。 前者完全如同前面所述的“全闪存”部署，后者完全如同“混合”部署。 这在概念上类似于有两个池，并且容量管理、故障和修复周期等等基本上都是独立的。
 
@@ -85,7 +88,7 @@ ms.locfileid: "80806666"
 
 每台服务器必须至少有两个缓存驱动器（实现冗余的最低要求）。 容量驱动器的数目最好是缓存驱动器数目的倍数。 例如，如果你有 4 个缓存驱动器，则配置 8 个容量驱动器（1:2 比例）的性能比配置 7 个或 9 个容量驱动器更稳定。
 
-应该根据应用程序和工作负荷的工作集（即，在任何给定时间主动读取或写入的数据）来调整缓存的大小。 除此之外，没有其他缓存大小要求。 对于使用 HDD 的部署，合理的起点是容量的 10% – 例如，如果每台服务器有 4 x 4 TB HDD = 16 TB 容量，则每台服务器的缓存为 2 x 800 GB SSD = 1.6 TB。 对于全闪存部署，尤其是使用[持久性极高](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/)的 SSD 时，接近 5% 的容量可能是合理的起点 – 例如，如果每台服务器有 24 x 1.2 TB SSD = 28.8 TB 容量，则每台服务器的缓存为 2 x 750 GB NVMe = 1.5 TB。 以后随时可以通过添加或移除缓存驱动器进行调整。
+应该根据应用程序和工作负荷的工作集（即，在任何给定时间主动读取或写入的数据）来调整缓存的大小。 除此之外，没有其他缓存大小要求。 对于使用 HDD 的部署，合理的起点是容量的 10% – 例如，如果每台服务器有 4 x 4 TB HDD = 16 TB 容量，则每台服务器的缓存为 2 x 800 GB SSD = 1.6 TB。 对于全闪存部署，尤其是使用[持久性极高](https://techcommunity.microsoft.com/t5/storage-at-microsoft/understanding-ssd-endurance-drive-writes-per-day-dwpd-terabytes/ba-p/426024)的 SSD 时，接近 5% 的容量可能是合理的起点 – 例如，如果每台服务器有 24 x 1.2 TB SSD = 28.8 TB 容量，则每台服务器的缓存为 2 x 750 GB NVMe = 1.5 TB。 以后随时可以通过添加或移除缓存驱动器进行调整。
 
 ### <a name="general"></a>常规
 
@@ -95,8 +98,9 @@ ms.locfileid: "80806666"
 
 有关详细信息，请参阅：
 
-- [Azure Stack HCI 概述](../overview.md)
-- [了解 Azure Stack HCI 中的缓存](cache.md)
-- [存储空间直通硬件要求](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
-- [在 Azure Stack HCI 中规划卷](plan-volumes.md)
+- [了解缓存](cache.md)
+- [确定硬件要求](../deploy/before-you-start.md#determine-hardware-requirements)
+- [驱动器对称注意事项](drive-symmetry-considerations.md)
+- [规划卷](plan-volumes.md)
 - [容错和存储效率](fault-tolerance.md)
+- [了解和部署永久性内存](/windows-server/storage/storage-spaces/deploy-pmem)

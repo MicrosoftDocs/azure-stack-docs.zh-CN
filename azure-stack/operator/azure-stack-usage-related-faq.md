@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/25/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 540fce92723c434ec5c8cb5ee7a2be0dd04b3639
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742417"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857489"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>有关 Azure Stack Hub 用量的常见问题解答
 
@@ -285,30 +285,30 @@ ms.locfileid: "82742417"
 **单元**：GB  
 **注释**：总传入请求响应字节数 + 总传出请求字节数 + 总传入 FTP 请求响应类型数 + 总传入 Web 部署请求响应字节数。  
   
-## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>Azure Stack 集线器使用情况 Api 如何与[Azure 使用情况 api](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) （当前在公共预览版中）进行比较？
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>Azure Stack 集线器使用情况 Api 如何与 [Azure 使用情况 api](/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (公共预览) 相比？
 
-* 租户使用情况 API 与 Azure API 保持一致，但有一个例外： Azure Stack 中心当前不支持*showDetails*标志。
+* 租户使用情况 API 与 Azure API 保持一致，但有一个例外： Azure Stack 中心当前不支持 *showDetails* 标志。
 * 提供者使用情况 API 仅适用于 Azure Stack 集线器。
-* 目前，Azure 中提供的[RATECARD API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview)在 Azure Stack 集线器中不可用。
+* 目前，Azure 中提供的 [RATECARD API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) 在 Azure Stack 集线器中不可用。
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>使用时间与报告时间有何差别？
 
 用量数据报告包含两个主要时间值：
 
-* **报告的时间**：用量事件进入使用系统的时间。
-* **使用时间**：使用 Azure Stack 集线器资源的时间。
+* **报告时间**：用量事件进入用量系统的时间。
+* **使用时间**：使用 Azure Stack Hub 资源的时间。
 
 你可能会发现，特定用量事件的“使用时间”与“报告时间”值有差异。 在任何环境中，延迟可能长达数小时。
 
-目前，只能按“报告时间”查询。****
+目前，只能按“报告时间”查询。 
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>这些用量 API 错误代码的含义是什么？
 
-| **HTTP 状态代码** | **错误代码** | **说明** |
+| **HTTP 状态代码** | 错误代码  | **说明** |
 | --- | --- | --- |
-| 400/错误的请求 |NoApiVersion |缺少`api-version`查询参数。 |
+| 400/错误的请求 |NoApiVersion |缺少 `api-version` 查询参数。 |
 | 400/错误的请求 |InvalidProperty |属性缺失或使用了无效值。 响应正文中错误代码内的消息指示缺少属性。 |
-| 400/错误的请求 |RequestEndTimeIsInFuture |的值为`ReportedEndTime`将来的值。 此参数不允许将来的时间值。 |
+| 400/错误的请求 |RequestEndTimeIsInFuture |`ReportedEndTime` 的值是将来时间。 此参数不允许将来的时间值。 |
 | 400/错误的请求 |SubscriberIdIsNotDirectTenant |提供程序 API 调用使用的订阅 ID 不是调用方的有效租户。 |
 | 400/错误的请求 |SubscriptionIdMissingInRequest |缺少调用方的订阅 ID。 |
 | 400/错误的请求 |InvalidAggregationGranularity |请求的聚合粒度无效。 有效值为 daily 和 hourly。 |
@@ -316,20 +316,20 @@ ms.locfileid: "82742417"
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>VM 收费政策是什么？
 
-正在运行的和已停止的 VM 会生成使用情况数据。 与 Azure 一致的是，必须解除分配才能停止使用情况数据的发出。 如果门户不可用，但计算资源提供程序仍在运行，将发出使用率。
+正在运行的和已停止的 VM 会生成使用情况数据。 与 Azure 一致的是，必须解除分配才能停止使用情况数据的发出。 如果门户不可用，但计算资源提供程序仍在运行，则会发出使用情况数据。
 
-## <a name="how-do-i-extract-usage-data-from-the-azure-stack-hub-usage-apis"></a>如何实现从 Azure Stack 中心使用情况 Api 提取使用情况数据？
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-hub-usage-apis"></a>如何通过 Azure Stack Hub 用量 API 提取用量数据？
 
-从 Azure Stack 中心上的本地使用情况 Api 提取使用情况数据的最简单方法是使用[GitHub 上的使用情况摘要脚本](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1)。 该脚本需要将开始日期和结束日期作为输入参数。
+若要在 Azure Stack Hub 上通过本地用量 API 提取用量数据，最简单的方法是使用 [GitHub 上的用量摘要脚本](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1)。 该脚本需要将开始日期和结束日期作为输入参数。
 
 或者，可以使用 REST API，如[提供程序资源使用情况 API](azure-stack-provider-resource-api.md) 和[租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md) 文章中所述。
 
-## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-hub-user-subscription"></a>如何将从 Azure 使用情况 Api 提取的使用情况关联到特定的 Azure Stack 中心用户订阅？
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-hub-user-subscription"></a>如何将通过 Azure 用量 API 提取的用量与特定的 Azure Stack Hub 用户订阅相关联？
 
-使用记录包括名为**additionalinfo**的属性包，其中包括 Azure Stack 中心订阅 ID。 此 ID 是发出相应使用记录的用户订阅。
+用量记录包含名为 **additionalinfo** 的属性包，其中包括 Azure Stack Hub 订阅 ID。 此 ID 是发出相应用量记录的用户订阅。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Azure Stack 中心中的客户计费和退款](azure-stack-billing-and-chargeback.md)
+* [Azure Stack Hub 中的客户计费和退款](azure-stack-billing-and-chargeback.md)
 * [提供程序资源使用情况 API](azure-stack-provider-resource-api.md)
 * [租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md)

@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中设置开发环境
 description: 开始开发适用于 Azure Stack Hub 的应用程序。
 author: mattbriggs
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 7/23/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d86797e7239b32e779567942b2c53c1ae58d94c8
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: f54c8a442b9df31ff112f1e385b15c441c7c0ffd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661004"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920672"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>在 Azure Stack Hub 中设置开发环境 
 
@@ -76,7 +76,7 @@ Azure Stack Hub 使用 Azure Stack Hub 版的 Azure 资源管理器。 为了帮
 
 ### <a name="set-up-your-tools"></a>设置工具 
 
-1. 使用 PowerShell 进行设置。 有关说明，请参阅[安装 Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md)。 
+1. 使用 PowerShell 进行设置。 有关说明，请参阅 [安装 Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md)。 
 
 2. 下载 Azure Stack Hub 工具。 有关说明，请参阅[从 GitHub 下载 Azure Stack Hub 工具](../operator/azure-stack-powershell-download.md)。 
 
@@ -106,7 +106,7 @@ Azure Stack Hub 使用 Azure Stack Hub 版的 Azure 资源管理器。 为了帮
 
 在 Linux 计算机上，可以使用 Azure CLI 和 Visual Studio Code，或自己偏好的集成开发环境。 
 
-> [!Note]   
+> [!NOTE]   
 > 如果使用包含 ASDK 的 Linux 计算机，则远程计算机需位于 ASDK 所在的同一网络。 无法使用虚拟专用网连接进行连接。 
 
 ### <a name="set-up-your-tools"></a>设置工具 
@@ -135,7 +135,7 @@ Azure Stack Hub 使用 Azure Stack Hub 版的 Azure 资源管理器。 为了帮
 
 在 macOS 计算机中可以使用 Azure CLI 和 Visual Studio Code，或自己偏好的集成开发环境。 
 
-> [!Note]   
+> [!NOTE]   
 > 如果使用包含 ASDK 的 macOS 计算机，则远程计算机需位于 ASDK 所在的同一网络。 无法使用虚拟专用网连接进行连接。 
 
 ### <a name="set-up-your-tools"></a>设置工具 

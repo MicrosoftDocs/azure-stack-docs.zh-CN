@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 排查 Azure Stack 中心服务的验证问题。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 310a8a8d958428af2ce29f6c465a788e64870b8e
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 06e9958d2311d456e977d72fe37eb88d18008092
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146965"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764794"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>验证作为服务的验证
 
@@ -33,7 +33,7 @@ ms.locfileid: "84146965"
 
 ### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>在执行测试时，计算机上的代理进程已关闭。 要发生的情况
 
-如果代理进程已关闭意外，则在其上运行的测试将继续显示为 "**正在运行**"。 非常规关闭的一个示例是计算机重新启动并终止进程（代理窗口上的 CTRL + C 被视为正常关闭）。 如果代理重启，则代理会将测试状态更新为**已取消**。 如果代理未重启，则测试将显示为 "**正在运行**"，必须手动取消测试。
+如果代理进程已关闭意外，则在其上运行的测试将继续显示为 " **正在运行**"。 非常规关闭的一个示例是：重新启动计算机并终止进程 (在代理窗口上按 CTRL + C) 。 如果代理重启，则代理会将测试状态更新为**已取消**。 如果代理未重启，则测试将显示为 " **正在运行** "，必须手动取消测试。
 
 > [!Note]
 > 工作流中的测试安排为按顺序运行。 在同一工作流中**运行**状态的测试完成之前，不会执行**挂起**的测试。
@@ -41,7 +41,7 @@ ms.locfileid: "84146965"
 ## <a name="vm-images"></a>VM 映像
 
 ### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>在脚本中上传 VM 映像时出现故障 `VaaSPreReq`
-请参阅下面的部分来**处理慢速网络连接**。 它提供将 VM 映像上传到 Azure Stack 戳记的手动步骤。
+请参阅下面的部分来 **处理慢速网络连接**。 它提供将 VM 映像上传到 Azure Stack 戳记的手动步骤。
 
 ### <a name="handle-slow-network-connectivity"></a>处理慢速网络连接
 
@@ -57,9 +57,9 @@ ms.locfileid: "84146965"
 
 #### <a name="2-download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>2. 将 PIR 映像下载到本地共享，以防网络流量缓慢
 
-1. 下载 AzCopy： [vaasexternaldependencies （AzCopy）](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)。
+1. 下载 AzCopy： [vaasexternaldependencies (AzCopy) ](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)。
 
-2. 提取 AzCopy，并将其更改到包含的目录 `AzCopy.exe` 。
+2. 提取 AzCopy.zip 并将其更改到包含的目录 `AzCopy.exe` 。
 
 3. 从提升的提示符下打开 Windows PowerShell。 运行以下命令：
 
@@ -96,13 +96,13 @@ ms.locfileid: "84146965"
 
 2. 创建要将图像上传到的容器。
 
-3. 使用 Azcopy 工具将 VM 映像从上面的 [*LocalFileShare*] （下载 vm 映像的位置）上传到刚刚创建的容器。
+3. 使用 Azcopy 工具上传 (下载 VM 映像的 [*LocalFileShare*] 中的 vm 映像，以便将其) 到刚刚创建的容器中。
     > [!IMPORTANT]
-    > 将容器的 "公共访问级别" 更改为 "Blob （仅限 blob 的匿名读取访问）"
+    > 将容器的 "公共访问级别" 更改为 "Blob (仅限 blob 的匿名读取访问) "
 
 #### <a name="5-upload-vm-images-to-azure-stack-environment"></a>5. 将 VM 映像上传到 Azure Stack 环境
 
-1. 以服务管理员身份登录到管理门户。 你可以从 ECE 存储区或你的 stamp 信息文件中找到管理门户 URL。 有关说明，请参阅[环境参数](azure-stack-vaas-parameters.md#environment-parameters)。
+1. 以服务管理员身份登录到管理门户。 你可以从 ECE 存储区或你的 stamp 信息文件中找到管理门户 URL。 有关说明，请参阅 [环境参数](azure-stack-vaas-parameters.md#environment-parameters)。
 
 2. 选择 "**更多服务**" "  >  **资源提供程序**"  >  **Compute**  >  **VM Images**。
 
@@ -113,9 +113,9 @@ ms.locfileid: "84146965"
     > [!IMPORTANT]
     > 并非所有默认值对于现有 marketplace 项都是正确的。
 
-    | 字段  | Value  |
+    | 字段  | 值  |
     |---------|---------|
-    | 发布者 | MicrosoftWindowsServer |
+    | Publisher | MicrosoftWindowsServer |
     | 产品/服务 | WindowsServer |
     | OS 类型 | Windows |
     | SKU | 2012-R2-Datacenter |
@@ -123,7 +123,7 @@ ms.locfileid: "84146965"
     | OS 磁盘 Blob URI | https://<*存储帐户* >/< *容器名称*>/windowsserver2012r2datacenterbyol.vhd |
 
 
-5. 选择“创建”**** 按钮。
+5. 选择“创建”按钮。
 
 6. 为剩余的 VM 映像重复此操作。
 
@@ -141,4 +141,4 @@ ms.locfileid: "84146965"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 查看[验证即服务的发行说明](azure-stack-vaas-release-notes.md)，了解最新版本中的更改。
+- 查看 [验证即服务的发行说明](azure-stack-vaas-release-notes.md) ，了解最新版本中的更改。

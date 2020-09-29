@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中将 API 版本配置文件与 GO 配合使用
 description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 GO 配合使用。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: e40c51d44f93fae4e7293113ab7f06bad03677e3
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836183"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448667"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 GO 配合使用
 
@@ -48,7 +48,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compu
 
 ### <a name="go-autorest-dependencies"></a>Go-AutoRest 依赖项
 
-Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源管理器终结点。 必须从 **GitHub 上的 Azure Go-AutoRest** 导入 Azure [Go-AutoRest](https://github.com/Azure/go-autorest) 模块依赖项。 可以在 **Install** 节中找到 install bash 命令。
+Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源管理器终结点。 必须从 [GitHub 上的 Azure Go-AutoRest](https://github.com/Azure/go-autorest) 导入 Azure **Go-AutoRest** 模块依赖项。 可以在 **Install** 节中找到 install bash 命令。
 
 ## <a name="how-to-use-go-sdk-profiles-on-azure-stack-hub"></a>如何在 Azure Stack Hub 上使用 Go SDK 配置文件
 
@@ -145,7 +145,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    }
    ```
 
-   将 `<activeDirectoryEndpoint>` 设置为在本文上一部分中检索的 `loginEndpoint` 元数据中的 `ResourceManagerUrl` 属性值。 将 `<tenantID>` 值设置为你的 Azure Stack Hub 租户 ID。
+   将 `<activeDirectoryEndpoint>` 设置为在本文上一部分中检索的 `ResourceManagerUrl` 元数据中的 `loginEndpoint` 属性值。 将 `<tenantID>` 值设置为你的 Azure Stack Hub 租户 ID。
 
 4. 最后，使用 `NewServicePrincipalToken` 方法从 **adal** 模块创建服务主体令牌：
 

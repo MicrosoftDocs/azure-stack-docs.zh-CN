@@ -3,16 +3,16 @@ title: 使用 Azure CLI 管理 Azure Stack Hub
 description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack Hub 上的资源。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: c64b95874e6718fd394796dd0254f38127211f68
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 1fb17516e5ef0b4e3a670703a34e1e895c847b52
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631160"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818838"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>使用 Azure CLI 管理资源以及将资源部署到 Azure Stack Hub
 
@@ -81,7 +81,7 @@ ms.locfileid: "84631160"
 
 ### <a name="install-or-upgrade-cli"></a>安装或升级 CLI
 
-登录到开发工作站并安装 CLI。 Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 最新版本的 API 配置文件需要最新版本的 CLI。 使用[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 一文中所述的步骤安装 CLI。 
+登录到开发工作站并安装 CLI。 Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 最新版本的 API 配置文件需要最新版本的 CLI。 使用[安装 Azure CLI](/cli/azure/install-azure-cli) 一文中所述的步骤安装 CLI。 
 
 1. 若要验证安装是否成功，请打开终端或命令提示符窗口，并运行以下命令：
 
@@ -198,7 +198,7 @@ ms.locfileid: "84631160"
 
    - 以服务主体  身份登录： 
     
-     在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
+     在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](../operator/azure-stack-create-service-principals.md?view=azs-2002)，并为其分配角色。 接下来，使用以下命令登录：
 
      ```azurecli  
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
@@ -424,7 +424,7 @@ az group create -n MyResourceGroup -l local
    
    * 以服务主体身份登录 
     
-     在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
+     在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](../operator/azure-stack-create-service-principals.md?view=azs-2002)，并为其分配角色。 接下来，使用以下命令登录：
 
      ```azurecli  
      az login \

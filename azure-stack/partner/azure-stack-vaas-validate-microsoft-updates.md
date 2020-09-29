@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何通过将 Azure Stack 集线器验证作为服务来验证 Microsoft 的软件更新。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 46618ee2ab650842ebab9fc90b18b24131ac5d07
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: e0c9d3153da8030f828dc540f69a1d57b5e9d90a
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661125"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764845"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>验证来自 Microsoft 的软件更新
 
@@ -22,11 +22,11 @@ ms.locfileid: "81661125"
 
 Microsoft 会定期发布 Azure Stack 中心软件的更新。 这些更新提供给 Azure Stack 中心共同工程合作伙伴。 更新是在公开发布更新之前提供的。 你可以根据解决方案检查更新，并向 Microsoft 提供反馈。
 
-使用命名约定指定 Azure Stack 集线器的 Microsoft 软件更新。 例如，名称1803表示更新的2018年3月。 有关 Azure Stack 中心服务策略和发行说明的信息，请参阅[Azure Stack 中心维护策略](../operator/azure-stack-servicing-policy.md)。
+使用命名约定指定 Azure Stack 集线器的 Microsoft 软件更新。 例如，名称1803表示更新的2018年3月。 有关 Azure Stack 中心服务策略和发行说明的信息，请参阅 [Azure Stack 中心维护策略](../operator/azure-stack-servicing-policy.md)。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
-在执行验证即服务（VaaS）中的每月更新过程之前，应熟悉以下各项：
+在 (VaaS) 的 "验证即服务" 中试验每月更新过程之前，应熟悉以下各项：
 
 - [作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)
 
@@ -38,10 +38,10 @@ Microsoft 会定期发布 Azure Stack 中心软件的更新。 这些更新提�
 
 ## <a name="validating-software-updates"></a>正在验证软件更新
 
-1. 创建新的**包验证**工作流。
-1. 对于上面所需的测试，请按照[运行包验证测试](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)中的说明进行操作。 请参阅以下部分，了解有关**每月 Azure Stack 中心更新验证**测试的其他说明。
+1. 创建新的 **包验证** 工作流。
+1. 对于上面所需的测试，请按照 [运行包验证测试](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)中的说明进行操作。 请参阅以下部分，了解有关 **每月 Azure Stack 中心更新验证** 测试的其他说明。
 
-如果有疑问或问题，请联系[VaaS 帮助](mailto:vaashelp@microsoft.com)。
+如果有疑问或问题，请联系 [VaaS 帮助](mailto:vaashelp@microsoft.com)。
 
 ## <a name="next-steps"></a>后续步骤
 

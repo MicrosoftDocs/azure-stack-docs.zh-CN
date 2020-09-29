@@ -3,20 +3,20 @@ title: Azure Stack Hub 中的使用情况连接问题和错误
 description: 排查 Azure Stack Hub 使用情况问题和错误。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: a2c7ed968eeb6cbe9245590c6c0a75479294c916
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 50dda23de11c9da1913231da780c1005520706a7
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742401"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041581"
 ---
 # <a name="usage-connectivity-errors"></a>使用情况连接错误
 
-Azure Stack 集线器使用情况数据由 Azure Stack 集线器中的[*Azure Bridge*](azure-stack-usage-reporting.md)组件发送到 Azure。 如果 Azure Stack Hub 中的网桥无法连接到 Azure 使用情况服务，则会出现以下错误：
+Azure Stack 集线器使用情况数据由 Azure Stack 集线器中的 [*Azure Bridge*](azure-stack-usage-reporting.md) 组件发送到 Azure。 如果 Azure Stack Hub 中的网桥无法连接到 Azure 使用情况服务，则会出现以下错误：
 
 ![使用情况网桥错误](media/azure-stack-usage-issues/usageerror2.png)
 
@@ -30,7 +30,7 @@ Azure Stack 集线器使用情况数据由 Azure Stack 集线器中的[*Azure Br
 
 - 验证网络配置是否允许 Azure Bridge 连接到远程服务。
 
-- 转到[“区域管理” **“属性”** 边栏选项卡，找到用于注册的 Azure 订阅 ID、资源组和注册资源名称。 >   ](azure-stack-registration.md#verify-azure-stack-hub-registration) 检查注册资源是否位于 Azure 门户中的正确 Azure 订阅 ID 下。 为此，请转到 Azure 订阅 ID 下创建的**所有资源**，并选中“显示隐藏的类型”框。  如果找不到注册资源，请按照[续订或更改注册](azure-stack-registration.md#renew-or-change-registration)中的步骤重新注册 Azure Stack Hub。
+- 转到[“区域管理” > “属性”](azure-stack-registration.md#verify-azure-stack-hub-registration)边栏选项卡，找到用于注册的 Azure 订阅 ID、资源组和注册资源名称。  检查注册资源是否位于 Azure 门户中的正确 Azure 订阅 ID 下。 为此，请转到 Azure 订阅 ID 下创建的**所有资源**，并选中“显示隐藏的类型”框。 如果找不到注册资源，请按照[续订或更改注册](azure-stack-registration.md#renew-or-change-registration)中的步骤重新注册 Azure Stack Hub。
 
   ![门户](media/azure-stack-usage-issues/stackres.png)
 
@@ -47,7 +47,7 @@ Azure Stack 集线器使用情况数据由 Azure Stack 集线器中的[*Azure Br
 | 未授权               | Azure Bridge 无法将数据推送到 Azure 中的使用情况服务，因为 Azure 服务无法对 Azure Stack Hub 网桥进行身份验证。 | 检查注册资源是否已修改，如果是，请重新注册 Azure Stack Hub。 <br><br> 有时，Azure Stack Hub 与 Azure AD 之间的时间同步问题会导致此错误。 在此情况下，请确保 Azure Stack Hub 中 XRP VM 的时间与 Azure AD 同步。 |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-此外，可能还需要为 Azure Bridge、WAS 和 WASPublic 组件提供日志文件。
+此外，可能需要提供 Azure Bridge、WAS 和 WASPublic 组件的日志文件。
 
 ## <a name="next-steps"></a>后续步骤
 

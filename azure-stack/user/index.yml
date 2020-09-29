@@ -1,28 +1,28 @@
 ### YamlMime:Landing
-title: Azure Stack 集线器用户文档
+title: Azure Stack Hub 用户文档
 summary: Azure Stack Hub 是一个混合云平台，可用于通过公司或服务提供商的数据中心使用 Azure 服务。
 metadata:
-  title: Azure Stack 中心文档-教程、API 参考
+  title: Azure Stack Hub 文档 - 教程和 API 参考
   description: Azure Stack Hub 是一个混合云平台，可用于通过公司或服务提供商的数据中心使用 Azure 服务。
   ms.service: azure-stack
   ms.topic: landing-page
   author: mattbriggs
   ms.author: mabrigg
   ms.date: 03/19/2020
-  ms.openlocfilehash: a72fa2f57da84c18ee236c017fdd31a659946143
-  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.openlocfilehash: 889a3841ca8fd4bf54d38f04b83270ab3086d1ab
+  ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 04/14/2020
-  ms.locfileid: "80069217"
+  ms.lasthandoff: 09/10/2020
+  ms.locfileid: "89621276"
 landingContent:
-- title: 关于 Azure Stack 集线器
+- title: 关于 Azure Stack Hub
   linkLists:
   - linkListType: overview
     links:
     - text: 什么是 Azure Stack Hub？
       url: user-overview.md
-    - text: Azure 与 Azure Stack 中心之间的差异
+    - text: Azure 与 Azure Stack Hub 之间的差异
       url: azure-stack-considerations.md
 - title: 入门
   linkLists:
@@ -46,9 +46,9 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: 安装 Azure Stack 中心 PowerShell
-      url: https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2Ftoc.json%3Fview%3Dazs-2002&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-2002&view=azs-2002
-    - text: 为 Azure Stack 集线器安装 CLI
+    - text: 安装 Azure Stack Hub PowerShell
+      url: ../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2Ftoc.json%3Fview%3Dazs-2002&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-2002&view=azs-2002
+    - text: 为 Azure Stack Hub 安装 CLI
       url: azure-stack-version-profiles-azurecli2.md
   - linkListType: sample
     links:
@@ -58,15 +58,19 @@ landingContent:
       url: azure-stack-dev-start-vscode-azure.md
 - title: Azure Stack Hub 上的基础结构即服务 (IaaS)
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 快速入门 - 创建 VM
+      url: azure-stack-quick-linux-portal.md
   - linkListType: how-to-guide
     links:
+    - text: 迁移 VM
+      url: vm-move-overview.md
     - text: 使用模板在 IaaS 中部署 VM
       url: azure-stack-create-vm-template.md
     - text: 配置虚拟网络
       url: deploy-foundational-patterns.md
-    - text: 快速入门 - 创建 VM
-      url: azure-stack-quick-linux-portal.md
-    - text: 托管代码中编写的应用
+    - text: 托管用代码编写的应用
       url: azure-stack-dev-start-deploy-app.md
 - title: Azure Stack Hub 上的平台即服务 (PaaS)
   linkLists:

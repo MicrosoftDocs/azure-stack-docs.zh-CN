@@ -3,22 +3,22 @@ title: 在 Azure Stack Hub 中将 API 版本配置文件与 Python 配合使用
 description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 Python 配合使用。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 42a00b997031850a61077ec59a92d5df5b6776ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 88c2ecd1448a210daddd1d7da34ffea03c67a6b1
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82835894"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448633"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 Python 配合使用
 
 Python SDK 支持 API 版本配置文件以面向不同的云平台，如 Azure Stack 中心和全局 Azure。 使用 API 配置文件为混合云创建解决方案。
 
-本文中的说明需要 Microsoft Azure 订阅。 如果没有帐户，可以获取一个[免费试用帐户](https://go.microsoft.com/fwlink/?LinkId=330212)。
+本文中的说明需要 Microsoft Azure 订阅。 如果没有帐户，可以获取一个 [免费试用帐户](https://go.microsoft.com/fwlink/?LinkId=330212)。
 
 ## <a name="python-and-api-version-profiles"></a>Python 与 API 版本配置文件
 
@@ -37,7 +37,7 @@ Python SDK 支持以下 API 配置文件：
 
 ## <a name="install-the-azure-python-sdk"></a>安装 Azure Python SDK
 
-1. 从[官方站点](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)安装 Git。
+1. [安装 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 2. 有关如何安装 Python SDK 的说明，请参阅[面向 Python 开发人员的 Azure](/python/azure/python-sdk-azure-install?view=azure-python)。
 3. 如果此文不适用，请创建订阅，并保存订阅 ID 供以后使用。 有关创建订阅的说明，请参阅[在 Azure Stack Hub 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 4. 创建服务主体并保存其 ID 和机密。 有关如何为 Azure Stack Hub 创建服务主体的说明，请参阅[提供对 Azure Stack Hub 的应用程序访问权限](../operator/azure-stack-create-service-principals.md)。
@@ -187,6 +187,6 @@ Python SDK 支持以下 API 配置文件：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Python 开发中心](https://azure.microsoft.com/develop/python/)
+- [Azure Python 开发人员中心](https://azure.microsoft.com/develop/python/)
 - [Azure 虚拟机文档](https://azure.microsoft.com/services/virtual-machines/)
 - [虚拟机的学习路径](/learn/paths/deploy-a-website-with-azure-virtual-machines/)

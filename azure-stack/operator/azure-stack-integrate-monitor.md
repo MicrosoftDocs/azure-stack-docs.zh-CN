@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 0bc19bf584f482d2ec67758368afa11c91ae456e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243842"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428543"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>将外部监视解决方案与 Azure Stack Hub 集成
 
@@ -51,7 +51,7 @@ ms.locfileid: "81243842"
 - 可将自定义信息添加到区域。
 - 支持通知和报告。
 
-若要下载 System Center 管理包和关联的用户指南，请参阅[下载适用于 Microsoft Azure Stack 集线器的 System Center 管理包](https://www.microsoft.com/en-us/download/details.aspx?id=55184)。 也可直接从 Operations Manager 下载它。
+若要下载 System Center 管理包和关联的用户指南，请参阅 [下载适用于 Microsoft Azure Stack 集线器的 System Center 管理包](https://www.microsoft.com/en-us/download/details.aspx?id=55184)。 也可直接从 Operations Manager 下载它。
 
 对于票证解决方案，可将 Operations Manager 与 System Center Service Manager 集成。 集成的产品连接器支持双向通信，可让你在解决 Service Manager 中的服务请求之后关闭 Azure Stack Hub 和 Operations Manager 中的警报。
 
@@ -69,7 +69,10 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 在版本 1.2 中，Azure Stack Hub – Nagios 插件利用 Microsoft ADAL 库，并支持使用服务主体通过机密或证书进行身份验证。 此外，配置过程已通过单个配置文件与新的参数进行简化。 它现在支持使用 Azure AD 和 AD FS 作为标识系统来部署 Azure Stack Hub。
 
-该插件适用于 Nagios 4x 和 XI。 若要下载该插件，请参阅[监视 Azure Stack Hub 警报](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)。 下载站点还包含安装和配置详细信息。
+> [!IMPORTANT]
+> AD FS 仅支持交互式登录会话。 如果需要对自动化场景进行非交互式登录，则必须使用 SPN。
+
+该插件适用于 Nagios 4x 和 XI。 若要下载该插件，请参阅 [监视 Azure Stack 集线器警报](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)。 下载站点还包含安装和配置详细信息。
 
 ### <a name="requirements-for-nagios"></a>Nagios 的要求
 
@@ -83,7 +86,7 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 ### <a name="install-plugin"></a>安装插件
 
-本部分介绍如何安装采用 Nagios 默认安装的 Azure Stack Hub 插件。
+本部分介绍如何安装 Azure Stack 集线器插件，前提是 Nagios 的默认安装。
 
 插件包包含以下文件：
 
@@ -114,7 +117,7 @@ samples/etc/azurestack_services.cfg
 
 有关如何创建 SPN 的详细信息，请参阅[使用应用标识来访问资源](azure-stack-create-service-principals.md)。
 
-| 参数 | 说明 | Authentication |
+| 参数 | 说明 | 身份验证 |
 | --- | --- | --- |
 | **External_domain_fqdn ** | 外部域 FQDN |    |
 | **region: ** | 区域名称 |    |
@@ -124,7 +127,7 @@ samples/etc/azurestack_services.cfg
 | client_cert\*\*: | 证书的路径 | 包含证书的 SPN |
 | client_cert_thumbprint\*\*: | 证书指纹 | 包含证书的 SPN |
 
-\*使用 AD FS 的 Azure Stack Hub 部署不需要租户 ID。
+\*AD FS Azure Stack 中心部署不需要租户 ID。
 
 \*\* 客户端机密和客户端证书互斥。
 
@@ -137,7 +140,7 @@ samples/etc/azurestack_services.cfg
 | --- | --- |
 | azurestack_commands.cfg | 处理程序配置没有更改要求 |
 | azurestack_contacts.cfg | 通知设置 |
-| azurestack_hosts.cfg | Azure Stack Hub 部署命名 |
+| azurestack_hosts.cfg | Azure Stack 中心部署命名 |
 | azurestack_services.cfg | 服务的配置 |
 
 ### <a name="setup-steps"></a>设置步骤
@@ -148,7 +151,7 @@ samples/etc/azurestack_services.cfg
 
 ### <a name="update-nagios-configuration"></a>更新 Nagios 配置
 
-需要更新 Nagios 配置才能确保加载 Azure Stack Hub – Nagios 插件。
+需要更新 Nagios 配置，以确保加载 Azure Stack 集线器– Nagios 插件。
 
 1. 打开以下文件：
 
@@ -196,11 +199,11 @@ samples/etc/azurestack_services.cfg
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>使用 PowerShell 监视运行状况和警报
 
-如果不使用 Operations Manager、Nagios 或基于 Nagios 的解决方案，可以使用 PowerShell 来启用广泛的监视解决方案，以便与 Azure Stack Hub 集成。
+如果使用的不是 Operations Manager、Nagios 或基于 Nagios 的解决方案，则可以使用 PowerShell 来启用范围广泛的监视解决方案，以便与 Azure Stack 中心集成。
 
-1. 若要使用 PowerShell，请确保已针对 Azure Stack Hub 操作员环境[安装并配置 PowerShell](azure-stack-powershell-install.md)。 在可以访问资源管理器（管理员）终结点 (https://adminmanagement.[region].[External_FQDN]) 的本地计算机上安装 PowerShell。
+1. 若要使用 PowerShell，请确保已为 Azure Stack 中心运营商环境 [安装并配置 powershell](azure-stack-powershell-install.md) 。 在可以访问资源管理器（管理员）终结点 (https://adminmanagement.[region].[External_FQDN]) 的本地计算机上安装 PowerShell。
 
-2. 以 Azure Stack Hub 操作员身份运行以下命令，以连接到 Azure Stack Hub 环境：
+2. 运行以下命令以 Azure Stack 中心操作员身份连接到 Azure Stack 集线器环境：
 
    ```powershell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
@@ -234,7 +237,7 @@ samples/etc/azurestack_services.cfg
 
 ## <a name="learn-more"></a>了解详细信息
 
-有关内置运行状况监视的信息，请参阅[在 Azure Stack Hub 中监视运行状况和警报](azure-stack-monitor-health.md)。
+有关内置运行状况监视的信息，请参阅 [监视 Azure Stack 集线器中的运行状况和警报](azure-stack-monitor-health.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

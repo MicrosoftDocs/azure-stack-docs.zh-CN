@@ -7,12 +7,12 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: 9556784a86ecca0d55b7cafa407a667b69efd8fd
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: af5aa752d48fd51712695056d771ddf333a34df0
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666375"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274103"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Azure Stack Hub 中的配额类型
 
@@ -43,7 +43,7 @@ ms.locfileid: "84666375"
 | 存储帐户的总数 |20 个 |订阅可以在此位置创建的存储帐户数目上限。 |
 
 > [!NOTE]
-> 如果在一个订阅中超出“最大容量(GB)”，则无法在此订阅中创建新的存储资源。 但在 VM 中，可以继续使用此订阅中创建的非托管磁盘，这可能会导致总使用容量远远超出配额限制。<br>托管磁盘的最大容量独立于总存储配额。 可以在“计算配额”中设置此值。
+> 如果超过了订阅的 **最大容量 (GB) ** ，则无法在订阅中创建新的存储资源。 尽管仍可使用非托管磁盘创建 Vm，但这样做可能会导致总已用容量超过配额限制。<br>托管磁盘的最大容量独立于总存储配额。 可以在 **计算配额**中设置总存储配额。
 
 ## <a name="network-quota-types"></a>网络配额类型
 

@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 存储中使用数据传输工具
 description: 了解 Azure Stack Hub 存储数据传输工具。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: d61ce13c46e53f5eb2b9ed8fa544096db6ca8590
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 3f3f39a03220150a71fddc090cc6aeb84525bab9
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660157"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818974"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>在 Azure Stack Hub 存储中使用数据传输工具
 
@@ -32,7 +32,7 @@ Azure Stack Hub 提供一组存储服务，适用于磁盘、Blob、表、队列
 
     一种开源的跨平台工具，提供了一组适用于 Azure 和 Azure Stack Hub 平台的命令。
 
-* [Microsoft 存储资源管理器](#microsoft-azure-storage-explorer)
+* [Microsoft Azure 存储资源管理器](#microsoft-azure-storage-explorer)
 
     一个易于使用的独立应用，带有用户界面。
 
@@ -49,7 +49,7 @@ AzCopy 是一个命令行实用程序，旨在使用具有最佳性能的简单�
 ### <a name="download-and-install-azcopy"></a>下载并安装 AzCopy
 
 ::: moniker range=">=azs-1811"
-* 对于1811更新或更高版本，请[下载 AzCopy V10 +](/azure/storage/common/storage-use-azcopy-v10#download-azcopy)。
+* 对于 1811 更新或更高版本，请[下载 AzCopy V10+](/azure/storage/common/storage-use-azcopy-v10#download-azcopy)。
 ::: moniker-end
 
 ::: moniker range="<azs-1811"
@@ -213,7 +213,7 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以将�
 
 Azure CLI 经过优化，可用于从命令行管理 Azure 资源，以及生成可以针对 Azure 资源管理器运行的自动化脚本。 它提供 Azure Stack Hub 门户所提供的许多功能，包括各种数据访问功能。
 
-Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 若要详细了解如何通过 Azure Stack Hub 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack Hub CLI](azure-stack-version-profiles-azurecli2.md)。 有关如何使用 Azure CLI 来执行多个任务（使用 Azure Stack 中心存储帐户中的资源）的详细信息，请参阅[将 Azure CLI 与 Azure 存储配合使用](/azure/storage/storage-azure-cli)。
+Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 若要详细了解如何通过 Azure Stack Hub 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack Hub CLI](azure-stack-version-profiles-azurecli2.md)。 有关如何使用 Azure CLI 来执行多个任务（使用 Azure Stack 中心存储帐户中的资源）的详细信息，请参阅 [将 Azure CLI 与 Azure 存储配合使用](/azure/storage/storage-azure-cli)。
 
 ### <a name="azure-cli-sample-script-for-azure-stack-hub"></a>适用于 Azure Stack Hub 的 Azure CLI 示例脚本
 
@@ -276,11 +276,11 @@ Azure 存储资源管理器是 Microsoft 提供的独立应用， 它可用来�
 
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) 是适用于 Azure Blob 存储的虚拟文件系统驱动程序，用于通过 Linux 文件系统访问存储帐户中的现有块 Blob 数据。 Azure Blob 存储是一项对象存储服务，因此没有分层命名空间。 Blobfuse 使用虚拟目录方案提供这种命名空间，并使用正斜杠“`/`”作为分隔符。 Blobfuse 适用于 Azure 和 Azure Stack 中心。 
 
-若要详细了解如何使用 Linux 上的 Blobfuse 将 Blob 存储装载为文件系统，请参阅[如何使用 Blobfuse 将 Blob 存储装载为文件系统](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)。 
+若要详细了解如何使用 Linux 上的 Blobfuse 将 Blob 存储装载为文件系统，请参阅[如何使用 Blobfuse 将 Blob 存储装载为文件系统](/azure/storage/blobs/storage-how-to-mount-container-linux)。 
 
-对于 Azure Stack 中心，需要在配置存储帐户凭据时指定*blobEndpoint* ，同时配置 AccountName、AccountKey/SasToken 和容器名。
+对于 Azure Stack Hub，在配置存储帐户凭据时，除了 accountName、accountKey/sasToken、containerName 之外，还需要指定 *blobEndpoint*。
 
-在 Azure Stack 开发工具包 (ASDK) 中，*blobEndpoint* 应当为 `myaccount.blob.local.azurestack.external`。 在 Azure Stack 集线器集成系统中，如果你不确定终结点，请与云管理员联系。
+在 Azure Stack 开发工具包 (ASDK) 中，*blobEndpoint* 应当为 `myaccount.blob.local.azurestack.external`。 在 Azure Stack Hub 集成系统中，如果不确定你的终结点，请与云管理员联系。
 
 *accountKey* 和 *sasToken* 一次只能配置一个。 提供存储帐户密钥时，凭据配置文件采用以下格式：
 
@@ -302,7 +302,7 @@ blobEndpoint myaccount.blob.local.azurestack.external
 
 ## <a name="next-steps"></a>后续步骤
 
-* [将存储资源管理器连接到 Azure Stack 中心订阅](azure-stack-storage-connect-se.md)
+* [将存储资源管理器连接到 Azure Stack Hub 订阅](azure-stack-storage-connect-se.md)
 * [存储资源管理器入门](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [与 Azure 一致的存储：差异和注意事项](azure-stack-acs-differences.md)
 * [Microsoft Azure 存储简介](/azure/storage/common/storage-introduction)

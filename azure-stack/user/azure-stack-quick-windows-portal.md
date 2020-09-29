@@ -3,16 +3,16 @@ title: 使用 Azure Stack Hub 门户创建 Windows VM
 description: 了解如何使用 Azure Stack Hub 门户创建 Windows Server 2016 虚拟机 (VM)。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 5e34a943984583ab1e6d3a83a4aa5e4e7d302d5c
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: bbf0ad658100457c9d7b6b47e9f89b2af48e0e1f
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631247"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88819161"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack Hub 门户创建 Windows 服务器 VM
 
@@ -32,7 +32,7 @@ ms.locfileid: "84631247"
 ## <a name="create-a-vm"></a>创建 VM
 
 1. 选择“创建资源”   > “计算”  。 搜索 ` Windows Server 2016 Datacenter – Pay as you use`。
-    如果看不到 " **Windows Server 2016 Datacenter-即用即付**" 条目，请与 Azure Stack 中心云操作员联系，要求将图像添加到 Azure Stack 中心市场。 有关说明，你的云操作员可以参阅[创建和发布自定义 Azure Stack 中心市场项](../operator/azure-stack-create-and-publish-marketplace-item.md)。
+    如果看不到 " **Windows Server 2016 Datacenter-即用即付** " 条目，请与 Azure Stack 中心云操作员联系，要求将图像添加到 Azure Stack 中心市场。 有关说明，你的云操作员可以参阅 [创建和发布自定义 Azure Stack 中心市场项](../operator/azure-stack-create-and-publish-marketplace-item.md)。
 
     ![Windows Server 2016 Datacenter –按使用情况付费](./media/azure-stack-quick-windows-portal/image1.png)
 

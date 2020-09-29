@@ -4,16 +4,16 @@ description: 了解 Azure Stack Hub 中的配置文件支持的 Azure 资源管�
 author: sethmanheim
 ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: a70ef2865b43732dcc7f546106d6584284762f88
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 16e34ffaeb32e4652c83a3ee668235e79190b74d
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780738"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089654"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Azure Stack Hub 中的配置文件支持的资源提供程序 API 版本
 

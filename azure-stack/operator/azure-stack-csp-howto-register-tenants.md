@@ -3,20 +3,20 @@ title: 将租户添加到 Azure Stack Hub 以获取用量和计费信息
 description: 了解如何将租户添加到 Azure Stack Hub 以获取用量和计费信息。
 author: sethmanheim
 ms.topic: article
-ms.date: 5/28/2020
+ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 08185a25c608c735aa99ca7f7d2b060c8b67042b
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158378"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448565"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>将租户添加到 Azure Stack Hub 以获取用量和计费信息
 
-本文介绍如何将租户添加到由云解决方案提供商（CSP）管理的 Azure Stack 中心部署。 当新租户使用资源时，Azure Stack Hub 会向其 CSP 订阅报告用量。
+本文介绍如何将租户添加到云解决方案提供商 (CSP) 管理的 Azure Stack Hub 部署。 当新租户使用资源时，Azure Stack Hub 会向其 CSP 订阅报告用量。
 
 CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提供服务。 将租户添加到 Azure Stack Hub 注册可确保向相应的 CSP 订阅报告每个租户的用量并计收费用。 如果未完成本文中的步骤，则会向 Azure Stack Hub 初始注册中使用的订阅计收租户使用费。 在将最终用户添加到 Azure Stack Hub 以跟踪用量并管理其租户之前，必须将 Azure Stack Hub 配置为 CSP。 有关步骤和资源，请参阅[管理充当云解决方案提供商的 Azure Stack Hub 的用量和计费](azure-stack-add-manage-billing-as-a-csp.md)。
 
@@ -43,20 +43,20 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>在最终客户目录中创建来宾用户
 
-默认情况下，作为 CSP 你将无权访问最终客户的 Azure Stack Hub 订阅。 但是，如果客户希望你管理其资源，那么他们可以将你的帐户作为所有者/参与者添加到其 Azure Stack Hub 订阅。 要执行此操作，必须将你的帐户作为来宾用户添加到其 Azure AD 租户。 建议你使用与 Azure CSP 帐户不同的帐户来管理客户的 Azure Stack Hub 订阅，以确保你不会失去访问客户的 Azure 订阅的权限。
+默认情况下，作为 CSP 你将无权访问最终客户的 Azure Stack Hub 订阅。 但是，如果客户希望你管理其资源，那么他们可以将你的帐户作为所有者/参与者添加到其 Azure Stack Hub 订阅。 为此，他们必须将你的帐户作为来宾用户添加到其 Azure AD 租户。 建议你使用与 Azure CSP 帐户不同的帐户来管理客户的 Azure Stack Hub 订阅，以确保你不会失去访问客户的 Azure 订阅的权限。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>更新最终客户订阅中的注册
 
 更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心的客户标识来报告客户用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用量跟踪和计费。 若要执行此步骤，必须先[注册 Azure Stack Hub](azure-stack-registration.md)。
 
-1. 在权限提升的提示符下打开 Windows PowerShell，然后运行：  
+1. 在权限提升的提示符窗口中打开 Windows PowerShell 并运行：  
 
    ```powershell
    Add-AzureRmAccount
    ```
 
    >[!NOTE]
-   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用**add-azurermaccount**：登录之前运行以下 cmdlet `Remove-AzureRmAccount-Scope Process` 。
+   > 如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`****。
 
 2. 键入 Azure 凭据。
 3. 在 PowerShell 会话中运行：
@@ -74,7 +74,7 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
 |registrationSubscriptionID | 用于 Azure Stack Hub 初始注册的 Azure 订阅。|
 | customerSubscriptionID | 属于要注册的客户的 Azure 订阅（非 Azure Stack Hub）。 必须在 CSP 套餐中创建。 实际上，这意味着通过合作伙伴中心。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack Hub 的租户中创建此订阅。 客户订阅 ID 区分大小写。 |
 | resourceGroup | Azure 中用于存储注册的资源组。 |
-| registrationName | Azure Stack Hub 的注册名称。 它是 Azure 中存储的对象。 
+| registrationName | Azure Stack Hub 的注册名称。 它是 Azure 中存储的对象。
 
 > [!NOTE]  
 > 租户必须注册到它们使用的每个 Azure Stack Hub。 如果有两个 Azure Stack Hub 部署，并且某个租户要使用这两个部署，则必须使用租户订阅更新每个部署的初始注册。
