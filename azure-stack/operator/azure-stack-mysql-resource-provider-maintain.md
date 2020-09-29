@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 中的 MySQL 资源提供程序维护操作
+title: MySQL 资源提供程序维护操作-Azure Stack 中心
 description: 了解如何在 Azure Stack Hub 中维护 MySQL 资源提供程序服务。
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 219689721c66bcf97bb776874a1b33e84fcfa6d0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698719"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572657"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub 中的 MySQL 资源提供程序维护操作
 
@@ -92,6 +92,7 @@ $session | Remove-PSSession
 - [部署期间提供的](azure-stack-pki-certs.md)外部 SSL 证书。
 - 部署期间提供的资源提供程序 VM 本地管理员帐户密码。
 - 资源提供程序诊断用户 (dbadapterdiag) 密码。
+-  (版本 >= 1.1.47.0) 部署期间生成的 Key Vault 证书。
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>用于轮换机密的 PowerShell 示例
 
@@ -105,8 +106,8 @@ $session | Remove-PSSession
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd `  
-    -VMLocalCredential $localCreds
-
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **更改诊断用户密码：**
@@ -117,7 +118,6 @@ $session | Remove-PSSession
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -DiagnosticsUserPassword  $passwd
-
 ```
 
 **更改 VM 本地管理员帐户密码：**
@@ -128,7 +128,6 @@ $session | Remove-PSSession
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -VMLocalCredential $localCreds
-
 ```
 
 **更改 SSL 证书密码：**
@@ -140,21 +139,32 @@ $session | Remove-PSSession
     -AzCredential $adminCreds `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd
+```
 
+**更改 Key Vault 证书密码：**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 ### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1 参数
 
-|参数|说明|
-|-----|-----|
-|AzCredential|Azure Stack Hub 服务管理员帐户凭据。|
-|CloudAdminCredential|Azure Stack Hub 云管理域帐户凭据。|
-|PrivilegedEndpoint|用于访问 Get-AzureStackStampInformation 的特权终结点。|
-|DiagnosticsUserPassword|诊断用户帐户密码。|
-|VMLocalCredential|MySQLAdapter VM 上的本地管理员帐户。|
-|DefaultSSLCertificatePassword|默认 SSL 证书 (*pfx) 密码。|
-|DependencyFilesLocalPath|依赖项文件本地路径。|
-|     |     |
+|参数|说明|注释|
+|-----|-----|-----|
+|AzureEnvironment|用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment**或使用中国 Azure Active Directory、 **AzureChinaCloud**。|可选|
+|AzCredential|Azure Stack 中心服务管理员帐户凭据。|必需|
+|CloudAdminCredential|Azure Stack 中心云管理域帐户凭据。|必需|
+|PrivilegedEndpoint|用于访问 Get-AzureStackStampInformation 的特权终结点。|必需|可选|
+|DiagnosticsUserPassword|诊断用户帐户密码。|可选|
+|VMLocalCredential|MySQLAdapter VM 上的本地管理员帐户。|可选|
+|DefaultSSLCertificatePassword|默认 SSL 证书 ( * .pfx) 密码。|可选|
+|DependencyFilesLocalPath|依赖项文件本地路径。|可选|
+|KeyVaultPfxPassword|用于为数据库适配器生成 Key Vault 证书的密码。|可选|
+|     |     |     |
 
 ### <a name="known-issues"></a>已知问题
 
@@ -224,9 +234,9 @@ $session | Remove-PSSession
 
 1. 登录到 Azure Stack Hub 管理员门户。
 
-2. 从左侧窗格中选择“虚拟机”，搜索 MySQL 资源提供程序适配器 VM，然后选择该 VM  。
+2. 从左侧窗格中选择“虚拟机”，搜索 MySQL 资源提供程序适配器 VM，然后选择该 VM****。
 
-3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志    。
+3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志************。
    
    ![转到诊断设置](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
@@ -234,11 +244,11 @@ $session | Remove-PSSession
 
    ![添加事件日志](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”   。
+5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”********。
 
    ![添加 IIS 日志](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 
-6. 最后，选择“保存”以保存所有诊断设置  。
+6. 最后，选择 " **保存** " 以保存所有诊断设置。
 
 为 MySQL 资源提供程序配置事件日志和 IIS 日志收集后，即可在名为 **mysqladapterdiagaccount** 的系统存储帐户中找到日志。
 

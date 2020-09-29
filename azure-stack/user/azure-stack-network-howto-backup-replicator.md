@@ -1,18 +1,18 @@
 ---
-title: 如何跨多个 Azure Stack Hub 订阅复制资源
+title: 跨多个 Azure Stack 中心订阅复制资源
 description: 了解如何使用 Azure Stack Hub 订阅复制器脚本集复制资源。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 14f86b63e8089069d53e7b849d4bfea55007f34e
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173907"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571688"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>使用 Azure Stack Hub 订阅复制器复制资源
 
@@ -72,15 +72,15 @@ Azure 订阅复制器采用模块化设计。 此工具使用核心处理器来�
 
 ## <a name="add-additional-resource-types"></a>添加其他资源类型
 
-添加资源类型的过程很简单。 开发人员必须创建自定义处理器，以及 Azure 资源管理器模板或 Azure 资源管理器模板生成器。 上述操作完成后，开发人员还必须将资源类型添加到 **$resourceType** 参数的 ValidateSet，以及 resource_retriever.ps1 中的 **$resourceTypes** 数组。 将资源类型添加到 **$resourceTypes**数组时，必须按正确的顺序添加。 数组顺序确定资源的部署顺序，因此要考虑到依赖项。 最后，如果自定义处理器使用 Azure 资源管理器模板生成器，则必须将资源类型名称添加到 **post_process.ps1** 中的 **$customTypes** 数组。
+添加资源类型的过程很简单。 开发人员必须创建自定义处理器，以及 Azure 资源管理器模板或 Azure 资源管理器模板生成器。 上述操作完成后，开发人员还必须将资源类型添加到 **$resourceType** 参数的 ValidateSet，以及 resource_retriever.ps1 中的 **$resourceTypes** 数组。 将资源类型添加到 **$resourceTypes** 数组时，必须按正确的顺序添加。 数组顺序确定资源的部署顺序，因此要考虑到依赖项。 最后，如果自定义处理器使用 Azure 资源管理器模板生成器，则必须将资源类型名称添加到 **post_process.ps1** 中的 **$customTypes** 数组。
 
 ## <a name="run-azure-subscription-replicator"></a>运行 Azure 订阅复制器
 
-若要运行 Azure 订阅复制器 (v3) 工具，必须启动 resource_retriever.ps1，并提供所有参数。 在 **resourceType** 参数中，有一个选项可用于选择“All”而不是一种资源类型。  如果选择“All”，resource_retriever.ps1 将按某种顺序处理所有资源，以便在运行部署时首先部署依赖的资源。  例如，先部署 VNet，再部署虚拟机，因为虚拟机需要 VNet 准备就绪才能正确部署。
+若要运行 Azure 订阅复制器 (v3) 工具，必须启动 resource_retriever.ps1，并提供所有参数。 在 **resourceType** 参数中，有一个选项可用于选择“All”而不是一种资源类型。 如果选择“All”，resource_retriever.ps1 将按某种顺序处理所有资源，以便在运行部署时首先部署依赖的资源。 例如，先部署 VNet，再部署虚拟机，因为虚拟机需要 VNet 准备就绪才能正确部署。
 
 脚本运行完成后，会出现三个新文件夹：**Deployment_Files**、**Parameter_Files** 和 **Custom_ARM_Templates**。
 
- > [!Note]  
+ > [!NOTE]  
  > 在运行任何已生成的脚本之前，必须先设置正确的环境并登录到目标订阅（例如，在新的 Azure Stack Hub 中），然后将工作目录设置为 **Deployment_Files** 文件夹。
 
 Deployment_Files 包含两个文件：**DeployResourceGroups.ps1** 和 **DeployResources.ps1**。 执行 DeployResourceGroups.ps1 会部署资源组。 执行 DeployResources.ps1 会部署所有已处理的资源。 如果在使用 **All** 或 **Microsoft.Compute/virtualMachines** 作为资源类型的情况下运行该工具，DeployResources.ps1 将提示用户输入虚拟机管理员密码，以用于创建所有虚拟机。
@@ -91,20 +91,20 @@ Deployment_Files 包含两个文件：**DeployResourceGroups.ps1** 和 **DeployR
 
     ![运行脚本](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > 别忘了为 PS 实例配置环境和订阅上下文。 
 
 2.  查看新建的文件夹：
 
     ![查看文件夹](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  将上下文设置为目标订阅，将文件夹更改为**Deployment_Files**，部署资源组（运行 DeployResourceGroups 脚本），然后启动资源部署（运行 DeployResources 脚本）。
+3.  将上下文设置为目标订阅，将文件夹更改为 Deployment_Files，部署资源组（运行 DeployResourceGroups.ps1 脚本），然后启动资源部署（运行 DeployResources.ps1 脚本）。
 
     ![配置并启动部署](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
 4.  运行 `Get-Job` 以检查状态。 Get-Job | Receive-Job 将返回结果。
 
-## <a name="clean-up"></a>清除
+## <a name="clean-up"></a>清理
 
 在 replicatorV3 文件夹中，有一个名为 **cleanup_generated_items.ps1** 的文件 - 该文件将删除 **Deployment_Files**、**Parameter_Files** 和 **Custom_ARM_Templates** 文件夹及其所有内容。
 
@@ -170,7 +170,7 @@ Azure 订阅复制器 (v3) 目前可以复制以下资源类型：
             - 网络安全组配置  
             - 可用性集配置  
 
-> [!Note]  
+> [!NOTE]  
 > 仅为 OS 磁盘和数据磁盘创建托管磁盘。 目前不支持使用存储帐户 
 
 ### <a name="limitations"></a>限制

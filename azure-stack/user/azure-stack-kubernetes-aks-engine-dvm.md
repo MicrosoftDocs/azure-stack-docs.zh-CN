@@ -1,45 +1,45 @@
 ---
 title: 将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎
-description: 了解如何将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎。
+description: 了解如何在 Azure Stack Hub 上将市场项群集移动到 AKS 引擎。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 222212a26362a617322b65f93509a0cd2a313999
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: f80be3811f24a8ee2677543d2229f99f335d9eb3
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146863"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573932"
 ---
-# <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎
+# <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack Hub 上将市场项群集移动到 AKS 引擎
 
-Kubernetes Azure Stack 中心市场项使用 Azure 资源管理器模板来部署部署虚拟机（VM），以下载和安装 AKS 引擎，并生成用于描述群集的输入 API 模型，然后在 VM 和部署的群集中运行 AKS 引擎。 本文介绍如何访问 AKS 引擎和相应的文件，以便你可以使用它来对 Kubernetes 群集执行更新和缩放操作。
+Kubernetes Azure Stack Hub 市场项使用 Azure 资源管理器模板来部署一个部署虚拟机 (VM)，以下载和安装 AKS 引擎，并生成用于描述群集的输入 API 模型，之后，AKS 引擎会在部署的 VM 和群集中运行。 本文介绍如何访问 AKS 引擎和相应的文件，以便之后可以使用它在 Kubernetes 群集上执行更新和缩放操作。
 
-## <a name="access-aks-engine-in-the-dvm"></a>访问 DVM 中的 AKS 引擎
+## <a name="access-aks-engine-in-the-dvm"></a>在 DVM 中访问 AKS 引擎
 
-Kubernetes Azure Stack 中心市场项启动的部署成功完成后，可以在为群集指定的资源组中找到用于部署群集的 AKS 引擎，此 VM 不属于 Kubernetes 群集，它是在它自己的 VNet 中创建的。 下面是查找 VM 并在其中找到 AKS 引擎的步骤：
+Kubernetes Azure Stack Hub 市场项启动的部署成功完成后，可以发现，用于部署群集的 AKS 引擎已安装在你为群集指定的资源组中创建的部署 VM 上，此 VM 不是 Kubernetes 群集的一部分，而是在其自己的 VNet 中创建的。 以下是用于查找该 VM 并在其中定位 AKS 引擎的步骤：
 
-1.  打开 Azure Stack 集线器用户门户，找到为 Kubernetes 群集指定的资源组。
-2.  在资源组中，找到 "部署 VM"。 名称以前缀： **vmd-** 开头。
-3.  选择部署 VM。 在 "概述" 中，请查看公共 IP 地址。 使用此地址和控制台应用（如 Putty）与 VM 建立 SSH 会话。
-4.  在部署虚拟机上的会话中，可在以下路径找到 AKS 引擎：`./var/lib/waagent/custom-script/download/0/bin/aks-engine`
-5.  找到 `.json` 描述用作 aks 的输入的分类的文件。 以为形式的文件 `/var/lib/waagent/custom-script/download/0/bin/azurestack.json` 。 请注意，该文件具有用于部署群集的服务主体凭据。 如果决定保留该文件，请注意将文件传输到受保护的存储区。
-6.  在处找到由 AKS 引擎生成的输出目录 `/var/lib/waagent/custom-script/download/0/_output/<resource group name>` 。 在此目录中，查找路径中的输出 `apimodel.json` `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` 。 目录和 `apimodel.json` 文件包含部署 Kubernetes 群集所需的所有生成的证书、密钥和凭据。 将这些资源存储在一个安全的位置。
-7.  在路径中找到 Kubernetes 配置文件（通常称为**kubeconfig**文件）， `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` 其中 **\<location>** 与 Azure Stack 中心位置标识符相对应。 如果计划设置**kubectl**来访问 Kubernetes 群集，此文件将很有用。
+1.  打开 Azure Stack Hub 用户门户，找到为 Kubernetes 群集指定的资源组。
+2.  在该资源组中，找到部署 VM。 其名称以前缀“vmd-”开头。
+3.  选择该部署 VM。 在“概述”中，找到公共 IP 地址。 使用此地址和控制台应用（如 Putty）建立与该 VM 的 SSH 会话。
+4.  在部署 VM 上的会话中，从以下路径找到 AKS 引擎：`./var/lib/waagent/custom-script/download/0/bin/aks-engine`
+5.  找到 `.json` 文件，该文件描述用作 aks-engine 的输入的群集。 该文件位于 `/var/lib/waagent/custom-script/download/0/bin/azurestack.json`。 请注意，该文件具有用于部署群集的服务主体凭据。 如果决定保留该文件，请注意将该文件传输到受保护的存储。
+6.  找到 AKS 引擎生成的输出目录 `/var/lib/waagent/custom-script/download/0/_output/<resource group name>`。 在此目录下的路径 `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` 中找到输出 `apimodel.json`。 该目录和 `apimodel.json` 文件包含部署 Kubernetes 群集所需的所有已生成证书、密钥和凭据。 请将这些资源存储在安全位置。
+7.  在路径 `/var/lib/waagent/custom-script/download/0/_output/k8smpi00/kubeconfig/kubeconfig.<location>.json` 处找到 Kubernetes 配置文件（通常称为 kubeconfig 文件），其中“\<location>”对应于 Azure Stack Hub 位置标识符 。 如果计划设置 kubectl 来访问 Kubernetes 群集，此文件会很有用。
 
 
-## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>将 AKS 引擎用于新创建的群集
+## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>将 AKS 引擎与新创建的群集配合使用
 
-找到 aks、输入 apimodel 文件、输出目录和输出 apimodel 文件后，将其存储在安全的位置，即可在 `apimodel.json` 任何 LINUX VM 上使用 aks 引擎二进制文件和输出。
+找到 aks-engine、输入 apimodel.json 文件、输出目录和输出 apimodel.json 文件后，请立即将其存储在受保护的位置，你可以在任意 Linux VM 上使用 AKS 引擎二进制文件和输出 `apimodel.json`。
 
-1.  若要继续使用 AKS 引擎，若要执行**升级**和**缩放**等操作，请将**AKS**二进制文件复制到目标计算机。 如果将同一**vmd**计算机用于目录。
+1.  若要继续使用 AKS 引擎以执行“升级”和“缩放”等操作，请将“aks-engine”二进制文件复制到目标计算机  。 如果使用的是同一台“vmd-”计算机，则复制到一个目录中。
 
-2.  使用群集名称或引用新群集的其他 mnemotechnic 名称创建目录，并将输出 apimodel 文件保存在其中。 请确保它是受保护的位置，因为此文件包含凭据。 之后，你可以运行 aks，以运行[扩展](azure-stack-kubernetes-aks-engine-scale.md)或[升级](azure-stack-kubernetes-aks-engine-upgrade.md)等操作
+2.  使用群集名称或其他用于指代新群集的易记名称创建目录，并将输出 apimodel.json 文件保存在该目录中。 请确保该目录位置是受保护的，因为此文件中包含凭据。 之后，即可运行 aks-engine 来执行“[缩放](azure-stack-kubernetes-aks-engine-scale.md)”或“[升级](azure-stack-kubernetes-aks-engine-upgrade.md)”等操作
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[Azure Stack 集线器上的 AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)  
-- [对 Azure Stack 集线器上的 AKS 引擎进行故障排除](azure-stack-kubernetes-aks-engine-troubleshoot.md)  
+- 了解 [Azure Stack Hub 上的 AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)  
+- [在 Azure Stack Hub 上排除 AKS 引擎故障](azure-stack-kubernetes-aks-engine-troubleshoot.md)  

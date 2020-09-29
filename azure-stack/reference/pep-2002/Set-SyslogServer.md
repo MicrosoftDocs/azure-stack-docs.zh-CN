@@ -1,20 +1,20 @@
 ---
-title: Azure Stack 中心的 PrivilegedEndpoint 特权终结点
-description: 适用于 PowerShell 的引用 Azure Stack 特权终结点-PrivilegedEndpoint
+title: Set-SyslogServer
+description: PowerShell Azure Stack 特权终结点 - Close-PrivilegedEndpoint 参考
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 1b0df5892149d8cd351e3a222b11cf63c9d37759
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 328862a4d6d598781a88597ea1d03fbaf50a4885
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562703"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742690"
 ---
-# <a name="set-syslogserver"></a>SyslogServer
+# <a name="set-syslogserver"></a>Set-SyslogServer
 
 ## <a name="synopsis"></a>摘要
 设置 syslog 服务器终结点。
@@ -60,11 +60,11 @@ Set-SyslogServer -ServerName <FQDN or IP address of Syslog server>
 Set-SyslogServer -Remove
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-servername"></a>-ServerName
 Syslog 服务器的 FQDN 或 IPv4 地址。
-如果没有任何其他参数，则默认协议为启用了加密的 TCP;证书验证;证书名称检查。
+如果没有任何其他参数，默认协议为启用加密的 TCP；证书验证；证书名称检查。
 
 ```yaml
 Type: Object
@@ -185,4 +185,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

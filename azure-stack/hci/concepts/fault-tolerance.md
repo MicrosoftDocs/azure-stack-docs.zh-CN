@@ -1,20 +1,20 @@
 ---
-title: Azure Stack HCI 中的容错和存储效率
+title: 容错和存储效率-Azure Stack HCI
 description: 介绍存储空间直通中的复原选项，包括镜像和奇偶校验。
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: 9ace3960b4c54461a4153c4997694e6d17ee4fd1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.date: 07/21/2020
+ms.openlocfilehash: 140427df807c1fbe048615a6642a888d0516475c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79025696"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572240"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Azure Stack HCI 中的容错和存储效率
 
->适用于：Windows Server 2019
+> 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
 本主题介绍存储空间直通中可用的复原选项，并概述其规模要求、存储效率，以及每个选项的一般优势和弊端。 本主题还提供了一些用法说明来帮助你入门，并参考了一些极佳的论文、博客和其他内容供你了解详情。
 
@@ -28,7 +28,7 @@ ms.locfileid: "79025696"
 
 ## <a name="mirroring"></a>镜像
 
-镜像功能通过保存所有数据的多个副本来提供容错。 它非常类似于 RAID-1。 这些数据的条带化和放置方式非常重要（请参阅[此博客](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/)了解详细信息），但肯定的是，使用镜像功能存储的任何数据都会完整地写入多次。 每个副本将写入不同的物理硬件（位于不同服务器中的不同驱动器），假设每个硬盘各自都有可能发生故障。
+镜像功能通过保存所有数据的多个副本来提供容错。 它非常类似于 RAID-1。 这些数据的条带化和放置方式非常重要（请参阅[此博客](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deep-dive-the-storage-pool-in-storage-spaces-direct/ba-p/425959)了解详细信息），但肯定的是，使用镜像功能存储的任何数据都会完整地写入多次。 每个副本将写入不同的物理硬件（位于不同服务器中的不同驱动器），假设每个硬盘各自都有可能发生故障。
 
 存储空间提供两种形式的镜像 –“双向”和“三向”。
 
@@ -84,47 +84,47 @@ ms.locfileid: "79025696"
 
 ![local-reconstruction-codes](media/fault-tolerance/local-reconstruction-codes-180px.png)
 
-我们建议这一深入[了解本地重建代码如何处理各种故障方案，以及](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)我们的[Claus Joergensen](https://twitter.com/clausjor)，这是我们的 eminently。
+我们建议这一深入 [了解本地重建代码如何处理各种故障方案，以及](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)我们的 [Claus Joergensen](https://twitter.com/clausjor)，这是我们的 eminently。
 
 ## <a name="mirror-accelerated-parity"></a>镜像加速奇偶校验
 
-存储空间直通卷可以是部分镜像和部分奇偶校验。 写入内容先进入镜像部分，然后逐渐移入奇偶校验部分。 实际上，这是[使用镜像来加速擦除编码](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)。
+存储空间直通卷可以是部分镜像和部分奇偶校验。 写入内容先进入镜像部分，然后逐渐移入奇偶校验部分。 实际上，这是[使用镜像来加速擦除编码](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)。
 
 若要混合使用三向镜像和双重奇偶校验，至少需要四个容错域，即四台服务器。
 
-镜像加速奇偶校验的存储效率介于全镜像或全奇偶校验的效率之间，并取决于所选的比例。 例如，此演示文稿37分钟的演示显示了各种混合，其中包含12个服务器[，实现46%、54% 和65% 效率](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)。
+镜像加速奇偶校验的存储效率介于全镜像或全奇偶校验的效率之间，并取决于所选的比例。 例如，此演示文稿37分钟的演示显示了各种混合，其中包含12个服务器 [，实现46%、54% 和65% 效率](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s) 。
 
 > [!IMPORTANT]
-> 我们建议对大多数性能敏感的工作负载使用镜像。 若要了解有关根据工作负荷平衡性能和容量的详细信息，请参阅[计划卷](/windows-server/storage/storage-spaces/plan-volumes#choosing-the-resiliency-type)。
+> 我们建议对大多数性能敏感型工作负荷使用镜像。 有关如何根据工作负荷均衡性能和容量的详细信息，请参阅[规划卷](/windows-server/storage/storage-spaces/plan-volumes#choosing-the-resiliency-type)。
 
 ## <a name="summary"></a><a name="summary"></a>摘要
 
-本部分总结了存储空间直通可用的复原类型、使用每种类型的最低范围要求、每种类型可容忍的失败数以及相应的存储效率。
+本部分汇总了存储空间直通中提供的复原类型、使用每种类型所要满足的最低规模要求、每个类型可承受的故障次数，以及相应的存储效率。
 
 ### <a name="resiliency-types"></a>复原类型
 
-|    复原          |    失败容差       |    存储效率      |
+|    复原能力          |    容错       |    存储效率      |
 |------------------------|----------------------------|----------------------------|
-|    “双向镜像”      |    1                       |    50.0%                   |
-|    “三向镜像”    |    2                       |    33.3%                   |
+|    双向镜像      |    1                       |    50.0%                   |
+|    三向镜像    |    2                       |    33.3%                   |
 |    双重奇偶校验         |    2                       |    50.0% - 80.0%           |
 |    Mixed               |    2                       |    33.3% - 80.0%           |
 
-### <a name="minimum-scale-requirements"></a>最小范围要求
+### <a name="minimum-scale-requirements"></a>最低规模要求
 
-|    复原          |    所需的最小故障域数   |
+|    复原能力          |    所需的最小容错域数   |
 |------------------------|-------------------------------------|
-|    “双向镜像”      |    2                                |
-|    “三向镜像”    |    3                                |
+|    双向镜像      |    2                                |
+|    三向镜像    |    3                                |
 |    双重奇偶校验         |    4                                |
 |    Mixed               |    4                                |
 
    >[!TIP]
-   > 除非使用[机箱或机架容错](/windows-server/failover-clustering/fault-domains)，否则容错域数量指的是服务器数量。 每台服务器中的驱动器数量不会影响可使用的复原类型，前提是达到存储空间直通的最低要求。
+   > 除非使用[机箱或机架容错](/windows-server/failover-clustering/fault-domains)，否则容错域数目是指服务器数目。 只要符合存储空间直通的最低要求，每台服务器中的驱动器数目就不会影响可用的复原类型。
 
-### <a name="dual-parity-efficiency-for-hybrid-deployments"></a>混合部署的双奇偶校验效率
+### <a name="dual-parity-efficiency-for-hybrid-deployments"></a>混合部署的双重奇偶校验效率
 
-此表显示包含硬盘驱动器 (HDD) 和固态硬盘 (SSD) 的混合部署在每个范围的双奇偶校验和本地重建代码的存储效率。
+下表显示了同时包含机械硬盘 (HDD) 和固态硬盘 (SSD) 的混合部署在每种规模下的双重奇偶校验存储效率和局部重建代码。
 
 |    容错域      |    布局           |    效率   |
 |-----------------------|---------------------|-----------------|
@@ -144,9 +144,9 @@ ms.locfileid: "79025696"
 |    15                 |    LRC (8, 2, 1)    |    72.7%        |
 |    16                 |    LRC (8, 2, 1)    |    72.7%        |
 
-### <a name="dual-parity-efficiency-for-all-flash-deployments"></a>全闪存部署的双奇偶校验效率
+### <a name="dual-parity-efficiency-for-all-flash-deployments"></a>全闪存部署的双重奇偶校验效率
 
-此表显示仅包含固态硬盘 (SSD) 的全闪存部署在每个范围的双奇偶校验和本地重建代码的存储效率。 奇偶校验布局在全闪存配置中可使用较大的大小，并实现更好的存储效率。
+下表显示了包含固态硬盘 (SSD) 的全闪存部署在每种规模下的双重奇偶校验存储效率和局部重建代码。 奇偶校验布局可以使用较大的组大小，并在全闪存配置中实现更好的存储效率。
 
 |    容错域      |    布局           |    效率   |
 |-----------------------|---------------------|-----------------|
@@ -168,48 +168,48 @@ ms.locfileid: "79025696"
 
 ## <a name="examples"></a><a name="examples"></a>示例
 
-除非只拥有两台服务器，否则我们建议使用三向镜像和/或双奇偶校验，因为它们提供更好的容错。 特别是它们可确保所有数据的安全并可一直访问，即使在两个容错域（对存储空间直通而言，这意味着两台服务器）受到同时产生的失败影响时也是如此。
+除非只有两台服务器，否则我们建议使用三向镜像和/或双重奇偶校验，因为它们提供更好的容错。 具体而言，即使两个容错域（使用存储空间直通时，这意味着需要两台服务器）由于同时发生的故障而受到影响，这些方法也能确保所有数据保持安全且持续可供访问。
 
-### <a name="examples-where-everything-stays-online"></a>所有内容保持联机的示例
+### <a name="examples-where-everything-stays-online"></a>所有组件保持联机的示例
 
-这六个示例显示三向镜像和/或双奇偶校验**可以**容忍的失败。
+这六个示例演示了三向镜像和/或双重奇偶校验**可以**承受的故障。
 
-- **1.**    丢失了一个驱动器（包括缓存驱动器）
-- **2.**    丢失了一台服务器
+- **1.**  一个驱动器丢失（包括缓存驱动器）
+- **2.**  一台服务器丢失
 
-![容错示例 1 和 2](media/fault-tolerance/Fault-Tolerance-Example-12.png)
+![fault-tolerance-examples-1-and-2](media/fault-tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.**    丢失了一台服务器和一个驱动器
-- **4.**    不同服务器丢失了两个驱动器
+- **3.**  一个服务器和一个驱动器丢失
+- **4.**  不同服务器中的两个驱动器丢失
 
-![容错示例 3 和 4](media/fault-tolerance/Fault-Tolerance-Example-34.png)
+![fault-tolerance-examples-3-and-4](media/fault-tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.**    丢失了超过两个驱动器，前提是最多两台服务器受影响
-- **6.**    丢失了两台服务器
+- **5.**  两个以上的驱动器丢失，但最多两台服务器受影响
+- **6.**  两台服务器丢失
 
-![容错示例 5 和 6](media/fault-tolerance/Fault-Tolerance-Example-56.png)
+![fault-tolerance-examples-5-and-6](media/fault-tolerance/Fault-Tolerance-Example-56.png)
 
-...在每种情况下，所有卷均保持联机。 （请确保群集保留仲裁。）
+...在每种情况下，所有卷都将保持联机状态。 （请确保群集中保留了仲裁。）
 
-### <a name="examples-where-everything-goes-offline"></a>所有内容脱机的示例
+### <a name="examples-where-everything-goes-offline"></a>所有组件脱机的示例
 
-在生命周期内，存储空间可容忍任何数量的失败，因为如果时间充足，在每个失败后，它都可以还原到完整复原。 但是，在任何指定时刻，失败可安全影响最多两个容错域。 因此，以下是三向和/或双奇偶校验**无法**容忍的失败示例。
+在其生存期内，存储空间可以承受任意次数的故障，因为在时间足够的情况下，它在每次故障后能够完全复原。 但是，在任意给定时刻，最多只能有两个容错域能够受到故障影响而安全无虞。 下面是三向镜像和/或双重奇偶校验**不能**承受的故障示例。
 
-- **7.** 三台或更多服务器同时丢失驱动器
-- **8.** 同时丢失三台或更多服务器
+- **7.** 三台或更多服务器中的驱动器同时丢失
+- **8.** 三台或更多服务器同时丢失
 
-![容错示例 7 和 8](media/fault-tolerance/Fault-Tolerance-Example-78.png)
+![fault-tolerance-examples-7-and-8](media/fault-tolerance/Fault-Tolerance-Example-78.png)
 
-## <a name="usage"></a>用法
+## <a name="usage"></a>使用情况
 
-查看[在存储空间直通中创建卷](/windows-server/storage/storage-spaces/create-volumes)。
+查看[创建卷](../manage/create-volumes.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要进一步阅读本文中所述的主题，请参阅以下内容：
+若要进一步阅读本文中所述的主题，请参阅以下文章：
 
-- [Microsoft Research 开发的 Azure 擦除编码](https://www.microsoft.com/research/publication/erasure-coding-in-windows-azure-storage/)
-- [本地重建代码和加快奇偶校验卷](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
-- [存储管理 API 中的卷](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
+- [Azure 中由 Microsoft Research 开发的擦除编码](https://www.microsoft.com/research/publication/erasure-coding-in-windows-azure-storage/)
+- [局部重建代码和加速奇偶校验卷](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
+- [存储管理 API 中的卷](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
 - [Microsoft Ignite 2016 上的存储效率展示](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
-- [存储空间直通的容量计算器预览](https://aka.ms/s2dcalc)
+- [存储空间直通的容量计算器预览版](https://aka.ms/s2dcalc)

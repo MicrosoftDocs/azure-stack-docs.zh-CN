@@ -1,18 +1,18 @@
 ---
 title: 以用户身份使用 PowerShell 连接到 Azure Stack Hub
-description: 了解如何使用 PowerShell 连接到 Azure Stack Hub。
+description: 了解如何使用 PowerShell 连接到 Azure Stack 集线器以使用交互式提示符或编写脚本。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a8fa6f179b2ff310a291d10f40b2f9a5eaa4e2d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.lastreviewed: 8/4/2020
+ms.openlocfilehash: 0539bd452db54b298f681fc47ba7b9183ba75202
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111771"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574017"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>以用户身份使用 PowerShell 连接到 Azure Stack Hub
 
@@ -36,7 +36,7 @@ ms.locfileid: "84111771"
 - **Azure AD 租户名称**  
   用于管理 Azure Stack Hub 的 Azure AD 租户名称。 例如，yourdirectory.onmicrosoft.com。
 - **Azure 资源管理器终结点**  
-  对于 Azure Stack 开发工具包，此值设置为 https://management.local.azurestack.external 。 若要为 Azure Stack Hub 集成系统获取此值，请与服务提供商联系。
+  对于 Azure Stack 开发工具包，此值设置为 `https://management.local.azurestack.external` 。 若要为 Azure Stack Hub 集成系统获取此值，请与服务提供商联系。
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>使用 Azure AD 连接到 Azure Stack Hub
 
@@ -74,6 +74,8 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
     }
 ```
 
+[!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
+
 ## <a name="test-the-connectivity"></a>测试连接
 
 完成所有设置后，请通过使用 PowerShell 在 Azure Stack Hub 中创建资源来测试连接。 作为测试，为应用程序创建资源组并添加 VM。 运行以下命令创建名为“MyResourceGroup”的资源组：
@@ -86,5 +88,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [为 Azure Stack Hub 开发模板](azure-stack-develop-templates.md)
 - [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
-- [Azure Stack Hub PowerShell 模块参考](https://docs.microsoft.com/powershell/azure/azure-stack/overview)
+- [Azure Stack Hub PowerShell 模块参考](/powershell/azure/azure-stack/overview)
 - 若要为云操作员环境设置 PowerShell，请参阅[配置 Azure Stack Hub 操作员的 PowerShell 环境](../operator/azure-stack-powershell-configure-admin.md)一文。

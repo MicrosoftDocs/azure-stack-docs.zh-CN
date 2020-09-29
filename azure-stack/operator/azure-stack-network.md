@@ -3,16 +3,16 @@ title: Azure Stack Hub 的网络集成规划
 description: 了解如何规划数据中心网络与 Azure Stack Hub 集成式系统的集成。
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 09/09/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: f447f4969e9cb9bcb4d56ea5961473e1028e44f3
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.openlocfilehash: 915c0ec4a661bbc039a7dc4d40f72ed83d135915
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106901"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010860"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack 的网络集成规划
 
@@ -23,10 +23,16 @@ ms.locfileid: "82106901"
 
 ## <a name="physical-network-design"></a>物理网络设计
 
-Azure Stack 解决方案需有弹性且高度可用的物理基础结构才能支持其操作和服务。 若要将 Azure Stack 集成到网络，它需要从架顶式交换机 (ToR) 上行链接到最近的交换机或路由器，在本文档中称为“边界”。 ToR 可以上行链接到单个或一对边界。 ToR 是由我们的自动化工具预先配置的，当使用 BGP 路由时，它期望 ToR 与边界之间至少有一个连接，当使用静态路由时，它期望 ToR 与边界之间至少有两个连接（每个 ToR 一个），每个路由选项上最多有四个连接。 这些连接仅限于 SFP + 或 SFP28 介质以及 1 GB、10 GB 或 25-GB 速度。 请咨询原始设备制造商 (OEM) 硬件供应商以了解可用性。 下图显示了建议的设计：
+Azure Stack 解决方案需有弹性且高度可用的物理基础结构才能支持其操作和服务。 若要将 Azure Stack 集成到网络，它需要从架顶式交换机 (ToR) 上行链接到最近的交换机或路由器，在本文档中称为“边界”。 ToR 可以上行链接到单个或一对边界。 ToR 是由我们的自动化工具预先配置的，当使用 BGP 路由时，它期望 ToR 与边界之间至少有一个连接，当使用静态路由时，它期望 ToR 与边界之间至少有两个连接（每个 ToR 一个），每个路由选项上最多有四个连接。 这些连接仅限于 SFP + 或 SFP28 介质，并且最小为 1 GB。 请与原始设备制造商联系 (OEM) 硬件供应商提供可用性。 下图显示了建议的设计：
 
 ![建议的 Azure Stack 网络设计](media/azure-stack-network/physical-network.svg)
 
+## <a name="bandwidth-allocation"></a>带宽分配
+
+Azure Stack 集线器是使用 Windows Server 2019 故障转移群集和空格直接技术生成的。 部分 Azure Stack 集线器物理网络配置使用通信分离和带宽保证，以确保空间直通存储通信可满足解决方案所需的性能和缩放。 网络配置使用流量类将空间直通、基于 RDMA 的通信与 Azure Stack 中心基础结构和/或租户的网络利用率区分开来。
+
+> [!NOTE]
+> Azure Stack 集线器的下一次更新包括附加的流量类。 为了做好此更改的准备，Microsoft 建议您与 OEM 联系，以便对 (ToR) 的网络交换机进行所需的更改。 此 ToR 更改可在之前执行，也可在更新到下一版本后执行。
 
 ## <a name="logical-networks"></a>逻辑网络
 
@@ -44,7 +50,7 @@ Azure Stack 解决方案需有弹性且高度可用的物理基础结构才能�
 | | | |
 
 > [!NOTE]
-> 系统更新到版本 1910 后，门户上的警报将提醒操作员运行新的 PEP cmdlet **Set-AzsPrivateNetwork** 来添加新的 /20 专用 IP 空间。 有关运行该 cmdlet 的说明，请参阅 [1910 发行说明](release-notes.md)。 有关选择 /20 专用 IP 空间的详细信息和指导，请参阅本文中的[专用网络](#private-network)部分。
+> 系统更新到版本 1910 后，门户上的警报将提醒操作员运行新的 PEP cmdlet **Set-AzsPrivateNetwork** 来添加新的 /20 专用 IP 空间。 有关运行该 cmdlet 的说明，请参阅 [1910 发行说明](release-notes.md?view=azs-1910&preserve-view=true)。 有关选择 /20 专用 IP 空间的详细信息和指导，请参阅本文中的[专用网络](#private-network)部分。
 
 ## <a name="network-infrastructure"></a>网络基础结构
 
@@ -66,16 +72,17 @@ HLH 也托管部署 VM (DVM)。 此 DVM 在 Azure Stack 部署期间使用，在
 - **内部虚拟 IP 网络**：一个 /25 网络，专用于软件负载均衡器的仅限内部的 VIP。
 - **容器网络**：一个 /23（512 个 IP）网络，专用于在运行基础结构服务的容器之间处理仅限内部的流量。
 
-从版本 1910 开始，Azure Stack Hub 系统**需要**额外的 /20 专用内部 IP 空间。 此网络专用于 Azure Stack 系统（不会路由到 Azure Stack 系统的边界交换机设备以外），并且可以在数据中心内的多个 Azure Stack 系统上重复使用。 这是 Azure Stack 的专用网络，不能与数据中心内的其他网络重叠。 /20 专用 IP 空间划分成多个网络，使你能够在容器上运行 Azure Stack Hub 基础结构（如以前的 [1905 发行说明](release-notes.md?view=azs-1905)中所述）。 此外，这一新的专用 IP 空间使你能够在部署之前减少所需的可路由 IP 空间。 在容器中运行 Azure Stack Hub 基础结构的目标是优化利用率并提升性能。 此外，还使用了/20 个专用 IP 空间来实现正在进行的工作，以便在部署之前减少所需的可路由 IP 空间。 有关专用 IP 空间的指导，建议遵循[RFC 1918](https://tools.ietf.org/html/rfc1918)。
+从版本 1910 开始，Azure Stack Hub 系统**需要**额外的 /20 专用内部 IP 空间。 此网络专用于 Azure Stack 系统（不会路由到 Azure Stack 系统的边界交换机设备以外），并且可以在数据中心内的多个 Azure Stack 系统上重复使用。 这是 Azure Stack 的专用网络，不能与数据中心内的其他网络重叠。 /20 专用 IP 空间划分为多个网络，可以在容器上运行 Azure Stack 集线器基础结构。 此外，借助此新专用 IP 空间，可以在部署之前持续减少所需的可路由 IP 空间。 在容器中运行 Azure Stack Hub 基础结构的目标是优化利用率并提升性能。 此外，/20 专用 IP 空间还用于实现正在进行的工作，以减少部署前所需的可路由 IP 空间。 有关专用 IP 空间的指导，建议遵循 [RFC 1918](https://tools.ietf.org/html/rfc1918)。
 
 对于在版本 1910 之前部署的系统，此 /20 子网将是更新到 1910 之后，要输入系统中的附加网络。 需要通过 **Set-AzsPrivateNetwork** PEP cmdlet 将此附加网络提供给系统。
 
 > [!NOTE]
-> 在1910之后，/20 输入作为下一个 Azure Stack 中心更新的先决条件。 当下一个 Azure Stack 中心更新1910版后，如果你尝试安装它，则更新将会失败，如果你尚未按照下述更正步骤中所述完成/20 输入。 在完成上述更正步骤之前，管理员门户中将显示一个警报。 请参阅[数据中心网络集成](azure-stack-network.md#private-network)一文，了解如何使用此新专用空间。
+> /20 输入是版本 1910 之后下一个 Azure Stack Hub 更新的先决条件。 发布版本 1910 之后的下一个 Azure Stack Hub 更新后，当你尝试安装该更新时，如果尚未完成以下补救步骤中所述的 /20 输入，则更新将会失败。 在完成上述补救步骤之前，管理员门户中会出现警报。 请参阅[数据中心网络集成](azure-stack-network.md#private-network)一文，了解如何使用此新专用空间。
 
-**更正步骤**：若要进行修正，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备一个大小为 /20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，然后使用以下示例，在 PEP 会话中运行以下 cmdlet（仅适用于 1910 及更高版本）：`Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20`。 如果成功执行了该操作，则会收到消息 Azs，其中**添加到配置的内部网络范围**。如果成功完成，则警报将在管理员门户中关闭。 Azure Stack 集线器系统现在可以更新到下一个版本。
+**修正步骤**：若要进行补救，请按照说明[打开 PEP 会话](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 准备一个大小为 /20 的[专用内部 IP 范围](azure-stack-network.md#logical-networks)，然后使用以下示例，在 PEP 会话中运行以下 cmdlet（仅适用于 1910 及更高版本）：`Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20`。 如果成功执行该操作，将会出现消息“Azs 内部网络范围已添加到配置”。如果成功完成，管理员门户中的警报将会关闭。 Azure Stack Hub 系统现在可以更新到下一版本。
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack 基础结构网络
+
 此 /24 网络专用于内部 Azure Stack 组件，使这些组件能够相互通信和交换数据。 此子网可以从 Azure Stack 解决方案外部路由到数据中心，我们不建议在此子网上使用公共的或可以通过 Internet 路由的 IP 地址。 此网络广播到边界，但其大多数 IP 受访问控制列表 (ACL) 的保护。 允许进行访问的 IP 在一个小的范围内（其大小相当于一个 /27 网络），可托管[特权终结点 (PEP)](azure-stack-privileged-endpoint.md) 和 [Azure Stack 备份](azure-stack-backup-reference.md)之类的服务。
 
 ### <a name="public-vip-network"></a>公共 VIP 网络
@@ -92,7 +99,7 @@ HLH 也托管部署 VM (DVM)。 此 DVM 在 Azure Stack 部署期间使用，在
 
 ## <a name="permitted-networks"></a>允许的网络
 
-从1910开始，部署工作表将具有此新字段，该字段允许操作员更改某些访问控制列表（ACL），以允许从受信任的数据中心网络范围访问网络设备管理接口和硬件生命周期主机（HLH）。 更改访问控制列表后，操作员可以允许特定网络范围内的管理 Jumpbox VM 访问交换机管理接口、HLH OS 和 HLH BMC。 操作员可在此列表中提供一个或多个子网；如果留空，则默认为拒绝访问。 借助此项新功能，在部署后，就不需要根据[修改 Azure Stack 交换机配置中的特定设置](https://docs.microsoft.com/azure-stack/operator/azure-stack-customer-defined#access-control-list-updates)所述进行人工干预。
+从版本 1910 开始，部署工作表将包含此新字段，允许操作员更改某些访问控制列表 (ACL)，以允许从受信任的数据中心网络范围访问网络设备管理接口和硬件生命周期主机 (HLH)。 更改访问控制列表后，操作员可以允许特定网络范围内的管理 Jumpbox VM 访问交换机管理接口、HLH OS 和 HLH BMC。 操作员可在此列表中提供一个或多个子网；如果留空，则默认为拒绝访问。 借助此项新功能，在部署后，就不需要根据[修改 Azure Stack 交换机配置中的特定设置](./azure-stack-customer-defined.md#access-control-list-updates)所述进行人工干预。
 
 ## <a name="next-steps"></a>后续步骤
 

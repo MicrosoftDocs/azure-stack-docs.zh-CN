@@ -4,43 +4,43 @@ titleSuffix: Azure Stack Hub
 description: 了解如何创建和上传包含 Red Hat Linux 操作系统的 Azure 虚拟硬盘 (VHD)。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 8f0642cc1ee90ce8e4ae1d26b6bdae9a3b6cdef5
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 3ddc8a44d59a373f5dfe340860a5dcf195668cac
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777859"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742566"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>为 Azure Stack Hub 准备基于 Red Hat 的虚拟机
 
-本文介绍如何准备 Red Hat Enterprise Linux （RHEL）虚拟机（VM）以在 Azure Stack 中心中使用。 本文中所述的 RHEL 版本为7.1 或更高版本。 本文所述的用于准备工作的虚拟机监控程序为 Hyper-V、基于内核的虚拟机 (KVM) 和 VMware。
+本文介绍如何准备可在 Azure Stack Hub 中使用的 Red Hat Enterprise Linux (RHEL) 虚拟机 (VM)。 本文介绍的 RHEL 版本为 7.1 或更高版本。 本文所述的用于准备工作的虚拟机监控程序为 Hyper-V、基于内核的虚拟机 (KVM) 和 VMware。
 
-有关 Red Hat Enterprise Linux 支持信息，请参阅[Red Hat 和 Azure Stack：常见问题解答](https://access.redhat.com/articles/3413531)。
+有关 Red Hat Enterprise Linux 支持信息，请参阅 [Red Hat 和 Azure Stack：常见问题解答](https://access.redhat.com/articles/3413531)。
 
 ## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>通过 Hyper-V 管理器准备基于 Red Hat 的 VM
 
-本部分假设已从 Red Hat 网站获取 ISO 文件并将 RHEL 映像安装到虚拟硬盘 (VHD)。 有关如何使用 Hyper-V 管理器来安装操作系统映像的详细信息，请参阅[安装 Hyper-V 角色和配置 VM](https://technet.microsoft.com/library/hh846766.aspx)。
+本部分假设已从 Red Hat 网站获取 ISO 文件并将 RHEL 映像安装到虚拟硬盘 (VHD)。 有关如何使用 Hyper-V 管理器来安装操作系统映像的详细信息，请参阅[安装 Hyper-V 角色和配置 VM](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))。
 
 ### <a name="rhel-installation-notes"></a>RHEL 安装说明
 
-* Azure Stack 中心不支持 VHDX 格式。 Azure 仅支持固定 VHD。 你可以使用 Hyper-v 管理器将磁盘转换为 VHD 格式，也可以使用 "**转换 vhd** cmdlet"。 如果使用 VirtualBox，则选择“固定大小”  ，而不是在创建磁盘时默认动态分配选项。
-* Azure Stack Hub 仅支持第 1 代 VM。 可以将第1代 VM 从 VHDX 转换为 VHD 文件格式，并从动态扩展为固定大小磁盘。 你无法更改 VM 的代。 有关详细信息，请参阅[应该在 Hyper-V 中创建第 1 代还是第 2 代 VM？](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V)。
+* Azure Stack Hub 不支持 VHDX 格式。 Azure 仅支持固定 VHD。 可使用 Hyper-V 管理器将磁盘转换为 VHD 格式，也可以使用 convert-vhd cmdlet。 如果使用 VirtualBox，则选择“固定大小”，而不是在创建磁盘时默认动态分配选项。
+* Azure Stack Hub 仅支持第 1 代 VM。 可以将第 1 代 VM 从 VHDX 转换为 VHD 文件格式，从动态扩展磁盘转换为固定大小磁盘。 无法更改 VM 的代系。 有关详细信息，请参阅[应该在 Hyper-V 中创建第 1 代还是第 2 代 VM？](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V)。
 * VHD 允许的最大大小为 1,023 GB。
 * 在安装 Linux 操作系统时，建议使用标准分区而不是逻辑卷管理器 (LVM)（通常是许多安装的默认设置）。 这种做法可以避免 LVM 名称与克隆的 VM 冲突，尤其是当需要将操作系统磁盘附加到另一台相同的 VM 进行故障排除时。
-* 需要装载通用磁盘格式 (UDF) 文件系统的内核支持。 首次启动时，附加到来宾的 UDF 格式的媒体会将预配配置传递到 Linux VM。 Azure Linux 代理必须装载 UDF 文件系统才能读取其配置和预配 VM。
+* 需要装载通用磁盘格式 (UDF) 文件系统的内核支持。 首次启动时，附加到来宾的 UDF 格式媒体会将预配配置传递给 Linux VM。 Azure Linux 代理必须装载 UDF 文件系统才能读取其配置和预配 VM。
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，并在临时资源磁盘上创建交换文件。 可在以下步骤中找到更多相关信息。
 * Azure 上所有 VHD 的虚拟大小必须已按 1 MB 对齐。 从原始磁盘转换为 VHD 时，必须确保在转换前的原始磁盘大小是 1 MB 的倍数。 可在以下步骤中找到更多详细信息。
-* Azure Stack Hub 支持 cloud-init。 [Cloud-init](/azure/virtual-machines/linux/using-cloud-init) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。 有关将 cloud-init 添加到映像的说明，请参阅[准备与 cloud-init 配合使用的现有 Linux Azure VM 映像](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image)。
+* Azure Stack Hub 支持 cloud-init。 [Cloud-init](/azure/virtual-machines/linux/using-cloud-init) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。 有关将 cloud-init 添加到映像的说明，请参阅[准备与 cloud-init 配合使用的现有 Linux Azure VM 映像](/azure/virtual-machines/linux/cloudinit-prepare-custom-image)。
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>通过 Hyper-V 管理器准备 RHEL 7 VM
 
 1. 在 Hyper-V 管理器中选择 VM。
 
-1. 选择“连接”打开 VM 的控制台窗口。 
+1. 选择“连接”打开 VM 的控制台窗口。
 
 1. 创建或编辑 `/etc/sysconfig/network` 文件并添加以下文本：
 
@@ -107,7 +107,7 @@ ms.locfileid: "82777859"
     ClientAliveInterval 180
     ```
 
-1. 为 Azure Stack 中心创建自定义 vhd 时，请注意，在1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者均为独占）在 Azure Stack 中心环境中不起作用。 可以使用版本 2.2.20/2.2.35 来准备你的映像。 若要使用上述版本的2.2.35 来准备自定义映像，请将 Azure Stack 集线器更新到1903版本或更高版本，或应用1901/1902 修补程序。
+1. 为 Azure Stack Hub 创建自定义 VHD 时，请注意，2.2.20 到 2.2.35（不含）之间的 WALinuxAgent 版本在 1910 版本以前的 Azure Stack Hub 环境中不工作。 可以使用版本 2.2.20/2.2.35 来准备你的映像。 若要使用高于 2.2.35 的版本来准备自定义映像，请将 Azure Stack Hub 更新到 1903 或更高版本，或应用 1901/1902 修补程序。
     
     [1910 版本以前] 按照以下说明下载兼容的 WALinuxAgent：
     
@@ -145,7 +145,7 @@ ms.locfileid: "82777859"
         waagent -version
         ```
 
-    [1910 版本之后] 按照以下说明下载兼容的 WALinuxAgent：
+    1910版本后，请按照以下说明下载兼容的 WALinuxAgent：
     
     1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
 
@@ -159,7 +159,6 @@ ms.locfileid: "82777859"
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
-    
 
 1. 不要在操作系统磁盘上创建交换空间。
 
@@ -181,7 +180,7 @@ ms.locfileid: "82777859"
 
 1. 如果使用的系统是通过企业证书颁发机构部署的，则 RHEL VM 不会信任 Azure Stack Hub 根证书。 必须将该证书放入受信任的根存储中。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
 
-1. 运行以下命令来取消预配 VM，并准备好在 Azure 上进行预配：
+1. 运行以下命令可取消对 VM 的预配并对其进行准备，以便在 Azure 上进行预配：
 
     ```bash
     sudo waagent -force -deprovision
@@ -189,7 +188,7 @@ ms.locfileid: "82777859"
     logout
     ```
 
-1. 选择 "**操作**" **，然后在**hyper-v 管理器中关闭。
+1. 在 Hyper-V 管理器中选择“操作”，然后选择“关闭”。
 
 1. 使用 Hyper-V 管理器的“编辑磁盘”功能或 Convert-VHD PowerShell 命令将 VHD 转换为固定大小的 VHD。 现在，准备将 Linux VHD 上传到 Azure。
 
@@ -286,7 +285,7 @@ ms.locfileid: "82777859"
     dracut -f -v
     ```
 
-1. [1910 在版发布后可选]停止并卸载云初始化：
+1. [在 1910 版本以后为可选] 停止并卸载 cloud-init：
 
     ```bash
     systemctl stop cloud-init
@@ -306,7 +305,7 @@ ms.locfileid: "82777859"
     ClientAliveInterval 180
     ```
 
-1. 为 Azure Stack 中心创建自定义 VHD 时，请注意，1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者都是独占的）在 Azure Stack 中心环境中不起作用。 可以使用版本 2.2.20/2.2.35 来准备你的映像。 若要使用上述版本的2.2.35 准备自定义映像，请将 Azure Stack 集线器更新为1903版本或更高版本，或应用1901/1902 修补程序。
+1. 为 Azure Stack Hub 创建自定义 VHD 时，请注意，2.2.20 到 2.2.35（不含）之间的 WALinuxAgent 版本在 1910 版本以前的 Azure Stack Hub 环境中不工作。 可以使用版本 2.2.20/2.2.35 来准备你的映像。 若要使用高于 2.2.35 的版本来准备自定义映像，请将 Azure Stack Hub 更新到 1903 或更高版本，或应用 1901/1902 修补程序。
 
     [1910 版本以前] 按照以下说明下载兼容的 WALinuxAgent：
 
@@ -352,16 +351,16 @@ ms.locfileid: "82777859"
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-        1. 通过运行以下命令安装 Azure Linux 代理：
+    1. 通过运行以下命令安装 Azure Linux 代理：
 
-            ```bash
-            sudo yum install WALinuxAgent
-            sudo systemctl enable waagent.service
-            ```
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
 
 1. 不要在操作系统磁盘上创建交换空间。
 
-    Azure Linux 代理可使用在 Azure 上预配 VM 后附加到 VM 的本地资源磁盘自动配置交换空间。 本地资源磁盘是临时磁盘，并且在虚拟机取消预配时可能会被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：
+    Azure Linux 代理可使用在 Azure 上预配 VM 后附加到 VM 的本地资源磁盘自动配置交换空间。 本地资源磁盘是临时磁盘，在取消预配 VM 时可能会被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：
 
     ```shell
     ResourceDisk.Format=y
@@ -379,7 +378,7 @@ ms.locfileid: "82777859"
 
 1. 如果使用的系统是通过企业证书颁发机构部署的，则 RHEL VM 不会信任 Azure Stack Hub 根证书。 必须将该证书放入受信任的根存储中。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
 
-1. 运行以下命令来取消预配 VM，并准备好在 Azure 上进行预配：
+1. 运行以下命令可取消对 VM 的预配并对其进行准备，以便在 Azure 上进行预配：
 
     ```bash
     sudo waagent -force -deprovision
@@ -392,7 +391,7 @@ ms.locfileid: "82777859"
 1. 将 qcow2 映像转换为 VHD 格式。
 
     > [!NOTE]
-    > qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img-img 2.2.0 或更低版本，或者更新到2.6 或更高版本。 请参考： https://bugs.launchpad.net/qemu/+bug/1490611 。
+    > qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。 请参考： https://bugs.launchpad.net/qemu/+bug/1490611 。
 
     首先将此映像转换为原始格式：
 
@@ -427,8 +426,8 @@ ms.locfileid: "82777859"
 本部分假设已在 VMware 中安装了 RHEL VM。 有关如何在 VMware 中安装操作系统的详细信息，请参阅 [VMware 来宾操作系统安装指南](https://aka.ms/aa6z600)。
 
 * 在安装 Linux 操作系统时，建议使用标准分区而不是 LVM，这通常是许多安装的默认设置。 此方法可避免 LVM 与克隆 VM 发生名称冲突，特别是在操作系统磁盘需要连接到另一台 VM 以进行故障排除的情况下。 如果需要，可以在数据磁盘上使用 LVM 或 RAID。
-* 不要在操作系统磁盘上配置交换分区。 可将 Linux 代理配置为在临时资源磁盘上创建交换文件。 可以在以下步骤中找到有关此配置的详细信息。
-* 创建虚拟硬盘时，选择“将虚拟磁盘存储为单个文件”  。
+* 不要在操作系统磁盘上配置交换分区。 可将 Linux 代理配置为在临时资源磁盘上创建交换文件。 可以在下面的步骤中找到有关此配置的详细信息。
+* 创建虚拟硬盘时，选择“将虚拟磁盘存储为单个文件”。
 
 ### <a name="prepare-an-rhel-7-vm-from-vmware"></a>从 VMware 准备 RHEL 7 VM
 
@@ -464,13 +463,13 @@ ms.locfileid: "82777859"
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 若要进行此修改， `/etc/default/grub`请在文本编辑器中打开。 修改`GRUB_CMDLINE_LINUX`参数。 例如：
+1. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/etc/default/grub`。 修改 `GRUB_CMDLINE_LINUX` 参数。 例如：
 
     ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-    此配置还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外，还会关闭 NIC 的新 RHEL 7 命名约定。 我们建议删除以下参数：
+    此配置还会确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外，还会关闭 NIC 的新 RHEL 7 命名约定。 我们建议删除以下参数：
 
     ```shell
     rhgb quiet crashkernel=auto
@@ -498,20 +497,20 @@ ms.locfileid: "82777859"
     dracut -f -v
     ```
 
-1. [1910 在版发布后可选]停止并卸载云初始化：
+1. [在 1910 版本以后为可选] 停止并卸载 cloud-init：
 
     ```bash
     systemctl stop cloud-init
     yum remove cloud-init
     ```
 
-1. 请确保已安装 SSH 服务器且已将其配置为在引导时启动。 此设置通常是默认设置。 修改 `/etc/ssh/sshd_config` 以包含以下行：
+1. 请确保已安装 SSH 服务器且将其配置为在引导时启动。 此设置通常是默认设置。 修改 `/etc/ssh/sshd_config` 以包含以下行：
 
     ```shell
     ClientAliveInterval 180
     ```
 
-1. 为 Azure Stack 中心创建自定义 vhd 时，请注意，1910版本之前，2.2.20 和2.2.35 之间的 WALinuxAgent 版本（两者都是独占的）在 Azure Stack 中心环境中不起作用。 可以使用版本 2.2.20/2.2.35 来准备你的映像。 若要使用2.2.35 之后的版本来准备自定义映像，请将 Azure Stack 集线器更新到1903版或更高版本，或应用1901/1902 修补程序。
+1. 为 Azure Stack Hub 创建自定义 VHD 时，请注意，2.2.20 到 2.2.35（不含）之间的 WALinuxAgent 版本在 1910 版本以前的 Azure Stack Hub 环境中不工作。 可以使用版本 2.2.20/2.2.35 来准备你的映像。 若要使用高于 2.2.35 的版本来准备自定义映像，请将 Azure Stack Hub 更新到 1903 或更高版本，或应用 1901/1902 修补程序。
 
     [1910 版本以前] 按照以下说明下载兼容的 WALinuxAgent：
 
@@ -549,24 +548,24 @@ ms.locfileid: "82777859"
         waagent -version
         ```
         
-    [1910 发布后]按照以下说明下载兼容的 WALinuxAgent：
+    [1910 版本之后] 按照以下说明下载兼容的 WALinuxAgent：
     
     1. WALinuxAgent 包 `WALinuxAgent-<version>` 已推送到 Red Hat extras 存储库。 通过运行以下命令启用 extras 存储库：
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1. 通过运行以下命令安装 Azure Linux 代理：
-        
+    1. 通过运行以下命令来安装 Azure Linux 代理：
+    
         ```bash
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
-        
+git        
 1. 不要在操作系统磁盘上创建交换空间。
 
-    在 Azure 上预配 VM 后，Azure Linux 代理可使用附加到 VM 的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是临时磁盘，并且在取消预配 VM 时可能会被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：
+    Azure Linux 代理可使用在 Azure 上预配 VM 后附加到 VM 的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是临时磁盘，在取消预配 VM 时可能会被清空。 在上一步中安装 Azure Linux 代理后，相应地在 `/etc/waagent.conf` 中修改以下参数：
 
     ```shell
     ResourceDisk.Format=y
@@ -582,9 +581,9 @@ ms.locfileid: "82777859"
     sudo subscription-manager unregister
     ```
 
-1. 如果你使用的是使用企业证书颁发机构部署的系统，RHEL VM 将不信任 Azure Stack 中心根证书。 必须将其放入受信任的根存储中。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+1. 如果使用的系统是通过企业证书颁发机构部署的，则 RHEL VM 不会信任 Azure Stack Hub 根证书。 必须将该证书放入受信任的根存储。 有关详细信息，请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
 
-1. 运行以下命令来取消预配 VM，并准备好在 Azure 上进行预配：
+1. 运行以下命令可取消对 VM 的预配并对其进行准备，以便在 Azure 上进行预配：
 
     ```bash
     sudo waagent -force -deprovision
@@ -595,7 +594,7 @@ ms.locfileid: "82777859"
 1. 关闭 VM，并将 VMDK 文件转换为 VHD 格式。
 
     > [!NOTE]
-    > qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img-img 2.2.0 或更低版本，或者更新到2.6 或更高版本。
+    > qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。
 
     首先将此映像转换为原始格式：
 
@@ -756,11 +755,11 @@ ms.locfileid: "82777859"
 
 1. 将 kickstart 文件放在安装系统可以访问的位置。
 
-1. 在 Hyper-V 管理器中，创建新的 VM。 在“连接虚拟硬盘”页上，选择“稍后附加虚拟硬盘”，并完成新建虚拟机向导   。
+1. 在 Hyper-V 管理器中，创建新的 VM。 在“连接虚拟硬盘”页上，选择“稍后附加虚拟硬盘”，并完成新建虚拟机向导 。
 
 1. 打开 VM 设置：
 
-    a. 将新的虚拟硬盘附加到 VM。 请务必选择“VHD 格式”和“固定大小”   。
+    a. 将新的虚拟硬盘附加到 VM。 请务必选择“VHD 格式”和“固定大小” 。
 
     b. 将安装 ISO 附加到 DVD 光驱。
 

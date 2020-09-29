@@ -1,20 +1,20 @@
 ---
-title: Azure Stack 中心的 PrivilegedEndpoint 特权终结点
-description: 适用于 PowerShell 的引用 Azure Stack 特权终结点-PrivilegedEndpoint
+title: Set-Telemetry
+description: PowerShell Azure Stack 特权终结点 - Close-PrivilegedEndpoint 参考
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 948d8771be47ca9a594da75d8e4d138ceb6b894c
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ad20bb8ab278e1cb6f46d4fb245ea31b3e00f61a
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563440"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742668"
 ---
-# <a name="set-telemetry"></a>设置-遥测
+# <a name="set-telemetry"></a>Set-Telemetry
 
 ## <a name="synopsis"></a>摘要
 启用或禁用将遥测数据传输到 Microsoft。
@@ -26,9 +26,9 @@ Set-Telemetry [-Disable] [-Enable] [-AsJob]
 ```
 
 ## <a name="description"></a>说明
-利用 Set-遥测 cmdlet，你可以通过更改注册表中的相应设置来控制是否向 Microsoft 发送遥测数据。
+Set-Telemetry cmdlet 允许通过更改注册表中的相应设置来控制是否将遥测数据发送到 Microsoft。
 
-具体而言，此 cmdlet 会将域组策略配置为将遥测注册表值设置为0，并阻止 Windows UTC 服务在所有基础结构 Vm 和主机上运行。
+具体而言，此 cmdlet 将域组策略配置为将遥测注册表值设置为 0，并使 Windows UTC 服务停止在任何基础结构 VM 和主机上运行。
 
 ## <a name="examples"></a>示例
 
@@ -42,7 +42,7 @@ Set-Telemetry -Enable
 Set-Telemetry -Disable
 ```
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 
 ### <a name="-enable"></a>-Enable
 启用将遥测数据传输到 Microsoft。
@@ -60,7 +60,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-disable"></a>-Disable
-禁止将遥测数据传输到 Microsoft。
+禁用将遥测数据传输到 Microsoft。
 
 ```yaml
 Type: SwitchParameter
@@ -91,4 +91,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack 集线器中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+有关如何访问和使用特权终结点的详细信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。

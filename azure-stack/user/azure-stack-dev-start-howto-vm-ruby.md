@@ -1,5 +1,5 @@
 ---
-title: 将 Ruby 应用部署到 Azure Stack Hub 中的虚拟机
+title: 在 Azure Stack 集线器中将 Ruby 应用部署到 VM
 description: 将 Ruby 应用部署到 Azure Stack Hub 中的虚拟机。
 author: mattbriggs
 ms.topic: overview
@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 58706a248036d38027208518177a89c69922591a
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 7be8293180f03d9d82565aa27c74c8e8cbe7c9c1
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146829"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573966"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>将 Ruby Web 应用部署到 Azure Stack Hub 中的 VM
 
@@ -65,7 +65,7 @@ ms.locfileid: "84146829"
     sudo gem install bundler
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > 安装 Ruby on Rails 依赖项时，可能需要反复运行 `sudo gem install bundler`。 如果安装失败，请查看错误日志并解决问题。
 
 4. 验证你的安装。 仍在 SSH 会话中连接到 VM 时，输入以下命令：

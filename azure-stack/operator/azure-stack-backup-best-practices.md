@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 的基础结构备份服务最佳做法
+title: 基础结构备份服务最佳做法-Azure Stack 中心
 description: 在部署和管理 Azure Stack Hub 时，请遵循这些最佳做法，这样有助于在发生灾难性故障时减少数据丢失。
 author: justinha
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a141beed4df6b34175f37d9e1e60e694f3ab71f2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: fe0fa50ca2dfd69475fe2726042332c6ce9f51ad
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700504"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573116"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 
@@ -30,7 +30,7 @@ ms.locfileid: "77700504"
 
 路径的通用命名约定 (UNC) 字符串必须使用完全限定的域名 (FQDN)。 如果无法进行名称解析，则可以使用 IP 地址。 UNC 字符串指定资源（例如共享文件或设备）的位置。
 
-### <a name="encryption"></a>加密
+### <a name="encryption"></a>Encryption
 
 #### <a name="version-1901-and-newer"></a>版本 1901 及更新版本
 
@@ -53,6 +53,7 @@ ms.locfileid: "77700504"
 ### <a name="backups"></a>备份
 
  - 备份作业在系统正在运行时执行，因此管理体验或用户应用不会出现停机的情况。 对于负载合理的解决方案，备份作业预计要花费 20-40 分钟。
+ - 在执行修补、更新和 FRU 操作期间，自动备份将不会启动。 默认情况下，将跳过计划的备份作业。 在执行这些操作的过程中，也会阻止按需备份请求。    
  - 根据 OEM 提供的说明，应将手动备份的网络交换机和硬件生命周期主机 (HLH) 存储在基础结构备份控制器存储控制平面备份数据的同一备份共享上。 请考虑将交换机和 HLH 配置存储在区域文件夹中。 如果在同一区域中有多个 Azure Stack Hub 实例，请考虑对属于某个缩放单元的每个配置使用一个标识符。
 
 ### <a name="folder-names"></a>文件夹名称
@@ -65,20 +66,23 @@ ms.locfileid: "77700504"
 FQDN：contoso.com  
 区域：nyc
 
-
+```console
     \\fileserver01.contoso.com\AzSBackups
     \\fileserver01.contoso.com\AzSBackups\contoso.com
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
+```
 
 MASBackup 文件夹是 Azure Stack Hub 存储其备份数据的地方。 不要使用此文件夹来存储你自己的数据。 OEM 也不应使用此文件夹来存储任何备份数据。
 
 建议 OEM 将其组件的备份数据存储在区域文件夹下。 每台网络交换机、硬件生命周期主机 (HLH) 等等可以存储在其自己的子文件夹中。 例如：
 
+```console
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration
+```
 
 ### <a name="monitoring"></a>监视
 

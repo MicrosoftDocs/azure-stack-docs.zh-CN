@@ -1,5 +1,5 @@
 ---
-title: 更换 Azure Stack Hub 集成系统上的缩放单元节点
+title: 替换 Azure Stack 集线器集成系统上的缩放单位节点
 titleSuffix: Azure Stack Hub
 description: 了解如何更换 Azure Stack Hub 集成系统上的物理缩放单元节点。
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9d39763397ce39c83a50bb57d97f0b5b8e07de6b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a96ee2a4ffb2abb3c3e11db23d4fb676ace8c1c0
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367982"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572624"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>更换 Azure Stack Hub 集成系统上的缩放单元节点
 
@@ -29,7 +29,7 @@ ms.locfileid: "78367982"
 *根据硬件的物理条件，可能不需要此操作。
 
 > [!Note]  
-> 如果关闭操作确实失败，则建议先执行清空操作，再执行停止操作。 有关详细信息，请参阅 [Azure Stack Hub 中的缩放单元节点操作](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions)。
+> 如果关闭操作确实失败，则建议先执行清空操作，再执行停止操作。 有关详细信息，请参阅 [Azure Stack Hub 中的缩放单元节点操作](./azure-stack-node-actions.md)。
 
 ## <a name="review-alert-information"></a>查看警报信息
 

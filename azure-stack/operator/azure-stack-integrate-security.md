@@ -1,18 +1,18 @@
 ---
-title: 通过 Syslog 转发将 Azure Stack Hub 与监视解决方案集成
+title: 通过 syslog 转发将 Azure Stack 集线器与监视解决方案集成
 description: 了解如何通过 Syslog 转发将 Azure Stack Hub 与监视解决方案集成。
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: a02458ba7790fdf48d8b506abfea0e771b8a179e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 06/15/2020
+ms.openlocfilehash: 465db777fd26d3186eb46623b928b6a63e5dc71e
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699416"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572742"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>通过 Syslog 转发将 Azure Stack Hub 与监视解决方案集成
 
@@ -38,7 +38,7 @@ Azure Stack Hub 中的 Syslog 客户端支持以下配置：
 4. **基于 UDP 的 Syslog，不支持加密：** 在此配置中，不验证 syslog 客户端和 syslog 服务器标识。 消息通过 UDP 以明文形式发送。
 
 > [!IMPORTANT]
-> Microsoft 强烈建议对生产环境使用身份验证和加密（配置 #1 或，最少 #2）使用 TCP，以防止中间人攻击和窃听消息。
+> Microsoft 强烈建议使用身份验证和加密 (配置 #1 或至少 #2) 生产环境中使用 TCP，以防止中间人攻击和窃听消息。
 
 ### <a name="cmdlets-to-configure-syslog-forwarding"></a>用于配置 Syslog 转发的 cmdlet
 配置 Syslog 转发需要访问特权终结点 (PEP)。 已将两个 PowerShell cmdlet 添加到 PEP 来配置 Syslog 转发：
@@ -234,6 +234,8 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
 * Name: <PEP Task Name>
 * Severity: mapped from PEP Level (details see the PEP Severity table below)
+* Who: account used to connect to the PEP
+* WhichIP: IP address of the device used to connect to the PEP
 ```
 
 特权终结点的事件表：
@@ -271,6 +273,8 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
 * Name: <REP Task Name>
 * Severity: mapped from REP Level (details see the REP Severity table below)
+* Who: account used to connect to the REP
+* WhichIP: IP address of the device used to connect to the REP
 ```
 
 恢复终结点的事件表：
@@ -354,17 +358,17 @@ Azure Stack Hub 中 Windows 事件的自定义扩展表：
 
 警报严重性表：
 
-| severity | Level |
+| 严重性 | Level |
 |----------|-------|
 |0|Undefined|
-|10 个|关键|
+|10|严重|
 |5|警告|
 
 Azure Stack Hub 中已创建警报的自定义扩展表：
 
 | 自定义扩展名称 | 示例 | 
 |-----------------------|---------|
-|MasEventDescription|说明：已为 \<TestDomain\> 创建用户帐户 \<TestUser\>。 它是潜在的安全风险。 \- 补救措施：请联系支持人员。 解决此问题需要客户协助。 不要试图在没有他们协助的情况下解决此问题。 在提交支持请求之前，请根据 https://aka.ms/azurestacklogfiles 中的指南启动日志文件收集过程。
+|MasEventDescription|说明：为 \<TestDomain\> 创建了一个用户帐户 \<TestUser\>。 它是潜在的安全风险。 -- 补救措施：联系支持部门。 解决此问题需要客户协助。 不要试图在没有他们协助的情况下解决此问题。 在提交支持请求之前，请根据 https://aka.ms/azurestacklogfiles 中的指南启动日志文件收集过程。
 
 ### <a name="cef-mapping-for-alerts-closed"></a>已关闭警报的 CEF 映射
 

@@ -1,18 +1,18 @@
 ---
 title: 重新部署 ASDK
 description: 了解如何重新部署 Azure Stack 开发工具包 (ASDK)。
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7e4c6668253e79a2fc04a6c4b0cf37c9025ccd3c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 55a35a509b4fe3fadbe9a58e705cc53cfd18a027
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695965"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572164"
 ---
 # <a name="redeploy-the-asdk"></a>重新部署 ASDK
 本文介绍如何在非生产环境中重新部署 Azure Stack 开发工具包 (ASDK)。 由于不支持 ASDK 升级，因此若要改用较新的版本，需彻底地进行重新部署。 还可以在希望从头开始的任何时候重新部署 ASDK。
@@ -43,6 +43,7 @@ ms.locfileid: "77695965"
    Remove-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
+      -RegistrationName $RegistrationName
 
    # Remove the Azure Stack resource group
    Remove-AzureRmResourceGroup -Name azurestack -Force

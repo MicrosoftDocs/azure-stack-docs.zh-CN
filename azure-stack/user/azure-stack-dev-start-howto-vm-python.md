@@ -1,18 +1,18 @@
 ---
-title: 将 Python Web 应用部署到 Azure Stack Hub 中的虚拟机
+title: 在 Azure Stack 集线器中将 Python web 应用部署到 VM
 description: 将 Python Web 应用部署到 Azure Stack Hub 中的虚拟机。
 author: mattbriggs
 ms.topic: overview
-ms.date: 3/12/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 700589e985aa651a1a7ae4a5ffbc020b8e6a2d3f
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 59c6d473a3ac07d82ae40dedc0ff2b719ee51807
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79313001"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571807"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>将 Python Web 应用部署到 Azure Stack Hub 中的 VM
 

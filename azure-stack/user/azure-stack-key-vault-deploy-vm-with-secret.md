@@ -1,5 +1,5 @@
 ---
-title: 使用 Key Vault 中存储的密码部署 Azure Stack Hub VM
+title: 使用存储在 Key Vault 中的密码部署 Azure Stack 中心 VM
 description: 了解如何使用 Azure Stack Hub 密钥保管库中存储的密码部署 VM。
 author: mattbriggs
 ms.topic: conceptual
@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f010700c86e4481063528bd1148d7898e8bd17fe
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 46b76402695131a6bb099a9dc55c15d1066d4c84
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111874"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573813"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>使用 Key Vault 中存储的密码部署 Azure Stack Hub VM
 

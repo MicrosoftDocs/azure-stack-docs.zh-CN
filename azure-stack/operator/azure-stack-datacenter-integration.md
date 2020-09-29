@@ -1,5 +1,5 @@
 ---
-title: 有关 Azure Stack Hub 集成系统的数据中心集成规划注意事项
+title: 规划 Azure Stack 集线器集成系统的数据中心集成
 description: 了解如何规划和准备数据中心与 Azure Stack Hub 集成式系统的集成。
 author: IngridAtMicrosoft
 ms.topic: conceptual
@@ -7,12 +7,12 @@ ms.date: 04/02/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: fbcca6d24f37162fa62729f38d50a6ceb0f0374c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 825db573a614d1a1dd9b54cd87d8894c981fce4b
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80638199"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573027"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>有关 Azure Stack Hub 集成系统的数据中心集成规划注意事项
 
@@ -67,26 +67,26 @@ Azure Stack Hub 是一个密封的系统，从权限和网络角度来看，其�
 - 对于[连接的部署](azure-stack-connected-deployment.md)，可以选择即用即付或基于容量的许可模式。 即用即付模式需要连接到 Azure 来报告用量，并通过 Azure 商务系统计费。 
 - 如果部署与 Internet [断开连接](azure-stack-disconnected-deployment.md)的 Azure Stack，只能使用基于容量的许可模式。 
 
-有关许可模式的详细信息，请参阅[Microsoft Azure Stack 集线器打包和定价](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。
+有关许可模式的详细信息，请参阅 [Microsoft Azure Stack 集线器打包和定价](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。
 
 
 ## <a name="naming-decisions"></a>命名决策
 
-你需要考虑如何计划 Azure Stack 集线器命名空间，尤其是区域名称和外部域名。 面向公众的终结点的 Azure Stack 中心部署的外部完全限定的域名（FQDN）是以下两个名称： &lt; *region*&gt;的组合。&lt; *fqdn*fqdn&gt;。 例如 *east.cloud.fabrikam.com*。 在此示例中，可通过以下 Url 获取 Azure Stack 中心门户：
+需要考虑如何规划 Azure Stack Hub 命名空间，尤其是区域名称和外部域名。 公开终结点的 Azure Stack Hub 部署的外部完全限定域名 (FQDN) 由以下两个名称组成：&lt;*区域*&gt;.&lt;*fqdn*&gt;。 例如 *east.cloud.fabrikam.com*。 在此示例中，Azure Stack Hub 门户将在以下 URL 中提供：
 
 - `https://portal.east.cloud.fabrikam.com`
 - `https://adminportal.east.cloud.fabrikam.com`
 
 > [!IMPORTANT]
-> 为 Azure Stack 中心部署选择的区域名称必须是唯一的，并会显示在门户中的 "地址" 中。 
+> 为 Azure Stack Hub 部署选择的区域名称必须唯一，将在门户地址中显示。 
 
 下表汇总了这些域命名决策。
 
 | 名称 | 说明 |
 | -------- | ------------- |
-|区域名称 | 第一个 Azure Stack 中心区域的名称。 此名称用作 Azure Stack 中心管理的公共虚拟 IP 地址（Vip）的 FQDN 的一部分。 通常，区域名称是一个物理位置标识符，例如数据中心位置。<br><br>区域名称必须仅包含字母和 0-9 之间的数字。 不允许使用特殊字符（例如 `-`、`#` 等）。| 
+|区域名称 | 第一个 Azure Stack Hub 区域名称。 此名称用作 Azure Stack Hub 管理的公共虚拟 IP 地址 (VIP) 的 FQDN 的一部分。 通常，区域名称是一个物理位置标识符，例如数据中心位置。<br><br>区域名称必须仅包含字母和 0-9 之间的数字。 不允许使用特殊字符（例如 `-`、`#` 等）。| 
 | 外部域名 | 包含面向外部的 VIP 的终结点的域名系统 (DNS) 区域名称。 在这些公共 VIP 的 FQDN 中使用。 | 
-| 专用（内部）域名 | 在用于基础结构管理 Azure Stack 集线器上创建的域（和内部 DNS 区域）的名称。
+| 专用（内部）域名 | 在 Azure Stack Hub 中为基础结构管理创建的域（和内部 DNS 区域）的名称。
 | | |
 
 ## <a name="certificate-requirements"></a>证书要求
@@ -96,50 +96,50 @@ Azure Stack Hub 是一个密封的系统，从权限和网络角度来看，其�
 - 可以使用单个通配符证书或使用一组专用证书，并只对终结点（例如存储和 Key Vault）使用通配符。
 - 证书可以由公众信任的证书颁发机构 (CA) 或客户管理的 CA 颁发。
 
-有关部署 Azure Stack 中心需要哪些 PKI 证书以及如何获取这些证书的详细信息，请参阅[Azure Stack 中心公钥基础结构证书要求](azure-stack-pki-certs.md)。  
+有关部署 Azure Stack Hub 时需要哪些 PKI 证书以及如何获取这些证书的详细信息，请参阅 [Azure Stack Hub 公钥基础结构证书要求](azure-stack-pki-certs.md)。  
 
 > [!IMPORTANT]
-> 应将提供的 PKI 证书信息用作一般指导。 在为 Azure Stack 中心获取任何 PKI 证书之前，请与 OEM 硬件合作伙伴合作。 他们将提供更详细的证书指导和要求。
+> 应将提供的 PKI 证书信息用作一般指导。 获取 Azure Stack Hub 的任何 PKI 证书之前，请咨询 OEM 硬件合作伙伴。 他们将提供更详细的证书指导和要求。
 
 ## <a name="time-synchronization"></a>时间同步
 
-您必须选择用于同步 Azure Stack 集线器的特定时间服务器。 时间同步对于 Azure Stack 中心及其基础结构角色至关重要，因为它用于生成 Kerberos 票证。 Kerberos 票证用于内部服务的相互身份验证。
+必须选择用于同步 Azure Stack Hub 的特定时间服务器。 时间同步对于 Azure Stack Hub 及其基础结构角色而言至关重要，因为它用于生成 Kerberos 票证。 Kerberos 票证用于内部服务的相互身份验证。
 
-必须指定时间同步服务器的 IP。 基础结构中的大多数组件都可以解析 URL，但有些组件只支持 IP 地址。 如果你使用的是 "断开连接的部署" 选项，则必须在公司网络上指定一个时间服务器，确定你可以从 Azure Stack 集线器中的基础结构网络访问。
+必须指定时间同步服务器的 IP。 基础结构中的大多数组件都可以解析 URL，但有些组件只支持 IP 地址。 如果使用的是离线部署选项，则必须在企业网络中指定时间服务器，并确保可从 Azure Stack Hub 中的基础结构网络访问该服务器。
 
-## <a name="connect-azure-stack-hub-to-azure"></a>将 Azure Stack 中心连接到 Azure
+## <a name="connect-azure-stack-hub-to-azure"></a>将 Azure Stack Hub 连接到 Azure
 
-对于混合云方案，你需要计划如何将 Azure Stack 集线器连接到 Azure。 可以通过两种方法将 Azure Stack 集线器中的虚拟网络连接到 Azure 中的虚拟网络：
+对于混合云方案，需要规划如何将 Azure Stack Hub 连接到 Azure。 支持使用两种方法将 Azure Stack Hub 中的虚拟网络连接到 Azure 中的虚拟网络：
 
-- **站点到站点**：通过 IPsec 的虚拟专用网络（VPN）连接（ike V1 和 ike v2）。 此类连接需要 VPN 设备或路由以及远程访问服务 (RRAS)。 有关 Azure 中 VPN 网关的详细信息，请参阅[关于 VPN 网关](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)。 通过此隧道进行的通信经过加密，并且很安全。 但是，带宽受限于隧道的最大吞吐量 (100-200 Mbps)。
+- **站点到站点**：通过 IPsec（IKE v1 和 IKE v2）建立虚拟专用网络 (VPN) 连接。 此类连接需要 VPN 设备或路由以及远程访问服务 (RRAS)。 有关 Azure 中 VPN 网关的详细信息，请参阅[关于 VPN 网关](/azure/vpn-gateway/vpn-gateway-about-vpngateways)。 通过此隧道进行的通信经过加密，并且很安全。 但是，带宽受限于隧道的最大吞吐量 (100-200 Mbps)。
 
-- **出站 nat**：默认情况下，Azure Stack 集线器中的所有 vm 都可以通过出站 NAT 连接到外部网络。 在 Azure Stack Hub 中创建的每个虚拟网络将获取分配给它的公共 IP 地址。 无论 VM 是直接被分配了公共 IP 地址，还是位于采用公共 IP 地址的负载均衡器后面，都可以使用虚拟网络的 VIP，通过出站 NAT 进行出站访问。 此方法只适用于 VM 发起的、目标为外部网络（Internet 或 Intranet）的通信， 而不可用来与外部 VM 通信。
+- **出站 NAT**：默认情况下，Azure Stack Hub 中的所有 VM 都可通过出站 NAT 连接到外部网络。 在 Azure Stack Hub 中创建的每个虚拟网络分配有一个公共 IP 地址。 无论 VM 是直接被分配了公共 IP 地址，还是位于采用公共 IP 地址的负载均衡器后面，都可以使用虚拟网络的 VIP，通过出站 NAT 进行出站访问。 此方法只适用于 VM 发起的、目标为外部网络（Internet 或 Intranet）的通信， 而不可用来与外部 VM 通信。
 
 ### <a name="hybrid-connectivity-options"></a>混合连接选项
 
 对于混合连接，必须考虑提供哪种部署及其部署位置。 需要考虑是否隔离每个租户的网络流量，以及是否要进行 Intranet 或 Internet 部署。
 
-- **单租户 Azure Stack 中心**Azure Stack：从网络的角度来看，它至少是一个租户。 可能存在许多租户订阅，但如同任何 Intranet 服务一样，所有流量通过相同的网络传输。 来自一个订阅的网络流量通过与另一个订阅相同的网络连接传输，不需要通过加密隧道进行隔离。
+- **单租户 Azure Stack Hub**：至少从网络角度看，这种 Azure Stack Hub 部署看起来就像是一个租户。 可能存在许多租户订阅，但如同任何 Intranet 服务一样，所有流量通过相同的网络传输。 来自一个订阅的网络流量通过与另一个订阅相同的网络连接传输，不需要通过加密隧道进行隔离。
 
-- **多租户 Azure Stack 集线器**：一种 Azure Stack 的中心部署，其中每个租户订阅的流量被绑定到 Azure Stack 中心外部的网络，必须与其他租户的网络流量隔离。
+- **多租户 Azure Stack Hub**：在这种 Azure Stack Hub 部署中，每个租户订阅的、发往 Azure Stack Hub 外部网络的流量必须与其他租户的网络流量相隔离。
 
-- **Intranet 部署**：位于公司 Intranet 上的 Azure Stack 中心部署，通常在专用 IP 地址空间和一个或多个防火墙后面。 公共 IP 地址并非真正面向公众，因为它们无法通过公共 Internet 直接路由。
+- **Intranet 部署**：位于企业 Intranet 上的 Azure Stack Hub 部署，通常位于专用 IP 地址空间中，并在一个或多个防火墙后面。 公共 IP 地址并非真正面向公众，因为它们无法通过公共 Internet 直接路由。
 
-- **Internet 部署**：连接到公共 Internet 并为公共 VIP 范围使用可通过 Internet 路由的公共 IP 地址的 Azure Stack 中心部署。 部署仍可位于防火墙后面，但可以从公共 Internet 和 Azure 直接访问公共 VIP 范围。
+- **Internet 部署**：这种 Azure Stack Hub 部署连接到公共 Internet，并针对公共 VIP 范围使用可通过 Internet 路由的公共 IP 地址。 部署仍可位于防火墙后面，但可以从公共 Internet 和 Azure 直接访问公共 VIP 范围。
 
 下表汇总了混合连接方案及其优点、缺点和用例。
 
 | 方案 | 连接方法 | 优点 | 缺点 | 适用范围 |
 | -- | -- | --| -- | --|
-| 单个租户 Azure Stack 中心、intranet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 易于实施；不需要网关。 | 不加密流量；堆栈外部无隔离或加密。 | 同等信任所有租户的企业部署。<br><br>与 Azure 之间建立了 Azure ExpressRoute 线路的企业。 |
-| 多租户 Azure Stack 集线器、intranet 部署 | 站点到站点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 必须避免其他租户访问其部分租户流量的企业部署。 |
-| 单个租户 Azure Stack 集线器，internet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 | 不加密流量；堆栈外部无隔离或加密。 | 托管方案，其中租户获取其自己的 Azure Stack 中心部署和 Azure Stack 中心环境的专用线路。 例如，ExpressRoute 和多重协议标签交换 (MPLS)。
-| 多租户 Azure Stack 集线器，internet 部署 | 站点到站点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 托管方案，其中的提供商需要提供多租户云，使租户彼此不信任且必须加密流量。
+| 单租户 Azure Stack Hub、Intranet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 易于实施；不需要网关。 | 不加密流量；堆栈外部无隔离或加密。 | 同等信任所有租户的企业部署。<br><br>与 Azure 之间建立了 Azure ExpressRoute 线路的企业。 |
+| 多租户 Azure Stack Hub、Intranet 部署 | 站点到站点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 必须避免其他租户访问其部分租户流量的企业部署。 |
+| 单租户 Azure Stack Hub、Internet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 | 不加密流量；堆栈外部无隔离或加密。 | 托管方案，其中的租户获取自身的 Azure Stack Hub 部署，并与 Azure Stack Hub 环境之间建立专用线路。 例如，ExpressRoute 和多重协议标签交换 (MPLS)。
+| 多租户 Azure Stack Hub、Internet 部署 | 站点到站点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 托管方案，其中的提供商需要提供多租户云，使租户彼此不信任且必须加密流量。
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>使用 ExpressRoute
 
-可以通过[ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)为单租户 intranet 和多租户方案将 Azure Stack 集线器连接到 Azure。 需要通过[连接提供商](https://docs.microsoft.com/azure/expressroute/expressroute-locations)预配 ExpressRoute 线路。
+对于单租户 Intranet 和多租户方案，可以通过 [ExpressRoute](/azure/expressroute/expressroute-introduction) 将 Azure Stack Hub 连接到 Azure。 需要通过[连接提供商](/azure/expressroute/expressroute-locations)预配 ExpressRoute 线路。
 
 下图显示了单租户方案的 ExpressRoute（其中“客户的连接”是 ExpressRoute 线路）。
 
@@ -150,15 +150,15 @@ Azure Stack Hub 是一个密封的系统，从权限和网络角度来看，其�
 ![显示多租户 ExpressRoute 方案的示意图](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.svg)
 
 ## <a name="external-monitoring"></a>外部监视
-若要从 Azure Stack 中心部署和设备获取所有警报的单一视图，并将警报集成到用于票证的现有 IT 服务管理工作流，可将[Azure Stack 中心与外部数据中心监视解决方案集成](azure-stack-integrate-monitor.md)。
+若要从 Azure Stack Hub 部署和设备获取所有警报的单个视图，并针对票证将警报集成到现有 IT 服务管理工作流，可[将 Azure Stack Hub 与外部数据中心监视解决方案集成](azure-stack-integrate-monitor.md)。
 
-Azure Stack 中心解决方案附带的硬件生命周期主机是 Azure Stack 中心外的一台计算机，该计算机运行 OEM 供应商提供的硬件管理工具。 可以使用这些工具，或者与数据中心现有监视解决方案直接集成的其他解决方案。
+Azure Stack Hub 解决方案随附的硬件生命周期主机是 Azure Stack Hub 外部的计算机，运行 OEM 硬件供应商为硬件提供的管理工具。 可以使用这些工具，或者与数据中心现有监视解决方案直接集成的其他解决方案。
 
 下表汇总了目前可用选项的列表。
 
 | 区域 | 外部监视解决方案 |
 | -- | -- |
-| Azure Stack 中心软件 | [适用于 Operations Manager 的 Azure Stack 集线器管理包](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios 插件](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>基于 REST 的 API 调用 | 
+| Azure Stack Hub 软件 | [适用于 Operations Manager 的 Azure Stack Hub 管理包](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios 插件](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>基于 REST 的 API 调用 | 
 | 物理服务器（通过 IPMI 的 BMC） | OEM 硬件 - Operations Manager 供应商管理包<br>OEM 硬件供应商提供的解决方案<br>硬件供应商 Nagios 插件。<br>OEM 合作伙伴支持的监视解决方案（随附） | 
 | 网络设备 (SNMP) | Operations Manager 网络设备发现<br>OEM 硬件供应商提供的解决方案<br>Nagios 交换机插件 |
 | 租户订阅运行状况监视 | [适用于 Windows Azure 的 System Center 管理包](https://www.microsoft.com/download/details.aspx?id=50013) | 
@@ -166,19 +166,19 @@ Azure Stack 中心解决方案附带的硬件生命周期主机是 Azure Stack �
 
 请注意以下要求：
 
-- 使用的解决方案必须无代理。 无法在 Azure Stack Hub 组件内安装第三方代理。
+- 使用的解决方案必须无代理。 不能在 Azure Stack Hub 组件内部安装第三方代理。
 - 若要使用 System Center Operations Manager，需要安装 Operations Manager 2012 R2 或 Operations Manager 2016。
 
 ## <a name="backup-and-disaster-recovery"></a>备份和灾难恢复
 
-规划备份和灾难恢复涉及到规划适用于托管 IaaS Vm 和 PaaS 服务的底层 Azure Stack 中心基础结构以及租户应用和数据。 请单独规划这些工作。
+备份和灾难恢复的规划涉及到规划这两个用于托管 IaaS VM 和 PaaS 服务的 Azure Stack Hub 底层基础结构，以及租户应用和数据。 请单独规划这些工作。
 
 ### <a name="protect-infrastructure-components"></a>保护基础结构组件
 
-可以将[Azure Stack 中心](azure-stack-backup-back-up-azure-stack.md)基础结构组件备份到指定的 SMB 共享：
+可[将 Azure Stack Hub 基础结构组件备份](azure-stack-backup-back-up-azure-stack.md)到指定的 SMB 共享：
 
 - 在现有的基于 Windows 的文件服务器或第三方设备上需有外部 SMB 文件共享。
-- 将此同一共享用于网络交换机与硬件生命周期主机的备份。 你的 OEM 硬件供应商将帮助提供有关备份和还原这些组件的指南，因为这些组件是 Azure Stack 中心外部的。 你要负责根据 OEM 供应商的建议来运行备份工作流。
+- 将此同一共享用于网络交换机与硬件生命周期主机的备份。 OEM 硬件供应商会帮助提供这些组件的备份和还原指导，因为这些操作在 Azure Stack Hub 外部进行。 你要负责根据 OEM 供应商的建议来运行备份工作流。
 
 如果发生重大数据丢失，可以使用基础结构备份来重新植入部署数据，例如： 
 
@@ -192,16 +192,16 @@ Azure Stack 中心解决方案附带的硬件生命周期主机是 Azure Stack �
 
 ### <a name="protect-tenant-apps-on-iaas-vms"></a>保护 IaaS VM 上的租户应用
 
-Azure Stack 中心不会备份租户应用和数据。 你必须规划对 Azure Stack 中心外部的目标的备份和灾难恢复保护。 租户保护是租户驱动的活动。 对于 IaaS VM，租户可以使用来宾内部技术来保护文件夹、应用数据和系统状态。 但是，企业或服务提供商可能需要在同一数据中心或云外部提供备份和恢复解决方案。
+Azure Stack Hub 不会备份租户应用和数据。 必须针对 Azure Stack Hub 的外部目标规划备份和灾难恢复保护。 租户保护是租户驱动的活动。 对于 IaaS VM，租户可以使用来宾内部技术来保护文件夹、应用数据和系统状态。 但是，企业或服务提供商可能需要在同一数据中心或云外部提供备份和恢复解决方案。
 
-若要备份 Linux 或 Windows IaaS VM，必须使用有权访问来宾操作系统的备份产品来保护文件、文件夹、操作系统状态和应用数据。 你可以使用 Azure 备份、System Center 数据中心保护管理器或支持的第三方产品。
+若要备份 Linux 或 Windows IaaS VM，必须使用有权访问来宾操作系统的备份产品来保护文件、文件夹、操作系统状态和应用数据。 可以使用 Azure 备份、System Center DataCenter Protection Manager 或支持的第三方产品。
 
 在发生灾难时，若要将数据复制到辅助位置并协调应用程序故障转移，可以使用 Azure Site Recovery 或支持的第三方产品。 此外，支持本机复制的应用（例如 Microsoft SQL Server）可将数据复制到正在运行应用的另一个位置。
 
 ## <a name="learn-more"></a>了解详细信息
 
-- 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅[Azure Stack 中心](https://azure.microsoft.com/overview/azure-stack/)产品页。
-- 有关 Azure Stack 中心集成系统的路线图和地域可用性的信息，请参阅白皮书： [Azure Stack 中心： Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
+- 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack/) 产品页。
+- 有关 Azure Stack Hub 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack Hub：Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
 
 ## <a name="next-steps"></a>后续步骤
-[Azure Stack 中心部署连接模型](azure-stack-connection-models.md)
+[Azure Stack Hub 部署连接模型](azure-stack-connection-models.md)

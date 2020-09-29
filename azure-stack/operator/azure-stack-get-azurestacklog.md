@@ -1,25 +1,25 @@
 ---
-title: 使用特权终结点 (PEP) 收集诊断日志
-description: 了解如何使用管理员门户或 PowerShell 脚本在 Azure Stack 中心内收集诊断日志。
+title: '通过特权终结点 (PEP 收集诊断日志) '
+description: 了解如何使用管理员门户或 PowerShell 脚本在 Azure Stack Hub 中按需收集诊断日志。
 author: justinha
+ms.custom: conteperfq4
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 03/05/2020
-ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 6eb6f55ab9836cfd78b2fdb72dff220837f1865a
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79520459"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572810"
 ---
-# <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>使用特权终结点（PEP）发送 Azure Stack 集线器诊断日志
+# <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>使用特权终结点 (PEP) 发送 Azure Stack Hub 诊断日志
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
-
-若要在集成系统上运行 Get-azurestacklog，需要有权访问特权终结点（PEP）。 下面是一个示例脚本，可使用 PEP 运行来收集日志。 如果要取消正在运行的日志集合，请在启动新的日志收集之前等待5分钟，然后输入`Remove-PSSession -Session $session`。
+若要在集成系统上运行 Get-AzureStackLog，需有权访问特权终结点 (PEP)。 下面是一个可运行的示例脚本，它使用 PEP 收集日志。 若要取消正在运行的日志收集以启动新的日志收集，请在启动新的日志收集前等待 5 分钟，然后输入 `Remove-PSSession -Session $session`。
 
 
 ```powershell
@@ -68,7 +68,7 @@ if ($session) {
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* 在 Azure Stack 上，从运行自行管理的 Kubernetes 群集（AKS 引擎）的租户部署收集日志。 Kubernetes 日志应采用一种格式存储在租户存储帐户中，该格式将允许将收集时间范围应用于这些日志。 
+* 在 Azure Stack 上，从运行了自行管理的 Kubernetes 群集（AKS 引擎）的租户部署中收集日志。 Kubernetes 日志应采用符合条件的格式存储在租户存储帐户中：使用该格式时应能够对日志应用“收集时间范围”。 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"
@@ -80,28 +80,28 @@ if ($session) {
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
   ```
 
-* 收集值-添加 RPs 的日志。 一般语法为：
+* 收集 value-add RPs 的日志。 常规语法为：
  
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider <<value-add RP name>>
+  Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
-  收集 IoT 中心日志： 
+  收集 IoT 中心的日志： 
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider IotHub
+  Get-AzureStackLog -FilterByResourceProvider iothubServiceHealth
   ```
  
-  收集事件中心日志：
+  收集事件中心的日志：
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider eventhub
+  Get-AzureStackLog -FilterByResourceProvider eventhub
   ```
  
   收集 Azure Stack Edge 的日志：
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvide databoxedge
+  Get-AzureStackLog -FilterByResourceProvide databoxedge
   ```
 
 * 收集日志并将其存储在指定的 Azure 存储 blob 容器中。 此操作的常规语法如下所示：
@@ -117,7 +117,7 @@ if ($session) {
   ```
 
   > [!NOTE]
-  > 此过程用于上传日志。 即使你没有可访问的 SMB 共享或访问 internet，你也可以在 Azure Stack 集线器上创建 blob 存储帐户，以传输日志，然后使用客户端检索这些日志。  
+  > 此过程用于上传日志。 即使没有可以访问的 SMB 共享，或者无法访问 Internet，也可在 Azure Stack Hub 上创建一个 Blob 存储帐户来传输日志，然后使用客户端检索这些日志。  
 
   若要为存储帐户生成 SAS 令牌，需要以下权限：
 
@@ -134,15 +134,13 @@ if ($session) {
   6. 右键单击新容器，然后单击“获取共享访问签名”。****
   7. 根据需求，选择有效的**开始时间**和**结束时间**。
   8. 根据所需的权限，选择“读取”****、“写入”**** 和“列表”****。
-  9. 选择“创建”。 
+  9. 选择“创建” ****。
   10. 你将获得共享访问签名。 复制 URL 部分，并将其提供给 `-OutputSasUri` 参数。
 
-### <a name="parameter-considerations"></a>参数注意事项 
+### <a name="parameter-considerations"></a>参数注意事项
 
 * 参数 **OutputSharePath** 和 **OutputShareCredential** 用于将日志存储在用户指定的位置。
-
 * 可以使用 **FromDate** 和 **ToDate** 参数来收集特定时间段的日志。 如果未指定这些参数，则默认收集过去四小时的日志。
-
 * 使用 **FilterByNode** 参数按计算机名筛选日志。 例如：
 
     ```powershell
@@ -159,32 +157,179 @@ if ($session) {
 * 转储文件日志收集默认情况下处于禁用状态。 若要启用它，请使用 **IncludeDumpFile** 开关参数。
 * 目前，可以使用 **FilterByRole** 参数按以下角色筛选日志收集：
 
-  |   |   |   |    |     |
-  | - | - | - | -  |  -  |
-  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |CacheService                   |IBC                            |OEM                       |WAS            |
-  |ACSDownloadService    |计算                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
-  |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE                       |         |
-  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
-  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
-  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
-  |ACSMonitoringService  |Domain                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
-  |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
-  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |存储                   |         |
-  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
-  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
-  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
-  |AzureBridge           |FRP                            |MonRP                          |SupportRing               |         |
-  |AzureMonitor          |网关                        |NC                             |SupportRingServices       |         |
-  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |SupportBridgeRP           |         |
-  |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
-  |   |   |   |    |     | 
+:::row:::
+   :::column span="":::
+
+      ACS
+
+      ACSBlob
+
+      ACSDownloadService
+
+      ACSFabric
+
+      ACSFrontEnd
+
+      ACSMetrics
+
+      ACSMigrationService
+
+      ACSMonitoringService
+
+      ACSSettingsService
+
+      ACSTableMaster
+
+      ACSTableServer
+
+      ACSWac
+
+      ADFS
+
+      ApplicationController
+
+      ASAppGateway
+
+      AzureBridge
+
+      AzureMonitor
+
+      BareMetal
+
+      BRP
+
+      CA
+
+      CacheService
+
+      计算
+
+      CPI
+
+      CRP
+
+      DeploymentMachine
+
+      DiskRP
+
+      域
+
+   :::column-end:::
+   :::column span="":::
+
+      ECE
+
+      EventAdminRP
+
+      EventRP
+
+      ExternalDNS
+
+      FabricRing
+
+      FabricRingServices
+
+      FirstTierAggregationService
+
+      FRP
+
+      网关
+
+      HealthMonitoring
+
+      HintingServiceV2
+
+      HRP
+
+      IBC
+
+      InfraServiceController
+
+      KeyVaultAdminResourceProvider
+
+      KeyVaultControlPlane
+
+      KeyVaultDataPlane
+
+      KeyVaultInternalControlPlane
+
+      KeyVaultInternalDataPlane
+
+      KeyVaultNamingService
+
+      MDM
+
+      MetricsAdminRP
+
+      MetricsRP
+
+      MetricsServer
+
+      MetricsStoreService
+
+      MonAdminRP
+
+      MonRP
+
+   :::column-end:::
+   :::column span="":::
+
+      NC
+
+      NonPrivilegedAppGateway
+
+      NRP
+
+      OboService
+
+      OEM
+
+      OnboardRP
+
+      PXE
+
+      QueryServiceCoordinator
+
+      QueryServiceWorker
+
+      SeedRing
+
+      SeedRingServices
+
+      SLB
+
+      SQL
+
+      SRP
+
+      存储
+
+      StorageController
+
+      URP
+
+      SupportBridgeController
+
+      SupportRing
+
+      SupportRingServices
+
+      SupportBridgeRP
+
+      UsageBridge
+
+      VirtualMachines
+
+      WAS
+
+      WASPUBLIC
+   
+   :::column-end:::
+:::row-end:::
 
 ### <a name="additional-considerations-on-diagnostic-logs"></a>有关诊断日志的其他注意事项
 
-* 此命令需要一些时间来运行，具体取决于日志收集的角色。 贡献因素还包括为日志收集指定的持续时间，以及 Azure Stack 中心环境中的节点数。
+* 此命令需要一些时间来运行，具体取决于日志收集的角色。 影响因素还包括指定用于日志收集的时限，以及 Azure Stack Hub 环境中的节点数。
 * 当日志收集运行时，请查看在 **OutputSharePath** 参数（在命令中指定）中创建的新文件夹。
 * 每个角色的日志位于单个 zip 文件中。 根据所收集日志的大小，一个角色的日志可能会拆分成多个 zip 文件。 对于此类角色，如果需要将所有日志文件解压缩到单个文件夹中，请使用可以批量解压缩的工具。 选择角色的所有压缩文件，然后选择“解压缩到此处”。**** 该角色的所有日志文件会解压缩到单个合并的文件夹中。
 * 在压缩的日志文件所在的文件夹中，还会创建名为 **Get-AzureStackLog_Output.log** 的文件。 此文件是一个命令输出日志，可以用来排查日志收集过程中的问题。 有时，日志文件包含 `PS>TerminatingError` 条目，除非运行日志收集后缺少预期的日志文件，否则可以放心忽略这些条目。
@@ -236,25 +381,25 @@ if ($session) {
 
 ### <a name="how-diagnostic-log-collection-using-the-pep-works"></a>使用 PEP 收集诊断日志的工作原理
 
-Azure Stack 集线器诊断工具有助于更轻松、更高效地收集日志。 下图显示了诊断工具的工作原理：
+可以通过 Azure Stack Hub 诊断工具轻松高效地进行日志收集。 下图显示了诊断工具的工作原理：
 
-![Azure Stack 集线器诊断工具工作流关系图](media/azure-stack-diagnostics/get-azslogs.png)
+![Azure Stack Hub 诊断工具工作流图](media/azure-stack-diagnostics/get-azslogs.png)
 
 
 #### <a name="trace-collector"></a>跟踪收集器
 
-默认情况下，跟踪收集器处于启用状态，并在后台持续运行，以便从 Azure Stack 中心组件服务收集所有 Windows 事件跟踪（ETW）日志。 ETW 日志存储在一个常用的本地共享中，其时间限制为五天。 一旦达到此限制，就会在创建新文件时删除最旧的文件。 每个文件默认允许的最大大小为 200 MB。 每 2 分钟进行一次大小检查，如果当前文件 >= 200 MB，则会保存该文件并生成新文件。 按事件会话生成的文件的总大小也存在 8 GB 的限制。
+跟踪收集器默认启用，可以在后台持续运行，以便从 Azure Stack Hub 组件服务收集所有 Windows 事件跟踪 (ETW) 日志。 ETW 日志存储在一个常用的本地共享中，其时间限制为五天。 一旦达到此限制，就会在创建新文件时删除最旧的文件。 每个文件默认允许的最大大小为 200 MB。 每 2 分钟进行一次大小检查，如果当前文件 >= 200 MB，则会保存该文件并生成新文件。 按事件会话生成的文件的总大小也存在 8 GB 的限制。
 
 #### <a name="get-azurestacklog"></a>Get-AzureStackLog
 
-PowerShell cmdlet Get-azurestacklog 可用于从 Azure Stack 中心环境中的所有组件收集日志。 此工具将日志以 zip 文件形式保存在用户定义的位置。 如果 Azure Stack 中心技术支持团队需要你的日志以帮助解决问题，则他们可能会要求你运行 Get-azurestacklog。
+可以使用 PowerShell cmdlet Get-AzureStackLog 从 Azure Stack Hub 环境中的所有组件收集日志。 此工具将日志以 zip 文件形式保存在用户定义的位置。 如果 Azure Stack Hub 技术支持团队需要日志来排查问题，他们可能要求你运行 Get-AzureStackLog。
 
 > [!CAUTION]
 > 这些日志文件可能包含个人身份信息 (PII)。 在公开发布任何日志文件之前，请考虑到这一因素。
 
 下面是一些收集的示例日志类型：
 
-* **Azure Stack 中心部署日志**
+* **Azure Stack Hub 部署日志**
 * **Windows 事件日志**
 * **Panther 日志**
 * **群集日志**

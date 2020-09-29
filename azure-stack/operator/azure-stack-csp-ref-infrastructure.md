@@ -1,18 +1,18 @@
 ---
-title: 适用于 Azure Stack Hub 的云解决方案提供商的使用情况报告基础结构
+title: 云解决方案提供商的使用情况报告基础结构-Azure Stack 中心
 description: 了解有关使用情况报告基础结构的信息，该基础结构用于跟踪由云解决方案提供商 (CSP) 提供服务的租户的使用情况。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 2a154390f3d3aef4af93d12899a6a658be41d884
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 51e747b5670a3e7eb58316069567e83e9ed9fc82
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742374"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573044"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>适用于云解决方案提供商的使用情况报告基础结构
 

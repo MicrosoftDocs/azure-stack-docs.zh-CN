@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack Hub 上部署 Azure 应用服务的先决条件
+title: 在 Azure Stack 中心部署 Azure App Service 的先决条件
 description: 了解在部署 Azure Stack Hub 上的 Azure 应用服务之前需要完成的前提步骤。
 author: BryanLa
 ms.topic: article
@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: c3512a441116f57f74921cec38d5937b89a1978c
-ms.sourcegitcommit: d04b8f2d431ec1e12bcf5aa976fb06ec109caa25
+ms.openlocfilehash: e779ea4166f2e7693b87e1fe7ba4b084ca7451d0
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868477"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573354"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署应用服务的先决条件
 
@@ -21,9 +21,9 @@ ms.locfileid: "82868477"
 
 在 Azure Stack Hub 上部署 Azure 应用服务之前，必须完成本文中的先决条件步骤。
 
-## <a name="before-you-get-started"></a>开始操作之前 
+## <a name="before-you-get-started"></a>准备工作 
 
-本部分列出了集成系统和 Azure Stack 开发工具包（ASDK）部署的先决条件。
+本部分列出了集成系统部署和 Azure Stack 开发工具包 (ASDK) 部署的先决条件。
 
 ### <a name="resource-provider-prerequisites"></a>资源提供程序先决条件
 
@@ -31,8 +31,8 @@ ms.locfileid: "82868477"
 
 ### <a name="installer-and-helper-scripts"></a>安装程序和帮助器脚本
 
-1. 下载[Azure Stack 中心部署帮助程序脚本上的应用服务](https://aka.ms/appsvconmashelpers)。
-2. 下载[Azure Stack 中心安装程序上的应用服务](https://aka.ms/appsvconmasinstaller)。
+1. 下载 [Azure Stack Hub 上的应用服务部署帮助器脚本](https://aka.ms/appsvconmashelpers)。
+2. 下载 [Azure Stack Hub 上的应用服务安装程序](https://aka.ms/appsvconmasinstaller)。
 3. 提取帮助器脚本 .zip 文件中的文件。 会提取以下文件和文件夹：
 
    - Common.ps1
@@ -89,8 +89,8 @@ API 证书放在“管理”角色上。 资源提供程序使用它来帮助保
 
 标识应用的证书可以实现：
 
-- Azure Active Directory （Azure AD）或 Active Directory 联合身份验证服务（AD FS）目录、Azure Stack 中心和应用服务之间的集成，以支持与计算资源提供程序的集成。
-- 单一登录方案适用于 Azure Stack 中心 Azure App Service 内的高级开发人员工具。
+- Azure Active Directory (Azure AD) 或 Active Directory 联合身份身份验证服务 (AD FS) 目录、Azure Stack Hub 与应用服务 之间的集成，以支持与计算资源提供程序的集成。
+- Azure Stack Hub 上的 Azure 应用服务中的高级开发人员工具的单一登录方案。
 
 用于标识的证书必须包含匹配以下格式的使用者。
 
@@ -100,9 +100,9 @@ API 证书放在“管理”角色上。 资源提供程序使用它来帮助保
 
 ### <a name="validate-certificates"></a>验证证书
 
-在部署应用服务资源提供程序之前，应该使用[PowerShell 库](https://aka.ms/AzsReadinessChecker)中提供的 Azure Stack 集线器就绪检查程序工具[来验证要使用的证书](azure-stack-validate-pki-certs.md)。 Azure Stack 集线器就绪检查程序工具验证生成的 PKI 证书是否适用于应用服务部署。
+在部署应用服务资源提供程序之前，应使用 [PowerShell 库](https://aka.ms/AzsReadinessChecker)中提供的 Azure Stack Hub 准备情况检查器工具来[验证要使用的证书](azure-stack-validate-pki-certs.md)。 Azure Stack Hub 准备情况检查器工具验证生成的 PKI 证书是否适用于应用服务部署。
 
-最佳做法是，在使用任何必需的[Azure Stack 中心 PKI 证书](azure-stack-pki-certs.md)时，应根据需要计划足够的时间来测试和重新颁发证书。
+作为最佳做法，当使用任何所需的 [Azure Stack Hub PKI 证书](azure-stack-pki-certs.md)时，如果需要，应当计划留出足够的时间来测试和重新颁发证书。
 
 ### <a name="prepare-the-file-server"></a>准备文件服务器
 
@@ -110,10 +110,10 @@ Azure 应用服务需要使用文件服务器。 在生产部署中，必须将�
 
 #### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>高可用性文件服务器和 SQL Server 的快速入门模板
 
-[参考体系结构快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)现已推出，可用于部署文件服务器和 SQL Server。 此模板在虚拟网络中支持 Active Directory 基础结构，配置为支持 Azure Stack Hub 上 Azure App Service 的高度可用部署。
+我们现在提供了一个[参考体系结构快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)，用于部署文件服务器和 SQL Server。 此模板在配置为支持 Azure Stack Hub 上的 Azure 应用服务高可用性部署的虚拟网络中支持 Active Directory 基础结构。
 
 > [!NOTE]
-> 集成的系统实例必须能够从 GitHub 下载资源，才能完成部署。
+> 若要完成部署，集成系统实例必须能够从 GitHub 下载资源。
 
 #### <a name="steps-to-deploy-a-custom-file-server"></a>部署自定义文件服务器的步骤
 
@@ -137,9 +137,9 @@ Azure 应用服务需要使用文件服务器。 在生产部署中，必须将�
 
    根据安全最佳做法，这些帐户（以及所有 Web 角色）的用户应该各不相同，并采用强用户名和密码。 根据以下条件设置密码：
 
-   - 启用“密码永不过期”。****
-   - 启用“用户不能更改密码”。****
-   - 禁用“用户在下次登录时必须更改密码”。****
+   - 启用“密码永不过期”。
+   - 启用“用户不能更改密码”。
+   - 禁用“用户在下次登录时必须更改密码”。
 
 3. 如下所述将帐户添加到组成员身份：
 
@@ -226,14 +226,14 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 > [!NOTE]
 > 如果已选择为高度可用的文件服务器和 SQL Server 部署快速入门模板，则可以跳过本部分，因为模板会在 HA 配置中部署和配置 SQL Server。
 
-有关 Azure Stack 中心承载和计量数据库的 Azure App Service，必须准备一个 SQL Server 实例来容纳应用服务数据库。
+对于 Azure Stack Hub 上的 Azure 应用服务托管和计量数据库，必须准备 SQL Server 实例，用于存放应用服务数据库。
 
-对于生产和高可用性目的，应使用完整版本的 SQL Server 2014 SP2 或更高版本，启用混合模式身份验证，并在[高可用性配置](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)中部署。
+对于生产和高可用性目的，应使用完整版本的 SQL Server 2014 SP2 或更高版本，启用混合模式身份验证，并在[高可用性配置](/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)中部署。
 
-Azure Stack 中心的 Azure App Service 的 SQL Server 实例必须可从所有应用服务角色进行访问。 你可以在 Azure Stack 中心的默认提供程序订阅中部署 SQL Server。 或者，你可以使用组织中的现有基础结构（只要与 Azure Stack 集线器建立连接即可）。 如果使用 Azure 市场映像，请记得相应地配置防火墙。
+必须能够从所有“应用服务”角色访问 Azure Stack Hub 上的 Azure 应用服务的 SQL Server 实例。 可以在 Azure Stack Hub 中的默认提供程序订阅中部署 SQL Server。 或者，可以使用组织中现有的基础结构（前提是与 Azure Stack Hub 建立了连接）。 如果使用 Azure 市场映像，请记得相应地配置防火墙。
 
 > [!NOTE]
-> 通过 Marketplace 管理功能可以使用许多 SQL IaaS VM 映像。 在使用市场项部署 VM 之前，请确保下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL VM 相同。 对于从这些映像创建的 SQL VM，IaaS 扩展和相应的门户增强功能可提供自动修补和备份等功能。
+> 可通过市场管理功能获取 SQL IaaS VM 映像数。 在使用市场项部署 VM 之前，请确保下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL VM 相同。 对于从这些映像创建的 SQL VM，IaaS 扩展和相应的门户增强功能可提供自动修补和备份等功能。
 >
 > 对于任何 SQL Server 角色，可以使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务并打开端口 1434。
 
@@ -247,15 +247,15 @@ GO
 ```
 
 <!-- ASDK Only --->
-## <a name="certificates-and-server-configuration-asdk"></a>证书和服务器配置（ASDK）
+## <a name="certificates-and-server-configuration-asdk"></a>证书和服务器配置 (ASDK)
 
 本部分列出了 ASDK 部署的先决条件。 
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Azure 应用服务的 ASDK 部署所需的证书
 
-*Create-appservicecerts.ps1*脚本与 Azure Stack 中心证书颁发机构合作，以创建应用服务所需的四个证书。
+*Create-AppServiceCerts.ps1* 脚本配合 Azure Stack Hub 证书颁发机构运行，创建应用服务所需的四个证书。
 
-| 文件名 | 使用 |
+| 文件名 | 用途 |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | 应用服务默认 SSL 证书 |
 | api.appservice.local.azurestack.external.pfx | 应用服务 API SSL 证书 |
@@ -267,32 +267,32 @@ GO
 1. 使用 AzureStack\AzureStackAdmin 帐户登录到 ASDK 主机。
 2. 打开提升的 PowerShell 会话。
 3. 从帮助器脚本提取到的文件夹运行 *Create-AppServiceCerts.ps1* 脚本。 此脚本在应用服务所需的、用于创建证书的脚本所在的同一文件夹中创建四个证书。
-4. 输入密码来保护 .pfx 文件，并记下该密码。 稍后必须在 Azure Stack 集线器安装程序上的应用服务中输入它。
+4. 输入密码来保护 .pfx 文件，并记下该密码。 稍后，必须在基于 Azure Stack Hub 的应用服务安装程序中输入该密码。
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts.ps1 脚本参数
 
 | 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| pfxPassword | 必选 | Null | 帮助保护证书私钥的密码 |
-| DomainName | 必选 | local.azurestack.external | Azure Stack 中心区域和域后缀 |
+| pfxPassword | 必须 | Null | 帮助保护证书私钥的密码 |
+| DomainName | 必须 | local.azurestack.external | Azure Stack Hub 区域和域后缀 |
 
 ### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>用于部署 ASDK 上的 Azure应用服务的文件服务器快速入门模板。
 
 如果只部署 ASDK，则可以使用[示例 Azure 资源管理器部署模板](https://aka.ms/appsvconmasdkfstemplate)来部署已配置的单节点文件服务器。 单节点文件服务器位于工作组中。  
 
 > [!NOTE]
-> ASDK 实例必须能够从 GitHub 下载资源，才能完成部署。
+> 若要完成部署，ASDK 实例必须能够从 GitHub 下载资源。
 
 ### <a name="sql-server-instance"></a>SQL Server 实例
 
-有关 Azure Stack 中心承载和计量数据库的 Azure App Service，必须准备一个 SQL Server 实例来容纳应用服务数据库。
+对于 Azure Stack Hub 上的 Azure 应用服务托管和计量数据库，必须准备 SQL Server 实例，用于存放应用服务数据库。
 
-对于 ASDK 部署，可以使用 SQL Server Express 2014 SP2 或更高版本。 SQL Server 必须配置为支持**混合模式**身份验证，因为 Azure Stack 中心的应用**服务不支持**Windows 身份验证。
+对于 ASDK 部署，可以使用 SQL Server Express 2014 SP2 或更高版本。 SQL Server 必须配置为支持**混合模式**身份验证，因为 Azure Stack Hub 上的应用服务**不支持** Windows 身份验证。
 
-Azure Stack 中心的 Azure App Service 的 SQL Server 实例必须可从所有应用服务角色进行访问。 你可以在 Azure Stack 中心的默认提供程序订阅中部署 SQL Server。 或者，你可以使用组织中的现有基础结构（只要与 Azure Stack 集线器建立连接即可）。 如果使用 Azure 市场映像，请记得相应地配置防火墙。
+必须能够从所有“应用服务”角色访问 Azure Stack Hub 上的 Azure 应用服务的 SQL Server 实例。 可以在 Azure Stack Hub 中的默认提供程序订阅中部署 SQL Server。 或者，可以使用组织中现有的基础结构（前提是与 Azure Stack Hub 建立了连接）。 如果使用 Azure 市场映像，请记得相应地配置防火墙。
 
 > [!NOTE]
-> 通过 Marketplace 管理功能可以使用许多 SQL IaaS VM 映像。 在使用市场项部署 VM 之前，请确保下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL VM 相同。 对于从这些映像创建的 SQL VM，IaaS 扩展和相应的门户增强功能可提供自动修补和备份等功能。
+> 可通过市场管理功能获取 SQL IaaS VM 映像数。 在使用市场项部署 VM 之前，请确保下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL VM 相同。 对于从这些映像创建的 SQL VM，IaaS 扩展和相应的门户增强功能可提供自动修补和备份等功能。
 >
 > 对于任何 SQL Server 角色，可以使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务并打开端口 1434。
 
@@ -308,20 +308,20 @@ GO
 
 ## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>所需文件服务器和 SQL Server 的许可问题
 
-Azure Stack 中心的 Azure App Service 需要文件服务器和 SQL Server 才能运行。 你可以使用位于 Azure Stack 中心部署之外的预先存在的资源，或者在其 Azure Stack 中心默认提供程序订阅中部署资源。
+Azure Stack Hub 上的 Azure 应用服务需要文件服务器和 SQL Server 才能运行。 可以使用 Azure Stack Hub 部署外部预先存在的资源，也可以将资源部署在其 Azure Stack Hub 默认提供程序订阅的内部。
 
-如果选择在 Azure Stack 中心默认提供程序订阅中部署资源，则这些资源的许可证（Windows Server 许可证和 SQL Server 许可证）将包括在 Azure Stack 中心的 Azure App Service 的成本中，并受以下约束的限制：
+如果选择将资源部署在 Azure Stack Hub 默认提供程序订阅内部，则这些资源的许可证（Windows Server 许可证和 SQL Server 许可证）会包括在 Azure Stack Hub 上的 Azure 应用服务的成本中，但会受到以下约束：
 
-- 基础结构部署到“默认提供程序订阅”中；
-- Azure Stack 中心资源提供程序的 Azure App Service 专门使用基础结构。 对于其他工作负荷（例如： SQL-RP 的其他资源提供程序，例如 SQL-RP）或租户（例如：需要数据库的租户应用程序），允许使用此基础结构。
+- 基础结构将部署到“默认提供程序订阅”中；
+- 基础结构由 Azure Stack Hub 资源提供程序上的 Azure 应用服务独占使用。 不允许其他管理工作负荷（其他资源提供程序，例如 SQL-RP）或租户工作负荷（例如需要数据库的租户应用）使用此基础结构。
 
-## <a name="operational-responsibility-of-file-and-sql-servers"></a>文件和 sql server 的操作责任
+## <a name="operational-responsibility-of-file-and-sql-servers"></a>对文件服务器和 SQL Server 的操作责任
 
-云操作员负责维护和操作文件服务器，并 SQL Server。  资源提供程序不管理这些资源。  云操作员负责备份应用服务数据库和租户内容文件共享。
+云操作员负责文件服务器和 SQL Server 的维护和操作。  资源提供程序不管理这些资源。  云操作员负责备份应用服务数据库和租户内容文件共享。
 
-## <a name="retrieve-the-azure-resource-manager-root-certificate-for-azure-stack-hub"></a>检索 Azure Stack 中心的 Azure 资源管理器根证书
+## <a name="retrieve-the-azure-resource-manager-root-certificate-for-azure-stack-hub"></a>检索 Azure Stack Hub 的 Azure 资源管理器根证书
 
-在计算机上打开已提升权限的 PowerShell 会话，该计算机可以访问 Azure Stack 中心集成系统或 ASDK 主机上的特权终结点。
+在计算机上打开一个提升的 PowerShell 会话，该计算机可以访问 Azure Stack Hub 集成系统或 ASDK 主机上的特权终结点。
 
 从帮助器脚本提取到的文件夹运行 *Get-AzureStackRootCert.ps1* 脚本。 此脚本在应用服务所需的、用于创建证书的脚本所在的同一文件夹中创建一个根证书。
 
@@ -335,17 +335,17 @@ Azure Stack 中心的 Azure App Service 需要文件服务器和 SQL Server 才�
 
 | 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | 必选 | AzS-ERCS01 | 特权终结点 |
-| CloudAdminCredential | 必选 | AzureStack\CloudAdmin | Azure Stack 中心云管理员的域帐户凭据 |
+| PrivilegedEndpoint | 必须 | AzS-ERCS01 | 特权终结点 |
+| CloudAdminCredential | 必须 | AzureStack\CloudAdmin | Azure Stack Hub 云管理员的域帐户凭据。 |
 
 ## <a name="network-and-identity-configuration"></a>网络和标识配置
 
 ### <a name="virtual-network"></a>虚拟网络
 
 > [!NOTE]
-> 自定义虚拟网络的预创建是可选的，因为 Azure Stack 中心的 Azure App Service 可以创建所需的虚拟网络，但随后需要通过公共 IP 地址与 SQL 和文件服务器进行通信。  如果你使用应用服务 HA 文件服务器和 SQL Server 快速入门模板来部署必备的 SQL 和文件服务器资源，则模板还将部署虚拟网络。
+> 预先创建自定义虚拟网络是可选操作，因为 Azure Stack Hub 上的 Azure 应用服务可以创建所需的虚拟网络，但之后需要通过公共 IP 地址来与 SQL 和文件服务器通信。  如果使用应用服务 HA 文件服务器和 SQL Server 快速启动模板来部署必备的 SQL Server 和文件服务器资源，则该模板还会部署虚拟网络。
 
-使用 Azure Stack 中心 Azure App Service 可以将资源提供程序部署到现有虚拟网络，也可以在部署过程中创建虚拟网络。 使用现有的虚拟网络，可以使用内部 Ip 连接到文件服务器，并 SQL Server Azure Stack 集线器上的 Azure App Service 所需的。 在 Azure Stack 集线器上安装 Azure App Service 之前，必须为虚拟网络配置以下地址范围和子网：
+Azure Stack Hub 上的 Azure 应用服务允许将资源提供程序部署到现有的虚拟网络，或者允许在部署时创建虚拟网络。 使用现有虚拟网络可以通过内部 IP 连接到 Azure Stack Hub 上的 Azure 应用服务所需的文件服务器和 SQL Server。 在 Azure Stack Hub 上安装 Azure 应用服务之前，必须为虚拟网络配置以下地址范围和子网：
 
 虚拟网络 - /16
 
@@ -363,32 +363,32 @@ Azure Stack 中心的 Azure App Service 需要文件服务器和 SQL Server 才�
 
 ### <a name="create-an-identity-application-to-enable-sso-scenarios"></a>创建标识应用程序以启用 SSO 方案
 
-Azure App Service 使用标识应用程序（服务主体）来支持以下操作：
+Azure 应用服务使用标识应用程序（服务主体）支持以下操作：
 
 - 辅助角色层上的虚拟机规模集集成。
-- Azure Functions 门户和高级开发人员工具（Kudu）的 SSO。
+- Azure Functions 门户和高级开发人员工具 (Kudu) 的 SSO。
 
-根据 Azure Stack 集线器使用的标识提供者、Azure Active Directory （Azure AD）或 Active Directory 联合身份验证服务（ADFS），必须按照以下相应步骤来创建服务主体，以供 Azure App Service 中心资源提供程序上的 Azure Stack 使用。
+根据 Azure Stack Hub 所使用的标识提供者、Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (ADFS)，必须按照以下相应步骤创建服务主体，供 Azure Stack Hub 资源提供程序上的 Azure 应用服务使用。
 
 ::: zone pivot="state-connected"
 #### <a name="create-an-azure-ad-app"></a>创建 Azure AD 应用
 
-按照以下步骤在 Azure AD 租户中创建服务主体：
+遵循以下步骤在 Azure AD 租户中创建服务主体：
 
 1. 以 azurestack\AzureStackAdmin 身份打开 PowerShell 实例。
 1. 转到在[先决条件步骤](azure-stack-app-service-before-you-get-started.md)中下载并提取的脚本所在的位置。
-1. [为 Azure Stack 集线器安装 PowerShell](azure-stack-powershell-install.md)。
-1. 运行 **Create-AADIdentityApp.ps1** 脚本。 出现提示时，输入要用于 Azure Stack 中心部署的 Azure AD 租户 ID。 例如，输入**myazurestack.onmicrosoft.com**。
-1. 在“凭据”窗口中，输入 Azure AD 服务管理帐户和密码。**** 选择“确定”  。
+1. [安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+1. 运行 **Create-AADIdentityApp.ps1** 脚本。 根据提示输入部署 Azure Stack Hub 时使用的 Azure AD 租户 ID。 例如，输入 **myazurestack.onmicrosoft.com**。
+1. 在“凭据”窗口中，输入 Azure AD 服务管理帐户和密码。 选择“确定” 。
 1. 输入[前面创建的证书](azure-stack-app-service-before-you-get-started.md)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
-1. 请记下 PowerShell 输出中返回的应用程序 ID。 使用以下步骤中的 ID 可为应用程序的权限以及在安装过程中提供许可。 
+1. 请记下 PowerShell 输出中返回的应用程序 ID。 使用以下步骤中的 ID 来为应用程序的权限提供许可，以及在安装过程中提供许可。 
 1. 打开新的浏览器窗口，以 Azure Active Directory 服务管理员的身份登录到 [Azure 门户](https://portal.azure.com)。
-1. 打开 Azure Active Directory 服务。
-1. 在左窗格中选择 "**应用注册**"。
-1. 搜索在步骤7中记下的应用程序 ID。 
-1. 从列表中选择 "应用服务应用程序注册"。
-1. 在左窗格中选择 " **API 权限**"。
-1. 选择 "**为\<租户\>授予管理员许可**"，其中\<租户\>是 Azure AD 租户的名称。 选择 **"是"**，确认同意授予。
+1. 打开“Azure Active Directory”服务。
+1. 在左侧窗格中选择“应用注册”。
+1. 搜索在步骤 7 中记下的应用程序 ID。 
+1. 从列表中选择“应用服务应用程序注册”。
+1. 在左侧窗格中选择“API 权限”。
+1. 选择“代表 \<tenant\> 授予管理员许可”，其中 \<tenant\> 是 Azure AD 租户的名称。 选择“是”确认授予许可。
 
 ```powershell
     Create-AADIdentityApp.ps1
@@ -396,12 +396,12 @@ Azure App Service 使用标识应用程序（服务主体）来支持以下操�
 
 | 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| DirectoryTenantName | 必选 | Null | Azure AD 租户 ID。 提供 GUID 或字符串。 例如，myazureaaddirectory.onmicrosoft.com。 |
+| DirectoryTenantName | 必须 | Null | Azure AD 租户 ID。 提供 GUID 或字符串。 例如，myazureaaddirectory.onmicrosoft.com。 |
 | AdminArmEndpoint | 必须 | Null | Azure 资源管理器管理终结点。 例如 adminmanagement.local.azurestack.external。 |
-| TenantARMEndpoint | 必选 | Null | Azure 资源管理器租户终结点。 例如 management.local.azurestack.external。 |
-| AzureStackAdminCredential | 必选 | Null | Azure AD 服务管理员凭据。 |
-| CertificateFilePath | 必选 | Null | 前面生成的标识应用程序证书文件的**完整路径**。 |
-| CertificatePassword | 必选 | Null | 帮助保护证书私钥的密码。 |
+| TenantARMEndpoint | 必须 | Null | Azure 资源管理器租户终结点。 例如 management.local.azurestack.external。 |
+| AzureStackAdminCredential | 必须 | Null | Azure AD 服务管理员凭据。 |
+| CertificateFilePath | 必须 | Null | 前面生成的标识应用程序证书文件的**完整路径**。 |
+| CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
 | 环境 | 可选 | AzureCloud | 其中目标 Azure Active Directory Graph 服务可用的受支持云环境的名称。  允许的值： "AzureCloud"、"AzureChinaCloud"、"AzureUSGovernment"、"AzureGermanCloud"。|
 ::: zone-end
 
@@ -409,9 +409,9 @@ Azure App Service 使用标识应用程序（服务主体）来支持以下操�
 
 1. 以 azurestack\AzureStackAdmin 身份打开 PowerShell 实例。
 1. 转到在[先决条件步骤](azure-stack-app-service-before-you-get-started.md)中下载并提取的脚本所在的位置。
-1. [为 Azure Stack 集线器安装 PowerShell](azure-stack-powershell-install.md)。
+1. [安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
 1. 运行 **Create-ADFSIdentityApp.ps1** 脚本。
-1. 在“凭据”窗口中，输入 AD FS 云管理帐户和密码。**** 选择“确定”  。
+1. 在“凭据”窗口中，输入 AD FS 云管理帐户和密码。 选择“确定” 。
 1. 提供[前面创建的证书](azure-stack-app-service-before-you-get-started.md)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
 
 ```powershell
@@ -422,41 +422,41 @@ Azure App Service 使用标识应用程序（服务主体）来支持以下操�
 | --- | --- | --- | --- |
 | AdminArmEndpoint | 必须 | Null | Azure 资源管理器管理终结点。 例如 adminmanagement.local.azurestack.external。 |
 | PrivilegedEndpoint | 必须 | Null | 特权终结点。 例如 AzS-ERCS01。 |
-| CloudAdminCredential | 必选 | Null | Azure Stack 中心云管理员的域帐户凭据。 例如 Azurestack\CloudAdmin。 |
-| CertificateFilePath | 必选 | Null | 标识应用程序的证书 PFX 文件的**完整路径**。 |
-| CertificatePassword | 必选 | Null | 帮助保护证书私钥的密码。 |
+| CloudAdminCredential | 必须 | Null | Azure Stack Hub 云管理员的域帐户凭据。 例如 Azurestack\CloudAdmin。 |
+| CertificateFilePath | 必须 | Null | 标识应用程序的证书 PFX 文件的**完整路径**。 |
+| CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
 
 <!--Connected/Disconnected-->
 
 ### <a name="download-items-from-the-azure-marketplace"></a>从 Azure 市场下载项
 
-Azure Stack 集线器上的 Azure App Service 需要[从 Azure Marketplace 下载](azure-stack-download-azure-marketplace-item.md)项目，使其在 Azure Stack 中心市场中可用。 必须先下载这些项，然后才能在 Azure Stack 中心开始部署或升级 Azure App Service：
+Azure Stack Hub 上的应用服务需要[从 Azure 市场下载项](azure-stack-download-azure-marketplace-item.md)，以便在 Azure Stack Hub 市场中提供这些项。 必须先下载这些项，然后才能开始部署或升级 Azure Stack Hub 上的 Azure 应用服务：
 
 <!-- Connected --->
 ::: zone pivot="state-connected"
 > [!IMPORTANT]
-> 不支持将 Windows Server Core 用于 Azure Stack 中心的 Azure App Service。
+> 不支持将 Windows Server Core 平台映像与基于 Azure Stack Hub 的 Azure 应用服务配合使用。
 >
 > 请勿将评估映像用于生产部署。
 >
-1. **最新版本的 Windows Server 2016 DATACENTER VM 映像**。
+1. 最新版本的 Windows Server 2016 Datacenter VM 映像。
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
 <!-- Disconnected --->
-1. 已**激活 Microsoft.Net 3.5.1 SP1 的 Windows Server 2016 Datacenter FULL VM 映像**。  Azure Stack 中心的 Azure App Service 要求在用于部署的映像上激活 Microsoft .NET 3.5.1 SP1。 Marketplace 联合的 Windows Server 2016 映像未启用此功能，并且在断开连接的环境中，无法通过 DISM 访问 Microsoft 更新来下载要安装的程序包。 因此，你必须创建并使用 Windows Server 2016 映像，并将此功能预启用为断开连接的部署。
+1. 已激活 Microsoft.Net 3.5.1 SP1 的 Windows Server 2016 Datacenter 完整 VM 映像。  基于 Azure Stack Hub 的 Azure 应用服务要求在用于部署的映像上激活 Microsoft.NET 3.5.1 SP1。 通过“市场”发布的 Windows Server 2016 映像未启用此功能，并且在断开连接的环境中无法通过 DISM 访问 Microsoft 更新来下载要安装的程序包。 因此，必须创建并使用 Windows Server 2016 映像，并通过断开连接的部署在该映像中预先启用此功能。
 
-   有关创建自定义映像并将其添加到 Marketplace 的详细信息，请参阅[将自定义 VM 映像添加到 Azure Stack 集线器](azure-stack-add-vm-image.md)。 将映像添加到 Marketplace 时，请确保指定以下属性：
+   有关创建自定义映像并将其添加到市场的详细信息，请参阅[将自定义 VM 映像添加到 Azure Stack Hub](azure-stack-add-vm-image.md)。 将映像添加到市场时，请务必指定以下属性：
 
-   - 发布服务器 = MicrosoftWindowsServer
-   - 提议 = WindowsServer
+   - 发布者 = MicrosoftWindowsServer
+   - 套餐 = WindowsServer
    - SKU = 2016-Datacenter
-   - 版本 = 指定 "最新" 版本
+   - 版本 = 指定“最新”版本
 
 ::: zone-end
 
 <!-- For All --> 
-2. **自定义脚本扩展1.9.1 或更高版本**。 此项为 VM 扩展。
+2. 自定义脚本扩展 v1.9.1 或更高版本。 此项为 VM 扩展。
 
 ## <a name="next-steps"></a>后续步骤
 

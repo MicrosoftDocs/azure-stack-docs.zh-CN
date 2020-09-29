@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Stack Hub 验证工具验证系统状态
+title: 通过 Azure Stack 集线器验证工具验证系统状态
 description: 了解如何使用 Azure Stack Hub 验证工具验证系统状态。
 author: justinha
 ms.topic: article
@@ -7,16 +7,16 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: bb83d8dcf567bac6081083e34c0770a277879282
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 40a916a282f4808d9897cc5c23ea953739b0a0cf
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819477"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572929"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>验证 Azure Stack Hub 系统状态
 
-Azure Stack Hub 操作员必须能够按需确定系统的运行状况和状态，这一点至关重要。 Azure Stack Hub 验证工具 (**Test-AzureStack**) 是一个 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果有）。 当你联系 Microsoft 客户服务支持部门（Microsoft 支持部门）时，通常会要求你通过[特权终结点（PEP）](azure-stack-privileged-endpoint.md)来运行此工具。 使用系统范围内的运行状况和状态信息，Microsoft 支持部门可以收集和分析详细日志，重点关注错误发生的区域，并与你一起解决问题。
+Azure Stack Hub 操作员必须能够按需确定系统的运行状况和状态，这一点至关重要。 Azure Stack Hub 验证工具 (**Test-AzureStack**) 是一个 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果有）。 通常，系统会要求你通过 [特权终结点（ (PEP) ](azure-stack-privileged-endpoint.md) 来运行此工具，当你联系 Microsoft 客户服务支持时， (Microsoft 支持部门) 问题。 使用系统范围内的运行状况和状态信息，Microsoft 支持部门可以收集和分析详细日志，重点关注错误发生的区域，并与你一起解决问题。
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>运行验证工具并访问结果
 
@@ -49,7 +49,7 @@ Azure Stack Hub 操作员必须能够按需确定系统的运行状况和状态�
 
 1. 如果有任何测试报告了“失败”，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[在 Azure Stack Hub 集成系统上运行 Get-AzureStackLog](azure-stack-get-azurestacklog.md)。
 
-   该 cmdlet 收集 Test-AzureStack 生成的日志。 建议你不要收集日志并联系 Microsoft 支持部门而不是 "测试**报告"**。
+   该 cmdlet 收集 Test-AzureStack 生成的日志。 建议你不要收集日志并联系 Microsoft 支持部门而不是 "测试 **报告"**。
 
 1. 如果指示你按 Microsoft 支持部门运行验证工具，则 Microsoft 支持部门代表会请求你收集的日志以继续排查你的问题。
 
@@ -130,7 +130,7 @@ Azure Stack Hub 操作员必须能够按需确定系统的运行状况和状态�
 - **DetailedResults** 可用于获取每个测试以及整个运行的通过/失败/警告信息。 如果未指定此参数，未发生失败时，**Test-AzureStack** 将返回 **$true**，否则返回 **$false**。
 - **TimeoutSeconds** 可用于设置每个组完成的特定时间。
 
-- 验证工具还支持常见的 PowerShell 参数： Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer、PipelineVariable 和 OutVariable。 有关详细信息，请参阅[有关通用参数](https://go.microsoft.com/fwlink/?LinkID=113216)。  
+- 验证工具还支持常用的 PowerShell 参数：Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer、PipelineVariable 和 OutVariable。 有关详细信息，请参阅[有关通用参数](https://go.microsoft.com/fwlink/?LinkID=113216)。  
 
 ## <a name="use-case-examples"></a>用例
 
@@ -234,6 +234,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack Hub 诊断工具和问题日志记录，请参阅 [Azure Stack Hub 诊断工具](azure-stack-diagnostic-log-collection-overview-tzl.md)。
+若要详细了解 Azure Stack Hub 诊断工具和问题日志记录，请参阅 [Azure Stack Hub 诊断工具](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)。
 
-若要了解有关故障排除的详细信息，请参阅[Microsoft Azure Stack 集线器故障排除](azure-stack-troubleshooting.md)。
+若要了解有关故障排除的详细信息，请参阅 [Microsoft Azure Stack 集线器故障排除](azure-stack-troubleshooting.md)。
