@@ -3,16 +3,16 @@ title: 使用 Powershell 从命令行部署 ASDK
 description: 了解如何使用 PowerShell 从命令行部署 ASDK。
 author: justinha
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 09/23/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.lastreviewed: 09/23/2020
+ms.openlocfilehash: c9931654b6c217d0c9f06bf51b37460046c47c2c
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847140"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106929"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>使用 Powershell 从命令行部署 ASDK
 
@@ -26,8 +26,6 @@ Azure Stack 开发工具包 (ASDK) 是一个测试和开发环境，可以在部
 
 **[查看 ASDK 部署要求和注意事项](asdk-deploy-considerations.md)** 。
 
-> [!TIP]
-> 安装操作系统以后，可以使用 [Azure Stack 部署要求检查工具](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)来确认硬件是否满足所有要求。
 
 ## <a name="download-and-extract-the-deployment-package"></a>下载并提取部署包
 在确保 ASDK 主机满足安装 ASDK 的基本要求以后，下一步是下载并提取 ASDK 部署包。 部署包包括 Cloudbuilder.vhdx 文件，该文件是一个虚拟硬盘驱动器，其中包括一个可启动的操作系统，以及 Azure Stack 安装文件。
@@ -60,7 +58,7 @@ Azure Stack 开发工具包 (ASDK) 是一个测试和开发环境，可以在部
 在 ASDK 主机成功启动进入 CloudBuilder.vhdx 映像之后，请使用用于登录到 ASDK 主机的相同本地管理员凭据登录。 这些凭据也是在主机从 VHD 启动后完成 Windows Server 安装过程中所提供的相同凭据。
 
 > [!NOTE]
-> 也可在安装 ASDK 之前配置 [Azure Stack 遥测设置](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry)。 
+> 也可在安装 ASDK 之前配置 [Azure Stack 遥测设置](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry)。
 
 打开提升了权限的 PowerShell 控制台并运行此部分的命令，以便在 ASDK 主机上部署 ASDK。
 
@@ -98,7 +96,7 @@ Azure Stack 开发工具包 (ASDK) 是一个测试和开发环境，可以在部
 
 在 AD FS 部署中，默认的标记目录服务用作标识提供者。 登录时使用的默认帐户是 azurestackadmin@azurestack.local，而密码则会设置为在 PowerShell 安装命令中提供的密码。
 
-部署过程可能需要数小时，在此期间系统会自动重启一次。 如果部署成功，PowerShell 控制台会显示“COMPLETE:  Action 'Deployment'”。 如果部署失败，请尝试使用 -rerun 参数再次运行脚本。 也可从头开始[重新部署 ASDK](asdk-redeploy.md)。
+部署过程可能需要数小时，在此期间系统会自动重启一次。 如果部署成功，PowerShell 控制台会显示“COMPLETE: Action 'Deployment'”。 如果部署失败，请尝试使用 -rerun 参数再次运行脚本。 也可从头开始[重新部署 ASDK](asdk-redeploy.md)。
 
 > [!IMPORTANT]
 > 若要在 ASDK 主机重启后监视部署进度，必须以 AzureStack\AzureStackAdmin 身份登录。 如果在主机重启（并加入 azurestack.local 域）后以本地管理员身份登录，将看不到部署进度。 不要重新运行部署，而是以 AzureStack\AzureStackAdmin 身份登录，并使用与本地管理员相同的密码来验证安装程序是否正在运行。
@@ -148,17 +146,17 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 我们建议重置密码过期策略，确保 ASDK 主机的密码不在评估期结束之前过期。
 
 > [!NOTE]
-> 也可在安装 ASDK 之后配置 [Azure Stack 遥测设置](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment)。 
+> 也可在安装 ASDK 之后配置 [Azure Stack 遥测设置](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment)。
 
 **[ASDK 后部署任务](asdk-post-deploy.md)**
 
 ## <a name="register-with-azure"></a>注册到 Azure
-必须将 Azure Stack 注册到 Azure，以便可以将[Azure Marketplace 项下载](../operator/azure-stack-create-and-publish-marketplace-item.md)到 Azure Stack 中。
+必须将 Azure Stack 注册到 Azure，以便[将 Azure 市场项下载](../operator/azure-stack-create-and-publish-marketplace-item.md)到 Azure Stack。
 
 **[将 Azure Stack 注册到 Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>后续步骤
-祝贺！ 完成这些步骤后，你将拥有一个 ASDK 环境，其中包含`https://adminportal.local.azurestack.external`管理员门户`https://portal.local.azurestack.external`和用户门户。 
+祝贺！ 完成这些步骤后，你便获得了一个包含管理员门户 `https://adminportal.local.azurestack.external` 和用户门户 `https://portal.local.azurestack.external` 的 ASDK 环境。 
 
 [安装 ASDK 后的配置任务](asdk-post-deploy.md)
 

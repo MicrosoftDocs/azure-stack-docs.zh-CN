@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
+ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78935061"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90836499"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -24,7 +24,7 @@ Azure Stack Hub 在数据中心运行 Azure 服务，并且可以在如同安装
 
 | 方案                                                           | 数据丢失                            | 注意事项                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| 在由于灾难或产品 bug 而发生灾难性数据丢失后进行恢复。 | 所有基础结构及用户和应用数据。 | 用户应用和数据与基础结构数据分开进行保护。 |
+| 在由于灾难或产品 bug 而发生灾难性数据丢失后进行恢复。 | 所有基础结构及用户和应用数据。 | 可以还原到不同 OEM。<br/> 可以还原到不同的硬件生成。<br/> 可以还原到不同的规模单元节点计数。<br/> 用户应用和数据与基础结构数据分开进行保护。 |
 
 ## <a name="workflows"></a>工作流
 
@@ -52,10 +52,10 @@ Azure Stack Hub 在数据中心运行 Azure 服务，并且可以在如同安装
 Azure Stack Hub 支持称为云恢复模式的部署类型。 只有当灾难或产品 Bug 导致解决方案不可恢复后，你选择恢复 Azure Stack Hub 时才使用此模式。 此部署模式不会恢复解决方案中存储的任何用户数据。 此部署模式的作用域仅限于还原以下数据：
 
  - 部署输入
- - 内部标识服务数据（ADFS 部署）。
+ - 内部标识服务数据
  - 联合标识配置（ADFS 部署）。
  - 内部证书颁发机构使用的根证书。
- - Azure 资源管理器配置用户数据，如订阅、计划、套餐、存储配额、网络配额和计算资源。
+ - Azure 资源管理器配置用户数据，如订阅、计划、套餐、资源组、标记、存储配额、网络配额和计算资源。
  - Key Vault 机密和保管库。
  - RBAC 策略分配和角色分配。
 

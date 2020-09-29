@@ -3,15 +3,15 @@ title: 使用服务和生成应用时 Azure Stack Hub 与 Azure 之间的差异
 description: 了解使用服务和生成应用时 Azure 与 Azure Stack Hub 之间的差异。
 author: sethmanheim
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 09/21/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: fb5f30d97d1c12a94b5366a358dc21450965fd93
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 25d836bece262f881901df6c62b5dc8f4aeaf11d
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819535"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946450"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>使用服务和生成应用时 Azure Stack Hub 与 Azure 之间的差异
 
@@ -27,7 +27,7 @@ Azure Stack Hub 运营商会告知有哪些服务可供你使用，以及如何�
 
 * Azure Stack Hub 提供 Azure 所提供的一部分服务和功能。
 * 你的公司或服务提供商可以选择他们想要提供的服务。 可用的选项可能包括自定义的服务或应用程序。 他们可以提供自己的自定义文档。
-* 使用正确的 Azure Stack 集线器特定终结点（例如，门户地址和 Azure 资源管理器终结点的 Url）。
+* 使用正确的 Azure Stack Hub 特定终结点（例如，门户地址和 Azure 资源管理器终结点的 URL）。
 * 必须使用 Azure Stack Hub 支持的 PowerShell 和 API 版本。 使用支持的版本可确保应用在 Azure Stack Hub 和 Azure 中运行。
 
 ## <a name="cheat-sheet-high-level-differences"></a>速查表：大致差异
@@ -37,10 +37,10 @@ Azure Stack Hub 运营商会告知有哪些服务可供你使用，以及如何�
 | 区域 | Azure（公有云） | Azure Stack Hub |
 | -------- | ------------- | ----------|
 | 由谁运营？ | Microsoft | 你的组织或服务提供商。|
-| 寻求支持的联系对象是谁？ | Microsoft | 对于集成环境，请联系你的组织或服务提供商的 Azure Stack Hub 运营商来获取支持。<br><br>有关 Azure Stack 开发工具包（ASDK）支持，请访问[Microsoft 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)。 由于开发工具包是一个评估环境，因此没有通过 Microsoft 支持部门提供的官方支持。
+| 寻求支持的联系对象是谁？ | Microsoft | 对于集成环境，请联系你的组织或服务提供商的 Azure Stack Hub 运营商来获取支持。<br><br>有关 Azure Stack 开发工具包 (ASDK) 支持，请访问 [Microsoft 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)。 由于开发工具包是一个评估环境，因此没有通过 Microsoft 支持部门提供的官方支持。
 | 可用服务 | 参阅 [Azure 产品](https://azure.microsoft.com/services/?b=17.04b)列表。 可用服务因 Azure 区域而异。 | Azure Stack Hub 支持部分 Azure 服务。 实际服务因你的组织或服务提供商选择提供的服务而异。
-| Azure 资源管理器终结点* | `https://management.azure.com` | 对于 Azure Stack Hub 集成系统，请使用 Azure Stack Hub 操作员提供的终结点。<br><br>对于开发工具包，请使用 `https://management.local.azurestack.external` 。
-| 门户 URL* | [https://portal.azure.com](https://portal.azure.com) | 对于 Azure Stack Hub 集成系统，请使用 Azure Stack Hub 操作员提供的 URL。<br><br>对于开发工具包，请使用 `https://portal.local.azurestack.external` 。
+| Azure 资源管理器终结点* | `https://management.azure.com` | 对于 Azure Stack Hub 集成系统，请使用 Azure Stack Hub 操作员提供的终结点。<br><br>对于开发工具包，请使用 `https://management.local.azurestack.external`。
+| 门户 URL* | [https://portal.azure.com](https://portal.azure.com) | 对于 Azure Stack Hub 集成系统，请使用 Azure Stack Hub 操作员提供的 URL。<br><br>对于开发工具包，请使用 `https://portal.local.azurestack.external`。
 | 区域 | 可以选择要部署到的区域。 | 对于 Azure Stack Hub 集成系统，请使用系统中可用的区域。<br><br>对于 Azure Stack 开发工具包 (ASDK)，该区域始终为“本地”。
 | 资源组 | 资源组可以跨区域。 | 对于集成系统和开发工具包，只有一个区域。
 |支持的命名空间、资源类型和 API 版本 | 最新版本（或未弃用的较低版本）。 | Azure Stack Hub 支持特定的版本。 请参阅本文的[版本要求](#version-requirements)部分。
@@ -84,3 +84,4 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 * [Azure Stack Hub 中的 VM 注意事项](azure-stack-vm-considerations.md)
 * [Azure Stack Hub 中的存储注意事项](azure-stack-acs-differences.md)
 * [Azure Stack Hub 网络注意事项](azure-stack-network-differences.md)
+* [Azure Stack 中心 SQL 资源提供程序的注意事项](../operator/azure-stack-sql-resource-provider.md)

@@ -1,27 +1,28 @@
 ---
-title: Azure Stack 中心应用商店中的新增功能
-description: 查看 Azure Stack Hub Marketplace 中的新增功能，包括新的、不推荐使用和更新的 marketplace 项。
+title: Azure Stack Hub 市场中的新增内容
+description: 查看 Azure Stack Hub 市场中的新功能，包括新的、弃用的和更新的市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/19/2020
+ms.date: 09/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 61ee34b016ec75964ac2f6535779bce7e1d5184a
-ms.sourcegitcommit: 0098896ba958169f378c0ef38b83b90d8e52c681
+ms.openlocfilehash: 1647c49115cb9f27c1485e59d1b85eb9a9bc1146
+ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85111386"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91134757"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
-本文列出了最近三个月内[Azure Stack 中心市场项](azure-stack-marketplace-azure-items.md)的最近添加、更新、更改和删除。 此部分中的信息经常更新，因此请经常回来查看是否有更改。
+本文列出最近添加的、更新的、更改的和删除的 [Azure Stack Hub 市场项](azure-stack-marketplace-azure-items.md)。 此部分中的信息经常更新，因此请经常回来查看是否有更改。
 
 [Azure Stack Hub 市场项](azure-stack-marketplace-azure-items.md)一文始终包含可用 Azure Stack Hub 市场项的最新列表。
 
-## <a name="new-marketplace-items"></a>新建 marketplace 项
+## <a name="new-marketplace-items"></a>新增市场项
 
+- 09/08/2020： Qualys Virtual 扫描器设备
 - 01/21/2020： Teradici Cloud Access 软件
 - 12/26/2019： CloudGuard IaaS 高可用性
 - 12/26/2019：检查点 CloudGuard IaaS 安全管理
@@ -40,7 +41,7 @@ ms.locfileid: "85111386"
 - 08/05/2019： Bitnami NAT
 - 08/05/2019： Bitnami 审阅板
 - 08/05/2019： Bitnami Composr
-- 06/27/2019： SIOS Datakeeper 群集版本
+- 06/27/2019：SIOS Datakeeper Cluster Edition
 - 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器即用即付
 - 06/27/2019： Windows Server 2019 Datacenter Server Core With 容器 BYOL
 - 06/27/2019： Windows Server 2019 Datacenter 即用即付
@@ -49,25 +50,204 @@ ms.locfileid: "85111386"
 - 06/27/2019： Windows Server 2019 Datacenter Server Core BYOL
 - 06/27/2019： Windows Server 2019 Datacenter With 容器即用即付
 - 06/27/2019： Windows Server 2019 Datacenter With 容器 BYOL
-- 06/27/2019： Veeam 备份 & 复制
+- 06/27/2019：Veeam 备份和复制
 
-## <a name="deprecated-marketplace-items"></a>弃用的 marketplace 项
+## <a name="deprecated-marketplace-items"></a>弃用市场项
 
+- Bitnami Shopware
+- SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Standard
+- 免费许可证：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Developer
+- 免费许可证：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Express
+- SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Enterprise
+- SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Web
 - Bitnami Codiad
 - Bitnami X2Engine 销售 CRM
 - Bitnami SugarCRM
 - Bitnami Node.js 高可用性群集
 - Bitnami ProcessMaker Enterprise Edition
-- A10 vThunder： L4-L7 应用程序交付控制器，全局服务器负载平衡（GSLB），SSL 见解
+- A10 vThunder：L4-L7 应用程序交付控制器、全局服务器负载平衡 (GSLB)、SSL Insight
 - Check Point vSEC Security Management
 
-## <a name="updated-marketplace-items"></a>更新的 marketplace 项
+## <a name="updated-marketplace-items"></a>更新弃用市场项
 
+- 09/21/2020： Centos 应用程序连接网关-版本7.2。0
+- 09/09/2020： FortiGate NGFW-单 VM 部署 (BYOL) –版本1.0。2
+- 09/04/2020：基于 CentOS 的 6.10-版本6.10.2020042900
+- 09/04/2020：基于 CentOS 的 7.4-版本7.4.20200220
+- 09/04/2020：基于 CentOS 的 7.5-版本7.5.201808150
+- 09/04/2020：基于 CentOS 的 7.6-版本7.6.201909120
+- 09/04/2020：基于 CentOS 的 7.7-版本7.7.2020062400
+- 09/04/2020：基于 CentOS 的 8.0-版本8.0.201912060
+- 09/03/2020： [smalldisk] Windows Server 2008 R2 SP1-即用即付-版本7601.24559.2008080510
+- 09/03/2020： [smalldisk] Windows Server 2008 R2 SP1-自带许可证-版本7601.24559.2008080510
+- 09/03/2020： Windows Server 2008 R2 SP1-即用即付-版本7601.24559.2008080510
+- 09/03/2020： Windows Server 2008 R2 SP1-自带许可证-版本7601.24559.2008080510
+- 09/03/2020： Windows Server 2012 Datacenter-即用即付-版本9200.23121.2008080510
+- 09/03/2020： Windows Server 2012 Datacenter-自带许可证-版本9200.23121.2008080510
+- 09/03/2020： [smalldisk] Windows Server 2012 Datacenter-即用即付-版本9200.23121.2008080510
+- 09/03/2020： [smalldisk] Windows Server 2012 Datacenter-自带许可证-版本9200.23121.2008080510
+- 09/03/2020： [smalldisk] Windows Server 2012 R2 Datacenter-即用即付-版本9600.19785.2008100926
+- 09/03/2020： [smalldisk] Windows Server 2012 R2 Datacenter-自带许可证-版本9600.19785.2008100926
+- 09/03/2020： Windows Server 2012 R2 Datacenter-即用即付-版本9600.19785.2008100926
+- 09/03/2020： Windows Server 2012 R2 Datacenter-自带许可证-版本9600.19785.2008100926
+- 09/03/2020： Windows 10 企业版 N 2016 LTSB-自带许可证-版本14393.3866.2008081933
+- 09/03/2020： Windows 10 企业版 2016 LTSB-自带许可证-版本14393.3866.2008081933
+- 09/03/2020： [smalldisk] Windows Server 2016 Datacenter-Server Core-即用即付-版本14393.3866.2008081933
+- 09/03/2020： [smalldisk] Windows Server 2016 Datacenter-Server Core-自带许可证-版本14393.3866.2008081933
+- 09/03/2020： [smalldisk] Windows Server 2016 Datacenter-即用即付-版本14393.3866.2008081933
+- 09/03/2020： [smalldisk] Windows Server 2016 Datacenter-自带许可证-版本14393.3866.2008081933
+- 09/03/2020： Windows Server 2016 Datacenter-Server Core-即用即付-版本14393.3866.2008081933
+- 09/03/2020： Windows Server 2016 Datacenter-Server Core-自带许可证-版本14393.3866.2008081933
+- 09/03/2020： Windows Server 2016 Datacenter-即用即付-版本14393.3866.2008081933
+- 09/03/2020： Windows Server 2016 Datacenter-自带许可证-版本14393.3866.2008081933
+- 09/03/2020： Windows 10 企业版，版本 1809-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows 10 专业版，版本 1809-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows 10 专业版 N，版本 1809-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows 10 企业版 2019 LTSC-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows 10 企业多会话，版本 1809-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows 10 企业版 N，版本 1809-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows 10 企业版 N 2019 LTSC-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows Server 2019 Datacenter Server Core-即用即付-版本17763.1397.2008070242
+- 09/03/2020： Windows Server 2019 Datacenter Server Core-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server 2019 Datacenter Server Core with 容器-即用即付-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server 2019 Datacenter Server Core with 容器-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows Server 2019 Datacenter-即用即付-版本17763.1397.2008070242
+- 09/03/2020： Windows Server 2019 Datacenter-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server，版本1809与容器-即用即付-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server，版本1809与容器-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server 2019 Datacenter Server Core-即用即付-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server 2019 Datacenter Server Core-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server 2019 Datacenter-即用即付-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server 2019 Datacenter-自带许可证-版本17763.1397.2008070242
+- 09/03/2020：包含容器的 Windows Server 2019 Datacenter-即用即付-版本17763.1397.2008070242
+- 09/03/2020：包含容器的 Windows Server 2019 Datacenter-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows Server 2019 Datacenter Server Core with 容器-即用即付-版本17763.1397.2008070242
+- 09/03/2020： Windows Server 2019 Datacenter Server Core with 容器-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server 2019 Datacenter with 容器-即用即付-版本17763.1397.2008070242
+- 09/03/2020： [smalldisk] Windows Server 2019 Datacenter with 容器-自带许可证-版本17763.1397.2008070242
+- 09/03/2020： Windows 10 企业多会话，版本 1903-自带许可证-版本18362.1016.2008062123
+- 09/03/2020： Windows 10 企业版 N，版本 1903-自带许可证-版本18362.1016.2008062123
+- 09/03/2020： Windows 10 企业版，版本 1903-自带许可证-版本18362.1016.2008062123
+- 09/03/2020： Windows 10 专业版 N，版本 1903-自带许可证-版本18362.1016.2008062123
+- 09/03/2020： Windows 10 专业版，版本 1903-自带许可证-版本18362.1016.2008062123
+- 09/03/2020： [smalldisk] Windows Server，版本1903与容器-即用即付-版本18362.1016.2008062123
+- 09/03/2020： [smalldisk] Windows Server，版本1903与容器-自带许可证-版本18362.1016.2008062123
+- 09/03/2020： Windows 10 企业版 N，版本 1909-自带许可证-版本18363.1016.2008070242
+- 09/03/2020： Windows 10 企业版，版本 1909-自带许可证-版本18363.1016.2008070242
+- 09/03/2020： Windows 10 企业多会话，版本 1909-自带许可证-版本18363.1016.2008070242
+- 09/03/2020： Windows 10 专业版，版本 1909-自带许可证-版本18363.1016.2008070242
+- 09/03/2020： Windows 10 专业版 N，版本 1909-自带许可证-版本18363.1016.2008070242
+- 09/03/2020： [smalldisk] Windows Server，版本1909与容器-即用即付-版本18363.1016.2008070242
+- 09/03/2020： [smalldisk] Windows Server，版本1909与容器-自带许可证-版本18363.1016.2008070242
+- 09/03/2020： Windows 10 企业多会话，版本 2004-自带许可证-版本19041.450.2008080726
+- 09/03/2020： Windows 10 企业版，版本 2004-自带许可证-版本19041.450.2008080726
+- 09/03/2020： [smalldisk] Windows Server，版本2004与容器-即用即付-版本19041.450.2008080726
+- 09/03/2020： [smalldisk] Windows Server，版本2004与容器-自带许可证-版本19041.450.2008080726
+- 08/31/2020： AKS Base Ubuntu 16.04-LTS Image 发行版，8月2020–版本2020.08.24
+- 08/21/2020： Windows 10 企业版，版本 1903-自带许可证-版本18362.959.2007101755
+- 08/21/2020： Windows 10 专业版，版本 1903-自带许可证-版本18362.959.2007101755
+- 08/21/2020： Windows 10 企业版，版本 1909-自带许可证-版本18363.959.2007101752
+- 08/21/2020： Windows 10 专业版，版本 1909-自带许可证-版本18363.959.2007101752
+- 08/21/2020： Windows 10 企业版，版本 2004-自带许可证-版本19041.388.2007101729
+- 08/21/2020： Windows 10 企业版 2016 LTSB-自带许可证-版本14393.3808.2007101707
+- 08/21/2020： Windows 10 企业版 2019 LTSC-自带许可证-版本17763.1339.2007101755
+- 08/21/2020： Windows 10 专业版，版本 1809-自带许可证-版本17763.1339.2007101755
+- 08/21/2020： Windows Server 2008 R2 SP1-即用即付-版本7601.24557.2007101756
+- 08/21/2020： [smalldisk] Windows Server 2008 R2 SP1-即用即付-版本7601.24557.2007101756
+- 08/21/2020： Windows Server 2012 Datacenter-即用即付-版本9200.23086.2007131700
+- 08/21/2020： [smalldisk] Windows Server 2012 Datacenter-即用即付-版本9200.23086.2007131700
+- 08/21/2020： Windows Server 2012 R2 Datacenter-即用即付-版本9600.19756.2007111612
+- 08/21/2020： [smalldisk] Windows Server 2012 R2 Datacenter-即用即付-版本9600.19756.2007111612
+- 08/21/2020： Windows Server 2016 Datacenter-即用即付-版本14393.3808.2007101707
+- 08/21/2020： Windows Server 2016 Datacenter-Server Core-即用即付-版本14393.3808.2007101707
+- 08/21/2020： [smalldisk] Windows Server 2016 Datacenter-Server Core-即用即付-版本14393.3808.2007101707
+- 08/21/2020： [smalldisk] Windows Server 2016 Datacenter-即用即付-版本14393.3808.2007101707
+- 08/21/2020： Windows Server 2019 Datacenter Server Core-即用即付-版本17763.1339.2007101755
+- 08/21/2020： [smalldisk] Windows Server 2019 Datacenter Server Core-即用即付-版本17763.1339.2007101755
+- 08/21/2020： Windows Server 2019 Datacenter Server Core with 容器-即用即付-版本17763.1339.2007101755
+- 08/21/2020： [smalldisk] Windows Server 2019 Datacenter Server Core with 容器-即用即付-版本17763.1339.2007101755
+- 08/21/2020： Windows Server 2019 Datacenter-即用即付-版本17763.1339.2007101755
+- 08/21/2020： [smalldisk] Windows Server 2019 Datacenter-即用即付-版本17763.1339.2007101755
+- 08/21/2020：包含容器的 Windows Server 2019 Datacenter-即用即付-版本17763.1339.2007101755
+- 08/21/2020： [smalldisk] Windows Server 2019 Datacenter with 容器-即用即付-版本17763.1339.2007101755
+- 08/21/2020： [smalldisk] Windows Server，版本1809与容器-即用即付-版本17763.1339.2007101755
+- 08/21/2020： [smalldisk] Windows Server，版本1903与容器-即用即付-版本18362.959.2007101755
+- 08/21/2020： [smalldisk] Windows Server，版本1909与容器-即用即付-版本18363.959.2007101752
+- 08/21/2020： [smalldisk] Windows Server，版本2004与容器-即用即付-版本19041.388.2007101729
+- 08/04/2020： Windows Server 2008 R2 SP1-自带许可证-版本7601.24556.2006050139
+- 08/04/2020： Windows Server 2008 R2 SP1-即用即付-版本7601.24556.2006050139
+- 08/04/2020： [smalldisk] Windows Server 2008 R2 SP1-自带许可证-版本7601.24556.2006050139
+- 08/04/2020： [smalldisk] Windows Server 2008 R2 SP1-即用即付-版本7601.24556.2006050139
+- 08/04/2020： Windows Server 2012 Datacenter-自带许可证-版本9200.23066.2006051749
+- 08/04/2020： Windows Server 2012 Datacenter-即用即付-版本9200.23066.2006051749
+- 08/04/2020： [smalldisk] Windows Server 2012 Datacenter-自带许可证-版本9200.23066.2006051749
+- 08/04/2020： [smalldisk] Windows Server 2012 Datacenter-即用即付-版本9200.23066.2006051749
+- 08/04/2020： Windows Server 2012 R2 Datacenter-自带许可证-版本9600.19728.2006050139
+- 08/04/2020： Windows Server 2012 R2 Datacenter-即用即付-版本9600.19728.2006050139
+- 08/04/2020： [smalldisk] Windows Server 2012 R2 Datacenter-自带许可证-版本9600.19728.2006050139
+- 08/04/2020： [smalldisk] Windows Server 2012 R2 Datacenter-即用即付-版本9600.19728.2006050139
+- 08/04/2020： Windows Server 2016 Datacenter-自带许可证-版本14393.3750.2006031549
+- 08/04/2020： Windows Server 2016 Datacenter-即用即付-版本14393.3750.2006031549
+- 08/04/2020： Windows Server 2016 Datacenter-Server Core-自带许可证-版本14393.3750.2006031549
+- 08/04/2020： Windows Server 2016 Datacenter-Server Core-即用即付-版本14393.3750.2006031549
+- 08/04/2020： [smalldisk] Windows Server 2016 Datacenter-Server Core-自带许可证-版本14393.3750.2006031549
+- 08/04/2020： [smalldisk] Windows Server 2016 Datacenter-Server Core-即用即付-版本14393.3750.2006031549
+- 08/04/2020： [smalldisk] Windows Server 2016 Datacenter-自带许可证-版本14393.3750.2006031549
+- 08/04/2020： [smalldisk] Windows Server 2016 Datacenter-即用即付-版本14393.3750.2006031549
+- 08/04/2020： Windows Server 2019 Datacenter-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： Windows Server 2019 Datacenter Server Core-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： Windows Server 2019 Datacenter Server Core-即用即付-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter Server Core-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter Server Core-即用即付-版本17763.1282.2006061952
+- 08/04/2020： Windows Server 2019 Datacenter Server Core with 容器-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： Windows Server 2019 Datacenter Server Core with 容器-即用即付-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter Server Core with 容器-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter Server Core with 容器-即用即付-版本17763.1282.2006061952
+- 08/04/2020： Windows Server 2019 Datacenter-即用即付-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter-即用即付-版本17763.1282.2006061952
+- 08/04/2020：包含容器的 Windows Server 2019 Datacenter-自带许可证-版本17763.1282.2006061952
+- 08/04/2020：包含容器的 Windows Server 2019 Datacenter-即用即付-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter with 容器-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter with 容器-即用即付-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server，版本1809与容器-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server，版本1809与容器-即用即付-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server，版本1903与容器-自带许可证-版本18362.900.2006061800
+- 08/04/2020： [smalldisk] Windows Server，版本1903与容器-即用即付-版本18362.900.2006061800
+- 08/04/2020： [smalldisk] Windows Server，版本2004与容器-自带许可证-版本19041.329.2006042019
+- 08/04/2020： Windows 10 企业版 2016 LTSB-自带许可证-版本14393.3750.2006031549
+- 08/04/2020： Windows 10 企业版 2019 LTSC-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： Windows 10 企业版，版本 1809-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： Windows 10 专业版，版本 1809-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： Windows 10 企业版，版本 1903-自带许可证-版本18362.900.2006061800
+- 08/04/2020： Windows 10 专业版，版本 1903-自带许可证-版本18362.900.2006061800
+- 08/04/2020： Windows 10 企业版，版本 1909-自带许可证-版本18363.900.2006061800
+- 08/04/2020： Windows 10 专业版，版本 1909-自带许可证-版本18363.900.2006061800
+- 08/04/2020： Windows 10 企业版，版本 2004-自带许可证-版本19041.329.2006042019
+- 07/27/2020： Ubuntu Server 20.04 LTS – version 20.04.202007080
+- 07/27/2020： Ubuntu Server 20.04 LTS – version 20.04.202007160
+- 07/27/2020： Ubuntu Server 20.04 LTS – version 20.04.202004230
+- 07/27/2020： Ubuntu Server 16.04 LTS – version 16.04.202007080
+- 07/27/2020： Ubuntu Server 18.04 LTS – version 16.04.202007080
+- 07/21/2020： {PAYG} 免费许可证 SQL Server： Windows Server 2016 上的 2016 SP2 开发人员-版本13.2.20200513
+- 07/21/2020： {PAYG} 免费许可证： Windows Server 2016 上 SQL Server 2016 SP2 Express-版本13.2.20200514
+- 07/21/2020： {PAYG} 免费 SQL Server 许可证： SQL Server 2017 开发人员，Windows Server 2016-版本14.0.20200513
+- 07/21/2020： {PAYG} 免费 SQL Server 许可证： SQL Server 2017 Express on Windows Server 2016-版本14.0.20200514
+- 07/21/2020： {PAYG} 在 Windows Server 2016-版本13.2.20200513 上 SQL Server 2016 SP2 Enterprise
+- 07/21/2020： {PAYG} 在 Windows Server 2016 上 SQL Server 2016 SP2 标准版13.2.20200514
+- 07/21/2020： {PAYG} SQL Server 2017 Enterprise Windows Server 2016-版本14.0.20200513
+- 07/21/2020： {PAYG} SQL Server 2017 Standard on Windows Server 2016-版本14.0.20200514
+- 07/22/2020： {BYOL} 免费许可证 SQL Server： Windows Server 2016 上的 2016 SP2 开发人员-版本13.2.20200513
+- 07/22/2020： {BYOL} 免费许可证： Windows Server 2016 上 SQL Server 2016 SP2 Express-版本13.2.20200514
+- 07/22/2020： {BYOL} 免费 SQL Server 许可证： SQL Server 2017 开发人员，Windows Server 2016-版本14.0.20200513
+- 07/22/2020： {BYOL} 免费 SQL Server 许可证： SQL Server 2017 Express on Windows Server 2016-版本14.0.20200514
+- 07/22/2020： {BYOL} 在 Windows Server 2016-版本13.2.20200513 上 SQL Server 2016 SP2 Enterprise
+- 07/22/2020： {BYOL} 在 Windows Server 2016 上 SQL Server 2016 SP2 标准版13.2.20200514
+- 07/22/2020： {BYOL} SQL Server 2017 Enterprise Windows Server 2016-版本14.0.20200513
+- 07/22/2020： {BYOL} SQL Server 2017 Standard on Windows Server 2016-版本14.0.20200514
 - 6/19/2020： Bitnami Gitlab CE –版本13.0.2006110322
 - 6/16/2020： SQLIaaSExtension-版本1.3.20370
 - 6/12/2020： Bitnami Grafana-版本6.7.2006040249
-- 5/21/2020： Ubuntu Server 16.04 LTS-version 16.04.202004290
-- 5/21/2020： Ubuntu Server 18.04 LTS-version 18.04.202004080
 - 5/21/2020： Windows Server 2008 R2 SP1 BYOL-版本7601.24552.2004101827
 - 5/21/2020： Windows Server 2008 R2 SP1 按使用版本7601.24552.2004101827
 - 5/21/2020： Windows Server 2012 Datacenter BYOL-version 9200.23016.2004101828
@@ -84,173 +264,11 @@ ms.locfileid: "85111386"
 - 5/21/2020： Windows Server 2019 Datacenter 按使用情况付费-版本17763.1158.2004131759
 - 5/21/2020： Windows Server 2019 Datacenter with 容器 BYOL-版本17763.1158.2004131759
 - 5/21/2020：使用容器作为使用版本17763.1158.2004131759 的 Windows Server 2019 Datacenter
-- 05/15/2020： Bitnami AbanteCart-版本1.2.2004220207
-- 05/15/2020： Bitnami Canvas LMS-版本2020.5.2005120909
-- 05/15/2020： Bitnami Neos-版本5.2.2005130917
-- 05/07/2020： Bitnami ActiveMQ-版本5.15.2003260344
-- 05/07/2020： Bitnami Akeneo-版本 4-3.2.2004230142
-- 05/07/2020： Bitnami Alfresco 社区-版本201911.0.2004242008
-- 05/07/2020： Bitnami Apache Solr-版本8.5.2004201607
-- 05/07/2020： Bitnami JFrog Artifactory 开源版本6.19.2005041054
-- 05/07/2020： Bitnami Cassandra-版本3.11.2003302002
-- 05/07/2020： Bitnami CiviCRM-版本5.24.2004230742
-- 05/07/2020： Bitnami CMS 使其变得简单-版本2.2.2004220149
-- 05/07/2020： Bitnami concrete5-版本8.5.2004220952
-- 05/07/2020： Bitnami HashiCorp Consul-version 1.7.2003252309
-- 05/07/2020： Bitnami Coppermine-版本1.6.2004220101
-- 05/07/2020： Bitnami CouchDB-版本3.0.2004090905
-- 05/07/2020： Bitnami Diaspora-版本0.7.2004220228
-- 05/07/2020： Bitnami Discourse-版本2.4.2004222352
-- 05/07/2020： Bitnami Django-版本2.2.2004220952
-- 05/07/2020： Bitnami DokuWiki-版本20180422.0.2004220151
-- 05/07/2020： Bitnami Dolibarr-版本11.0.2004220907
-- 05/07/2020： Bitnami DreamFactory-版本4.1.2004221304
-- 05/07/2020： Bitnami Drupal-版本8.8.2004220309
-- 05/07/2020： Bitnami Elasticsearch-版本7.6.2003312054
-- 05/07/2020： Bitnami ELK-版本7.6.2003312108
-- 05/07/2020： Bitnami ERPNext-12.7.2004231458
-- 05/07/2020： Bitnami EspoCRM-版本5.8.2004220156
-- 05/07/2020： Bitnami etcd-版本3.4.2004020147
-- 05/07/2020： Bitnami Exo 除外平台-版本5.2.2004241913
-- 05/07/2020： Bitnami Fat Free CRM-version 0.18.2004220211
-- 05/07/2020： Bitnami 的 Ghost 版本3.14.2005041054
-- 05/07/2020： Bitnami GitLab CE-版本12.10.2004241755
-- 05/07/2020： Bitnami Grafana-版本6.7.2004231501
-- 05/07/2020： Bitnami Apache Guacamole-版本1.1.2003260344
-- 05/07/2020： Bitnami Hadoop-版本3.2.2004242040
-- 05/07/2020： Bitnami HHVM-版本3.30.2004220056
-- 05/07/2020： Bitnami 大量
-- 05/07/2020： Bitnami JasperReports-版本7.5.2004220219
-- 05/07/2020： Bitnami Jenkins-版本2.204.2003061428
-- 05/07/2020： Bitnami Joomla！ -版本3.9.2004220511
-- 05/07/2020： Bitnami JRuby-版本9.2.2004241917
-- 05/07/2020： Bitnami Kafka-版本2.5.2004152349
-- 05/07/2020： Bitnami 特别行政区-版本2.0.2004232326
-- 05/07/2020： Bitnami Kubernetes 沙箱-版本1.18.2004090333
-- 05/07/2020： Bitnami 灯泡-版本7.3.2004241853
-- 05/07/2020： Bitnami LAPP-版本7.3.2004241251
-- 05/07/2020： Bitnami Let 的聊天版本0.4.2004221148
-- 05/07/2020： Bitnami Liferay-版本7.3.2004231024
-- 05/07/2020： Bitnami LimeSurvey-版本4.2.2005041206
-- 05/07/2020： Bitnami Live Helper Chat-版本3.31.2004220209
-- 05/07/2020： Bitnami Magento-版本2.3.2004220952
-- 05/07/2020： Bitnami Mahara-版本 10-19.10.2004220207
-- 05/07/2020： Bitnami Mantis-版本2.24.2004220951
-- 05/07/2020： Bitnami MariaDB-版本10.4.2003252212
-- 05/07/2020： Bitnami Mattermost 团队版-版本5.22.2005041054
-- 05/07/2020： Bitnami Mautic-版本2.16.2004220323
-- 05/07/2020： Bitnami 均值-version 4.2.2004281603
-- 05/07/2020： Bitnami MediaWiki-版本1.34.2004220952
-- 05/07/2020： Bitnami Memcached-版本1.6.2004132340
-- 05/07/2020： Bitnami MODX-版本2.7.2004220204
-- 05/07/2020： Bitnami MongoDB-version 4.2.2004170936
-- 05/07/2020： Bitnami Moodle-版本3.8.2004220952
-- 05/07/2020： Bitnami MyBB-版本1.8.2004230613
-- 05/07/2020： Bitnami MySQL-版本8.0.2003252232
-- 05/07/2020： Bitnami NAT-版本2.1.2004010828
-- 05/07/2020： Bitnami Neo4j 4.0.2003311444
-- 05/07/2020： Bitnami NGINX 开源-版本1.16.2004221209
-- 05/07/2020： Bitnami Noalyss-版本7.3.2004220120
-- 05/07/2020： Bitnami Node.js-version 12.16.2004281743
-- 05/07/2020： Bitnami Composr-版本10.0.2004220137
-- 05/07/2020： Bitnami Odoo-版本13.0.2004220418
-- 05/07/2020： Bitnami 打开 Atrium-版本2.645.2004220952
-- 05/07/2020： Bitnami OpenCart-版本3.0.2004230142
-- 05/07/2020： Bitnami 打开 edX-版本576663.2.2004250743
-- 05/07/2020： Bitnami Openfire-版本4.5.2004241829
-- 05/07/2020： Bitnami OpenProject-版本10.3.2004220618
-- 05/07/2020： Bitnami OrangeHRM-版本4.3.2004220223
-- 05/07/2020： Bitnami OroCRM-版本4.0.2004220319
-- 05/07/2020： Bitnami Osclass-版本3.9.2004221629
-- 05/07/2020： Bitnami ownCloud-版本10.4.2004231341
-- 05/07/2020： Bitnami OXID eShop-version 6.2.2004220516
-- 05/07/2020： Bitnami Parse 服务器版本4.2.2004091706
-- 05/07/2020： Bitnami Phabricator-版本2020.7.2004220220
-- 05/07/2020： Bitnami phpBB-版本3.3.2004220456
-- 05/07/2020： Bitnami phpList-版本3.5.2004240140
-- 05/07/2020： Bitnami Pimcore-版本6.6.2004220524
-- 05/07/2020： Bitnami Matomo-版本3.13.2004221147
-- 05/07/2020： Bitnami Plone-版本5.2.2004231024
-- 05/07/2020： Bitnami Pootle-版本2.8.2004221629
-- 05/07/2020： Bitnami PostgreSQL-版本12.2.2003252203
-- 05/07/2020： Bitnami PrestaShop-版本1.7.2004220522
-- 05/07/2020： Bitnami ProcessMaker 社区-版本3.3.2004220909
-- 05/07/2020： Bitnami ProcessWire-版本3.0.2004230142
-- 05/07/2020： Bitnami Publify-版本9.1.2004220128
-- 05/07/2020： Bitnami RabbitMQ-版本3.8.2003252248
-- 05/07/2020： Bitnami Re：8.0.2004231503 版
-- 05/07/2020： Bitnami Redis-版本5.0.2004271447
-- 05/07/2020： Bitnami Redmine-版本4.1.2004220530
-- 05/07/2020： Bitnami ReportServer 社区-版本3.1.2004220515
-- 05/07/2020： Bitnami ResourceSpace-版本9.2.2004240738
-- 05/07/2020： Bitnami 审阅板-版本3.0.2004220506
-- 05/07/2020： Bitnami Roundcube-版本1.4.2004220454
-- 05/07/2020： Bitnami Ruby-版本2.5.2004220936
-- 05/07/2020： Bitnami SEO 面板-版本4.3.2004220952
-- 05/07/2020： Bitnami Shopware-版本6.1.2004231024
-- 05/07/2020： Bitnami SilverStripe-版本4.5.2004220952
-- 05/07/2020： Bitnami 简单计算机论坛-版本2.0.2004220454
-- 05/07/2020： Bitnami SonarQube-版本 4-8.2.2004250108
-- 05/07/2020： Bitnami Spree-版本4.1.2004220518
-- 05/07/2020： Bitnami Subversion-版本1.13.2004220556
-- 05/07/2020： Bitnami SuiteCRM-版本7.11.2004220532
-- 05/07/2020： Bitnami TensorFlow 服务-版本2.1.2004131848
-- 05/07/2020： Bitnami TestLink-版本1.9.2004220510
-- 05/07/2020： Bitnami Tiki Wiki CMS 组件-版本21.0.2004221629
-- 05/07/2020： Bitnami 小小 RSS-版本202004.0.2004220952
-- 05/07/2020： Bitnami Tomcat-version 8.5.2004091906
-- 05/07/2020： Bitnami 跟踪-版本1.4.2004220504
-- 05/07/2020： Bitnami TYPO3-版本9.5.2004221628
-- 05/07/2020： Bitnami Weblate-版本4.0.2004231024
-- 05/07/2020： Bitnami WildFly-版本19.0.2004011057
-- 05/07/2020： Bitnami WordPress-版本5.4.2004221628
-- 05/07/2020： Bitnami WordPress Multisite-版本5.4.2004221629
-- 05/07/2020： Bitnami WordPress with NGINX and SSL-version 5.4.2004221147
-- 05/07/2020： Bitnami XOOPS-版本2.5.2004220506
-- 05/07/2020： Bitnami ZooKeeper-版本3.6.2004302354
-- 05/07/2020： Bitnami Zurmo-版本3.2.2004220512
-- 04/20/2020： Windows Server 2019 Datacenter BYOL-version 2019.127.20200213
-- 04/20/2020： Windows Server 2019 Datacenter Payg-version 2019.127.20200213
-- 04/20/2020： Windows Server 2019 Datacenter Server Core BYOL-version 2019.127.20200204
-- 04/20/2020： Windows Server 2019 Datacenter Server Core Payg-version 2019.127.20200204
-- 04/20/2020： Windows Server 2019 Datacenter With 容器 BYOL-版本2019.127.20200204
-- 04/20/2020： Windows Server 2019 Datacenter With 容器 Payg-版本2019.127.20200204
-- 04/20/2020： Windows Server 2019 Datacenter Core With 容器 BYOL-版本2019.127.20200204
-- 04/20/2020： Windows Server 2019 Datacenter Core With 容器 Payg-版本2019.127.20200204
-- 04/20/2020： Windows Server 2016 Datacenter-BYOL-version 2016.127.20200131
-- 04/20/2020： Windows Server 2016 Datacenter-按使用情况付费-版本2016.127.20200131
-- 04/20/2020： Windows Server 2016 Datacenter Server Core-BYOL-version 2016.127.20200131
-- 04/20/2020： Windows Server 2016 Datacenter Server Core-按使用情况付费-版本2016.127.20200131
-- 04/20/2020：包含容器的 Windows Server 2016 Datacenter-BYOL-version 2016.127.20200131
-- 04/20/2020：包含容器的 Windows Server 2016 Datacenter-使用-版本2016.127.20200131
-- 04/20/2020： Windows Server 2012 Datacenter-BYOL-version 3.127.20200205
-- 04/20/2020： Windows Server 2012 R2 Datacenter-按使用情况付费-版本4.127.20200205
-- 04/20/2020： Windows Server 2012 R2 Datacenter-BYOL-version 4.127.20200205
-- 04/20/2020： Windows Server 2012 Datacenter-按使用情况付费-版本3.127.20200205
-- 04/20/2020： Windows Server 2012 R2 Datacenter BYOL-version 4.127.20200205
-- 04/20/2020： Windows Server 2012 R2 Datacenter 按使用情况付费-版本4.127.20200205
-- 04/20/2020： Windows Server 2012 Datacenter BYOL-version 3.127.20200205
-- 04/20/2020： Windows Server 2012 Datacenter 按使用情况付费-版本3.127.20200205
-- 04/20/2020： Windows Server 2008 R2 SP1 BYOL-版本2.127.20200206
-- 04/20/2020： Windows Server 2008 R2 SP1 按使用版本2.127.20200206
-- 10/1/2019： Microsoft JsonADDomain 扩展-版本1.3。4
-- 09/25/2019： Debian 8-版本8.0.20190806
-- 09/24/2019： F5-网络大 IP 虚拟版-版本14.1.200000
-- 09/12/2019： Service Fabric 版本1.0。3
-- 09/02/2019： AKS 基本映像-版本2019.08.09 和版本2019.08.21
-- 08/30/2019： Azure Stack Hub Kubernetes 群集-版本0.5。1
-- 08/08/2019：适用于 Linux 的 CloudLink SecureVM 扩展-版本6。8
-- 08/08/2019：适用于 Windows 的 CloudLink SecureVM 扩展-版本6。8
-- 07/30/2019： SQLIaaSExtension-版本1.3.20180
-- 07/30/2019： SQL Server 2017 （速成版、开发人员版、标准版和企业版）-版本14.0.20190410
-- 07/30/2019： SQL Server 2016 SP1 （速成版、开发人员版、标准版和企业版）-版本13.2.20190410
-- 07/30/2019： SQL Server 2016 SP2 （速成版、开发人员版、标准版和企业版）-版本13.2.20190410
-- 07/11/2019： Thales CipherTrust 云密钥管理器-版本1.0。7
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure Stack 中心 Marketplace 的详细信息，请参阅以下文章：
+有关 Azure Stack Hub 市场的详细信息，请参阅以下文章：
 
 - [Azure 市场概述](azure-stack-marketplace.md)
 - [可用于 Azure Stack Hub 的 Azure 市场项](azure-stack-marketplace-azure-items.md)
-- [创建并发布 Azure Stack 中心市场项](azure-stack-create-and-publish-marketplace-item.md)
+- [创建并发布 Azure Stack Hub 市场项](azure-stack-create-and-publish-marketplace-item.md)

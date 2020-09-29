@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure Stack Hub 上备份存储帐户
+title: 在 Azure Stack Hub 上备份存储帐户
 description: 了解如何在 Azure Stack Hub 上备份存储帐户。
 author: mattbriggs
 ms.topic: how-to
@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 1af0a054c90369ba3f1e97d55dac7e5eec20ee43
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111959"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107213"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>在 Azure Stack Hub 上备份存储帐户
 
@@ -22,17 +22,17 @@ ms.locfileid: "84111959"
 
 本部分探讨解决方案的整体结构和主要组成部分。
 
-![Azure Stack Hub 存储备份](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
+![显示 Azure Stack 中心存储备份的总体结构的关系图。](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
 
 ### <a name="application-layer"></a>应用层
 
-可以发出多个 [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 或 [PUT Block](https://docs.microsoft.com/rest/api/storageservices/put-block) 操作将对象写入到多个位置，以在不同 Azure Stack Hub 缩放单元上的存储帐户之间复制数据。 或者，应用程序可以发出 [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) 操作，以便在主要帐户的放置操作完成后，将 Blob 复制到托管在不同缩放单元上的存储帐户。
+可以发出多个 [PUT Blob](/rest/api/storageservices/put-blob) 或 [PUT Block](/rest/api/storageservices/put-block) 操作将对象写入到多个位置，以在不同 Azure Stack Hub 缩放单元上的存储帐户之间复制数据。 或者，应用程序可以发出 [Copy Blob](/rest/api/storageservices/copy-blob) 操作，以便在主要帐户的放置操作完成后，将 Blob 复制到托管在不同缩放单元上的存储帐户。
 
 ### <a name="scheduled-copy-task"></a>计划的复制任务
 
 AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云存储、Azure Stack Hub 存储和 s3 中的数据。 目前，AzCopy 无法在两个 Azure Stack Hub 存储帐户之间复制数据。 将对象从源 Azure Stack Hub 存储帐户复制到目标 Azure Stack Hub 存储帐户需有一个中间本地文件系统。
 
-有关详细信息，请参阅[在 Azure Stack Hub 存储中使用数据传输工具](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer?view=azs-1908#azcopy)一文中的“AzCopy”。
+有关详细信息，请参阅[在 Azure Stack Hub 存储中使用数据传输工具](./azure-stack-storage-transfer.md?view=azs-1908#azcopy)一文中的“AzCopy”。
 
 ### <a name="azure-stack-hub-source"></a>Azure Stack Hub（源）
 
@@ -54,13 +54,13 @@ AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云�
 - 有关设置 Linux 服务器的说明，请参阅[使用 Azure Stack Hub 门户创建 Linux 服务器 VM](azure-stack-quick-linux-portal.md)。  
 - 有关设置 Windows 服务器的说明，请参阅[使用 Azure Stack Hub 门户创建 Windows 服务器 VM](azure-stack-quick-windows-portal.md)。  
 
-设置 Windows 服务器之后，需要安装 [Azure Stack Hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) 和 [Azure Stack Hub 工具](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json)。
+设置 Windows 服务器之后，需要安装 [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) 和 [Azure Stack Hub 工具](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json)。
 
 ## <a name="set-up-backup-for-storage-accounts"></a>为存储帐户设置备份
 
 1. 检索源和目标存储帐户的 Blob 终结点。
 
-    ![Azure Stack Hub 存储备份](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
+    ![屏幕截图显示源和目标存储帐户的主 blob 端点。](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
 
 2. 创建并记下源和目标存储帐户的 SAS 令牌。
 
@@ -112,7 +112,7 @@ AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云�
 
     - 对于 Windows 服务器：
 
-    有关如何使用 Windows 任务计划的信息，请参阅[面向开发人员的任务计划程序](https://docs.microsoft.com/windows/win32/taskschd/task-scheduler-start-page)
+    有关如何使用 Windows 任务计划的信息，请参阅[面向开发人员的任务计划程序](/windows/win32/taskschd/task-scheduler-start-page)
     
 
 ## <a name="use-your-storage-account-in-a-disaster"></a>发生灾难时使用存储帐户

@@ -1,45 +1,45 @@
 ---
-title: 使用 Active Directory 联合服务（AD FS）将 Kubernetes 部署到 Azure Stack 中心
-description: 了解如何使用 Active Directory 联合服务（AD FS）将 Kubernetes 部署到 Azure Stack 中心。
+title: 使用 Active Directory 联合身份验证服务 (AD FS) 将 Kubernetes 部署到 Azure Stack Hub
+description: 了解如何使用 Active Directory 联合身份验证服务 (AD FS) 将 Kubernetes 部署到 Azure Stack Hub。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/12/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 2dbef9bd19fac12541f738fc530dbf58f5c85c35
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 85c1814264b11b40c815ea1089c92113b0b035b1
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631211"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106720"
 ---
-# <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>使用 Active Directory 联合服务将 Kubernetes 部署到 Azure Stack 中心
+# <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>使用 Active Directory 联合身份验证服务将 Kubernetes 部署到 Azure Stack Hub
 
-> [!Note]  
-> 仅使用 Kubernetes Azure Stack Marketplace 项将群集部署为概念证明。有关 Azure Stack 上支持的 Kubernetes 群集，请使用 [AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
+> [!NOTE]  
+> 仅使用 Kubernetes Azure Stack 市场项将部署群集作为概念证明。 有关 Azure Stack 上支持的 Kubernetes 群集，请使用 [AKS 引擎](azure-stack-kubernetes-aks-engine-overview.md)。
 
-可以按照本文中的步骤部署和设置 Kubernetes 的资源。 Active Directory 联合服务（AD FS）是标识管理服务时，请使用以下步骤。
+可以按照本文中的步骤部署和设置 Kubernetes 的资源。 如果 Active Directory 联合身份验证服务 (AD FS) 是你的标识管理服务，请按照这些步骤进行操作。
 
 ## <a name="prerequisites"></a>先决条件 
 
-若要开始，请确保具有适当的权限，并且 Azure Stack 中心已准备就绪。
+开始之前，请确保你有适当的权限且 Azure Stack Hub 已就绪。
 
-1. 生成 SSH 公钥和私钥对，用于登录到 Azure Stack 集线器上的 Linux VM。 创建群集时需要公钥。
+1. 生成一个 SSH 公钥和私钥对，用于登录到 Azure Stack Hub 上的 Linux VM。 在创建群集时需要此公钥。
 
     有关如何生成密钥的说明，请参阅 [SSH 密钥生成](azure-stack-dev-start-howto-ssh-public-key.md)。
 
-1. 请检查 Azure Stack 中心租户门户中是否有有效的订阅，以及是否有足够的公共 IP 地址可用于添加新的应用程序。
+1. 检查你在 Azure Stack Hub 租户门户中是否有有效的订阅，以及是否有足够的公共 IP 地址来添加新的应用程序。
 
-    无法将群集部署到 Azure Stack 中心**管理员**订阅。 必须使用**用户**订阅。 
+    此群集不能部署到 Azure Stack Hub“管理员”订阅****。 必须使用**用户**订阅。 
 
-1. 如果 marketplace 中没有 Kubernetes 群集，请向 Azure Stack 中心管理员咨询。
+1. 如果你的市场中没有 Kubernetes 群集，请联系 Azure Stack Hub 管理员。
 
 ## <a name="create-a-service-principal"></a>创建服务主体
 
-使用 AD FS 作为标识解决方案时，你需要与 Azure Stack 中心管理员合作来设置你的服务主体。 服务主体允许应用程序访问 Azure Stack 集线器资源。
+使用 AD FS 作为标识解决方案时，需要与 Azure Stack Hub 管理员配合设置服务主体。 借助服务主体，应用程序可以访问 Azure Stack Hub 资源。
 
-1. Azure Stack 中心管理员提供有关服务主体的信息。 服务主体信息应该如下所示：
+1. Azure Stack Hub 管理员会提供有关服务主体的信息。 服务主体信息应如下所示：
 
      ```Text  
        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -51,60 +51,60 @@ ms.locfileid: "84631211"
        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
      ```
 
-2. 为你的订阅分配作为参与者的新服务主体角色。 有关说明，请参阅[分配角色](../operator/azure-stack-add-users-adfs.md)。
+2. 为新服务主体分配一个角色，作为订阅的参与者。 有关说明，请参阅[分配角色](../operator/azure-stack-add-users-adfs.md)。
 
 ## <a name="deploy-kubernetes"></a>部署 Kubernetes
 
-1. 打开 Azure Stack 集线器门户 `https://portal.local.azurestack.external` 。
+1. 打开 Azure Stack Hub 门户 `https://portal.local.azurestack.external`。
 
-1. 选择 " **+ 创建资源**" "计算" "  >  **Compute**  >  **Kubernetes 群集**"。 选择“创建”。
+1. 选择“+ 创建资源”**** > “计算”**** > “Kubernetes 群集”****。 选择“创建” ****。
 
-    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![屏幕截图，显示创建 Kubernetes 群集的页面。](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-### <a name="1-basics"></a>1. 基础知识
+### <a name="1-basics"></a>1.基础知识
 
 1. 在“创建 Kubernetes 群集”中选择“基本信息”。****
 
-    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![屏幕截图，显示添加有关 Kubernetes 群集的基本信息的位置。](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. 选择**订阅** ID。
 
 1. 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。
 
-1. 选择资源组的**位置**。 这是你为 Azure Stack 集线器安装选择的区域。
+1. 选择资源组的“位置”。**** 这是为 Azure Stack Hub 安装选择的区域。
 
-### <a name="2-kubernetes-cluster-settings"></a>2. Kubernetes 群集设置
+### <a name="2-kubernetes-cluster-settings"></a>2.Kubernetes 群集设置
 
 1. 在“创建 Kubernetes 群集”中选择“Kubernetes 群集设置”。****
 
-    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
+    ![显示配置 Kubernetes 群集设置的步骤的屏幕截图。](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
 
-1. 输入**LINUX VM 管理员用户名**。 构成 Kubernetes 群集和 DVM 的 Linux 虚拟机的用户名。
+1. 输入 Linux VM 管理员用户名****。 构成 Kubernetes 群集和 DVM 的 Linux 虚拟机的用户名。
 
 1. 输入 **SSH 公钥**，用于向所有作为 Kubernetes 群集和 DVM 的一部分创建的 Linux 计算机授权。
 
 1. 输入特定于区域的**主配置文件 DNS 前缀**。 这必须是特定于区域的名称，例如 `k8s-12345`。 最佳做法是尝试选择与资源组名称相同的名称。
 
-    > [!Note]  
+    > [!NOTE]  
     > 为每个群集使用新且唯一的主配置文件 DNS 前缀。
 
-1. 选择**Kubernetes 主池配置文件计数**。 此计数包含主池中的节点数。 其范围为 1 到 7。 此值应当为奇数。
+1. 选择“Kubernetes 主池配置文件计数”****。 此计数包含主池中的节点数。 其范围为 1 到 7。 此值应当为奇数。
 
 1. 选择“Kubernetes 主 VM 的 VMSize”。****
 
-1. 选择**Kubernetes 节点池配置文件计数**。 此计数包含群集中的代理数。 
+1. 选择“Kubernetes 节点池配置文件计数”****。 此计数包含群集中的代理数。 
 
-1. 选择**Kubernetes 节点 vm 的 VMSize**。 这指定 Kubernetes 节点 VM 的 VM 大小。 
+1. 选择“Kubernetes 节点 VM 的 VMSize”****。 这指定 Kubernetes 节点 VM 的 VM 大小。 
 
-1. 为 Azure Stack 中心安装选择**Azure Stack 集线器标识系统**的**ADFS** 。
+1. 对于 Azure Stack Hub 安装，选择“Azure Stack Hub 标识系统”的 ADFS**** ****。
 
-1. 输入**服务主体 clientId**这由 Kubernetes Azure 云提供程序使用。 Azure Stack 中心管理员创建服务主体时标识为应用程序 ID 的客户端 ID。
+1. 输入“服务主体 ClientId”，供 Kubernetes Azure 云提供程序使用****。 Azure Stack Hub 管理员创建服务主体时标识为应用程序 ID 的客户端 ID。
 
-1. 输入**服务主体客户端机密**。 这是你从 Azure Stack 中心管理员为你的 AD FS 服务主体提供的客户端密码。
+1. 输入“服务主体客户端机密”****。 这是 Azure Stack Hub 管理员提供的 AD FS 服务主体的客户端机密。
 
-1. 输入**Kubernetes 版本**。 这是 Kubernetes Azure 提供程序的版本。 Azure Stack 中心为每个 Azure Stack 中心版本发布自定义 Kubernetes 生成。
+1. 输入“Kubernetes 版本”****。 这是 Kubernetes Azure 提供程序的版本。 Azure Stack Hub 为每个 Azure Stack Hub 版本发布一个自定义 Kubernetes 内部版本。
 
-### <a name="3-summary"></a>3. 摘要
+### <a name="3-summary"></a>3.摘要
 
 1. 选择“摘要”。 此边栏选项卡显示针对 Kubernetes 群集配置设置的验证消息。
 
@@ -115,7 +115,7 @@ ms.locfileid: "84631211"
 3. 选择“确定”**** 以部署群集。
 
 > [!TIP]  
->  如果你对部署有任何疑问，则可以发布问题，或者查看是否有人在[Azure Stack 中心论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中回答了问题。 
+>  如果对你的部署有疑问，可以在 [Azure Stack Hub 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)发布问题或查看是否已经有人回答了该问题。 
 
 ## <a name="next-steps"></a>后续步骤
 

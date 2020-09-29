@@ -1,18 +1,18 @@
 ---
-title: 将 C# ASP.NET Web 应用部署到 Azure Stack Hub 中的虚拟机
+title: '在 Azure Stack 集线器中将 c # ASP.NET web 应用部署到 VM'
 description: 将 C# ASP.NET Web 应用部署到 Azure Stack Hub 中的 VM。
 author: mattbriggs
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1f986c1d09397fae9d765f2a64a7fda267f4ac98
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: c28a5bbb50b4694358eec4375db6c20a00ba9e99
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661071"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574187"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>将 C# ASP.NET Web 应用部署到 Azure Stack Hub 中的 VM
 
@@ -65,7 +65,7 @@ ms.locfileid: "81661071"
 
     a. 对于“源”，请选择“任何”。  
 
-    b. 对于“源端口范围”，请键入星号 (  **)。\***
+    b. 对于“源端口范围”，请键入星号 ( **\*** )。
 
     c. 对于“目标”，请选择“任何”。  
 
@@ -97,8 +97,7 @@ ms.locfileid: "81661071"
 
 ## <a name="create-an-app"></a>创建应用 
 
-可以使用你自己的 Web 应用，或使用[使用 Visual Studio 将 ASP.NET Core 应用发布到 Azure](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
-) 中的示例。 本文将介绍如何使用 Visual Studio 2017 中的 Azure 虚拟机发布功能，创建一个 ASP.NET Web 应用并将其发布到 Azure 虚拟机。 安装应用并确保它在本地运行后，将发布目标更新为 Azure Stack Hub 实例中的 Windows VM。
+可以使用你自己的 Web 应用，或使用[使用 Visual Studio 将 ASP.NET Core 应用发布到 Azure](/aspnet/core/tutorials/razor-pages/razor-pages-start?tabs=visual-studio&view=aspnetcore-2.2) 中的示例。 本文将介绍如何使用 Visual Studio 2017 中的 Azure 虚拟机发布功能，创建一个 ASP.NET Web 应用并将其发布到 Azure 虚拟机。 安装应用并确保它在本地运行后，将发布目标更新为 Azure Stack Hub 实例中的 Windows VM。
 
 ## <a name="deploy-and-run-the-app"></a>部署和运行应用
 
@@ -112,11 +111,11 @@ ms.locfileid: "81661071"
 1. 选择“IIS”、“FTP”等  。
 1. 选择“发布”  。
 1. 对于“发布方法”，请选择“Web 部署”。  
-1. 对于“服务器”，请输入前面定义的 DNS 名称，例如 **w21902.local.cloudapp.azurestack.external**。 
+1. 对于“服务器”，请输入前面定义的 DNS 名称，例如 *w21902.local.cloudapp.azurestack.external*。
 1. 对于“站点名称”，请输入“默认网站”。  
 1. 对于“用户名”，请输入计算机的用户名。 
 1. 对于“密码”，请输入计算机的密码。 
-1. 对于“目标 URL”，请输入站点的 URL，例如 **mywebapp.local.cloudapp.azurestack.external**。 
+1. 对于“目标 URL”，请输入站点的 URL，例如 *mywebapp.local.cloudapp.azurestack.external*。
 
     ![部署 ASP.NET Web 应用 - 配置 Web 部署](media/azure-stack-dev-start-howto-vm-dotnet/configure-web-deploy.png)
 
@@ -136,4 +135,4 @@ ms.locfileid: "81661071"
 
 - 了解如何[在 Azure Stack Hub 中设置开发环境](azure-stack-dev-start.md)。
 - 了解[用作 IaaS 的 Azure Stack Hub 的常见部署](azure-stack-dev-start-deploy-app.md)。
-- 若要了解 C# 编程语言和查找有关 C# 的其他资源，请参阅 [C# 指南](https://docs.microsoft.com/dotnet/csharp/)
+- 若要了解 C# 编程语言和查找有关 C# 的其他资源，请参阅 [C# 指南](/dotnet/csharp/)

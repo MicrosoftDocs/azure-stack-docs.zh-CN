@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: bc59808b0b1ebb954812882442cb6dc2d8b02e83
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908488"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946404"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 SQL Server 资源提供程序
 
@@ -22,7 +22,7 @@ ms.locfileid: "82908488"
 > [!IMPORTANT]
 > 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 需要先实施几个先决条件，然后才能部署 Azure Stack Hub SQL 资源提供程序。 若要满足这些要求，请在可访问特权终结点 VM 的计算机上完成以下步骤：
 
@@ -30,18 +30,13 @@ ms.locfileid: "82908488"
 
 - 下载 **Windows Server 2016 Datacenter - 服务器核心**映像，将所需的 Windows Server 核心 VM 添加到 Azure Stack Hub 市场。
 
-- 下载 SQL 资源提供程序二进制文件，然后运行自解压程序，将内容解压缩到一个临时目录。 资源提供程序具有相应的最低 Azure Stack Hub 版本。
+- 根据下面的版本映射表，下载受支持版本的 SQL 资源提供程序二进制文件。 运行自解压缩程序，将下载的内容提取到临时目录。 
 
-  |最低 Azure Stack Hub 版本|SQL RP 版本|
+  |支持的 Azure Stack Hub 版本|SQL RP 版本|
   |-----|-----|
-  |版本 1910 (1.1910.0.58)|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |版本 1808 (1.1808.0.97)|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |版本 1808 (1.1808.0.97)|[SQL RP 版本 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
-  |版本 1804 (1.0.180513.1)|[SQL RP 版本 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
+  |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
+  |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
   |     |     |
-
-> [!IMPORTANT]
-> 在部署 SQL 资源提供程序版本 1.1.47.0 之前，应该将 Azure Stack Hub 系统升级到 1910 更新或更高版本。 以前不支持的 Azure Stack Hub 版本上的 SQL 资源提供程序版本 1.1.47.0 无法正常工作。
 
 - 请确保满足数据中心集成先决条件：
 
@@ -49,7 +44,7 @@ ms.locfileid: "82908488"
     |-----|-----|
     |正确设置了条件性 DNS 转发。|[Azure Stack Hub 数据中心集成 - DNS](azure-stack-integrate-dns.md)|
     |资源提供程序的入站端口处于打开状态。|[Azure Stack Hub 数据中心集成 - 入站端口和协议](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |正确设置了 PKI 证书使用者和 SAN。|[Azure Stack Hub 部署必备 PKI 先决条件](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack Hub 部署 PaaS 证书先决条件](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |正确设置了 PKI 证书使用者和 SAN。|[Azure Stack Hub 部署必备 PKI 先决条件](azure-stack-pki-certs.md)<br>[Azure Stack Hub 部署 PaaS 证书先决条件](azure-stack-pki-certs.md)|
     |     |     |
 
 在离线场景中，请完成以下步骤下载所需的 PowerShell 模块，并手动注册存储库。
@@ -62,8 +57,8 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 
 2. 然后，将下载的包复制到 USB 设备。
@@ -88,7 +83,7 @@ New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory"
 
 ### <a name="certificates"></a>证书
 
-_仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要求](./azure-stack-pki-certs.md#optional-paas-certificates)中的“可选 PaaS 证书”部分所述的 SQL PaaS PKI 证书。 将 .pfx 文件放在 **DependencyFilesLocalPath** 参数指定的位置。 对于 ASDK 系统，请不要提供证书。
+_仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要求](./azure-stack-pki-certs.md)中的“可选 PaaS 证书”部分所述的 SQL PaaS PKI 证书。 将 .pfx 文件放在 **DependencyFilesLocalPath** 参数指定的位置。 对于 ASDK 系统，请不要提供证书。
 
 ## <a name="deploy-the-sql-resource-provider"></a>部署 SQL 资源提供程序
 
@@ -97,7 +92,10 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
  > [!IMPORTANT]
  > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
-若要部署 SQL 资源提供程序，请打开一个权限提升的 PowerShell（不是 PowerShell ISE）**新**窗口，并切换到解压缩后的 SQL 资源提供程序二进制文件所在的目录。 我们建议使用新的 PowerShell 窗口，以避免已加载的 PowerShell 模块造成问题。
+若要部署 SQL 资源提供程序，请打开一个权限提升的 PowerShell（不是 PowerShell ISE）**新**窗口，并切换到解压缩后的 SQL 资源提供程序二进制文件所在的目录。 
+
+> [!IMPORTANT]
+> 我们建议使用新的 PowerShell 窗口，以避免已加载的 PowerShell 模块造成问题。 或者，可以使用 set-azurermcontext 在运行更新脚本之前清除缓存。
 
 运行 DeploySqlProvider.ps1 脚本，以完成以下任务：
 
@@ -118,11 +116,11 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 | 参数名称 | 说明 | 注释或默认值 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 访问特权终结点时所需的云管理员凭据。 | _必需_ |
-| **AzCredential** | Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 如果用于 AzCredential 的帐户需要多重身份验证（MFA），则脚本将失败。| _必需_ |
+| **AzCredential** | Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。| _必需_ |
 | **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
-| **AzureEnvironment** | 用于部署 Azure Stack 中心的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为**AzureCloud**、 **AzureUSGovernment**或使用中国 Azure Active Directory、 **AzureChinaCloud**。 | AzureCloud |
-| **DependencyFilesLocalPath** | 对于集成系统，必须将证书 .pfx 文件放在此目录中。 还可以在此处复制一个 Windows Update MSU 包。 | _可选_（对于集成系统为强制的__） |
+| **AzureEnvironment** | 用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment**或使用中国 Azure Active Directory、 **AzureChinaCloud**。 | AzureCloud |
+| **DependencyFilesLocalPath** | 对于集成系统，必须将证书 .pfx 文件放在此目录中。 还可以在此处复制一个 Windows Update MSU 包。 | _可选_（对于集成系统为强制的  ） |
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
 | **RetryDuration** | 每两次重试的超时间隔（秒）。 | 120 |
@@ -131,7 +129,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 SQL 资源提供程序
 
-如果要部署 SQL 资源提供程序版本1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm 和 Azure Stack 集线器模块。 如果要部署 SQL 资源提供程序版本1.1.47.0，部署脚本将自动下载并安装所需的 PowerShell 模块，使你能够 C:\Program Files\SqlMySqlPsh。
+如果要部署 SQL 资源提供程序版本 1.1.33.0 或更早版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 如果要部署 SQL 资源提供程序版本 1.1.47.0，则部署脚本会自动下载所需的 PowerShell 模块并将其安装到路径 C:\Program Files\SqlMySqlPsh。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module
@@ -142,9 +140,9 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
 > [!NOTE]
-> 在断开连接的情况下，需要下载所需的 PowerShell 模块，并手动注册存储库。
+> 在断开连接的情况下，需要下载所需的 PowerShell 模块并手动注册存储库，这是先决条件。
 
-若要在部署资源提供程序时消除任何手动配置，可以自定义以下脚本。 根据 Azure Stack 中心部署的需要，更改默认的帐户信息和密码。
+若要在部署资源提供程序时消除任何手动配置，可以自定义以下脚本。 更改 Azure Stack Hub 部署所需的默认帐户信息和密码。
 
 ```powershell
 # Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but could have been changed at install time.
@@ -192,20 +190,15 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
  ```
 
-资源提供程序安装脚本完成后，请刷新浏览器，确保可以看到最新更新并关闭当前 PowerShell 会话。
+资源提供程序安装脚本完成后，刷新浏览器以确保能够看到最新的更新，然后关闭当前 PowerShell 会话。
 
-## <a name="verify-the-deployment-using-the-azure-stack-hub-portal"></a>使用 Azure Stack 中心门户验证部署
-
-可以使用以下步骤来验证是否已成功部署 SQL 资源提供程序。
+## <a name="verify-the-deployment-using-the-azure-stack-hub-portal"></a>使用 Azure Stack Hub 门户验证部署
 
 1. 以服务管理员身份登录到管理员门户。
-2. 选择 "**资源组**"。
-3. 选择“system.\<位置\>.sqladapter”资源组。****
+2. 选择“资源组”  。
+3. 选择 **system.\<location\>.sqladapter** 资源组。
 4. 在资源组概述摘要页上，应当没有失败的部署。
-
-    ![在 Azure Stack 中心管理员门户中验证 SQL 资源提供程序的部署](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
-5. 最后，在管理员门户中选择“虚拟机”****，以验证 SQL 资源提供程序 VM 是否已成功创建且正在运行。
+5. 最后，在管理员门户中选择“虚拟机”  ，以验证 SQL 资源提供程序 VM 是否已成功创建且正在运行。
 
 ## <a name="next-steps"></a>后续步骤
 

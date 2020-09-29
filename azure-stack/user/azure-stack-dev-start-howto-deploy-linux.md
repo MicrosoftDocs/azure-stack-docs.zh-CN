@@ -1,18 +1,18 @@
 ---
 title: 将 Linux VM 部署到 Azure Stack Hub
-description: 将应用部署到 Azure Stack Hub。
+description: 使用 Ubuntu 映像部署 Linux 虚拟机，以在 Azure Stack 中心内托管 web 应用。
 author: mattbriggs
 ms.topic: overview
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 90467f57cdae2b12038c8f237fcbe5e41fb1c039
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146948"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574051"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署用于托管 Web 应用的 Linux VM
 
@@ -85,9 +85,9 @@ ms.locfileid: "84146948"
 
     a. 对于“高可用性”，请选择一个可用性集。  若要为应用程序提供冗余，请将两个或更多个虚拟机组合到一个可用性集中。 这种配置可以确保在发生计划内或计划外维护事件时，至少有一个虚拟机可用，并满足 99.95% 的 Azure 服务级别协议 (SLA) 要求。 创建虚拟机后无法更改虚拟机的可用性集。
 
-    b. 对于“存储”，请选择“高级磁盘(SSD)”或“标准磁盘(HDD)”。    高级磁盘 (SSD) 基于固态硬盘，提供一致的低延迟性能。 高级磁盘可在价格与性能之间实现最佳平衡，非常适合用于 I/O 密集型应用程序和生产工作负荷。 标准磁盘基于磁驱动器，适用于不经常访问数据的应用程序。 区域冗余磁盘由区域冗余存储（ZRS）支持，该存储将数据复制到多个区域，即使单个区域关闭，它们仍可用。 
+    b. 对于“存储”，请选择“高级磁盘(SSD)”或“标准磁盘(HDD)”。    高级磁盘 (SSD) 基于固态硬盘，提供一致的低延迟性能。 高级磁盘可在价格与性能之间实现最佳平衡，非常适合用于 I/O 密集型应用程序和生产工作负荷。 标准磁盘基于磁驱动器，适用于不经常访问数据的应用程序。 区域冗余磁盘由区域冗余存储 (ZRS) ，它将数据复制到多个区域，即使单个区域出现故障，也是如此。 
 
-    c. 选择“使用托管磁盘”。**** 启用此功能时，Azure 会自动管理磁盘的可用性。 你可以受益于数据冗余和容错能力，而无需自行创建和管理存储帐户。 托管磁盘并非在所有区域中均可用。 有关详细信息，请参阅[Azure 托管磁盘简介](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)。
+    c. 选择“使用托管磁盘”。**** 启用此功能时，Azure 会自动管理磁盘的可用性。 你可以受益于数据冗余和容错能力，而无需自行创建和管理存储帐户。 托管磁盘并非在所有区域中均可用。 有关详细信息，请参阅 [Azure 托管磁盘简介](/azure/virtual-machines/windows/managed-disks-overview)。
 
     d. 若要配置网络，请选择“虚拟网络”。**** 虚拟网络以逻辑方式在 Azure 中相互隔离。 虚拟网络与数据中心内的传统网络非常类似，可以配置其 IP 地址范围、子网、路由表、网关和安全设置。 默认情况下，同一虚拟网络中的虚拟机可以相互访问。 
 
@@ -106,9 +106,9 @@ ms.locfileid: "84146948"
 
     k. 若要指定用于保存指标的存储帐户，请选择“诊断存储帐户”。**** 指标将写入存储帐户，你可以使用自己的工具对其进行分析。 
 
-    l. 选择“确定”。
+    l. 选择“确定” 。
 
-1. 查看**4。摘要**：
+1. 查看 **4。摘要**：
     - 门户将验证你的设置。
     - 若要将设置重复用于 Azure 资源管理器工作流，可以下载适用于你的 VM 的 Azure 资源管理器模板。
     - 通过验证后，选择“确定”。**** VM 部署需要花费几分钟时间。
@@ -137,13 +137,13 @@ ms.locfileid: "84146948"
 
 1. 对于“协议”，请保留默认选项“任何”。********
 
-1. 对于“操作”，请选择“允许”。  
+1. 对于“操作”，请选择“允许”。
 
 1. 对于“优先级”，请保留默认选项。****
 
 1. 输入**名称**和**说明**，以帮助记住打开端口的原因。
 
-1. 选择“添加”  。
+1. 选择 **添加** 。
 
 #### <a name="add-a-dns-name-for-your-server"></a>添加服务器的 DNS 名称
 
@@ -174,4 +174,4 @@ ms.locfileid: "84146948"
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何[在 Azure Stack Hub 中设置开发环境](azure-stack-dev-start.md)。
+了解如何 [在 Azure Stack Hub 中设置开发环境](azure-stack-dev-start.md)。

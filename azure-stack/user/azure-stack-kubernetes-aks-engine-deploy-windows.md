@@ -1,76 +1,76 @@
 ---
-title: 在 Azure Stack 集线器中的 Windows 上部署 AKS 引擎
-description: 了解如何使用 Azure Stack 集线器中的 Windows 计算机来托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
+title: 在 Azure Stack Hub 中的 Windows 上部署 AKS 引擎
+description: 了解如何在 Azure Stack Hub 中使用 Windows 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: a68736088f8da95b0a7851007b8add4038c8199c
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533733"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717949"
 ---
-# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>在 Azure Stack 集线器中的 Windows 上安装 AKS 引擎
+# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>在 Azure Stack Hub 中的 Windows 上安装 AKS 引擎
 
-你可以使用 Azure Stack 集线器中的 Windows 计算机来托管 AKS 引擎，以便部署和管理 Kubernetes 群集。 在本文中，我们将介绍如何准备客户端 VM 来管理群集，以实现连接和断开连接的 Azure Stack 中心实例，检查安装，并在 ASDK 上设置客户端 VM。
+可以在 Azure Stack Hub 中使用 Windows 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。 在本文中，我们将介绍准备客户端 VM 以管理已连接和断开连接的 Azure Stack Hub 实例的群集、检查安装并在 ASDK 上设置客户端 VM。
 
 ## <a name="prepare-the-client-vm"></a>准备客户端 VM
 
-AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以在 Azure Stack 中心内的计算机上运行引擎。 在此计算机上，你将执行 AKS 引擎来部署运行群集所需的 IaaS 资源和软件。 然后，你可以使用运行引擎的计算机在群集上执行管理任务。
+AKS 引擎是一种命令行工具，用于部署和管理 Kubernetes 群集。 可以在 Azure Stack Hub 中的计算机上运行引擎。 从此计算机中，你将执行 AKS 引擎来部署运行群集所需的 IaaS 资源和软件。 然后，可以使用运行引擎的计算机在群集上执行管理任务。
 
-选择客户端计算机时，请考虑以下事项：
+选择客户端计算机时，请考虑：
 
-1. 如果在发生灾难时客户端计算机应可恢复。
-3. 如何连接到客户端计算机以及计算机如何与群集进行交互。
+1. 发生灾难时是否应恢复客户端计算机。
+3. 如何连接到客户端计算机以及计算机将如何与群集交互。
 
-## <a name="install-in-a-connected-environment"></a>在连接的环境中安装
+## <a name="install-in-a-connected-environment"></a>安装在连接的环境中
 
-可以安装客户端 VM 来管理连接到 Internet 的 Azure Stack 集线器上的 Kubernetes 群集。
+可以安装客户端 VM 以在连接到 Internet 的 Azure Stack Hub 上管理 Kubernetes 群集。
 
-1. 在 Azure Stack 中心创建 Windows VM。 有关说明，请参阅[快速入门：使用 Azure Stack 集线器门户创建 Windows SERVER VM](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)。
+1. 在 Azure Stack Hub 中创建 Windows VM。 有关说明，请参阅[快速入门：使用 Azure Stack Hub 门户创建 Windows 服务器 VM](./azure-stack-quick-windows-portal.md)。
 2. 连接到 VM。
-3. [使用 PowerShell 说明安装 Chocolatey。](https://chocolatey.org/install#install-with-powershellexe) 
+3. [使用 PowerShell 说明安装 Chocolatey](https://chocolatey.org/install#install-with-powershellexe)。 
 
-    根据 Chocolatey 网站： Chocolatey 是适用于 Windows 的程序包管理器，例如 apt 或 yum，但适用于 Windows。 它旨在作为一个分散框架，用于快速安装所需的应用程序和工具。 它构建于 NuGet 基础结构上，该基础结构当前使用 PowerShell 来将包从发行版传送到你的门、err、computer。
-4. 在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)表中查找 AKS 引擎的版本。 Azure Stack 中心市场中必须提供 AKS 基本引擎。 运行命令时，必须指定版本 `--version v0.48.0` 。 如果未指定版本，则该命令将安装最新版本，此版本可能需要在 marketplace 中不可用的 VHD 映像。
-5. 在权限提升的提示符下运行以下命令，并包括版本号：
+    根据 Chocolatey 网站：Chocolatey 是 Windows 的包管理器，类似于 apt-get 或 yum，但适用于 Windows。 它设计为一个分散的框架，用于快速安装所需的应用程序和工具。 它建立在 NuGet 基础结构上，目前使用 PowerShell 作为将包从发行版传送到门、错误、计算机的重点。
+4. 在[受支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)表中找到 AKS 引擎的版本。 必须在 Azure Stack Hub 市场中提供 AKS 基础引擎。 运行该命令时，必须指定版本 `--version v0.48.0`。 如果不指定版本，该命令将安装最新版本，这可能需要一个市场中不提供的 VHD 映像。
+5. 从提升的提示符运行以下命令，并添加版本号：
 
     ```PowerShell  
-        choco install aks-engine --version 0.48.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
-> [!Note]  
-> 如果此方法的安装失败，你可以尝试[断开连接环境](#install-in-a-disconnected-environment)中的步骤，或[尝试 GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish)（备用程序包管理器）。
+> [!NOTE]  
+> 如果此安装方法失败，可以在[断开连接的环境](#install-in-a-disconnected-environment)或者 [Try GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish)（一个备用包管理器）中尝试这些步骤。
 
-## <a name="install-in-a-disconnected-environment"></a>在断开连接的环境中安装
+## <a name="install-in-a-disconnected-environment"></a>在已断开连接的环境中安装
 
-可以安装客户端 VM 来管理从 Internet 断开连接 Azure Stack 集线器上的 Kubernetes 群集。
+可以安装客户端 VM 以在与 Internet 断开连接的 Azure Stack Hub 上管理 Kubernetes 群集。
 
-1.  在有权访问 Internet 的计算机上，请访问 GitHub [Azure/aks](https://github.com/Azure/aks-engine/releases/latest)。 下载 Windows 计算机的存档（* gz），例如 `aks-engine-v0.38.8-windows-amd64.tar.gz` 。
+1.  从可访问 Internet 的计算机，转到 GitHub [Azure/aks-engine ](https://github.com/Azure/aks-engine/releases/latest)。 下载 Windows 计算机的存档 (*.tar.gz)，例如 `aks-engine-v0.38.8-windows-amd64.tar.gz`。
 
-2.  在 Azure Stack Hub 实例中创建一个存储帐户，以使用 AKS 引擎二进制文件上传存档文件（* gz）。 有关使用 Azure 存储资源管理器的说明，请参阅[使用 Azure Stack 集线器 Azure 存储资源管理器](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se)。
+2.  在 Azure Stack Hub 实例中创建存储帐户，以便使用 AKS 引擎二进制文件上传存档文件 (*.tar.gz)。 有关使用 Azure 存储资源管理器的说明，请参阅 [Azure 存储资源管理器与 Azure Stack Hub](./azure-stack-storage-connect-se.md)。
 
-3. 在 Azure Stack 中心创建 Windows VM。 有关说明，请参阅[快速入门：使用 Azure Stack 中心门户创建 Windows SERVER VM](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)
+3. 在 Azure Stack Hub 中创建 Windows VM。 有关说明，请参阅[快速入门：使用 Azure Stack Hub 门户创建 Windows 服务器 VM](./azure-stack-quick-windows-portal.md)
 
-4.  从上传存档文件的 Azure Stack 中心存储帐户 blob URL （* gz），将文件下载到管理 VM。 在命令提示符下，将存档提取到可以访问的目录。
+4.  从上传存档文件 (*.tar.gz) 所在的 Azure Stack Hub 存储帐户 Blob URL，将文件下载到管理 VM。 从命令提示符将存档提取到你有权访问的目录。
 
 5. 连接到 VM。
 
-6. [使用 PowerShell 说明安装 Chocolatey。](https://chocolatey.org/install#install-with-powershellexe) 
+6. [使用 PowerShell 说明安装 Chocolatey](https://chocolatey.org/install#install-with-powershellexe)。 
 
-7.  在权限提升的提示符下运行以下命令。 包含正确的版本号：
+7.  在提升的提示符下运行以下命令。 包括正确的版本号：
 
     ```PowerShell  
-        choco install aks-engine --version 0.48.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
 ## <a name="verify-the-installation"></a>验证安装
 
-设置客户端 VM 后，请检查是否已安装 AKS 引擎。
+设置客户端 VM 后，请检查是否安装了 AKS 引擎。
 
 1. 连接到客户端 VM。
 2. 运行以下命令：
@@ -79,19 +79,19 @@ AKS 引擎是用于部署和管理 Kubernetes 群集的命令行工具。 可以
     aks-engine version
     ```
 
-如果无法验证是否已在客户端 VM 上安装了 AKS 引擎，请参阅[排查 AKS engine 安装问题](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+如果无法验证是否已在客户端 VM 上安装了 AKS 引擎，请参阅 [AKS 引擎安装故障排除](azure-stack-kubernetes-aks-engine-troubleshoot.md)。
 
 
 ## <a name="asdk-installation"></a>ASDK 安装
 
-在 ASDK 外的计算机上的 ASDK 上运行 AKS 引擎的客户端 VM 时，需要添加证书。 如果你在 ASDK 环境中使用 Windows VM，则该计算机已信任 ASDK 证书。 如果客户端计算机不在 ASDK，则需要从 ASDK 提取证书，并将其添加到 Windows 计算机。
+在 ASDK 外的计算机的 ASDK 上运行 AKS 引擎的客户端 VM 时，需要添加证书。 如果你在 ASDK 环境中使用 Windows VM，则计算机已信任 ASDK 证书。 如果客户端计算机在 ASDK 之外，则需要从 ASDK 中提取证书，并将其添加到 Windows 计算机。
 
-当你使用 ASDK 时，Azure 资源管理器终结点使用自签名证书时，需要显式将此证书添加到计算机的受信任证书存储区中。 可以在 ASDK 中部署的任何 VM 中找到 ASDK 根证书。
+在使用 ASDK 时，如果 Azure 资源管理器终结点使用自签名证书，你需要将此证书显式添加到计算机的受信任证书存储。 可以在 ASDK 中部署的任何 VM 中找到 ASDK 根证书。
 
-1. 导出 CA 根证书。 有关说明，请参阅[导出 Azure Stack 中心 CA 根证书](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-hub-ca-root-certificate)
-2. 信任 Azure Stack 中心 CA 根证书。 有关说明，请参阅[信任 Azure Stack 中心 CA 根证书](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-hub-ca-root-certificate)。
+1. 导出 CA 根证书。 有关说明，请参阅[导出 Azure Stack Hub CA 根证书](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate)。
+2. 信任 Azure Stack Hub CA 根证书。 有关说明，请参阅[信任 Azure Stack Hub CA 根证书](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate)。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [在 Azure Stack 集线器上使用 AKS 引擎部署 Kubernetes 群集](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
+> [使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集](azure-stack-kubernetes-aks-engine-deploy-cluster.md)

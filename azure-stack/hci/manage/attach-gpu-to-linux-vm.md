@@ -1,48 +1,48 @@
 ---
-title: 在 Azure Stack HCI 中将 GPU 附加到 Linux VM
-description: 如何对在 Azure Stack HCI 上的 Ubuntu Linux VM 中运行的 AI 工作负荷使用 GPU。
+title: 将 GPU 附加到 Azure Stack HCI 中的 Linux VM
+description: 如何配合使用 GPU 与 Azure Stack HCI 上 Ubuntu Linux VM 中运行的 AI 工作负载。
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/24/2020
-ms.openlocfilehash: c1f1ddbfb9f362261a8e55d32a0d8c28b7b64629
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 07/01/2020
+ms.openlocfilehash: 1d881db2d8802e93611437cbc14fe9782540be16
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80402861"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106946"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>将 GPU 附加到 Azure Stack HCI 上的 Ubuntu Linux VM
 
-> 适用于：Windows Server Standard 2012 R2
+> 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-本主题提供有关如何使用用于 Ubuntu 虚拟机（VM）的离散设备分配（DDA）技术 Azure Stack HCI 安装和配置 NVIDIA 图形处理单元（GPU）的分步说明。
-本文档假设你已部署 Azure Stack HCI 群集并安装了 Vm。
+本主题分步说明如何使用 Ubuntu 虚拟机 (VM) 的离散设备分配 (DDA) 技术在 Azure Stack HCI 中安装和配置 NVIDIA 图形处理单元 (GPU)。
+本文档假定已部署 Azure Stack HCI 群集且已安装 VM。
 
-## <a name="install-the-gpu-and-then-dismount-it-in-powershell"></a>安装 GPU，然后在 PowerShell 中将其卸载
+## <a name="install-the-gpu-and-then-dismount-it-in-powershell"></a>安装 GPU，然后在 PowerShell 中将其卸除
 
-1. 按照 OEM 说明和 BIOS 建议，将 NVIDIA GPU 物理安装到适当的服务器中。
-2. 打开每个服务器的电源。
-3. 使用装有 NVIDIA GPU 的服务器上的管理权限登录。
-4. 打开**设备管理器**，导航到 "*其他设备*" 部分。 应该会看到一个设备作为 "3D 视频控制器" 列出。
-5. 右键单击 "3D 视频控制器" 以打开 "**属性**" 页。 单击 **“详细信息”**。 在 "**属性**" 下的下拉列表中，选择 "位置路径"。
-6. 请注意以下屏幕截图中突出显示的字符串 PCIRoot 的值。 右键单击 "**值**" 并复制/保存它。
-    :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="位置路径屏幕快照":::
-7. 以提升的权限打开 Windows PowerShell 并执行`Dismount-VMHostAssignableDevice` cmdlet，将 DDA 的 GPU 设备卸除到 VM。 将*LocationPath*值替换为你在步骤6中获得的设备的值。
+1. 按照 OEM 说明和 BIOS 建议，将 NVIDIA GPU 物理安装到相应的服务器。
+2. 打开每台服务器。
+3. 使用具有管理员权限的帐户登录到已安装 NVIDIA GPU 的服务器。
+4. 打开“设备管理器”，然后导航到“其他设备”部分。 此时应显示列出为“3D 视频控制器”的设备。
+5. 右键单击“3D 视频控制器”以打开“属性”页。 单击“详细信息”。 在“属性”下的下拉列表中，选择“位置路径”。
+6. 请注意字符串 PCIRoot 的值，以下屏幕截图中高亮显示了该值。 右键单击“值”以将其复制/保存。
+    :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="位置路径屏幕截图":::
+7. 使用提升的特权打开 Windows PowerShell，然后执行 `Dismount-VMHostAssignableDevice` cmdlet 将 DDA 的 GPU 设备卸除到 VM。 将 LocationPath 值替换为在步骤 6 中为设备获取的值。
     ```PowerShell
     Dismount-VMHostAssignableDevice -LocationPath "PCIROOT(16)#PCI(0000)#PCI(0000)" -force
     ```
-8. 确认设备列在 "**设备管理器**中的" 系统设备 "下的" 已卸除 "。
-    :::image type="content" source="media/attach-gpu-to-linux-vm/dismounted.png" alt-text="卸除的设备屏幕快照":::
+8. 确认设备在“设备管理器”的系统设备下列为“已卸除”。
+    :::image type="content" source="media/attach-gpu-to-linux-vm/dismounted.png" alt-text="“已卸除设备”屏幕截图":::
 
 ## <a name="create-and-configure-an-ubuntu-virtual-machine"></a>创建和配置 Ubuntu 虚拟机
 
-1. 下载[Ubuntu desktop release 18.04.02 ISO](http://cdimage.ubuntu.com/lubuntu/releases/18.04.2/release/lubuntu-18.04.2-desktop-amd64.iso)。
-2. 在安装有 GPU 的系统节点上打开**Hyper-v 管理器**。
+1. 下载 [Ubuntu 桌面版本 18.04.02 ISO](http://cdimage.ubuntu.com/lubuntu/releases/18.04.2/release/lubuntu-18.04.2-desktop-amd64.iso)。
+2. 在已安装 GPU 的系统节点上打开 Hyper-V 管理器。
    > [!NOTE]
-   > [DDA 不支持故障转移](/windows-server/virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment)。 这是使用 DDA 的虚拟机限制。 因此，建议使用**Hyper-v 管理器**在节点上部署 VM，而不是**故障转移群集管理器**。 将**故障转移群集管理器**与 DDA 一起使用会失败，并出现一条错误消息，指示 VM 的设备不支持高可用性。
-3. 使用在步骤1中下载的 Ubuntu ISO，使用**Hyper-v 管理器**中的 "**新建虚拟机向导**" 创建一个新的虚拟机，以创建包含2gb 内存和附加了网卡的 UBUNTU 第1代 VM。
-4. 在 PowerShell 中，使用以下 cmdlet 将已卸除的 GPU 设备分配给 VM，并将*LocationPath*值替换为设备的值。
+   > [DDA 不支持故障转移](/windows-server/virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment)。 这是 DDA 的虚拟机限制。 因此，建议使用 Hyper-V 管理器（而不是“故障转移群集管理器”）在节点上部署 VM 。 结合使用“故障转移群集管理器”与 DDA 会导致失败，并显示一条错误消息，表示 VM 的设备不支持高可用性。
+3. 在步骤 1 中下载的 Ubuntu ISO 中，使用“Hyper-V 管理器”中的“新建虚拟机向导”新建虚拟机，以创建具有 2GB 内存且附有网卡的 Ubuntu Gen 1 VM 。
+4. 在 PowerShell 中，使用以下 cmdlet 将已卸除的 GPU 设备分配到 VM，并将 LocationPath 值替换为设备的值。
     ```PowerShell
     # Confirm that there are no DDA devices assigned to the VM
     Get-VMAssignableDevice -VMName Ubuntu
@@ -54,9 +54,9 @@ ms.locfileid: "80402861"
     Get-VMAssignableDevice -VMName Ubuntu
     ```
 
-    成功将 GPU 分配给 VM 将显示以下输出：:::image type="content" source="media/attach-gpu-to-linux-vm/assign-gpu.png" alt-text="分配 GPU 屏幕快照":::
+    成功将 GPU 分配到 VM 后将显示以下输出：:::image type="content" source="media/attach-gpu-to-linux-vm/assign-gpu.png" alt-text="分配 GPU 屏幕截图":::
 
-    [在此处](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda)配置以下 GPU 文档的其他值：
+    按照[此处](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda)的 GPU 文档配置其他值：
 
    ```PowerShell
     # Enable Write-Combining on the CPU
@@ -70,11 +70,11 @@ ms.locfileid: "80402861"
    ```
 
    > [!NOTE]
-   > 值33280Mb 应该足以满足大多数 Gpu 的需求，但应将其替换为大于 GPU 内存的值。
+   > 值 33280Mb 应足以满足大多数 GPU 的需求，但应将其替换为大于 GPU 内存的值。
 
-5. 使用 Hyper-v 管理器，连接到 VM 并启动 Ubuntu 操作系统安装。 选择默认值以在 VM 上安装 Ubuntu 操作系统。
+5. 使用 Hyper-V 管理器连接到 VM 并开始安装 Ubuntu OS。 选择默认值，在 VM 上安装 Ubuntu OS。
 
-6. 安装完成后，使用**Hyper-v 管理器**关闭 vm，并为 VM 配置**自动停止操作**，使其关闭来宾操作系统，如以下屏幕截图所示：:::image type="content" source="media/attach-gpu-to-linux-vm/guest-shutdown.png" alt-text="来宾 OS 关闭屏幕截图":::
+6. 完成安装后，请使用 Hyper-V 管理器关闭 VM，并配置 VM 的“自动停止操作”以关闭来宾操作系统，如以下屏幕截图所示 ：:::image type="content" source="media/attach-gpu-to-linux-vm/guest-shutdown.png" alt-text="来宾操作系统关闭屏幕截图":::
 
 7. 登录到 Ubuntu 并打开终端以安装 SSH：
 
@@ -82,19 +82,19 @@ ms.locfileid: "80402861"
     $ sudo apt install openssh-server
    ```
 
-8. 使用**ifconfig**命令查找 Ubuntu 安装的 tcp/ip 地址，并复制**ETH0**接口的 ip 地址。
+8. 使用 ifconfig 命令查找 TCP/IP 地址以安装 Ubuntu，并复制 eth0 接口的 IP 地址 。
 
-9. 使用 SSH 客户端（如[Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/) ）连接到 Ubuntu VM 进行进一步的配置。
+9. 使用 OpenSSH（默认情况下随 Windows 10 一起安装的 ssh.exe）等 SSH 客户端或 [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/) 连接到 Ubuntu VM，以便进行进一步的配置。
 
-10. 通过 SSH 客户端登录后，发出命令**lspci** ，并验证 NVIDIA GPU 是否作为 "3d 控制器" 列出。
+10. 通过 SSH 客户端登录时，请发出 lspci 命令，并验证 NVIDIA GPU 是否以“3D 控制器”列出。
 
     > [!IMPORTANT]
-    > 如果 NVIDIA GPU 未被视为 "3D 控制器"，请不要继续操作。 继续操作之前，请确保遵循上述步骤。
+    > 如果 NVIDIA GPU 未显示为“3D 控制器”，请勿继续操作。 继续操作之前，请确保已遵循上述步骤。
 
-11. 在 VM 中，搜索并打开**软件 & 更新**。 导航到 "**其他驱动程序**"，然后选择列出的最新 NVIDIA GPU 驱动程序。 单击 "**应用更改**" 按钮，完成驱动程序的安装。
+11. 在 VM 中，搜索并打开“软件和更新”。 导航到“其他驱动程序”，然后选择列出的最新 NVIDIA GPU 驱动程序。 单击“应用更改”按钮，完成驱动程序的安装。
     :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="驱动程序安装屏幕截图":::
 
-12. 驱动程序安装完成后，重新启动 Ubuntu VM。 VM 启动后，通过 SSH 客户端进行连接，然后发出命令 " **nvidia smi-s** "，验证 nvidia GPU 驱动程序安装是否已成功完成。 输出应类似于以下屏幕截图： :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="nvidia-smi-s 屏幕快照":::
+12. 完成驱动程序的安装后，重启 Ubuntu VM。 VM 启动后，通过 SSH 客户端进行连接，并发出 nvidia-smi 命令，以验证 NVIDIA GPU 驱动程序安装是否已成功完成。 输出应类似于以下屏幕截图：屏幕截图 :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="，显示来自 nvidia 命令的输出。":::
 
 13. 使用 SSH 客户端，设置存储库并安装 Docker CE 引擎：
 
@@ -113,7 +113,7 @@ ms.locfileid: "80402861"
     $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-    使用指纹 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88 （通过搜索指纹的最后八个字符）来验证该密钥：
+    搜索指纹的后八位字符，以验证目前是否拥有具有指纹 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88 的密钥：
 
     ```shell
     $ sudo apt-key fingerprint 0EBFCD88
@@ -128,7 +128,7 @@ ms.locfileid: "80402861"
     sub   rsa4096 2017-02-22 [S]
     ```
 
-    设置适用于 Ubuntu AMD64 体系结构的稳定存储库：
+    为 Ubuntu AMD64 体系结构设置稳定存储库：
 
     ```shell
     $ sudo add-apt-repository \
@@ -152,7 +152,7 @@ ms.locfileid: "80402861"
 
 ## <a name="configure-azure-iot-edge"></a>配置 Azure IoT Edge
 
-若要为此配置做好准备，请查看[Deepstream-Jetson-Nano](https://github.com/Azure-Samples/NVIDIA-Deepstream-Azure-IoT-Edge-on-a-NVIDIA-Jetson-Nano) GitHub 存储库中包含的常见问题解答，这说明了如何安装 Docker 而不是小鲸鱼。 查看后，请继续执行以下步骤。
+若要为此配置做好准备，请查看 [NVIDIA-Deepstream-Azure-IoT-Edge-on-a-NVIDIA-Jetson-Nano](https://github.com/Azure-Samples/NVIDIA-Deepstream-Azure-IoT-Edge-on-a-NVIDIA-Jetson-Nano) GitHub 存储库中包含的常见问题解答，其中说明了为何需要安装 Docker 而不是 Moby。 查看后，请继续执行以下步骤。
 
 ### <a name="install-nvidia-docker"></a>安装 NVIDIA Docker
 
@@ -169,7 +169,7 @@ ms.locfileid: "80402861"
     sudo apt-get update
     ```
 
-2. 安装 nvidia-docker2 并重新加载 Docker 守护程序配置：
+2. 安装 nvidia-docker2 并重载 Docker 守护程序配置：
 
     ```shell
     sudo apt-get install -y nvidia-docker2
@@ -182,13 +182,13 @@ ms.locfileid: "80402861"
     sudo /sbin/shutdown -r now
     ```
 
-4. 重新启动后，验证 NVIDIA Docker 的安装是否成功：
+4. 重新启动后，验证 NVIDIA Docker 是否安装成功：
 
     ```shell
     sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
     ```
 
-    成功的安装将类似于以下屏幕截图中的输出：:::image type="content" source="media/attach-gpu-to-linux-vm/docker.png" alt-text="成功的 Docker 安装屏幕截图":::
+    如果安装成功，输出将类似于以下屏幕截图：:::image type="content" source="media/attach-gpu-to-linux-vm/docker.png" alt-text="Docker 安装成功屏幕截图":::
 
 5. 按照此处的说明操作，继续安装 Azure IoT Edge，跳过运行时安装：
 
@@ -205,23 +205,23 @@ ms.locfileid: "80402861"
     ```
 
     > [!NOTE]
-    > 安装 Azure IoT Edge 后，验证/etc/iotedge/config.yaml 上的 Ubuntu VM 上是否存在 yaml。
+    > 安装 Azure IoT Edge 后，验证 config.yaml 是否位于 Ubuntu VM 的 /etc/iotedge/config.yaml
 
-6. 请按照[此处](/azure/iot-edge/how-to-register-device#register-in-the-azure-portal)的指南 Azure 门户创建 IoT Edge 设备标识。 接下来，复制新创建的 IoT Edge 的设备连接字符串。
+6. 按照[此处](/azure/iot-edge/how-to-register-device#register-in-the-azure-portal)的指导操作，在 Azure 门户中创建 IoT Edge 设备标识。 接下来，为刚创建的 IoT Edge 复制设备连接字符串。
 
-7. 使用 SSH 客户端在 Ubuntu VM 上更新 yaml 中的设备连接字符串：
+7. 使用 SSH 客户端在 Ubuntu VM 上更新 config.yaml 中的设备连接字符串：
 
     ```shell
     sudo nano /etc/iotedge/config.yaml
     ```
 
-    查找文件的预配配置，并取消注释 "手动设置配置" 部分。 使用 IoT Edge 设备的连接字符串更新 device_connection_string 的值。 请确保注释掉任何其他预配部分。请确保预配：行没有前面的空格，并且嵌套项缩进了两个空格：
+    找到文件的预配配置，并取消注释“手动预配配置”节。 使用 IoT Edge 设备的连接字符串更新 device_connection_string 的值。 请确保注释掉任何其他预配部分。请确保 provisioning: 行前面没有空格，并且嵌套项缩进了两个空格：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/manual-provisioning.png" alt-text="手动预配配置屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/manual-provisioning.png" alt-text="手动预配配置屏幕截图":::
 
-    若要将剪贴板内容粘贴到 Nano，请按住 shift 键并右键单击或按 shift + insert。 保存并关闭该文件（Ctrl + X、Y、Enter）。
+    若要将剪贴板内容粘贴到 Nano，请按住 shift 键并右键单击或按 shift 并按 insert。 保存并关闭 (Ctrl + X, Y, Enter) 文件。
 
-8. 使用 SSH 客户端重新启动 IoT Edge 守护程序：
+8. 使用 SSH 客户端重启 IoT Edge 守护程序：
 
     ```shell
     sudo systemctl restart iotedge
@@ -247,23 +247,23 @@ ms.locfileid: "80402861"
     cd ./custom_streams
     ```
 
-10. 确保工作目录是/var/deepstream/custom_streams 并通过在 SSH 客户端中执行以下命令下载[演示视频文件](https://github.com/Azure-Samples/NVIDIA-Deepstream-Azure-IoT-Edge-on-a-NVIDIA-Jetson-Nano)：
+10. 确保工作目录是 /var/deepstream/custom_streams，并通过在 SSH 客户端中执行以下命令下载[演示视频文件](https://github.com/Azure-Samples/NVIDIA-Deepstream-Azure-IoT-Edge-on-a-NVIDIA-Jetson-Nano)：
 
     ```shell
     wget -O cars-streams.tar.gz --no-check-certificate https://onedrive.live.com/download?cid=0C0A4A69A0CDCB4C&resid=0C0A4A69A0CDCB4C%21588371&authkey=AAavgrxG95v9gu0
     ```
 
-    取消压缩视频文件：
+    解压视频文件：
 
     ```shell
     tar -xzvf cars-streams.tar.gz
     ```
 
-    目录/var/deepstream/custom_streams 的内容应类似于以下屏幕截图：
+    目录 /var/deepstream/custom_streams 的内容应类似于以下屏幕截图：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/custom-streams.png" alt-text="自定义流屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/custom-streams.png" alt-text="自定义流屏幕截图":::
 
-11. 在/var/deepstream/custom_configs 目录中，创建一个名为 test5_config_file_src_infer_azure_iotedge_edited 的新文件。 使用文本编辑器打开文件并粘贴以下代码，然后保存并关闭文件。
+11. 在 /var/deepstream/custom_configs 目录中，新建名为 test5_config_file_src_infer_azure_iotedge_edited.txt 文件。 使用文本编辑器打开文件并粘贴以下代码，然后保存并关闭文件。
 
     ```shell
     # Copyright (c) 2018 NVIDIA Corporation.  All rights reserved.
@@ -273,12 +273,12 @@ ms.locfileid: "80402861"
     # and any modifications thereto.  Any use, reproduction, disclosure or
     # distribution of this software and related documentation without an express
     # license agreement from NVIDIA Corporation is strictly prohibited.
-    
+
     [application]
     enable-perf-measurement=1
     perf-measurement-interval-sec=5
     #gie-kitti-output-dir=streamscl
-    
+
     [tiled-display]
     enable=1
     rows=2
@@ -292,7 +292,7 @@ ms.locfileid: "80402861"
     #(3): nvbuf-mem-cuda-unified - Allocate Unified cuda memory, applicable for Tesla
     #(4): nvbuf-mem-surface-array - Allocate Surface Array memory, applicable for Jetson
     nvbuf-memory-type=0
-    
+
     [source0]
     enable=1
     #Type - 1=CameraV4L2 2=URI 3=MultiURI
@@ -301,7 +301,7 @@ ms.locfileid: "80402861"
     num-sources=2
     gpu-id=0
     nvbuf-memory-type=0
-    
+
     [source1]
     enable=1
     #Type - 1=CameraV4L2 2=URI 3=MultiURI
@@ -310,10 +310,10 @@ ms.locfileid: "80402861"
     num-sources=2
     gpu-id=0
     nvbuf-memory-type=0
-    
+
     [sink0]
     enable=0
-    
+
     [sink3]
     enable=1
     #Type - 1=FakeSink 2=EglSink 3=File 4=RTSPStreaming
@@ -325,7 +325,7 @@ ms.locfileid: "80402861"
     # set below properties in case of RTSPStreaming
     rtsp-port=8554
     udp-port=5400
-    
+
     [sink1]
     enable=1
     #Type - 1=FakeSink 2=EglSink 3=File 4=UDPSink 5=nvoverlaysink 6=MsgConvBroker
@@ -340,7 +340,7 @@ ms.locfileid: "80402861"
     topic=mytopic
     #Optional:
     #msg-broker-config=../../../../libs/azure_protocol_adaptor/module_client/cfg_azure.txt
-    
+
     [sink2]
     enable=0
     type=3
@@ -353,7 +353,7 @@ ms.locfileid: "80402861"
     bitrate=2000000
     output-file=out.mp4
     source-id=0
-    
+
     [osd]
     enable=1
     gpu-id=0
@@ -368,7 +368,7 @@ ms.locfileid: "80402861"
     clock-text-size=12
     clock-color=1;0;0;0
     nvbuf-memory-type=0
-    
+
     [streammux]
     gpu-id=0
     ##Boolean property to inform muxer that sources are live
@@ -384,7 +384,7 @@ ms.locfileid: "80402861"
     ##along with width, height properties
     enable-padding=0
     nvbuf-memory-type=0
-    
+
     [primary-gie]
     enable=1
     gpu-id=0
@@ -401,7 +401,7 @@ ms.locfileid: "80402861"
     labelfile-path=../../../../../samples/models/Primary_Detector/labels.txt
     config-file=../../../../../samples/configs/deepstream-app/config_infer_primary.txt
     #infer-raw-output-dir=../../../../../samples/primary_detector_raw_output/
-    
+
     [tracker]
     enable=1
     tracker-width=600
@@ -413,36 +413,36 @@ ms.locfileid: "80402861"
     gpu-id=0
     #enable-batch-process applicable to DCF only
     enable-batch-process=0
-    
+
     [tests]
     file-loop=1
     ```
 
-12. 导航到 Azure 门户。 选择 " **IoT 中心预配**"，单击 "**自动设备管理**"，然后单击**IoT Edge**：
+12. 导航到 Azure 门户。 选择“IoT 中心预配”，单击“自动设备管理”，然后单击 IoT Edge  ：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/iot-edge.png" alt-text="自动设备管理屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/iot-edge.png" alt-text="自动设备管理屏幕截图":::
 
-13. 在右侧窗格中，选择上面使用了其设备连接字符串的设备标识。 单击 "设置模块"：
+13. 在右侧窗格中，选择上文所使用的设备连接字符串的设备标识。 单击“设置模块”：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/set-modules.png" alt-text="设置模块屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/set-modules.png" alt-text="设置模块屏幕截图":::
 
-14. 在 IoT Edge 模块 "下，单击并选择" Marketplace 模块 "：
+14. 在 IoT Edge 模块下，单击并选择“市场模块”：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="Marketplace 模块屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="市场模块屏幕截图":::
 
 15. 搜索 NVIDIA 并选择 DeepStream SDK，如下所示：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream.png" alt-text="DeepStream SDK 屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream.png" alt-text="DeepStream SDK 屏幕截图":::
 
-16. 确保 NvidiaDeepStreamSDK 模块列在 IoT Edge 模块下列出：
+16. 确保 NvidiaDeepStreamSDK 模块在 IoT Edge 模块下列出：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/edge-modules.png" alt-text="IoT Edge 模块屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/edge-modules.png" alt-text="IoT Edge 模块屏幕截图":::
 
-17. 单击 "NVIDIADeepStreamSDK" 模块，并选择 "容器创建选项"。 默认配置如下所示：
+17. 单击“NVIDIADeepStreamSDK”模块，并选择“容器创建选项”。 默认配置如下所示：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/container-create-options.png" alt-text="容器创建选项屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/container-create-options.png" alt-text="“容器创建选项”屏幕截图":::
 
-    将上面的配置替换为以下配置：
+    将以上配置替换为以下配置：
 
     ```shell
     {
@@ -476,60 +476,60 @@ ms.locfileid: "80402861"
     }
     ```
 
-18. 单击 "**查看和创建**"，然后在下一页上单击 "**创建**"。 你现在应该会在 Azure 门户中看到 IoT Edge 设备在下面列出的三个模块：
+18. 单击“查看和创建”，然后在下一页中单击“创建” 。 此时在 Azure 门户中应显示 IoT Edge 设备的以下三个模块：
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/edge-hub-connections.png" alt-text="模块和 IoT Edge 中心连接屏幕截图":::
 
-19. 使用 SSH 客户端连接到 Ubuntu VM，并验证正确的模块是否正在运行：
+19. 使用 SSH 客户端连接到 Ubuntu VM，并验证是否正在运行正确的模块：
 
     ```shell
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="iotedge 列表屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="显示 iotedge 列表输出的屏幕截图。":::
 
     ```shell
     nvidia-smi
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-nvidia-smi.png" alt-text="nvidia-smi-s 屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-nvidia-smi.png" alt-text="nvidia-smi 屏幕截图":::
 
     > [!NOTE]
-    > 下载 NvidiaDeepstream 容器需要几分钟时间。 你可以使用命令 "journalctl-u iotedge--no-full" 来验证下载，以查看 iotedge 守护程序日志。
+    > 下载 NvidiaDeepstream 容器需要几分钟时间。 可以使用命令“journalctl -u iotedge --no-pager --no-full”查看 iotedge 守护程序日志，以验证下载内容。
 
-20. 确认 NvdiaDeepStreem 容器可操作。 下面的屏幕截图中的命令输出指示成功。
+20. 确认 NvdiaDeepStreem 容器是否正常运行。 以下屏幕截图中的命令输出表示成功。
 
     ```shell
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="iotedge 列表屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="显示 NvdiaDeepStreem 容器可操作的输出屏幕截图。":::
 
     ```shell
     sudo iotedge logs -f NVIDIADeepStreamSDK
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="iotedge 列表屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="显示 iotedge logs-f NVIDIADeepStreamSDK 命令输出的屏幕截图。":::
 
     ```shell
     nvidia-smi
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="iotedge 列表屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="显示 nvidia smi-s 命令的其他输出的屏幕截图。":::
 
-21. 使用**ifconfig**命令确认 Ubuntu VM 的 tcp/ip 地址，并在**eth0**接口旁边查找 tcp/ip 地址。
+21. 使用 ifconfig 命令确认 Ubuntu VM 的 TCP/IP 地址，并查看 eth0 接口旁边的 TCP/IP 地址 。
 
-22. 在工作站上安装 VLC 播放器。 在 VLC 播放机中，单击**Media > 打开 "网络流**"，并使用以下格式键入地址：
+22. 在工作站上安装 VLC 播放机。 在 VLC 播放机中，单击“媒体 -> 打开网络流”，并使用以下格式键入地址：
 
     rtsp://ipaddress:8554/ds-test
 
     其中，ipaddress 是 VM 的 TCP/IP 地址。
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/vlc-player.png" alt-text="VLC 播放机屏幕快照":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/vlc-player.png" alt-text="VLC 播放机屏幕截图":::
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Gpu 和 DDA 的详细信息，另请参阅：
+有关 GPU 和 DDA 的详细信息，另请参阅：
 
-- [使用离散设备分配计划部署设备](/windows-server/virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment)
-- [使用离散设备分配部署图形设备](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda)
+- [Plan for deploying devices using Discrete Device Assignment](/windows-server/virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment)（使用离散设备分配计划部署设备）
+- [Deploy graphics devices using Discrete Device Assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda)（使用离散设备分配部署图形设备）

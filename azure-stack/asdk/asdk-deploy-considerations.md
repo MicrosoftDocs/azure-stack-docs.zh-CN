@@ -1,18 +1,18 @@
 ---
 title: ASDK 要求和注意事项
 description: 了解 Azure Stack 开发工具包 (ASDK) 的硬件、软件和环境要求。
-author: justinha
+author: myoungerman
 ms.topic: article
-ms.date: 05/13/2019
-ms.author: justinha
+ms.date: 09/23/2020
+ms.author: v-myoung
 ms.reviewer: misainat
-ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 98298b405bd818cb3cd1f67d52d1735a4cc3edd4
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.lastreviewed: 09/23/2020
+ms.openlocfilehash: b16247c53ea0677573573c827f68e56081a9de5e
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82846953"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106962"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK 要求和注意事项
 
@@ -20,18 +20,16 @@ ms.locfileid: "82846953"
 
 ## <a name="hardware"></a>硬件
 
-| 组件 | 最小值 | 建议 |
-| --- | --- | --- |
-| 磁盘驱动器：操作系统 |1 个操作系统磁盘，至少 200 GB 用于系统分区（SSD 或 HDD）。 |1 块 OS 磁盘，至少 200 GB 用于系统分区（SSD 或 HDD）。 |
-| 磁盘驱动器：常规开发工具包数据<sup>*</sup>  |4 块磁盘。 每个磁盘提供至少 240 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |4 块磁盘。 每个磁盘提供至少 400 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |
-| 计算：CPU |双插槽：16 个物理核心（总计）。 |双插槽：20 个物理核心（总计）。 |
-| 计算：内存 |192-GB RAM。 |256-GB RAM。 |
-| 计算：BIOS |Hyper-V 已启用（提供 SLAT 支持）。 |Hyper-V 已启用（提供 SLAT 支持）。 |
-| 网络：NIC |Windows Server 2012 R2 认知。 不要求使用专用功能。 | Windows Server 2012 R2 认知。 不要求使用专用功能。 |
-| 硬件徽标认证 |[针对 Windows Server 2012 R2 的认证](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
-|[Windows Server 2016 认证](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
-|
-
+| 组件                                             | 最小值                                                                                                 | 建议                                                                                             |
+|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| 磁盘驱动器：操作系统                         | 1 个操作系统磁盘，至少 200 GB 用于系统分区（SSD 或 HDD）。             | 1 块 OS 磁盘，至少 200 GB 用于系统分区（SSD 或 HDD）。                           |
+| 磁盘驱动器：常规开发工具包数据<sup>*</sup> | 4 块磁盘。 每个磁盘提供至少 240 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 | 4 块磁盘。 每个磁盘提供至少 400 GB 的容量（SSD 或 HDD）。 将使用所有可用的磁盘。 |
+| 计算：CPU                                          | 双插槽：16 个物理核心（总计）。                                                                 | 双插槽：20 个物理核心（总计）。                                                                 |
+| 计算：内存                                       | 192-GB RAM。                                                                                             | 256-GB RAM。                                                                                             |
+| 计算：BIOS                                         | Hyper-V 已启用（提供 SLAT 支持）。                                                                    | Hyper-V 已启用（提供 SLAT 支持）。                                                                    |
+| 网络：NIC                                          | Windows Server 2012 R2 认知。 不要求使用专用功能。                                 | Windows Server 2012 R2 认知。 不要求使用专用功能。                                 |
+| 硬件徽标认证                                 | [针对 Windows Server 2012 R2 的认证](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 | [Windows Server 2016 认证](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。    |
+  
 <sup>*</sup>如果计划从 Azure 添加多个[市场项](../operator/azure-stack-create-and-publish-marketplace-item.md)，则需要的容量比这个建议的容量要大。
 
 ### <a name="hardware-notes"></a>硬件说明
@@ -81,9 +79,6 @@ ASDK 是一种单节点系统，设计用于验证 Azure Stack 集成系统的�
 | --- | --- |
 | **OS 版本** |Windows Server 2016 或更高版本。 在部署开始之前，操作系统版本不是很重要，因为你会将主计算机启动到 VHD 中，而该 VHD 已包括在 Azure Stack 安装中。 操作系统和所有必需的修补程序已集成到映像中。 请勿使用任何密钥来激活在 ASDK 中使用的任何 Windows Server 实例。 |
 
-> [!TIP]
-> 安装操作系统后，可以使用[适用于 Azure Stack 的部署检查器](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)来确认硬件是否满足所有要求。
-
 ## <a name="account-requirements"></a>帐户要求
 通常情况下，你将 ASDK 与 internet 连接一起部署，你可以在其中连接到 Microsoft Azure。 在这种情况下，必须先配置 Azure Active Directory (Azure AD) 帐户，然后才能部署 ASDK。
 
@@ -95,7 +90,7 @@ ASDK 是一种单节点系统，设计用于验证 Azure Stack 集成系统的�
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory 帐户
 若要使用 Azure AD 帐户来部署 Azure Stack，必须先准备 Azure AD 帐户，然后再运行 PowerShell 部署脚本。 此帐户成为 Azure AD 租户的全局管理员。 对于所有与 Azure AD 和图形 API 交互的 Azure Stack 服务，可以使用它来预配和委托应用和服务主体。 也可将它用作默认提供商订阅（可以稍后更改）的所有者。 可以使用此帐户登录到 Azure Stack 系统的管理员门户。
 
-1. 创建一个 Azure AD 帐户，该帐户是至少一个 Azure AD 的目录管理员。 如果已经有一个这样的帐户，则可以使用该帐户。 否则，你可以免费创建一个[https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) （在中国，请参阅<https://go.microsoft.com/fwlink/?LinkID=717821> ）。 如果打算以后[将 Azure Stack 注册到 Azure](asdk-register.md)，则还必须在这个新创建的帐户中有一个订阅。
+1. 创建一个 Azure AD 帐户，该帐户是至少一个 Azure AD 的目录管理员。 如果已经有一个这样的帐户，则可以使用该帐户。 否则，你可以在中国 (免费创建一个 [https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) ，请改为 <https://go.microsoft.com/fwlink/?LinkID=717821>) 。 如果打算以后[将 Azure Stack 注册到 Azure](asdk-register.md)，则还必须在这个新创建的帐户中有一个订阅。
    
     保存这些以服务管理员身份使用的凭据。此帐户可以配置和管理资源云、用户帐户、租户计划、配额和定价。 在门户中，该帐户可以创建网站云和 VM 私有云、创建计划，以及管理用户订阅。
 1. 在 Azure AD 中至少创建一个测试用户帐户，以便以租户身份登录到 ASDK。
@@ -107,10 +102,10 @@ ASDK 是一种单节点系统，设计用于验证 Azure Stack 集成系统的�
    | 使用有效的中国 Azure 订阅的工作或学校帐户 |是 |
    | 使用有效的美国政府版 Azure 订阅的工作或学校帐户 |是 |
 
-部署后，不需要 Azure AD 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 此类操作的示例包括资源提供程序安装程序脚本或需要授予权限的新功能。 可以暂时恢复帐户的全局管理员权限，也可以使用*默认提供程序订阅*所有者的单独全局管理员帐户。
+部署后，不需要 Azure AD 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 此类操作的示例包括资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 
 ## <a name="network"></a>网络
-### <a name="switch"></a>开关
+### <a name="switch"></a>Switch
 交换机上的一个可用于 ASDK 计算机的端口。  
 
 ASDK 计算机支持连接到交换机访问端口或 Trunk 端口。 交换机上不要求使用专用功能。 若要使用 Trunk 端口，或者需要配置 VLAN ID，则需以部署参数的形式提供 VLAN ID。
@@ -133,12 +128,11 @@ ASDK 计算机支持连接到交换机访问端口或 Trunk 端口。 交换机�
 ### <a name="dhcp"></a>DHCP
 确保可以在 NIC 连接到的网络上使用 DHCP 服务器。 如果 DHCP 不可用，则除了主机使用的静态 IPv4 网络，还必须准备另一个此类网络。 必须提供该 IP 地址和网关作为部署参数。
 
-### <a name="internet-access"></a>Internet 访问权限
+### <a name="internet-access"></a>Internet 访问
 Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明代理进行访问。 Azure Stack 不支持通过配置 Web 代理来启用 Internet 访问。 主机 IP 和分配到 AzS-BGPNAT01 的新 IP（通过 DHCP 或静态 IP 的方式进行分配）必须能够访问 Internet。 在 graph.windows.net 和 login.microsoftonline.com 域下使用端口80和443。
 
 
 ## <a name="next-steps"></a>后续步骤
 
 - [下载 ASDK 部署包](asdk-download.md)。
-- 若要详细了解存储空间直通，请参阅[存储空间直通概述](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)。
-
+- 若要详细了解存储空间直通，请参阅[存储空间直通概述](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)。

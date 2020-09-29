@@ -8,12 +8,12 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 2fd22acfe6f47d3a12502d5528e1f3fd96294460
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 29ae7acf1954dfafad1583bf037603f8ccac7514
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696475"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106791"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>在 Azure Stack Hub 中创建附加计划
 
@@ -35,19 +35,19 @@ ms.locfileid: "77696475"
 2. 遵循[创建基本计划](azure-stack-create-plan.md)的步骤，创建此前尚未提供的新计划套餐服务。
 3. 在管理员门户中选择“套餐”，然后选择需使用附加计划更新的套餐。 
 
-   ![在 Azure Stack 管理员门户中选择通过附加计划进行更新的套餐](media/create-add-on-plan/add-on1.png)
+   ![介绍如何在 Azure Stack 管理员门户中选择要使用加载项计划更新的产品/服务的屏幕截图。](media/create-add-on-plan/add-on1.png)
 
 4. 在套餐属性的底部，选择“附加计划”。  选择“添加”   。
 
-    ![在 Azure Stack 管理员门户中选择附加计划](media/create-add-on-plan/add-on2.png)
+    ![显示如何在 Azure Stack 管理员门户中选择加载项计划的屏幕截图。](media/create-add-on-plan/add-on2.png)
 
 5. 选择要添加的计划（ 在此示例中，计划名为“20-storageaccounts”。  选择计划后，单击“选择”将计划添加到套餐。  系统会发送通知，告知你计划已成功添加到套餐中。
 
-    ![在 Azure Stack 管理员门户中选择要添加的附加计划](media/create-add-on-plan/add-on3.png)
+    ![屏幕截图，显示如何选择要添加到 Azure Stack 管理员门户中的外接程序计划。](media/create-add-on-plan/add-on3.png)
 
 6. 查看随套餐提供的附加计划的列表，验证新附加计划是否已列出。
 
-    ![[在 Azure Stack 管理员门户中查看附加计划列表](media/create-add-on-plan/add-on4.png "创建附加计划")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    ![屏幕截图，显示要在 Azure Stack 管理员门户中查看的加载项计划的列表。](media/create-add-on-plan/add-on4.png "创建附加计划")] (media/create-add-on4lg.png # lightbox) 
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"

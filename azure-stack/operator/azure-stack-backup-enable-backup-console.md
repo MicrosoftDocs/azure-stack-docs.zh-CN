@@ -1,5 +1,5 @@
 ---
-title: 从管理员门户为 Azure Stack Hub 启用备份
+title: 从管理员门户启用 Azure Stack 中心备份
 description: 了解如何通过管理员门户启用基础结构备份服务，以便出现故障时可以还原 Azure Stack Hub。
 author: justinha
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: ce401b20d6baa66807e6ee5f7ee1e94503b653af
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ba942571d804ec221ee9c25d1b78ddfa1e3a52de
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703156"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106623"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>从管理员门户为 Azure Stack Hub 启用备份
 
@@ -28,8 +28,8 @@ ms.locfileid: "77703156"
 管理员和用户负责独立于基础结构备份过程，备份和还原 IaaS 和 PaaS 资源。 有关备份 IaaS 和 PaaS 资源的信息，请参阅以下链接：
 
 - [保护在 Azure Stack Hub 上部署的 VM](../user/azure-stack-manage-vm-protect.md)
-- [在 Azure 中备份应用](https://docs.microsoft.com/azure/app-service/manage-backup)
-- [Azure VM 上的 SQL Server 是什么？(Windows)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
+- [在 Azure 中备份应用](/azure/app-service/manage-backup)
+- [Azure VM 上的 SQL Server 是什么？(Windows)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
 ## <a name="enable-or-reconfigure-backup"></a>启用或重新配置备份
@@ -67,7 +67,7 @@ ms.locfileid: "77703156"
    > [!Note]
    > **1901 和更高版本**：Azure Stack Hub 接受使用证书加密基础结构备份数据。 请确保将包含公钥和私钥的证书存储在安全位置。 出于安全考虑，我们不建议使用包含公钥和私钥的证书来配置备份设置。 有关如何管理此证书的生命周期的详细信息，请参阅[基础结构备份服务最佳做法](azure-stack-backup-best-practices.md)。
    > 
-   > **1811 或更早版本**：Azure Stack Hub 接受使用对称密钥来加密基础结构备份数据。 使用 [New-AzsEncryptionKey64 cmdlet 来创建密钥](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)。 从 1811 升级到 1901 以后，备份设置会保留加密密钥。 我们建议更新备份设置，以使用证书。 加密密钥支持现在已弃用。 至少需有 3 个版本才能将设置更新为使用证书。
+   > **1811 或更早版本**：Azure Stack Hub 接受使用对称密钥来加密基础结构备份数据。 使用 [New-AzsEncryptionKey64 cmdlet 来创建密钥](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)。 从 1811 升级到 1901 以后，备份设置会保留加密密钥。 我们建议更新备份设置，以使用证书。 加密密钥支持现在已弃用。 至少需有 3 个版本才能将设置更新为使用证书。
 
 10. 选择“确定”  以保存备份控制器设置。
 
@@ -77,7 +77,7 @@ ms.locfileid: "77703156"
 ## <a name="start-backup"></a>启动备份
 若要启动备份，请单击“立即备份”  以启动按需备份。 按需备份不会修改已计划的下次备份的时间。 任务完成后，可以在“概要”  中确认设置：
 
-![Azure Stack Hub - 按需备份](media/azure-stack-backup/scheduled-backup.png)
+![显示如何启动按需备份的屏幕截图。](media/azure-stack-backup/scheduled-backup.png)
 
 还可以在 Azure Stack Hub 管理计算机上运行 PowerShell cmdlet **Start-AzsBackup**。 有关详细信息，请参阅[备份 Azure Stack Hub](azure-stack-backup-back-up-azure-stack.md)。
 
@@ -115,7 +115,7 @@ ms.locfileid: "77703156"
 ![Azure Stack Hub - 查看证书指纹](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>后向兼容性模式
-如果在更新到 1901 版本之前配置了备份，则会沿用当前设置，其行为不会发生更改。 在此情况下，支持使用加密密钥来实现后向兼容性。 可以更新加密密钥或改用证书。 至少需有三个版本才能继续更新加密密钥。 此借此机会过渡到证书。 若要创建新加密密钥，请使用 [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)。
+如果在更新到 1901 版本之前配置了备份，则会沿用当前设置，其行为不会发生更改。 在此情况下，支持使用加密密钥来实现后向兼容性。 可以更新加密密钥或改用证书。 至少需有三个版本才能继续更新加密密钥。 此借此机会过渡到证书。 若要创建新加密密钥，请使用 [New-AzsEncryptionKeyBase64](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)。
 
 ![Azure Stack Hub - 在后向兼容性模式下使用加密密钥](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

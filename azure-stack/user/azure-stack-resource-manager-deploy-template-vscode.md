@@ -1,18 +1,18 @@
 ---
 title: 使用 Visual Studio Code 部署到 Azure Stack Hub
-description: 作为用户，我希望在 Visual Studio Code 中创建 Azure 资源管理器模板，并使用部署架构来准备与我的 Azure Stack Hub 版本兼容的模板。
+description: 在 Visual Studio Code 中创建 Azure 资源管理器模板，并使用部署架构准备与我的 Azure Stack 中心版本兼容的模板。
 author: mattbriggs
 ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 8f0205425b49ee9e828056e5613a8166d02d95d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 3f97ec57900119543e37b0d99a7d82e30c900f42
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111630"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574238"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>使用 Visual Studio Code 部署到 Azure Stack Hub
 
@@ -37,7 +37,7 @@ Azure Stack Hub 部署架构通过 Visual Studio Code 中的 Azure 资源管理�
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - 有权访问 Azure Stack Hub
-- 已在可访问管理终结点的计算机上[安装 Azure Stack Hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)
+- 已在可访问管理终结点的计算机上[安装 Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)
 
 ## <a name="install-resource-manager-tools-extension"></a>安装资源管理器工具扩展
 

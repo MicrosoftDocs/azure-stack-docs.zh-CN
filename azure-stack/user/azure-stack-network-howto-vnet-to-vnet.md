@@ -1,20 +1,20 @@
 ---
-title: 如何通过 VNET 对等互连连接两个 Azure Stack Hub
-description: 了解如何通过 VNET 对等互连连接两个 Azure Stack Hub。
+title: 在同一 Azure Stack 环境中连接两个虚拟网络
+description: 了解如何使用 Fortinet FortiGate 连接同一 Azure Stack 中心环境中的两个虚拟网络。
 author: mattbriggs
 ms.topic: how-to
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 98c4b4d333a33dc018682e638cec821c8b8ee416
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 4aeca3ba7630d05921578de7023359c042d74ffb
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631309"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574102"
 ---
-# <a name="connect-two-vnets-through-peering"></a>通过对等互连连接两个 VNET
+# <a name="vnet-peering-with-fortigate"></a>VNET 与 FortiGate 的对等互连
 
 本文介绍如何在同一环境中的两个虚拟网络之间创建连接。 在设置连接过程中，读者可以了解 Azure Stack Hub 中 VPN 网关的工作方式。 使用 Fortinet FortiGate 在同一 Azure Stack Hub 环境中连接两个 VNET。 此过程在资源组中部署两个具有 FortiGate NVA 的 VNET，每个 VNET 位于单独的资源组中，并且都有一个网络虚拟设备。 此外，其中详细说明了在这两个 VNET 之间设置 IPSec VPN 所要做出的更改。 请对每个 VNET 部署重复本文中的步骤。
 
@@ -68,24 +68,24 @@ ms.locfileid: "84631309"
 | 公共 IP 地址名称 | Forti2-publicip1 |
 | 公共 IP 地址类型 | 静态 |
 
-> [!Note]
+> [!NOTE]
 > \* 如果上述设置与本地网络环境存在任何重叠情况（包括任一 Azure Stack Hub 的 VIP 池），请选择一组不同的地址空间和子网前缀。 另请确保地址范围不相互重叠。
 
 ## <a name="deploy-the-fortigate-ngfw"></a>部署 FortiGate NGFW
 
 1.  打开 Azure Stack Hub 用户门户。
 
-    ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
+    ![主屏幕显示为 "+ 创建资源" 按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
-2.  选择“创建资源”，然后搜索 `FortiGate`。 
+2.  选择“创建资源”，然后搜索 `FortiGate`。****
 
-    ![](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
+    ![搜索结果列表显示 FortiGate NGFW-单 VM 部署。](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
 
-3.  依次选择“FortiGate NGFW”、“创建”。  
+3.  依次选择“FortiGate NGFW”、“创建”。********
 
-4.  使用[部署参数](#deployment-parameters)表格中的参数填写“基本信息”。 
+4.  使用[部署参数](#deployment-parameters)表格中的参数填写“基本信息”。****
 
-    ![](./media/azure-stack-network-howto-vnet-to-onprem/image7.png)
+    !["基本信息" 屏幕具有 "列表" 和 "文本框" 中选定和输入的部署参数的值。](./media/azure-stack-network-howto-vnet-to-onprem/image7.png)
 
 5.  选择“确定”  。
 
@@ -98,11 +98,11 @@ ms.locfileid: "84631309"
 
 8.  为 FortiGate NVA 配置公共 IP：
 
-    ![](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
+    ![IP 分配对话框显示 "公共 IP 地址名称" 的值 forti1-publicip1 和 "公共 IP 地址类型" 的静态值。](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
 
-9.  选择“确定”  。 再选择“确定”。 
+9.  选择“确定”  。 再选择“确定”。****
 
-10.  选择“创建”  。
+10.  选择“创建”。
 
 完成部署大约需要 10 分钟。
 
@@ -112,33 +112,33 @@ ms.locfileid: "84631309"
 
 1. 打开 Azure Stack Hub 用户门户。
 
-2. 选择资源组。 在筛选器中键入 `forti1-rg1`，然后双击“forti1-rg1”资源组。
+1. 选择资源组。 在筛选器中键入 `forti1-rg1`，然后双击“forti1-rg1”资源组。
 
-    ![资源组](./media/azure-stack-network-howto-vnet-to-onprem/image9.png)
+    ![为 forti1-rg1 资源组列出了10个资源。]] ( image9.png) /media/azure-stack-network-howto-vnet-to-onprem/
 
-2. 选择“forti1-forti1-InsideSubnet-routes-xxxx”资源。 
+1. 选择 **forti1-forti1** 资源。
 
-3. 在“设置”下选择“路由”。  
+1. 选择 "**设置**" 下的 "**路由**"。
 
-    ![路由](./media/azure-stack-network-howto-vnet-to-onprem/image10.png)
+    !["路由" 按钮在 "设置" 对话框中处于选中状态。](./media/azure-stack-network-howto-vnet-to-onprem/image10.png)
 
-4. 删除“to-Internet”路由。 
+1. 删除“to-Internet”路由。****
 
-    ![to-Internet](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
+    !["到 Internet" 路由是唯一列出的路由，并且处于选中状态。 有一个删除按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
 
-5. 请选择“是”。 
+1. 请选择“是”。
 
-6. 选择“添加”以添加新路由。 
+1. 选择“添加”以添加新路由。****
 
-7. 将路由命名为 `to-onprem`。
+1. 将路由命名为 `to-onprem`。
 
-8. 输入 IP 网络范围，用于定义 VPN 所要连接到的本地网络的网络范围。
+1. 输入 IP 网络范围，用于定义 VPN 所要连接到的本地网络的网络范围。
 
-9. 对于“下一跃点类型”，请选择“虚拟设备”；选择 `172.16.1.4`。   如果你的 IP 范围与此不同，请使用自己的 IP 范围。
+1. 对于“下一跃点类型”，请选择“虚拟设备”；选择 `172.16.1.4`。******** 如果你的 IP 范围与此不同，请使用自己的 IP 范围。
 
-    ![下一跃点类型](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
+    !["添加路由" 对话框显示在文本框中选择并输入的四个值。](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
-10. 选择“保存”  。
+1. 选择“保存”。
 
 需要使用 Fortinet 提供的有效许可证文件来激活每个 FortiGate NVA。 在激活每个 NVA 之前，NVA **无法**正常运行。 有关如何获取许可证文件和 NVA 激活步骤的详细信息，请参阅 Fortinet 文档库文章[注册和下载许可证](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)。
 
@@ -150,76 +150,76 @@ ms.locfileid: "84631309"
 
 对 forti1 NVA 和 forti2 NVA，请执行以下步骤：
 
-1.  导航到 fortiX VM 的“概览”页，获取分配的公共 IP 地址：
+1. 导航到 fortiX VM 的“概览”页，获取分配的公共 IP 地址：
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image13.png)
+    ![Forti1 虚拟机概述页显示 forti1 的值，例如 "资源组" 和状态。](./media/azure-stack-network-howto-vnet-to-vnet/image13.png)
 
-2.  复制分配的 IP 地址，打开浏览器，然后将该地址粘贴到地址栏中。 浏览器可能会警告安全证书不受信任。 请继续操作。
+1. 复制分配的 IP 地址，打开浏览器，然后将该地址粘贴到地址栏中。 浏览器可能会警告安全证书不受信任。 请继续操作。
 
-4.  输入在部署期间提供的 FortiGate 管理用户名和密码。
+1. 输入在部署期间提供的 FortiGate 管理用户名和密码。
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
+    ![登录对话框包含 "用户" 和 "密码" 文本框，以及一个 "登录" 按钮。](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
 
-5.  选择“系统” > “固件”。  
+1. 选择**系统**  >  **固件**。
 
-6.  选中显示最新固件的框，例如 `FortiOS v6.2.0 build0866`。
+1. 选中显示最新固件的框，例如 `FortiOS v6.2.0 build0866`。
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
+    !["固件" 对话框具有固件标识符 "FortiOS v 6.2.0 build0866"、发行说明的链接和两个按钮： "备份配置和升级" 和 "升级"。](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
 
-7.  选择“备份配置并升级” > “继续”。  
+1. 选择 "**备份配置"，然后**  >  **继续**升级。
 
-8.  NVA 会将其固件更新到最新内部版本，然后重新启动。 此过程大约需要五分钟时间。 重新登录到 FortiGate Web 控制台。
+1. NVA 会将其固件更新到最新内部版本，然后重新启动。 此过程大约需要五分钟时间。 重新登录到 FortiGate Web 控制台。
 
-10.  单击“VPN” > “IPSec 向导”。  
+1. 单击 " **VPN**  >  **IPSec 向导**"。
 
-11. 在“VPN 创建向导”中输入 VPN 的名称，例如 `conn1`。 
+1. 在“VPN 创建向导”中输入 VPN 的名称，例如 `conn1`。****
 
-12. 选择“此站点位于 NAT 后”。 
+1. 选择“此站点位于 NAT 后”。****
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
+    ![VPN 创建向导的屏幕截图显示在第一步 "VPN 设置"。 选择以下值： "站点到站点" （对于模板类型为 "FortiGate"）; 对于 NAT 配置，为 "此站点位于 NAT 后面"。](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
 
-13. 选择“**下一步**”。
+1. 选择“下一步”  。
 
-14. 输入要连接到的本地 VPN 设备的远程 IP 地址。
+1. 输入要连接到的本地 VPN 设备的远程 IP 地址。
 
-15. 选择“port1”作为“传出接口”。  
+1. 选择“port1”作为“传出接口”。********
 
-16. 选择“预共享密钥”，输入（并记下）一个预共享密钥。  
+1. 选择“预共享密钥”，输入（并记下）一个预共享密钥。**** 
 
-    > [!Note]  
-    > 稍后需要使用此密钥来设置本地 VPN 设备上的连接，即，密钥必须完全匹配。 
+    > [!NOTE]  
+    > 稍后需要使用此密钥来设置本地 VPN 设备上的连接，即，密钥必须完全匹配。**
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
+    ![VPN 创建向导的屏幕截图显示其在第二步 "身份验证" 中，并突出显示所选值。](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
 
-17. 选择“**下一步**”。
+1. 选择“下一步”  。
 
-18. 对于“本地接口”，请选择“port2”。  
+1. 对于“本地接口”，请选择“port2”。********
 
-19. 输入本地子网范围：
-    - forti1：172.16.0.0/16
-    - forti2：172.17.0.0/16
-
-    如果你的 IP 范围与此不同，请使用自己的 IP 范围。
-
-20. 输入代表本地网络的相应远程子网，你将通过本地 VPN 设备连接到此网络。
-    - forti1：172.16.0.0/16
-    - forti2：172.17.0.0/16
+1. 输入本地子网范围：
+    - forti1： 172.16.0.0/16
+    - forti2： 172.17.0.0/16
 
     如果你的 IP 范围与此不同，请使用自己的 IP 范围。
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image18.png)
+1. 输入代表本地网络的相应远程子网，你将通过本地 VPN 设备连接到此网络。
+    - forti1： 172.16.0.0/16
+    - forti2： 172.17.0.0/16
 
-21. 选择“创建” 
+    如果你的 IP 范围与此不同，请使用自己的 IP 范围。
 
-22. 选择“网络” > “接口”。  
+    ![VPN 创建向导的屏幕截图显示在第三步 "策略 & 路由"。 它显示选定的和输入的值。](./media/azure-stack-network-howto-vnet-to-vnet/image18.png)
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
+1. 选择“创建”
 
-23. 双击“port2”。 
+1. 选择 "**网络**  >  **接口**"。
 
-24. 在“角色”列表中选择“LAN”，选择“DHCP”作为寻址模式。   
+    !["接口" 列表显示两个接口： port1，已配置，并且 port2 为 "未配置"。 有一些用于创建、编辑和删除接口的按钮。](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
 
-25. 选择“确定”  。
+1. 双击“port2”。****
+
+1. 在“角色”列表中选择“LAN”，选择“DHCP”作为寻址模式。************
+
+1. 选择“确定”  。
 
 对另一个 NVA 重复上述步骤。
 
@@ -227,19 +227,19 @@ ms.locfileid: "84631309"
 
 对*两个* NVA 完成上述步骤后：
 
-1.  在 forti2 FortiGate Web 控制台上，选择“监视” > “IPsec 监视器”。   
+1.  在 forti2 FortiGate web 控制台上，选择 "**监视**  >  **IPsec 监视器**"。 
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
+    ![已列出 VPN 连接 conn1 的监视器。 它显示为 "已关闭"，与对应的 "阶段 2" 选择器相同。](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
 
-2.  突出显示 `conn1`，选择“启动” > “所有的阶段 2 选择器”。  
+2.  突出显示 `conn1` 并选择 "**启动**  >  **所有阶段 2" 选择器**。
 
-    ![](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
+    !["监视器" 和 "阶段 2" 选择器都显示为 up。](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
 
 ## <a name="test-and-validate-connectivity"></a>测试并验证连接
 
-现在，应该可以通过 FortiGate NVA 在每个 VNET 之间进行路由。 若要验证连接，请在每个 VNET 的 InsideSubnet 中创建一个 Azure Stack Hub VM。 可以通过门户、CLI 或 PowerShell 创建 Azure Stack Hub VM。 创建 VM 时：
+现在，应该可以通过 FortiGate NVA 在每个 VNET 之间进行路由。 若要验证连接，请在每个 VNET 的 InsideSubnet 中创建一个 Azure Stack 中心 VM。 可以通过门户、CLI 或 PowerShell 创建 Azure Stack 中心 VM。 创建 VM 时：
 
--   Azure Stack Hub VM 放在每个 VNET 的 **InsideSubnet** 上。
+-   Azure Stack 中心 Vm 位于每个 VNET 的 **InsideSubnet** 上。
 
 -   创建 VM 时，请**不要**将任何 NSG 应用到该 VM（即，如果从门户创建 VM，请删除默认添加的 NSG）。
 

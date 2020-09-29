@@ -1,18 +1,18 @@
 ---
-title: Azure Stack Hub 托管磁盘：差异与注意事项
+title: Azure Stack 集线器托管磁盘差异和注意事项
 description: 了解 Azure Stack Hub 中托管磁盘和托管映像的差异与注意事项。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: bfa7abf0d481e8791c4e35d80d391de95b8a5b97
-ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
+ms.openlocfilehash: d8ddebe5fccf03a47db3d6ab190b77296b34734b
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85107179"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574255"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack Hub 托管磁盘：差异与注意事项
 
@@ -20,8 +20,7 @@ ms.locfileid: "85107179"
 
 托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../operator/azure-stack-manage-storage-accounts.md)简化了 IaaS 虚拟机 (VM) 的磁盘管理。
 
-> [!NOTE]  
-> 从1808更新开始提供 Azure Stack 集线器上的托管磁盘。 从 1811 更新开始，使用 Azure Stack Hub 门户创建 VM 时，会默认启用该功能。
+默认情况下，在使用 Azure Stack 集线器门户创建 Vm 时，会启用托管磁盘。
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>速查表：托管磁盘的差异
 
@@ -36,7 +35,7 @@ ms.locfileid: "85107179"
 |高级磁盘 IOPS  |取决于磁盘大小。  |每个磁盘 2300 IOPS |
 |高级磁盘吞吐量 |取决于磁盘大小。 |每个磁盘 145 MB/秒 |
 |磁盘大小  |Azure 高级磁盘：P4 (32 GiB) 到 P80 (32 TiB)<br>Azure 标准 SSD 磁盘：E10 (128 GiB) 到 E80 (32 TiB)<br>Azure 标准 HDD 磁盘：S4 (32 GiB) 到 S80 (32 TiB) |M4：32 GiB<br>M6：64 GiB<br>M10：128 GiB<br>M15：256 GiB<br>M20：512 GiB<br>M30：1023 GiB |
-|磁盘快照复制|已将 Azure 托管磁盘连接到支持的运行中 VM 的快照。|尚不支持 |
+|磁盘快照复制|支持附加到正在运行的 VM 的快照 Azure 托管磁盘。|尚不支持 |
 |磁盘性能分析 |支持的聚合指标和每磁盘指标。 |尚不支持 |
 |迁移      |提供从现有非托管 Azure 资源管理器 VM 迁移的工具，而无需重新创建 VM。  |尚不支持 |
 
@@ -152,7 +151,7 @@ Azure Stack Hub 支持托管映像，可让你在通用化 VM（非托管和托�
 
 按照[从使用存储帐户的 VM 创建映像](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account)中的说明，从存储帐户中的通用化 VHD 创建托管映像。 将来可以使用此映像创建托管 VM。
 
-#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>案例2：使用 PowerShell 从托管映像创建托管 VM
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>情况 2：使用 PowerShell 基于托管映像创建托管 VM
 
 使用[使用 PowerShell 从托管磁盘创建映像](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell)的脚本从现有托管磁盘 VM 创建映像之后，请使用以下示例脚本从现有映像对象创建类似的 Linux VM。
 
@@ -204,6 +203,7 @@ $Image = Get-AzureRmImage -ResourceGroupName $ImageRG -ImageName $ImageName
 $VmConfig = New-AzureRmVMConfig -VMName $VirtualMachineName -VMSize "Standard_D1" | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $VirtualMachineName -Credential $Cred | `
 Set-AzureRmVMSourceImage -Id $Image.Id | `
+Set-AzureRmVMOSDisk -VM $VmConfig -CreateOption FromImage -Linux | `
 Add-AzureRmVMNetworkInterface -Id $Nic.Id
 
 # Create a virtual machine

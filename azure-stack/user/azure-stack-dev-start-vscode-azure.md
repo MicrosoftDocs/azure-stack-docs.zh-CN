@@ -3,16 +3,16 @@ title: 使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack 
 description: 以开发人员的身份使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack Hub
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 768b93c2ef2d984fcc75f6893be6260a1c4fbb1c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 09/21/2020
+ms.openlocfilehash: 66a4a8f846002cc126d4861e1acc52b672e78dc5
+ms.sourcegitcommit: 68c00d9ee7c5a9e7da6d41e2f753c0f93d26238e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661058"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91211153"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack Hub
 
@@ -20,7 +20,7 @@ ms.locfileid: "81661058"
 
 VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP.NET Core、Python、NodeJS、Go 和其他开发人员都使用 VS Code。 使用 Azure 帐户扩展可以配合订阅筛选使用 Azure 单一登录，以获取更多的 Azure 扩展。 借助该扩展可以在与 VS Code 集成的终端中使用 Azure Cloud Shell。 通过该扩展，可以使用标识管理器的 Azure AD (Azure AD) 和 Active Directory 联合身份验证服务 (AD FS) 连接到 Azure Stack Hub 订阅。 你可以登录到 Azure Stack 中心，选择你的订阅，然后在 cloud shell 中打开新的命令行。 
 
-> [!Note]  
+> [!NOTE]  
 > 可对 Active Directory 联合身份验证服务 (AD FS) 环境使用本文所述的步骤。 使用 AD FS 凭据和终结点。
 
 ## <a name="pre-requisites-for-the-azure-account-extension"></a>Azure 帐户扩展的先决条件
@@ -81,7 +81,8 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
         | `tenant-ID` | Azure Stack Hub [租户 ID](../operator/azure-stack-identity-overview.md) 的值。 |
         | `activeDirectoryEndpointUrl` | 这是 loginEndpoint 属性中的 URL。 |
         | `activeDirectoryResourceId` | 这是 audiences 属性中的 URL。
-        | `resourceManagerEndpointUrl` | 这是 Azure Stack Hub 的 Azure 资源管理器的根 URL。 | 
+        | `resourceManagerEndpointUrl` | 这是 Azure Stack Hub 的 Azure 资源管理器的根 URL。 |
+        | `validateAuthority` | 如果使用 Azure AD 作为标识管理器，则可以省略此参数。 如果使用 AD FS，则添加值为的参数 `false` 。 |
 
     - JSON 代码片段：
 
@@ -91,21 +92,22 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
           "activeDirectoryEndpointUrl": "Login endpoint",
           "activeDirectoryResourceId": "This is the URL from the audiences property.",
           "resourceManagerEndpointUrl": "Aure Resource Management Endpoint",
+          "validateAuthority" : false, 
       },
       "azure.cloud": "AzurePPE"
       ```
 
-10. 保存用户设置并再次按下 **Ctrl+Shift+P**。 选择“Azure:  登录到 Azure 云”。 新选项“AzurePPE”将显示在目标列表中。 
+10. 保存用户设置并再次按下 **Ctrl+Shift+P**。 选择 **"azure：登录到 Azure 云"**。 新选项“AzurePPE”将显示在目标列表中。****
 
-11. 选择“AzurePPE”。  浏览器中会加载身份验证页。 登录到你的终结点。
+11. 选择“AzurePPE”。**** 浏览器中会加载身份验证页。 登录到你的终结点。
 
-12. 若要测试是否已成功登录到你的 Azure Stack Hub 订阅，请按 **Ctrl+Shift+ P** 并选择“Azure:  选择订阅”，然后查看你的订阅是否可用。
+12. 若要测试是否已成功登录到 Azure Stack 中心订阅，请按 **Ctrl + Shift + P** ，然后选择 " **Azure：选择订阅** "，并查看是否有可用的订阅。
 
 ## <a name="commands"></a>命令
 
 | Azure：登录 | 登录到 Azure 订阅 |
 | --- | --- |
-| Azure：使用设备代码登录 | 使用设备代码登录到你的 Azure 订阅。 在“登录”命令不起作用的设置中使用设备代码。 |
+| Azure：通过设备代码登录 | 使用设备代码登录到你的 Azure 订阅。 在“登录”命令不起作用的设置中使用设备代码。 |
 | Azure：登录到 Azure 云 | 登录到某个主权云中的 Azure 订阅。 |
 | Azure：注销 | 从 Azure 订阅注销 |
 | Azure：选择订阅 | 选择要使用的订阅集。 该扩展只显示筛选的订阅中的资源。 |
@@ -116,4 +118,4 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
 
 ## <a name="next-steps"></a>后续步骤
 
-[设置 Azure Stack Hub 中的开发环境](azure-stack-dev-start.md)
+[在 Azure Stack 中心设置开发环境 ](azure-stack-dev-start.md)

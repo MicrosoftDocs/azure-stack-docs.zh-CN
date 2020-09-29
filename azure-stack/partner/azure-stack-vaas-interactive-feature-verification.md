@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何为具有验证即服务的 Azure Stack 集线器创建交互式功能验证测试。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5529164b909099156219086dd8a4895c223ed5a3
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 1e7e87073518ab5a040cc96ec1af5b7db5f808d9
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661288"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107263"
 ---
 # <a name="interactive-feature-verification-testing"></a>交互式功能验证测试  
 
@@ -31,32 +31,32 @@ ms.locfileid: "81661288"
 
 磁盘更换的测试是一种常见方案。 在此示例中，测试包含五个步骤：
 
-1. 创建新的**测试通过**工作流。
-2. 选择 "**磁盘标识测试**"。
+1. 创建新的 **测试通过** 工作流。
+2. 选择 " **磁盘标识测试**"。
 3. 在出现提示时完成手动步骤。
 4. 检查方案的结果。
 5. 将测试结果发送给 Microsoft。
 
 ## <a name="create-a-new-test-pass"></a>创建新的测试通过
 
-如果没有可用的现有测试阶段，请按照[计划测试](azure-stack-vaas-schedule-test-pass.md)的说明进行操作。
+如果没有可用的现有测试阶段，请按照 [计划测试](azure-stack-vaas-schedule-test-pass.md)的说明进行操作。
 
 ## <a name="schedule-the-test"></a>计划测试
 
-1. 选择 "**磁盘标识测试**"。
+1. 选择 " **磁盘标识测试**"。
 
     > [!Note]  
     > 随着对测试辅助功能的改进，测试的版本将递增。 除非 Microsoft 指出，否则应始终使用最高版本。
 
-    ![磁盘标识测试— Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image4.png)
+    ![显示磁盘标识测试— Azure Stack 集线器中的交互式测试的屏幕截图。](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
-2. 选择 "**编辑**" 并提供域管理员用户名和密码。
+2. 选择 " **编辑** " 并提供域管理员用户名和密码。
 
 3. 选择要在其上启动测试的相应测试执行代理/DVM。
 
     ![选择测试执行代理— Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
-4. 选择 "**提交**" 以启动测试。
+4. 选择 " **提交** " 以启动测试。
 
     ![查看并提交测试— Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "81661288"
 
     ![磁盘标识测试— Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
-6. 按照**文档**和**验证**链接，查看有关如何执行此方案的 Microsoft 的说明。
+6. 按照 **文档** 和 **验证** 链接，查看有关如何执行此方案的 Microsoft 的说明。
 
     ![磁盘标识测试中的文档和验证链接](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "81661288"
 
     ![运行预检查脚本-Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-9. 成功完成预检查脚本后，请按照 "**信息**" 选项卡上的**文档**和**验证**链接中所述，运行手动方案（磁盘替换）。
+9. 成功完成预检查脚本后，请按照 "**信息**" 选项卡上的**文档**和**验证**链接中的说明，运行手动方案 (磁盘替换) 。
 
     ![运行手动方案-Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
@@ -87,7 +87,7 @@ ms.locfileid: "81661288"
 
     ![运行 postcheck 脚本-Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
-11. 手动方案（磁盘替换）成功完成后，选择 "**提交**"。
+11. 手动方案成功完成后 (磁盘替换) ，请选择 " **提交**"。
 
     ![提交驱动器标识测试— Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "81661288"
 
 14. 接受反馈提交 EULA。
 
-15. 选择 "**提交**" 以将结果发送给 Microsoft。
+15. 选择 " **提交** " 以将结果发送给 Microsoft。
 
 ## <a name="next-steps"></a>后续步骤
 

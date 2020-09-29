@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Azure Stack HCI 文档上的 Azure Kubernetes 服务
+summary: Azure Stack HCI 上的 azure Kubernetes 服务是受欢迎的 Azure Kubernetes Service (AKS) orchestrator 的本地实现，它可自动运行容器化应用程序。 Azure Kubernetes 服务现在 Azure Stack HCI 提供预览版，使你可以更快速地开始在你的数据中心内托管 Linux 和 Windows 容器。
+metadata:
+  title: Azure Stack HCI 文档上的 Azure Kubernetes 服务
+  description: Azure Stack HCI 上的 azure Kubernetes 服务是受欢迎的 Azure Kubernetes Service (AKS) orchestrator 的本地实现，它可自动运行容器化应用程序。 Azure Kubernetes 服务现在 Azure Stack HCI 提供预览版，使你可以更快速地开始在你的数据中心内托管 Linux 和 Windows 容器。
+  ms.topic: landing-page
+  author: jasongerend
+  ms.author: jgerend
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 25ac5eecb2f198613c3402a269c1aeafd7df4cc0
+  ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+  ms.translationtype: MT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90948877"
+landingContent:
+- title: 关于 Azure Kubernetes 服务
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什么是 Azure Stack HCI 上的 Azure Kubernetes 服务？
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: AKS 的 Kubernetes 核心概念
+      url: kubernetes-concepts.md
+- title: 入门
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 查看系统要求
+      url: system-requirements.md
+  - linkListType: quickstart
+    links:
+    - text: 设置 AKS 和 Windows 管理中心
+      url: setup.md
+    - text: 通过 PowerShell 设置 AKS
+      url: setup-powershell.md
+    - text: 使用 Windows 管理中心创建 Kubernetes 群集
+      url: create-kubernetes-cluster.md
+    - text: 使用 PowerShell 创建 Kubernetes 群集
+      url: create-kubernetes-cluster-powershell.md
+- title: 部署 Windows 和 Linux 应用程序
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 使用 Windows Server 容器
+      url: deploy-windows-application.md
+    - text: 使用 Linux 容器
+      url: deploy-linux-application.md
+  - linkListType: how-to-guide
+    links:
+    - text: 改编混合 OS Kubernetes 群集的应用
+      url: adapt-apps-mixed-os-clusters.md
+    - text: 在 Windows 容器中使用持久性存储并为 gMSA 做好准备
+      url: persistent-storage-windows-nodes.md
+- title: 与 Azure 集成
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 连接到用于 Kubernetes 的 Azure Arc
+      url: connect-to-arc.md

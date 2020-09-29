@@ -3,22 +3,22 @@ title: 在 Azure Stack Hub 上部署高度可用的网络虚拟设备
 description: 了解如何在 Azure Stack Hub 上部署高度可用的网络虚拟设备。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 31635f6ecfefc0c513fddec5ec00da1006b44f44
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643554"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107001"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署高度可用的网络虚拟设备
 
 本文介绍如何在 Azure Stack Hub 中部署一组网络虚拟设备 (NVA) 以实现高可用性。 NVA 通常用来控制从外围网络（也称为 DMZ）到其他网络或子网的网络流量流。 本文包括了仅用于入口、仅用于出口和同时用于入口和出口的示例体系结构。
 
-[Azure Stack Hub 市场](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items)中提供了不同供应商的 NVA，可以使用其中的一个来获得最佳性能。
+[Azure Stack Hub 市场](../operator/azure-stack-marketplace-azure-items.md)中提供了不同供应商的 NVA，可以使用其中的一个来获得最佳性能。
 
 该体系结构具有以下组件。
 
@@ -26,13 +26,13 @@ ms.locfileid: "82643554"
 
 -   **虚拟网络和子网**。 每个 Azure VM 都会部署到可细分为子网的虚拟网络中。 为每个层创建一个单独的子网。
 
--   **第 7 层负载均衡器**。 由于应用程序网关在 Azure Stack 集线器上尚不可用，因此[Azure Stack 中心市场位置](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items)有一些替代项，例如： [KEMP LoadMaster 负载均衡器 ADC 内容开关](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 大 IP 虚拟版](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)或[A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **第 7 层负载均衡器**。 由于应用程序网关在 Azure Stack 集线器上尚不可用，因此[Azure Stack 中心市场位置](../operator/azure-stack-marketplace-azure-items.md)有一些替代项，例如： [KEMP LoadMaster 负载均衡器 ADC 内容开关](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [f5 大 IP 虚拟版](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)或[A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
--   **负载均衡器**。 使用 [Azure 负载均衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)可将网络流量从 Web 层分配到业务层，以及从业务层分配到 SQL Server。
+-   **负载均衡器**。 使用 [Azure 负载均衡器](/azure/load-balancer/load-balancer-overview)可将网络流量从 Web 层分配到业务层，以及从业务层分配到 SQL Server。
 
 -   **网络安全组** (NSG)。 使用 NSG 限制虚拟网络中的网络流量。 例如，在此处显示的三层体系结构中，数据库层不接受来自 Web 前端的流量，仅接受来自业务层和管理子网的流量。
 
--   **UDR。** 使用[*用户定义的路由*](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview/) (UDR) 将流量路由到特定的负载均衡器。
+-   **UDR。** 使用[*用户定义的路由*](/azure/virtual-network/virtual-networks-udr-overview/) (UDR) 将流量路由到特定的负载均衡器。
 
 本文假设读者基本了解 Azure Stack Hub 网络。
 
@@ -40,7 +40,7 @@ ms.locfileid: "82643554"
 
 NVA 可以采用许多不同的体系结构部署到外围网络中。 例如，下图演示了用于入口的单个 NVA 的使用。
 
-![自动生成的社交媒体文章说明的屏幕截图](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
+![显示用于入口的单个 NVA 的屏幕截图。](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 在此体系结构中，NVA 会检查所有入站和出站网络流量并且仅会放行符合网络安全规则的流量，从而提供一个安全的网络边界。 因为所有网络流量都必须通过 NVA，这意味着 NVA 是网络中的单一故障点。 如果 NVA 发生故障，则网络流量没有其他路径可用，并且所有后端子网都不可用。
 
@@ -78,10 +78,10 @@ NVA 可以采用许多不同的体系结构部署到外围网络中。 例如，
 
 在采用第 7 层 NVA 体系结构的入口-出口中，NVA 处理来自第 7 层负载均衡器的传入请求。 NVA 还处理负载均衡器的后端池中的工作负荷 VM 发出的传出请求。 由于传入流量是使用第 7 层负载均衡器路由的，而传出流量是通过 SLB（Azure Stack Hub 基本负载均衡器）路由的，因此，NVA 负责维护会话相关性。 也就是说，第 7 层负载均衡器维护入站和出站请求的映射，因此，它可以将正确的响应转发到原始请求者。 但是，内部负载均衡器无权访问第 7 层负载均衡器映射，它使用其自身的逻辑将响应发送到 NVA。 负载均衡器可能会将响应发送到起初没有从第 7 层负载均衡器收到请求的 NVA。 在这种情况下，各个 NVA 必须进行通信并在它们之间传输响应，以便正确的 NVA 可以将响应转发到第 7 层负载均衡器。
 
-> [!Note]  
+> [!NOTE]  
 > 你还可以通过确保 NVA 执行入站源网络地址转换 (SNAT) 来解决非对称路由问题。 这会将请求者的原始源 IP 替换为入站流上使用的 NVA 的 IP 地址之一。 这确保可以一次使用多个 NVA，同时保持路由对称性。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 若要详细了解 Azure Stack Hub VM，请参阅 [Azure Stack Hub VM 功能](azure-stack-vm-considerations.md)。  
-- 若要详细了解 Azure 云模式，请参阅[云设计模式](https://docs.microsoft.com/azure/architecture/patterns)。
+- 若要详细了解 Azure 云模式，请参阅[云设计模式](/azure/architecture/patterns)。
