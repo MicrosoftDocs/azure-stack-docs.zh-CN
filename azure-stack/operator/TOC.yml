@@ -39,7 +39,7 @@
               href: azure-stack-capacity-planning-storage.md
             - name: 存储基础结构概述
               href: azure-stack-storage-infrastructure-overview.md
-        - name: Azure Stack 中心 Capacity Planner
+        - name: Azure Stack Hub Capacity Planner
           href: azure-stack-capacity-planner.md
     - name: 数据中心集成
       items:
@@ -88,12 +88,13 @@
               href: azure-stack-validate-adfs.md
             - name: 验证图形集成
               href: azure-stack-validate-graph.md
-        - name: Azure Stack 中心部署 PKI 要求
-          href: azure-stack-pki-certs.md
+        - name: PKI 要求和过程
           items:
+            - name: PKI 证书要求
+              href: azure-stack-pki-certs.md
             - name: 生成 PKI 证书
               href: azure-stack-get-pki-certs.md
-            - name: 准备 Azure Stack 中心 PKI 证书
+            - name: 准备 Azure Stack Hub PKI 证书
               href: azure-stack-prepare-pki-certs.md
             - name: 验证 PKI 证书
               href: azure-stack-validate-pki-certs.md
@@ -106,8 +107,6 @@
         - name: 验证 Azure 注册
           href: azure-stack-validate-registration.md
           items:
-            - name: Start-AzsReadiness cmdlet 参考
-              href: azure-stack-azsreadiness-cmdlet.md
             - name: 查看准备情况报告
               href: azure-stack-validation-report.md
         - name: 外部监视
@@ -120,7 +119,7 @@
               href: azure-stack-integrate-physical-device-auditing.md
 - name: 操作指南
   items:
-    - name: 管理 Azure Stack 中心
+    - name: 管理 Azure Stack Hub
       items:
         - name: 管理基础知识
           href: azure-stack-manage-basics.md
@@ -128,7 +127,7 @@
           href: azure-stack-portal-clear.md
         - name: 配置遥测数据的收集
           href: azure-stack-telemetry.md
-        - name: 注册 Azure Stack 集线器
+        - name: 注册 Azure Stack Hub
           href: azure-stack-registration.md
         - name: 区域管理
           href: azure-stack-region-management.md
@@ -180,8 +179,10 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: 更改用户订阅所有者
           href: azure-stack-change-subscription-owner.md
-        - name: 启动和停止 Azure Stack 集线器
+        - name: 启动和停止 Azure Stack Hub
           href: azure-stack-start-and-stop.md
+        - name: Azure Site Recovery 工具
+          href: site-recovery-failback.md
         - name: 管理容量
           items:
             - name: 管理存储资源
@@ -242,7 +243,7 @@
           href: azure-stack-marketplace.md
         - name: 市场更改
           href: azure-stack-marketplace-changes.md
-        - name: Azure Stack 中心的 Azure Marketplace 项
+        - name: Azure Stack Hub 的 Azure 市场项
           href: azure-stack-marketplace-azure-items.md
         - name: 下载市场项
           href: azure-stack-download-azure-marketplace-item.md
@@ -250,11 +251,11 @@
           href: azure-stack-add-vm-image.md
         - name: 创建和发布市场项
           href: azure-stack-create-and-publish-marketplace-item.md
-        - name: Azure Stack 中心支持的来宾操作系统
+        - name: Azure Stack Hub 支持的来宾操作系统
           href: azure-stack-supported-os.md
         - name: 提供虚拟机规模集
           href: azure-stack-compute-add-scalesets.md
-        - name: Azure Stack 中心市场常见问题解答
+        - name: Azure Stack Hub 市场常见问题解答
           href: azure-stack-windows-server-faq.md
         - name: 提供 Linux 虚拟机
           href: azure-stack-linux.md
@@ -262,10 +263,8 @@
           href: azure-stack-redhat-create-upload-vhd.md
         - name: 提供 AKS 引擎
           href: azure-stack-aks-engine.md
-        - name: 提供 Kubernetes marketplace 项
+        - name: 提供 Kubernetes 市场项
           href: azure-stack-solution-template-kubernetes-cluster-add.md
-        - name: 创建站点到站点 VPN 连接
-          href: azure-stack-create-vpn-connection-one-node.md
         - name: 提供 Commvault 市场项
           href: azure-stack-network-offer-backup-commvault.md
     - name: 提供服务
@@ -282,7 +281,7 @@
           href: azure-stack-subscribe-plan-provision-vm.md
         - name: 删除产品/服务
           href: azure-stack-delete-offer.md
-        - name: Azure Stack 中心内委托服务
+        - name: 在 Azure Stack Hub 中委托套餐
           href: azure-stack-delegated-provider.md
         - name: 配额类型
           href: azure-stack-quota-types.md
@@ -290,7 +289,7 @@
       href: azure-stack-network-solutions-enable.md
     - name: 管理增值资源提供程序
       items:
-        - name: Azure Stack 集线器上的应用服务
+        - name: Azure Stack Hub 上的应用服务
           items:
             - name: 概述
               href: azure-stack-app-service-overview.md
@@ -300,12 +299,8 @@
               href: app-service-billing-faq.md
             - name: 先决条件
               href: azure-stack-app-service-before-you-get-started.md
-            - name: 部署
-              items:
-                - name: 部署应用服务
-                  href: azure-stack-app-service-deploy.md
-                - name: 部署应用服务以实现高可用性
-                  href: app-service-deploy-ha.md
+            - name: 部署应用服务
+              href: azure-stack-app-service-deploy.md
             - name: 生命周期管理
               items:
                 - name: 更新应用服务
@@ -314,7 +309,7 @@
                   href: azure-stack-app-service-add-worker-roles.md
                 - name: 配置部署源
                   href: azure-stack-app-service-configure-deployment-sources.md
-                - name: 轮换应用服务机密和证书
+                - name: 轮换应用服务的机密和证书
                   href: app-service-rotate-certificates.md
                 - name: 备份应用服务
                   href: app-service-back-up.md
@@ -322,26 +317,12 @@
                   href: app-service-recover.md
                 - name: 删除应用服务
                   href: app-service-remove.md
-            - name: Azure Stack 集线器上的应用服务发行说明
+            - name: 发行说明
               items:
-                - name: Azure Stack 集线器2020第2季度上的应用服务发行说明
+                - name: '2020 Q2 发行说明 [May2020]'
                   href: app-service-release-notes-2020-Q2.md
-                - name: Azure Stack 集线器上的应用服务 update 8 发行说明
+                - name: 'Update 8 发行说明 [Jan2020]'
                   href: azure-stack-app-service-release-notes-update-eight.md
-                - name: Azure Stack 集线器上的应用服务更新7发行说明
-                  href: azure-stack-app-service-release-notes-update-seven.md
-                - name: Azure Stack 集线器上的应用服务更新6发行说明
-                  href: azure-stack-app-service-release-notes-update-six.md
-                - name: Azure Stack 集线器上的应用服务 update 5 发行说明
-                  href: azure-stack-app-service-release-notes-update-five.md
-                - name: Azure Stack 集线器上的应用服务更新4发行说明
-                  href: azure-stack-app-service-release-notes-update-four.md
-                - name: Azure Stack 集线器上的应用服务 update 3 发行说明
-                  href: azure-stack-app-service-release-notes-update-three.md
-                - name: Azure Stack 集线器上的应用服务 update 2 发行说明
-                  href: azure-stack-app-service-release-notes-update-two.md
-                - name: Azure Stack 集线器上的应用服务 update 1 发行说明
-                  href: azure-stack-app-service-release-notes-update-one.md
         - name: Azure Stack Hub 上的事件中心
           items:
             - name: 概述
@@ -359,8 +340,8 @@
                 - name: 备份和还原
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: 收集日志
-                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
-                - name: 运行状况 & 警报
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: 运行状况和警报
                   href: azure-stack-monitor-health.md
                 - name: 管理
                   href: event-hubs-rp-manage.md
@@ -370,7 +351,7 @@
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: 删除
               href: event-hubs-rp-remove.md
-        - name: Azure Stack 集线器上的 MySQL
+        - name: Azure Stack Hub 上的 MySQL
           items:
             - name: 概述
               href: azure-stack-mysql-resource-provider.md
@@ -396,7 +377,7 @@
                   href: azure-stack-mysql-resource-provider-11330.md
                 - name: MySQL 资源提供程序 1.1.30.0 发行说明
                   href: azure-stack-mysql-resource-provider-11300.md
-        - name: Azure Stack 集线器上的 SQL
+        - name: Azure Stack Hub 上的 SQL
           items:
             - name: 概述
               href: azure-stack-sql-resource-provider.md
@@ -425,7 +406,7 @@
     - name: 使用情况和计费
       href: azure-stack-billing-and-chargeback.md
       items:
-        - name: 以 CSP 身份管理用量和计费
+        - name: 以 CSP 身份管理使用情况和计费
           href: azure-stack-add-manage-billing-as-a-csp.md
           items:
             - name: 添加租户以获取用量和计费信息
@@ -452,17 +433,17 @@
                   href: azure-stack-registration-errors.md
     - name: 备份 Azure Stack Hub
       items:
-        - name: 从管理控制台为 Azure Stack 中心启用备份
+        - name: 从管理控制台为 Azure Stack Hub 启用备份
           href: azure-stack-backup-enable-backup-console.md
-        - name: 使用 PowerShell 为 Azure Stack 中心启用备份
+        - name: 使用 PowerShell 为 Azure Stack Hub 启用备份
           href: azure-stack-backup-enable-backup-powershell.md
         - name: 备份 Azure Stack Hub
           href: azure-stack-backup-back-up-azure-stack.md
         - name: 使用备份服务恢复数据
           href: azure-stack-backup-infrastructure-backup.md
-        - name: 备份 Azure Stack 集线器上的文件和应用程序
+        - name: 在 Azure Stack Hub 上备份文件和应用程序
           href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: 将 Azure Stack 集线器 Vm 复制到 Azure
+        - name: 将 Azure Stack Hub VM 复制到 Azure
           href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 在发生灾难性数据丢失后进行恢复
           href: azure-stack-backup-recover-data.md
@@ -472,54 +453,58 @@
           href: azure-stack-backup-reference.md
     - name: 获取支持
       items:
+        - name: 操作员访问工作站
+          href: operator-access-workstation.md
         - name: “帮助和支持”门户
           items:
             - name: 概述
-              href: azure-stack-help-and-support-overview-tzl.md
+              href: azure-stack-help-and-support-overview.md
             - name: 查找你的云 ID
               href: azure-stack-find-cloud-id.md
             - name: 诊断日志收集
               items:
                 - name: 概述
-                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
+                  href: azure-stack-diagnostic-log-collection-overview.md
                 - name: 主动发送日志
-                  href: azure-stack-configure-automatic-diagnostic-log-collection-tzl.md
+                  href: azure-stack-configure-automatic-diagnostic-log-collection.md
                 - name: 立即发送日志
                   items:
                     - name: 使用管理员门户
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal.md
                     - name: 使用 PowerShell
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md
-                - name: Get-azurestacklog （PEP）
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md
+                - name: Get-AzureStackLog (PEP)
                   href: azure-stack-get-azurestacklog.md
-        - name: Azure Stack 中心验证
+        - name: Azure Stack Hub 验证
           href: azure-stack-diagnostic-test.md
-        - name: 疑难解答
+        - name: 故障排除
           href: azure-stack-troubleshooting.md
 - name: 参考
   items:
     - name: Azure Stack Hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
-    - name: Azure Stack 中心特权终结点
+      href: /powershell/azure/azure-stack/overview
+    - name: Azure Stack Hub 特权终结点
       href: ../reference/pep-2002/
-    - name: Azure Stack 中心管理员 REST Api
+    - name: Azure Stack Hub 管理员 REST API
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+      href: /cli/azure/reference-index?view=azure-cli-latest
 - name: 相关内容
   items:
-    - name: Azure Stack 集线器用户文档
-      href: /azure-stack/user/
+    - name: Azure Stack Hub 用户文档
+      href: ../user/index.yml
     - name: ASDK 文档
-      href: /azure-stack/asdk/
+      href: ../asdk/index.yml
+    - name: Azure 混合云文档
+      href: /hybrid
 - name: 资源
   items:
     - name: 培训和认证
       href: azure-stack-train-and-cert.md
     - name: Azure Stack 中心道路地图
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
-    - name: Azure Stack Hub MSDN 论坛
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure Stack 中心 Microsoft Q&
+      href: /answers/questions/topics/single/50514.html
     - name: Azure Stack 中心文档反馈
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 定价信息
