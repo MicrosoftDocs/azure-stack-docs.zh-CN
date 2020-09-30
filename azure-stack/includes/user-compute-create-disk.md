@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: a9a926b8d926e919ece60e35dc24db6b642328df
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 305d085447e4b77108d55e6c7fe0afde3cd2e32c
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609739"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519399"
 ---
 1. 登录到 Azure Stack Hub 用户门户。
 
-    如果你是创建平台磁盘的云操作员，请按照 [添加平台映像](/azure-stack/operator/azure-stack-add-vm-image.md#add-a-platform-image) 中的说明，通过管理员门户或管理员终结点添加 VHD。
+    如果你是创建平台磁盘的云操作员，请按照 [添加平台映像](/azure-stack/operator/azure-stack-add-vm-image#add-a-platform-image) 中的说明，通过管理员门户或管理员终结点添加 VHD。
 
 2. 在用户门户中，选择 "**所有服务**  >  **磁盘**" "  >  **添加**"。
 

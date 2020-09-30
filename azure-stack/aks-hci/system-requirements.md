@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 09/22/2020
-ms.openlocfilehash: b4f79281987b425b907126081e74ce32bf9ee14d
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 4c91dad12e4d6680ca0887da2e6ca314cdbd64ee
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948842"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519380"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的系统要求
 
@@ -81,9 +81,9 @@ Azure Stack HCI 上的 Azure Kubernetes 服务需要在每个服务器节点之�
 
 Windows 管理中心计算机和 Azure Stack HCI 群集中的所有节点都需要防火墙 URL 例外。 
 
-| URL        | 端口 | 服务 | 说明 |
+| URL        | 端口 | 服务 | 注释 |
 | ---------- | ---- | --- | ---- |
-https://get.helm.sh/  | 443 | 下载代理，WAC | 用于下载 Helm 二进制文件 
+https://helm.sh/blog/get-helm-sh/  | 443 | 下载代理，WAC | 用于下载 Helm 二进制文件 
 https://storage.googleapis.com/  | 443 | 云初始化 | 下载 Kubernetes 二进制文件 
 https://azurecliprod.blob.core.windows.net/ | 443 | 云初始化 | 下载二进制文件和容器 
 https://aka.ms/installazurecliwindows | 443 | WAC | 下载 Azure CLI 

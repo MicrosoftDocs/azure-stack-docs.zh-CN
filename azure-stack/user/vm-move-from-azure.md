@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: bcd4d3e2255a839efe3ef4075d81042e241d00f3
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609757"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519401"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>将 VM 从 Azure 移到 Azure Stack 中心
 
@@ -48,7 +48,7 @@ Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "C
 
 - 下载 Linux VM 之前，请遵循[使用 Azure CLI 从自定义磁盘创建 LINUX vm](/azure/virtual-machines/linux/upload-vhd#prepare-the-vm)一文中的 "准备 VM" 一节中的指南。
 - 请按照 [从 Azure 下载 LINUX VHD 一](/azure//virtual-machines/windows/download-vhd) 文中的步骤来准备和下载 VHD。
-- 对于专用的 VHD，请确保使用 "附加" 语义 `-CreateOption Attach` 。 可以在 [使用 PowerShell (Windows) 创建虚拟机 ](/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks)一文中找到示例。
+- 对于专用的 VHD，请确保使用 "附加" 语义 `-CreateOption Attach` 。 可以在 [使用 PowerShell (Windows) 创建虚拟机 ](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks)一文中找到示例。
 
 #### <a name="linux---generalized"></a>[Linux - 通用](#tab/lin-gen)
 
