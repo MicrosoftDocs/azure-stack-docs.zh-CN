@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b7c6c76353ff29f01eca458ca563517807ca0cd3
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019516"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572681"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
@@ -66,7 +66,7 @@ ms.locfileid: "91019516"
 
 1. 完成后，单击“创建”。 现在，你将看到“创建群集”向导，如下所示。
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="“创建群集”向导 - 开始" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="创建群集向导- HCI 选项" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>步骤 1：入门
 
@@ -189,12 +189,9 @@ ms.locfileid: "91019516"
 
 ## <a name="step-5-sdn-optional"></a>步骤5： SDN (可选) 
 
-向导的第5步逐步介绍如何在群集上为软件定义的网络 (SDN) 设置网络控制器。 网络控制器设置完成后，可用于配置 SDN 的其他组件，如软件负载平衡器和 RAS 网关。
+此可选步骤指导完成设置软件定义的网络的网络控制器组件 [ (SDN) ](../concepts/software-defined-networking.md)。 网络控制器设置完成后，可用于配置 SDN 的其他组件，如软件负载平衡器和 RAS 网关。
 
-> [!NOTE]
-> 向导的这一步是可选的。
-
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="创建群集向导-SDN 网络控制器" lightbox="media/cluster/create-cluster-network-controller.png":::
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="创建群集向导- HCI 选项" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. 选择 **下一步： SDN**。
 1. 在 " **主机**" 下，输入网络控制器的名称。
@@ -213,7 +210,7 @@ ms.locfileid: "91019516"
 1. 输入 **mac 地址池开始** 和 **mac 地址池结束**的值。
 1. 完成后，单击 **“下一步”** 。
 1. 等待向导完成其作业。 一直在此页上，直到所有进度任务完成。 然后单击“完成”。
- 
+
 如果网络控制器部署失败，请执行以下操作，然后重试：
 
 - 停止并删除向导创建的所有网络控制器 Vm。  

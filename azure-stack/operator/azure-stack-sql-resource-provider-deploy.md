@@ -8,16 +8,16 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 804c70ab3785e3932f2d2df01f43ccbd520d51a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946404"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572800"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 SQL Server 资源提供程序
 
-可以使用 Azure Stack Hub SQL Server 资源提供程序来将 SQL 数据库公开为 Azure Stack Hub 服务。 SQL 资源提供程序以服务的形式在 Windows Server 2016 Server Core 虚拟机 (VM) 上运行。
+可以使用 Azure Stack Hub SQL Server 资源提供程序来将 SQL 数据库公开为 Azure Stack Hub 服务。 SQL 资源提供程序以服务的形式运行在 Windows Server 2016 Server Core 虚拟机 (上，适用于适配器版本 <= 1.1.47.0>) 或特定的附加设备 RP Windows Server (用于适配器版本 >= 1.1.93.0) 。
 
 > [!IMPORTANT]
 > 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。
@@ -28,15 +28,19 @@ ms.locfileid: "90946404"
 
 - 向 Azure [注册 Azure Stack Hub](azure-stack-registration.md)（如果尚未这样做），以便可以下载 Azure 市场项。
 
-- 下载 **Windows Server 2016 Datacenter - 服务器核心**映像，将所需的 Windows Server 核心 VM 添加到 Azure Stack Hub 市场。
+- 将所需的 Windows Server VM 添加到 Azure Stack 集线器 Marketplace。
+  * 对于 SQL RP 版本 <= 1.1.47.0，请下载 **Windows server 2016 Datacenter-Server Core** 映像。
+  * 对于 SQL RP 版本 >= 1.1.93.0，请下载 **Microsoft Test-azurestack 外接程序 RP Windows SERVER 内部** 映像。 此 Windows Server 版本专用于 Azure Stack 附加 RP 基础结构，它对租户 marketplace 不可见。
+
 
 - 根据下面的版本映射表，下载受支持版本的 SQL 资源提供程序二进制文件。 运行自解压缩程序，将下载的内容提取到临时目录。 
 
-  |支持的 Azure Stack Hub 版本|SQL RP 版本|
-  |-----|-----|
-  |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
-  |     |     |
+  |支持的 Azure Stack Hub 版本|SQL RP 版本|RP 服务正在其上运行的 Windows Server
+  |-----|-----|-----|
+  |2005|[SQL RP 版本1.1.93。0](https://aka.ms/azshsqlrp11930)|Microsoft Test-azurestack 外接程序 RP Windows Server （仅限内部）
+  |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter-Server Core|
+  |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter-Server Core|
+  |     |     |     |
 
 - 请确保满足数据中心集成先决条件：
 
@@ -57,15 +61,26 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
+```
+
+2. 根据要部署的资源提供程序的版本，运行其中一个脚本。
+
+```powershell
+# for resource provider version >= 1.1.93.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
+```powershell
+# for resource provider version <= 1.1.47.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
 
-2. 然后，将下载的包复制到 USB 设备。
+3. 然后，将下载的包复制到 USB 设备。
 
-3. 登录到已断开连接的工作站，将包从 USB 设备复制到工作站中的某个位置。
+4. 登录到已断开连接的工作站，将包从 USB 设备复制到工作站中的某个位置。
 
-4. 将此位置注册为本地存储库。
+5. 将此位置注册为本地存储库。
 
 ```powershell
 # requires -Version 5
@@ -102,7 +117,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 - 将证书和其他项目上传到 Azure Stack Hub 上的存储帐户。
 - 发布库包，以便可以使用库部署 SQL 数据库。
 - 发布用于部署宿主服务器的库包。
-- 使用下载的 Windows Server 2016 核心映像部署 VM，然后安装 SQL 资源提供程序。
+- 使用下载的 Windows Server 2016 core 映像或 Microsoft Test-azurestack 外接程序 RP Windows Server 映像部署 VM，然后安装 SQL 资源提供程序。
 - 注册映射到资源提供程序 VM 的本地 DNS 记录。
 - 将资源提供程序注册到操作员帐户的本地 Azure 资源管理器。
 
@@ -129,7 +144,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>使用自定义脚本部署 SQL 资源提供程序
 
-如果要部署 SQL 资源提供程序版本 1.1.33.0 或更早版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 如果要部署 SQL 资源提供程序版本 1.1.47.0，则部署脚本会自动下载所需的 PowerShell 模块并将其安装到路径 C:\Program Files\SqlMySqlPsh。
+如果要部署 SQL 资源提供程序版本 1.1.33.0 或更早版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 如果要部署 SQL 资源提供程序版本1.1.47.0 或更高版本，部署脚本将自动下载并安装所需的 PowerShell 模块，使你能够通过路径 C:\Program Files\SqlMySqlPsh。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module
@@ -173,7 +188,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 

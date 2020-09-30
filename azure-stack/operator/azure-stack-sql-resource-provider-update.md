@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1c6a7e39131dc9d422a68161b3022ac1acc28f7e
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 60d9ce421ce4cdede89dd9f0fa9ff4ee4746d039
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472868"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572851"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
@@ -22,24 +22,27 @@ ms.locfileid: "89472868"
 
 当 Azure Stack Hub 更新到新版本时，可能会发布新的 SQL 资源提供程序。 虽然现有的资源提供程序可以继续使用，但仍建议尽快更新到最新的内部版本。
 
- |支持的 Azure Stack Hub 版本|SQL RP 版本|
-  |-----|-----|
-  |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
-  |     |     |
+|支持的 Azure Stack Hub 版本|SQL RP 版本|RP 服务正在其上运行的 Windows Server
+  |-----|-----|-----|
+  |2005|[SQL RP 版本1.1.93。0](https://aka.ms/azshsqlrp11930)|Microsoft Test-azurestack 外接程序 RP Windows Server （仅限内部）
+  |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter-Server Core|
+  |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter-Server Core|
+  |     |     |     |
 
-从 SQL 资源提供程序 1.1.33.0 版开始，更新是累积性的，只要你从 1.1.24.0 版或更高版本开始，就不需要按照发布的顺序安装更新。 例如，如果运行的是 1.1.24.0 版的 SQL 资源提供程序，则可以升级到 1.1.33.0 版或更高版本，而无需先安装 1.1.30.0 版。 若要查看可用的资源提供程序版本，以及支持它们的 Azure Stack Hub 版本，请参阅[部署资源提供程序的先决条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表。
+SQL 资源提供程序更新是累积性的。 从旧版本更新时，可以直接更新到最新版本。 
 
-若要更新资源提供程序，请使用 *UpdateSQLProvider.ps1* 脚本。 使用具有本地管理权限且是订阅的**所有者**的服务帐户。 新 SQL 资源提供程序的下载包中提供此脚本。 更新过程类似于[部署资源提供程序](./azure-stack-sql-resource-provider-deploy.md)时使用的过程。 更新脚本与 DeploySqlProvider.ps1 脚本使用相同的参数，你需要提供证书信息。
+若要更新资源提供程序，请使用 **UpdateSQLProvider.ps1** 脚本。 使用具有本地管理权限且是订阅的**所有者**的服务帐户。 下载资源提供程序时包含此更新脚本。 
+
+更新过程类似于[部署资源提供程序](./azure-stack-sql-resource-provider-deploy.md)时使用的过程。 更新脚本与 DeploySqlProvider.ps1 脚本使用相同的参数，你需要提供证书信息。
 
 ## <a name="update-script-processes"></a>更新脚本过程
 
-*UpdateSQLProvider.ps1* 脚本可使用最新的资源提供程序代码创建新的虚拟机 (VM)。
+**UpdateSQLProvider.ps1**脚本将使用最新的操作系统映像创建新的虚拟机 (VM) ，部署最新的资源提供程序代码，并将这些设置从旧资源提供程序迁移到新的资源提供程序。 
 
 > [!NOTE]
-> 建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
+>建议从 Marketplace 管理下载最新的 Windows Server 2016 Core 映像或 Microsoft Test-azurestack 外接程序 RP Windows Server 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
 
-*UpdateSQLProvider.ps1* 脚本在创建新的 VM 后，会从旧的提供程序 VM 中迁移以下设置：
+*UpdateSQLProvider.ps1*脚本创建新的 VM 后，该脚本将从旧的资源提供程序 VM 迁移以下设置：
 
 * 数据库信息
 * 宿主服务器信息
@@ -64,17 +67,21 @@ ms.locfileid: "89472868"
 | **DebugMode** | 防止在失败时自动清除。 | 否 |
 
 ## <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
-> [!NOTE]
-> 此更新过程仅适用于 Azure Stack Hub 集成系统。
 
-如果要将 SQL 资源提供程序版本更新为 1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 如果要更新到 SQL 资源提供程序版本 1.1.47.0，则部署脚本会自动下载所需的 PowerShell 模块并将其安装到路径 C:\Program Files\SqlMySqlPsh。
+如果要将 SQL 资源提供程序版本更新为1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm 和 Azure Stack 集线器模块。 
+
+如果要将 SQL 资源提供程序更新到版本1.1.47.0 或更高版本，则可以跳过此步骤。 部署脚本将自动下载并安装所需的 PowerShell 模块，以便你可以将 C:\Program Files\SqlMySqlPsh。
+
+>[!NOTE]
+>如果已存在已下载 PowerShell 模块的文件夹 C:\Program Files\SqlMySqlPsh，建议在运行更新脚本之前清理此文件夹。 这是为了确保下载并使用正确版本的 PowerShell 模块。
 
 ```powershell
+# Run the following scripts when updating to version 1.1.33.0 only.
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.8.2
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
 > [!NOTE]
@@ -111,7 +118,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath

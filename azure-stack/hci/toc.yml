@@ -60,6 +60,8 @@
           href: manage/replace-drives.md
         - name: 使用 CSV 内存中读取缓存
           href: manage/use-csv-cache.md
+        - name: 管理 SMB 多通道
+          href: manage/manage-smb-multichannel.md
     - name: 管理群集
       items:
         - name: 管理群集
@@ -163,4 +165,4 @@
     - name: Azure Stack HCI 评估指南
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
     - name: Azure Stack HCI 定价
-      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/'
+      href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'

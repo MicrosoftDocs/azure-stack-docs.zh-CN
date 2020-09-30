@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中更新 MySQL 资源提供程序
 description: 了解如何在 Azure Stack Hub 中更新 Azure Stack Hub MySQL 资源提供程序。
 author: bryanla
 ms.topic: article
-ms.date: 8/19/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: c3295ca0892e71fbc08981b8af30c1757cd0904a
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 93fcbd61003164a959a15c8c6108bc81dabe2b8a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230574"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572885"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>在 Azure Stack Hub 中更新 MySQL 资源提供程序
 
@@ -21,25 +21,31 @@ ms.locfileid: "91230574"
 
 更新 Azure Stack Hub 内部版本时，可能会发布新的 MySQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。
 
-  |支持的 Azure Stack Hub 版本|MySQL RP 版本|
-  |-----|-----|
-  |2005、2002、1910|[MySQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |1908|[MySQL RP 版本 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
-  |     |     |
+  |支持的 Azure Stack Hub 版本|MySQL RP 版本|RP 服务正在其上运行的 Windows Server
+  |-----|-----|-----|
+  |2005|[MySQL RP 版本1.1.93。0](https://aka.ms/azshmysqlrp11930)|Microsoft Test-azurestack 外接程序 RP Windows Server （仅限内部）
+  |2005、2002、1910|[MySQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter-Server Core|
+  |1908|[MySQL RP 版本 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter-Server Core|
+  |     |     |     |
 
-从 MySQL 资源提供程序发行版 1.1.33.0 开始，更新是累积性的，不需按发布顺序进行安装，前提是你从 1.1.24.0 或更高版本开始。 例如，如果运行 1.1.24.0 版 MySQL 资源提供程序，则可升级到 1.1.33.0 或更高版本，不需先安装版本 1.1.30.0。 若要查看可用的资源提供程序版本，以及支持它们的 Azure Stack Hub 版本，请参阅[部署资源提供程序的先决条件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本列表。
+MySQL 资源提供程序更新具有累积性。 从旧版本更新时，可以直接更新到最新版本。 
 
-若要更新资源提供程序，请使用 **UpdateMySQLProvider.ps1** 脚本。 此过程类似于安装资源提供程序时所使用的过程，如本文的“部署资源提供程序”部分所述。 资源提供程序的下载包中提供此脚本。 
+若要更新资源提供程序，请使用 **UpdateMySQLProvider.ps1** 脚本。 使用具有本地管理权限且是订阅的**所有者**的服务帐户。 下载资源提供程序时包含更新脚本。 
+
+更新过程类似于[部署资源提供程序](./azure-stack-mysql-resource-provider-deploy.md)时使用的过程。 更新脚本使用与 DeployMySqlProvider.ps1 脚本相同的参数，你将需要提供证书信息。
 
 ## <a name="update-script-processes"></a>更新脚本过程
 
-**UpdateMySQLProvider.ps1** 脚本使用最新的资源提供程序代码创建新的虚拟机 (VM)，并将设置从旧 VM 迁移到新 VM。 迁移的设置包括数据库和宿主服务器信息，以及必需的 DNS 记录。
+**UpdateMySQLProvider.ps1**脚本将使用最新的操作系统映像创建新的虚拟机 (VM) ，部署最新的资源提供程序代码，并将这些设置从旧资源提供程序迁移到新的资源提供程序。
 
 >[!NOTE]
->建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
+>建议从 Marketplace 管理下载最新的 Windows Server 2016 Core 映像或 Microsoft Test-azurestack 外接程序 RP Windows Server 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
 
-此脚本需要使用的参数正是针对 DeployMySqlProvider.ps1 脚本进行描述的参数。 请同样在此处提供证书。  
+*UpdateMySQLProvider.ps1*脚本创建新的 VM 后，该脚本将从旧的资源提供程序 VM 迁移以下设置：
 
+* 数据库信息
+* 宿主服务器信息
+* 必要的 DNS 记录
 
 ## <a name="update-script-parameters"></a>更新脚本参数 
 运行 **UpdateMySQLProvider.ps1** PowerShell 脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
@@ -61,17 +67,20 @@ ms.locfileid: "91230574"
 
 ## <a name="update-script-example"></a>更新脚本示例
 
-> [!NOTE] 
-> 此更新过程仅适用于集成系统。
+如果要将 MySQL 资源提供程序版本更新为 1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 
 
-如果要将 MySQL 资源提供程序版本更新为 1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 如果要将 MySQL 资源提供程序更新到版本 1.1.47.0，则部署脚本会自动下载所需的 PowerShell 模块并将其安装到路径 C:\Program Files\SqlMySqlPsh。
+如果要将 MySQL 资源提供程序更新到版本1.1.47.0 或更高版本，则可以跳过此步骤。 部署脚本将自动下载并安装所需的 PowerShell 模块，以便你可以将 C:\Program Files\SqlMySqlPsh。 
+
+>[!NOTE]
+>如果已存在已下载 PowerShell 模块的文件夹 C:\Program Files\SqlMySqlPsh，建议在运行更新脚本之前清理此文件夹。 这是为了确保下载并使用正确版本的 PowerShell 模块。
 
 ```powershell 
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Run the following scripts when updating to version 1.1.33.0 only.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module.
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.8.2
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
 > [!NOTE]
@@ -108,7 +117,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 

@@ -3,16 +3,16 @@ title: 将 MySQL 数据库用作 Azure Stack Hub 上的 PaaS
 description: 了解如何在 Azure Stack Hub 上部署 MySQL 资源提供程序，并提供 MySQL 数据库即服务。
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 73c916a193492662cdbb3ba20031c58932721053
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 70a65f030d930960dbdd057fa130eadeb6adcf8a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698583"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572834"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>在 Microsoft Azure Stack 中心使用 MySQL 数据库
 

@@ -8,24 +8,24 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b30126bcfbbe57cd36a54ce1f5fc487014fe7a03
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487713"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572868"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>使用 Azure Stack Hub 创建高可用 SQL 数据库
 
 作为 Azure Stack Hub 操作员，你可以配置服务器 VM 来承载 SQL Server 数据库。 通过 Azure Stack Hub 创建和管理 SQL 宿主服务器后，订阅了 SQL 服务的用户可以轻松地创建 SQL 数据库。
 
-本文介绍了如何使用 Azure Stack Hub 快速入门模板创建 [SQL Server AlwaysOn 可用性组](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)，将其添加为 Azure Stack Hub SQL 宿主服务器，然后创建高可用 SQL 数据库。
+本文介绍了如何使用 Azure Stack Hub 快速入门模板创建 [SQL Server AlwaysOn 可用性组](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)，将其添加为 Azure Stack Hub SQL 宿主服务器，然后创建高可用 SQL 数据库。
 
 学习内容：
 
 > [!div class="checklist"]
 > * 基于模板创建 SQL Server AlwaysOn 可用性组。
-> * 创建 Azure Stack Hub SQL 宿主服务器。
+> * 将 SQL Server AlwaysOn 可用性组配置为 Azure Stack 中心 SQL 宿主服务器。
 > * 创建高可用 SQL 数据库。
 
 将使用可用的 Azure Stack 市场项创建并配置包含两个 VM SQL Server 的 AlwaysOn 可用性组。
@@ -124,7 +124,7 @@ ms.locfileid: "86487713"
 
 ### <a name="configure-contained-database-authentication"></a>配置包含的数据库身份验证
 
-将包含的数据库添加到可用性组之前，请确保在托管可用性组可用性副本的每个服务器实例上，包含的数据库身份验证服务器选项已设置为 1。 有关详细信息，请参阅[包含的数据库身份验证](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)。
+将包含的数据库添加到可用性组之前，请确保在托管可用性组可用性副本的每个服务器实例上，包含的数据库身份验证服务器选项已设置为 1。 有关详细信息，请参阅[包含的数据库身份验证](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option)。
 
 使用以下命令为可用性组中的每个 SQL Server 实例设置包含的数据库身份验证服务器选项：
 
@@ -137,9 +137,9 @@ ms.locfileid: "86487713"
 
 ![设置包含的数据库身份验证](./media/azure-stack-tutorial-sqlrp/sql3.png)
 
-## <a name="create-an-azure-stack-hub-sql-hosting-server"></a>创建 Azure Stack Hub SQL 宿主服务器
+## <a name="configure-an-azure-stack-hub-sql-hosting-server"></a>配置 Azure Stack 中心 SQL 宿主服务器
 
-创建并正确配置 SQL Server AlwayOn 可用性组后，Azure Stack Hub 操作员必须创建 Azure Stack Hub SQL 宿主服务器。 SQL 宿主服务器提供更多的容量供用户创建数据库。
+创建并正确配置 SQL Server AlwayOn 可用性组后，Azure Stack 中心操作员必须将其配置为 Azure Stack 中心 SQL 宿主服务器。 
 
 在创建 SQL AlwaysOn 可用性组的资源组 (**SQLPIPsql\<resource group name\>** ) 时，请确保使用先前记录的 SQL 负载均衡器的公共 IP 或完整 FQDN。 此外，你还需要知道用于访问 AlwaysOn 可用性组中的 SQL 实例的 SQL Server 身份验证凭据。
 

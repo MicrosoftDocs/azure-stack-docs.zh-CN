@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 8125ff0432b16f254f8660e8c5f755f7f4916b12
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742538"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572766"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>在 Azure Stack HCI 中规划卷
 
@@ -39,7 +39,7 @@ ms.locfileid: "89742538"
 
 ## <a name="choosing-the-filesystem"></a>选择文件系统
 
-我们建议将新的[弹性文件系统 (ReFS)](/en-us/windows-server/storage/refs/refs-overview) 用于存储空间直通。 ReFS 是专为虚拟化打造的高级文件系统，其优点包括大幅的性能加速和内置的数据损坏防护。 它支持几乎所有主要 NTFS 功能，包括 Windows Server 1709 和更高版本中的重复数据删除。 有关详细信息，请参阅 ReFS [功能比较表格](/windows-server/storage/refs/refs-overview#feature-comparison)。
+我们建议将新的[弹性文件系统 (ReFS)](/windows-server/storage/refs/refs-overview) 用于存储空间直通。 ReFS 是专为虚拟化打造的高级文件系统，其优点包括大幅的性能加速和内置的数据损坏防护。 它支持几乎所有主要 NTFS 功能，包括 Windows Server 1709 和更高版本中的重复数据删除。 有关详细信息，请参阅 ReFS [功能比较表格](/windows-server/storage/refs/refs-overview#feature-comparison)。
 
 如果工作负荷需要 ReFS 尚不支持的功能，你可以改用 NTFS。
 

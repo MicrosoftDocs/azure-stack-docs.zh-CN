@@ -3,16 +3,16 @@ title: MySQL 资源提供程序维护操作-Azure Stack 中心
 description: 了解如何在 Azure Stack Hub 中维护 MySQL 资源提供程序服务。
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572657"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572936"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub 中的 MySQL 资源提供程序维护操作
 
@@ -24,7 +24,7 @@ MySQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维�
 
 使用以下方法之一更新提供程序 VM：
 
-- 使用当前进行了修补的 Windows Server 2016 Core 映像安装最新的资源提供程序包。
+- 使用当前修补的 VM 映像安装最新的资源提供程序程序包。
 - 在安装或更新资源提供程序期间安装 Windows 更新包。
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>更新 VM Windows Defender 定义

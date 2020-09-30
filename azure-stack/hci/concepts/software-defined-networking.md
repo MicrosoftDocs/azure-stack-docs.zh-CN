@@ -1,20 +1,20 @@
 ---
 title: Azure Stack HCI 中 (SDN) 软件定义的网络
-description: 概述适用于 Azure Stack HCI 中的功能的 SDN 主题。
+description: 软件定义的网络 (SDN) 提供一种方法，用于在数据中心中集中配置和管理网络和网络服务，如交换机、路由和负载平衡。
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: 34ddaf17a9c90373d76a9b0ce490e2e60a1e221d
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.date: 09/29/2020
+ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230472"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572647"
 ---
-# <a name="sdn-in-azure-stack-hci"></a>Azure Stack HCI 中的 SDN
+# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Azure Stack HCI 中 (SDN) 软件定义的网络
 
 > 适用于 Azure Stack HCI 版本 20H2；Windows Server 2019
 
@@ -35,7 +35,7 @@ Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组�
 - 将虚拟设备连接到虚拟网络。
 - 为连接到虚拟网络的 Vm 或基于 VLAN 的传统网络配置服务质量 (QoS) 策略。
 
-建议在创建 Azure Stack HCI 群集后 [，使用 PowerShell 部署网络控制器](../deploy/network-controller-powershell.md) 。
+建议 [在群集创建过程中部署网络控制器](../deploy/create-cluster.md#step-5-sdn-optional)。 或者，你可以在创建 Azure Stack HCI 群集后 [使用 PowerShell 部署网络控制器](../deploy/network-controller-powershell.md) 。
 
 ## <a name="software-load-balancing"></a>软件负载均衡 (SLB)
 

@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 94908514e85df153f69cbeea81a11d4468dfc7fe
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 06a5a1ccf59b5d5c34ef1d2e36feeb1000b49776
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274052"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572630"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>更新 Azure Stack HCI 群集
 
@@ -87,9 +87,8 @@ Install-WindowsFeature –Name RSAT-Clustering-PowerShell -ComputerName Server1
   
 -   远程更新模式：在此模式下，将使用“故障转移群集工具”配置与故障转移群集之间有网络连接但不是故障转移群集成员的远程管理计算机（通常是 Windows 10 PC）。 从该远程管理计算机（称为更新协调器）中，管理员使用默认或自定义更新运行配置文件触发按需更新运行。 远程更新模式对于监视更新运行期间的实时进度以及在服务器核心安装上运行的群集非常有用。  
 
-
    > [!NOTE]
-   > 从 Windows 10 的 2018 年 10 月版更新开始，RSAT 作为 Windows 10 中的一组“按需功能”提供。 只需转到“设置”>“应用”>“应用和功能”>“可选功能”>“添加功能”>“RSAT:**** 故障转移群集工具”并选择“安装”即可****。 若要查看安装进度，请单击“上一步”按钮以查看“管理可选功能”页上的状态。 安装的功能会保留在 Windows 10 升级版中。 若要为 2018 年 10 月更新版本之前的 Windows 10 安装 RSAT，请[下载 RSAT 程序包](https://www.microsoft.com/en-us/download/details.aspx?id=45520)。
+   > 从 Windows 10 的 2018 年 10 月版更新开始，RSAT 作为 Windows 10 中的一组“按需功能”提供。 只需转到“设置”>“应用”>“应用和功能”>“可选功能”>“添加功能”>“RSAT:**** 故障转移群集工具”并选择“安装”即可****。 若要查看安装进度，请单击“上一步”按钮以查看“管理可选功能”页上的状态。 安装的功能会保留在 Windows 10 升级版中。 若要为 2018 年 10 月更新版本之前的 Windows 10 安装 RSAT，请[下载 RSAT 程序包](https://www.microsoft.com/download/details.aspx?id=45520)。
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>将 CAU 群集角色添加到群集
 
@@ -105,7 +104,7 @@ Get-CauClusterRole -ClusterName Cluster1
 
 ```Get-CauClusterRole : The current cluster is not configured with a Cluster-Aware Updating clustered role.```
 
-若要使用 PowerShell 为自我更新模式添加群集感知更新群集角色，请使用 **`Add-CauClusterRole`** cmdlet 并提供合适的[参数](/powershell/module/clusterawareupdating/add-cauclusterrole?view=win10-ps#parameters)，如下面的示例所示：
+若要使用 PowerShell 为自我更新模式添加群集感知更新群集角色，请使用 **`Add-CauClusterRole`** cmdlet 并提供合适的[参数](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters)，如下面的示例所示：
 
 ```PowerShell
 Add-CauClusterRole -ClusterName Cluster1 -MaxFailedNodes 0 -RequireAllNodesOnline -EnableFirewallRules -VirtualComputerObjectName Cluster1-CAU -Force -CauPluginName Microsoft.WindowsUpdatePlugin -MaxRetriesPerNode 3 -CauPluginArguments @{ 'IncludeRecommendedUpdates' = 'False' } -StartDate "3/2/2020 3:00:00 AM" -DaysOfWeek 4 -WeeksOfMonth @(3) -verbose

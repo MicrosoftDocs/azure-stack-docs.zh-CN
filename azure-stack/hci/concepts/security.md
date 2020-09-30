@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 6a8a0c3068061c599ac18e160ebd32c7b5cc8eda
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: 181eb53d4b0e5c95065371e6b87e470a5e413d06
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010809"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572664"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Azure Stack HCI 安全注意事项
 
@@ -41,7 +41,7 @@ ms.locfileid: "90010809"
 
 - **Device Guard** 和 **Credential Guard**。 Device Guard 可以防止不具有已知签名的恶意软件、未签名的代码以及可以访问内核的恶意软件捕获敏感信息或损坏系统。 Windows Defender 凭据保护使用基于虚拟化的安全性来隔离密钥，以便只有特权系统软件可以访问它们。
 
-    有关详细信息，请参阅[管理 Windows Defender Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard-manage) 并下载 [Device Guard 和 Credential Guard 硬件就绪工具](https://www.microsoft.com/en-us/download/details.aspx?id=53337)。
+    有关详细信息，请参阅[管理 Windows Defender Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard-manage) 并下载 [Device Guard 和 Credential Guard 硬件就绪工具](https://www.microsoft.com/download/details.aspx?id=53337)。
 
 - **Windows** 和**固件**更新在群集、服务器（包括来宾 VM）和电脑上非常重要，可帮助确保操作系统和系统硬件免受攻击者的影响。 可以使用 Windows Admin Center 的“更新”工具将更新应用到各个系统。 如果你的硬件提供商提供用于获取驱动程序、固件和解决方案更新的 Windows Admin Center 支持，你可以在 Windows 更新的同时获取这些更新，否则需要直接从供应商处获取这些更新。
 
@@ -88,7 +88,7 @@ ms.locfileid: "90010809"
 
 - Windows Admin Center 中的**基于角色的访问控制 (RBAC)** 允许用户以有限的权限访问需要管理的服务器，而不是使其完全成为本地管理员。 若要在 Windows Admin Center 中使用 RBAC，请为每个托管服务器配置一个 PowerShell Just Enough Administration 终结点。
 
-    有关详细信息，请参阅[基于角色的访问控制](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control)和 [Just Enough Administration](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7)。
+    有关详细信息，请参阅[基于角色的访问控制](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control)和 [Just Enough Administration](/powershell/scripting/learn/remoting/jea/overview)。
 
 - Windows Admin Center 中可用于管理和保护标识的**安全工具**包括 Active Directory、证书、防火墙、本地用户和组等。
 
@@ -126,7 +126,7 @@ ms.locfileid: "90010809"
      
      - Windows Server 中的**虚拟受信任的平台模块 (vTPM)** 支持 VM 的 TPM，它使你可以使用高级安全技术，例如 VM 中的 BitLocker。 你可以使用 Hyper-V 管理器或 `Enable-VMTPM` Windows PowerShell cmdlet 在任何第 2 代 Hyper-V VM 上启用 TPM 支持。
      
-        有关详细信息，请参阅 [Enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm?view=win10-ps)。
+        有关详细信息，请参阅 [Enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm)。
      
      - Azure Stack HCI 和 Windows Server 中的**软件定义网络 (SDN)** 集中配置和管理物理和虚拟网络设备，例如数据中心中的路由器、交换机和网关。 虚拟网络元素（例如 Hyper-V 虚拟交换机、Hyper-V 网络虚拟化和 RAS 网关）的作用是充当 SDN 基础结构的构成部分。
 
