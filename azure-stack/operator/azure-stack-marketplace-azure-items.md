@@ -7,12 +7,12 @@ ms.date: 09/09/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: cc038d24f59527ca10e397848d47e02098dfe0ba
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 27929b0464c011164b6aa762cd0afcc2f6fbc508
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742744"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592950"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>可用于 Azure Stack Hub 的 Azure 市场项
 
@@ -20,7 +20,7 @@ ms.locfileid: "89742744"
 
 只要有所用虚拟机 (VM) 扩展的更新，就应下载它们。 随产品一起提供的扩展不会在普通的修补和更新过程中更新，因此请经常查看更新。 其他扩展只能通过市场管理获取。
 
-| 映像 | 项名称 | 说明 | 发布者 | OS 类型 |
+| 图像 | 项名称 | 说明 | 发布者 | OS 类型 |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS 扩展 (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 扩展 (SqlIaasExtension)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **下载此扩展以部署任何“Windows 上的 SQL Server”市场项 - 此扩展是必需的。** | Microsoft | Windows |
 |![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png) | [自定义脚本扩展](/azure/virtual-machines/windows/extensions-customscript)| **请下载此更新，此更新针对用于 Windows 的自定义脚本扩展的内置版本。** | Microsoft | Windows |
@@ -41,7 +41,7 @@ ms.locfileid: "89742744"
 
 Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模板。 请根据说明单独下载任何依赖项。 SQL Server 和 Machine Learning Server 之类的应用需要适当的许可，除非已标记为“免费”或“试用”。
 
-| 映像 | 项名称 | 说明 | 发布者 |
+| 图像 | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |
 | ![SharePoint Server 2013 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 试用版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2012 Datacenter 和 Visual Studio 2019 社区版上的 Microsoft SharePoint Server 2013 试用版。 | Microsoft |
 | ![SharePoint Server 2016 试用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 试用版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2016 Datacenter 上的 Microsoft SharePoint Server 2016 试用版。 | Microsoft |
@@ -52,7 +52,7 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 
 ## <a name="linux-distributions"></a>Linux 发行版
 
-| 映像 | 项名称 | 说明 | 发布者 |
+| 图像 | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | 一个针对 Intel 体系结构优化的参考性 Linux 发行版 | Clear Linux Project |
 | ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS 是一种新式的最小型 Linux 发行版，可以方便地运行容器、管理群集以及无缝地更新服务器 - 所有组件都支持仓库级计算。 | CoreOS |
@@ -68,7 +68,7 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>第三方 BYOL 版、免费版和试用版映像以及解决方案模板
 
-| 映像 | 项名称 | 说明 | 发布者 |
+| 图像 | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | 适用于 Microsoft Azure 的 A10 网络 vThunder ADC (应用程序传送控制器) 旨在实现高性能、灵活性和易于部署的应用交付和服务器负载平衡，并经过优化，可在 Azure 云中本机运行。 | A10 Networks |
 | ![Arista vEOS 路由器](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS 路由器](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS 路由器是一种功能丰富的多云和多虚拟机监控程序虚拟路由器，使企业和云提供商能够构建一致、高度安全和可缩放的混合网络。 | Arista Networks |
@@ -240,7 +240,7 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![NRI mPLAT Suite - Multi-Cloud Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multi-Cloud Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 单一虚拟管理平台，用于监视、配置、预配、自动化和控制任何工作负荷或云。 | NRI |
 | ![NooBaa Hybrid AWS S3 compatible - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatible - Community Edition](https://www.noobaa.io/hybrid-cloud) | 兼容 S3 的存储服务，涵盖公用的和本地的容量资源。 | NooBaa |
 | ![用于 Multipoint 的 NetFoundry 网关，Azure Stack 中心连接的零信任](media/azure-stack-marketplace-azure-items/netfoundry.png) | [用于 Multipoint 的 NetFoundry 网关，Azure Stack 中心连接的零信任](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | 在 Azure Stack 集线器和任何位置之间通过任何网络连接进行的仅限软件的多点连接，具有业界领先的零信任安全性、VPN 吞吐量的5倍和不受限制的并行用户。 | NetFoundry |
-| ![Palo Alto VM 系列下一代防火墙](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 系列下一代防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM 系列下一代防火墙可以让客户安全地将其应用和数据迁移到 Azure Stack Hub，使用应用允许列表和威胁防范策略保护客户免受已知和未知的威胁。 **此映像需要模板来部署；请参阅此[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以获取重要信息。**| Palo Alto Networks, Inc. |
+| ![Palo Alto VM 系列下一代防火墙](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 系列下一代防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM 系列下一代防火墙使客户能够安全地将其应用程序和数据迁移到 Azure Stack 中心，并通过应用筛选和威胁防护策略保护他们免受已知和未知的威胁。 **此映像需要模板来部署；请参阅此[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以获取重要信息。**| Palo Alto Networks, Inc. |
 | ![PT 应用程序防火墙](media/azure-stack-marketplace-azure-items/pt.png) | [PT 应用程序防火墙](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT 应用程序防火墙检测已知的和未知的漏洞，防范对 Web 应用的攻击。 **下载两种 PT 市场项。** | Positive Technologies |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-201818) | Puppet Enterprise 使你能够自动完成 Azure Stack 中心基础结构的整个生命周期。 **下载两种 Puppet 市场项。** | Puppet |
 | ![Qualys 虚拟扫描仪设备](media/azure-stack-marketplace-azure-items/qualys.png) | [Qualys 虚拟扫描仪设备](https://azuremarketplace.microsoft.com/marketplace/apps/qualysguard.qualys-virtual-scanner-app) | 虚拟扫描器设备扩展了 Qualys Cloud Platform 的集成安全和合规性 SaaS 应用程序。 应用程序模块包括漏洞管理、策略相容性和 Web 应用程序扫描。 | Qualys，Inc。 |

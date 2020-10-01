@@ -1,16 +1,16 @@
 ---
-title: 故障排除
+title: 疑难解答
 description: Azure Stack HCI 上的 Azure Kubernetes 服务故障排除指南
 author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 312431b1ae36debc79b1a9bd3a874b648dfc9cd9
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e30d5ba784efc6453ce161bc2a87db7c728d3fce
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948841"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592932"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务故障排除
 
@@ -24,7 +24,7 @@ ms.locfileid: "90948841"
 ## <a name="troubleshooting-windows-admin-center"></a>Windows Admin Center 疑难解答
 此产品目前处于公共预览状态，这意味着它仍处于开发阶段。 目前，Windows 管理中心 Azure Kubernetes 服务扩展出现了几个问题： 
 * 当前用于在 Azure Stack HCI 上设置 Azure Kubernetes 服务的系统群集中的每个服务器都必须是受信任的服务器。 这意味着，Windows 管理中心必须能够在群集中的每个服务器上执行 CredSSP 操作，而不只是其中的一个或多个服务器。 
-* 如果遇到错误 `msft.sme.aks couldn't load` ，并且错误指出加载区块失败，请使用最新版本的 Edge 或 Google Chrome，然后重试。
+* 如果遇到错误 `msft.sme.aks couldn't load` ，并且错误指出加载区块失败，请使用最新版本的 Microsoft Edge 或 Google Chrome，然后重试。
 * 在启动 Azure Kubernetes Service 主机设置向导或创建 Kubernetes 群集向导之前，应通过 Windows 管理中心登录到 Azure。 在工作流中可能需要重新签名。 如果在通过 Windows 管理中心登录到 Azure 时遇到困难，请尝试从其他源（如 [Azure 门户](https://portal.azure.com/)）登录到 azure 帐户。 如果继续遇到问题，请先查看 [Windows 管理中心的已知问题](/windows-server/manage/windows-admin-center/support/known-issues) 一文，然后再联系以获得支持。
 * 在通过 Windows 管理中心 Azure Stack HCI 部署上的 Azure Kubernetes 服务的当前迭代中，仅设置 Azure Kubernetes 服务主机的用户可以在系统上创建 Kubernetes 群集。 若要解决此问题，请将 `.wssd` 设置 Azure Kubernetes Service 主机的用户配置文件中的文件夹复制到将启动新的 Kubernetes 群集的用户配置文件。
 * 如果在向导中收到有关错误配置的错误，请执行群集清理操作。 这可能涉及到删除 `C:\Program Files\AksHci\mocctl.exe` 文件。

@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2f276149e3998e5483ae4289ae6793d4b3ea86df
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487866"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592879"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub 基础结构安全控制
 
@@ -54,7 +54,7 @@ Azure Stack 集线器基础结构对其所有内部证书使用4096位 RSA 密�
 
 ## <a name="windows-defender-application-control"></a>Microsoft Defender 应用程序控制
 
-Azure Stack Hub 利用最新的 Windows Server 安全功能。 其中一个安全功能是 Windows Defender 应用程序控制（WDAC，以前称为代码完整性），它提供可执行文件允许列表，并确保只有已授权代码在 Azure Stack Hub 基础结构中运行。
+Azure Stack Hub 利用最新的 Windows Server 安全功能。 其中一个是 "Windows Defender 应用程序控制" (WDAC，以前称为 "代码完整性") ，它提供可执行文件筛选并确保只有授权代码在 Azure Stack 中心基础结构中运行。
 
 经授权的代码是由 Microsoft 或 OEM 合作伙伴签名的。 已签名的经授权代码包括在由 Microsoft 定义的策略中指定的允许的软件列表中。 换句话说，只能执行已获批准在 Azure Stack 中心基础结构中运行的软件。 任何执行未经授权代码的尝试都会被阻止，并且会生成警报。 Azure Stack Hub 强制实施用户模式代码完整性 (UMCI) 和虚拟机监控程序代码完整性 (HVCI)。
 
@@ -81,7 +81,7 @@ Azure Stack 中心中的管理由三个入口点控制，每个入口点都有�
 
 - [管理员门户](azure-stack-manage-portals.md)针对日常管理操作提供点击式体验。
 - Azure 资源管理器通过 PowerShell 和 Azure CLI 使用的 REST API 公开管理员门户的所有管理操作。
-- 对于特定的低级操作 (例如，数据中心集成或支持方案) ，Azure Stack 集线器公开了称为 [特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。
+- 对于特定的低级操作 (例如，数据中心集成或支持方案) ，Azure Stack 集线器公开了称为 [特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组允许的 cmdlet，并进行大量审核。
 
 ## <a name="network-controls"></a>网络控制措施
 
