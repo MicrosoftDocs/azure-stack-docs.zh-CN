@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中排查站点到站点 VPN 连接问题
 description: 配置本地网络与 Azure Stack Hub 虚拟网络之间的站点到站点 VPN 连接后可以执行的故障排除步骤。
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/12/2020
+ms.date: 10/01/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: e4385f7b1ac22f36f069e9ac4d5b35011e290982
-ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
+ms.openlocfilehash: 7d4fc17759365434f6179229674b0bb21137f58b
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89510932"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623330"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>排查站点到站点 VPN 连接问题
 
@@ -32,7 +32,7 @@ IPsec/IKEV2 的 Azure Stack Hub 默认参数已更改[（从内部版本 1910 �
 > [!IMPORTANT]
 > 使用 S2S 隧道时，数据包将与其他标头一起进一步封装。 此封装会增加数据包的总大小。 在这些情况下，必须将 TCP **MSS** 固定在 **1350**。 如果 VPN 设备不支持 MSS 钳位，则可以改为在隧道接口上将 MTU 设置为 1400 字节。 有关详细信息，请参阅[虚拟网络 TCPIP 性能优化](/azure/virtual-network/virtual-network-tcpip-performance-tuning)。
 
-- 确认 VPN 配置基于路由 (IKEv2)。 Azure Stack Hub 不支持基于策略的 (IKEv1) 配置。
+- 确认 VPN 配置基于路由 (IKEv2) 。 Azure Stack Hub 不支持基于策略的 (IKEv1) 配置。
 
 - 检查是否使用的是[已验证的 VPN 设备和操作系统版本](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable)。 如果设备是未经验证的 VPN 设备，可能需要与设备制造商联系，了解是否存在兼容性问题。
 

@@ -1,19 +1,19 @@
 ---
 title: 管理 Azure Stack Hub 的存储基础结构
 titleSuffix: Azure Stack
-description: 了解如何管理 Azure Stack Hub 的存储基础结构。
+description: 了解如何管理 Azure Stack Hub 的存储基础结构。 请参阅如何监视卷和驱动器。 查看有关将驱动器添加到池的故障排除提示。
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 5/4/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: 3fff3c9c7742d22c24ab540d4bf523ade3e7a227
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: a267c0bf5429bdd97b5a722f45f2fd188b63efb2
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848301"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623194"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储基础结构
 本文介绍 Azure Stack Hub 存储基础结构资源的运行状况和工作状态。 这些资源包括存储驱动器和卷。 本主题中的信息可帮助你排查各种问题，例如，无法将驱动器添加到池的问题。
@@ -128,7 +128,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 某些驱动器尚未做好加入 Azure Stack Hub 存储池的准备。 通过查看驱动器的 `CannotPoolReason` 属性，可以确定驱动器为何不符合入池条件的原因。 下表更具体地描述了每种原因。
 
-| 原因 | 说明 |
+| Reason | 说明 |
 |---|---|
 | 硬件不合规 | 使用运行状况服务指定的已批准存储模型列表中不包括该驱动程序。<br> <br>**操作：** 使用新磁盘替换该驱动器。 |
 | 固件不合规 | 使用运行状况服务指定的已批准固件修订版列表中不包括该物理驱动器上的固件。<br> <br>**操作：** 使用新磁盘替换该驱动器。 |
@@ -138,4 +138,4 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 | 容量不足 | 某些分区占用了驱动器上的可用空间。<br> <br>**操作：** 使用新磁盘替换该驱动器。 如果必须使用此磁盘，请从系统中删除该磁盘，确保该磁盘上没有任何有用的数据，擦除该磁盘，然后重新安装磁盘。 |
 | 正在验证 | 运行状况服务正在检查是否已批准使用驱动器上的固件。<br> <br>**操作：** 等待 Azure Stack Hub 完成该过程，然后检查状态。 |
 | 验证失败 | 运行状况服务无法检查是否已批准使用驱动器上的固件。<br> <br>**操作：** 请联系支持人员。 在此之前，请参考 https://aka.ms/azurestacklogfiles 中的指导启动日志文件收集过程。 |
-| 脱机 | 驱动器已脱机。 <br> <br>**操作：** 请联系支持人员。 在此之前，请参考 https://aka.ms/azurestacklogfiles 中的指导启动日志文件收集过程。 |
+| Offline | 驱动器已脱机。 <br> <br>**操作：** 请联系支持人员。 在此之前，请参考 https://aka.ms/azurestacklogfiles 中的指导启动日志文件收集过程。 |

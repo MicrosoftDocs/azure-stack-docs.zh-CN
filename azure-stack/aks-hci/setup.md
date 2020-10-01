@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: fa07b755405fced34a404dbd2b2473450a8b8e26
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: c98ad58f92d69b0c3fa0f28a3408013612cc19a6
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948845"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623228"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>快速入门：使用 Windows 管理中心在 Azure Stack HCI 上设置 Azure Kubernetes 服务
 
@@ -51,9 +51,14 @@ ms.locfileid: "90948845"
 
 此工具将安装和下载所需的包，并创建提供核心 Kubernetes 服务并协调应用程序工作负载的管理群集。 
 
-让我们开始吧： 
+使用此工具之前，请打开 PowerShell，然后在每个节点上运行以下命令，以确保 Azure 登录未被任何计算机设置阻止：
+```PowerShell
+az login
+```
+
+现在我们已经验证了系统设置，接下来让我们开始吧： 
 1. 选择 " **设置** " 启动 "设置向导"。
-2. 查看正在运行 Windows 管理中心的计算机、所连接的 Azure Stack HCI 群集以及网络的先决条件。 此外，请确保已登录到 Windows 管理中心上的 Azure 帐户。 完成后，选择“下一步”。
+2. 查看正在运行 Windows 管理中心的计算机、所连接的 Azure Stack HCI 群集以及网络的先决条件。 此外，请确保已登录到 Windows 管理中心上的 Azure 帐户，并且你计划使用的 Azure 订阅未过期。 完成后，选择“下一步”****。
 3. 在向导的 " **系统检查** " 页上，执行所需的任何操作，例如将 Windows 管理中心网关连接到 Azure。 此步骤检查 Windows 管理中心和将托管 Azure Kubernetes 服务的系统是否具有适当的配置以继续。 完成操作后，选择 " **下一步**"。
 4. 在 **主机配置** 步骤中配置将承载 Azure Kubernetes 服务的计算机。 建议选择 " **自动下载** 此部分中的更新"。 完成后，选择 " **下一步** "。 此向导步骤要求你配置以下详细信息：
     * 主机详细信息，如管理群集的名称和用于存储 VM 映像的文件夹

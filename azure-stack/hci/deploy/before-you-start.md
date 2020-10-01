@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: d4dc446f5d58f25ba6183cf4415b5f4e2d34df9a
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.date: 09/30/2020
+ms.openlocfilehash: a5406ef1098750248d516416f55902d5ae6909cd
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230455"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623093"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>部署 Azure Stack HCI 之前的准备工作
 
@@ -145,6 +145,52 @@ Azure Stack HCI 没有特殊的域功能级别要求，只是一个适用于你�
 - ICMPv4 和 ICMPv6（如果使用 Test-SRTopology）
 
 可能需要其他端口，但上面未列出。 这些是用于基本的 Azure Stack HCI 功能的端口。
+
+### <a name="network-switch-requirements"></a>网络交换机要求
+
+本部分定义与 Azure Stack HCI 一起使用的物理交换机的要求。 这些要求列出了所有 Azure Stack HCI 部署所必需的行业规范、组织标准和协议。 除非注明，否则不需要为标准的最新活动 (非取代) 版本。
+
+这些要求有助于确保 Azure Stack HCI 群集部署中的节点之间的可靠通信。 节点之间的可靠通信至关重要。 若要为 Azure Stack HCI 提供所需的可靠性级别，需要交换机：
+
+- 遵守适用的行业规范、标准和协议
+- 提供交换机支持的规范、标准和协议的可见性
+- 提供有关启用了哪些功能的信息
+
+#### <a name="standard-ieee-8021q"></a>标准： IEEE 802.1 Q
+
+以太网交换机必须符合定义 Vlan 的 IEEE 802.1 Q 规范。 Vlan 是 Azure Stack HCI 的几个方面所必需的，并且在所有方案中都是必需的。
+
+#### <a name="standard-ieee-8021-qbb"></a>标准： IEEE 802.1 Q b b
+
+以太网交换机必须符合定义 (PFC) 优先级流控制的 IEEE 802.1 Q b b 规范。 使用数据中心桥接 (DCB) 时，需要 PFC。 由于 DCB 可以在 RoCE 和 iWARP RDMA 方案中使用，因此在所有方案中都需要 802.1 Q b b。 至少需要三类服务 (CoS) 优先级，而不会降级交换机功能或端口速度。
+
+#### <a name="standard-ieee-8021qaz"></a>标准： IEEE 802.1 Qaz
+
+以太网交换机必须符合定义增强传输的 IEEE 802.1 Qaz 规范 (ETS) 。 使用 DCB 时需要 ETS。 由于 DCB 可以在 RoCE 和 iWARP RDMA 方案中使用，因此在所有方案中都需要 802.1 Qaz。 至少需要三个 CoS 优先级，而不会降级交换机功能或端口速度。
+
+#### <a name="standard-ieee-8021ab"></a>标准： IEEE 802.1 AB
+
+以太网交换机必须符合定义 (LLDP) 的链接层发现协议的 IEEE 802.1 AB 规范。 Windows 需要 LLDP 才能发现交换机配置。 必须动态启用 LLDP 类型-长度-值 (TLVs) 的配置。 这些开关不能需要其他配置。
+
+例如，启用802.1 子类型3应自动播发交换机端口上的所有可用 Vlan。
+
+#### <a name="tlv-requirements"></a>TLV 要求
+
+LLDP 允许组织定义并编码自己的自定义 TLVs。 这些称为组织特定的 TLVs。 所有组织特定的 TLVs 从 LLDP TLV 类型值127开始。 下表显示了需要 (TLV 类型 127) 子类型的特定于组织的自定义 TLV，它们是可选的：
+
+|条件|组织|TLV 子类型|
+|-|-|-|
+|可选|IEEE 802。1|端口 VLAN ID (子类型 = 1) |
+|可选|IEEE 802。1|端口和协议 VLAN ID (子类型 = 2) |
+|必需|IEEE 802。1|VLAN 名称 (子类型 = 3) |
+|可选|IEEE 802。1|链接聚合 (子类型 = 7) |
+|可选|IEEE 802。1|拥塞通知 (子类型 = 8) |
+|可选|IEEE 802。1|ETS 配置 (子类型 = 9) |
+|可选|IEEE 802。1|ETS 建议 (子类型 =) |
+|可选|IEEE 802。1|PFC 配置 (子类型 = B) |
+|可选|IEEE 802。1|EVB (子类型 = D) |
+|可选|IEEE 802。3|链接聚合 (子类型 = 3) |
+|必需|IEEE 802。3|最大帧大小 (子类型 = 4) |
 
 ### <a name="storage-requirements"></a>存储要求
 

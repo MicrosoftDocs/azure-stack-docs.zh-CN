@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中使用模板验证工具
 description: 使用模板验证工具检查部署到 Azure Stack Hub 的模板。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 69df3da5b5769be9ee9d9bd3234c53de177fd9e2
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 82eb8ce8b8ddc1b4d357b784814c95809924fc15
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744856"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623245"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用模板验证工具
 

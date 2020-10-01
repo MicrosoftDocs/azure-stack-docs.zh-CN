@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: ddaac062a147440b4ce290ad988629c417a5932a
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 7ef2f0e0532ee342e8821b362b16433f755bc072
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948788"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623262"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>快速入门：使用 Windows 管理中心在 Azure Stack HCI 上创建 Kubernetes 群集
 
@@ -31,7 +31,7 @@ ms.locfileid: "90948788"
 
     ![说明了 Kubernetes 群集向导的 "基本信息" 页。](.\media\create-kubernetes-cluster\basics.png)
 
-5. 你可以配置其他节点池，以便在 " **节点池** " 页上运行工作负荷。 公共预览期间，除了系统节点池) 之外，还可以添加多达一个 Windows 节点池和一个 Linux 节点池 (。 完成后，选择“下一步”****。
+5. 你可以配置其他节点池，以便在 " **节点池** " 页上运行工作负荷。 公共预览期间，除了系统节点池) 之外，还可以添加多达一个 Windows 节点池和一个 Linux 节点池 (。 如果你想要稍后在此向导中启用 Azure Arc 集成，你将需要至少一个不是主节点池的 Linux 节点池。 完成后，选择“下一步”****。
 6. 在 " **网络** " 页上指定网络配置。 如果选择 "高级"，则可以自定义在为群集中的节点创建虚拟网络时使用的地址范围。 如果选择 "基本"，则将使用默认地址范围创建群集中节点的虚拟网络。 无法在公共预览版中更改 (负载平衡器、网络策略和 HTTP 应用程序路由) 的网络设置。 完成后，选择 " **下一步**"。
 
     ![说明 Kubernetes 群集向导的 "网络" 页。](.\media\create-kubernetes-cluster\networking.png)

@@ -1,6 +1,6 @@
 ---
 title: '通过特权终结点 (PEP 收集诊断日志) '
-description: 了解如何使用管理员门户或 PowerShell 脚本在 Azure Stack Hub 中按需收集诊断日志。
+description: 了解如何使用管理员门户或 PowerShell 脚本在 Azure Stack 集线器中收集诊断日志。
 author: justinha
 ms.custom: conteperfq4
 ms.topic: article
@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 6eb6f55ab9836cfd78b2fdb72dff220837f1865a
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 95e12f2f90cd7e33fb3a2cc3a5f016f35ac0e54f
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572810"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623211"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>使用特权终结点 (PEP) 发送 Azure Stack Hub 诊断日志
 

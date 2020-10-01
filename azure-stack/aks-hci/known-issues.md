@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 21c511521837eff83d31784db3cf59bcfe25cb2f
-ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
+ms.openlocfilehash: c11aadf13c33482337a46b1d6e59bf5997f11fc5
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91592824"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623177"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Azure Stack HCI 公共预览版中的 Azure Kubernetes 服务的已知问题
 本文介绍 Azure Stack HCI 上的 Azure Kubernetes 服务的公共预览版本的已知问题。
@@ -76,3 +76,9 @@ Windows 管理中心不会将 Azure Kubernetes 服务部署到具有独立的存
 
 ## <a name="azure-registration-step-in-azure-kubernetes-service-host-setup-asks-to-try-again"></a>Azure Kubernetes 服务主机安装程序中的 azure 注册步骤要求重试
 使用 Windows 管理中心设置 Azure Kubernetes 服务主机时，系统可能会要求你在 Azure 注册页上输入所需的信息后再试一次。 你可能需要在 Windows 管理中心网关上再次登录到 Azure，以便继续执行此步骤。 将来的版本将会解决此问题。
+
+## <a name="windows-admin-center-doesnt-have-an-arc-offboarding-experience"></a>Windows 管理中心没有 Arc 脱离体验
+Windows 管理中心当前没有从 Azure Arc 下架群集的过程。若要删除已销毁的群集上的 Arc aganets，请导航到 Azure 门户中群集的资源组，并手动删除弧线内容。 若要删除仍在运行的群集上的 Arc 代理，用户应运行以下命令：
+```PowerShell
+az connectedk8s delete
+```

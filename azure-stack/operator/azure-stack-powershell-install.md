@@ -1,18 +1,18 @@
 ---
 title: 安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块
-description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。
+description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。 请参阅如何安装 PowerShell AzureRM 模块和所需的 API 配置文件。
 author: mattbriggs
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 246554e669bfac47fb8f65845a1addbf786cc11d
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.openlocfilehash: bbf1a5d296ddbef554a4401e66eab4226ae38dd3
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865177"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623160"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块
 
