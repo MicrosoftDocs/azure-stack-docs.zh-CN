@@ -98,32 +98,38 @@
           href: manage/use-azure-network-adapter.md
 - name: 概念
   items:
-    - name: 延伸群集
-      href: concepts/stretched-clusters.md
-    - name: 计费
-      href: concepts/billing.md
-    - name: 更新和升级
-      href: concepts/updates.md
-    - name: 选择驱动器
-      href: concepts/choose-drives.md
-    - name: 驱动器对称注意事项
-      href: concepts/drive-symmetry-considerations.md
-    - name: 规划卷
-      href: concepts/plan-volumes.md
-    - name: 软件定义的网络
-      href: concepts/software-defined-networking.md
-    - name: 了解存储池缓存
-      href: concepts/cache.md
-    - name: 容错和存储效率
-      href: concepts/fault-tolerance.md
-    - name: 群集和存储池仲裁
-      href: concepts/quorum.md
-    - name: 规划 SDN 基础结构
-      href: concepts/plan-software-defined-networking-infrastructure.md
-    - name: 网络控制器
-      href: concepts/network-controller.md
-    - name: 安全注意事项
-      href: concepts/security.md
+    - name: 存储和群集
+      items:
+        - name: 选择驱动器
+          href: concepts/choose-drives.md
+        - name: 驱动器对称注意事项
+          href: concepts/drive-symmetry-considerations.md
+        - name: 规划卷
+          href: concepts/plan-volumes.md
+        - name: 了解存储池缓存
+          href: concepts/cache.md
+        - name: 容错和存储效率
+          href: concepts/fault-tolerance.md
+        - name: 延伸群集
+          href: concepts/stretched-clusters.md
+        - name: 群集和存储池仲裁
+          href: concepts/quorum.md
+    - name: 网络
+      items:
+        - name: 软件定义的网络
+          href: concepts/software-defined-networking.md
+        - name: 规划 SDN 基础结构
+          href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: 规划网络控制器
+          href: concepts/network-controller.md
+    - name: 维护和安全
+      items:
+        - name: 计费
+          href: concepts/billing.md
+        - name: 更新和升级
+          href: concepts/updates.md
+        - name: 安全注意事项
+          href: concepts/security.md
 - name: 参考
   items:
     - name: Hyper-V PowerShell 命令
