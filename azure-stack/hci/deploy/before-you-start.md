@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/30/2020
-ms.openlocfilehash: a5406ef1098750248d516416f55902d5ae6909cd
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.date: 10/01/2020
+ms.openlocfilehash: 8a4c8557fe708535bfdde383ef30dd78395b1c01
+ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623093"
+ms.locfileid: "91625866"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>部署 Azure Stack HCI 之前的准备工作
 
@@ -148,7 +148,7 @@ Azure Stack HCI 没有特殊的域功能级别要求，只是一个适用于你�
 
 ### <a name="network-switch-requirements"></a>网络交换机要求
 
-本部分定义与 Azure Stack HCI 一起使用的物理交换机的要求。 这些要求列出了所有 Azure Stack HCI 部署所必需的行业规范、组织标准和协议。 除非注明，否则不需要为标准的最新活动 (非取代) 版本。
+本部分定义与 Azure Stack HCI 一起使用的物理交换机的要求。 这些要求列出了所有 Azure Stack HCI 部署所必需的行业规范、组织标准和协议。 除非另有说明，否则不需要为标准的最新活动 (非取代) 版本。
 
 这些要求有助于确保 Azure Stack HCI 群集部署中的节点之间的可靠通信。 节点之间的可靠通信至关重要。 若要为 Azure Stack HCI 提供所需的可靠性级别，需要交换机：
 
@@ -156,11 +156,13 @@ Azure Stack HCI 没有特殊的域功能级别要求，只是一个适用于你�
 - 提供交换机支持的规范、标准和协议的可见性
 - 提供有关启用了哪些功能的信息
 
+如果交换机支持以下各项，请务必询问交换机供应商：
+
 #### <a name="standard-ieee-8021q"></a>标准： IEEE 802.1 Q
 
 以太网交换机必须符合定义 Vlan 的 IEEE 802.1 Q 规范。 Vlan 是 Azure Stack HCI 的几个方面所必需的，并且在所有方案中都是必需的。
 
-#### <a name="standard-ieee-8021-qbb"></a>标准： IEEE 802.1 Q b b
+#### <a name="standard-ieee-8021qbb"></a>标准： IEEE 802.1 Q b b
 
 以太网交换机必须符合定义 (PFC) 优先级流控制的 IEEE 802.1 Q b b 规范。 使用数据中心桥接 (DCB) 时，需要 PFC。 由于 DCB 可以在 RoCE 和 iWARP RDMA 方案中使用，因此在所有方案中都需要 802.1 Q b b。 至少需要三类服务 (CoS) 优先级，而不会降级交换机功能或端口速度。
 
@@ -180,9 +182,10 @@ LLDP 允许组织定义并编码自己的自定义 TLVs。 这些称为组织特
 
 |条件|组织|TLV 子类型|
 |-|-|-|
+|必需|IEEE 802。1|VLAN 名称 (子类型 = 3) |
+|必需|IEEE 802。3|最大帧大小 (子类型 = 4) |
 |可选|IEEE 802。1|端口 VLAN ID (子类型 = 1) |
 |可选|IEEE 802。1|端口和协议 VLAN ID (子类型 = 2) |
-|必需|IEEE 802。1|VLAN 名称 (子类型 = 3) |
 |可选|IEEE 802。1|链接聚合 (子类型 = 7) |
 |可选|IEEE 802。1|拥塞通知 (子类型 = 8) |
 |可选|IEEE 802。1|ETS 配置 (子类型 = 9) |
@@ -190,7 +193,9 @@ LLDP 允许组织定义并编码自己的自定义 TLVs。 这些称为组织特
 |可选|IEEE 802。1|PFC 配置 (子类型 = B) |
 |可选|IEEE 802。1|EVB (子类型 = D) |
 |可选|IEEE 802。3|链接聚合 (子类型 = 3) |
-|必需|IEEE 802。3|最大帧大小 (子类型 = 4) |
+
+> [!NOTE]
+> 将来可能需要列出一些可选功能。
 
 ### <a name="storage-requirements"></a>存储要求
 

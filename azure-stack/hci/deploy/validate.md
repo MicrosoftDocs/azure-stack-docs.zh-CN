@@ -4,23 +4,25 @@ description: 了解群集验证的重要性，以及何时在现有 Azure Stack 
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 8a096af308901669def134e0dd281490c5ed0294
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.date: 10/1/2020
+ms.openlocfilehash: 784f34763f45e7096f72aa23698f9e78cf1bf9b4
+ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572079"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625849"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>验证 Azure Stack HCI 群集
 
 >适用于：Azure Stack HCI 版本 v20H2；Windows Server 2019
 
 本操作指南文章重点介绍群集验证为何重要，以及何时在现有 Azure Stack HCI 群集上运行它。 建议对以下主要方案执行群集验证：
-- 部署服务器群集后，运行 Validate-DCB 工具以测试网络，并在 Windows Admin Center 运行群集验证。
+- 部署服务器群集后，请运行 DCB 工具以测试网络。
 - 更新服务器群集后，根据方案，运行两个验证选项以排查群集问题。
 - 在设置使用存储副本进行复制后，通过检查某些特定事件并运行几个命令来验证复制是否正常进行。
-若要了解如何部署 Azure Stack HCI 群集，请参阅[部署存储空间直通](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct)。
+- 创建服务器群集后，请运行 DCB 工具，然后将其投入生产。
+
+    若要了解有关如何部署 Azure Stack HCI 群集的详细信息，请参阅 [部署概述](/deploy/deployment-overview)。
 
 ## <a name="what-is-cluster-validation"></a>什么是群集验证？
 群集验证的目的是在群集投入生产之前找出硬件或配置的问题。 群集验证有助于确保你即将部署的 Azure Stack HCI 解决方案真正可靠。 你还可以在已配置的故障转移群集上使用群集验证作为诊断工具。
@@ -84,14 +86,14 @@ Microsoft Validate-DCB 工具用于验证群集上的数据中心桥接 (DCB) �
    1. 在“适配器名称”下，键入每个物理 NIC 的名称，在“主机 vNIC 名称”下，键入每个虚拟 NIC (vNIC) 的名称，在“VLAN”下，键入每个适配器使用的 VLAN ID  。
    1. 展开“RDMA 类型”下拉列表框并选择相应的协议：RoCE 或 iWARP 。 同时将“Jumbo 帧”设置为适合你的网络的值，然后选择“下一步” 。
 
-    :::image type="content" source="../media/validate/adapters.png" alt-text=" 配置向导的“适配器”页面" lightbox="../media/validate/adapters.png":::
+    :::image type="content" source="../media/validate/adapters.png" alt-text="Validate-DCB 配置向导的“群集和节点”页面" lightbox="../media/validate/adapters.png":::
 
     > [!NOTE]
     > - 要了解 SR-IOV 如何提高网络性能，请参阅[单个根 I/O 虚拟化 (SR-IOV) 概述](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-)。
 
 1. 在“数据中心桥接”页面上，修改值以匹配组织的“优先级”、“策略名称”和“带宽保留”的设置，然后选择“下一步”   。
 
-    :::image type="content" source="../media/validate/data-center-bridging.png" alt-text=" 配置向导的“数据中心桥接”页面" lightbox="../media/validate/data-center-bridging.png":::
+    :::image type="content" source="../media/validate/data-center-bridging.png" alt-text="Validate-DCB 配置向导的“群集和节点”页面" lightbox="../media/validate/data-center-bridging.png":::
 
     > [!NOTE]
     > 在前一个向导页面上选择基于 RoCE 的 RDMA 需要 DCB 来保证所有 NIC 和交换机端口的网络可靠性。
@@ -100,7 +102,7 @@ Microsoft Validate-DCB 工具用于验证群集上的数据中心桥接 (DCB) �
 
    - 你可以选择通过完成该页面的“将配置部署到节点”部分来部署配置文件，这包括使用 Azure 自动化帐户部署配置并对其进行验证的功能。 请参阅[创建 Azure 自动化帐户](/azure/automation/automation-quickstart-create-account)以开始使用 Azure 自动化。
 
-    :::image type="content" source="../media/validate/save-and-deploy.png" alt-text=" 配置向导的“保存并部署”页面":::
+    :::image type="content" source="../media/validate/save-and-deploy.png" alt-text="Validate-DCB 配置向导的“群集和节点”页面":::
 
 ### <a name="review-results-and-fix-errors"></a>查看结果并修复错误
 Validate-DCB 工具产生两个单元的结果：
@@ -109,24 +111,24 @@ Validate-DCB 工具产生两个单元的结果：
 
 此示例通过指示失败计数为 0 来表明单个服务器的所有先决条件和模式单元测试的扫描结果成功。
 
-:::image type="content" source="../media/validate/global-unit-and-modal-unit-results.png" alt-text=" 全局单元和模式单元测试结果":::
+:::image type="content" source="../media/validate/global-unit-and-modal-unit-results.png" alt-text="Validate-DCB 配置向导的“群集和节点”页面":::
 
 以下步骤演示了如何从 vNIC SMB02 识别大型数据包错误以及如何修复：
 1. Validate-DCB 工具扫描的结果显示，失败计数错误为 1。
 
-    :::image type="content" source="../media/validate/failed-count-error-1.png" alt-text="Validate-DCB 工具扫描结果显示失败计数错误为 1":::
+    :::image type="content" source="../media/validate/failed-count-error-1.png" alt-text="Validate-DCB 配置向导的“群集和节点”页面":::
 
 1. 向后滚动结果显示一个红色标示的错误，指示主机 S046036 上 vNIC SMB02 的大型数据包被设置为默认大小 1514，但应该设置为 9014。
 
-    :::image type="content" source="../media/validate/jumbo-packet-setting-error.png" alt-text="Validate-DCB 工具扫描结果显示大型数据包大小设置错误":::
+    :::image type="content" source="../media/validate/jumbo-packet-setting-error.png" alt-text="Validate-DCB 配置向导的“群集和节点”页面":::
 
 1. 查看主机 S046036 上 vNIC SMB02 的高级属性，可以发现大型数据包被设置为默认“已禁用” 。
 
-    :::image type="content" source="../media/validate/hyper-v-advanced-properties-jumbo-packet-setting.png" alt-text="服务器主机的 Hyper-v 高级属性大型数据包设置":::
+    :::image type="content" source="../media/validate/hyper-v-advanced-properties-jumbo-packet-setting.png" alt-text="Validate-DCB 配置向导的“群集和节点”页面":::
 
 1. 修复错误需要启用大型数据包功能并将其大小更改为 9014 字节。 在主机 S046036 上再次运行扫描将通过返回失败计数 0 来确认此更改。
 
-    :::image type="content" source="../media/validate/jumbo-packet-error-fix-confirmation.png" alt-text="Validate-DCB 扫描结果确认服务器主机的大型数据包设置已修复":::
+    :::image type="content" source="../media/validate/jumbo-packet-error-fix-confirmation.png" alt-text="Validate-DCB 配置向导的“群集和节点”页面":::
 
 若要详细了解如何解决 DCB 工具标识的错误，请参阅以下视频。
 
@@ -143,7 +145,7 @@ Validate-DCB 工具产生两个单元的结果：
 1. 在“库存”页面上，选择群集中的服务器，然后展开“更多”子菜单并选择“验证群集”  。
 1. 在“验证群集”弹出窗口中，选择“是” 。
 
-    :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="“验证群集”弹出窗口":::
+    :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="Validate-DCB 配置向导的“群集和节点”页面":::
 
 1. 在“凭证安全服务提供者(CredSSP)”弹出窗口中，选择“是” 。
 1. 提供凭据以启用 CredSSP，然后选择“继续” 。<br> 群集验证在后台运行，并在完成时向你发出通知，此时你可以查看验证报告，如下一节所述。
