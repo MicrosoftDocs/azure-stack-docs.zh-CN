@@ -4,13 +4,13 @@ description: 了解群集验证的重要性，以及何时在现有 Azure Stack 
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 10/1/2020
-ms.openlocfilehash: 784f34763f45e7096f72aa23698f9e78cf1bf9b4
-ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
+ms.date: 10/2/2020
+ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
+ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91625849"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91663935"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>验证 Azure Stack HCI 群集
 
@@ -22,7 +22,7 @@ ms.locfileid: "91625849"
 - 在设置使用存储副本进行复制后，通过检查某些特定事件并运行几个命令来验证复制是否正常进行。
 - 创建服务器群集后，请运行 DCB 工具，然后将其投入生产。
 
-    若要了解有关如何部署 Azure Stack HCI 群集的详细信息，请参阅 [部署概述](/deploy/deployment-overview)。
+    若要了解有关如何部署 Azure Stack HCI 群集的详细信息，请参阅 [部署概述](deployment-overview.md)。
 
 ## <a name="what-is-cluster-validation"></a>什么是群集验证？
 群集验证的目的是在群集投入生产之前找出硬件或配置的问题。 群集验证有助于确保你即将部署的 Azure Stack HCI 解决方案真正可靠。 你还可以在已配置的故障转移群集上使用群集验证作为诊断工具。
