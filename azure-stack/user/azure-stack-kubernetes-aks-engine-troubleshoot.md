@@ -3,16 +3,16 @@ title: 排查 Azure Stack Hub 上的 AKS 引擎问题
 description: 本文包含针对 Azure Stack Hub 上 AKS 引擎的故障排除步骤。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: e9e1e09d40be623dfb973503295274790a86dfb8
-ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
+ms.lastreviewed: 10/02/2020
+ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
+ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89560957"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729213"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>排查 Azure Stack Hub 上的 AKS 引擎问题
 
@@ -84,7 +84,7 @@ ms.locfileid: "89560957"
 
 ## <a name="collect-kubernetes-logs"></a>收集 Kubernetes 日志
 
-此外，对于 AKS 引擎日志，Kubernetes 组件会生成状态和错误消息。 可使用 Bash 脚本 [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3) 收集这些日志。
+此外，对于 AKS 引擎日志，Kubernetes 组件会生成状态和错误消息。 可使用 Bash 脚本 [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.5) 收集这些日志。
 
 此脚本可实现自动收集以下日志： 
 
@@ -112,8 +112,8 @@ ms.locfileid: "89560957"
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
-    tar xvf diagnosis-v0.1.1.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.5/diagnosis-v0.1.5.tar.gz
+    tar xvf diagnosis-v0.1.5.tar.gz -C ./
     ```
 
 2. 查找 `getkuberneteslogs.sh` 脚本所需的参数。 此脚本将使用以下参数：
