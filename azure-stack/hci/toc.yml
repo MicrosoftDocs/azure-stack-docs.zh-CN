@@ -78,6 +78,8 @@
           href: manage/manage-azure-registration.md
         - name: 更改语言
           href: manage/languages.md
+        - name: 更改隐私设置
+          href: manage/change-privacy-settings.md
         - name: 对群集验证报告进行故障排除
           href: manage/validate-qos.md
         - name: 对 CredSSP 进行故障排除
