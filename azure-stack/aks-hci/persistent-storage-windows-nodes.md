@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 7436498ea993281f803d7ff8a0c4108728570f59
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 91f7249beb34e5afee808d299df48611a5ce26bb
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948869"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778123"
 ---
 # <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>在 Windows 容器中使用持久性存储并为组托管服务帐户准备 Windows 节点
 
@@ -146,7 +146,7 @@ kubectl get nodes -o wide
 
 然后，你可以使用通过 SSH 连接到该节点 `ssh Administrator@ip` 。 
 
-成功登录 Windows 辅助角色节点后，运行以下 PowerShell 命令，将节点加入到域。 系统将提示你输入 **域管理员帐户** 凭据。 你还可以使用已授予权限将计算机加入到给定域的特权用户凭据。 然后，需要重新启动 Windows 辅助角色节点。
+成功登录到 Windows 辅助角色节点后，运行以下 PowerShell 命令，将节点加入到域。 系统将提示你输入 **域管理员帐户** 凭据。 你还可以使用已授予权限将计算机加入到给定域的特权用户凭据。 然后，需要重新启动 Windows 辅助角色节点。
 
 ```PowerShell
 add-computer --domainame "YourDomainName" -restart

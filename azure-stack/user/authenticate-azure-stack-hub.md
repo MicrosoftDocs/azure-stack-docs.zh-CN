@@ -3,16 +3,16 @@ title: 获取 Azure Stack 集线器的身份验证信息
 description: 了解如何获取 Azure Stack Hub 的身份验证信息
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 4b6b13c2dc81a06d815222583dd3807f85c99de5
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/05/2020
+ms.openlocfilehash: b6fd470ccc02f59a950028f309aac0e81c9ef9d2
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572538"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778184"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>获取 Azure Stack Hub 的身份验证信息
 

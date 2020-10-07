@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 更新活动清单
 description: 为系统准备最新 Azure Stack Hub 更新的清单。
-author: sethmanheim
+author: myoungerman
 ms.topic: article
 ms.date: 08/10/2020
-ms.author: sethm
+ms.author: v-myoung
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f3904d481aa9dd27dafecdf592a45d95799aa2e8
-ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
+ms.openlocfilehash: f3839c9191a5b96c9a489d7c13b83b1f8f13fdf9
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89510949"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778157"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack Hub 更新活动清单
 
@@ -26,7 +26,7 @@ ms.locfileid: "89510949"
 | 查看安全更新 | [安全更新列表](release-notes-security-updates.md)。      |
 | 查看加载项资源提供程序更新 | [应用服务](azure-stack-app-service-update.md)<br>[事件中心](resource-provider-apply-updates.md)<br> [MySQL](azure-stack-mysql-resource-provider-update.md)<br>[SQL](azure-stack-sql-resource-provider-update.md)<br>  |
 | 应用最新的 OEM 包 | 请与 OEM 联系，以确保你的系统满足系统要更新到的 Azure Stack Hub 版本的最低 OEM 包要求。 确保 OEM 包与要更新到的 Azure Stack Hub 版本兼容。 如果 OEM 包与要更新到的 Azure Stack Hub 版本不兼容，则必须在运行 Azure Stack Hub 更新之前，先执行 OEM 包更新。 有关说明，请参阅“应用 Azure Stack Hub 原始设备制造商 (OEM) 更新”。 |
-| 可选：配置日志自动收集 | 建议在 Azure Stack Hub 环境的基础上配置日志自动收集，以便在需要开具支持票证时简化收集系统日志的过程。 若要配置日志自动收集，请参阅[配置 Azure Stack Hub 诊断日志自动收集](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)中的说明。 |
+| 可选：配置日志自动收集 | 建议在 Azure Stack Hub 环境的基础上配置日志自动收集，以便在需要开具支持票证时简化收集系统日志的过程。 若要配置自动日志收集，请参阅 [主动发送日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)中的说明。 |
 | 应用最新修补程序 | 应用适用于当前安装版本的最新修补程序。 有关最新修补程序的列表，请参阅[发行说明中的“修补程序”](release-notes.md)部分。 |
 | 运行 Capacity Planner 工具 | 请确保使用最新版本的 [Azure Stack Hub Capacity Planner 工具](azure-stack-capacity-planning-overview.md)来执行工作负荷规划和大小调整。 最新版本包含 bug 修复，并提供与每个 Azure Stack Hub 更新一起发布的新功能。 |
 | 运行 **Test-AzureStack** | 运行 `Test-AzureStack -Group UpdateReadiness` 确定操作问题。 可通过特权终结点会话 (PEP) 访问 Cmdlet。 有关详细信息，请参阅[验证 Azure Stack Hub 系统状态](azure-stack-diagnostic-test.md)。 |

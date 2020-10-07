@@ -2,18 +2,18 @@
 title: 排查 Azure Stack Hub 问题
 titleSuffix: Azure Stack
 description: 了解如何排查 Azure Stack Hub 的问题，包括 VM、存储和应用服务的问题。
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 07/21/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 8072a868106de26be3cbb2b2918d97696647df77
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 403335a81a5ac02f2e32432f54df584baf7c2a02
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041615"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778149"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -30,7 +30,7 @@ ms.locfileid: "89041615"
 
 ### <a name="updates-and-diagnostics"></a>更新和诊断
 
-* [如何在 Azure Stack Hub 中使用诊断工具](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
+* [如何在 Azure Stack Hub 中使用诊断工具](./azure-stack-diagnostic-log-collection-overview.md)
 * [如何验证 Azure Stack Hub 系统状态](azure-stack-diagnostic-test.md)
 * [更新包发布频率](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [对节点状态进行验证和故障排除](azure-stack-node-actions.md)
@@ -199,11 +199,11 @@ slmgr /ipk <AVMA_key>
 
 Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单的方式应用更新包。 虽然不常见，但在修补和更新过程中可能会出现问题。 如果在修补和更新过程中遇到问题，建议执行以下步骤：
 
-0. **先决条件**：请确保已遵循[更新活动清单](release-notes-checklist.md)，并[启用主动日志收集](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)。
+0. **先决条件**：请确保已遵循[更新活动清单](release-notes-checklist.md)，并[启用主动日志收集](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)。
 
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
 
-2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md?view=azs-2002)。 请确保已针对发生问题的时间跨度[收集日志](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)。
+2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md?view=azs-2002)。 请确保已针对发生问题的时间跨度[收集日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>常见 Azure Stack Hub 修补程序和更新问题
 

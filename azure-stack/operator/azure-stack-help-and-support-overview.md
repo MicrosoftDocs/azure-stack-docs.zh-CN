@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: e4d167a6600f8bf4c921acb640af3ab606f67c59
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: c0cf805773100e2f265c2e088a6f6cd442553ec2
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107056"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778276"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub 帮助和支持
 
@@ -66,8 +66,8 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 可以通过两种方式将诊断日志发送到 Microsoft：
 
-- [主动发送日志](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)：如果启用，日志收集将由特定的运行状况警报触发。
-- [立即发送日志](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)：可以手动选择特定滑动窗口作为日志收集的时间范围。
+- [主动发送日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)：如果启用，日志收集将由特定的运行状况警报触发。
+- [立即发送日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)：可以手动选择特定滑动窗口作为日志收集的时间范围。
 
 ![显示如何开始收集诊断日志的屏幕截图。](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
