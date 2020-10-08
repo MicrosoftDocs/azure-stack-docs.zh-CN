@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.openlocfilehash: 1a8e4618f81f157ff05117505bf5b76922bd4c35
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428543"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815132"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>将外部监视解决方案与 Azure Stack Hub 集成
 
@@ -119,9 +119,9 @@ samples/etc/azurestack_services.cfg
 
 | 参数 | 说明 | 身份验证 |
 | --- | --- | --- |
-| **External_domain_fqdn ** | 外部域 FQDN |    |
-| **region: ** | 区域名称 |    |
-| **tenant_id: ** | 租户 ID\* |    |
+| **External_domain_fqdn** | 外部域 FQDN |    |
+| **区** | 区域名称 |    |
+| **tenant_id：** | 租户 ID\* |    |
 | client_id: | 客户端 ID | 包含机密的 SPN |
 | client_secret: | 客户端密码 | 包含机密的 SPN |
 | client_cert\*\*: | 证书的路径 | 包含证书的 SPN |
@@ -189,7 +189,7 @@ samples/etc/azurestack_services.cfg
 /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
 ```
 
-### <a name="troubleshooting"></a>故障排除
+### <a name="troubleshooting"></a>疑难解答
 
 通过在终端中手动调用插件，对插件进行故障排除。 使用以下方法：
 
@@ -235,7 +235,7 @@ samples/etc/azurestack_services.cfg
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>了解详细信息
+## <a name="learn-more"></a>了解更多
 
 有关内置运行状况监视的信息，请参阅 [监视 Azure Stack 集线器中的运行状况和警报](azure-stack-monitor-health.md)。
 

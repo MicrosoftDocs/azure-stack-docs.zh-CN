@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 4aeca3ba7630d05921578de7023359c042d74ffb
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9d9bf332c71bbafd78a235cf0257283738e5a304
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574102"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815506"
 ---
 # <a name="vnet-peering-with-fortigate"></a>VNET 与 FortiGate 的对等互连
 
@@ -75,9 +75,7 @@ ms.locfileid: "90574102"
 
 1.  打开 Azure Stack Hub 用户门户。
 
-    ![主屏幕显示为 "+ 创建资源" 按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
-
-2.  选择“创建资源”，然后搜索 `FortiGate`。****
+2.  选择“创建资源”，然后搜索 `FortiGate`。 
 
     ![搜索结果列表显示 FortiGate NGFW-单 VM 部署。](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
 
@@ -102,7 +100,7 @@ ms.locfileid: "90574102"
 
 9.  选择“确定”  。 再选择“确定”。****
 
-10.  选择“创建”。
+10.  选择“创建”  。
 
 完成部署大约需要 10 分钟。
 
@@ -126,7 +124,7 @@ ms.locfileid: "90574102"
 
     !["到 Internet" 路由是唯一列出的路由，并且处于选中状态。 有一个删除按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
 
-1. 请选择“是”。
+1. 请选择“是”。 
 
 1. 选择“添加”以添加新路由。****
 
@@ -178,7 +176,7 @@ ms.locfileid: "90574102"
 
     ![VPN 创建向导的屏幕截图显示在第一步 "VPN 设置"。 选择以下值： "站点到站点" （对于模板类型为 "FortiGate"）; 对于 NAT 配置，为 "此站点位于 NAT 后面"。](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
 
-1. 选择“下一步”  。
+1. 选择“下一步”。
 
 1. 输入要连接到的本地 VPN 设备的远程 IP 地址。
 
@@ -191,7 +189,7 @@ ms.locfileid: "90574102"
 
     ![VPN 创建向导的屏幕截图显示其在第二步 "身份验证" 中，并突出显示所选值。](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
 
-1. 选择“下一步”  。
+1. 选择“下一步”。
 
 1. 对于“本地接口”，请选择“port2”。********
 

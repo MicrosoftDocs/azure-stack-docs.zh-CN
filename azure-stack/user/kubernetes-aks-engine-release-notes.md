@@ -7,12 +7,12 @@ ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: b4c5a2f6af605cc390a990df874bceae691006d3
+ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495756"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91810637"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上的 AKS 引擎发行说明
 ::: moniker range=">=azs-2002"
@@ -68,7 +68,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 
 -   Azure Stack Hub 操作员需要将新的 AKS 基础 Ubuntu 映像下载到缩放单元市场：
 
-    -   名称： AKS Base Ubuntu 16.04-LTS Image 发行版，8月 2020 (2020.09.14) 
+    -   名称： AKS Base Ubuntu 16.04-LTS Image 发行版，9月 2020 (2020.09.14) 
 
     -   版本：2020.09.14
 

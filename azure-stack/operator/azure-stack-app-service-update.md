@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 6a63ae93488a13b2b3c8f872aadf882a9ccd1a13
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 5dc8599a62c4b9e10d603bf2f02f18bf5024e203
+ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106860"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91810654"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>更新 Azure Stack Hub 上的 Azure 应用服务
 
@@ -141,7 +141,7 @@ ms.locfileid: "91106860"
 
 2. 单击“高级”**** > ****“完成离线安装或升级”。
 
-    ![演示如何在应用服务安装程序中进行脱机安装或升级的屏幕截图。][12]
+    ![演示如何在应用服务安装程序中完成脱机安装或升级的屏幕截图。][12]
 
 3. 浏览到前面创建的离线升级包所在的位置，单击“下一步”。****
 

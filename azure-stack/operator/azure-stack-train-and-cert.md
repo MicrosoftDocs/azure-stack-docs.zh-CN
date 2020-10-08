@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: inhenkel
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemm
-ms.openlocfilehash: bbf668cf509fcc2ccde4d0a60f20d3f74a935a1e
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: a1fa7c9ee34532857a8968a286c2248947115acd
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487611"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815353"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Azure Stack Hub 培训和认证
 
@@ -22,10 +22,6 @@ ms.locfileid: "86487611"
 想要了解 Azure Stack 中心，并向你展示 Azure Stack 中心的熟练程度？ 请查看以下培训和认证机会。
 
 ## <a name="training"></a>培训
-
-- Microsoft 官方课程点播：
-   - [ODX20537：配置和操作 Microsoft Azure Stack Hub (180 天的混合云) ](https://www.microsoft.com/learning/course.aspx?cid=ODX20537)
-   - [OD20537：配置和操作 Microsoft Azure Stack Hub (90 天的混合云) ](https://www.microsoft.com/learning/course.aspx?cid=OD20537)
 
 - Microsoft IT 培训课程：
    - [课程20537A：使用 Microsoft Azure Stack 集线器配置和操作混合云](https://aka.ms/azsmoc)
