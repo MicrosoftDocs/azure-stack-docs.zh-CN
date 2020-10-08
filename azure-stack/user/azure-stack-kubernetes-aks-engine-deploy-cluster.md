@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 68acf1fa04762d8288e621c5087d501c464912fd
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b90b7c61e5eeed1265bf258b6ba3ce7b042b6897
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573949"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853187"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 
@@ -226,6 +226,22 @@ ms.locfileid: "90573949"
     ```bash
     kubectl delete deployment -l app=redis
     ```
+
+## <a name="rotate-your-service-principle-secret"></a>轮换服务主体机密
+
+使用 AKS 引擎部署 Kubernetes 群集后，服务主体 (SPN) 用于管理与 Azure Stack 中心实例上的 Azure 资源管理器的交互。 在某些时候，此服务主体的机密可能会过期。 如果你的机密过期，你可以通过以下方式刷新凭据：
+
+- 正在用新服务主体机密更新每个节点。
+- 或更新 API 模型凭据并运行升级。
+
+### <a name="update-each-node-manually"></a>手动更新每个节点
+
+1. 从云操作员获取服务主体的新机密。 有关 Azure Stack 中心的说明，请参阅 [使用应用标识访问 Azure Stack 中心资源](/azure-stack/operator/azure-stack-create-service-principals)。
+2. 使用云操作员提供的新凭据 `/etc/kubernetes/azure.json` 在每个节点上进行更新。 进行更新后，重新启动 **kubelet** 和 **kube**。
+
+### <a name="update-the-cluster-with-aks-engine-update"></a>用 aks 更新更新群集
+
+或者，你可以替换中的凭据 `apimodel.json` ，并使用更新的 json 将升级运行到相同或较新的 Kubernetes 版本。 有关升级模型的说明，请参阅 [在 Azure Stack 集线器上升级 Kubernetes 群集](azure-stack-kubernetes-aks-engine-upgrade.md)
 
 ## <a name="next-steps"></a>后续步骤
 

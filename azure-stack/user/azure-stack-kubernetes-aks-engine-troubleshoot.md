@@ -3,16 +3,16 @@ title: 排查 Azure Stack Hub 上的 AKS 引擎问题
 description: 本文包含针对 Azure Stack Hub 上 AKS 引擎的故障排除步骤。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 10/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/02/2020
-ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.lastreviewed: 10/07/2020
+ms.openlocfilehash: ae82bb1c07ec8f466eb29fe8c610af09e01e233a
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729213"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853170"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>排查 Azure Stack Hub 上的 AKS 引擎问题
 
@@ -88,14 +88,27 @@ ms.locfileid: "91729213"
 
 此脚本可实现自动收集以下日志： 
 
- - Microsoft Azure Linux 代理 (waagent) 日志
- - 自定义脚本扩展日志
- - 运行 kube-system 容器元数据
- - 运行 kube-system 容器日志
- - Kubelet 服务状态和日记
- - Etcd 服务状态和日记
- - 库项的 DVM 日志
- - kube-system 快照
+- 目录中的日志文件 `/var/log/azure/`
+- 目录中的日志文件 `/var/log/kubeaudit` (kube 审核日志) 
+- 日志文件 `/var/log/waagent.log` (waagent) 
+- 日志文件 `/var/log/azure/deploy-script-dvm.log` (如果使用 Azure Stack 中心的 Kubernetes 群集 marketplace 项进行部署) 
+- 目录中的静态清单 `/etc/kubernetes/manifests`
+- 目录中的静态加载项` /etc/kubernetes/addons`
+- kube-系统容器元数据和日志
+- kubelet 状态和日志
+- etcd 状态和日志
+- Docker 状态和日志
+- kube-系统快照
+- Azure CNI config 文件
+
+为 Windows 节点检索一些其他日志：
+
+- 日志文件 `c:\Azure\CustomDataSetupScript.log`
+- kube-代理状态和日志
+- containerd 状态和日志
+- azure vnet 日志和 azure vnet-遥测日志
+- Docker 的 ETW 事件
+- Hyper-v 的 ETW 事件
 
 如果没有此脚本，需要连接到群集中的每个节点，手动查找并下载日志。 此外，该脚本还可以（可选）将收集的日志上传到存储帐户，通过该帐户与其他人共享日志。
 

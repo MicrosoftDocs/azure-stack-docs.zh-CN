@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 463fc8fbee16aa7eddc78cee7c3868f1526fad21
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: 7a5135b9b6610e8ceeca4f4d3e34dca1f2aafc88
+ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134740"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91847623"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack Hub 中轮换机密
 
@@ -106,7 +106,7 @@ Azure Stack 集线器使用机密来维护与基础结构资源和服务之间�
 
 若要轮替外部机密，请完成以下附加先决条件：
 
-1. 在轮换机密之前，请运行 **[Test-AzureStack](azure-stack-diagnostic-test.md)** 并确认所有测试输出都正常。
+1. **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** 使用参数运行 PowerShell cmdlet `-group SecretRotationReadiness` ，以在轮换机密之前确认所有测试输出都处于正常状态。
 2. 准备一组新的替换外部证书：
     - 新集必须与 [Azure Stack 中心 PKI 证书要求](azure-stack-pki-certs.md)中所述的证书规格匹配。 
     - 你可以 (CSR 生成证书签名请求) 使用 "[准备 PKI 证书](azure-stack-prepare-pki-certs.md)" 中所述的步骤，使用 "[生成证书签名请求](azure-stack-get-pki-certs.md)并准备好用于 Azure Stack 中心环境中所述的步骤，将证书签名请求提交给证书颁发机构 () CA"。 
@@ -200,7 +200,7 @@ Azure Stack 集线器使用机密来维护与基础结构资源和服务之间�
 
     - 使用**CloudAdmin**帐户创建具有[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 会话，并将会话存储为变量。 此变量在下一步中用作参数。 
 
-    - 运行 [调用-命令](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)，将 PEP 会话变量作为参数传递 `-Session` 。
+    - 运行 [调用-命令](/powershell/module/microsoft.powershell.core/Invoke-Command)，将 PEP 会话变量作为参数传递 `-Session` 。
 
     - `Start-SecretRotation`使用以下参数在 PEP 会话中运行：
         - `-PfxFilesPath`：之前创建的证书目录的网络路径。  
@@ -268,7 +268,7 @@ Azure Stack 集线器使用机密来维护与基础结构资源和服务之间�
 
 2. 在 Azure Stack Hub 会话中打开特权终结点。 有关说明，请参阅[使用 Azure Stack Hub 中的特权终结点](azure-stack-privileged-endpoint.md)。 
 
-3. 在 PowerShell 提示符更改为或更改为之后， `[IP address or ERCS VM name]: PS>` `[azs-ercs01]: PS>` 根据环境，运行将运行 `Set-BmcCredential` `Invoke-Command` 。 如果将可选 `-BypassBMCUpdate` 参数与配合使用 `Set-BMCCredential` ，则不会更新 BMC 中的凭据。 仅更新 Azure Stack 集线器内部数据存储。将特权终结点会话变量作为参数进行传递。 
+3. 打开特权终结点会话后，运行下面的一个 PowerShell 脚本，该脚本使用 Invoke-Command 运行 BmcCredential。 如果将 BypassBMCUpdate 参数与 BMCCredential 一起使用，则不会更新 BMC 中的凭据。 仅更新 Azure Stack 集线器内部数据存储。将特权终结点会话变量作为参数进行传递。
 
     下面是一个示例 PowerShell 脚本，它将提示输入用户名和密码： 
 
@@ -308,7 +308,7 @@ Azure Stack 集线器使用机密来维护与基础结构资源和服务之间�
     Remove-PSSession -Session $PEPSession
     ```
 
-## <a name="reference-start-secretrotation-cmdlet"></a>参考： Start-secretrotation cmdlet
+## <a name="reference-start-secretrotation-cmdlet"></a>参考： Start-SecretRotation cmdlet
 
 [Start-secretrotation cmdlet](/azure-stack/reference/pep-2002/start-secretrotation) 旋转 Azure Stack 中心系统的基础结构机密。 仅可通过使用  `Invoke-Command` 在参数中传递 PEP 会话的脚本块，对 Azure Stack 集线器特权终结点执行此 cmdlet `-Session` 。 默认情况下，它只轮换所有外部网络基础结构终结点的证书。
 

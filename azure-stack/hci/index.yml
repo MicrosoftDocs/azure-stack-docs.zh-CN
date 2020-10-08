@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 07/21/2020
-  ms.openlocfilehash: 439e41651800ddb6ee478bfad083890193aef5da
-  ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
+  ms.date: 10/5/2020
+  ms.openlocfilehash: f66164d37b0e5fa1fab243f73b81df3b732205bc
+  ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/22/2020
-  ms.locfileid: "86891962"
+  ms.lasthandoff: 10/08/2020
+  ms.locfileid: "91853136"
 landingContent:
 - title: 关于 Azure Stack HCI
   linkLists:
@@ -29,9 +29,9 @@ landingContent:
   linkLists:
   - linkListType: deploy
     links:
-    - text: 开始之前
+    - text: 在开始之前
       url: deploy/before-you-start.md
-    - text: 部署 Azure Stack HCI 操作系统
+    - text: 部署 Azure Stack HCI OS
       url: deploy/operating-system.md
     - text: 创建群集
       url: deploy/create-cluster.md
@@ -39,7 +39,7 @@ landingContent:
       url: deploy/witness.md
     - text: 注册到 Azure
       url: deploy/register-with-azure.md
-    - text: 验证 Azure Stack HCI 群集
+    - text: 验证群集
       url: deploy/validate.md
 - title: 管理存储
   linkLists:
@@ -49,22 +49,18 @@ landingContent:
       url: manage/create-volumes.md
     - text: 创建延伸卷
       url: manage/create-stretched-volumes.md
+    - text: 保护卷
+      url: manage/volume-encryption-deduplication.md
     - text: 扩展卷
       url: manage/extend-volumes.md
     - text: 删除卷
       url: manage/delete-volumes.md
     - text: 更换驱动器
       url: manage/replace-drives.md
-- title: 管理 VM
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 使用 Windows Admin Center 管理 VM
-      url: manage/vm.md
-    - text: 使用 PowerShell 管理 VM
-      url: manage/vm-powershell.md
-    - text: 设置 VM 相关性规则
-      url: deploy/before-you-start.md
+    - text: 使用 CSV 缓存
+      url: manage/use-csv-cache.md
+    - text: 管理 SMB 多通道
+      url: manage/manage-smb-multichannel.md
 - title: 管理群集
   linkLists:
   - linkListType: how-to-guide
@@ -75,10 +71,22 @@ landingContent:
       url: manage/cluster-powershell.md
     - text: 添加或删除服务器
       url: manage/add-cluster.md
+    - text: 监视群集
+      url: manage/monitor-cluster.md
     - text: 更新群集
       url: manage/update-cluster.md
     - text: 更改语言
       url: manage/vm-powershell.md
+- title: 管理 VM
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 使用 Windows Admin Center 管理 VM
+      url: manage/vm.md
+    - text: 使用 PowerShell 管理 VM
+      url: manage/vm-powershell.md
+    - text: 设置 VM 相关性规则
+      url: deploy/before-you-start.md
 - title: Azure Stack HCI 概念
   linkLists:
   - linkListType: concept
@@ -91,16 +99,24 @@ landingContent:
       url: concepts/updates.md
     - text: 选择驱动器
       url: concepts/choose-drives.md
+    - text: 驱动器对称注意事项
+      url: concepts/drive-symmetry-considerations.md
     - text: 规划卷
       url: concepts/plan-volumes.md
     - text: 容错和存储效率
       url: concepts/fault-tolerance.md
     - text: 安全注意事项
       url: concepts/security.md
+    - text: 存储池缓存
+      url: concepts/cache.md
+    - text: 群集和存储池仲裁
+      url: concepts/quorum.md
 - title: 连接到 Azure
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: 管理 Azure 注册
+      url: manage/manage-azure-registration.md
     - text: 将 Windows Admin Center 注册到 Azure
       url: manage/register-windows-admin-center.md
     - text: 使用 Azure Site Recovery
@@ -111,3 +127,21 @@ landingContent:
       url: manage/use-azure-network-adapter.md
     - text: 使用 Azure 备份
       url: manage/use-azure-backup.md
+- title: 软件定义的网络
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 软件定义的网络 (SDN) 概述
+      url: concepts/software-defined-networking.md
+    - text: 规划 SDN 基础结构
+      url: concepts/plan-software-defined-networking-infrastructure.md
+    - text: 网络控制器概述
+      url: concepts/network-controller-overview.md
+    - text: 规划网络控制器
+      url: concepts/network-controller.md
+    - text: 软件负载均衡器概述
+      url: concepts/software-load-balancer.md
+    - text: RAS 网关概述
+      url: concepts/gateway-overview.md
+    - text: 路由反射器概述
+      url: concepts/route-reflector-overview.md
