@@ -126,6 +126,12 @@
           href: concepts/network-controller-overview.md
         - name: 规划网络控制器
           href: concepts/network-controller.md
+        - name: 软件负载均衡器概述
+          href: concepts/software-load-balancer.md
+        - name: RAS 网关概述
+          href: concepts/gateway-overview.md
+        - name: 路由反射器概述
+          href: concepts/route-reflector-overview.md
     - name: 维护和安全
       items:
         - name: 计费
