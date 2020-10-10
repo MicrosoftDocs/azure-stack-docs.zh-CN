@@ -5,21 +5,21 @@ author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 262648ce8c7d6c94fb7f9b55deaa5f78b7c5fb56
-ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
+ms.openlocfilehash: eaa5879f0e8cd00f43a37247f03f7ce09ecdb78c
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893911"
+ms.locfileid: "91899612"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务故障排除
 
 在 Azure Stack HCI 上使用 Azure Kubernetes 服务创建或管理 Kubernetes 群集时，有时可能会遇到问题。 本文提供了疑难解答指南来帮助你解决这些问题。
 
 ## <a name="troubleshooting-azure-stack-hci"></a>Azure Stack HCI 进行故障排除
-若要在 Azure Stack HCI 群集中的服务器之间对网络和存储 QoS 的群集验证报告 (质量) 设置进行故障排除，并验证是否定义了重要规则，请参阅 [群集验证报告故障排除](/azure-stack/hci/manage/validate-qos)。
+若要在 Azure Stack HCI 群集中的服务器之间对网络和存储 QoS 的群集验证报告 (质量) 设置进行故障排除，并验证是否定义了重要规则，请参阅 [群集验证报告故障排除](../hci/manage/validate-qos.md)。
 
-若要了解有关 CredSSP 的疑难解答问题，请参阅 [Credssp 故障排除](/azure-stack/hci/manage/troubleshoot-credssp)。
+若要了解有关 CredSSP 的疑难解答问题，请参阅 [Credssp 故障排除](../hci/manage/troubleshoot-credssp.md)。
 
 ## <a name="troubleshooting-windows-admin-center"></a>Windows Admin Center 疑难解答
 此产品是公共预览版，这意味着它仍处于开发阶段。 Windows 管理中心 Azure Kubernetes 服务扩展目前有一些问题： 
