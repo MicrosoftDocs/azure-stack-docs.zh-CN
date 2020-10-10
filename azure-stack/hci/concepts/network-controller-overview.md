@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/7/2020
-ms.openlocfilehash: 50c50b618da84597826a9aa2b2d2bf348ec5d53a
-ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
+ms.date: 10/8/2020
+ms.openlocfilehash: c207b436571d85d0902cd69a2168144e176919b1
+ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91848478"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893894"
 ---
 # <a name="what-is-network-controller"></a>什么是网络控制器？
 
@@ -48,11 +48,11 @@ ms.locfileid: "91848478"
 
 ## <a name="software-load-balancer-management"></a>软件负载平衡器管理
 
-此网络控制器功能可使你允许多个服务器承载相同的工作负荷，从而提供高可用性和可扩展性。 使用软件负载平衡器，可以配置和管理负载平衡、入站网络地址转换 (NAT) ，以及连接到传统 VLAN 网络和虚拟网络的工作负荷的 Internet 出站访问。
+[软件负载均衡器](software-load-balancer.md) 允许多台服务器托管相同的工作负荷，从而提供高可用性和可伸缩性。 使用软件负载平衡器，可以配置和管理负载平衡、入站网络地址转换 (NAT) ，以及连接到传统 VLAN 网络和虚拟网络的工作负荷的 Internet 出站访问。
 
 ## <a name="gateway-management"></a>网关管理
 
-利用此网络控制器功能，你可以部署、配置和管理作为 RAS 网关池成员的 Vm，同时提供与客户工作负荷的外部网络连接。 对于网关，在虚拟网络与远程网络之间支持以下连接类型：
+[远程访问服务 (RAS) 网关](gateway-overview.md) ，你可以部署、配置和管理作为网关池成员的 vm，从而为客户工作负荷提供外部网络连接。 对于网关，在虚拟网络与远程网络之间支持以下连接类型：
 
 - 站点到站点虚拟专用网络 (VPN) 使用 IPsec 的网关连接
 - 使用通用路由封装的站点到站点 VPN 网关连接 (GRE) 
@@ -82,4 +82,5 @@ ms.locfileid: "91848478"
 如需相关信息，另请参阅：
 
 - [规划部署网络控制器](network-controller.md)
+- [使用 Windows PowerShell 部署网络控制器](../deploy/network-controller-powershell.md)
 - [Azure Stack HCI 中的 SDN](software-defined-networking.md)

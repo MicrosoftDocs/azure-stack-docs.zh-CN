@@ -3,16 +3,16 @@ title: 将自定义 VM 映像添加到 Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中添加或删除自定义 VM 映像。
 author: sethmanheim
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 10/09/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 26e93e019c0be7b5ef9d5f29b509407011083acd
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 5266766786cd359446e8313ec19e07746b227fb2
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89598496"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899476"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>在 Azure Stack 集线器中添加和删除自定义 VM 映像
 
@@ -20,20 +20,19 @@ ms.locfileid: "89598496"
 
 ## <a name="add-an-image"></a>添加映像
 
-你可以在用户指南的 " **计算** " 部分找到有关添加通用化和专用映像的说明。 你需要在为用户提供映像之前创建通用映像。 有关说明，请参阅 [将 VM 移到 Azure Stack 集线器概述](/azure-stack/user/vm-move-overview)。 创建适用于租户的映像时，请使用 Azure Stack 集线器管理门户或管理员终结点，而不是用户门户或租户目录终结点。
+你可以在用户指南的 " **计算** " 部分找到有关添加通用化和专用映像的说明。 你需要在为用户提供映像之前创建通用映像。 有关说明，请参阅 [将 VM 移到 Azure Stack 集线器概述](../user/vm-move-overview.md)。 创建适用于租户的映像时，请使用 Azure Stack 集线器管理门户或管理员终结点，而不是用户门户或租户目录终结点。
 
 你可以使用两个选项向用户提供映像：
 
 - **仅提供通过 Azure 访问的映像资源管理器**  
-  如果通过 "**计算**映像" 中的 Azure Stack 集线器管理门户来添加映像  >  **Images**，则所有租户都可以访问该映像。 但是，用户需要使用 Azure 资源管理器模板来访问它。 Azure Stack 中心市场中不可见。
+  如果通过**计算**映像中的 Azure Stack 集线器管理门户添加映像  >  **Images**，则所有租户都可以访问该映像。 但是，用户需要使用 Azure 资源管理器模板来访问它。 Azure Stack 中心市场中不可见。
 
 - **通过 Azure Stack 中心市场提供映像**  
     通过 Azure Stack 集线器管理门户添加映像后，便可以创建 marketplace 产品/服务。 有关说明，请参阅 [创建和发布自定义 Azure Stack 集线器 Marketplace 项](azure-stack-create-and-publish-marketplace-item.md)。
 
-
 ## <a name="add-a-platform-image"></a>添加平台映像
 
-若要将平台映像添加到 Azure Stack 中心，请使用 Azure Stack 中心管理员门户或使用 PowerShell 终结点。 需要创建通用化 VHD。 可以在 "  [Azure Stack 集线器概述](/azure-stack/user/vm-move-overview)" 中找到 "移动 VM"。
+若要将平台映像添加到 Azure Stack 中心，请使用 Azure Stack 中心管理员门户或使用 PowerShell 终结点。 必须首先创建通用化 VHD。 有关详细信息，请参阅 [将 VM 移到 Azure Stack 集线器概述](../user/vm-move-overview.md)。
 
 ### <a name="portal"></a>[门户](#tab/image-add-portal)
 
@@ -145,7 +144,9 @@ ms.locfileid: "89598496"
      VM 映像的版本，供用户在部署 VM 映像时使用。 此版本采用 **\#.\#.\#** 格式。 不要在此字段中包含空格或其他特殊字符。  
 
      有关 **AzsPlatformImage** cmdlet 的详细信息，请参阅 Microsoft PowerShell [Azure Stack 中心操作员模块文档](/powershell/azure/azure-stack/overview)。
+
 ---
+
 ## <a name="next-steps"></a>后续步骤
 
 - [创建并发布自定义 Azure Stack Hub 市场项](azure-stack-create-and-publish-marketplace-item.md)

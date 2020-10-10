@@ -8,12 +8,12 @@ ms.date: 07/21/2020
 ms.author: v-myoung
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 403335a81a5ac02f2e32432f54df584baf7c2a02
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 290f6ba7a8f3c53aafe131dd5c8de5186b88d752
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778149"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899765"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -226,5 +226,5 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 **原因**：尝试2002更新时，更新可能失败并提供以下消息： `The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace` 。
 
-**修正**： [设置专用内部网络](https://docs.microsoft.com/azure-stack/operator/azure-stack-network?view=azs-2002#private-network)。
+**修正**： [设置专用内部网络](./azure-stack-network.md?view=azs-2002#private-network)。
 ::: moniker-end

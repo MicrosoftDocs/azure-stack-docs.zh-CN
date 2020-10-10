@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 8b8f26eefd70e54629a1505a01e1306cab2eda1d
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 28fe06ca182b2df8104c2d8b23ce9f5c27448064
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609750"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936223"
 ---
 你可以使用门户或在门户中创建的容器上传 VHD，请使用 AzCopy。
 
@@ -33,7 +33,7 @@ ms.locfileid: "89609750"
 
 使用 Azure 存储资源管理器或 AzCopy 减少 VHD 在上载过程中将会损坏的可能性，并且上载速度会更快。 以下步骤将在 Windows 10 计算机上使用 AzCopy。 AzCopy 是一个命令行实用工具，可用于向/从存储帐户复制 Blob 或文件。
 
-1. 如果尚未安装 AzCopy，请安装 AzCopy。 可在 [AzCopy 入门](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)一文中找到有关下载和开始处理 AzCopy 的说明。 记下二进制文件的存储位置。 你可以 [将 AzCopy 添加到你的路径](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) ，以便在 PowerShell 命令行中使用它。
+1. 如果尚未安装 AzCopy，请安装 AzCopy。 可在 [AzCopy 入门](/azure/storage/common/storage-use-azcopy-v10)一文中找到有关下载和开始处理 AzCopy 的说明。 记下二进制文件的存储位置。 你可以 [将 AzCopy 添加到你的路径](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) ，以便在 PowerShell 命令行中使用它。
 
 2. 打开 PowerShell，使用 shell 中的 AzCopy。
 
@@ -47,4 +47,4 @@ ms.locfileid: "89609750"
 > [!NOTE]  
 > 使用类似于将单个文件上传到虚拟目录的语法上传 VHD。 添加 `--blob-type=PageBlob` 以确保将 VHD 上传为 **页 Blob**，而不是默认情况下的 **块** 。
 
-有关使用 AzCopy 和其他存储工具的详细信息，请参阅 [在 Azure Stack 中心存储中使用数据传输工具](/azure-stack/user/azure-stack-storage-transfer)。
+有关使用 AzCopy 和其他存储工具的详细信息，请参阅 [在 Azure Stack 中心存储中使用数据传输工具](../user/azure-stack-storage-transfer.md)。

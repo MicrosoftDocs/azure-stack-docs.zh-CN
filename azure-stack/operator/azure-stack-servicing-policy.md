@@ -8,12 +8,12 @@ ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: ac110a3ee90cd0b1439e34a418bf7473b8487502
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367251"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899782"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub 服务策略
 
@@ -47,9 +47,9 @@ OEM 硬件供应商会根据需要发布更新。 请咨询 OEM 以获取硬件�
 
 有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明：
 
-- [Azure Stack Hub 2005 更新](/azure-stack/operator/release-notes?view=azs-2005)
-- [Azure Stack Hub 2002 更新](/azure-stack/operator/release-notes?view=azs-2002)
-- [Azure Stack Hub 1910 更新](/azure-stack/operator/release-notes?view=azs-1910)
+- [Azure Stack Hub 2005 更新](./release-notes.md?view=azs-2005)
+- [Azure Stack Hub 2002 更新](./release-notes.md?view=azs-2002)
+- [Azure Stack Hub 1910 更新](./release-notes.md?view=azs-1910)
 
 ## <a name="hotfixes"></a>修补程序
 
@@ -61,9 +61,9 @@ OEM 硬件供应商会根据需要发布更新。 请咨询 OEM 以获取硬件�
 
 有关当前可用的修补程序的信息，请参阅该更新的发行说明：
 
-- [Azure Stack Hub 2005 修补程序](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
-- [Azure Stack Hub 2002 修补程序](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
-- [Azure Stack Hub 1910 修补程序](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
+- [Azure Stack Hub 2005 修补程序](./release-notes.md?view=azs-2005#hotfixes)
+- [Azure Stack Hub 2002 修补程序](./release-notes.md?view=azs-2002#hotfixes-1)
+- [Azure Stack Hub 1910 修补程序](./release-notes.md?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
 

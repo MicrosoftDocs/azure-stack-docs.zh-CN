@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: ac28bcee33cbe7cd54d8f94408620f6f4b0d9d11
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: f0aee3ea85db7cf95555ad5f54e8ffb4e3352f5d
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519400"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936040"
 ---
 1. 登录到 Azure Stack Hub 用户门户。
 
-    如果你是创建平台映像的云操作员，请按照 [添加平台映像](/azure-stack/operator/azure-stack-add-vm-image#add-a-platform-image) 中的说明，通过管理员门户或管理员终结点添加 VHD。
+    如果你是创建平台映像的云操作员，请按照 [添加平台映像](../operator/azure-stack-add-vm-image.md#add-a-platform-image) 中的说明，通过管理员门户或管理员终结点添加 VHD。
 
 2. 在用户门户中，选择 "**所有服务**" "映像" "  >  **Images**  >  **添加**"。
 

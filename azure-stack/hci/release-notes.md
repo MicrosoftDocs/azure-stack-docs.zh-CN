@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/17/2020
-ms.openlocfilehash: 57aa49c075afad4f6ccb37802293424d8e0e309f
-ms.sourcegitcommit: c45f92186edf62b95b38d1020e0851dd54bc6536
+ms.openlocfilehash: ffa5f5149a3ddd681d20ae11b0aa79ec9fed29d0
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90765384"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899561"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Azure Stack HCI 公共预览版发行说明
 
@@ -80,11 +80,11 @@ Microsoft 目前未了解到任何有关此更新的问题。
 ### <a name="file-information"></a>文件信息
 有关此更新中提供的文件的列表 (OS Build 17784.1220) ，请下载 [累积更新4577558的文件信息](https://download.microsoft.com/download/8/f/6/8f612a9b-cb4e-4832-9397-156760848592/4577558.csv)。
 
-### <a name="references"></a>参考资料
+### <a name="references"></a>参考
 
 有关 Ssu 的信息，请参阅以下文章：
 
-- [服务堆栈更新](https://docs.microsoft.com/windows/deployment/update/servicing-stack-updates)
+- [服务堆栈更新](/windows/deployment/update/servicing-stack-updates)
 - [服务堆栈更新 (SSU) ：常见问题](https://support.microsoft.com/help/4535697)
 
 了解 Microsoft 用于描述软件更新的 [术语](https://support.microsoft.com/help/824684) 。

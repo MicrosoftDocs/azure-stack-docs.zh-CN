@@ -7,12 +7,12 @@ ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 09/11/2020
-ms.openlocfilehash: 7d7eeaec5f82e08cf33a307f429389f03e712987
-ms.sourcegitcommit: a845ae0d3794b5d845b2ae712baa7e38f3011a7b
+ms.openlocfilehash: 986aba8f7591239abfa5502dc2c335177df2eed1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90045518"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899527"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>规划软件定义的网络基础结构
 
@@ -20,7 +20,7 @@ ms.locfileid: "90045518"
 
 了解针对软件定义的网络 (SDN) 基础结构（包括硬件和软件先决条件）的部署规划。 本主题包括物理和逻辑网络配置、路由、网关、网络硬件等的规划要求。 它还包括有关扩展 SDN 基础结构和使用分阶段部署的注意事项。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 SDN 基础结构有几个硬件和软件先决条件，其中包括：
 - **安全组和动态 DNS 注册**。 你必须为网络控制器部署准备你的数据中心，这需要 (Vm) 一组虚拟机。 部署网络控制器之前，必须先配置安全组和动态 DNS 注册。
 
@@ -55,7 +55,7 @@ DHCP 服务器可以为管理网络自动分配 IP 地址，也可以手动分�
 | 如果...                                                    | 则...                                               |
 | :------------------------------------------------------- | :---------------------------------------------------- |
 | 逻辑网络使用 Vlan，                          | 物理计算主机必须连接到有权访问 Vlan 的中继交换机端口。 请务必注意，计算机主机上的物理网络适配器不能激活任何 VLAN 筛选。|
-| 你使用的是交换式嵌入组合 (设置) 并且具有多个网络接口卡 (NIC) 团队成员（例如网络适配器）| 必须将该特定主机的所有 NIC 组成员连接到相同的第2层广播域。|
+| 你正在使用 Switched-Embedded 组合 (设置) ，并具有多个网络接口卡 (NIC) 团队成员（例如网络适配器）| 必须将该特定主机的所有 NIC 组成员连接到相同的第2层广播域。|
 | 物理计算主机正在运行其他基础结构 Vm，如网络控制器、SLB/多路复用器 (MUX) 或网关） | 确保管理逻辑网络为每个托管 VM 提供了足够的 IP 地址。 另外，请确保 HNV 提供程序逻辑网络有足够的 IP 地址分配给每个 SLB/MUX 和网关基础结构 VM。 尽管 IP 保留由网络控制器管理，但由于不可用而无法保留新的 IP 地址可能会导致网络上存在重复的 IP 地址。|
 
 有关可用于在 Microsoft SDN 部署中虚拟化网络的 Hyper-v 网络虚拟化 (HNV) 的信息，请参阅 [Hyper-v 网络虚拟化](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization)。
@@ -122,13 +122,13 @@ BGP 对等互连通常在作为网络基础结构一部分的托管交换机或�
 ### <a name="switches"></a>交换机
 为环境选择物理交换机和路由器时，请确保它支持以下功能集：
 - 需要交换机间 MTU 设置 \(\)
-- MTU 设置为 >= 1674 字节， \( 包括 L2 以太网标头\)
+- MTU 设置为 >= 1674 字节， \( 包括 L2-Ethernet 标头\)
 - 需要 L3 协议 \(\)
 - ) 路由 (ECMP 的相等成本多路径
 - \(基于 BGP IETF RFC 4271 的 \) \- ECMP
 
 实现应支持以下 IETF 标准中的必需语句：
-- RFC 2545： [用于 IPv6 域间路由的 BGP-4 多协议扩展](https://tools.ietf.org/html/rfc2545)
+- RFC 2545： [用于 IPv6 Inter-Domain 路由的 BGP-4 多协议扩展](https://tools.ietf.org/html/rfc2545)
 - RFC 4760： [BGP 的多协议扩展-4](https://tools.ietf.org/html/rfc4760)
 - RFC 4893： [BGP 支持四个八进制数作为数字空间](https://tools.ietf.org/html/rfc4893)
 - RFC 4456： [BGP 路由反射：完全网格内部 BGP (的替代方法) ](https://tools.ietf.org/html/rfc4456)
@@ -175,7 +175,7 @@ BGP 对等互连通常在作为网络基础结构一部分的托管交换机或�
 |RDS 网关<br>  (三个节点的单个池<br> 网关，两个活动，一个被动) |8 个 vCPU|建议 8 GB|75 GB （适用于操作系统驱动器）
 |RAS 网关 BGP 路由器<br> 用于 SLB/MUX 对等互连<br>  (或者使用 ToR 开关<br> 作为 BGP 路由器) |2个 vcpu|2 GB|75 GB （适用于操作系统驱动器）|
 
-如果使用 System Center Virtual Machine Manager (VMM) 进行部署，则 VMM 和其他非 SDN 基础结构需要额外的基础结构 VM 资源。 若要了解详细信息，请参阅 [System Center Virtual Machine Manager 的系统要求](https://docs.microsoft.com/system-center/vmm/system-requirements?view=sc-vmm-2019&preserve-view=true)。
+如果使用 System Center Virtual Machine Manager (VMM) 进行部署，则 VMM 和其他非 SDN 基础结构需要额外的基础结构 VM 资源。 若要了解详细信息，请参阅 [System Center Virtual Machine Manager 的系统要求](/system-center/vmm/system-requirements?preserve-view=true&view=sc-vmm-2019)。
 
 ## <a name="extending-your-infrastructure"></a>扩展基础结构
 你的基础结构的大小和资源要求取决于你计划承载的租户工作负载 Vm。 基础结构 Vm 的 CPU、内存和磁盘要求 (例如：网络控制器、SLB、网关等) 在上表中定义。 可以添加更多的基础结构 Vm 以根据需要进行缩放。 但是，Hyper-v 主机上运行的任何租户都有自己的 CPU、内存和磁盘要求，你必须考虑这些要求。
@@ -197,4 +197,4 @@ Feature|部署要求|网络要求|
 ## <a name="next-steps"></a>后续步骤
 如需相关信息，另请参阅：
 - [部署网络控制器的要求](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller)
-- [Azure Stack HCI 中的 SDN](https://docs.microsoft.com/azure-stack/hci/concepts/software-defined-networking)
+- [Azure Stack HCI 中的 SDN](./software-defined-networking.md)

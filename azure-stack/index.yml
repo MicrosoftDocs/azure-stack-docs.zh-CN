@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 11/04/2019
-  ms.openlocfilehash: db4c148d445567e2d0beec20e7b2130610292e28
-  ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+  ms.openlocfilehash: 746a9c96e4d1ca25ed194e7b016b63aa63ba6c0f
+  ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/22/2020
-  ms.locfileid: "86947293"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91899493"
 highlightedContent:
   items:
   - title: Azure Stack 系列公告
@@ -47,45 +47,45 @@ conceptualContent:
   items:
   - title: 了解混合
     links:
-    - url: /azure-stack/hybrid/overview-patterns-solution-examples
+    - url: /hybrid/app-solutions/overview-patterns-solution-examples
       itemType: overview
       text: 什么是模式和解决方案示例？
-    - url: /azure-stack/hybrid/overview-app-design-considerations
+    - url: /hybrid/app-solutions/overview-app-design-considerations
       itemType: concept
       text: 混合应用设计注意事项
   - title: 探索混合模式
     links:
-    - url: /azure-stack/hybrid/pattern-cross-cloud-scale
+    - url: /hybrid/app-solutions/pattern-cross-cloud-scale
       itemType: architecture
       text: 跨云缩放
-    - url: /azure-stack/hybrid/pattern-cicd-pipeline
+    - url: /hybrid/app-solutions/pattern-cicd-pipeline
       itemType: architecture
       text: DevOps 混合 CI/CD
-    - url: /azure-stack/hybrid/pattern-retail-footfall-detection
+    - url: /hybrid/app-solutions/pattern-retail-footfall-detection
       itemType: architecture
       text: 客流量检测（零售）
-    - url: /azure-stack/hybrid/pattern-geo-distributed
+    - url: /hybrid/app-solutions/pattern-geo-distributed
       itemType: architecture
       text: 地区分布式应用
   - title: 部署混合解决方案示例
     links:
-    - url: /azure-stack/hybrid/solution-deployment-guide-cross-cloud-scaling
+    - url: /hybrid/app-solutions/solution-deployment-guide-cross-cloud-scaling
       itemType: tutorial
       text: 跨云缩放
     - url: https://aka.ms/hybriddevopsdeploy
       itemType: tutorial
       text: DevOps 混合 CI/CD
-    - url: /azure-stack/hybrid/solution-deployment-guide-retail-footfall-detection
+    - url: /hybrid/app-solutions/solution-deployment-guide-retail-footfall-detection
       itemType: tutorial
       text: 客流量检测（零售）
-    - url: /azure-stack/hybrid/solution-deployment-guide-geo-distributed
+    - url: /hybrid/app-solutions/solution-deployment-guide-geo-distributed
       itemType: tutorial
       text: 地区分布式应用
 additionalContent:
   sections:
   - title: Azure Stack Hub
     items:
-    - title: 运算符
+    - title: 操作员
       links:
       - url: ./operator/azure-stack-manage-portals.md
         text: 使用管理员门户
@@ -150,7 +150,7 @@ additionalContent:
       - url: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
         text: Hyper-V
       - url: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
-        text: Storage Spaces Direct
+        text: 存储空间直通
       - url: /windows-server/networking/sdn
         text: 软件定义的网络
       - url: /windows-server/failover-clustering/failover-clustering-overview

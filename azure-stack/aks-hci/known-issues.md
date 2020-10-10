@@ -6,18 +6,18 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: c11aadf13c33482337a46b1d6e59bf5997f11fc5
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623177"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899697"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Azure Stack HCI 公共预览版中的 Azure Kubernetes 服务的已知问题
 本文介绍 Azure Stack HCI 上的 Azure Kubernetes 服务的公共预览版本的已知问题。
 
 ## <a name="recovering-from-a-failed-aks-on-azure-stack-hci-deployment"></a>从 Azure Stack HCI 部署上的失败的 AKS 恢复
-如果遇到部署问题或者想要重置部署，请确保先关闭 Azure Stack HCI 上连接到 Azure Kubernetes 服务的所有 Windows 管理中心实例，然后再从 PowerShell 管理窗口运行 AksHci。
+如果遇到部署问题或者想要重置部署，请确保在从 PowerShell 管理窗口运行 Uninstall-AksHci 之前，关闭 Azure Stack HCI 上连接到 Azure Kubernetes 服务的所有 Windows 管理中心实例。
 
 ## <a name="when-using-kubectl-to-delete-a-node-the-associated-vm-might-not-be-deleted"></a>使用 kubectl 删除节点时，可能不会删除关联的 VM
 如果执行以下步骤，将会解决此问题：
@@ -36,12 +36,12 @@ ms.locfileid: "91623177"
 ## <a name="special-active-directory-permissions-are-needed-for-domain-joined-azure-stack-hci-nodes"></a>Azure Stack HCI 节点的已加入域需要特殊 Active Directory 权限 
 Azure Stack HCI 上部署和配置 Azure Kubernetes 服务的用户需要具有 "完全控制" 权限，才能在创建服务器和服务对象的 Active Directory 容器中创建 AD 对象。 
 
-## <a name="get-akshcilogs-command-may-fail"></a>AksHciLogs 命令可能会失败
-对于大型群集，AksHciLogs 命令可能会引发异常、无法枚举节点或不会生成 c:\wssd\wssdlogs.zip 输出文件。
+## <a name="get-akshcilogs-command-may-fail"></a>Get-AksHciLogs 命令可能会失败
+对于大型群集，Get-AksHciLogs 命令可能会引发异常、无法枚举节点或不会生成 c:\wssd\wssdlogs.zip 输出文件。
 这是因为压缩文件的 PowerShell 命令的 `Compress-Archive` 输出文件大小限制为 2 GB。 将来的版本将会解决此问题。
 
 ## <a name="azure-kubernetes-service-powershell-deployment-doesnt-check-for-available-memory-before-creating-a-new-target-cluster"></a>Azure Kubernetes Service PowerShell 部署在创建新的目标群集之前不会检查可用内存
-在创建 Kubernetes 节点之前，Aks-Hci PowerShell 命令不会验证主机服务器上的可用内存。 这可能导致内存消耗和虚拟机无法启动。 此故障当前未正常处理，部署将停止响应且无清晰的错误消息。
+Aks-Hci PowerShell 命令在创建 Kubernetes 节点之前，不会验证主机服务器上的可用内存。 这可能导致内存消耗和虚拟机无法启动。 此故障当前未正常处理，部署将停止响应且无清晰的错误消息。
 如果你的部署停止响应，请打开 `Eventviewer` 并检查与 hyper-v 相关的错误消息，指出没有足够的内存来启动 VM。
 此问题将在将来的版本中得到解决
 
@@ -69,7 +69,7 @@ Windows 管理中心不会将 Azure Kubernetes 服务部署到具有独立的存
 将来的版本将会解决此问题。
 
 ## <a name="windows-admin-center-only-supports-azure-kubernetes-service-for-azure-stack-hci-in-desktop-mode"></a>Windows 管理中心仅支持在桌面模式下 Azure Stack HCI 的 Azure Kubernetes 服务
-在预览版中，仅在 Windows 管理中心桌面模式下支持 Azure Stack HCI 功能的所有 Azure Kubernetes 服务。 Windows 管理员中心网关必须安装在 Windows 10 电脑上。 有关 Windows 管理中心安装选项的详细信息，请访问 [Windows 管理中心文档](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options)。 未来版本将支持其他方案。
+在预览版中，仅在 Windows 管理中心桌面模式下支持 Azure Stack HCI 功能的所有 Azure Kubernetes 服务。 Windows 管理员中心网关必须安装在 Windows 10 电脑上。 有关 Windows 管理中心安装选项的详细信息，请访问 [Windows 管理中心文档](/windows-server/manage/windows-admin-center/plan/installation-options)。 未来版本将支持其他方案。
 
 ## <a name="azure-kubernetes-service-host-setup-fails-in-windows-admin-center-if-reboots-are-required"></a>如果需要重新启动，则 Azure Kubernetes Service 主机安装程序将在 Windows 管理中心中失败
 如果你正在使用的一台或多台服务器需要重新启动，则 Azure Kubernetes Service 主机安装向导将失败，以安装 PowerShell 或 Hyper-v 等角色。 当前的解决方法是退出向导，并在服务器重新联机后在同一系统上重试。 将来的版本将会解决此问题。

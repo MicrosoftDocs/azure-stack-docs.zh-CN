@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 43d63e4e565a36c30837e2a8b460e0d73a35c0a5
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 075198e9045ac2d735f2113164e7fc4e24b7934f
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145518"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899510"
 ---
 # <a name="set-up-a-cluster-witness"></a>设置群集见证
 
@@ -84,7 +84,7 @@ ms.locfileid: "88145518"
 
 在 Azure 门户中，导航到你的存储帐户，单击“所有设置”，然后单击“属性”以查看和复制终结点 URL 。  
 
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="云见证终结点 URL" lightbox="media/witness/cloud-witness-2.png":::  
+:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="云见证访问密钥" lightbox="media/witness/cloud-witness-2.png":::  
 
 ## <a name="set-up-a-witness-using-windows-powershell"></a>使用 Windows PowerShell 设置见证
 
@@ -106,4 +106,4 @@ Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Creden
 
 - 有关群集仲裁的详细信息，请参阅[了解 Azure Stack HCI 上的群集和池仲裁](../concepts/quorum.md)。
 
-- 有关创建和管理 Azure 存储帐户的详细信息，请参阅[关于 Azure 存储帐户](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/)。
+- 有关创建和管理 Azure 存储帐户的详细信息，请参阅[关于 Azure 存储帐户](/azure/storage/common/storage-account-create)。

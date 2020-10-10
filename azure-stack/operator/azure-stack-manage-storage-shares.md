@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: f2b51ad2bff721c2a8be6490902cf3bb07559fb2
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 8882128aba5d44bfed2fe8a89ff682443a549a77
+ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106813"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893928"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 
@@ -20,9 +20,9 @@ ms.locfileid: "91106813"
 
 云操作员可以使用的存储量有限。 实施的解决方案定义了存储量。 使用多节点解决方案时，解决方案由 OEM 供应商提供，或由安装 Azure Stack 开发工具包 (ASDK) 的硬件提供。
 
-由于 Azure Stack Hub 不支持存储容量扩展，因此必须[监视](#monitor-shares)可用存储，确保保持操作的效率。
+Azure Stack 中心仅支持通过添加更多扩展单元节点来扩展存储容量，请参阅 [在 Azure Stack 集线器中添加额外的扩展单元节点](azure-stack-add-scale-node.md)。 将物理磁盘添加到节点不会扩展存储容量。
 
-当卷的剩余可用容量有限时，请规划[管理可用空间](#manage-available-space)以免共享的容量不足。
+请务必 [监视](#monitor-shares) 可用的存储，以确保保持有效的操作。 当卷的剩余可用容量有限时，请规划[管理可用空间](#manage-available-space)以免共享的容量不足。
 
 用于管理容量的选项包括：
 - 回收容量。

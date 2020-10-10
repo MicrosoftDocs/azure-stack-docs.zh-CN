@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: c98ad58f92d69b0c3fa0f28a3408013612cc19a6
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 2f442928c01c59bc85eb672153b2f5b21a653ef1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623228"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899714"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>快速入门：使用 Windows 管理中心在 Azure Stack HCI 上设置 Azure Kubernetes 服务
 
@@ -28,7 +28,7 @@ ms.locfileid: "91623228"
 
 ## <a name="setting-up-windows-admin-center"></a>设置 Windows 管理中心
 
-如果尚未安装 Windows 管理中心，请参阅 [安装 Windows 管理中心](https://docs.microsoft.com/windows-server/manage/windows-admin-center/deploy/install)。 有关 Azure Stack HCI 上的 Azure Kubernetes 服务的公共预览版，必须在 Windows 10 计算机上下载并运行 Windows 管理中心。 目前只有 Windows 管理中心桌面模式与 Azure Stack HCI 上的 Azure Kubernetes 服务兼容。 Azure Stack HCI 功能上的 Azure Kubernetes 服务仅适用于 Windows 管理中心版本2009或更高版本。
+如果尚未安装 Windows 管理中心，请参阅 [安装 Windows 管理中心](/windows-server/manage/windows-admin-center/deploy/install)。 有关 Azure Stack HCI 上的 Azure Kubernetes 服务的公共预览版，必须在 Windows 10 计算机上下载并运行 Windows 管理中心。 目前只有 Windows 管理中心桌面模式与 Azure Stack HCI 上的 Azure Kubernetes 服务兼容。 Azure Stack HCI 功能上的 Azure Kubernetes 服务仅适用于 Windows 管理中心版本2009或更高版本。
 
 ## <a name="installing-the-azure-kubernetes-service-extension"></a>安装 Azure Kubernetes 服务扩展
 

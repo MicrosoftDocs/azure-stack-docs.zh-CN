@@ -7,19 +7,19 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 810aa253eb4872a58ea2e52070bb42eaaa1f6aaa
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 4cbb253b88f86f18c69c7528b6beabb58d277d14
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717982"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899442"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>将 Azure Kubernetes 服务 (AKS) 引擎必备组件添加到 Azure Stack Hub 市场
 
 可以为用户设置 Azure Kubernetes 服务 (AKS) 引擎。 将本文中所述的项添加到 Azure Stack Hub。 之后，用户通过一次协调的操作即可部署 Kubernetes 群集。 本文指导你完成让用户在联网和离线环境中都能使用 AKS 引擎所需的步骤。 AKS 引擎依赖于服务主体标识，以及市场中的自定义脚本扩展和 AKS 基础映像。 AKS 引擎要求运行 [Azure Stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) 或更高版本。
 
 > [!NOTE]  
-> 可以在 [AKS 引擎发行说明](/azure-stack/user/kubernetes-aks-engine-release-notes#aks-engine-and-azure-stack-version-mapping)中找到 Azure Stack 集线器到 AKS 引擎版本号的映射。
+> 可以在 [AKS 引擎发行说明](../user/kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中找到 Azure Stack 集线器到 AKS 引擎版本号的映射。
 
 ## <a name="check-your-users-service-offering"></a>检查用户的服务产品
 

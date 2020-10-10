@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 4577da446c11f1053372cdf3d6458cd7c90937be
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 67e1961a0f1f739e550cc55d100900190892bb5e
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742511"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899748"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub 计算容量
 
@@ -116,7 +116,7 @@ VM 放置的可用内存 = 主机总内存 - 复原保留 - 运行租户 VM 所�
      
 ### <a name="add-a-node"></a>添加节点
 
-[添加 Azure Stack 中心节点](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node) 会通过在两个节点之间平均分配内存来释放内存。
+[添加 Azure Stack 中心节点](./azure-stack-add-scale-node.md) 会通过在两个节点之间平均分配内存来释放内存。
 
 ![添加节点](media/azure-stack-capacity-planning/add-a-node.png)
 
@@ -128,7 +128,7 @@ VM 放置的可用内存 = 主机总内存 - 复原保留 - 运行租户 VM 所�
 
 ### <a name="increase-memory-on-each-node-to-512-gb"></a>将每个节点上的内存增加到 512 GB
 
-[增加每个节点的内存](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-physical-memory-capacity) 将增加可用内存总量。
+[增加每个节点的内存](./azure-stack-manage-storage-physical-memory-capacity.md) 将增加可用内存总量。
 
 ![增加节点的大小](media/azure-stack-capacity-planning/increase-node-size.png)
 

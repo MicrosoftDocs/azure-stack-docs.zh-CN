@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: ee292a3461b591a042c0847bd11bb63285a4faf4
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 46946f72fe22345ee60c620ba2cf0283e056ae99
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230608"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899816"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack 中心操作员访问工作站 
 
@@ -26,14 +26,14 @@ ms.locfileid: "91230608"
 
 |方案                                                                                                                          |说明                 |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-|[访问管理门户](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)                     |执行管理操作                                                                           |
-|[访问 PEP](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)                                     |日志收集和上载：<br>-在 HLH 上创建用于从 Azure Stack 中心传输文件的[SMB 共享](#transfer-files-between-the-hlh-and-oaw)<br>-使用 Azure 存储资源管理器上载保存到 SMB 共享中的日志 |
-|[注册 Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#renew-or-change-registration) |对于重新注册，请从管理门户获取以前的注册名称和资源组                               |
-|[市场联合](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item)            |在 HLH 上[创建 SMB 共享](#transfer-files-between-the-hlh-and-oaw)以存储下载的映像或扩展                                                        |
+|[访问管理门户](./azure-stack-manage-portals.md)                     |执行管理操作                                                                           |
+|[访问 PEP](./azure-stack-privileged-endpoint.md)                                     |日志收集和上载：<br>-在 HLH 上创建用于从 Azure Stack 中心传输文件的[SMB 共享](#transfer-files-between-the-hlh-and-oaw)<br>-使用 Azure 存储资源管理器上载保存到 SMB 共享中的日志 |
+|[注册 Azure Stack Hub](./azure-stack-registration.md#renew-or-change-registration) |对于重新注册，请从管理门户获取以前的注册名称和资源组                               |
+|[市场联合](./azure-stack-download-azure-marketplace-item.md)            |在 HLH 上[创建 SMB 共享](#transfer-files-between-the-hlh-and-oaw)以存储下载的映像或扩展                                                        |
 
 ## <a name="download-files"></a>下载文件
 
-若要获取文件以创建 OAW VM，请 [**在此处下载**](https://aka.ms/OAWDownload)。 下载之前，请务必查看 [Microsoft 隐私声明](https://privacy.microsoft.com/privacystatement) 和 [法律条款](https://docs.microsoft.com/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms) 。
+若要获取文件以创建 OAW VM，请 [**在此处下载**](https://aka.ms/OAWDownload)。 下载之前，请务必查看 [Microsoft 隐私声明](https://privacy.microsoft.com/privacystatement) 和 [法律条款](/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms) 。
 
 由于解决方案的无状态特性，OAW VM 没有任何更新。 对于每个里程碑，将释放 VM 映像文件的新版本。 使用最新版本创建新的 OAW VM。 映像文件基于最新的 Windows Server 2019 版本。 安装完成后，可以使用 Windows 更新来应用更新，包括任何关键更新。 
 
@@ -80,11 +80,11 @@ else
 | 软件名称           | 位置                                                                                       |
 |--------------------------|------------------------------------------------------------------------------------------------|
 | [Microsoft Edge for Business](https://www.microsoft.com/edge/business/)                                            | \[SystemDrive \] \Program Files (x86) \microsoft\edge\application                                                                                        |
-| [Az 模块](https://docs.microsoft.com/azure-stack/operator/powershell-install-az-module)                         | \[SystemDrive \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
+| [Az 模块](./powershell-install-az-module.md)                         | \[SystemDrive \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[SystemDrive \] \Program Files\PowerShell\7                                                                       |
-| [Azure 命令行接口 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | \[SystemDrive \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
+| [Azure 命令行接口 (CLI)](/cli/azure/?view=azure-cli-latest) | \[SystemDrive \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)   | \[SystemDrive \] \Program (x86) \microsoft Azure 存储资源管理器                                                                       |
-| [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)                             | \[SystemDrive \] \vmsoftware\ azcopy_windows_amd64_10                                         |
+| [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[SystemDrive \] \vmsoftware\ azcopy_windows_amd64_10                                         |
 | [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[SystemDrive \] \VMSoftware\AzureStack-Tools                                                    |
 
 ## <a name="check-hlh-version"></a>检查 HLH 版本
@@ -193,11 +193,11 @@ New-OAW
 
 | 参数   | 必需/可选  | 说明       |
 |-------------|--------------------|-------------------|
-| LocalAdministratorPassword | 必需 | 虚拟机的本地管理员帐户的密码 AdminUser。 |
-| IPAddress                  | 必需 | 用于配置虚拟机上 TCP/IP 的静态 IPv4 地址。                                                |
-| SubnetMask                 | 必需 | 用于配置虚拟机上 TCP/IP 的 IPv4 子网掩码。                                                   |
-| DefaultGateway             | 必需 | 用于配置虚拟机上 TCP/IP 的默认网关的 IPv4 地址。                                    |
-| DNS                        | 必需 | DNS 服务器 (s) 在虚拟机上配置 TCP/IP。                                                          |
+| LocalAdministratorPassword | 必须 | 虚拟机的本地管理员帐户的密码 AdminUser。 |
+| IPAddress                  | 必须 | 用于配置虚拟机上 TCP/IP 的静态 IPv4 地址。                                                |
+| SubnetMask                 | 必须 | 用于配置虚拟机上 TCP/IP 的 IPv4 子网掩码。                                                   |
+| DefaultGateway             | 必须 | 用于配置虚拟机上 TCP/IP 的默认网关的 IPv4 地址。                                    |
+| DNS                        | 必须 | DNS 服务器 (s) 在虚拟机上配置 TCP/IP。                                                          |
 | ImageFilePath              | 可选 | Microsoft 提供的 OAW 的路径。 默认值为此脚本的相同父文件夹下的**OAW。** |
 | VirtualMachineName         | 可选 | 要分配给虚拟机的名称。 如果在 DeploymentData.js文件中可以找到命名前缀，则将其用作默认名称。 否则， **AzSOAW** 将用作默认名称。 可以指定另一个名称来覆盖默认值。 |
 | VirtualMachineMemory       | 可选 | 要分配给虚拟机的内存。 默认值为 **4gb**。                            |
@@ -227,9 +227,9 @@ SkipNetworkConfiguration     | 可选 | 跳过虚拟机的网络配置，使用�
 
 ## <a name="transfer-files-between-the-hlh-and-oaw"></a>在 HLH 和 OAW 之间传输文件
 
-如果需要在 HLH 与 OAW 之间传输文件，请使用 [new-smbshare](https://docs.microsoft.com/powershell/module/smbshare/new-smbshare?view=win10-ps) CMDLET 创建 SMB 共享。 New-smbshare 将文件系统文件夹作为服务器消息块 (SMB) 共享公开给远程客户端。 例如：
+如果需要在 HLH 与 OAW 之间传输文件，请使用 [new-smbshare](/powershell/module/smbshare/new-smbshare?view=win10-ps) CMDLET 创建 SMB 共享。 New-SmbShare 向远程客户端公开作为服务器消息块 (SMB) 共享的文件系统文件夹。 例如：
 
-若要删除由此 cmdlet 创建的共享，请使用 [new-smbshare](https://docs.microsoft.com/powershell/module/smbshare/remove-smbshare?view=win10-ps) cmdlet。 例如：
+若要删除由此 cmdlet 创建的共享，请使用 [new-smbshare](/powershell/module/smbshare/remove-smbshare?view=win10-ps) cmdlet。 例如：
 
 ## <a name="remove-the-oaw-vm"></a>删除 OAW VM
 

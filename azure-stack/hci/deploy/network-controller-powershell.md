@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b9f86e715835ac52bbc34782e4f9eb41ca8b4851
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019565"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899544"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>使用 Windows PowerShell 部署网络控制器
 
@@ -40,7 +40,7 @@ ms.locfileid: "91019565"
 **Administrators**组中的成员身份或同等身份是执行此过程所必需的。  
 
 >[!NOTE]
->如果要使用服务器管理器而不是 Windows PowerShell 来安装网络控制器，请参阅 [使用服务器管理器安装网络控制器服务器角色](https://technet.microsoft.com/library/mt403348.aspx)
+>如果要使用服务器管理器而不是 Windows PowerShell 来安装网络控制器，请参阅 [使用服务器管理器安装网络控制器服务器角色](/windows-server/networking/sdn/technologies/network-controller/install-the-network-controller-server-role-using-server-manager)
 
 若要安装网络控制器，请键入以下命令：
 
@@ -172,7 +172,7 @@ Install-NetworkController -Node <NetworkControllerNode[]> -ClientAuthentication 
     ```
 
     > [!NOTE]
-    > 运行该命令时 `Get-NetworkControllerCredential` ，可以使用点运算符列出凭据的属性，将该命令的输出分配给一个变量。 例如：`$cred.Properties`。
+    > 运行该命令时 `Get-NetworkControllerCredential` ，可以使用点运算符列出凭据的属性，将该命令的输出分配给一个变量。 例如： `$cred.Properties`。
 
 ## <a name="additional-powershell-commands-for-network-controller"></a>用于网络控制器的其他 PowerShell 命令
 
@@ -188,16 +188,16 @@ Install-NetworkController -Node <NetworkControllerNode[]> -ClientAuthentication 
 
 |任务|命令|语法|
 |--------|-------|----------|
-|修改网络控制器群集设置|NetworkControllerCluster|`Set-NetworkControllerCluster [-ManagementSecurityGroup <string>][-Credential <PSCredential>] [-computerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
-|修改网络控制器应用程序设置|NetworkController|`Set-NetworkController [-ClientAuthentication <ClientAuthentication>] [-Credential <PSCredential>] [-ClientCertificateThumbprint <string[]>] [-ClientSecurityGroup <string>] [-ServerCertificate <X509Certificate2>] [-RestIPAddress <String>] [-ComputerName <String>][-CertificateThumbprint <String> ] [-UseSSL]`
-|修改网络控制器节点设置|NetworkControllerNode|`Set-NetworkControllerNode -Name <string> > [-RestInterface <string>] [-NodeCertificate <X509Certificate2>] [-Credential <PSCredential>] [-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
-|修改网络控制器诊断设置|NetworkControllerDiagnostic|`Set-NetworkControllerDiagnostic [-LogScope <string>] [-DiagnosticLogLocation <string>] [-LogLocationCredential <PSCredential>] [-UseLocalLogLocation] >] [-LogLevel <loglevel>][-LogSizeLimitInMBs <uint32>] [-LogTimeLimitInDays <uint32>] [-Credential <PSCredential>] [-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
-|删除网络控制器应用程序|卸载-NetworkController|`Uninstall-NetworkController [-Credential <PSCredential>][-ComputerName <string>] [-CertificateThumbprint <String> ] [-UseSSL]`
-|删除网络控制器群集|卸载-NetworkControllerCluster|`Uninstall-NetworkControllerCluster [-Credential <PSCredential>][-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
-|向网络控制器群集添加节点|NetworkControllerNode|`Add-NetworkControllerNode -FaultDomain <String> -Name <String> -RestInterface <String> -Server <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-NodeCertificate <X509Certificate2> ] [-PassThru] [-UseSsl]`
-|禁用网络控制器群集节点|NetworkControllerNode|`Disable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
-|启用网络控制器群集节点|NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
-|从群集中删除网络控制器节点|NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
+|修改网络控制器群集设置|Set-NetworkControllerCluster|`Set-NetworkControllerCluster [-ManagementSecurityGroup <string>][-Credential <PSCredential>] [-computerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
+|修改网络控制器应用程序设置|Set-NetworkController|`Set-NetworkController [-ClientAuthentication <ClientAuthentication>] [-Credential <PSCredential>] [-ClientCertificateThumbprint <string[]>] [-ClientSecurityGroup <string>] [-ServerCertificate <X509Certificate2>] [-RestIPAddress <String>] [-ComputerName <String>][-CertificateThumbprint <String> ] [-UseSSL]`
+|修改网络控制器节点设置|Set-NetworkControllerNode|`Set-NetworkControllerNode -Name <string> > [-RestInterface <string>] [-NodeCertificate <X509Certificate2>] [-Credential <PSCredential>] [-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
+|修改网络控制器诊断设置|Set-NetworkControllerDiagnostic|`Set-NetworkControllerDiagnostic [-LogScope <string>] [-DiagnosticLogLocation <string>] [-LogLocationCredential <PSCredential>] [-UseLocalLogLocation] >] [-LogLevel <loglevel>][-LogSizeLimitInMBs <uint32>] [-LogTimeLimitInDays <uint32>] [-Credential <PSCredential>] [-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
+|删除网络控制器应用程序|Uninstall-NetworkController|`Uninstall-NetworkController [-Credential <PSCredential>][-ComputerName <string>] [-CertificateThumbprint <String> ] [-UseSSL]`
+|删除网络控制器群集|Uninstall-NetworkControllerCluster|`Uninstall-NetworkControllerCluster [-Credential <PSCredential>][-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
+|向网络控制器群集添加节点|Add-NetworkControllerNode|`Add-NetworkControllerNode -FaultDomain <String> -Name <String> -RestInterface <String> -Server <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-NodeCertificate <X509Certificate2> ] [-PassThru] [-UseSsl]`
+|禁用网络控制器群集节点|Disable-NetworkControllerNode|`Disable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
+|启用网络控制器群集节点|Enable-NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
+|从群集中删除网络控制器节点|Remove-NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
 
 若要了解详细信息，请参阅 Windows PowerShell 参考文档，网址为 [NetworkController](/powershell/module/networkcontroller/?view=win10-ps)。
 
@@ -218,4 +218,4 @@ Install-NetworkController -Node @($a,$b,$c) -ClientAuthentication Kerberos -Clie
 
 ## <a name="next-steps"></a>后续步骤
 
-如果你不在网络控制器部署中使用 Kerberos，则必须部署证书。 有关详细信息，请参阅 [网络控制器的部署后步骤](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc)。
+如果你不在网络控制器部署中使用 Kerberos，则必须部署证书。 有关详细信息，请参阅 [网络控制器的部署后步骤](/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc)。

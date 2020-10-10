@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 4d1b6df185225a244996246b3e6883b09ac32d8e
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: bb945f69a972214823f366456967b71a013d98bf
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574221"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899833"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上的图形处理单元 (GPU) 虚拟机 (VM)
 
@@ -22,8 +22,8 @@ ms.locfileid: "90574221"
 本文介绍 Azure Stack Hub 多节点系统 (GPU) 型号的图形处理单元。 还可以找到有关安装与 GPU 配合使用的驱动程序的说明。 Azure Stack Hub 中的 GPU 支持实现了诸如人工智能、训练、推理和数据可视化之类的解决方案。 AMD Radeon Instinct MI25 可用于支持图形密集型应用程序，如 Autodesk AutoCAD。
 
 可以在公共预览期间从三个 GPU 模型中进行选择。 它们适用于 NVIDIA V100、NVIDIA T4 和 AMD MI25 Gpu。 这些物理 GPU 支持以下 Azure N 系列虚拟机 (VM) 类型，如下所示：
-- [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series)
-- [NVv4 () AMD MI25 ](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- [NCv3](/azure/virtual-machines/ncv3-series)
+- [NVv4 () AMD MI25 ](/azure/virtual-machines/nvv4-series)
 - NCas_v4
 
 > [!IMPORTANT]  
@@ -73,7 +73,7 @@ GPU VM 将在执行 Azure Stack Hub 的修补升级 (PnU) 以及硬件更换 (FR
 ## <a name="guest-driver-installation"></a>来宾驱动程序安装 
 
 ### <a name="amd-mi25"></a>AMD MI25
-在 [运行 Windows 的 N 系列 vm 上安装 AMD GPU 驱动程序](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) 一文提供了有关在已启用 NVv4 GPU P 的 vm 内安装 Amd RADEON Instinct MI25 驱动程序的说明，以及如何验证驱动程序安装的步骤。 此扩展仅在连接模式下工作。
+在 [运行 Windows 的 N 系列 vm 上安装 AMD GPU 驱动程序](/azure/virtual-machines/windows/n-series-amd-driver-setup) 一文提供了有关在已启用 NVv4 GPU P 的 vm 内安装 Amd RADEON Instinct MI25 驱动程序的说明，以及如何验证驱动程序安装的步骤。 此扩展仅在连接模式下工作。
 
 ### <a name="nvidia"></a>NVIDIA
 
@@ -83,4 +83,4 @@ GPU VM 将在执行 Azure Stack Hub 的修补升级 (PnU) 以及硬件更换 (FR
 
 ## <a name="next-steps"></a>后续步骤 
 
-[Azure Stack VM 功能](azure-stack-vm-considerations.md) 
+[Azure Stack VM 功能](azure-stack-vm-considerations.md)

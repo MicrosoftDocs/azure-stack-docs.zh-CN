@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 7a5135b9b6610e8ceeca4f4d3e34dca1f2aafc88
-ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
+ms.openlocfilehash: aca163df1026193933ffb9d09dbdf4a854638a75
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91847623"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899799"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack Hub 中轮换机密
 
@@ -87,7 +87,7 @@ Azure Stack 集线器使用机密来维护与基础结构资源和服务之间�
 
 <sup>*</sup>指示公共证书颁发机构属于 Windows 受信任的根程序。 可以在 [参与者列表-Microsoft 受信任的根计划](/security/trusted-root/participants-list)中找到完整列表。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 用于旋转内部和外部机密：
 
@@ -224,7 +224,7 @@ Azure Stack 集线器使用机密来维护与基础结构资源和服务之间�
 
 参考第2步： [轮换外部机密](#rotate-external-secrets)中的 PowerShell 脚本。 此脚本提供一个示例，你可以通过进行一些更改来运行以下步骤，以适应内部机密旋转：
 
-1. 在 "运行机密旋转" 部分，将参数添加 `-Internal` 到 [start-secretrotation cmdlet](/azure-stack/reference/pep-2002/start-secretrotation)，例如：
+1. 在 "运行机密旋转" 部分，将参数添加 `-Internal` 到 [start-secretrotation cmdlet](../reference/pep-2002/start-secretrotation.md)，例如：
 
     ```powershell
     # Run Secret Rotation
@@ -310,7 +310,7 @@ Azure Stack 集线器使用机密来维护与基础结构资源和服务之间�
 
 ## <a name="reference-start-secretrotation-cmdlet"></a>参考： Start-SecretRotation cmdlet
 
-[Start-secretrotation cmdlet](/azure-stack/reference/pep-2002/start-secretrotation) 旋转 Azure Stack 中心系统的基础结构机密。 仅可通过使用  `Invoke-Command` 在参数中传递 PEP 会话的脚本块，对 Azure Stack 集线器特权终结点执行此 cmdlet `-Session` 。 默认情况下，它只轮换所有外部网络基础结构终结点的证书。
+[Start-secretrotation cmdlet](../reference/pep-2002/start-secretrotation.md) 旋转 Azure Stack 中心系统的基础结构机密。 仅可通过使用  `Invoke-Command` 在参数中传递 PEP 会话的脚本块，对 Azure Stack 集线器特权终结点执行此 cmdlet `-Session` 。 默认情况下，它只轮换所有外部网络基础结构终结点的证书。
 
 | 参数 | 类型 | 必须 | 位置 | 默认 | 说明 |
 |--|--|--|--|--|--|
