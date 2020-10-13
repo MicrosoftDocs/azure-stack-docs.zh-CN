@@ -3,48 +3,54 @@ title: 将自定义 VM 映像添加到 Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中添加或删除自定义 VM 映像。
 author: sethmanheim
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/12/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 5266766786cd359446e8313ec19e07746b227fb2
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 5cb138865ec9a1bb9b55996a3b49c1b33e8103db
+ms.sourcegitcommit: 721727013119a830a9d341d373d494dcb2cffcae
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899476"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91980371"
 ---
-# <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>在 Azure Stack 集线器中添加和删除自定义 VM 映像
+# <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>在 Azure Stack Hub 中添加和删除自定义 VM 映像
 
 在 Azure Stack Hub 中，作为操作员，你可以将虚拟机 (VM) 自定义映像添加到市场供用户使用。 可以通过管理员门户或 Windows PowerShell 将 VM 映像添加到 Azure Stack Hub 市场。 使用全局 Microsoft Azure 市场中的映像作为自定义映像的基础，或使用 Hyper-v 创建自己的映像。
 
 ## <a name="add-an-image"></a>添加映像
 
-你可以在用户指南的 " **计算** " 部分找到有关添加通用化和专用映像的说明。 你需要在为用户提供映像之前创建通用映像。 有关说明，请参阅 [将 VM 移到 Azure Stack 集线器概述](../user/vm-move-overview.md)。 创建适用于租户的映像时，请使用 Azure Stack 集线器管理门户或管理员终结点，而不是用户门户或租户目录终结点。
+可以在用户指南的“计算”部分中找到有关添加通用映像和专用映像的说明。 在为用户提供通用映像之前，需要先创建该映像。 有关说明，请参阅[将 VM 移动到 Azure Stack Hub 概述](../user/vm-move-overview.md)。 创建可用于租户的映像时，请使用 Azure Stack Hub 管理门户或管理员终结点，而不是用户门户或租户目录终结点。
 
-你可以使用两个选项向用户提供映像：
+有两个选项可用于向用户提供映像：
 
-- **仅提供通过 Azure 访问的映像资源管理器**  
-  如果通过**计算**映像中的 Azure Stack 集线器管理门户添加映像  >  **Images**，则所有租户都可以访问该映像。 但是，用户需要使用 Azure 资源管理器模板来访问它。 Azure Stack 中心市场中不可见。
+- **提供只能通过 Azure 资源管理器访问的映像**  
+  如果通过**计算**映像中的 Azure Stack 集线器管理门户添加映像  >  **Images**，则所有租户都可以访问该映像。 但是，你的用户需要使用 Azure 资源管理器模板来访问它。 它将在 Azure Stack Hub 市场中不可见。
 
-- **通过 Azure Stack 中心市场提供映像**  
-    通过 Azure Stack 集线器管理门户添加映像后，便可以创建 marketplace 产品/服务。 有关说明，请参阅 [创建和发布自定义 Azure Stack 集线器 Marketplace 项](azure-stack-create-and-publish-marketplace-item.md)。
+- **通过 Azure Stack Hub 市场提供映像**  
+    通过 Azure Stack Hub 管理门户添加映像后，便可以创建市场产品/服务了。 有关说明，请参阅[创建并发布自定义 Azure Stack Hub 市场项](azure-stack-create-and-publish-marketplace-item.md)。
 
 ## <a name="add-a-platform-image"></a>添加平台映像
 
 若要将平台映像添加到 Azure Stack 中心，请使用 Azure Stack 中心管理员门户或使用 PowerShell 终结点。 必须首先创建通用化 VHD。 有关详细信息，请参阅 [将 VM 移到 Azure Stack 集线器概述](../user/vm-move-overview.md)。
 
-### <a name="portal"></a>[门户](#tab/image-add-portal)
+### <a name="portal"></a>[Portal](#tab/image-add-portal)
 
 以 Azure Stack Hub 操作员的身份使用门户添加 VM 映像。
 
-1. 以操作员身份登录到 Azure Stack Hub。 在菜单中，选择 "**所有服务**" "  >  **计算**  >  **映像**" "  >  **添加**"。
+1. 以操作员身份登录到 Azure Stack Hub。 从左侧导航栏中选择 " **仪表板** "。
 
-   ![添加 VM 映像](./media/azure-stack-add-vm-image/tca4.png)
+2. 在 **资源提供程序** 列表中，选择 " **计算**"。
+
+   [![选择计算](./media/azure-stack-add-vm-image/dash-small.png)](./media/azure-stack-add-vm-image/dash.png#lightbox)
+
+3. 选择 " **VM 映像**"，然后选择 " **添加**"。
+
+   [![添加 VM 映像](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
 
 2. 在“创建映像”下，输入“发布者”、“套餐”、“SKU”、“版本”和 OS 磁盘 blob URI。 然后选择“创建”，开始创建 VM 映像。
 
-   ![自定义映像旁加载 UI](./media/azure-stack-add-vm-image/tca5.png)
+   [![自定义映像旁加载 UI](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    成功创建映像后，VM 映像状态会更改为“已成功”。
 
@@ -99,7 +105,7 @@ ms.locfileid: "91899476"
 
 可以使用门户或 PowerShell 删除平台映像。
 
-### <a name="portal"></a>[门户](#tab/image-rem-portal)
+### <a name="portal"></a>[Portal](#tab/image-rem-portal)
 
 若要以 Azure Stack Hub 操作员的身份使用 Azure Stack Hub 门户删除 VM 映像，请执行以下步骤：
 
