@@ -7,12 +7,12 @@ ms.date: 10/12/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 5cb138865ec9a1bb9b55996a3b49c1b33e8103db
-ms.sourcegitcommit: 721727013119a830a9d341d373d494dcb2cffcae
+ms.openlocfilehash: 496d706b6ed930087207b24047d3409f29a53e53
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91980371"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060117"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>在 Azure Stack Hub 中添加和删除自定义 VM 映像
 
@@ -48,13 +48,13 @@ ms.locfileid: "91980371"
 
    [![添加 VM 映像](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
 
-2. 在“创建映像”下，输入“发布者”、“套餐”、“SKU”、“版本”和 OS 磁盘 blob URI。 然后选择“创建”，开始创建 VM 映像。
+4. 在“创建映像”下，输入“发布者”、“套餐”、“SKU”、“版本”和 OS 磁盘 blob URI。 然后选择“创建”，开始创建 VM 映像。
 
    [![自定义映像旁加载 UI](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    成功创建映像后，VM 映像状态会更改为“已成功”。
 
-3. 添加映像时，它仅适用于基于 Azure 资源管理器的模板和 PowerShell 部署。 若要将映像作为市场项提供给用户，请使用[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)一文中的步骤发布市场项 请务必记下“发布者”、“套餐”、“SKU”和“版本”的值。**** **** **** **** 在自定义 .azpkg 中编辑资源管理器模板和 Manifest.json 时，需要用到这些值。
+5. 添加映像时，它仅适用于基于 Azure 资源管理器的模板和 PowerShell 部署。 若要将映像作为市场项提供给用户，请使用[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)一文中的步骤发布市场项 请务必记下“发布者”、“套餐”、“SKU”和“版本”的值。**** **** **** **** 在自定义 .azpkg 中编辑资源管理器模板和 Manifest.json 时，需要用到这些值。
 
 ### <a name="powershell"></a>[PowerShell](#tab/image-add-ps)
 

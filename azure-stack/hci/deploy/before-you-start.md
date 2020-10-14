@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/01/2020
-ms.openlocfilehash: 8a4c8557fe708535bfdde383ef30dd78395b1c01
-ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
+ms.date: 10/14/2020
+ms.openlocfilehash: 4ff495aba1f46824a6ab47c95601687402d24edb
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91625866"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060100"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>部署 Azure Stack HCI 之前的准备工作
 
@@ -25,7 +25,7 @@ ms.locfileid: "91625866"
 - 收集成功部署所需的信息
 - 在管理 PC 或服务器上安装 Windows Admin Center·
 
-有关 Azure Stack HCI 要求的 Azure Kubernetes 服务，请参阅 [AZURE STACK HCI 上的 AKS 要求](../../aks-hci/overview.md#what-you-need-to-get-started)。
+关于 Azure Stack HCI 上 Azure Kubernetes 服务的要求，请参阅 [Azure Stack HCI 上的 AKS 要求](../../aks-hci/overview.md#what-you-need-to-get-started)。
 
 ## <a name="determine-hardware-requirements"></a>确定硬件要求
 
@@ -64,143 +64,26 @@ Azure Stack HCI 群集要求在各个服务器节点之间具有可靠的高带�
 
 对于延伸群集，还会有在站点之间流动的额外存储副本流量。 存储总线层 (SBL) 和群集共享卷 (CSV) 流量不会在站点之间传输，只能在每个站点中的服务器节点之间传输。
 
+有关主机网络规划注意事项和要求，请参阅为 [AZURE STACK HCI 规划主机网络](../concepts/plan-host-networking.md)。
+
 ### <a name="software-defined-networking-requirements"></a>软件定义的网络要求
 
-使用 Windows 管理中心创建 Azure Stack HCI 群集时，可以选择部署网络控制器，以启用软件定义的网络 (SDN) 。 如果要在 Azure Stack HCI 上使用 SDN：
+在使用 Windows Admin Center 创建 Azure Stack HCI 群集时，可以选择部署网络控制器，以启用软件定义的网络 (SDN)。 如果要在 Azure Stack HCI 上使用 SDN，请注意以下事项：
 
-- 请确保主机服务器至少有 50-100 GB 的可用空间来创建网络控制器 Vm。
+- 请确保主机服务器至少有 50-100 GB 的可用空间，以用于创建网络控制器 VM。
 
-- 必须将 Azure Stack HCI 操作系统 (VHD) 的虚拟硬盘复制到群集中的第一个节点，才能创建网络控制器 Vm。 可以使用 [Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview) 或通过运行 [add-windowsimage](https://gallery.technet.microsoft.com/scriptcenter/Convert-WindowsImageps1-0fe23a8f) 脚本将 .ISO 文件转换为 vhd 来准备 vhd。
+- 为了创建网络控制器 VM，必须将 Azure Stack HCI 操作系统的虚拟硬盘 (VHD) 复制到群集中的第一个节点。 准备 VHD 的方式可以是使用 [Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview)，或者也可以是通过运行 [Convert-WindowsImage](https://gallery.technet.microsoft.com/scriptcenter/Convert-WindowsImageps1-0fe23a8f) 脚本将 .iso 文件转换为 VHD。
 
-有关在 Azure Stack HCI 中准备使用 SDN 的详细信息，请参阅 [规划软件定义的网络基础结构](../concepts/plan-software-defined-networking-infrastructure.md) 和 [计划部署网络控制器](../concepts/network-controller.md)。
+关于在 Azure Stack HCI 中使用 SDN，若要详细了解如何为此进行准备，请参阅[规划软件定义的网络基础结构](../concepts/plan-software-defined-networking-infrastructure.md)和[规划部署网络控制器](../concepts/network-controller.md)。
 
 ### <a name="domain-requirements"></a>域要求
 
 Azure Stack HCI 没有特殊的域功能级别要求，只是一个适用于你的域控制器且仍受支持的操作系统版本。 建议启用 Active Directory 回收站功能（如果尚未这样做），这是一种常规的最佳做法。
 
-### <a name="interconnect-requirements-between-nodes"></a>节点之间的互连要求
-
-本部分讨论了站点中服务器节点之间的特定网络要求，即互连。 可以使用和支持有交换机或无交换机节点互连：
-
-- **有交换机：** 最常用的方案是，服务器节点通过那些使用网络交换机的以太网彼此连接。 必须正确配置交换机以处理带宽和网络类型。 如果使用的 RDMA 实现了 RoCE 协议，则网络设备和交换机配置很重要。
-- **无交换机：** 服务器节点还可以使用直接以太网连接进行互连，不使用交换机。 在这种情况下，每个服务器节点必须与同一站点中的所有其他群集节点直接连接。
-
-#### <a name="interconnects-for-2-3-node-clusters"></a>具有 2-3 个节点的群集的互连
-
-下面是具有两个或三个节点的单站点群集的最低互连要求。 这些要求适用于每个服务器节点：
-
-- 一个或多个用于管理功能的 1 Gb 网络适配器卡
-- 一个或多个 10 Gb（或更快）的网络接口卡，用于存储和工作负荷流量
-- 建议在各个节点之间使用两个或更多个网络连接以确保冗余和性能
-
-#### <a name="interconnects-for-4-node-and-greater-clusters"></a>具有 4 个节点的群集和更大群集的互连
-
-下面是具有四个或更多个节点的群集和高性能群集的最低互连要求。 这些要求适用于每个服务器节点：
-
-- 一个或多个用于管理功能的 1 Gb 网络适配器卡。
-- 一个或多个 25 Gb（或更快）的网络接口卡，用于存储和工作负荷流量。 建议使用两个或更多个网络连接以确保冗余和性能。
-- 支持远程直接内存访问 (RDMA) 的网卡：iWARP（推荐）或 RoCE。
-
-### <a name="site-to-site-requirements-stretched-cluster"></a>站点到站点要求（延伸群集）
-
-在延伸群集的站点之间连接时，每个站点中的互连要求仍适用，此外还有其他必须考虑的存储副本和 Hyper-V 实时迁移流量要求：
-
-- 在进行同步复制的站点之间至少有一个 1 Gb RDMA 或以太网/TCP 连接。 首选 25 Gb RDMA 连接。
-- 对于同步复制，站点之间的网络需要有足够的带宽来包含 I/O 写入工作负荷，往返延迟平均为 5 毫秒或更低。 异步复制没有延迟建议。
-- 如果在站点之间使用单个连接，请使用 PowerShell 设置存储副本的 SMB 带宽限制。 有关详细信息，请参阅 [Set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit)。
-- 如果在站点之间使用多个连接，请在连接之间分隔流量。 例如，将存储副本流量与使用 PowerShell 的 Hyper-V 实时迁移流量分别置于不同的网络上。 有关详细信息，请参阅 [Set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint)。
-
-### <a name="network-port-requirements"></a>网络端口要求
-
-请确保站点内和站点间的所有服务器节点之间的相应网络端口处于打开状态（对于延伸群集）。 你需要适当的防火墙和路由器规则，以允许在群集中的所有服务器之间进行 ICMP、SMB（端口 445，以及适用于 SMB Direct 的端口 5445）和 WS-MAN（端口 5985）双向通信。
-
-使用 Windows Admin Center 中的群集创建向导来创建群集时，向导会针对故障转移群集、Hyper-V 和存储副本自动打开群集中每台服务器上的相应防火墙端口。 如果在每台服务器上使用不同的软件防火墙，请打开以下端口：
-
-#### <a name="failover-clustering-ports"></a>故障转移群集端口
-
-- ICMPv4 和 ICMPv6
-- TCP 端口 445
-- RPC 动态端口
-- TCP 端口 135
-- TCP 端口 137
-- TCP 端口 3343
-- UDP 端口 3343
-
-#### <a name="hyper-v-ports"></a>Hyper-V 端口
-
-- TCP 端口 135
-- TCP 端口 80（HTTP 连接）
-- TCP 端口 443（HTTPS 连接）
-- TCP 端口 6600
-- TCP 端口 2179
-- RPC 动态端口
-- RPC 终结点映射程序
-- TCP 端口 445
-
-#### <a name="storage-replica-ports-stretched-cluster"></a>存储副本端口（延伸群集）
-
-- TCP 端口 445
-- TCP 5445（如果使用 iWarp RDMA）
-- TCP 端口 5985
-- ICMPv4 和 ICMPv6（如果使用 Test-SRTopology）
-
-可能需要其他端口，但上面未列出。 这些是用于基本的 Azure Stack HCI 功能的端口。
-
-### <a name="network-switch-requirements"></a>网络交换机要求
-
-本部分定义与 Azure Stack HCI 一起使用的物理交换机的要求。 这些要求列出了所有 Azure Stack HCI 部署所必需的行业规范、组织标准和协议。 除非另有说明，否则不需要为标准的最新活动 (非取代) 版本。
-
-这些要求有助于确保 Azure Stack HCI 群集部署中的节点之间的可靠通信。 节点之间的可靠通信至关重要。 若要为 Azure Stack HCI 提供所需的可靠性级别，需要交换机：
-
-- 遵守适用的行业规范、标准和协议
-- 提供交换机支持的规范、标准和协议的可见性
-- 提供有关启用了哪些功能的信息
-
-如果交换机支持以下各项，请务必询问交换机供应商：
-
-#### <a name="standard-ieee-8021q"></a>标准： IEEE 802.1 Q
-
-以太网交换机必须符合定义 Vlan 的 IEEE 802.1 Q 规范。 Vlan 是 Azure Stack HCI 的几个方面所必需的，并且在所有方案中都是必需的。
-
-#### <a name="standard-ieee-8021qbb"></a>标准： IEEE 802.1 Q b b
-
-以太网交换机必须符合定义 (PFC) 优先级流控制的 IEEE 802.1 Q b b 规范。 使用数据中心桥接 (DCB) 时，需要 PFC。 由于 DCB 可以在 RoCE 和 iWARP RDMA 方案中使用，因此在所有方案中都需要 802.1 Q b b。 至少需要三类服务 (CoS) 优先级，而不会降级交换机功能或端口速度。
-
-#### <a name="standard-ieee-8021qaz"></a>标准： IEEE 802.1 Qaz
-
-以太网交换机必须符合定义增强传输的 IEEE 802.1 Qaz 规范 (ETS) 。 使用 DCB 时需要 ETS。 由于 DCB 可以在 RoCE 和 iWARP RDMA 方案中使用，因此在所有方案中都需要 802.1 Qaz。 至少需要三个 CoS 优先级，而不会降级交换机功能或端口速度。
-
-#### <a name="standard-ieee-8021ab"></a>标准： IEEE 802.1 AB
-
-以太网交换机必须符合定义 (LLDP) 的链接层发现协议的 IEEE 802.1 AB 规范。 Windows 需要 LLDP 才能发现交换机配置。 必须动态启用 LLDP 类型-长度-值 (TLVs) 的配置。 这些开关不能需要其他配置。
-
-例如，启用802.1 子类型3应自动播发交换机端口上的所有可用 Vlan。
-
-#### <a name="tlv-requirements"></a>TLV 要求
-
-LLDP 允许组织定义并编码自己的自定义 TLVs。 这些称为组织特定的 TLVs。 所有组织特定的 TLVs 从 LLDP TLV 类型值127开始。 下表显示了需要 (TLV 类型 127) 子类型的特定于组织的自定义 TLV，它们是可选的：
-
-|条件|组织|TLV 子类型|
-|-|-|-|
-|必需|IEEE 802。1|VLAN 名称 (子类型 = 3) |
-|必需|IEEE 802。3|最大帧大小 (子类型 = 4) |
-|可选|IEEE 802。1|端口 VLAN ID (子类型 = 1) |
-|可选|IEEE 802。1|端口和协议 VLAN ID (子类型 = 2) |
-|可选|IEEE 802。1|链接聚合 (子类型 = 7) |
-|可选|IEEE 802。1|拥塞通知 (子类型 = 8) |
-|可选|IEEE 802。1|ETS 配置 (子类型 = 9) |
-|可选|IEEE 802。1|ETS 建议 (子类型 =) |
-|可选|IEEE 802。1|PFC 配置 (子类型 = B) |
-|可选|IEEE 802。1|EVB (子类型 = D) |
-|可选|IEEE 802。3|链接聚合 (子类型 = 3) |
-
-> [!NOTE]
-> 将来可能需要列出一些可选功能。
-
 ### <a name="storage-requirements"></a>存储要求
 
 - Azure Stack HCI 可使用直接连接的 SATA、SAS、NVMe 或永久性内存驱动器，每个驱动器使用物理方式仅连接到一个服务器。
-- 群集中的每个服务器都应具有相同类型的驱动器和每种类型的相同编号。 它也建议 (但不是必需的) 驱动器大小和型号相同。 驱动器可以是服务器的内部驱动器，也可以是仅连接到一台服务器的外接盒。 若要了解详细信息，请参阅 [驱动对称注意事项](../concepts/drive-symmetry-considerations.md)。
+- 群集中每个服务器都应具有相同类型的驱动器，各类型驱动器的数量也应该相同。 另外，建议（但不要求）驱动器的大小和型号也相同。 驱动器可以是服务器的内部驱动器，也可以是仅连接到一台服务器的外接盒。 若要了解详细信息，请参阅[驱动器对称性注意事项](../concepts/drive-symmetry-considerations.md)。
 - 群集中的每台服务器都应有日志专用卷，日志存储至少与数据存储一样快。 延伸群集至少需要两个卷：一个用于复制的数据，一个用于日志数据。
 - 槽映射和标识需要 SCSI 机箱服务 (SES)。 每个外接盒都必须提供唯一标识符（唯一 ID）。 **不支持：** RAID 控制器卡或 SAN（光纤通道、iSCSI、FCoE）存储、连接到多台服务器的共享 SAS 机箱，或可以通过多个路径来访问驱动器的任何形式的多路径 IO (MPIO)。 主机总线适配器 (HBA) 卡必须实现简单的直通模式。
 - 有关更多帮助，请参阅[选择驱动器](../concepts/choose-drives.md)主题或[存储空间直通硬件要求](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)。
@@ -239,7 +122,7 @@ LLDP 允许组织定义并编码自己的自定义 TLVs。 这些称为组织特
 
 Windows Admin Center 是一个本地部署的基于浏览器的应用，用于管理 Azure Stack HCI。 若要[安装 Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)，最简单的方法是在本地管理 PC 上安装（桌面模式），但也可以在服务器上安装（服务模式）。
 
-如果在服务器上安装 Windows Admin Center，则那些需要 CredSSP 的任务（例如创建群集以及安装更新和扩展）使用的帐户必须是 Windows Admin Center 服务器上的“网关管理员”组的成员。 有关详细信息，请参阅[配置用户访问控制和权限](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions)中的前两部分。
+如果在服务器上安装 Windows Admin Center，则那些需要 CredSSP 的任务（例如创建群集以及安装更新和扩展）使用的帐户必须是 Windows Admin Center 服务器上的“网关管理员”组的成员。 有关详细信息，请参阅[配置用户访问控制和权限](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions)的前两个部分。
 
 ## <a name="next-steps"></a>后续步骤
 

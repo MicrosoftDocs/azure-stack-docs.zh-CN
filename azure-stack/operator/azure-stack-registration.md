@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: dab71944ecc46fdaa92f7ca65d3ba5c848b24762
-ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
+ms.openlocfilehash: f6d307b7fe165681e93c842596007ca1fde3a152
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90038822"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060178"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
 
@@ -99,7 +99,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 > [!NOTE]
 > 使用基于容量的计费模型的 Azure Stack Hub 注册将需要在这些年度订阅到期后重新注册时更改唯一名称，除非你[删除过期的注册](#renew-or-change-registration)并重新注册到 Azure。
 
-若要确定 Azure Stack 中心部署的云 ID，请参阅 [查找你的云 id](azure-stack-find-cloud-id.md)。
+若要确定 Azure Stack Hub 部署的云 ID，请参阅[查找云 ID](azure-stack-find-cloud-id.md)。
 
 ::: zone pivot="state-connected"
 ## <a name="register-with-pay-as-you-use-billing"></a>使用即用即付计费注册
@@ -375,7 +375,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
   # switch to new subscription id
   Select-AzureRmSubscription -Subscription '<New subscription ID>'
   # register 
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
   ```
 
 ### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>更改计费模型、功能提供方式或重新注册实例
