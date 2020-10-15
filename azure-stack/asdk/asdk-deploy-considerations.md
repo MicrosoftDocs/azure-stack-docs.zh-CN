@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: b16247c53ea0677573573c827f68e56081a9de5e
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: dbd0398b7f6582c12288c2ae72137c4a673ddfcc
+ms.sourcegitcommit: 950dbc793b3498173923d0bc9fe56662a349abf1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106962"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082082"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK 要求和注意事项
 
@@ -106,9 +106,9 @@ ASDK 是一种单节点系统，设计用于验证 Azure Stack 集成系统的�
 
 ## <a name="network"></a>网络
 ### <a name="switch"></a>Switch
-交换机上的一个可用于 ASDK 计算机的端口。  
+ASDK 计算机的交换机上有一个可用的端口。  
 
-ASDK 计算机支持连接到交换机访问端口或 Trunk 端口。 交换机上不要求使用专用功能。 若要使用 Trunk 端口，或者需要配置 VLAN ID，则需以部署参数的形式提供 VLAN ID。
+ASDK 计算机支持连接到交换机访问端口或 Trunk 端口。 交换机上不要求使用专用功能。
 
 ### <a name="subnet"></a>子网
 请勿将 ASDK 计算机连接到以下子网：
@@ -129,7 +129,7 @@ ASDK 计算机支持连接到交换机访问端口或 Trunk 端口。 交换机�
 确保可以在 NIC 连接到的网络上使用 DHCP 服务器。 如果 DHCP 不可用，则除了主机使用的静态 IPv4 网络，还必须准备另一个此类网络。 必须提供该 IP 地址和网关作为部署参数。
 
 ### <a name="internet-access"></a>Internet 访问
-Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明代理进行访问。 Azure Stack 不支持通过配置 Web 代理来启用 Internet 访问。 主机 IP 和分配到 AzS-BGPNAT01 的新 IP（通过 DHCP 或静态 IP 的方式进行分配）必须能够访问 Internet。 在 graph.windows.net 和 login.microsoftonline.com 域下使用端口80和443。
+Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明代理进行访问。 Azure Stack 不支持通过配置 Web 代理来启用 Internet 访问。 在 graph.windows.net 和 login.microsoftonline.com 域下使用端口80和443。
 
 
 ## <a name="next-steps"></a>后续步骤
