@@ -4,13 +4,13 @@ description: 了解群集验证的重要性，以及何时在现有 Azure Stack 
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 10/2/2020
-ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
-ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
+ms.date: 10/16/2020
+ms.openlocfilehash: fe49df76ccb2a90849587acd5d4df7a41e329efb
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91663935"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157693"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>验证 Azure Stack HCI 群集
 
@@ -50,7 +50,7 @@ ms.locfileid: "91663935"
 ## <a name="validate-networking"></a>验证网络
 Microsoft Validate-DCB 工具用于验证群集上的数据中心桥接 (DCB) 配置。 为此，该工具将预期的配置作为输入，然后测试群集中的每个服务器。 本部分介绍如何安装和运行 Validate-DCB 工具、查看结果并解决该工具识别的网络错误。
 
-在网络上，基于聚合以太网 (RoCE) 的远程直接内存访问 (RDMA) 需要 DCB 技术来实现无损的网络结构。 尽管 iWARP 不需要 DCB，但仍推荐使用。 但是，配置 DCB 可能很复杂，需要在以下位置进行精确配置：
+在网络上，基于聚合以太网 (RoCE) 的远程直接内存访问 (RDMA) 需要 DCB 技术来实现无损的网络结构。 对于 iWARP，DCB 是可选的。 但是，配置 DCB 可能很复杂，需要在以下位置进行精确配置：
 - 群集中的每个服务器
 - RDMA 流量通过的结构上的每个网络端口
 

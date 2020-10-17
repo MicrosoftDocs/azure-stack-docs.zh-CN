@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 10/08/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: cff17c92a44bec23d0a10620d6c182ad5240c451
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 1bea13f3ba7b9e210c52ac9cffc32c7d8e4a79c6
+ms.sourcegitcommit: 82a8ddbf474a28cd551e86a69e0c41a624e0be2a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495790"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116175"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -66,15 +66,15 @@ Azure Stack Hub 2005 更新内部版本类型为“完整”。
 ### <a name="whats-new"></a>新增功能
 
 <!-- What's new, also net new experiences and features. -->
-- 此版本支持3个新的 GPU VM 类型： NCv3 (Nvidia V100) 、NVv4 (AMD MI25) ，NCas_v4 (NVIDIA T4) VM 大小。 对于具有正确硬件并且已加入 Azure Stack Hub GPU 预览计划的用户，VM 部署将会成功。 如果你感兴趣，请在 https://aka.ms/azurestackhubgpupreview 注册 GPU 预览计划。 有关详细信息，[请参阅此处](../user/gpu-vms-about.md)。
+- 此内部版本支持 3 个新的 GPU VM 类型：NCv3 (Nvidia V100)、NVv4 (AMD MI25) 和 NCas_v4 (NVIDIA T4) VM 大小。 对于具有正确硬件并且已加入 Azure Stack Hub GPU 预览计划的用户，VM 部署将会成功。 如果你感兴趣，请在 https://aka.ms/azurestackhubgpupreview 注册 GPU 预览计划。 有关详细信息，[请参阅此处](../user/gpu-vms-about.md)。
 - 此版本提供了一项支持自动修复的新功能，可检测故障、评估影响并安全地缓解系统问题。 借助此功能，我们可以努力提高系统的可用性，而无需手动干预。 对于版本 2005 及更高版本，客户遇到警报将会减少。 除非另行通知，否则此管道中的任何故障都不需要 Azure Stack Hub 操作员进行操作。
 - Azure Stack Hub 管理门户中有一个新选项，气隙/断开连接的 Azure Stack Hub 客户可使用该选项在本地保存日志。 当 Azure Stack Hub 与 Azure 断开连接时，可以将日志存储在本地 SMB 共享中。
 - 如果系统操作已在进行中，Azure Stack Hub 管理门户现在会阻止某些操作。 例如，如果正在进行更新，则不能添加新的缩放单元节点。
 - 此版本在 1910 之前创建的 VM 中提供了与 Azure 更高的结构一致性。 在1910中，Microsoft 宣布所有新创建的 Vm 将使用 wireserver 协议，使客户能够使用与 Azure 相同的 WALA 代理和 Windows 来宾代理，从而更轻松地在 Azure Stack 集线器上使用 Azure 映像。 在此版本中，将自动迁移所有在 1910 前创建的 VM 以使用 wireserver 协议。 这也提供了更可靠的 VM 创建、VM 扩展部署以及稳定状态运行时间方面的改进。
 - Azure Stack Hub 存储现在支持 Azure 存储服务 API 版本2019-02-02。 对于 Azure 客户端库，它与新的 REST API 版本兼容。 有关详细信息，请参阅 [Azure Stack Hub 存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。
 - Azure Stack Hub 现在支持最新版本的 [CreateUiDefinition（版本 2）](/azure/azure-resource-manager/managed-applications/create-uidefinition-overview)。
-- 批处理 VM 部署的新指南。 有关详细信息， [请参阅此文](../operator/azure-stack-capacity-planning-compute.md)。
-- Azure Stack 中心市场 CoreOS 容器 Linux 项目即将 [结束](https://azure.microsoft.com/updates/flatcar-in-azure/)。 有关详细信息，请参阅 [从 CoreOS 容器 Linux 迁移](https://docs.flatcar-linux.org/os/migrate-from-container-linux/)。
+- 批处理 VM 部署的新指南。 有关详细信息，[请参阅此文](../operator/azure-stack-capacity-planning-compute.md)。
+- Azure Stack Hub 市场 CoreOS 容器 Linux 项的[生命周期即将结束](https://azure.microsoft.com/updates/flatcar-in-azure/)。 有关详细信息，请参阅[从 CoreOS 容器 Linux 迁移](https://docs.flatcar-linux.org/os/migrate-from-container-linux/)。
 
 ### <a name="improvements"></a>改进
 
@@ -105,7 +105,7 @@ Azure Stack Hub 2005 更新内部版本类型为“完整”。
 - 修复了对修复缩放单元节点具有级联影响的支持基础结构角色的横向缩减和横向扩展的问题。
 - 修复了以下问题：当操作员通过“所有服务”>“计算”>“VM 映像”>“添加”，将自己的映像添加到 Azure Stack Hub 管理员门户时，不允许使用 .VHD 扩展（而不是 .vhd）。
 - 修复了以下问题：在执行任何其他 VM 更新操作（添加磁盘、标记等）后，以前的 VM 重启操作随后出现意外重启。
-- 解决了创建重复 DNS 区域导致门户停止响应的问题。 它现在应显示相应的错误。
+- 修复了创建重复 DNS 区域导致门户停止响应的问题。 它现在应显示相应的错误。
 - 修复了以下问题：Get-AzureStackLogs 不收集所需日志来解决网络问题。 
 - 修复了以下问题：门户允许附加的 NIC 比它实际允许的 NIC 少。 
 - 修复了代码完整性策略，以免为某些内部软件发出违规事件。 这可减少通过 syslog 客户端发出的代码完整性违规事件产生的干扰。
@@ -113,7 +113,7 @@ Azure Stack Hub 2005 更新内部版本类型为“完整”。
 - 修复了以下问题：使用 Linux NTP 服务器错误地在管理门户中生成警报。  
 - 修复了以下问题：备份控制器服务实例的故障转移导致禁用自动备份。
 - 修复了以下问题：在基础结构服务未建立 Internet 连接的情况下，内部机密轮替失败。
-- 修复了用户无法使用 Azure Stack 中心门户查看订阅权限的问题。
+- 修复了用户无法使用 Azure Stack Hub 门户查看订阅权限的问题。
 
 ## <a name="security-updates"></a>安全更新
 
@@ -142,7 +142,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2005 之后，如果以后发布了任何 2005 修补程序，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2005.13.68](https://support.microsoft.com/help/4583399)
+- [Azure Stack 中心修补程序1.2005.18.78](https://support.microsoft.com/help/4584238)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -186,7 +186,7 @@ Azure Stack Hub 2002 更新内部版本类型为“完整”。
 - 脱机联合工具已更新，改进了可靠性。 该工具在 GitHub 上不再可用，已[移到 PowerShell 库](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/)中。 有关详细信息，请参阅[将市场项下载到 Azure Stack Hub](azure-stack-download-azure-marketplace-item.md)。
 - 将引入一项新的监视功能。 针对物理主机和基础结构 VM 的磁盘空间不足警报将由平台自动修正。仅当此操作失败时，该警报才会显示在 Azure Stack Hub 管理员门户中，供操作员执行操作。
 - 对[诊断日志收集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)的改进。 新的体验优化和简化了诊断日志收集，它不需要预先配置 blob 存储帐户。 存储环境已预先配置，因此你可以在创建支持案例之前发送日志，并减少支持人员通话时间。
-- [主动日志收集和按需日志收集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)所用的时间已   减少80%。 日志收集时间比预期值长，但不需要 Azure Stack 中心操作员执行操作，除非日志收集失败。
+- [主动日志收集和按需日志收集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)所用的时间已   减少80%。 日志收集时间可能会比此预期值长，但不需要 Azure Stack Hub 操作员执行操作，除非日志收集失败。
 - 启动更新后，“更新”边栏选项卡中会显示 Azure Stack Hub 更新程序包的下载进度。 这仅适用于那些选择[通过自动下载功能准备更新程序包](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)且已连接的 Azure Stack Hub 系统。
 - 改进了网络控制器主机代理的可靠性。
 - 引入了一个名为 DNS Orchestrator 的新微服务，它改进了在修补和更新期间内部 DNS 服务的复原逻辑。
