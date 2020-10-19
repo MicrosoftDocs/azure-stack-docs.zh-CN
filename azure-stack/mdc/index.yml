@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Azure 模块化数据中心 (MDC) 操作员和用户文档
+summary: 了解如何在 (MDC) 上操作和使用 Azure 模块化数据中心。
+metadata:
+  title: Azure 模块化数据中心 (MDC) 操作员和用户文档-教程、概念、操作方法文章
+  description: Azure 模块化数据中心 (MDC) 是包含 Azure Stack 中心解决方案和存储的模块化数据中心。 你可以提供 Azure 服务并托管大规模的计算和存储在本地或边缘，即从 Azure 断开连接或连接到它。 它针对需要数据主权和本地控制的用例进行了优化。
+  ms.service: azure-stack
+  ms.subservice: asdk
+  ms.topic: landing-page
+  author: justinha
+  ms.author: justinha
+  ms.date: 07/23/2020
+  ms.openlocfilehash: d02096ea41e17172f553efc3a92a5908845e03cd
+  ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+  ms.translationtype: MT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92182864"
+landingContent:
+- title: 部署 MDC
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: MDC 部署概述
+      url: deployment-overview.md
+  - linkListType: deploy
+    links:
+    - text: 容量规划器
+      url: azure-stack-capacity-planner.md
+- title: 入门
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 添加 Azure Stack Hub 市场项
+      url: ../operator/azure-stack-create-and-publish-marketplace-item.md
+  - linkListType: tutorial
+    links:
+    - text: 提供 IaaS 服务
+      url: ../operator/tutorial-offer-services.md
+- title: 如何使用
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 订阅产品
+      url: ../user/azure-stack-subscribe-services.md
+    - text: 基于模板创建虚拟机
+      url: ../user/azure-stack-create-vm-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: 更新固件
+      url: extended-storage-firmware-updates.md
+    - text: 检查运行状况
+      url: extended-storage-health-checks.md

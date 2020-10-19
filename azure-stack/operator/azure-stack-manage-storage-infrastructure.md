@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: 了解如何管理 Azure Stack Hub 的存储基础结构。 请参阅如何监视卷和驱动器。 查看有关将驱动器添加到池的故障排除提示。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 5/4/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: a267c0bf5429bdd97b5a722f45f2fd188b63efb2
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 7141d52e100ce465a20637da2a40cbb75b417939
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623194"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92179452"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储基础结构
 本文介绍 Azure Stack Hub 存储基础结构资源的运行状况和工作状态。 这些资源包括存储驱动器和卷。 本主题中的信息可帮助你排查各种问题，例如，无法将驱动器添加到池的问题。
@@ -93,7 +93,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 | OK | 卷处于正常状态。 |
 | 运行中 | 驱动器正在执行某些内部保养操作。 操作完成后，驱动器应会恢复“正常”运行状况。 |
 
-### <a name="drive-health-state-healthy"></a>驱动器运行状况：正常
+### <a name="drive-health-state-warning"></a>驱动器运行状况状态：警告
 
 处于“警告”状态的驱动器可以成功读取和写入数据，但存在问题。
 

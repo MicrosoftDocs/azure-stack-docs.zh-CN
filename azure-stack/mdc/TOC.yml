@@ -1,0 +1,774 @@
+- name: 模块化数据中心文档
+  href: index.yml
+- name: 运算符
+  items:
+    - name: 概述
+      items:
+        - name: 什么是模块化数据中心？
+          href: mdc-overview.md
+    - name: 快速入门
+      items:
+        - name: 使用管理员门户
+          href: ../operator/azure-stack-manage-portals.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 教程
+      items:
+        - name: 向用户提供服务
+          href: ../operator/tutorial-offer-services.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 测试服务产品
+          href: ../operator/tutorial-test-offer.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 概念
+      items:
+        - name: 容量计划
+          items:
+            - name: 概述
+              href: azure-stack-capacity-planning-overview.md
+            - name: 计算
+              href: ../operator/azure-stack-capacity-planning-compute.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 存储
+              href: ../operator/azure-stack-capacity-planning-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 应用服务
+              href: ../operator/azure-stack-app-service-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 容量规划器工具
+              href: azure-stack-capacity-planner.md
+        - name: 客户旅程
+          href: customer-journey.md
+        - name: 连接模型
+          href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 连接的部署
+          href: ../operator/azure-stack-connected-deployment.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 断开连接的部署
+          href: ../operator/azure-stack-disconnected-deployment.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 安全概述
+          href: ../operator/azure-stack-security-foundations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 标识
+          items:
+            - name: 标识概述
+              href: ../operator/azure-stack-identity-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 标识体系结构
+              href: ../operator/azure-stack-identity-architecture.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 增值资源提供程序
+          items:
+            - name: 应用服务
+              href: ../operator/azure-stack-app-service-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 事件中心
+              href: ../operator/event-hubs-rp-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: MySQL
+              href: ../operator/azure-stack-mysql-resource-provider.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: SQL Server
+              href: ../operator/azure-stack-sql-resource-provider.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 部署
+      items:
+        - name: 概述
+          href: deployment-overview.md
+        - name: 关于部署网络
+          href: ../operator/deployment-networking.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 部署先决条件
+          items:
+            - name: 部署工作表
+              href: ../operator/azure-stack-deployment-worksheet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 数据中心集成
+              items:
+                - name: 简介
+                  href: network-introduction.md
+                - name: 网络部署
+                  href: network-deployment.md
+                - name: 网络集成
+                  href: network-integration.md
+                - name: 网络配置生命周期
+                  href: network-configuration-lifecycle-management.md
+                - name: 附录
+                  href: network-appendix.md
+            - name: 标识集成
+              items:
+                - name: 选择标识提供者
+                  href: ../operator/azure-stack-integrate-identity.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 创建注册角色
+                  href: ../operator/azure-stack-registration-role.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 验证 Azure 标识
+                  href: ../operator/azure-stack-validate-identity.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 验证 AD FS 集成
+                  href: ../operator/azure-stack-validate-adfs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 验证图形集成
+                  href: ../operator/azure-stack-validate-graph.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: PKI 要求
+              items:
+                - name: 概述
+                  href: ../operator/azure-stack-pki-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 生成 PKI 证书
+                  href: ../operator/azure-stack-get-pki-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 准备 PKI 证书
+                  href: ../operator/azure-stack-prepare-pki-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 验证 PKI 证书
+                  href: ../operator/azure-stack-validate-pki-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 修正 PKI 证书
+                  href: ../operator/azure-stack-remediate-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 设置
+          items:
+            - name: 验证 Azure 注册
+              href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 增值资源提供程序
+              items:
+                - name: 应用服务
+                  items:
+                    - name: 准备工作
+                      href: ../operator/azure-stack-app-service-before-you-get-started.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 部署应用服务
+                      href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 部署应用服务以实现高可用性
+                      href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 脱机部署应用服务
+                      href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 事件中心
+                  items:
+                    - name: 容量计划
+                      href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 先决条件
+                      href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 安装
+                      href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: MySQL
+                  items:
+                    - name: 部署 MySQL Server 资源提供程序
+                      href: ../operator/azure-stack-mysql-resource-provider-deploy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 添加 MySQL 宿主服务器
+                      href: ../operator/azure-stack-mysql-resource-provider-hosting-servers.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 创建 MySQL 数据库
+                      href: ../operator/azure-stack-mysql-resource-provider-databases.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 部署高度可用的 MySQL 数据库
+                      href: ../operator/azure-stack-tutorial-mysql.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: SQL Server
+                  items:
+                    - name: 部署 SQL Server 资源提供程序
+                      href: ../operator/azure-stack-sql-resource-provider-deploy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 添加 SQL 宿主服务器
+                      href: ../operator/azure-stack-sql-resource-provider-hosting-servers.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 创建 SQL 数据库
+                      href: ../operator/azure-stack-sql-resource-provider-databases.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 部署高度可用的 SQL 数据库
+                      href: ../operator/azure-stack-tutorial-sql.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Start-AzsReadiness cmdlet 参考
+              href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 查看准备情况报告
+              href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 数据中心集成
+          items:
+            - name: 配置 DNS 转发器
+              href: ../operator/azure-stack-configure-dns.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 配置时间服务器
+              href: ../operator/azure-stack-configure-time.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 外部监视
+              href: ../operator/azure-stack-integrate-monitor.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 外部审核
+              items:
+                - name: Syslog 转发
+                  href: ../operator/azure-stack-integrate-security.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 设备审核
+                  href: ../operator/azure-stack-integrate-physical-device-auditing.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 配置标识
+              items:
+                - name: 管理 RBAC
+                  href: ../operator/azure-stack-manage-permissions.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 为 Azure AD 添加用户
+                  href: ../operator/azure-stack-add-new-user-aad.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 使用应用标识访问资源
+                  href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 启用多租户
+                  href: ../operator/azure-stack-enable-multitenancy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 操作指南
+      items:
+        - name: 扩展存储
+          items:
+            - name: OneFS 和固件更新
+              href: extended-storage-firmware-updates.md
+            - name: 运行状况检查
+              href: extended-storage-health-checks.md
+        - name: 管理
+          items:
+            - name: 管理基础知识
+              href: ../operator/azure-stack-manage-basics.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 配置遥测数据的收集
+              href: ../operator/azure-stack-telemetry.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 区域管理
+              href: ../operator/azure-stack-region-management.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 为用户启用 CLI
+              href: ../operator/azure-stack-cli-admin.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 设置管理环境
+              items:
+                - name: 安装 Azure Stack PowerShell
+                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 使用 PowerShell 连接
+                  href: ../operator/azure-stack-powershell-configure-admin.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 特权终结点
+              href: ../operator/azure-stack-privileged-endpoint.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 管理更新
+              items:
+                - name: 管理更新概述
+                  href: ../operator/azure-stack-updates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 更新和服务策略
+                  href: ../operator/azure-stack-servicing-policy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 应用更新的清单
+                  href: ../operator/release-notes-checklist.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 准备更新包
+                  href: ../operator/azure-stack-update-prepare-package.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 应用更新
+                  items:
+                    - name: 应用更新
+                      href: ../operator/azure-stack-apply-updates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 应用 OEM 更新
+                      href: ../operator/azure-stack-update-oem.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 更新应用服务
+                  href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 脱机更新应用服务
+                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 更新事件中心
+                  href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 更新 MySQL 服务器
+                  href: ../operator/azure-stack-mysql-resource-provider-update.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: ' 更新 SQL Server'
+                  href: ../operator/azure-stack-sql-resource-provider-update.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 监视更新状态
+                  href: ../operator/azure-stack-update-monitor.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 监视运行状况和警报
+              href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 管理网络资源
+              href: ../operator/azure-stack-viewing-public-ip-address-consumption.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 更改用户订阅所有者
+              href: ../operator/azure-stack-change-subscription-owner.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 管理容量
+              items:
+                - name: 管理存储资源
+                  href: ../operator/azure-stack-manage-storage-accounts.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 管理存储容量
+                  href: ../operator/azure-stack-manage-storage-shares.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 管理存储基础结构
+                  href: ../operator/azure-stack-storage-infrastructure-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 管理物理内存容量
+                  href: ../operator/azure-stack-manage-storage-physical-memory-capacity.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 添加公共 IP 地址
+                  href: ../operator/azure-stack-add-ips.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 更换硬件
+              Items:
+                - name: 节点操作
+                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 安全性和遵从性
+          items:
+            - name: 配置安全性
+              href: ../operator/azure-stack-security-configuration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 静态数据加密
+              href: ../operator/azure-stack-security-bitlocker.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 轮换机密
+              href: ../operator/azure-stack-rotate-secrets.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 更新防病毒定义
+              href: ../operator/azure-stack-security-av.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 日志收集和数据处理
+              href: ../operator/azure-stack-data-collection.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 充实市场
+          items:
+            - name: 市场概述
+              href: ../operator/azure-stack-marketplace.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 下载市场项
+              href: ../operator/azure-stack-download-azure-marketplace-item.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 创建自定义虚拟机映像
+              href: ../operator/azure-stack-add-vm-image.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 创建和发布市场项
+              href: ../operator/azure-stack-create-and-publish-marketplace-item.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 支持的来宾操作系统
+              href: ../operator/azure-stack-supported-os.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 提供虚拟机规模集
+              href: ../operator/azure-stack-compute-add-scalesets.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 市场中的 Windows Server 常见问题解答
+              href: ../operator/azure-stack-windows-server-faq.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 提供 Linux 虚拟机
+              href: ../operator/azure-stack-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 添加 Red Hat 虚拟机
+              href: ../operator/azure-stack-redhat-create-upload-vhd.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 提供 AKS 引擎
+              href: ../operator/azure-stack-aks-engine.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 提供 Kubernetes 市场项
+              href: ../operator/azure-stack-solution-template-kubernetes-cluster-add.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 提供服务
+          items:
+            - name: 服务、计划、套餐、订阅概述
+              href: ../operator/service-plan-offer-subscription-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 创建计划
+              href: ../operator/azure-stack-create-plan.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 创建产品
+              href: ../operator/azure-stack-create-offer.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 创建附加计划
+              href: ../operator/create-add-on-plan.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 订阅产品
+              href: ../operator/azure-stack-subscribe-plan-provision-vm.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 删除产品/服务
+              href: ../operator/azure-stack-delete-offer.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 委托产品
+              href: ../operator/azure-stack-delegated-provider.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 配额类型
+              href: ../operator/azure-stack-quota-types.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 提供网络解决方案
+          href: ../operator/azure-stack-network-solutions-enable.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 管理增值资源提供程序
+          items:
+            - name: 应用服务
+              items:
+                - name: 概述
+                  href: ../operator/azure-stack-app-service-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 应用服务容量规划
+                  href: ../operator/azure-stack-app-service-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 准备工作
+                  href: ../operator/azure-stack-app-service-before-you-get-started.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署应用服务
+                  href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署应用服务以实现高可用性
+                  href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 脱机部署应用服务
+                  href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 更新应用服务
+                  href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 脱机更新应用服务
+                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 添加应用服务基础结构角色
+                  href: ../operator/azure-stack-app-service-add-worker-roles.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 配置部署源
+                  href: ../operator/azure-stack-app-service-configure-deployment-sources.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 轮换应用服务的机密和证书
+                  href: ../operator/app-service-rotate-certificates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 备份应用服务
+                  href: ../operator/app-service-back-up.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 恢复应用服务
+                  href: ../operator/app-service-recover.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 应用服务计费常见问题解答
+                  href: ../operator/app-service-billing-faq.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 应用服务更新8发行说明
+                  href: ../operator/azure-stack-app-service-release-notes-update-eight.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 事件中心
+              items:
+                - name: 概述
+                  href: ../operator/event-hubs-rp-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 容量计划
+                  href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 先决条件
+                  href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 安装
+                  href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 生命周期管理
+                  items:
+                    - name: 应用更新
+                      href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 备份和还原
+                      href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 收集日志
+                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 运行状况和警报
+                      href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 管理
+                      href: ../operator/event-hubs-rp-manage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 轮换机密
+                      href: ../operator/azure-stack-rotate-secrets.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 服务更新公告
+                      href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+                - name: 删除
+                  href: ../operator/event-hubs-rp-remove.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: MySQL
+              items:
+                - name: 概述
+                  href: ../operator/azure-stack-mysql-resource-provider.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署 MySQL Server 资源提供程序
+                  href: ../operator/azure-stack-mysql-resource-provider-deploy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 添加 MySQL 宿主服务器
+                  href: ../operator/azure-stack-mysql-resource-provider-hosting-servers.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 创建 MySQL 数据库
+                  href: ../operator/azure-stack-mysql-resource-provider-databases.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署高度可用的 MySQL 数据库
+                  href: ../operator/azure-stack-tutorial-mysql.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 更新 MySQL Server 资源提供程序
+                  href: ../operator/azure-stack-mysql-resource-provider-update.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 维护 MySQL Server 资源提供程序
+                  href: ../operator/azure-stack-mysql-resource-provider-maintain.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 删除 MySQL Server 资源提供程序
+                  href: ../operator/azure-stack-mysql-resource-provider-remove.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: MySQL 资源提供程序 1.1.47.0 发行说明
+                  href: ../operator/azure-stack-mysql-resource-provider-11470.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: SQL
+              items:
+                - name: 概述
+                  href: ../operator/azure-stack-sql-resource-provider.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署 SQL Server 资源提供程序
+                  href: ../operator/azure-stack-sql-resource-provider-deploy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 添加 SQL 宿主服务器
+                  href: ../operator/azure-stack-sql-resource-provider-hosting-servers.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 创建 SQL 数据库
+                  href: ../operator/azure-stack-sql-resource-provider-databases.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署高度可用的 SQL 数据库
+                  href: ../operator/azure-stack-tutorial-sql.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 更新 SQL Server 资源提供程序
+                  href: ../operator/azure-stack-sql-resource-provider-update.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 维护 SQL Server 资源提供程序
+                  href: ../operator/azure-stack-sql-resource-provider-maintain.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 删除 SQL Server 资源提供程序
+                  href: ../operator/azure-stack-sql-resource-provider-remove.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: SQL 资源提供程序 1.1.47.0 发行说明
+                  href: ../operator/azure-stack-sql-resource-provider-11470.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 备份
+          items:
+            - name: 概述
+              href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 使用门户配置备份
+              href: ../operator/azure-stack-backup-enable-backup-console.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 使用 PowerShell 配置备份
+              href: ../operator/azure-stack-backup-enable-backup-powershell.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 备份
+              href: ../operator/azure-stack-backup-back-up-azure-stack.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 备份最佳做法
+              href: ../operator/azure-stack-backup-best-practices.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 获取支持
+          items:
+            - name: “帮助和支持”门户
+              items:
+                - name: 概述
+                  href: ../operator/azure-stack-help-and-support-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 诊断日志收集
+                  items:
+                    - name: 概述
+                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 主动回收
+                      href: ../operator/azure-stack-configure-automatic-diagnostic-log-collection.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 按需收集
+                      href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 获取 Azure Stack 集线器状态
+              href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 故障排除
+              href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 参考
+      items:
+        - name: Azure Stack PowerShell
+          href: /powershell/azure/azure-stack/overview
+    - name: 资源
+      items:
+        - name: 培训和认证
+          href: ../operator/azure-stack-train-and-cert.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Azure Stack 文档反馈
+          href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-stack'
+- name: 用户
+  items:
+    - name: 概述
+      items:
+        - name: 重要注意事项
+          href: ../user/azure-stack-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 快速入门
+      items:
+        - name: 创建 Windows VM - 门户
+          href: ../user/azure-stack-quick-windows-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 创建 Windows VM - PowerShell
+          href: ../user/azure-stack-quick-create-vm-windows-powershell.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 创建 Windows VM - CLI
+          href: ../user/azure-stack-quick-create-vm-windows-cli.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 创建 Linux VM - 门户
+          href: ../user/azure-stack-quick-linux-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 创建 Linux VM - PowerShell
+          href: ../user/azure-stack-quick-create-vm-linux-powershell.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 创建 Linux VM - CLI
+          href: ../user/azure-stack-quick-create-vm-linux-cli.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 创建事件中心群集 - 门户
+          href: ../user/event-hubs-quickstart-cluster-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 教程
+      items:
+        - name: 订阅产品
+          href: ../user/azure-stack-subscribe-services.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 从模板创建 VM
+          href: ../user/azure-stack-create-vm-template.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 操作指南
+      items:
+        - name: 开始为混合云构建解决方案
+          items:
+            - name: 启用云解决方案提供商
+              href: ../user/azure-stack-csp-enable-billing-usage-tracking.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 使用门户
+              href: ../user/azure-stack-use-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 配置客户端
+              items:
+                - name: 设置开发环境
+                  href: ../user/azure-stack-dev-start.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 获取授权信息
+                  href: ../user/authenticate-azure-stack-hub.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 使用 PowerShell
+                  items:
+                    - name: Azure Stack PowerShell 概述
+                      href: ../user/azure-stack-powershell-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 安装 Azure Stack PowerShell
+                      href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      maintainContext: true
+                    - name: 使用 PowerShell 连接
+                      href: ../user/azure-stack-powershell-configure-user.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用 Docker 运行 PowerShell
+                      href: ../user/azure-stack-powershell-user-docker.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用 Azure Stack 策略模块
+                      href: ../user/azure-stack-policy-module.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 结合使用 Azure CLI 与 MDC
+                  href: ../user/azure-stack-version-profiles-azurecli2.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 使用 Visual Studio Code
+                  href: ../user/azure-stack-dev-start-vscode-azure.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 使用 Visual Studio
+                  href: ../user/azure-stack-install-visual-studio.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 使用安全外壳
+                  href: ../user/azure-stack-dev-start-howto-ssh-public-key.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 将 REST 客户端与 API 配合使用
+                  href: ../user/azure-stack-rest-api-use.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 使用 Azure Stack 资源管理器模板
+              items:
+                - name: 模板概述
+                  href: ../user/azure-stack-arm-templates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 模板注意事项
+                  href: ../user/azure-stack-develop-templates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 在 Azure 中开发模板
+                  href: ../user/azure-stack-developer.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 检查模板
+                  href: ../user/azure-stack-validate-templates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署模板
+                  items:
+                    - name: 使用门户进行部署
+                      href: ../user/azure-stack-deploy-template-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用 PowerShell 进行部署
+                      href: ../user/azure-stack-deploy-template-powershell.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用 CLI 进行部署
+                      href: ../user/azure-stack-deploy-template-command-line.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用 Visual Studio Code 部署
+                      href: ../user/azure-stack-resource-manager-deploy-template-vscode.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用 Visual Studio 进行部署
+                      href: ../user/azure-stack-deploy-template-visual-studio.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 使用 API 版本配置文件
+              items:
+                - name: 概述
+                  href: ../user/azure-stack-version-profiles.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: .NET
+                  href: ../user/azure-stack-version-profiles-net.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Java
+                  href: ../user/azure-stack-version-profiles-java.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Go
+                  href: ../user/azure-stack-version-profiles-go.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Ruby
+                  href: ../user/azure-stack-version-profiles-ruby.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Python
+                  href: ../user/azure-stack-version-profiles-python.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: NodeJS
+                  href: ../user/azure-stack-version-profile-nodejs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 配置文件支持的资源提供程序 API
+                  href: ../user/azure-stack-profiles-azure-resource-manager-versions.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 使用资源提供程序
+          items:
+            - name: 安全性、合规性和标识
+              items:
+                - name: 使用基于角色的访问控制
+                  href: ../user/azure-stack-manage-permissions.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 使用应用标识访问资源
+                  href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 使用服务
+              items:
+                - name: 计算
+                  items:
+                    - name: 概述
+                      href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: VM 注意事项
+                      href: azure-stack-vm-considerations.md
+                    - name: VM 大小
+                      href: azure-stack-vm-sizes.md
+                    - name: 管理 VM 磁盘
+                      href: ../user/azure-stack-manage-vm-disks.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 托管磁盘注意事项
+                      href: ../user/azure-stack-managed-disk-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 保护 VM
+                      href: ../user/azure-stack-manage-vm-protect.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: VM 更新和管理
+                      href: ../user/vm-update-management.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: SQL Server VM 注意事项
+                      href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: GPU Vm
+                      href: azure-stack-gpu.md
+                - name: 存储
+                  items:
+                    - name: 概述
+                      href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 存储注意事项
+                      href: ../user/azure-stack-acs-differences.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 存储开发工具
+                      href: ../user/azure-stack-storage-dev.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 数据传输工具
+                      href: ../user/azure-stack-storage-transfer.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 连接存储资源管理器
+                      href: ../user/azure-stack-storage-connect-se.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 网络
+                  items:
+                    - name: 概述
+                      href: ../user/azure-stack-network-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 网络注意事项
+                      href: ../user/azure-stack-network-differences.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: VPN 网关
+                      items:
+                        - name: 使用 VPN 进行连接
+                          href: ../user/azure-stack-connect-vpn.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 关于 VPN 网关
+                          href: ../user/azure-stack-vpn-gateway-about-vpn-gateways.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 配置 IPsec/IKE 连接策略
+                          href: ../user/azure-stack-vpn-s2s.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: VPN 网关设置
+                          href: ../user/azure-stack-vpn-gateway-settings.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用 ExpressRoute 连接到 Azure
+                      href: ../operator/azure-stack-connect-expressroute.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: iDNS
+                      href: ../user/azure-stack-understanding-dns.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: DNS
+                      href: ../user/azure-stack-dns.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 密钥保管库
+                  items:
+                    - name: 概述
+                      href: ../user/azure-stack-key-vault-intro.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用门户进行管理
+                      href: ../user/azure-stack-key-vault-manage-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用 PowerShell 进行管理
+                      href: ../user/azure-stack-key-vault-manage-powershell.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用机密创建 VM
+                      href: ../user/azure-stack-key-vault-deploy-vm-with-secret.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用证书创建 VM
+                      href: ../user/azure-stack-key-vault-push-secret-into-vm.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 在 Key Vault 中存储凭据
+                      href: ../user/azure-stack-key-vault-store-credentials.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: KeyVault 示例应用
+                      href: ../user/azure-stack-key-vault-sample-app.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 事件中心
+                  items:
+                    - name: 概述
+                      href: ../user/event-hubs-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Azure Monitor
+                  href: ../user/azure-stack-metrics-azure-data.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  items:
+                    - name: 支持的指标
+                      href: ../user/azure-stack-metrics-supported.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 使用 Azure 监视数据
+                      href: ../user/azure-stack-metrics-monitor.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 部署加载项服务
+              items:
+                - name: 部署 Ethereum
+                  href: ../user/azure-stack-ethereum.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署 Service Fabric 群集
+                  href: ../user/azure-stack-solution-template-service-fabric-cluster.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署 Kubernetes 群集
+                  items:
+                    - name: AKS 引擎
+                      items:
+                        - name: 概述
+                          href: ../user/azure-stack-kubernetes-aks-engine-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 支持策略
+                          href: ../user/azure-stack-kubernetes-aks-engine-support.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 设置先决条件
+                          href: ../user/azure-stack-kubernetes-aks-engine-set-up.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 创建 Linux 客户端
+                          href: ../user/azure-stack-kubernetes-aks-engine-deploy-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 部署群集
+                          href: ../user/azure-stack-kubernetes-aks-engine-deploy-cluster.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 缩放群集
+                          href: ../user/azure-stack-kubernetes-aks-engine-scale.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 升级群集
+                          href: ../user/azure-stack-kubernetes-aks-engine-upgrade.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: AKS 引擎疑难解答
+                          href: ../user/azure-stack-kubernetes-aks-engine-troubleshoot.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 对容器使用 Azure Monitor
+                          href: ../user/kubernetes-aks-engine-azure-monitor.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 市场项
+                      items:
+                        - name: 部署 Kubernetes 群集
+                          href: ../user/azure-stack-solution-template-kubernetes-deploy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 使用 Azure AD 部署 Kubernetes
+                          href: ../user/azure-stack-solution-template-kubernetes-azuread.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 使用 AD FS 部署 Kubernetes
+                          href: ../user/azure-stack-solution-template-kubernetes-adfs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 启用 Kubernetes 仪表板
+                          href: ../user/azure-stack-solution-template-kubernetes-dashboard.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 从市场项转移 AKS 引擎
+                          href: ../user/azure-stack-kubernetes-aks-engine-dvm.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 对 Kubernetes 群集进行故障排除
+                          href: ../user/azure-stack-solution-template-kubernetes-trouble.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署认知服务
+                  href: ../user/azure-stack-solution-template-cognitive-services.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 部署应用
+          items:
+            - name: 将 C# Web 应用部署到 Windows VM
+              href: ../user/azure-stack-dev-start-howto-vm-dotnet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 将 Web 应用部署到 Linux VM
+              items:
+                - name: 部署适用于 Web 应用的 Linux VM
+                  href: ../user/azure-stack-dev-start-howto-deploy-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署 Java Web 应用
+                  href: ../user/azure-stack-dev-start-howto-vm-java.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署 Go Web 应用
+                  href: ../user/azure-stack-dev-start-howto-vm-go.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署 Ruby Web 应用
+                  href: ../user/azure-stack-dev-start-howto-vm-ruby.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署 Python Web 应用
+                  href: ../user/azure-stack-dev-start-howto-vm-python.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 部署 NodeJS Web 应用
+                  href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 部署基础模式
+          items:
+            - name: VNET 对等互连
+              items:
+                - name: VNet 与 FortiGate 对等互连
+                  href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: VNet 与 VM 对等互连
+                  href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 将 VPN 设置到本地
+              href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: VNET 到 VNET 连接
+              href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 扩展数据中心
+              href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: F5 负载均衡器
+              href: ../user/network-howto-f5.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 连接到 iSCSI 存储
+              href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 设置隧道
+              items:
+                - name: 设置多个站点到站点 VPN
+                  href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 创建 VPN 隧道 (GRE)
+                  href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 创建 VPN 隧道 (IPSEC)
+                  href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 备份和恢复
+              items:
+                - name: 通过 Commvault 在 MDC 上备份 VM
+                  href: ../user/azure-stack-network-howto-backup-commvault.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 在 MDC 上备份存储帐户
+                  href: ../user/azure-stack-network-howto-backup-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 复制订阅资源
+                  href: ../user/azure-stack-network-howto-backup-replicator.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 概念
+      items:
+        - name: IaaS 体系结构
+          items:
+            - name: Linux VM
+              href: ../user/iaas-architecture-vm-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Windows VM
+              href: ../user/iaas-architecture-vm-windows.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 使用 SQL 的 N 层应用
+              href: ../user/iaas-architecture-windows-sql-n-tier.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 多个区域中的 N 层应用
+              href: ../user/iaas-architecture-sql-n-tier-multi-region.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 网络虚拟设备
+              href: ../user/iaas-architecture-nva-architecture.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+    - name: 参考
+      items:
+        - name: Azure Stack PowerShell
+          href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+        - name: REST API 浏览器
+          href: /rest/api/
+        - name: Azure CLI
+          href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
+    - name: 资源
+      items:
+        - name: Azure Stack 文档反馈
+          href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-stack'
+        - name: 培训和认证
+          href: /azure-stack/operator/azure-stack-train-and-cert

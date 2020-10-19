@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 8f18cd223faca91bc490b659e0a25fce1add3fea
-ms.sourcegitcommit: 4b1a4ec0ac0283faea9438e6617fcb3cfc6fee6d
+ms.openlocfilehash: aedccf6f41c2bf7e21fd98308fd153c2742af8e9
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041199"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92179506"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>为 Azure Stack HCI 规划主机网络
 
@@ -35,7 +35,6 @@ SMB 流量可以流经以下协议：
 
 - 传输控制协议 (TCP) -在站点之间使用
 - 远程直接内存访问 (RDMA)
-- QUIC-未来
 
 ## <a name="traffic-bandwidth-allocation"></a>流量带宽分配
 
