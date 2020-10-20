@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: aedccf6f41c2bf7e21fd98308fd153c2742af8e9
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
+ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/19/2020
-ms.locfileid: "92179506"
+ms.locfileid: "92200478"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>为 Azure Stack HCI 规划主机网络
 
@@ -49,7 +49,7 @@ SMB 流量可以流经以下协议：
 - 检测信号 (HB-ACCT-WC) 流量获取剩余50% 分配的1%
 - * = 应使用压缩而不是 RDMA，前提是 LM 流量的带宽分配为 <5 Gbps
 
-|NIC 速度|分组 NIC 速度|SMB 50% 保留|SBL/CSV%|SBL/CSV 带宽|LM|LM 带宽|高层 |SR 带宽|HB-ACCT-WC|HB-ACCT-WC 带宽|
+|NIC 速度|组带宽|SMB 50% 保留|SBL/CSV%|SBL/CSV 带宽|LM|LM 带宽|高层 |SR 带宽|HB-ACCT-WC|HB-ACCT-WC 带宽|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |10|20|10|70%|7|14% *|1.4 *|14%|1.4|2%|0.2|
 |25|50|25|70%|17.5|15% *|3.75 *|14%|3.5|1%|0.25|
