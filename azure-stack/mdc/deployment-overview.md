@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2020
+ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 04/09/2020
-ms.openlocfilehash: 1daee460239e178641c4c0b073d2d24a0e63053c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 10/20/2020
+ms.openlocfilehash: 60361a3e44b5ad54c63e6a94223d75a7b5106b9e
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182924"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253921"
 ---
 # <a name="mdc-deployment-overview"></a>MDC 部署概述
 
@@ -33,8 +33,6 @@ ms.locfileid: "92182924"
 - 介绍 MDC 的关键组件。
 - 描述如何安装和配置关键组件。
 - 验证客户部署。
-
-本部署指南适用于负责在客户现场部署 MDC 的 Microsoft 现场专业团队。
 
 若要充分了解本指南的内容，需要具备虚拟化、服务器、操作系统、网络和存储解决方案的技术经验。 部署工程师必须了解 Microsoft Windows Server 2019 with Hyper-v、Azure Stack Hub、Azure 和 Microsoft PowerShell。
 

@@ -6,19 +6,60 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/13/2020
-ms.openlocfilehash: 2432a7fb28ba65f08b0540113ec5d3f90f742509
-ms.sourcegitcommit: 64060ff02d2450c6cf91cb21cdefdcf6b720a75f
+ms.date: 10/20/2020
+ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92009844"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92254006"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Azure Stack HCI 公共预览版发行说明
 
 > 适用于：Azure Stack HCI，版本 20H2
 
 本文介绍 Azure Stack HCI 公共预览版更新包的内容。
+
+## <a name="october-20-2020-preview-update-kb4580388"></a>2020年10月20日预览版更新 (KB4580388) 
+
+此更新包括最新版 Azure Stack HCI 的改进和修复。
+
+### <a name="improvements-and-fixes"></a>改进和修复
+此非安全更新包括质量改进。 关键更改包括：
+
+- 通过此更新，持有有效 Windows Server 2019 Datacenter edition 许可证)  (的 Azure Stack HCI 客户可以使用这些客户方便地激活 (Vm) 上托管的虚拟机，而无需管理每个 VM 的产品密钥。
+
+### <a name="known-issues-in-this-update"></a>此更新中的已知问题
+
+Microsoft 意识到此更新存在一个问题。
+
+#### <a name="symptom"></a>症状
+使用实时迁移在 Windows Server 和 Azure Stack HCI 操作系统之间移动 VM 时，可能会看到错误： "已阻止虚拟机的迁移操作， <vmname> 因为 (虚拟机 ID) 不支持不同 Windows 版本之间的 vm 迁移。"
+
+或者，如果任何 Vm 预计在 CAU 期间执行实时迁移，则这也可能导致群集感知更新 (CAU) 操作失败。
+
+#### <a name="workaround"></a>解决方法
+
+使用快速迁移而不是实时迁移。 如果使用 CAU，请暂时更改默认行为，以便 CAU 使用快速迁移。
+
+示例：
+
+```powershell
+Get-ClusterResourceType "Virtual Machine" | Set-ClusterParameter MoveTypeThreshold 3001
+```
+
+建议在 CAU 成功完成后还原为以前的 `MoveTypeThreshold` 值。
+
+有关详细信息，请参阅 [配置在排出节点时如何移动 vm](https://techcommunity.microsoft.com/t5/failover-clustering/configuring-how-vms-are-moved-when-a-node-is-drained/ba-p/371848)。
+
+### <a name="how-to-get-this-update"></a>如何获取此更新
+[AZURE STACK HCI preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)的2020年10月20日安全更新 (KB4580388) 通过 Windows 更新提供。 若要在 Azure Stack HCI 群集上安装该安全更新，请参阅[更新 Azure Stack HCI 群集](manage/update-cluster.md)。
+
+### <a name="file-information"></a>文件信息
+有关此更新中提供的文件的列表 (OS Build 17784.1321) ，请下载 [累积更新4580388的文件信息](https://download.microsoft.com/download/2/f/b/2fb766d3-c4c8-4279-8718-8efbd0b6f211/4580388.csv)。
+
+   > [!NOTE]
+   > 某些文件在 CSV 文件的“文件版本”列中错误地显示为“不适用”。 当使用某些第三方扫描检测工具验证生成时，这可能会导致假正或误报。
 
 ## <a name="october-13-2020-security-update-kb4580363"></a>2020年10月13日安全更新 (KB4580363) 
 
