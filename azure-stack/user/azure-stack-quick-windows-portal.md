@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 68a28c28c02565c996c3bbc6742554cc78090846
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: efd182e35f8229ee171ec0e03c71829c17f7c32e
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853222"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92353904"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack Hub 门户创建 Windows 服务器 VM
 
@@ -34,31 +34,31 @@ ms.locfileid: "91853222"
 1. 选择“创建资源”   > “计算”  。 搜索 ` Windows Server 2016 Datacenter - Pay as you use`。
     如果看不到 " **Windows Server 2016 Datacenter-即用即付** " 条目，请与 Azure Stack 中心云操作员联系，要求将图像添加到 Azure Stack 中心市场。 有关说明，你的云操作员可以参阅 [创建和发布自定义 Azure Stack 中心市场项](../operator/azure-stack-create-and-publish-marketplace-item.md)。
 
-    ![Windows Server 2016 Datacenter - 即用即付](./media/azure-stack-quick-windows-portal/image1.png)
+    ![Windows Server 2016 Datacenter - 即用即付](./media/azure-stack-quick-windows-portal/image1a.png)
 
 1. 选择“创建”  。
 
-    ![创建资源](./media/azure-stack-quick-windows-portal/image2.png)
+    ![创建资源](./media/azure-stack-quick-windows-portal/image2a.png)
 
 1. 在“基本信息”下，输入“名称”、“磁盘类型”、“用户名”和“密码”。      选择“订阅”  。 创建一个**资源组**或选择现有资源组，选择一个**位置**，然后选择“确定”。 
 
-    ![创建 VM - 基本信息](./media/azure-stack-quick-windows-portal/image3.png)
+    ![创建 VM - 基本信息](./media/azure-stack-quick-windows-portal/image3a.png)
 
 1. 在“大小”下，选择“D1_v2”，然后选择“选择”。   
 
-    ![创建 VM - 大小](./media/azure-stack-quick-windows-portal/image4.png)
+    ![创建 VM - 大小](./media/azure-stack-quick-windows-portal/image4a.png)
 
 1. 在“设置”  页上，对默认设置进行任何所需的更改。 你必须从相关下拉框中配置所需的公共入站端口。 完成后，选择“确定”  。
 
-    ![创建 VM - 设置](./media/azure-stack-quick-windows-portal/image5.png)
+    ![创建 VM - 设置](./media/azure-stack-quick-windows-portal/image5a.png)
 
 1. 在“摘要”下，选择“确定”以创建 VM。  
 
-    ![创建 VM - 摘要](./media/azure-stack-quick-windows-portal/image6.png)
+    ![创建 VM - 摘要](./media/azure-stack-quick-windows-portal/image6a.png)
 
 1. 选择“虚拟机”来查看你的新 VM。  搜索 VM 名称，然后在搜索结果中选择该 VM。
 
-:::image type="content" source="./media/azure-stack-quick-windows-portal/image7-inline.png" alt-text="创建 VM - 搜索 VM" lightbox="./media/azure-stack-quick-windows-portal/image7.png":::
+![创建 VM - 搜索 VM](./media/azure-stack-quick-windows-portal/image7a.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

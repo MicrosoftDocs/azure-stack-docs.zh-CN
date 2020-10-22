@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 026eca2d69dfbbcebbdba00b52f8d8ec57f3c2a5
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 4d41519e7ac3b99705c066919b88b7e4bb5d3934
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815159"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92354194"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack Hub 门户创建 Linux 服务器 VM
 
@@ -49,7 +49,7 @@ ms.locfileid: "91815159"
 
 1. 在“PuTTY 密钥生成器”窗口中，将“要生成的密钥类型”设置为 **RSA**，并将“所生成密钥中的位数”设置为 **2048**。   
 
-   ![PuTTY 密钥生成器配置](media/azure-stack-quick-linux-portal/Putty01a.png)
+   ![PuTTY 密钥生成器配置](media/azure-stack-quick-linux-portal/Putty01aa.png)
 
 1. 然后选择“生成”  。
 
@@ -57,7 +57,7 @@ ms.locfileid: "91815159"
 
 1. 完成密钥生成过程后，选择“保存公钥”和“保存私钥”来将密钥保存到文件中。  
 
-   ![PuTTY 密钥生成器结果](media/azure-stack-quick-linux-portal/Putty02a.png)
+   ![PuTTY 密钥生成器结果](media/azure-stack-quick-linux-portal/Putty02aa.png)
 
 ## <a name="sign-in-to-the-azure-stack-hub-portal"></a>登录到 Azure Stack Hub 门户
 
@@ -71,30 +71,30 @@ Azure Stack Hub 门户的地址取决于要连接到的 Azure Stack Hub 产品�
 
 1. 选择“创建资源”   > “计算”  。 搜索 `Ubuntu Server 16.04 LTS`。 选择名称。
 
-   ![创建 Linux 服务器](media/azure-stack-quick-linux-portal/image1.png)
+   ![创建 Linux 服务器](media/azure-stack-quick-linux-portal/image1a.png)
 
 1. 选择“创建”  。
 
-   ![创建 Linux 服务器 - 创建](media/azure-stack-quick-linux-portal/image2.png)
+   ![创建 Linux 服务器 - 创建](media/azure-stack-quick-linux-portal/image2a.png)
 
 1. 输入 VM 信息。 为“身份验证类型”选择“SSH 公钥”，粘贴保存的 SSH 公钥，然后选择“确定”。  
 
     > [!NOTE]  
     > 请确保删除密钥中的所有前导和尾随空格。
 
-   ![身份验证](media/azure-stack-quick-linux-portal/image3.png)
+   ![身份验证](media/azure-stack-quick-linux-portal/image3a.png)
 
 1. 为“VM 大小”选择“D1_v2”。 
 
-   ![创建 Linux 服务器 - 大小](media/azure-stack-quick-linux-portal/image4.png)
+   ![创建 Linux 服务器 - 大小](media/azure-stack-quick-linux-portal/image4a.png)
 
 1. 在“设置”边栏选项卡上输入对默认值所做的更改，使用托管磁盘。  如果需要允许 SSH 访问，请选择“SSH (22)”打开端口 22。  配置准备就绪后，选择“确定”  。
 
-   ![创建 Linux 服务器 - 设置](media/azure-stack-quick-linux-portal/image5.png)
+   ![创建 Linux 服务器 - 设置](media/azure-stack-quick-linux-portal/image5a.png)
 
 1. 在“摘要”中选择“确定”以启动 VM 部署。  选择“虚拟机”查看新 VM，搜索 VM 名称，然后在搜索结果中选择该 VM。 
 
-![创建 Linux 服务器 - 摘要](media/azure-stack-quick-linux-portal/image5.png)
+![创建 Linux 服务器 - 摘要](media/azure-stack-quick-linux-portal/image5a.png)
 
 ## <a name="connect-to-the-vm"></a>连接到 VM
 
@@ -102,7 +102,7 @@ Azure Stack Hub 门户的地址取决于要连接到的 Azure Stack Hub 产品�
 
 1. 在“PuTTY 配置”页的“类别”窗格中，向下滚动并展开“SSH”，然后选择“身份验证”。     
 
-   ![连接 VM](media/azure-stack-quick-linux-portal/putty03a.png)
+   ![连接 VM](media/azure-stack-quick-linux-portal/putty03aa.png)
 
 1. 选择“浏览”，然后选择保存的私钥文件。 
 
@@ -112,7 +112,7 @@ Azure Stack Hub 门户的地址取决于要连接到的 Azure Stack Hub 产品�
 
 1. 选择“打开”以打开 VM 的会话。 
 
-   ![Linux 会话](media/azure-stack-quick-linux-portal/Putty05a.png)
+   ![Linux 会话](media/azure-stack-quick-linux-portal/Putty05aa.png)
 
 ## <a name="install-the-nginx-web-server"></a>安装 NGINX Web 服务器
 
@@ -154,7 +154,7 @@ sudo apt-get -y install nginx
 
 打开 web 浏览器，并中转到*http:// \<public IP address> *。
 
-![NGINX Web 服务器欢迎页](media/azure-stack-quick-linux-portal/linux-05a.png)
+![NGINX Web 服务器欢迎页](media/azure-stack-quick-linux-portal/linux-05aa.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

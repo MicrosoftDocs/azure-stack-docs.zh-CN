@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 90467f57cdae2b12038c8f237fcbe5e41fb1c039
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 2a3eb313122f5f8798129592f35656bdad443f02
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574051"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92353828"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署用于托管 Web 应用的 Linux VM
 
@@ -46,7 +46,7 @@ ms.locfileid: "90574051"
 1. 为服务器创建安全外壳 (SSH) 公钥。 有关详细信息，请参阅[如何使用 SSH 公钥](azure-stack-dev-start-howto-ssh-public-key.md)。
 1. 在 Azure Stack Hub 门户中，选择“创建资源” > “计算” > “Ubuntu Server 16.04 LTS”。   
 
-    ![将 Web 应用部署到 Azure Stack Hub VM](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![将 Web 应用部署到 Azure Stack Hub VM](media/azure-stack-dev-start-howto-deploy-linux/001-portal-computea.png)
 
 4. 在“创建虚拟机”窗格中，对于“1.   配置基本设置”：
 
@@ -97,7 +97,7 @@ ms.locfileid: "90574051"
 
     g. 选择“基本”或“高级”**网络安全组**。******** 设置允许或拒绝发往 VM 的网络流量的规则。 
 
-    h.如果该值不存在，请单击“添加行”。 若要设置使用常用或自定义协议对 VM 设置的访问，请选择“公共入站端口”。**** 该服务会指定此规则的目标协议和端口范围。 可以选择预先定义的服务（例如远程桌面协议 (RDP) 或 SSH），或提供自定义端口范围。 
+    h. 若要设置使用常用或自定义协议对 VM 设置的访问，请选择“公共入站端口”。**** 该服务会指定此规则的目标协议和端口范围。 可以选择预先定义的服务（例如远程桌面协议 (RDP) 或 SSH），或提供自定义端口范围。 
         对于 Web 服务器，请使用打开的 HTTP (80)、HTTPS (443) 和 SSH (22)。 如果你打算使用 RDP 连接来管理计算机，请打开端口 3389。
 
     i. 若要将扩展添加到 VM，请选择“扩展”。**** 扩展可为虚拟机添加新功能，例如配置管理或防病毒保护。 

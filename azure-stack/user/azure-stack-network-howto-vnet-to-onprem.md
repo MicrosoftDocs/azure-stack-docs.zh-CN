@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 81c2db63471e8943c201d1b6979ab0a9b0da6e85
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 3363870fe1a2a487883a3fdc59fb90f017237b56
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815336"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92355129"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>使用 FortiGate NVA 为 Azure Stack Hub 设置 VPN 网关
 
@@ -65,15 +65,15 @@ ms.locfileid: "91815336"
 
 1. 打开 Azure Stack Hub 用户门户。
 
-1. 选择“创建资源”，然后搜索 `FortiGate`。 
+1. 选择“创建资源”，然后搜索 `FortiGate`。****
 
-    ![搜索结果列表显示 FortiGate NGFW-单 VM 部署。](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
+    ![搜索结果列表显示“FortiGate NGFW - 单 VM 部署”。](./media/azure-stack-network-howto-vnet-to-onprem/image6a.png)
 
 1. 依次选择“FortiGate NGFW”、“创建”。********
 
 1. 使用[部署参数](#deployment-parameters)表格中的参数填写“基本信息”。****
 
-    !["基本信息" 屏幕具有 "列表" 和 "文本框" 中输入的 "部署参数" 表中的值。](./media/azure-stack-network-howto-vnet-to-onprem/image7.png)
+    ![“基本信息”屏幕上的列表和文本框中已输入了来自部署参数表的值。](./media/azure-stack-network-howto-vnet-to-onprem/image7a.png)
 
 1. 选择“确定”  。
 
@@ -86,11 +86,11 @@ ms.locfileid: "91815336"
 
 1. 为 FortiGate NVA 配置公共 IP：
 
-    ![IP 分配对话框显示 "公共 IP 地址名称" 的值 forti1-publicip1 和 "公共 IP 地址类型" 的静态值。](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
+    ![“IP 分配”对话框针对“公共 IP 地址名称”显示了值 forti1-publicip1，并针对“公共 IP 地址类型”显示了“静态”。](./media/azure-stack-network-howto-vnet-to-onprem/image8a.png)
 
 1. 选择“确定”  。 再选择“确定”。****
 
-1. 选择“创建”  。
+1. 选择“创建” 。
 
     完成部署大约需要 10 分钟。
 
@@ -100,17 +100,17 @@ ms.locfileid: "91815336"
 
 2. 选择资源组。 在筛选器中键入 `forti1-rg1`，然后双击“forti1-rg1”资源组。
 
-    ![为 forti1-rg1 资源组列出了10个资源。](./media/azure-stack-network-howto-vnet-to-onprem/image9.png)
+    ![已为 forti1-rg1 资源组列出了 10 个资源。](./media/azure-stack-network-howto-vnet-to-onprem/image9a.png)
 
 2. 选择“forti1-forti1-InsideSubnet-routes-xxxx”资源。
 
-3. 选择 "**设置**" 下的 "**路由**"。
+3. 在“设置”下选择“路由”。 
 
-    !["路由" 按钮在 "设置" 对话框中处于选中状态。](./media/azure-stack-network-howto-vnet-to-onprem/image10.png)
+    ![“路由”按钮在“设置”对话框中处于选中状态。](./media/azure-stack-network-howto-vnet-to-onprem/image10a.png)
 
 4. 删除“to-Internet”路由。****
 
-    !["到 Internet" 路由是唯一列出的路由，并且处于选中状态。 有一个删除按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
+    ![“to-Internet”路由是唯一列出的路由，并且处于选中状态。 有一个“删除”按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image11a.png)
 
 5. 请选择“是”。 
 
@@ -122,7 +122,7 @@ ms.locfileid: "91815336"
 
 9. 对于“下一跃点类型”，请选择“虚拟设备”；选择 `172.16.1.4`。******** 如果你的 IP 范围与此不同，请使用自己的 IP 范围。
 
-    !["添加路由" 对话框显示已在文本框中输入的四个值。](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
+    ![“添加路由”对话框显示已输入到文本框中的四个值。](./media/azure-stack-network-howto-vnet-to-onprem/image12a.png)
 
 10. 选择“保存”。
 
@@ -140,33 +140,33 @@ ms.locfileid: "91815336"
 
 3. 在资源组边栏选项卡上的资源类型列表中，双击“forti1”虚拟机。****
 
-    ![Forti1 虚拟机概述页显示 forti1 的值，例如 "资源组" 和状态。](./media/azure-stack-network-howto-vnet-to-onprem/image13.png)
+    ![Forti1 虚拟机的“概述”页显示 forti1 的各项值，例如“资源组”和“状态”。](./media/azure-stack-network-howto-vnet-to-onprem/image13a.png)
 
 4. 复制分配的 IP 地址，打开浏览器，然后将该 IP 地址粘贴到地址栏中。 站点可能会触发一条警告，指出安全证书不受信任。 请继续操作。
 
 5. 输入在部署期间提供的 FortiGate 管理用户名和密码。
 
-    ![登录对话框包含 "用户" 和 "密码" 文本框，以及一个 "登录" 按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image14.png)
+    ![登录对话框中有“用户”文本框和“密码”文本框，以及一个“登录”按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image14a.png)
 
-6. 选择**系统**  >  **固件**。
+6. 选择“系统” > “固件”。 
 
 7. 选中显示最新固件的框，例如 `FortiOS v6.2.0 build0866`。
 
-    ![固件对话框具有固件标识符 "FortiOS v 6.2.0 build0866"。 有一个指向发行说明和两个按钮的链接： "备份配置和升级" 和 "升级"。](./media/azure-stack-network-howto-vnet-to-onprem/image15.png)
+    ![“固件”对话框中有固件标识符“FortiOS v 6.2.0 build0866”。 有一个指向发行说明的链接和两个按钮：“备份配置并升级”和“升级”。](./media/azure-stack-network-howto-vnet-to-onprem/image15a.png)
 
-8. 选择 "**备份配置"，然后**  >  **继续**升级。
+8. 选择“备份配置并升级” > “继续”。 
 
 9. NVA 会将其固件更新到最新内部版本，然后重新启动。 此过程大约需要五分钟时间。 重新登录到 FortiGate Web 控制台。
 
-10. 单击 " **VPN**  >  **IPSec 向导**"。
+10. 单击“VPN” > “IPSec 向导”。 
 
 11. 在“VPN 创建向导”中输入 VPN 的名称，例如 `conn1`。****
 
 12. 选择“此站点位于 NAT 后”。****
 
-    ![VPN 创建向导的屏幕截图显示在第一步 "VPN 设置"。 选择以下值： "站点到站点" （对于模板类型为 "FortiGate"）; 对于 NAT 配置，为 "此站点位于 NAT 后面"。](./media/azure-stack-network-howto-vnet-to-onprem/image16.png)
+    ![“VPN 创建向导”的屏幕截图显示它处于第一步（“VPN 设置”）。 已选择以下值：为“模板类型”选择了“站点到站点”，为“远程设备类型”选择了“FortiGate”，并且为“NAT 配置”选择了“此站点位于 NAT 后”。](./media/azure-stack-network-howto-vnet-to-onprem/image16a.png)
 
-13. 选择“下一步”。
+13. 选择“**下一页**”。
 
 14. 输入要连接到的本地 VPN 设备的远程 IP 地址。
 
@@ -177,27 +177,27 @@ ms.locfileid: "91815336"
     > [!NOTE]  
     > 稍后需要使用此密钥来设置本地 VPN 设备上的连接，即，密钥必须完全匹配。**
 
-    ![VPN 创建向导的屏幕截图显示其在第二步 "身份验证" 中，并突出显示所选值。](./media/azure-stack-network-howto-vnet-to-onprem/image17.png)
+    ![“VPN 创建向导”的屏幕截图显示它处于第二步（“身份验证”），并且所选值已突出显示。](./media/azure-stack-network-howto-vnet-to-onprem/image17a.png)
 
-17. 选择“下一步”。
+17. 选择“**下一页**”。
 
 18. 对于“本地接口”，请选择“port2”。********
 
 19. 输入本地子网范围：
-    - forti1： 172.16.0.0/16
-    - forti2： 172.17.0.0/16
+    - forti1：172.16.0.0/16
+    - forti2：172.17.0.0/16
 
     如果你的 IP 范围与此不同，请使用自己的 IP 范围。
 
 20. 输入代表本地网络的相应远程子网，你将通过本地 VPN 设备连接到此网络。
 
-    ![VPN 创建向导的屏幕截图显示在第三步 "策略 & 路由"。 它显示选定的和输入的值。](./media/azure-stack-network-howto-vnet-to-onprem/image18.png)
+    ![“VPN 创建向导”的屏幕截图显示它处于第三步（“策略和路由”）。 它显示已选择的值和已输入的值。](./media/azure-stack-network-howto-vnet-to-onprem/image18a.png)
 
 21. 选择“创建”
 
-22. 选择 "**网络**  >  **接口**"。
+22. 选择“网络” > “接口”。 
 
-    !["接口" 列表显示两个接口： port1，已配置，并且 port2 为 "未配置"。 有一些用于创建、编辑和删除接口的按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image19.png)
+    ![“接口”列表显示两个接口：已经过配置的 port1 和未经过配置的 port2。 有一些用于创建、编辑和删除接口的按钮。](./media/azure-stack-network-howto-vnet-to-onprem/image19a.png)
 
 23. 双击“port2”。****
 
@@ -213,7 +213,7 @@ ms.locfileid: "91815336"
 | --- | --- |
 | 远程网关 IP | 分配给 forti1 的公共 IP 地址 – 请参阅[激活 FortiGate NVA](#activate-the-fortigate-nva)。 |
 | 远程 IP 网络 | 172.16.0.0/16（如果使用这些说明中为 VNET 提供的 IP 范围）。 |
-| Auth. Method = 预共享密钥 (PSK)  | 来自步骤 16。
+| 身份验证方法 = 预共享密钥 (PSK) | 来自步骤 16。
 | SDK 版本 | 1 |
 | IKE 模式 | 主要（ID 保护） |
 | 阶段 1 提议算法 | AES128-SHA256、AES256-SHA256、AES128-SHA1、AES256-SHA1 |
@@ -225,13 +225,13 @@ ms.locfileid: "91815336"
 
 在 FortiGate NVA 中：
 
-1. 在 forti1 FortiGate web 控制台上，中转到 "**监视**  >  **IPsec 监视器**"。
+1. 在 forti1 FortiGate Web 控制台上，转到“监视” > “IPsec 监视器”。 
 
-    ![已列出 VPN 连接 conn1 的监视器。 它显示为 "已关闭"，与对应的 "阶段 2" 选择器相同。](./media/azure-stack-network-howto-vnet-to-onprem/image20.png)
+    ![已列出 VPN 连接 conn1 的监视器。 它显示为正在关闭，与对应的“阶段 2 选择器”一样。](./media/azure-stack-network-howto-vnet-to-onprem/image20a.png)
 
 2. 突出显示“conn1”，选择“启动” > “所有的阶段 2 选择器”。************
 
-    !["监视器" 和 "阶段 2" 选择器都显示为 up。](./media/azure-stack-network-howto-vnet-to-onprem/image21.png)
+    ![监视器和“阶段 2 选择器”都显示为已启动。](./media/azure-stack-network-howto-vnet-to-onprem/image21a.png)
 
 ## <a name="test-and-validate-connectivity"></a>测试并验证连接
 
@@ -239,17 +239,17 @@ ms.locfileid: "91815336"
 
 若要验证连接：
 
-1. 在 Azure Stack Hub Vnet 中创建一个 VM，并在本地网络中创建一个系统。 可以按照以下说明在 [快速入门：使用 Azure Stack 集线器门户创建 Windows SERVER VM](./azure-stack-quick-windows-portal.md)。
+1. 在 Azure Stack Hub VNET 和本地网络上的系统中创建 VM。 可根据以下文章中的说明创建 VM：[快速入门：使用 Azure Stack Hub 门户创建 Windows 服务器 VM](./azure-stack-quick-windows-portal.md)。
 
-2. 创建 Azure Stack 中心 VM 并准备本地系统时，请检查：
+2. 创建 Azure Stack Hub VM 和准备本地系统时，请检查：
 
--  Azure Stack 中心 VM 位于 VNET 的 **InsideSubnet** 上。
+-  Azure Stack Hub VM 放置在 VNET 的 **InsideSubnet** 上。
 
--  本地系统放置在 IPSec 配置中定义的 IP 范围内的本地网络上。 还要确保本地 VPN 设备的本地接口 IP 地址提供给本地系统，作为可以访问 Azure Stack 集线器 VNET 网络的路由，例如， `172.16.0.0/16` 。
+-  本地系统放置在 IPSec 配置中定义的 IP 范围内的本地网络上。 此外，请确保本地 VPN 设备的本地接口 IP 地址（例如 `172.16.0.0/16`）已提供给本地系统，作为可访问 Azure Stack Hub VNET 网络的路由。
 
--  创建时 **，不要将任何 nsg 应用到** AZURE STACK 中心 VM。 如果从门户创建 VM，可能需要删除默认添加的 NSG。
+-  创建时，请**不要**将任何 NSG 应用到 Azure Stack Hub VM。 如果从门户创建 VM，可能需要删除默认添加的 NSG。
 
--  确保本地系统 OS 和 Azure Stack 中心 VM 操作系统没有可用于测试连接的操作系统防火墙规则，这些规则将禁止使用通信。 出于测试目的，建议在两个系统的操作系统中完全禁用防火墙。
+-  确保本地系统 OS 和 Azure Stack Hub VM OS 中没有任何 OS 防火墙规则禁止用于测试连接的通信。 出于测试目的，建议在两个系统的操作系统中完全禁用防火墙。
 
 ## <a name="next-steps"></a>后续步骤
 
