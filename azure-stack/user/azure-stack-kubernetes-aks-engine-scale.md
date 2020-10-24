@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: cfa531c42ebcc191461d4a801d0c17ce9526b912
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 16ffbd474886d477f37b7e2d39695e896984eb30
+ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473140"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92523535"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>缩放 Azure Stack Hub 上的 Kubernetes 群集
 
@@ -35,8 +35,8 @@ scale 命令使用以下参数查找群集定义文件并更新群集。
 | client-id |  | 通过 AKS 引擎创建群集时使用的服务主体的客户端 ID。 | 
 | client-secret |  | 创建群集时使用的服务主体机密。 | 
 | api-model | kube-rg/apimodel.json | 群集定义文件 (apimodel.json) 的路径。 此路径可能为：_output/\<dnsPrefix>/apimodel.json | 
-| -new-node-count | 9 | 所需节点计数。 | 
-| -master-FQDN |  | 主 FQDN。 纵向缩减时需要。 |
+| 新节点计数 | 9 | 所需节点计数。 | 
+| apiserver |  | 主 FQDN。 纵向缩减时需要。 |
 | identity-system | adfs | 可选。 如果使用 Active Directory 联合身份验证服务 (AD FS)，请指定标识管理解决方案。 |
 
 缩放 Azure Stack Hub 中的群集时，必须指定 --azure-env 参数。 若要详细了解 AKS 引擎的 scale 命令中使用的参数及其值，请参阅 [Scale - 参数](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)。
@@ -55,7 +55,7 @@ aks-engine scale \
     --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --api-model <path to your apomodel.json file>
     --new-node-count <desired node count> \
-    --master-FQDN <master FQDN> \
+    --apiserver <master FQDN> \
     --identity-system adfs # required if using AD FS
 ```
 

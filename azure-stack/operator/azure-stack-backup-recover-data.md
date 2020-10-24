@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中从灾难性数据丢失中恢复
 description: 了解如何在发生灾难性数据丢失后恢复和还原 Azure Stack Hub 中的基础结构数据。
 author: justinha
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 10/23/2020
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
-ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
+ms.lastreviewed: 10/23/2020
+ms.openlocfilehash: 35d55eec6c1311c39014f94f94fb04d39c7acb3b
+ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90836499"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496408"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -24,7 +24,7 @@ Azure Stack Hub 在数据中心运行 Azure 服务，并且可以在如同安装
 
 | 方案                                                           | 数据丢失                            | 注意事项                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| 在由于灾难或产品 bug 而发生灾难性数据丢失后进行恢复。 | 所有基础结构及用户和应用数据。 | 可以还原到不同 OEM。<br/> 可以还原到不同的硬件生成。<br/> 可以还原到不同的规模单元节点计数。<br/> 用户应用和数据与基础结构数据分开进行保护。 |
+| 在由于灾难或产品 bug 而发生灾难性数据丢失后进行恢复。 | 所有基础结构及用户和应用数据。 | 可以还原到其他 OEM。<br/> 可以还原到不同代系的硬件。<br/> 可以还原到不同计数的缩放单元节点。<br/> 用户应用和数据与基础结构数据分开进行保护。 |
 
 ## <a name="workflows"></a>工作流
 
@@ -60,6 +60,10 @@ Azure Stack Hub 支持称为云恢复模式的部署类型。 只有当灾难或
  - RBAC 策略分配和角色分配。
 
 在部署期间不会恢复任何用户基础结构即服务 (IaaS) 或平台即服务 (PaaS) 资源。 这些丢失包括 IaaS VM、存储帐户、blob、表、网络配置等。 云恢复的目的是为了确保操作员和用户在部署完成后可以重新登录回门户。 重新登录回来的用户不会看到其任何资源。 用户将还原其订阅以及由管理员定义的原始计划、套餐和策略。重新登录回系统的用户在灾难发生前原始解决方案施加的相同约束下操作。 在云恢复完成后，操作员可以手动还原增值 RP 和第三方 RP 以及关联的数据。
+
+## <a name="validate-backups"></a>验证备份 
+
+可以使用 ASDK 测试备份，以确认数据有效且可用。 有关详细信息，请参阅 [使用 ASDK 来验证 Azure Stack 备份](../asdk/asdk-validate-backup.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
