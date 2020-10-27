@@ -74,6 +74,8 @@
           href: manage/monitor-cluster.md
         - name: 添加或删除服务器
           href: manage/add-cluster.md
+        - name: 使服务器脱机以进行维护
+          href: manage/maintain-servers.md
         - name: 管理 Azure 注册
           href: manage/manage-azure-registration.md
         - name: 更改语言
