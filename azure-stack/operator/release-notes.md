@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/20/2020
+ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 923dbd141ad7911326f896d0d4f8d124648035e5
-ms.sourcegitcommit: b6d5d59481c3569a5ff670a91b3a46a9d3a7a63d
+ms.openlocfilehash: 5fa0debb10152d94095d6ba79100e74c2116633e
+ms.sourcegitcommit: 61e616745cd20940eaeee6dfe90333ebe621e0ea
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92336884"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92763128"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -142,13 +142,13 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2005 之后，如果以后发布了任何 2005 修补程序，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2005.18.78](https://support.microsoft.com/help/4584238)
+- [Azure Stack 中心修补程序1.2005.19.80](https://support.microsoft.com/help/4591132)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
 ## <a name="2002-build-reference"></a>2002 内部版本参考
 
-Azure Stack Hub 2002 更新内部版本号为 **1.2002.0.35**。
+Azure Stack Hub 2002 更新内部版本号为 **1.2002.0.35** 。
 
 > [!IMPORTANT]  
 > 在 Azure Stack 中心2002更新中，Microsoft 暂时扩展了我们的 [Azure Stack 中心支持策略声明](azure-stack-servicing-policy.md)。  我们正在与世界各地应对 COVID-19 的客户合作，这些客户可能正在就其 Azure Stack Hub 系统以及如何更新和管理这些系统做出重要决策，以确保其数据中心业务操作继续正常运行。 为支持我们的客户，Microsoft 提供了临时支持策略更改扩展，以包括三个以前的更新版本。  因此，将支持新发布的 2002 更新以及以前的三个更新版本（例如 1910、1908 和 1907）之一。
@@ -172,8 +172,8 @@ Azure Stack Hub 2002 更新内部版本类型为“完整”。
 - 提供了基于 AzureRM 的 Azure Stack Hub 管理员 PowerShell 模块的一个新版本 (1.8.1)。
 - 已推出新版 Azure Stack Hub 管理员 REST API。 可在 [API 参考](/rest/api/azure-stack/)中找到有关终结点和中断性变更的详细信息。
 - 将在 2020 年 4 月 15 日为 Azure Stack Hub 发布新的 Azure PowerShell 租户模块。 当前使用的 Azure RM 模块会继续工作，但在内部版本 2002 后将不再更新。
-- 在 Azure Stack Hub 管理员门户上添加了新的警告警报，用于报告所配置的 syslog 服务器的连接问题。 警报标题是 **Syslog 客户端发送 Syslog 消息时遇到网络问题**。
-- 在 Azure Stack Hub 管理员门户上添加了新的警告警报，用于报告网络时间协议 (NTP) 服务器的连接问题。 警报标题是 **[node name] 上的时间来源无效**。
+- 在 Azure Stack Hub 管理员门户上添加了新的警告警报，用于报告所配置的 syslog 服务器的连接问题。 警报标题是 **Syslog 客户端发送 Syslog 消息时遇到网络问题** 。
+- 在 Azure Stack Hub 管理员门户上添加了新的警告警报，用于报告网络时间协议 (NTP) 服务器的连接问题。 警报标题是 **[node name] 上的时间来源无效** 。
 - 由于 2002 中与 TLS 限制相关的一个中断性变更，[Java SDK](https://azure.microsoft.com/develop/java/) 发布了新的程序包。 你必须安装新的 Java SDK 依赖项。 可以在 [Java 和 API 版本配置文件](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles)中找到相关说明。
 - 新版 (1.0.5.10) System Center Operations Manager - Azure Stack Hub MP 已发布，该版本是运行 2002 的所有系统所必需的，因为存在中断性 API 变更。 API 变更会影响备份和存储性能仪表板，建议你先将所有系统更新为 2002，然后再更新 MP。
 
@@ -277,7 +277,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 ::: moniker range="azs-1910"
 ## <a name="1910-build-reference"></a>1910 内部版本参考
 
-Azure Stack Hub 1910 更新内部版本号为 **1.1910.0.58**。
+Azure Stack Hub 1910 更新内部版本号为 **1.1910.0.58** 。
 
 ### <a name="update-type"></a>更新类型
 
@@ -317,7 +317,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”。
 
 - 已在特权终结点 (PEP) 中添加 **Get-AzSDnsForwarder** cmdlet，用于在 Azure Stack Hub 中检索 DNS 服务器的转发器设置。 有关 DNS 配置的详细信息，请参阅 [Azure Stack Hub 数据中心 DNS 集成](azure-stack-integrate-dns.md)。
 
-- 添加了对使用 [AKS 引擎](../user/azure-stack-kubernetes-aks-engine-overview.md)管理 **Kubernetes 集群**的支持。 从此更新开始，客户可以部署生产 Kubernetes 群集。 借助 AKS 引擎，用户能够：
+- 添加了对使用 [AKS 引擎](../user/azure-stack-kubernetes-aks-engine-overview.md)管理 **Kubernetes 集群** 的支持。 从此更新开始，客户可以部署生产 Kubernetes 群集。 借助 AKS 引擎，用户能够：
   - 管理其 Kubernetes 群集的生命周期。 创建、更新和扩展群集。
   - 使用 AKS 和 Azure Stack Hub 团队生成的托管映像维护其群集。
   - 利用集成了 Azure 资源管理器的 Kubernetes 云提供程序，该提供程序使用本机 Azure 资源构建群集。
@@ -332,7 +332,7 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”。
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- Azure Stack Hub 的功能已得到改进，可自动补救一些修补升级问题，过去，这些问题会导致更新失败，或者使操作员无法启动 Azure Stack Hub 更新。 因此，**Test-AzureStack -UpdateReadiness** 组中包含的测试较少。 有关详细信息，请参阅[验证 Azure Stack Hub 系统状态](azure-stack-diagnostic-test.md#groups)。 以下三项测试保留在 **UpdateReadiness** 组中：
+- Azure Stack Hub 的功能已得到改进，可自动补救一些修补升级问题，过去，这些问题会导致更新失败，或者使操作员无法启动 Azure Stack Hub 更新。 因此， **Test-AzureStack -UpdateReadiness** 组中包含的测试较少。 有关详细信息，请参阅[验证 Azure Stack Hub 系统状态](azure-stack-diagnostic-test.md#groups)。 以下三项测试保留在 **UpdateReadiness** 组中：
 
   - **AzSInfraFileValidation**
   - **AzSActionPlanStatus**
@@ -376,18 +376,18 @@ Azure Stack Hub 1910 更新内部版本类型为“快速”。
 
 - 将市场项从 Azure 下载到 Azure Stack Hub 时，可以使用新的用户界面来指定项的版本（如果存在多个版本时）。 新 UI 可用于联网场景和离线场景。 有关详细信息，请参阅[将市场项从 Azure 下载到 Azure Stack Hub](azure-stack-download-azure-marketplace-item.md)。  
 
-- 从版本 1910 开始，Azure Stack Hub 系统**需要**额外的 /20 专用内部 IP 空间。 有关详细信息，请参阅 [Azure Stack 的网络集成规划](azure-stack-network.md)。
+- 从版本 1910 开始，Azure Stack Hub 系统 **需要** 额外的 /20 专用内部 IP 空间。 有关详细信息，请参阅 [Azure Stack 的网络集成规划](azure-stack-network.md)。
   
 - 如果在上传过程中外部存储位置耗尽了容量，基础结构备份服务将会删除部分上传的备份数据。  
 
 - 基础结构备份服务将标识服务添加到 AAD 部署的备份有效负载。  
 
 - Azure Stack Hub PowerShell 模块已更新为适用于版本 1910 的 1.8.0 版。<br>更改包括：
-   - **新的 DRP 管理模块**：使用部署资源提供程序 (DRP) 能够以协调的方式将资源提供程序部署到 Azure Stack Hub。 这些命令与 Azure 资源管理器层交互，从而与 DRP 交互。
-   - **BRP**： <br />
+   - **新的 DRP 管理模块** ：使用部署资源提供程序 (DRP) 能够以协调的方式将资源提供程序部署到 Azure Stack Hub。 这些命令与 Azure 资源管理器层交互，从而与 DRP 交互。
+   - **BRP** ： <br />
            - 支持 Azure stack 基础结构备份的单个角色还原。 <br />
            - 将参数 `RoleName` 添加到 cmdlet `Restore-AzsBackup`。
-   - **FRP**：“驱动器”和“卷”资源的中断性变更，提供 API 版本 `2019-05-01`。  Azure Stack Hub 1910 和更高版本支持的功能： <br />
+   - **FRP** ：“驱动器”和“卷”资源的中断性变更，提供 API 版本 `2019-05-01`。  Azure Stack Hub 1910 和更高版本支持的功能： <br />
             - `ID`、`Name`、`HealthStatus` 和 `OperationalStatus` 的值已更改。 <br />
             - 支持“驱动器”资源的新属性 `FirmwareVersion`、`IsIndicationEnabled`、`Manufacturer`和 `StoragePool`。 <br />
             - 已弃用“驱动器”资源的属性 `CanPool` 和 `CannotPoolReason`；改用 `OperationalStatus`。

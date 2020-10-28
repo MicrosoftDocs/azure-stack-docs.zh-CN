@@ -146,6 +146,10 @@
           href: concepts/security.md
 - name: 参考
   items:
+    - name: Azure 注册 Azure CLI 命令
+      href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
+    - name: Azure 注册 PowerShell 命令
+      href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
     - name: Hyper-V PowerShell 命令
       href: /powershell/module/hyper-v
     - name: 存储 PowerShell 命令
