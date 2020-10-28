@@ -4,25 +4,30 @@ description: 如何使用 Windows Admin Center 和 PowerShell 将操作系统和
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 08/31/2020
-ms.openlocfilehash: 06a5a1ccf59b5d5c34ef1d2e36feeb1000b49776
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/27/2020
+ms.openlocfilehash: acb3b9c8c0db738d04bba44ccec799a5f9c0939b
+ms.sourcegitcommit: 75603007badd566f65d01ac2eacfe48ea4392e58
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572630"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92688299"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>更新 Azure Stack HCI 群集
 
 > 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-更新 Azure Stack HCI 群集时，目标是通过一次仅更新群集中的一个服务器来保持可用性。 许多操作系统更新需要使服务器脱机，例如需要重新启动或更新软件（如网络堆栈）。 建议使用[群集感知更新 (CAU)](/windows-server/failover-clustering/cluster-aware-updating)，这项功能可以简化在群集中的每个服务器上安装 Windows 更新的过程，同时通过自动化软件更新过程，使应用程序无需中断。 群集感知更新可用于所有版本的 Windows Server，包括服务器核心安装，并且可以通过 Windows Admin Center 或使用 PowerShell 启动。
+更新 Azure Stack HCI 群集时，目标是通过一次仅更新群集中的一个服务器来保持可用性。 许多操作系统更新需要使服务器脱机，例如需要重新启动或更新软件（如网络堆栈）。 建议使用 Cluster-Aware 更新 (CAU) ，这是一项功能，可在群集中的每台服务器上轻松地安装更新，同时使应用程序保持运行。 如果需要，Cluster-Aware 更新会使服务器进入和退出维护模式，同时安装更新并重新启动服务器。 Cluster-Aware 更新是 Windows 管理中心使用的默认更新方法，还可以使用 PowerShell 来启动。
+
+   > [!IMPORTANT]
+   > 2020年10月20日预览版更新 (KB4580388) 对于 Azure Stack HCI，如果预计任何虚拟机在 CAU 期间应执行实时迁移，则可能导致群集感知更新操作失败。 有关解决方法，请参阅 [发行说明](../release-notes.md#october-20-2020-preview-update-kb4580388) 。
+
+本主题重点介绍操作系统和软件更新。 如果需要使服务器脱机以对硬件执行维护，请参阅 [使服务器脱机以进行维护](maintain-servers.md)。
 
 ## <a name="update-a-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 更新群集
 
 Windows Admin Center 利用简单的用户界面，简化了更新群集和应用操作系统和解决方案更新的过程。 如果你已从 Microsoft 硬件合作伙伴处购买了集成系统，则通过安装合适的合作伙伴更新扩展插件，可直接从 Windows Admin Center 轻松获取最新的驱动程序、固件和其他更新。 如果你的硬件不是作为集成系统购买的，则可能需要按照硬件供应商的建议单独更新固件和驱动程序。
 
-Windows 管理中心将检查群集是否已正确配置为运行群集感知更新，如果需要，将询问你是否希望 Windows 管理中心为你配置 CAU，包括安装 CAU 群集角色和启用所需的防火墙规则。
+Windows 管理中心将检查群集是否已正确配置为 Cluster-Aware 更新运行，如果需要，将询问你是否希望 Windows 管理中心为你配置 CAU，包括安装 CAU 群集角色和启用所需的防火墙规则。
 
 1. 在连接到群集时，如果一个或多个服务器已准备好安装更新，Windows Admin Center 仪表板会向你发出提醒，并提供立即更新的链接。 或者，你可以从左侧的“工具”菜单中选择“更新” 。
 1. 若要在 Windows Admin Center 中使用群集感知更新工具，必须启用凭据安全服务提供程序 (CredSSP) 并提供显式凭据。 当系统询问是否启用 CredSSP 时，单击“是”。
@@ -88,7 +93,7 @@ Install-WindowsFeature –Name RSAT-Clustering-PowerShell -ComputerName Server1
 -   远程更新模式：在此模式下，将使用“故障转移群集工具”配置与故障转移群集之间有网络连接但不是故障转移群集成员的远程管理计算机（通常是 Windows 10 PC）。 从该远程管理计算机（称为更新协调器）中，管理员使用默认或自定义更新运行配置文件触发按需更新运行。 远程更新模式对于监视更新运行期间的实时进度以及在服务器核心安装上运行的群集非常有用。  
 
    > [!NOTE]
-   > 从 Windows 10 的 2018 年 10 月版更新开始，RSAT 作为 Windows 10 中的一组“按需功能”提供。 只需转到“设置”>“应用”>“应用和功能”>“可选功能”>“添加功能”>“RSAT:**** 故障转移群集工具”并选择“安装”即可****。 若要查看安装进度，请单击“上一步”按钮以查看“管理可选功能”页上的状态。 安装的功能会保留在 Windows 10 升级版中。 若要为 2018 年 10 月更新版本之前的 Windows 10 安装 RSAT，请[下载 RSAT 程序包](https://www.microsoft.com/download/details.aspx?id=45520)。
+   > 从 Windows 10 的 2018 年 10 月版更新开始，RSAT 作为 Windows 10 中的一组“按需功能”提供。 只需转到“设置”>“应用”>“应用和功能”>“可选功能”>“添加功能”>“RSAT:  故障转移群集工具”并选择“安装”即可  。 若要查看安装进度，请单击“上一步”按钮以查看“管理可选功能”页上的状态。 安装的功能会保留在 Windows 10 升级版中。 若要为 2018 年 10 月更新版本之前的 Windows 10 安装 RSAT，请[下载 RSAT 程序包](https://www.microsoft.com/download/details.aspx?id=45520)。
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>将 CAU 群集角色添加到群集
 
@@ -104,7 +109,7 @@ Get-CauClusterRole -ClusterName Cluster1
 
 ```Get-CauClusterRole : The current cluster is not configured with a Cluster-Aware Updating clustered role.```
 
-若要使用 PowerShell 为自我更新模式添加群集感知更新群集角色，请使用 **`Add-CauClusterRole`** cmdlet 并提供合适的[参数](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters)，如下面的示例所示：
+若要使用 PowerShell 为自我更新模式添加群集感知更新群集角色，请使用 **`Add-CauClusterRole`** cmdlet 并提供合适的 [参数](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters)，如下面的示例所示：
 
 ```PowerShell
 Add-CauClusterRole -ClusterName Cluster1 -MaxFailedNodes 0 -RequireAllNodesOnline -EnableFirewallRules -VirtualComputerObjectName Cluster1-CAU -Force -CauPluginName Microsoft.WindowsUpdatePlugin -MaxRetriesPerNode 3 -CauPluginArguments @{ 'IncludeRecommendedUpdates' = 'False' } -StartDate "3/2/2020 3:00:00 AM" -DaysOfWeek 4 -WeeksOfMonth @(3) -verbose
@@ -175,9 +180,30 @@ InstallResults           : Microsoft.ClusterAwareUpdating.UpdateInstallResult[]
 }
 ```
 
+## <a name="perform-a-fast-offline-update-of-all-servers-in-a-cluster"></a>对群集中的所有服务器执行快速的脱机更新
+
+此方法允许同时关闭群集中的所有服务器并同时更新所有服务器。 这会在更新过程中节省时间，但托管资源会造成停机。
+
+如果有需要快速应用的重要安全更新，或者需要确保更新在维护时段内完成，则可以使用此方法。 此过程会关闭 Azure Stack HCI 群集，更新服务器，并再次将其打开。
+
+1. 规划维护时段。
+2. 使虚拟磁盘脱机。
+3. 停止群集以使存储池脱机。 运行  **停止群集** cmdlet，或使用 Windows 管理中心停止群集。
+4. 将群集服务设置为在每个服务器上的 services.msc 中 **禁用** 。 这会阻止群集服务在更新后启动。
+5. 将 Windows Server 累积更新和任何所需的服务堆栈更新应用于所有服务器。 可以同时更新所有服务器，因为群集已关闭，无需等待。
+6. 重新启动服务器，确保一切正常。
+7. 在每个服务器上将群集服务重新设置为 **自动** 。
+8. 启动群集。 运行 **启动群集** cmdlet 或使用 Windows 管理中心。
+
+   请花几分钟时间。  请确保存储池处于正常状态。
+
+9. 使虚拟磁盘恢复联机。
+10. 通过运行 **VirtualDisk** cmdlet 来监视虚拟磁盘的状态 **Get-Volume** 。
+
 ## <a name="next-steps"></a>后续步骤
 
 如需相关信息，另请参阅：
 
+- [群集感知更新 (CAU) ](/windows-server/failover-clustering/cluster-aware-updating)
 - [在存储空间直通中更新驱动器固件](/windows-server/storage/update-firmware)
 - [验证 Azure Stack HCI 群集](../deploy/validate.md)
