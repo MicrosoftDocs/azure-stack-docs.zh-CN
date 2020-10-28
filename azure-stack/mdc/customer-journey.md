@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 10/27/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 7c98b382988e0f462261bc453ebadb07d9c9a7d7
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 10/27/2020
+ms.openlocfilehash: f170ab6025effe394c891aa4fb3ad7111bac7133
+ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182925"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92898624"
 ---
-# <a name="customer-journey"></a>客户旅程
+# <a name="mdc-integration-overview"></a>MDC 集成概述
 
-本文介绍了从购买到后期部署 Azure Stack 中心数据中心集成的端到端过程。 集成是客户与 Microsoft 之间的协作项目。 以下各节介绍了项目时间线的不同阶段以及项目成员的特定步骤。
+本文介绍了从购买到后期部署的 MDC 集成的端到端过程。 集成是客户与 Microsoft 之间的协作项目。 以下各节介绍了项目时间线的不同阶段以及项目成员的特定步骤。
 
 ## <a name="introduction"></a>简介
 
@@ -33,52 +33,14 @@ ms.locfileid: "92182925"
 
 |   |订单流程  |预先部署 |集成，验证，传输 |现场部署  |部署之后 |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
-|Microsoft  |-发送到美国位置的信号<br>-模块化数据中心 (MDC) = 15 天   |提供所需的工具和文档来收集数据中心需求  |-验证配置项目并检查验证结果<br>-确保提供硬件  |-机架和堆栈<br>-网络集成<br>-Azure Stack 中心部署<br>-移交给客户    |注册和 Marketplace 联合|
+|Microsoft  |-发送到美国位置的信号    |提供所需的工具和文档来收集数据中心需求  |-验证配置项目并检查验证结果<br>-确保提供硬件  |-机架和堆栈<br>-网络集成<br>-Azure Stack 中心部署<br>-移交给客户    |注册和 Marketplace 联合|
 |客户   |通知购买   |-在部署工作表中填写网络详细信息<br>-收集证书<br>-获取 Azure AD 帐户<br>-运行提供的任何验证工具    |确保站点已准备好网络、电源和冷却系统必备组件    |-准备好部署配置项目<br>-客户的网络工程师可用   |     |
 
 
 ## <a name="order-process"></a>订单流程
 
-你的组织将与 Microsoft 合作，以便为分配的系统数设置订单。 订购后，Microsoft 将在15天内将 MDC 交付到美国位置。 Microsoft 将确保满足所有安全供应链要求。 
+你的组织将与 Microsoft 合作，以便为分配的系统数设置订单。 下订单后，Microsoft 会将 MDC 交付到美国位置。 Microsoft 将确保满足所有安全供应链要求。 
 
->[!NOTE] 
->计费在硬件交付后的14天内开始。
-
-若要创建 Azure Stack 集线器资源，请在 Azure 门户中执行以下步骤。
-
-1. 使用 Microsoft Azure 凭据通过以下 URL 登录到 Azure 门户：[https://portal.azure.com](https://portal.azure.com)。
-1. 在左窗格中，选择“+ 创建资源”。 搜索并选择 " **模块化数据中心**"。 选择“创建” 。
-1. 选择要用于 Azure Stack 中心设备的订阅。 选择要将此物理设备寄送到的国家/地区。 选择“显示设备”。
-1. 此处将显示缩写形式。 填写表格，并选择“提交”。 Microsoft 将启用你的订阅。
-1. 启用订阅后，你应该能继续创建资源。 在“选择设备类型”边栏选项卡中，选择“选择” 。 
-1. 在“基本信息”选项卡上，输入或选择以下“项目详细信息”。  
-    
-    |设置  |“值”  |
-    |---------|---------|
-    |订阅    |系统会根据前面所做的选择自动填充此字段。 订阅将链接到你的计费帐户。 |
-    |资源组  |选择现有的组，或创建新组。   |
-
-1. 输入或选择以下“实例详细信息”。 
-
-    |设置  |值  |
-    |---------|---------|
-    |名称   | 用于标识资源的友好名称。<br>该名称的长度必须介于 2 和 50 个字符之间，只能包含字母、数字和连字符。<br> 名称以字母或数字开头和结尾。        |
-    |区域     |有关 Azure Stack 中心资源可用的所有区域的列表，请参阅 [按区域提供的 Azure 产品](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)。 如果使用 Azure 政府版，则可选择 [Azure 区域](https://azure.microsoft.com/global-infrastructure/regions/)中显示的所有可用的政府区域。<br> 选择离要部署设备的地理区域最近的位置。|
-
-
-1. 在完成时选择“下一步:送货地址”。
-
-    - 如果已经有一个设备，请选择组合框，以使 **其具有 Azure Stack 集线器设备**。
-
-    - 如果这是你订购的新设备，请输入联系人姓名、公司、寄送设备的地址，以及联系人信息。
-
-1. 在完成时选择“下一步:查看 + 创建”。
-1. 在“查看 + 创建”选项卡上，查看“定价详细信息”、“使用条款”和资源的详细信息。 选择与“我已经查看隐私条款”对应的组合框。
-1. 选择“创建”。
-
-创建资源需要几分钟时间。 成功创建并部署资源后，你会收到通知。 选择“转到资源”。 
-
-在你下单以后，Microsoft 会审核订单并通过电子邮件联系你，核对配送详细信息。
 
 ## <a name="pre-deployment"></a>预先部署
 
@@ -96,11 +58,15 @@ ms.locfileid: "92182925"
 
 通过 "部署" 工作表收集所有先决条件信息后，Microsoft 将确保验证所有验证工具是否已运行，并协助您可能遇到的任何问题。 
 
+## <a name="site-preparation"></a>安装位置准备
+
+有关站点准备的要求的详细信息，请参阅快速入门指南。
+
 ## <a name="hardware-delivery"></a>硬件交付
 
 Microsoft 将与你合作，以确保所有必需的硬件在给定的分配时间内到达美国位置。  
 
-**重要**的是，所有先决条件数据都已锁定，并*在现场 Microsoft 部署工程师到达部署解决方案之前可用。*
+**重要** 的是，所有先决条件数据都已锁定，并 *在现场 Microsoft 部署工程师到达部署解决方案之前可用。*
 
 - 部署工作表填写了所有数据。 
 - 所有证书都必须经过验证并准备就绪。
@@ -119,12 +85,12 @@ Microsoft 将与你合作，以确保所有必需的硬件在给定的分配时�
 - 硬件的取消装箱和清点
 - 连接解决方案的电源和电源
 - 验证物理硬件运行状况
-- 检查所有布线和边界连接，确保解决方案正确定位在一起，且符合要求。
-- 配置解决方案 HLH (硬件生命周期主机) 。
+- 检查所有布线和边界连接，确保解决方案正确定位在一起，且符合要求
+- 配置解决方案的 HLH（硬件生命周期主机）
 - 数据中心网络集成
-- 检查以确保所有物理硬件设置都正确。
-- 确保所有组件的固件使用解决方案批准的最新版本。
-- 开始部署。 
+- 检查以确保所有物理硬件设置正确
+- 请确保解决方案中的所有组件都处于最新批准版本
+- 开始部署
 
 ## <a name="post-deployment"></a>后期部署
 
@@ -132,13 +98,13 @@ Microsoft 将与你合作，以确保所有必需的硬件在给定的分配时�
 
 Microsoft 部署工程师应执行的操作：
 
-- 启用值-将资源提供程序 (RPs) 。
-- 运行 [test-azurestack](../operator/azure-stack-diagnostic-test.md)。
-- [注册](../operator/azure-stack-registration-role.md) 到 Azure。
-- [Marketplace 联合](../operator/azure-stack-marketplace.md)。
-- 备份交换机配置和 HLH 配置文件。
-- 为客户准备部署摘要。
-- [检查更新](../operator/azure-stack-updates.md) ，确保解决方案软件已更新到最新版本。
+- 启用增值资源提供程序 (RPs) 
+- 运行 [test-azurestack](../operator/azure-stack-diagnostic-test.md)
+- [注册](../operator/azure-stack-registration-role.md) Azure
+- [市场联合](../operator/azure-stack-marketplace.md)
+- 备份交换机配置和 HLH 配置文件
+- 为客户准备部署摘要
+- [检查更新](../operator/azure-stack-updates.md) 以确保解决方案软件已更新到最新版本
 
 ## <a name="next-steps"></a>后续步骤
 

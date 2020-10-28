@@ -149,13 +149,13 @@
                   href: azure-stack-sql-server-vm-considerations.md
                 - name: 迁移 VM
                   items:
-                    - name: 迁移 Vm 概述
+                    - name: 迁移 VM 概述
                       href: vm-move-overview.md
                     - name: Azure 中的 VM
                       href: vm-move-from-azure.md
-                    - name: 本地上的专用 VM
+                    - name: 本地专用 VM
                       href: vm-move-specialized.md
-                    - name: 本地上的一般化 VM
+                    - name: 本地通用 VM
                       href: vm-move-generalized.md
             - name: 存储
               items:
@@ -250,6 +250,8 @@
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: 升级群集
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: 启用服务帐户令牌卷投影
+                      href: kubernetes-aks-engine-service-account.md
                     - name: AKS 引擎疑难解答
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: 对容器使用 Azure Monitor

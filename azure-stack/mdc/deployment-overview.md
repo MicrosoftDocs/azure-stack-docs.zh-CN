@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 60361a3e44b5ad54c63e6a94223d75a7b5106b9e
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
+ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253921"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92898587"
 ---
 # <a name="mdc-deployment-overview"></a>MDC 部署概述
 
@@ -58,10 +58,6 @@ MDC 是适用于在标准40英尺金属发货容器中打包的 Azure Stack 集�
 |缩放单元    |Azure Stack 集线器的核心组件，可提供计算和存储资源，以 Azure Stack 集线器结构基础结构和工作负载。 每个 pod 都包含八个 MDC R840 服务器（也称为节点）。|
 |Isilon 存储 |    特定于 MDC 解决方案的 Azure Stack 集线器组件。 Isilon 为 Azure Stack 集线器工作负荷提供额外的 blob 和文件存储。 每个 pod 包含 48 Isilon 存储节点。|
 |Pod    |在 MDC 的上下文中，pod 是一个独立的逻辑单元，它由两个互连的物理机架组成。 完整的解决方案包括在单个容器中安装的三个 pod。|
-
-
-
-
 
 ## <a name="deployment-workflow"></a>部署工作流
 

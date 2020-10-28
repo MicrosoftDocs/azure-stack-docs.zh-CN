@@ -7,25 +7,34 @@ ms.date: 09/11/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/11/2020
-ms.openlocfilehash: 685cf02aed8e6e485d596531c37653f496a4bc5f
-ms.sourcegitcommit: a845ae0d3794b5d845b2ae712baa7e38f3011a7b
+ms.openlocfilehash: f12895e82cbe6e4c2370eec6fb33eb90383bb669
+ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90045272"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92898597"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack Hub 上使用 AKS 引擎的已知问题
 
 本主题介绍 Azure Stack Hub 上的 AKS 引擎的已知问题。
 
-## <a name="disk-detach-operation-fails-in-aks-engine-0550"></a>在 AKS 引擎0.55.0 中，磁盘分离操作失败
+## <a name="unable-to-resize-cluster-vms-with-the-compute-service"></a>无法将群集 Vm 重设为计算服务
 
-- **适用于**： Azure Stack 中心 (更新 2005) ，AKS engine 0.55。0
-- **说明**：当你尝试删除包含持久性卷的部署时，删除操作将触发一系列附加/分离错误。 这是由于 AKS 引擎 v 0.55.0 云提供程序中的错误所致。 云提供程序使用较新版本的 API 调用 Azure 资源管理器，而不是 Azure 资源管理器 Azure Stack 集线器 (更新 2005) 。
-- **修正**：你可以在 [AKS engine GitHub 存储库中找到 (问题 3817) ](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443)的详细信息和缓解步骤。 在 AKS 引擎的新版本和相应映像可用时立即升级。
-- **具体**步骤：删除包含持久性卷的部署时。
+- **适用于** ： Azure Stack HUB、AKS engine (所有) 
+- **描述** ：通过计算服务调整群集 vm 的大小不能与 AKS 引擎一起使用。 AKS 引擎在 API 模型 json 文件中维护群集的状态。 若要确保所需的 VM 大小反映在通过 AKS 引擎完成的任何创建、更新或缩放操作中，您必须在执行任何这些操作之前更新 API 模型。 例如，如果使用计算服务将已部署的群集上的 VM 大小更改为不同的大小，则在执行时，状态将丢失 `aks-engine update` 。
+- **修正** ：若要执行此操作，请找到群集的 API 模型，将大小更改为，然后运行 `aks-engine update` 。
+- **发生次数** ：尝试使用计算服务调整大小。
 
-## <a name="upgrade-issues-in-aks-engine-0510"></a>AKS 引擎0.51.0 中的升级问题
+## <a name="disk-detach-operation-fails-in-aks-engine-0550"></a>在 AKS 引擎 0.55.0 中进行磁盘分离操作时失败
+
+- 适用于：Azure Stack Hub（更新 2005）、AKS 引擎 0.55.0
+- 说明：在尝试删除包含持久性卷的部署时，删除操作会触发一系列附加/分离错误。 这是由于 AKS 引擎 v0.55.0 云提供程序中的 bug 所致。 云提供程序使用了版本高于 Azure 资源管理器目前在 Azure Stack Hub（更新 2005）中支持的 API 版本的 API 来调用 Azure 资源管理器。
+- **补救措施** ：可以在 [AKS 引擎 GitHub 存储库（问题 3817）](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443)中找到详细信息和缓解步骤。 在 AKS 引擎的新版本和相应映像可用时立即升级。
+- **发生率** ：删除包含持久性卷的部署时。
+
+
+
+## <a name="upgrade-issues-in-aks-engine-0510"></a>AKS 引擎 0.51.0 中的升级问题
 
 * 在将 Kubernetes 群集从 1.15.x 版升级到 1.16.x 版（aks 引擎升级）期间，以下 Kubernetes 组件的升级需要额外的手动步骤：kube-proxy、azure-cni-networkmonitor、csi-secrets-store、kubernetes-dashboard。 下面描述了你可能观察到的情况以及如何解决这些问题。
 
