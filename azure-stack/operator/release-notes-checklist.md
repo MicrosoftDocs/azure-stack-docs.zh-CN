@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.author: v-myoung
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f3839c9191a5b96c9a489d7c13b83b1f8f13fdf9
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: aa8755b2cd8b7161eee8c7c60375c2b799df2e80
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778157"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064780"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack Hub 更新活动清单
 
@@ -45,7 +45,10 @@ ms.locfileid: "91778157"
 | 恢复更新 | 在修复失败的更新后，[使用特权终结点恢复 Azure Stack Hub 中的更新](azure-stack-monitor-update.md)。 |
 
 > [!IMPORTANT]  
-> 在更新期间不要运行 **Test-AzureStack**，因为这会导致更新停止。
+> 请勿在更新过程中运行 **test-azurestack** ，因为这会导致更新停止。
+>
+>不要在更新过程中运行节点修复，而不考虑其状态。
+>如果在更新过程中需要进行节点修复，请联系 Microsoft 支持部门。
 
 ## <a name="after-azure-stack-hub-update"></a>Azure Stack Hub 更新后
 

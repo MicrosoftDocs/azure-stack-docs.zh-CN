@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ecf7974cec80888b149454c0a2ff90eb48c2e9e3
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867182"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064746"
 ---
 # <a name="stretched-clusters-overview"></a>延伸群集概述
 
@@ -40,11 +40,11 @@ ms.locfileid: "86867182"
 
 下图显示站点 1 和站点 2 均是主动站点，双向复制到其他站点。
 
-:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="主动/主动延伸群集方案" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
+:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="主动/被动延伸群集方案" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解有关延伸群集的硬件和其他要求。 请参阅[准备工作](../deploy/before-you-start.md)。
+- 了解有关延伸群集的硬件和其他要求。 请参阅 [系统要求](system-requirements.md)。
 - 了解如何使用 Windows Admin Center 部署延伸群集。 请参阅[使用 Windows Admin Center 创建群集](../deploy/create-cluster.md)。
 - 了解如何使用 PowerShell 部署延伸群集。 请参阅[使用 PowerShell 创建群集](../deploy/create-cluster-powershell.md)。
 - 了解如何为延伸群集创建卷和设置复制。 请参阅[为延伸群集创建卷和设置复制](../manage/create-stretched-volumes.md)。

@@ -16,22 +16,22 @@
   items:
     - name: 部署概述
       href: deploy/deployment-overview.md
-    - name: 在开始之前
-      href: deploy/before-you-start.md
     - name: 部署 Azure Stack HCI OS
       href: deploy/operating-system.md
     - name: 创建群集
       href: deploy/create-cluster.md
-    - name: 使用 PowerShell 创建群集
-      href: deploy/create-cluster-powershell.md
     - name: 设置群集见证
       href: deploy/witness.md
     - name: 注册到 Azure
       href: deploy/register-with-azure.md
     - name: 验证群集
       href: deploy/validate.md
-    - name: 部署网络控制器
-      href: deploy/network-controller-powershell.md
+    - name: 使用 PowerShell 部署
+      items:
+        - name: 使用 PowerShell 创建群集
+          href: deploy/create-cluster-powershell.md
+        - name: 通过 PowerShell 部署网络控制器
+          href: deploy/network-controller-powershell.md
 - name: 管理
   items:
     - name: 管理 VM
@@ -104,6 +104,8 @@
   items:
     - name: 存储和群集
       items:
+        - name: 系统要求
+          href: concepts/system-requirements.md
         - name: 选择驱动器
           href: concepts/choose-drives.md
         - name: 驱动器对称注意事项

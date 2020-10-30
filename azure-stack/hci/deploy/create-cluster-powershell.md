@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c51a6296caac3c173650ee57af8e1d23b2473f26
-ms.sourcegitcommit: 877fe2207b569500aeefa6594eed990f15609776
+ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90082488"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064508"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>使用 Windows PowerShell 创建 Azure Stack HCI 群集
 
@@ -36,7 +36,7 @@ ms.locfileid: "90082488"
 
 在开始之前，请确保：
 
-- 已阅读[部署 Azure Stack HCI 之前](before-you-start.md)中的硬件和其他要求。
+- 已阅读 [AZURE STACK HCI 系统要求](../concepts/system-requirements.md)。
 - 在群集中的每个服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
 - 拥有一个帐户，该帐户是每个服务器上的本地管理员组的成员。
 - 具有在 Active Directory 中创建对象的权限。
@@ -430,7 +430,7 @@ Get-ClusterFaultDomain -CimSession "ClusterS1"
 - 确定哪些节点位于哪些站点中
 - 确定每个节点具有的可用存储
 - 检查是否在每个节点上均安装了存储副本功能
-- 为每个站点创建存储池，并使用站点名称标识它
+- 为每个站点创建一个存储池，并使用站点名称标识它
 - 创建每个存储池中的数据和日志卷 - 每个站点一个
 
 以下命令可启用存储空间直通。 你还可以指定存储池的易记名称，如下所示：

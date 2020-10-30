@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/17/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 927a57097eff9890dc8c546be9914e70dad5ec3c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 508bf39e9cdeb55485bc2a517c412cee7f3dcd80
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92179527"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064763"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
@@ -32,7 +32,7 @@ ms.locfileid: "92179527"
 
 在运行“创建群集”向导之前，请确保你已经完成以下任务：
 
-- 已阅读[部署 Azure Stack HCI 之前的准备工作](before-you-start.md)中的硬件要求和其他要求。
+- 请阅读 [系统要求](../concepts/system-requirements.md)中的硬件和其他要求。
 - 在群集中的每台服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
 - 在每台服务器上拥有一个是本地管理员组成员的帐户。
 - 在用于管理的 PC 或服务器上安装 Windows Admin Center。 请参阅[安装 Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)。
@@ -62,7 +62,7 @@ ms.locfileid: "92179527"
 1. 在“选择服务器位置”下，选择以下选项之一：
 
     - **一个站点中的所有服务器**
-    - **两个站点中的服务器**（适用于延伸群集）
+    - **两个站点中的服务器** （适用于延伸群集）
 
 1. 完成后，单击“创建”。 现在，你将看到“创建群集”向导，如下所示。
 

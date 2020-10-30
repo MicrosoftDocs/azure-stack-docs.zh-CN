@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 10/5/2020
-  ms.openlocfilehash: f66164d37b0e5fa1fab243f73b81df3b732205bc
-  ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+  ms.date: 10/28/2020
+  ms.openlocfilehash: 89ed0a4885057e8802906adfa2ca8ae7af42d53b
+  ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/08/2020
-  ms.locfileid: "91853136"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93064406"
 landingContent:
 - title: 关于 Azure Stack HCI
   linkLists:
@@ -29,8 +29,6 @@ landingContent:
   linkLists:
   - linkListType: deploy
     links:
-    - text: 在开始之前
-      url: deploy/before-you-start.md
     - text: 部署 Azure Stack HCI OS
       url: deploy/operating-system.md
     - text: 创建群集
@@ -86,7 +84,7 @@ landingContent:
     - text: 使用 PowerShell 管理 VM
       url: manage/vm-powershell.md
     - text: 设置 VM 相关性规则
-      url: deploy/before-you-start.md
+      url: manage/vm-affinity.md
 - title: Azure Stack HCI 概念
   linkLists:
   - linkListType: concept

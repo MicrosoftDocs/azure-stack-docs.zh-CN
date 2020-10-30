@@ -6,12 +6,12 @@ ms.author: yiygu
 ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: 2d68f076bf5687279aa5878083e7d007d5bc2e32
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 098168947a28214a3955a1961c80a2c06825126b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93049664"
+ms.locfileid: "93064712"
 ---
 # <a name="overview-of-iot-hub-on-azure-stack-hub"></a>Azure Stack 集线器上的 IoT 中心概述
 
@@ -104,6 +104,8 @@ ms.locfileid: "93049664"
 | 消息消耗 | https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin |默认情况下，消息将路由到与事件中心兼容的内置面向服务的终结点 (messages/events) 中。 在 Azure 云上，你可以通过提供 IoT 中心连接字符串或事件中心连接字符串从终结点访问消息。 但是，在 Azure Stack 集线器上，只支持事件中心连接字符串。 |
 
 ## <a name="next-steps"></a>后续步骤
+
+如果 IoT 中心在订阅中不可用，请与管理员联系，以 [在 Azure Stack 中心资源提供程序上安装 Iot 中心](../operator/iot-hub-rp-overview.md)。
 
 若要了解如何使用 IoT 中心，请参阅 [Azure Iot 中心文档](/azure/iot-hub/)。
 

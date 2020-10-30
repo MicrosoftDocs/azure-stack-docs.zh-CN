@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 10/16/2020
-ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 10/28/2020
+ms.openlocfilehash: d75e22814afcb9610bdd1f9af3824d3e12e3199b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157676"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064559"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>规划软件定义的网络基础结构
 
@@ -31,7 +31,7 @@ SDN 基础结构有几个硬件和软件先决条件，包括：
 
 - 物理网络。 需要访问物理网络设备以配置虚拟局域网 (VLAN)、路由和边界网关协议 (BGP)。 本主题提供有关手动交换机配置的说明，以及使用第 3 层交换机/路由器上的 BGP 对等互连或是路由和远程访问服务器 (RRAS) VM 的选项。
 
-- 物理计算主机。 这些主机运行 Hyper-V，是托管 SDN 基础结构和租户 VM 所必需的。 为了获得最佳性能，这些主机中需要特定网络硬件，如[网络硬件](#network-hardware)部分所述。
+- 物理计算主机。 这些主机运行 Hyper-V，是托管 SDN 基础结构和租户 VM 所必需的。 为了获得最佳性能，在这些主机中需要特定网络硬件，如 [SDN 硬件要求](system-requirements.md#sdn-hardware-requirements)中所述。
 
 ## <a name="physical-and-logical-network-configuration"></a>物理和逻辑网络配置
 每个物理计算主机都需要通过一个或多个连接到物理交换机端口的网络适配器建立网络连接。 第 2 层 [VLAN](https://en.wikipedia.org/wiki/Virtual_LAN) 支持划分为多个逻辑网段的网络。
@@ -108,50 +108,10 @@ BGP 对等互连通常在作为网络基础结构一部分的托管交换机或�
 - 对于 SLB/MUX VM，使用管理网络作为默认网关。
 - 对于网关 VM，使用 HNV 提供程序网络作为默认网关。 这应在网关 VM 的前端 NIC 上进行设置。
 
-## <a name="network-hardware"></a>网络硬件
-此部分提供 NIC 和物理交换机的网络硬件部署要求。
+## <a name="switches-and-routers"></a>交换机和路由器
+为了帮助配置物理交换机或路由器，在 [Microsoft SDN GitHub 存储库](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples)中提供了适用于各种交换机型号和供应商的一组示例配置文件。 提供了一个 readme 文件和经过测试的命令行界面 (CLI) 为特定交换机提供命令。
 
-### <a name="network-interface-cards-nics"></a>网络接口卡 (NIC)
-在 Hyper-V 主机和存储主机中使用的 NIC 需要特定功能才能实现最佳性能。
-
-远程直接内存访问 (RDMA) 是一种内核旁路技术，可用于在不使用主机 CPU 的情况下传输大量数据，这样可释放 CPU 来执行其他工作。 交换嵌入式组合 (SET) 是一种备用 NIC 组合解决方案，可在包含 Hyper-V 和 SDN 堆栈的环境中使用。 SET 将一些 NIC 组合功能集成到 Hyper-V 虚拟交换机中。
-
-有关详细信息，请参阅 [远程直接内存访问 (RDMA) 和交换嵌入式组合 (SET)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
-
-若要考虑由 VXLAN 或 NVGRE 封装标头导致的租户虚拟网络流量中的开销，第 2 层结构网络（交换机和主机）的最大传输单位 (MTU) 必须设置为大于或等于 1674 字节（包括第 2 层以太网标头）。
-
-支持新 EncapOverhead 高级适配器关键字的 NIC 通过网络控制器主机代理自动设置 MTU。 不支持新 EncapOverhead 关键字的 NIC 需要使用 JumboPacket（或等效关键字）在每个物理主机上手动设置 MTU 大小。
-
-### <a name="switches"></a>交换机
-为环境选择物理交换机和路由器时，请确保它支持以下功能集：
-- 交换机端口 MTU 设置（必需）
-- MTU 设置为 >= 1674 字节（包括 L2 以太网标头）
-- L3 协议（必需）
-- 相等成本多路径 (ECMP) 路由
-- 基于 BGP \(IETF RFC 4271\) 的 ECMP
-
-实现应支持以下 IETF 标准中的“必须”陈述：
-- RFC 2545：[用于 IPv6 域际路由的 BGP-4 多协议扩展](https://tools.ietf.org/html/rfc2545)
-- RFC 4760：[用于 BGP-4 的多协议扩展](https://tools.ietf.org/html/rfc4760)
-- RFC 4893：[针对四个八进制 AS 编号空间的 BGP 支持](https://tools.ietf.org/html/rfc4893)
-- RFC 4456：[BGP 路由反射：完整网格内部 BGP (IBGP) 的替代方法](https://tools.ietf.org/html/rfc4456)
-- RFC 4724：[用于 BGP 的正常重新启动机制](https://tools.ietf.org/html/rfc4724)
-
-需要以下标记协议：
-- VLAN - 各种类型流量的隔离
-- 802.1q trunk
-
-以下各项提供了链路控制：
-- 服务质量 \(QoS\)（仅当使用 RoCE 时才需要 PFC）
-- 增强型流量选择 \(802.1Qaz\)
-- 基于优先级的流控制 (PFC)（802.1p/Q 和 802.1Qbb）
-
-以下各项提供可用性和冗余：
-- 交换机可用性（必需）
-- 执行网关功能需要高可用路由器。 可以使用多机箱交换机\路由器或技术（例如虚拟路由器冗余协议 (VRRP)）提供此功能。
-
-### <a name="switch-configuration-examples"></a>交换机配置示例
-为了帮助配置物理交换机或路由器，在 [Microsoft SDN GitHub 存储库](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples)中提供了适用于各种交换机型号和供应商的一组示例配置文件。 提供了针对特定交换机的详细自述文件和经过测试的命令行接口 (CLI) 命令。
+有关详细的交换机和路由器要求，请参阅 [SDN 硬件要求](system-requirements.md#sdn-hardware-requirements)。
 
 ## <a name="compute"></a>计算
 所有 Hyper-V 主机都必须安装适当的操作系统，针对 Hyper-V 进行启用，以及使用至少有一个连接到管理逻辑网络的物理适配器的外部 Hyper-V 虚拟交换机。 主机必须可通过分配给管理主机 vNIC 的管理 IP 地址来访问。
