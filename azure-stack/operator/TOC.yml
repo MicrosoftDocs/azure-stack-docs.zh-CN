@@ -351,6 +351,32 @@
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: 删除
               href: event-hubs-rp-remove.md
+        - name: Azure Stack 集线器上的 IoT 中心
+          items:
+            - name: 概述
+              href: iot-hub-rp-overview.md
+            - name: 先决条件
+              href: iot-hub-rp-prerequisites.md
+            - name: 安装
+              href: iot-hub-rp-install.md
+            - name: 生命周期管理
+              items:
+                - name: 应用更新
+                  href: resource-provider-apply-updates.md
+                - name: 备份和还原
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: 收集日志
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: 运行状况和警报
+                  href: azure-stack-monitor-health.md
+                - name: 管理
+                  href: iot-hub-rp-manage.md
+                - name: 轮换机密
+                  href: iot-hub-rp-rotate-secrets.md
+                - name: 服务更新公告
+                  href: 'https://azure.microsoft.com/updates/?query=IoT%20Hub'
+            - name: 删除
+              href: iot-hub-rp-remove.md
         - name: Azure Stack Hub 上的 MySQL
           items:
             - name: 概述

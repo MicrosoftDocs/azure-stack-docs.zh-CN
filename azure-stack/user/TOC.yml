@@ -213,6 +213,10 @@
               items:
                 - name: 概述
                   href: event-hubs-overview.md
+            - name: IoT 中心
+              items:
+                - name: 概述
+                  href: iot-hub-overview.md
             - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
