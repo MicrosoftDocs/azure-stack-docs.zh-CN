@@ -340,7 +340,7 @@
                 - name: 备份和还原
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: 收集日志
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: diagnostic-log-collection.md
                 - name: 运行状况和警报
                   href: azure-stack-monitor-health.md
                 - name: 管理
@@ -351,7 +351,7 @@
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: 删除
               href: event-hubs-rp-remove.md
-        - name: Azure Stack 集线器上的 IoT 中心
+        - name: Azure Stack Hub 上的 IoT 中心
           items:
             - name: 概述
               href: iot-hub-rp-overview.md
@@ -492,11 +492,9 @@
             - name: 查找你的云 ID
               href: azure-stack-find-cloud-id.md
             - name: 诊断日志收集
-              items:
-                - name: 概述
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Get-AzureStackLog (PEP)
-                  href: azure-stack-get-azurestacklog.md
+              href: diagnostic-log-collection.md
+            - name: Get-AzureStackLog (PEP)
+              href: azure-stack-get-azurestacklog.md
         - name: Azure Stack Hub 验证
           href: azure-stack-diagnostic-test.md
         - name: 故障排除
