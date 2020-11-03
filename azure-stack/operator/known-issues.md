@@ -3,16 +3,16 @@ title: Azure Stack Hub 已知问题
 description: 了解 Azure Stack Hub 发行版中的已知问题。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 11/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: b52944255569197e9390db879f690f9e5d5a21d5
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 50b80df35ceed77242e7deb45c54664fb5a9563f
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495773"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239591"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -37,6 +37,13 @@ ms.locfileid: "91495773"
 ## <a name="update"></a>更新
 
 有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates)。
+
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>更新未能将包 Test-azurestack 安装到 CA VM
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在更新过程中，进程会锁定需要复制到 CA VM 的新内容。 当更新失败时，将释放锁定。
+- 修正：继续更新。
+- 发生次数：罕见
 
 ## <a name="portal"></a>门户
 
@@ -95,22 +102,22 @@ ms.locfileid: "91495773"
 
 ## <a name="compute"></a>计算
 
-### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>使用门户部署 Standard_DS2_v2 大小的虚拟机规模集时出现问题
+### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>使用门户部署 Standard_DS2_v2 大小的虚拟机规模集时遇到的问题
 
-- 适用：此问题适用于2005版本。
-- 原因：门户 bug 导致 Standard_DS2_v2 大小的规模集创建失败。
-- 修正：使用 PowerShell 或 CLI 部署此虚拟机规模集 VM 大小。
+- 适用于：此问题适用于 2005 版本。
+- 原因：门户 bug 导致创建 Standard_DS2_v2 大小的规模集失败。
+- 补救措施：使用 PowerShell 或 CLI 部署此虚拟机规模集 VM 大小。
 
-### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>在 Ubuntu Server 20.04 中使用 VM 扩展的问题
+### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>在 Ubuntu Server 20.04 中使用 VM 扩展时遇到的问题
 
-- 适用：此问题适用于 **Ubuntu Server 20.04 LTS**。
-- 原因：某些 Linux 分发版已转换为 Python 3.8，并完全删除了 `/usr/bin/python` 用于 python 的旧入口点。 转换到 Python 3.x 的 Linux 分发用户必须确保旧 `/usr/bin/python` 入口点存在，然后再尝试将这些扩展部署到其 vm。 否则，扩展部署可能会失败。
-- 补救方法：遵循在 [已启用 Python 3 的 Linux Azure 虚拟机系统中使用 VM 扩展的问题](/azure/virtual-machines/extensions/issues-using-vm-extensions-python-3) 解决步骤，但跳过步骤2，因为 Azure Stack 集线器没有 **Run 命令** 功能。
+- 适用于：此问题适用于 Ubuntu Server 20.04 LTS。
+- 原因：某些 Linux 发行版已转换为 Python 3.8，并完全删除了 Python 的旧版 `/usr/bin/python` 入口点。 已转换到 Python 3.x 的 Linux 发行版用户在尝试将这些扩展部署到自己的 VM 之前，必须确保存在旧版 `/usr/bin/python` 入口点。 否则，扩展部署可能会失败。
+- 补救措施：请按照[在启用 Python 3 的 Linux Azure 虚拟机系统中使用 VM 扩展时遇到的问题](/azure/virtual-machines/extensions/issues-using-vm-extensions-python-3)中的解决步骤操作，但请跳过步骤 2，因为 Azure Stack Hub 没有“运行命令”功能。
 
 ### <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
 
 - 适用于：此问题适用于 2002 及更高版本。
-- 原因：完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 对于具有基于 AMD MI25 的 Azure Stack 集线器 GPU 预览所需硬件的客户，可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。
+- 原因：完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 如果客户拥有基于 AMD MI25 的 Azure Stack Hub GPU 预览版所需的硬件，那么这些客户可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。
 - 补救措施：按照设计为 Azure Stack Hub GPU 预览版做准备。
 
 ### <a name="consumed-compute-quota"></a>已消耗的计算配额
@@ -123,7 +130,7 @@ ms.locfileid: "91495773"
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM 概述边栏选项卡未显示正确的计算机名称
 
 - 适用于：此问题适用于所有版本。
-- 原因：在概述边栏选项卡中查看 VM 的详细信息时，计算机名称显示为“(不可用)”。 这种设计适用于从专用磁盘/磁盘快照创建的 Vm，也为 Marketplace 映像显示。
+- 原因：在概述边栏选项卡中查看 VM 的详细信息时，计算机名称显示为“(不可用)”。 这是针对从专用磁盘/磁盘快照创建的 VM 设计的，也会为市场映像而出现。
 - 补救措施：在“设置”下查看“属性”边栏选项卡。
 
 ### <a name="virtual-machine-scale-set"></a>虚拟机规模集
@@ -136,11 +143,11 @@ ms.locfileid: "91495773"
 
 ## <a name="storage"></a>存储
 
-### <a name="retention-period-reverts-to-0"></a>保持期将恢复为0
+### <a name="retention-period-reverts-to-0"></a>保留期恢复为 0
 
-- 适用：此问题适用于版本2002和2005。
-- 原因：如果在 "保持期" 设置中指定0以外的时间段，则它会在2002或2005更新期间)  (此设置的默认值。 "0 天" 设置将在更新完成后立即生效，这会使所有现有已删除的存储帐户和任何即将发生的新删除存储帐户立即退出，并标记为定期垃圾回收 (每小时运行) 。
-- 修正：手动将保留期指定为正确的时间段。 指定新的保持期之前已经过垃圾回收的任何存储帐户都是不可恢复的。  
+- 适用于：此问题适用于版本 2002 和 2005。
+- 原因：如果在保留期设置中指定非 0 的时间段，则它将在 2002 或 2005 更新期间恢复为 0（此设置的默认值）。 这个 0 天的设置将在更新完成后立即生效，从而导致所有现有已删除的存储帐户和任何即将新删除的存储帐户立即不予保留，并标记为需要进行定期垃圾回收（每小时运行一次）。
+- 补救措施：将保留期手动指定为正确的时间段。 在指定新的保留期之前已进行垃圾回收的任何存储帐户都不可恢复。  
 
 ## <a name="resource-providers"></a>资源提供程序
 
@@ -170,6 +177,13 @@ ms.locfileid: "91495773"
 应用 2002 更新后，管理员门户中可能会错误地显示“时间源无效”警报。 这个警报是可忽略的误报，会在即将发布的版本中得到解决。 
 
 有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates)。
+
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>更新未能将包 Test-azurestack 安装到 CA VM
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在更新过程中，进程会锁定需要复制到 CA VM 的新内容。 当更新失败时，将释放锁定。
+- 修正：继续更新。
+- 发生次数：罕见
 
 ## <a name="portal"></a>门户
 
@@ -271,28 +285,28 @@ ms.locfileid: "91495773"
 
 ## <a name="compute"></a>计算
 
-### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>无法在门户上创建 Standard_DS2_v2 VM 大小的虚拟机规模集
+### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>无法在门户中使用 Standard_DS2_v2 VM 大小创建规模集
 
 - 适用于：此问题适用于 2002 版本。
-- 原因：存在一个门户 bug，该 bug 阻止创建具有 Standard_DS2_v2 VM 大小的虚拟机规模集。 创建即会产生错误：“{"code":"DeploymentFailed","message":":"至少一项资源部署操作失败。 请列出部署操作以获取详细信息。 请参阅 https://aka.ms/arm-debug 了解使用情况详细信息。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 虚拟机大小 Standard_DS2_v2 不在 VM 大小的允许列表中，不能在 VM 规模集 /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss 的索引 0 处的 VM 上启用加速网络。 允许的大小：.\"\r\n }\r\n}"}]}"
-- 修正：使用 PowerShell 或 resource manager 模板创建虚拟机规模集。
+- 原因：存在一个门户 bug，它阻止使用Standard_DS2_v2 VM 大小创建规模集。 创建即会产生错误：“{"code":"DeploymentFailed","message":":"至少一项资源部署操作失败。 请列出部署操作以获取详细信息。 请参阅 https://aka.ms/arm-debug 了解使用情况详细信息。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 虚拟机大小 Standard_DS2_v2 不在 VM 大小的允许列表中，不能在 VM 规模集 /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss 的索引 0 处的 VM 上启用加速网络。 允许的大小：.\"\r\n }\r\n}"}]}"
+- 补救措施：使用 PowerShell 或资源管理器模板创建虚拟机规模集。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM 概述边栏选项卡未显示正确的计算机名称
 
 - 适用于：此问题适用于所有版本。
-- 原因：在概述边栏选项卡中查看 VM 的详细信息时，计算机名称显示为“(不可用)”。 这种设计适用于从专用磁盘/磁盘快照创建的 Vm，也为 Marketplace 映像显示。
+- 原因：在概述边栏选项卡中查看 VM 的详细信息时，计算机名称显示为“(不可用)”。 这是针对从专用磁盘/磁盘快照创建的 VM 设计的，也会为市场映像而出现。
 - 补救措施：在“设置”下查看“属性”边栏选项卡。
 
 ### <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
 
 - 适用于：此问题适用于版本 2002 及更高版本。
-- 原因：完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 对于具有基于 AMD MI25 的 Azure Stack 集线器 GPU 预览所需硬件的客户，可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。
+- 原因：完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 如果客户拥有基于 AMD MI25 的 Azure Stack Hub GPU 预览版所需的硬件，那么这些客户可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。
 - 补救措施：按照设计为 Azure Stack Hub GPU 预览版做准备。
 
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：创建新的虚拟机 (VM) 时，可能会显示以下错误：**无法启动虚拟机 'vm-name'。错误：无法更新 VM 'vm-name' 的串行输出设置**。 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
+- 原因：创建新的虚拟机 (VM) 时，可能会显示以下错误： **无法启动虚拟机 'vm-name'。错误：无法更新 VM 'vm-name' 的串行输出设置** 。 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
 - 补救措施：使用以前所用的相同名称重新创建存储帐户。
 - 发生次数：通用
 
@@ -334,11 +348,11 @@ ms.locfileid: "91495773"
 
 ## <a name="storage"></a>存储
 
-### <a name="retention-period-revert-to-0"></a>保持期恢复为0
+### <a name="retention-period-revert-to-0"></a>保留期恢复为 0
 
-- 适用：此问题适用于版本2002和2005。
-- 原因：如果你之前在 "保留期" 设置中指定了0以外的时间段，则它将恢复为 0 (在2002和2005更新期间此设置) 的默认值。 在更新完成后，0天设置将会生效 immdiately，这会导致所有已删除的存储帐户和任何即将出现的新删除存储帐户立即退出，并标记为定期垃圾回收 (每小时运行一次) 。 
-- 修正：手动将保留期指定为适当的时间段。 但是，在指定新的保持期之前，已对所有存储帐户进行了垃圾回收，这是不可恢复的。  
+- 适用于：此问题适用于版本 2002 和 2005。
+- 原因：如果以前在保留期设置中指定了非 0 的时间段，则它将在 2002 或 2005 更新期间恢复回 0（此设置的默认值）。 这个 0 天的设置会在更新完成后立即生效，从而导致所有现有已删除的存储帐户和任何即将新删除的存储帐户立即不予保留，并标记为需要进行定期垃圾回收（每小时运行一次）。 
+- 补救措施：将保留期手动指定为正确的时间段。 但是，在指定新的保留期之前已进行垃圾回收的任何存储帐户都不可恢复。  
 
 ## <a name="resource-providers"></a>资源提供程序
 
@@ -367,6 +381,13 @@ ms.locfileid: "91495773"
 
 有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates)。
 
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>更新未能将包 Test-azurestack 安装到 CA VM
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：在更新过程中，进程会锁定需要复制到 CA VM 的新内容。 当更新失败时，将释放锁定。
+- 修正：继续更新。
+- 发生次数：罕见
+
 ## <a name="portal"></a>门户
 
 ### <a name="administrative-subscriptions"></a>管理订阅
@@ -392,7 +413,7 @@ ms.locfileid: "91495773"
 ### <a name="storage-account-settings"></a>存储帐户设置
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中，存储帐户的“配置”边栏选项卡显示用于更改**安全传输类型**的选项。 Azure Stack Hub 目前不支持此功能。
+- 原因：在用户门户中，存储帐户的“配置”边栏选项卡显示用于更改 **安全传输类型** 的选项。 Azure Stack Hub 目前不支持此功能。
 - 发生次数：通用
 
 ### <a name="upload-blob-with-oauth-error"></a>使用 OAuth 上传 Blob 时出错
@@ -417,7 +438,7 @@ ms.locfileid: "91495773"
 ### <a name="incorrect-tooltip-when-creating-vm"></a>创建 VM 时出现不正确的工具提示
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：在用户门户中选择类型为“高级 SSD”的托管磁盘时，下拉列表显示“OS 磁盘”。 该选项旁的工具提示指出 **可以使用 Azure 免费帐户免费访问某些 OS 磁盘大小**;但是，这对 Azure Stack 中心无效。 此外，该列表包含“符合免费帐户的条件”，而这对 Azure Stack Hub 而言也是不正确的。
+- 原因：在用户门户中选择类型为“高级 SSD”的托管磁盘时，下拉列表显示“OS 磁盘”。 该选项旁的工具提示指出 **可以使用 Azure 免费帐户免费访问某些 OS 磁盘大小** ;但是，这对 Azure Stack 中心无效。 此外，该列表包含“符合免费帐户的条件”，而这对 Azure Stack Hub 而言也是不正确的。
 - 发生次数：通用
 
 ### <a name="delete-a-storage-container"></a>删除存储容器
@@ -468,7 +489,7 @@ ms.locfileid: "91495773"
 ### <a name="activity-log-blade"></a>“活动日志”边栏选项卡
 
 - 适用于：此问题适用于运行 1907 或更高版本的阵列。 <!-- Note: Applies to 2002 as well -->
-- 原因：访问活动日志时，门户只显示条目的第一页。 **加载更多结果**将不会加载附加条目。
+- 原因：访问活动日志时，门户只显示条目的第一页。 **加载更多结果** 将不会加载附加条目。
 - 补救措施：调整筛选器中的时间范围，以查看第一页之后的条目。
 
 ## <a name="networking"></a>网络
@@ -561,7 +582,7 @@ ms.locfileid: "91495773"
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：创建新的 Windows 虚拟机 (VM) 时，可能会显示以下错误：**无法启动虚拟机 'vm-name'。错误：无法更新 VM 'vm-name' 的串行输出设置**。 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
+- 原因：创建新的 Windows 虚拟机 (VM) 时，可能会显示以下错误： **无法启动虚拟机 'vm-name'。错误：无法更新 VM 'vm-name' 的串行输出设置** 。 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
 - 补救措施：使用以前所用的相同名称重新创建存储帐户。
 - 发生次数：通用
 

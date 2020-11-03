@@ -7,12 +7,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 5fa0debb10152d94095d6ba79100e74c2116633e
-ms.sourcegitcommit: 61e616745cd20940eaeee6dfe90333ebe621e0ea
+ms.openlocfilehash: 736cf2dbc122a757edaa2204d15f035582f02f4f
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92763128"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239574"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -96,6 +96,7 @@ Azure Stack Hub 2005 更新内部版本类型为“完整”。
 
 - 从管理员门户中删除了停止、关闭和重启基础结构角色实例的操作。 还在 Fabric 资源提供程序中删除了相应的 API。 Azure Stack Hub 的管理员 RM 模块和 AZ 预览版中的以下 PowerShell cmdlet 不再有效：Stop-AzsInfrastructureRoleInstance、Disable-InfrastructureRoleInstance 和 Restart-InfrastructureRoleInstance  。 将从 Azure Stack Hub 的下一个管理员 AZ 模块版本中删除这些 cmdlet。
 - Azure Stack Hub 2005 现在仅支持 [Azure Stack Hub 2020（版本 87.x）上的应用服务](app-service-release-notes-2020-Q2.md)。
+- 硬件监视所需的用户加密设置已从 DES 更改为 AES，以提高安全性。 请联系你的硬件合作伙伴，以了解如何在基本板管理控制器 (BMC) 中更改设置。 在 BMC 中进行更改后，可能需要使用特权终结点再次运行命令 **BmcCredential** 。 有关详细信息，请参阅 [在 Azure Stack 中心内轮换机密](azure-stack-rotate-secrets.md)
 
 ### <a name="fixes"></a>修复项
 

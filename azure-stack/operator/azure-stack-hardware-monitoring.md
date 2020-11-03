@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aa2773519250a901be421f1177d2f940b1670644
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 6eb455dbcf30b1d77818b13d1fc7db6b6b11c6f9
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623279"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239557"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>监视 Azure Stack Hub 硬件组件
 
@@ -26,7 +26,7 @@ Azure Stack Hub 运行状况和监视系统监视存储子系统的状态，并�
 - 启动驱动器
 
 > [!NOTE]
-> 在启用此功能之前，必须向硬件合作伙伴确认它们已就绪。 硬件合作伙伴还会提供在基板管理控制器 (BMC) 中启用此功能的详细步骤。
+> 在启用此功能之前，必须向硬件合作伙伴确认它们已就绪。 硬件合作伙伴还会提供在基板管理控制器 (BMC) 中启用此功能的详细步骤。 对于版本2005及更高版本，必须将基本板管理控制器中的用户加密设置为 AES。 
 
 ## <a name="snmp-listener-scenario"></a>SNMP 侦听器场景
 
