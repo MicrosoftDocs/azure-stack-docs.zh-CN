@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857493"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291217"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>在 Azure Stack Hub 中配置多租户
 
@@ -24,7 +24,7 @@ ms.locfileid: "88857493"
 
 本指南提供了此方案上下文中所需的步骤，用于在 Azure Stack Hub 中配置多租户。 在此方案中，你和 Mary 必须完成相关步骤以使 Fabrikam 中的用户能够登录并使用 Contoso 中部署的 Azure Stack Hub 提供的服务。
 
-如果你是云解决方案提供商 (CSP) ，你可以通过其他方式 [配置和管理多租户 Azure Stack 集线器](azure-stack-add-manage-billing-as-a-csp.md)。 
+如果你是云解决方案提供商 (CSP)，则可以通过其他方式[配置和管理多租户 Azure Stack Hub](azure-stack-add-manage-billing-as-a-csp.md)。 
 
 ## <a name="enable-multi-tenancy"></a>启用多租户
 
@@ -32,7 +32,7 @@ ms.locfileid: "88857493"
   
  - 你和 Mary 必须在安装 Azure Stack Hub 的目录 (Contoso) 和来宾目录 (Fabrikam) 之间协调管理步骤。
  - 确保已[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-admin.md)适用于 Azure Stack Hub 的 PowerShell。
- - [下载 Azure Stack 中心工具](azure-stack-powershell-download.md)，并导入标识模块：
+ - [下载 Azure Stack Hub 工具](azure-stack-powershell-download.md)，并导入“标识”模块：
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1
@@ -99,19 +99,19 @@ Register-AzSWithMyDirectoryTenant `
 >
 > 随时可以再次运行此脚本来检查目录中的 Azure Stack Hub 应用的状态。
 >
-> 如果已注意到在托管磁盘中创建 VM 时存在的问题（在 1808 更新中引入），则已添加新的**磁盘资源提供程序**，从而需要再次运行此脚本。
+> 如果已注意到在托管磁盘中创建 VM 时存在的问题（在 1808 更新中引入），则已添加新的 **磁盘资源提供程序** ，从而需要再次运行此脚本。
 
 ### <a name="direct-users-to-sign-in"></a>指导用户登录
 
 现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。 Fabrikam 用户 (具有 fabrikam.onmicrosoft.com 后缀的用户) 通过访问 https//portal.local.azurestack.external. 登录 \:
 
-Mary 会将 Fabrikam 目录中的所有 [外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles) 定向 (fabrikam 目录中没有 fabrikam.onmicrosoft.com 的后缀的用户) 使用 https \: //portal.local.azurestack.external/fabrikam.onmicrosoft.com. 登录 如果他们不使用此 URL，则会将其发送到其默认目录 (Fabrikam) 并收到一条错误消息，指出管理员尚未同意。
+Mary 会将 Fabrikam 目录中的所有 [外部主体](/azure/role-based-access-control/rbac-and-directory-admin-roles) 定向 (fabrikam 目录中没有 fabrikam.onmicrosoft.com 的后缀的用户) 使用 https \: //portal.local.azurestack.external/fabrikam.onmicrosoft.com. 登录 如果他们未使用此 URL，则会被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未同意。
 
 ## <a name="disable-multi-tenancy"></a>禁用多租户
 
 如果 Azure Stack Hub 中不再需要有多个租户，可以按顺序执行以下步骤来禁用多租户：
 
-1. 以来宾目录的管理员身份（在此场景中为 Mary）运行 *Unregister-AzsWithMyDirectoryTenant*。 该 cmdlet 从新目录中卸载所有 Azure Stack Hub 应用。
+1. 以来宾目录的管理员身份（在此场景中为 Mary）运行 *Unregister-AzsWithMyDirectoryTenant* 。 该 cmdlet 从新目录中卸载所有 Azure Stack Hub 应用。
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -169,7 +169,7 @@ $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property t
 
 ### <a name="update-azure-ad-tenant-permissions"></a>更新 Azure AD 租户权限
 
-此操作会清除 Azure Stack Hub 中的警报，表明目录需要更新。 从 **test-azurestack/identity** 文件夹中运行以下命令：
+此操作将在 Azure Stack Hub 中清除警报，指出目录需要更新。 从 Azurestack-tools-master/identity 文件夹运行以下命令：
 
 ```powershell
 Import-Module ..\Identity\AzureStack.Identity.psm1

@@ -43,7 +43,9 @@
       href: asdk-validate-backup.md
     - name: 连接到 ASDK
       href: asdk-connect.md
-    - name: 故障排除
+    - name: 设置 Azure CLI
+      href: asdk-cli.md
+    - name: 疑难解答
       href: asdk-troubleshooting.md
 - name: 参考
   items:

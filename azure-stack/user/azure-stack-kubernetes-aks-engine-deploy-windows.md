@@ -7,12 +7,12 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 29255d706edcb052711b2ed42e65fd3dc0b6412b
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717949"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291232"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>在 Azure Stack Hub 中的 Windows 上安装 AKS 引擎
 
@@ -88,8 +88,8 @@ AKS 引擎是一种命令行工具，用于部署和管理 Kubernetes 群集。 
 
 在使用 ASDK 时，如果 Azure 资源管理器终结点使用自签名证书，你需要将此证书显式添加到计算机的受信任证书存储。 可以在 ASDK 中部署的任何 VM 中找到 ASDK 根证书。
 
-1. 导出 CA 根证书。 有关说明，请参阅[导出 Azure Stack Hub CA 根证书](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate)。
-2. 信任 Azure Stack Hub CA 根证书。 有关说明，请参阅[信任 Azure Stack Hub CA 根证书](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate)。
+1. 导出 CA 根证书。 有关说明，请参阅[导出 Azure Stack Hub CA 根证书](../asdk/asdk-cli.md#export-the-azure-stack-hub-ca-root-certificate)。
+2. 信任 Azure Stack Hub CA 根证书。 有关说明，请参阅[信任 Azure Stack Hub CA 根证书](../asdk/asdk-cli.md#trust-the-certificate)。
 
 ## <a name="next-steps"></a>后续步骤
 
