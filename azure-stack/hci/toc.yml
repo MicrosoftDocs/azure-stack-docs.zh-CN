@@ -8,6 +8,8 @@
       href: known-issues.md
     - name: 发行说明
       href: release-notes.md
+    - name: 常见问题解答
+      href: faq.md
 - name: 入门
   items:
     - name: 在 Windows 管理中心使用 Azure Stack HCI

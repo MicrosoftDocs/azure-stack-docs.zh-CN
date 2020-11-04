@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 076ea0efb7307ce9a87b04c19608a5b3c723d3f4
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 00a44e66563bbb038928c55f1f643f2ca0ffbd37
+ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274069"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93327467"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack Hub 服务、计划、套餐和订阅概述
 
@@ -63,7 +63,7 @@ Azure Stack Hub 操作员可以使用套餐、计划和订阅来配置及交付�
 可以按区域设置配额。 例如，为区域 A 提供计算服务的计划的配额可以是两个 VM。
 
 >[!NOTE]
->在 Azure Stack 开发工具包 (ASDK) 中，只有一个区域（名为 *local*）可用。
+>在 Azure Stack 开发工具包 (ASDK) 中，只有一个区域（名为 *local* ）可用。
 
 详细了解 [Azure Stack Hub 中的配额类型](azure-stack-quota-types.md)。
 
@@ -76,7 +76,7 @@ Azure Stack Hub 操作员可以使用套餐、计划和订阅来配置及交付�
 创建套餐时，服务管理员可以包含基本计划。 当用户订阅该套餐时，默认会包括这些基本计划。 当用户订阅时，即可访问这些基本计划中指定的所有资源提供程序（附带相应的配额）。
 
 > [!NOTE]
-> 如果某个产品/服务有多个基本计划，则计划的存储容量组合不能超过存储配额。
+> 如果一个套餐包含多个基本计划，则这些计划的组合存储容量不能超过存储配额。
 
 ### <a name="add-on-plans"></a>附加计划
 
@@ -90,11 +90,11 @@ Azure Stack Hub 操作员可以使用套餐、计划和订阅来配置及交付�
 
 计划套餐时，请记住以下几点：
 
-**试用版套餐**：使用试用版套餐吸引新用户，然后这些用户可以再升级到其他服务。 若要创建试用版套餐，请创建一个较小的[基本计划](service-plan-offer-subscription-overview.md#base-plan)，其中包含一个可选的更大加载项计划。 另外，还可以创建包含小型基础计划的试用产品/服务，并提供一个更大的 "即付即用" 计划。
+**试用版套餐** ：使用试用版套餐吸引新用户，然后这些用户可以再升级到其他服务。 若要创建试用版套餐，请创建一个较小的[基本计划](service-plan-offer-subscription-overview.md#base-plan)，其中包含一个可选的更大加载项计划。 另外，还可以创建包含小型基础计划的试用产品/服务，并提供一个更大的 "即付即用" 计划。
 
-**容量规划**：你可能会担心用户占用大量资源，阻塞所有用户使用的系统。 若要帮助提高性能，可以[配置带有配额的计划](service-plan-offer-subscription-overview.md#plans)以限定使用量上限。
+**容量规划** ：你可能会担心用户占用大量资源，阻塞所有用户使用的系统。 若要帮助提高性能，可以[配置带有配额的计划](service-plan-offer-subscription-overview.md#plans)以限定使用量上限。
 
-**授权供应商**：可以授权其他人在你的环境中创建套餐。 例如，如果你是服务提供商，可以将此功能[委托](azure-stack-delegated-provider.md)给经销商。 或者，如果你是组织，则可以委托给其他部门/子公司。
+**授权供应商** ：可以授权其他人在你的环境中创建套餐。 例如，如果你是服务提供商，可以将此功能[委托](azure-stack-delegated-provider.md)给经销商。 或者，如果你是组织，则可以委托给其他部门/子公司。
 
 ## <a name="subscriptions"></a>订阅
 
@@ -105,6 +105,8 @@ Azure Stack Hub 操作员可以使用套餐、计划和订阅来配置及交付�
 作为 Azure Stack Hub 操作员，你可以查看有关租户订阅的信息，但无法访问这些订阅的内容，除非你是由该订阅的租户管理员通过 RBAC 显式添加的。 这使租户可以在 Azure Stack Hub 操作员和租户空间之间实施权力和职责分离。 
 
 这种情况的例外情况是，订阅所有者无法向操作员提供访问订阅的权限，这要求管理员获取订阅的所有权，如[更改 Azure Stack Hub 用户订阅的账单所有者](azure-stack-change-subscription-owner.md)中所述。
+
+如果你的 Azure Stack 中心实例已断开连接，并且你具有两个不同的域，其中域1中的用户创建了域2中的用户所使用的订阅，则某些订阅可能会显示在管理门户中，但不会显示在用户门户中。 若要解决此问题，请让域1中的用户在域2中设置订阅的正确 RBAC。
 
 ### <a name="default-provider-subscription"></a>默认提供商订阅
 

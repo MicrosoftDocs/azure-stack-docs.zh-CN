@@ -30,7 +30,7 @@
               href: ../operator/azure-stack-app-service-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 容量规划器工具
               href: azure-stack-capacity-planner.md
-        - name: 客户旅程
+        - name: 集成概述
           href: customer-journey.md
         - name: 连接模型
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -106,6 +106,8 @@
           items:
             - name: 验证 Azure 注册
               href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 注册
+              href: operator/registration-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 增值资源提供程序
               items:
                 - name: 应用服务
@@ -185,7 +187,7 @@
         - name: 管理
           items:
             - name: 管理基础知识
-              href: ../operator/azure-stack-manage-basics.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-manage-basics-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 配置遥测数据的收集
               href: ../operator/azure-stack-telemetry.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 区域管理
@@ -229,7 +231,7 @@
                 - name: 监视更新状态
                   href: ../operator/azure-stack-update-monitor.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 监视运行状况和警报
-              href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 管理网络资源
               href: ../operator/azure-stack-viewing-public-ip-address-consumption.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 更改用户订阅所有者
@@ -249,7 +251,7 @@
             - name: 更换硬件
               Items:
                 - name: 节点操作
-                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: operator/azure-stack-node-actions-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 安全性和遵从性
           items:
             - name: 配置安全性
@@ -258,6 +260,8 @@
               href: ../operator/azure-stack-security-bitlocker.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 轮换机密
               href: ../operator/azure-stack-rotate-secrets.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 更新 iDRAC 凭据
+              href: operator/integrated-dell-remote-access-controller-credentials.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 更新防病毒定义
               href: ../operator/azure-stack-security-av.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 日志收集和数据处理
@@ -267,7 +271,7 @@
             - name: 市场概述
               href: ../operator/azure-stack-marketplace.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 下载市场项
-              href: ../operator/azure-stack-download-azure-marketplace-item.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-download-azure-marketplace-item-tca.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 创建自定义虚拟机映像
               href: ../operator/azure-stack-add-vm-image.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 创建和发布市场项
@@ -277,7 +281,7 @@
             - name: 提供虚拟机规模集
               href: ../operator/azure-stack-compute-add-scalesets.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 市场中的 Windows Server 常见问题解答
-              href: ../operator/azure-stack-windows-server-faq.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-windows-server-faq-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 提供 Linux 虚拟机
               href: ../operator/azure-stack-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 添加 Red Hat 虚拟机
@@ -286,6 +290,16 @@
               href: ../operator/azure-stack-aks-engine.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 提供 Kubernetes 市场项
               href: ../operator/azure-stack-solution-template-kubernetes-cluster-add.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 提供容器注册表
+              items:
+                - name: 添加容器注册表
+                  href: operator/container-registry-template-install-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 更新容器注册表
+                  href: operator/container-registry-template-update-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 旋转容器注册表机密
+                  href: operator/container-registry-template-rotate-secrets-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 提供 Commvault 市场项
+              href: operator/azure-stack-commvault-offer-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 提供服务
           items:
             - name: 服务、计划、套餐、订阅概述
@@ -355,11 +369,11 @@
                     - name: 应用更新
                       href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 备份和还原
-                      href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 收集日志
                       href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 运行状况和警报
-                      href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 管理
                       href: ../operator/event-hubs-rp-manage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 轮换机密
@@ -408,18 +422,28 @@
                   href: ../operator/azure-stack-sql-resource-provider-remove.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: SQL 资源提供程序 1.1.47.0 发行说明
                   href: ../operator/azure-stack-sql-resource-provider-11470.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: 使用情况和计费
+          items:
+            - name: 概述
+              href: operator/billing-model-overview-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 使用情况和计费参考
+              items:
+                - name: 分析使用情况和 API 计费参考
+                  href: operator/analyze-usage-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 本地计量
+                  href: operator/billing-local-meters-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 备份
           items:
             - name: 概述
-              href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 使用门户配置备份
-              href: ../operator/azure-stack-backup-enable-backup-console.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-enable-backup-console-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 使用 PowerShell 配置备份
-              href: ../operator/azure-stack-backup-enable-backup-powershell.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-enable-backup-powershell-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 备份
-              href: ../operator/azure-stack-backup-back-up-azure-stack.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-back-up-azure-stack-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 备份最佳做法
-              href: ../operator/azure-stack-backup-best-practices.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-best-practices-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 获取支持
           items:
             - name: “帮助和支持”门户
@@ -436,8 +460,10 @@
                       href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 获取 Azure Stack 集线器状态
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 故障排除
+            - name: 疑难解答
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 支持链接引用
+              href: operator/aks-refer-table-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: 参考
       items:
         - name: Azure Stack PowerShell
@@ -506,7 +532,7 @@
                     - name: 使用 Azure Stack 策略模块
                       href: ../user/azure-stack-policy-module.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 结合使用 Azure CLI 与 MDC
-                  href: ../user/azure-stack-version-profiles-azurecli2.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: azure-stack-version-profiles-azurecli-2-tzl.md
                 - name: 使用 Visual Studio Code
                   href: ../user/azure-stack-dev-start-vscode-azure.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 使用 Visual Studio
@@ -578,7 +604,7 @@
                     - name: 托管磁盘注意事项
                       href: ../user/azure-stack-managed-disk-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 保护 VM
-                      href: ../user/azure-stack-manage-vm-protect.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: azure-stack-manage-vm-protect-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: VM 更新和管理
                       href: ../user/vm-update-management.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: SQL Server VM 注意事项
@@ -664,6 +690,8 @@
                           href: ../user/azure-stack-kubernetes-aks-engine-set-up.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: 创建 Linux 客户端
                           href: ../user/azure-stack-kubernetes-aks-engine-deploy-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: 创建 Windows 客户端
+                          href: azure-stack-kubernetes-aks-engine-deploy-windows-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: 部署群集
                           href: ../user/azure-stack-kubernetes-aks-engine-deploy-cluster.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: 缩放群集
@@ -760,6 +788,8 @@
       items:
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+        - name: 警报 aka.ms 链接引用
+          href: operator/aks-refer-table-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: REST API 浏览器
           href: /rest/api/
         - name: Azure CLI
