@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: 6168b36dd57e0814f59d7e05f2b385f091a0a07c
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 11/3/2020
+ms.openlocfilehash: 5b54efc32bf62c0abeca97ecdee9bb4414cced9f
+ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064695"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93344858"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI 解决方案概述
 
@@ -134,68 +134,6 @@ Azure Stack HCI 计费基于每个物理处理器核心（而不是永久许可�
 - 其他管理工具（例如[服务器管理器](/windows-server/administration/server-manager/server-manager)）和 MMC 管理单元
 - 非 Microsoft 工具（如 5Nine Manager）
 
-## <a name="faq"></a>FAQ
-
-### <a name="how-does-azure-stack-hci-relate-to-windows-server"></a>Azure Stack HCI 与 Windows Server 有何关系？
-
-Windows Server 是几乎所有 Azure 产品的基础，并且你重视的所有功能都继续在 Windows Server 中提供，并且受到支持。 Azure Stack HCI 的初始产品/服务基于 Windows Server 2019，使用了传统的 Windows Server 许可模式。 目前，Azure Stack HCI 拥有自己的操作系统和基于订阅的许可模式。 Azure Stack HCI 是在本地部署 HCI 的建议方式，可以使用我们的合作伙伴提供的经过 Microsoft 验证的硬件。
-
-### <a name="does-azure-stack-hci-need-to-connect-to-azure"></a>Azure Stack HCI 是否需要连接到 Azure？
-
-需要，群集必须每 30 天至少连接到 Azure 一次，以评估核心数来进行计费。 你还可以使用与 Azure 集成来实现混合方案，如异地备份和灾难恢复，以及基于云的监视和更新管理，但这些方案是可选的。 即使长时间与 Internet 断开连接，也仍可实现这些方案。
-
-### <a name="can-i-upgrade-from-windows-server-2019-to-azure-stack-hci"></a>是否可以从 Windows Server 2019 升级到 Azure Stack HCI？
-
-目前没有从 Windows Server 到 Azure Stack HCI 的就地升级。 请继续关注适用于运行基于 Windows Server 2019 和 2016 的超融合群集的客户的特定迁移指南。
-
-### <a name="what-do-azure-stack-hub-and-azure-stack-hci-solutions-have-in-common"></a>Azure Stack Hub 和 Azure Stack HCI 解决方案有哪些共同之处？
-
-Azure Stack HCI 与 Azure Stack Hub 同样有基于 Hyper-V 的软件定义计算、存储和网络技术功能。 这两个产品都符合严格的测试和验证准则，目的是确保与基础硬件平台配合时的可靠性和兼容性。
-
-### <a name="how-are-they-different"></a>那么其不同之处在哪里？
-
-使用 Azure Stack Hub 可在本地运行云服务。 可在本地运行 Azure IaaS 和 PaaS 服务，无论位于任何位置，都能以一致的方式生成并运行云应用，并可以在本地使用 Azure 门户进行管理。
-
-使用 Azure Stack HCI 可在本地运行虚拟化工作负荷，并使用 Windows 管理中心和你熟悉的 Windows Server 工具进行管理。 还可以连接到 Azure 以实现混合方案，如基于云的站点恢复、监视等。
-
-### <a name="why-is-microsoft-bringing-its-hci-offering-to-the-azure-stack-family"></a>Microsoft 为何将 HCI 产品/服务纳入 Azure Stack 系列？
-
-Microsoft 的超融合技术已是 Azure Stack Hub 的基础。
-
-许多 Microsoft 客户使用复杂的 IT 环境，而我们的目标是提供符合客户需求的解决方案，让他们使用适当的技术来满足适当的业务需求。 Azure Stack HCI 是创新 Windows Server 软件定义 (WSSD) 解决方案，以前由我们的硬件合作伙伴提供。 之所以将其纳入 Azure Stack 系列，是因为我们已开始提供新选项来无缝连接 Azure，以提供基础结构管理服务。
-
-### <a name="can-i-upgrade-from-azure-stack-hci-to-azure-stack-hub"></a>是否可以从 Azure Stack HCI 升级到 Azure Stack Hub？
-
-不能，但客户可将工作负荷从 Azure Stack HCI 迁移到 Azure Stack Hub 或 Azure。
-
-### <a name="what-azure-services-can-i-connect-to-azure-stack-hci"></a>哪些 Azure 服务可连接到 Azure Stack HCI？
-
-有关可与 Azure Stack HCI 连接的 Azure 服务的更新列表，请参阅[将 Windows Server 连接到 Azure 混合服务](/windows-server/manage/windows-admin-center/azure/index)。
-
-### <a name="does-azure-stack-hci-collect-any-data-from-my-system"></a>Azure Stack HCI 是否从系统收集数据？
-
-是的，但收集的数据非常有限。 这些数据用于保持 HCI 的最新状态、正常运行、向 Azure 门户提供信息，以及评估群集中处理器核心的数量，以便进行计费。
-
-### <a name="to-which-endpoints-is-the-data-transmitted"></a>数据传输到哪些终结点？  
-
-Azure Stack HCI 使用以下终结点传输计费数据：*-azurestackhci-usage.azurewebsites.net
-
-### <a name="how-do-i-identify-an-azure-stack-hci-server"></a>如何实现识别 Azure Stack HCI 服务器？
-
-Windows Admin Center 在“所有连接”列表和其他不同位置列出操作系统，或者你也可以使用以下 PowerShell 命令查询操作系统名称和版本。
-
-```PowerShell
-Get-ComputerInfo -Property 'osName', 'osDisplayVersion'
-```
-
-下面是一些示例输出：
-
-```
-OsName                    OSDisplayVersion
-------                    ----------------
-Microsoft Azure Stack HCI 20H2
-```
-
 ## <a name="the-azure-stack-family"></a>Azure Stack 系列
 
 Azure Stack HCI 属于 Azure 和 Azure Stack 系列，与 Azure Stack Hub 使用相同的软件定义计算、存储及网络软件。 下面提供了不同解决方案的快速摘要。 有关详细信息，请参阅[比较 Azure Stack 生态系统](../operator/compare-azure-azure-stack.md)。
@@ -205,7 +143,7 @@ Azure Stack HCI 属于 Azure 和 Azure Stack 系列，与 Azure Stack Hub 使用
 - [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) - 在本地运行虚拟化应用、更换和整合过时的服务器基础结构，以及连接到 Azure 以使用云服务。
 - [Azure Stack Hub](../operator/azure-stack-overview.md) - 在连接中断时运行本地云应用，或者使用一致的 Azure 服务满足法规要求。
 
-:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack HCI OS 在经过验证的硬件上运行，由 Windows Admin Center 管理，并连接到 Azure" border="false":::
+:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack 系列解决方案关系图" border="false":::
 
 ## <a name="compare-windows-server-and-azure-stack-hci"></a>比较 Windows Server 和 Azure Stack HCI
 
