@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 07ad819985268ad88f86c3c2bf7b7b18e75d491f
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: 827f06af4cbe725180054d2e32acf120258654bf
+ms.sourcegitcommit: 227cf63f6e09d7eebaa8c1e0983c812fb351fe5c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363871"
+ms.locfileid: "93401153"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -135,7 +135,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 必须在包含以下修补程序的版本 2002 中应用 Azure Stack Hub 版本 2005：
 
-- [Azure Stack 中心修补程序1.2002.56.152](https://support.microsoft.com/help/4582983)
+- [Azure Stack 中心修补程序1.2002.61.163](https://support.microsoft.com/help/4592241)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>成功应用 2005 更新之后
 
@@ -272,7 +272,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 安装此更新之后，请安装所有适用的修补程序。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.2002.56.152](https://support.microsoft.com/help/4582983)
+- [Azure Stack 中心修补程序1.2002.61.163](https://support.microsoft.com/help/4592241)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
