@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 42e8d171b173aca4f928cfd38e6a9d5787b003fd
-ms.sourcegitcommit: 8f8baf397e1d39ac69745cc796341a24d3bfc2ba
+ms.openlocfilehash: cc83edf05e9b63a8d1e09ed6bf960959b9f7f673
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122446"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363939"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub 操作员访问工作站 
 

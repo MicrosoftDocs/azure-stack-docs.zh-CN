@@ -8,16 +8,16 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 19e2bf9ef9d11f1975881fd064b86004422190de
-ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
+ms.openlocfilehash: 9009064b2664d09a677ad1b2e21b2a3e5b17b57f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638829"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363922"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>使用 Azure Stack Hub 中的特权终结点
 
-Azure Stack Hub 操作员应使用管理员门户、PowerShell 或 Azure 资源管理器 API 来完成大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。  PEP 是预配置的远程 PowerShell 控制台，可提供恰到好处的功能来帮助执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](/powershell/scripting/learn/remoting/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 无需管理员帐户。 为了提高安全性，不允许使用脚本。
+Azure Stack Hub 操作员应使用管理员门户、PowerShell 或 Azure 资源管理器 API 来完成大多数日常管理任务。 但是，对于非常规操作，需要使用特权终结点 (PEP)。 PEP 是预配置的远程 PowerShell 控制台，可提供恰到好处的功能来帮助执行所需的任务。 该终结点使用 [PowerShell JEA (Just Enough Administration)](/powershell/scripting/learn/remoting/jea/overview)，只公开一组受限的 cmdlet。 若要访问 PEP 并调用一组受限的 cmdlet，可以使用低特权帐户。 无需管理员帐户。 为了提高安全性，不允许使用脚本。
 
 可以使用 PEP 执行以下任务：
 
@@ -30,13 +30,15 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 > [!NOTE]
 > 在 Azure Stack 开发工具包 (ASDK) 中，可以在开发工具包主机上，直接从 PowerShell 会话运行 PEP 中可用的某些命令。 但是，可能需要使用 PEP 来测试某些操作（例如日志收集），因为这是在集成系统环境中执行某些操作的唯一可行方法。
 
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
+
 ## <a name="access-the-privileged-endpoint"></a>访问特权终结点
 
-可在托管 PEP 的虚拟机 (VM) 上通过远程 PowerShell 会话来访问 PEP。 在 ASDK 中，此 VM 名为 **AzS-ERCS01** 。 如果使用集成系统，则有三个 PEP 实例，每个实例在不同主机上的 VM（Prefix  -ERCS01、Prefix  -ERCS02 或 Prefix  -ERCS03）中运行，以提供复原能力。
+可在托管 PEP 的虚拟机 (VM) 上通过远程 PowerShell 会话来访问 PEP。 在 ASDK 中，此 VM 名为 **AzS-ERCS01** 。 如果使用集成系统，则有三个 PEP 实例，每个实例在不同主机上的 VM（Prefix-ERCS01、Prefix-ERCS02 或 Prefix-ERCS03）中运行，以提供复原能力。
 
 在开始针对集成系统执行此过程之前，请确保可以通过 IP 地址或 DNS 访问 PEP。 完成 Azure Stack Hub 的初始部署之后，只能通过 IP 地址来访问 PEP，因为尚未设置 DNS 集成。 OEM 硬件供应商将提供名为 **AzureStackStampDeploymentInfo** 的 JSON 文件，其中包含 PEP IP 地址。
 
-还可以在 Azure Stack Hub 管理员门户中找到 IP 地址。 打开门户，例如 `https://adminportal.local.azurestack.external`。 选择“区域管理”  >  “属性”。
+还可以在 Azure Stack Hub 管理员门户中找到 IP 地址。 打开门户，例如 `https://adminportal.local.azurestack.external`。 选择“区域管理” > “属性”。
 
 在运行特权终结点时，需要将当前区域性设置设置为 `en-US`，否则 cmdlet （如 Test-AzureStack 或 Get-AzureStackLog）无法按预期工作。
 
@@ -122,7 +124,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
     Get-Command <cmdlet_name> -Syntax
 ```
 
-或者，可以使用  。 PEP 的 cmdlet 和函数，以及 Tab 键补全和更常用的脚本功能现在都可在本地计算机上使用。 还可以运行  。
+或者，可以使用 [Import-PSSession](/powershell/module/microsoft.powershell.utility/import-pssession?view=powershell-5.1) cmdlet 将所有 PEP cmdlet 导入到本地计算机上的当前会话中。 PEP 的 cmdlet 和函数，以及 Tab 键补全和更常用的脚本功能现在都可在本地计算机上使用。 还可以运行 [Get-Help](/powershell/module/microsoft.powershell.core/get-help) 模块来查看 cmdlet 说明。
 
 若要在本地计算机上导入 PEP 会话，请执行以下步骤：
 
@@ -204,7 +206,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
  ```powershell  
       Get-SupportSessionToken
   ```
- Cmdlet 返回支持会话请求标记，这是一个非常长的字母数字字符串。 然后，操作员通过其选择 (（例如聊天、电子邮件等) ）将请求令牌传递给 Microsoft 支持工程师。 Microsoft 支持工程师使用请求令牌来生成支持会话授权令牌（如果有效），并将其发送回 Azure Stack 中心操作员。 在同一 PEP PowerShell 会话上，操作员会将授权令牌作为输入传递给此 cmdlet：
+ Cmdlet 返回支持会话请求标记，这是一个非常长的字母数字字符串。 然后，操作员通过其选择 (（例如聊天、电子邮件) ）将请求令牌传递给 Microsoft 支持工程师。 Microsoft 支持工程师使用请求令牌来生成支持会话授权令牌（如果有效），并将其发送回 Azure Stack 中心操作员。 在同一 PEP PowerShell 会话上，操作员会将授权令牌作为输入传递给此 cmdlet：
 
  ```powershell  
       unlock-supportsession

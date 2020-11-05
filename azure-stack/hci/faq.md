@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/03/2020
-ms.openlocfilehash: 67d81ee3bcec9ba1007296a6a50c028653b7d7b7
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.date: 11/04/2020
+ms.openlocfilehash: f54b62a26b9e3c0409493cec26bdb42ac990b35b
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328868"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363888"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI 常见问题
 Azure Stack HCI 常见问题包含有关 Azure Stack HCI 连接的部分和一般常见问题解答部分。
@@ -24,23 +24,23 @@ Azure Stack HCI 是作为 Azure 混合服务提供的本地超聚合基础结构
 
 **Azure Stack HCI 上存储的数据是否已发送到云？**
 
-通常情况下，不能。 不会将本地虚拟机 (Vm) 的名称、元数据、配置和内容发送到云，除非你为此目的明确启用其他服务，如 Azure 备份或 Azure Site Recovery。 除非将这些 Vm 单独注册到云管理服务（如 Azure Arc）中。
+不是。 不会将本地虚拟机 (Vm) 的名称、元数据、配置和内容发送到云，除非你为此目的明确启用其他服务，如 Azure 备份或 Azure Site Recovery。 除非将这些 Vm 单独注册到云管理服务（如 Azure Arc）中。
 
 ### <a name="edge-local-management-and-control"></a>边缘-本地管理和控制
 
 **Azure Stack HCI 的控制平面是否经过云中？**
 
-通常，尽管它依赖于所使用的功能。 即使云的网络连接已关闭或受到严格限制，你也可以使用边缘本地工具（如 Windows 管理中心、PowerShell 或 System Center）直接管理主机基础结构和 Vm。 常见的日常操作（例如，在主机之间移动 VM、更换发生故障的驱动器或配置 IP 地址）不依赖于云。 但是，需要云连接才能获取无线软件更新、更改 Azure 注册，或使用直接依赖于云服务进行备份、监视等功能。
+不是。 即使云的网络连接已关闭或受到严格限制，你也可以使用边缘本地工具（如 Windows 管理中心、PowerShell 或 System Center）直接管理主机基础结构和 Vm。 常见的日常操作（例如，在主机之间移动 VM、更换发生故障的驱动器或配置 IP 地址）不依赖于云。 但是，需要云连接才能获取无线软件更新、更改 Azure 注册，或使用直接依赖于云服务进行备份、监视等功能。
 
 **Azure Stack HCI 与云之间是否存在带宽或延迟要求？**
 
-通常，尽管它依赖于所使用的功能。 有限带宽连接（如乡村 T1 线路或卫星/蜂窝连接）足以满足 Azure Stack HCI 同步的需要。每日所需的最小连接数仅为几 kb。 其他服务可能需要额外的带宽，特别是复制或备份整个 Vm，下载大型软件更新，或上传详细日志以便在云中进行分析和监视。
+不是。 有限带宽连接（如乡村 T1 线路或卫星/蜂窝连接）足以满足 Azure Stack HCI 同步的需要。每日所需的最小连接数仅为几 kb。 其他服务可能需要额外的带宽，特别是复制或备份整个 Vm，下载大型软件更新，或上传详细日志以便在云中进行分析和监视。
 
 ### <a name="designed-for-intermittent-and-limited-connectivity"></a>为间歇连接和有限连接而设计
 
 **Azure Stack HCI 是否需要持续连接到云？**
 
-错误。 Azure Stack HCI 用于处理有限或零的连接时间段。
+不是。 Azure Stack HCI 用于处理有限或零的连接时间段。
 
 **如果到云的网络连接暂时中断，会发生什么情况？**
 
@@ -74,11 +74,11 @@ Azure Stack HCI 与初始注册期间选择的 Azure 区域同步。 默认值�
 
 **能否使用 Azure Stack HCI 并从不连接到 Azure？**
 
-错误。 Azure Stack HCI 需要连续每30天成功与 Azure 同步。
+不是。 Azure Stack HCI 需要连续每30天成功与 Azure 同步。
 
 **能否在 "气流" Azure Stack HCI 和 Azure 之间脱机传输数据？**
 
-错误。 目前没有任何机制可以在没有网络连接的情况下在本地与 Azure 之间注册和同步。 例如，不能使用可移动存储来传输证书或计费数据。 如果有足够的客户需求，我们将在将来浏览此类功能。 请在 [AZURE STACK HCI 反馈论坛](https://feedback.azure.com/forums/929833-azure-stack-hci)中告知我们。
+不是。 目前没有任何机制可以在没有网络连接的情况下在本地与 Azure 之间注册和同步。 例如，不能使用可移动存储来传输证书或计费数据。 如果有足够的客户需求，我们将在将来浏览此类功能。 请在 [AZURE STACK HCI 反馈论坛](https://feedback.azure.com/forums/929833-azure-stack-hci)中告知我们。
 
 ## <a name="azure-stack-hci-general-faqs"></a>Azure Stack HCI 一般 Faq
 

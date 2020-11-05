@@ -7,12 +7,12 @@ ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 3b45b22fd06544540f8de47a75e55ab647e2fca1
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: fe5c8901f39c8f6c01c72a1af00c953f792920cf
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328892"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363905"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
 
@@ -72,7 +72,7 @@ ms.locfileid: "93328892"
 
 “停止”操作会关闭节点。 它的作用如同按下电源按钮。 它不会向操作系统发送关闭信号。 对于计划的停止操作，请始终先尝试关闭操作。
 
-当节点处于挂起状态，不再响应请求时，通常使用此操作。
+此操作通常在节点处于无响应状态时使用。
 
 若要运行停止操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 

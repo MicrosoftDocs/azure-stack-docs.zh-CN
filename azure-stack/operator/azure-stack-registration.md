@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f6d307b7fe165681e93c842596007ca1fde3a152
-ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
+ms.openlocfilehash: 5f2067bed0b6efea8a19e921c2cb4c59caabd505
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92060178"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93364006"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
 
@@ -41,10 +41,16 @@ ms.locfileid: "92060178"
 
 将 Azure Stack Hub 注册到 Azure 之前，必须准备好：
 
-- Azure 订阅的订阅 ID。 注册仅支持 EA、CSP 或 CSP 共享服务订阅。 CSP 需要确定是[使用 CSP 订阅还是使用 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要获取该 ID，请登录到 Azure，单击“所有服务”****。 然后，在“常规”**** 类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。**** **** 最佳做法是，对生产环境和开发环境或测试环境使用单独的订阅。 
+::: zone pivot="state-connected"
+- Azure 订阅的订阅 ID。 注册仅支持 EA、CSP 或 CSP 共享服务订阅。 CSP 需要确定是[使用 CSP 订阅还是使用 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要获取该 ID，请登录到 Azure，单击“所有服务”。 然后，在“常规”类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。  最佳做法是，对生产环境和开发环境或测试环境使用单独的订阅。 
+::: zone-end
+::: zone pivot="state-disconnected"
+- Azure 订阅的订阅 ID。 注册只支持 EA 订阅。 
 
-  > [!Note]  
-  > 目前尚不支持德国云订阅。
+    若要获取该 ID，请登录到 Azure，单击“所有服务”。 然后，在“常规”类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。  最佳做法是，对生产环境和开发环境或测试环境使用单独的订阅。 
+::: zone-end
+   > [!Note]  
+   > 目前尚不支持德国云订阅。  
 
 - 订阅所有者的帐户用户名和密码。
 
@@ -52,7 +58,7 @@ ms.locfileid: "92060178"
 
 - 已注册 Azure Stack Hub 资源提供程序（请参阅下面的“注册 Azure Stack Hub 资源提供程序”部分了解详细信息）。
 
-注册后，不需要 Azure Active Directory (Azure AD) 全局管理员权限。 但是，某些操作可能需要全局管理员凭据（例如，资源提供程序安装程序脚本或需要授予权限的新功能）。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
+注册后，不需要 Azure Active Directory (Azure AD) 全局管理员权限。 但是，某些操作可能需要全局管理员凭据（例如，资源提供程序安装程序脚本或需要授予权限的新功能）。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是 *默认提供程序订阅* 的所有者）。
 
 注册 Azure Stack Hub 的用户是 Azure AD 中服务主体的所有者。 只有注册了 Azure Stack Hub 的用户可以修改 Azure Stack Hub 注册。 如果某位非管理员用户不是注册服务主体的所有者，则该用户在尝试注册或重新注册 Azure Stack Hub 时，可能会遇到 403 响应。 403 响应表明用户权限不足，无法完成此操作。
 
@@ -63,13 +69,13 @@ ms.locfileid: "92060178"
 
 ### <a name="set-the-powershell-language-mode"></a>设置 PowerShell 语言模式
 
-若要成功注册 Azure Stack Hub，必须将 PowerShell 语言模式设置为 **FullLanguageMode**。  若要验证当前的语言模式是否设置为 Full，请打开权限提升的 PowerShell 窗口，并运行以下 PowerShell cmdlet：
+若要成功注册 Azure Stack Hub，必须将 PowerShell 语言模式设置为 **FullLanguageMode** 。  若要验证当前的语言模式是否设置为 Full，请打开权限提升的 PowerShell 窗口，并运行以下 PowerShell cmdlet：
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-确保输出返回的是 **FullLanguageMode**。 如果返回了其他任何语言模式，则需要在另一台计算机上运行注册，或者将语言模式设置为 **FullLanguageMode**，然后才能继续。
+确保输出返回的是 **FullLanguageMode** 。 如果返回了其他任何语言模式，则需要在另一台计算机上运行注册，或者将语言模式设置为 **FullLanguageMode** ，然后才能继续。
 
 ### <a name="install-powershell-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell
 
@@ -83,6 +89,8 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 若要确保使用最新版本，请在注册到 Azure 之前删除 Azure Stack Hub 工具的任何现有版本，然后[从 GitHub 下载最新版本](azure-stack-powershell-download.md)。
 
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
+
 ### <a name="determine-your-billing-model"></a>确定计费模型
 ::: zone pivot="state-connected"
  连接的部署允许 Azure Stack Hub 连接到 Internet 和 Azure。 你也可以使用 Azure AD 或 Active Directory 联合身份验证服务 (AD FS) 作为标识存储，并从两种计费模型中进行选择：“即用即付”或“基于容量”。 稍后在运行注册脚本时指定计费模型。
@@ -94,7 +102,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 ### <a name="determine-your-unique-registration-name"></a>确定唯一注册名称
 
-运行注册脚本时，必须提供唯一的注册名称。 将 Azure Stack Hub 订阅与 Azure 注册关联的简便方法是使用 Azure Stack Hub **云 ID**。
+运行注册脚本时，必须提供唯一的注册名称。 将 Azure Stack Hub 订阅与 Azure 注册关联的简便方法是使用 Azure Stack Hub **云 ID** 。
 
 > [!NOTE]
 > 使用基于容量的计费模型的 Azure Stack Hub 注册将需要在这些年度订阅到期后重新注册时更改唯一名称，除非你[删除过期的注册](#renew-or-change-registration)并重新注册到 Azure。
@@ -121,7 +129,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
    | 参数 | 说明 |  
    |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅 **AzureChinaCloud**。  |
+   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud** 、 **AzureUSGovernment** 或使用中国 Azure 订阅 **AzureChinaCloud** 。  |
 
    >[!Note]
    > 如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
@@ -152,7 +160,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
    | 参数 | 说明 |  
    |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅 **AzureChinaCloud**。  |
+   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud** 、 **AzureUSGovernment** 或使用中国 Azure 订阅 **AzureChinaCloud** 。  |
 
 7. 在同一个 PowerShell 会话中运行 **Set-AzsRegistration** cmdlet。 要运行的 PowerShell：  
 
@@ -167,7 +175,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
    ```
    有关 Set-AzsRegistration cmdlet 的详细信息，请参阅[注册参考](#registration-reference)。
 
-   该过程需要花费 10 到 15 分钟。 命令完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。****
+   该过程需要花费 10 到 15 分钟。 命令完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。
 
 ## <a name="register-with-capacity-billing"></a>使用容量计费模型注册
 
@@ -188,7 +196,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
    | 参数 | 说明 |  
    |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment**或使用中国 Azure 订阅 **AzureChinaCloud**。  |
+   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud** 、 **AzureUSGovernment** 或使用中国 Azure 订阅 **AzureChinaCloud** 。  |
 
 3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：  
 
@@ -320,22 +328,22 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 ## <a name="verify-azure-stack-hub-registration"></a>验证 Azure Stack Hub 注册
 
-可以使用“区域管理”磁贴验证 Azure Stack Hub 注册是否成功。**** 可在管理员门户的默认仪表板上使用此磁贴。 状态可能是已注册，也可能是未注册。 如果是已注册，则还会显示用于注册 Azure Stack Hub 的 Azure 订阅 ID，以及注册资源组和名称。
+可以使用“区域管理”磁贴验证 Azure Stack Hub 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。 状态可能是已注册，也可能是未注册。 如果是已注册，则还会显示用于注册 Azure Stack Hub 的 Azure 订阅 ID，以及注册资源组和名称。
 
 1. 登录到 Azure Stack Hub 管理员门户 `https://adminportal.local.azurestack.external`。
 
-2. 在“仪表板”中，选择“区域管理”。****
+2. 在“仪表板”中，选择“区域管理”。
 
-3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”、“未注册”或“已过期”。**** **** ****
+3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”、“未注册”或“已过期”。  
 
     [![Azure Stack Hub 管理员门户中的“区域管理”磁贴](media/azure-stack-registration/admin1sm.png "“区域管理”磁贴")](media/azure-stack-registration/admin1.png#lightbox)
 
     如果已注册，则属性包括：
     
-    - **注册订阅 ID**：已注册并与 Azure Stack Hub 关联的 Azure 订阅 ID。
-    - **注册资源组**：包含 Azure Stack Hub 资源的关联订阅中的 Azure 资源组。
+    - **注册订阅 ID** ：已注册并与 Azure Stack Hub 关联的 Azure 订阅 ID。
+    - **注册资源组** ：包含 Azure Stack Hub 资源的关联订阅中的 Azure 资源组。
 
-4. 可以使用 Azure 门户查看 Azure Stack Hub 注册资源，然后验证注册是否成功。 使用已关联到用于注册 Azure Stack Hub 的订阅的帐户登录到 [Azure 门户](https://portal.azure.com)。 选择“所有资源”****，启用“显示隐藏类型”**** 复选框，然后选择注册名称。
+4. 可以使用 Azure 门户查看 Azure Stack Hub 注册资源，然后验证注册是否成功。 使用已关联到用于注册 Azure Stack Hub 的订阅的帐户登录到 [Azure 门户](https://portal.azure.com)。 选择“所有资源”，启用“显示隐藏类型”复选框，然后选择注册名称。
 
 5. 如果注册未成功，则必须按照[此处的步骤](#change-the-subscription-you-use)重新注册以解决问题。  
 
@@ -365,7 +373,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 ### <a name="change-the-subscription-you-use"></a>更改使用的订阅
 
-若要更改使用的订阅，必须先运行 **Remove-AzsRegistration** cmdlet，并确保登录到正确的 Azure PowerShell 上下文。 然后使用任何已更改的参数（包括 `<billing model>`）运行 Set-AzsRegistration****。 运行 Remove-AzsRegistration 时，必须登录到注册期间使用的订阅，并使用 `RegistrationName` 和 `ResourceGroupName` 参数的值，如[管理员门户](#verify-azure-stack-hub-registration)所示****：
+若要更改使用的订阅，必须先运行 **Remove-AzsRegistration** cmdlet，并确保登录到正确的 Azure PowerShell 上下文。 然后使用任何已更改的参数（包括 `<billing model>`）运行 Set-AzsRegistration。 运行 Remove-AzsRegistration 时，必须登录到注册期间使用的订阅，并使用 `RegistrationName` 和 `ResourceGroupName` 参数的值，如[管理员门户](#verify-azure-stack-hub-registration)所示：
 
   ```powershell  
   # select the subscription used during the registration (shown in portal)
@@ -469,7 +477,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 ## <a name="move-a-registration-resource"></a>移动注册资源
 
-对于所有环境，都支持在同一订阅下的资源组之间移动注册资源****。 但是，只有当两个订阅都解析到同一个合作伙伴 ID 时，才支持在订阅之间移动注册资源。 有关将资源移到新的资源组的详细信息，请参阅[将资源移到新的资源组或订阅](/azure/azure-resource-manager/resource-group-move-resources)。
+对于所有环境，都支持在同一订阅下的资源组之间移动注册资源。 但是，只有当两个订阅都解析到同一个合作伙伴 ID 时，才支持在订阅之间移动注册资源。 有关将资源移到新的资源组的详细信息，请参阅[将资源移到新的资源组或订阅](/azure/azure-resource-manager/resource-group-move-resources)。
 
 > [!IMPORTANT]
 > 为了防止意外删除门户上的注册资源，注册脚本会自动向资源添加一个锁。 在移动或删除该资源之前，必须先删除此锁。 建议你向注册资源添加锁，以防止意外删除。
@@ -503,7 +511,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | MarketplaceSyndicationEnabled | True/False | 确定市场管理功能在门户中是否可用。 如果通过 Internet 连接进行注册，请设置为 true。 如果在断开连接的环境中进行注册，请设置为 false。 对于断开连接的注册，可以使用[脱机联合工具](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)下载市场项。 |
 | UsageReportingEnabled | True/False | 默认情况下，Azure Stack Hub 报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。 此参数允许的值为：True、False。 |
 | AgreementNumber | String | 为此 Azure Stack 订购容量 SKU 所依据的 EA 协议编号。 |
-| RegistrationName | String | 如果在多个使用同一 Azure 订阅 ID 的 Azure Stack Hub 实例上运行注册脚本，请为注册设置唯一名称。 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack Hub 实例上使用同一名称，该脚本将会失败。 |
+| RegistrationName | String | 如果在多个使用同一 Azure 订阅 ID 的 Azure Stack Hub 实例上运行注册脚本，请为注册设置唯一名称。 参数的默认值为 **AzureStackRegistration** 。 但是，如果在多个 Azure Stack Hub 实例上使用同一名称，该脚本将会失败。 |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 

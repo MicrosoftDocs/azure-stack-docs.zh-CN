@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 11/03/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 736cf2dbc122a757edaa2204d15f035582f02f4f
-ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
+ms.openlocfilehash: 07ad819985268ad88f86c3c2bf7b7b18e75d491f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93239574"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363871"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -143,7 +143,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2005 之后，如果以后发布了任何 2005 修补程序，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2005.19.80](https://support.microsoft.com/help/4591132)
+- [Azure Stack 中心修补程序1.2005.20.82](https://support.microsoft.com/help/4592228)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
