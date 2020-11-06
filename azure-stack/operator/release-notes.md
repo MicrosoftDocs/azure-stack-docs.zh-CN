@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 11/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 827f06af4cbe725180054d2e32acf120258654bf
-ms.sourcegitcommit: 227cf63f6e09d7eebaa8c1e0983c812fb351fe5c
+ms.openlocfilehash: 31e4d2ec34c2031c1034917e2ded2eb0421a62f1
+ms.sourcegitcommit: a0e2c636d8b9b8940f01a81a5a3733f79bd3f42c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93401153"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334289"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -265,7 +265,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 必须在包含以下修补程序的版本 1910 中应用 Azure Stack Hub 版本 2002：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1910.81.224](https://support.microsoft.com/help/4583406)
+- [Azure Stack 中心修补程序1.1910.84.230](https://support.microsoft.com/help/4592243)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>成功应用 2002 更新之后
 
@@ -431,7 +431,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1910.81.224](https://support.microsoft.com/help/4583406)
+- [Azure Stack 中心修补程序1.1910.84.230](https://support.microsoft.com/help/4592243)
 ::: moniker-end
 
 <!------------------------------------------------------------>
