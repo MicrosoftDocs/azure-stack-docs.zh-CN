@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: b90b7c61e5eeed1265bf258b6ba3ce7b042b6897
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 213e7a0d3a0ad8e395729749e68466a3a4dbab42
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853187"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415260"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 
@@ -58,7 +58,7 @@ ms.locfileid: "91853187"
     ```
 
     > [!NOTE]  
-    > 如果为标识系统使用 Azure AD，则无需添加 identitySystem 字段****。
+    > 如果为标识系统使用 Azure AD，则无需添加 identitySystem 字段。
 
 6. 找到 `portalURL` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。
 
@@ -148,7 +148,7 @@ ms.locfileid: "91853187"
 
     生成的 `apimodel.json` 包含“输入 API 模型”中使用的服务主体、密码和 SSH 公钥。 它还包含 AKS 引擎执行所有其他操作所需的所有其他元数据。 如果丢失，AKS 引擎将无法配置群集。
 
-    机密未加密****。 将该文件保存在已加密的安全位置。 
+    机密未加密。 将该文件保存在已加密的安全位置。 
 
 ## <a name="verify-your-cluster"></a>验证群集
 
@@ -236,8 +236,8 @@ ms.locfileid: "91853187"
 
 ### <a name="update-each-node-manually"></a>手动更新每个节点
 
-1. 从云操作员获取服务主体的新机密。 有关 Azure Stack 中心的说明，请参阅 [使用应用标识访问 Azure Stack 中心资源](/azure-stack/operator/azure-stack-create-service-principals)。
-2. 使用云操作员提供的新凭据 `/etc/kubernetes/azure.json` 在每个节点上进行更新。 进行更新后，重新启动 **kubelet** 和 **kube**。
+1. 从云操作员获取服务主体的新机密。 有关 Azure Stack 中心的说明，请参阅 [使用应用标识访问 Azure Stack 中心资源](../operator/azure-stack-create-service-principals.md)。
+2. 使用云操作员提供的新凭据 `/etc/kubernetes/azure.json` 在每个节点上进行更新。 进行更新后，重新启动 **kubelet** 和 **kube** 。
 
 ### <a name="update-the-cluster-with-aks-engine-update"></a>用 aks 更新更新群集
 

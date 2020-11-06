@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: a99339b2a8708bac8c20b5f2fb507e42fc7588de
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2e4882717b4dc708298df7b4ee9a8dc0ef2c1b9c
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488648"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415311"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>管理 Azure Stack Hub 存储帐户
 
@@ -32,7 +32,7 @@ ms.locfileid: "86488648"
 
 OR
 
-如果只想查看特定的存储帐户，可以只**筛选并提取相关的帐户**。
+如果只想查看特定的存储帐户，可以只 **筛选并提取相关的帐户** 。
 
 **筛选帐户：**
 
@@ -124,7 +124,7 @@ OR
 
 1. 确认已安装并配置 Azure PowerShell。 如果未安装，请遵照以下说明： 
    * 若要安装最新版本的 Azure PowerShell 并将其与 Azure 订阅相关联，请参阅[如何安装和配置 Azure PowerShell](/powershell/azure/)。
-   有关 Azure 资源管理器 cmdlet 的详细信息，请参阅将 [Azure PowerShell 与 azure 资源管理器配合使用](https://go.microsoft.com/fwlink/?LinkId=394767)。
+   有关 Azure 资源管理器 cmdlet 的详细信息，请参阅将 [Azure PowerShell 与 azure 资源管理器配合使用](/azure/azure-resource-manager/management/manage-resources-powershell)。
 2. 运行以下 cmdlet：
 
 > [!NOTE]  

@@ -1,6 +1,6 @@
 - name: 模块化数据中心文档
   href: index.yml
-- name: 运算符
+- name: 操作员
   items:
     - name: 概述
       items:
@@ -68,7 +68,7 @@
               href: ../operator/azure-stack-deployment-worksheet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 数据中心集成
               items:
-                - name: 简介
+                - name: 介绍
                   href: network-introduction.md
                 - name: 网络部署
                   href: network-deployment.md
@@ -102,12 +102,12 @@
                   href: ../operator/azure-stack-validate-pki-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 修正 PKI 证书
                   href: ../operator/azure-stack-remediate-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: 设置
+        - name: 注册和准备情况
           items:
-            - name: 验证 Azure 注册
-              href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 注册
               href: operator/registration-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 验证 Azure 注册
+              href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 增值资源提供程序
               items:
                 - name: 应用服务
@@ -460,7 +460,7 @@
                       href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 获取 Azure Stack 集线器状态
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 疑难解答
+            - name: 故障排除
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 支持链接引用
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json

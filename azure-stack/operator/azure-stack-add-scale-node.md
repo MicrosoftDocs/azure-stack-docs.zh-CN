@@ -3,22 +3,22 @@ title: 在 Azure Stack Hub 中添加缩放单元节点
 description: 了解如何将缩放单元节点添加到 Azure Stack Hub 中的缩放单元。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 08/03/2020
-ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.lastreviewed: 11/05/2020
+ms.openlocfilehash: d6e8d9a6df51ec71b144ca5ae145acd3ae10a12c
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621293"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415211"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加更多的缩放单元节点
 
-Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现有缩放单元的总容量。 物理计算机也称为缩放单元节点。 添加的每个新缩放单元节点在 CPU 类型、内存以及磁盘数目和大小方面必须与缩放单元中现有的节点相同。
+可以通过添加额外的物理计算机来增加现有缩放单位的总容量。 物理计算机也称为缩放单元节点。 添加的每个新缩放单元节点在 CPU 类型、内存以及磁盘数目和大小方面必须与缩放单元中现有的节点相同。
 
-若要添加某个缩放单元节点，请在 Azure Stack Hub 中操作并运行硬件设备制造商 (OEM) 提供的工具。 OEM 工具在硬件生命周期主机 (HLH) 上运行，目的是确保新的物理计算机与现有节点的固件级别匹配。
+若要添加缩放单位节点，请在 Azure Stack 集线器中登录，并 (OEM) 运行来自硬件设备制造商的工具。 OEM 工具在硬件生命周期主机 (HLH) 上运行，目的是确保新的物理计算机与现有节点的固件级别匹配。
 
 以下流程图显示添加缩放单元节点的一般过程：
 
@@ -34,7 +34,7 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
 >  - 轮换证书
 >  - 停止 Azure Stack Hub
 >  - 修复缩放单元节点
->  - 添加另一个节点 (前面的添加节点操作失败也被视为 "正在进行") 
+>  - 添加另一个节点（前面的“添加节点”操作失败也被视为“正在进行中”）
 
 ## <a name="add-scale-unit-nodes"></a>添加缩放单元节点
 
@@ -137,7 +137,7 @@ Azure Stack Hub 操作员可以通过添加更多的物理计算机来提高现�
 ## <a name="troubleshooting"></a>故障排除
 下面是添加节点时的常见问题。 
 
-**场景 1：**“添加缩放单元节点”操作失败，但一个或多个节点在列出时，其状态为“已停止”。  
+**场景 1：** “添加缩放单元节点”操作失败，但一个或多个节点在列出时，其状态为“已停止”。  
 - 修正：使用修复操作来修复一个或多个节点。 一次只能运行一个修复操作。
 
 **场景 2：** 添加了一个或多个缩放单元节点，但存储扩展失败。 在这种情况下，缩放单元节点对象报告的状态为“正在运行”，但“配置存储”任务未启动。  

@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: c0cf805773100e2f265c2e088a6f6cd442553ec2
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: db1a7919987803682ff0a9df84565fa7aef47620
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778276"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415294"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub 帮助和支持
 
@@ -34,9 +34,9 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 - **文档** [Azure Stack Hub 操作员文档](index.yml)包含介绍如何提供 Azure Stack Hub 服务的概念、操作指南主题和教程。 这些服务包括虚拟机、SQL 数据库、Web 应用等。
 
-- **了解计费**。 获取有关[用量和计费](azure-stack-billing-and-chargeback.md)的提示。
+- **了解计费** 。 获取有关[用量和计费](azure-stack-billing-and-chargeback.md)的提示。
 
-- **支持选项**。 Azure Stack Hub 操作员有多种可供选择的 [Azure 支持选项](https://aka.ms/azstacksupport)，用于应对各种企业的需求。
+- **支持选项** 。 Azure Stack Hub 操作员有多种可供选择的 [Azure 支持选项](./azure-stack-manage-basics.md)，用于应对各种企业的需求。
 
 ### <a name="get-expert-help"></a>获取专家帮助
 
@@ -69,7 +69,7 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 - [主动发送日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)：如果启用，日志收集将由特定的运行状况警报触发。
 - [立即发送日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)：可以手动选择特定滑动窗口作为日志收集的时间范围。
 
-![显示如何开始收集诊断日志的屏幕截图。](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
+![此屏幕截图显示了如何开始收集诊断日志。](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
 ::: moniker-end
 ::: moniker range="<= azs-1910"
@@ -78,8 +78,8 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 从 1907 版开始，在“帮助和支持”中提供了两种新方法来收集日志：
 
-- **自动收集**：如果启用，日志收集将由特定的运行状况警报触发。
-- **立即收集日志**：可以从过去七天选择 1-4 小时滑动窗口。
+- **自动收集** ：如果启用，日志收集将由特定的运行状况警报触发。
+- **立即收集日志** ：可以从过去七天选择 1-4 小时滑动窗口。
 
 ![诊断日志收集选项](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
@@ -87,11 +87,11 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>旧版 Azure Stack Hub（1905 之前）的帮助和支持
 
-旧版 Azure Stack Hub 也有“帮助 + 支持”链接，此链接重定向到 [Azure Stack Hub 操作员文档](https://aka.ms/adminportaldocs)。
+旧版 Azure Stack Hub 也有“帮助 + 支持”链接，此链接重定向到 [Azure Stack Hub 操作员文档](./index.yml)。
 
 ![获取支持教程](media/azure-stack-help-and-support/get-support-previous.png)
 
-如果有云服务问题，则通过 Microsoft 支持部门提供支持。 你可以选择管理员门户右上角的 " **帮助** (问号") ，选择 " **帮助和支持**"，然后选择 " **新建支持请求** " 以使用 Microsoft 支持部门直接提交新的支持请求。
+如果有云服务问题，则通过 Microsoft 支持部门提供支持。 你可以选择管理员门户右上角的 " **帮助** (问号") ，选择 " **帮助和支持** "，然后选择 " **新建支持请求** " 以使用 Microsoft 支持部门直接提交新的支持请求。
 
 对于集成系统，Microsoft 和我们的 OEM 合作伙伴之间存在协调的升级和解决过程。 如果有云服务问题，则通过 Microsoft 支持部门提供支持。
 

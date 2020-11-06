@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 455ad320466d1306b1bded888ff8ff0c0fbb52c7
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 34995d8e1d5525e242a0b0919e7b3927c37507ca
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489957"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415141"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -23,7 +23,7 @@ Azure Stack 系统数据或遥测数据通过互连用户体验自动上传到 M
 > [!NOTE]
 > Azure Stack 还可以配置为将用量信息转发到 Azure 进行计费。 选择即用即付计费模式的多节点 Azure Stack 客户一定要这样做。 用量报告通过遥测单独进行控制，选择容量模式的多节点 Azure Stack 客户或 Azure Stack 开发工具包 (ASDK) 用户无需使用此功能。 对于这些情况，可以 [使用注册脚本](../operator/azure-stack-usage-reporting.md)关闭使用情况报告。
 
-Azure Stack 遥测基于 *Windows Server 2016 连接的用户体验和 Telemetr*y 组件，后者使用 [Windows 的事件跟踪 (ETW) ](/windows/win32/tracelogging/trace-logging-about) 跟踪日志记录技术来收集和存储遥测事件和数据。 Azure Stack 组件使用相同的日志记录技术，发布使用公共操作系统事件日志记录和跟踪 API 收集的事件与数据。 Azure Stack 组件的示例包括网络资源提供程序、存储资源提供程序、监视资源提供程序和更新资源提供程序。 互连用户体验与遥测组件使用 SSL 加密数据，并使用证书关联通过 HTTPS 将遥测数据传输到 Microsoft 数据管理服务。
+Azure Stack 遥测基于 *Windows Server 2016 连接的用户体验和 Telemetr* y 组件，后者使用 [Windows 的事件跟踪 (ETW)](/windows/win32/tracelogging/trace-logging-about) 跟踪日志记录技术来收集和存储遥测事件和数据。 Azure Stack 组件使用相同的日志记录技术，发布使用公共操作系统事件日志记录和跟踪 API 收集的事件与数据。 Azure Stack 组件的示例包括网络资源提供程序、存储资源提供程序、监视资源提供程序和更新资源提供程序。 互连用户体验与遥测组件使用 SSL 加密数据，并使用证书关联通过 HTTPS 将遥测数据传输到 Microsoft 数据管理服务。
 
 > [!NOTE]
 > 若要支持遥测数据流，必须在网络中开放端口 443 (HTTPS)。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务 (`https://v10.vortex-win.data.microsoft.com`) 和`https://settings-win.data.microsoft.com` 来下载配置信息。
@@ -76,14 +76,14 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 **1（基本）** ：安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。 将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
 
-- **基本设备信息**，帮助了解生态系统中本机和虚拟化 Windows Server 2016 实例的类型与配置，其中包括：
+- **基本设备信息** ，帮助了解生态系统中本机和虚拟化 Windows Server 2016 实例的类型与配置，其中包括：
   - 计算机属性，例如 OEM 和型号。
   - 网络属性，例如网络适配器的数目和速度。
   - 处理器和内存属性，例如核心数、内存大小。
   - 存储属性，例如驱动器数目、类型和大小。
-- **遥测功能**，包括已上传事件、已删除事件的百分比，以及上次上传时间。
+- **遥测功能** ，包括已上传事件、已删除事件的百分比，以及上次上传时间。
 - **与质量相关的信息** ，可帮助 Microsoft 大致了解 Azure Stack 的执行方式。 示例是针对特定硬件配置发出的严重警报计数。
-- **兼容性数据**，帮助了解系统和 VM 上已安装哪些资源提供程序，以及识别潜在的兼容性问题。
+- **兼容性数据** ，帮助了解系统和 VM 上已安装哪些资源提供程序，以及识别潜在的兼容性问题。
 
 **2（增强）** ：其他见解，包括操作系统和其他 Azure Stack 服务的用法、运行状况、高级可靠性数据，以及来自“基本”和“安全”级别的数据。
 
@@ -92,7 +92,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 > [!NOTE]
 > 默认遥测级别值为 2（增强）。
 
-关闭 Windows 和 Azure Stack 遥测会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](https://aka.ms/winservtelemetry)。
+关闭 Windows 和 Azure Stack 遥测会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](/windows/privacy/configure-windows-diagnostic-data-in-your-organization)。
 
 > [!IMPORTANT]
 > 这些遥测级别仅适用于 Microsoft Azure Stack 组件。 Azure Stack 硬件合作伙伴在硬件生命周期主机中运行的非 Microsoft 软件组件和服务可能与这些遥测级别以外的云服务通信。 应该咨询 Azure Stack 硬件解决方案提供商，以了解其遥测策略，以及如何启用或禁用。

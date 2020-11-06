@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 66bd65158222cad224ea1673de666bd4c464dab4
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487730"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415124"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>配置 Azure Stack Hub 遥测
 
@@ -65,36 +65,36 @@ Microsoft 不打算收集敏感数据，如信用卡号、用户名和密码、�
 
 遥测设置分为四个累积级别 (0-3)，其分类如下：
 
-**0 (安全性) **</br>
+**0 (安全性)**</br>
 仅限安全数据。 确保操作系统安全所需的信息。 这包括有关互连用户体验和遥测组件设置以及 Windows Defender 的数据。 在此级别不会发出 Azure Stack 集线器特定的遥测。
 
-**1 (基本) **</br>
-安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。**** 将遥测级别设置为 "基本" 可启用 Azure Stack 中心遥测。 在此级别收集的数据包括：
+**1 (基本)**</br>
+安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。 将遥测级别设置为 "基本" 可启用 Azure Stack 中心遥测。 在此级别收集的数据包括：
 
-- *基本设备信息*：提供生态系统中本机和虚拟 Windows Server 2016 实例的类型与配置相关的信息。 这包括：
+- *基本设备信息* ：提供生态系统中本机和虚拟 Windows Server 2016 实例的类型与配置相关的信息。 这包括：
 
   - 计算机属性，例如 OEM 和型号。
   - 网络属性，例如网络适配器的数目和速度。
   - 处理器和内存属性，例如核心数，以及安装的内存量。
   - 存储属性，例如驱动器的数目、类型和大小。
 
-- *遥测功能*，包括已上传事件、已删除事件的百分比，以及数据上次上传时间。
+- *遥测功能* ，包括已上传事件、已删除事件的百分比，以及数据上次上传时间。
 - *与质量相关的信息* ，可帮助 Microsoft 大致了解 Azure Stack 集线器的执行方式。 例如，针对特定硬件配置发出的严重警报计数。
 - *兼容性数据* ，帮助了解系统上安装了哪些资源提供程序，以及 (VM) 上的虚拟机。 此数据用于识别潜在的兼容性问题。
 
-**2 (增强) **</br>
+**2 (增强)**</br>
 其他见解，包括如何使用操作系统和 Azure Stack 中心服务、这些服务的执行方式、高级可靠性数据以及 **安全** 级别和 **基本** 级别的数据。
 
 > [!NOTE]
 > 这是默认的遥测设置。
 
-**3 (完全) **</br>
-确定和帮助解决问题所需的所有数据，以及 **安全**、 **基本**和 **增强** 级别的数据。
+**3 (完全)**</br>
+确定和帮助解决问题所需的所有数据，以及 **安全** 、 **基本** 和 **增强** 级别的数据。
 
 > [!IMPORTANT]
 > 这些遥测级别仅适用于 Microsoft Azure Stack 集线器组件。 在 Azure Stack 集线器硬件合作伙伴的硬件生命周期主机内运行的非 Microsoft 软件组件和服务可与其在这些遥测级别以外的云服务进行通信。 你应该与 Azure Stack 集线器硬件解决方案提供商合作，了解其遥测策略，以及如何选择加入或退出。
 
-关闭 Windows 和 Azure Stack 集线器遥测也会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](https://aka.ms/winservtelemetry)。
+关闭 Windows 和 Azure Stack 集线器遥测也会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](/windows/privacy/configure-windows-diagnostic-data-in-your-organization)。
 
 ### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK：在 Windows 注册表中设置遥测级别
 

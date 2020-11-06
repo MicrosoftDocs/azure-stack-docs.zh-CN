@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: ec984252235334b5706a79a510852868c8f40dba
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: c8da0312a9c0d3f3250ed603523fd28b13dab38e
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487101"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415362"
 ---
 # <a name="get-clusterlog"></a>Get-ClusterLog
 
@@ -223,6 +223,6 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>后续步骤
 
-[https://go.microsoft.com/fwlink/?LinkId=216212](https://go.microsoft.com/fwlink/?LinkId=216212)
+[https://go.microsoft.com/fwlink/?LinkId=216212](/powershell/module/failoverclusters/get-clusterlog)
 
 有关如何访问和使用特权终结点的信息，请参阅[使用 Azure Stack Hub 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md)。
