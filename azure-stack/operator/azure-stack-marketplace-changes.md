@@ -3,16 +3,16 @@ title: Azure Stack Hub 市场中的新增内容
 description: 查看 Azure Stack Hub 市场中的新功能，包括新的、弃用的和更新的市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/02/2020
+ms.date: 11/06/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: aa5cbb7d631cdcf8fb5a27666bdedfd6ef3ab665
-ms.sourcegitcommit: 1e3a182d82cf01b64118647d6ab418651f83ad1e
+ms.openlocfilehash: f4d719e133b2e8246606e9ba1d8efc11b187833a
+ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93192232"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94360150"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -54,6 +54,102 @@ ms.locfileid: "93192232"
 
 ## <a name="deprecated-marketplace-items"></a>弃用市场项
 
+- 08/21/2020： Windows 10 企业版，版本 1903-自带许可证-版本18362.959.2007101755
+- 08/21/2020： Windows 10 专业版，版本 1903-自带许可证-版本18362.959.2007101755
+- 08/21/2020： Windows 10 企业版，版本 1909-自带许可证-版本18363.959.2007101752
+- 08/21/2020： Windows 10 专业版，版本 1909-自带许可证-版本18363.959.2007101752
+- 08/21/2020： Windows 10 企业版，版本 2004-自带许可证-版本19041.388.2007101729
+- 08/21/2020： Windows 10 企业版 2016 LTSB-Bring 你自己的许可证版本14393.3808.2007101707
+- 08/21/2020： Windows 10 企业版 2019 LTSC-Bring 你自己的许可证版本17763.1339.2007101755
+- 08/21/2020： Windows 10 专业版，版本 1809-自带许可证-版本17763.1339.2007101755
+- 08/21/2020：作为7601.24557.2007101756 版本，Windows Server 2008 R2 SP1-Pay
+- 08/21/2020： [smalldisk] Windows Server 2008 R2 SP1-Pay 你的版本7601.24557.2007101756
+- 08/21/2020：作为9200.23086.2007131700 版本，Windows Server 2012 Datacenter-Pay
+- 08/21/2020： [smalldisk] Windows Server 2012 Datacenter-Pay 你的版本9200.23086.2007131700
+- 08/21/2020：作为9600.19756.2007111612 版本，Windows Server 2012 R2 Datacenter-Pay
+- 08/21/2020： [smalldisk] Windows Server 2012 R2 Datacenter-Pay 你的版本9600.19756.2007111612
+- 08/21/2020：作为14393.3808.2007101707 版本，Windows Server 2016 Datacenter-Pay
+- 08/21/2020：作为14393.3808.2007101707 版本，Windows Server 2016 Datacenter-Server Core-Pay
+- 08/21/2020： [smalldisk] Windows Server 2016 Datacenter-Server Core-Pay as 14393.3808.2007101707
+- 08/21/2020： [smalldisk] Windows Server 2016 Datacenter-Pay 你的版本14393.3808.2007101707
+- 08/21/2020：17763.1339.2007101755 版时，Windows Server 2019 Datacenter Server Core-Pay
+- 08/21/2020： [smalldisk] Windows Server 2019 Datacenter Server Core-Pay as 17763.1339.2007101755
+- 08/21/2020： 17763.1339.2007101755 as 版本的 Windows Server 2019 Datacenter Server Core Containers-Pay
+- 08/21/2020： [smalldisk] Windows Server 2019 Datacenter Server Core with Containers-Pay as 17763.1339.2007101755
+- 08/21/2020：作为17763.1339.2007101755 版本，Windows Server 2019 Datacenter-Pay
+- 08/21/2020： [smalldisk] Windows Server 2019 Datacenter-Pay 你的版本17763.1339.2007101755
+- 08/21/2020：17763.1339.2007101755 的 Windows Server 2019 Containers-Pay Datacenter-版本
+- 08/21/2020： [smalldisk] Windows Server 2019 Datacenter，并 Containers-Pay 你的入门版-版本17763.1339.2007101755
+- 08/21/2020： [smalldisk] Windows Server，版本1809，并 Containers-Pay 你的入门版17763.1339.2007101755
+- 08/21/2020： [smalldisk] Windows Server，版本1903，并 Containers-Pay 你的入门版18362.959.2007101755
+- 08/21/2020： [smalldisk] Windows Server，版本1909，并 Containers-Pay 你的入门版18363.959.2007101752
+- 08/21/2020： [smalldisk] Windows Server，版本2004，并 Containers-Pay 你的入门版19041.388.2007101729
+- 08/04/2020： Windows Server 2008 R2 SP1-Bring 你自己的许可证版本7601.24556.2006050139
+- 08/04/2020：作为7601.24556.2006050139 版本，Windows Server 2008 R2 SP1-Pay
+- 08/04/2020： [smalldisk] Windows Server 2008 R2 SP1-Bring 你自己的许可证版本7601.24556.2006050139
+- 08/04/2020： [smalldisk] Windows Server 2008 R2 SP1-Pay 你的版本7601.24556.2006050139
+- 08/04/2020： Windows Server 2012 Datacenter-Bring 你自己的许可证版本9200.23066.2006051749
+- 08/04/2020：作为9200.23066.2006051749 版本，Windows Server 2012 Datacenter-Pay
+- 08/04/2020： [smalldisk] Windows Server 2012 Datacenter-Bring 你自己的许可证版本9200.23066.2006051749
+- 08/04/2020： [smalldisk] Windows Server 2012 Datacenter-Pay 你的版本9200.23066.2006051749
+- 08/04/2020： Windows Server 2012 R2 Datacenter-Bring 你自己的许可证版本9600.19728.2006050139
+- 08/04/2020：作为9600.19728.2006050139 版本，Windows Server 2012 R2 Datacenter-Pay
+- 08/04/2020： [smalldisk] Windows Server 2012 R2 Datacenter-Bring 你自己的许可证版本9600.19728.2006050139
+- 08/04/2020： [smalldisk] Windows Server 2012 R2 Datacenter-Pay 你的版本9600.19728.2006050139
+- 08/04/2020： Windows Server 2016 Datacenter-Bring 你自己的许可证版本14393.3750.2006031549
+- 08/04/2020：作为14393.3750.2006031549 版本，Windows Server 2016 Datacenter-Pay
+- 08/04/2020： Windows Server 2016 Datacenter-Server Core-Bring 你自己的许可证版本14393.3750.2006031549
+- 08/04/2020：作为14393.3750.2006031549 版本，Windows Server 2016 Datacenter-Server Core-Pay
+- 08/04/2020： [smalldisk] Windows Server 2016 Datacenter-Server Core-Bring 你自己的许可证版本14393.3750.2006031549
+- 08/04/2020： [smalldisk] Windows Server 2016 Datacenter-Server Core-Pay as 14393.3750.2006031549
+- 08/04/2020： [smalldisk] Windows Server 2016 Datacenter-Bring 你自己的许可证版本14393.3750.2006031549
+- 08/04/2020： [smalldisk] Windows Server 2016 Datacenter-Pay 你的版本14393.3750.2006031549
+- 08/04/2020： Windows Server 2019 Datacenter-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020： Windows Server 2019 Datacenter Server Core-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020：17763.1282.2006061952 版时，Windows Server 2019 Datacenter Server Core-Pay
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter Server Core-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter Server Core-Pay as 17763.1282.2006061952
+- 08/04/2020： Windows Server 2019 Datacenter Server Core with Containers-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020： 17763.1282.2006061952 as 版本的 Windows Server 2019 Datacenter Server Core Containers-Pay
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter Server Core with Containers-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter Server Core with Containers-Pay as 17763.1282.2006061952
+- 08/04/2020：作为17763.1282.2006061952 版本，Windows Server 2019 Datacenter-Pay
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter-Pay 你的版本17763.1282.2006061952
+- 08/04/2020： Windows Server 2019 Datacenter Containers-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020：17763.1282.2006061952 的 Windows Server 2019 Containers-Pay Datacenter-版本
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter Containers-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server 2019 Datacenter，并 Containers-Pay 你的入门版-版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server，版本 1809 Containers-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server，版本1809，并 Containers-Pay 你的入门版17763.1282.2006061952
+- 08/04/2020： [smalldisk] Windows Server，版本 1903 Containers-Bring 你自己的许可证版本18362.900.2006061800
+- 08/04/2020： [smalldisk] Windows Server，版本1903，并 Containers-Pay 你的入门版18362.900.2006061800
+- 08/04/2020： [smalldisk] Windows Server，版本 2004 Containers-Bring 你自己的许可证版本19041.329.2006042019
+- 08/04/2020： Windows 10 企业版 2016 LTSB-Bring 你自己的许可证版本14393.3750.2006031549
+- 08/04/2020： Windows 10 企业版 2019 LTSC-Bring 你自己的许可证版本17763.1282.2006061952
+- 08/04/2020： Windows 10 企业版，版本 1809-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： Windows 10 专业版，版本 1809-自带许可证-版本17763.1282.2006061952
+- 08/04/2020： Windows 10 企业版，版本 1903-自带许可证-版本18362.900.2006061800
+- 08/04/2020： Windows 10 专业版，版本 1903-自带许可证-版本18362.900.2006061800
+- 08/04/2020： Windows 10 企业版，版本 1909-自带许可证-版本18363.900.2006061800
+- 08/04/2020： Windows 10 专业版，版本 1909-自带许可证-版本18363.900.2006061800
+- 08/04/2020： Windows 10 企业版，版本 2004-自带许可证-版本19041.329.2006042019
+- 05/21/2020： Windows Server 2008 R2 SP1 BYOL-版本7601.24552.2004101827
+- 05/21/2020： Windows Server 2008 R2 SP1 按使用版本7601.24552.2004101827
+- 05/21/2020： Windows Server 2012 Datacenter BYOL-version 9200.23016.2004101828
+- 05/21/2020： Windows Server 2012 Datacenter 按使用情况付费-版本9200.23016.2004101828
+- 05/21/2020： Windows Server 2012 R2 Datacenter BYOL-version 9600.19676.2004101829
+- 05/21/2020： Windows Server 2012 R2 Datacenter 按使用情况付费-版本9600.19676.2004101829
+- 05/21/2020： Windows Server 2016 Datacenter BYOL-version 14393.3630.2004101604
+- 05/21/2020： Windows Server 2016 Datacenter 按使用情况付费-版本14393.3630.2004101604
+- 05/21/2020： Windows Server 2016 Datacenter Server Core BYOL-version 14393.3630.2004101604
+- 05/21/2020： Windows Server 2016 Datacenter Server Core 按使用情况付费-版本14393.3630.2004101604
+- 05/21/2020： Windows Server 2019 Datacenter Server Core BYOL-version 17763.1158.2004131759
+- 05/21/2020： Windows Server 2019 Datacenter Server Core 按使用情况付费-版本17763.1158.2004131759
+- 05/21/2020： Windows Server 2019 Datacenter BYOL-version 17763.1158.2004131759
+- 05/21/2020： Windows Server 2019 Datacenter 按使用情况付费-版本17763.1158.2004131759
+- 05/21/2020： Windows Server 2019 Datacenter with 容器 BYOL-版本17763.1158.2004131759
+- 05/21/2020：使用容器作为使用版本17763.1158.2004131759 的 Windows Server 2019 Datacenter
 - Bitnami Shopware
 - SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Standard
 - 免费许可证：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Developer
@@ -70,6 +166,23 @@ ms.locfileid: "93192232"
 
 ## <a name="updated-marketplace-items"></a>更新弃用市场项
 
+- 11/05/2020： Windows Server 2016 上的 SQL Server 2017 标准版-自带许可证-版本14.0.20201015
+- 11/05/2020： Windows Server 2016 上的 SQL Server 2017 标准版-即用即付-版本14.0.20201015
+- 11/05/2020： SQL Server 2017 企业版 Windows Server 2016-自带许可证-版本14.0.20201015
+- 11/05/2020： SQL Server 2017 企业版 Windows Server 2016-自带许可证-版本14.0.20201015
+- 11/05/2020： Windows Server 2016 上 SQL Server 2016 SP2 标准版-自带许可证-版本13.2.20201015
+- 11/05/2020： Windows Server 2016 上 SQL Server 2016 SP2 标准版-自带许可证-版本13.2.20201015
+- 11/05/2020：在 Windows Server 2016 上 SQL Server 2016 SP2 Enterprise-自带许可证-版本13.2.20201015
+- 11/05/2020：免费 SQL Server 许可证： Windows Server 2016 上的 2017 Express SQL Server-自带许可证-版本14.0.20201015
+- 11/05/2020：免费 SQL Server 许可证： Windows Server 2016 上的 2017 Express SQL Server-自带许可证-版本14.0.20201015
+- 11/05/2020：免费 SQL Server 许可证： Windows Server 上的 SQL Server 2017 开发人员 2016-自带许可证-版本14.0.20201015
+- 11/05/2020：免费 SQL Server 许可证： Windows Server 上的 SQL Server 2017 开发人员 2016-自带许可证-版本14.0.20201015
+- 11/05/2020：免费许可证： Windows Server 上 SQL Server 2016 SP2 Express 2016-自带许可证-版本13.2.20201015
+- 11/05/2020： {PAYG} 免费许可证： Windows Server 上 SQL Server 2016 SP2 Express 2016-自带许可证-版本13.2.20201015
+- 11/05/2020：免费许可证： Windows Server 上的 SQL Server 2016 SP2 开发人员 2016-自带许可证-版本13.2.20201015
+- 11/05/2020：免费许可证： Windows Server 上的 SQL Server 2016 SP2 开发人员 2016-自带许可证-版本13.2.20201015
+- 11/05/2020：在 Windows Server 2016 上 SQL Server 2016 SP2 Enterprise-自带许可证-版本13.2.20201015
+- 11/04/2020： Teradici Cloud Access for Azure Stack nonGPU-版本1.0。2
 - 10/29/2020： [smalldisk] Windows Server 2008 R2 SP1-Pay 你的版本7601.24561.2010082056
 - 10/29/2020： [smalldisk] Windows Server 2008 R2 SP1-Bring 你自己的许可证版本7601.24561.2010082056
 - 10/29/2020：作为7601.24561.2010082056 版本，Windows Server 2008 R2 SP1-Pay
