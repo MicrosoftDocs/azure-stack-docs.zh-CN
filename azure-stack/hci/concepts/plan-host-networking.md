@@ -3,15 +3,15 @@ title: 为 Azure Stack HCI 规划主机网络
 description: 了解如何为 Azure Stack HCI 群集规划主机网络
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
-ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
+ms.openlocfilehash: e9a03fa7518c6a450204cdbdb40483b593b1867b
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200478"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383461"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>为 Azure Stack HCI 规划主机网络
 
@@ -186,8 +186,8 @@ LLDP 允许组织定义并编码自己的自定义 TLVs。 这些称为组织特
 
 |条件|组织|TLV 子类型|
 |-|-|-|
-|必须|IEEE 802。1|VLAN 名称 (子类型 = 3) |
-|必须|IEEE 802。3|最大帧大小 (子类型 = 4) |
+|必需|IEEE 802。1|VLAN 名称 (子类型 = 3) |
+|必需|IEEE 802。3|最大帧大小 (子类型 = 4) |
 |可选|IEEE 802。1|端口 VLAN ID (子类型 = 1) |
 |可选|IEEE 802。1|端口和协议 VLAN ID (子类型 = 2) |
 |可选|IEEE 802。1|链接聚合 (子类型 = 7) |
@@ -200,6 +200,35 @@ LLDP 允许组织定义并编码自己的自定义 TLVs。 这些称为组织特
 
 > [!NOTE]
 > 将来可能需要列出一些可选功能。
+
+## <a name="example-cluster-network-design"></a>群集网络设计示例
+
+下图显示了在同一子网和相同站点上有两个群集的标准 (非拉伸) 群集配置。 服务器节点使用连接到双顶级 (TOR) 交换机的冗余网络适配器在同一群集中相互通信。 群集到群集的通信会经历双重网络书脊设备。
+
+:::image type="content" source="media/plan-host-networking/rack-topology-non-stretched-cluster.png" alt-text="非延伸群集" lightbox="media/plan-host-networking/rack-topology-non-stretched-cluster.png":::
+
+## <a name="example-stretched-cluster-network-design"></a>扩展群集网络设计示例
+
+以下关系图显示了使用单个群集的扩展群集配置，其中的服务器节点位于不同的站点，子网 (每个站点) 四个节点。 服务器节点使用连接到双连接 TOR 交换机的冗余网络适配器在同一群集中相互通信。 使用存储副本进行故障转移时，站点到站点通信通过双重路由器进行。
+
+:::image type="content" source="media/plan-host-networking/rack-topology-stretched-cluster.png" alt-text="延伸群集" lightbox="media/plan-host-networking/rack-topology-stretched-cluster.png":::
+
+### <a name="stretched-cluster-node-networking-option-1"></a>延伸群集节点网络选项1
+
+下图显示了使用交换机嵌入组合 (将) 设置为同一 vNIC 上站点之间的流管理、实时迁移和存储副本流量的扩展群集。 将 [SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) 和 [SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) PowerShell cmdlet 分别用于带宽限制实时迁移和存储副本流量。 
+
+请记住，当 RDMA 用于站点内实时迁移存储流量时，会将 TCP 用于站点间的流量。
+
+:::image type="content" source="media/plan-host-networking/stretched-cluster-option-1.png" alt-text="延伸群集节点网络选项1" lightbox="media/plan-host-networking/stretched-cluster-option-1.png":::
+
+### <a name="stretched-cluster-node-networking-option-2"></a>延伸群集节点网络选项2
+
+下图显示了针对站点之间的存储副本流量使用 SMB 多 [通道](https://docs.microsoft.com/azure-stack/hci/manage/manage-smb-multichannel) 的扩展群集的更高级配置，以及用于群集管理流量的专用适配器的配置。 将 [SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) 和 [SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) PowerShell cmdlet 分别用于带宽限制实时迁移和存储副本流量。
+
+请记住，当 RDMA 用于站点内存储流量时，TCP 用于站点间的流量。
+
+:::image type="content" source="media/plan-host-networking/stretched-cluster-option-2.png" alt-text="延伸群集节点网络选项2" lightbox="media/plan-host-networking/stretched-cluster-option-2.png":::
+
 
 ## <a name="next-steps"></a>后续步骤
 

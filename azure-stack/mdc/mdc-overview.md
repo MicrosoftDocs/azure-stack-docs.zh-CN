@@ -5,15 +5,15 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 01/13/2020
+ms.date: 11/06/2020
 ms.reviewer: prchint
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: d2803f1968be7a4a3e64f65f3d86a2dbb41aaf1c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 11/06/2020
+ms.openlocfilehash: eaa84fb673863935dc4778f34a6fce592590a7a8
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182862"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383392"
 ---
 # <a name="modular-data-center-overview"></a>模块化数据中心概述 
 
@@ -27,7 +27,7 @@ Azure Stack 提供了四种与一致的核心原则，并为模块化边缘方�
 
 ### <a name="develop-and-deliver-apps-with-a-common-devops-model-including-api-symmetry-with-azure"></a>使用通用的 DevOps 模型开发和交付应用，包括使用 Azure 的 API 对称
 
-Azure 与 Azure Stack 的一致性是指开发一次用于 war 战斗机的解决方案，并将其部署为支持各种用例，并使用一组常用工具（如用于密钥管理的 Azure Key Vault 和用于资源监视和管理的 Azure Monitor）来保护和持续。 Azure Stack 可与本地数据、应用和工具 DevOps 和安全操作（例如密钥管理）互操作。
+Azure 与 Azure Stack 之间的一致性意味着解决方案开发一次，并部署为支持各种用例，并使用一组常用工具（如用于密钥管理的 Azure Key Vault 和用于资源监视和管理的 Azure Monitor）来保护和持续。 Azure Stack 可与本地数据、应用和工具 DevOps 和安全操作（例如密钥管理）互操作。
 
 ### <a name="deliver-azure-services-on-premises"></a>在本地提供 Azure 服务
 
@@ -35,7 +35,7 @@ Azure Stack 在 disadvantaged (争用、拥塞或拒绝) 通信环境以及稳�
 
 ### <a name="use-integrated-hardware-and-software-delivery-experience"></a>使用集成的硬件和软件传递体验
 
-模块化边缘需要一系列功能，这些功能不仅提供基准计算和存储服务，而且还提供机器学习、AI 和分析的高级功能。 在 austere 环境中，从模块边缘连接到安全云的功能非常重要，因为它可以提供对所需数据的 war 喷气式访问。
+模块化边缘需要一系列功能，这些功能不仅提供基准计算和存储服务，而且还提供机器学习、AI 和分析的高级功能。 从模块边缘连接到安全云的功能，以及在 austere 环境中独立进行操作的能力，对于提供决策所需数据的访问至关重要。
 
 ### <a name="keep-your-datacenter-secure-and-available-with-hybrid-cloud-security-operations"></a>通过混合云安全操作使数据中心保持安全和可用
 

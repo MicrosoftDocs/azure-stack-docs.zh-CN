@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.lastreviewed: 12/31/2019
-ms.openlocfilehash: 511ea66e0f70041ffc237463e33fccdbf390360d
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 4aec8b6dde194590d0bc5cb00f42869462fc365e
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182873"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383541"
 ---
 # <a name="modular-data-center-mdc-network-introduction"></a>模块化数据中心 (MDC) 网络简介
 
@@ -79,9 +79,9 @@ HLH 也托管部署 VM (DVM)。 DVM 在 MDC 部署过程中使用，并在部署
 
 4096 (主机 IPs) 网络专用于 MDC 区域。 它不会超出 MDC 区域的边界切换设备。 此网络分为多个子网，例如：
 
-- **存储网络**：一个 /25（128 个 IP）网络，用于支持空间直通和服务器消息块 (SMB) 存储流量与 VM 实时迁移的使用。
+- **存储网络** ：一个 /25（128 个 IP）网络，用于支持空间直通和服务器消息块 (SMB) 存储流量与 VM 实时迁移的使用。
 - 内部虚拟 IP 网络：一个/25 网络，专用于软件负载平衡器仅限内部的 Vip。
-- **容器网络**：/23 (512 的 ip) 网络专用于运行基础结构服务的容器之间仅限内部的流量
+- **容器网络** ：/23 (512 的 ip) 网络专用于运行基础结构服务的容器之间仅限内部的流量
 
 专用网络的大小更改为/20 (4096) 专用 IP 空间的 ip。 此网络专用于 MDC 系统。 它不会路由到 MDC 系统的边界交换机设备，并可在多个 MDC 系统上重复使用。 网络专用于 MDC，而不能与数据中心中的其他网络重叠。 有关专用 IP 空间的指导，建议遵循 RFC 1918。
 
@@ -89,7 +89,7 @@ HLH 也托管部署 VM (DVM)。 DVM 在 MDC 部署过程中使用，并在部署
 
 #### <a name="mdc-infrastructure-network"></a>MDC 基础结构网络
 
-/24 网络专用于内部 MDC 组件，因此它们之间可以互相通信和交换数据。 此子网可在 MDC 解决方案外部路由到你的数据中心。 **不**建议在此子网上使用公用或 Internet 可路由的 IP 地址。 此网络广播到边界，但其大多数 IP 受访问控制列表 (ACL) 的保护。 允许访问的 Ip 在较小的范围内，相当于 a/27 网络大小。 Ip 主机服务（如特权终结点） (PEP) 和 MDC 备份。
+/24 网络专用于内部 MDC 组件，因此它们之间可以互相通信和交换数据。 此子网可在 MDC 解决方案外部路由到你的数据中心。 **不** 建议在此子网上使用公用或 Internet 可路由的 IP 地址。 此网络广播到边界，但其大多数 IP 受访问控制列表 (ACL) 的保护。 允许访问的 Ip 在较小的范围内，相当于 a/27 网络大小。 Ip 主机服务（如特权终结点） (PEP) 和 MDC 备份。
 
 #### <a name="public-vip-network"></a>公共 VIP 网络
 
@@ -109,7 +109,7 @@ HLH 也托管部署 VM (DVM)。 DVM 在 MDC 部署过程中使用，并在部署
 
 ## <a name="dns-design-overview"></a>DNS 设计概述
 
-要从外部 MDC (*门户*、 *adminportal*、 *MANAGEMENT*、 *adminmanagement*) 访问 MDC 终结点，你必须将 MDC DNS 服务与托管你要在 MDC 中使用的 dns 区域的 dns 服务器集成。
+要从外部 MDC ( *门户* 、 *adminportal* 、 *MANAGEMENT* 、 *adminmanagement* ) 访问 MDC 终结点，你必须将 MDC DNS 服务与托管你要在 MDC 中使用的 dns 区域的 dns 服务器集成。
 
 ### <a name="mdc-dns-namespace"></a>MDC DNS 命名空间
 
@@ -120,15 +120,15 @@ HLH 也托管部署 VM (DVM)。 DVM 在 MDC 部署过程中使用，并在部署
 | 区域 | MDC 部署的地理位置。 | *欢跃* |
 | 外部域名 | 要用于 MDC 部署的区域的名称。 | *cloud.fabrikam.com* |
 | 内部域名 | MDC 中用于基础结构服务的内部区域的名称。 它是无法从 MDC 部署) 访问的 "目录服务集成" 和 "专用" (。 | *test-azurestack* |
-| DNS 转发器 | 用于在公司 intranet 或公共 Internet 上转发在 MDC 外托管的 DNS 查询、DNS 区域和记录的 DNS 服务器。 部署后，可以通过 **AzSDnsForwarder**CMDLET 编辑 DNS 转发器的值   。 | |
-| 命名前缀（可选） | 要使 MDC 基础结构角色实例计算机名称拥有的命名前缀。 如果未提供，则默认值为 *azs*。 | *azs* |
+| DNS 转发器 | 用于在公司 intranet 或公共 Internet 上转发在 MDC 外托管的 DNS 查询、DNS 区域和记录的 DNS 服务器。 部署后，可以使用 **Set-AzSDnsForwarder** cmdlet 编辑 DNS 转发器值。 | |
+| 命名前缀（可选） | 要使 MDC 基础结构角色实例计算机名称拥有的命名前缀。 如果未提供，则默认值为 *azs* 。 | *azs* |
 
 MDC 部署和终结点的完全限定域名 (FQDN) 是 Region 参数和外部域名参数的组合。 使用上表中的示例中的值，此 MDC 部署的 FQDN 应为： *east.cloud.fabrikam.com*
 
 同样，此部署的部分终结点的示例将如以下 URL 所示：
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 若要使用此示例 DNS 命名空间进行 MDC 部署，需要满足以下条件：
 
@@ -142,9 +142,9 @@ MDC 部署和终结点的完全限定域名 (FQDN) 是 Region 参数和外部域
 
 #### <a name="dns-name-labels"></a>DNS 名称标签
 
-MDC 支持将 DNS 名称标签添加到公共 IP 地址，以允许对公共 IP 地址进行名称解析。 使用 DNS 标签，用户可以轻松访问通过名称托管在 MDC 中的应用和服务。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间将为： * \* . east.cloudapp.cloud.fabrikam.com*。 
+MDC 支持将 DNS 名称标签添加到公共 IP 地址，以允许对公共 IP 地址进行名称解析。 使用 DNS 标签，用户可以轻松访问通过名称托管在 MDC 中的应用和服务。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间将为： *\* . east.cloudapp.cloud.fabrikam.com* 。 
 
-如果租户 **MyApp**   在公共 IP 地址资源的 DNS 名称标签字段中指定 myapp，则它会在 **east.cloudapp.cloud.fabrikam.com**   MDC 外部 DNS 服务器上的区域 east.cloudapp.cloud.fabrikam.com 中创建一个 myapp 记录。 生成的完全限定的域名为： *myapp.east.cloudapp.cloud.fabrikam.com*。 
+如果租户在公共 IP 地址资源的 DNS 名称标签字段中指定 **myapp** ，则它会在 MDC 外部 DNS 服务器上的区域 **East.cloudapp.cloud.fabrikam.com** 中创建一个 myapp 记录。 生成的完全限定的域名为： *myapp.east.cloudapp.cloud.fabrikam.com* 。 
 
 如果要利用此功能并使用此命名空间，则必须集成 DNS 服务器。 包括承载 MDC 外部 DNS 区域的服务器，以及托管要使用的父区域的 DNS 服务器。 此命名空间不同于用于 MDC 服务终结点的命名空间，因此你必须创建附加的委派或条件转发规则。
 
@@ -162,7 +162,7 @@ MDC 包含权威和递归 DNS 服务器。 递归服务器用于解析内部专�
 
 ### <a name="resolving-external-dns-names-from-mdc"></a>从 MDC 解析外部 DNS 名称
 
-若要在 MDC 外解析终结点的 DNS 名称 (例如： www.bing.com) ，你必须为 MDC 提供 DNS 服务器，以便在其上不具有权威的 DNS 请求转发。 MDC 将请求转发到的 DNS 服务器在部署工作表中 (在) 的 DNS 转发器字段中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 如果没有这些值，MDC 部署将失败。 部署后，可以通过 **AzSDnsForwarder** CMDLET 编辑 DNS 转发器的值。
+若要在 MDC 外解析终结点的 DNS 名称 (例如： www.bing.com) ，你必须为 MDC 提供 DNS 服务器，以便在其上不具有权威的 DNS 请求转发。 MDC 将请求转发到的 DNS 服务器在部署工作表中 (在) 的 DNS 转发器字段中是必需的。 请在此字段中提供至少两个服务器，目的是容错。 如果没有这些值，MDC 部署将失败。 部署后，可以使用 **Set-AzSDnsForwarder** cmdlet 编辑 DNS 转发器值。
 
 ## <a name="firewall-design-overview"></a>防火墙设计概述
 
@@ -202,9 +202,9 @@ Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员�
 
 在企业 intranet 或外围部署中，MDC 部署在多分区防火墙上，或者位于边缘防火墙与内部公司网络防火墙之间。 然后，其流量将分布在安全的外围网络（或 DMZ）与不安全的区域之间，如下所述：
 
-- **安全区域**：使用内部或公司可路由 IP 地址的内部网络。 安全网络可以进行划分。 它可以通过防火墙 NAT 进行 Internet 出站访问。 通常可以通过内部网络从数据中心内部进行访问。 所有 MDC 网络应驻留在安全区域中，外部网络的公共 VIP 池除外。
-- **外围区域**：外围网络是指通常会部署 Web 服务器等外部或面向 Internet 的应用。 通常情况下，防火墙会监视这种攻击，以避免 DDoS 和入侵 (攻击) ，同时仍然允许来自 Internet 的指定入站流量。 只有 MDC 的外部网络公共 VIP 池应驻留在 DMZ 区域中。 
-- 不**安全区域**：外部网络和 Internet。 不建议在 **不** 安全区域部署 MDC。
+- **安全区域** ：使用内部或公司可路由 IP 地址的内部网络。 安全网络可以进行划分。 它可以通过防火墙 NAT 进行 Internet 出站访问。 通常可以通过内部网络从数据中心内部进行访问。 所有 MDC 网络应驻留在安全区域中，外部网络的公共 VIP 池除外。
+- **外围区域** ：外围网络是指通常会部署 Web 服务器等外部或面向 Internet 的应用。 通常情况下，防火墙会监视这种攻击，以避免 DDoS 和入侵 (攻击) ，同时仍然允许来自 Internet 的指定入站流量。 只有 MDC 的外部网络公共 VIP 池应驻留在 DMZ 区域中。 
+- 不 **安全区域** ：外部网络和 Internet。 不建议在 **不** 安全区域部署 MDC。
 
 ![外围网络防火墙方案](media/network-introduction/perimeter-network-firewall-scenario-50.png) 
 
@@ -222,7 +222,7 @@ VPN 网关是一种虚拟网络网关，可以通过公共连接发送加密的�
 
 在为 MDC 创建和配置 VPN 网关之前，请查看 MDC 网络的注意事项。 了解 MDC 的配置与 Azure 有何不同。
 
-在 Azure 中，所选 VPN 网关 SKU 的带宽吞吐量必须分配给连接到网关的所有连接。 但在 MDC 中，VPN 网关 SKU 的带宽值适用于连接到网关的每个连接资源。 例如： 。 
+在 Azure 中，所选 VPN 网关 SKU 的带宽吞吐量必须分配给连接到网关的所有连接。 但在 MDC 中，VPN 网关 SKU 的带宽值适用于连接到网关的每个连接资源。 例如： 
 
 - 在 Azure 中，基本 VPN 网关 SKU 可以容纳大约 100 Mbps 的聚合吞吐量。 如果对该 VPN 网关创建两个连接，而且其中一个连接使用 50 Mbps 的带宽，则 50 Mbps 可供另一个连接使用。
 
@@ -235,8 +235,8 @@ VPN 网关是一种虚拟网络网关，可以通过公共连接发送加密的�
 >[!IMPORTANT]
 > 目前，MDC 仅支持基于路由的 VPN 类型。 如果设备仅支持基于策略的 Vpn，则不支持从 MDC 连接到这些设备。 此外，由于不支持自定义 IPSec/IKE 策略配置，因此，MDC 目前不支持对基于路由的网关使用基于策略的流量选择器。 
 
-- **PolicyBased**：基于策略的 vpn 会根据 ipsec 策略，通过 ipsec 隧道加密和定向数据包。 策略配置为具有本地网络和 MDC VNet 之间的地址前缀的组合。 策略或流量选择器通常是 VPN 设备配置中的访问列表。 **PolicyBased**  在 Azure 中受支持，但在 MDC 中不受支持。 
-- **RouteBased**：基于路由的 VPN 使用 IP 转发或路由表中配置的路由。 将直接数据包路由到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 RouteBased vpn 的策略或流量选择器 **RouteBased**   配置为任意到任意 (或使用通配符) 。 默认情况下，无法更改这些 VPN。  **RouteBased**   VPN 类型的值为 **RouteBased**。
+- **PolicyBased** ：基于策略的 vpn 会根据 ipsec 策略，通过 ipsec 隧道加密和定向数据包。 策略配置为具有本地网络和 MDC VNet 之间的地址前缀的组合。 策略或流量选择器通常是 VPN 设备配置中的访问列表。 **PolicyBased** 在 Azure 中受支持，但在 MDC 中不受支持。 
+- **RouteBased** ：基于路由的 VPN 使用 IP 转发或路由表中配置的路由。 将直接数据包路由到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 **RouteBased** VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。 默认情况下，无法更改这些 VPN。 **RouteBased** VPN 类型的值为 **RouteBased** 。
 
 ### <a name="configuring-a-vpn-gateway"></a>配置 VPN 网关
 
@@ -276,7 +276,7 @@ VPN 网关连接可以使用不同的配置。 确定哪种配置最适合自己
 为 MDC 创建虚拟网络网关时，请指定要使用的网关 SKU。 支持以下 VPN 网关 SKU：
 
 - 基本
-- 标准
+- Standard
 - 高性能
 
 选择较高的网关 SKU 会向网关分配更多的 Cpu 和网络带宽。 如此一来，网关可以对虚拟网络支持更高的网络吞吐量。

@@ -16,31 +16,30 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898587"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383626"
 ---
-# <a name="mdc-deployment-overview"></a>MDC 部署概述
+# <a name="mdc-requirements-overview"></a>MDC 要求概述
 
-本部署指南介绍了安装和配置模块化数据中心 (MDC) 的步骤。 本指南还介绍了为 Azure Stack 中心部署 (HLH) 管理服务器设置 Azure Stack 集线器硬件生命周期主机的自动化过程。
+本指南描述了安装和配置模块化数据中心 (MDC) 所需的要求。 
 
 本指南的目标包括：
 
 - 提供预先部署清单，验证在安装组件之前是否已满足所有先决条件。
 - 介绍 MDC 的关键组件。
-- 描述如何安装和配置关键组件。
 - 验证客户部署。
 
-若要充分了解本指南的内容，需要具备虚拟化、服务器、操作系统、网络和存储解决方案的技术经验。 部署工程师必须了解 Microsoft Windows Server 2019 with Hyper-v、Azure Stack Hub、Azure 和 Microsoft PowerShell。
+若要充分了解本指南的内容，需要具备虚拟化、服务器、操作系统、网络和存储解决方案的技术经验。 
 
-本指南重点介绍 Microsoft Azure Stack 集线器的核心组件的部署，以及 MDC 解决方案的具体信息。 本指南未介绍 Azure Stack 集线器的操作过程，并且不涵盖 Azure Stack 中心提供的所有功能。 有关详细信息，请参阅 [Azure Stack 中心操作员指南](https://docs.microsoft.com/azure-stack/operator/)。
+本指南重点介绍 Microsoft Azure Stack 集线器的核心组件的部署，以及 MDC 解决方案的具体信息。 本指南未介绍 Azure Stack 集线器的操作过程，并且不涵盖 Azure Stack 中心提供的所有功能。 
 
-## <a name="introduction"></a>简介
+## <a name="introduction"></a>介绍
 
-MDC 是适用于在标准40英尺金属发货容器中打包的 Azure Stack 集线器的集成产品。 容器包括气候控制单元、照明和报警系统。 核心 Azure Stack 集线器组件（如服务器和交换机）安装在以逻辑方式组织在三个独立 pod 中的六个物理机架中。
+MDC 是适用于在标准40英尺金属发货容器中打包的 Azure Stack 集线器的集成产品。 容器包括气候控制单元、照明和报警系统。 核心 Azure Stack 集线器组件安装为三个独立的 Pod： Pod 1、机架1和机架2、Pod 2、机架1和机架2以及 Pod 3、机架1和机架2。
 
 每个 pod 都包含两个42U 架。 Pod 包含机顶盒 (ToR) 交换机、边缘交换机和基板管理控制器 (BMC) 开关。 此外，每个 pod 包含硬件生命周期主机 (HLH) 和串行端口集中器。 核心计算和存储容量由 Azure Stack 集线器缩放单位提供， (SU) 包含8个坚固的边缘设备 (REA) R840 服务器。 额外的存储容量由 48 Isilon 存储节点提供。 所有盒的物理配置都是相同的。
 
@@ -87,6 +86,4 @@ MDC 是适用于在标准40英尺金属发货容器中打包的 Azure Stack 集�
 1. 验证阶段–为三个盒中的每个盒单独提供：
    1. 部署后运行状况验证。
    1. 向 Microsoft 注册 Azure Stack 中心。
-   1. Azure Stack 中心运营商。
-  
-本指南将详细介绍上述每个主题。
+   1. Azure Stack 中心客户 "。

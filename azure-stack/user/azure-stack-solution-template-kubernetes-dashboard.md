@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 03dcd58562aaa0bc65bbc545e19c9e3a24c52a4b
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 0497cf3b457276df9fc6c4938e7a1c1370eaa4a3
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920485"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383643"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>在 Azure Stack Hub 中访问 Kubernetes 仪表板 
 
@@ -29,7 +29,7 @@ Kubernetes 包含一个可用于基本管理操作的 Web 仪表板。 使用此
 
 * SSH 客户端
 
-    需要使用 SSH 客户端安全地连接到群集中的主节点。 如果使用的是 Windows，则可以使用 [Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm)。 需要在部署 Kubernetes 群集时使用的私钥。
+    需要使用 SSH 客户端安全地连接到群集中的主节点。 如果使用的是 Windows，则可以使用 [Putty](https://www.ssh.com/ssh/putty/download)。 需要在部署 Kubernetes 群集时使用的私钥。
 
 * FTP (PSCP)
 
@@ -52,7 +52,7 @@ Kubernetes 包含一个可用于基本管理操作的 Web 仪表板。 使用此
 
 2. 在门户中打开主节点。 复制公共 IP 地址。 单击“连接”，在“使用 VM 本地帐户登录”框中输入用户名 。 即创建群集时设置的用户名。 使用公共 IP 地址，而不是“连接”边栏选项卡中列出的专用 IP 地址。
 
-3.  打开 SSH 客户端以连接到主节点。 如果在 Windows 上操作，可以使用 [Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) 创建连接。 使用主节点的公共 IP 地址、用户名，并添加创建群集时所用的私钥。
+3.  打开 SSH 客户端以连接到主节点。 如果在 Windows 上操作，可以使用 [Putty](https://www.ssh.com/ssh/putty/download) 创建连接。 使用主节点的公共 IP 地址、用户名，并添加创建群集时所用的私钥。
 
 4.  连接终端后，键入 `kubectl` 以打开 Kubernetes 命令行客户端。
 

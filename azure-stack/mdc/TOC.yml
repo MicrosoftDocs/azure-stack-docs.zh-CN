@@ -1,6 +1,6 @@
 - name: 模块化数据中心文档
   href: index.yml
-- name: 操作员
+- name: 运算符
   items:
     - name: 概述
       items:
@@ -178,12 +178,8 @@
                   href: ../operator/azure-stack-enable-multitenancy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: 操作指南
       items:
-        - name: 扩展存储
-          items:
-            - name: OneFS 和固件更新
-              href: extended-storage-firmware-updates.md
-            - name: 运行状况检查
-              href: extended-storage-health-checks.md
+        - name: 扩展的存储运行状况检查
+          href: extended-storage-health-checks.md
         - name: 管理
           items:
             - name: 管理基础知识
@@ -460,7 +456,7 @@
                       href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 获取 Azure Stack 集线器状态
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 故障排除
+            - name: 疑难解答
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 支持链接引用
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json

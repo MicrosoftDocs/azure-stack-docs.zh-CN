@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.openlocfilehash: 1d881db2d8802e93611437cbc14fe9782540be16
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: de2526b2807f4deff66efdf6db69bf4b791f5814
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106946"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383677"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>将 GPU 附加到 Azure Stack HCI 上的 Ubuntu Linux VM
 
@@ -37,7 +37,7 @@ ms.locfileid: "91106946"
 
 ## <a name="create-and-configure-an-ubuntu-virtual-machine"></a>创建和配置 Ubuntu 虚拟机
 
-1. 下载 [Ubuntu 桌面版本 18.04.02 ISO](http://cdimage.ubuntu.com/lubuntu/releases/18.04.2/release/lubuntu-18.04.2-desktop-amd64.iso)。
+1. 下载 [Ubuntu 桌面版本 18.04.02 ISO](http://old-releases.ubuntu.com/releases/18.04.2/)。
 2. 在已安装 GPU 的系统节点上打开 Hyper-V 管理器。
    > [!NOTE]
    > [DDA 不支持故障转移](/windows-server/virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment)。 这是 DDA 的虚拟机限制。 因此，建议使用 Hyper-V 管理器（而不是“故障转移群集管理器”）在节点上部署 VM 。 结合使用“故障转移群集管理器”与 DDA 会导致失败，并显示一条错误消息，表示 VM 的设备不支持高可用性。
@@ -94,7 +94,7 @@ ms.locfileid: "91106946"
 11. 在 VM 中，搜索并打开“软件和更新”。 导航到“其他驱动程序”，然后选择列出的最新 NVIDIA GPU 驱动程序。 单击“应用更改”按钮，完成驱动程序的安装。
     :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="驱动程序安装屏幕截图":::
 
-12. 完成驱动程序的安装后，重启 Ubuntu VM。 VM 启动后，通过 SSH 客户端进行连接，并发出 nvidia-smi 命令，以验证 NVIDIA GPU 驱动程序安装是否已成功完成。 输出应类似于以下屏幕截图：屏幕截图 :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="，显示来自 nvidia 命令的输出。":::
+12. 完成驱动程序的安装后，重启 Ubuntu VM。 VM 启动后，通过 SSH 客户端进行连接，并发出 nvidia-smi 命令，以验证 NVIDIA GPU 驱动程序安装是否已成功完成。 输出应类似于以下屏幕截图：:::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="此屏幕截图显示了 nvidia-smi 命令的输出。":::
 
 13. 使用 SSH 客户端，设置存储库并安装 Docker CE 引擎：
 
@@ -486,7 +486,7 @@ ms.locfileid: "91106946"
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="显示 iotedge 列表输出的屏幕截图。":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify-modules-sudo.png" alt-text="此屏幕截图显示了 iotedge 列表的输出。":::
 
     ```shell
     nvidia-smi
@@ -503,19 +503,19 @@ ms.locfileid: "91106946"
     sudo iotedge list
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="显示 NvdiaDeepStreem 容器可操作的输出屏幕截图。":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify1.png" alt-text="显示 NvdiaDeepStreem 容器正常运行的输出的屏幕截图。":::
 
     ```shell
     sudo iotedge logs -f NVIDIADeepStreamSDK
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="显示 iotedge logs-f NVIDIADeepStreamSDK 命令输出的屏幕截图。":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify2.png" alt-text="显示 iotedge logs -f NVIDIADeepStreamSDK 命令输出的屏幕截图。":::
 
     ```shell
     nvidia-smi
     ```
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="显示 nvidia smi-s 命令的其他输出的屏幕截图。":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/verify3.png" alt-text="此屏幕截图显示了 nvidia-smi 命令的附加输出。":::
 
 21. 使用 ifconfig 命令确认 Ubuntu VM 的 TCP/IP 地址，并查看 eth0 接口旁边的 TCP/IP 地址 。
 
