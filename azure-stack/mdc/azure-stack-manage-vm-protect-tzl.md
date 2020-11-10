@@ -11,22 +11,22 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 31e574a24660367cd1189ad95890e2fffaaa15f2
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: cfee01600d9db4017e56b7e53c9f90351b3bb323
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328869"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414038"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>保护在 Azure Stack Hub 上部署的 VM
 
 使用本文作为指南来制定一套保护 (Vm) 用户在 Azure Stack Hub 上部署的虚拟机的计划。
 
-若要防止数据丢失和计划外停机，请在 Azure Stack 中心为基于 VM 的应用程序实施数据保护和灾难恢复计划。 实现的保护计划将取决于应用程序的业务要求和设计。 此计划应遵循组织通过 \' 全面的业务连续性和灾难恢复 (BC/DR) 策略建立的框架。 有关 Azure Stack 中心的 BC/DR 注意事项的详细概述，请参阅 Azure Stack：业务连续性和灾难恢复的注意事项。
+若要防止数据丢失和计划外停机，请在 Azure Stack 中心为基于 VM 的应用程序实施数据保护和灾难恢复计划。 实现的保护计划将取决于应用程序的业务要求和设计。 此计划应遵循组织的全面的业务连续性和灾难恢复 (BC/DR) 策略建立的框架。 有关 Azure Stack 中心的 BC/DR 注意事项的详细概述，请参阅 Azure Stack：业务连续性和灾难恢复的注意事项。
 
 ## <a name="application-recovery-objectives"></a>应用程序恢复目标
 
@@ -40,7 +40,7 @@ ms.locfileid: "93328869"
 
 执行评估以定义每个应用程序的 RTO 和 RPO。
 
-要考虑的另一个重要指标是恢复 (MTTR) 的 **平均时间** ，这是在发生故障后还原应用程序所需的平均时间。 MTTR 反映的是系统的经验值。 如果 MTTR 超过 RTO，则系统中的故障将导致无法接受的业务中断，因为在 \' 定义的 RTO 内无法还原系统。
+要考虑的另一个重要指标是恢复 (MTTR) 的 **平均时间** ，这是在发生故障后还原应用程序所需的平均时间。 MTTR 反映的是系统的经验值。 如果 MTTR 超过 RTO，则系统发生故障会导致不可接受的业务中断，因为无法在定义的 RTO 内将系统还原。
 
 ## <a name="protection-options-for-iaas-vms"></a>IaaS Vm 的保护选项
 

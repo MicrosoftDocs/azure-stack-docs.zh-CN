@@ -3,16 +3,16 @@ title: Azure Stack Hub 市场中的新增内容
 description: 查看 Azure Stack Hub 市场中的新功能，包括新的、弃用的和更新的市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: f4d719e133b2e8246606e9ba1d8efc11b187833a
-ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
+ms.openlocfilehash: 50c5bb306585709c9fdd8aeadc126709e4967e72
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94360150"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414140"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -169,18 +169,18 @@ ms.locfileid: "94360150"
 - 11/05/2020： Windows Server 2016 上的 SQL Server 2017 标准版-自带许可证-版本14.0.20201015
 - 11/05/2020： Windows Server 2016 上的 SQL Server 2017 标准版-即用即付-版本14.0.20201015
 - 11/05/2020： SQL Server 2017 企业版 Windows Server 2016-自带许可证-版本14.0.20201015
-- 11/05/2020： SQL Server 2017 企业版 Windows Server 2016-自带许可证-版本14.0.20201015
+- 11/05/2020： SQL Server 2017 企业版 Windows Server 2016-即用即付-版本14.0.20201015
 - 11/05/2020： Windows Server 2016 上 SQL Server 2016 SP2 标准版-自带许可证-版本13.2.20201015
-- 11/05/2020： Windows Server 2016 上 SQL Server 2016 SP2 标准版-自带许可证-版本13.2.20201015
-- 11/05/2020：在 Windows Server 2016 上 SQL Server 2016 SP2 Enterprise-自带许可证-版本13.2.20201015
+- 11/05/2020： Windows Server 2016 上 SQL Server 2016 SP2 标准版-即用即付-版本13.2.20201015
+- 11/05/2020：在 Windows Server 2016 上 SQL Server 2016 SP2 Enterprise-即用即付-版本13.2.20201015
 - 11/05/2020：免费 SQL Server 许可证： Windows Server 2016 上的 2017 Express SQL Server-自带许可证-版本14.0.20201015
-- 11/05/2020：免费 SQL Server 许可证： Windows Server 2016 上的 2017 Express SQL Server-自带许可证-版本14.0.20201015
+- 11/05/2020：免费 SQL Server 许可证： Windows Server 2016 上的 2017 Express SQL Server-即用即付-版本14.0.20201015
 - 11/05/2020：免费 SQL Server 许可证： Windows Server 上的 SQL Server 2017 开发人员 2016-自带许可证-版本14.0.20201015
-- 11/05/2020：免费 SQL Server 许可证： Windows Server 上的 SQL Server 2017 开发人员 2016-自带许可证-版本14.0.20201015
+- 11/05/2020：免费 SQL Server 许可证： Windows Server 上的 SQL Server 2017 开发人员 2016-即用即付-版本14.0.20201015
 - 11/05/2020：免费许可证： Windows Server 上 SQL Server 2016 SP2 Express 2016-自带许可证-版本13.2.20201015
-- 11/05/2020： {PAYG} 免费许可证： Windows Server 上 SQL Server 2016 SP2 Express 2016-自带许可证-版本13.2.20201015
+- 11/05/2020：免费许可证： Windows Server 上 SQL Server 2016 SP2 Express 2016-即用即付-版本13.2.20201015
 - 11/05/2020：免费许可证： Windows Server 上的 SQL Server 2016 SP2 开发人员 2016-自带许可证-版本13.2.20201015
-- 11/05/2020：免费许可证： Windows Server 上的 SQL Server 2016 SP2 开发人员 2016-自带许可证-版本13.2.20201015
+- 11/05/2020：免费许可证： Windows Server 上的 SQL Server 2016 SP2 开发人员 2016-即用即付-版本13.2.20201015
 - 11/05/2020：在 Windows Server 2016 上 SQL Server 2016 SP2 Enterprise-自带许可证-版本13.2.20201015
 - 11/04/2020： Teradici Cloud Access for Azure Stack nonGPU-版本1.0。2
 - 10/29/2020： [smalldisk] Windows Server 2008 R2 SP1-Pay 你的版本7601.24561.2010082056

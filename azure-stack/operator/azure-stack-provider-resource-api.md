@@ -3,16 +3,16 @@ title: Azure Stack Hub 提供程序资源使用情况 API
 description: 资源使用情况 API（用于检索 Azure Stack Hub 使用情况信息）的参考。
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 0e167bdfeb0685b8b4612e887b904d010ffd666b
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 2d8b1eddb295a07a120858e1fa5845b51858ab9a
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250769"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414021"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 
@@ -40,7 +40,7 @@ ms.locfileid: "87250769"
 | `subId` |进行调用的用户的订阅 ID。 |
 | `reportedStartTime` |查询的开始时间。 `DateTime` 的值应为以协调世界时 (UTC) 和小时开始时的时间呈现，例如 13:00。 对于每日聚合，请将此值设置为 UTC 午夜。 格式是转义的 ISO 8601，例如 `2015-06-16T18%3a53%3a11%2b00%3a00Z`，其中冒号转义为 `%3a`，而加号转义为 `%2b`，使其符合 URI 规范。 |
 | `reportedEndTime` |查询的结束时间。 适用于 `reportedStartTime` 的约束也适用于此参数。 `reportedEndTime` 的值不得为未来或当前的日期。 如果是，结果会设为“处理未完成”。 |
-| `aggregationGranularity` |这是可选参数，它有两个截然不同的可能值：**daily** 和 **hourly**。 如同以上两个值所暗示，一个会每日返回数据，另一个则会每小时返回数据。 默认值为 **daily** 选项。 |
+| `aggregationGranularity` |这是可选参数，它有两个截然不同的可能值： **daily** 和 **hourly** 。 如同以上两个值所暗示，一个会每日返回数据，另一个则会每小时返回数据。 默认值为 **daily** 选项。 |
 | `subscriberId` |订阅 ID。 若要获取筛选的数据，需要提供者直接租户的订阅 ID。 如果未指定订阅 ID 参数，调用会返回所有提供者直接租户的使用情况数据。 |
 | `api-version` |用于发出此请求的协议版本。 此值设置为 `2015-06-01-preview`。 |
 | `continuationToken` |从上次调用使用情况 API 提供者取回的标记。 响应大于 1,000 行时，需要此标记， 可作为进度的书签。 如果此标记不存在，则根据传入的粒度从一天或一小时的开始检索数据。 |

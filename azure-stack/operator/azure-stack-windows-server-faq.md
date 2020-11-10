@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 列出有关 Windows Server 的 Azure Stack Hub 市场常见问题解答。
 author: sethmanheim
 ms.topic: article
-ms.date: 07/23/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: fff299a0d537bb4190e66a57eb642db7e8b9824d
-ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
+ms.openlocfilehash: cb3f1fe4bb0e8eb1181445479dd44d781a34bf28
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133633"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414123"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack Hub 市场常见问题解答
 
@@ -27,7 +27,7 @@ Azure Marketplace 支持指南还扩展到 Azure Stack 集线器 Marketplace 项
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>如何更新到较新的 Windows 映像？
 
-首先，请确定是否有任何 Azure 资源管理器模板引用了特定的版本。 如果有，请更新这些模板，或保留旧的映像版本。 最好是使用 **version: latest**。
+首先，请确定是否有任何 Azure 资源管理器模板引用了特定的版本。 如果有，请更新这些模板，或保留旧的映像版本。 最好是使用 **version: latest** 。
 
 接下来，如果任何虚拟机规模集引用特定版本，则应考虑是否会在以后对其进行缩放，并决定是否保留旧版本。 如果上述两个条件都不适用，请先在 Azure Stack Hub 市场中删除旧映像，然后下载新映像。 如果原始映像是使用“市场管理”下载的，请使用“市场管理”将其删除。 然后下载新版本。
 
@@ -35,7 +35,7 @@ Azure Marketplace 支持指南还扩展到 Azure Stack 集线器 Marketplace 项
 
 Microsoft 通过 Azure Stack 中心市场提供了两个版本的 Windows Server 映像。 在 Azure Stack Hub 环境中只能使用此映像的一个版本。  
 
-- 即**付即用 (PAYG) **：这些映像将运行完整的 Windows 计量器。
+- 即 **付即用 (PAYG)** ：这些映像将运行完整的 Windows 计量器。
    谁应使用此选项：使用消耗量计费模型的企业协议 (EA) 客户；不想要使用 SPLA 许可的 CSP。
 - **自带许可证 (BYOL)** ：这些映像运行基本计量器。
    谁应使用此选项：具有 Windows Server 许可证的 EA 客户、使用 SPLA 许可的 CSP。
