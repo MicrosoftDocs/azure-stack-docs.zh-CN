@@ -6,19 +6,68 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/20/2020
-ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.date: 11/10/2020
+ms.openlocfilehash: eaa9417abd41828495d3cd685ecc1f56c42c92e1
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92254006"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441168"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Azure Stack HCI 公共预览版发行说明
 
 > 适用于：Azure Stack HCI，版本 20H2
 
 本文介绍 Azure Stack HCI 公共预览版更新包的内容。
+
+## <a name="november-10-2020-security-update-kb4586811"></a>2020年11月10日安全更新 (KB4586811) 
+
+此更新包括最新版 Azure Stack HCI 的改进和修复。
+
+### <a name="improvements-and-fixes"></a>改进和修复
+此更新包含对内部 OS 功能的各种安全改进。 此版本没有其他已知问题。
+
+有关已解决的安全漏洞的详细信息，请参阅[安全更新指南](https://portal.msrc.microsoft.com/security-guidance)。
+
+### <a name="known-issues-in-this-update"></a>此更新中的已知问题
+Microsoft 目前未了解到任何有关此更新的问题。
+
+### <a name="how-to-get-this-update"></a>如何获取此更新
+[AZURE STACK HCI preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)的2020年11月10日安全更新 (KB4586811) 通过 Windows 更新提供。 若要在 Azure Stack HCI 群集上安装该安全更新，请参阅[更新 Azure Stack HCI 群集](manage/update-cluster.md)。
+
+### <a name="file-information"></a>文件信息
+有关此更新中提供的文件的列表 (OS Build 17784.1345) ，请下载 [累积更新4586811的文件信息](https://download.microsoft.com/download/8/f/2/8f2ce4bb-e113-4abc-b3ff-f0f4c4c71403/4586811.csv)。
+
+   > [!NOTE]
+   > 某些文件在 CSV 文件的“文件版本”列中错误地显示为“不适用”。 当使用某些第三方扫描检测工具验证生成时，这可能会导致假正或误报。
+
+## <a name="november-10-2020-servicing-stack-update-kb4590242"></a>2020年11月10日 (KB4590242) 的服务堆栈更新
+
+此更新包括对最新版 Azure Stack HCI 的质量改进。
+
+### <a name="improvements-and-fixes"></a>改进和修复
+此更新对服务堆栈（安装更新的组件）进行质量改进。 服务堆栈更新 (SSU) 确保你具有强大可靠的服务堆栈，以便你的设备可以接收并安装 Microsoft 更新。
+
+### <a name="how-to-get-this-update"></a>如何获取此更新
+[AZURE STACK HCI preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)的11月2020的服务堆栈更新 (KB4590242) 通过 Windows 更新提供。 若要在 Azure Stack HCI 群集上安装该安全更新，请参阅[更新 Azure Stack HCI 群集](manage/update-cluster.md)。
+
+### <a name="restart-information"></a>“重启”信息
+应用此更新后，无需重启计算机。
+
+### <a name="removal-information"></a>“删除”信息
+服务堆栈更新 (SSU) 对安装更新的方式进行了更改，并且无法从设备中卸载。
+
+### <a name="file-information"></a>文件信息
+有关此更新中提供的文件的列表 (OS Build 17784.1342) ，请下载 [累积更新4590242的文件信息](https://download.microsoft.com/download/b/b/4/bb4fb4f5-c0ba-4e55-bada-d72310857982/4590242.csv)。
+
+### <a name="references"></a>参考
+
+有关 SSU 的信息，请查看以下文章：
+
+- [服务堆栈更新](/windows/deployment/update/servicing-stack-updates)
+- [服务堆栈更新 (SSU)：常见问题解答](https://support.microsoft.com/help/4535697)
+
+了解 Microsoft 用于描述软件更新的[术语](https://support.microsoft.com/help/824684)。
 
 ## <a name="october-20-2020-preview-update-kb4580388"></a>2020年10月20日预览版更新 (KB4580388) 
 

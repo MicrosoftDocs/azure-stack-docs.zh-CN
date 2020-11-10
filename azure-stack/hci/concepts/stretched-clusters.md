@@ -3,15 +3,15 @@ title: 延伸群集概述
 description: 了解延伸群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 11/05/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: e9651111e82b3449823ec7d13135154e7f0a447e
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064746"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441134"
 ---
 # <a name="stretched-clusters-overview"></a>延伸群集概述
 
@@ -30,6 +30,9 @@ ms.locfileid: "93064746"
 
 这两个站点可位于两个不同的州、不同的城市、不同的楼层或不同的房间。 使用两个站点的延伸群集在某个站点出现中断或故障时，提供灾难恢复和业务连续性。
 
+使用 Azure Stack HCI，花几分钟时间观看延长群集上的视频：
+> [!VIDEO https://www.youtube.com/embed/rYnZL1wMiqU]
+
 ## <a name="active-passive-stretched-cluster"></a>主动-被动延伸群集
 
 下图显示站点 1 是主动站点，复制到站点 2（单向复制）。
@@ -40,7 +43,7 @@ ms.locfileid: "93064746"
 
 下图显示站点 1 和站点 2 均是主动站点，双向复制到其他站点。
 
-:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="主动/被动延伸群集方案" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
+:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="主动/主动延伸群集方案" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
 
 ## <a name="next-steps"></a>后续步骤
 
