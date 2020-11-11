@@ -3,16 +3,16 @@ title: 在 Azure Stack 集线器上部署以太坊区块链网络
 description: 教程：使用自定义解决方案模板在 Azure Stack Hub 上部署和配置联盟 Ethereum 区块链网络。
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/03/2019
+ms.date: 10/07/2020
 ms.topic: tutorial
 ms.reviewer: seyadava
-ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 514baec95a83ef8cc04391e61c37f144ebfaf643
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/07/2020
+ms.openlocfilehash: f409a2629243c0eb1cfe15ad857aa3e229832bb5
+ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571909"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94493693"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 Ethereum 区块链网络
 
@@ -46,61 +46,49 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
 
 此解决方案模板可以部署单成员或多成员 Ethereum 联盟网络。 使用网络虚拟设备和连接资源在链拓扑中连接虚拟网络。
 
-## <a name="deployment-use-cases"></a>部署用例
-
 此模板可以通过多种方式为领导者和成员部署 Ethereum 联盟。 下面是我们已测试过的内容：
 
-- 在具有 Azure AD 或 AD FS 的多节点 Azure Stack Hub 上，使用相同或不同的订阅部署领导者和成员。
-- 在单节点 Azure Stack Hub（具有 Azure AD）上，使用相同的订阅部署领导者和成员。
+- 在具有 Azure AD 或 AD FS 的多节点 Azure Stack 集线器上，使用同一订阅或不同订阅部署潜在客户和成员。
+- 在具有 Azure AD) 的单节点 Azure Stack 中心 (上，使用同一订阅部署潜在客户和成员。
 
-### <a name="standalone-and-consortium-leader-deployment"></a>独立和联盟领导者部署
+## <a name="standalone-and-consortium-leader-deployment"></a>独立和联盟领导者部署
 
 联盟领导者模板在网络中配置第一个成员的足迹。 
 
 1. [从 GitHub 下载领导者模板](https://aka.ms/aa6z619)。
-2. 在 Azure Stack Hub 租户门户中，选择“+ 创建资源”>“模板部署”，以从自定义模板进行部署。 
-3. 选择“编辑模板”以编辑新的自定义模板。 
-4. 在右侧的编辑窗格中，复制并粘贴前面下载的领导者模板 JSON。
+1. 在 Azure Stack 中心租户门户中，选择 " **+ 创建资源" > 模板部署** 从自定义模板部署。
+1. 选择 **"在编辑器中生成自己的模板** " 以编辑新的自定义模板。
+1. 在右侧的编辑窗格中，复制并粘贴前面下载的领导者模板 JSON。
     
-    ![编辑领导者模板](./media/azure-stack-ethereum/edit-leader-template.png)
+    [![粘贴了前导模板的编辑模板](./media/azure-stack-ethereum/edit-leader-template.png)](./media/azure-stack-ethereum/edit-leader-template.png#lightbox)
 
-5. 选择“保存”。 
-6. 选择“编辑参数”并填写部署的模板参数。 
-    
-    ![编辑领导者模板参数](./media/azure-stack-ethereum/edit-leader-parameters.png)
+1. 选择“保存”。
+1. 在 " **基本** 信息" 选项卡上，完成以下设置。
 
-    参数名称 | 说明 | 允许的值 | 示例值
-    ---------------|-------------|----------------|-------------
-    NAMEPREFIX | 用作已部署资源的命名基础的字符串。 | 1 到 6 个字母数字字符。 | eth
-    AUTHTYPE | 向 VM 进行身份验证的方法。 | 密码或 SSH 公钥。 | 密码
-    ADMINUSERNAME | 部署的每个 VM 的管理员用户名。 | 1 - 64 个字符。 | gethadmin
-    ADMINPASSWORD（身份验证类型 = 密码）| 部署的每个 VM 的管理员帐户密码。 密码必须包含下列要求中的 3 项: 1 个大写字符，1 个小写字符，1 个数字和 1 个特殊字符。 <br />虽然所有 VM 最初都有相同的密码，但可以在预配后更改密码。|12 - 72 个字符。 |
-    ADMINSSHKEY（身份验证类型 = sshPublicKey） | 用于远程登录的安全 shell 密钥。 | |
-    GENESISBLOCK | 表示自定义起源块的 JSON 字符串。  此参数的值是可选的。 | |
-    ETHEREUMACCOUNTPSSWD | 用于保护 Ethereum 帐户的管理员密码。 | |
-    ETHEREUMACCOUNTPASSPHRASE | 用于生成与 Ethereum 帐户相关联的私钥的通行短语。 | |
-    ETHEREUMNETWORKID | 联盟的网络 ID。 | 使用介于 5 和 999,999,999 之间的任何值。 | 72
-    CONSORTIUMMEMBERID | 与每个联盟网络成员关联的 ID。   | 此 ID 应在网络中唯一。 | 0
-    NUMMININGNODES | 挖掘节点的数量。 | 介于 2 和 15 之间。 | 2
-    MNNODEVMSIZE | 挖掘节点的 VM 大小。 | | Standard_A1
-    MNSTORAGEACCOUNTTYPE | 挖掘节点的存储性能。 | | Standard_LRS
-    NUMTXNODES | 事务节点的数量。 | 介于 1 和 5 之间。 | 1
-    TXNODEVMSIZE | 事务节点的 VM 大小。 | | Standard_A1
-    TXSTORAGEACCOUNTTYPE | 事务节点的存储性能。 | | Standard_LRS
-    BASEURL | 要从中获取部署模板的基 URL。 | 除非想要自定义部署模板，否则请使用默认值。 | 
+    参数名称 | 说明 | 示例值
+    ---------------|-------------|-------------
+    订阅 | 要将联盟网络部署到的订阅。 | 消耗订阅
+    资源组 | 部署联盟网络的资源组。 | EthereumResources
+    区域 | 用于资源的 Azure 区域。 | local
+    名称前缀 | 用作已部署资源的命名基础的字符串。 最多使用六个字母数字字符。 | eth
+    身份验证类型 | 向 VM 进行身份验证的方法。 允许的值为密码或 SSH 公钥。 | 密码
+    管理员用户名 | 部署的每个 VM 的管理员用户名。 使用1到64个字符。 | gethadmin
+    管理员密码 (身份验证类型 = 密码) | 部署的每个 VM 的管理员帐户密码。 密码必须包含下列要求中的 3 项: 1 个大写字符，1 个小写字符，1 个数字和 1 个特殊字符。 <br />虽然所有 VM 最初都有相同的密码，但可以在预配后更改密码。 使用12到72个字符。 |
+    管理员 SSH 密钥 (Authentication type = sshPublicKey)  | 安全外壳 RSA 用于远程登录的公钥字符串。 |
+    Genesis 块 | 表示自定义起源块的 JSON 字符串。  此参数的值是可选的。 |
+    以太坊帐户密码 | 用于保护 Ethereum 帐户的管理员密码。 |
+    以太坊帐户密码 | 用于生成与 Ethereum 帐户相关联的私钥的通行短语。 请考虑具有足够随机性的密码，以确保强私钥。 |
+    以太坊网络 ID | 联盟的网络 ID。 使用介于 5 和 999,999,999 之间的任何值。 | 72
+    联合会成员 ID | 与每个联盟网络成员关联的 ID。 此 ID 应在网络中唯一。 | 0
+    挖掘节点数量 | 每个联合会成员的挖掘节点数。 使用2到15之间的值。 | 2
+    挖掘节点 VM 大小 | 挖掘节点的 VM 大小。 | Standard_A1
+    挖掘存储帐户类型 | 挖掘节点的存储性能。 | Standard_LRS
+    数字 TX 节点 | 负载均衡的事务节点数。 使用介于1和5之间的值。 | 1
+    TX 节点 VM 大小 | 事务节点的 VM 大小。 | Standard_A1
+    TX 存储帐户类型 | 事务节点的存储性能。 | Standard_LRS
+    基 URL | 用于获取部署模板的基 URL。 除非想要自定义部署模板，否则请使用默认值。 |
 
-7. 选择“确定”  。
-8. 在“自定义部署”中，指定“订阅”、“资源组”和“资源组位置”。    
-    
-    ![领导者部署参数](./media/azure-stack-ethereum/leader-deployment-parameters.png)
-
-    参数名称 | 说明 | 允许的值 | 示例值
-    ---------------|-------------|----------------|-------------
-    订阅 | 要将联盟网络部署到的订阅。 | | 消耗订阅
-    资源组 | 部署联盟网络的资源组。 | | EthereumResources
-    位置 | 资源组的 Azure 区域。 | | local
-
-8. 选择“创建”  。
+1. 选择“查看 + 创建”。 验证成功后，选择 " **创建** "。
 
 部署可能需要 20 分钟或更长时间才能完成。
 
@@ -110,45 +98,41 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
 
 ![领导者部署摘要](./media/azure-stack-ethereum/ethereum-node-status.png)
 
-### <a name="joining-consortium-member-deployment"></a>加入联盟成员部署
+## <a name="joining-consortium-member-deployment"></a>加入联盟成员部署
 
 1. [从 GitHub 下载联盟成员模板](https://aka.ms/aa6zkua)。
-2. 在 Azure Stack Hub 租户门户中，选择“+ 创建资源”>“模板部署”，以从自定义模板进行部署。 
-3. 选择“编辑模板”以编辑新的自定义模板。 
-4. 在右侧的编辑窗格中，复制并粘贴前面下载的领导者模板 JSON。
-5. 选择“保存”。 
-6. 选择“编辑参数”并填写部署的模板参数。 
+1. 在 Azure Stack 中心租户门户中，选择 " **+ 创建资源" > 模板部署** 从自定义模板部署。
+1. 选择 **"在编辑器中生成自己的模板** " 以编辑新的自定义模板。
+1. 在右侧的编辑窗格中，复制并粘贴之前下载的 "联盟" 成员模板 JSON。
+1. 选择“保存”。
+1. 在 " **基本** 信息" 选项卡上，完成以下设置。
 
-    参数名称 | 说明 | 允许的值 | 示例值
-    ---------------|-------------|----------------|-------------
-    NAMEPREFIX | 用作已部署资源的命名基础的字符串。 | 1 到 6 个字母数字字符。 | eth
-    AUTHTYPE | 向 VM 进行身份验证的方法 | 密码或 SSH 公钥。 | 密码
-    ADMINUSERNAME | 部署的每个 VM 的管理员用户名 | 1 - 64 个字符。 | gethadmin
-    ADMINPASSWORD（身份验证类型 = 密码）| 部署的每个 VM 的管理员帐户密码。 密码必须包含下列要求中的 3 项: 1 个大写字符，1 个小写字符，1 个数字和 1 个特殊字符。 <br />虽然所有 VM 最初都有相同的密码，但可以在预配后更改密码。|12 - 72 个字符。 |
-    ADMINSSHKEY（身份验证类型 = sshPublicKey） | 用于远程登录的安全 shell 密钥。 | |
-    CONSORTIUMMEMBERID | 与每个联盟网络成员关联的 ID。   | 此 ID 应在网络中唯一。 | 0
-    NUMMININGNODES | 挖掘节点的数量。 | 介于 2 和 15 之间。 | 2
-    MNNODEVMSIZE | 挖掘节点的 VM 大小。 | | Standard_A1
-    MNSTORAGEACCOUNTTYPE | 挖掘节点的存储性能。 | | Standard_LRS
-    NUMTXNODES | 事务节点的数量。 | 介于 1 和 5 之间。 | 1
-    TXNODEVMSIZE | 事务节点的 VM 大小。 | | Standard_A1
-    TXSTORAGEACCOUNTTYPE | 事务节点的存储性能。 | | Standard_LRS
-    CONSORTIUMDATA | 指向由其他成员的部署提供的相关联盟配置数据的 URL。 可在领导者的部署输出中找到此值。 | |
-    REMOTEMEMBERVNETADDRESSSPACE | 领导者的 NVA IP 地址。 可在领导者的部署输出中找到此值。 | | 
-    REMOTEMEMBERNVAPUBLICIP | 领导者的 NVA IP 地址。 可在领导者的部署输出中找到此值。 | | 
-    CONNECTIONSHAREDKEY | 联盟网络中正在建立连接的成员之间预先建立的机密。 | |
-    BASEURL | 模板的基 URL。 | 除非想要自定义部署模板，否则请使用默认值。 | 
-
-7. 选择“确定”  。
-8. 在“自定义部署”中，指定“订阅”、“资源组”和“资源组位置”。    
-
-    参数名称 | 说明 | 允许的值 | 示例值
-    ---------------|-------------|----------------|-------------
-    订阅 | 要将联盟网络部署到的订阅。 | | 消耗订阅
-    资源组 | 部署联盟网络的资源组。 | | MemberResources
-    位置 | 资源组的 Azure 区域。 | | local
-
-8. 选择“创建”  。
+    参数名称 | 说明 | 示例值
+    ---------------|-------------|-------------
+    订阅 | 要将联盟网络部署到的订阅。 | 消耗订阅
+    资源组 | 部署联盟网络的资源组。 | EthereumResources
+    区域 | 用于资源的 Azure 区域。 | local
+    名称前缀 | 用作已部署资源的命名基础的字符串。 最多使用六个字母数字字符。 | eth
+    身份验证类型 | 向 VM 进行身份验证的方法。 允许的值为密码或 SSH 公钥。 | 密码
+    管理员用户名 | 部署的每个 VM 的管理员用户名。 使用1到64个字符。 | gethadmin
+    管理员密码 (身份验证类型 = 密码) | 部署的每个 VM 的管理员帐户密码。 密码必须包含下列要求中的 3 项: 1 个大写字符，1 个小写字符，1 个数字和 1 个特殊字符。 <br />虽然所有 VM 最初都有相同的密码，但可以在预配后更改密码。 使用12到72个字符。 |
+    管理员 SSH 密钥 (Authentication type = sshPublicKey)  | 安全外壳 RSA 用于远程登录的公钥字符串。 |
+    Genesis 块 | 表示自定义起源块的 JSON 字符串。 此参数的值是可选的。 |
+    以太坊帐户密码 | 用于保护 Ethereum 帐户的管理员密码。 |
+    以太坊帐户密码 | 用于生成与 Ethereum 帐户相关联的私钥的通行短语。 请考虑具有足够随机性的密码，以确保强私钥。 |
+    联合会成员 ID | 与每个联盟网络成员关联的 ID。 此 ID 应在网络中唯一。 | 0
+    挖掘节点数量 | 每个联合会成员的挖掘节点数。 使用2到15之间的值。 | 2
+    挖掘节点 VM 大小 | 挖掘节点的 VM 大小。 | Standard_A1
+    挖掘存储帐户类型 | 挖掘节点的存储性能。 | Standard_LRS
+    数字 TX 节点 | 负载均衡的事务节点数。 使用介于1和5之间的值。 | 1
+    TX 节点 VM 大小 | 事务节点的 VM 大小。 | Standard_A1
+    TX 存储帐户类型 | 事务节点的存储性能。 | Standard_LRS
+    联盟数据 | 指向由其他成员的部署提供的相关联盟配置数据的 URL。 可在领导者的部署输出中找到此值。 |
+    远程成员 VNET 地址空间 | 领导者的 VNET 地址空间。 可在领导者的部署输出中找到此值。 |
+    远程成员 NVA 公共 IP | 领导者的 NVA IP 地址。 可在领导者的部署输出中找到此值。 |
+    连接共享密钥 | 在建立网关连接的联合会网络成员之间预建立的机密。 |
+    基 URL | 用于获取部署模板的基 URL。 除非想要自定义部署模板，否则请使用默认值。 |
+1. 选择“查看 + 创建”。 验证成功后，选择 " **创建** "。
 
 部署可能需要 20 分钟或更长时间才能完成。
 
@@ -158,47 +142,32 @@ Ethereum 解决方案模板旨在利用最少的 Azure 和 Ethereum 知识，使
 
 ![成员部署摘要](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-如图所示，成员的节点状态为“未运行”。  之所以出现此状态是因为成员与领导者之间未建立连接。 成员与领导者之间的连接是双向连接。 部署成员时，模板会自动创建从成员到领导者的连接。 若要创建从领导者到成员的连接，请转到下一步骤。
+如图所示，成员的节点状态为“未运行”。 之所以出现此状态是因为成员与领导者之间未建立连接。 成员与领导者之间的连接是双向连接。 部署成员时，模板会自动创建从成员到领导者的连接。 若要创建从领导者到成员的连接，请转到下一步骤。
 
-### <a name="connect-member-and-leader"></a>连接成员和领导者
+## <a name="connect-member-and-leader"></a>连接成员和领导者
 
 此模板创建从领导者到远程成员的连接。 
 
 1. [从 GitHub 下载连接成员和领导者的模板](https://aka.ms/aa6zdyt)。
-2. 在 Azure Stack Hub 租户门户中，选择“+ 创建资源”>“模板部署”，以从自定义模板进行部署。 
-3. 选择“编辑模板”以编辑新的自定义模板。 
-4. 在右侧的编辑窗格中，复制并粘贴前面下载的领导者模板 JSON。
-    
-    ![编辑连接模板](./media/azure-stack-ethereum/edit-connect-template.png)
+1. 在 Azure Stack 中心租户门户中，选择 " **+ 创建资源" > 模板部署** 从自定义模板部署。
+1. 选择 **"在编辑器中生成自己的模板** " 以编辑新的自定义模板。
+1. 在右侧的编辑窗格中，复制并粘贴之前下载的 "联盟" 成员模板 JSON。
+1. 选择“保存”。
+1. 完成以下设置。
 
-5. 选择“保存”。 
-6. 选择“编辑参数”并填写部署的模板参数。 
-    
-    ![编辑连接模板参数](./media/azure-stack-ethereum/edit-connect-parameters.png)
-
-    参数名称 | 说明 | 允许的值 | 示例值
-    ---------------|-------------|----------------|-------------
-    MEMBERNAMEPREFIX | 领导者的名称前缀。 可在领导者的部署输出中找到此值。  | 1 到 6 个字母数字字符。 | |
-    MEMBERROUTETABLENAME | 领导者路由表的名称。 可在领导者的部署输出中找到此值。 |  | 
-    REMOTEMEMBERVNETADDRESSSPACE | 成员的地址空间。 可在成员的部署输出中找到此值。 | |
-    CONNECTIONSHAREDKEY | 联盟网络中正在建立连接的成员之间预先建立的机密。  | |
-    REMOTEMEMBERNVAPUBLICIP | 成员的 NVA IP 地址。 可在成员的部署输出中找到此值。 | |
-    MEMBERNVAPRIVATEIP | 领导者的专用 NVA IP 地址。 可在领导者的部署输出中找到此值。 | |
-    LOCATION | Azure Stack Hub 环境的位置。 | | local
-    BASEURL | 模板的基 URL。 | 除非想要自定义部署模板，否则请使用默认值。 | 
-
-7. 选择“确定”  。
-8. 在“自定义部署”中，指定“订阅”、“资源组”和“资源组位置”。    
-    
-    ![连接部署参数](./media/azure-stack-ethereum/connect-deployment-parameters.png)
-
-    参数名称 | 说明 | 允许的值 | 示例值
-    ---------------|-------------|----------------|-------------
-    订阅 | 领导者的订阅。 | | 消耗订阅
-    资源组 | 领导者的资源组。 | | EthereumResources
-    位置 | 资源组的 Azure 区域。 | | local
-
-8. 选择“创建”  。
+    参数名称 | 说明 | 示例值
+    ---------------|-------------|-------------
+    订阅 | 要将联盟网络部署到的订阅。 | 消耗订阅
+    资源组 | 部署联盟网络的资源组。 | EthereumResources
+    区域 | 用于资源的 Azure 区域。 | local
+    成员名称前缀 | 用作已部署资源的命名基础的字符串。 最多使用六个字母数字字符。 | eth
+    成员路由表名称 | 领导者路由表的名称。 可在领导者的部署输出中找到此值。 |
+    远程成员 VNET 地址空间 | 成员的地址空间。 可在成员的部署输出中找到此值。 |
+    远程成员 NVA 公共 IP | 要连接到的 NVA IP 地址。 可在成员的部署输出中找到此值。 |
+    连接共享密钥 | 联盟网络中正在建立连接的成员之间预先建立的机密。  |
+    成员 NVA 专用 IP | 成员的 NVA IP 地址。 可在成员的部署输出中找到此值。 |
+    基 URL | 用于获取部署模板的基 URL。 除非想要自定义部署模板，否则请使用默认值。 |
+1. 选择“查看 + 创建”。 验证成功后，选择 " **创建** "。
 
 部署完成后，需要经过几分钟，领导者和成员才会开始通信。 若要验证部署，请刷新成员的管理站点。 成员节点的状态应为“正在运行”。
 

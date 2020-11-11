@@ -2,18 +2,18 @@
 title: 解决 PKI 证书的常见问题
 titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack Hub 就绪性检查器解决 Azure Stack Hub PKI 证书的常见问题。
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
-ms.author: inhenkel
+ms.date: 11/10/2020
+ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: c7f17c603a6b54474db4036953f0fbd755d496cf
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.openlocfilehash: 070430d438334417f7c6acbd6e8f70798ba3c576
+ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724840"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94493624"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>解决 Azure Stack Hub PKI 证书的常见问题
 
@@ -33,7 +33,7 @@ ms.locfileid: "88724840"
 
 **问题** - PFX 文件无效。  
 
-**修复** - 使用[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书。
+**修复** - 使用 [准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书。
 
 ## <a name="signature-algorithm"></a>签名算法
 
@@ -45,7 +45,7 @@ ms.locfileid: "88724840"
 
 **问题** - 私钥缺失或者不包含本地计算机属性。  
 
-**修复** - 在生成 CSR 的计算机中，使用[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书。 这些步骤包括从本地计算机证书存储进行导出。
+**修复** - 在生成 CSR 的计算机中，使用 [准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书。 这些步骤包括从本地计算机证书存储进行导出。
 
 ## <a name="certificate-chain"></a>证书链
 
@@ -63,32 +63,32 @@ ms.locfileid: "88724840"
 
 **问题** - 密钥用法缺少数字签名或密钥加密，或者增强型密钥用法缺少服务器身份验证或客户端身份验证。  
 
-**修复** - 按照[生成 Azure Stack Hub 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥用法属性重新生成 CSR。 将 CSR 重新提交给证书颁发机构，并确认证书模板未覆盖请求中的密钥用法。
+**修复** - 按照 [生成 Azure Stack Hub 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥用法属性重新生成 CSR。 将 CSR 重新提交给证书颁发机构，并确认证书模板未覆盖请求中的密钥用法。
 
 ## <a name="key-size"></a>密钥大小
 
 **问题** - 密钥大小不到 2048。
 
-**修复** - 按照[生成 Azure Stack Hub 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥长度 (2048) 重新生成 CSR，然后将 CSR 重新提交给证书颁发机构。
+**修复** - 按照 [生成 Azure Stack Hub 证书签名请求](azure-stack-get-pki-certs.md)中的步骤，使用正确的密钥长度 (2048) 重新生成 CSR，然后将 CSR 重新提交给证书颁发机构。
 
 ## <a name="chain-order"></a>链序
 
 **问题** - 证书链的顺序不正确。  
 
-**修复** - 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。  确保仅选择分支证书进行导出。
+**修复** - 按照 [准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。  确保仅选择分支证书进行导出。
 
 ## <a name="other-certificates"></a>其他证书
 
 **问题** - PFX 包包含的证书不是分支证书，或者不是证书链的一部分。  
 
-**修复** - 按照[准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。  确保仅选择分支证书进行导出。
+**修复** - 按照 [准备用于部署的 Azure Stack Hub PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书，选择“包括证书路径中的所有证书(如果可能)”选项。  确保仅选择分支证书进行导出。
 
 ## <a name="fix-common-packaging-issues"></a>修复常见的打包问题
 
 **AzsReadinessChecker** 工具包含名为 **Repair-AzsPfxCertificate** 的帮助程序 cmdlet，它可以通过导入和导出 PFX 文件来修复常见的打包问题，这些问题包括：
 
-- **PFX 加密**不是 TripleDES-SHA1。
-- **私钥**缺少本地计算机属性。
+- **PFX 加密** 不是 TripleDES-SHA1。
+- **私钥** 缺少本地计算机属性。
 -  证书链不完整或错误。 如果 PFX 包不包含证书链，则本地计算机必须包含。
 - **其他证书**
 
@@ -116,10 +116,10 @@ ms.locfileid: "88724840"
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. 在 PowerShell 提示符下，运行以下 cmdlet 来设置 PFX 密码。 请将 `PFXpassword` 替换为实际密码：
+2. 在 PowerShell 提示符下，运行以下 cmdlet 来设置 PFX 密码。 在出现提示时输入密码：
 
    ```powershell
-   $password = Read-Host -Prompt PFXpassword -AsSecureString
+   $password = Read-Host -Prompt "Enter password" -AsSecureString
    ```
 
 3. 在 PowerShell 提示符下，运行以下命令来导出新的 PFX 文件：

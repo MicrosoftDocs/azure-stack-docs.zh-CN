@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.openlocfilehash: de2526b2807f4deff66efdf6db69bf4b791f5814
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: 422f6984fad6218387673d2dc9292f0ae7cb1739
+ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383677"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94493642"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>将 GPU 附加到 Azure Stack HCI 上的 Ubuntu Linux VM
 
@@ -426,13 +426,25 @@ ms.locfileid: "94383677"
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/set-modules.png" alt-text="设置模块屏幕截图":::
 
-14. 在 IoT Edge 模块下，单击并选择“市场模块”：
+14. 在 IoT Edge 模块 "下，单击并选择 IoT Edge 模块：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="市场模块屏幕截图":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="添加 IoT Edge 模块屏幕快照":::
 
-15. 搜索 NVIDIA 并选择 DeepStream SDK，如下所示：
+15. 在 " **添加 IoT Edge 模块** " 窗格中，选择 " **模块设置** " 选项卡，然后输入或选择以下值：
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream.png" alt-text="DeepStream SDK 屏幕截图":::
+    - **IoT Edge 模块名称** ： NVIDIADeepStreamSDK
+
+    - **映像 URI** ： marketplace.azurecr.io/nvidia/deepstream-iot2
+
+    - **重新启动策略** ：始终
+
+    - **所需状态** ：正在运行
+
+    - **图像请求策略** ： *空白*
+    
+    选择 **添加** 。
+
+    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream-module-settings.png" alt-text="DeepStream SDK 屏幕截图":::
 
 16. 确保 NvidiaDeepStreamSDK 模块在 IoT Edge 模块下列出：
 
