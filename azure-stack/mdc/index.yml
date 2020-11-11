@@ -10,44 +10,92 @@ metadata:
   author: justinha
   ms.author: justinha
   ms.date: 07/23/2020
-  ms.openlocfilehash: d02096ea41e17172f553efc3a92a5908845e03cd
-  ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+  ms.openlocfilehash: 37446262243a4f5247d21e5fce94b473444938e5
+  ms.sourcegitcommit: f51d396e4822961162a0caf7fbed18b5760e137b
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92182864"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94518842"
 landingContent:
-- title: 部署 MDC
+- title: 关于 Azure 模块化数据中心
   linkLists:
-  - linkListType: deploy
+  - linkListType: overview
     links:
-    - text: MDC 部署概述
-      url: deployment-overview.md
-  - linkListType: deploy
+    - text: 什么是模块化数据中心？
+      url: mdc-overview.md
+    - text: 模型规范
+      url: azure-stack-capacity-planning-overview.md
+  - linkListType: whats-new
     links:
-    - text: 容量规划器
-      url: azure-stack-capacity-planner.md
-- title: 入门
+    - text: 安全更新
+      url: ../operator/release-notes-security-updates.md
+    - text: 发行说明
+      url: ../operator/release-notes.md
+- title: Azure 模块化数据中心入门
   linkLists:
-  - linkListType: get-started
+  - linkListType: learn
     links:
-    - text: 添加 Azure Stack Hub 市场项
-      url: ../operator/azure-stack-create-and-publish-marketplace-item.md
+    - text: 使用管理员门户
+      url: ../operator/azure-stack-manage-portals.md
+    - text: 向用户提供服务
+      url: ../operator/tutorial-offer-services.md
+    - text: 测试服务套餐
+      url: ../operator/tutorial-test-offer.md
+  - linkListType: concept
+    links:
+    - text: 比较连接模型
+      url: ../operator/azure-stack-connection-models.md
+    - text: 连接的部署
+      url: ../operator/azure-stack-connected-deployment.md
+    - text: 断开连接的部署
+      url: ../operator/azure-stack-disconnected-deployment.md
+- title: 管理 Azure 模块化数据中心
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 监视运行状况和警报
+      url: operator/azure-stack-monitor-health-tzl.md
+    - text: 安装更新并监视进度
+      url: ../operator/azure-stack-apply-updates.md
+    - text: 备份和还原的最佳做法
+      url: operator/azure-stack-backup-best-practices-tzl.md
+- title: Azure Stack Hub 工具
+  linkLists:
+  - linkListType: download
+    links:
+    - text: 从 GitHub 下载 Azure Stack Hub 工具
+      url: ../operator/azure-stack-powershell-download.md
+    - text: 安装 Azure Stack PowerShell
+      url: ../operator/azure-stack-powershell-install.md
+    - text: 使用 Docker 运行 PowerShell
+      url: ../user/azure-stack-powershell-user-docker.md
+    - text: 与 Azure Stack PowerShell 连接
+      url: ../operator/azure-stack-powershell-configure-admin.md
+- title: Azure Stack Hub 上的基础结构即服务 (IaaS)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 快速入门 - 创建 VM
+      url: ../user/azure-stack-quick-linux-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: 迁移 VM
+      url: ../user/vm-move-overview.md
+    - text: 使用模板在 IaaS 中部署 VM
+      url: ../user/azure-stack-create-vm-template.md
+    - text: 配置虚拟网络
+      url: ../user/deploy-foundational-patterns.md
+    - text: 托管用代码编写的应用
+      url: ../user/azure-stack-dev-start-deploy-app.md
+- title: 提供 Azure Stack 中心服务
+  linkLists:
   - linkListType: tutorial
     links:
-    - text: 提供 IaaS 服务
+    - text: 为虚拟机创建产品/服务
       url: ../operator/tutorial-offer-services.md
-- title: 如何使用
-  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 订阅产品
-      url: ../user/azure-stack-subscribe-services.md
-    - text: 基于模板创建虚拟机
-      url: ../user/azure-stack-create-vm-template.md
-  - linkListType: how-to-guide
-    links:
-    - text: 更新固件
-      url: extended-storage-firmware-updates.md
-    - text: 检查运行状况
-      url: extended-storage-health-checks.md
+    - text: 创建高度可用的 MySQL 数据库
+      url: ../operator/azure-stack-tutorial-mysql.md
+    - text: 创建面向任何平台的应用
+      url: ../operator/azure-stack-app-service-overview.md
