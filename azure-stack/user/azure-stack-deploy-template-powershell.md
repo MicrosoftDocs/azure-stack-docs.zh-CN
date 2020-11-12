@@ -7,20 +7,20 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 7c8c27374b7ba114dc09297c2f0112d3f0f9579d
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: a5bd582cd93a95f662a8acc2094e6a62a7ecdf50
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112159"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546899"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用 PowerShell 部署模板
 
 可以使用 PowerShell 将 Azure 资源管理器模板部署到 Azure Stack Hub。 本文介绍如何使用 PowerShell 部署模板。
 
-## <a name="run-azurerm-powershell-cmdlets"></a>运行 AzureRM PowerShell cmdlet
+## <a name="run-az-powershell-cmdlets"></a>运行 Az PowerShell cmdlet
 
-此示例使用 **AzureRM** PowerShell cmdlet 和存储在 GitHub 上的模板。 此模板创建 Windows Server 2012 R2 Datacenter 虚拟机。
+此示例使用 **Az** PowerShell cmdlet 和存储在 GitHub 上的模板。 此模板创建 Windows Server 2012 R2 Datacenter 虚拟机。
 
 >[!NOTE]
 > 在尝试此示例之前，请确保已为 Azure Stack Hub 用户[配置了 PowerShell](azure-stack-powershell-configure-user.md)。
@@ -36,10 +36,10 @@ ms.locfileid: "84112159"
     $myLocation = "yourregion" # local for the ASDK
 
     # Create resource group for template deployment
-    New-AzureRmResourceGroup -Name $RGName -Location $myLocation
+    New-AzResourceGroup -Name $RGName -Location $myLocation
 
     # Deploy simple IaaS template
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -Name myDeployment$myNum `
         -ResourceGroupName $RGName `
         -TemplateUri <path>\AzureStack-QuickStart-Templates\101-vm-windows-create\azuredeploy.json `
@@ -50,11 +50,11 @@ ms.locfileid: "84112159"
     >[!IMPORTANT]
     > 每次运行此脚本时，都应递增 `$myNum` 参数的值，以避免覆盖你的部署。
 
-4. 打开 Azure Stack Hub 门户，选择“浏览”  ，然后选择“虚拟机”  以查找新虚拟机 (**myDeployment001**)。
+4. 打开 Azure Stack Hub 门户，选择“浏览”  ，然后选择“虚拟机”  以查找新虚拟机 ( **myDeployment001** )。
 
 ## <a name="cancel-a-running-template-deployment"></a>取消正在运行的模板部署
 
-若要取消正在运行的模板部署，请使用 `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlet。
+若要取消正在运行的模板部署，请使用 `Stop-AzResourceGroupDeployment` PowerShell cmdlet。
 
 ## <a name="next-steps"></a>后续步骤
 

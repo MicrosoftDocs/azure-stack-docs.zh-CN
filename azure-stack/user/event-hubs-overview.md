@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 117fd4cd1d688b9ace109f6c2038cd3ffe0d9e6f
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: adb00ebbe3f5ea3cf233ebaa485913d48ea63e23
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623143"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546950"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Azure Stack 集线器上的事件中心概述
 
@@ -53,7 +53,7 @@ ms.locfileid: "91623143"
 | Azure Monitor | ✔ | ✔ |
 | 自动膨胀功能 | ✘ | ✔ |
 
-还可以使用 Azure 资源管理器模板、[PowerShell](/powershell/module/azurerm.eventhub/) 和 [Azure CLI](/cli/azure/eventhubs/eventhub/) 完成 Azure 资源管理操作。 目前，PowerShell 和 Azure CLI 不支持操作员管理操作。
+还可以使用 Azure 资源管理器模板、[PowerShell](/powershell/module/Az.eventhub/) 和 [Azure CLI](/cli/azure/eventhubs/eventhub/) 完成 Azure 资源管理操作。 目前，PowerShell 和 Azure CLI 不支持操作员管理操作。
 
 ## <a name="feature-documentation"></a>功能文档
 

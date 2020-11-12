@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 46b76402695131a6bb099a9dc55c15d1066d4c84
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 1232a3ea585cbab53daf905ad0f4707f6df156c8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573813"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546440"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>使用 Key Vault 中存储的密码部署 Azure Stack Hub VM
 
@@ -28,7 +28,7 @@ ms.locfileid: "90573813"
 ## <a name="prerequisites"></a>必备条件
 
 * 必须订阅包含 Key Vault 服务的产品/服务。
-* [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。
+* [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)。
 * [配置 PowerShell 环境。](azure-stack-powershell-configure-user.md)
 
 以下步骤说明通过检索 Key Vault 中存储的密码创建 VM 所需的过程：
@@ -51,11 +51,11 @@ $resourceGroup = "contosovaultrg"
 $location = "local"
 $secretName = "MySecret"
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location
@@ -110,7 +110,7 @@ Set-AzureKeyVaultSecret `
 现在，使用以下 PowerShell 脚本部署模板：
 
 ```powershell  
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `

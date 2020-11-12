@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 6ff4822e3093dd636bdd5b83fb3150eb9036d9ec
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: 55f62550521e6b57d08852eb6d3f0c14da735fec
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967771"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546797"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>配置 Azure Stack Hub 的 VPN 网关设置
 
@@ -23,12 +23,12 @@ VPN 网关连接依赖于多个资源的配置，每个资源都包含可配置�
 
 ### <a name="gateway-types"></a>网关类型
 
-每个 Azure Stack Hub 虚拟网络支持单个虚拟网络网关，其类型必须是 **Vpn**。 此项支持不同于 Azure，后者可支持其他类型。
+每个 Azure Stack Hub 虚拟网络支持单个虚拟网络网关，其类型必须是 **Vpn** 。 此项支持不同于 Azure，后者可支持其他类型。
 
 创建虚拟网络网关时，必须确保用于配置的网关类型正确。 VPN 网关需要 `-GatewayType Vpn` 标志，例如：
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
@@ -49,7 +49,7 @@ Azure Stack Hub 提供下表中所示的 VPN 网关 SKU：
 
 Azure Stack Hub 不支持在所支持的旧式 SKU 之间调整 SKU 大小。
 
-同样，Azure Stack Hub 不支持将大小从支持的旧式 SKU（“基本”、“标准”和“高性能”）调整为 Azure 所支持的新式 SKU（“VpnGw1”、“VpnGw2”和“VpnGw3”）       。
+同样，Azure Stack Hub 不支持将大小从支持的旧式 SKU（“基本”、“标准”和“高性能”）调整为 Azure 所支持的新式 SKU（“VpnGw1”、“VpnGw2”和“VpnGw3”）     。
 
 ### <a name="configure-the-gateway-sku"></a>配置网关 SKU
 
@@ -59,22 +59,22 @@ Azure Stack Hub 不支持在所支持的旧式 SKU 之间调整 SKU 大小。
 
 #### <a name="powershell"></a>PowerShell
 
-以下 PowerShell 示例将 `-GatewaySku` 参数指定为“Standard”  ：
+以下 PowerShell 示例将 `-GatewaySku` 参数指定为“Standard”：
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="connection-types"></a>连接类型
 
-在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 `-ConnectionType` 的可用资源管理器 PowerShell 值为 **IPsec**。
+在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 `-ConnectionType` 的可用资源管理器 PowerShell 值为 **IPsec** 。
 
 以下 PowerShell 示例创建需要 IPsec 连接类型的 S2S 连接：
 
 ```powershell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
@@ -88,17 +88,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 >
 > 此外，由于自定义 IPSec/IKE 策略配置不受支持，因此 Azure Stack Hub 目前不支持对基于路由的网关使用基于策略的流量选择器。
 
-* **PolicyBased**：基于策略的 VPN 会根据使用本地网络和 Azure Stack Hub VNet 之间的地址前缀的各种组合配置的 IPsec 策略，加密数据包并引导其通过 IPsec 隧道。 策略或流量选择器通常是 VPN 设备配置中的访问列表。
+* **PolicyBased** ：基于策略的 VPN 会根据使用本地网络和 Azure Stack Hub VNet 之间的地址前缀的各种组合配置的 IPsec 策略，加密数据包并引导其通过 IPsec 隧道。 策略或流量选择器通常是 VPN 设备配置中的访问列表。
 
   >[!NOTE]
   >**PolicyBased** 在 Azure 中受支持，但在 Azure Stack Hub 中不受支持。
 
-* **RouteBased**：基于路由的 VPN 使用 IP 转发或路由表中配置的路由将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 **RouteBased** VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。 默认情况下，无法更改这些 VPN。 **RouteBased** VPN 类型的值为 **RouteBased**。
+* **RouteBased** ：基于路由的 VPN 使用 IP 转发或路由表中配置的路由将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 **RouteBased** VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。 默认情况下，无法更改这些 VPN。 **RouteBased** VPN 类型的值为 **RouteBased** 。
 
-以下 PowerShell 示例将 `-VpnType` 指定为 **RouteBased**。 创建网关时，必须确保 `-VpnType` 符合你的配置。
+以下 PowerShell 示例将 `-VpnType` 指定为 **RouteBased** 。 创建网关时，必须确保 `-VpnType` 符合你的配置。
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -128,7 +128,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 以下资源管理器 PowerShell 示例显示名为 **GatewaySubnet** 的网关子网。 可以看到，CIDR 表示法指定了 /27，这可提供足够的 IP 地址供大多数现有配置使用。
 
 ```powershell
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
@@ -143,7 +143,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 此 PowerShell 示例创建新的本地网络网关：
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -156,7 +156,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 Azure Stack Hub 默认情况下仅支持一个套餐，这与 Azure 不同，后者支持将多个套餐用作发起程序和响应程序。 如需使用适合 VPN 设备的不同 IPSec/IKE 设置，则可通过其他设置来手动配置连接。 有关详细信息，请参阅[为站点到站点 VPN 连接配置 IPsec/IKE 策略](azure-stack-vpn-s2s.md)。
 
 > [!IMPORTANT] 
-> 使用 S2S 隧道时，数据包会进一步封装，增加了标头，增加了数据包的总大小。 在这些情况下，必须将 TCP **MSS** 固定在 **1350**。 或者，如果 VPN 设备不支持 MSS 钳位，还可以改为将隧道接口上的**MTU**设置为**1400**字节。 有关详细信息，请参阅[虚拟网络 TCPIP 性能优化](/azure/virtual-network/virtual-network-tcpip-performance-tuning)。
+> 使用 S2S 隧道时，数据包会通过附加的标头进一步封装，从而增加了数据包的总大小。 在这些情况下，必须将 TCP **MSS** 固定在 **1350** 。 或者，如果 VPN 设备不支持 MSS 钳位，则可以改为在隧道接口上将 MTU 设置为 1400 字节 。 有关详细信息，请参阅[虚拟网络 TCPIP 性能优化](/azure/virtual-network/virtual-network-tcpip-performance-tuning)。
 >
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE 阶段 1（主模式）参数

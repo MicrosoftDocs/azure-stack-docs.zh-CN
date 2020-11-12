@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 7d4fc17759365434f6179229674b0bb21137f58b
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 6d677d4b192cef17d44896ba5ef41387b1c95765
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623330"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546865"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>排查站点到站点 VPN 连接问题
 
@@ -23,14 +23,14 @@ ms.locfileid: "91623330"
 还可提交 Azure 支持请求。 请参阅 [Azure Stack Hub 支持](../operator/azure-stack-manage-basics.md#where-to-get-support)。
 
 > [!NOTE]
-> 在两个 Azure Stack 中心部署之间，只能创建一个站点到站点 VPN 连接。 这是因为平台中的某个限制仅允许同一 IP 地址具有单个 VPN 连接。 由于 Azure Stack 中心利用多租户网关，该网关为 Azure Stack 中心系统中的所有 VPN 网关使用单个公共 IP，因此在两个 Azure Stack 集线器系统之间只能有一个 VPN 连接。 此限制也适用于将多个站点到站点 VPN 连接连接到使用单一 IP 地址的任何 VPN 网关。 Azure Stack 集线器不允许使用同一个 IP 地址创建多个本地网络网关资源。
+> 在两个 Azure Stack Hub 部署之间只能创建一个站点到站点 VPN 连接。 这是因为平台中的某个限制仅允许同一 IP 地址具有单个 VPN 连接。 由于 Azure Stack Hub 利用多租户网关，该网关将单一公共 IP 用于 Azure Stack Hub 系统中的所有 VPN 网关，因此两个 Azure Stack Hub 系统之间只能有一个 VPN 连接。 此限制也适用于将多个站点到站点 VPN 连接连接到使用单一 IP 地址的任何 VPN 网关。 Azure Stack Hub 不允许使用同一 IP 地址创建多个本地网络网关资源。
 
 ## <a name="initial-troubleshooting-steps"></a>初始故障排除步骤
 
 IPsec/IKEV2 的 Azure Stack Hub 默认参数已更改[（从内部版本 1910 开始）](../user/azure-stack-vpn-gateway-settings.md#ike-phase-1-main-mode-parameters)。有关内部版本的详细信息，请与 Azure Stack Hub 操作员联系。
 
 > [!IMPORTANT]
-> 使用 S2S 隧道时，数据包将与其他标头一起进一步封装。 此封装会增加数据包的总大小。 在这些情况下，必须将 TCP **MSS** 固定在 **1350**。 如果 VPN 设备不支持 MSS 钳位，则可以改为在隧道接口上将 MTU 设置为 1400 字节。 有关详细信息，请参阅[虚拟网络 TCPIP 性能优化](/azure/virtual-network/virtual-network-tcpip-performance-tuning)。
+> 使用 S2S 隧道时，数据包将与其他标头一起进一步封装。 此封装会增加数据包的总大小。 在这些情况下，必须将 TCP **MSS** 固定在 **1350** 。 如果 VPN 设备不支持 MSS 钳位，则可以改为在隧道接口上将 MTU 设置为 1400 字节。 有关详细信息，请参阅[虚拟网络 TCPIP 性能优化](/azure/virtual-network/virtual-network-tcpip-performance-tuning)。
 
 - 确认 VPN 配置基于路由 (IKEv2) 。 Azure Stack Hub 不支持基于策略的 (IKEv1) 配置。
 
@@ -48,14 +48,14 @@ IPsec/IKEV2 的 Azure Stack Hub 默认参数已更改[（从内部版本 1910 �
 
 - 比较本地 VPN 设备与 AzSH 虚拟网络 VPN 的共享密钥，确保密钥匹配。 若要查看 AzSH VPN 连接的共享密钥，请使用以下方法之一：
 
-  - **Azure Stack Hub 租户门户**：转到创建的 VPN 网关站点到站点连接。 在“设置”部分中，选择“共享密钥”。
+  - **Azure Stack Hub 租户门户** ：转到创建的 VPN 网关站点到站点连接。 在“设置”部分中，选择“共享密钥”。
 
       :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN 连接":::
 
-  - **Azure PowerShell**：使用以下 PowerShell 命令：
+  - **Azure PowerShell** ：使用以下 PowerShell 命令：
 
       ```powershell
-      Get-AzureRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+      Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
       ```
 
 ## <a name="status-connected--traffic-not-flowing"></a>“已连接”状态 - 流量未流动

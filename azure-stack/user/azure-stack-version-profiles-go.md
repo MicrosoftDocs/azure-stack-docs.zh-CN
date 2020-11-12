@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 3d263759763d1c845365fd5d8d89e7006cedbddc
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448667"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546491"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 GO 配合使用
 
@@ -23,7 +23,7 @@ ms.locfileid: "89448667"
 - 通过锁定到特定的 API 版本提供应用稳定性。
 - 提供应用与 Azure Stack Hub 和区域性 Azure 数据中心的兼容性。
 
-在 Go SDK 中，配置文件在配置文件路径下可用。 配置文件版本号以 **YYYY-MM-DD** 格式标记。 最新的 Azure Stack Hub API 配置文件版本为 **2019-03-01**，适用于 Azure Stack Hub 版本 1904 或更高版本。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要从 **2019-03-01** 配置文件导入**计算**服务，请使用以下代码：
+在 Go SDK 中，配置文件在配置文件路径下可用。 配置文件版本号以 **YYYY-MM-DD** 格式标记。 最新的 Azure Stack Hub API 配置文件版本为 **2019-03-01** ，适用于 Azure Stack Hub 版本 1904 或更高版本。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要从 **2019-03-01** 配置文件导入 **计算** 服务，请使用以下代码：
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
@@ -79,7 +79,7 @@ Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源�
 
 4. 创建使用客户端密码、具有“订阅”范围和“所有者”角色的服务主体。   保存服务主体的 ID 和机密。 有关为 Azure Stack Hub 创建服务主体的信息，请参阅[使用应用标识访问资源](../operator/azure-stack-create-service-principals.md)。 现已设置 Azure Stack Hub 环境。
 
-5. 在代码中从 Go SDK 配置文件导入服务模块。 最新版本的 Azure Stack Hub 配置文件为 **2019-03-01**。 例如，若要从 **2019-03-01** 配置文件类型导入网络模块，请使用以下代码：
+5. 在代码中从 Go SDK 配置文件导入服务模块。 最新版本的 Azure Stack Hub 配置文件为 **2019-03-01** 。 例如，若要从 **2019-03-01** 配置文件类型导入网络模块，请使用以下代码：
 
    ```go
    package main
@@ -132,7 +132,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    import "github.com/Azure/go-autorest/autorest/adal"
    ```
 
-3. 使用 NewOAuthConfig 方法从 **adal** 模块创建 **oauthConfig**。
+3. 使用 NewOAuthConfig 方法从 **adal** 模块创建 **oauthConfig** 。
 
    ```go
    package main
@@ -299,5 +299,5 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)
+- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)
 - [配置 Azure Stack Hub 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)

@@ -6,23 +6,23 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: f39bbf689cd3b847b29c2d5b046721029078a5dd
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: ca96de45f50f48b91dbb2e6e8679df5dedab8d8f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666475"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547052"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>使用 Azure Stack Hub 策略模块管理 Azure Policy
 
-使用 Azure Stack Hub 策略模块，可为 Azure 订阅配置与 Azure Stack Hub 相同的版本控制和服务可用性。 该模块使用 [**New-AzureRmPolicyDefinition**](/powershell/module/azurerm.resources/new-azurermpolicydefinition) PowerShell cmdlet 创建一项 Azure Policy ，用于限制订阅中提供的资源类型和服务。 然后使用 [**New-AzureRmPolicyAssignment**](/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet 在合适的作用域内创建一个策略分配。 配置策略后，可以使用 Azure 订阅来开发针对 Azure Stack Hub 的应用。
+使用 Azure Stack Hub 策略模块，可为 Azure 订阅配置与 Azure Stack Hub 相同的版本控制和服务可用性。 该模块使用 [**AzPolicyDefinition**](/powershell/module/Az.resources/new-Azpolicydefinition) PowerShell Cmdlet 创建 Azure 策略，该策略限制订阅中可用的资源类型和服务。 然后，使用 [**AzPolicyAssignment**](/powershell/module/Az.resources/new-Azpolicyassignment) cmdlet 在相应的范围内创建策略分配。 配置策略后，可以使用 Azure 订阅来开发针对 Azure Stack Hub 的应用。
 
 ## <a name="install-the-module"></a>安装模块
 
-1. 按照[安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md) 步骤 1 中的说明，安装所需的 AzureRM PowerShell 模块版本。
+1. 如 [安装 Azure Stack 集线器的 PowerShell](../operator/powershell-install-az-module.md)的步骤1中所述，安装 Az PowerShell 模块所需的版本。
 2. [从 GitHub 下载 Azure Stack Hub 工具](../operator/azure-stack-powershell-download.md)。
 3. [配置适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-configure-user.md)。
-4. 导入 AzureStack.Policy.psm1  模块：
+4. 导入 AzureStack.Policy.psm1 模块：
 
    ```powershell
    Import-Module .\Policy\AzureStack.Policy.psm1
@@ -30,14 +30,14 @@ ms.locfileid: "84666475"
 
 ## <a name="apply-policy-to-azure-subscription"></a>将策略应用于 Azure 订阅
 
-你可以使用以下命令将默认 Azure Stack 中心策略应用到你的 Azure 订阅。 在运行这些命令之前，请将 `Azure subscription name` 替换为 Azure 订阅的名称：
+可以使用以下命令将默认 Azure Stack Hub 策略应用于 Azure 订阅。 在运行这些命令之前，请将 `Azure subscription name` 替换为 Azure 订阅的名称：
 
 ```powershell
-Add-AzureRmAccount
-$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+Add-AzAccount
+$s = Select-AzSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
-New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
+New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 ```
 
 ## <a name="apply-policy-to-a-resource-group"></a>将策略应用于资源组
@@ -45,12 +45,12 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 你可能想要应用更细化的策略。 例如，你在相同的订阅中可能有其他正在运行的资源。 可以将策略应用范围限定为特定资源组，这样就可以使用 Azure 资源测试 Azure Stack Hub 的应用。 在运行以下命令之前，请将 `Azure subscription name` 替换为 Azure 订阅的名称：
 
 ```powershell
-Add-AzureRmAccount
+Add-AzAccount
 $rgName = 'myRG01'
-$s = Select-AzureRmSubscription -SubscriptionName "Azure subscription name"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$s = Select-AzSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
-New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
+New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 ```
 
 ## <a name="policy-in-action"></a>执行中的策略

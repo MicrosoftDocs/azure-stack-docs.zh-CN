@@ -3,16 +3,16 @@ title: 管理 Azure Stack Hub 中的 API 版本配置文件
 description: 了解 Azure Stack Hub 中的 API 版本配置文件。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 44638ca39dc5604ee436af5c0fa09c58fadf59eb
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: c4596ac24aa8b1ed4e0e0618263fc1f947fdf671
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089637"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547018"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>管理 Azure Stack Hub 中的 API 版本配置文件
 
@@ -50,7 +50,7 @@ API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API �
 此配置文件在每年的三月份和九月份发布。 它具有最佳的稳定性以及与各种云的兼容性，面向全球 Azure 和 Azure Stack Hub。 此配置文件中列出的 Azure API 版本将与 Azure Stack Hub 中列出的相同。 使用此配置文件为混合云解决方案开发代码。
 
 **yyyy-mm-dd-profile**  
-此配置文件在六月份和九月份针对全球 Azure 发布。 它不适用于 Azure Stack Hub，并且通常会有许多中断性变更。 虽然它在最佳稳定性与最新功能之间进行了均衡，但**最新**配置文件与此配置文件之间的区别是**最新**配置文件始终包含最新的 API 版本，无论 API 是何时发布的。 例如，如果明天为“计算 API”创建一个新的 API 版本，则该 API 版本将列在**最新**配置文件中，但不会列在 **yyyy-mm-dd-profile** 中，因为此配置文件已经存在。 **yyyy-mm-dd-profile** 涵盖了六月份或九月份之前发布的最新版本。
+此配置文件在六月份和九月份针对全球 Azure 发布。 它不适用于 Azure Stack Hub，并且通常会有许多中断性变更。 虽然它在最佳稳定性与最新功能之间进行了均衡，但 **最新** 配置文件与此配置文件之间的区别是 **最新** 配置文件始终包含最新的 API 版本，无论 API 是何时发布的。 例如，如果明天为“计算 API”创建一个新的 API 版本，则该 API 版本将列在 **最新** 配置文件中，但不会列在 **yyyy-mm-dd-profile** 中，因为此配置文件已经存在。 **yyyy-mm-dd-profile** 涵盖了六月份或九月份之前发布的最新版本。
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure 资源管理器 API 配置文件
 
@@ -73,7 +73,8 @@ API 配置文件可与使用 Azure 资源管理器的工具（例如 PowerShell�
 - **.NET** <br>
 使用 .NET API 配置文件获取资源提供程序包中每个资源类型的最新且最稳定的版本。 有关详细信息，请参阅[在 Azure Stack Hub 中将 API 版本配置文件与 .NET 配合使用](azure-stack-version-profiles-net.md)。
 - **PowerShell**  
-使用通过 PowerShell 库提供的 **AzureRM.Bootstrapper** 模块来获取使用 API 版本配置文件所需的 PowerShell cmdlet。 有关信息，请参阅[使用适用于 PowerShell 的 API 版本配置文件](../operator/azure-stack-powershell-install.md?view=azs-2002)。
+使用通过 PowerShell 库提供的  **Az** 模块，以获取使用 API 版本配置文件所需的 PowerShell cmdlet。 有关信息，请参阅[使用适用于 PowerShell 的 API 版本配置文件](azure-stack-version-profiles-powershell.md)。
+使用通过 PowerShell 库提供的 **AzureRM.Bootstrapper** 模块来获取使用 API 版本配置文件所需的 PowerShell cmdlet。 有关信息，请参阅[使用适用于 PowerShell 的 API 版本配置文件](../operator/powershell-install-az-module.md?view=azs-2002)。
 - **Azure CLI**  
 将环境配置更新为使用 Azure Stack Hub 特定的 API 版本配置文件。 有关信息，请参阅[使用适用于 Azure CLI 的 API 版本配置文件](azure-stack-version-profiles-azurecli2.md)。
 - **Go**  
@@ -87,6 +88,6 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)
+- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)
 - [配置 Azure Stack Hub 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
 - [查看配置文件支持的资源提供程序 API 版本的详细信息](azure-stack-profiles-azure-resource-manager-versions.md)。

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 3f97ec57900119543e37b0d99a7d82e30c900f42
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 72652f1a681ed630bdc67745f24c6e472101915f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574238"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546848"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>使用 Visual Studio Code 部署到 Azure Stack Hub
 
@@ -37,7 +37,7 @@ Azure Stack Hub 部署架构通过 Visual Studio Code 中的 Azure 资源管理�
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - 有权访问 Azure Stack Hub
-- 已在可访问管理终结点的计算机上[安装 Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)
+- 已在可访问管理终结点的计算机上[安装 Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)
 
 ## <a name="install-resource-manager-tools-extension"></a>安装资源管理器工具扩展
 

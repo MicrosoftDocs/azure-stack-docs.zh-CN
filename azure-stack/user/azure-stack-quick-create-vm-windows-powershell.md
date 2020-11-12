@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 189f0b9472ed8f29b4cd3ee287d6c6630c850503
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 2691e5aaf222f782f1b70735e8d4992d4e7d29b5
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573864"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546712"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack Hub 中使用 PowerShell 创建 Windows Server VM
 
@@ -30,7 +30,7 @@ ms.locfileid: "90573864"
 
 * 确保 Azure Stack Hub 操作员已将“Windows Server 2016”  映像添加到 Azure Stack Hub 市场。
 
-* Azure Stack Hub 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack Hub 配置 PowerShell，请遵循[安装](../operator/azure-stack-powershell-install.md) PowerShell 的步骤。
+* Azure Stack Hub 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack Hub 配置 PowerShell，请遵循[安装](../operator/powershell-install-az-module.md) PowerShell 的步骤。
 
 * 设置 Azure Stack Hub PowerShell 后，将需要连接到 Azure Stack Hub 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack Hub](azure-stack-powershell-configure-user.md)。
 
@@ -46,7 +46,7 @@ ms.locfileid: "90573864"
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $ResourceGroupName `
   -Location $location
 ```
@@ -61,13 +61,13 @@ $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
 
 # Create a new storage account
-$StorageAccount = New-AzureRMStorageAccount `
+$StorageAccount = New-AzStorageAccount `
   -Location $location `
   -ResourceGroupName $ResourceGroupName `
   -Type $SkuName `
   -Name $StorageAccountName
 
-Set-AzureRmCurrentStorageAccount `
+Set-AzCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
@@ -79,12 +79,12 @@ Set-AzureRmCurrentStorageAccount `
 
 ```powershell
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name mySubnet `
   -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -Name MyVnet `
@@ -92,7 +92,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -AllocationMethod Static `
@@ -106,7 +106,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ```powershell
 # Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
   -Name myNetworkSecurityGroupRuleRDP `
   -Protocol Tcp `
   -Direction Inbound `
@@ -118,7 +118,7 @@ $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
   -Name myNetworkSecurityGroupRuleWWW `
   -Protocol Tcp `
   -Direction Inbound `
@@ -130,7 +130,7 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -Name myNetworkSecurityGroup `
@@ -143,7 +143,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
+$nic = New-AzNetworkInterface `
   -Name myNic `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
@@ -165,17 +165,17 @@ $Credential=New-Object PSCredential($UserName,$Password)
 # Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
-$VirtualMachine = New-AzureRmVMConfig `
+$VirtualMachine = New-AzVMConfig `
   -VMName $VmName `
   -VMSize $VmSize
 
-$VirtualMachine = Set-AzureRmVMOperatingSystem `
+$VirtualMachine = Set-AzVMOperatingSystem `
   -VM $VirtualMachine `
   -Windows `
   -ComputerName "MainComputer" `
   -Credential $Credential -ProvisionVMAgent
 
-$VirtualMachine = Set-AzureRmVMSourceImage `
+$VirtualMachine = Set-AzVMSourceImage `
   -VM $VirtualMachine `
   -PublisherName "MicrosoftWindowsServer" `
   -Offer "WindowsServer" `
@@ -183,16 +183,16 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Version "latest"
 
 # Sets the operating system disk properties on a VM.
-$VirtualMachine = Set-AzureRmVMOSDisk `
+$VirtualMachine = Set-AzVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
-  Set-AzureRmVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  Set-AzVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
   -StorageAccountName $StorageAccountName -Enable |`
-  Add-AzureRmVMNetworkInterface -Id $nic.Id
+  Add-AzVMNetworkInterface -Id $nic.Id
 
 
 # Create the VM.
-New-AzureRmVM `
+New-AzVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -VM $VirtualMachine
@@ -203,11 +203,11 @@ New-AzureRmVM `
 若要远程连接到在上一步骤中创建的 VM，需要使用其公共 IP 地址。 运行以下命令，获取 VM 的公共 IP 地址：
 
 ```powershell
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-使用以下命令创建与 VM 的远程桌面会话。 将 IP 地址替换为你的 VM 的 *publicIPAddress*。 出现提示时，请输入创建 VM 时使用的用户名和密码。
+使用以下命令创建与 VM 的远程桌面会话。 将 IP 地址替换为你的 VM 的 *publicIPAddress* 。 出现提示时，请输入创建 VM 时使用的用户名和密码。
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -232,7 +232,7 @@ IIS 已安装，并且已打开 VM 上的端口 80，可以使用任何浏览器
 不再有需要时，可使用以下命令删除包含 VM 及其相关资源的资源组：
 
 ```powershell
-Remove-AzureRmResourceGroup `
+Remove-AzResourceGroup `
   -Name $ResourceGroupName
 ```
 

@@ -3,16 +3,16 @@ title: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 description: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 author: mattbriggs
 ms.topic: how-to
-ms.date: 8/17/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 8/17/2020
-ms.openlocfilehash: c05f35a9ef5ad059bdf50d721acd2811fa908370
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 54e0c53c666ae6d936ed34baea43f708f4a262da
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573728"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546780"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell
 
@@ -40,72 +40,6 @@ ms.locfileid: "90573728"
 
 ## <a name="run-powershell-in-docker"></a>在 Docker 中运行 PowerShell
 
-### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/rm)
-
-在这些说明中，你将运行基于 Windows 的容器映像，并安装 PowerShell 和 Azure Stack Hub 所需的模块。
-
-1. 需要使用需要 Windows 10 的 Windows 容器来运行 Docker。 在运行 Docker 时，请切换到 Windows 容器。 支持 Az 模块的映像将需要 Docker 17.05 或更高版本。
-
-1. 从已加入 Azure Stack Hub 所在的域的计算机运行 Docker。 如果使用 Azure Stack 开发工具包 (ASDK)，需[在远程计算机上安装 VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn)。
-
-### <a name="install-azure-stack-hub-azurerm-module-on-a-windows-container"></a>在 Windows 容器上安装 Azure Stack Hub AzureRM 模块
-
-Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore*，其中已安装 Windows PowerShell 5.1。 该文件然后会加载 NuGet 和 Azure Stack Hub PowerShell 模块，并从 Azure Stack Hub Tools 下载工具。
-
-1. 以 ZIP 文件形式[下载 azure-stack-powershell 存储库](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git)，或者克隆该存储库。
-
-2. 从终端打开存储库文件夹。
-
-3. 在存储库中打开命令行界面，然后输入以下命令：
-
-    ```bash  
-    docker build --tag azure-stack-powershell .
-    ```
-
-4. 生成映像以后，请输入以下内容，以便启动交互式容器：
-
-    ```bash  
-    docker run -it azure-stack-powershell powershell
-    ```
-
-    记下容器名称。 你可以使用相同的容器，而不是每次通过运行以下 Docker 命令来创建新容器：
-
-    ```bash  
-        docker exec -it "Container name" powershell
-    ```
-
-5. 可以将此 shell 用于 cmdlet 了。
-
-    ```bash
-    Windows PowerShell
-    Copyright (C) 2016 Microsoft Corporation. All rights reserved.
-
-    PS C:\>
-    ```
-
-6. 使用服务主体连接到 Azure Stack Hub 实例。 现在使用 Docker 中的 PowerShell 提示符。 
-
-    ```powershell
-    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
-    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint <Your Azure Resource Manager endoint>
-    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId <TenantID> -ServicePrincipal -Credential $pscredential
-    ```
-
-   PowerShell 返回帐户对象：
-
-    ```powershell  
-    Account    SubscriptionName    TenantId    Environment
-    -------    ----------------    --------    -----------
-    <AccountID>    <SubName>       <TenantID>  AzureCloud
-    ```
-
-7. 通过在 Azure Stack Hub 中创建资源组，测试连接性。
-
-    ```powershell  
-    New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
-    ```
-
 ### <a name="az-modules"></a>[Az 模块](#tab/az)
 
 在这些说明中，你将运行基于 Linux 的容器映像，该映像包含 PowerShell 和 Azure Stack Hub 所需的模块。
@@ -123,7 +57,7 @@ Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore*，其中已安�
     docker run -it mcr.microsoft.com/azurestack/powershell
     ```
 
-    可运行 Ubuntu、Debian 或 Centos。 可在 GitHub 存储库 [azurestack-powershell](https://github.com/Azure/azurestack-powershell) 中找到以下 Docker 文件。 有关 Docker 文件的最新更改，请参阅 GitHub 存储库。 每个 OS 均已标记。 将标记替换为冒号后面的部分，并将标记替换为所需的操作系统。
+    可运行 Ubuntu、Debian 或 Centos。 可在 GitHub 存储库 [azurestack-powershell](https://github.com/Azure/azurestack-powershell) 中找到以下 Docker 文件。 有关 Docker 文件的最新更改，请参阅 GitHub 存储库。 每个 OS 均已标记。 将冒号之后部分的标记替换为所需 OS 的标记。
 
     | Linux | Docker 映像 |
     | --- | --- |
@@ -161,6 +95,72 @@ Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore*，其中已安�
 
     ```powershell  
     ./Test-AzureStack.ps1 <Object ID>
+    ```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/rm)
+
+在这些说明中，你将运行基于 Windows 的容器映像，并安装 PowerShell 和 Azure Stack Hub 所需的模块。
+
+1. 需要使用需要 Windows 10 的 Windows 容器来运行 Docker。 在运行 Docker 时，请切换到 Windows 容器。 支持 Az 模块的映像将需要 Docker 17.05 或更高版本。
+
+1. 从已加入 Azure Stack Hub 所在的域的计算机运行 Docker。 如果使用 Azure Stack 开发工具包 (ASDK)，需[在远程计算机上安装 VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn)。
+
+### <a name="install-azure-stack-hub-azurerm-module-on-a-windows-container"></a>在 Windows 容器上安装 Azure Stack Hub AzureRM 模块
+
+Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore* ，其中已安装 Windows PowerShell 5.1。 该文件然后会加载 NuGet 和 Azure Stack Hub PowerShell 模块，并从 Azure Stack Hub Tools 下载工具。
+
+1. 以 ZIP 文件形式[下载 azure-stack-powershell 存储库](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git)，或者克隆该存储库。
+
+2. 从终端打开存储库文件夹。
+
+3. 在存储库中打开命令行界面，然后输入以下命令：
+
+    ```bash  
+    docker build --tag azure-stack-powershell .
+    ```
+
+4. 生成映像以后，请输入以下内容，以便启动交互式容器：
+
+    ```bash  
+    docker run -it azure-stack-powershell powershell
+    ```
+
+    记下容器名称。 可以使用相同的容器，而不是每次通过运行以下 Docker 命令来创建新容器：
+
+    ```bash  
+        docker exec -it "Container name" powershell
+    ```
+
+5. 可以将此 shell 用于 cmdlet 了。
+
+    ```bash
+    Windows PowerShell
+    Copyright (C) 2016 Microsoft Corporation. All rights reserved.
+
+    PS C:\>
+    ```
+
+6. 使用服务主体连接到 Azure Stack Hub 实例。 现在使用 Docker 中的 PowerShell 提示符。 
+
+    ```powershell
+    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
+    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint <Your Azure Resource Manager endoint>
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId <TenantID> -ServicePrincipal -Credential $pscredential
+    ```
+
+   PowerShell 返回帐户对象：
+
+    ```powershell  
+    Account    SubscriptionName    TenantId    Environment
+    -------    ----------------    --------    -----------
+    <AccountID>    <SubName>       <TenantID>  AzureCloud
+    ```
+
+7. 通过在 Azure Stack Hub 中创建资源组，测试连接性。
+
+    ```powershell  
+    New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
     ```
 
 ---

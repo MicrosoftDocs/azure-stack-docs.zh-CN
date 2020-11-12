@@ -3,20 +3,99 @@ title: Azure Stack Hub 发行说明 - 1910 安全更新
 description: 了解 Azure Stack Hub 的 1910 安全更新。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 11/11/2020
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 200c41688f734cf75845de79b91becca66737ada
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 15370f4313e0d1a2a1b2596d65001b88f7ac0dbe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145567"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547001"
 ---
 # <a name="azure-stack-hub-security-updates"></a>Azure Stack Hub 安全更新
 
 本文列出 Azure Stack Hub 最近三个更新中的所有安全更新。 提供此信息仅供参考之用。
+
+::: moniker range="azs-2008"
+## <a name="2008-update"></a>2008更新
+
+由于 Windows 更新的累积特性，此更新包含前几个月的安全有效负载。 此标识符列表反映自上次更新后的安全负载。 这些更新包含在 [8 月 2020](https://support.microsoft.com/en-us/help/4565349/windows-10-update-kb4565349) 月的更新中。
+
+有关这些漏洞的详细信息，请单击以下链接。
+- [CVE-2020-1473](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1473)
+- [CVE-2020-1548](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1548)
+- [CVE-2020-1515](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1515)
+- [CVE-2020-1554](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1554)
+- [CVE-2020-1533](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1533)
+- [CVE-2020-1516](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1516)
+- [CVE-2020-1479](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1479)
+- [CVE-2020-1530](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1530)
+- [CVE-2020-1480](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1480)
+- [CVE-2020-1492](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1492)
+- [CVE-2020-1488](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1488)
+- [CVE-2020-1474](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1474)
+- [CVE-2020-1549](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1549)
+- [CVE-2020-1477](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1477)
+- [CVE-2020-1553](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1553)
+- [CVE-2020-1472](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1472)
+- [CVE-2020-1489](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1489)
+- [CVE-2020-1531](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1531)
+- [CVE-2020-1512](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1512)
+- [CVE-2020-1475](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1475)
+- [CVE-2020-1486](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1486)
+- [CVE-2020-1511](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1511)
+- [CVE-2020-1524](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1524)
+- [CVE-2020-1377](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1377)
+- [CVE-2020-1534](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1534)
+- [CVE-2020-1566](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1566)
+- [CVE-2020-1557](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1557)
+- [CVE-2020-1520](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1520)
+- [CVE-2020-1378](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1378)
+- [CVE-2020-1487](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1487)
+- [CVE-2020-1485](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1485)
+- [CVE-2020-1527](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1527)
+- [CVE-2020-1464](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1464)
+- [CVE-2020-1470](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1470)
+- [CVE-2020-1528](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1528)
+- [CVE-2020-1565](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1565)
+- [CVE-2020-1550](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1550)
+- [CVE-2020-1490](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1490)
+- [CVE-2020-1339](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1339)
+- [CVE-2020-1577](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1577)
+- [CVE-2020-1417](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1417)
+- [CVE-2020-1509](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1509)
+- [CVE-2020-1525](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1525)
+- [CVE-2020-1484](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1484)
+- [CVE-2020-1537](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1537)
+- [CVE-2020-1478](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1478)
+- [CVE-2020-1337](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1337)
+- [CVE-2020-1552](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1552)
+- [CVE-2020-1518](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1518)
+- [CVE-2020-1519](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1519)
+- [CVE-2020-1517](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1517)
+- [CVE-2020-1561](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1561)
+- [CVE-2020-1383](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1383)
+- [CVE-2020-1521](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1521)
+- [CVE-2020-1584](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1584)
+- [CVE-2020-1562](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1562)
+- [CVE-2020-1379](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1379)
+- [CVE-2020-1529](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1529)
+- [CVE-2020-1466](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1466)
+- [CVE-2020-1467](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1467)
+- [CVE-2020-1526](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1526)
+- [CVE-2020-1538](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1538)
+- [CVE-2020-1578](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1578)
+- [CVE-2020-1556](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1556)
+- [CVE-2020-1522](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1522)
+- [CVE-2020-1564](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1564)
+- [CVE-2020-1587](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1587)
+- [CVE-2020-1513](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1513)
+- [CVE-2020-1579](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1579)
+- [CVE-2020-1558](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2020-1558)
+
+::: moniker-end
 
 ::: moniker range="azs-2005"
 ## <a name="2005-update"></a>2005 更新
@@ -610,15 +689,6 @@ ms.locfileid: "88145567"
 - [CVE-2019-1365](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-1365)
 - [CVE-2019-1368](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-1368)
 - [CVE-2019-1060](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-1060)
-
-::: moniker-end
-
-::: moniker range="azs-1910"
-## <a name="1910-update"></a>1910 更新
-
-Azure Stack Hub 的此更新不包括托管 Azure Stack Hub 的基础操作系统的安全更新。 此更新包含 Azure Stack Hub 基础结构组件的安全更新：
-
-- [CVE-2019-1234](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1234)
 
 ::: moniker-end
 

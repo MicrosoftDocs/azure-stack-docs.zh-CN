@@ -3,16 +3,16 @@ title: Azure Stack Hub 操作员访问工作站
 description: 了解如何下载和配置 Azure Stack Hub 操作员访问工作站。
 author: ashika789
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: c636f0d44648e4682bb19a64d66cad43d2add64b
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: c2e5e474555a9fb3a04c09fde495e4fe80c4378b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415345"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546967"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub 操作员访问工作站 
 
@@ -128,6 +128,16 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -DNS '192.168.0.10'
 ```
 
+从 "AzureStackStampInformation.js上的" 文件 "中检索 ERCS VM 的 IP 地址：
+
+```powershell
+$securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
+New-OAW.ps1 -LocalAdministratorPassword $securePassword `
+   -AzureStackCertificatePath 'F:\certroot.cer' `
+   -DeploymentDataFilePath 'F:\DeploymentData.json' `
+   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
+```
+
 若要使用 DeploymentData.json 在 HLH 上创建 OAW VM：
 
 ```powershell
@@ -144,6 +154,7 @@ New-OAW 可以使用两个参数集。 可选参数显示在括号中。
 New-OAW 
 -LocalAdministratorPassword <Security.SecureString> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-DNS <String[]>] `
@@ -172,6 +183,7 @@ New-OAW
 -DefaultGateway <String> `
 -DNS <String[]> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-ImageFilePath <String>] `
@@ -204,6 +216,7 @@ New-OAW
 | VirtualProcessorCount      | 可选 | 要分配给虚拟机的虚拟处理器数量。 默认值为 8。        |
 | VirtualMachineDiffDiskPath | 可选 | 管理 VM 处于活动状态期间用于存储临时差异磁盘文件的路径。 默认值为此脚本的相同父文件夹下的 DiffDisks 子目录。 |
 | AzureStackCertificatePath  | 可选 | 要导入到虚拟机以进行 Azure Stack Hub 访问的证书的路径。 |
+| AzSStampInfoFilePath       | 可选 | 文件 AzureStackStampInformation.js的路径，在该文件中，脚本可以检索 ERCS VM 的 Ip。 |
 | CertificatePassword        | 可选 | 要导入到虚拟机以进行 Azure Stack Hub 访问的证书的密码。 |
 | ERCSVMIP                   | 可选 | 要添加到虚拟机的受信任主机列表的 Azure Stack Hub ERCS VM 的 IP。 如果设置了 -SkipNetworkConfiguration，则不会生效。 |
 SkipNetworkConfiguration     | 可选 | 跳过虚拟机的网络配置，使用户可以在以后配置。 |

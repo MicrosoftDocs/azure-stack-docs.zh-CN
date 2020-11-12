@@ -7,12 +7,12 @@ ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: 66a4a8f846002cc126d4861e1acc52b672e78dc5
-ms.sourcegitcommit: 68c00d9ee7c5a9e7da6d41e2f753c0f93d26238e
+ms.openlocfilehash: fc07b78253a19d8a7f459aecacd699338a129ea7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91211153"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546695"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack Hub
 
@@ -34,7 +34,7 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
 
 1. 运行 GitHub 上的“Azure Stack Hub 工具”中的“标识”脚本。 
 
-    - 在运行该脚本之前，需要安装 PowerShell 并根据自己的环境配置 PowerShell。 有关说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。
+    - 在运行该脚本之前，需要安装 PowerShell 并根据自己的环境配置 PowerShell。 有关说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)。
 
     - 有关“标识”脚本的说明和脚本内容，请参阅 **[AzureStack-Tools/Identity](https://aka.ms/aa6z611)** 。
 
@@ -70,7 +70,7 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
 
     记下返回 JSON。 稍后需要使用 `loginEndpoint` 和 `audiences` 属性的值。
 
-8. 按下 **Ctrl+Shift+P**，然后选择“首选项:  打开用户设置(JSON)”。
+8. 按下 **Ctrl+Shift+P** ，然后选择“首选项:  打开用户设置(JSON)”。
 
 9. 在代码编辑器中，使用环境的值更新以下 JSON 代码片段，然后将代码片段粘贴到设置块中。
 
@@ -82,7 +82,7 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
         | `activeDirectoryEndpointUrl` | 这是 loginEndpoint 属性中的 URL。 |
         | `activeDirectoryResourceId` | 这是 audiences 属性中的 URL。
         | `resourceManagerEndpointUrl` | 这是 Azure Stack Hub 的 Azure 资源管理器的根 URL。 |
-        | `validateAuthority` | 如果使用 Azure AD 作为标识管理器，则可以省略此参数。 如果使用 AD FS，则添加值为的参数 `false` 。 |
+        | `validateAuthority` | 如果使用 Azure AD 作为标识管理器，则可以省略此参数。 如果使用 AD FS，请添加此参数并将值设为 `false`。 |
 
     - JSON 代码片段：
 
@@ -97,17 +97,17 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
       "azure.cloud": "AzurePPE"
       ```
 
-10. 保存用户设置并再次按下 **Ctrl+Shift+P**。 选择 **"azure：登录到 Azure 云"**。 新选项“AzurePPE”将显示在目标列表中。****
+10. 保存用户设置并再次按下 **Ctrl+Shift+P** 。 选择“Azure:登录到 Azure 云”。 新选项“AzurePPE”将显示在目标列表中。
 
-11. 选择“AzurePPE”。**** 浏览器中会加载身份验证页。 登录到你的终结点。
+11. 选择“AzurePPE”。 浏览器中会加载身份验证页。 登录到你的终结点。
 
-12. 若要测试是否已成功登录到 Azure Stack 中心订阅，请按 **Ctrl + Shift + P** ，然后选择 " **Azure：选择订阅** "，并查看是否有可用的订阅。
+12. 若要测试是否已成功登录到你的 Azure Stack Hub 订阅，请按 **Ctrl+Shift+ P** 并选择“Azure:选择订阅”，然后查看你的订阅是否可用。
 
 ## <a name="commands"></a>命令
 
 | Azure：登录 | 登录到 Azure 订阅 |
 | --- | --- |
-| Azure：通过设备代码登录 | 使用设备代码登录到你的 Azure 订阅。 在“登录”命令不起作用的设置中使用设备代码。 |
+| Azure：使用设备代码登录 | 使用设备代码登录到你的 Azure 订阅。 在“登录”命令不起作用的设置中使用设备代码。 |
 | Azure：登录到 Azure 云 | 登录到某个主权云中的 Azure 订阅。 |
 | Azure：注销 | 从 Azure 订阅注销 |
 | Azure：选择订阅 | 选择要使用的订阅集。 该扩展只显示筛选的订阅中的资源。 |
@@ -118,4 +118,4 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
 
 ## <a name="next-steps"></a>后续步骤
 
-[在 Azure Stack 中心设置开发环境 ](azure-stack-dev-start.md)
+[设置 Azure Stack Hub 中的开发环境](azure-stack-dev-start.md)

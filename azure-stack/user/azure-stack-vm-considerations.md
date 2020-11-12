@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 993fb7a054cd350f0231eeb2108cc5a43ddb3f9e
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 2fbdc058781b4aefbcf4a289e907bcbb4b63f301
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145431"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546984"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM 功能
 
@@ -75,9 +75,9 @@ Azure Stack Hub 包含少量的扩展。 可以通过市场联合来获取更新
 使用以下 PowerShell 脚本可获取 Azure Stack Hub 环境中可用的 VM 扩展的列表：
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location local | `
-  Get-AzureRmVMExtensionImageType | `
-  Get-AzureRmVMExtensionImage | `
+Get-AzVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
@@ -93,7 +93,7 @@ Azure Stack Hub 中的 VM 功能支持以下 API 版本：
 可以使用以下 PowerShell 脚本来获取 Azure Stack Hub 环境中可用的 VM 功能的 API 版本：
 
 ```powershell
-Get-AzureRmResourceProvider | `
+Get-AzResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `

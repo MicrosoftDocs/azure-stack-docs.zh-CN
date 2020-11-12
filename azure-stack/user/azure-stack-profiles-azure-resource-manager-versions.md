@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 16e34ffaeb32e4652c83a3ee668235e79190b74d
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 56c35d1107f0c31c00c33f23dd1d8ba639fb9f46
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089654"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546763"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Azure Stack Hub 中的配置文件支持的资源提供程序 API 版本
 
@@ -193,5 +193,5 @@ API 配置文件使用三个命名约定：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)
+- [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)
 - [配置 Azure Stack Hub PowerShell 环境](azure-stack-powershell-configure-user.md)  
