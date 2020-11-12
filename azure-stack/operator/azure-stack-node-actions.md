@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e82e551930196c3c0c2e958957172e26bf9861cb
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: ddfc8ad0ab6eccd10488f70873c7cefc0cf6668e
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488328"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545187"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
 
@@ -62,11 +62,11 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 
 在应用以下步骤之前，请确保当前没有正在进行的操作。 更新终结点，使之与环境匹配。
 
-1. 打开 PowerShell 并添加 Azure Stack Hub 环境。 这需要在计算机上[安装 Azure Stack Hub PowerShell](./azure-stack-powershell-install.md)。
+1. 打开 PowerShell 并添加 Azure Stack Hub 环境。 这需要在计算机上[安装 Azure Stack Hub PowerShell](./powershell-install-az-module.md)。
 
    ```powershell
-   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-   Add-AzureRmAccount -Environment AzureStack
+   Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+   Add-AzAccount -Environment AzureStack
    ```
 
 2. 运行以下命令以重启 Fabric 资源提供程序角色。
@@ -95,7 +95,7 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 
 节点的工作状态确定了哪些选项可用。
 
-需要安装 Azure Stack Hub PowerShell 模块。 这些 cmdlet 位于 **Azs.Fabric.Admin** 模块中。 若要安装或验证适用于 Azure Stack Hub 的 PowerShell 的安装，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+需要安装 Azure Stack Hub PowerShell 模块。 这些 cmdlet 位于 **Azs.Fabric.Admin** 模块中。 若要安装或验证适用于 Azure Stack Hub 的 PowerShell 的安装，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 
 ## <a name="stop"></a>停止
 
@@ -204,6 +204,6 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装 Azure Stack PowerShell](./azure-stack-powershell-install.md)
+- [安装 Azure Stack PowerShell](./powershell-install-az-module.md)
 - [了解 Azure Stack 集线器 Fabric 操作员模块](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
 - [监视“添加节点”操作](./azure-stack-add-scale-node.md#monitor-add-node-operations)

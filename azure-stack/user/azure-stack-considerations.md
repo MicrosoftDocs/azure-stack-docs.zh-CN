@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/21/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 25d836bece262f881901df6c62b5dc8f4aeaf11d
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: f4a0ff18d8b96c6c92aa3020031e604d2775c893
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946450"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543555"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>使用服务和生成应用时 Azure Stack Hub 与 Azure 之间的差异
 
@@ -54,7 +54,7 @@ Microsoft 提供的工具和指南可帮助你针对 Azure Stack 中心进行开
 
 | 建议 | 参考 |
 | -------- | ------------- |
-| 在开发人员工作站上安装正确的工具。 | - [安装 PowerShell](../operator/azure-stack-powershell-install.md)<br>- [下载工具](../operator/azure-stack-powershell-download.md)<br>- [配置 PowerShell](azure-stack-powershell-configure-user.md)<br>- [安装 Visual Studio](azure-stack-install-visual-studio.md)
+| 在开发人员工作站上安装正确的工具。 | - [安装 PowerShell](../operator/powershell-install-az-module.md)<br>- [下载工具](../operator/azure-stack-powershell-download.md)<br>- [配置 PowerShell](azure-stack-powershell-configure-user.md)<br>- [安装 Visual Studio](azure-stack-install-visual-studio.md)
 | 查看有关以下各项的信息：<br>Azure 资源管理器模板注意事项。<br>- 如何查找快速入门模板。<br>- 借助策略模块使用 Azure 进行 Azure Stack Hub 方面的开发。 | [为 Azure Stack Hub 进行开发](azure-stack-developer.md) |
 | 查看并遵循模板最佳做法。 | [资源管理器快速入门模板](https://aka.ms/aa6yz42)
 | | |
@@ -68,14 +68,14 @@ Azure Stack Hub 支持特定版本的 Azure PowerShell 和 Azure 服务 API。 �
 > [!NOTE]
 > 如果使用 Azure Stack 开发工具包，并且拥有管理访问权限，请参阅[确定当前版本](../operator/azure-stack-updates.md)部分来确定 Azure Stack Hub 内部版本。
 
-对于其他 API，请运行以下 PowerShell 命令输出 Azure Stack Hub 订阅中支持的命名空间、资源类型和 API 版本（在属性级别上可能仍然存在差异）。 若要正常运行此命令，必须事先[安装](../operator/azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-user.md)适用于 Azure Stack Hub 环境的 PowerShell。 此外，必须有 Azure Stack Hub 套餐的订阅。
+对于其他 API，请运行以下 PowerShell 命令输出 Azure Stack Hub 订阅中支持的命名空间、资源类型和 API 版本（在属性级别上可能仍然存在差异）。 若要正常运行此命令，必须事先[安装](../operator/powershell-install-az-module.md)并[配置](azure-stack-powershell-configure-user.md)适用于 Azure Stack Hub 环境的 PowerShell。 此外，必须有 Azure Stack Hub 套餐的订阅。
 
 ```powershell
-Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
+Get-AzResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-示例输出（已截断）：![Get-AzureRmResourceProvider 命令的示例输出](media/azure-stack-considerations/image1.png)
+示例输出 (截断) ： ![ Get-AzResourceProvider 命令的示例输出](media/azure-stack-considerations/image1.png)
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -84,4 +84,4 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 * [Azure Stack Hub 中的 VM 注意事项](azure-stack-vm-considerations.md)
 * [Azure Stack Hub 中的存储注意事项](azure-stack-acs-differences.md)
 * [Azure Stack Hub 网络注意事项](azure-stack-network-differences.md)
-* [Azure Stack 中心 SQL 资源提供程序的注意事项](../operator/azure-stack-sql-resource-provider.md)
+* [Azure Stack Hub SQL 资源提供程序的注意事项](../operator/azure-stack-sql-resource-provider.md)

@@ -3,16 +3,16 @@ title: 从 GitHub 下载 Azure Stack Hub 工具
 description: 了解如何下载操作 Azure Stack Hub 时所需的工具。
 author: mattbriggs
 ms.topic: article
-ms.date: 8/28/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 8/28/2020
-ms.openlocfilehash: 1c85de355be1597c09db7083b5ca335a5469154c
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 023e04d807ff34f78bd4acbc68487e8893831ba4
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363719"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545051"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>从 GitHub 下载 Azure Stack Hub 工具
 
@@ -74,7 +74,7 @@ cd AzureStack-Tools-master
 
 
 
-若要详细了解如何使用适用于 Azure Stack Hub 的 Az 模块，请参阅[安装适用于 Azure Stack Hub 的 PowerShell Az 预览版模块](powershell-install-az-module.md)。
+---
 
 ---
 
@@ -88,7 +88,7 @@ cd AzureStack-Tools-master
 | [Azure Stack Hub 的资源管理器策略](../user/azure-stack-policy-module.md) | 使用此模块可以配置版本和服务可用性与 Azure Stack Hub 相同的 Azure 订阅或 Azure 资源组。 | 云操作员和用户 |
 | [注册到 Azure](azure-stack-registration.md ) | 使用此模块可将 ASDK 实例注册到 Azure。 注册后，可下载 Azure 市场项，并在 Azure Stack Hub 中使用它们。 | 云操作员 |
 | [Azure Stack Hub 部署](../asdk/asdk-install.md) | 使用此模块可通过 Azure Stack Hub 虚拟硬盘 (VHD) 映像来准备用于部署和重新部署的 Azure Stack Hub 主计算机。 | 云操作员|
-| [连接到 Azure Stack Hub](azure-stack-powershell-install.md) | 使用此模块配置与 Azure Stack Hub 的 VPN 连接。 | 云操作员和用户 |
+| [连接到 Azure Stack Hub](azure-stack-powershell-configure-admin.md) | 使用此模块配置与 Azure Stack Hub 的 VPN 连接。 | 云操作员和用户 |
 | [模板验证程序](../user/azure-stack-validate-templates.md) | 使用此模块可以验证是否可将现有或新的模板部署到 Azure Stack Hub。 | 云操作员和用户|
 
 ## <a name="next-steps"></a>后续步骤

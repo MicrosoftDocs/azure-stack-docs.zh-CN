@@ -1,46 +1,46 @@
 ---
 title: 准备用于部署或轮换的 Azure Stack Hub PKI 证书
 titleSuffix: Azure Stack Hub
-description: 了解如何为 Azure Stack 中心部署或轮换机密准备 PKI 证书。
+description: 了解如何为 Azure Stack Hub 部署或为轮换机密准备 PKI 证书。
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 3d129c3ed588fbaaa2ca234d19890c88b2dad364
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 86e3a87bf869d6bd9980746742a7ba03d142d5fe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724891"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545017"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>准备用于部署或轮换的 Azure Stack Hub PKI 证书
 
-必须导入和导出 [从证书颁发机构 (CA) 获取 ](azure-stack-get-pki-certs.md) 的证书文件，其中包含与 Azure Stack 中心证书要求匹配的属性。
+必须使用符合 Azure Stack Hub 的证书要求的属性来导入和导出[从证书颁发机构 (CA) 获取](azure-stack-get-pki-certs.md)的证书文件。
 
-在本文中，你将了解如何导入、打包和验证证书，以便为 Azure Stack 中心部署或机密轮换做准备。 
+在本文中，你将了解如何导入、打包和验证证书，以便为 Azure Stack Hub 部署或机密轮换做准备。 
 
 ## <a name="prerequisites"></a>必备条件
 
 在打包用于 Azure Stack Hub 部署的 PKI 证书之前，系统应符合以下先决条件：
 
-- 从证书颁发机构返回的证书以 .cer 格式存储在单个目录中 (其他可配置格式，如 .sst 或 .pfx) 。
-- Windows 10 或 Windows Server 2016 或更高版本
+- 从证书颁发机构返回的证书以 .cer 格式（其他可配置的格式，如 .cert、.sst 或 .pfx）存储在一个目录中。
+- Windows 10，或者是 Windows Server 2016 或更高版本
 - 使用生成证书签名请求的同一系统（除非要针对的是预打包到 PFX 中的证书）。
 
-转到适当的 [准备证书 (Azure Stack 准备情况检查程序) ](#prepare-certificates-azure-stack-readiness-checker) 或 [准备证书 (手动步骤) ](#prepare-certificates-manual-steps) 部分。
+继续进行到相应的[准备证书（Azure Stack 就绪性检查器）](#prepare-certificates-azure-stack-readiness-checker)或[准备证书（手动步骤）](#prepare-certificates-manual-steps)部分。
 
-## <a name="prepare-certificates-azure-stack-readiness-checker"></a>准备证书 (Azure Stack 准备情况检查程序) 
+## <a name="prepare-certificates-azure-stack-readiness-checker"></a>准备证书（Azure Stack 就绪性检查器）
 
-使用以下步骤将证书打包，并使用 Azure Stack 就绪检查程序 PowerShell cmdlet：
+使用 Azure Stack 就绪性检查器 PowerShell cmdlet 将证书打包，步骤如下：
 
-1. 通过运行以下 cmdlet，从 PowerShell 提示符 (5.1 或更) 高版本安装 Azure Stack 准备情况检查器模块：
+1. 在 PowerShell 提示符（5.1 或更高版本）下，通过运行以下 cmdlet 来安装 Azure Stack 就绪性检查器模块：
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
-2. 指定证书文件的 **路径** 。 例如：
+2. 指定证书文件的路径。 例如：
 
     ```powershell  
         $Path = "$env:USERPROFILE\Documents\AzureStack"
@@ -123,9 +123,9 @@ ms.locfileid: "88724891"
 
     成功验证之后，可以提供用于部署或轮换的证书，而不需要任何其他步骤。
 
-## <a name="prepare-certificates-manual-steps"></a> (手动步骤准备证书) 
+## <a name="prepare-certificates-manual-steps"></a>准备证书（手动步骤）
 
-使用以下步骤，通过手动步骤将证书打包用于新的 Azure Stack 中心 PKI 证书。
+对于新的 Azure Stack Hub PKI 证书，请使用以下手动步骤来打包证书。
 
 ### <a name="import-the-certificate"></a>导入证书
 
@@ -133,21 +133,21 @@ ms.locfileid: "88724891"
    > [!WARNING]
    > 如果已以任何方式导入、导出或更改直接由 CA 提供的文件，请勿复制该文件。
 
-1. 右键单击证书并选择“安装证书”**** 或“安装PFX”****，具体取决于从 CA 传送证书的方式。
+1. 右键单击证书并选择“安装证书”或“安装PFX”，具体取决于从 CA 传送证书的方式。
 
-1. 在**证书导入向导**中，选择“本地计算机”**** 作为导入位置。 选择“下一步”  。 在下一个屏幕上，再次选择“下一步”。
+1. 在 **证书导入向导** 中，选择“本地计算机”作为导入位置。 选择“下一步”  。 在下一个屏幕上，再次选择“下一步”。
 
     ![证书的本地计算机导入位置](./media/prepare-pki-certs/1.png)
 
-1. 选择“将所有证书放在以下存储中”****，然后选择“企业信任”**** 作为位置。 选择“确定”**** 以关闭“证书存储选择”对话框，然后选择“下一步”****。
+1. 选择“将所有证书放在以下存储中”，然后选择“企业信任”作为位置。 选择“确定”以关闭“证书存储选择”对话框，然后选择“下一步”。
 
    ![配置用于证书导入的证书存储](./media/prepare-pki-certs/3.png)
 
-   a. 如果要导入 PFX，则会看到其他对话框。 在 " **私钥保护** " 页上，输入证书文件的密码，并启用 "将 **此密钥标记为可导出"。** 选项，允许稍后备份或传输密钥。 选择“下一步”  。
+   a. 如果要导入 PFX，则会看到其他对话框。 在“私钥保护”页上，输入证书文件的密码，然后启用“将此密钥标记为可导出。”  选项，这样就可在以后备份或传输密钥。 选择“下一步”  。
 
    ![将密钥标记为可导出](./media/prepare-pki-certs/2.png)
 
-1. 选择“完成”以完成导入。****
+1. 选择“完成”以完成导入。
 
 > [!NOTE]
 > 导入 Azure Stack Hub 的证书后，证书的私钥将作为 PKCS 12 文件 (PFX) 存储在群集存储上。
@@ -156,13 +156,13 @@ ms.locfileid: "88724891"
 
 打开证书管理员 MMC 控制台并连接到本地计算机证书存储。
 
-1. 打开 Microsoft 管理控制台。 若要在 Windows 10 中打开控制台，请右键单击 " **开始" 菜单**，选择 " **运行**"，然后键入 **mmc** ，然后按 enter。
+1. 打开 Microsoft 管理控制台。 若要在 Windows 10 中打开控制台，请右键单击“开始”菜单，选择“运行”，然后键入“mmc”并按 Enter 键  。
 
 2. 选择“文件” > “添加/删除管理单元”，然后选择“证书”并选择“添加”。
 
     ![在 Microsoft 管理控制台中添加证书管理单元](./media/prepare-pki-certs/mmc-2.png)
 
-3. 选择“计算机帐户”，然后选择“下一步”********。 选择“本地计算机”，然后选择“完成”。******** 选择“确定”以关闭“添加/删除管理单元”页。****
+3. 选择“计算机帐户”，然后选择“下一步”。 选择“本地计算机”，然后选择“完成”。 选择“确定”以关闭“添加/删除管理单元”页。
 
     ![选择与“在 Microsoft 管理控制台中添加证书管理单元”相对应的帐户](./media/prepare-pki-certs/mmc-3.png)
 
@@ -173,18 +173,18 @@ ms.locfileid: "88724891"
    > [!NOTE]
    > 根据你拥有 Azure Stack Hub 证书的数量，可能需要多次完成此过程。
 
-6. 选择 **"是，导出私钥**"，然后选择 " **下一步**"。
+6. 选择“是，导出私钥”，然后选择“下一步” 。
 
 7. 在“导出文件格式”部分执行以下操作：
     
-   - 选择“包括证书路径中的所有证书(如果可能)”。****  
-   - 选择“导出所有扩展属性”。****  
-   - 选择“启用证书隐私”。****  
-   - 选择“下一步”  。  
+   - 选择“包括证书路径中的所有证书(如果可能)”。  
+   - 选择“导出所有扩展属性”。  
+   - 选择“启用证书隐私”。  
+   - 选择“ **下一页** ”。  
     
      ![包含选定选项的证书导出向导](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
-8. 选择“密码”**** 并为证书提供密码。 创建满足以下密码复杂性要求的密码：
+8. 选择“密码”并为证书提供密码。 创建满足以下密码复杂性要求的密码：
 
     * 最小长度为 8 个字符。
     * 至少包含以下字符中的三种字符：大写字母、小写字母、0-9 中的数字、特殊字符、不是大写也不是小写的字母字符。
@@ -193,7 +193,7 @@ ms.locfileid: "88724891"
 
 9. 选择“下一步”  。
 
-10. 选择要导出的 PFX 文件的文件名和位置。 选择“**下一步**”。
+10. 选择要导出的 PFX 文件的文件名和位置。 选择“ **下一步** ”。
 
 11. 选择“完成”。
 

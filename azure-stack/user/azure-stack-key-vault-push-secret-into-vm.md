@@ -1,17 +1,17 @@
 ---
-title: 在 Azure Stack 中心使用安全存储的证书部署 VM
+title: 使用安全存储在 Azure Stack Hub 中的证书部署 VM
 description: 了解如何在 Azure Stack Hub 中部署虚拟机，并使用密钥保管库将证书推送到该虚拟机
 author: sethmanheim
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 5f99d816470649366703da5de4bf68ebdbe26a61
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 245658359db8b55a455fa653f4b97bbf6d1737d8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571824"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546236"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>使用安全地存放在 Azure Stack Hub 上的证书部署 VM
 
@@ -39,12 +39,12 @@ ms.locfileid: "90571824"
 ## <a name="prerequisites"></a>必备条件
 
 * 必须订阅包含 Key Vault 服务的产品/服务。
-* [安装适用于 Azure Stack Hub 的 PowerShell](../operator/azure-stack-powershell-install.md)。
+* [安装适用于 Azure Stack Hub 的 PowerShell](../operator/powershell-install-az-module.md)。
 * [配置 Azure Stack Hub 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
 
 ## <a name="create-a-key-vault-secret"></a>创建密钥保管库机密
 
-以下脚本会创建 .pfx 格式的证书、创建密钥保管库，并将该证书作为机密存储在密钥保管库中。 `contentType`机密的必须设置为 `pfx` 。
+以下脚本会创建 .pfx 格式的证书、创建密钥保管库，并将该证书作为机密存储在密钥保管库中。 机密的 `contentType` 必须设为 `pfx`。
 
 > [!IMPORTANT]
 > 创建密钥保管库时，必须使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
@@ -87,11 +87,11 @@ $jsonObject = @"
 $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location `
@@ -155,7 +155,7 @@ Set-AzureKeyVaultSecret `
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret to it
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
@@ -166,10 +166,10 @@ New-AzureRmResourceGroupDeployment `
 
 ![模板部署结果](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-在部署过程中，Azure Stack 中心将证书推送到 VM。 证书位置取决于 VM 的操作系统：
+在部署期间，Azure Stack Hub 会将证书推送到 VM。 证书位置取决于 VM 的操作系统：
 
 * 在 Windows 中，系统会利用用户提供的证书存储，将证书添加到 **LocalMachine** 证书位置。
-* 在 Linux 中，证书会置于 **/var/lib/waagent** 目录下，其中 x509 证书文件的文件名为 **UppercaseThumbprint.crt**，私钥的文件名为 **UppercaseThumbprint.prv**。
+* 在 Linux 中，证书会置于 **/var/lib/waagent** 目录下，其中 x509 证书文件的文件名为 **UppercaseThumbprint.crt** ，私钥的文件名为 **UppercaseThumbprint.prv** 。
 
 ## <a name="retire-certificates"></a>停用证书
 

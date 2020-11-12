@@ -1,20 +1,20 @@
 ---
-title: 通过 VNET 对等互连连接两个 Azure Stack 集线器
-description: 了解如何通过 VNET 对等互连连接两个 Azure Stack Hub。
+title: 连接两个 Azure Stack 集线器 Vnet
+description: 了解如何连接两个 Azure Stack 集线器。
 author: mattbriggs
 ms.topic: how-to
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 6ce27df08aeb885c6a04f97bb2b16292a6ffca96
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b6488b98317decf6b592339bfa66d15834f1f55d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572521"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543385"
 ---
-# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VM 所在的 Azure Stack Hub 中的 VNET 对等互连
+# <a name="vnet-to-vnet-connectivity-with-rras"></a>VNet 到 VNet 与 RRAS 的连接
 
 可以在同一 Azure Stack Hub 环境中将两个 Azure Stack Hub VNet 互相连接。 目前无法使用内置[虚拟网关](./azure-stack-network-differences.md)连接 Azure Stack Hub VNet。 必须使用 NVA 设备在两个 Azure Stack Hub VNet 之间创建 VPN 隧道。 在本文的模板引用中，部署了两个安装了 RRAS 的 Windows Server 2016 VM。 这两个 RRAS 服务器经过配置，可以在两个 VNET 之间实现 S2SVPN IKEv2 隧道。 创建适当的 NSG 和 UDR 规则以允许在指定为“内部”  的每个 VNET 上的子网之间进行路由。 
 
@@ -23,12 +23,12 @@ ms.locfileid: "90572521"
 可以在 [Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) GitHub 存储库中找到这些模板。 该模板位于 **S2SVPNTunnel** 文件夹中。
 
-![此关系图显示了一个实现，该实现在两个 Vnet 之间提供 VPN 隧道。 每个 VNET、内部子网和隧道子网中都有 RRAS 服务器。](./media/azure-stack-network-howto-vnet-peering/overview.svg)
+![此图显示了一个实现，该实现在两个 NET 之间提供一个 VPN 隧道。 每个 VNET 上都有一个 RRAS 服务器、一个内部子网和一个隧道子网。](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>要求
 
 - 应用了最新更新的部署。 
-- 必需 Azure Stack 中心市场项：
+- 所需的 Azure Stack Hub 市场项：
     -  Windows Server 2016 Datacenter（建议使用最新内部版本）
     -  自定义脚本扩展
 
@@ -51,7 +51,7 @@ ms.locfileid: "90572521"
 
 此模板为 VNet 命名和 IP 寻址提供默认值。 它需要管理员 (rrasadmin) 的密码，还提供了将自己的存储 blob 与 SAS 令牌配合使用的功能。 请谨慎地使这些值保持在合法的范围内，否则部署可能失败。 PowerShell DSC 包将在每个 RRAS VM 上执行，并安装路由和所有必需的依赖服务和功能。 如果需要，可以进一步自定义此 DSC。 自定义脚本扩展运行以下脚本，`Add-Site2Site.ps1` 使用共享密钥在两个 RRAS 服务器之间配置 VPNS2S 隧道。 可以查看自定义脚本扩展的详细输出，以查看 VPN 隧道配置的结果
 
-![标题为 S2SVPNTunnel 的关系图显示了两个由站点到站点 VPN 隧道连接的 Vnet。](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
+![该图（标题为 S2SVPNTunnel）显示了两个由站点到站点 VPN 隧道连接的 VNET。](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
 
 ## <a name="next-steps"></a>后续步骤
 

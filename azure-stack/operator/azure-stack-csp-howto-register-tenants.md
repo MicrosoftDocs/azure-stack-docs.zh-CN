@@ -7,12 +7,12 @@ ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448565"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543810"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>将租户添加到 Azure Stack Hub 以获取用量和计费信息
 
@@ -52,22 +52,22 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
 1. 在权限提升的提示符窗口中打开 Windows PowerShell 并运行：  
 
    ```powershell
-   Add-AzureRmAccount
+   Add-AzAccount
    ```
 
    >[!NOTE]
-   > 如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`****。
+   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 **AzAccount** ：登录之前运行以下 cmdlet `Remove-AzAccount-Scope Process` 。
 
 2. 键入 Azure 凭据。
 3. 在 PowerShell 会话中运行：
 
    ```powershell
-   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azurermresource-powershell-parameters"></a>New-AzureRmResource PowerShell 参数
+### <a name="new-azresource-powershell-parameters"></a>New-AzResource PowerShell 参数
 
-以下部分描述 **New-AzureRmResource** cmdlet 的参数：
+以下部分介绍了 **AzResource** cmdlet 的参数：
 
 | 参数 | 说明 |
 | --- | --- |

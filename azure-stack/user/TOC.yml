@@ -48,7 +48,7 @@
                 - name: Azure Stack Hub PowerShell 概述
                   href: azure-stack-powershell-overview.md
                 - name: 安装 Azure Stack Hub PowerShell
-                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/powershell-install-az-module.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: 使用 PowerShell 连接
                   href: azure-stack-powershell-configure-user.md
@@ -189,6 +189,8 @@
                       href: network-virtual-appliance.md
                     - name: 排查站点到站点连接问题
                       href: site-to-site.md
+                - name: 虚拟网络对等互连
+                  href: virtual-network-peering.md
                 - name: 用于 Azure Stack Hub 的 iDNS
                   href: azure-stack-understanding-dns.md
                 - name: Azure Stack Hub 中的 DNS
@@ -301,19 +303,19 @@
       items:
         - name: 网络模式
           items:
-            - name: VNet 与 VM 对等互连
-              href: azure-stack-network-howto-vnet-peering.md
             - name: 使用第三方 NVA (Fortinet Fortigate NVA)
               items:
-                - name: VNet 与 FortiGate 对等互连
+                - name: VNet 到 VNet 与 Fortigate 的连接
                   href: azure-stack-network-howto-vnet-to-vnet.md
                 - name: 将 VPN 设置到本地
                   href: azure-stack-network-howto-vnet-to-onprem.md
-                - name: VNET 到 VNET 连接
+                - name: Azure Stack 集线器实例之间的 VNet 到 VNet 连接
                   href: azure-stack-network-howto-vnet-to-vnet-stacks.md
             - name: 使用 RRAS
               items:
-                - name: 设置多个站点到站点 VPN
+                - name: VNet 到 VNet 与 RRAS 的连接
+                  href: azure-stack-network-howto-vnet-peering.md
+                - name: 设置多个站点到站点 VPN 隧道
                   href: network-howto-vpn-tunnel.md
                 - name: 创建 VPN 隧道 (GRE)
                   href: network-howto-vpn-tunnel-gre.md

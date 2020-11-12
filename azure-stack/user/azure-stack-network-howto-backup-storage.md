@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: e77c05c6f13a3ee3cb23a13a466bb7e0e80394f7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107213"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546185"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>在 Azure Stack Hub 上备份存储帐户
 
@@ -22,7 +22,7 @@ ms.locfileid: "91107213"
 
 本部分探讨解决方案的整体结构和主要组成部分。
 
-![显示 Azure Stack 中心存储备份的总体结构的关系图。](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
+![该图显示 Azure Stack Hub 存储备份的总体结构。](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
 
 ### <a name="application-layer"></a>应用层
 
@@ -54,13 +54,13 @@ AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云�
 - 有关设置 Linux 服务器的说明，请参阅[使用 Azure Stack Hub 门户创建 Linux 服务器 VM](azure-stack-quick-linux-portal.md)。  
 - 有关设置 Windows 服务器的说明，请参阅[使用 Azure Stack Hub 门户创建 Windows 服务器 VM](azure-stack-quick-windows-portal.md)。  
 
-设置 Windows 服务器之后，需要安装 [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) 和 [Azure Stack Hub 工具](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json)。
+设置 Windows 服务器之后，需要安装 [Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) 和 [Azure Stack Hub 工具](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json)。
 
 ## <a name="set-up-backup-for-storage-accounts"></a>为存储帐户设置备份
 
 1. 检索源和目标存储帐户的 Blob 终结点。
 
-    ![屏幕截图显示源和目标存储帐户的主 blob 端点。](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
+    ![该屏幕截图显示源和目标存储帐户的主 Blob 终结点。](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
 
 2. 创建并记下源和目标存储帐户的 SAS 令牌。
 
@@ -80,13 +80,13 @@ AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云�
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. 在中间服务器上创建脚本。 使用**存储帐户**、**SAS 密钥**和**本地目录路径**更新此命令。 稍后需要运行该脚本以增量方式从**源**存储帐户复制数据。
+4. 在中间服务器上创建脚本。 使用 **存储帐户** 、 **SAS 密钥** 和 **本地目录路径** 更新此命令。 稍后需要运行该脚本以增量方式从 **源** 存储帐户复制数据。
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  输入**存储帐户**、**SAS 密钥**和**本地目录路径。  稍后将使用此信息以增量方式将数据复制到**目标**存储帐户
+5.  输入 **存储帐户** 、**SAS 密钥**和**本地目录路径。  稍后将使用此信息以增量方式将数据复制到 **目标** 存储帐户
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true

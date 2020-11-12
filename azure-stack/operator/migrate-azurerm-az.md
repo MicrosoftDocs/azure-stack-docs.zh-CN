@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: ea3ec5389aa00d0b606d86e483a8ca5a2607aa1a
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.openlocfilehash: bfb385e29a89ad8d47ace3b15776bd368e0cf521
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729230"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546165"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>在 Azure Stack Hub 中从 AzureRM 迁移到 Azure PowerShell Az
 
@@ -41,7 +41,7 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 若要安装 Azure PowerShell Az 模块，请执行以下步骤：
 
-* __建议__：[卸载 AzureRM 模块](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
+* __建议__ ： [卸载 AzureRM 模块](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
   请确保删除所有已安装的 AzureRM 版本，不只是最新版本。
 * [安装 Az 模块](/powershell/azure/install-az-ps)
 
@@ -208,7 +208,7 @@ RequiredModules = @(@{ModuleName="AzureRM.Profile"; ModuleVersion="5.8.2"})
 必须更改为：
 
 ```powershell
-RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
+RequiredModules = @(@{ModuleName="Az.Accounts"; ModuleVersion="1.0.0"})
 ```
 
 ### <a name="removed-modules"></a>删除的模块

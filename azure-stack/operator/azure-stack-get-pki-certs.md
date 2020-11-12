@@ -3,16 +3,16 @@ title: 为 Azure Stack Hub 生成证书签名请求
 description: 了解如何在 Azure Stack Hub 集成系统中为 Azure Stack Hub PKI 证书生成证书签名请求。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: e72d00d7a0a5f1a9299d3d279e3b7ee8dd779b30
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 1b7737f387ea1ea3afc913116642605fa54818a6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428560"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543709"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>为 Azure Stack Hub 生成证书签名请求
 
@@ -20,9 +20,9 @@ ms.locfileid: "89428560"
 
 可以使用 Azure Stack Hub 就绪性检查器工具 (AzsReadinessChecker) 请求以下证书：
 
-- **标准证书请求**，根据[为新部署生成证书签名请求](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments)。
-- **续订证书请求**，根据[生成证书签名请求以续订证书](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal)。
-- **平台即服务**：可以请求 [Azure Stack Hub 公钥基础结构证书要求 - 可选的 PaaS 证书](azure-stack-pki-certs.md#optional-paas-certificates)中指定的证书的平台即服务 (PaaS) 名称。
+- **标准证书请求** ，根据 [为新部署生成证书签名请求](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments)。
+- **续订证书请求** ，根据 [生成证书签名请求以续订证书](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal)。
+- **平台即服务** ：可以请求 [Azure Stack Hub 公钥基础结构证书要求 - 可选的 PaaS 证书](azure-stack-pki-certs.md#optional-paas-certificates)中指定的证书的平台即服务 (PaaS) 名称。
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -48,7 +48,7 @@ ms.locfileid: "89428560"
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. 声明**使用者**。 例如：
+2. 声明 **使用者** 。 例如：
 
     ```powershell  
     $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack Hub"
@@ -79,7 +79,7 @@ ms.locfileid: "89428560"
     > [!NOTE]  
     > 只有 CertificateType 部署需要此参数。
 
-5. 声明用于 Azure Stack Hub 部署的**区域名称**和**外部 FQDN**。
+5. 声明用于 Azure Stack Hub 部署的 **区域名称** 和 **外部 FQDN** 。
 
     ```powershell
     $regionName = 'east'
@@ -111,7 +111,7 @@ ms.locfileid: "89428560"
     New-AzsHubIoTHubCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
     ```
 
-7. 另外，对于开发/测试环境，若要生成具有多个使用者可选名称的单个证书请求，请添加 **-RequestType SingleCSR** 参数和值（**不**建议用于生产环境）：
+7. 另外，对于开发/测试环境，若要生成具有多个使用者可选名称的单个证书请求，请添加 **-RequestType SingleCSR** 参数和值（ **不** 建议用于生产环境）：
 
     ```powershell  
     New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -RequestType SingleCSR -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
@@ -135,18 +135,18 @@ ms.locfileid: "89428560"
 1. 在 PowerShell 提示符（5.1 或更高版本）下，运行以下 cmdlet 安装 AzsReadinessChecker：
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
-2. 以 Azure Stack 集线器系统的 regionname.domain.com 的形式声明 **stampEndpoint** 。 例如 (Azure Stack 中心租户门户地址是否 <code> https://</code> <code>portal.east.azurestack.contoso.com</code>) ：
+2. 以 Azure Stack Hub 系统的 regionname.domain.com 形式声明 stampEndpoint。 例如（如果 Azure Stack Hub 租户门户地址为 <code> https://</code><code>portal.east.azurestack.contoso.com</code>）：
 
     ```powershell  
     $stampEndpoint = 'east.azurestack.contoso.com'
     ```
 
     > [!NOTE]  
-    > 上述 Azure Stack 集线器系统需要 HTTPS 连接。
-    > 就绪检查器将使用 stampendpoint (区域和域) 来构建指向证书类型所需的现有证书的指针（例如，通过工具预置部署证书 "门户"），因此 portal.east.azurestack.contoso.com 用于 AppServices sso.appservices.east.azurestack.contoso.com 等的证书克隆中。绑定到计算终结点的证书将用于克隆属性，如 subject、key length、签名算法。  如果要更改这些属性中的任何一个，则应遵循为 [新部署生成证书签名请求](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments) 的步骤。
+    > 上述 Azure Stack Hub 系统需要 HTTPS 连接。
+    > 就绪检查器将使用 stampendpoint（区域和域）来构建一个指向证书类型所需的现有证书的指针。例如，对于部署证书，该工具会将“portal”前置，因此，对于 sso.appservices.east.azurestack.contoso.com 之类的 AppService，会将 portal.east.azurestack.contoso.com 用于证书克隆。绑定到已计算的终结点的证书将用于克隆属性，例如使用者、密钥长度和签名算法。  如果要更改其中任何属性，则应改为按照[为新部署生成证书签名请求](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments)的步骤进行操作。
 
 3. 声明已存在的输出目录。 例如：
 
@@ -176,7 +176,7 @@ ms.locfileid: "89428560"
     New-AzsHubIotHubCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
     ```
 
-5. 另外，对于开发/测试环境，若要生成具有多个使用者可选名称的单个证书请求，请添加 **-RequestType SingleCSR** 参数和值（**不**建议用于生产环境）：
+5. 另外，对于开发/测试环境，若要生成具有多个使用者可选名称的单个证书请求，请添加 **-RequestType SingleCSR** 参数和值（ **不** 建议用于生产环境）：
 
     ```powershell  
     New-AzsHubDeploymentCertificateSigningRequest -StampEndpoint $stampendpoint -OutputRequestPath $OutputDirectory -RequestType SingleCSR

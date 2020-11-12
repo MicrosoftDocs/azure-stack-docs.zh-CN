@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 9a04f99df8093f0f37d68137dfbe9ff18664d385
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489736"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544711"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>基于 Azure Stack Hub 的应用服务 2020 Q2 发行说明
 
@@ -45,7 +45,7 @@ ms.locfileid: "86489736"
   > [!Important]
   > 云操作员负责文件服务器和 SQL Server 的维护和操作。  资源提供程序不管理这些资源。  云操作员负责备份应用服务数据库和租户内容文件共享。
 
-- 同步发布市场的**自定义脚本扩展**版本 **1.9.3**
+- 同步发布市场的 **自定义脚本扩展** 版本 **1.9.3**
 
 
 
@@ -53,13 +53,13 @@ ms.locfileid: "86489736"
 
 基于 Azure Stack 的 Azure 应用服务 Update Q2 包含以下改进和修复：
 
-- 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
+- 针对 **应用服务租户、管理员、函数门户和 Kudu 工具** 的更新。 与 Azure Stack 门户 SDK 版本一致。
 
-- 将 **Azure Functions 运行时**更新到 **v1.0.13021**。
+- 将 **Azure Functions 运行时** 更新到 **v1.0.13021** 。
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
-- **针对以下应用程序框架和工具的更新**：
+- **针对以下应用程序框架和工具的更新** ：
   - ASP.NET Framework 4.7.2
   - ASP.NET Core 3.1.3
   - ASP.NET Core 模块 v2 13.1.19331.0
@@ -76,13 +76,13 @@ ms.locfileid: "86489736"
     - 6.12.0
     - 6.13.4
   
-- **对所有角色的基础操作系统的更新**：
+- **对所有角色的基础操作系统的更新** ：
   - [适用于基于 x64 的系统的 Windows Server 2016 的 2020-04 累积更新 (KB4550929)](https://support.microsoft.com/help/4550929)
   - [适用于基于 x64 的系统的 Windows Server 2016 的 2020-04 服务堆栈更新 (KB4550994)](https://support.microsoft.com/help/4550994)
 
 - **Windows Server 的累积更新现在会在部署和升级过程中应用到控制器角色**
 
-- **更新了新部署的默认虚拟机和规模集 SKU**：为了保持与公有云服务的一致性，基于 Azure Stack Hub 的 Azure 应用服务的新部署将对用于运行资源提供程序的基础计算机和规模集使用以下 SKU
+- **更新了新部署的默认虚拟机和规模集 SKU** ：为了保持与公有云服务的一致性，基于 Azure Stack Hub 的 Azure 应用服务的新部署将对用于运行资源提供程序的基础计算机和规模集使用以下 SKU
   
   | 角色 | 最小 SKU |
   | --- | --- |
@@ -127,12 +127,13 @@ ms.locfileid: "86489736"
 
 如果在部署后客户已将 appservice_hosting 和 appservice_metering 数据库转换为包含的数据库，但尚未将数据库登录名成功迁移到包含的用户，则可能会遇到升级失败的情况。  
 
-在将基于 Azure Stack Hub 的 Azure 应用服务安装升级到 2020 Q2 之前，客户必须对托管 appservice_hosting 和 appservice_metering 的 SQL Server 执行以下脚本。  **此脚本是非破坏性的，不会导致停机**。
+在将基于 Azure Stack Hub 的 Azure 应用服务安装升级到 2020 Q2 之前，客户必须对托管 appservice_hosting 和 appservice_metering 的 SQL Server 执行以下脚本。  **此脚本是非破坏性的，不会导致停机** 。
 
 必须在满足以下条件的情况下运行此脚本
 
-1. 此脚本由具有系统管理员权限的用户（例如 SQL SA 帐户）运行；
-1. 如果使用 SQL Always On，请确保从包含了以下格式的所有应用服务登录名的 SQL 实例中运行该脚本：
+- 此脚本由具有系统管理员权限的用户（例如 SQL SA 帐户）运行；
+- 如果使用 SQL Always On，请确保从包含了以下格式的所有应用服务登录名的 SQL 实例中运行该脚本：
+
     - appservice_hosting_FileServer
     - appservice_hosting_HostingAdmin
     - appservice_hosting_LoadBalancer

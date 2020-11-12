@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 44fa05f5841952d581a35d8394300e96333bfc4f
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: a5250e18ab253a6c1a2b184ba1f261b5837bc879
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847072"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543471"
 ---
 # <a name="connect-to-the-asdk"></a>连接到 ASDK
 
@@ -29,9 +29,9 @@ ms.locfileid: "82847072"
 > [!TIP]
 > 此选项还可让你在已登录到 ASDK 主计算机的情况下，再次使用 RDP 登录到在 ASDK 主计算机上创建的虚拟机 (VM)。
 
-1. 打开远程桌面连接 (mstc.exe) 并连接到 ASDK 主计算机 IP 地址。 请确保使用有权远程登录到 ASDK 主计算机的帐户。 默认情况下，**AzureStack\AzureStackAdmin** 有权远程登录到 ASDK 主机。  
+1. 打开远程桌面连接 (mstc.exe) 并连接到 ASDK 主计算机 IP 地址。 请确保使用有权远程登录到 ASDK 主计算机的帐户。 默认情况下， **AzureStack\AzureStackAdmin** 有权远程登录到 ASDK 主机。  
 
-2. 在 ASDK 主计算机上，打开服务器管理器 (ServerManager.exe)。 选择“本地服务器”，禁用“IE 增强的安全配置”，然后关闭服务器管理器。  
+2. 在 ASDK 主计算机上，打开服务器管理器 (ServerManager.exe)。 选择“本地服务器”，禁用“IE 增强的安全配置”，然后关闭服务器管理器。 
 
 3. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 操作员凭据登录到管理员门户。 ASDK 管理员门户地址为 `https://adminportal.local.azurestack.external`。
 
@@ -48,7 +48,7 @@ ms.locfileid: "82847072"
 Azure AD 部署和 Active Directory 联合身份验证服务 (AD FS) 部署都支持 VPN 连接。
 
 > [!NOTE]
-> 使用 VPN 无法连接到 Azure Stack VM。  通过 VPN 建立连接时，无法使用 RDP 连接到 Azure Stack VM。
+> 使用 VPN 无法连接到 Azure Stack VM。 通过 VPN 建立连接时，无法使用 RDP 连接到 Azure Stack VM。
 
 ### <a name="prerequisites"></a>先决条件
 在设置 ASDK 的 VPN 连接之前，请确保满足以下先决条件：
@@ -62,7 +62,7 @@ Azure AD 部署和 Active Directory 联合身份验证服务 (AD FS) 部署都�
 
 ```powershell
 # Change directories to the default Azure Stack tools directory
-cd C:\AzureStack-Tools-master
+cd C:\AzureStack-Tools-az
 
 # Configure Windows Remote Management (WinRM), if it's not already configured.
 winrm quickconfig  
@@ -92,7 +92,7 @@ Add-AzsVpnConnection `
 
 ```
 
-如果设置成功，**Azure Stack** 将出现在 VPN 连接列表中：
+如果设置成功， **Azure Stack** 将出现在 VPN 连接列表中：
 
 ![网络连接](media/asdk-connect/vpn.png)  
 
@@ -107,9 +107,9 @@ Add-AzsVpnConnection `
       -Password $Password
     ```
 
-  * 在本地计算机上，选择“网络设置”   > “VPN”   > “Azure Stack”   > “连接”  。 在登录提示符下，输入用户名 (**AzureStack\AzureStackAdmin**) 和密码。
+  * 在本地计算机上，选择“网络设置” > “VPN” > “Azure Stack” > “连接”。 在登录提示符下，输入用户名 ( **AzureStack\AzureStackAdmin** ) 和密码。
 
-首次连接时，系统会提示在本地计算机的证书存储中安装来自 **AzureStackCertificateAuthority** 的 Azure Stack 根证书。 此步骤将 ASDK 证书颁发机构 (CA) 添加到受信任的主机列表。 单击“是”以安装证书。 
+首次连接时，系统会提示在本地计算机的证书存储中安装来自 **AzureStackCertificateAuthority** 的 Azure Stack 根证书。 此步骤将 ASDK 证书颁发机构 (CA) 添加到受信任的主机列表。 单击“是”以安装证书。
 
 ![根证书](media/asdk-connect/cert.png)  
   
@@ -118,7 +118,7 @@ Add-AzsVpnConnection `
 
 ### <a name="test-vpn-connectivity"></a>测试 VPN 连接
 
-若要测试门户连接，请打开浏览器，然后在`https://portal.local.azurestack.external/`或管理员门户`https://adminportal.local.azurestack.external/`中，选择 "用户门户"。
+若要测试门户连接，请打开浏览器，然后转到用户门户 `https://portal.local.azurestack.external/` 或管理员门户 `https://adminportal.local.azurestack.external/`。
 
 使用相应的订阅凭据登录，以创建和管理资源。  
 

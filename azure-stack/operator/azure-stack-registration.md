@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: 了解如何将 Azure Stack Hub 集成系统注册到 Azure，以便可以下载 Azure 市场项并设置数据报告。
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 04/06/2020
+ms.date: 10/16/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
-ms.lastreviewed: 03/04/2019
+ms.lastreviewed: 10/16/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 15da8dc1fadcd0bbe1f76513e1afd31ca20c2743
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: b3c5eaebf082ac84ff4ea231f329385c6ad4e108
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415277"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545425"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
 
@@ -81,7 +81,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 使用适用于 Azure Stack Hub 的最新 PowerShell 来注册到 Azure。
 
-如果最新版本尚未安装，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+如果最新版本尚未安装，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 
 ### <a name="download-the-azure-stack-hub-tools"></a>下载 Azure Stack Hub 工具
 
@@ -121,10 +121,10 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 1. 若要向 Azure 注册 Azure Stack Hub 资源提供程序，请以管理员身份启动 PowerShell ISE，然后使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为相应的 Azure 订阅类型（请参阅下面的“参数”）。
 
-2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
+2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **AzAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
    ```powershell
-   Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Add-AzAccount -EnvironmentName "<environment name>"
    ```
 
    | 参数 | 说明 |  
@@ -132,21 +132,21 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
    | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud** 、 **AzureUSGovernment** 或使用中国 Azure 订阅 **AzureChinaCloud** 。  |
 
    >[!Note]
-   > 如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
+   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 AzAccount 登录之前运行以下 cmdlet： `Remove-AzAccount-Scope Process`
 
 3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：  
 
    ```powershell  
-   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzSubscription
    ```
 
 4. 运行以下命令，在 Azure 订阅中注册 Azure Stack Hub 资源提供程序：
 
    ```powershell  
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack Hub 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用 PowerShell 导入 **RegisterWithAzure.psm1** 模块：
+5. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 集线器工具时创建的 **test-azurestack-az** 目录中的 **注册** 文件夹。 使用 PowerShell 导入 **RegisterWithAzure.psm1** 模块：
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
@@ -155,7 +155,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 6. 接下来，在同一个 PowerShell 会话中，确保已登录到正确的 Azure PowerShell 上下文。 此上下文是前面在注册 Azure Stack Hub 资源提供程序时所用的 Azure 帐户。 要运行的 PowerShell：
 
    ```powershell  
-   Connect-AzureRmAccount -Environment "<environment name>"
+   Connect-AzAccount -Environment "<environment name>"
    ```
 
    | 参数 | 说明 |  
@@ -188,10 +188,10 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 1. 若要向 Azure 注册 Azure Stack Hub 资源提供程序，请以管理员身份启动 PowerShell ISE，然后使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为相应的 Azure 订阅类型（请参阅下面的“参数”）。
 
-2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
+2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **AzAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
    ```powershell  
-   Connect-AzureRmAccount -Environment "<environment name>"
+   Connect-AzAccount -Environment "<environment name>"
    ```
 
    | 参数 | 说明 |  
@@ -201,16 +201,16 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：  
 
    ```powershell  
-   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzSubscription
    ```
 
 4. 运行以下命令，在 Azure 订阅中注册 Azure Stack Hub 资源提供程序：
 
    ```powershell  
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack Hub 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 使用 PowerShell 导入 **RegisterWithAzure.psm1** 模块：
+5. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 集线器工具时创建的 **test-azurestack-az** 目录中的 **注册** 文件夹。 使用 PowerShell 导入 **RegisterWithAzure.psm1** 模块：
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -235,7 +235,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 ### <a name="get-a-registration-token-from-the-azure-stack-hub-environment"></a>从 Azure Stack Hub 环境获取注册令牌
 
-1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack Hub 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
+1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 集线器工具时创建的 **test-azurestack-az** 目录中的 **注册** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
@@ -260,7 +260,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 需要注册令牌和唯一令牌名称。
 
-1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack Hub 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
+1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 集线器工具时创建的 **test-azurestack-az** 目录中的 **注册** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
 
    ```powershell  
    Import-Module .\RegisterWithAzure.psm1
@@ -278,7 +278,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 需要注册令牌和唯一令牌名称。
 
-1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack Hub 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
+1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 集线器工具时创建的 **test-azurestack-az** 目录中的 **注册** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
 
     ```powershell  
     Import-Module .\RegisterWithAzure.psm1
@@ -377,11 +377,11 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
   ```powershell  
   # select the subscription used during the registration (shown in portal)
-  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
   # unregister using the parameter values from portal
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   # switch to new subscription id
-  Select-AzureRmSubscription -Subscription '<New subscription ID>'
+  Select-AzSubscription -Subscription '<New subscription ID>'
   # register 
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
   ```
@@ -392,7 +392,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
   ```powershell  
   # select the subscription used during the registration
-  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
   # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```

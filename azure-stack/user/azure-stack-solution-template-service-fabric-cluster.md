@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 5347225398e6494d89ba70d6468a6657d13b58e0
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: 5fd3f9f3d4d13ccf2fa03d656ac76d9cab462103
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564762"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546270"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署 Service Fabric 群集
 
@@ -80,7 +80,7 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
             $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
     
             Write-Host "KeyVault id: " -ForegroundColor Green
-            (Get-AzureRmKeyVault -VaultName $KeyVaultName).ResourceId
+            (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
             
             Write-Host "Secret Id: " -ForegroundColor Green
             (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
@@ -97,15 +97,15 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
     $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
     #==============================================================================
     
-    Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-    Login-AzureRmAccount -Environment AzureStack -TenantId $tenantId
+    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+    Login-AzAccount -Environment AzureStack -TenantId $tenantId
     
     $rgName = "sfvaultrg"
     Write-Host "Creating Resource Group..." -ForegroundColor Yellow
-    New-AzureRmResourceGroup -Name $rgName -Location $location
+    New-AzResourceGroup -Name $rgName -Location $location
     
     Write-Host "Creating Key Vault..." -ForegroundColor Yellow
-    $Vault = New-AzureRmKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+    $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
     
     Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
     Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
@@ -143,10 +143,10 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
    
    - 源 Key Vault：指定脚本结果中的完整 `keyVault id` 字符串。 
    - 群集证书 URL：指定脚本结果中的 `Secret Id` 中的完整 URL。 
-   - 群集证书指纹：指定脚本结果中的 *Cluster Certificate Thumbprint*（群集证书指纹）。
+   - 群集证书指纹：指定脚本结果中的 *Cluster Certificate Thumbprint* （群集证书指纹）。
    - 服务器证书 URL：如果要使用群集证书中的单独证书，请将证书上传到密钥保管库，并提供机密的完整 URL。 
    - 服务器证书指纹：指定服务器证书的指纹
-   - 管理客户端证书指纹：指定在先决条件中创建的*管理客户端证书指纹*。 
+   - 管理客户端证书指纹：指定在先决条件中创建的 *管理客户端证书指纹* 。 
 
    ![脚本输出](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -165,7 +165,7 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
 
     a. 打开 Internet Explorer 并转到“Internet 选项” > “内容” > “证书”。   
   
-    b. 在“证书”中，选择“导入”启动“证书导入向导”，然后单击“下一步”。    在“要导入的文件”页上单击“浏览”，然后选择提供给 Azure 资源管理器模板的**管理客户端证书**。  
+    b. 在“证书”中，选择“导入”启动“证书导入向导”，然后单击“下一步”。    在“要导入的文件”页上单击“浏览”，然后选择提供给 Azure 资源管理器模板的 **管理客户端证书** 。  
         
        > [!NOTE]  
        > 此证书不是先前已添加到 Key Vault 的群集证书。  
@@ -199,7 +199,7 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
 
 ### <a name="use-service-fabric-powershell"></a>使用 Service Fabric PowerShell
 
-1. 从在 Azure Service Fabric 文档中的[Windows 上准备开发环境](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)中安装*Microsoft Azure Service Fabric SDK* 。  
+1. 从在 Azure Service Fabric 文档中的 [Windows 上准备开发环境](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)中安装 *Microsoft Azure Service Fabric SDK* 。  
 
 1. 安装完成后，配置系统环境变量，确保可从 PowerShell 访问 Service Fabric cmdlet。  
     

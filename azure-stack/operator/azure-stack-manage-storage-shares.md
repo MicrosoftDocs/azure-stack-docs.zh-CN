@@ -3,16 +3,16 @@ title: 管理 Azure Stack Hub 中的存储容量
 description: 了解如何在 Azure Stack Hub 中监视和管理存储容量与可用性。
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 5c43988ff39e0e87c1faeda43245df2a3130e008
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: bbced92ca9eb275ed1599ff7422bde1601be11c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415328"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545493"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 
@@ -20,7 +20,7 @@ ms.locfileid: "93415328"
 
 云操作员可以使用的存储量有限。 实施的解决方案定义了存储量。 使用多节点解决方案时，解决方案由 OEM 供应商提供，或由安装 Azure Stack 开发工具包 (ASDK) 的硬件提供。
 
-Azure Stack 集线器仅支持通过添加更多扩展单元节点来扩展存储容量。 有关详细信息，请参阅 [在 Azure Stack Hub 中添加更多扩展单元节点](azure-stack-add-scale-node.md)。 将物理磁盘添加到节点不会扩展存储容量。
+Azure Stack 集线器仅支持通过添加更多扩展单元节点来扩展存储容量。 有关详细信息，请参阅 [在 Azure Stack Hub 中添加更多扩展单元节点](azure-stack-add-scale-node.md)。 向节点添加物理磁盘不会扩展存储容量。
 
 请务必 [监视](#monitor-shares) 可用的存储，以确保保持有效的操作。 当卷的剩余可用容量有限时，请规划[管理可用空间](#manage-available-space)以免共享的容量不足。
 
@@ -69,7 +69,7 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 建议对 VM 使用托管磁盘，以便更轻松地进行管理和容量平衡。 不需在使用托管磁盘之前准备存储帐户和容器。 创建多个托管磁盘时，会将这些磁盘分配到多个卷中，这有助于平衡卷的容量。  
 
-非托管磁盘是指以页 blob 形式存储在 Azure 存储帐户中的 VHD 文件。 租户创建的页 blob 称为 VM 磁盘并且存储在存储帐户中的容器中。 建议仅将非托管磁盘用于需要与第三方工具兼容且仅支持 Azure 非托管磁盘的 VM。
+非托管磁盘是指以页 blob 形式存储在 Azure 存储帐户中的 VHD 文件。 租户创建的页 blob 称为 VM 磁盘并且存储在存储帐户中的容器中。 建议仅将非托管磁盘用于需要与第三方工具兼容的 Vm 才能 Azure-Unmanaged 磁盘。
 
 租户最好是将每个磁盘放入不同的容器，以改善 VM 性能。
 
@@ -339,7 +339,7 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 此选项仅适用于 Azure Stack Hub 集成系统。
 
-用于管理空间的最极端方法涉及到移动非托管磁盘。 如果租户将多个非托管磁盘添加到一个容器，则在该容器进入溢出模式之前，该容器的总已用容量可能会超出其所在卷的可用容量。 为了避免单个容器用尽卷空间，租户可以将一个容器的现有非托管磁盘分布到其他容器。 由于将附加容器)  (包含 VM 磁盘的容器，因此请与 Microsoft 支持部门联系以完成此操作。
+用于管理空间的最极端方法涉及到移动非托管磁盘。 如果租户将数量的非托管磁盘添加到一个容器，则容器的总已用容量可能会超出容器进入 *溢出* 模式之前保留的容量。 为了避免单个容器用尽卷空间，租户可以将一个容器的现有非托管磁盘分布到其他容器。 由于将附加容器)  (包含 VM 磁盘的容器，因此请与 Microsoft 支持部门联系以完成此操作。
 
 ::: moniker-end
 

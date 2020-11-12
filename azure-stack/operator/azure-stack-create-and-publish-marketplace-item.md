@@ -7,12 +7,12 @@ ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621310"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543929"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建并发布自定义 Azure Stack Hub 市场项
 
@@ -24,10 +24,10 @@ ms.locfileid: "89621310"
 
 ### <a name="prerequisites"></a>先决条件
 
-创建 VM marketplace 项之前，请执行以下操作：
+创建 VM 市场项之前，请执行以下操作：
 
-1. 按照 [将 vm 映像添加到 Azure Stack 中心](azure-stack-add-vm-image.md)中的说明，将自定义 VM 映像上传到 Azure Stack 中心门户。 
-2. 按照本文中的说明将映像打包 (创建 .azpkg) 并将其上传到 Azure Stack 中心市场。
+1. 按照[将 VM 映像添加到 Azure Stack Hub](azure-stack-add-vm-image.md) 中的说明将自定义 VM 映像上传到 Azure Stack Hub 门户。 
+2. 按照本文中的说明打包映像（创建 .azpkg），并将其上传到 Azure Stack Hub 市场。
 
 ## <a name="create-a-marketplace-item"></a>创建市场项
 
@@ -50,7 +50,7 @@ ms.locfileid: "89621310"
    > [!NOTE]  
    > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
 
-   建议在发布自己的自定义模板之前，尝试原样发布示例，并确保它在你的环境中正常工作。 验证此步骤生效后，请从库中删除该示例，并进行迭代更改，直到对结果满意为止。
+   建议在发布自己的自定义模板之前，尝试按原样发布示例，确保示例在你的环境中正常工作。 验证此步骤生效后，请从库中删除该示例，并进行迭代更改，直到对结果满意为止。
 
    以下模板是 Manifest.json 文件的示例：
 
@@ -130,7 +130,7 @@ ms.locfileid: "89621310"
 
 8. 将 Azure Resource Manager 模板保存在 **/Contoso.TodoList/DeploymentTemplates/** 文件夹中。
 
-9. 为市场项选择图标和文本。 将图标添加到 **Icons** 文件夹，并向 **Strings** 文件夹中的 **resources** 文件添加文本。 为图标使用 **small**、**medium**、**large** 和 **wide** 命名约定。 有关这些大小的详细说明，请参阅[市场项 UI 参考](#reference-marketplace-item-ui)。
+9. 为市场项选择图标和文本。 将图标添加到 **Icons** 文件夹，并向 **Strings** 文件夹中的 **resources** 文件添加文本。 为图标使用 **small** 、 **medium** 、 **large** 和 **wide** 命名约定。 有关这些大小的详细说明，请参阅[市场项 UI 参考](#reference-marketplace-item-ui)。
 
     > [!NOTE]
     > 为正确生成市场项，需要全部四个图标大小（small、medium、large、wide）。
@@ -158,8 +158,8 @@ ms.locfileid: "89621310"
 
     ```powershell
     $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzAccount -EnvironmentName "AzureStackAdmin"
     ```
 
 4. 运行以下脚本，将资源导入库中：
@@ -182,7 +182,7 @@ ms.locfileid: "89621310"
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-7. 可以使用 **Remove-AzureRMGalleryItem** cmdlet 删除市场项。 例如：
+6. 可以使用 **AzGalleryItem** Cmdlet 删除 Marketplace 项。 例如：
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose

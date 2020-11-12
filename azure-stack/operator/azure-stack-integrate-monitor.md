@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 1a8e4618f81f157ff05117505bf5b76922bd4c35
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 10af23001cd3b7e12aa080a2dbecc136be0acfc8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815132"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543589"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>将外部监视解决方案与 Azure Stack Hub 集成
 
@@ -201,16 +201,16 @@ samples/etc/azurestack_services.cfg
 
 如果使用的不是 Operations Manager、Nagios 或基于 Nagios 的解决方案，则可以使用 PowerShell 来启用范围广泛的监视解决方案，以便与 Azure Stack 中心集成。
 
-1. 若要使用 PowerShell，请确保已为 Azure Stack 中心运营商环境 [安装并配置 powershell](azure-stack-powershell-install.md) 。 在可以访问资源管理器（管理员）终结点 (https://adminmanagement.[region].[External_FQDN]) 的本地计算机上安装 PowerShell。
+1. 若要使用 PowerShell，请确保已为 Azure Stack 中心运营商环境 [安装并配置 powershell](powershell-install-az-module.md) 。 在可以访问资源管理器（管理员）终结点 (https://adminmanagement.[region].[External_FQDN]) 的本地计算机上安装 PowerShell。
 
 2. 运行以下命令以 Azure Stack 中心操作员身份连接到 Azure Stack 集线器环境：
 
    ```powershell
-   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
+   Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
       -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. 使用如下所示的命令来处理警报：

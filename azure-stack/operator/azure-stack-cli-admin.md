@@ -6,20 +6,20 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: d81f7bc0894ea204b9cd956f30e3f302747a6de6
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 39cb4e97c0a73b1299df3f84ce45d7f4db820262
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111436"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544252"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>为 Azure Stack Hub 用户启用 Azure CLI
 
 可以向 Azure Stack Hub 的用户提供 CA 根证书，使他们能够在其开发计算机上启用 Azure CLI。 用户需使用该证书通过 CLI 管理资源。
 
- - 如果用户通过 Azure Stack 开发工具包 (ASDK) 外部的工作站使用 CLI，则 **Azure Stack Hub CA 根证书**是必需的。  
+ - 如果用户通过 Azure Stack 开发工具包 (ASDK) 外部的工作站使用 CLI，则 **Azure Stack Hub CA 根证书** 是必需的。  
 
- - **虚拟机 (VM) 别名终结点**提供在部署 VM 时以单个参数形式引用映像发布者、产品/服务、SKU 和版本的别名，如“UbuntuLTS”或“Win2012Datacenter”。  
+ - **虚拟机 (VM) 别名终结点** 提供在部署 VM 时以单个参数形式引用映像发布者、产品/服务、SKU 和版本的别名，如“UbuntuLTS”或“Win2012Datacenter”。  
 
 以下部分介绍如何获取这些值。
 
@@ -61,5 +61,5 @@ Azure Stack Hub 操作员应设置可公开访问的终结点来托管 VM 别名
 ## <a name="next-steps"></a>后续步骤
 
 - [使用 Azure CLI 部署模板](../user/azure-stack-deploy-template-command-line.md )
-- [使用 PowerShell 连接](azure-stack-powershell-install.md)
+- [使用 PowerShell 连接](powershell-install-az-module.md)
 - [管理用户权限](azure-stack-manage-permissions.md)

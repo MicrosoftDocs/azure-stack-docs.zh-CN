@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中设置开发环境
 description: 开始开发适用于 Azure Stack Hub 的应用程序。
 author: mattbriggs
 ms.topic: overview
-ms.date: 7/23/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f54c8a442b9df31ff112f1e385b15c441c7c0ffd
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: aaf6e48a728659ee6e756cee674edb423362db67
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920672"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546117"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>在 Azure Stack Hub 中设置开发环境 
 
@@ -76,7 +76,7 @@ Azure Stack Hub 使用 Azure Stack Hub 版的 Azure 资源管理器。 为了帮
 
 ### <a name="set-up-your-tools"></a>设置工具 
 
-1. 使用 PowerShell 进行设置。 有关说明，请参阅 [安装 Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md)。 
+1. 使用 PowerShell 进行设置。 有关说明，请参阅[安装 Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md)。 
 
 2. 下载 Azure Stack Hub 工具。 有关说明，请参阅[从 GitHub 下载 Azure Stack Hub 工具](../operator/azure-stack-powershell-download.md)。 
 

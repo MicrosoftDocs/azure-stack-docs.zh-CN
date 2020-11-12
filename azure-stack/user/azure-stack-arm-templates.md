@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 41f83e1e7f1432e182473c3b090171d3c426d340
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 9d5bf245a78bfd2ec77578701c4727c40b98f9e6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111908"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545698"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用 Azure 资源管理器模板
 
@@ -66,7 +66,7 @@ ms.locfileid: "84111908"
 
 ## <a name="cancel-a-running-template-deployment"></a>取消正在运行的模板部署
 
-若要取消正在运行的模板部署，请使用 [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [cmdlet](/powershell/scripting/developer/cmdlet/cmdlet-overview)。
+若要取消正在运行的模板部署，请使用 [AzResourceGroupDeployment](/powershell/module/Az.resources/stop-Azresourcegroupdeployment) PowerShell [cmdlet](/powershell/scripting/developer/cmdlet/cmdlet-overview)。
 
 ## <a name="next-steps"></a>后续步骤
 

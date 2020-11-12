@@ -7,12 +7,12 @@ ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 2d8b1eddb295a07a120858e1fa5845b51858ab9a
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: b327d7e194de672787c3a7e120857d6c2775a1a1
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414021"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544932"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 
@@ -98,7 +98,7 @@ meterID1",
 
 若要生成使用情况数据，你应该有正在运行且主动使用系统的资源，例如，活动的虚拟机 (VM) 或包含某些数据的存储帐户。 如果不确定你是否有任何资源在 Azure Stack Hub 市场中运行，请部署一个 VM，并验证“VM 监视”边栏选项卡以确保它正在运行。 使用以下 PowerShell cmdlet 来查看使用情况数据：
 
-1. [安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+1. [安装适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 2. [配置 Azure Stack Hub 用户](../user/azure-stack-powershell-configure-user.md)或 [Azure Stack Hub 操作员](azure-stack-powershell-configure-admin.md) PowerShell 环境。
 3. 若要检索使用情况数据，请调用 [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) PowerShell cmdlet：
 

@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 01ee528229e52a66174c3b4d1dbba49eea6a5318
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: ff462a8fbdb2de67e58f15248aaffa79f0abb695
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623126"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545736"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack Hub VM 简介
 
@@ -22,11 +22,11 @@ Azure Stack Hub VM 可提供虚拟化的灵活性，而无需管理群集或单�
 
 可通过多种方式使用 Azure Stack Hub VM。 例如：
 
-- **开发和测试**：Azure Stack Hub VM 可让你使用编写和测试应用程序所需的特定配置创建计算机。
+- **开发和测试** ：Azure Stack Hub VM 可让你使用编写和测试应用程序所需的特定配置创建计算机。
 
-- **云中的应用程序**：由于应用程序的需求会不断变化，在 Azure Stack Hub 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
+- **云中的应用程序** ：由于应用程序的需求会不断变化，在 Azure Stack Hub 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
 
-- **扩展的数据中心**：Azure Stack Hub 虚拟网络中的 VM 可以连接到组织的网络或 Azure。
+- **扩展的数据中心** ：Azure Stack Hub 虚拟网络中的 VM 可以连接到组织的网络或 Azure。
 
 可以根据需要，将应用程序使用的 VM 纵向或横向扩展为任意数目。
 
@@ -57,14 +57,14 @@ VM 会被指定名称，也具有在操作系统中所配置的计算机名称�
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 
-Azure Stack Hub 中的 VM 限制为第 1 代虚拟硬盘 (VHD/VHDX) 格式。 VHD 可用来存储计算机操作系统 (OS) 和数据。 VHD 还可用于存储安装 OS 时使用的映像。 Azure Stack Hub 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、套餐、SKU 和版本（通常将最新版本指定为**最新**）标识。
+Azure Stack Hub 中的 VM 限制为第 1 代虚拟硬盘 (VHD/VHDX) 格式。 VHD 可用来存储计算机操作系统 (OS) 和数据。 VHD 还可用于存储安装 OS 时使用的映像。 Azure Stack Hub 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、套餐、SKU 和版本（通常将最新版本指定为 **最新** ）标识。
 
 下表显示了如何查找映像的信息：
 
 |方法|说明|
 |---------|---------|
 |Azure Stack Hub 门户|选择要使用的映像时，系统会自动指定值。|
-|Azure Stack Hub PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
+|Azure Stack Hub PowerShell|`Get-AzVMImagePublisher -Location "location"`<br>`Get-AzVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
 |REST API     |[列出映像发布者](/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像产品](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
 可以选择上传并使用自己的映像。 如果这样做，则不会使用发布者名称、套餐和 SKU。
@@ -73,11 +73,11 @@ Azure Stack Hub 中的 VM 限制为第 1 代虚拟硬盘 (VHD/VHDX) 格式。 VH
 
 VM 扩展通过部署后配置和自动化任务来增加 VM 功能。 可以使用扩展完成以下常见任务：
 
-- **运行自定义脚本**：预配 VM 时，自定义脚本扩展可以通过运行脚本，帮助在 VM 上配置工作负荷。
+- **运行自定义脚本** ：预配 VM 时，自定义脚本扩展可以通过运行脚本，帮助在 VM 上配置工作负荷。
 
-- **部署和管理配置**：可以借助 PowerShell Desired State Configuration (DSC) 扩展在 VM 上设置用于管理配置和环境的 DSC。
+- **部署和管理配置** ：可以借助 PowerShell Desired State Configuration (DSC) 扩展在 VM 上设置用于管理配置和环境的 DSC。
 
-- **收集诊断数据**：Azure 诊断扩展可帮助你配置 VM 来收集诊断数据，用于监视应用程序的运行状况。
+- **收集诊断数据** ：Azure 诊断扩展可帮助你配置 VM 来收集诊断数据，用于监视应用程序的运行状况。
 
 ### <a name="related-resources"></a>相关资源
 

@@ -7,16 +7,16 @@ ms.date: 08/24/2020
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: 32e16bac548193a7c0af517c3a60e78a3e52f3ce
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: fb0584b79c3e3555ec59cd225db37847b02a41d2
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857537"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544167"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>将 Linux 映像添加到 Azure Stack Hub 市场
 
-可以通过将基于 Linux 的映像添加到 Azure Stack 中心市场，来将 Linux 虚拟机部署 (Vm) Azure Stack 集线器上。 将 Linux 映像添加到 Azure Stack Hub 的最简单方法是使用市场管理。 这些映像已准备好，并已针对与 Azure Stack Hub 的兼容性进行测试。
+可以通过将基于 Linux 的映像添加到 Azure Stack Hub 市场，在 Azure Stack Hub 上部署 Linux 虚拟机 (VM)。 将 Linux 映像添加到 Azure Stack Hub 的最简单方法是使用市场管理。 这些映像已准备好，并已针对与 Azure Stack Hub 的兼容性进行测试。
 
 ## <a name="marketplace-management"></a>市场管理
 
@@ -30,7 +30,7 @@ ms.locfileid: "88857537"
 
 ### <a name="azure-linux-agent"></a>Azure Linux 代理
 
-Azure Linux 代理（通常称为 **WALinuxAgent** 或 **walinuxagent**）是必需的，并非所有代理版本都可以在 Azure Stack Hub 上正常工作。 Azure Stack Hub 不支持 2.2.21 和 2.2.34（含）之间的版本。 若要在2.2.35 上使用最新的代理版本，请应用1901修补程序/1902 修补程序，或将 Azure Stack 集线器更新为1903版本 (或更高版本) 。 请注意，Azure Stack 版本低于1910的集线器版本支持 [cloud init](https://cloud-init.io/) 。
+Azure Linux 代理（通常称为 **WALinuxAgent** 或 **walinuxagent** ）是必需的，并非所有代理版本都可以在 Azure Stack Hub 上正常工作。 Azure Stack Hub 不支持 2.2.21 和 2.2.34（含）之间的版本。 若要使用 2.2.35 以上的最新代理版本，请应用 1901 修补程序/1902 修补程序，或者将 Azure Stack Hub 更新到 1903 版（或更高版本）。 请注意，1910 以后的 Azure Stack Hub 版本支持 [cloud-init](https://cloud-init.io/)。
 
 | Azure Stack Hub 内部版本 | Azure Linux 代理内部版本 |
 | ------------- | ------------- |
@@ -53,7 +53,7 @@ Azure Linux 代理（通常称为 **WALinuxAgent** 或 **walinuxagent**）是必
 
 ## <a name="cloud-init"></a>Cloud-init
 
-Azure Stack 版本低于1910的集线器版本支持[Cloud init](https://cloud-init.io/) 。 若要使用 cloud init 自定义 Linux VM，可以使用以下 PowerShell 说明。
+1910 以后的 Azure Stack Hub 版本支持 [cloud-init](https://cloud-init.io/)。 若要使用 cloud init 自定义 Linux VM，可以使用以下 PowerShell 说明。
 
 ### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>步骤 1：使用你的 cloud-config 创建 cloud-init.txt 文件
 
@@ -106,10 +106,10 @@ runcmd:
 将该文件上传到 Azure 存储帐户、Azure Stack Hub 存储帐户，或者 Azure Stack Hub Linux VM 可访问的 GitHub 存储库。
 目前，仅在 REST、Powershell 和 CLI 上支持使用 cloud-init 进行 VM 部署，在 Azure Stack Hub 上没有关联的门户 UI。
 
-可以按照 [这些说明](../user/azure-stack-quick-create-vm-linux-powershell.md) 使用 PowerShell 创建 Linux VM，但请确保引用 cloud-init.txt 作为标志的一部分 `-CustomData` ：
+可以按照[这些说明](../user/azure-stack-quick-create-vm-linux-powershell.md)使用 PowerShell 创建 Linux VM，但请确保在 `-CustomData` 标记中引用 cloud-init.txt：
 
 ```powershell
-$VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
+$VirtualMachine =Set-AzVMOperatingSystem -VM $VirtualMachine `
   -Linux `
   -ComputerName "MainComputer" `
   -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"

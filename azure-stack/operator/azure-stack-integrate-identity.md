@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488614"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544184"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>将 AD FS 标识与 Azure Stack Hub 数据中心集成
 
@@ -74,8 +74,8 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 可以选择性地在现有 Active Directory 中创建 Graph 服务的帐户。 如果没有可用的帐户，请执行此步骤。
 
 1. 在现有 Active Directory 中创建以下用户帐户（建议）：
-   - **用户名**：graphservice
-   - **密码**：使用强密码并将密码配置为永不过期。
+   - **用户名** ：graphservice
+   - **密码** ：使用强密码并将密码配置为永不过期。
 
    无需任何特殊权限或成员身份。
 
@@ -87,13 +87,23 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
    ```powershell  
    $creds = Get-Credential
-   Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   $pep = New-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. 连接到特权终结点后，运行以下命令： 
+2. 现在，你已有一个具有特权终结点的会话，请运行以下命令： 
 
    ```powershell  
-   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+    $i = @(
+           [pscustomobject]@{ 
+                     CustomADGlobalCatalog="fabrikam.com"
+                     CustomADAdminCredential= get-credential
+                     SkipRootDomainValidation = $false 
+                     ValidateParameters = $true
+                   }) 
+
+    Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
+
+
    ```
 
    出现提示时，请指定用于 Graph 服务的用户帐户（例如 graphservice）的凭据。 Register-DirectoryService cmdlet 的输入必须是林名称/林中的根域，而不是林中的任何其他域。
@@ -105,8 +115,8 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
    |参数|说明|
    |---------|---------|
-   |`-SkipRootDomainValidation`|指定必须使用子域，而不是建议的根域。|
-   |`-Force`|绕过所有验证检查。|
+   |`SkipRootDomainValidation`|指定必须使用子域，而不是建议的根域。|
+   |`ValidateParameters`|绕过所有验证检查。|
 
 #### <a name="graph-protocols-and-ports"></a>Graph 协议和端口
 

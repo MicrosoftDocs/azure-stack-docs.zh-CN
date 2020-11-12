@@ -7,12 +7,12 @@ ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/05/2020
-ms.openlocfilehash: d6e8d9a6df51ec71b144ca5ae145acd3ae10a12c
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415211"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544031"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加更多的缩放单元节点
 
@@ -60,6 +60,21 @@ ms.locfileid: "93415211"
    ![添加节点详细信息](media/azure-stack-add-scale-node/select-node2.png)
  
 
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+使用 **Add-AzsScaleUnitNode** cmdlet 添加一个节点。  
+
+在使用下述某个示例 PowerShell 脚本之前，请将 name_of_new_node、name_of_scale_unit_cluster、BMCIP_address_of_new_node 值替换为你的 Azure Stack Hub 环境的值。
+
+  > [!Note]  
+  > 为节点命名时，必须确保名称的长度不到 15 个字符。 另外，不能使用包含空格或下述任何字符的名称：`\`、`/`、`:`、`*`、`?`、`"`、`<`、`>`、`|`、`\`、`~`、`!`、`@`、`#`、`$`、`%`、`^`、`&`、`(`、`)`、`{`、`}`、`_`。
+
+**添加节点：**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
 ### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
 使用 **New-AzsScaleUnitNodeObject** cmdlet 添加一个节点。  
@@ -75,21 +90,6 @@ ms.locfileid: "93415211"
   $NewNode=New-AzsScaleUnitNodeObject -computername "<name_of_new_node>" -BMCIPv4Address "<BMCIP_address_of_new_node>" 
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
-  ```  
-
-### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
-
-使用 **Add-AzsScaleUnitNode** cmdlet 添加一个节点。  
-
-在使用下述某个示例 PowerShell 脚本之前，请将 name_of_new_node、name_of_scale_unit_cluster、BMCIP_address_of_new_node 值替换为你的 Azure Stack Hub 环境的值。
-
-  > [!Note]  
-  > 为节点命名时，必须确保名称的长度不到 15 个字符。 另外，不能使用包含空格或下述任何字符的名称：`\`、`/`、`:`、`*`、`?`、`"`、`<`、`>`、`|`、`\`、`~`、`!`、`@`、`#`、`$`、`%`、`^`、`&`、`(`、`)`、`{`、`}`、`_`。
-
-**添加节点：**
-  ```powershell
-  ## Add a single Node 
-    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
 ---

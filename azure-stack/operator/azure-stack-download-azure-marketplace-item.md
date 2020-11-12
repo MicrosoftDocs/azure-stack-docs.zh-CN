@@ -3,17 +3,17 @@ title: 从 Azure 下载市场项并发布到 Azure Stack Hub
 description: 了解如何从 Azure 下载市场项并发布到 Azure Stack Hub。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 10/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/23/2019
+ms.lastreviewed: 10/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 2be02c831b4e96e88e6bf8c108373d9ab2fc11cd
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: 41279ef90060d4b6dae156c96c03bd01e1006a94
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364024"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543946"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub
 
@@ -85,14 +85,14 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 
   - Azure Stack Hub 部署必须已注册到 Azure。
 
-  - 已建立 Internet 连接的计算机必须已安装 **Azure Stack Hub PowerShell 模块版本 1.2.11** 或更高版本。 如果未安装，请[安装 Azure Stack Hub 特定的 PowerShell 模块](azure-stack-powershell-install.md)。
+  - 已建立 Internet 连接的计算机必须已安装 **Azure Stack Hub PowerShell 模块版本 1.2.11** 或更高版本。 如果未安装，请[安装 Azure Stack Hub 特定的 PowerShell 模块](powershell-install-az-module.md)。
 
   - 为了能够导入已下载的市场项，必须配置 [Azure Stack Hub 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md)。
 
 - 使用以下命令从 PowerShell 库下载 Azs.Syndication.Admin 模块：
 
   ```powershell
-  Install-Module -Name Azs.Syndication.Admin
+  Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
   ```
   
 - .NET Framework 4.7 或更高版本。
@@ -111,7 +111,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 2. 使用已用于注册 Azure Stack Hub 的 Azure 帐户登录到相应的 Azure 云和 AzureAD 目录租户。 若要添加该帐户，请在 PowerShell 中运行 `Add-AzureRmAccount`：
 
    ```powershell  
-   Login-AzureRmAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
+   Login-AzAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
    ```
 
    系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
@@ -122,13 +122,13 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 3. 如果有多个订阅，请运行以下命令，以选择已用于注册的订阅：
 
    ```powershell  
-   Get-AzureRmSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzureRmSubscription
+   Get-AzSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzSubscription
    ```
 
 4. 如果尚未在先决条件步骤中完成此操作，请下载最新版本的市场联合工具：
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin
+   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
    ```
 
 5. 若要选择要下载的市场项（如 VM 映像、扩展或解决方案模板），请运行以下命令：

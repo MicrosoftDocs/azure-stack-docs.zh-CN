@@ -7,12 +7,12 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: b468ed4c41c259a0017969615681abcd007d96c7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9f4fac881a4b8e946edd527590dc95ca32aa1c84
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695319"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544728"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>在 Azure Stack Hub 上的 Azure 应用服务中添加辅助角色和基础结构
 
@@ -37,7 +37,7 @@ Azure Stack Hub 上的 Azure 应用服务默认支持免费的和共享的辅助
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Login-AzureRmAccount -EnvironmentName AzureStackAdmin
+    Login-AzAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
@@ -50,11 +50,11 @@ Azure Stack Hub 上的 Azure 应用服务默认支持免费的和共享的辅助
     $TotalCapacity = 2  
 
     # Get current scale set
-    $vmss = Get-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+    $vmss = Get-AzVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
 
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
-    Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+    Update-AzVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
    ```    
 
    > [!NOTE]

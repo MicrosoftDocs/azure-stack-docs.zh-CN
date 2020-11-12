@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 使用 Azure Stack Hub 就绪性检查器来验证 Azure Stack Hub 的图形集成。
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e4af68d1d4f9a44bb957f318f0f13ec1d2c9ecdd
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 1abb44838e0c70764d08a4aa47a0fdf73660072d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173830"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545595"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>验证 Azure Stack Hub 的图形集成
 
@@ -56,7 +56,7 @@ ms.locfileid: "82173830"
 1. 在满足先决条件的计算机上，打开一个管理 PowerShell 提示符，然后运行以下命令来安装 AzsReadinessChecker：
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. 在 PowerShell 提示符下，运行以下命令以将 *$graphCredential* 变量设置为 Graph 帐户。 请将 `contoso\graphservice` 替换为你的帐户（使用 `domain\username` 格式）。
@@ -108,7 +108,7 @@ ms.locfileid: "82173830"
 使用：
 
 * `-OutputPath`：在 run 命令的末尾使用 *path* 参数可以指定不同的报告位置。
-* `-CleanReport`：在 run 命令的末尾使用该参数可以清除先前报告信息的 *AzsReadinessCheckerReport.json*。 有关详细信息，请参阅 [Azure Stack Hub 验证报告](azure-stack-validation-report.md)。
+* `-CleanReport`：在 run 命令的末尾使用该参数可以清除先前报告信息的 *AzsReadinessCheckerReport.json* 。 有关详细信息，请参阅 [Azure Stack Hub 验证报告](azure-stack-validation-report.md)。
 
 ## <a name="validation-failures"></a>验证失败
 

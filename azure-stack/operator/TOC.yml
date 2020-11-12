@@ -137,10 +137,10 @@
           href: azure-stack-cli-admin.md
         - name: 设置管理环境
           items:
-            - name: 安装 PowerShell AzureRM
-              href: azure-stack-powershell-install.md
             - name: 安装 PowerShell Az
               href: powershell-install-az-module.md
+            - name: 安装 PowerShell AzureRM
+              href: azure-stack-powershell-install.md
             - name: 将 PowerShell AzureRM 迁移到 Az
               href: migrate-azurerm-az.md
             - name: 下载工具
@@ -319,6 +319,8 @@
                   href: app-service-remove.md
             - name: 发行说明
               items:
+                - name: '2020年3季度发行说明 [九月 2020]'
+                  href: app-service-release-notes-2020-Q3.md
                 - name: '2020 Q2 发行说明 [May2020]'
                   href: app-service-release-notes-2020-Q2.md
                 - name: 'Update 8 发行说明 [Jan2020]'

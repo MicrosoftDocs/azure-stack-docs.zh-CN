@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a8809c9f3a041d6bb4812c58d614693ce2d5431a
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 0b032929496646de763336a630f22782bd03091c
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173992"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545675"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>验证 Azure Stack Hub 的 AD FS 集成
 
@@ -58,7 +58,7 @@ ms.locfileid: "82173992"
 1. 在满足先决条件的计算机上，打开一个管理 PowerShell 提示符，然后运行以下命令来安装 AzsReadinessChecker：
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. 在 PowerShell 提示符下，运行以下命令开始验证。 指定 **-CustomADFSFederationMetadataEndpointUri** 的值作为联合元数据的 URI。
@@ -117,9 +117,9 @@ ms.locfileid: "82173992"
 Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 ```
 
-**原因**：PowerShell Autoload 无法正常加载就绪性检查器模块。
+**原因** ：PowerShell Autoload 无法正常加载就绪性检查器模块。
 
-**解决方法**：显式导入就绪性检查器模块。 复制以下代码并将其粘贴到 PowerShell 中，然后使用当前安装的版本号更新 `<version>`。
+**解决方法** ：显式导入就绪性检查器模块。 复制以下代码并将其粘贴到 PowerShell 中，然后使用当前安装的版本号更新 `<version>`。
 
 ```powershell
 Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force

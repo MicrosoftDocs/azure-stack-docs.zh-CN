@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
-ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: 070430d438334417f7c6acbd6e8f70798ba3c576
-ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 81215c7b3fb25f0e9b9877dae401b776517cf143
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94493624"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545337"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>解决 Azure Stack Hub PKI 证书的常见问题
 
@@ -105,7 +105,7 @@ ms.locfileid: "94493624"
    $PSVersionTable.PSVersion
    ```
 
-- 配置[适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+- 配置[适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 - 下载最新版本的 [Azure Stack Hub 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>导入和导出现有的 PFX 文件
@@ -113,7 +113,7 @@ ms.locfileid: "94493624"
 1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 提示符，然后运行以下命令来安装 Azure Stack Hub 就绪性检查器：
 
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
    ```
 
 2. 在 PowerShell 提示符下，运行以下 cmdlet 来设置 PFX 密码。 在出现提示时输入密码：

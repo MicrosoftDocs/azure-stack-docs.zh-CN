@@ -8,12 +8,12 @@ ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: cb3f1fe4bb0e8eb1181445479dd44d781a34bf28
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 0801f9530bc3f462e1ddfd0fbce15d193ea6343e
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414123"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545699"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack Hub 市场常见问题解答
 
@@ -53,9 +53,9 @@ Azure Stack Hub 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”�
 可以通过运行以下脚本，更改许可证模型属性，使其从 BYOL 切换到 PAYG 模型：
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
 可以通过运行以下命令来检查 VM 的许可证类型。 如果许可证模型显示 Windows_Server，则按 BYOL 价格收费。 否则，将按 PAYG 模型对 Windows 计量器收费：
@@ -69,9 +69,9 @@ $vm | ft Name, VmId,LicenseType,ProvisioningState
 可以运行以下命令将许可模型属性更改为 BYOL 模型：
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>对于使用 Windows Server 的其他 VM （例如 SQL 或 Machine Learning Server），该如何处理？

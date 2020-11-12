@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 01f02fcf624db0a8ce47084ec5aa331e0831014b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: bc6ce6c36e3aca05015e6acbef3de0d5fd841eb6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489277"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543912"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>使用 PowerShell 为 Azure Stack Hub 启用备份
 
@@ -28,7 +28,7 @@ ms.locfileid: "86489277"
 
 ## <a name="prepare-powershell-environment"></a>准备 PowerShell 环境
 
-有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。 若要登录到 Azure Stack Hub，请参阅[配置操作员环境并登录到 Azure Stack Hub](azure-stack-powershell-configure-admin.md)。
+有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。 若要登录到 Azure Stack Hub，请参阅[配置操作员环境并登录到 Azure Stack Hub](azure-stack-powershell-configure-admin.md)。
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>提供备份共享、凭据和加密密钥以启用备份
 
@@ -36,9 +36,9 @@ ms.locfileid: "86489277"
 
 | 变量        | 说明   |
 |---              |---                                        |
-| `$username`       | 使用共享驱动器位置具有足够访问权限的域和用户名输入**用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser` 。 |
-| `$password`       | 键入用户的**密码**。 |
-| `$sharepath`      | 键入**备份存储位置**的路径。 必须使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（例如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应放置在单独的位置。 |
+| `$username`       | 使用共享驱动器位置具有足够访问权限的域和用户名输入 **用户名** ，以便读取和写入文件。 例如，`Contoso\backupshareuser` 。 |
+| `$password`       | 键入用户的 **密码** 。 |
+| `$sharepath`      | 键入 **备份存储位置** 的路径。 必须使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（例如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应放置在单独的位置。 |
 | `$frequencyInHours` | “频率(小时)”决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。|
 | `$retentionPeriodInDays` | “保留期(天)”决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。|
 | `$encryptioncertpath` | 适用于 1901 及更高版本。 参数在 Azure Stack Hub 模块 1.7 及更高版本中提供。 加密证书路径指定 .CER 文件的文件路径，文件中的公钥用于数据加密。 |
@@ -134,7 +134,7 @@ ms.locfileid: "86489277"
 用于配置基础结构备份的 PowerShell cmdlet 为 Set-AzsBackupConfiguration。 在以前的版本中，此 cmdlet 为 Set-AzsBackupShare。 此 cmdlet 要求提供一个证书。 如果为基础结构备份配置了加密密钥，则不能更新加密密钥或查看属性。 需使用 1.6 版管理员 PowerShell。
 
 如果基础结构备份在更新到 1901 之前已进行配置，则可使用 1.6 版管理员 PowerShell 来设置和查看加密密钥。 1\.6 版不允许从加密密钥更新到证书文件。
-请参阅[安装 Azure Stack Hub PowerShell](azure-stack-powershell-install.md)，详细了解如何安装正确的模块版本。
+请参阅[安装 Azure Stack Hub PowerShell](powershell-install-az-module.md)，详细了解如何安装正确的模块版本。
 
 
 ## <a name="next-steps"></a>后续步骤

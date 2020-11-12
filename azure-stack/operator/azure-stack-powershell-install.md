@@ -3,35 +3,40 @@ title: 安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块
 description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。 请参阅如何安装 PowerShell AzureRM 模块和所需的 API 配置文件。
 author: mattbriggs
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 10/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: bbf1a5d296ddbef554a4401e66eab4226ae38dd3
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.lastreviewed: 10/22/2020
+ms.openlocfilehash: d01f2c8864f587ed69c76f0edd0ee9aa950d3b9f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623160"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544983"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块
 
-Azure PowerShell AzureRM 提供了一组使用 Azure 资源管理器模型管理 Azure Stack Hub 资源的 cmdlet。
+Azure PowerShell Azure 资源管理器 (AzureRM) 提供一组使用 Azure 资源管理器模型来管理 Azure Stack 中心资源的 cmdlet。
+
+::: moniker range=">=azs-2002"
+> [!IMPORTANT]  
+> 你访问的是已过时的 Azure PowerShell 版本的网页。 Azure 资源管理器 (AzureRM) PowerShell 模块的所有版本已过时，但不支持。 Az PowerShell 模块现在是与 Azure 交互时建议使用的 PowerShell 模块。 若要开始了解 Az PowerShell 模块，请参阅 [安装 PowerShell Az preview module for Azure Stack Hub](powershell-install-az-module.md)。 了解如何迁移到 Az PowerShell 模块。 请参阅 [从 AzureRM 迁移到 Azure Stack 中心 Azure PowerShell Az](migrate-azurerm-az.md)。
+::: moniker-end
 
 还需要使用 API 配置文件为 Azure Stack Hub 资源提供程序指定兼容的终结点。
 
-API 配置文件提供一种管理 Azure 与 Azure Stack Hub 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack Hub 支持特定的配置文件版本，例如 **2019-03-01-hybrid**。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。
+API 配置文件提供一种管理 Azure 与 Azure Stack Hub 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack Hub 支持特定的配置文件版本，例如 **2019-03-01-hybrid** 。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。
 
 可在已连接到 Internet、部分联网或离线场景中安装与 Azure Stack Hub 兼容的 PowerShell 模块。 本文将引导你完成适用于这些场景的详细说明。
 
-还可以在 Docker 容器中运行 Azure Stack Hub 的 AzureRM 模块。 有关说明，请参阅[使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell](../user/azure-stack-powershell-user-docker.md)。
+你还可以在 Docker 容器中运行 Azure Stack 中心的 Azure 资源管理器模块。 有关说明，请参阅[使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell](../user/azure-stack-powershell-user-docker.md)。
 
 ## <a name="1-verify-your-prerequisites"></a>1.验证先决条件
 
-开始使用 Azure Stack Hub 和 PowerShell AzureRM 模块之前，必须具备以下先决条件：
+开始使用 Azure Stack 中心和 PowerShell Azure 资源管理器模块之前，必须具备以下先决条件：
 
 - **PowerShell 版本 5.1** <br>
-若要检查版本，请运行 **$PSVersionTable.PSVersion** 并比较**主**版本。 如果没有 PowerShell 5.1，请按照[安装 Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) 中所述进行操作。
+若要检查版本，请运行 **$PSVersionTable.PSVersion** 并比较 **主** 版本。 如果没有 PowerShell 5.1，请按照[安装 Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) 中所述进行操作。
 
   > [!Note]
   > PowerShell 5.1 需要 Windows 计算机。
@@ -65,9 +70,9 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3.卸载 Azure Stack Hub PowerShell 模块的现有版本
 
-在安装所需版本之前，请确保卸载以前安装的任何 Azure Stack Hub AzureRM PowerShell 模块。 使用以下两种方法之一卸载模块：
+在安装所需的版本之前，请确保卸载任何以前安装的 Azure Stack 中心 Azure 资源管理器 PowerShell 模块。 使用以下两种方法之一卸载模块：
 
-1. 若要卸载现有的 AzureRM 和 Az PowerShell 模块，请关闭所有活动的 PowerShell 会话，并运行以下 cmdlet：
+1. 若要卸载现有的 Azure 资源管理器和 Az PowerShell 模块，请关闭所有活动的 PowerShell 会话，并运行以下 cmdlet：
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -167,7 +172,7 @@ Get-Module -Name "Azs*" -ListAvailable
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 或更高版本。
 
-可以使用 AzureRM 或 Az 预览版模块。 有关 Az 模块，请参阅[安装 PowerShell Az 模块](powershell-install-az-module.md)中的说明。
+可以使用 Azure 资源管理器或 Az preview 模块。 有关 Az 模块，请参阅[安装 PowerShell Az 模块](powershell-install-az-module.md)中的说明。
 
 ```powershell
 
@@ -227,7 +232,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. 在断开连接的工作站上手动启动 NuGet 提供程序。 有关说明，请参阅[在未连接到 Internet 的计算机上手动启动 NuGet 提供程序](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)。
 
-4. 将此位置注册为默认存储库，并从此存储库安装 AzureRM 和 `AzureStack` 模块：
+4. 将此位置注册为默认存储库，并从此存储库安装 Azure 资源管理器和 `AzureStack` 模块：
 
    ```powershell
    # requires -Version 5
@@ -273,9 +278,9 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ###  <a name="method-get_serializationsettings-error"></a>get_SerializationSettings 方法错误 
 
-- 原因：PowerShell Az 模块与 PowerShell AzureRM 模块不兼容。
+- 原因： PowerShell Az module 和 PowerShell Azure 资源管理器模块不兼容。
 
-    以下错误指示 AzureRM 模块和 Az 模块在同一会话中加载： 
+    以下错误表示在同一会话中加载 Azure 资源管理器模块和 Az 模块： 
 
     ```powershell  
     >  Method 'get_SerializationSettings' in type 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' does 
@@ -284,7 +289,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 - 补救措施：卸载冲突的模块。 
 
-  若要使用 AzureRM 模块，请卸载 Az 模块。 或者，若要使用 Az 模块，请卸载 AzureRM 模块。 关闭 PowerShell 会话并卸载 Az 或 AzureRM 模块。 
+  如果要使用 Azure 资源管理器模块，请卸载 Az 模块。 如果要使用 Az 模块，则卸载 Azure 资源管理器。 关闭 PowerShell 会话并卸载 Az 或 Azure 资源管理器模块。 
   
   可以在[卸载 Azure Stack Hub PowerShell 模块的现有版本](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)中找到相关说明。
 

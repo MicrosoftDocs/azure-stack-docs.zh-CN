@@ -8,19 +8,19 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: ec161fd296785f42049b7b2917142f08b47ac910
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 172512b35e4f13a7ad86011162fe7ca9ebb825e5
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367840"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545374"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>更换 Azure Stack Hub 中的物理磁盘
 
 本文介绍更换 Azure Stack Hub 中的物理磁盘的一般过程。 如果物理磁盘发生故障，应尽快更换。
 
 > [!Note]  
-> 更换物理数据驱动器**不**需要将缩放单位节点提前置于维护模式（清空）状态。 此外，在更换物理驱动器后，不需要使用 Azure Stack Hub 管理员门户来修复缩放单位节点。 以下文章详细介绍了何时需要修复：[更换 Azure Stack Hub 缩放单元节点上的硬件组件](azure-stack-replace-component.md)。
+> 更换物理数据驱动器 **不** 需要将缩放单位节点提前置于维护模式（清空）状态。 此外，在更换物理驱动器后，不需要使用 Azure Stack Hub 管理员门户来修复缩放单位节点。 以下文章详细介绍了何时需要修复：[更换 Azure Stack Hub 缩放单元节点上的硬件组件](azure-stack-replace-component.md)。
 
 可以将此过程用于具有热插拔磁盘的部署。
 
@@ -48,7 +48,7 @@ ms.locfileid: "78367840"
 
 更换磁盘后，可以使用 Azure Stack Hub PowerShell 监视虚拟磁盘运行状况和修复作业进度。
 
-1. 检查是否已安装 Azure Stack Hub PowerShell。 有关详细信息，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](azure-stack-powershell-install.md)。
+1. 检查是否已安装 Azure Stack Hub PowerShell。 有关详细信息，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](powershell-install-az-module.md)。
 2. 以操作员身份使用 PowerShell 连接到 Azure Stack Hub。 有关详细信息，请参阅[以操作员身份使用 PowerShell 连接到 Azure Stack Hub](azure-stack-powershell-configure-admin.md)。
 3. 运行以下 cmdlet 以验证虚拟磁盘运行状况并修复状态：
 

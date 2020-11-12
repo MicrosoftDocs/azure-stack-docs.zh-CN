@@ -8,12 +8,12 @@ ms.date: 08/05/2020
 ms.author: bryanla
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: cb2da0dc57069647ecefd8ccc278526f7f35f57d
-ms.sourcegitcommit: b69c8334571094721b26e6bdebd639f4fd294dd0
+ms.openlocfilehash: 9348930a09a57ab25be867616c604e11603a82c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839226"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545408"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>为 Azure Stack Hub 注册创建自定义角色
 
@@ -24,7 +24,7 @@ ms.locfileid: "87839226"
 
 * **Azure AD 租户中的应用注册权限：** 管理员具有应用注册权限。 用户的权限是租户中所有用户的全局设置。 若要查看或更改设置，请参阅[创建可访问资源的 Azure AD 应用和服务主体](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
 
-    “用户可以注册应用程序”设置必须设置为“是”才能让用户帐户注册 Azure Stack Hub。   如果 "应用注册" 设置设置为 " **否**"，则不能使用用户帐户注册 Azure Stack 中心，必须使用全局管理员帐户。
+    “用户可以注册应用程序”设置必须设置为“是”才能让用户帐户注册 Azure Stack Hub。   如果 "应用注册" 设置设置为 " **否** "，则不能使用用户帐户注册 Azure Stack 中心，必须使用全局管理员帐户。
 
 * **一组足够高的 Azure 订阅权限：** 属于“所有者”角色的用户具有足够的权限。 对于其他帐户，可以通过分配自定义角色来分配权限集，如以下部分所述。
 
@@ -66,13 +66,13 @@ ms.locfileid: "87839226"
 3. 在 PowerShell 中，连接到 Azure 以使用 Azure 资源管理器。 出现提示时，请使用[所有者](/azure/role-based-access-control/built-in-roles#owner)或[用户访问管理员](/azure/role-based-access-control/built-in-roles#user-access-administrator)等拥有足够权限的帐户进行身份验证。
 
     ```azurepowershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
-4. 若要创建自定义角色，请使用 **New-AzureRmRoleDefinition** 并指定 JSON 模板文件。
+4. 若要创建自定义角色，请使用 **AzRoleDefinition** 指定 JSON 模板文件。
 
     ``` azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
     ```
 
 ## <a name="assign-a-user-to-registration-role"></a>将用户分配到注册角色

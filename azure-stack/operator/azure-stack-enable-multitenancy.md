@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中配置多租户
 description: 了解如何在 Azure Stack Hub 中启用和禁用多个 Azure Active Directory 租户。
 author: BryanLa
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 10/16/2020
 ms.author: bryanla
 ms.reviewer: bryanr
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 923c430291c742069a29806449b45d4fc9cdef07
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291217"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544218"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>在 Azure Stack Hub 中配置多租户
 
@@ -31,8 +31,8 @@ ms.locfileid: "93291217"
 在 Azure Stack Hub 中配置多租户之前，需要考虑几个先决条件：
   
  - 你和 Mary 必须在安装 Azure Stack Hub 的目录 (Contoso) 和来宾目录 (Fabrikam) 之间协调管理步骤。
- - 确保已[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-admin.md)适用于 Azure Stack Hub 的 PowerShell。
- - [下载 Azure Stack Hub 工具](azure-stack-powershell-download.md)，并导入“标识”模块：
+ - 确保已[安装](powershell-install-az-module.md)并[配置](azure-stack-powershell-configure-admin.md)适用于 Azure Stack Hub 的 PowerShell。
+ - [下载 Azure Stack Hub 工具](azure-stack-powershell-download.md)，并导入“连接和标识”模块：
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1
