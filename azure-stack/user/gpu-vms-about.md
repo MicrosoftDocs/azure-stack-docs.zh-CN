@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/20/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 9289b1c2ae3119a03898e2d9c361bde4976a16f7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 0379b435a1f8b71766540865f358ca5da71d63e6
+ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546916"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630747"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上的图形处理单元 (GPU) 虚拟机 (VM)
 
@@ -87,5 +87,5 @@ GPU VM 将在执行 Azure Stack Hub 的修补升级 (PnU) 以及硬件更换 (FR
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序](/azure/virtual-machines/linux/n-series-driver-setup)
-- [Azure Stack VM 功能](azure-stack-vm-considerations.md)
+- [Azure Stack VM 功能](azure-stack-vm-considerations.md)  
+- [在 Azure Stack 集线器上部署支持 GPU 的 IoT 模块](gpu-deploy-sample-module.md)

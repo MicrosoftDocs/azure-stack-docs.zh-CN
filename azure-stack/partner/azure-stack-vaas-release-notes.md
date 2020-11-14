@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f51b4720655159cc1b191c28b640daa74f71a6e
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 780c6a2e0f3235e2681ba4cf6cc01ce2f13eb3dc
+ms.sourcegitcommit: 75a2e1a52d7582e26ce8eaf37a470c62f99b4da0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764624"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94580804"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>验证即服务的发行说明
 
@@ -30,6 +30,38 @@ ms.locfileid: "88764624"
 
 - Bug 修复
   - 修复了 Test101LinuxEmptyAttachedDiskManagedDisk、Test101WindowsEmptyAttachedDiskManagedDisk 的测试。
+
+## <a name="version-4442"></a>版本4.4.4。2
+
+2020 11 月11日
+
+- CSE 验证工作流现已更新，可以安装测试签名 OEM 扩展包，并自动发布完整的 Test-azurestack 更新。
+  - 在此修补之前，VaaS 无法在 Test-azurestack post 更新后安装 Test-Signed OEM 扩展包。 VaaS 将应用 Test-azurestack 更新，然后退出运行。
+  - 此项已修复，你应该会看到 CSE 验证工作流正在安装提供的 Test-azurestack 更新和测试签名 OEM 扩展包。
+- 已将 OEM 包验证扩展添加到 "OEM 验证工作流"
+  - 此扩展将在开始例行标记上的任何更新之前运行。
+  - 该扩展将验证 OEM 扩展包的内容和的元素 oemMetadata.xml
+  - 如果 OEM 扩展包存在任何错误/问题，则在 VaaS 测试开始之前，我们会将其捕获。
+  - 这些验证在对包进行签名时运行，请在发布 VaaS 测试运行后运行。  
+- VaaS 预请求更新，用于安装较新版本的 Test-azurestack 和 AzureRM PowerShell 模块
+  - Test-azurestack PS 模块版本1.8。2
+  - AzureRM PS 模块版本2.5。0
+- 次要服务更新。
+
+## <a name="version-443112"></a>版本4.4.3.112
+
+2020年8月23日
+
+- 服务更新。
+  - 服务部署更新。
+  - 更新了服务身份验证方法。
+
+## <a name="version-44368"></a>版本4.4.3.68
+
+2020 6 月30日
+
+- 服务更新。
+  - 已移动服务以在 Service Fabric 中运行。
 
 ## <a name="version-4421"></a>版本4.4.2。1
 
@@ -55,7 +87,6 @@ ms.locfileid: "88764624"
   - vaashelp@microsoft.com如果下面的测试用例无法在 OEM 验证工作流过程中运行，请联系：
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
-
 
 ## <a name="version-4353"></a>版本4.3.5。3
 
@@ -124,7 +155,7 @@ ms.locfileid: "88764624"
 如果你运行的是 Azure Stack 集线器每月更新验证工作流，并且你的 OEM 更新包的版本不是1810或更高版本，则在你进入 OEM 更新步骤之后，你将收到一条错误消息。 此错误是一个 bug。 正在开发修补程序。 缓解步骤如下所示：
 
 1. 正常运行 OEM 更新。
-2. 在成功应用包后执行 Test-azurestack，并保存输出。
+2. 成功应用包后执行 Test-AzureStack，并保存输出。
 3. 取消测试。
 4. 将保存的输出发送到 VaaSHelp@microsoft.com ，以接收该运行的传递结果。
 

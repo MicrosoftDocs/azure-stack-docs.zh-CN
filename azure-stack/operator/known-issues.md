@@ -7,12 +7,12 @@ ms.date: 11/11/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: f1f38d309814e40422783cd4903086c736d19978
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 8fd2bf37b959670923586234f361d7370ebe2508
+ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545729"
+ms.locfileid: "94567218"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 

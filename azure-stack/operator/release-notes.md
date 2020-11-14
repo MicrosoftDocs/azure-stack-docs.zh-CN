@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/12/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 74b1be3736d21d968fa45135034637d4ca3cd5eb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 9e23dc45f4dbb1221c3a8979f0d03fd5c24997ad
+ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546049"
+ms.locfileid: "94567252"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -70,11 +70,17 @@ Azure Stack 中心2008更新生成类型已 **满** 。
 - Azure Stack 集线器 blob 存储现在允许用户使用不可变的 blob。 通过在容器上设置不可变的策略，你可以将业务关键数据对象存储在蠕虫 (写入一次，读取许多) 状态。 在此版本中，不可变的策略只能通过 REST API 或客户端 Sdk 来设置。 在此版本中，也不可能追加 blob 写入。 有关不可变 blob 的详细信息，请参阅 [将业务关键 blob 数据存储在不可变的存储](/azure/storage/blobs/storage-blob-immutable-storage)中。
 - Azure Stack 中心存储现在支持 Azure 存储服务 Api 版本2019-07-07。 对于与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack 中心存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。
 - Azure Stack 集线器计算现在支持 Azure 计算 Api 版本2020-06-01，同时提供全部可用功能的子集。
+- Azure Stack 中心托管磁盘现在支持 Azure 磁盘 Api 版本 **2019-03-01** ，其中包含可用功能的子集。
 - Windows 管理中心的预览，现在可以连接到 Azure Stack 集线器，在支持 (操作期间提供对基础结构的深入见解，) 需要中断玻璃。
 - 可以在部署时将登录标语添加到特权终结点 (PEP) 。
 - 发布了更 **互斥的操作** 横幅，这会提高系统上当前发生的操作的可见性，并禁止用户启动 (，并随后) 任何其他独占操作。
 - 在每个 Azure Stack 中心市场项的产品页中引入了两个新横幅。 如果 Marketplace 下载失败，操作员可以查看错误详细信息，并尝试执行建议的步骤来解决此问题。
 - 发布了一个分级工具供客户提供反馈。 这将允许 Azure Stack 中心衡量和优化客户体验。
+- 此版本的 Azure Stack 中心包含 Azure Kubernetes Service (AKS) 和 Azure 容器注册表 (ACR) 的个人预览版。 个人预览版的目的是收集有关 Azure Stack 集线器上的 AKS 和 ACR 的质量、功能和用户体验的反馈。
+- 此版本包含 Azure CNI 和 Windows 容器的公共预览版，使用 [AKS 引擎 v 0.55.4](../user/kubernetes-aks-engine-release-notes.md)。 有关如何在 API 模型中使用这些方法的示例， [请参阅 GitHub 上的此示例](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-windows.json)。
+- 现在支持[AKS Engine 0.55.4](../user/kubernetes-aks-engine-release-notes.md)部署的群集上的[Istio 1.3 部署](https://github.com/Azure/aks-engine/tree/master/examples/service-mesh)。 有关详细信息， [请参阅此处的说明](../user/kubernetes-aks-engine-service-account.md)。
+- 现在支持使用[AKS Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md)部署[专用群集](https://github.com/Azure/aks-engine/blob/master/docs/topics/features.md#private-cluster)。
+- 此版本包含对来自 Azure Azure Stack 中心 Key Vault 实例的 [源 Kubernetes 配置机密](https://github.com/Azure/aks-engine/blob/master/docs/topics/keyvault-secrets.md#use-key-vault-as-the-source-of-cluster-configuration-secrets) 的支持。
 
 ### <a name="improvements"></a>改进
 
@@ -84,6 +90,8 @@ Azure Stack 中心2008更新生成类型已 **满** 。
 - 对基础结构角色实例及其在缩放单元节点上的依赖项的启动和关闭过程的更改。 这会增加 Azure Stack 集线器启动和关闭的可靠性。
 - 已更新 **test-azurestack** 验证工具的 **AzSScenarios** 套件，使云服务提供商能够在对所有客户帐户实施多重身份验证后成功运行此套件。
 - 通过在生命周期操作期间为29个面向客户的警报添加抑制逻辑，提高了警报可靠性。
+- 你现在可以查看详细的日志集合 HTML 报告，其中提供了有关日志集合的角色、持续时间和状态的详细信息。 此报表的目的是帮助用户提供收集的日志摘要。 然后，Microsoft 客户支持服务可以快速评估报表以评估日志数据，并帮助排查和缓解系统问题。
+- 基础结构故障检测范围已扩展，增加了7个新监视器，包括 CPU 利用率和内存消耗等用户方案，有助于提高故障检测的可靠性。
 
 ### <a name="changes"></a>更改
 
@@ -226,7 +234,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2005 之后，如果以后发布了任何 2005 修补程序，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2005.20.82](https://support.microsoft.com/help/4592228)
+- [Azure Stack 中心修补程序1.2005.21.84](https://support.microsoft.com/help/4592779)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

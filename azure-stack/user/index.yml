@@ -9,12 +9,12 @@ metadata:
   author: mattbriggs
   ms.author: mabrigg
   ms.date: 03/19/2020
-  ms.openlocfilehash: c9b1d0bb896ccbfeefaf21e6d5b4de51b3d79021
-  ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+  ms.openlocfilehash: 79f86cd84098c63a614e8d25f27159a0ae553c5f
+  ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/12/2020
-  ms.locfileid: "94545442"
+  ms.lasthandoff: 11/14/2020
+  ms.locfileid: "94630781"
 landingContent:
 - title: 关于 Azure Stack Hub
   linkLists:
@@ -72,6 +72,8 @@ landingContent:
       url: deploy-foundational-patterns.md
     - text: 托管用代码编写的应用
       url: azure-stack-dev-start-deploy-app.md
+    - text: 部署 GPU IoT 模块
+      url: gpu-deploy-sample-module.md
 - title: Azure Stack Hub 上的平台即服务 (PaaS)
   linkLists:
   - linkListType: how-to-guide
