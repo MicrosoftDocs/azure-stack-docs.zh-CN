@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 9e23dc45f4dbb1221c3a8979f0d03fd5c24997ad
-ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
+ms.openlocfilehash: 8a541ca76dabab766c6adc237e811f1646022fab
+ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94567252"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630815"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -33,9 +33,10 @@ ms.locfileid: "94567252"
 
 应用更新之前，请务必查看以下信息：
 
-- [已知问题](known-issues.md)
-- [安全更新](release-notes-security-updates.md)
 - [应用更新之前和之后的活动清单](release-notes-checklist.md)
+- [已知问题](known-issues.md)
+- [修补程序](#hotfixes)
+- [安全更新](release-notes-security-updates.md)
 
 有关对更新和更新过程进行故障排除的帮助，请参阅[对 Azure Stack Hub 的修补和更新问题进行故障排除](azure-stack-troubleshooting.md)。
 
@@ -117,7 +118,7 @@ Azure Stack 中心2008更新生成类型已 **满** 。
 
 ## <a name="hotfixes"></a>修补程序
 
-Azure Stack Hub 定期发布修补程序。 从 2005 版开始，更新到新的主版本（如 1.2002.x 到1.2005.x）时，新的主版本中最新的修补程序（如果有）会自动安装。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
+Azure Stack Hub 定期发布修补程序。 从2005版开始，在更新到新的主版本 (例如1.2005 到 1.2008) 时，最新的修补程序 (如果新主版本中的任何) 自动安装。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
 
 > [!NOTE]
 > Azure Stack Hub 修补程序版本是累积性的；你只需安装最新的修补程序即可获取该版本的任何以前修补程序版本中包含的所有修补程序。
@@ -126,7 +127,7 @@ Azure Stack Hub 定期发布修补程序。 从 2005 版开始，更新到新的
 
 Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿尝试在 ASDK 上安装修补程序。
 
-### <a name="prerequisites-before-applying-the-2008-update"></a>先决条件：在应用2008更新之前
+### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>修补程序先决条件：在应用2008更新之前
 
 当你将更新到新的主版本 (例如，1.2005 到 1.2008) 时，如果新的主版本中的任何) 自动安装，则最新的修补程序会 (。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
 

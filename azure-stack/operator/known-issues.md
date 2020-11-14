@@ -7,12 +7,12 @@ ms.date: 11/11/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 8fd2bf37b959670923586234f361d7370ebe2508
-ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
+ms.openlocfilehash: fd5e3fbe721e565202ebd4c755cd15b33fa835c8
+ms.sourcegitcommit: f4a0f1be40e910e710e8dbd03dc230cc542298d3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94567218"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616971"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -86,7 +86,7 @@ ms.locfileid: "94567218"
 - 原因：在负载均衡器上启用“会话相关性”时，2 元组哈希使用 PA IP（物理地址 IP）而不是分配给 VM 的专用 IP。 如果定向到负载均衡器的流量通过 VPN 到达，或者，如果所有客户端 VM（源 IP）位于同一节点上并且启用了会话相关性，则所有流量都将定向到一个后端 VM。
 - 发生次数：通用
 
-## <a name="compute"></a>计算
+<!-- ## Compute -->
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
