@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 96730a5afb143d8a5198c07bdc5b5df14c6483bd
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 4b6fe9434d7fbc0f62de4c22241300ad20170af2
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866150"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674484"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>全局 Azure、Azure Stack 集线器和 Azure Stack HCI 之间的差异
 
@@ -21,7 +21,7 @@ Microsoft 在一个 Azure 生态系统中提供 Azure 和 Azure Stack Hub 系列
 
 本文介绍全局 Azure、Azure Stack 中心和 Azure Stack HCI 功能之间的差异。 它提供了常见的方案建议，帮助你在为组织交付基于 Microsoft 云的服务时做出最佳选择。
 
-![Azure 生态系统概述](./media/compare-azure-azure-stack/azure-family.svg)
+![Azure 生态系统概述](./media/compare-azure-azure-stack/azure-family-updated.png)
 
 ## <a name="global-azure"></a>全球 Azure
 

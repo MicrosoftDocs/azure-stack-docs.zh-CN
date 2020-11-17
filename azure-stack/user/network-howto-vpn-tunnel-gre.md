@@ -1,18 +1,18 @@
 ---
-title: 在 Azure Stack 集线器中使用 GRE 创建 VPN 隧道
+title: 在 Azure Stack Hub 中使用 GRE 创建 VPN 隧道
 description: 了解如何在 Azure Stack Hub 中使用 GRE 创建 VPN 隧道。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: cf384a161ce603b9e357c0efa989d6f648a68dda
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: 95c894e218b2776bab83f2bdde8435eac2826c1d
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572351"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674519"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>如何在 Azure Stack Hub 中使用 GRE 创建 VPN 隧道
 
@@ -22,12 +22,12 @@ ms.locfileid: "90572351"
 
 可以在 [Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub 存储库中找到这些模板。 该模板位于 **rras-gre-vnet-vnet** 文件夹中。 
 
-![此关系图显示了一个实现，该实现在两个 Vnet 之间提供 VPN 隧道。 每个 VNET、内部子网和隧道子网中都有 RRAS 服务器。](./media/azure-stack-network-howto-vpn-tunnel-gre/overview.png)
+![此图显示了一个实现，该实现在两个 VNET 之间提供一个 VPN 隧道。 每个 VNET 上都有一个 RRAS 服务器，此外还有一个内部子网和一个隧道子网。](./media/azure-stack-network-howto-vpn-tunnel-gre/overview.png)
 
 ## <a name="requirements"></a>要求
 
-- 已应用最新更新而部署的系统。 
-- 必需 Azure Stack 中心市场项：
+- 应用了最新更新的已部署系统。 
+- 所需的 Azure Stack Hub 市场项：
     -  Windows Server 2016 Datacenter（建议使用最新内部版本）
     -  自定义脚本扩展
 
@@ -50,7 +50,7 @@ ms.locfileid: "90572351"
 
 此模板为 VNet 命名和 IP 寻址提供默认值。 它需要管理员 (rrasadmin) 的密码，还提供了将自己的存储 blob 与 SAS 令牌配合使用的功能。 请谨慎地使这些值保持在合法的范围内，否则部署可能失败。 PowerShell DSC 包将在每个 RRAS VM 上执行，并安装路由和所有必需的依赖服务和功能。 如果需要，可以进一步自定义此 DSC。 自定义脚本扩展运行以下脚本，Add-Site2SiteGRE.ps1 使用共享密钥在两个 RRAS 服务器之间配置 VPNS2S 隧道。 可以查看自定义脚本扩展的详细输出，以查看 VPN 隧道配置的结果
 
-![标题为 S2SVPNTunnel 的关系图显示了两个由站点到站点 VPN 隧道连接的 Vnet。](./media/azure-stack-network-howto-vpn-tunnel-gre/s2svpntunnel.png)
+![该图（标题为 S2SVPNTunnel）显示了两个由站点到站点 VPN 隧道连接的 VNET。](./media/azure-stack-network-howto-vpn-tunnel-gre/s2svpntunnel.svg)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -16,12 +16,12 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: d3f3c0b746049dfb5a34af17f4dc1d24d1b2246e
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: eed164504ce07bcc21ddde002173aaab8992abd1
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328880"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674551"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>将容器注册表添加到 Azure Stack 中心
 
@@ -41,13 +41,13 @@ ms.locfileid: "93328880"
 | --- | --- | --- |
 | Azure Stack 中心 PowerShell 模块 (Azs)  | PowerShell 模块 | 仅当边加载容器注册表模板库项时才需要，Azure Stack 中心 PowerShell 模块用于添加和删除库项。<br>[安装 Azure Stack PowerShell 模块](../../operator/azure-stack-powershell-install.md) |
 | 容器注册表模板 | 市场项 | 若要以 Azure Stack 中心用户的身份部署容器注册表，则必须在订阅中提供容器注册表模板 Marketplace 项，或手动将 (端加载) 添加到 Azure Stack 中心市场。 如果边载，请按照中的说明将包加载到 `readme.md` [GitHub 存储库](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/registry-v1.0.1)中的。 |
-| AKS 基本 Ubuntu 16.04-LTS 映像，9月2019最低发行版本 | 市场项 | 要使 Azure Stack 中心用户能够部署容器注册表，你必须将 AKS 基本映像提供给 Marketplace。 当承载 Docker 容器注册表二进制文件的 Ubuntu VM 时，容器注册表模板使用映像。 |
+| AKS 基本 Ubuntu 16.04-LTS 映像，9月2019最低发行版本 | 市场项 | 要使 Azure Stack 中心用户能够部署容器注册表，你必须将 AKS 基本映像提供给 Marketplace。 容器注册表模板在从承载 Docker 容器注册表二进制文件的订阅安装 Ubuntu VM 时使用映像。 |
 | Linux 自定义脚本扩展2。0 | 市场项 | 要使 Azure Stack 中心用户能够部署容器注册表，你必须使 Linux 自定义脚本扩展在 Marketplace 中可用。 容器注册表模板部署使用该扩展来配置注册表。 |
 | SSL 证书 | 证书 | 部署容器注册表模板的用户需要提供在为注册表服务配置 SSL 加密时使用的 PFX 证书。 如果使用脚本，则需要从提升的提示符运行 PowerShell 会话。 不应在 DVM 或 HLH 上运行此。<br>有关使用公共或专用/企业证书 Azure Stack 中心的 PKI 证书要求的一般指导，请查看此文档，请参阅 [Azure Stack 中心公钥基础结构 (PKI) 证书要求](../../operator/azure-stack-pki-certs.md)<br>证书的 FQDN 应遵循此模式， `<vmname>.<location>.cloudapp.<fqdn>` 除非使用终结点的自定义域/dns 条目。 名称应以字母开头并包含至少两个字母，只使用小写字母，长度至少为三个字符。 |
-| 服务主体 (SPN)  | 应用注册 | 若要部署和配置容器注册表，必须创建应用程序注册（也称为服务主体 (SPN) ）。 此 SPN 用于在 VM 和注册表的配置过程中访问部署 Marketplace 项之前创建 Microsoft Azure Key Vault 和存储帐户资源。<br>应在 Azure Stack 中心的用户门户中登录的租户 Azure AD 中创建 SPN。 如果使用 AD FS，则将在本地目录中创建它。<br>有关如何为 Azure AD 和 AD FS 身份验证方法创建 SPN 的详细信息，请参阅 [以下指南](../../operator/azure-stack-create-service-principals.md)。<br> **重要提示** ：需要保存 SPN 应用 ID 和机密，才能部署任何更新。<br> |
-| 注册表用户名和密码 | 凭据 | 开源 docker 容器注册表已部署并配置为启用基本身份验证。 若要使用 docker 命令来推送和拉取映像，需要使用用户名和密码。 用户名和密码安全地存储在 Key Vault 存储区中。<br>**重要提示** ：需要保存注册表用户名和密码才能登录到注册表和推送/提取映像。 |
-| SSH 公钥/私钥 | 凭据 | 若要解决 VM 的部署或运行时问题的问题，需要为部署提供 SSH 公钥，并可访问相应的私钥。 建议使用 openssh 格式 ssh-keygen 生成私钥/公钥对，作为收集日志的诊断脚本需要此格式。<br>**重要提示** ：需要访问公钥和私钥才能访问已部署的 VM 进行故障排除。 |
-| 对管理员和用户门户和管理终结点的访问权限 | 连接性 | 本指南假设你要从连接到 Azure Stack 集线器系统的系统部署和配置注册表。 |
+| 服务主体 (SPN)  | 应用注册 | 若要部署和配置容器注册表，必须创建应用程序注册（也称为服务主体 (SPN) ）。 此 SPN 用于在 VM 和注册表的配置过程中访问部署 Marketplace 项之前创建 Microsoft Azure Key Vault 和存储帐户资源。<br>应在 Azure Stack 中心的用户门户中登录的租户 Azure AD 中创建 SPN。 如果使用 AD FS，则将在本地目录中创建它。<br>有关如何为 Azure AD 和 AD FS 身份验证方法创建 SPN 的详细信息，请参阅 [以下指南](../../operator/azure-stack-create-service-principals.md)。<br> **重要提示**：需要保存 SPN 应用 ID 和机密，才能部署任何更新。<br> |
+| 注册表用户名和密码 | 凭据 | 开源 docker 容器注册表已部署并配置为启用基本身份验证。 若要使用 docker 命令来推送和拉取映像，需要使用用户名和密码。 用户名和密码安全地存储在 Key Vault 存储区中。<br>**重要提示**：需要保存注册表用户名和密码才能登录到注册表和推送/提取映像。 |
+| SSH 公钥/私钥 | 凭据 | 若要解决 VM 的部署或运行时问题的问题，需要为部署提供 SSH 公钥，并可访问相应的私钥。 建议使用 openssh 格式 ssh-keygen 生成私钥/公钥对，作为收集日志的诊断脚本需要此格式。<br>**重要提示**：需要访问公钥和私钥才能访问已部署的 VM 进行故障排除。 |
+| 对管理员和用户门户和管理终结点的访问权限 | 连接 | 本指南假设你要从连接到 Azure Stack 集线器系统的系统部署和配置注册表。 |
 
 此脚本将 `Pre-reqs` 创建部署 Marketplace 项所需的其他输入。
 
@@ -115,7 +115,7 @@ ms.locfileid: "93328880"
 
 1. 打开 Azure Stack Hub 用户门户。
 
-2. 选择 " **创建**  >  **计算**  >  **容器注册表模板** "。
+2. 选择 "**创建**  >  **计算**  >  **容器注册表模板**"。
 
     ![容器注册表模板](./media/container-registry-template-install-tzl/template.png)
 
@@ -123,7 +123,7 @@ ms.locfileid: "93328880"
 
     ![选择订阅](./media/container-registry-template-install-tzl/subscription.png)
 
-4. 完成虚拟机配置详细信息。 图像 SKU 默认为 **aks-1604-201909** ;但是，该函数的输出 `Set-ContainerRegistryPrerequisites` 包含用于部署的可用 sku 的列表。 如果存在多个 SKU，请选择最新的用于部署的 SKU。
+4. 完成虚拟机配置详细信息。 图像 SKU 默认为 **aks-1604-201909**;但是，该函数的输出 `Set-ContainerRegistryPrerequisites` 包含用于部署的可用 sku 的列表。 如果存在多个 SKU，请选择最新的用于部署的 SKU。
 
     ![VM 配置详细信息](./media/container-registry-template-install-tzl/details.png)
 

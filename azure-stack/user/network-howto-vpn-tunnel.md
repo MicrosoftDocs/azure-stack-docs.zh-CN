@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中设置多个站点到站点 VPN 隧道
 description: 了解如何在 Azure Stack Hub 中设置多个站点到站点 VPN 隧道。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: ba0cf59417dfae96bd9c0ed137843eb69a08cc22
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547069"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674622"
 ---
 # <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>如何在 Azure Stack 集线器中设置多个站点到站点 VPN 隧道
 
@@ -22,19 +22,19 @@ ms.locfileid: "94547069"
 
 ## <a name="scenarios"></a>方案
 
-![该图演示了五种 VPN 方案：单个订阅中的两个资源组之间的 VPN；两个组之间的 VPN，每个组都在其自己的订阅中；单独的堆栈实例中的两个组之间的 VPN；组和本地资源之间的 VPN；多个 VPN 隧道。](./media/azure-stack-network-howto-vpn-tunnel/scenarios.png)
+![该图演示了五种 VPN 方案：单个订阅中的两个资源组之间的 VPN；两个组之间的 VPN，每个组都在其自己的订阅中；单独的堆栈实例中的两个组之间的 VPN；组和本地资源之间的 VPN；多个 VPN 隧道。](./media/azure-stack-network-howto-vpn-tunnel/scenarios.svg)
 
 ## <a name="create-multiple-vpn-tunnels"></a>创建多个 VPN 隧道
 
-![此图显示两个资源组，每个组都位于其自己的订阅和堆栈实例中，通过 VPN 进行连接；这两个组中的一个通过 VPN 连接到本地资源。](./media/azure-stack-network-howto-vpn-tunnel/image1.png)
+![此图显示两个资源组，每个组都位于其自己的订阅和堆栈实例中，通过 VPN 进行连接；这两个组中的一个通过 VPN 连接到本地资源。](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel1.svg)
 
 -  部署三层式应用程序：Web 层、应用层和数据库层。
 
 -  将前两个模板部署在单独的 Azure Stack Hub 实例上。
 
--  **WebTier** 部署在 PPE1 上， **AppTier** 部署在 PPE2 上。
+-  **WebTier** 部署在 PPE1 上，**AppTier** 部署在 PPE2 上。
 
--  使用 IKE 隧道来连接 **WebTier** 和 **AppTier** 。
+-  使用 IKE 隧道来连接 **WebTier** 和 **AppTier**。
 
 -  将 **AppTier** 连接到你要在其中调用 **DBTier** 的本地系统。
 
@@ -42,7 +42,7 @@ ms.locfileid: "94547069"
 
 此过程包括多个步骤。 对于此解决方案，你将使用 Azure Stack Hub 门户。 但是，也可以使用 PowerShell、Azure CLI 或其他基础结构即代码工具链来捕获输出并将其用作输入。
 
-![此图显示了在两个基础结构之间部署 VPN 隧道的五个步骤。 前两个步骤基于模板创建两个基础结构。 接下来的两个步骤基于模板创建两个 VPN 隧道，最后一个步骤是连接这些隧道。](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
+![此图显示了在两个基础结构之间部署 VPN 隧道的五个步骤。 前两个步骤基于模板创建两个基础结构。 接下来的两个步骤基于模板创建两个 VPN 隧道，最后一个步骤是连接这些隧道。](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel2.svg)
 
 ## <a name="walkthrough"></a>演练
 
@@ -61,7 +61,7 @@ ms.locfileid: "94547069"
 4. 输入 **资源组** 名称并检查参数。
 
     > [!Note]  
-    > WebTier 地址空间将是 **10.10.0.0/16** ，可以看到资源组位置是 **PPE1**
+    > WebTier 地址空间将是 **10.10.0.0/16**，可以看到资源组位置是 **PPE1**
 
     ![“仪表板 > 新建 > 部署解决方案模板 > 参数”对话框中有一个“资源组”文本框和一个单选按钮。 “新建”按钮处于选中状态，文本为“WebTier”。](./media/azure-stack-network-howto-vpn-tunnel/image5.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "94547069"
 可以使用与 **WebTier** 相同的过程，但要使用不同的参数，如下所示：
 
 > [!NOTE]  
-> AppTier 地址空间将是 **10.20.0.0/16** ，你会看到 "资源组位置" 为 " **WestUS2** "。
+> AppTier 地址空间将是 **10.20.0.0/16** ，你会看到 "资源组位置" 为 " **WestUS2**"。
 
 ![“仪表板 > 部署解决方案模板 > 参数”对话框中有一个“资源组”文本框和一个单选按钮。 “新建”按钮处于选中状态，文本为“AppTier”。 其他八个突出显示的文本框包含模板参数。](./media/azure-stack-network-howto-vpn-tunnel/image6.png)
 
@@ -116,7 +116,7 @@ ms.locfileid: "94547069"
 
 ### <a name="viewing-tunnel-deployment"></a>查看隧道部署
 
-查看自定义脚本扩展的输出时，可以看到正在创建隧道，输出中应会显示状态。 你将看到，其中一端显示 **connecting** 并正在等待另一端准备就绪，而另一端在部署后会显示 **connected** 。
+查看自定义脚本扩展的输出时，可以看到正在创建隧道，输出中应会显示状态。 你将看到，其中一端显示 **connecting** 并正在等待另一端准备就绪，而另一端在部署后会显示 **connected**。
 
 ![对话框为“仪表板 > 资源组 > WebTier > WebTier-RRAS - 扩展”。 列出了两个扩展：CustomScriptExtension（已突出显示）和 InstallRRAS。 两个都显示“预配成功”状态。](./media/azure-stack-network-howto-vpn-tunnel/image13.png)
 
@@ -142,7 +142,7 @@ ms.locfileid: "94547069"
 
 1. 目标为 Windows 2016 映像。
 
-1. 如果从存储库复制 `Add-Site2SiteIKE.ps1` 脚本并在本地运行该脚本，它会安装 **WindowsFeature** 和 **RemoteAccess** 。
+1. 如果从存储库复制 `Add-Site2SiteIKE.ps1` 脚本并在本地运行该脚本，它会安装 **WindowsFeature** 和 **RemoteAccess**。
 
     > [!NOTE]
     > 根据具体的环境，可能需要重新启动系统。
@@ -203,7 +203,7 @@ ms.locfileid: "94547069"
 
 对于此模板，本演练使用了 [IKE 模板](network-howto-vpn-tunnel-ipsec.md)。 但是，也可以部署 [GRE 隧道](network-howto-vpn-tunnel-gre.md)。 此隧道提供更高的吞吐量。
 
-过程几乎完全相同。 但是，在将隧道模板部署到现有基础结构时，需要使用另一系统的输出作为前三个输入。 需要知道用作部署目标的资源组（而不是尝试连接到的资源组）的 **LOCALTUNNELGATEWAY** 。
+过程几乎完全相同。 但是，在将隧道模板部署到现有基础结构时，需要使用另一系统的输出作为前三个输入。 需要知道用作部署目标的资源组（而不是尝试连接到的资源组）的 **LOCALTUNNELGATEWAY**。
 
 ![“仪表板 > 新建 > 部署解决方案模板 > 参数”对话框中有一个“资源组”文本框和一个单选按钮。 “使用现有项”按钮处于选中状态，文本为“AppTier”。 其他四个突出显示的文本框包含来自 WebTier 输出的数据。](./media/azure-stack-network-howto-vpn-tunnel/image24.png)
 

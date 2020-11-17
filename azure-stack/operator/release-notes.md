@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 8a541ca76dabab766c6adc237e811f1646022fab
-ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
+ms.openlocfilehash: 762a41b52506e4f5ff4a57a5eab95daba489d98f
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630815"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674449"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -50,11 +50,11 @@ ms.locfileid: "94630815"
 ::: moniker range="azs-2008"
 ## <a name="2008-build-reference"></a>2008生成引用
 
-Azure Stack 中心2008更新内部版本号为 **1.2008.13.88** 。
+Azure Stack 中心2008更新内部版本号为 **1.2008.13.88**。
 
 ### <a name="update-type"></a>更新类型
 
-Azure Stack 中心2008更新生成类型已 **满** 。
+Azure Stack 中心2008更新生成类型已 **满**。
 
 与以前的更新相比，2008更新包的大小较大。 增加的大小会导致下载时间更长。 此更新将长时间保留为“正在准备”状态，操作员可预期此过程所需的时间长于以前的更新。 2008更新在我们的内部测试-4 节点中具有以下所需的运行时：13-20 小时、8个节点：16-26 小时、12个节点：19-32 小时、16个节点：22-38 个小时。 确切的更新运行时间通常取决于租户工作负荷在系统上使用的容量、系统网络连接（如果已连接到 Internet），以及系统的硬件规格。 运行时间短于或长于预期值并不常见。因此，除非更新失败，否则不需要 Azure Stack Hub 操作员执行操作。 此运行时近似值特定于2008更新，不应与其他 Azure Stack 中心更新进行比较。
 
@@ -71,7 +71,7 @@ Azure Stack 中心2008更新生成类型已 **满** 。
 - Azure Stack 集线器 blob 存储现在允许用户使用不可变的 blob。 通过在容器上设置不可变的策略，你可以将业务关键数据对象存储在蠕虫 (写入一次，读取许多) 状态。 在此版本中，不可变的策略只能通过 REST API 或客户端 Sdk 来设置。 在此版本中，也不可能追加 blob 写入。 有关不可变 blob 的详细信息，请参阅 [将业务关键 blob 数据存储在不可变的存储](/azure/storage/blobs/storage-blob-immutable-storage)中。
 - Azure Stack 中心存储现在支持 Azure 存储服务 Api 版本2019-07-07。 对于与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack 中心存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。
 - Azure Stack 集线器计算现在支持 Azure 计算 Api 版本2020-06-01，同时提供全部可用功能的子集。
-- Azure Stack 中心托管磁盘现在支持 Azure 磁盘 Api 版本 **2019-03-01** ，其中包含可用功能的子集。
+- Azure Stack 中心托管磁盘现在支持 Azure 磁盘 Api 版本 **2019-03-01**，其中包含可用功能的子集。
 - Windows 管理中心的预览，现在可以连接到 Azure Stack 集线器，在支持 (操作期间提供对基础结构的深入见解，) 需要中断玻璃。
 - 可以在部署时将登录标语添加到特权终结点 (PEP) 。
 - 发布了更 **互斥的操作** 横幅，这会提高系统上当前发生的操作的可见性，并禁止用户启动 (，并随后) 任何其他独占操作。
@@ -103,14 +103,14 @@ Azure Stack 中心2008更新生成类型已 **满** 。
 
   请注意，这些更改将添加到 Azure Stack 中心系统的主机级别。 请与 OEM 联系，以便在 (ToR) 网络交换机上进行所需的更改。 此 ToR 更改可在更新到2008版本之前执行，也可在更新到2008后执行。 有关详细信息，请参阅 [网络集成文档](azure-stack-network.md)。
 
-  - 已在此版本中将 **(NVIDIA T4) NCas_v4** 的 GPU 支持的 vm 大小替换为 VM 大小 **NCasT4_v3** ，以便与 Azure 保持一致。 请注意，这些在门户中不可见，只能通过 Azure 资源管理器模板使用。
+  - 已在此版本中将 **(NVIDIA T4) NCas_v4** 的 GPU 支持的 vm 大小替换为 VM 大小 **NCasT4_v3**，以便与 Azure 保持一致。 请注意，这些在门户中不可见，只能通过 Azure 资源管理器模板使用。
 
 ### <a name="fixes"></a>修复项
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
 - 修复了删除未附加到正在运行的 VM 的 NIC 的 NSG 的问题。
 - 修复了修改关联到负载均衡器的公共 IP 的 **IdleTimeoutInMinutes** 值的问题，使公共 ip 进入 "失败" 状态。
-- 修复了 **AzsDisk** cmdlet，以返回附加的托管磁盘的正确 **附加** 状态，而不是 **OnlineMigration** 。
+- 修复了 **AzsDisk** cmdlet，以返回附加的托管磁盘的正确 **附加** 状态，而不是 **OnlineMigration**。
 
 ## <a name="security-updates"></a>安全更新
 
@@ -129,9 +129,12 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 ### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>修补程序先决条件：在应用2008更新之前
 
-当你将更新到新的主版本 (例如，1.2005 到 1.2008) 时，如果新的主版本中的任何) 自动安装，则最新的修补程序会 (。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
+Azure Stack 集线器2008版必须应用于带有以下修补程序的2005版本：
+- [Azure Stack 中心修补程序1.2005.21.84](https://support.microsoft.com/help/4592779)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>成功应用2008更新后
+
+当你将更新到新的主版本 (例如，1.2005 到 1.2008) 时，如果新的主版本中的任何) 自动安装，则最新的修补程序会 (。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
 
 安装2008之后，如果以后发布了任何2008修补程序，则应该安装这些修补程序：
 
@@ -241,7 +244,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 ::: moniker range="azs-2002"
 ## <a name="2002-build-reference"></a>2002 内部版本参考
 
-Azure Stack Hub 2002 更新内部版本号为 **1.2002.0.35** 。
+Azure Stack Hub 2002 更新内部版本号为 **1.2002.0.35**。
 
 > [!IMPORTANT]  
 > 在 Azure Stack 中心2002更新中，Microsoft 暂时扩展了我们的 [Azure Stack 中心支持策略声明](azure-stack-servicing-policy.md)。  我们正在与世界各地应对 COVID-19 的客户合作，这些客户可能正在就其 Azure Stack Hub 系统以及如何更新和管理这些系统做出重要决策，以确保其数据中心业务操作继续正常运行。 为支持我们的客户，Microsoft 提供了临时支持策略更改扩展，以包括三个以前的更新版本。  因此，将支持新发布的 2002 更新以及以前的三个更新版本（例如 1910、1908 和 1907）之一。
@@ -265,8 +268,8 @@ Azure Stack Hub 2002 更新内部版本类型为“完整”。
 - 提供了基于 AzureRM 的 Azure Stack Hub 管理员 PowerShell 模块的一个新版本 (1.8.1)。
 - 已推出新版 Azure Stack Hub 管理员 REST API。 可在 [API 参考](/rest/api/azure-stack/)中找到有关终结点和中断性变更的详细信息。
 - 将在 2020 年 4 月 15 日为 Azure Stack Hub 发布新的 Azure PowerShell 租户模块。 当前使用的 Azure RM 模块会继续工作，但在内部版本 2002 后将不再更新。
-- 在 Azure Stack Hub 管理员门户上添加了新的警告警报，用于报告所配置的 syslog 服务器的连接问题。 警报标题是 **Syslog 客户端发送 Syslog 消息时遇到网络问题** 。
-- 在 Azure Stack Hub 管理员门户上添加了新的警告警报，用于报告网络时间协议 (NTP) 服务器的连接问题。 警报标题是 **[node name] 上的时间来源无效** 。
+- 在 Azure Stack Hub 管理员门户上添加了新的警告警报，用于报告所配置的 syslog 服务器的连接问题。 警报标题是 **Syslog 客户端发送 Syslog 消息时遇到网络问题**。
+- 在 Azure Stack Hub 管理员门户上添加了新的警告警报，用于报告网络时间协议 (NTP) 服务器的连接问题。 警报标题是 **[node name] 上的时间来源无效**。
 - 由于 2002 中与 TLS 限制相关的一个中断性变更，[Java SDK](https://azure.microsoft.com/develop/java/) 发布了新的程序包。 你必须安装新的 Java SDK 依赖项。 可以在 [Java 和 API 版本配置文件](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles)中找到相关说明。
 - 新版 (1.0.5.10) System Center Operations Manager - Azure Stack Hub MP 已发布，该版本是运行 2002 的所有系统所必需的，因为存在中断性 API 变更。 API 变更会影响备份和存储性能仪表板，建议你先将所有系统更新为 2002，然后再更新 MP。
 

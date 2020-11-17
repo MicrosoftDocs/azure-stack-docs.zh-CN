@@ -3,16 +3,16 @@ title: Azure Stack Hub 已知问题
 description: 了解 Azure Stack Hub 发行版中的已知问题。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: fd5e3fbe721e565202ebd4c755cd15b33fa835c8
-ms.sourcegitcommit: f4a0f1be40e910e710e8dbd03dc230cc542298d3
+ms.openlocfilehash: 8207975a5763b9ee6edc8842bd27369c4fb355eb
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616971"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674415"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -61,7 +61,8 @@ ms.locfileid: "94616971"
 #### <a name="denyalloutbound-rule-cannot-be-created"></a>无法创建 DenyAllOutbound 规则
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：VM 创建期间无法在 NSG 中创建到 Internet 的显式 DenyAllOutbound 规则，因为这会使 VM 部署所需的通信无法完成。
+- 原因：VM 创建期间无法在 NSG 中创建到 Internet 的显式 DenyAllOutbound 规则，因为这会使 VM 部署所需的通信无法完成。 它还将拒绝部署 Vm 所需的两个基本 Ip： DHCP IP：169.254.169.254 和 DNS IP：168.63.129.16。
+
 - 补救措施：VM 创建期间允许出站流量流向 Internet，并在 VM 创建完成后修改 NSG 以阻止所需的流量。
 - 发生次数：通用
 
@@ -369,7 +370,7 @@ ms.locfileid: "94616971"
 ### <a name="vm-boot-diagnostics"></a>VM 启动诊断
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：创建新的虚拟机 (VM) 时，可能会显示以下错误： **无法启动虚拟机 'vm-name'。错误：无法更新 VM 'vm-name' 的串行输出设置** 。 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
+- 原因：创建新的虚拟机 (VM) 时，可能会显示以下错误：**无法启动虚拟机 'vm-name'。错误：无法更新 VM 'vm-name' 的串行输出设置**。 如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。
 - 补救措施：使用以前所用的相同名称重新创建存储帐户。
 - 发生次数：通用
 
