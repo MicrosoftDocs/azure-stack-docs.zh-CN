@@ -7,12 +7,12 @@ ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 11/17/2020
-ms.openlocfilehash: b583c07fca54251ba065b23be55a20d9370904fa
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 34efe18aee4a62481d81a5e9a810a0a71d97b063
+ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94811126"
+ms.locfileid: "94874951"
 ---
 # <a name="what-is-datacenter-firewall"></a>什么是数据中心防火墙？
 
@@ -62,5 +62,5 @@ ms.locfileid: "94811126"
 
 如需相关信息，另请参阅：
 
-- [使用访问控制列表 (Acl) 来管理数据中心网络流量流](/windows-server/networking/sdn/manage/use-acls-for-traffic-flow)
+- [使用数据中心防火墙 Azure Stack HCI 中的 Software-Defined 网络](../manage/use-datacenter-firewall.md)
 - [Azure Stack HCI 中的 SDN](software-defined-networking.md)

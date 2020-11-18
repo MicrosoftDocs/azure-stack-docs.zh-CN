@@ -74,6 +74,8 @@
           href: manage/update-cluster.md
         - name: 监视群集
           href: manage/monitor-cluster.md
+        - name: 使用数据中心防火墙
+          href: manage/use-datacenter-firewall.md
         - name: 使用 DISKSPD 测试工作负荷
           href: manage/diskspd-overview.md
         - name: 添加或删除服务器

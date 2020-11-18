@@ -5,14 +5,14 @@ author: sethmanheim
 ms.topic: article
 ms.date: 11/09/2020
 ms.author: sethm
-ms.reviewer: ihcherie
+ms.reviewer: gara
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 99dc19841bb57beae626ed7ca0a0c18b38ad4f1d
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: b5f9fb7c7e3379b773d4168c72486d7333fd88fb
+ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414175"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94875053"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Azure Stack Hub 市场概述
 
