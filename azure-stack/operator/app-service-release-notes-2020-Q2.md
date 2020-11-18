@@ -1,19 +1,19 @@
 ---
 title: 基于 Azure Stack Hub 的应用服务 2020 Q2 发行说明
-description: 了解基于 Azure Stack Hub 的应用服务 2020 Q2 发行版的功能、已知问题和更新下载位置。
+description: 了解2020第2季度版本的应用服务在 Azure Stack 集线器上发布的内容、已知问题，以及下载更新的位置。
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 6534a4539fc4e0fd699b21e84490f1d25be1dfe1
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544711"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785849"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>基于 Azure Stack Hub 的应用服务 2020 Q2 发行说明
 
@@ -55,11 +55,11 @@ ms.locfileid: "94544711"
 
 - 针对 **应用服务租户、管理员、函数门户和 Kudu 工具** 的更新。 与 Azure Stack 门户 SDK 版本一致。
 
-- 将 **Azure Functions 运行时** 更新到 **v1.0.13021** 。
+- 将 **Azure Functions 运行时** 更新到 **v1.0.13021**。
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
-- **针对以下应用程序框架和工具的更新** ：
+- **针对以下应用程序框架和工具的更新**：
   - ASP.NET Framework 4.7.2
   - ASP.NET Core 3.1.3
   - ASP.NET Core 模块 v2 13.1.19331.0
@@ -76,13 +76,13 @@ ms.locfileid: "94544711"
     - 6.12.0
     - 6.13.4
   
-- **对所有角色的基础操作系统的更新** ：
+- **对所有角色的基础操作系统的更新**：
   - [适用于基于 x64 的系统的 Windows Server 2016 的 2020-04 累积更新 (KB4550929)](https://support.microsoft.com/help/4550929)
   - [适用于基于 x64 的系统的 Windows Server 2016 的 2020-04 服务堆栈更新 (KB4550994)](https://support.microsoft.com/help/4550994)
 
 - **Windows Server 的累积更新现在会在部署和升级过程中应用到控制器角色**
 
-- **更新了新部署的默认虚拟机和规模集 SKU** ：为了保持与公有云服务的一致性，基于 Azure Stack Hub 的 Azure 应用服务的新部署将对用于运行资源提供程序的基础计算机和规模集使用以下 SKU
+- **更新了新部署的默认虚拟机和规模集 SKU**：为了保持与公有云服务的一致性，基于 Azure Stack Hub 的 Azure 应用服务的新部署将对用于运行资源提供程序的基础计算机和规模集使用以下 SKU
   
   | 角色 | 最小 SKU |
   | --- | --- |
@@ -127,7 +127,7 @@ ms.locfileid: "94544711"
 
 如果在部署后客户已将 appservice_hosting 和 appservice_metering 数据库转换为包含的数据库，但尚未将数据库登录名成功迁移到包含的用户，则可能会遇到升级失败的情况。  
 
-在将基于 Azure Stack Hub 的 Azure 应用服务安装升级到 2020 Q2 之前，客户必须对托管 appservice_hosting 和 appservice_metering 的 SQL Server 执行以下脚本。  **此脚本是非破坏性的，不会导致停机** 。
+在将基于 Azure Stack Hub 的 Azure 应用服务安装升级到 2020 Q2 之前，客户必须对托管 appservice_hosting 和 appservice_metering 的 SQL Server 执行以下脚本。  **此脚本是非破坏性的，不会导致停机**。
 
 必须在满足以下条件的情况下运行此脚本
 
@@ -223,6 +223,17 @@ ms.locfileid: "94544711"
 - 自定义域在离线环境中不受支持
 
 应用服务针对公共 DNS 终结点执行域所有权验证，因此，在离线场景下不支持自定义域。
+
+- 在某些情况下，工作线程无法满足健康检查 (磁盘空间不足) 
+
+在某些情况下，将大量站点分配给辅助角色或站点时，会处理大量请求，辅助角色将在 C:\DWAS\LogFiles. 中生成大量运行时日志文件。  这是因为这些日志文件的清理逻辑中存在 bug。  
+
+若要缓解此问题，请远程访问单个辅助角色并清除文件夹的内容。
+
+此问题已在 [Azure Stack Hub 2020 年3季度的应用服务](app-service-release-notes-2020-Q3.md)中得到解决，我们鼓励客户尽快升级到 2020 Q3 版本。
+
+> [!IMPORTANT]
+> 若要更新到 Azure Stack 中心2020第3季度的 Azure App Service， **必须** 升级到 Azure Stack 中心2008
 
 ## <a name="next-steps"></a>后续步骤
 

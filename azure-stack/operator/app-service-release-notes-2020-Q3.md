@@ -1,19 +1,19 @@
 ---
-title: Azure Stack 集线器2002第3季度的应用服务发行说明
-description: 了解 Azure Stack 集线器上应用服务的 2002 Q3 版本中的内容、已知问题，以及下载更新的位置。
+title: Azure Stack 集线器2020第3季度的应用服务发行说明
+description: 了解 Azure Stack 集线器上应用服务的 2020 Q3 版本中的内容、已知问题，以及下载更新的位置。
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/23/2020
-ms.openlocfilehash: 55c8e18f3bbd36a0fef4cfb745ab9d40651e7533
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f9d575a91c55379326beaac2d76b3400172c8dd0
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94548645"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785866"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q3-release-notes"></a>Azure Stack 集线器2020第3季度的应用服务发行说明
 
@@ -57,11 +57,11 @@ Azure Stack Update Q3 上的 Azure App Service 包括以下改进和修补程序
 
 - 与 Web 应用保持一致的新 Azure Functions 门户体验
 
-- 将 **Azure Functions 运行时** 更新为 **1.0.13154** 。
+- 将 **Azure Functions 运行时** 更新为 **1.0.13154**。
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
-- **针对以下应用程序框架和工具的更新** ：
+- **针对以下应用程序框架和工具的更新**：
   - ASP.NET Core 2.1.22
   - ASP.NET Core 2.2.14
   - ASP.NET Core 3.1。8
@@ -86,7 +86,7 @@ Azure Stack Update Q3 上的 Azure App Service 包括以下改进和修补程序
     - 9.0.31
   - 已将 Kudu 更新为90.21005.4823
 
-- **对所有角色的基础操作系统的更新** ：
+- **对所有角色的基础操作系统的更新**：
   - [2020-10 (KB4580346) 为基于 x64 的系统的 Windows Server 2016 累积更新 ](https://support.microsoft.com/help/4580346)
   - [2020-09 (KB4576750) 的适用于基于 x64 的系统的 Windows Server 2016 的服务堆栈更新 ](https://support.microsoft.com/help/4576750)
   - Defender 定义1.325.755。0
@@ -103,6 +103,8 @@ Azure Stack Update Q3 上的 Azure App Service 包括以下改进和修补程序
 
 - 在安装过程中移动了 "等待管理服务器部署" 步骤，以提高部署和升级的可靠性
 
+- 由于在清理逻辑中出错后工作线程运行时日志文件文件夹大小违反了配额限制，导致工作线程无法完成运行状况检查的问题。  此更新中已修复了清理逻辑。
+
 ## <a name="pre-update-steps"></a>更新前步骤
 
 查看[更新的已知问题](#known-issues-update)，并采取规定的操作。
@@ -118,7 +120,7 @@ Azure Stack Update Q3 上的 Azure App Service 包括以下改进和修补程序
 
 如果在部署后客户已将 appservice_hosting 和 appservice_metering 数据库转换为包含的数据库，但尚未将数据库登录名成功迁移到包含的用户，则可能会遇到升级失败的情况。  
 
-在将 Azure Stack 中心安装上的 Azure App Service 升级到 2020 Q3 之前，客户必须 SQL Server 针对托管 appservice_hosting 和 appservice_metering 执行以下脚本。  **此脚本是非破坏性的，不会导致停机** 。
+在将 Azure Stack 中心安装上的 Azure App Service 升级到 2020 Q3 之前，客户必须 SQL Server 针对托管 appservice_hosting 和 appservice_metering 执行以下脚本。  **此脚本是非破坏性的，不会导致停机**。
 
 必须在满足以下条件的情况下运行此脚本
 

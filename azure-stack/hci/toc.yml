@@ -32,7 +32,7 @@
       items:
         - name: 使用 PowerShell 创建群集
           href: deploy/create-cluster-powershell.md
-        - name: 通过 PowerShell 部署网络控制器
+        - name: 使用 PowerShell 部署网络控制器
           href: deploy/network-controller-powershell.md
 - name: 管理
   items:
@@ -74,6 +74,8 @@
           href: manage/update-cluster.md
         - name: 监视群集
           href: manage/monitor-cluster.md
+        - name: 使用 DISKSPD 测试工作负荷
+          href: manage/diskspd-overview.md
         - name: 添加或删除服务器
           href: manage/add-cluster.md
         - name: 使服务器脱机以进行维护
@@ -134,6 +136,8 @@
           href: concepts/network-controller-overview.md
         - name: 规划网络控制器
           href: concepts/network-controller.md
+        - name: 数据中心防火墙概述
+          href: concepts/datacenter-firewall-overview.md
         - name: 软件负载均衡器概述
           href: concepts/software-load-balancer.md
         - name: RAS 网关概述

@@ -3,16 +3,16 @@ title: 安装适用于 Azure Stack Hub 的 PowerShell Az 模块
 description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2020
-ms.openlocfilehash: de226383fc5109cd702c4883754766664ea9ab73
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/27/2020
+ms.openlocfilehash: 3666965dd3cfe7827fc9ea4c12b06d40ad210ac6
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546933"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785832"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell Az 模块
 
@@ -27,15 +27,15 @@ ms.locfileid: "94546933"
 
 可以使用 API 配置文件为 Azure Stack Hub 资源提供程序指定兼容的终结点。
 
-API 配置文件提供一种管理 Azure 与 Azure Stack Hub 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack Hub 支持特定的配置文件版本，例如 **2019-03-01-hybrid** 。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。
+API 配置文件提供一种管理 Azure 与 Azure Stack Hub 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack Hub 支持特定的配置文件版本，例如 **2019-03-01-hybrid**。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。
 
 可在已连接到 Internet、部分联网或离线场景中安装与 Azure Stack Hub 兼容的 PowerShell Az 模块。 本文将引导你完成适用于这些场景的详细说明。
 
 ## <a name="1-verify-your-prerequisites"></a>1.验证先决条件
 
-仅[带 Update 2002 的 Azure Stack Hub](./release-notes.md?view=azs-2002#2002-build-reference) 和最新[修补程序](./release-notes.md?view=azs-2002#hotfixes)支持 Az 模块。
+在更新2002或更高版本以及安装了当前修补程序的 Azure Stack 集线器上支持 Az 模块。 有关详细信息，请参阅 [Azure Stack 集线器发行说明](release-notes.md) 。
 
-Azure PowerShell 适用于 Windows 上的 PowerShell 5.1 或更高版本，或者所有平台上的 PowerShell Core 6.x 及更高版本。 你应该安装适用于你的操作系统的[最新版本的 PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)。 在 PowerShell Core 上运行时，Azure PowerShell 没有额外要求。
+Azure PowerShell Az 模块适用于 Windows 上的 PowerShell 5.1 或更高版本，或者适用于所有平台的 PowerShell Core 1.x 和更高版本。 你应该安装适用于你的操作系统的[最新版本的 PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)。 在 PowerShell Core 上运行时，Azure PowerShell 没有额外要求。
 
 若要检查 PowerShell 版本，请运行以下命令：
 

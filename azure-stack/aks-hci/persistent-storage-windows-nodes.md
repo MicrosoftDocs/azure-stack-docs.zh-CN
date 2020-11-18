@@ -1,33 +1,33 @@
 ---
-title: 使用 Windows 容器中的使用永久存储
-description: 在 Windows 容器中使用持久性存储并为组托管服务帐户准备 Windows 节点
-author: abha
+title: 在 Windows 容器中使用持久存储
+description: 在 Windows 容器中使用持久存储并为组托管服务帐户准备好 Windows 节点
+author: abhilashaagarwala
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 91f7249beb34e5afee808d299df48611a5ce26bb
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 19b934e4bdec9e0ab6f4e7808dfea6e6fb648245
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778123"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94784846"
 ---
-# <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>在 Windows 容器中使用持久性存储并为组托管服务帐户准备 Windows 节点
+# <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>在 Windows 容器中使用持久存储并为组托管服务帐户准备好 Windows 节点
 
-永久性卷表示已经过预配可以用于 Kubernetes Pod 的存储块。 永久性卷可供一个或多个 pod 使用，并适用于长期存储。 它还独立于 pod 或节点生命周期。在本部分中，你将了解如何创建永久性卷，以及如何在 Windows 应用程序中使用此卷。
+永久性卷表示已经过预配可以用于 Kubernetes Pod 的存储块。 持久卷可由一个或多个 Pod 使用，旨在用于长期存储。 它还独立于 Pod 或节点生命周期。    在此部分中，你将了解如何创建持久卷，以及如何在 Windows 应用程序中使用此卷。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
-下面是你需要入门的内容：
+以下是开始使用需要满足的条件：
 
-* 至少具有一个 Windows 辅助角色节点的 Kubernetes 群集。
+* 具有至少一个 Windows 工作器节点的 Kubernetes 群集。
 * 用于访问 Kubernetes 群集的 kubeconfig 文件。
 
 
 ## <a name="create-a-persistent-volume-claim"></a>创建永久性卷声明
 
-永久性卷声明用于基于存储类自动预配存储。若要创建卷声明，请先创建一个名为的文件， `pvc-akshci-csi.yaml` 并在以下 YAML 定义中复制。 声明请求的磁盘大小为 10 GB， *ReadWriteOnce*   访问。  *默认*   存储类指定为 (vhdx) 的存储类。  
+持久卷声明用于基于存储类自动预配存储。  若要创建卷声明，请首先创建名为 `pvc-akshci-csi.yaml` 的文件，并在以下 YAML 定义中进行复制。 该声明请求大小为 10 GB、具有 ReadWriteOnce **  访问权限的磁盘。 default **  存储类指定为存储类 (vhdx)。  
 
 ```yaml
 apiVersion: v1
@@ -41,24 +41,24 @@ spec:
   requests:
    storage: 10Gi
 ```
-通过在 Azure Stack HCI 群集中的某台服务器上运行以下命令来创建卷 (使用诸如 [Enter](/powershell/module/microsoft.powershell.core/enter-pssession) 或远程桌面等方法连接到服务器) ： 
+通过在 Azure Stack HCI 群集中一台服务器上的管理 PowerShell 会话中运行以下命令来创建卷（使用 [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession) 等方法或远程桌面连接到服务器）： 
 
 
 ```PowerShell
-kubectl create -f pvc-akshci-csi.yaml 
+kubectl create -f pvc-akshci-csi.yaml 
 ```
-以下输出将显示已成功创建永久卷声明：
+以下输出会显示已成功创建持久卷声明：
 
 **输出：**
 ```PowerShell
 persistentvolumeclaim/pvc-akshci-csi created
 ```
 
-## <a name="use-persistent-volume"></a>使用永久卷
+## <a name="use-persistent-volume"></a>使用持久卷
 
-若要使用永久性卷，请创建一个名为 winwebserver 的文件，并复制以下 YAML 定义。然后，将创建一个可以访问永久性卷声明和 vhdx 的 pod。 
+若要使用持久卷，请创建名为 winwebserver.yaml 的文件，并在以下 YAML 定义中进行复制。  随后创建可访问持久卷声明和 vhdx 的 Pod。 
 
-在下面的 yaml 定义中， *mountPath* 是在容器中装载卷的路径。 成功创建 pod 后，会看到在*mnt*中* \\ *创建的子目录 akshciscsi，并在*mnt*中创建了子目录*akshciscsi* 。
+在下面的 yaml 定义中，mountPath 是用于在容器中装载卷的路径。 成功创建 Pod 之后，你会看到在 C:\\ 中创建了子目录 mnt，并在 mnt 内创建了子目录 akshciscsi   。
 
 
 ```yaml
@@ -95,66 +95,66 @@ spec:
       kubernetes.io/os: windows 
 ```
 
-若要使用上述 yaml 定义创建 pod，请运行：
+若要使用以上 yaml 定义创建 Pod，请运行：
 
 ```PowerShell
-Kubectl create -f winwebserver.yaml 
+Kubectl create -f winwebserver.yaml 
 ```
 
-若要确保 pod 正在运行，请运行以下命令。 等待几分钟，直到 pod 进入运行状态，因为拉取映像会花费时间。
+若要确保 Pod 正在运行，请运行以下命令。 等待几分钟，直到 Pod 处于正在运行状态，因为拉取映像会花费时间。
 
 ```PowerShell
-kubectl get pods -o wide 
+kubectl get pods -o wide 
 ```
-Pod 运行后，请运行以下命令查看 pod 状态： 
+Pod 运行后，便可通过运行以下命令来查看 Pod 状态： 
 
 ```PowerShell
-kubectl.exe describe pod %podName% 
+kubectl.exe describe pod %podName% 
 ```
 
-若要验证是否已在 pod 中装入了卷，请运行以下命令：
+若要验证是否已在 Pod 中装载了卷，请运行以下命令：
 
 ```PowerShell
-kubectl exec -it %podname% cmd.exe 
+kubectl exec -it %podname% cmd.exe 
 ```
 
-## <a name="delete-a-persistent-volume-claim"></a>删除永久性卷声明
+## <a name="delete-a-persistent-volume-claim"></a>删除持久卷声明
 
-删除永久性卷声明之前，必须通过运行以下操作删除应用程序部署：
+删除持久卷声明之前，必须通过运行以下内容来删除应用部署：
 
 ```PowerShell
 kubectl.exe delete deployments win-webserver
 ```
 
-然后，你可以通过运行以下内容删除永久性卷声明：
+随后可以通过运行以下内容来删除持久卷声明：
 
 ```PowerShell
 kubectl.exe delete PersistentVolumeClaim pvc-akshci-csi
 ```
 
-## <a name="prepare-windows-nodes-for-group-managed-service-account-support-on-windows-nodes"></a>为 Windows 节点上的组托管服务帐户支持准备 Windows 节点
+## <a name="prepare-windows-nodes-for-group-managed-service-account-support-on-windows-nodes"></a>为 Windows 节点上的组托管服务帐户支持准备好 Windows 节点
 
-组托管服务帐户是一种特定类型的 Active Directory 帐户，它提供自动密码管理，简化的服务主体名称 (SPN) 管理，并且能够将管理委派给多个服务器上的其他管理员。 若要为将在 Windows 节点上运行的 pod 和容器配置组托管服务帐户 (gMSA) ，必须先将 Windows 节点加入 Active Directory 域。
+组托管服务帐户是一种特定类型的 Active Directory 帐户，可提供自动密码管理、简化的服务主体名称 (SPN) 管理以及在多台服务器间将管理委托给其他管理员的功能。 若要为在 Windows 节点上运行的 Pod 和容器配置组托管服务帐户 (gMSA)，必须首先将 Windows 节点加入 Active Directory 域。
 
-若要启用组托管服务帐户支持，Kubernetes 群集名称必须少于4个字符。 这是因为，加入域的服务器名称的最大支持长度为15个字符，辅助节点 Azure Stack HCI Kubernetes 群集命名约定上的 AKS 将向节点名称添加一些预定义的字符。
+若要启用组托管服务帐户支持，Kubernetes 群集名称必须少于 4 个字符。 这是因为，加入域的服务器名称所支持的最大长度为 15 个字符，而适用于工作器节点的 Azure Stack HCI Kubernetes 群集上的 AKS 命名约定会向节点名称添加一些预定义的字符。
 
-若要将 Windows 辅助角色节点加入到域中，请通过运行并记录值来登录到 Windows 辅助角色节点 `kubectl get` `EXTERNAL-IP` 。
+若要将 Windows 工作器节点加入域，请通过运行 `kubectl get` 并记下 `EXTERNAL-IP` 值，来登录 Windows 工作器节点。
 
 ```PowerShell
 kubectl get nodes -o wide
 ``` 
 
-然后，你可以使用通过 SSH 连接到该节点 `ssh Administrator@ip` 。 
+随后可以使用 `ssh Administrator@ip` 通过 SSH 登录节点。 
 
-成功登录到 Windows 辅助角色节点后，运行以下 PowerShell 命令，将节点加入到域。 系统将提示你输入 **域管理员帐户** 凭据。 你还可以使用已授予权限将计算机加入到给定域的特权用户凭据。 然后，需要重新启动 Windows 辅助角色节点。
+成功登录 Windows 工作器节点之后，运行以下 PowerShell 命令以将节点加入域。 系统会提示输入域管理员帐户凭据。 还可以使用已授权将计算机加入给定域的提升的用户凭据。 随后需要重新启动 Windows 工作器节点。
 
 ```PowerShell
 add-computer --domainame "YourDomainName" -restart
 ```
 
-将所有 Windows 辅助角色节点加入到域后，请按照 [配置 gMSA](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa) 中详细说明的步骤将 Kubernetes gMSA 自定义资源定义和 webhook 应用到 Kubernetes 群集。
+将所有 Windows 工作器节点加入域后，请按照[配置 gMSA](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa) 中详细介绍的步骤在 Kubernetes 群集上应用 Kubernetes gMSA 自定义资源定义和 Webhook。
 
-有关具有 gMSA 的 Windows 容器的详细信息，请参阅 [windows 容器和 gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts)。 
+有关具有 gMSA 的 Windows 容器的详细信息，请参阅 [Windows 容器和 gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts)。 
 
 ## <a name="next-steps"></a>后续步骤
 - [在 Kubernetes 群集上部署 Windows 应用程序](./deploy-windows-application.md)。

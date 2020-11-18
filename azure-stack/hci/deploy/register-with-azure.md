@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: 8e5f1a07425224c8e343d4193cee2d721ae1f0b6
-ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
+ms.date: 11/17/2020
+ms.openlocfilehash: 7a98692fb29b1a539bf9f9fd26e0a3e226cb8669
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92297895"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785768"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>将 Azure Stack HCI 连接到 Azure
 
@@ -65,13 +65,13 @@ C:\> ping bing.com
 3. 安装所需的 cmdlet：
 
    ```PowerShell
-   Install-Module Az.StackHCI
+   Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
    ```
 
    > [!NOTE]
    > 1. 你可能会看到一条提示，例如“是否希望 PowerShellGet 立即安装并导入 NuGet 提供程序?”， 你应该回答“是(Y)”。
    > 2. 系统可能还会提示“是否确定要从 'PSGallery' 安装模块?”，你应该回答“是(Y)”。
-   > 3. 最后，您可能假定安装整个 **Az** 模块包含 **StackHCI** 子模块，但这并不是这种情况。 预览中的子模块不会根据标准 Azure PowerShell 约定自动包括，因此你需要显式请求 **StackHCI** ，如上所示。
+   > 3. 最后，你可能会假定安装整个 Az 模块将包括 StackHCI 子模块，但情况并非是这样 。 根据标准 Azure PowerShell 约定，不会自动包括预览版中的子模块，因此你需要显式请求 Az.StackHCI，如上所示。
 
 4. 执行实际注册：
 
