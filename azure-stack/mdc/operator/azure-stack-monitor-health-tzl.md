@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4212aa524baf60b65eaca46e6750c7af78197135
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329037"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885778"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中监视运行状况和警报
 
@@ -33,7 +33,7 @@ Azure Stack 包含基础结构监视功能，有助于查看 Azure Stack 区域�
 
 ## <a name="alert-severity-definition"></a>警报严重性定义
 
-Azure Stack 引发的警报只有两个严重级别： **警告** 和 **严重** 。
+Azure Stack 引发的警报只有两个严重级别：**警告** 和 **严重**。
 
 - **警告**  
   操作员可以按计划方式处理警告警报。 该警报通常不会影响用户工作负荷。
@@ -73,7 +73,7 @@ Azure Stack 引发的警报只有两个严重级别： **警告** 和 **严重**
 
 “视图 API”操作显示用于生成列表视图的 REST API。 借助此操作可以快速熟悉可用于查询警报的 REST API 语法。 可在自动化中使用此 API，或者将它与现有的数据中心监视、报告和票证解决方案相集成。
 
-可以单击特定的警报来查看警报详细信息。 警报详细信息显示与警报关联的所有字段，并可让用户快速导航到受影响的组件和警报源。 例如，如果某个基础结构角色实例脱机或不可访问，则会发生以下警报。 可以在警报的 "警报详细信息" 中的 "更正" 部分中查找指向 aka.ms 链接的指针 [aka.ms 链接引用](aks-refer-table-tzl.md)。
+可以单击特定的警报来查看警报详细信息。 警报详细信息显示与警报关联的所有字段，并可让用户快速导航到受影响的组件和警报源。 例如，如果某个基础结构角色实例脱机或不可访问，则会发生以下警报。 您可以在警报详细信息的 "**修正**" 部分中查找 [交叉引用链接](aks-refer-table-tzl.md)，以查看本文。
 
 ![Azure Stack 管理员门户中的“警报详细信息”边栏选项卡](media/azure-stack-monitor-health/alert-detail.png)
 
@@ -85,7 +85,7 @@ Azure Stack 引发的警报只有两个严重级别： **警告** 和 **严重**
 
 ![正在进行的“修复警报”操作](media/azure-stack-monitor-health/repair-in-progress.png)
 
-“修复”操作会在同一门户通知边栏选项卡中报告成功完成了操作或无法完成操作。  如果某项“修复”操作因出现警报而失败，则可在警报详细信息中重新运行“修复”操作。 如果“修复”操作成功完成， **请勿** 重新运行“修复”操作。
+“修复”操作会在同一门户通知边栏选项卡中报告成功完成了操作或无法完成操作。  如果某项“修复”操作因出现警报而失败，则可在警报详细信息中重新运行“修复”操作。 如果“修复”操作成功完成，**请勿** 重新运行“修复”操作。
 
 ![“修复”操作成功完成](media/azure-stack-monitor-health/repair-completed.png)
 

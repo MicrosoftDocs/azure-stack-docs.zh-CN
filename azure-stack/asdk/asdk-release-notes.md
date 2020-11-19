@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: ea7c991a1d9b16580cb4fbd7f812ec776da6e084
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: 6eb124193f477eb4418909f6b8e79781e948d135
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674296"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885744"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
@@ -21,7 +21,7 @@ ms.locfileid: "94674296"
 请订阅 ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS 源](https://aka.ms/asdkrss)，随时了解 ASDK 的新增功能。
 
 ::: moniker range="azs-2008"
-## <a name="build-120081388"></a>生成1.2008.13.88
+## <a name="build-12008059"></a>生成1.2008.0.59
 
 ### <a name="new-features"></a>新增功能
 
