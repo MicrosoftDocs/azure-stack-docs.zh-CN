@@ -8,12 +8,12 @@ ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 44d13890efa7b5150216569ec2ab0f45bac8e7fa
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 896898acb8c6d98c77a32d0710b5f9c44b3ab65d
+ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544371"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94970225"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>使用应用标识访问 Azure Stack Hub 资源
 
@@ -25,8 +25,8 @@ ms.locfileid: "94544371"
 
 与用户一样，应用在身份验证期间必须出示凭据。 这种身份验证由两个要素构成：
 
-- **应用程序 ID** ，有时也称为客户端 ID。 一个用于唯一标识 Active Directory 租户中应用的注册的 GUID。
-- 与应用程序 ID 关联的 **机密** 。 你可以生成客户端机密字符串（类似于密码），也可以指定 X509 证书（使用其公钥）。
+- **应用程序 ID**，有时也称为客户端 ID。 一个用于唯一标识 Active Directory 租户中应用的注册的 GUID。
+- 与应用程序 ID 关联的 **机密**。 你可以生成客户端机密字符串（类似于密码），也可以指定 X509 证书（使用其公钥）。
 
 在应用自己的标识下运行应用比在用户标识下运行更有利，原因如下：
 
@@ -43,6 +43,10 @@ ms.locfileid: "94544371"
 
 然后了解如何为角色分配服务主体，以限制其对资源的访问权限。
 
+::: zone pivot="state-disconnected"
+<!-- this is intentionally a noop -->
+::: zone-end
+
 ::: zone pivot="state-connected"
 ## <a name="manage-an-azure-ad-app-identity"></a>管理 Azure AD 应用标识
 
@@ -54,8 +58,8 @@ ms.locfileid: "94544371"
 
 1. 使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.com)。
 2. 选择“Azure Active Directory” > “应用注册” > “新建注册”。  
-3. 为应用提供一个 **名称** 。
-4. 选择相应的 **受支持帐户类型** 。
+3. 为应用提供一个 **名称**。
+4. 选择相应的 **受支持帐户类型**。
 5. 在“重定向 URI”下，选择“Web”作为应用类型，并（可选）指定重定向 URI（如果应用需要它）。 
 6. 设置这些值后，选择“注册”。 随即会创建应用注册，并显示“概述”页。
 7. 复制“应用程序 ID”以便在应用代码中使用。 此值也称为“客户端 ID”。
@@ -341,7 +345,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 3. 选择“访问控制(IAM)”页。支持 RBAC 的所有资源都会提供此页。
 4. 选择“+ 添加”。
 5. 在“角色”下，选择要将应用分配到哪个角色。
-6. 在“选择”下，使用完整或部分应用名称来搜索你的应用程序。 在注册期间，生成的应用程序名称为 Azurestack-\<YourAppName\>-\<ClientId\>。 例如，如果使用的应用程序名为 *App2* ，在创建期间分配的客户端 ID 为 *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* ，则完整名称为 *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* 。 可以搜索确切的字符串，也可以只搜索其一部分，例如 *Azurestack* 或 *Azurestack-App2* 。
+6. 在“选择”下，使用完整或部分应用名称来搜索你的应用程序。 在注册期间，生成的应用程序名称为 Azurestack-\<YourAppName\>-\<ClientId\>。 例如，如果使用的应用程序名为 *App2*，在创建期间分配的客户端 ID 为 *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*，则完整名称为 *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*。 可以搜索确切的字符串，也可以只搜索其一部分，例如 *Azurestack* 或 *Azurestack-App2*。
 7. 找到应用后，请选择它，然后它会显示在“已选择的成员”下。
 8. 选择“保存”完成角色分配。
 

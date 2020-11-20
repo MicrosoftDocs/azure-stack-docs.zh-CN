@@ -3,16 +3,16 @@ title: Azure Stack Hub 市场中的新增内容
 description: 查看 Azure Stack Hub 市场中的新功能，包括新的、弃用的和更新的市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 11/19/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 5c6475a4bf3e330f982627d158f0e6f75f0477bc
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.openlocfilehash: e4b0be90d1e4815957dced211a7a0648458a6777
+ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94875070"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94970208"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -166,6 +166,12 @@ ms.locfileid: "94875070"
 
 ## <a name="updated-marketplace-items"></a>更新弃用市场项
 
+- 11/18/2020： Windows Server 2019 上的 SQL Server 2019 标准版-自带许可证-版本15.0.20201015
+- 11/18/2020： Windows Server 2019 上的 SQL Server 2019 标准版-即用即付-版本15.0.20201015
+- 11/18/2020：免费 SQL Server 许可证： Windows Server 上的 SQL 2019 开发人员 2019-自带许可证-版本15.0.20201015
+- 11/18/2020：免费 SQL Server 许可证： Windows Server 上的 SQL 2019 开发人员 2019-即用即付-版本15.0.20201015
+- 11/18/2020：在 Windows Server 2019 上 SQL Server 2019 企业版-自带许可证-版本15.0.20201015
+- 11/18/2020：在 Windows Server 2019 上 SQL Server 2019 企业版-即用即付-版本15.0.20201015
 - 11/17/2020： Azure Monitor、更新和配置管理-版本1.13.27
 - 11/17/2020： Azure Monitor Dependency Agent 版本9.10.6.11730
 - 11/17/2020： Azure Monitor Linux Vm Dependency Agent 版本9.10.6.11730
