@@ -166,6 +166,8 @@
       href: /java/api/com.microsoft.azure.management.azurestackhci.v2020_10_01
     - name: Azure Stack HCI 管理服务 Python 包
       href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
+    - name: Azure Stack HCI JavaScript 包
+      href: /javascript/api/overview/azure/azurestack/stackhci?view=azure-node-latest
     - name: Hyper-V PowerShell 命令
       href: /powershell/module/hyper-v
     - name: 存储 PowerShell 命令
