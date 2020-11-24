@@ -3,25 +3,25 @@ title: Azure Stack Hub 中的 VM 更新和管理自动化
 description: 在 Azure 自动化中使用用于 VM 的 Azure Monitor、更新管理、更改跟踪和库存等解决方案来管理 Azure Stack Hub 中部署的 Windows 和 Linux VM。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/08/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/08/2020
-ms.openlocfilehash: 7b3c69b26ef1fee21e652c70f0ca9a9ddc156460
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: c30d254e3b9e17fa817d778e8f43b9611cb390cf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383660"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517355"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub 中的 VM 更新和管理自动化
 使用以下 Azure 自动化解决方案功能来管理使用 Azure Stack Hub 部署的 Windows 和 Linux 虚拟机 (VM)：
 
 - **[更新管理](/azure/automation/update-management/overview)** ：借助更新管理解决方案，可以快速评估所有代理计算机上可用更新的状态，并管理为 Windows 和 Linux VM 安装所需更新的过程。
 
-- **[更改跟踪](/azure/automation/automation-change-tracking)** ：受监视服务器上已安装软件、windows 服务、windows 注册表和文件以及 Linux 守护程序的更改会发送到云中的 Azure Monitor 服务进行处理。 逻辑应用于接收的数据，云服务则记录数据。 通过使用更改跟踪仪表板上的信息，可以轻松查看对服务器基础结构所做的更改。
+- **[更改跟踪](/azure/automation/automation-change-tracking)**：受监视服务器上已安装软件、windows 服务、windows 注册表和文件以及 Linux 守护程序的更改会发送到云中的 Azure Monitor 服务进行处理。 逻辑应用于接收的数据，云服务则记录数据。 通过使用更改跟踪仪表板上的信息，可以轻松查看对服务器基础结构所做的更改。
 
-- **[清单](/azure/automation/automation-vm-inventory)** 。 Azure Stack 中心 VM 的库存跟踪提供一个基于浏览器的用户界面，用于设置和配置清单收集。
+- **[清单](/azure/automation/automation-vm-inventory)**。 Azure Stack 中心 VM 的库存跟踪提供一个基于浏览器的用户界面，用于设置和配置清单收集。
 
 - **[用于 VM 的 Azure Monitor](/azure/azure-monitor/insights/vminsights-overview)** ：用于 VM 的 Azure Monitor 可以大规模监视 Azure 与 Azure Stack Hub VM 和虚拟机规模集。 它分析 Windows VM 和 Linux VM 的性能和运行状况，还监视它们的进程及其对其他资源和外部进程的依赖关系。
 
@@ -43,7 +43,7 @@ ms.locfileid: "94383660"
 
 1. 在 Azure 门户中，转到要使用的自动化帐户。
 
-2. 选择要启用 ( **库存** 、 **更改跟踪** 或 **更新管理** ) 的解决方案。
+2. 选择要启用 (**库存**、 **更改跟踪** 或 **更新管理**) 的解决方案。
 
 3. 使用“选择工作区...”下拉列表，选择要使用的 Log Analytics 工作区。
 
@@ -113,6 +113,8 @@ Azure Stack Hub VM 现在可以与 Azure VM 一起包含在计划的更新部署
 
 以下示例介绍如何执行此操作：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
 ```Powershell  
 $nonAzurecomputers = @("server-01", "server-02")
 
@@ -122,6 +124,21 @@ $s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName 
 
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+```Powershell  
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRMAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
+
+New-AzureRMAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+---
+
+
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>启用在 Azure Stack Hub 上运行的用于 VM 的 Azure Monitor
 当 VM 具有“Azure Monitor 更新和配置管理”，并安装“Azure Monitor Dependency Agent”扩展后，它将开始在[用于 VM 的 Azure Monitor](/azure/azure-monitor/insights/vminsights-overview) 解决方案中报告数据 。 
@@ -131,12 +148,12 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 用于 VM 的 Azure Monitor 包含一组针对几项关键性能指标 (KPI) 的性能图表，帮助你确定 VM 的性能状况。 图表显示一段时间内的资源使用情况，以便你能够识别瓶颈和异常情况。 还可以切换到列出每台计算机的透视图，根据所选的指标来查看资源使用情况。 处理性能时需要考虑大量的要素，而用于 VM 的 Azure Monitor 会监视与处理器、内存、网络适配器和磁盘使用情况相关的操作系统关键性能指标。 性能图表是对运行状况监视功能的补充，有助于揭示指出可能发生系统组件故障的问题。 用于 VM 的 Azure Monitor 还支持容量规划、微调和优化以实现效率。
 
-   ![Azure Monitor VM 性能选项卡](/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
+   ![Azure Monitor VM 性能选项卡](http:/docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
 
 可以通过两种方式使用用于 VM 的 Azure Monitor 查看在 Azure Stack Hub 中运行的 Windows 和 Linux VM 上发现的应用组件。 第一种方式是直接从 VM 查看，第二种方式是从 Azure Monitor 跨 VM 组查看。
 通过[借助用于 VM 的 Azure Monitor 映射了解应用组件](/azure/azure-monitor/insights/vminsights-maps)一文，可以了解这两个角度的不同体验，以及如何使用映射功能。
 
-   ![Azure Monitor VM 映射选项卡](/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
+   ![Azure Monitor Vm 映射选项卡] ( # B2 http：/vminsights-maps/azure-monitor/insights/media//map-multivm-azure-monitor-01.png) 
 
 如果[用于 VM 的 Azure Monitor](/azure/azure-monitor/insights/vminsights-overview) 未显示任何性能数据，则必须在 [LogAnalytics 工作区](/azure/azure-monitor/platform/data-sources-performance-counters)“高级设置”中启用 Windows 和 Linux 性能数据收集。
 

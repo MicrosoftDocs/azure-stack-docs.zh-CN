@@ -3,16 +3,16 @@ title: 将租户添加到 Azure Stack Hub 以获取用量和计费信息
 description: 了解如何将租户添加到 Azure Stack Hub 以获取用量和计费信息。
 author: sethmanheim
 ms.topic: article
-ms.date: 9/02/2020
+ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/17/2020
+ms.openlocfilehash: 81cefb08d6fd0d1fc773221d52393c8a3ae6fddf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543810"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517882"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>将租户添加到 Azure Stack Hub 以获取用量和计费信息
 
@@ -49,6 +49,8 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
 
 更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心的客户标识来报告客户用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用量跟踪和计费。 若要执行此步骤，必须先[注册 Azure Stack Hub](azure-stack-registration.md)。
 
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
 1. 在权限提升的提示符窗口中打开 Windows PowerShell 并运行：  
 
    ```powershell
@@ -56,7 +58,7 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
    ```
 
    >[!NOTE]
-   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 **AzAccount** ：登录之前运行以下 cmdlet `Remove-AzAccount-Scope Process` 。
+   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 **AzAccount**：登录之前运行以下 cmdlet `Remove-AzAccount-Scope Process` 。
 
 2. 键入 Azure 凭据。
 3. 在 PowerShell 会话中运行：
@@ -65,7 +67,7 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
    New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azresource-powershell-parameters"></a>New-AzResource PowerShell 参数
+**AzResource PowerShell 参数**
 
 以下部分介绍了 **AzResource** cmdlet 的参数：
 
@@ -75,6 +77,38 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
 | customerSubscriptionID | 属于要注册的客户的 Azure 订阅（非 Azure Stack Hub）。 必须在 CSP 套餐中创建。 实际上，这意味着通过合作伙伴中心。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack Hub 的租户中创建此订阅。 客户订阅 ID 区分大小写。 |
 | resourceGroup | Azure 中用于存储注册的资源组。 |
 | registrationName | Azure Stack Hub 的注册名称。 它是 Azure 中存储的对象。
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+1. 在权限提升的提示符窗口中打开 Windows PowerShell 并运行：  
+
+   ```powershell
+   Add-AzureRMAccount
+   ```
+
+   >[!NOTE]
+   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 **AzAccount**：登录之前运行以下 cmdlet `Remove-AzAccount-Scope Process` 。
+
+2. 键入 Azure 凭据。
+3. 在 PowerShell 会话中运行：
+
+   ```powershell
+   New-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   ```
+
+**Move-azurermresource PowerShell 参数**
+
+以下部分介绍了 **move-azurermresource** cmdlet 的参数：
+
+| 参数 | 说明 |
+| --- | --- |
+|registrationSubscriptionID | 用于 Azure Stack Hub 初始注册的 Azure 订阅。|
+| customerSubscriptionID | 属于要注册的客户的 Azure 订阅（非 Azure Stack Hub）。 必须在 CSP 套餐中创建。 实际上，这意味着通过合作伙伴中心。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack Hub 的租户中创建此订阅。 客户订阅 ID 区分大小写。 |
+| resourceGroup | Azure 中用于存储注册的资源组。 |
+| registrationName | Azure Stack Hub 的注册名称。 它是 Azure 中存储的对象。
+
+---
+
 
 > [!NOTE]  
 > 租户必须注册到它们使用的每个 Azure Stack Hub。 如果有两个 Azure Stack Hub 部署，并且某个租户要使用这两个部署，则必须使用租户订阅更新每个部署的初始注册。

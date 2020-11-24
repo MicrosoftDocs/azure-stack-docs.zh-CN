@@ -3,16 +3,16 @@ title: 重新部署 ASDK
 description: 了解如何重新部署 Azure Stack 开发工具包 (ASDK)。
 author: myoungerman
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 11/14/2020
 ms.author: v-myoung
 ms.reviewer: misainat
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7408bcb7317550d7093f97a4cfe10bbc17119467
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: 8b09386c748fe8263973b8812a049ab426585c42
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543623"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517100"
 ---
 # <a name="redeploy-the-asdk"></a>重新部署 ASDK
 本文介绍如何在非生产环境中重新部署 Azure Stack 开发工具包 (ASDK)。 由于不支持 ASDK 升级，因此若要改用较新的版本，需彻底地进行重新部署。 还可以在希望从头开始的任何时候重新部署 ASDK。
@@ -23,7 +23,9 @@ ms.locfileid: "94543623"
 ## <a name="remove-azure-registration"></a>删除 Azure 注册 
 如果以前已将 ASDK 安装注册到 Azure，则应在重新部署 ASDK 之前删除注册资源。 重新部署 ASDK 时，请重新注册 ASDK 以使市场中可以提供项目。 如果以前未将 ASDK 注册到 Azure 订阅，则可跳过此部分。
 
-若要删除注册资源，请使用 **Remove-AzsRegistration** cmdlet 注销 Azure Stack。 然后，使用 **AzResourceGroup** Cmdlet 从 Azure 订阅中删除 Azure Stack 资源组：
+若要删除注册资源，请使用 **Remove-AzsRegistration** cmdlet 注销 Azure Stack。 然后，使用 **AzResourceGroup** Cmdlet 从 Azure 订阅中删除 Azure Stack 资源组。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az)
 
 1. 在能够访问特权终结点的计算机上以管理员身份打开 PowerShell 控制台。 对于 ASDK 来说，该计算机是 ASDK 主计算机。
 
@@ -57,7 +59,40 @@ ms.locfileid: "94543623"
     `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
     `********** End Log: Remove-AzsRegistration *********`
 
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
 
+1. 在能够访问特权终结点的计算机上以管理员身份打开 PowerShell 控制台。 对于 ASDK 来说，该计算机是 ASDK 主计算机。
+
+2. 运行以下 PowerShell 命令，注销 ASDK 安装并从 Azure 订阅中删除 **azurestack** 资源组：
+
+   ```powershell    
+   #Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+   # Provide Azure subscription admin credentials
+   Add-AzureRmAccount
+
+   # Provide ASDK admin credentials
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+
+   # Unregister Azure Stack
+   Remove-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint AzS-ERCS01
+
+   # Remove the Azure Stack resource group
+   Remove-AzureRmResourceGroup -Name azurestack -Force
+   ```
+
+3. 当脚本运行时，系统会提示你登录 Azure 订阅和本地 ASDK 安装。
+4. 脚本完成后，会看到与以下示例类似的消息：
+
+    `De-Activating Azure Stack (this may take up to 10 minutes to complete).` `Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    `Remove registration resource from Azure...`
+    `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    `********** End Log: Remove-AzsRegistration *********`
+
+---
 
 此时 Azure Stack 应该会成功地从 Azure 订阅注销。 还应删除 azurestack 资源组。 此资源组是首次向 Azure 注册 ASDK 时创建的资源组。
 
@@ -69,7 +104,7 @@ ms.locfileid: "94543623"
 
    ![运行 asdk-installer.ps1 脚本](media/asdk-redeploy/1.png)
 
-2. 选择基础操作系统（非 **Azure Stack** ），然后单击“下一步”  。
+2. 选择基础操作系统（非 **Azure Stack**），然后单击“下一步”  。
 
    ![重启到主机操作系统中](media/asdk-redeploy/2.png)
 
@@ -80,7 +115,7 @@ ms.locfileid: "94543623"
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>在不使用安装程序的情况下重新部署 ASDK
 如果未使用 asdk-installer.ps1 脚本来安装 ASDK，必须以手动方式重新配置 ASDK 主计算机，然后才能重新部署 ASDK。
 
-1. 在 ASDK 计算机上运行 **msconfig.exe** ，以便启动系统配置实用程序。 在“启动”选项卡上选择主机操作系统（不是 Azure Stack），单击“设置为默认值”，然后单击“确定”。    出现提示时单击“重启”  。
+1. 在 ASDK 计算机上运行 **msconfig.exe**，以便启动系统配置实用程序。 在“启动”选项卡上选择主机操作系统（不是 Azure Stack），单击“设置为默认值”，然后单击“确定”。    出现提示时单击“重启”  。
 
       ![设置启动配置](media/asdk-redeploy/4.png)
 

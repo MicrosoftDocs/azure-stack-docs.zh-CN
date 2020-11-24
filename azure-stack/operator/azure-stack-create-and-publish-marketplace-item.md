@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中创建和发布市场项
 description: 了解如何创建并发布 Azure Stack Hub 市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/18/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: db85757fd898d0b75ace50c8fe78ecaa31722bc2
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543929"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518035"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建并发布自定义 Azure Stack Hub 市场项
 
@@ -50,7 +50,7 @@ ms.locfileid: "94543929"
    > [!NOTE]  
    > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
 
-   建议在发布自己的自定义模板之前，尝试按原样发布示例，确保示例在你的环境中正常工作。 验证此步骤生效后，请从库中删除该示例，并进行迭代更改，直到对结果满意为止。
+   建议在发布自己的自定义模板之前，尝试按原样发布示例，确保示例在你的环境中正常工作。 验证此步骤有效后，请从库中删除该示例，并进行迭代更改，直到对结果满意为止。
 
    以下模板是 Manifest.json 文件的示例：
 
@@ -103,13 +103,13 @@ ms.locfileid: "94543929"
 
     以下列表解释了示例模板中的上述带有编号的值：
 
-    -  (1) –产品/服务的名称。
-    -  (2) –发布服务器的名称，不含空格。
-    -  (3) –模板的版本，不含空格。
-    -  (4) –客户看到的名称。
-    -  (5) –客户看到的发布者名称。
-    -  (6) –发布者合法名称。
-    -  (7) –每个图标的路径和名称。
+    - (1) - 套餐的名称。
+    - (2) - 发布者的名称，不带空格。
+    - (3) - 模板的版本，不带空格。
+    - (4) - 客户看到的名称。
+    - (5) - 客户看到的发布者名称。
+    - (6) - 发布者的法定名称。
+    - (7) - 每个图标的路径和名称。
 
 5. 对于引用 **ms-resource** 的所有字段，必须在 **strings/resources.json** 文件中更改相应的值：
 
@@ -130,7 +130,7 @@ ms.locfileid: "94543929"
 
 8. 将 Azure Resource Manager 模板保存在 **/Contoso.TodoList/DeploymentTemplates/** 文件夹中。
 
-9. 为市场项选择图标和文本。 将图标添加到 **Icons** 文件夹，并向 **Strings** 文件夹中的 **resources** 文件添加文本。 为图标使用 **small** 、 **medium** 、 **large** 和 **wide** 命名约定。 有关这些大小的详细说明，请参阅[市场项 UI 参考](#reference-marketplace-item-ui)。
+9. 为市场项选择图标和文本。 将图标添加到 **Icons** 文件夹，并向 **Strings** 文件夹中的 **resources** 文件添加文本。 为图标使用 **small**、**medium**、**large** 和 **wide** 命名约定。 有关这些大小的详细说明，请参阅[市场项 UI 参考](#reference-marketplace-item-ui)。
 
     > [!NOTE]
     > 为正确生成市场项，需要全部四个图标大小（small、medium、large、wide）。
@@ -149,6 +149,8 @@ ms.locfileid: "94543929"
     >
 
 ## <a name="publish-a-marketplace-item"></a>发布市场项
+
+### <a name="az-modules"></a>[Az 模块](#tab/az)
 
 1. 使用 PowerShell 或 Azure 存储资源管理器将市场项 (.azpkg) 上传到 Azure Blob 存储。 可以上传到本地 Azure Stack Hub 存储或上传到 Azure 存储，即包的临时位置。 请确保 blob 可公开访问。
 
@@ -188,10 +190,53 @@ ms.locfileid: "94543929"
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
-   > [!NOTE]
-   > 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”。 然后，在“门户自定义”下选择“放弃修改”。 
-   >
-   >
+> [!Note]  
+> 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”。 然后，在“门户自定义”下选择“放弃修改”。 
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+1. 使用 PowerShell 或 Azure 存储资源管理器将市场项 (.azpkg) 上传到 Azure Blob 存储。 可以上传到本地 Azure Stack Hub 存储或上传到 Azure 存储，即包的临时位置。 请确保 blob 可公开访问。
+
+2. 若要将库包导入 Azure Stack Hub 中，首先请远程连接 (RDP) 到客户端 VM，以便将刚刚创建的文件复制到 Azure Stack Hub。
+
+3. 添加上下文：
+
+    ```powershell
+    $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+    ```
+
+4. 运行以下脚本，将资源导入库中：
+
+    ```powershell
+    Add-AzsGalleryItem -GalleryItemUri `
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
+    ```
+
+5. 确认是否可以提供一个有效的存储帐户来存储项。 可以从 Azure Stack Hub 管理员门户获取 `GalleryItemURI` 值。 选择“存储帐户”>“Blob 属性”->“URL”，扩展名为 .azpkg。 存储帐户仅供暂时使用，以便能够发布到市场。
+
+   完成库包并使用 **Add-AzsGalleryItem** 将其上传之后，自定义 VM 现在应会显示在市场中以及“创建资源”视图中。 请注意，“市场管理”中不显示自定义库包。
+
+   [![已上传自定义市场项](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "已上传自定义市场项")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+
+6. 成功将项发布到市场后，可以删除存储帐户中的内容。
+
+   现在，无需身份验证，即可通过以下 URL 访问所有默认的库项目和自定义库项目：
+
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+6. 可以使用 **AzGalleryItem** Cmdlet 删除 Marketplace 项。 例如：
+
+   ```powershell
+   Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
+   ```
+
+> [!Note]  
+> 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”。 然后，在“门户自定义”下选择“放弃修改”。 
+
+---
 
 ## <a name="reference-marketplace-item-manifestjson"></a>参考：市场项 manifest.json
 

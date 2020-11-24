@@ -3,15 +3,15 @@ title: 使用 Azure Stack Hub 策略模块
 description: 了解如何限制 Azure 订阅使其行为像 Azure Stack Hub 订阅
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 11/22/2020
 ms.author: sethm
-ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: ca96de45f50f48b91dbb2e6e8679df5dedab8d8f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 13d3e006d676e7e24f94741c59cb8837d5200d1d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547052"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518120"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>使用 Azure Stack Hub 策略模块管理 Azure Policy
 
@@ -30,7 +30,9 @@ ms.locfileid: "94547052"
 
 ## <a name="apply-policy-to-azure-subscription"></a>将策略应用于 Azure 订阅
 
-可以使用以下命令将默认 Azure Stack Hub 策略应用于 Azure 订阅。 在运行这些命令之前，请将 `Azure subscription name` 替换为 Azure 订阅的名称：
+可以使用以下命令将默认 Azure Stack Hub 策略应用于 Azure 订阅。 在运行这些命令之前，请 `Azure subscription name` 将替换为你的 Azure 订阅的名称。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
 
 ```powershell
 Add-AzAccount
@@ -39,10 +41,23 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+
+```powershell
+Add-AzureRMAccount
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
+```
+
+---
 
 ## <a name="apply-policy-to-a-resource-group"></a>将策略应用于资源组
 
 你可能想要应用更细化的策略。 例如，你在相同的订阅中可能有其他正在运行的资源。 可以将策略应用范围限定为特定资源组，这样就可以使用 Azure 资源测试 Azure Stack Hub 的应用。 在运行以下命令之前，请将 `Azure subscription name` 替换为 Azure 订阅的名称：
+
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
 
 ```powershell
 Add-AzAccount
@@ -52,6 +67,18 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+ 
+```powershell
+Add-AzureRMAccount
+$rgName = 'myRG01'
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
+```
+
+---
 
 ## <a name="policy-in-action"></a>执行中的策略
 

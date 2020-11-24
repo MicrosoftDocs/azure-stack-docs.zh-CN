@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上的应用服务中添加辅助角色和基础结�
 description: 有关缩放 Azure Stack Hub 上的 Azure 应用服务的详细指导
 author: bryanla
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 11/15/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: 9f4fac881a4b8e946edd527590dc95ca32aa1c84
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/15/2020
+ms.openlocfilehash: 3265b77fc6a26a4e43b82d0997ec3e883a29f9da
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544728"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518086"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>在 Azure Stack Hub 上的 Azure 应用服务中添加辅助角色和基础结构
 
@@ -29,71 +29,110 @@ Azure Stack Hub 上的 Azure 应用服务默认支持免费的和共享的辅助
 
 ## <a name="add-additional-workers-with-powershell"></a>使用 PowerShell 添加更多辅助角色
 
-1. [在 PowerShell 中设置 Azure Stack Hub 管理环境](azure-stack-powershell-configure-admin.md)
 
-2. 使用以下示例来横向扩展规模集：
-   ```powershell
-   
+
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
+1. [在 PowerShell 中设置 Azure Stack 集线器管理员环境](azure-stack-powershell-configure-admin.md)
+
+2. 使用此示例可扩大规模集。
+
+    ```powershell
+    
     ##### Scale out the AppService Role instances ######
-   
+    
     # Set context to AzureStack admin.
     Login-AzAccount -EnvironmentName AzureStackAdmin
-                                                 
+                                                    
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
-
+    
     ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
     $ScaleSetName = "SharedWorkerTierScaleSet"
-
+    
     ## TotalCapacity is sum of the instances needed at the end of operation. 
     ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
     $TotalCapacity = 2  
-
+    
     # Get current scale set
     $vmss = Get-AzVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
-
+    
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-   ```    
+    ```    
 
-   > [!NOTE]
-   > 根据角色类型和实例数目，此步骤可能需要几小时才能完成。
-   >
-   >
+    > [!NOTE]
+    > 根据角色类型和实例数目，此步骤可能需要几小时才能完成。
 
 3. 在“应用服务管理”中监视新角色实例的状态。 若要检查单个角色实例的状态，请单击列表中的角色类型。
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+1. [在 PowerShell 中设置 Azure Stack 集线器管理员环境](azure-stack-powershell-configure-admin.md)
+
+2. 使用此示例可扩大规模集。
+
+    ```powershell
+    
+    ##### Scale out the AppService Role instances ######
+    
+    # Set context to AzureRMureStack admin.
+    Login-AzureRMAccount -EnvironmentName AzureRMureStackAdmin
+                                                    
+    ## Name of the Resource group where AppService is deployed.
+    $AppServiceResourceGroupName = "AppService.local"
+    
+    ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
+    $ScaleSetName = "SharedWorkerTierScaleSet"
+    
+    ## TotalCapacity is sum of the instances needed at the end of operation. 
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    $TotalCapacity = 2  
+    
+    # Get current scale set
+    $vmss = Get-AzureRMVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+    
+    # Set and update the capacity
+    $vmss.sku.capacity = $TotalCapacity
+    Update-AzureRMVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+    ```   
+
+    > [!NOTE]
+    > 根据角色类型和实例数目，此步骤可能需要几小时才能完成。
+
+3. 在“应用服务管理”中监视新角色实例的状态。 若要检查单个角色实例的状态，请单击列表中的角色类型。
+---
 
 ## <a name="add-additional-workers-using-the-administrator-portal"></a>使用管理员门户添加更多辅助角色
 
 1. 以服务管理员身份登录到 Azure Stack Hub 管理员门户。
 
-2. 浏览到“应用服务”  。
+2. 浏览到“应用服务”。
 
-    ![Azure Stack Hub 管理员门户中的应用服务](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![Azure Stack 中心管理员门户中的应用服务](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. 单击“角色”。  在这里会看到所有已部署的应用服务角色的明细。
+3. 单击“角色”。 在这里会看到所有已部署的应用服务角色的明细。
 
-4. 右键单击要缩放的类型所在的行，然后单击“ScaleSet”。 
+4. 右键单击要缩放的类型所在的行，然后单击“ScaleSet”。
 
-    ![Azure Stack Hub 管理员门户中的规模集应用服务角色](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![Azure Stack 中心管理员门户中的规模集应用服务角色](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. 单击“缩放”，  选择要缩放到的实例数，然后单击“保存”。 
+5. 单击“缩放”，选择要缩放到的实例数，然后单击“保存”。
 
-    ![在 Azure Stack Hub 管理员门户的应用服务角色中设置要缩放到的实例](media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![在 Azure Stack 中心管理员门户中的应用服务角色中设置要缩放的实例](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. 基于 Azure Stack Hub 的 Azure 应用服务此时会添加其他 VM，对其进行配置，安装所有必需的软件，并在此过程完成后将其标记为“就绪”。 此过程可能需要大约 80 分钟。
+6. Azure Stack 中心的 Azure App Service 现在将添加更多的 Vm、对其进行配置、安装所有必需的软件，并在此过程完成时将其标记为 "就绪"。 此过程可能需要大约 80 分钟。
 
-7. 可以监视新角色就绪标记操作的进度，只需在“角色”边栏选项卡中查看辅助角色即可。 
+7. 可以监视新角色就绪标记操作的进度，只需在“角色”边栏选项卡中查看辅助角色即可。
 
 ## <a name="result"></a>结果
 
 在完全部署并就绪以后，辅助角色即可供用户使用，用户可以将其工作负荷部署到辅助角色上。 以下屏幕截图显示的示例为默认提供的多个定价层。 如果特定的辅助角色层没有可用的辅助角色，则用于选择相应定价层的选项不可用。
 
-![Azure Stack Hub 管理员门户中的新应用服务计划的定价层](media/azure-stack-app-service-add-worker-roles/image04.png)
+![Azure Stack 中心管理员门户中新应用服务计划的定价层](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> 若要横向扩展“管理”、“前端”或“发布者”角色，请执行选择相应角色类型时执行的步骤。 控制器不是作为规模集来部署的，因此应该在安装时部署两个，这适用于所有生产部署。
+> 若要扩展管理、前端或发布者角色，请执行相同的步骤来选择适当的角色类型。 控制器不会部署为规模集，因此在安装时应为所有生产部署部署两个控制器。
 
 ### <a name="next-steps"></a>后续步骤
 

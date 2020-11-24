@@ -3,18 +3,18 @@ title: 使用 Powershell 从命令行部署 ASDK
 description: 了解如何使用 PowerShell 从命令行部署 ASDK。
 author: justinha
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: c9931654b6c217d0c9f06bf51b37460046c47c2c
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.lastreviewed: 10/14/2020
+ms.openlocfilehash: 1d6df818c76e564423511a927ee1279cbf3f5279
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106929"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517372"
 ---
-# <a name="deploy-asdk-from-the-command-line-using-powershell"></a>使用 Powershell 从命令行部署 ASDK
+# <a name="deploy-asdk-from-the-command-line-using-powershell"></a>使用 PowerShell 从命令行部署 ASDK
 
 Azure Stack 开发工具包 (ASDK) 是一个测试和开发环境，可以在部署后用来评估和演示 Azure Stack 功能和服务。 若要启动并运行该工具包，需要准备环境硬件并运行一些脚本。 这些脚本需要几个小时才能完成运行。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
 
@@ -71,7 +71,7 @@ Azure Stack 开发工具包 (ASDK) 是一个测试和开发环境，可以在部
 > 如果不提供任何安装参数（参见下面的 InstallAzureStackPOC.ps1 可选参数和示例），系统会提示输入必需的参数。
 
 ### <a name="deploy-azure-stack-using-azure-ad"></a>使用 Azure AD 部署 Azure Stack 
-若要**使用 Azure AD 作为标识提供者**来部署 Azure Stack，必须通过直接方式或透明代理方式建立 Internet 连接。 
+若要 **使用 Azure AD 作为标识提供者** 来部署 Azure Stack，必须通过直接方式或透明代理方式建立 Internet 连接。 
 
 运行以下 PowerShell 命令，以便使用 Azure AD 部署 ASDK：
 
@@ -83,10 +83,10 @@ Azure Stack 开发工具包 (ASDK) 是一个测试和开发环境，可以在部
 
 进行 ASDK 安装后数分钟，系统会提示输入 Azure AD 凭据。 提供 Azure AD 租户的全局管理员凭据。
 
-部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 此类操作的示例包括资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
+部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 此类操作的示例包括资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是 *默认提供程序订阅* 的所有者）。
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>使用 AD FS 部署 Azure Stack 
-若要**使用 AD FS 作为标识提供者**来部署 ASDK，请运行以下 PowerShell 命令（只需添加 -UseADFS 参数）：
+若要 **使用 AD FS 作为标识提供者** 来部署 ASDK，请运行以下 PowerShell 命令（只需添加 -UseADFS 参数）：
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -96,7 +96,7 @@ Azure Stack 开发工具包 (ASDK) 是一个测试和开发环境，可以在部
 
 在 AD FS 部署中，默认的标记目录服务用作标识提供者。 登录时使用的默认帐户是 azurestackadmin@azurestack.local，而密码则会设置为在 PowerShell 安装命令中提供的密码。
 
-部署过程可能需要数小时，在此期间系统会自动重启一次。 如果部署成功，PowerShell 控制台会显示“COMPLETE: Action 'Deployment'”。 如果部署失败，请尝试使用 -rerun 参数再次运行脚本。 也可从头开始[重新部署 ASDK](asdk-redeploy.md)。
+部署过程可能需要数小时，在此期间系统会自动重启一次。 如果部署成功，PowerShell 控制台会显示“COMPLETE:  Action 'Deployment'”。 如果部署失败，请尝试使用 -rerun 参数再次运行脚本。 也可从头开始[重新部署 ASDK](asdk-redeploy.md)。
 
 > [!IMPORTANT]
 > 若要在 ASDK 主机重启后监视部署进度，必须以 AzureStack\AzureStackAdmin 身份登录。 如果在主机重启（并加入 azurestack.local 域）后以本地管理员身份登录，将看不到部署进度。 不要重新运行部署，而是以 AzureStack\AzureStackAdmin 身份登录，并使用与本地管理员相同的密码来验证安装程序是否正在运行。
@@ -105,7 +105,8 @@ Azure Stack 开发工具包 (ASDK) 是一个测试和开发环境，可以在部
 #### <a name="azure-ad-deployment-script-examples"></a>Azure AD 部署脚本示例
 可以编写整个 Azure AD 部署的脚本。 下面是一些加注的示例，其中包括一些可选参数。
 
-如果 Azure AD 标识只与**一个** Azure AD 目录相关联，请执行以下代码：
+如果 Azure AD 标识只与 **一个** Azure AD 目录相关联，请执行以下代码：
+
 ```powershell
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
@@ -113,7 +114,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>"
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
-如果 Azure AD 标识与**多个** Azure AD 目录相关联，请执行以下代码：
+如果 Azure AD 标识与 **多个** Azure AD 目录相关联，请执行以下代码：
 ```powershell
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 

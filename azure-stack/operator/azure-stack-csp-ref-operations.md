@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中注册租户以跟踪使用情况
 description: 了解如何在 Azure Stack Hub 中注册租户以及如何跟踪租户使用情况。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: c98893cb686ebb9edb2c6e7257507da4a688c52f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/17/2020
+ms.openlocfilehash: 990ac200fdf36e951dbee9d2fed96f4918a9a8bd
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543793"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517797"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>在 Azure Stack Hub 中注册租户以跟踪使用情况
 
@@ -25,7 +25,7 @@ ms.locfileid: "94543793"
 
 如果要在注册中添加新租户，可以使用此操作。 在与 Azure Active Directory (Azure AD) 租户连接的 Azure 订阅下报告租户使用情况。
 
-还可以使用此操作来更改与租户关联的订阅。 调用 PUT 或 **AzResource** PowerShell cmdlet 以覆盖以前的映射。
+还可以使用此操作来更改与租户关联的订阅。 调用 PUT 或 **AzResource** PowerShell cmdlet 以覆盖以前的映射。 如果你使用的是 AzureRM PowerShell 模块，请使用 **Remove-azureresource** powershell cmdlet。
 
 可以将单个 Azure 订阅与一个租户相关联。 如果尝试将第二个订阅添加到现有租户，则第一个订阅将被覆盖。
 
@@ -42,12 +42,21 @@ ms.locfileid: "94543793"
 | registrationSubscriptionID | 用于初始注册的 Azure 订阅。 |
 | customerSubscriptionID     | 属于要注册的客户的 Azure 订阅（非 Azure Stack Hub）。 必须通过合作伙伴中心在云解决方案提供商 (CSP) 产品/服务中创建。 如果客户有多个租户，则为要登录 Azure Stack Hub 的租户创建订阅。 客户订阅 ID 区分大小写。 |
 | resourceGroup              | Azure 中用于存储注册的资源组。 |
-| registrationName           | Azure Stack Hub 的注册名称。 它是 Azure 中存储的对象。 该名称通常采用格式 **azurestack-CloudID** ，其中 **CloudID** 是 Azure Stack Hub 部署的云 ID。 |
+| registrationName           | Azure Stack Hub 的注册名称。 它是 Azure 中存储的对象。 该名称通常采用格式 **azurestack-CloudID**，其中 **CloudID** 是 Azure Stack Hub 部署的云 ID。 |
 
 > [!NOTE]  
 > 租户必须注册到它们使用的每个 Azure Stack Hub 部署。 如果租户使用多个 Azure Stack Hub，则需要使用租户订阅更新每个部署的初始注册。
 
+
 ### <a name="powershell"></a>PowerShell
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
+使用 **AzResource** cmdlet 添加租户。 [连接到 Azure](/powershell/azure/get-started-azureps)，然后在提升的提示符下运行以下命令：
+
+```powershell  
+New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
 
 使用 **New-AzureRmResource** cmdlet 添加一个租户。 [连接到 Azure](/powershell/azure/get-started-azureps)，然后在提升的提示符下运行以下命令：
 
@@ -55,12 +64,13 @@ ms.locfileid: "94543793"
 New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
+---
 ### <a name="api-call"></a>API 调用
 
-**Operation** ：PUT  
-**RequestURI** ：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**响应** ：201 Created  
-**响应正文** ：空  
+**Operation**：PUT  
+**RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**响应**：201 Created  
+**响应正文**：空  
 
 ## <a name="list-all-registered-tenants"></a>列出所有已注册租户
 
@@ -75,9 +85,11 @@ New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceG
 |---                         | ---                  |
 | registrationSubscriptionId | 用于初始注册的 Azure 订阅。   |
 | resourceGroup              | Azure 中用于存储注册的资源组。    |
-| registrationName           | Azure Stack Hub 部署的注册名称。 它是 Azure 中存储的对象。 该名称通常采用格式 **azurestack-CloudID** ，其中 **CloudID** 是 Azure Stack Hub 部署的云 ID。   |
+| registrationName           | Azure Stack Hub 部署的注册名称。 它是 Azure 中存储的对象。 该名称通常采用格式 **azurestack-CloudID**，其中 **CloudID** 是 Azure Stack Hub 部署的云 ID。   |
 
 ### <a name="powershell"></a>PowerShell
+
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
 
 使用 **AzResource** cmdlet 列出所有已注册的租户。 [连接到 Azure Stack Hub](azure-stack-powershell-configure-admin.md)，然后从提升的提示符运行以下 cmdlet：
 
@@ -85,14 +97,23 @@ New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceG
 Get-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+
+使用 **move-azurermresource** cmdlet 列出所有已注册的租户。 [连接到 Azure Stack Hub](azure-stack-powershell-configure-admin.md)，然后从提升的提示符运行以下 cmdlet：
+
+```powershell
+Get-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+```
+
+---
 ### <a name="api-call"></a>API 调用
 
 可以使用 GET 操作获取所有租户映射的列表。
 
-**Operation** ：GET  
-**RequestURI** ：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
-**响应** ：200  
-**响应正文** ：
+**Operation**：GET  
+**RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
+**响应**：200  
+**响应正文**：
 
 ```json
 {
@@ -128,20 +149,32 @@ Get-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceG
 
 ### <a name="powershell"></a>PowerShell
 
+### <a name="az-modules"></a>[Az 模块](#tab/az3)
+
 使用 **AzResource** cmdlet 删除租户。 [连接到 Azure Stack Hub](azure-stack-powershell-configure-admin.md)，然后从提升的提示符运行以下 cmdlet：
 
 ```powershell
 Remove-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm3)
+
+使用 **move-azurermresource** cmdlet 删除租户。 [连接到 Azure Stack Hub](azure-stack-powershell-configure-admin.md)，然后从提升的提示符运行以下 cmdlet：
+
+```powershell
+Remove-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+```
+
+---
+
 ### <a name="api-call"></a>API 调用
 
 可以使用 DELETE 操作删除租户映射。
 
-**Operation** ：DELETE  
-**RequestURI** ：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**响应** ：204 无内容  
-**响应正文** ：空
+**Operation**：DELETE  
+**RequestURI**：`subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**响应**：204 无内容  
+**响应正文**：空
 
 ## <a name="next-steps"></a>后续步骤
 

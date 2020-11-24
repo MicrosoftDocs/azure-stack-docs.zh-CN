@@ -3,16 +3,16 @@ title: 将外部监视解决方案与 Azure Stack Hub 集成
 description: 了解如何将 Azure Stack Hub 与数据中心内的外部监视解决方案集成。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 10af23001cd3b7e12aa080a2dbecc136be0acfc8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/18/2020
+ms.openlocfilehash: 28da3cf886219eab10fff32d24b62cb7db101cb5
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543589"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517695"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>将外部监视解决方案与 Azure Stack Hub 集成
 
@@ -67,12 +67,12 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 该插件以 Python 编写，利用运行状况资源提供程序 REST API。 它提供在 Azure Stack Hub 中检索和关闭警报的基本功能。 与 System Center 管理包一样，它可以让你添加多个 Azure Stack Hub 部署以及发送通知。
 
-在版本 1.2 中，Azure Stack Hub – Nagios 插件利用 Microsoft ADAL 库，并支持使用服务主体通过机密或证书进行身份验证。 此外，配置过程已通过单个配置文件与新的参数进行简化。 它现在支持使用 Azure AD 和 AD FS 作为标识系统来部署 Azure Stack Hub。
+使用版本1.2，Azure Stack Nagios 插件利用 Microsoft ADAL 库，并支持使用包含机密或证书的服务主体进行身份验证。 此外，配置过程已通过单个配置文件与新的参数进行简化。 它现在支持使用 Azure AD 和 AD FS 作为标识系统来部署 Azure Stack Hub。
 
 > [!IMPORTANT]
 > AD FS 仅支持交互式登录会话。 如果需要对自动化场景进行非交互式登录，则必须使用 SPN。
 
-该插件适用于 Nagios 4x 和 XI。 若要下载该插件，请参阅 [监视 Azure Stack 集线器警报](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)。 下载站点还包含安装和配置详细信息。
+该插件适用于 Nagios 4x 和 XI。 若要下载该插件，请参阅[监视 Azure Stack Hub 警报](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)。 下载站点还包含安装和配置详细信息。
 
 ### <a name="requirements-for-nagios"></a>Nagios 的要求
 
@@ -86,7 +86,7 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 ### <a name="install-plugin"></a>安装插件
 
-本部分介绍如何安装 Azure Stack 集线器插件，前提是 Nagios 的默认安装。
+本部分介绍如何安装采用 Nagios 默认安装的 Azure Stack Hub 插件。
 
 插件包包含以下文件：
 
@@ -120,14 +120,14 @@ samples/etc/azurestack_services.cfg
 | 参数 | 说明 | 身份验证 |
 | --- | --- | --- |
 | **External_domain_fqdn** | 外部域 FQDN |    |
-| **区** | 区域名称 |    |
-| **tenant_id：** | 租户 ID\* |    |
+| **region:** | 区域名称 |    |
+| **tenant_id:** | 租户 ID\* |    |
 | client_id: | 客户端 ID | 包含机密的 SPN |
 | client_secret: | 客户端密码 | 包含机密的 SPN |
 | client_cert\*\*: | 证书的路径 | 包含证书的 SPN |
 | client_cert_thumbprint\*\*: | 证书指纹 | 包含证书的 SPN |
 
-\*AD FS Azure Stack 中心部署不需要租户 ID。
+\*使用 AD FS 的 Azure Stack Hub 部署不需要租户 ID。
 
 \*\* 客户端机密和客户端证书互斥。
 
@@ -140,7 +140,7 @@ samples/etc/azurestack_services.cfg
 | --- | --- |
 | azurestack_commands.cfg | 处理程序配置没有更改要求 |
 | azurestack_contacts.cfg | 通知设置 |
-| azurestack_hosts.cfg | Azure Stack 中心部署命名 |
+| azurestack_hosts.cfg | Azure Stack Hub 部署命名 |
 | azurestack_services.cfg | 服务的配置 |
 
 ### <a name="setup-steps"></a>设置步骤
@@ -151,7 +151,7 @@ samples/etc/azurestack_services.cfg
 
 ### <a name="update-nagios-configuration"></a>更新 Nagios 配置
 
-需要更新 Nagios 配置，以确保加载 Azure Stack 集线器– Nagios 插件。
+需要更新 Nagios 配置，以确保加载 Azure Stack 集线器 Nagios 插件。
 
 1. 打开以下文件：
 
@@ -199,11 +199,13 @@ samples/etc/azurestack_services.cfg
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>使用 PowerShell 监视运行状况和警报
 
-如果使用的不是 Operations Manager、Nagios 或基于 Nagios 的解决方案，则可以使用 PowerShell 来启用范围广泛的监视解决方案，以便与 Azure Stack 中心集成。
+如果不使用 Operations Manager、Nagios 或基于 Nagios 的解决方案，可以使用 PowerShell 来启用广泛的监视解决方案，以便与 Azure Stack Hub 集成。
 
-1. 若要使用 PowerShell，请确保已为 Azure Stack 中心运营商环境 [安装并配置 powershell](powershell-install-az-module.md) 。 在可以访问资源管理器（管理员）终结点 (https://adminmanagement.[region].[External_FQDN]) 的本地计算机上安装 PowerShell。
+### <a name="az-modules"></a>[Az 模块](#tab/az)
 
-2. 运行以下命令以 Azure Stack 中心操作员身份连接到 Azure Stack 集线器环境：
+1. 若要使用 PowerShell，请确保已针对 Azure Stack Hub 操作员环境[安装并配置 PowerShell](powershell-install-az-module.md)。 在可以访问资源管理器（管理员）终结点 (https://adminmanagement.[region].[External_FQDN]) 的本地计算机上安装 PowerShell。
+
+2. 以 Azure Stack Hub 操作员身份运行以下命令，以连接到 Azure Stack Hub 环境：
 
    ```powershell
    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
@@ -214,30 +216,70 @@ samples/etc/azurestack_services.cfg
    ```
 
 3. 使用如下所示的命令来处理警报：
+
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
+
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
+
+# Close alert
+Close-AzsAlert -AlertID "ID"
+
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+   Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+1. 若要使用 PowerShell，请确保已针对 Azure Stack Hub 操作员环境[安装并配置 PowerShell](powershell-install-az-module.md)。 在可以访问资源管理器（管理员）终结点 (https://adminmanagement.[region].[External_FQDN]) 的本地计算机上安装 PowerShell。
+
+2. 以 Azure Stack Hub 操作员身份运行以下命令，以连接到 Azure Stack Hub 环境：
+
    ```powershell
-    # Retrieve all alerts
-    $Alerts = Get-AzsAlert
-    $Alerts
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
+      -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-    # Filter for active alerts
-    $Active = $Alerts | Where-Object { $_.State -eq "active" }
-    $Active
+   Connect-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+   ```
 
-    # Close alert
-    Close-AzsAlert -AlertID "ID"
+3. 使用如下所示的命令来处理警报：
 
-    #Retrieve resource provider health
-    $RPHealth = Get-AzsRPHealth
-    $RPHealth
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
 
-    # Retrieve infrastructure role instance health
-    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
-    Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-    ```
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
 
-## <a name="learn-more"></a>了解更多
+# Close alert
+Close-AzsAlert -AlertID "ID"
 
-有关内置运行状况监视的信息，请参阅 [监视 Azure Stack 集线器中的运行状况和警报](azure-stack-monitor-health.md)。
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+---
+
+## <a name="learn-more"></a>了解详细信息
+
+有关内置运行状况监视的信息，请参阅[在 Azure Stack Hub 中监视运行状况和警报](azure-stack-monitor-health.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,16 +3,16 @@ title: 删除 Azure Stack 集线器上具有依赖关系的 VM
 description: 如何删除 Azure Stack Hub 上具有依赖项的 VM（虚拟计算机）
 author: mattbriggs
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/15/2020
-ms.openlocfilehash: 98b694f1965312462d9fbbe9d6e394f3b15867bf
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: f9e32351dbc73b42e51c485c8e2eb39d4226ea27
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572477"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518205"
 ---
 # <a name="how-to-delete-a-vm-virtual-machine-with-dependencies-on-azure-stack-hub"></a>如何删除 Azure Stack Hub 上具有依赖项的 VM（虚拟计算机）
 
@@ -52,7 +52,81 @@ ms.locfileid: "90572477"
     2. 等待资源完全删除。
     3. 然后，你可以删除下一个依赖项。
 
-### <a name="with-powershell"></a>[使用 PowerShell](#tab/ps)
+### <a name="with-powershell"></a>[使用 PowerShell](#tab/ps-az)
+
+如果无法删除资源组，要么依赖项不在同一资源组中，要么存在其他资源，请按照以下步骤操作。
+
+连接到 Azure Stack Hub 环境，然后使用 VM 名称和资源组更新以下变量。 有关将 PowerShell 会话到 Azure Stack Hub 的说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack Hub](azure-stack-powershell-configure-user.md)。
+
+```powershell
+$machineName = 'VM_TO_DELETE'
+$resGroupName = 'RESOURCE_GROUP'
+$machine = Get-AzVM -Name $machineName -ResourceGroupName $resGroupName
+```
+
+检索依赖项的 VM 信息和名称。 请在同一会话中运行以下 cmdlet：
+
+```powershell
+ $azResParams = @{
+ 'ResourceName' = $machineName
+ 'ResourceType' = 'Microsoft.Compute/virtualMachines'
+     'ResourceGroupName' = $resGroupName
+ }
+ $vmRes = Get-AzResource @azResParams
+ $vmId = $vmRes.Properties.VmId
+```
+
+删除启动诊断存储容器。 如果计算机名称短于 9 个字符，则需要在创建 `$diagContainer` 变量时将索引更改为 substring 中的字符串长度。 
+
+请在同一会话中运行以下 cmdlet：
+
+```powershell
+$container = [regex]::match($machine.DiagnosticsProfile.bootDiagnostics.storageUri, '^http[s]?://(.+?)\.').groups[1].value
+$diagContainer = ('bootdiagnostics-{0}-{1}' -f $machine.Name.ToLower().Substring(0, 9), $vmId)
+$containerRg = (Get-AzStorageAccount | where { $_.StorageAccountName -eq $container }).ResourceGroupName
+$storeParams = @{
+    'ResourceGroupName' = $containerRg
+    'Name' = $container }
+Get-AzStorageAccount @storeParams | Get-AzureStorageContainer | where { $_.Name-eq $diagContainer } | Remove-AzureStorageContainer -Force
+```
+
+删除虚拟网络接口。
+
+```powershell
+$machine | Remove-AzNetworkInterface -Force
+```
+
+删除操作系统磁盘。
+
+```powershell
+$osVhdUri = $machine.StorageProfile.OSDisk.Vhd.Uri
+$osDiskConName = $osVhdUri.Split('/')[-2]
+$osDiskStorageAcct = Get-AzStorageAccount | where { $_.StorageAccountName -eq $osVhdUri.Split('/')[2].Split('.')[0] }
+$osDiskStorageAcct | Remove-AzureStorageBlob -Container $osDiskConName -Blob $osVhdUri.Split('/')[-1]
+```
+
+删除附加到 VM 的数据磁盘。
+
+```powershell
+if ($machine.DataDiskNames.Count -gt 0)
+ {
+    Write-Verbose -Message 'Deleting disks...'
+        foreach ($uri in $machine.StorageProfile.DataDisks.Vhd.Uri )
+        {
+            $dataDiskStorageAcct = Get-AzStorageAccount -Name $uri.Split('/')[2].Split('.')[0]
+             $dataDiskStorageAcct | Remove-AzureStorageBlob -Container $uri.Split('/')[-2] -Blob $uri.Split('/')[-1] -ea Ignore
+        }
+ }
+```
+
+最后，删除 VM。 该 cmdlet 需要一些时间才能运行。 可以通过查看 PowerShell 中的 VM 对象来审核附加到 VM 的组件。 若要查看对象，只需引用包含 VM 对象的变量。 键入 `$machine`。
+
+若要删除 VM，请在同一会话中运行以下 cmdlet：
+
+```powershell
+$machine | Remove-AzVM -Force
+```
+### <a name="with-powershell"></a>[使用 PowerShell](#tab/ps-azureRM)
 
 如果无法删除资源组，要么依赖项不在同一资源组中，要么存在其他资源，请按照以下步骤操作。
 
@@ -126,7 +200,7 @@ if ($machine.DataDiskNames.Count -gt 0)
 ```powershell
 $machine | Remove-AzureRmVM -Force
 ```
-
+---
 ## <a name="next-steps"></a>后续步骤
 
 [Azure Stack Hub VM 功能](azure-stack-vm-considerations.md)

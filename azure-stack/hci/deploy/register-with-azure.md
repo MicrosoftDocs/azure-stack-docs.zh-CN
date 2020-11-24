@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 11/17/2020
-ms.openlocfilehash: 7a98692fb29b1a539bf9f9fd26e0a3e226cb8669
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 7406379931f2735304536d45aa6e413df6461127
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785768"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517118"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>将 Azure Stack HCI 连接到 Azure
 
@@ -62,10 +62,16 @@ C:\> ping bing.com
    Install-WindowsFeature RSAT-Azure-Stack-HCI
    ```
 
-3. 安装所需的 cmdlet：
+3. 安装所需的 cmdlet。 如果要从公共预览图像部署 Azure Stack HCI，则需要使用 StackHCI PowerShell 模块的版本0.3.1：
 
    ```PowerShell
    Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
+   ```
+
+   如果你已经安装了 [2020 年11月23日的预览版更新 (KB4586852) ](../release-notes.md) 并现在正在将群集注册到 Azure，则可以安全地使用 StackHCI 的最新版本：
+
+   ```PowerShell
+   Install-Module -Name Az.StackHCI
    ```
 
    > [!NOTE]

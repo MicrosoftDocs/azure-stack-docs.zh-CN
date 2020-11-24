@@ -3,20 +3,20 @@ title: 在 Azure Stack Hub 中使用模板验证工具
 description: 使用模板验证工具检查部署到 Azure Stack Hub 的模板。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 35fe7fbd2a3d7004d70e343ca763ea49563f2597
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 0631058a3eade431769a5651bb37441b835eb3e6
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546559"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518052"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用模板验证工具
 
-使用模板验证工具检查 Azure 资源管理器[模板](azure-stack-arm-templates.md)是否已准备好部署到 Azure Stack Hub。 Azure Stack 中心工具 GitHub 存储库中提供了模板验证工具。 使用[从 GitHub 下载工具](../operator/azure-stack-powershell-download.md)中所述的步骤下载 Azure Stack Hub 工具。
+使用模板验证工具检查 Azure 资源管理器[模板](azure-stack-arm-templates.md)是否已准备好部署到 Azure Stack Hub。 可从 Azure Stack Hub 工具 GitHub 存储库获取模板验证工具。 使用[从 GitHub 下载工具](../operator/azure-stack-powershell-download.md)中所述的步骤下载 Azure Stack Hub 工具。
 
 ## <a name="overview"></a>概述
 
@@ -32,6 +32,9 @@ ms.locfileid: "94546559"
 > [!NOTE]
 > 如果更新集成系统，或添加任何新服务或虚拟扩展，应重新运行该模块。
 
+
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
 1. 请确保已连接到 Azure Stack Hub。 这些步骤可从 Azure Stack 开发工具包 (ASDK) 主机执行，也可以使用 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 从工作站连接。
 2. 导入 **Azurerm.cloudcapabilities** PowerShell 模块：
 
@@ -39,15 +42,34 @@ ms.locfileid: "94546559"
     Import-Module .\CloudCapabilities\Az.CloudCapabilities.psm1
     ```
 
-3. 使用 **Get-CloudCapabilities** cmdlet 检索服务版本，并创建云功能 JSON 文件。 如果未指定 `-OutputPath`，则将在当前目录中创建文件 **AzureCloudCapabilities.json** 。 使用你的实际 Azure 位置：
+3. 使用 **Get-CloudCapabilities** cmdlet 检索服务版本，并创建云功能 JSON 文件。 如果未指定 `-OutputPath`，则将在当前目录中创建文件 **AzureCloudCapabilities.json**。 使用你的实际 Azure 位置：
+
+```powershell
+Get-AzCloudCapability -Location <your location> -Verbose
+```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+
+1. 请确保已连接到 Azure Stack Hub。 这些步骤可从 Azure Stack 开发工具包 (ASDK) 主机执行，也可以使用 [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 从工作站连接。
+2. 导入 **Azurerm.cloudcapabilities** PowerShell 模块：
 
     ```powershell
-    Get-AzCloudCapability -Location <your location> -Verbose
+    Import-Module .\CloudCapabilities\Az.CloudCapabilities.psm1
     ```
+
+3. 使用 **Get-CloudCapabilities** cmdlet 检索服务版本，并创建云功能 JSON 文件。 如果未指定 `-OutputPath`，则将在当前目录中创建文件 **AzureCloudCapabilities.json**。 使用你的实际 Azure 位置：
+
+```powershell
+Get-AzureRMCloudCapability -Location <your location> -Verbose
+```
+
+---
 
 ## <a name="validate-templates"></a>验证模板
 
 使用以下步骤可通过使用 **Azurerm.templatevalidator.psm1** PowerShell 模块来验证模板。 可以使用自己的模板，或使用 [Azure Stack Hub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
 
 1. 导入 **azurerm.templatevalidator.psm1. Hbase-runner.psm1** PowerShell 模块：
 
@@ -58,11 +80,30 @@ ms.locfileid: "94546559"
 
 2. 运行模板验证程序：
 
+```powershell
+Test-AzTemplate -TemplatePath <path to template.json or template folder> `
+-CapabilitiesPath <path to cloudcapabilities.json> `
+-Verbose
+```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+
+1. 导入 **azurerm.templatevalidator.psm1. Hbase-runner.psm1** PowerShell 模块：
+
     ```powershell
-    Test-AzTemplate -TemplatePath <path to template.json or template folder> `
-    -CapabilitiesPath <path to cloudcapabilities.json> `
-    -Verbose
+    cd "c:\AzureStack-Tools-az\TemplateValidator"
+    Import-Module .\Az.TemplateValidator.psm1
     ```
+
+2. 运行模板验证程序：
+
+```powershell
+Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
+-CapabilitiesPath <path to cloudcapabilities.json> `
+-Verbose
+```
+
+---
 
 模板验证警告或错误会显示在 PowerShell 控制台中并写入到源目录中的一个 HTML 文件中。 以下屏幕截图是验证报告的一个示例：
 
@@ -84,7 +125,9 @@ ms.locfileid: "94546559"
 
 ### <a name="examples"></a>示例
 
-此示例验证下载到本地存储的所有 [Azure Stack Hub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)。 此示例还根据 ASDK 功能验证虚拟机 (VM) 大小和扩展：
+此示例验证下载到本地存储的所有 [Azure Stack Hub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)。 该示例还根据 ASDK 功能验证虚拟机 (VM) 大小和扩展。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az3)
 
 ```powershell
 test-AzTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
@@ -93,6 +136,16 @@ test-AzTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -IncludeComputeCapabilities `
 -Report TemplateReport.html
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm3)
+
+```powershell
+test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
+-CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
+-TemplatePattern MyStandardTemplateName.json `
+-IncludeComputeCapabilities `
+-Report TemplateReport.html
+```
+---
 
 ## <a name="next-steps"></a>后续步骤
 

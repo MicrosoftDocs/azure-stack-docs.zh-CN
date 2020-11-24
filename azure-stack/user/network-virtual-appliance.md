@@ -3,16 +3,16 @@ title: 排查 Azure Stack Hub 上的网络虚拟设备问题
 description: 排查在 Microsoft Azure Stack Hub 中使用网络虚拟设备 (NVA) 时遇到的 VM 或 VPN 连接问题。
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/08/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 0facc0cc06ad3ff672531f1eeb7e31eee2f56ee0
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546882"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517142"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>排查网络虚拟设备问题
 
@@ -55,13 +55,13 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 
 ### <a name="check-whether-ip-forwarding-is-enabled-on-the-nva"></a>检查是否在 NVA 上启用了 IP 转发
 
-#### <a name="use-the-azure-stack-hub-portal"></a>使用 Azure Stack Hub 门户
+### <a name="portal"></a>[Portal](#tab/portal)
 
 1. 在 Azure Stack Hub 门户中找到 NVA 资源，选择“网络”，然后选择网络接口。
 2. 在“网络接口”页上，选择“IP 配置”。 
 3. 确保已启用 IP 转发。
 
-#### <a name="use-powershell"></a>使用 PowerShell
+### <a name="powershell-az"></a>[PowerShell Az](#tab/az)
 
 1. 运行以下命令。 将尖括号中的值替换为你的信息。
 
@@ -81,6 +81,29 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
    EnableIPForwarding   : True
    NetworkSecurityGroup : null
    ```
+
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/azurerm)
+
+1. 运行以下命令。 将尖括号中的值替换为你的信息。
+
+   ```powershell
+   Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   ```
+
+2. 检查“EnableIPForwarding”属性。
+
+3. 如果未启用 IP 转发，请运行以下命令将其启用：
+
+   ```powershell
+   $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   $nic2.EnableIPForwarding = 1
+   Set-AzureRMNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
+
+---
 
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>检查流量是否可路由到 NVA
 

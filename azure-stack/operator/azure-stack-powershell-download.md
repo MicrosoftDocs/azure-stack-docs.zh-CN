@@ -7,12 +7,12 @@ ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 023e04d807ff34f78bd4acbc68487e8893831ba4
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 1feafa194922cfa0443aedce6eb1f6e051d633c6
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545051"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517644"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>从 GitHub 下载 Azure Stack Hub 工具
 
@@ -71,10 +71,6 @@ cd AzureStack-Tools-master
 
 ```
 若要详细了解如何使用适用于 Azure Stack Hub 的 AzureRM 模块，请参阅[安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块](azure-stack-powershell-install.md)
-
-
-
----
 
 ---
 

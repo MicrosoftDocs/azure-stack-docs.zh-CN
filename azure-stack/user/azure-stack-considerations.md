@@ -3,15 +3,15 @@ title: 使用服务和生成应用时 Azure Stack Hub 与 Azure 之间的差异
 description: 了解使用服务和生成应用时 Azure 与 Azure Stack Hub 之间的差异。
 author: sethmanheim
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: f4a0ff18d8b96c6c92aa3020031e604d2775c893
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: 8d8cd26bc53deef5b2e23955b349cb68a0eb51f0
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543555"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95516981"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>使用服务和生成应用时 Azure Stack Hub 与 Azure 之间的差异
 
@@ -70,10 +70,23 @@ Azure Stack Hub 支持特定版本的 Azure PowerShell 和 Azure 服务 API。 �
 
 对于其他 API，请运行以下 PowerShell 命令输出 Azure Stack Hub 订阅中支持的命名空间、资源类型和 API 版本（在属性级别上可能仍然存在差异）。 若要正常运行此命令，必须事先[安装](../operator/powershell-install-az-module.md)并[配置](azure-stack-powershell-configure-user.md)适用于 Azure Stack Hub 环境的 PowerShell。 此外，必须有 Azure Stack Hub 套餐的订阅。
 
+### <a name="az-modules"></a>[Az 模块](#tab/az)
+
 ```powershell
 Get-AzResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+```powershell
+Get-AzureRMResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
+Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
+```
+
+---
+
+
+
 
 示例输出 (截断) ： ![ Get-AzResourceProvider 命令的示例输出](media/azure-stack-considerations/image1.png)
 

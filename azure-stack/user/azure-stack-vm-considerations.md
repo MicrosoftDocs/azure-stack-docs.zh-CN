@@ -3,16 +3,16 @@ title: Azure Stack Hub VM 功能
 description: 了解使用 Azure Stack Hub 中的 VM 时的不同功能和注意事项。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 2fbdc058781b4aefbcf4a289e907bcbb4b63f301
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 6006d8f715a9a680301dfe64f7c02075ab9052ab
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546984"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518273"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM 功能
 
@@ -72,7 +72,9 @@ VM 大小及其关联的资源数量在 Azure Stack Hub 与 Azure 之间是一�
 
 Azure Stack Hub 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。
 
-使用以下 PowerShell 脚本可获取 Azure Stack Hub 环境中可用的 VM 扩展的列表：
+使用以下 PowerShell 脚本获取 Azure Stack 中心环境中可用的 VM 扩展的列表。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
 
 ```powershell
 Get-AzVmImagePublisher -Location local | `
@@ -81,6 +83,16 @@ Get-AzVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
+
+```powershell
+Get-AzureRMVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
+  Select Type, Version | `
+  Format-Table -Property * -AutoSize
+``` 
+---
 
 如果在 VM 部署上预配某个扩展时耗时过长，请让预配超时，而不要尝试通过停止该进程来解除 VM 的分配或将 VM 删除。
 
@@ -92,6 +104,8 @@ Azure Stack Hub 中的 VM 功能支持以下 API 版本：
 
 可以使用以下 PowerShell 脚本来获取 Azure Stack Hub 环境中可用的 VM 功能的 API 版本：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
+
 ```powershell
 Get-AzResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
@@ -99,6 +113,19 @@ Get-AzResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+
+```powershell
+Get-AzureRMResourceProvider | `
+  Select ProviderNamespace -Expand ResourceTypes | `
+  Select * -Expand ApiVersions | `
+  Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
+  where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
+```
+
+---
+
 
 如果云运营商将 Azure Stack Hub 环境更新为较新版本，则支持的资源类型和 API 版本列表可能有所不同。
 

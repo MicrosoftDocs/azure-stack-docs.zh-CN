@@ -3,15 +3,15 @@ title: 使用安全存储在 Azure Stack Hub 中的证书部署 VM
 description: 了解如何在 Azure Stack Hub 中部署虚拟机，并使用密钥保管库将证书推送到该虚拟机
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 245658359db8b55a455fa653f4b97bbf6d1737d8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: a326004b5ed100b0fc7eeb841dd0fbc4ded9ee5a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546236"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518154"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>使用安全地存放在 Azure Stack Hub 上的证书部署 VM
 
@@ -48,6 +48,8 @@ ms.locfileid: "94546236"
 
 > [!IMPORTANT]
 > 创建密钥保管库时，必须使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az)
 
 ```powershell
 # Create a certificate in the .pfx format
@@ -107,6 +109,70 @@ Set-AzureKeyVaultSecret `
   -Name $secretName `
    -SecretValue $secret
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+
+```powershell
+# Create a certificate in the .pfx format
+New-SelfSignedCertificate `
+  -certstorelocation cert:\LocalMachine\My `
+  -dnsname contoso.microsoft.com
+
+$pwd = ConvertTo-SecureString `
+  -String "<Password used to export the certificate>" `
+  -Force `
+  -AsPlainText
+
+Export-PfxCertificate `
+  -cert "cert:\localMachine\my\<certificate thumbprint that was created in the previous step>" `
+  -FilePath "<Fully qualified path to where the exported certificate can be stored>" `
+  -Password $pwd
+
+# Create a key vault and upload the certificate into the key vault as a secret
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "servicecert"
+$fileName = "<Fully qualified path to where the exported certificate can be stored>"
+$certPassword = "<Password used to export the certificate>"
+
+$fileContentBytes = get-content $fileName `
+  -Encoding Byte
+
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$jsonObject = @"
+{
+"data": "$filecontentencoded",
+"dataType" :"pfx",
+"password": "$certPassword"
+}
+"@
+$jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+
+New-AzureRMResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+
+New-AzureRMKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location `
+  -sku standard `
+  -EnabledForDeployment
+
+$secret = ConvertTo-SecureString `
+  -String $jsonEncoded `
+  -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+   -SecretValue $secret
+```
+
+---
+
+
 
 运行此脚本时，输出会包括机密 URI。 请记下此 URI，因为在[将证书推送到 Windows 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)中时必须引用此它。 将 [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 模板文件夹下载到开发计算机。 此文件夹包含 **azuredeploy.json** 和 **azuredeploy.parameters.json** 文件，这些文件需要在以下步骤中使用。
 
@@ -153,6 +219,8 @@ Set-AzureKeyVaultSecret `
 
 使用以下 PowerShell 脚本部署模板：
 
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
+
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret to it
 New-AzResourceGroupDeployment `
@@ -161,6 +229,19 @@ New-AzResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
+
+```powershell
+# Deploy a Resource Manager template to create a VM and push the secret to it
+New-AzureRMResourceGroupDeployment `
+  -Name KVDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
+  -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
+```
+---
+
+
 
 成功部署模板后，会显示以下输出：
 
@@ -169,7 +250,7 @@ New-AzResourceGroupDeployment `
 在部署期间，Azure Stack Hub 会将证书推送到 VM。 证书位置取决于 VM 的操作系统：
 
 * 在 Windows 中，系统会利用用户提供的证书存储，将证书添加到 **LocalMachine** 证书位置。
-* 在 Linux 中，证书会置于 **/var/lib/waagent** 目录下，其中 x509 证书文件的文件名为 **UppercaseThumbprint.crt** ，私钥的文件名为 **UppercaseThumbprint.prv** 。
+* 在 Linux 中，证书会置于 **/var/lib/waagent** 目录下，其中 x509 证书文件的文件名为 **UppercaseThumbprint.crt**，私钥的文件名为 **UppercaseThumbprint.prv**。
 
 ## <a name="retire-certificates"></a>停用证书
 
