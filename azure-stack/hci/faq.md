@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/04/2020
-ms.openlocfilehash: f54b62a26b9e3c0409493cec26bdb42ac990b35b
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.date: 11/24/2020
+ms.openlocfilehash: 3606c62c562cb7f402aaafae33a55336345b5e62
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363888"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812623"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI 常见问题
 Azure Stack HCI 常见问题包含有关 Azure Stack HCI 连接的部分和一般常见问题解答部分。
@@ -68,7 +68,7 @@ Azure Stack HCI 至少需要在每30天的时间内通过 Azure 成功同步。
 
 **已同步的信息实际上会在何处？**
 
-Azure Stack HCI 与初始注册期间选择的 Azure 区域同步。 默认值为 "美国东部"。 Azure Stack HCI 还可在西欧中使用，我们正在努力扩展到更多的区域。 例如，如果您向美国东部注册，则您的信息只同步到该区域，并且仅在美国中，存储在安全的 Microsoft 运营数据中心内。 若要了解详细信息，请参阅 [Azure 中的数据驻留](https://azure.microsoft.com/global-infrastructure/data-residency/)。
+Azure Stack HCI 与 Azure 同步，并将数据存储在安全的、由 Microsoft 运营的数据中心。 若要了解详细信息，请参阅 [Azure 中的数据驻留](https://azure.microsoft.com/global-infrastructure/data-residency/)。
 
 ### <a name="disconnected-or-air-gapped"></a>断开连接或 "有气流"
 

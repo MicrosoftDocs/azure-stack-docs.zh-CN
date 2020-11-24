@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: 6116710b6fe1fa9ee909e29ee337d7000caf06ac
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 11/24/2020
+ms.openlocfilehash: 56cc4c35ecbb92c30883bd1f2018422cdcac0894
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517169"
+ms.locfileid: "95812720"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Azure Stack HCI 公共预览版发行说明
 
@@ -31,7 +31,7 @@ ms.locfileid: "95517169"
    >
    > 2. 在本地或使用连接到其中一个群集节点 `Enter-PSSession <server-name>`
    >
-   > 3. 从 PowerShell 库下载 AzStackHCI v 0.4.0 registration 模块。 运行 `Install-Module Az.StackHCI` 以获取最新模块。
+   > 3. 从 PowerShell 库下载 AzStackHCI v 0.4.1 registration 模块。 运行 `Install-Module -Name Az.StackHCI` 以获取最新模块。
    >
    > 4. 运行以下命令以修复你的注册。 使用用于最初注册群集的订阅 ID。 `Get-AzureStackHCI` 显示当前 ARM Uri，它包含订阅信息。
    >

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 7406379931f2735304536d45aa6e413df6461127
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 11/23/2020
+ms.openlocfilehash: d90788a6f7f267955b1c4837eef74a5980118dea
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517118"
+ms.locfileid: "95812621"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>将 Azure Stack HCI 连接到 Azure
 
@@ -68,7 +68,7 @@ C:\> ping bing.com
    Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
    ```
 
-   如果你已经安装了 [2020 年11月23日的预览版更新 (KB4586852) ](../release-notes.md) 并现在正在将群集注册到 Azure，则可以安全地使用 StackHCI 的最新版本：
+   如果已在群集中的每台服务器上安装了 [2020 年11月23日的预览版更新 (KB4586852) ](../release-notes.md) ，并且现在正在将群集注册到 Azure，则可以安全地使用 StackHCI 的最新版本：
 
    ```PowerShell
    Install-Module -Name Az.StackHCI

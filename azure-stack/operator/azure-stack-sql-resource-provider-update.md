@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 60d9ce421ce4cdede89dd9f0fa9ff4ee4746d039
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: a67b950f91d502378a151031e25a68f861494555
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572851"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812640"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
@@ -24,25 +24,25 @@ ms.locfileid: "91572851"
 
 |支持的 Azure Stack Hub 版本|SQL RP 版本|RP 服务正在其上运行的 Windows Server
   |-----|-----|-----|
-  |2005|[SQL RP 版本1.1.93。0](https://aka.ms/azshsqlrp11930)|Microsoft Test-azurestack 外接程序 RP Windows Server （仅限内部）
-  |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter-Server Core|
-  |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter-Server Core|
+  |2008、2005|[SQL RP 版本 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack 加载项 RP Windows Server（仅限内部）
+  |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter - Server Core|
+  |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |
 
-SQL 资源提供程序更新是累积性的。 从旧版本更新时，可以直接更新到最新版本。 
+SQL 资源提供程序更新是累积的。 从旧版本更新时，可以直接更新到最新版本。 
 
-若要更新资源提供程序，请使用 **UpdateSQLProvider.ps1** 脚本。 使用具有本地管理权限且是订阅的**所有者**的服务帐户。 下载资源提供程序时包含此更新脚本。 
+若要更新资源提供程序，请使用 **UpdateSQLProvider.ps1** 脚本。 使用具有本地管理权限且是订阅的 **所有者** 的服务帐户。 资源提供程序的下载包中提供此更新脚本。 
 
 更新过程类似于[部署资源提供程序](./azure-stack-sql-resource-provider-deploy.md)时使用的过程。 更新脚本与 DeploySqlProvider.ps1 脚本使用相同的参数，你需要提供证书信息。
 
 ## <a name="update-script-processes"></a>更新脚本过程
 
-**UpdateSQLProvider.ps1**脚本将使用最新的操作系统映像创建新的虚拟机 (VM) ，部署最新的资源提供程序代码，并将这些设置从旧资源提供程序迁移到新的资源提供程序。 
+UpdateSQLProvider.ps1 脚本使用最新的 OS 映像创建新的虚拟机 (VM)，部署最新的资源提供程序代码，并将设置从旧资源提供程序迁移到新资源提供程序。 
 
 > [!NOTE]
->建议从 Marketplace 管理下载最新的 Windows Server 2016 Core 映像或 Microsoft Test-azurestack 外接程序 RP Windows Server 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
+>建议从市场管理下载最新的 Windows Server 2016 Core 映像或 Microsoft AzureStack 加载项 RP Windows Server 映像。 如需安装更新，可以将 **单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
 
-*UpdateSQLProvider.ps1*脚本创建新的 VM 后，该脚本将从旧的资源提供程序 VM 迁移以下设置：
+UpdateSQLProvider.ps1 脚本在创建新的 VM 后，会从旧的资源提供程序 VM 中迁移以下设置：
 
 * 数据库信息
 * 宿主服务器信息
@@ -58,8 +58,8 @@ SQL 资源提供程序更新是累积性的。 从旧版本更新时，可以直
 | **AzCredential** | Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 | _必需_ |
 | **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
-| **AzureEnvironment** | 用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment**或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
-| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | __ 对单节点为可选，但对多节点为必选 |
+| **AzureEnvironment** | 用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment** 或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
+| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | 对单节点为可选，但对多节点为必选 |
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
 | **RetryDuration** |每两次重试的超时间隔（秒）。 | 120 |
@@ -68,12 +68,12 @@ SQL 资源提供程序更新是累积性的。 从旧版本更新时，可以直
 
 ## <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
 
-如果要将 SQL 资源提供程序版本更新为1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm 和 Azure Stack 集线器模块。 
+如果要将 SQL 资源提供程序版本更新为 1.1.33.0 或早期版本，则需要在 PowerShell 中安装特定版本的 AzureRm.BootStrapper 和 Azure Stack Hub 模块。 
 
-如果要将 SQL 资源提供程序更新到版本1.1.47.0 或更高版本，则可以跳过此步骤。 部署脚本将自动下载并安装所需的 PowerShell 模块，以便你可以将 C:\Program Files\SqlMySqlPsh。
+如果要将 SQL 资源提供程序更新到版本 1.1.47.0 或更高版本，可以跳过此步骤。 部署脚本会自动下载所需的 PowerShell 模块并将其安装到路径 C:\Program Files\SqlMySqlPsh。
 
 >[!NOTE]
->如果已存在已下载 PowerShell 模块的文件夹 C:\Program Files\SqlMySqlPsh，建议在运行更新脚本之前清理此文件夹。 这是为了确保下载并使用正确版本的 PowerShell 模块。
+>如果文件夹 C:\Program Files\SqlMySqlPsh 已存在并已下载 PowerShell 模块，建议在运行更新脚本之前清理此文件夹。 这是为了确保下载并使用正确版本的 PowerShell 模块。
 
 ```powershell
 # Run the following scripts when updating to version 1.1.33.0 only.
