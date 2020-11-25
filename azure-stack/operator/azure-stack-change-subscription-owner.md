@@ -3,16 +3,16 @@ title: 更改 Azure Stack Hub 用户订阅的计费所有者
 description: 了解如何更改 Azure Stack Hub 用户订阅的计费所有者。
 author: justinha
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/16/2020
 ms.author: justinha
 ms.reviewer: shnatara
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 7b4d47d695287a2e2f544fc9e4c67ceab21527c8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: 0a455f7f902e76e61f5a7451e26219abf10b7622
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543895"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96035262"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>更改 Azure Stack Hub 用户订阅的计费所有者
 
@@ -20,7 +20,7 @@ Azure Stack Hub 操作员可以使用 PowerShell 更改用户订阅的计费所�
 
 会将两种类型的所有者分配到订阅：
 
-- **计费所有者** ：默认情况下，计费所有者是从套餐获取订阅，然后拥有该订阅的计费关系的用户帐户。 此帐户也是订阅的管理员。 在一个订阅中，只能指定一个此类用户帐户。 计费所有者通常是组织或团队主管。
+- **计费所有者**：默认情况下，计费所有者是从套餐获取订阅，然后拥有该订阅的计费关系的用户帐户。 此帐户也是订阅的管理员。 在一个订阅中，只能指定一个此类用户帐户。 计费所有者通常是组织或团队主管。
 
   可以使用 PowerShell cmdlet [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) 更改计费所有者。  
 
@@ -37,10 +37,12 @@ Azure Stack Hub 操作员可以使用 PowerShell 更改用户订阅的计费所�
 
 运行脚本之前，请替换脚本中的以下值：
 
-- **$ArmEndpoint** ：环境的资源管理器终结点。
-- **$TenantId** ：租户 ID。
-- **$SubscriptionId** ：订阅 ID。
-- **$OwnerUpn** ：要添加为新账单所有者的帐户，例如 **user\@example.com** 。
+- **$ArmEndpoint**：环境的资源管理器终结点。
+- **$TenantId**：租户 ID。
+- **$SubscriptionId**：订阅 ID。
+- **$OwnerUpn**：要添加为新账单所有者的帐户，例如 **user\@example.com**。
+
+### <a name="az-modules"></a>[Az 模块](#tab/az)
 
 ```powershell
 # Set up Azure Stack Hub admin environment
@@ -58,7 +60,30 @@ $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
-[!include[Remove Account](../../includes/remove-account.md)]
+[!include[Remove Account](../includes/remove-account-az.md)]
+
+### <a name="az-modules"></a>[Az 模块](#tab/azurerm)
+
+```powershell
+# Set up AzureRMure Stack Hub admin environment
+Add-AzureRMEnvironment -ARMEndpoint $ArmEndpoint -Name AzureRMureStack-admin
+Add-AzureRMAccount -Environment AzureRMureStack-admin -TenantId $TenantId
+
+# Select admin subscription
+$providerSubscriptionId = (Get-AzureRMSubscription -SubscriptionName "Default Provider Subscription").Id
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId"
+Set-AzureRMContext -Subscription $providerSubscriptionId
+
+# Change user subscription owner
+$subscription = Get-AzureRMsUserSubscription -SubscriptionId $SubscriptionId
+$Subscription.Owner = $OwnerUpn
+Set-AzureRMsUserSubscription -InputObject $subscription
+```
+[!include[Remove Account](../includes/remove-account-azurerm.md)]
+---
+
+
+
 
 ## <a name="next-steps"></a>后续步骤
 
