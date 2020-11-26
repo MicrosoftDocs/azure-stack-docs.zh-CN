@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
 ms.openlocfilehash: d8c20d3fe7b80a7ace90422a622c4f067f631954
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94547103"
 ---
 # <a name="vnet-to-vnet-connectivity-between-azure-stack-hub-instances-with-fortinet-fortigate-nva"></a>与 Fortinet FortiGate NVA Azure Stack 集线器实例之间的 VNet 到 VNet 连接
@@ -194,7 +194,7 @@ ms.locfileid: "94547103"
 
     ![“VPN 创建向导”的屏幕截图显示它处于第一步（“VPN 设置”）。 已选择以下值：为“模板类型”选择了“站点到站点”，为“远程设备类型”选择了“FortiGate”，并且为“NAT 配置”选择了“此站点位于 NAT 后”。](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image16.png)
 
-1. 选择“ **下一页** ”。
+1. 选择“**下一页**”。
 
 1. 输入要连接到的本地 VPN 设备的远程 IP 地址。
 
@@ -207,7 +207,7 @@ ms.locfileid: "94547103"
 
     ![“VPN 创建向导”的屏幕截图显示它处于第二步（“身份验证”），并且所选值已突出显示。](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image17.png)
 
-1. 选择“ **下一页** ”。
+1. 选择“**下一页**”。
 
 1. 对于“本地接口”，请选择“port2”。
 

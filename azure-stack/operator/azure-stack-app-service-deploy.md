@@ -9,10 +9,10 @@ ms.reviewer: anwestg
 ms.lastreviewed: 10/28/2020
 zone_pivot_groups: state-connected-disconnected
 ms.openlocfilehash: 78457d49b35c49cefc458070dc8c1f41391eb9eb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94544402"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署应用服务
@@ -85,10 +85,10 @@ ms.locfileid: "94544402"
 
    b. 也可选择“使用现有的 VNet 和子网”。 完成以下操作：
 
-     - 选择包含虚拟网络的 **资源组** 。
+     - 选择包含虚拟网络的 **资源组**。
      - 选择要部署到其中的 **虚拟网络** 的名称。
      - 为每个所需角色子网选择正确的“子网”值。
-     - 选择“ **下一步** ”。
+     - 选择“**下一步**”。
 
    ![屏幕截图，显示在应用服务安装程序中配置虚拟网络时所在的屏幕。][4]
 
@@ -109,7 +109,7 @@ ms.locfileid: "94544402"
 
    d. 在“Azure 资源管理器根证书文件”框中，输入（或浏览到）证书文件的位置。
 
-   e. 选择“ **下一步** ”。
+   e. 选择“**下一步**”。
 
    ![屏幕截图，其中显示了在应用服务安装程序中提供 AAD/ADFS 标识应用程序的详细信息的屏幕，并 Azure Stack 资源管理器证书][6]
 
@@ -121,7 +121,7 @@ ms.locfileid: "94544402"
     | **应用服务 API SSL 证书文件** | api.appservice.local.AzureStack.external.pfx |
     | **应用服务发布者 SSL 证书文件** | ftp.appservice.local.AzureStack.external.pfx |
 
-    如果在创建证书时使用了其他域后缀，证书文件名不要使用 *local.AzureStack.external* ， 而要改用自定义域信息。
+    如果在创建证书时使用了其他域后缀，证书文件名不要使用 *local.AzureStack.external*， 而要改用自定义域信息。
 
     ![屏幕截图，显示屏幕，你可以在其中提供应用服务安装程序中所需证书的详细信息][7]
 
@@ -147,7 +147,7 @@ ms.locfileid: "94544402"
     > [!NOTE]
     > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack Hub 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。**
 
-13. 在“选择平台映像”框中选择 Windows Server 2016 虚拟机 (VM) 部署映像，该映像是应用服务云的计算资源提供程序提供的映像之一。 选择“ **下一步** ”。
+13. 在“选择平台映像”框中选择 Windows Server 2016 虚拟机 (VM) 部署映像，该映像是应用服务云的计算资源提供程序提供的映像之一。 选择“**下一步**”。
 
 14. 在下一“应用服务安装程序”页上，执行以下步骤：
 
@@ -155,7 +155,7 @@ ms.locfileid: "94544402"
 
      b. 输入其他角色 VM 管理员用户名和密码。
 
-     c. 选择“ **下一步** ”。
+     c. 选择“**下一步**”。
 
     ![屏幕截图，显示屏幕，你可以在其中选择应用服务安装程序使用的 Windows 平台映像][10]
 
@@ -236,7 +236,7 @@ ms.locfileid: "94544402"
 
 1. 在 Azure Stack Hub 用户门户中选择“+”，转到 Azure 市场，部署 Django 网站，然后等待部署完成。 Django Web 平台使用基于文件系统的数据库。 它不需要任何其他资源提供程序，如 SQL 或 MySQL。
 
-2. 如果还部署了 MySQL 资源提供程序，则可从市场部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 *User1\@Server1* （使用所选的用户名和服务器名称）。
+2. 如果还部署了 MySQL 资源提供程序，则可从市场部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 *User1\@Server1*（使用所选的用户名和服务器名称）。
 
 3. 如果还部署了 SQL Server 资源提供程序，则可从市场部署 DNN 网站。 当系统提示输入数据库参数时，请在运行 SQL Server 的计算机中选择连接到资源提供程序的数据库。
 ::: zone-end
@@ -313,7 +313,7 @@ ms.locfileid: "94544402"
        1. 选择包含该虚拟网络的“资源组”选项。
        2. 选择要部署到其中的 **虚拟网络** 的名称。
        3. 为每个所需角色子网选择正确的“子网”值。
-       4. 选择“ **下一步** ”。
+       4. 选择“**下一步**”。
 
       ![Azure 应用服务安装程序中的虚拟网络和子网信息][4]
 
@@ -329,7 +329,7 @@ ms.locfileid: "94544402"
     1. 在“标识应用程序证书文件”框中，输入（或浏览到）证书文件的位置。
     1. 在“标识应用程序证书密码”框中，输入证书的密码。 此密码是在使用脚本创建证书时记下的密码。
     1. 在“Azure 资源管理器根证书文件”框中，输入（或浏览到）证书文件的位置。
-    1. 选择“ **下一步** ”。
+    1. 选择“**下一步**”。
 
     ![在 Azure 应用服务安装程序中输入应用 ID 和证书信息][6]
 
@@ -341,7 +341,7 @@ ms.locfileid: "94544402"
     | **应用服务 API SSL 证书文件** | api.appservice.local.AzureStack.external.pfx |
     | **应用服务发布者 SSL 证书文件** | ftp.appservice.local.AzureStack.external.pfx |
 
-    如果在创建证书时使用了其他域后缀，证书文件名不要使用 *local.AzureStack.external* ， 而要改用自定义域信息。
+    如果在创建证书时使用了其他域后缀，证书文件名不要使用 *local.AzureStack.external*， 而要改用自定义域信息。
 
     ![在 Azure 应用服务安装程序中输入 SSL 证书信息][7]
 
@@ -382,7 +382,7 @@ ms.locfileid: "94544402"
 
     ![在 Azure 应用服务安装程序中设置角色层和 SKU 选项][9]
 
-1. 在“选择平台映像”框中选择 Windows Server 2016 虚拟机 (VM) 部署映像，该映像是 Azure 应用服务云的计算资源提供程序提供的映像之一。 选择“ **下一步** ”。
+1. 在“选择平台映像”框中选择 Windows Server 2016 虚拟机 (VM) 部署映像，该映像是 Azure 应用服务云的计算资源提供程序提供的映像之一。 选择“**下一步**”。
 
     > [!NOTE]
     > 不支持将 Windows Server 2016 Core 平台映像与 Azure Stack Hub 上的 Azure 应用服务配合使用。  请勿将评估映像用于生产部署。 Azure Stack Hub 上的 Azure 应用服务要求在用于部署的映像上激活 Microsoft.NET 3.5.1 SP1。 通过“市场”发布的 Windows Server 2016 映像未启用此功能。 因此，必须在预先启用此功能的情况下创建并使用 Windows Server 2016 映像。
@@ -397,7 +397,7 @@ ms.locfileid: "94544402"
 1. 在下一页上执行以下操作：
      1. 输入辅助角色 VM 管理员用户名和密码。
      2. 输入其他角色 VM 管理员用户名和密码。
-     3. 选择“ **下一步** ”。
+     3. 选择“**下一步**”。
 
     ![在 Azure 应用服务安装程序中输入角色 VM 管理员][10]
 
@@ -471,7 +471,7 @@ ms.locfileid: "94544402"
 
 1. 在 Azure Stack Hub 用户门户中选择 **+** ，转到 Azure 市场，部署 Django 网站并等待成功完成。 Django Web 平台使用基于文件系统的数据库。 它不需要任何其他资源提供程序，如 SQL 或 MySQL。
 
-1. 如果还部署了 MySQL 资源提供程序，则可从 Azure 市场部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 *User1\@Server1* （使用所选的用户名和服务器名称）。
+1. 如果还部署了 MySQL 资源提供程序，则可从 Azure 市场部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 *User1\@Server1*（使用所选的用户名和服务器名称）。
 
 1. 如果还部署了 SQL Server 资源提供程序，则可从 Azure 市场部署 DNN 网站。 当系统提示输入数据库参数时，请在运行 SQL Server 的计算机中选择连接到资源提供程序的数据库。
 

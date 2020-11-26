@@ -9,10 +9,10 @@ ms.date: 01/22/2020
 ms.reviewer: bryanla
 ms.lastreviewed: 01/22/2020
 ms.openlocfilehash: 7a2b8504a247048a4f90f7ec70772ff52b5ae9dc
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "91107234"
 ---
 # <a name="quickstart-create-an-event-hubs-cluster-using-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack Hub 门户创建事件中心群集
@@ -46,7 +46,7 @@ ms.locfileid: "91107234"
 1. 登录到 Azure Stack Hub 用户门户。
 2. 在左侧导航窗格中选择 **“所有服务”** ，在搜索栏中输入“事件中心群集”，然后从结果列表中选择“事件中心群集”项。
 3. 进入 **“事件中心群集”** 页后，从顶部菜单中选择 **“+ 添加”** 。 **“创建事件中心群集”** 面板会在右侧打开。
-4. 在 **“创建事件中心群集”** 页的 **“基本”**  选项卡上：  
+4. 在 **“创建事件中心群集”** 页的  **“基本”**  选项卡上：  
    - **群集名称**：输入名称。 系统会立即检查该名称是否可用。 如果可用，字段的右侧会显示一个勾号。 
    - **订阅**：选择要在其中创建群集的订阅。 
    - **资源组**：创建/选择要在其中创建群集的资源组。 
@@ -116,7 +116,7 @@ ms.locfileid: "91107234"
 1. 再次从左侧导航窗格中选择 **“所有服务”** 。 在搜索栏中输入“事件中心群集”，然后从结果列表中选择 **“事件中心群集”** 项。
 2. 在 **“事件中心群集”** 页上，找到并选择先前创建的群集。
 
-   [![显示如何选择要删除的群集的屏幕截图。](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
+   [![此屏幕截图显示了如何选择要删除的群集。](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
 
 3. 在 **“事件中心群集”** 的 **“概述”页上**：
    - 从顶部菜单中选择 **“删除”** 。  

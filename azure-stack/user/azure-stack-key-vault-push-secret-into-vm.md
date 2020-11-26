@@ -7,10 +7,10 @@ ms.date: 11/20/2020
 ms.author: sethm
 ms.lastreviewed: 11/20/2020
 ms.openlocfilehash: a326004b5ed100b0fc7eeb841dd0fbc4ded9ee5a
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "95518154"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>使用安全地存放在 Azure Stack Hub 上的证书部署 VM

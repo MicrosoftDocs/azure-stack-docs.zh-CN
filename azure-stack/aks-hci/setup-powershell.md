@@ -6,33 +6,33 @@ ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: jeguan
 ms.openlocfilehash: 089488e246bdb7c12bbd0808ef2e92a4c83b0fce
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "92253952"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>快速入门：使用 PowerShell 设置 Azure Stack HCI 上的 Azure Kubernetes 服务主机
 
 > 适用于：Azure Stack HCI
 
-在本快速入门中，你将了解如何使用 PowerShell 设置 Azure Stack HCI 上的 Azure Kubernetes 服务主机。 若要改为使用 Windows 管理中心，请参阅 [使用 Windows 管理中心设置](setup.md)。
+在本快速入门中，你将了解如何使用 PowerShell 设置 Azure Stack HCI 上的 Azure Kubernetes 服务主机。 若要改为使用 Windows Admin Center，请参阅[使用 Windows Admin Center 进行设置](setup.md)。
 
 ## <a name="before-you-begin"></a>准备阶段
 
-在开始之前，请确保你已有一个 2-4 节点的 Azure Stack HCI 群集或单节点 Azure Stack HCI。 **建议使用 2-4 节点的 Azure Stack HCI 群集。** 否则，请按照 [AZURE STACK HCI 注册页](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)上的说明进行操作。
+在开始之前，请确保你已有一个 2-4 节点的 Azure Stack HCI 群集或单节点 Azure Stack HCI。 **建议使用 2-4 节点的 Azure Stack HCI 群集。** 如果没有，请按照 [Azure Stack HCI 注册页](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)中的说明进行操作。
 
-## <a name="step-1-download-and-install-the-akshci-powershell-module"></a>步骤1：下载并安装 AksHci PowerShell 模块
+## <a name="step-1-download-and-install-the-akshci-powershell-module"></a>步骤 1：下载并安装 AksHci PowerShell 模块
 
-`AKS-HCI-Public=Preview-Oct-2020`从[Azure Stack HCI 注册页上的 Azure Kubernetes 服务](https://aka.ms/AKS-HCI-Evaluate)下载。 Zip 文件 `AksHci.Powershell.zip` 包含 PowerShell 模块。
+请从 [Azure Stack HCI 上的 Azure Kubernetes 服务注册页](https://aka.ms/AKS-HCI-Evaluate)下载 `AKS-HCI-Public=Preview-Oct-2020`。 zip 文件 `AksHci.Powershell.zip` 包含 PowerShell 模块。
 
-如果以前在使用 PowerShell 或 Windows 管理中心 Azure Stack HCI 上安装了 Azure Kubernetes 服务，请在继续操作之前运行以下命令。
+如果以前使用 PowerShell 或 Windows Admin Center 在 Azure Stack HCI 上安装了 Azure Kubernetes 服务，请在继续操作之前运行以下命令。
 
    ```powershell
    Uninstall-AksHci
    ```
 
-**关闭所有 PowerShell 窗口。** 删除位于路径中的 AksHci、AksHci、Day2.ps1 和 MSK8sDownloadAgent 的任何现有目录 `%systemdrive%\program files\windowspowershell\modules` 。 完成此操作后，你可以提取新的 zip 文件的内容。 请确保 () 中将 zip 文件提取到正确的位置 `%systemdrive%\program files\windowspowershell\modules` 。
+关闭 PowerShell 窗口。 删除 `%systemdrive%\program files\windowspowershell\modules` 路径中的 AksHci、AksHci.Day2 和 MSK8sDownloadAgent 的任何现有目录。 完成此操作后，便可提取新 zip 文件的内容。 请确保在正确的位置 (`%systemdrive%\program files\windowspowershell\modules`) 提取 zip 文件。
 
    ```powershell
    Import-Module AksHci
@@ -40,9 +40,9 @@ ms.locfileid: "92253952"
 
 运行上述命令后，关闭所有 PowerShell 窗口，然后重新打开管理会话，以运行以下步骤中的命令。
 
-## <a name="step-2-prepare-your-machines-for-deployment"></a>步骤2：准备要部署的计算机 () 
+## <a name="step-2-prepare-your-machines-for-deployment"></a>步骤 2：准备要部署的计算机
 
-在每个物理节点上运行检查，查看是否满足所有要求，以便在 Azure Stack HCI 上安装 Azure Kubernetes 服务。
+在每个物理节点上运行检查，以查看所有要求是否都已得到满足，以便安装 Azure Stack HCI 上的 Azure Kubernetes 服务。
 
 以管理员身份打开 PowerShell 并运行以下命令。
 
@@ -52,7 +52,7 @@ ms.locfileid: "92253952"
 
 检查完以后，你会看到以绿色文本显示的“已完成”。
 
-## <a name="step-3-configure-your-deployment"></a>步骤3：配置部署
+## <a name="step-3-configure-your-deployment"></a>步骤 3：配置部署
 
 设置 Azure Kubernetes 服务主机的配置设置。 **对于 2-4 节点的 Azure Stack HCI 群集，必须在 `-deploymentType`、`wssdImageDir` 和 `cloudConfigLocation` 参数中指定 `MultiNode`。** 对于 1 节点的 Azure Stack HCI 群集，所有参数都是可选的，并设置为其默认值。 但是，为了获得最佳性能，**建议使用 2-4 节点的 Azure Stack HCI 群集部署。**
 
@@ -142,7 +142,7 @@ SSH 公钥文件的路径。 使用此公钥，你将能够登录到 Azure Stack
 
 `cloudServiceCidr`
 
-这可用于提供要分配给 MOC CloudAgent 服务的静态 IP/网络前缀。 应使用 CIDR 格式提供此值。  (示例： 192.168.1.2/16) 。 默认为无。
+这可用于提供一个静态 IP/网络前缀来分配给 MOC CloudAgent 服务。 应使用 CIDR 格式提供此值。 （示例：192.168.1.2/16）。 默认为无。
 
 `-wssdDir`
 
@@ -192,7 +192,7 @@ SSH 公钥文件的路径。 使用此公钥，你将能够登录到 Azure Stack
 Set-AksHciConfig
 ```
 
-## <a name="step-4-start-a-new-deployment"></a>步骤4：启动新部署
+## <a name="step-4-start-a-new-deployment"></a>步骤 4：启动新部署
 
 配置你的部署后，你必须启动部署。 这会在 Azure Stack HCI 代理/服务和 Azure Kubernetes 服务主机上安装 Azure Kubernetes 服务。
 
@@ -210,7 +210,7 @@ Install-AksHci
 Get-AksHciCluster
 ```
 
-## <a name="step-5-access-your-clusters-using-kubectl"></a>步骤5：使用 kubectl 访问群集
+## <a name="step-5-access-your-clusters-using-kubectl"></a>步骤 5：使用 kubectl 访问群集
 
 若要使用 kubectl 访问 Azure Kubernetes 服务主机或 Kubernetes 群集，请运行以下命令。 这将使用指定群集的 kubeconfig 文件作为 kubectl 的默认 kubeconfig 文件。
 
@@ -229,7 +229,7 @@ Get-AksHciCredential -clusterName
 
 `outputLocation`
 
-要下载 kubeconfig 的位置。 默认值为 `%USERPROFILE%\.kube`。
+要下载 kubeconfig 的目标位置。 默认值为 `%USERPROFILE%\.kube`。
 
 ## <a name="get-logs"></a>获取日志
 

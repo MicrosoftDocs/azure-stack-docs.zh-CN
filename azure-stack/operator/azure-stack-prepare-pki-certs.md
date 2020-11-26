@@ -8,18 +8,21 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 86e3a87bf869d6bd9980746742a7ba03d142d5fe
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: b0d750c81299b59fb8bab64c327a642f0d58503a
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545017"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152856"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>准备用于部署或轮换的 Azure Stack Hub PKI 证书
 
+> [!NOTE]
+> 本文仅适用于准备外部证书，这些证书用于保护外部基础结构和服务上的终结点。 内部证书在 [证书轮换过程](azure-stack-rotate-secrets.md)中单独进行管理。
+
 必须使用符合 Azure Stack Hub 的证书要求的属性来导入和导出[从证书颁发机构 (CA) 获取](azure-stack-get-pki-certs.md)的证书文件。
 
-在本文中，你将了解如何导入、打包和验证证书，以便为 Azure Stack Hub 部署或机密轮换做准备。 
+在本文中，你将了解如何导入、打包和验证外部证书，以便为 Azure Stack 中心部署或机密轮换做准备。 
 
 ## <a name="prerequisites"></a>必备条件
 
@@ -180,7 +183,7 @@ ms.locfileid: "94545017"
    - 选择“包括证书路径中的所有证书(如果可能)”。  
    - 选择“导出所有扩展属性”。  
    - 选择“启用证书隐私”。  
-   - 选择“ **下一页** ”。  
+   - 选择“**下一页**”。  
     
      ![包含选定选项的证书导出向导](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
@@ -191,9 +194,9 @@ ms.locfileid: "94545017"
 
     记下此密码。 需将它用作部署参数。
 
-9. 选择“下一步”  。
+9. 选择“**下一步**”。
 
-10. 选择要导出的 PFX 文件的文件名和位置。 选择“ **下一步** ”。
+10. 选择要导出的 PFX 文件的文件名和位置。 选择“**下一步**”。
 
 11. 选择“完成”。
 

@@ -7,10 +7,10 @@ ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
 ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94543504"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub 管理基础知识

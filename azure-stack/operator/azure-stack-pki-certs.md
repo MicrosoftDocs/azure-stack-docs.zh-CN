@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
 ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "93049596"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公钥基础结构 (PKI) 证书要求
@@ -23,7 +23,7 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 - 部署增值资源提供程序时所需的可选证书。
 
 > [!NOTE]
-> 默认情况下，Azure Stack Hub 还使用内部 Active Directory 集成证书颁发机构 (CA) 颁发的证书在节点之间进行身份验证。 为了验证证书，所有 Azure Stack Hub 基础结构计算机都信任内部 CA 的根证书，方法是将该证书添加到其本地证书存储中。 Azure Stack 中心内没有证书固定或筛选。 根据目标的 FQDN 验证每个服务器证书的 SAN。 同时还会验证整个信任链以及证书到期日期（没有锁定证书的标准 TLS 服务器身份验证）。
+> 默认情况下，Azure Stack Hub 还使用内部 Active Directory 集成证书颁发机构 (CA) 颁发的证书在节点之间进行身份验证。 为了验证证书，所有 Azure Stack Hub 基础结构计算机都信任内部 CA 的根证书，方法是将该证书添加到其本地证书存储中。 在 Azure Stack Hub 中没有证书固定或证书筛选的功能。 根据目标的 FQDN 验证每个服务器证书的 SAN。 同时还会验证整个信任链以及证书到期日期（没有锁定证书的标准 TLS 服务器身份验证）。
 
 ## <a name="certificate-requirements"></a>证书要求
 以下列表描述了常规的证书颁发要求、安全要求和格式要求：
@@ -37,7 +37,7 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 - 轮换内部版本 1903 及更高版本的证书时，证书可以由任何企业或公共证书颁发机构来颁发。
 ::: moniker-end
 - 不支持使用自签名证书。
-- 对于部署和轮换，可以使用单一证书覆盖证书的“使用者名称”和“使用者可选名称(SAN)”字段中的所有命名空间，也可以为下面你计划使用的 Azure Stack Hub 服务所需的每个命名空间使用单独的证书。 这两种方法都需要将通配符用于需要它们的终结点，例如 **KeyVault** 和 **KeyVaultInternal** 。
+- 对于部署和轮换，可以使用单一证书覆盖证书的“使用者名称”和“使用者可选名称(SAN)”字段中的所有命名空间，也可以为下面你计划使用的 Azure Stack Hub 服务所需的每个命名空间使用单独的证书。 这两种方法都需要将通配符用于需要它们的终结点，例如 **KeyVault** 和 **KeyVaultInternal**。
 - 证书的 PFX 加密应当为 3DES。
 - 证书签名算法不能为 SHA1。
 - 证书格式必须是 PFX，因为安装 Azure Stack Hub 时需要公钥和私钥。 私钥必须设置本地计算机密钥属性。
@@ -63,7 +63,7 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 
 需要使用每个 Azure Stack Hub 公共基础结构终结点的、具有适当 DNS 名称的证书。 每个终结点的 DNS 名称使用以下格式表示：&lt;prefix>.&lt;region>.&lt;fqdn>。
 
-对于部署，[region] 和 [externalfqdn] 值必须与针对 Azure Stack Hub 系统选择的区域和外部域名相匹配。 例如，如果区域名称为 *Redmond* ，外部域名为 *contoso.com* ，则 DNS 名称的格式为 *&lt;prefix>.redmond.contoso.com* 。 *&lt;prefix>* 值由 Microsoft 预先指定，描述证书保护的终结点。 此外，外部基础结构终结点的 *&lt;prefix>* 值取决于使用特定终结点的 Azure Stack Hub 服务。
+对于部署，[region] 和 [externalfqdn] 值必须与针对 Azure Stack Hub 系统选择的区域和外部域名相匹配。 例如，如果区域名称为 *Redmond*，外部域名为 *contoso.com*，则 DNS 名称的格式为 *&lt;prefix>.redmond.contoso.com*。 *&lt;prefix>* 值由 Microsoft 预先指定，描述证书保护的终结点。 此外，外部基础结构终结点的 *&lt;prefix>* 值取决于使用特定终结点的 Azure Stack Hub 服务。
 
 对于生产环境，我们建议为每个终结点生成单独的证书并将其复制到相应的目录中。 对于开发环境，可以单通配符证书的形式提供证书，其中涵盖复制到所有目录的“使用者”和“使用者可选名称(SAN)”字段中的所有命名空间。 使用涵盖所有终结点和服务的单个证书是一种不安全的方式，因此仅用于开发。 请记住，这两个选项都要求对 **acs** 和 Key Vault 等需要通配符证书的终结点使用此类证书。
 
@@ -109,8 +109,8 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 |应用服务|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |应用服务|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |应用服务|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|事件中心|SSL|&#42; eventhub。 *&lt; 区域>。 &lt;fqdn>* | eventhub.&lt;region>.&lt;fqdn> |
-|IoT 中心|SSL|&#42; mgmtiothub。 *&lt; 区域>。 &lt;fqdn>* | mgmtiothub. *&lt; 区域>。 &lt;fqdn>* |
+|事件中心|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub.&lt;region>.&lt;fqdn> |
+|IoT 中心|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
 |SQL、MySQL|SQL 和 MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> 需要一个包含多个通配符使用者可选名称的证书。 并非所有公共证书颁发机构都支持在单个证书中包含多个通配符 SAN。
