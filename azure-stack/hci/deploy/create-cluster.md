@@ -3,15 +3,15 @@ title: 使用 Windows Admin Center 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows Admin Center 为 Azure Stack HCI 创建服务器群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/17/2020
+ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 508bf39e9cdeb55485bc2a517c412cee7f3dcd80
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 638ede26b1bc720c5975dc7bdf7e0b7f05d9d600
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064763"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354167"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
@@ -32,7 +32,7 @@ ms.locfileid: "93064763"
 
 在运行“创建群集”向导之前，请确保你已经完成以下任务：
 
-- 请阅读 [系统要求](../concepts/system-requirements.md)中的硬件和其他要求。
+- 已阅读[系统要求](../concepts/system-requirements.md)中的硬件要求和其他要求。
 - 在群集中的每台服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
 - 在每台服务器上拥有一个是本地管理员组成员的帐户。
 - 在用于管理的 PC 或服务器上安装 Windows Admin Center。 请参阅[安装 Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)。
@@ -62,11 +62,11 @@ ms.locfileid: "93064763"
 1. 在“选择服务器位置”下，选择以下选项之一：
 
     - **一个站点中的所有服务器**
-    - **两个站点中的服务器** （适用于延伸群集）
+    - **两个站点中的服务器**（适用于延伸群集）
 
 1. 完成后，单击“创建”。 现在，你将看到“创建群集”向导，如下所示。
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="创建群集向导- HCI 选项" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="“创建群集”向导 - 开始" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>步骤 1：入门
 
@@ -189,21 +189,25 @@ ms.locfileid: "93064763"
 
 ## <a name="step-5-sdn-optional"></a>步骤 5：SDN（可选）
 
-此可选步骤指导完成设置软件定义的网络的网络控制器组件 [ (SDN) ](../concepts/software-defined-networking.md)。 网络控制器设置完成后，可用于配置 SDN 的其他组件，如软件负载平衡器和 RAS 网关。
+此可选步骤将指导你设置[软件定义的网络 (SDN)](../concepts/software-defined-networking.md) 的网络控制器组件。 网络控制器设置完成后，可以根据需要配置 SDN 的其他组件，如软件负载平衡器 (SLB) 和 RAS 网关。
 
 > [!NOTE]
-> SDN 不受支持或不可用于延伸的群集。
+> 此向导目前不支持配置 SLB 和 RAS 网关。 可以使用 SDN Express 脚本来配置这些组件。 有关如何执行此操作的信息，请参阅 [SDNExpress GitHub](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts) 存储库。
 
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="创建群集向导- HCI 选项" lightbox="media/cluster/create-cluster-network-controller.png":::
+> [!NOTE]
+> SDN 不受支持或不可用于拉伸群集。
+
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="创建群集向导 - SDN 网络控制器" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. 在完成时选择“下一步:SDN”。
-1. 在“主机”下，输入网络控制器的名称。
+1. 在“主机”下，输入网络控制器的名称。 这是管理客户端使用的 DNS 名称 (例如 Windows 管理中心) 与网络控制器通信。
 1. 指定 Azure Stack HCI VHD 文件的路径。 使用“浏览”可更快地找到它。
-1. 指定要专用于网络控制器的 VM 数量。 建议使用三到五个 VM 以实现高可用性。
-1. 在“网络”下，输入 VLAN ID。
+1. 指定要专用于网络控制器的 VM 数量。 建议至少使用三个 VM 以实现高可用性。
+1. 在 " **网络**" 下，输入管理网络的 VLAN ID。 网络控制器需要连接到与主机相同的管理网络，以便进行主机通信和配置。
 1. 对于“VM 网络寻址”，请选择“DHCP”或“静态”。
-1. 如果选择了“DHCP”，请输入网络控制器 VM 的名称和 IP 地址。
+1. 如果选择了 **DHCP**，请输入网络控制器 vm 的名称。
 1. 如果选择了“静态”，请执行以下操作：
+    1. 指定 IP 地址
     1. 指定子网前缀。
     1. 指定默认网关。
     1. 指定一个或多个 DNS 服务器。 单击“添加”添加其他 DNS 服务器。
@@ -213,6 +217,8 @@ ms.locfileid: "93064763"
 1. 输入“MAC 地址池起始地址”的值和“MAC 地址池结束地址”的值。
 1. 完成后，单击 **“下一步”** 。
 1. 一直等到向导完成其作业。 在所有进度任务完成之前，请留在此页上。 然后单击“完成”。
+
+1. 创建网络控制器 Vm 后，请在 DNS 服务器上为网络控制器群集名称配置动态 DNS 更新。 有关如何执行此操作的信息，请参阅 [为网络控制器配置动态 DNS 注册](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)。
 
 如果网络控制器部署失败，请先执行以下操作，然后再重试：
 
@@ -238,7 +244,7 @@ ms.locfileid: "93064763"
 
 - 设置群集见证。 请参阅[设置群集见证](witness.md)。
 - 创建卷。 请参阅[创建卷](../manage/create-volumes.md)。
-- 对于延伸群集，请使用存储副本创建卷并设置复制。 请参阅[为延伸群集创建卷并设置复制](../manage/create-stretched-volumes.md)。
+- 对于延伸群集，请使用存储副本创建卷并设置复制。 请参阅[为延伸群集创建卷和设置复制](../manage/create-stretched-volumes.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

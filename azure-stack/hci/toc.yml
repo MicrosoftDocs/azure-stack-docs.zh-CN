@@ -130,8 +130,8 @@
       items:
         - name: 物理网络要求
           href: concepts/physical-network-requirements.md
-        - name: 规划主机网络
-          href: concepts/plan-host-networking.md
+        - name: 主机网络要求
+          href: concepts/host-network-requirements.md
         - name: 软件定义的网络 (SDN)
           href: concepts/software-defined-networking.md
         - name: 计划 SDN 基础结构

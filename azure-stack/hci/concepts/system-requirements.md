@@ -1,5 +1,5 @@
 ---
-title: Azure Stack HCI 的系统要求
+title: Azure Stack HCI 的系统需求
 description: 如何为 Azure Stack HCI 选择服务器、存储和网络组件。
 author: khdownie
 ms.author: v-kedow
@@ -7,28 +7,28 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 10/29/2020
-ms.openlocfilehash: 68ee5d0635d1ed9dbc62bece417f00430bf61de2
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93065971"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354150"
 ---
-# <a name="system-requirements-for-azure-stack-hci"></a>Azure Stack HCI 的系统要求
+# <a name="system-requirements-for-azure-stack-hci"></a>Azure Stack HCI 的系统需求
 
 > 适用于：Azure Stack HCI 版本 20H2
 
-使用本主题来评估 Azure Stack HCI 的服务器、存储和网络的系统要求。
+本主题可用于评估 Azure Stack HCI 的服务器、存储和网络的系统需求。
 
 ## <a name="server-requirements"></a>服务器要求
 
-标准 Azure Stack HCI 群集至少需要两台服务器，且最多为16个服务器;但是，可以使用群集集来组合群集，以创建数百个节点的 HCI 平台。
+标准 Azure Stack HCI 群集至少需要 2 台服务器，最多 16 台服务器；但是，可以使用群集组来组合群集，以创建包含数百个节点的 HCI 平台。
 
-请记住以下各种类型的 Azure Stack HCI 部署：
+对于各种类型的 Azure Stack HCI 部署，请记住以下几点：
 
 - 延伸群集要求将服务器部署在两个不同的站点上。 这两个站点可位于不同的国家/地区、不同的城市、不同的楼层或不同的房间。 延伸群集需要最少 4 台服务器（每个站点 2 台），最多 16 台服务器（每个站点 8 台）。
 
-- 建议所有服务器都具有相同的制造商和型号，使用与 64 位 Intel Nehalem 级别、AMD EPYC 或更高级别兼容的处理器和二级地址转换 (SLAT)。 需要第二代的 Intel 强处理器来支持 Intel Optane DC 永久性内存。 处理器必须至少为 1.4 GHz 并且与 x64 指令集兼容。
+- 建议所有服务器都具有相同的制造商和型号，使用与 64 位 Intel Nehalem 级别、AMD EPYC 或更高级别兼容的处理器和二级地址转换 (SLAT)。 需要第二代 Intel Xeon Scalable 处理器来支持 Intel Optane DC 永久性内存。 处理器必须至少为 1.4 GHz 并且与 x64 指令集兼容。
 
 - 确保在每个节点上为服务器配备至少 32 GB 的 RAM，以容纳服务器操作系统、VM 和其他应用或工作负荷。 此外，每台服务器上每 TB 缓存驱动器容量应留出 4 GB 的 RAM 用于存储空间直通元数据。
 
@@ -44,7 +44,7 @@ ms.locfileid: "93065971"
 
 Azure Stack HCI 可使用直接连接的 SATA、SAS、NVMe 或永久性内存驱动器，每个驱动器使用物理方式仅连接到一个服务器。
 
-为了获得最佳结果，请遵循以下内容：
+为获得最佳结果，请遵循以下内容：
 
 - 群集中每个服务器都应具有相同类型的驱动器，各类型驱动器的数量也应该相同。 另外，建议（但不要求）驱动器的大小和型号也相同。 驱动器可以是服务器的内部驱动器，也可以是仅连接到一台服务器的外接盒。 若要了解详细信息，请参阅[驱动器对称性注意事项](drive-symmetry-considerations.md)。
 
@@ -76,11 +76,11 @@ Azure Stack HCI 群集要求在各个服务器节点之间具有可靠的高带�
 
 对于延伸群集，还会有在站点之间流动的额外存储副本流量。 存储总线层 (SBL) 和群集共享卷 (CSV) 流量不会在站点之间传输，只能在每个站点中的服务器节点之间传输。
 
-有关主机网络规划注意事项和要求，请参阅为 [AZURE STACK HCI 规划主机网络](plan-host-networking.md)。
+有关主机网络注意事项和要求，请参阅 [主机网络要求](host-network-requirements.md)。
 
 ## <a name="software-defined-networking-sdn-requirements"></a>软件定义的网络 (SDN) 要求
 
-使用 Windows 管理中心创建 Azure Stack HCI 群集时，可以选择部署网络控制器，以启用软件定义的网络 (SDN) 。 如果要在 Azure Stack HCI 上使用 SDN，请注意以下事项：
+在使用 Windows Admin Center 创建 Azure Stack HCI 群集时，可以选择部署网络控制器，以启用软件定义的网络 (SDN)。 如果要在 Azure Stack HCI 上使用 SDN，请注意以下事项：
 
 - 请确保主机服务器至少有 50-100 GB 的可用空间，以用于创建网络控制器 VM。
 
@@ -89,13 +89,13 @@ Azure Stack HCI 群集要求在各个服务器节点之间具有可靠的高带�
 关于在 Azure Stack HCI 中使用 SDN，若要详细了解如何为此进行准备，请参阅[规划软件定义的网络基础结构](plan-software-defined-networking-infrastructure.md)和[规划部署网络控制器](../concepts/network-controller.md)。
 
    > [!NOTE]
-   > 延伸 (多站点) 群集不支持 SDN。
+   > 延伸（多站点）群集不支持 SDN。
 
 ### <a name="sdn-hardware-requirements"></a>SDN 硬件要求
 
-本部分提供了规划 SDN 环境时 Nic 和物理交换机的网络硬件要求。
+此部分提供规划 SDN 环境时 NIC 和物理交换机的网络硬件要求。
 
-#### <a name="network-interface-cards-nics"></a>网络接口卡 (Nic) 
+#### <a name="network-interface-cards-nics"></a>网络接口卡 (NIC)
 
 在 Hyper-V 主机和存储主机中使用的 NIC 需要特定功能才能实现最佳性能。
 
