@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: a8eea75c58f597a1026b5075537d415c0694dc3c
-ms.sourcegitcommit: 422c3f19d817037fa6ce73cca253742bbdec147e
+ms.openlocfilehash: 7452437d7f760a688c2403cb4def735b2daaa105
+ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96321993"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96443297"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Azure Stack HCI 的物理网络要求
 
@@ -48,7 +48,7 @@ Microsoft 测试 Azure Stack HCI 到下面的 **网络交换机要求** 部分�
 本部分列出了所有 Azure Stack HCI 部署中所使用的网络交换机必需的行业标准。 这些标准有助于确保 Azure Stack HCI 群集部署中的节点之间的可靠通信。
 
 > [!NOTE]
-> 用于计算、存储和管理流量的网络适配器需要以太网。
+> 用于计算、存储和管理流量的网络适配器需要以太网。 有关详细信息，请参阅 [主机网络要求](host-network-requirements.md)。
 
 下面是必需的 IEEE 标准和规范：
 
@@ -118,7 +118,7 @@ North-South 流量需要使用交换机。 除了使用支持 Azure Stack HCI �
 
 必须了解你的以太网交换机可支持的 "非阻止" 构造带宽，并最大程度地减少 (或最好地消除网络) 过度订阅。
 
-可以通过正确使用子网和 Vlan 来消除常见的拥塞点和过度订阅，如用于路径冗余的 [多底盘链路聚合组](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group) 。
+可以通过正确使用子网和 Vlan 来消除常见的拥塞点和过度订阅，如用于路径冗余的 [多底盘链路聚合组](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group) 。 另请参阅 [主机网络要求](host-network-requirements.md)。
 
 与您的网络供应商或网络支持团队合作，确保您的网络交换机为您要运行的工作负荷适当调整大小。
 
@@ -143,7 +143,7 @@ North-South 流量需要使用交换机。 除了使用支持 Azure Stack HCI �
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解网络适配器和主机要求。 请参阅 [主机网络要求](physical-network-requirements.md)。
+- 了解网络适配器和主机要求。 请参阅 [主机网络要求](host-network-requirements.md)。
 - 温习故障转移群集基础知识。 请参阅 [故障转移群集网络基础知识](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)。
 - 温习如何使用 SET。 请参阅 [ (RDMA 的远程直接内存访问) 和交换机嵌入组合 (设置) ](https://docs.microsoft.com/windows-server/virtualization/.hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
 - 有关部署，请参阅 [使用 Windows 管理中心创建群集](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster)。
