@@ -3,16 +3,16 @@ title: 如何在 Azure Stack Hub 中使用 SSH 公钥
 description: 如何使用 SSH 公钥
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 1b5a83d8fa6626233acc3abbde69494310cbd06e
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 20e8afdae36f7a182f20aff1f4162d36378ca313
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146914"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525449"
 ---
 # <a name="use-an-ssh-public-key"></a>使用 SSH 公钥
 
@@ -40,7 +40,7 @@ ms.locfileid: "84146914"
 
     ![已填充密钥框的 PuTTY 密钥生成器](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-key-gen-result.png)
 
-1. 输入一个**密钥通行短语**，并在“确认通行短语”框中确认。  请记下该通行短语供稍后使用。
+1. 输入一个 **密钥通行短语**，并在“确认通行短语”框中确认。  请记下该通行短语供稍后使用。
 
 1. 选择“保存公钥”，并将公钥保存到可访问的位置。 
 
@@ -83,7 +83,7 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 
     ![PuTTY 配置窗格 - SSH 私钥](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. 在 "**身份验证的私钥文件**" 框旁边，选择 "**浏览**"，然后搜索公钥和私钥对的私钥文件（* \<filename> . .ppk*）。
+5. 在 "**身份验证的私钥文件**" 框旁边，选择 "**浏览**"，然后搜索公钥文件 (公钥和私钥对的 *\<filename> .ppk*) 。
 6. 在“类别”树中选择“会话”。  
 
     ![PuTTY 配置窗格 -“保存的会话”框](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
@@ -114,7 +114,7 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
     ![FileZilla 设置窗格](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
 1. 在“选择页”树中展开“连接”，然后选择“SFTP”。   
-1. 选择 "**添加密钥文件**"，然后输入私钥文件（例如， * \<filename> . .ppk*）。
+1. 选择 "**添加密钥文件**"，然后输入私钥文件 (例如 *\<filename> .ppk*) 。
 1. 选择“确定”  。
 
 ### <a name="open-your-connection"></a>打开连接

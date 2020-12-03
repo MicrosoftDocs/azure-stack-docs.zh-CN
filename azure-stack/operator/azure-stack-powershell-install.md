@@ -3,16 +3,16 @@ title: 安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块
 description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。 请参阅如何安装 PowerShell AzureRM 模块和所需的 API 配置文件。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/22/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/22/2020
-ms.openlocfilehash: d01f2c8864f587ed69c76f0edd0ee9aa950d3b9f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: d4a1b0678aa5d9822b19d36584bba226e317b8fc
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544983"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525500"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块
 
@@ -25,7 +25,7 @@ Azure PowerShell Azure 资源管理器 (AzureRM) 提供一组使用 Azure 资源
 
 还需要使用 API 配置文件为 Azure Stack Hub 资源提供程序指定兼容的终结点。
 
-API 配置文件提供一种管理 Azure 与 Azure Stack Hub 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack Hub 支持特定的配置文件版本，例如 **2019-03-01-hybrid** 。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。
+API 配置文件提供一种管理 Azure 与 Azure Stack Hub 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Azure 资源管理器 PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack Hub 支持特定的配置文件版本，例如 **2019-03-01-hybrid**。 安装配置文件时，会安装与指定的配置文件对应的 Azure 资源管理器 PowerShell 模块。
 
 可在已连接到 Internet、部分联网或离线场景中安装与 Azure Stack Hub 兼容的 PowerShell 模块。 本文将引导你完成适用于这些场景的详细说明。
 

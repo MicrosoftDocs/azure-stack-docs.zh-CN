@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中使用 Visual Studio 部署模板
 description: 了解如何在 Azure Stack Hub 中使用 Visual Studio 部署模板。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ea268d367ab529fabe8a8b363ed14ce17bc790aa
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 894e04e8e7b54d9e87d51af93c98f9abfd074aee
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146795"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525347"
 ---
 # <a name="deploy-templates-in-azure-stack-hub-using-visual-studio"></a>使用 Visual Studio 在 Azure Stack Hub 中部署模板
 
@@ -26,9 +26,9 @@ ms.locfileid: "84146795"
 4. 输入新项目的名称，并选择“确定”。  
 5. 在“选择 Azure 模板”  中，从下拉列表中选取“Azure Stack Hub 快速入门”  。
 6. 选择 **101-create-storage-account**，然后选择“确定”  。
-7. 在新项目中，展开**解决方案资源管理器**中的“模板”节点以查看可用模板。
-8. 在**解决方案资源管理器**中，选择你的项目名称，然后选择“部署”  。 选择“新建部署”  。
-9. 在 "**部署到资源组**" 中，使用 "**订阅**" 下拉列表选择 Microsoft Azure Stack 中心订阅。
+7. 在新项目中，展开 **解决方案资源管理器** 中的“模板”节点以查看可用模板。
+8. 在 **解决方案资源管理器** 中，选择你的项目名称，然后选择“部署”  。 选择“新建部署”  。
+9. 在 " **部署到资源组**" 中，使用 " **订阅** " 下拉列表选择 Microsoft Azure Stack 中心订阅。
 10. 从“资源组”  列表中选择现有资源组，或创建新资源组。
 11. 从“资源组位置”列表中选择一个位置，并选择“部署”。  
 12. 在“编辑参数”  中，为参数提供值（因模板而异），然后选择“保存”  。

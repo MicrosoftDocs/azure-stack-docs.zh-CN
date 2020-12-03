@@ -1,18 +1,18 @@
 ---
-title: 将 API 版本配置文件用于 Azure Stack 中心的 Node.js
+title: 在 Azure Stack Hub 中将 API 版本配置文件与 Node.js 配合使用
 description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 Node.js 配合使用。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 93c37e67af83dd7b6d735916cfacc7dab5c0cdbf
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: c6b781b61a8738bd86379d9fb035680189693565
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574085"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525925"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 Node.js 软件开发工具包 (SDK) 配合使用
 
@@ -51,7 +51,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 | [资源](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
  | [Keyvault](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid) | @azure/arm-keyvault-profile-2019-03-01-hybrid |
 
-若要使用某个服务的最新 API 版本，请使用特定客户端库的**最新**配置文件。 例如，若要单独使用资源服务的最新 API 版本，请使用**资源管理客户端库**包的 `azure-arm-resource` 配置 文件。
+若要使用某个服务的最新 API 版本，请使用特定客户端库的 **最新** 配置文件。 例如，若要单独使用资源服务的最新 API 版本，请使用 **资源管理客户端库** 包的 `azure-arm-resource` 配置 文件。
 
 对于资源提供程序的特定 API 版本，请使用包中定义的特定 API 版本。
 
@@ -221,13 +221,13 @@ function main() {
     git clone https://github.com/sijuman/storage-node-resource-provider-getting-started.git
     ```
 
-1. `cd` 存储库的克隆。
+1. 使用 `cd` 命令转到存储库的克隆。
 
 2.  创建 Azure 服务主体并分配用于访问订阅的角色。 有关说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](/azure/azure-stack/azure-stack-create-service-principals)。
 
 3.  检索以下必需值：
     - 租户 ID
-    - 应用程序 id (的客户端 ID) 
+    - 客户端 ID（应用程序 ID）
     - 客户端机密
     - Azure 订阅 ID
     - Azure Stack Hub 资源管理器终结点
@@ -247,9 +247,9 @@ function main() {
 
 5.  打开示例应用程序的 `index.js` 文件。
 
-6.  将位置变量设置为 Azure Stack 中心位置。 例如，`LOCAL = "local"`。
+6.  将位置变量设置为你的 Azure Stack Hub 位置。 例如 `LOCAL = "local"`。
 
-7.  设置允许您对 Azure Stack 中心进行身份验证的凭据。 此代码部分包含在本示例的 index.js 文件中。
+7.  设置凭据，以便向 Azure Stack Hub 进行身份验证。 此代码部分包含在本示例的 index.js 文件中。
 
     ```Node.js  
     var clientId = process.env['CLIENT_ID'];

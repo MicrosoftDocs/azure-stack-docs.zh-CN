@@ -3,16 +3,16 @@ title: 使用 Fortinet FortiGate NVA 建立 Azure Stack Hub VNET 到 VNET 连接
 description: 了解如何使用 Fortinet FortiGate NVA 在 Azure Stack Hub 中建立 VNET 到 VNET 连接
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: d8c20d3fe7b80a7ace90422a622c4f067f631954
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: fbce070042c711a03d0a0352252ee37679c9ab07
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "94547103"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525704"
 ---
 # <a name="vnet-to-vnet-connectivity-between-azure-stack-hub-instances-with-fortinet-fortigate-nva"></a>与 Fortinet FortiGate NVA Azure Stack 集线器实例之间的 VNet 到 VNet 连接
 
@@ -82,7 +82,7 @@ ms.locfileid: "94547103"
 
 1. 打开 Azure Stack Hub 用户门户。 请务必使用至少拥有订阅“参与者”权限的凭据。
 
-1. 选择“创建资源”，然后搜索 `FortiGate`。
+1. 选择“创建资源”，然后搜索 `FortiGate`。 
 
     ![该屏幕截图显示在搜索“fortigate”后返回的单行结果。 找到的项的名称是“FortiGate NGFW - 单 VM 部署 (BYOL)”。](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image6.png)
 

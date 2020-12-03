@@ -3,16 +3,16 @@ title: 将应用部署到 Azure Stack Hub
 description: 将应用部署到 Azure Stack Hub。
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: fa94f2bb29b75a2fcbbdbc7707a69d9ba2f8d0cf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 08728a6e0de2bc1ce0e646de124fb58dac83c8fe
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567597"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525364"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>适用于 Azure Stack Hub 的常见部署
 

@@ -3,16 +3,16 @@ title: 连接同一 Azure Stack 环境中的两个虚拟网络
 description: 了解如何使用 Fortinet FortiGate 连接同一 Azure Stack Hub 环境中的两个虚拟网络。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 32ecdbc52c678f884eac10c83f1749ba4a96a86f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b9afd01c79590092269bea8cb4e3ca293fa855fd
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547120"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525636"
 ---
 # <a name="vnet-to-vnet-connectivity-with-fortigate"></a>VNet 到 VNet 与 Fortigate 的连接
 
@@ -75,7 +75,7 @@ ms.locfileid: "94547120"
 
 1.  打开 Azure Stack Hub 用户门户。
 
-2.  选择“创建资源”，然后搜索 `FortiGate`。
+2.  选择“创建资源”，然后搜索 `FortiGate`。 
 
     ![搜索结果列表显示“FortiGate NGFW - 单 VM 部署”。](./media/azure-stack-network-howto-vnet-to-onprem/image6a.png)
 
@@ -176,7 +176,7 @@ ms.locfileid: "94547120"
 
     ![“VPN 创建向导”的屏幕截图显示它处于第一步（“VPN 设置”）。 已选择以下值：为“模板类型”选择了“站点到站点”，为“远程设备类型”选择了“FortiGate”，并且为“NAT 配置”选择了“此站点位于 NAT 后”。](./media/azure-stack-network-howto-vnet-to-vnet/image16a.png)
 
-1. 选择“ **下一页** ”。
+1. 选择“**下一页**”。
 
 1. 输入要连接到的本地 VPN 设备的远程 IP 地址。
 
@@ -189,7 +189,7 @@ ms.locfileid: "94547120"
 
     ![“VPN 创建向导”的屏幕截图显示它处于第二步（“身份验证”），并且所选值已突出显示。](./media/azure-stack-network-howto-vnet-to-vnet/image17a.png)
 
-1. 选择“ **下一页** ”。
+1. 选择“**下一页**”。
 
 1. 对于“本地接口”，请选择“port2”。
 

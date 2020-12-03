@@ -3,16 +3,16 @@ title: 管理 Azure Stack Hub 中的 API 版本配置文件
 description: 了解 Azure Stack Hub 中的 API 版本配置文件。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: c4596ac24aa8b1ed4e0e0618263fc1f947fdf671
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 2f84233e47a5d86b9a22b76cb0d5a6dd993f4464
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547018"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96526010"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>管理 Azure Stack Hub 中的 API 版本配置文件
 

@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用
 description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 93ede4373a2799551bc3091a6d9b3cd00cb9d578
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 1d4cc0887bac12c535f2ce0fe12a2cb855d5b3a5
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546474"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525585"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -24,8 +24,8 @@ API 配置文件是资源提供程序和服务版本的组合。 可以使用 AP
 
 - 若要使用所有服务的最新版本，请使用 Azure SDK 汇总 gem 的 **最新** 配置文件。
 - 若要使用与 Azure Stack Hub 兼容的服务，请使用 Azure SDK 汇总 gem 的 **V2019_03_01_Hybrid** 或 **V2018_03_01** 配置文件。
-- 若要使用某个服务的最新 **api-version** ，请使用特定 gem 的 **最新** 配置文件。 例如，若要单独使用计算服务的最新 **api-version** ，请使用 **计算** gem 的 **最新** 配置文件。
-- 若要使用某个服务的特定 **api-version** ，请使用在 gem 中定义的特定 API 版本。
+- 若要使用某个服务的最新 **api-version**，请使用特定 gem 的 **最新** 配置文件。 例如，若要单独使用计算服务的最新 **api-version**，请使用 **计算** gem 的 **最新** 配置文件。
+- 若要使用某个服务的特定 **api-version**，请使用在 gem 中定义的特定 API 版本。
 
 > [!NOTE]
 > 可以在同一应用中组合所有选项。
@@ -136,9 +136,9 @@ export AZURE_TENANT_ID=<YOUR_TENANT_ID>
 
 **Azure_sdk** 汇总 gem 包含以下 3 个配置文件：
 
-- **V2019_03_01_Hybrid** ：为 Azure Stack Hub 生成的配置文件。 将此配置文件用于 Azure Stack Hub 版本 1904 或更高版本中提供的所有最新版服务。
-- **V2017_03_09** ：为 Azure Stack Hub 生成的配置文件。 使用此配置文件可以使服务与 Azure Stack Hub 版本 1808 或更早版本最兼容。
-- **最新** ：配置文件包含所有服务的最新版本。 使用所有服务的最新版本。
+- **V2019_03_01_Hybrid**：为 Azure Stack Hub 生成的配置文件。 将此配置文件用于 Azure Stack Hub 版本 1904 或更高版本中提供的所有最新版服务。
+- **V2017_03_09**：为 Azure Stack Hub 生成的配置文件。 使用此配置文件可以使服务与 Azure Stack Hub 版本 1808 或更早版本最兼容。
+- **最新**：配置文件包含所有服务的最新版本。 使用所有服务的最新版本。
 
 有关 Azure Stack Hub 和 API 配置文件的详细信息，请参阅 [API 配置文件的摘要](azure-stack-version-profiles.md#summary-of-api-profiles)。
 

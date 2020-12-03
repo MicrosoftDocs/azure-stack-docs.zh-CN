@@ -3,16 +3,16 @@ title: 部署 Azure Stack Hub 上的基础模式
 description: 了解如何部署 Azure Stack Hub 的基础模式。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: df603935dc192894dcb96837dc92fa4bc88f239e
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5609d9195a909a20a54917555a7309fe0901d7fa
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818396"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525466"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>部署基础模式的概述
 

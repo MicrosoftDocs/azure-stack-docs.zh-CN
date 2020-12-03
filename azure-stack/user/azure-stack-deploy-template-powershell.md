@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中使用 PowerShell 部署模板
 description: 在 Azure Stack Hub 中使用 PowerShell 部署模板。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/20/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/20/2020
-ms.openlocfilehash: 5bda04678c672c3951cc7644b3dc89f5d9ad25cf
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: d2ba72b65f8c8b1efe11356b217bd6beb218a375
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518324"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525330"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>在 Azure Stack 集线器中使用 PowerShell 部署模板
 

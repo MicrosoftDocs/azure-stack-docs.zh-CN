@@ -3,16 +3,16 @@ title: Azure Stack Hub 中的 PowerShell
 description: Azure Stack Hub 中的 PowerShell 具有一些模块和上下文。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 7103a2a8268ffb4c8cbbc84f35e6e1a6a90992c3
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3e00be01c56b9689e29681e01919feb0f432d7b9
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546576"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524650"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Azure Stack Hub 中的 PowerShell 入门
 

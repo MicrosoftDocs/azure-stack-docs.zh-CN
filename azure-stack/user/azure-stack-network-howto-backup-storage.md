@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上备份存储帐户
 description: 了解如何在 Azure Stack Hub 上备份存储帐户。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: e77c05c6f13a3ee3cb23a13a466bb7e0e80394f7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 40ec516f2f10f02716257077a4676c5724acf4ec
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546185"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525687"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>在 Azure Stack Hub 上备份存储帐户
 
@@ -80,13 +80,13 @@ AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云�
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. 在中间服务器上创建脚本。 使用 **存储帐户** 、 **SAS 密钥** 和 **本地目录路径** 更新此命令。 稍后需要运行该脚本以增量方式从 **源** 存储帐户复制数据。
+4. 在中间服务器上创建脚本。 使用 **存储帐户**、**SAS 密钥** 和 **本地目录路径** 更新此命令。 稍后需要运行该脚本以增量方式从 **源** 存储帐户复制数据。
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  输入 **存储帐户** 、**SAS 密钥**和**本地目录路径。  稍后将使用此信息以增量方式将数据复制到 **目标** 存储帐户
+5.  输入 **存储帐户**、**SAS 密钥**和**本地目录路径。  稍后将使用此信息以增量方式将数据复制到 **目标** 存储帐户
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true

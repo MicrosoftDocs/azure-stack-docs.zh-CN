@@ -1,19 +1,19 @@
 ---
-title: 在 Azure Stack 集线器中将 Java WAR 部署到 VM
+title: 将 Java WAR 部署到 Azure Stack Hub 中的 VM
 description: 将 Java WAR 部署到 Azure Stack Hub 中的虚拟机。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/05/2020
+ms.lastreviewed: 12/2/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: a7efe4a1329ba96ab9365c9c17022fc647b868a5
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 12aa4c0e666085b7692a55ff795c07d9b05aa96c
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107200"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525399"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>将 Java Web 应用部署到 Azure Stack Hub 中的 VM
 
@@ -173,7 +173,7 @@ ms.locfileid: "91107200"
         sudo ufw allow 8080
     ```
 
-    如果尚未为 Azure Stack Hub VM 添加*入站端口规则*，现在请添加这些规则。 有关详细信息，请参阅[创建 VM](#create-a-vm)。
+    如果尚未为 Azure Stack Hub VM 添加 *入站端口规则*，现在请添加这些规则。 有关详细信息，请参阅[创建 VM](#create-a-vm)。
 
 1. 在 Azure Stack Hub 所在的同一网络中打开浏览器，然后打开服务器 *yourmachine.local.cloudapp.azurestack.external:8080*。
 
@@ -216,7 +216,7 @@ ms.locfileid: "91107200"
 
     c. 保存并关闭该文件。
 
-1. Tomcat 会将“管理器”和“主机管理器”应用的访问权限限制为来自服务器的连接。** ** 由于你要在 Azure Stack Hub 中的 VM 上安装 Tomcat，因此需要解除此限制。 通过编辑相应的 *context.xml* 文件来更改对这些应用的 IP 地址限制。
+1. Tomcat 会将“管理器”和“主机管理器”应用的访问权限限制为来自服务器的连接。  由于你要在 Azure Stack Hub 中的 VM 上安装 Tomcat，因此需要解除此限制。 通过编辑相应的 *context.xml* 文件来更改对这些应用的 IP 地址限制。
 
     a. 在管理器应用中更新 *context.xml*：
 
@@ -251,7 +251,7 @@ ms.locfileid: "91107200"
 
 1. 在 Azure Stack Hub 所在的同一网络中打开浏览器，然后打开服务器 *yourmachine.local.cloudapp.azurestack.external:8080*。
 
-    a. 若要查看 Tomcat 服务器的状态并验证你是否有访问权限，请选择“服务器状态”。****
+    a. 若要查看 Tomcat 服务器的状态并验证你是否有访问权限，请选择“服务器状态”。
 
     b. 使用 Tomcat 凭据登录。
 

@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中将 API 版本配置文件与 .NET 配合使用
 description: 了解如何在 Azure Stack Hub 中将 API 版本配置文件与 .NET SDK 配合使用。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: cd3251e560cc7caa158cc3ea6f3bbd33b662bc3e
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 629c50225bc7544512b0ccb1333e56ef1e7cf07a
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089620"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525806"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>在 Azure Stack Hub 中将 API 版本配置文件与 .NET 配合使用
 
@@ -30,7 +30,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
   确保将上述 NuGet 包的 **ResourceProvider** 部分更改为正确的提供程序。
 
-- 若要使用某个服务的最新 API 版本，请使用特定 NuGet 包的**最新**配置文件。 例如，若要单独使用计算服务的**最新 API** 版本，请使用 **Compute** 包的 **最新**配置文件。 **latest** 配置文件是 **Microsoft.Azure.Management** NuGet 包的一部分。
+- 若要使用某个服务的最新 API 版本，请使用特定 NuGet 包的 **最新** 配置文件。 例如，若要单独使用计算服务的 **最新 API** 版本，请使用 **Compute** 包的 **最新** 配置文件。 **latest** 配置文件是 **Microsoft.Azure.Management** NuGet 包的一部分。
 
 - 若要使用特定资源提供程序中某个资源类型的特定 API 版本，请使用在包中定义的特定 API 版本。
 

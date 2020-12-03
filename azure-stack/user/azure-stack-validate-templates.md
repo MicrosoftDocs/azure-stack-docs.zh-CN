@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中使用模板验证工具
 description: 使用模板验证工具检查部署到 Azure Stack Hub 的模板。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/22/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 0631058a3eade431769a5651bb37441b835eb3e6
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b8e5b14542773372751fe76d7c6299961e0da86d
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518052"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525891"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用模板验证工具
 
@@ -113,7 +113,7 @@ Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
 
 模板验证程序 cmdlet 支持以下参数。
 
-| 参数 | 说明 | 必须 |
+| 参数 | 描述 | 必须 |
 | ----- | -----| ----- |
 | `TemplatePath` | 指定要在其中递归查找 Azure 资源管理器模板的路径。 | 是 |
 | `TemplatePattern` | 指定要匹配的模板文件的名称。 | 否 |

@@ -3,16 +3,16 @@ title: 连接两个 Azure Stack 集线器 Vnet
 description: 了解如何连接两个 Azure Stack 集线器。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: b6488b98317decf6b592339bfa66d15834f1f55d
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3920e0606bc4e101286f22796d7269b0774701d4
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543385"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525653"
 ---
 # <a name="vnet-to-vnet-connectivity-with-rras"></a>VNet 到 VNet 与 RRAS 的连接
 
@@ -23,7 +23,7 @@ ms.locfileid: "94543385"
 可以在 [Azure 智能边缘模式](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) GitHub 存储库中找到这些模板。 该模板位于 **S2SVPNTunnel** 文件夹中。
 
-![此图显示了一个实现，该实现在两个 NET 之间提供一个 VPN 隧道。 每个 VNET 上都有一个 RRAS 服务器、一个内部子网和一个隧道子网。](./media/azure-stack-network-howto-vnet-peering/overview.svg)
+![此图显示了一个实现，该实现在两个 NET 之间提供一个 VPN 隧道。 每个 VNET 上都有一个 RRAS 服务器，此外还有一个内部子网和一个隧道子网。](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>要求
 

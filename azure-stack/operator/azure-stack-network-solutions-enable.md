@@ -3,16 +3,16 @@ title: 将 Fortinet FortiGate 添加到 Azure Stack Hub 市场
 description: 了解如何将 Fortinet FortiGate 添加到 Azure Stack Hub 市场，使用户能够创建网络解决方案。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: a145a95207fb923d736582f79a315ae625d7223b
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: fec899c2040b71ad10be95d18dfc56a17d1fe617
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107024"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525517"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>使用 Fortinet FortiGate 在 Azure Stack Hub 中提供网络解决方案
 
@@ -30,7 +30,7 @@ ms.locfileid: "91107024"
     - 适用于 Azure BYOL 的 Fortinet FortiGate-VM
     - FortiGate NGFW - 单一 VM 部署 (BYOL)
 
-    ![显示可用下载项的屏幕截图。](./media/azure-stack-network-solutions-enable/azure-stack-marketplace-FortiGate-fortinet.png)
+    ![该屏幕截图显示可用的已下载项。](./media/azure-stack-network-solutions-enable/azure-stack-marketplace-FortiGate-fortinet.png)
 
 4. 等到市场项的状态为“已下载”。 下载这些项可能需要几分钟。
 

@@ -3,16 +3,16 @@ title: 使用 Azure CLI 管理 Azure Stack Hub
 description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack Hub 上的资源。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 35378da825d9b2d9c7446148101f1d205a22b2c4
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5cd1c1b7dac9e05925488b3543461f3fbd8dd9e5
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291244"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525874"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>在 Azure Stack 集线器上安装 Azure CLI
 
@@ -75,7 +75,7 @@ ms.locfileid: "93291244"
    ```
 
     >[!NOTE]  
-    >如果在1808版本之前运行 Azure Stack 中心版本，则必须使用 API 版本配置文件 **2017-03-09-配置** 文件，而不是 api 版本配置文件 **2019-03-01-混合** 。 还需要使用最新版本的 Azure CLI。
+    >如果在1808版本之前运行 Azure Stack 中心版本，则必须使用 API 版本配置文件 **2017-03-09-配置** 文件，而不是 api 版本配置文件 **2019-03-01-混合**。 还需要使用最新版本的 Azure CLI。
  
 6. 使用命令登录到 Azure Stack 中心环境 `az login` 。 以用户或 [服务主体](/azure/active-directory/develop/app-objects-and-service-principals)身份登录到 Azure Stack 中心环境。 
 
@@ -148,7 +148,7 @@ az group create -n MyResourceGroup -l local
    ```
 
     >[!NOTE]  
-    >如果在1808版本之前运行 Azure Stack 中心版本，则必须使用 API 版本配置文件 **2017-03-09-配置** 文件，而不是 api 版本配置文件 **2019-03-01-混合** 。 还需要使用最新版本的 Azure CLI。
+    >如果在1808版本之前运行 Azure Stack 中心版本，则必须使用 API 版本配置文件 **2017-03-09-配置** 文件，而不是 api 版本配置文件 **2019-03-01-混合**。 还需要使用最新版本的 Azure CLI。
 
 6. 使用命令登录到 Azure Stack 中心环境 `az login` 。 你可以作为用户或 [服务主体](/azure/active-directory/develop/app-objects-and-service-principals)登录到 Azure Stack 中心环境。 
 
@@ -233,7 +233,7 @@ az group create -n MyResourceGroup -l local
    ```
 
     >[!NOTE]  
-    >如果在1808版本之前运行 Azure Stack 中心版本，则必须使用 API 版本配置文件 **2017-03-09-配置** 文件，而不是 api 版本配置文件 **2019-03-01-混合** 。 还需要使用最新版本的 Azure CLI。
+    >如果在1808版本之前运行 Azure Stack 中心版本，则必须使用 API 版本配置文件 **2017-03-09-配置** 文件，而不是 api 版本配置文件 **2019-03-01-混合**。 还需要使用最新版本的 Azure CLI。
 
 6. 使用命令登录到 Azure Stack 中心环境 `az login` 。 你可以作为用户或 [服务主体](/azure/active-directory/develop/app-objects-and-service-principals)登录到 Azure Stack 中心环境。 
 
@@ -313,7 +313,7 @@ az group create -n MyResourceGroup -l local
    ```
 
     >[!NOTE]  
-    >如果在1808版本之前运行 Azure Stack 中心版本，则必须使用 API 版本配置文件 **2017-03-09-配置** 文件，而不是 api 版本配置文件 **2019-03-01-混合** 。 还需要使用最新版本的 Azure CLI。
+    >如果在1808版本之前运行 Azure Stack 中心版本，则必须使用 API 版本配置文件 **2017-03-09-配置** 文件，而不是 api 版本配置文件 **2019-03-01-混合**。 还需要使用最新版本的 Azure CLI。
 
 6. 使用命令登录到 Azure Stack 中心环境 `az login` 。 你可以作为用户或 [服务主体](/azure/active-directory/develop/app-objects-and-service-principals)登录到 Azure Stack 中心环境。 
 

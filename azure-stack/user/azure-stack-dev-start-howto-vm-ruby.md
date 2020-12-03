@@ -3,16 +3,16 @@ title: 在 Azure Stack 集线器中将 Ruby 应用部署到 VM
 description: 将 Ruby 应用部署到 Azure Stack Hub 中的虚拟机。
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7be8293180f03d9d82565aa27c74c8e8cbe7c9c1
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 52c800f9ad0a4208fbd2c00a61b26b70ca066c12
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573966"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525959"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>将 Ruby Web 应用部署到 Azure Stack Hub 中的 VM
 

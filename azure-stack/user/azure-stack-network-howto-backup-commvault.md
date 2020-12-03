@@ -3,16 +3,16 @@ title: 使用 Commvault 在 Azure Stack Hub 上备份 VM
 description: 了解如何使用 Commvault 在 Azure Stack Hub 上备份 VM。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 9308e8b017201119a7179c78dbeb99006f4ebfff
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: e9f6c41097085a0342b2c0a2fc5b5b995c2d9186
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547086"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524786"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>使用 Commvault 在 Azure Stack Hub 上备份 VM
 
@@ -57,17 +57,17 @@ ms.locfileid: "94547086"
 
     b. 选择“标准 HDD”。
     
-    c. 输入 **用户名** 。
+    c. 输入 **用户名**。
     
-    d. 输入 **密码** 。
+    d. 输入 **密码**。
     
     e. 确认密码。
     
-    f. 选择用于备份的 **订阅** 。
+    f. 选择用于备份的 **订阅**。
     
-    g. 选择一个 **资源组** 。
+    g. 选择一个 **资源组**。
     
-    h.如果该值不存在，请单击“添加行”。 选择 Azure Stack Hub 的 **位置** 。 如果使用的是 ASDK，请选择“本地”。
+    h.如果该值不存在，请单击“添加行”。 选择 Azure Stack Hub 的 **位置**。 如果使用的是 ASDK，请选择“本地”。
     
     i. 选择“确定” 。
 
@@ -133,7 +133,7 @@ ms.locfileid: "94547086"
 
 4. 在 Commvault Commcell 控制台中，将备份存储库配置为使用 Azure Stack Hub 外部的存储。 在 CommCell 浏览器中，选择“存储资源”>“存储池”。 单击右键并选择“添加存储池”。 选择“云”。
 
-5. 添加存储池的名称。 选择“ **下一步** ”。
+5. 添加存储池的名称。 选择“**下一步**”。
 
 6. 选择“创建” > “云存储”。 
 
@@ -145,15 +145,15 @@ ms.locfileid: "94547086"
 
 9. 输入存储帐户的访问信息。 可在此处找到有关设置 Azure 存储帐户的说明。 访问信息：
 
-    -  **服务宿主** ：从资源中的 Blob 容器属性获取 URL 的名称。 例如，我的 URL 是 https： \/ /backuptest.blob.westus.stackpoc.com/mybackups，blob.westus.stackpoc.com 在服务主机中使用。
+    -  **服务宿主**：从资源中的 Blob 容器属性获取 URL 的名称。 例如，我的 URL 是 https： \/ /backuptest.blob.westus.stackpoc.com/mybackups，blob.westus.stackpoc.com 在服务主机中使用。
     
-    -   **帐户名称** ：使用存储帐户名称。 可以在存储资源的“访问密钥”边栏选项卡中找到此信息。
+    -   **帐户名称**：使用存储帐户名称。 可以在存储资源的“访问密钥”边栏选项卡中找到此信息。
     
-    -   **访问密钥** ：从存储资源的“访问密钥”边栏选项卡中获取访问密钥。
+    -   **访问密钥**：从存储资源的“访问密钥”边栏选项卡中获取访问密钥。
     
-    -   **容器** ：容器的名称。 在本例中为 mybackups。
+    -   **容器**：容器的名称。 在本例中为 mybackups。
     
-    -   **存储类** ：保留为用户容器的默认存储类。
+    -   **存储类**：保留为用户容器的默认存储类。
 
 10. 按照[创建 Microsoft Azure Stack 中心客户端](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm)中的说明创建 Microsoft Azure Stack 集线器客户端
 

@@ -3,16 +3,16 @@ title: 对用户而言，什么是 Azure Stack Hub？
 description: 了解如何以开发者身份使用 Azure Stack Hub。
 author: mattbriggs
 ms.topic: article
-ms.date: 7/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 7c930b823fd82854499433bbe5bda8654b481877
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 917beb178c50cb06ae71201299bd967a60d522d1
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250888"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524514"
 ---
 # <a name="what-is-azure-stack-hub"></a>什么是 Azure Stack Hub？
 

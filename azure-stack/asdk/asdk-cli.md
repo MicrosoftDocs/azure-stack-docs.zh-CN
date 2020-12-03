@@ -3,16 +3,16 @@ title: 设置 Azure Stack 开发工具包上的 Azure CLI 的证书 (ASDK) ？ |
 description: 了解如何为 Azure Stack 开发工具包 Azure Stack 开发工具包上的 Azure CLI 设置证书。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 8b55fea8ed9692da34234e2633bdb43e92de46eb
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 7b408e28ff70e66c0460473f54304cbf50fa2c92
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294399"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524673"
 ---
 # <a name="setting-up-certificates-for-azure-cli-on-azure-stack-development-kit"></a>为 Azure Stack 开发工具包上的 Azure CLI 设置证书
 
@@ -24,7 +24,7 @@ ms.locfileid: "93294399"
 
 对于 ASDK，需要 Azure Stack 集线器的 CA 根证书，以便在开发计算机上使用 Azure CLI。 该证书用于通过 CLI 管理资源。
 
- - 如果从 ASDK 之外的工作站使用 CLI，则需要 **Azure Stack 中心 CA 根证书** 。  
+ - 如果从 ASDK 之外的工作站使用 CLI，则需要 **Azure Stack 中心 CA 根证书**。  
 
  - **虚拟机别名终结点** 提供类似于“UbuntuLTS”或“Win2012Datacenter”的别名。 此别名引用映像发布者、套餐、SKU 和版本作为部署 VM 时的单个参数。  
 
@@ -39,7 +39,7 @@ ms.locfileid: "93294399"
 1. 获取 Azure Stack 中心根证书的名称：
     1. 登录到 Azure Stack 中心用户或管理员门户。
     2. 在地址栏附近选择 " **安全** "。
-    3. 在弹出窗口中，选择 " **有效** "。
+    3. 在弹出窗口中，选择 " **有效**"。
     4. 在 "证书" 窗口中，选择 " **证书路径** " 选项卡。
     5. 记下 Azure Stack 中心根证书的名称。
 
@@ -93,7 +93,7 @@ ms.locfileid: "93294399"
       python -c "import certifi; print(certifi.where())"
     ```
 
-    记下证书位置。 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem` 。 具体的路径取决于 OS 和已安装的 Python 版本。
+    记下证书位置。 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem`。 具体的路径取决于 OS 和已安装的 Python 版本。
 
 2. 信任 Azure Stack 中心 CA 根证书，方法是将其附加到现有的 Python 证书。
 
@@ -138,7 +138,7 @@ ms.locfileid: "93294399"
     az --version
     ```
 
-    记下证书位置。 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem` 。 具体的路径取决于操作系统以及安装的 Python 版本。
+    记下证书位置。 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem`。 具体的路径取决于操作系统以及安装的 Python 版本。
 
 2. 结合证书的路径运行以下 bash 命令。
 

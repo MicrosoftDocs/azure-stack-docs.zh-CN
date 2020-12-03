@@ -3,16 +3,16 @@ title: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 description: 使用 Docker 在 Azure Stack Hub 中运行 PowerShell
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 54e0c53c666ae6d936ed34baea43f708f4a262da
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 802a173239534c6826e90a1d4d4c2095c1abcf9a
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546780"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525602"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell
 
@@ -107,7 +107,7 @@ ms.locfileid: "94546780"
 
 ### <a name="install-azure-stack-hub-azurerm-module-on-a-windows-container"></a>在 Windows 容器上安装 Azure Stack Hub AzureRM 模块
 
-Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore* ，其中已安装 Windows PowerShell 5.1。 该文件然后会加载 NuGet 和 Azure Stack Hub PowerShell 模块，并从 Azure Stack Hub Tools 下载工具。
+Dockerfile 打开 Microsoft 映像 *microsoft/windowsservercore*，其中已安装 Windows PowerShell 5.1。 该文件然后会加载 NuGet 和 Azure Stack Hub PowerShell 模块，并从 Azure Stack Hub Tools 下载工具。
 
 1. 以 ZIP 文件形式[下载 azure-stack-powershell 存储库](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git)，或者克隆该存储库。
 

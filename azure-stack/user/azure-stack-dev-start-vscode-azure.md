@@ -3,16 +3,16 @@ title: 使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack 
 description: 以开发人员的身份使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack Hub
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: fc07b78253a19d8a7f459aecacd699338a129ea7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3a9603dd4521e63d00d281f8fcd1b8f1912d5836
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546695"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525993"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack Hub
 
@@ -70,7 +70,7 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
 
     记下返回 JSON。 稍后需要使用 `loginEndpoint` 和 `audiences` 属性的值。
 
-8. 按下 **Ctrl+Shift+P** ，然后选择“首选项:  打开用户设置(JSON)”。
+8. 按下 **Ctrl+Shift+P**，然后选择“首选项:  打开用户设置(JSON)”。
 
 9. 在代码编辑器中，使用环境的值更新以下 JSON 代码片段，然后将代码片段粘贴到设置块中。
 
@@ -97,7 +97,7 @@ VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP
       "azure.cloud": "AzurePPE"
       ```
 
-10. 保存用户设置并再次按下 **Ctrl+Shift+P** 。 选择“Azure:登录到 Azure 云”。 新选项“AzurePPE”将显示在目标列表中。
+10. 保存用户设置并再次按下 **Ctrl+Shift+P**。 选择“Azure:登录到 Azure 云”。 新选项“AzurePPE”将显示在目标列表中。
 
 11. 选择“AzurePPE”。 浏览器中会加载身份验证页。 登录到你的终结点。
 
