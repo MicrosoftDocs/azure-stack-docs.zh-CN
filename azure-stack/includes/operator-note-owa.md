@@ -3,15 +3,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: include
-ms.date: 10/30/2020
+ms.date: 12/2/2020
 ms.reviewer: sijuman
-ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: 40e9e7ae912c3a17fa40b3cec86db156f27d7b83
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: d3eb4eb5de0237dc83f05b6043d392b0bf0a0f10
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363720"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96537031"
 ---
 ::: moniker range=">=azs-2005"
 > [!Note] 
