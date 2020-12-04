@@ -32,8 +32,6 @@
       items:
         - name: 使用 PowerShell 创建群集
           href: deploy/create-cluster-powershell.md
-        - name: 使用 PowerShell 部署网络控制器
-          href: deploy/network-controller-powershell.md
 - name: 管理
   items:
     - name: 管理 VM

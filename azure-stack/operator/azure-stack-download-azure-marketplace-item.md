@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/18/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 1e6ef20bd1c04e8fd08af73370f2ed001b0be500
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: ce6e3b416731f07989e8a7c1d91e363059e11bbc
+ms.sourcegitcommit: 9bca59a53787a9884b4643eb760ad1b2c1feb57f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517916"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96579764"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub
 
@@ -92,7 +92,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 - 使用以下命令从 PowerShell 库下载 Azs.Syndication.Admin 模块：
 
   ```powershell
-  Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+  Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
   ```
   
 - .NET Framework 4.7 或更高版本。
@@ -130,7 +130,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 4. 如果尚未在先决条件步骤中完成此操作，请下载最新版本的市场联合工具：
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
    ```
 
 5. 若要选择要下载的市场项（如 VM 映像、扩展或解决方案模板），请运行以下命令：
@@ -198,7 +198,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 4. 如果尚未在先决条件步骤中完成此操作，请下载最新版本的市场联合工具：
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+   Install-Module -Name Azs.Syndication.Admin -PassThru
    ```
 
 5. 若要选择要下载的市场项（如 VM 映像、扩展或解决方案模板），请运行以下命令：

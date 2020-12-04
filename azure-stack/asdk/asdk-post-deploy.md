@@ -3,16 +3,16 @@ title: ASDK 的部署后配置
 description: 了解安装 Azure Stack 开发工具包 (ASDK) 后要进行的建议配置更改。
 author: justinha
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 12/03/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 9cef49ee81662e7a68396067ee94430c17e20b32
-ms.sourcegitcommit: 1effe07b52b4adc1a5b27dc705b4dde676f10006
+ms.lastreviewed: 12/03/2020
+ms.openlocfilehash: 1d31bc40c77b68f43d48def1d4ce874dd69160b1
+ms.sourcegitcommit: 9bca59a53787a9884b4643eb760ad1b2c1feb57f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519274"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96579713"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK 的部署后配置
 
@@ -30,28 +30,24 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 使用 API 版本配置文件指定 Azure Stack 兼容 Az 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Az PowerShell 模块。 通过 PowerShell 库提供的 **Az** 模块提供了使用 API 版本配置文件所需的 PowerShell cmdlet。
 
-无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
+可以安装最新的 Azure Stack PowerShell 模块，无论是否通过 internet 连接到 ASDK 主计算机。
 
-> [!IMPORTANT]
-> 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)。
+1.  验证你在 Windows 计算机上的先决条件。 有关说明，请参阅 [Windows 必备组件](../operator/powershell-install-az-module.md#prerequisites-for-windows)。
+2. 在安装所需的 PowerShell 版本之前，请确保 [卸载现有 Azure PowerShell 模块](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)。 
 
 - 已从 ASDK 主计算机 **建立 Internet 连接**：运行以下 PowerShell 脚本，以在 ASDK 安装中安装以下模块：
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az1)
 
   ```powershell  
-  # Update the current PowerShellGet module to latest version, required to support PreRelease modules
-  Install-Module -Name PowerShellGet -Force
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+    Install-AzProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 
-  # Install the Az.BootStrapper module. Select Yes when prompted to install NuGet
-  Install-Module -Name Az.BootStrapper
-
-  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-  Use-AzProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
+    Get-Module -Name "Az*" -ListAvailable
+    Get-Module -Name "Azs*" -ListAvailable
   ```
 
 如果安装成功，则会在输出中显示 Az 和 Test-azurestack 模块。
@@ -59,15 +55,17 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
 
   ```powershell  
-  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
-
-  # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-  Install-Module -Name AzureRM.BootStrapper
-
-  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-  Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.8.2
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+    
+    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.8.2
+    
+    Get-Module -Name "Az*" -ListAvailable
+    Get-Module -Name "Azs*" -ListAvailable
   ```
 
 如果安装成功，则会在输出中显示 AureRM 和 Test-azurestack 模块。
