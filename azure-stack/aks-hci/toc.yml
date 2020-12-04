@@ -1,4 +1,4 @@
-- name: Azure Stack HCI 文档上的 Azure Kubernetes 服务
+- name: Azure Stack HCI 上的 Azure Kubernetes 服务文档
   href: index.yml
 - name: 概述
   items:
@@ -7,27 +7,25 @@
 - name: 快速入门
   expanded: true
   items:
-    - name: Azure Stack HCI 上设置 Azure Kubernetes 服务
+    - name: 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
       items:
-        - name: 使用 Windows 管理中心
+        - name: 使用 Windows Admin Center
           href: setup.md
         - name: 使用 PowerShell
           href: setup-powershell.md
     - name: 创建 Kubernetes 群集
       items:
-        - name: 使用 Windows 管理中心
+        - name: 使用 Windows Admin Center
           href: create-kubernetes-cluster.md
         - name: 使用 PowerShell
           href: create-kubernetes-cluster-powershell.md
 - name: 教程
   items:
-    - name: 使用 Windows Server 容器
-      href: deploy-windows-application.md
     - name: 使用 Linux 容器
       href: deploy-linux-application.md
 - name: 概念
   items:
-    - name: Azure Stack HCI 概念上的 Azure Kubernetes
+    - name: Azure Stack HCI 上的 Azure Kubernetes 概念
       href: kubernetes-concepts.md
     - name: 系统要求
       href: system-requirements.md
@@ -35,11 +33,17 @@
   items:
     - name: 连接到用于 Kubernetes 的 Azure Arc
       href: connect-to-arc.md
-    - name: 改编混合 OS Kubernetes 群集的应用
+    - name: 针对混合 OS Kubernetes 群集调整应用
       href: adapt-apps-mixed-os-clusters.md
-    - name: 在 Windows 容器中使用持久性存储并为 gMSA 做好准备
-      href: persistent-storage-windows-nodes.md
-    - name: 疑难解答
+    - name: 使用 Windows Server 容器
+      items:
+        - name: 在 Azure Stack HCI 上的 AKS 中部署 .NET 应用程序
+          href: deploy-windows-application.md
+        - name: 为组托管服务帐户支持准备 Windows 节点
+          href: prepare-windows-nodes-gmsa.md
+        - name: 在 Azure Stack HCI 群集上的 AKS 中使用永久卷
+          href: persistent-volume.md
+    - name: 故障排除
       href: troubleshoot.md
 - name: 相关内容
   items:

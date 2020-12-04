@@ -7,12 +7,12 @@ ms.date: 09/09/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 0d5fe9bfc324cbf3a52cbd3a9a38508344bda5e0
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.openlocfilehash: afb69e3060137cece30004ccf59c1c3a88833b91
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94875087"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557423"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>可用于 Azure Stack Hub 的 Azure 市场项
 
@@ -55,11 +55,11 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | 图像 | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | 一个针对 Intel 体系结构优化的参考性 Linux 发行版 | Clear Linux Project |
-| ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS 是一种新式的最小型 Linux 发行版，可以方便地运行容器、管理群集以及无缝地更新服务器 - 所有组件都支持仓库级计算。 | CoreOS |
+| ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://coreos.com/os/docs/latest/booting-on-azure.html) | CoreOS 是一种新式的最小型 Linux 发行版，可以方便地运行容器、管理群集以及无缝地更新服务器 - 所有组件都支持仓库级计算。 | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server 是全球流行的 Linux 云环境。 | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8“Jessie”](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux 是最流行的 Linux 分发版之一。 | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Oracle Linux 操作系统是针对开放云基础结构设计的。 它为企业 SaaS 和 PaaS 工作负荷以及传统的企业应用提供领先的性能、可伸缩性和可靠性。 | Oracle |
-| ![基于 CentOS 的7。6](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的7。6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOS76?tab=Overview) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |
+| ![基于 CentOS 的7。6](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的7。6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos?tab=Overview) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |
 | ![基于 CentOS 的 7.5-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 7.5-LVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-lvm) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |
 | ![基于 CentO 的 HPC](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 HPC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-hpc) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic）  |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 11 SP4。 | SUSE |

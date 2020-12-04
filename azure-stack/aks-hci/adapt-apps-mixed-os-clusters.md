@@ -6,14 +6,16 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: 09d63b58fcbba2b5272ea153a1a022ccdc63e2bc
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253938"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557100"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>使用节点选择器或排斥和容许为混合 OS Kubernetes 群集调整应用
+
+> 适用于 Azure Stack HCI 上的 AKS、Windows Server 2019 Datacenter 上的 AKS 运行时
 
 Azure Stack HCI 上的 Azure Kubernetes 服务使你可以运行同时具有 Linux 和 Windows 节点的 Kubernetes 群集，但需要对应用进行少量编辑，以便在这些混合 OS 群集中使用。 本操作指南介绍如何确保使用节点选择器或排斥和容许将应用程序安排在正确的主机操作系统上。
 
@@ -45,7 +47,7 @@ node.kubernetes.io/os=Windows:NoSchedule
 ```
 运行 `kubectl get` 并标识要排斥的 Windows 工作器节点。
 
-```PowerShell
+```
 kubectl get nodes --all-namespaces -o=custom-columns=NAME:.metadata.name,OS:.status.nodeInfo.operatingSystem
 ```
 输出：
@@ -58,7 +60,7 @@ my-aks-hci-cluster-md-md-1-5xlwz         windows
 
 使用 `kubectl taint node` 排斥 Windows Server 工作器节点。
 
-```PowerShell
+```
 kubectl taint node my-aks-hci-cluster-md-md-1-5h4bl node.kubernetes.io/os=Windows:NoSchedule
 kubectl taint node my-aks-hci-cluster-md-md-1-5xlwz node.kubernetes.io/os=Windows:NoSchedule
 ```

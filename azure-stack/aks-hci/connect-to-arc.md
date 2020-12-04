@@ -6,14 +6,16 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 24dc2efdc591404db1bbfc30cf9c1bc83e2ed356
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 9c398e95228748faae6bd7f191b9c0319b03dfa8
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948786"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557117"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>将 Azure Stack HCI 群集上的 Azure Kubernetes 服务连接到 Kubernetes 的 Azure Arc
+
+> 适用于 Azure Stack HCI 上的 AKS、Windows Server 2019 Datacenter 上的 AKS 运行时
 
 Azure Stack HCI 群集上的 Azure Kubernetes 服务附加到 Azure Arc 时，它将显示在 Azure 门户中。 它具有一个 Azure 资源管理器 ID 和一个托管标识。 群集附加到标准 Azure 订阅，位于资源组中，可以像任何其他 Azure 资源一样接收标记。
 
@@ -23,17 +25,17 @@ Azure Stack HCI 群集上的 Azure Kubernetes 服务附加到 Azure Arc 时，�
 
 以下步骤提供了有关在 Azure Stack HCI 群集到 Azure Arc 上载入 Azure Kubernetes 服务的演练。 **如果已通过 Windows 管理中心将 Kubernetes 群集载入到 Azure Arc，则可以跳过这些步骤。**
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>在开始之前
 
 验证是否已准备好以下要求：
 
-* Azure Stack HCI 群集上的 Azure Kubernetes 服务，其中至少有一个启动并运行的 Linux 工作节点。 
+* Azure Stack HCI 上的 Azure Kubernetes 服务群集，其中至少有一个启动并运行的 Linux 工作器节点。 
 
 * 需要一个 kubeconfig 文件来访问群集上的群集和群集管理角色，以便部署启用了 Arc 的 Kubernetes 代理。
-* Azure Stack HCI PowerShell 模块上安装 Azure Kubernetes 服务。
-* 安装支持 Azure Arc 的 Kubernetes CLI 扩展需要 Azure CLI 版本 2.3 +。 [安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 还可以更新到最新版本，以确保具有 Azure CLI 版本 2.3 +。
+* 安装了 Azure Stack HCI 上的 Azure Kubernetes 服务 PowerShell 模块。
+* 安装支持 Azure Arc 的 Kubernetes CLI 扩展需要 Azure CLI 版本 2.3 +。 [安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。 还可以更新到最新版本，以确保具有 Azure CLI 版本 2.3 +。
 * 作为所有者或参与者的 Azure 订阅。 
-* 在 PowerShell 管理窗口中运行此文档中的命令。
+* 在 PowerShell 管理窗口中运行本文档中的命令。
 
 
 ## <a name="network-requirements"></a>网络要求
@@ -109,7 +111,7 @@ az ad sp create-for-RBAC --name "azure-arc-for-k8s" --scope /subscriptions/{Subs
 }
 ```
 ## <a name="step-5-save-service-principal-details"></a>步骤5：保存服务主体详细信息
-将创建的服务主体的 appId、password 和租户值以及群集名称、Azure 订阅 ID、资源组名称和位置保存在 PowerShell 变量中。 这将确保你可以重复使用其他教程中的详细信息。 请确保在记事本中保存这些值，以防需要关闭 powerShell 会话。
+将创建的服务主体的 appId、password 和租户值以及群集名称、Azure 订阅 ID、资源组名称和位置保存在 PowerShell 变量中。 这将确保你可以重复使用其他教程中的详细信息。 请确保在记事本中保存这些值，以防需要关闭 PowerShell 会话。
 
 ```PowerShell
 $clusterName = #<name of your Kubernetes cluster>
@@ -132,9 +134,9 @@ echo $password
 echo $tenant 
 ```
 
-## <a name="step-6-connect-to-azure-arc-using-service-principal-and-the-aks-hci-powershell-module"></a>步骤6：使用服务主体和 Aks PowerShell 模块连接到 Azure Arc
+## <a name="step-6-connect-to-azure-arc-using-service-principal-and-the-aks-hci-powershell-module"></a>步骤6：使用服务主体和 Aks-Hci PowerShell 模块连接到 Azure Arc
 
-接下来，我们将使用服务主体和 Aks PowerShell 模块将 Kubernetes 群集连接到 Azure。 此步骤将 Kubernetes 的 Azure Arc 代理部署到 `azure-arc` 命名空间中。
+接下来，我们将使用服务主体和 Aks-Hci PowerShell 模块将 Kubernetes 群集连接到 Azure。 此步骤将 Kubernetes 的 Azure Arc 代理部署到 `azure-arc` 命名空间中。
 
 引用新创建的服务主体，并运行 `Install-AksHciArcOnboarding` Aks-Hci PowerShell 模块中提供的命令。
 
@@ -143,7 +145,7 @@ Install-AksHciArcOnboarding -clusterName $clusterName -resourcegroup $resourceGr
 ```
 ## <a name="verify-connected-cluster"></a>验证已连接的群集
 
-可以在 [Azure 门户](https://portal.azure.com/)上查看 Kubernetes 群集资源。 在浏览器中打开门户后，基于 PowerShell 命令前面使用的资源名称和资源组名称输入，导航到 "资源组" 和 "已启用 Azure Arc" Kubernetes 资源 `Install-AksHciArcOnboarding` 。
+可以在 [Azure 门户](https://portal.azure.com/)上查看 Kubernetes 群集资源。 在浏览器中打开门户后，请导航到资源组和启用了 Azure Arc 的 Kubernetes 资源，该资源基于之前在 PowerShell 命令中使用的资源名称和资源组名称输入 `Install-AksHciArcOnboarding` 。
 
 > [!NOTE]
 > 载入群集后，在 Azure 门户中启用了 Azure Arc Kubernetes 资源的 "概述" 页上，大约需要5到10分钟的群集元数据 (群集版本、代理版本、) 的节点数。
