@@ -1,10 +1,10 @@
-- name: 模块化数据中心文档
+- name: Modular Data Center 文档
   href: index.yml
 - name: 运算符
   items:
     - name: 概述
       items:
-        - name: 什么是模块化数据中心？
+        - name: 什么是 Modular Data Center？
           href: mdc-overview.md
     - name: 快速入门
       items:
@@ -28,10 +28,10 @@
               href: ../operator/azure-stack-capacity-planning-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 应用服务
               href: ../operator/azure-stack-app-service-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 容量规划器工具
+            - name: Capacity Planner 工具
               href: azure-stack-capacity-planner.md
         - name: 集成概述
-          href: customer-journey.md
+          href: integration-overview.md
         - name: 连接模型
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 连接的部署
@@ -104,7 +104,7 @@
                   href: ../operator/azure-stack-remediate-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 注册和准备情况
           items:
-            - name: 注册
+            - name: 寄存器
               href: operator/registration-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 验证 Azure 注册
               href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -178,7 +178,7 @@
                   href: ../operator/azure-stack-enable-multitenancy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: 操作指南
       items:
-        - name: 扩展的存储运行状况检查
+        - name: 扩展存储运行状况检查
           href: extended-storage-health-checks.md
         - name: 管理
           items:
@@ -310,7 +310,7 @@
               href: ../operator/azure-stack-subscribe-plan-provision-vm.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 删除产品/服务
               href: ../operator/azure-stack-delete-offer.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 委托产品
+            - name: 委托产品/服务
               href: ../operator/azure-stack-delegated-provider.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 配额类型
               href: ../operator/azure-stack-quota-types.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -348,7 +348,7 @@
                   href: ../operator/app-service-recover.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 应用服务计费常见问题解答
                   href: ../operator/app-service-billing-faq.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: 应用服务更新8发行说明
+                - name: 应用服务更新 8 发行说明
                   href: ../operator/azure-stack-app-service-release-notes-update-eight.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 事件中心
               items:
@@ -450,11 +450,11 @@
                   items:
                     - name: 概述
                       href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: 主动回收
+                    - name: 主动收集
                       href: ../operator/azure-stack-configure-automatic-diagnostic-log-collection.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 按需收集
                       href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 获取 Azure Stack 集线器状态
+            - name: 获取 Azure Stack Hub 状态
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 疑难解答
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -527,7 +527,7 @@
                       href: ../user/azure-stack-powershell-user-docker.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 使用 Azure Stack 策略模块
                       href: ../user/azure-stack-policy-module.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: 结合使用 Azure CLI 与 MDC
+                - name: 将 Azure CLI 与 MDC 配合使用
                   href: azure-stack-version-profiles-azurecli-2-tzl.md
                 - name: 使用 Visual Studio Code
                   href: ../user/azure-stack-dev-start-vscode-azure.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -605,7 +605,7 @@
                       href: ../user/vm-update-management.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: SQL Server VM 注意事项
                       href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: GPU Vm
+                    - name: GPU VM
                       href: azure-stack-gpu.md
                 - name: 存储
                   items:
@@ -760,7 +760,7 @@
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 备份和恢复
               items:
-                - name: 通过 Commvault 在 MDC 上备份 VM
+                - name: 使用 Commvault 在 MDC 上备份 VM
                   href: ../user/azure-stack-network-howto-backup-commvault.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 在 MDC 上备份存储帐户
                   href: ../user/azure-stack-network-howto-backup-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json

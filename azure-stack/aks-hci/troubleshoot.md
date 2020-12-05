@@ -3,14 +3,14 @@ title: 对 AKS 进行故障排除
 description: 本文提供有关 Azure Stack HCI 上的 Azure Kubernetes 服务 (AKS) 故障排除的信息。
 author: davannaw-msft
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 26edd1f52b5a3d695fa70493606c1e2438feda78
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 53ee79628f63d4925cdf7c725d1c0ec4231b4ef3
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557083"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612448"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务故障排除
 
@@ -79,10 +79,10 @@ GetHelp .\Get-SMEUILogs.ps1 -Examples
 ```
 
 ## <a name="troubleshooting-windows-worker-nodes"></a>Windows 工作器节点故障排除 
-若要使用 SSH 登录 Windows 工作节点，请先通过运行获取节点的 IP 地址， `kubectl get` 并捕获 `EXTERNAL-IP` 值。
+若要使用 SSH 登录到 Windows 工作节点，请先通过运行并捕获值来获取节点的 IP 地址 `kubectl get` `EXTERNAL-IP` 。
 
-[!NOTE] 
-必须将正确的位置传递到 SSH 私钥。 以下示例使用%systemdrive%\akshci \. ssh \ akshci_rsa 的默认位置，但是，如果通过指定的参数请求了其他路径，则可能需要更改此位置 `-sshPublicKey` `Set-AksHciConfig` 。
+   > [!NOTE]
+   > 必须将正确的位置传递到 SSH 私钥。 以下示例使用%systemdrive%\akshci \. ssh \ akshci_rsa 的默认位置，但是，如果通过指定的参数请求了其他路径，则可能需要更改此位置 `-sshPublicKey` `Set-AksHciConfig` 。
 
 获取 Windows 辅助角色节点的 IP 地址：  
 
@@ -102,8 +102,9 @@ ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa administrator@<IP Address of the 
 ## <a name="troubleshooting-linux-worker-nodes"></a>Linux 工作器节点故障排除 
 若要使用 SSH 登录到 Linux 工作节点，请先通过运行获取节点的 IP 地址， `kubectl get` 并捕获 `EXTERNAL-IP` 值。
 
-[!NOTE]
-必须将正确的位置传递到 SSH 私钥。 以下示例使用%systemdrive%\akshci \. ssh \ akshci_rsa 的默认位置，但是，如果通过指定的参数请求了其他路径，则可能需要更改此位置 `-sshPublicKey` `Set-AksHciConfig` 。
+
+   > [!NOTE]
+   > 必须将正确的位置传递到 SSH 私钥。 以下示例使用%systemdrive%\akshci \. ssh \ akshci_rsa 的默认位置，但是，如果通过指定的参数请求了其他路径，则可能需要更改此位置 `-sshPublicKey` `Set-AksHciConfig` 。
 
 获取 Linux 辅助角色节点的 IP 地址：  
 

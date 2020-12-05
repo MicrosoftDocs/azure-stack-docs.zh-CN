@@ -3,15 +3,15 @@ title: 将 Azure Stack HCI 群集上的 Azure Kubernetes 服务连接到 Kuberne
 description: 将 Azure Stack HCI 群集上的 Azure Kubernetes 服务连接到 Kubernetes 的 Azure Arc
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 9c398e95228748faae6bd7f191b9c0319b03dfa8
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557117"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612346"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>将 Azure Stack HCI 群集上的 Azure Kubernetes 服务连接到 Kubernetes 的 Azure Arc
 

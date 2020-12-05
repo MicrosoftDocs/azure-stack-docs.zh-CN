@@ -3,14 +3,14 @@ title: 使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernete
 description: 了解如何使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
 author: davannaw-msft
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 155aa9948ceae350bed8ee8c7389b939e9099c18
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 99f3e98ff24044c74c9065bb98965dcf640c4032
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557390"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612533"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>快速入门：使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
 
@@ -47,7 +47,7 @@ ms.locfileid: "96557390"
 
 ## <a name="setting-up-an-azure-kubernetes-service-host"></a>设置 Azure Kubernetes 服务主机
 
-创建 Kubernetes 群集之前，应完成最后一个步骤。 需要在要将 Kubernetes 群集部署到的系统上设置 Azure Kubernetes 服务主机。 此系统可以是 Windows Server 2019 Datacenter 群集、单节点 Windows Server 2019 Datacenter 群集或2-4 节点 Azure Stack HCI 群集。 
+创建 Kubernetes 群集之前，应完成最后一个步骤。 需要在要将 Kubernetes 群集部署到的系统上设置 Azure Kubernetes 服务主机。 此系统可以是 Windows Server 2019 Datacenter 群集、单节点 Windows Server 2019 Datacenter 或2-4 节点 Azure Stack HCI 群集。 
 
 > [!NOTE] 
 > 不支持为了在 Kubernetes 群集创建过程中进行合并，而在两个独立系统上设置 Azure Kubernetes 服务主机。 
@@ -68,7 +68,7 @@ ms.locfileid: "96557390"
 
     ![说明 Azure Kubernetes 服务主机向导的主机配置步骤。](.\media\setup\host-configuration.png)
 
-5. 查看 " **查看 + 创建** " 步骤中的所有选择。 如果对选择满意，请选择“设置”以开始设置主机。 
+5. 查看 " **查看 + 创建** " 步骤中的所有选择。 如果你对选择满意，请选择 " **下一步** " 以开始安装主机。 
 6. 在“设置进度”页上，可以查看主机设置的进度。 此时，欢迎你在新选项卡中打开 Windows Admin Center 并继续执行管理任务。 
 7. 如果部署成功，你将看到一个管理仪表板，你可以在其中创建和管理你的 Kubernetes 群集。 此仪表板（如 Azure Stack HCI 上的 Azure Kubernetes 服务的其余部分）处于预览版本中，并将在将来的版本中使用其他功能进行更新。 
  

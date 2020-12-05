@@ -4,13 +4,13 @@ description: 开始使用 Azure Stack HCI 上的 Azure Kubernetes 服务之前
 ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
-ms.date: 09/22/2020
-ms.openlocfilehash: 0d89f0a96befbedcb51151f2ccef9a7f88e0368f
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.date: 12/02/2020
+ms.openlocfilehash: 2bbd32a8117955a18c525a4a0483d152c5a3ed0c
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557321"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612465"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的系统要求
 

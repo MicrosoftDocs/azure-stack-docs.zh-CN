@@ -4,13 +4,13 @@ description: 了解 Kubernetes 的基本群集和工作负载组件以及它们�
 author: daschott
 ms.author: daschott
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: e17e75631a6daac8c7523a2340dd69d5914a82de
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.date: 12/02/2020
+ms.openlocfilehash: 9870f2921be561a8fef66f1bfc530b5c18f494b4
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557066"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612635"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的 Kubernetes 核心概念
 

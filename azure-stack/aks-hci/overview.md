@@ -2,15 +2,15 @@
 title: 什么是 Azure Stack HCI 上的 Azure Kubernetes 服务？
 description: Azure Stack HCI 上的 Azure Kubernetes 服务是大规模自动运行容器化应用程序的 Azure Kubernetes 服务 (AKS) 的本地实现。
 ms.topic: overview
-author: jasongerend
-ms.author: jgerend
-ms.date: 09/22/2020
-ms.openlocfilehash: 6f4712049e2336373d977acc71164bfb932eaf86
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+author: v-susbo
+ms.author: v-susbo
+ms.date: 12/02/2020
+ms.openlocfilehash: a7d97d2454e9d77c1760180b46be9ce219d6af68
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557372"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612652"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>什么是 Azure Stack HCI 上的 Azure Kubernetes 服务？
 > 适用于 Azure Stack HCI 上的 AKS、Windows Server 2019 Datacenter 上的 AKS 运行时

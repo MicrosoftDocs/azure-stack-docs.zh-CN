@@ -3,15 +3,15 @@ title: 延伸群集概述
 description: 了解延伸群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 12/04/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e9651111e82b3449823ec7d13135154e7f0a447e
-ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
+ms.openlocfilehash: 13ec96862c6aaf494c96f9e3cb3ff6312bc9ab97
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441134"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96611617"
 ---
 # <a name="stretched-clusters-overview"></a>延伸群集概述
 
@@ -23,6 +23,9 @@ ms.locfileid: "94441134"
 
 - 同步复制使用在故障时保持一致的卷在低延迟网络中跨站点创建数据镜像，以确保在发生故障时不会在文件系统级别上丢失任何数据。
 - 异步复制通过较高延迟网络链接映射都市范围外的站点之间的数据，但不保证在出现故障时两个站点具有完全相同的数据副本。
+
+>[!NOTE]
+> 异步复制是一种手动故障转移，要求你将其联机。 有关详细信息，请参阅 [异步复制](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication)。
 
 有两种类型的延伸群集：主动-被动和主动-主动。 可设置主动-被动站点复制，其中有一个首选站点和复制方向。 主动-主动复制是指可从任一站点进行双向复制。 本文仅介绍主动/被动配置。
 
@@ -47,7 +50,8 @@ ms.locfileid: "94441134"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解有关延伸群集的硬件和其他要求。 请参阅 [系统要求](system-requirements.md)。
+- 详细了解存储副本。 请参阅 [存储副本概述](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview)。
+- 了解有关延伸群集的硬件和其他要求。 请参阅[系统要求](system-requirements.md)。
 - 了解如何使用 Windows Admin Center 部署延伸群集。 请参阅[使用 Windows Admin Center 创建群集](../deploy/create-cluster.md)。
 - 了解如何使用 PowerShell 部署延伸群集。 请参阅[使用 PowerShell 创建群集](../deploy/create-cluster-powershell.md)。
 - 了解如何为延伸群集创建卷和设置复制。 请参阅[为延伸群集创建卷和设置复制](../manage/create-stretched-volumes.md)。

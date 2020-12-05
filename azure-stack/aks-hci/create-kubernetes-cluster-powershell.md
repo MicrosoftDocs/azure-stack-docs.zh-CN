@@ -3,14 +3,14 @@ title: 使用 Windows PowerShell 在 Azure Stack HCI 上创建 Kubernetes 群集
 description: 了解如何使用 Windows PowerShell 在 Azure Stack HCI 上创建 Kubernetes 群集
 author: jessicaguan
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 38d65798d2f30377f3160484c9a618730cda80ea
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 6a215308e5eab1fa7991f912f1cd4aaff2391f5e
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557134"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612431"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>快速入门：使用 Windows PowerShell 在 Azure Stack HCI 上创建 Kubernetes 群集
 

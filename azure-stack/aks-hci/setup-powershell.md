@@ -3,14 +3,14 @@ title: 使用 Windows PowerShell 设置 Azure Stack HCI 上的 Azure Kubernetes 
 description: 了解如何使用 Windows PowerShell 设置 Azure Stack HCI 上的 Azure Kubernetes 服务主机
 author: jessicaguan
 ms.topic: quickstart
-ms.date: 09/23/2020
+ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 4e74ab1dd5f31b9d263ad41b716c974ce2e1b411
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 4211ec50ef0ea24ffb55f14791101c5d266ede2e
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557355"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612550"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>快速入门：使用 PowerShell 设置 Azure Stack HCI 上的 Azure Kubernetes 服务主机
 
@@ -26,15 +26,18 @@ ms.locfileid: "96557355"
  - 单节点 Windows Server 2019 Datacenter 
  
 在开始之前，请确保已满足[系统要求](.\system-requirements.md)页上的所有先决条件。 
-建议使用 2-4 节点的 Azure Stack HCI 群集。 如果没有上述任何一种，请按照 [AZURE STACK HCI 注册页](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)上的说明进行操作。
+建议使用 2-4 节点的 Azure Stack HCI 群集。 如果没有上述任何一种，请按照 [AZURE STACK HCI 注册页](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)上的说明进行操作。    
+
+   > [!IMPORTANT]
+   > 删除 Azure Stack HCI 上的 Azure Kubernetes 服务时，请参阅 [在 AZURE STACK hci 上删除 Azure Kubernetes 服务](#remove-azure-kubernetes-service-on-azure-stack-hci) ，并仔细按照说明进行操作。 
 
 ## <a name="step-1-download-and-install-the-akshci-powershell-module"></a>步骤 1：下载并安装 AksHci PowerShell 模块
 
 请从 [Azure Stack HCI 上的 Azure Kubernetes 服务注册页](https://aka.ms/AKS-HCI-Evaluate)下载 `AKS-HCI-Public-Preview-Dec-2020`。 zip 文件 `AksHci.Powershell.zip` 包含 PowerShell 模块。
 
 如果以前使用 PowerShell 或 Windows 管理中心 Azure Stack HCI 上安装了 Azure Kubernetes 服务，则新的 PowerShell 模块有两个安装流程：
- - 执行 PowerShell 模块的干净安装，以便从干净系统开始，并删除以前部署的工作负荷。 为此，请跳到步骤1.1。
- - 如果要使系统和工作负荷保持正确，请升级 PowerShell 模块。 为此，请跳到步骤1.2。
+ - 执行 PowerShell 模块的干净安装，以便从干净系统开始，并删除以前部署的工作负荷。 若要执行全新安装，请执行步骤1.1。
+ - 如果要使系统和工作负荷保持正确，请升级 PowerShell 模块。 若要升级 PowerShell 模块，请跳到步骤1.2。
 
 ### <a name="step-11-clean-install-of-the-akshci-powershell-module"></a>步骤1.1：清理安装 AksHci PowerShell 模块
 
@@ -43,7 +46,7 @@ ms.locfileid: "96557355"
    Uninstall-AksHci
    ```
 
-关闭 PowerShell 窗口。 删除位于路径中的 AksHci、AksHci、MOC 和 MSK8sDownloadAgent 的任何现有目录 `%systemdrive%\program files\windowspowershell\modules` 。 完成此操作后，便可提取新 zip 文件的内容。 请确保在正确的位置 (`%systemdrive%\program files\windowspowershell\modules`) 提取 zip 文件。 然后，运行以下命令。
+关闭 PowerShell 窗口。 删除位于路径中的 AksHci、AksHci、MOC 和 MSK8sDownloadAgent 的任何现有目录 `%systemdrive%\program files\windowspowershell\modules` 。 删除现有目录后，可以提取新的 zip 文件的内容。 请确保在正确的位置 (`%systemdrive%\program files\windowspowershell\modules`) 提取 zip 文件。 然后，运行以下命令。
 
    ```powershell
    Import-Module AksHci
@@ -215,11 +218,11 @@ SSH 公钥文件的路径。 使用此公钥，你将能够登录到 Azure Stack
 
 `-macPoolStart` 
 
-这用于指定你希望用于 Azure Kubernetes 服务主机 VM 的 MAC 池的 MAC 地址开头。 MAC 地址的语法要求第一个字节的最小有效位应始终为 0，第一个字节应始终是偶数（即 00、02、04、06...）。典型的 MAC 地址可能如下所示：02:1E:2B:78:00:00。 应将 MAC 池用于长期部署，以便分配的 MAC 地址是一致的。 如果要求 Vm 具有特定的 MAC 地址，这会很有用。 默认为无。
+这用于指定你希望用于 Azure Kubernetes 服务主机 VM 的 MAC 池的 MAC 地址开头。 MAC 地址的语法要求第一个字节的最小有效位应始终为0，第一个字节应始终为偶数 (，即00，02，04，06 ... ) 。典型的 MAC 地址如下所示：02：1E：2B：78：00：00。 将 MAC 池用于长期部署，以便分配的 MAC 地址保持一致。 如果要求 Vm 具有特定的 MAC 地址，这会很有用。 默认为无。
 
 `-macPoolEnd`
 
-这用于指定你希望用于 Azure Kubernetes 服务主机 VM 的 MAC 池的 MAC 地址结尾。 MAC 地址的语法要求第一个字节的最小有效位应始终为 0，第一个字节应始终是偶数（即 00、02、04、06...）。作为 `-macPoolEnd` 传递的地址的第一个字节应与作为 `-macPoolStart` 传递的地址的第一个字节相同。 应将 MAC 池用于长期部署，以便分配的 MAC 地址是一致的。 如果要求 Vm 具有特定的 MAC 地址，这会很有用。 默认为无。
+这用于指定你希望用于 Azure Kubernetes 服务主机 VM 的 MAC 池的 MAC 地址结尾。 MAC 地址的语法要求第一个字节的最小有效位应始终为0，第一个字节应始终为偶数 (，即00，02，04，06 ... ) 。作为传递的地址的第一个字节 `-macPoolEnd` 应与作为传递的地址的第一个字节相同 `-macPoolStart` 。 将 MAC 池用于长期部署，以便分配的 MAC 地址保持一致。 如果要求 Vm 具有特定的 MAC 地址，这会很有用。 默认为无。
 
 `-vlandID`
 
@@ -237,11 +240,11 @@ SSH 公钥文件的路径。 使用此公钥，你将能够登录到 Azure Stack
 
 `-proxyServerHTTP`
 
-这会提供一个代理服务器 URI，该 URI 应由需要访问 HTTP 终结点的所有组件使用。 URI 格式包括 URI 架构、服务器地址和端口 (https://server.com:8888) 例如。 默认为无。
+这会提供一个代理服务器 URI，该 URI 应由需要访问 HTTP 终结点的所有组件使用。 URI 格式包括 URI 架构、服务器地址和端口 (，即 https://server.com:8888) 。 默认为无。
 
 `-proxyServerHTTPS`
 
-这会提供一个代理服务器 URI，该 URI 应由需要访问 HTTPS 终结点的所有组件使用。 URI 格式包括 URI 架构、服务器地址和端口 (https://server.com:8888) 例如。 默认为无。
+这会提供一个代理服务器 URI，该 URI 应由需要访问 HTTPS 终结点的所有组件使用。 URI 格式包括 URI 架构、服务器地址和端口 (，即 https://server.com:8888) 。 默认为无。
 
 `-proxyServerNoProxy`
 
@@ -250,7 +253,7 @@ SSH 公钥文件的路径。 使用此公钥，你将能够登录到 Azure Stack
 
 `-proxyServerCredential`
 
-这会提供用户名和密码以向 HTTP/HTTPS 代理服务器进行身份验证。 你可以使用 `Get-Credential` 生成可传递给此参数的 PSCredential 对象。 默认为无。
+这会提供用户名和密码以向 HTTP/HTTPS 代理服务器进行身份验证。 您可以使用 `Get-Credential` 生成要 `PSCredential` 传递给此参数的对象。 默认为无。
 
 `-cloudServiceCidr`
 
@@ -415,7 +418,7 @@ Install-AksHci
 
 ## <a name="remove-azure-kubernetes-service-on-azure-stack-hci"></a>删除 Azure Stack HCI 上的 Azure Kubernetes 服务
 
-若要删除 Azure Stack HCI 上的 Azure Kubernetes 服务，请运行以下命令。
+若要删除 Azure Stack HCI 上的 Azure Kubernetes 服务，请运行以下命令。 **如果使用 PowerShell 卸载 Windows 管理中心部署，则必须使用标志运行命令 `-Force` 。**
 
 ```powershell
 Uninstall-AksHci
@@ -429,7 +432,7 @@ Uninstall-AksHci
 Uninstall-AksHci -Force
 ```
 
-如果 PowerShell 命令在以前用于部署 Windows 管理中心的群集上运行，则 PowerShell 模块会检查 Windows 管理中心配置文件是否存在。 Windows 管理中心将 Windows 管理中心配置文件放在所有节点上。 如果使用卸载命令并返回到 Windows 管理中心，请使用标志运行上述 uninstall 命令 `-Force` 。 如果未执行此操作，则 PowerShell 和 Windows 管理中心将不同步。
+如果 PowerShell 命令在以前用于部署 Windows 管理中心的群集上运行，则 PowerShell 模块会检查 Windows 管理中心配置文件是否存在。 Windows 管理中心将 Windows 管理中心配置文件放在所有节点上。 **如果使用卸载命令并返回到 Windows 管理中心，请使用标志运行上述 uninstall 命令 `-Force` 。如果未执行此操作，则 PowerShell 和 Windows 管理中心将不同步。**
 
 ## <a name="next-steps"></a>后续步骤
 

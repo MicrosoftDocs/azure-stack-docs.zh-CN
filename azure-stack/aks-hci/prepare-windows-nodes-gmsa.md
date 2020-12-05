@@ -5,12 +5,12 @@ author: v-susbo
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-susbo
-ms.openlocfilehash: 6710bb9c6a9e53dea60d14be686a4ea953e1bf19
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 754ebc1a365efb7efa0e96eef438ae2347a069ab
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563552"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612567"
 ---
 # <a name="prepare-windows-nodes-for-group-managed-service-account-support"></a>为组托管服务帐户支持准备 Windows 节点
 
@@ -27,23 +27,23 @@ ms.locfileid: "96563552"
 
 ## <a name="join-the-worker-nodes-to-a-domain"></a>将辅助角色节点加入到域中
 
-若要将 Windows 辅助角色节点加入到域中，请通过运行 get 并记下值来登录到 Windows 辅助角色节点 `kubectl` `EXTERNAL-IP` 。
+若要将 Windows 辅助角色节点加入到域中，请通过运行并记录值来登录到 Windows 辅助角色节点 `kubectl get` `EXTERNAL-IP` 。
 
 ```
-   kubectl get nodes -o wide
+kubectl get nodes -o wide
 ```  
 
-随后可以使用 `ssh Administrator@ip` 通过 SSH 登录节点。
+随后可以使用 `ssh Administrator@ip` 通过 SSH 登录节点。 有关如何使用 SSH 登录的详细信息，请参阅 [使用 ssh 对 Windows 工作节点进行故障排除](troubleshoot.md#troubleshooting-windows-worker-nodes)。
 
-成功登录 Windows 工作器节点之后，运行以下 PowerShell 命令以将节点加入域。 系统将提示输入 **域管理员帐户** 凭据。 还可以使用已授权将计算机加入给定域的提升的用户凭据。 然后，需要重启 Windows 辅助角色节点。 
+使用 SSH 成功登录 Windows 辅助节点后，运行以下命令将节点加入到域。 然后，需要重新启动 Windows 辅助角色节点。 
 
-```powershell
-add-computer --domainame "YourDomainName" -restart
 ```
+netdom.exe join %computername% /domain:DomainName /UserD:DomainName\UserName /PasswordD:Password
+```  
 
 将所有 Windows 辅助角色节点加入到域后，请按照 [配置 gMSA](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)中的详细步骤进行操作。 这些步骤将帮助你在 Kubernetes 群集上应用 Kubernetes gMSA 自定义资源定义和 webhook。
 
-有关具有 gMSA 的 Windows 容器的详细信息，请参阅 [windows 容器和 gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts)。 有关疑难解答信息，请参阅 [故障排除](troubleshoot.md) 页。 
+有关具有 gMSA 的 Windows 容器的详细信息，请参阅 [windows 容器和 gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts)。 
 
 ## <a name="next-steps"></a>后续步骤
 

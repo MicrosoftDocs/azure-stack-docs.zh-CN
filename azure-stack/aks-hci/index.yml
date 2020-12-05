@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: “Azure Stack HCI 上的 Azure Kubernetes 服务”文档
-summary: Azure Stack HCI 上的 Azure Kubernetes 服务是流行的 Azure Kubernetes 服务 (AKS) 业务流程协调程序的本地实现，用于自动地大规模运行容器化应用程序。 现在，Azure Kubernetes 服务在 Azure Stack HCI 上提供了预览版，使用户可以更快地开始在数据中心内托管 Linux 和 Windows 容器。
+summary: Azure Stack HCI 上的 Azure Kubernetes 服务是流行的 Azure Kubernetes 服务 (AKS) 业务流程协调程序的本地实现，用于自动地大规模运行容器化应用程序。 Azure Kubernetes 服务目前在 Azure Stack HCI 和 Windows Server 2019 Datacenter 上提供预览版，使你可以更快速地开始在你的数据中心内托管 Linux 和 Windows 容器。
 metadata:
   title: “Azure Stack HCI 上的 Azure Kubernetes 服务”文档
   description: Azure Stack HCI 上的 Azure Kubernetes 服务是流行的 Azure Kubernetes 服务 (AKS) 业务流程协调程序的本地实现，用于自动地大规模运行容器化应用程序。 现在，Azure Kubernetes 服务在 Azure Stack HCI 上提供了预览版，使用户可以更快地开始在数据中心内托管 Linux 和 Windows 容器。
@@ -8,12 +8,12 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 649e77bd470f723dbcf9c373f0bedebcf0a0786b
-  ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+  ms.openlocfilehash: 808debaa0953bc19939bc1ffbf02c96688496bca
+  ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96557015"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96612278"
 landingContent:
 - title: 关于 Azure Kubernetes 服务
   linkLists:
@@ -45,17 +45,17 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 部署 Windows .NET 应用程序
-      url: deploy-windows-application.md
     - text: 使用 Linux 容器
       url: deploy-linux-application.md
   - linkListType: how-to-guide
     links:
     - text: 针对混合 OS Kubernetes 群集调整应用
       url: adapt-apps-mixed-os-clusters.md
-    - text: 为组托管服务帐户支持准备 Windows 节点
+    - text: 部署 Windows 应用程序
+      url: deploy-windows-application.md
+    - text: 为 gMSA 支持准备 Windows 节点
       url: prepare-windows-nodes-gmsa.md
-    - text: 在 Azure Stack HCI 群集上的 AKS 中使用永久卷
+    - text: 使用永久卷
       url: persistent-volume.md
 - title: 与 Azure 集成
   linkLists:

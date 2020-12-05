@@ -3,14 +3,14 @@ title: 使用 Windows Admin Center 创建 Kubernetes 群集的快速入门
 description: 了解如何使用 Windows Admin Center 创建 Kubernetes 群集
 author: davannaw-msft
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 73cb3a7d0ba7677948a7e96cf30872c3c6ac7582
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 7a9c1bf5d89348175b7ac25a149fe01f384964a2
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557154"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612397"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>快速入门：使用 Windows Admin Center 在 Azure Stack HCI 上创建 Kubernetes 群集
 

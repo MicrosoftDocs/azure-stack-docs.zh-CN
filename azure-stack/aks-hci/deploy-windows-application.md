@@ -3,15 +3,15 @@ title: Azure Stack HCI 上的 AKS 中部署 Windows .NET 应用程序
 description: 了解如何使用 Azure 容器注册表中存储的自定义映像将 Windows .NET 应用程序部署到群集。
 author: abha
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e77cda56b3a707cbd117976af9e1871712dbc6cc
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 844bafbb497228d2e4527a5e974574dadb95ee7d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557049"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612312"
 ---
 # <a name="deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>在 Azure Stack HCI 上的 Azure Kubernetes 服务中部署 Windows 应用程序
 
