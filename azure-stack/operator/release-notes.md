@@ -7,12 +7,12 @@ ms.date: 11/30/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3e74f1e77c5c30ec17bf021d95952ce7bb19426b
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: c774da9af89f882fe4488117629ff37a67e4190d
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443334"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761722"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -103,7 +103,7 @@ Azure Stack 中心2008更新生成类型已 **满**。
 
   请注意，这些更改将添加到 Azure Stack 中心系统的主机级别。 请与 OEM 联系，以便在 (ToR) 网络交换机上进行所需的更改。 此 ToR 更改可在更新到2008版本之前执行，也可在更新到2008后执行。 有关详细信息，请参阅 [网络集成文档](azure-stack-network.md)。
 
-  - 已在此版本中将 **(NVIDIA T4) NCas_v4** 的 GPU 支持的 vm 大小替换为 VM 大小 **NCasT4_v3**，以便与 Azure 保持一致。 请注意，这些在门户中不可见，只能通过 Azure 资源管理器模板使用。
+- 已在此版本中将 **(NVIDIA T4) NCas_v4** 的 GPU 支持的 vm 大小替换为 VM 大小 **NCasT4_v3**，以便与 Azure 保持一致。 请注意，这些在门户中不可见，只能通过 Azure 资源管理器模板使用。
 
 ### <a name="fixes"></a>修复项
 

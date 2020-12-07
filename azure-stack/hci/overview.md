@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 12/7/2020
+ms.openlocfilehash: c6fe98d9f597f40d0a5cefde151eb36736b81d7a
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517066"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761688"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI 解决方案概述
 
@@ -94,7 +94,7 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 
 若要开始使用，你需要具备以下条件：
 
-- 包含 [Azure Stack HCI 目录](https://azure.microsoft.com/products/azure-stack/hci/catalog/)中的两个或更多服务器的群集，从首选的 Microsoft 硬件合作伙伴处购买
+- 包含 [Azure Stack HCI 目录](https://aka.ms/azurestackhcicatalog)中的两个或更多服务器的群集，从首选的 Microsoft 硬件合作伙伴处购买
 - [Azure 订阅](https://azure.microsoft.com/)
 - 群集中每个服务器的 Internet 连接，该服务器可以至少每 30 天通过 HTTPS 出站流量连接到以下终结点：*-azurestackhci-usage.azurewebsites.net
 - 对于跨站点延伸的群集，你需要在站点之间至少有 1 Gb 的连接（首选 25 Gb RDMA 连接），如果你想要在两个站点中同时进行写入的同步复制，则平均延迟为 5 毫秒往返
@@ -106,7 +106,7 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 
 你可以从你首选的 Microsoft 合作伙伴购买经验证的 Azure Stack HCI 解决方案，使其在没有漫长的设计和构建时间的情况下正常运行。 Microsoft 合作伙伴还提供实现和支持服务的单一联系点。 你可以购买经过验证的节点或集成系统，其中包括预安装的 Azure Stack HCI 操作系统以及用于驱动程序和固件更新的合作伙伴扩展。
 
-请访问[Azure Stack HCI 解决方案](https://azure.microsoft.com/overview/azure-stack/hci)页或浏览 [Azure Stack HCI 目录](https://azure.microsoft.com/products/azure-stack/hci/catalog/)，查看 Microsoft 合作伙伴（如 ASUS、Axellio、Blue Chip、DataON、Dell EMC、Fujitsu、HPE、Hitachi、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD 和 Supermicro）当前提供的 70 多种 Azure Stack HCI 解决方案。
+请访问[Azure Stack HCI 解决方案](https://azure.microsoft.com/overview/azure-stack/hci)页或浏览 [Azure Stack HCI 目录](https://aka.ms/azurestackhcicatalog)，查看 Microsoft 合作伙伴（如 ASUS、Axellio、Blue Chip、DataON、Dell EMC、Fujitsu、HPE、Hitachi、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD 和 Supermicro）当前提供的 70 多种 Azure Stack HCI 解决方案。
 
 ## <a name="software-partners"></a>软件合作伙伴
 

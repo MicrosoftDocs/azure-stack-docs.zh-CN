@@ -3,15 +3,15 @@ title: 调整应用程序以在混合 OS Kubernetes 群集中使用
 description: 如何在 Azure Kubernetes 服务上使用节点选择器或排斥和容许，以确保将在 Azure Stack HCI 上运行的混合 OS Kubernetes 群集中的应用程序安排在正确工作器节点操作系统上
 author: abha
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 09d63b58fcbba2b5272ea153a1a022ccdc63e2bc
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 0d4fd0e62e10e4afc4a76c9cac2deaed97e23549
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557100"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761552"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>使用节点选择器或排斥和容许为混合 OS Kubernetes 群集调整应用
 

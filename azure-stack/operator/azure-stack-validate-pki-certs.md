@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: d260c8486090dbe94931c2527102c06cf4b98314
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545746"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761645"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>验证 Azure Stack Hub PKI 证书
 
@@ -60,7 +60,7 @@ ms.locfileid: "94545746"
 
 使用以下步骤来验证用于部署和机密轮换的 Azure Stack Hub PKI 证书：
 
-1. 在 PowerShell 提示符（5.1 或更高版本）下，运行以下 cmdlet 安装 **AzsReadinessChecker** ：
+1. 在 PowerShell 提示符（5.1 或更高版本）下，运行以下 cmdlet 安装 **AzsReadinessChecker**：
 
     ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
@@ -211,7 +211,7 @@ ms.locfileid: "94545746"
 
 ### <a name="known-issues"></a>已知问题
 
-**症状** ：跳过了测试
+**症状**：跳过了测试
 
 **原因：** 如果不符合依赖关系，AzsReadinessChecker 会跳过某些测试：
 
@@ -237,7 +237,13 @@ ms.locfileid: "94545746"
     Invoke-AzsCertificateValidation Completed
     ```
 
-**解决方法** ：遵循针对每个证书的每组测试下的详细信息部分中的工具指导。
+**解决方法**：遵循针对每个证书的每组测试下的详细信息部分中的工具指导。
+
+**症状**：尽管将 http CDP 写入 x509 扩展，Http CRL 检查失败。
+
+**原因**：目前，AzsReadinessChecker 无法检查某些语言的 HTTP CDP。
+
+**解决方法**：运行验证并将 OS 语言设置为 en-us。
 
 ## <a name="certificates"></a>证书
 

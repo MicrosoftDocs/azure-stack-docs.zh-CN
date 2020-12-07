@@ -6,28 +6,28 @@ ms.author: v-johcob
 ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: ba063e4ebff85830ac50c25c2514bda443dce323
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 12/7/2020
+ms.openlocfilehash: 51a4411e95207d2f7b544fdf507fe8bd8fc98f2e
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064729"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761705"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>部署 Azure Stack HCI 操作系统
 
 > 适用于：Azure Stack HCI 版本 20H2
 
-部署 Azure Stack HCI 的第一步是 [下载 AZURE STACK HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) ，并在要进行群集的每个服务器上安装操作系统。 本文介绍了部署该操作系统的各种方法，以及如何使用 Windows Admin Center 来连接到服务器。
+部署 Azure Stack HCI 的第一步是在要加入群集的每个服务器上[下载 Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) 并安装该操作系统。 本文介绍了部署该操作系统的各种方法，以及如何使用 Windows Admin Center 来连接到服务器。
 
 > [!NOTE]
-> 如果已通过首选 Microsoft 硬件合作伙伴从 [AZURE STACK Hci 目录](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) 中购买 Azure Stack Hci 集成系统解决方案硬件，则应预装 Azure Stack HCI 操作系统。 在这种情况下，可以跳过此步骤并继续 [创建 AZURE STACK HCI 群集](create-cluster.md)。
+> 如果已从 [Azure Stack HCI 目录](https://aka.ms/azurestackhcicatalog)通过你喜欢的 Microsoft 硬件合作伙伴购买 Azure Stack HCI 集成系统解决方案硬件，则 Azure Stack HCI 操作系统应已预安装。 在这种情况下，可以跳过此步骤，并继续[创建 Azure Stack HCI 群集](create-cluster.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
-在部署 Azure Stack HCI 操作系统之前，你需要：
+在部署 Azure Stack HCI 操作系统之前，需要：
 
-- 确定你的硬件是否符合 Azure Stack HCI 群集的要求
+- 确定硬件是否符合 Azure Stack HCI 群集的要求
 - 收集成功部署所需的信息
 - 在管理 PC 或服务器上安装 Windows Admin Center·
 
@@ -35,11 +35,11 @@ ms.locfileid: "93064729"
 
 ### <a name="determine-hardware-requirements"></a>确定硬件要求
 
-Microsoft 建议从我们的合作伙伴购买经验证的 Azure Stack HCI 硬件/软件解决方案。 这些解决方案是依据我们的参考体系结构设计和汇编的，并且经过了验证，能够确保兼容性和可靠性，因此你可以快速起步和运行。 检查所用的系统、组件、设备和驱动程序是否是通过 Windows Server 目录认证的 Windows Server 2019。 请访问 [AZURE STACK HCI 解决方案](https://azure.microsoft.com/overview/azure-stack/hci) 网站获取经验证的解决方案。
+Microsoft 建议从我们的合作伙伴购买经验证的 Azure Stack HCI 硬件/软件解决方案。 这些解决方案是依据我们的参考体系结构设计和汇编的，并且经过了验证，能够确保兼容性和可靠性，因此你可以快速起步和运行。 检查所用的系统、组件、设备和驱动程序是否是通过 Windows Server 目录认证的 Windows Server 2019。 请访问 [Azure Stack HCI 解决方案](https://azure.microsoft.com/overview/azure-stack/hci)网站获取经验证的解决方案。
 
-至少需要两台服务器，一种是服务器之间可靠的高带宽、低延迟的网络连接，以及物理连接到每个服务器的 SATA、SAS、NVMe 或持久内存驱动器。
+至少需要两台服务器、服务器之间可靠的高带宽、低延迟的网络连接，以及物理连接到每个服务器的 SATA、SAS、NVMe 或持久化内存驱动器。
 
-但是，根据要部署)  (的群集大小和配置，硬件要求可能会有所不同。 若要确保部署成功，请查看 Azure Stack HCI [系统要求](../concepts/system-requirements.md)。
+但是，硬件要求可能会因要部署的群集的大小和配置而异。 若要确保部署成功，请查看 Azure Stack HCI [系统要求](../concepts/system-requirements.md)。
 
 ### <a name="gather-information"></a>收集信息
 
@@ -50,7 +50,7 @@ Microsoft 建议从我们的合作伙伴购买经验证的 Azure Stack HCI 硬�
 - **静态 IP 地址：** Azure Stack HCI 要求为存储和工作负荷 (VM) 流量使用静态 IP 地址，不支持通过 DHCP 为此高速网络分配动态 IP 地址。 你可以为管理网络适配器使用 DHCP，除非你在一个团队中使用两个适配器，在这种情况下，你仍需使用静态 IP。 有关群集中每台服务器应该使用的 IP 地址，请询问网络管理员。
 - **RDMA 网络：** 有两种 RDMA 协议：iWarp 和 RoCE。 请记下你的网络适配器使用哪一种。如果是 RoCE，还请记下版本（v1 或 v2）。 对于 RoCE，还请记下架顶式交换机的型号。
 - **VLAN ID：** 请记下用于服务器上的网络适配器的 VLAN ID（如果有）。 应该能够从网络管理员处获取此信息。
-- **站点名称：** 对于延伸群集，将使用两个站点以便进行灾难恢复。 您可以使用 [Active Directory 域服务](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)设置站点，或者创建群集向导可以自动为您设置站点。 有关站点设置的问题，可以咨询域管理员。
+- **站点名称：** 对于延伸群集，将使用两个站点以便进行灾难恢复。 可以使用 [Active Directory 域服务](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)设置站点，也可以让创建群集向导自动为你设置站点。 有关站点设置的问题，可以咨询域管理员。
 
 ### <a name="install-windows-admin-center"></a>安装 Windows Admin Center
 
@@ -58,7 +58,7 @@ Windows Admin Center 是一个本地部署的基于浏览器的应用，用于�
 
 如果在服务器上安装 Windows Admin Center，则那些需要 CredSSP 的任务（例如创建群集以及安装更新和扩展）使用的帐户必须是 Windows Admin Center 服务器上的“网关管理员”组的成员。 有关详细信息，请参阅[配置用户访问控制和权限](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions)的前两个部分。
 
-## <a name="prepare-hardware-for-deployment"></a>为部署准备硬件
+## <a name="prepare-hardware-for-deployment"></a>准备好硬件用于部署
 
 为 Azure Stack HCI 解决方案获取服务器硬件后，就可以将其连接到机架并为其布线了。 请使用以下步骤为操作系统的部署准备服务器硬件。
 
@@ -91,7 +91,7 @@ Windows 系统映像管理器工具在 Windows 评估和部署工具包 (Windows
 
 ### <a name="system-center-virtual-machine-manager-vmm-deployment"></a>System Center Virtual Machine Manager (VMM) 部署
 
-你可以使用 System Center Virtual Machine Manager 在裸机硬件上部署 Azure Stack HCI 操作系统，并对服务器进行群集。 若要了解 VMM，请参阅 [System Center Virtual Machine Manager 的系统要求](/system-center/vmm/system-requirements)。
+可以使用 System Center Virtual Machine Manager 在裸机硬件上部署 Azure Stack HCI 操作系统，并将服务器加入群集。 若要了解 VMM，请参阅 [System Center Virtual Machine Manager 的系统要求](/system-center/vmm/system-requirements)。
 
 若要详细了解如何使用 VMM 来执行操作系统裸机部署，请参阅[从裸机计算机预配 Hyper-V 主机或群集](/system-center/vmm/hyper-v-bare-metal)。
 
@@ -115,31 +115,31 @@ Windows 系统映像管理器工具在 Windows 评估和部署工具包 (Windows
     > [!NOTE]
     > 此版本的操作系统不支持升级安装。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="“安装 Azure Stack HCI”向导的安装类型选项页。":::
 
 1. 在“你想将 Azure Stack HCI 安装在哪里?”页面上，确认你想要安装操作系统的驱动器位置或更新该位置，然后选择“下一步”。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="“安装 Azure Stack HCI”向导的驱动器位置页。":::
 
 1. 此时会出现“正在安装 Azure Stack HCI”页，以显示过程状态。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="“安装 Azure Stack HCI”向导的状态页。":::
 
     > [!NOTE]
     > 安装过程会两次重启操作系统来完成该过程，并在打开管理员命令提示之前显示有关启动服务的通知。
 
 1. 在管理员命令提示符下，选择 **"确定"** 以在登录到操作系统之前更改用户的密码，然后按 enter。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="更改密码提示。":::
 
 1. 在“为管理员输入新凭据”提示下输入一个新密码，再次输入该密码进行确认，然后按 Enter。
 1. 在“你的密码已更改”确认提示下，按 Enter。
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="“安装 Azure Stack HCI”向导的语言页。":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="“已更改密码”确认提示":::
 
 现在，你可以使用服务器配置工具 (Sconfig) 来执行重要任务了。 若要使用 Sconfig，请登录到运行 Azure Stack HCI 操作系统的服务器。 这可以通过键盘和监视器在本地进行，也可以使用远程管理（无外设或 BMC）控制器或远程桌面来进行。 当你登录到服务器时，Sconfig 工具会自动打开。
 
-:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="“安装 Azure Stack HCI”向导的语言页。" lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
+:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="服务器配置工具界面。" lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
 
 在 Sconfig 工具的主页中，你可以执行以下初始配置任务：
 - 配置网络，或确认已使用动态主机配置协议 (DHCP) 自动配置了网络。
