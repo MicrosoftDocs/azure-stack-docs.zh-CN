@@ -3,16 +3,16 @@ title: Azure Stack Hub 市场中的新增内容
 description: 查看 Azure Stack Hub 市场中的新功能，包括新的、弃用的和更新的市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: e4b0be90d1e4815957dced211a7a0648458a6777
-ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
+ms.openlocfilehash: e8db7987b06270b239c04bdb9596094bb7f06d1c
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94970208"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96777996"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -166,6 +166,22 @@ ms.locfileid: "94970208"
 
 ## <a name="updated-marketplace-items"></a>更新弃用市场项
 
+- 12/07/2020： Bitnami Elasticsearch 群集-版本1.0。2
+- 12/07/2020： Bitnami Cassandra 群集-版本1.0.21
+- 12/07/2020： Bitnami etcd 群集-版本1.0.16
+- 12/07/2020： Bitnami Jenkins 群集-版本1.0.70
+- 12/07/2020： Bitnami Kafka 群集-版本1.0。2
+- 12/07/2020： Bitnami MariaDB Galera 群集-版本1.0.13
+- 12/07/2020： Bitnami MariaDB （含复制-版本1.0.36）
+- 12/07/2020： Bitnami Memcached 多实例-版本1.0.34
+- 12/07/2020： Bitnami Moodle 多层版本1.0.46
+- 12/07/2020： Bitnami NAT 群集-版本1.0.19
+- 12/07/2020： Bitnami PostgreSQL （含复制-版本1.0.37）
+- 12/07/2020： Bitnami MySQL 与复制-版本1.0.37
+- 12/07/2020： Bitnami ZooKeeper 群集-版本1.0.18
+- 12/07/2020： Bitnami Redis 高可用性-版本1.0.27
+- 12/07/2020： Bitnami WordPress 多层版本1.0.56
+- 12/07/2020： Bitnami RabbitMQ 群集-版本1.0.38
 - 11/18/2020： Windows Server 2019 上的 SQL Server 2019 标准版-自带许可证-版本15.0.20201015
 - 11/18/2020： Windows Server 2019 上的 SQL Server 2019 标准版-即用即付-版本15.0.20201015
 - 11/18/2020：免费 SQL Server 许可证： Windows Server 上的 SQL 2019 开发人员 2019-自带许可证-版本15.0.20201015

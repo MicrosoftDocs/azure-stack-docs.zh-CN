@@ -3,35 +3,41 @@ title: 在 Azure Stack Hub 上部署 MySQL 资源提供程序
 description: 了解如何将 MySQL 资源提供程序适配器和 MySQL 数据库作为服务部署到 Azure Stack Hub 上。
 author: bryanla
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
-ms.lastreviewed: 9/22/2020
-ms.openlocfilehash: 22377e80f52b2a8e3a7827ded6400b17cebdce9c
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: b6d345ecfecaa3859420087bc7cff051b39fbb36
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812733"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778149"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 MySQL 资源提供程序
 
-可以使用 MySQL Server 资源提供程序将 MySQL 数据库公开为 Azure Stack Hub 服务。 MySQL 资源提供程序作为服务器在 Windows Server 2016 Server Core 虚拟机（适用于适配器版本 <= 1.1.47.0>）或特殊的 Add-on RP Windows Server（适用于适配器版本 >= 1.1.93.0）上运行。
+可以使用 MySQL Server 资源提供程序将 MySQL 数据库公开为 Azure Stack Hub 服务。 MySQL 资源提供程序在 Windows Server 2016 Server Core 虚拟机 (上作为服务运行，适用于适配器版本 <= 1.1.47.0>) 或专用附加 RP Windows Server (用于适配器版本 >= 1.1.93.0) 。
 
 > [!IMPORTANT]
-> 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。
+> 只有资源提供程序应在托管 SQL 或 MySQL 的服务器上创建项。 不支持在不是由资源提供程序创建的主机服务器上创建的项目，并且可能会导致状态不匹配。
 
 ## <a name="prerequisites"></a>必备条件
 
-需要先实施几个先决条件，然后才能部署 Azure Stack Hub MySQL 资源提供程序。 若要满足这些要求，请在可访问特权终结点 VM 的计算机上完成本文中的步骤。
+部署 Azure Stack 中心 MySQL 资源提供程序之前，需要准备好几个先决条件：
 
-* 向 Azure [注册 Azure Stack Hub](./azure-stack-registration.md)（如果尚未这样做），以便可以下载 Azure 市场项。
+- 需要一个可访问的计算机和帐户：
+   - [Azure Stack 中心管理员门户](azure-stack-manage-portals.md)。
+   - [特权终结点](azure-stack-privileged-endpoint.md)。
+   - Azure 资源管理器管理终结点， `https://management.region.<fqdn>` 其中 `<fqdn>` 是完全限定的域名 (或 `https://management.local.azurestack.external` 使用 ASDK) 
+   - 如果 Azure Stack 中心部署为使用 Azure Active Directory (AD) 作为标识提供者，则使用 Internet。
 
-* 将所需的 Windows Server VM 添加到 Azure Stack Hub 市场。
-  * 对于 MySQL RP 版本 <= 1.1.47.0，请下载“Windows Server 2016 Datacenter - Server Core”映像。
-  * 对于 MySQL RP 版本 >= 1.1.93.0，请下载“Microsoft AzureStack 加载项 RP Windows Server（仅限内部）”映像。 此 Windows Server 版本专用于 Azure Stack Add-On RP Infrastructure，对租户市场不可见。
+- 向 Azure [注册 Azure Stack Hub](azure-stack-registration.md)（如果尚未这样做），以便可以下载 Azure 市场项。
 
-* 根据下面的版本映射表，下载受支持版本的 MySQL 资源提供程序二进制文件。 运行自解压程序，将下载的内容解压缩到临时目录。 
+- 将所需的 Windows Server VM 添加到 Azure Stack Hub 市场。
+  - 对于 MySQL RP 版本 <= 1.1.47.0，请下载“Windows Server 2016 Datacenter - Server Core”映像。
+  - 对于 MySQL RP 版本 >= 1.1.93.0，请下载“Microsoft AzureStack 加载项 RP Windows Server（仅限内部）”映像。 此 Windows Server 版本专用于 Azure Stack Add-On RP Infrastructure，对租户市场不可见。
+
+- 根据下面的版本映射表，下载受支持版本的 MySQL 资源提供程序二进制文件。 运行自解压程序，将下载的内容解压缩到临时目录。 
 
   |支持的 Azure Stack Hub 版本|MySQL RP 版本|RP 服务正在其上运行的 Windows Server
   |-----|-----|-----|
@@ -44,7 +50,7 @@ ms.locfileid: "95812733"
 >若要在无法访问 Internet 的系统上部署 MySQL 提供程序，请将 [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 文件复制到本地路径。 使用 **DependencyFilesLocalPath** 参数提供路径名称。
 
 
-* 请确保满足数据中心集成先决条件：
+- 请确保满足数据中心集成先决条件：
 
     |先决条件|参考|
     |-----|-----|
@@ -104,7 +110,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 
 ## <a name="deploy-the-resource-provider"></a>部署资源提供程序
 
-安装所有必备组件后，可以在可访问 Azure Stack Hub 管理员 Azure 资源管理终结点和特权终结点的计算机中运行 **DeployMySqlProvider.ps1** 脚本，以部署 MySQL 资源提供程序。 DeployMySqlProvider.ps1 脚本是从针对 Azure Stack Hub 版本下载的 MySQL 资源提供程序安装文件中提取的。
+完成所有先决条件后，可以从可同时访问 Azure Stack 中心 Azure 资源管理器管理终结点和特权终结点的计算机上运行 **DeployMySqlProvider.ps1** 脚本，以部署 MySQL 资源提供程序。 DeployMySqlProvider.ps1 脚本是从针对 Azure Stack Hub 版本下载的 MySQL 资源提供程序安装文件中提取的。
 
  > [!IMPORTANT]
  > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。

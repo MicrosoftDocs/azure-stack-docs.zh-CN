@@ -4,34 +4,39 @@ titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 上部署 SQL Server 资源提供程序。
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
-ms.lastreviewed: 03/18/2019
+ms.date: 12/07/2020
+ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812669"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778166"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 SQL Server 资源提供程序
 
-可以使用 Azure Stack Hub SQL Server 资源提供程序来将 SQL 数据库公开为 Azure Stack Hub 服务。 SQL 资源提供程序作为服务器在 Windows Server 2016 Server Core 虚拟机（适用于适配器版本 <= 1.1.47.0>）或特殊的 Add-on RP Windows Server（适用于适配器版本 >= 1.1.93.0）上运行。
+可以使用 Azure Stack Hub SQL Server 资源提供程序来将 SQL 数据库公开为 Azure Stack Hub 服务。 SQL 资源提供程序在 Windows Server 2016 Server Core 虚拟机 (上作为服务运行，适用于适配器版本 <= 1.1.47.0>) 或专用附加 RP Windows Server (，适用于适配器版本 >= 1.1.93.0) 。
 
 > [!IMPORTANT]
-> 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。
+> 只有资源提供程序应在托管 SQL 或 MySQL 的服务器上创建项。 不支持在不是由资源提供程序创建的主机服务器上创建的项目，并且可能会导致状态不匹配。
 
 ## <a name="prerequisites"></a>先决条件
 
-需要先实施几个先决条件，然后才能部署 Azure Stack Hub SQL 资源提供程序。 若要满足这些要求，请在可访问特权终结点 VM 的计算机上完成以下步骤：
+部署 Azure Stack 中心 SQL 资源提供程序之前，需要准备好几个先决条件：
+
+- 需要一个可访问的计算机和帐户：
+   - [Azure Stack 中心管理员门户](azure-stack-manage-portals.md)。
+   - [特权终结点](azure-stack-privileged-endpoint.md)。
+   - Azure 资源管理器管理终结点， `https://management.region.<fqdn>` 其中 `<fqdn>` 是完全限定的域名 (或 `https://management.local.azurestack.external` 使用 ASDK) 
+   - 如果 Azure Stack 中心部署为使用 Azure Active Directory (AD) 作为标识提供者，则使用 Internet。
 
 - 向 Azure [注册 Azure Stack Hub](azure-stack-registration.md)（如果尚未这样做），以便可以下载 Azure 市场项。
 
 - 将所需的 Windows Server VM 添加到 Azure Stack Hub 市场。
-  * 对于 SQL RP 版本 <= 1.1.47.0，请下载“Windows Server 2016 Datacenter - Server Core”映像。
-  * 对于 SQL RP 版本 >= 1.1.93.0，请下载“Microsoft AzureStack Add-On RP Windows Server（仅限内部）”映像。 此 Windows Server 版本专用于 Azure Stack Add-On RP Infrastructure，对租户市场不可见。
-
+  - 对于 SQL RP 版本 <= 1.1.47.0，请下载“Windows Server 2016 Datacenter - Server Core”映像。
+  - 对于 SQL RP 版本 >= 1.1.93.0，请下载“Microsoft AzureStack Add-On RP Windows Server（仅限内部）”映像。 此 Windows Server 版本专用于 Azure Stack Add-On RP Infrastructure，对租户市场不可见。
 
 - 根据下面的版本映射表，下载受支持版本的 SQL 资源提供程序二进制文件。 运行自解压程序，将下载的内容解压缩到临时目录。 
 
@@ -102,7 +107,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 
 ## <a name="deploy-the-sql-resource-provider"></a>部署 SQL 资源提供程序
 
-安装所有必备组件后，在可访问 Azure Stack Hub 管理员 Azure 资源管理终结点和特权终结点的计算机中运行 **DeploySqlProvider.ps1** 脚本，以部署 SQL 资源提供程序。 DeploySqlProvider.ps1 脚本是从针对 Azure Stack Hub 版本下载的 SQL 资源提供程序二进制文件中提取的。
+完成所有先决条件后，请从可访问 Azure Stack 中心 Azure 资源管理器管理终结点和特权终结点的计算机上运行 **DeploySqlProvider.ps1** 脚本，以部署 SQL 资源提供程序。 DeploySqlProvider.ps1 脚本是从针对 Azure Stack Hub 版本下载的 SQL 资源提供程序二进制文件中提取的。
 
  > [!IMPORTANT]
  > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
@@ -134,7 +139,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 | **AzCredential** | Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。| _必需_ |
 | **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
-| **AzureEnvironment** | 用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment** 或使用中国 Azure Active Directory、 **AzureChinaCloud**。 | AzureCloud |
+| **AzureEnvironment** | 用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment** 或使用中国 Azure AD、 **AzureChinaCloud**。 | AzureCloud |
 | **DependencyFilesLocalPath** | 对于集成系统，必须将证书 .pfx 文件放在此目录中。 还可以在此处复制一个 Windows Update MSU 包。 | _可选_（对于集成系统为强制的  ） |
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |

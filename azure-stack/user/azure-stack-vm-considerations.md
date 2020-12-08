@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 6006d8f715a9a680301dfe64f7c02075ab9052ab
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 0eb0c763b8ebd144576ac9ac773d17f191e30dc9
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518273"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778132"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM 功能
 
@@ -70,7 +70,7 @@ VM 大小及其关联的资源数量在 Azure Stack Hub 与 Azure 之间是一�
 
 ## <a name="vm-extensions"></a>VM 扩展
 
-Azure Stack Hub 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。
+Azure Stack Hub 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。 不支持将自定义扩展插件引入 Azure Stack 集线器;必须先将扩展载入到 Azure，才能 Azure Stack 集线器中使用。
 
 使用以下 PowerShell 脚本获取 Azure Stack 中心环境中可用的 VM 扩展的列表。
 

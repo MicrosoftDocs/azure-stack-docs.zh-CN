@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中添加 MySQL 宿主服务器
 description: 了解如何添加 MySQL 宿主服务器以通过 MySQL 适配器资源提供程序进行预配。
 author: bryanla
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: bbf96c0716d6bb9fdfca7ce0b52268281e6169c6
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: a5c965591a6eb7d11540bf63c298ffa2321e0014
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414157"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778421"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加 MySQL 宿主服务器
 
@@ -72,7 +72,7 @@ ms.locfileid: "94414157"
 
 4. 创建一个远程访问用户帐户，供 Azure Stack Hub MySQL 宿主服务器用于连接到 MySQL。
 
-    运行以下命令以根用户身份登录 MySQL，使用记录在“~/bitnami_credentials”中的根密码。 创建一个新的管理员用户，并根据环境需要替换 \<username\> 和 \<password\> 。 在此示例中，创建的用户名为 **sqlsa** ，并使用强密码：
+    运行以下命令以根用户身份登录 MySQL，使用记录在“~/bitnami_credentials”中的根密码。 创建一个新的管理员用户，并根据环境需要替换 \<username\> 和 \<password\> 。 在此示例中，创建的用户名为 **sqlsa**，并使用强密码：
 
    ```sql
    mysql -u root -p
@@ -111,14 +111,17 @@ ms.locfileid: "94414157"
 4. 提供 MySQL 服务器实例的连接详细信息。
 
    * 对于“MySQL 宿主服务器名称”，请提供完全限定域名 (FQDN) 或有效的 IPv4 地址。 请勿使用短 VM 名称。
-   * Azure Stack Hub 市场中提供的 Bitnami MySQL 映像的默认管理员 **用户名** 为 *root* 。
-   * 如果不知道 root 的 **密码** ，请参阅 [Bitnami 文档](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)，了解如何获取它。
+   * Azure Stack Hub 市场中提供的 Bitnami MySQL 映像的默认管理员 **用户名** 为 *root*。
+   * 如果不知道 root 的 **密码**，请参阅 [Bitnami 文档](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)，了解如何获取它。
    * 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。 输入接近数据库服务器容量的大小。
    * 保留“订阅”的默认设置。
    * 对于“资源组”，请创建新组或使用现有组。
 
+   > [!IMPORTANT]
+   > 不要选择 " **资源组** `system.<region>.sqladapter` "，它是在部署过程中由 MySQL 资源提供程序安装程序创建的。 必须为宿主服务器提供不同的资源组。    
+
    > [!NOTE]
-   > 如果租户和管理 Azure 资源管理器可以访问 MySQL 实例，则可让资源提供程序控制此实例。 但是， **必须** 专门将 SQL 实例分配给资源提供程序。
+   > 如果租户和管理 Azure 资源管理器可以访问 MySQL 实例，则可让资源提供程序控制此实例。 但是，**必须** 专门将 SQL 实例分配给资源提供程序。
 
 5. 选择“SKU”，打开“创建 SKU”对话框。 
 
