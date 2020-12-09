@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
-ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: b5f182fcf76fe28855240931e3515d3c9a467ee1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/08/2020
+ms.openlocfilehash: 6e2b00d80d600a0cdafa21455c9938e9df7af564
+ms.sourcegitcommit: b0a96f98f2871bd6be28d3f2461949e2237ddaf0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543300"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96872638"
 ---
 # <a name="diagnostic-log-collection"></a>诊断日志收集
 
@@ -28,7 +28,7 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 * [立即发送日志](#send-logs-now)
 * [在本地保存日志](#save-logs-locally)
 
-以下流程图显示了在每种情况下用于发送诊断日志的选项。 如果 Azure Stack 集线器可以连接到 Azure，我们建议启用 **主动日志收集** ，这会在引发关键警报时，自动将诊断日志上传到 Azure 中由 Microsoft 控制的存储 blob。 还可以使用 " **立即发送日志** " 按需收集日志。 如果 Azure Stack 中心与 Azure 断开连接，则可以在 **本地保存日志** 。 
+以下流程图显示了在每种情况下用于发送诊断日志的选项。 如果 Azure Stack 集线器可以连接到 Azure，我们建议启用 **主动日志收集**，这会在引发关键警报时，自动将诊断日志上传到 Azure 中由 Microsoft 控制的存储 blob。 还可以使用 " **立即发送日志**" 按需收集日志。 如果 Azure Stack 中心与 Azure 断开连接，则可以在 **本地保存日志**。 
 
 ![流程图，显示如何将日志立即发送到 Microsoft](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -38,7 +38,13 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 
 在你提出支持案例之前，主动日志收集会自动收集 Azure Stack 集线器中的诊断日志并将其发送给 Microsoft。 仅当出现 [系统运行状况警报](#proactive-diagnostic-log-collection-alerts) 时才收集这些日志，并且仅在支持案例的上下文中 Microsoft 支持部门才会对其进行访问。
 
-随时可以禁用和重新启用主动日志收集。 请按照以下步骤设置主动日志收集。
+::: moniker range=">= azs-2008"
+
+从 Azure Stack 中心版本2008开始，主动日志收集使用改进的算法，该算法即使在对操作员不可见的错误情况下也能捕获日志。 这可以确保在适当的时间收集正确的诊断信息，而无需任何操作员交互。 在某些情况下，Microsoft 支持人员可以更快地开始进行故障排除并解决问题。 初始算法改进侧重于修补程序和更新操作。 建议启用主动日志收集，因为更多的操作经过优化，优点会提高。
+
+::: moniker-end
+
+随时可以禁用和重新启用主动日志收集。 按照以下步骤设置主动收集日志功能。
 
 1. 登录到 Azure Stack Hub 管理员门户。
 1. 打开“帮助 + 支持概述”。
@@ -57,12 +63,44 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 
 使用 **前瞻性日志** 收集收集的日志将上传到由 Microsoft 管理和控制的 Azure 存储帐户。 Microsoft 可能会在支持案例的上下文中访问这些日志，并改善 Azure Stack 集线器的运行状况。
 
+### <a name="proactive-diagnostic-log-collection-alerts"></a>主动收集诊断日志时的警报
+
+如果已启用，则当引发以下事件之一时，主动日志收集将上载日志。
+
+例如，“更新失败”是一个警报，会触发主动收集诊断日志的操作。 如果已启用，则会在更新失败时主动捕获诊断日志，以帮助 Microsoft 支持部门解决该问题。 仅在引发 **更新失败** 的警报时才收集诊断日志。
+
+| 警报标题 | FaultIdType |
+|---|---|
+|无法连接到远程服务 | UsageBridge.NetworkError|
+|更新失败 | Urp.UpdateFailure |
+|存储资源提供程序基础结构/依赖项不可用 |    StorageResourceProviderDependencyUnavailable |
+|节点未连接到控制器| ServerHostNotConnectedToController |  
+|路由发布失败 | SlbMuxRoutePublicationFailure |
+|存储资源提供程序内部数据存储不可用 |    StorageResourceProvider。 DataStoreConnectionFail |
+|存储设备发生故障 | Microsoft.Health.FaultType.VirtualDisks.Detached |
+|运行状况控制器无法访问存储帐户 | Microsoft.Health.FaultType.StorageError |
+|与物理磁盘的连接已丢失 | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
+|Blob 服务未在节点上运行 | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
+|基础结构角色不正常 | Microsoft.Health.FaultType.GenericExceptionFault |
+|表服务错误 | StorageService.Table.service.errors-Critical |
+|文件共享已利用超过 80% | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
+|缩放单元节点已脱机 | FRP.Heartbeat.PhysicalNode |
+|基础结构角色实例不可用 | FRP.Heartbeat.InfraVM |
+|基础结构角色实例不可用  | FRP.Heartbeat.NonHaVm |
+|基础结构角色“目录管理”报告了时间同步错误 | DirectoryServiceTimeSynchronizationError |
+|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Warning |
+|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Critical |
+|由于内存容量不足，无法针对特定类别和大小预配虚拟机 | AzureStack.ComputeController.VmCreationFailure.LowMemory |
+|无法访问节点以供虚拟机放置 | AzureStack.ComputeController.HostUnresponsive |
+|备份失败  | AzureStack.BackupController.BackupFailedGeneralFault |
+|由于与失败的操作发生冲突，已跳过计划的备份    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
+
 ## <a name="send-logs-now"></a>立即发送日志
 
 > [!TIP]
 > 使用 [发送日志](#send-logs-proactively) ，而不是立即发送日志来节省时间。
 
-"立即发送日志" 是一种选项，在这种情况下，你可以从 Azure Stack 中心手动收集和上载诊断日志（通常是在打开支持案例之前）。
+“立即发送日志”是一个选项，通常用于在建立支持案例之前从 Azure Stack Hub 手动收集并上传诊断日志。
 
 可以通过两种方式将诊断日志手动发送到 Microsoft 支持部门：
 * [ (建议使用管理员门户) ](#send-logs-now-with-the-administrator-portal)
@@ -74,12 +112,12 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 
 使用管理员门户立即发送日志：
 
-1. 立即打开 " **帮助 + 支持" > 日志收集 > 发送日志** 。 
+1. 打开“帮助 + 支持”>“日志收集”>“立即发送日志”。 
 1. 指定日志收集的开始时间和结束时间。 
 1. 选择本地时区。
-1. 选择 " **收集并上传** "。
+1. 选择“收集并上传”。
 
-如果从 internet 断开连接或只想要在本地保存日志，请使用 [get-azurestacklog](azure-stack-get-azurestacklog.md) 方法发送日志。
+如果已断开与 Internet 的连接，或者只想在本地保存日志，请使用 [Get-AzureStackLog](azure-stack-get-azurestacklog.md) 方法发送日志。
 
 ### <a name="send-logs-now-with-powershell"></a>立即通过 PowerShell 发送日志
 
@@ -152,7 +190,7 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 
 ## <a name="save-logs-locally"></a>在本地保存日志
 
-Azure Stack 中心与 Azure 断开连接时，可以将日志保存到本地服务器消息块 (SMB) 共享。 在“设置”边栏选项卡中，输入具有共享写入权限的路径、用户名和密码。 在支持案例中，Microsoft 支持部门将提供有关如何传输这些本地日志的详细步骤。 如果管理员门户不可用，则可以使用 [Get-AzureStackLog](azure-stack-get-azurestacklog.md) 在本地保存日志。
+当 Azure Stack Hub 与 Azure 断开连接时，可以将日志保存到本地服务器消息块 (SMB) 共享。 在“设置”边栏选项卡中，输入具有共享写入权限的路径、用户名和密码。 在支持案例中，Microsoft 支持部门将提供有关如何传输这些本地日志的详细步骤。 如果管理员门户不可用，则可以使用 [Get-AzureStackLog](azure-stack-get-azurestacklog.md) 在本地保存日志。
 
 ![诊断日志收集选项的屏幕截图](media/azure-stack-help-and-support/save-logs-locally.png)
 
@@ -160,7 +198,7 @@ Azure Stack 中心与 Azure 断开连接时，可以将日志保存到本地服�
 
 ## <a name="bandwidth-considerations"></a>带宽注意事项
 
-进行诊断日志收集时日志的平均大小各不相同，具体取决于它是主动运行还是手动运行。 “主动收集日志”选项对应的日志平均大小约为 2 GB。 **发送日志** 的集合大小现在取决于收集的小时数。
+进行诊断日志收集时日志的平均大小各不相同，具体取决于它是主动运行还是手动运行。 “主动收集日志”选项对应的日志平均大小约为 2 GB。 “立即发送日志”选项对应的收集大小取决于需要收集多少小时。
 
 下表列出了在以受限或计量方式连接到 Azure 时的环境注意事项。
 
@@ -174,45 +212,13 @@ Azure Stack 中心与 Azure 断开连接时，可以将日志保存到本地服�
 
 以往从 Azure Stack Hub 收集的日志显示在“帮助 + 支持”中的“日志收集”页上，其中提供了以下日期和时间 ：
 
-- **收集的时间** ：日志收集操作的开始时间。
-- **状态** ：“正在进行”或“已完成”。
-- **日志开始** ：要收集日志的时段的开始时间。
-- **日志结束** ：收集时段的结束时间。
-- **类型** ：是手动收集日志还是主动收集日志。
+- **收集的时间**：日志收集操作的开始时间。
+- **状态**：“正在进行”或“已完成”。
+- **日志开始**：要收集日志的时段的开始时间。
+- **日志结束**：收集时段的结束时间。
+- **类型**：是手动收集日志还是主动收集日志。
 
 ![“帮助 + 支持”中的日志集合](media/azure-stack-help-and-support/azure-stack-log-collection.png)
-
-## <a name="proactive-diagnostic-log-collection-alerts"></a>主动收集诊断日志时的警报
-
-如果已启用，则仅当引发以下事件之一时，主动收集日志功能才会上传日志。
-
-例如，“更新失败”是一个警报，会触发主动收集诊断日志的操作。 如果已启用，则会在更新失败时主动捕获诊断日志，以帮助 Microsoft 支持部门解决该问题。 仅在引发 **更新失败** 的警报时才收集诊断日志。
-
-| 警报标题 | FaultIdType |
-|---|---|
-|无法连接到远程服务 | UsageBridge.NetworkError|
-|更新失败 | Urp.UpdateFailure |
-|存储资源提供程序基础结构/依赖项不可用 |    StorageResourceProviderDependencyUnavailable |
-|节点未连接到控制器| ServerHostNotConnectedToController |  
-|路由发布失败 | SlbMuxRoutePublicationFailure |
-|存储资源提供程序内部数据存储不可用 |    StorageResourceProvider。 DataStoreConnectionFail |
-|存储设备发生故障 | Microsoft.Health.FaultType.VirtualDisks.Detached |
-|运行状况控制器无法访问存储帐户 | Microsoft.Health.FaultType.StorageError |
-|与物理磁盘的连接已丢失 | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
-|Blob 服务未在节点上运行 | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
-|基础结构角色不正常 | Microsoft.Health.FaultType.GenericExceptionFault |
-|表服务错误 | StorageService.Table.service.errors-Critical |
-|文件共享已利用超过 80% | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
-|缩放单元节点已脱机 | FRP.Heartbeat.PhysicalNode |
-|基础结构角色实例不可用 | FRP.Heartbeat.InfraVM |
-|基础结构角色实例不可用  | FRP.Heartbeat.NonHaVm |
-|基础结构角色“目录管理”报告了时间同步错误 | DirectoryServiceTimeSynchronizationError |
-|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Warning |
-|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Critical |
-|由于内存容量不足，无法针对特定类别和大小预配虚拟机 | AzureStack.ComputeController.VmCreationFailure.LowMemory |
-|无法访问节点以供虚拟机放置 | AzureStack.ComputeController.HostUnresponsive |
-|备份失败  | AzureStack.BackupController.BackupFailedGeneralFault |
-|由于与失败的操作发生冲突，已跳过计划的备份    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
 
 ## <a name="see-also"></a>另请参阅
 
