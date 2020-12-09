@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: c774da9af89f882fe4488117629ff37a67e4190d
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761722"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96869031"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -69,8 +69,8 @@ Azure Stack 中心2008更新生成类型已 **满**。
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack 集线器现在支持 VNET 对等互连，它可以在没有网络虚拟设备 (NVA) 的情况下连接 Vnet。 有关详细信息，请参阅 [新的 VNET 对等互连文档](../user/virtual-network-peering.md)。
 - Azure Stack 集线器 blob 存储现在允许用户使用不可变的 blob。 通过在容器上设置不可变的策略，你可以将业务关键数据对象存储在蠕虫 (写入一次，读取许多) 状态。 在此版本中，不可变的策略只能通过 REST API 或客户端 Sdk 来设置。 在此版本中，也不可能追加 blob 写入。 有关不可变 blob 的详细信息，请参阅 [将业务关键 blob 数据存储在不可变的存储](/azure/storage/blobs/storage-blob-immutable-storage)中。
-- Azure Stack 中心存储现在支持 Azure 存储服务 Api 版本2019-07-07。 对于与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack 中心存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。
-- Azure Stack 集线器计算现在支持 Azure 计算 Api 版本2020-06-01，同时提供全部可用功能的子集。
+- Azure Stack 中心存储现在支持 Azure 存储服务 Api 版本 **2019-07-07**。 对于与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack 中心存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。 对于 Azure 存储服务管理 Api， **2018-02-01** 添加了支持，其中包含全部可用功能的子集。
+- Azure Stack 集线器计算现在支持 Azure 计算 Api 版本 **2020-06-01**，同时提供全部可用功能的子集。
 - Azure Stack 中心托管磁盘现在支持 Azure 磁盘 Api 版本 **2019-03-01**，其中包含可用功能的子集。
 - Windows 管理中心的预览，现在可以连接到 Azure Stack 集线器，在支持 (操作期间提供对基础结构的深入见解，) 需要中断玻璃。
 - 可以在部署时将登录标语添加到特权终结点 (PEP) 。
@@ -139,7 +139,7 @@ Azure Stack 集线器2008版必须应用于带有以下修补程序的2005版本
 
 安装2008之后，如果以后发布了任何2008修补程序，则应该安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2008.16.94](https://support.microsoft.com/help/4595071)
+- [Azure Stack 中心修补程序1.2008.19.100](https://support.microsoft.com/help/4595073)
 ::: moniker-end
 
 ::: moniker range="azs-2005"

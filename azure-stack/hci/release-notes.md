@@ -6,19 +6,42 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/24/2020
-ms.openlocfilehash: 56cc4c35ecbb92c30883bd1f2018422cdcac0894
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.date: 12/8/2020
+ms.openlocfilehash: e28ff46596e2669327a3fa1d3b76fca346658b21
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812720"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96868980"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Azure Stack HCI 公共预览版发行说明
 
 > 适用于：Azure Stack HCI，版本 20H2
 
 本文介绍 Azure Stack HCI 公共预览版更新包的内容。
+
+## <a name="december-8-2020-security-update-kb4592441"></a>2020年12月8日 (KB4592441) 的安全更新
+
+此更新包括最新版 Azure Stack HCI 的改进和修复。 
+
+### <a name="improvements-and-fixes"></a>改进和修复
+此更新包含对内部 OS 功能的各种安全改进。 它通过阻止作为系统帐户运行的应用程序从打印到 "FILE：" 端口来解决安全漏洞。 若要解决将来的此问题，请确保你的应用程序或服务以特定用户或服务帐户运行。
+
+此版本没有其他已知问题。
+
+有关已解决的安全漏洞的详细信息，请参阅[安全更新指南](https://portal.msrc.microsoft.com/security-guidance)。
+
+### <a name="known-issues-in-this-update"></a>此更新中的已知问题
+Microsoft 目前未了解到任何有关此更新的问题。
+
+### <a name="how-to-get-this-update"></a>如何获取此更新
+[AZURE STACK HCI preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)的2020年12月8日安全更新 (KB4592441) 通过 Windows 更新提供。 若要在 Azure Stack HCI 群集上安装该安全更新，请参阅[更新 Azure Stack HCI 群集](manage/update-cluster.md)。
+
+### <a name="file-information"></a>文件信息
+有关此更新中提供的文件的列表 (OS Build 17784.1408) ，请下载 [累积更新4592441的文件信息](https://download.microsoft.com/download/2/7/2/272ea75f-1657-43ce-a7a4-a17d51463a94/4592441.csv)。
+
+   > [!NOTE]
+   > 某些文件在 CSV 文件的“文件版本”列中错误地显示为“不适用”。 当使用某些第三方扫描检测工具验证生成时，这可能会导致假正或误报。
 
 ## <a name="november-23-2020-preview-update-kb4586852"></a>2020年11月23日预览版更新 (KB4586852) 
 

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.topic: conceptual
 ms.reviewer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 28b1d8ade7b56a767d436b918ad7d386ef4759bd
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: fe3d1187ff51a9fa85aaab66186db294a8b25e42
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574136"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96869014"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Azure Stack Hub 存储开发工具入门
 
@@ -28,13 +28,44 @@ Microsoft Azure Stack 中心提供一组存储服务，其中包括 blob、表�
 对于存储客户端库，请了解与 REST API 兼容的版本。 还必须在代码中指定 Azure Stack Hub 终结点。
 
 
-::: moniker range=">=azs-2005"
-### <a name="2005-update-or-newer-versions"></a>2005 更新或更高版本
+::: moniker range=">=azs-2008"
+### <a name="2008-update"></a>2008更新
+
+| 客户端库 | Azure Stack Hub 支持的版本 | 链接 | 终结点规范 |
+|----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| .NET | 12.2.0 | Nuget 包：<br>通用：<https://www.nuget.org/packages/Azure.Storage.common/12.2.0><br>Blob：<https://www.nuget.org/packages/Azure.Storage.Blobs/12.2.0><br>队列：<https://www.nuget.org/packages/Azure.Storage.queues/12.2.0><br> <br>GitHub 版本：<br>通用：<https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.2.0/sdk/storage><br>Blob：<https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.2.0/sdk/storage><br>队列：<https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.2.0/sdk/storage>  | app.config 文件 |
+| Java | 12.4.0 | Maven 包：<br><https://mvnrepository.com/artifact/com.azure/azure-storage-common/12.4.0><br> <br>GitHub 版本：<br><https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.4.0/sdk/storage> | 连接字符串设置 |
+| Node.js | 2.8.3 | NPM 链接：<br><https://www.npmjs.com/package/azure-storage><br>（运行：`npm install azure-storage@2.8.3`）<br> <br>GitHub 版本：<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | 服务实例声明 |
+| C++ | 7.2.0 | GitHub 版本：<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v7.2.0> | 连接字符串设置 |
+| PHP | 1.2.0 | GitHub 版本：<br>通用：<https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>Blob：<https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>队列：<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>表：<https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>通过编辑器进行安装（若要了解更多内容，[请参阅下面的详细信息](#install-php-client-via-composer---current)。） | 连接字符串设置 |
+| Python | 12.2.0 | GitHub 版本：<br>Blob：<br><https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.2.0/sdk/storage/azure-storage-blob><br>队列：<br><https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.2.0/sdk/storage/azure-storage-queue> | 服务实例声明 |
+| Ruby | 1.0.1 | RubyGems 包：<br>常见：<br><https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>Blob：<https://rubygems.org/gems/azure-storage-blob/versions/1.0.1><br>队列：<https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>表：<https://rubygems.org/gems/azure-storage-table/versions/1.0.1><br> <br>GitHub 版本：<br>通用：<https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>Blob：<https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob><br>队列：<https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>表：<https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table> | 连接字符串设置 |
+
+#### <a name="install-php-client-via-composer---current"></a>通过 Composer 安装 PHP 客户端 - 当前
+
+若要通过编辑器进行安装，请执行以下操作（以 Blob 为例）：
+
+1. 在项目的根目录中，使用以下代码创建一个名为 **composer.json** 的文件：
+
+    ```json
+    {
+      "require": {
+      "Microsoft/azure-storage-blob":"1.2.0"
+      }
+    }
+    ```
+
+2. 将 [composer.phar](https://getcomposer.org/composer.phar) 下载到项目根目录。
+3. 运行：`php composer.phar install`。
+::: moniker-end
+
+::: moniker range=">=azs-2005 <azs-2008"
+### <a name="2005-update"></a>2005 更新
 
 | 客户端库 | Azure Stack Hub 支持的版本 | 链接 | 终结点规范 |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 11.0.0 | Nuget 包：<br>通用：<https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0><br>Blob：<https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0><br>队列：<br><https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0><br> <br>GitHub 版本：<br><https://github.com/Azure/azure-storage-net/releases/tag/v11.0.0> | app.config 文件 |
-| Java | 12.0.0-preview.3 | Maven 包：<br><https://mvnrepository.com/artifact/com.azure/azure-storage-file/12.0.0-preview.3><br> <br>GitHub 版本：<br><https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage> | 连接字符串设置 |
+| Java | 12.0.0-preview.3 | Maven 包：<br><https://mvnrepository.com/artifact/com.azure/azure-storage-blob/12.0.0-preview.3><br> <br>GitHub 版本：<br><https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage> | 连接字符串设置 |
 | Node.js | 2.8.3 | NPM 链接：<br><https://www.npmjs.com/package/azure-storage><br>（运行：`npm install azure-storage@2.8.3`）<br> <br>GitHub 版本：<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | 服务实例声明 |
 | C++ | 7.1.0 | GitHub 版本：<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v7.1.0> | 连接字符串设置 |
 | PHP | 1.2.0 | GitHub 版本：<br>通用：<https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>Blob：<https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>队列：<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>表：<https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>通过编辑器进行安装（若要了解更多内容，[请参阅下面的详细信息](#install-php-client-via-composer---current)。） | 连接字符串设置 |
