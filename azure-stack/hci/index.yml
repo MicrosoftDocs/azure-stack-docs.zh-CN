@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 10/28/2020
-  ms.openlocfilehash: f4b73865170bb93d661acaaef0665bffa311cfdd
-  ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+  ms.date: 12/10/2020
+  ms.openlocfilehash: 5ef9dbe63eb377664ad86b4aa5e9ac23e2615115
+  ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/18/2020
-  ms.locfileid: "94875036"
+  ms.lasthandoff: 12/10/2020
+  ms.locfileid: "97011070"
 landingContent:
 - title: 关于 Azure Stack HCI
   linkLists:
@@ -29,6 +29,8 @@ landingContent:
   linkLists:
   - linkListType: deploy
     links:
+    - text: 部署快速入门
+      url: deploy/deployment-quickstart.md
     - text: 部署 Azure Stack HCI OS
       url: deploy/operating-system.md
     - text: 创建群集

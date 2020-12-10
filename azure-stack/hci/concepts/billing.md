@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 22758f9a6b905e2c948a47c5870a05edcb63acdf
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.date: 11/19/2020
+ms.openlocfilehash: 0cdd8a7f6c0c59eddbe1e8dd93158eb7a280e8ab
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428475"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010713"
 ---
 # <a name="azure-stack-hci-billing-and-payment"></a>Azure Stack HCI 计费和付款
 
@@ -22,7 +22,7 @@ Azure Stack HCI 是一项 Azure 服务，与其他 Azure 服务一样，要进�
 
 ## <a name="what-does-azure-stack-hci-charge-for"></a>Azure Stack HCI 对什么收费？
 
-对于已在使用 Azure 或任何其他云服务的客户来说，Azure Stack HCI 的云式计费模型并不陌生，是具有一致性和易于使用的模型。 在公共预览期间不收取任何费用。 预览使用期结束后，将基于统一费率按 Azure Stack HCI 群集中的每个物理处理器内核进行计费（如果还使用了其他 Azure 服务，会收取额外使用费）。
+对于已在使用 Azure 或任何其他云服务的客户来说，Azure Stack HCI 的云式计费模型并不陌生，是具有一致性和易于使用的模型。 根据 Azure Stack HCI 群集中的每个物理处理器核心按固定费率计费，如果使用其他 Azure 服务) ，则需要支付额外的使用费用 (。
 
 定价模型不同于基于使用情况或基于消耗量的计费（基于 VM 数量）。 虽然虚拟处理器内核 (VCPU) 数可能会在一个月内发生变化，但它不会影响你为 Azure Stack HCI 支付的价格：你仍按群集中存在的物理内核数付费。
 

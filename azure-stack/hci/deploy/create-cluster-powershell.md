@@ -1,17 +1,17 @@
 ---
 title: 使用 Windows PowerShell 创建 Azure Stack HCI 群集
-description: 了解如何使用 Windows PowerShell 为 Azure Stack HCI 创建超融合群集
+description: 了解如何使用 Windows PowerShell 为 Azure Stack HCI 创建群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: fa020531067f74fba2609296672e347d6804cb6b
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064508"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010883"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>使用 Windows PowerShell 创建 Azure Stack HCI 群集
 
@@ -36,7 +36,7 @@ ms.locfileid: "93064508"
 
 在开始之前，请确保：
 
-- 已阅读 [AZURE STACK HCI 系统要求](../concepts/system-requirements.md)。
+- 已阅读 [Azure Stack HCI 系统需求](../concepts/system-requirements.md)。
 - 在群集中的每个服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
 - 拥有一个帐户，该帐户是每个服务器上的本地管理员组的成员。
 - 具有在 Active Directory 中创建对象的权限。
@@ -110,12 +110,12 @@ Add-LocalGroupMember -Group "Administrators" -Member "king@contoso.local"
 - FS-Data-Deduplication 模块
 - Hyper-V
 - RSAT-AD-PowerShell 模块
-- 存储副本（仅适用于延伸群集）
+- 延伸群集的存储副本 () 
 
 对于每个服务器，请使用以下命令：
 
 ```powershell
-Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
+Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
 ```
 
 若要同时在群集中的所有服务器上运行该命令，请使用以下脚本，修改开头的变量列表以适应你的环境。
@@ -123,7 +123,7 @@ Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-B
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica"
 
 # This part runs the Install-WindowsFeature cmdlet on all servers in $ServerList, passing the list of features in $FeatureList.
 Invoke-Command ($ServerList) {

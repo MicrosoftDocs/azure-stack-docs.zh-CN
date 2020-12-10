@@ -4,19 +4,19 @@ description: 如何使用 PowerShell 管理 Azure Stack HCI 的 Azure 注册并�
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: 696ef552dcf49f31fb613a22393617e653f7e10d
-ms.sourcegitcommit: eb91a28a19a74f799b093ae2a705f7f6e4c5cd49
+ms.date: 12/10/2020
+ms.openlocfilehash: 9acbb273ea67d989f3ec1e1e88c51a96dd440256
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87436456"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010866"
 ---
 # <a name="manage-azure-registration"></a>管理 Azure 注册
 
 > 适用于 Azure Stack HCI v20H2
 
-创建 Azure Stack HCI 群集后，必须[向 Azure Arc 注册该群集](../deploy/register-with-azure.md)。群集注册后，会定期在本地群集和云之间同步信息。 本主题介绍如何了解注册状态并在可以解除群集授权时注销群集。
+创建 Azure Stack HCI 群集后，必须[向 Azure Arc 注册该群集](../deploy/register-with-azure.md)。群集注册后，会定期在本地群集和云之间同步信息。 本主题说明如何了解你的注册状态，如何授予 Azure Active Directory 权限，并在你准备好解除群集的授权时注销群集。
 
 ## <a name="understanding-registration-status"></a>了解注册状态
 
@@ -36,7 +36,7 @@ ms.locfileid: "87436456"
 
 如果超出允许的最长时间，则 `ConnectionStatus` 将显示 `OutOfPolicy`。
 
-## <a name="azure-active-directory-permissions"></a>Azure Active Directory 权限
+## <a name="azure-active-directory-app-permissions"></a>Azure Active Directory 应用权限
 
 除了在订阅中创建 Azure 资源外，注册 Azure Stack HCI 还可以在 Azure Active Directory 租户中创建一个概念类似于用户的应用标识。 应用标识会继承群集名称。 此标识代表订阅中的 Azure Stack HCI 云服务（如果适用）执行操作。
 
@@ -44,9 +44,21 @@ ms.locfileid: "87436456"
 
 :::image type="content" source="media/manage-azure-registration/aad-permissions.png" alt-text="Azure Active Directory 权限和标识图" border="false":::
 
-若要授予许可，请打开 portal.azure.com，并使用对 Azure Active Directory 具有足够权限的 Azure 帐户登录。 依次导航到“Azure Active Directory”、“应用注册”。  选择以你的群集命名的应用标识，然后导航到“API 权限”。
+若要授予许可，请打开 [portal.azure.com](https://portal.azure.com) ，并使用对 Azure Active Directory 具有足够权限的 azure 帐户登录。 依次导航到“Azure Active Directory”、“应用注册”。  选择以你的群集命名的应用标识，然后导航到“API 权限”。
 
-应用需要两种权限：
+ (GA) 版本 Azure Stack HCI 公开上市时，应用需要以下权限，这不同于公共预览版中所需的应用权限：
+
+```http
+https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Cluster.Read
+
+https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Cluster.ReadWrite
+
+https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.ClusterNode.Read
+
+https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.ClusterNode.ReadWrite
+```
+
+对于公共预览版，应用权限已 (这些权限现已弃用) ：
 
 ```http
 https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Census.Sync
@@ -55,6 +67,85 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 ```
 
 向 Azure Active Directory 管理员寻求批准可能需要一些时间，因此 `Register-AzureStackHCI` cmdlet 会退出，并将注册状态保持为“待管理员同意”，即完成部分注册。 授予同意后，只需重新运行 `Register-AzureStackHCI` 即可完成注册。
+
+## <a name="azure-active-directory-user-permissions"></a>Azure Active Directory 用户权限
+
+运行 Register-AzStackHCI 的用户需要 Azure AD 权限：
+
+- 创建/获取/设置/删除 Azure AD 应用程序 (新建/获取/设置/删除-Get-azureadapplication) 
+- 创建/获取 Azure AD 服务主体 (New/Get-azureadserviceprincipal) 
+-  (新建/获取/删除-Get-azureadapplicationkeycredential) 管理 AD 应用程序机密
+- 授予同意使用特定的应用程序权限 (新建/获取/删除 AzureADServiceAppRoleAssignments) 
+
+可以通过三种方式来完成此操作。
+
+### <a name="option-1-allow-any-user-to-register-applications"></a>选项1：允许任何用户注册应用程序
+
+在 Azure Active Directory 中，导航到 " **用户设置" > 应用注册**"。 在 " **用户可以注册应用程序**" 下，选择 **"是"**。
+
+这将允许任何用户注册应用程序。 但是，用户仍将要求 Azure AD 管理员在进行群集注册期间授予同意。 请注意，这是租户级别设置，因此它可能不适用于大型企业客户。
+
+### <a name="option-2-assign-cloud-application-administration-role"></a>选项2：分配云应用程序管理角色
+
+向用户分配内置的 "云应用程序管理" Azure AD 角色。 这将允许用户注册群集，而无需额外的 AD 管理员许可。
+
+### <a name="option-3-create-a-custom-ad-role-and-consent-policy"></a>选项3：创建自定义 AD 角色和许可策略
+
+最严格的选项是使用自定义同意策略创建自定义 AD 角色，该角色将租户范围内的管理员许可委托给 Azure Stack HCI 服务所需的权限。 分配此自定义角色时，用户可以注册并授予许可，而无需额外的 AD 管理员许可。
+
+   > [!NOTE]
+   > 此选项需要 Azure AD Premium 许可证，并使用当前在公共预览版中的自定义 AD 角色和自定义同意策略功能。
+
+   1. 连接到 Azure AD：
+   
+      ```powershell
+      Connect-AzureAD
+      ```
+
+   2. 创建自定义同意策略：
+
+      ```powershell
+      New-AzureADMSPermissionGrantPolicy -Id "AzSHCI-registration-consent-policy" -DisplayName "Azure Stack HCI registration admin app consent policy" -Description "Azure Stack HCI registration admin app consent policy"
+      ```
+
+   3. 添加一个条件，其中包括应用 ID 为1322e676-dee7-41ee-a874-ac923822781c 的 Azure Stack HCI 服务所需的应用权限。 请注意，以下权限适用于 Azure Stack HCI 的 GA 版本，除非你已将 [2020 年11月23日) 的 (预览版 ](../release-notes.md) 应用到群集中的每个服务器，并且下载了 StackHCI 模块版本0.4.1 或更高版本，否则不能使用公共预览版。
+   
+      ```powershell
+      New-AzureADMSPermissionGrantConditionSet -PolicyId "AzSHCI-registration-consent-policy" -ConditionSetType "includes" -PermissionType "application" -ResourceApplication "1322e676-dee7-41ee-a874-ac923822781c" -Permissions "bbe8afc9-f3ba-4955-bb5f-1cfb6960b242","8fa5445e-80fb-4c71-a3b1-9a16a81a1966","493bd689-9082-40db-a506-11f40b68128f","2344a320-6a09-4530-bed7-c90485b5e5e2"
+      ```
+
+   4. 授予允许注册 Azure Stack HCI 的权限，请注意在步骤2：
+   
+      ```powershell
+      $displayName = "Azure Stack HCI Registration Administrator "
+      $description = "Custom AD role to allow registering Azure Stack HCI "
+      $templateId = (New-Guid).Guid
+      $allowedResourceAction =
+      @(
+             "microsoft.directory/applications/createAsOwner",
+             "microsoft.directory/applications/delete",
+             "microsoft.directory/applications/standard/read",
+             "microsoft.directory/applications/credentials/update",
+             "microsoft.directory/applications/permissions/update",
+             "microsoft.directory/servicePrincipals/appRoleAssignedTo/update",
+             "microsoft.directory/servicePrincipals/appRoleAssignedTo/read",
+             "microsoft.directory/servicePrincipals/appRoleAssignments/read",
+             "microsoft.directory/servicePrincipals/createAsOwner",
+             "microsoft.directory/servicePrincipals/credentials/update",
+             "microsoft.directory/servicePrincipals/permissions/update",
+             "microsoft.directory/servicePrincipals/standard/read",
+             "microsoft.directory/servicePrincipals/managePermissionGrantsForAll.AzSHCI-registration-consent-policy"
+      )
+      $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+      ```
+
+   5. 创建新的自定义 AD 角色：
+
+      ```powershell
+      $customADRole = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+      ```
+
+   6. 按照以下 [说明](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=/azure/active-directory/roles/context/ugr-context)将新的自定义 AD 角色分配给将向 Azure 注册 Azure Stack HCI 群集的用户。
 
 ## <a name="unregister-azure-stack-hci-with-azure"></a>使用 Azure 注销 Azure Stack HCI
 

@@ -1,5 +1,5 @@
 ---
-title: MySQL 资源提供程序维护操作-Azure Stack 中心
+title: MySQL 资源提供程序维护操作 - Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中维护 MySQL 资源提供程序服务。
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 681f02fa220331a93a59448cd1c15bc490ee4b24
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572936"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011172"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub 中的 MySQL 资源提供程序维护操作
 
@@ -24,7 +24,7 @@ MySQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维�
 
 使用以下方法之一更新提供程序 VM：
 
-- 使用当前修补的 VM 映像安装最新的资源提供程序程序包。
+- 使用当前进行了修补的 VM 映像安装最新的资源提供程序包。
 - 在安装或更新资源提供程序期间安装 Windows 更新包。
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>更新 VM Windows Defender 定义
@@ -92,7 +92,7 @@ $session | Remove-PSSession
 - [部署期间提供的](azure-stack-pki-certs.md)外部 SSL 证书。
 - 部署期间提供的资源提供程序 VM 本地管理员帐户密码。
 - 资源提供程序诊断用户 (dbadapterdiag) 密码。
--  (版本 >= 1.1.47.0) 部署期间生成的 Key Vault 证书。
+- （版本 >= 1.1.47.0）在部署过程中生成的 Key Vault 证书。
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>用于轮换机密的 PowerShell 示例
 
@@ -155,13 +155,13 @@ $session | Remove-PSSession
 
 |参数|说明|注释|
 |-----|-----|-----|
-|AzureEnvironment|用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment**或使用中国 Azure Active Directory、 **AzureChinaCloud**。|可选|
-|AzCredential|Azure Stack 中心服务管理员帐户凭据。|必需|
-|CloudAdminCredential|Azure Stack 中心云管理域帐户凭据。|必需|
+|AzureEnvironment|用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment** 或使用中国 Azure Active Directory、 **AzureChinaCloud**。|可选|
+|AzCredential|Azure Stack Hub 服务管理员帐户凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。|必需|
+|CloudAdminCredential|Azure Stack Hub 云管理域帐户凭据。|必需|
 |PrivilegedEndpoint|用于访问 Get-AzureStackStampInformation 的特权终结点。|必需|可选|
 |DiagnosticsUserPassword|诊断用户帐户密码。|可选|
 |VMLocalCredential|MySQLAdapter VM 上的本地管理员帐户。|可选|
-|DefaultSSLCertificatePassword|默认 SSL 证书 ( * .pfx) 密码。|可选|
+|DefaultSSLCertificatePassword|默认 SSL 证书 (*.pfx) 密码。|可选|
 |DependencyFilesLocalPath|依赖项文件本地路径。|可选|
 |KeyVaultPfxPassword|用于为数据库适配器生成 Key Vault 证书的密码。|可选|
 |     |     |     |
@@ -234,21 +234,21 @@ $session | Remove-PSSession
 
 1. 登录到 Azure Stack Hub 管理员门户。
 
-2. 从左侧窗格中选择“虚拟机”，搜索 MySQL 资源提供程序适配器 VM，然后选择该 VM****。
+2. 从左侧窗格中选择“虚拟机”，搜索 MySQL 资源提供程序适配器 VM，然后选择该 VM。
 
-3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志************。
+3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志。
    
    ![转到诊断设置](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. 添加 **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** 用于收集 MySQL 资源提供程序操作事件日志。
+4. 添加 **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ 以收集 MySQL 资源提供程序操作事件日志。
 
    ![添加事件日志](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”********。
+5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”。
 
    ![添加 IIS 日志](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 
-6. 最后，选择 " **保存** " 以保存所有诊断设置。
+6. 最后，选择“保存”以保存所有诊断设置。
 
 为 MySQL 资源提供程序配置事件日志和 IIS 日志收集后，即可在名为 **mysqladapterdiagaccount** 的系统存储帐户中找到日志。
 

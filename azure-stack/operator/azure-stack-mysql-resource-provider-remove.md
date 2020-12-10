@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 60f8ab926bb868517c7b9feeb1c5c4325212607c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7c3c33371e50df0dabb7db9fc8c0204fc3caaa83
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80302820"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011138"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>在 Azure Stack Hub 中删除 MySQL 资源提供程序
 
@@ -37,7 +37,7 @@ ms.locfileid: "80302820"
     - **PrivilegedEndpoint**：特权终结点的 IP 地址或 DNS 名称。
     - **AzureEnvironment**：用于部署 Azure Stack Hub 的 Azure 环境。 仅对于 Azure AD 部署是必需的。
     - **CloudAdminCredential**：访问特权终结点时所需的云管理员凭据。
-    - **AzCredential**： Azure Stack 中心服务管理员帐户的凭据。 使用用于部署 Azure Stack 集线器的相同凭据。
+    - **AzCredential**：Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。
 
 ## <a name="next-steps"></a>后续步骤
 

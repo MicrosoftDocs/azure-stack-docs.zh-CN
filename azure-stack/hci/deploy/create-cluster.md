@@ -3,21 +3,21 @@ title: 使用 Windows Admin Center 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows Admin Center 为 Azure Stack HCI 创建服务器群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 638ede26b1bc720c5975dc7bdf7e0b7f05d9d600
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.openlocfilehash: 35c7fc98b88029d6ab130859b2c3d1c550233936
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354167"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011213"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
 > 适用于 Azure Stack HCI 版本 v20H2 版
 
-本文介绍了如何使用 Windows Admin Center 创建使用存储空间直通的 Azure Stack HCI 超融合群集。 Windows Admin Center 中的创建群集向导将为你执行大部分繁重的操作。 如果你想要使用 PowerShell 自行完成此操作，请参阅[使用 PowerShell 创建 Azure Stack HCI 群集](create-cluster-powershell.md)。 此 PowerShell 文章还是一个很好的信息来源，它深入介绍了向导的情况，适合用来进行故障排除。
+本文介绍如何使用 Windows 管理中心创建使用存储空间直通的 Azure Stack HCI 群集。 Windows 管理中心中的 "创建群集" 向导将为你执行大部分繁重的操作。 如果你想要使用 PowerShell 自行完成此操作，请参阅[使用 PowerShell 创建 Azure Stack HCI 群集](create-cluster-powershell.md)。 此 PowerShell 文章还是一个很好的信息来源，它深入介绍了向导的情况，适合用来进行故障排除。
 
 在创建群集时，可以在两种群集类型之间进行选择：
 
@@ -32,7 +32,8 @@ ms.locfileid: "96354167"
 
 在运行“创建群集”向导之前，请确保你已经完成以下任务：
 
-- 已阅读[系统要求](../concepts/system-requirements.md)中的硬件要求和其他要求。
+- 请阅读 [系统要求](../concepts/system-requirements.md)中的硬件和相关要求。
+- 请阅读 [物理网络要求](../concepts/physical-network-requirements.md) 并 Azure Stack HCI 的 [主机网络要求](../concepts/host-network-requirements.md) 。
 - 在群集中的每台服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
 - 在每台服务器上拥有一个是本地管理员组成员的帐户。
 - 在用于管理的 PC 或服务器上安装 Windows Admin Center。 请参阅[安装 Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)。
@@ -54,8 +55,8 @@ ms.locfileid: "96354167"
 好了，让我们开始：
 
 1. 在 Windows Admin Center 中，在“所有连接”下单击“添加” 。
-1. 在“添加资源”面板中，在“Windows Server 群集”下选择“新建”。  
-1. 在“选择群集类型”下，选择“Azure Stack HCI”。
+1. 在 " **添加或创建资源** " 面板的 " **服务器群集**" 下，选择 " **新建**"。
+1. 小于 **1。选择 "群集类型**"，选择 " **Azure Stack HCI**"。
 
     :::image type="content" source="media/cluster/create-cluster-type.png" alt-text="创建群集向导- HCI 选项" lightbox="media/cluster/create-cluster-type.png":::
 
@@ -72,12 +73,12 @@ ms.locfileid: "96354167"
 
 向导的步骤 1 会指导你完成的操作包括：确保满足所有先决条件，添加服务器节点，安装所需的功能，然后在需要时重启每台服务器。
 
-1. 查看向导中列出的先决条件，以确保每个服务器节点都已做好加入群集的准备。 完成后，单击 **“下一步”** 。
-1. 在“将服务器添加到群集”页上，输入你的帐户的用户名和密码，然后单击“下一步” 。 该帐户必须是每台服务器上本地管理员组的成员。
+1. 检查 **1.1 检查** 向导中列出的先决条件，以确保每个服务器节点都已准备好群集。 完成后，单击 **“下一步”** 。
+1. 在 **1.2 添加服务器** 上，输入你的帐户用户名和密码，然后单击 " **下一步**"。 该帐户必须是每台服务器上本地管理员组的成员。
 1. 输入要添加的第一台服务器的名称，然后单击“添加”。
 1. 对于将成为群集一部分的每台服务器，重复步骤 3。 完成后，单击 **“下一步”** 。
-1. 如果需要，请在“将服务器加入域”页上指定将服务器加入域所需的域和帐户。 接着，可以将服务器重命名为更易记的名称，然后单击“下一步”。
-1. 单击“安装功能”。 完成后，单击 **“下一步”** 。
+1. 如果需要，在 **1.3 上加入域** 时，请指定要将服务器加入到的域以及要使用的帐户。 如果需要，可以根据需要重命名服务器。 然后单击“下一步”  。
+1. 在 **1.4 安装功能** 中，根据需要查看并添加功能。 完成后，单击 **“下一步”** 。
 
     向导将为你安装以下必需的功能：
 
@@ -88,36 +89,41 @@ ms.locfileid: "96354167"
     - FS-Data-Deduplication 模块
     - Hyper-V
     - RSAT-AD-PowerShell 模块
-    - 存储副本（仅为延伸群集安装）
+    - 已为延伸群集安装存储副本 () 
 
-1. 对于“安装更新”，需要时请单击“安装更新”。 完成后，单击“下一步”。
-1. 对于“解决方案更新”，需要时请单击“安装扩展”。 完成后，单击“下一步”。
-1. 需要时单击“重启服务器”。 验证每台服务器是否已成功启动。
+1. 在 **1.5 安装更新** 上，单击 " **安装更新** " 以安装任何操作系统更新。 完成后，单击“下一步”。
+1. 在 **1.6 上安装硬件更新**，单击 "根据需要 **获取更新** " 以获取可用的供应商硬件更新。
+1. 按照供应商特定的步骤在硬件上安装更新。 这些步骤包括对硬件执行对称和合规性检查，以确保更新成功。 可能需要重新运行某些步骤。
+1. 在 **1.7 重新启动服务器** 上，单击 "需要时 **重新启动服务器** "。 验证每台服务器是否已成功启动。
 
 ## <a name="step-2-networking"></a>步骤 2：网络
 
-向导的步骤 2 将引导你完成为群集配置虚拟交换机和其他网络元素的过程。
+向导的步骤2逐步指导你为群集配置虚拟交换机、网络适配器和其他网络元素。 RDMA (支持 iWARP 和 RoCE ) 网络适配器。
+
+有关 RDMA 和 Hyper-v 主机联网 Azure Stack HCI 的详细信息，请参阅 [主机网络要求](../concepts/host-network-requirements.md)。
 
 > [!NOTE]
-> 如果在任何网络或虚拟交换机步骤中看到列出了错误，请尝试再次单击“应用并测试”。
+> 如果在任何网络或虚拟交换机步骤中看到列出了错误，请选择 " **应用并再次测试** "。
 
 1. 在完成时选择“下一步:网络”。
-1. 在“验证网络适配器”下，等待每个适配器旁边出现绿色的复选框，然后选择“下一步”。 
+1. 在 **2.1 检查网络适配器** 时，等待每个适配器旁边出现绿色复选框，然后选择 " **下一步**"。
 
-1. 对于“选择管理适配器”，请选择要用于每台服务器的一个或两个管理适配器。 出于管理目的，必须至少选择一个适配器，因为向导至少需要一个专用物理 NIC 进行群集管理。  指定进行管理所需的适配器后，系统就会将其从向导工作流的其余部分中排除。
+1. 在 **2.2 中，选择 "管理适配器**"，选择要用于每个服务器的一个或两个管理适配器。 出于管理目的，必须至少选择一个适配器，因为向导至少需要一个专用物理 NIC 进行群集管理。  指定进行管理所需的适配器后，系统就会将其从向导工作流的其余部分中排除。
+
+    :::image type="content" source="media/cluster/create-cluster-management-adapters.png" alt-text="创建群集向导-选择管理适配器" lightbox="media/cluster/create-cluster-management-adapters.png":::
 
     管理适配器有两个配置选项：
 
     - 一个用于管理的物理网络适配器。 对于此选项，DHCP 或静态 IP 地址分配受支持。
 
-    - 两个已组成一组以用于管理的物理网络适配器。 组合使用一对适配器时，仅支持静态 IP 地址分配。 如果所选适配器使用 DHCP 寻址（不管是针对其中的一个还是两个），则 DHCP IP 地址会在创建虚拟交换机之前转换为静态 IP 地址。
+    - 两个已组成一组以用于管理的物理网络适配器。 组合使用一对适配器时，仅支持静态 IP 地址分配。 如果所选适配器使用 DHCP 寻址 (两个) 中的一个或两个都为，则在创建虚拟交换机之前，DHCP IP 地址将转换为静态 IP 地址。
 
     可以通过使用组合的适配器与多个交换机建立单一连接，但只使用单个 IP 地址。 负载均衡会变得可用，并且容错功能是即时启用的，不需等待 DNS 记录更新。
 
     现在为每台服务器执行以下操作：
 
     - 选中“说明”复选框。 请注意，所有适配器都处于选中状态，向导可能会为你提供建议。
-    - 取消选中不希望将其用于群集管理的那些适配器的复选框。
+    - 清除不希望用于群集管理的适配器的复选框。
 
     > [!NOTE]
     > 可以使用 1 Gb 适配器作为管理适配器，但建议使用 10 Gb 或更快的适配器来传输存储和工作负荷 (VM) 流量。
@@ -126,16 +132,18 @@ ms.locfileid: "96354167"
 1. 在“定义网络”下，确保每台服务器的每个网络适配器都有唯一的静态 IP 地址、子网掩码和 VLAN ID。 将鼠标指针悬停在每个表元素上，根据需要输入或更改值。 完成后，单击“应用并测试”。
 
     > [!NOTE]
-    > 为了支持群集的 VLAN ID 配置，所有服务器中的所有网卡都必须支持 VLANID 属性。
+    > 若要支持群集的 VLAN ID 配置，所有服务器上的所有网络适配器都必须支持 VLANID 属性。
 
 1. 等到每台服务器的“状态”列都显示为“已通过”后，单击“下一步”。   此步骤验证具有相同子网和 VLAN ID 的所有适配器之间的网络连接性。 在下一步中创建虚拟交换机后，提供的 IP 地址将从物理适配器传输到虚拟适配器。 这可能需要几分钟才能完成，具体取决于配置的适配器数量。
 
-1. 在“虚拟交换机”下，根据情况选择以下选项之一。 并非所有选项都会显示，具体取决于存在的适配器数量：
+1. 在 " **2.3 虚拟交换机**" 下，选择下列选项之一（如果适用）。 根据存在的网络适配器数量，并非所有选项都可用：
 
-    - **跳过虚拟交换机创建**
-    - **创建一个同时用于计算和存储的虚拟交换机**
-    - **创建一个仅用于计算的虚拟交换机**
-    - **创建两个虚拟交换机**
+    - **跳过虚拟交换机创建** -选择是否要在以后设置虚拟交换机。
+    - **同时为计算和存储创建一个虚拟交换机** -如果要为 vm 和存储空间直通使用同一虚拟交换机，请选择此选项。 这是 "聚合" 选项。
+    - **仅创建一个虚拟交换机用于计算** -选择是否只为 vm 使用虚拟交换机。
+    - **创建两个虚拟交换机** -选择是否需要专用于 vm 和存储空间直通的专用虚拟交换机。
+
+        :::image type="content" source="media/cluster/create-cluster-virtual-switches.png" alt-text="创建群集向导-虚拟交换机" lightbox="media/cluster/create-cluster-virtual-switches.png":::
 
     > [!NOTE]
     > 如果打算部署用于 SDN 的网络控制器（在向导的“步骤 5:SDN”中），你将需要一个虚拟交换机。 因此，如果你在此处选择不创建虚拟交换机，并且不在向导外创建它，则向导将不会部署网络控制器。
@@ -150,83 +158,117 @@ ms.locfileid: "96354167"
 
 1. 根据需要更改交换机和其他配置设置的名称，然后单击“应用并测试”。 创建虚拟交换机后，每台服务器的“状态”列都应显示为“已通过”。
 
+1. 步骤 **2.4 RDMA** 是可选的。 如果使用的是 RDMA，请选择 " **配置 RDMA (建议)** " 复选框，然后单击 " **下一步**"。
+
+    :::image type="content" source="media/cluster/create-cluster-rdma.png" alt-text="创建群集向导-配置 RDMA" lightbox="media/cluster/create-cluster-rdma.png":::
+
+    有关分配带宽预留的信息，请参阅 "[主机网络要求](../concepts/host-network-requirements.md)" 中的 "[流量带宽分配](../concepts/host-network-requirements.md#traffic-bandwidth-allocation)" 部分。
+
+1. 选择 " **高级**"，然后选择 " **数据中心桥接 (DCB)** " 复选框。
+
+1. 在 " **群集检测信号**" 下，分配优先级和带宽预留百分比。
+
+1. 在 " **存储**" 下，分配优先级和带宽预留百分比。
+
+1. 完成后，选择 " **应用更改** "，然后单击 " **下一步**"。
+
+1. 在 **2.5 上定义网络** 时，请查看并编辑列出的每个适配器的名称、IP 地址、子网掩码、VLAN ID 和默认网关字段。
+
+    :::image type="content" source="media/cluster/create-cluster-define-networks.png" alt-text="创建群集向导-定义网络" lightbox="media/cluster/create-cluster-define-networks.png":::
+
+1. 完成后，单击“应用并测试”。 如果适配器的状态不正常，则可能需要 **重试连接测试** 。
+
 ## <a name="step-3-clustering"></a>步骤 3：群集功能
 
 向导的步骤 3 可确保目前的所有操作都已正确设置，并且在进行延伸群集部署的情况下会自动设置两个站点，然后实际创建群集。 也可在 Active Directory 中预先设置站点。
 
 1. 在完成时选择“下一步:群集功能”。
-1. 在“验证群集”下，选择“验证”。 验证可能需要几分钟。
+1. 在 **3.1 上验证群集**，选择 " **验证**"。 验证可能需要几分钟。
 
     如果出现“凭据安全服务提供程序(CredSSP)”弹出窗口，请选择“是”以暂时启用 CredSSP，以便向导继续。  创建群集并完成向导后，需禁用 CredSSP 以提高安全性。 如果遇到 CredSSP 问题，请参阅[对 CredSSP 进行故障排除](../manage/troubleshoot-credssp.md)以获取更多信息。
 
-1. 检查所有验证状态，下载报告以获取有关任何故障的详细信息，进行更改，然后单击“再次验证”（如果需要）。 根据需要重复此步骤，直到所有验证检查都通过。
-1. 在“创建群集”下，输入群集的名称。
-1. 在“网络”下选择首选配置。
-1. 在“IP 地址”下，选择要使用的动态或静态 IP 地址。
+1. 检查所有验证状态，下载报告以获取有关任何故障的详细信息，进行更改，然后单击“再次验证”（如果需要）。 也可以 **下载报表** 。 根据需要重复此步骤，直到所有验证检查都通过。 如果一切正常，请单击 " **下一步**"。
+1. 在 **3.2 创建群集** 上，输入群集的名称。
+
+    :::image type="content" source="media/cluster/create-cluster.png" alt-text="创建群集向导-创建群集" lightbox="media/cluster/create-cluster.png":::
+
+1. 在 " **IP 地址**" 下，选择要使用的静态或动态 IP 地址。
+1. 选择“高级”。 此处有几个选项：
+
+    - **向 DNS 注册群集并 Active Directory**
+    - **将符合条件的存储添加到群集 (建议)**
+
+1. 在 " **网络**" 下，选择是 **使用 (推荐的所有网络)** 还是 **指定一个或多个不使用的网络**。
+
 1. 完成后，单击“创建群集”。
 
-1. 对于延伸群集，请在“将服务器分配给站点”下指定要使用的两个站点。
+1. 对于延伸群集，在 **3.3 "将服务器分配到站点**" 上，命名将使用的两个站点。
 
-1. 接下来，将每台服务器分配给一个站点。 稍后需设置站点之间的复制。 完成后，单击“应用”。
+1. 接下来，将每台服务器分配给一个站点。 稍后需设置站点之间的复制。 完成后，单击 " **应用更改**"。
 
 ## <a name="step-4-storage"></a>步骤 4：存储
 
 向导的步骤 4 将引导你为群集设置存储空间直通。
 
 1. 在完成时选择“下一步:存储”。
-1. 在“验证驱动器”下，单击每台服务器旁边的 **>** 图标以验证磁盘是否正常工作并处于已连接状态，然后单击“下一步” 。
-1. 在“清理驱动器”下，单击“清理驱动器”以清空数据驱动器。  准备就绪后，单击“下一步”。
-1. 在“验证存储”下，单击“下一步”。
-1. 查看验证结果。 如果一切正常，请单击“下一步”。
-1. 在“启用存储空间直通”下，单击“启用”。 
-1. 下载报告并查看。 如果一切正常，请单击“完成”。
+1. 在 **4.1 清洗驱动器** 上，如果你的部署有意义，则可以选择 **删除驱动器** 。
+1. 在 **4.2 检查驱动器** 上，单击 **>** 每个服务器旁边的图标以验证磁盘是否正在运行且已连接。 如果一切正常，请单击 " **下一步**"。
+1. 在 **4.3** 上，单击 " **下一步**"。
+1. 下载并查看验证报告。 如果一切正常，请单击“下一步”。 否则，请 **再次运行验证**。
+1. 在 **4.4 上启用存储空间直通**，单击 " **启用**"。
+1. 下载并查看报表。 如果一切正常，请单击“完成”。 
+1. 选择 " **前往连接列表**"。
+1. 几分钟后，你应该会在列表中看到你的群集。 选择它以查看 "群集概述" 页。
 
-恭喜！你现在有了一个群集。
+在域中复制群集名称可能需要一些时间，尤其是在新添加了工作组服务器 Active Directory 时。 虽然群集可能显示在 Windows Admin Center 中，但可能尚不能连接到它。
 
-创建群集后，在整个域中复制群集名称可能要花费一些时间，尤其是在工作组服务器新添加到 Active Directory 中的情况下。 虽然群集可能显示在 Windows Admin Center 中，但可能尚不能连接到它。
-
-如果解析群集在一段时间后未成功，则在大多数情况下，你可以使用群集中的服务器名称来代替群集名称。
+如果在一段时间后解析群集未成功，在大多数情况下，你可以替换服务器名称而不是群集名称。
 
 ## <a name="step-5-sdn-optional"></a>步骤 5：SDN（可选）
 
 此可选步骤将指导你设置[软件定义的网络 (SDN)](../concepts/software-defined-networking.md) 的网络控制器组件。 网络控制器设置完成后，可以根据需要配置 SDN 的其他组件，如软件负载平衡器 (SLB) 和 RAS 网关。
 
 > [!NOTE]
-> 此向导目前不支持配置 SLB 和 RAS 网关。 可以使用 SDN Express 脚本来配置这些组件。 有关如何执行此操作的信息，请参阅 [SDNExpress GitHub](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts) 存储库。
+> 向导不会为 SDN 配置 SLB 和 RAS 网关。 可以使用 SDN Express 脚本来配置这些组件。 有关如何执行此操作的信息，请参阅 [SDNExpress GitHub](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)存储库。
 
 > [!NOTE]
-> SDN 不受支持或不可用于拉伸群集。
-
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="创建群集向导 - SDN 网络控制器" lightbox="media/cluster/create-cluster-network-controller.png":::
+> 延伸群集不支持 SDN。
 
 1. 在完成时选择“下一步:SDN”。
-1. 在“主机”下，输入网络控制器的名称。 这是管理客户端使用的 DNS 名称 (例如 Windows 管理中心) 与网络控制器通信。
+
+    :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="创建群集向导 - SDN 网络控制器" lightbox="media/cluster/create-cluster-network-controller.png":::
+
+1. 在 **5.1 上定义网络控制器群集** 后，在 " **主机**" 下输入网络控制器的名称。 这是管理客户端使用的 DNS 名称 (例如 Windows 管理中心) 与网络控制器通信。
 1. 指定 Azure Stack HCI VHD 文件的路径。 使用“浏览”可更快地找到它。
 1. 指定要专用于网络控制器的 VM 数量。 建议至少使用三个 VM 以实现高可用性。
 1. 在 " **网络**" 下，输入管理网络的 VLAN ID。 网络控制器需要连接到与主机相同的管理网络，以便进行主机通信和配置。
+
+    > [!NOTE]
+    > 网络控制器 Vm 使用用于群集管理的虚拟交换机（如果可用），否则它们使用 "计算" 虚拟交换机，如其他群集 Vm。 有关详细信息，请参阅[计划部署网络控制器](../concepts/network-controller.md)中的[网络控制器要求](../concepts/network-controller.md#network-controller-requirements)部分。
+
 1. 对于“VM 网络寻址”，请选择“DHCP”或“静态”。
 1. 如果选择了 **DHCP**，请输入网络控制器 vm 的名称。
-1. 如果选择了“静态”，请执行以下操作：
-    1. 指定 IP 地址
-    1. 指定子网前缀。
-    1. 指定默认网关。
-    1. 指定一个或多个 DNS 服务器。 单击“添加”添加其他 DNS 服务器。
+1. 如果选择了 " **静态**"，请指定以下各项：
+    1. IP 地址。
+    1. 子网前缀。
+    1. 默认网关。
+    1. 一个或多个 DNS 服务器。 单击“添加”添加其他 DNS 服务器。
 1. 在“凭据”下，输入用于将网络控制器 VM 加入到群集域的用户名和密码。
 1. 输入这些 VM 的本地管理密码。
 1. 在“高级”下，输入 VM 的路径。
 1. 输入“MAC 地址池起始地址”的值和“MAC 地址池结束地址”的值。
 1. 完成后，单击 **“下一步”** 。
-1. 一直等到向导完成其作业。 在所有进度任务完成之前，请留在此页上。 然后单击“完成”。
+1. **部署网络控制器** 后，请等待向导完成其作业。 在所有进度任务完成之前，请留在此页上。 然后单击“完成”。
 
-1. 创建网络控制器 Vm 后，请在 DNS 服务器上为网络控制器群集名称配置动态 DNS 更新。 有关如何执行此操作的信息，请参阅 [为网络控制器配置动态 DNS 注册](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)。
+1. 创建网络控制器 Vm 后，请在 DNS 服务器上为网络控制器群集名称配置动态 DNS 更新。 有关如何执行此操作的信息，请参阅 [为网络控制器配置动态 DNS 注册](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)。
 
-如果网络控制器部署失败，请先执行以下操作，然后再重试：
+1. 如果网络控制器部署失败，请先执行以下操作，然后再重试：
 
 - 停止并删除向导创建的所有网络控制器 VM。  
 
 - 清理向导创建的任何 VHD 装入点。  
 
-- 确保 Hyper-V 主机上至少有 50-100GB 的可用空间。  
+- 确保 Hyper-v 主机上至少有 50 GB 的可用空间。  
 
 ## <a name="after-you-complete-the-wizard"></a>完成向导后
 
@@ -244,7 +286,7 @@ ms.locfileid: "96354167"
 
 - 设置群集见证。 请参阅[设置群集见证](witness.md)。
 - 创建卷。 请参阅[创建卷](../manage/create-volumes.md)。
-- 对于延伸群集，请使用存储副本创建卷并设置复制。 请参阅[为延伸群集创建卷和设置复制](../manage/create-stretched-volumes.md)。
+- 对于延伸群集，请创建卷并设置复制。 请参阅 [创建延伸群集卷和设置复制](../manage/create-stretched-volumes.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

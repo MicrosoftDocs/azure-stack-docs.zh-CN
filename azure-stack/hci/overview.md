@@ -6,19 +6,19 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/7/2020
-ms.openlocfilehash: c6fe98d9f597f40d0a5cefde151eb36736b81d7a
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.date: 12/10/2020
+ms.openlocfilehash: 918bc4fdee076cdfe5b158f9b276eff789c9ecf8
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761688"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011189"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI 解决方案概述
 
-Azure Stack HCI 是一种超融合基础设施 (HCI) 群集解决方案，它在混合的本地环境中托管虚拟化的 Windows 和 Linux 工作负载以及其存储。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。 你可以使用现有工具（包括 Windows Admin Center、System Center 和 PowerShell）管理群集。
+Azure Stack HCI 是一种超聚合基础结构， (HCI) 群集解决方案，该解决方案在混合的本地环境中托管虚拟化 Windows 和 Linux 工作负荷及其存储。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。 你可以使用现有工具（包括 Windows Admin Center、System Center 和 PowerShell）管理群集。
 
-Azure Stack HCI 版本 20H2 是全新的操作系统，现在有公共预览版并[可供下载](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)。 它适用于运行虚拟化工作负载且内置混合云连接的本地群集。 因此，Azure Stack HCI 作为 Azure 服务交付，并根据 Azure 订阅计费。 Azure Stack HCI 现在还具备托管 Azure Kubernetes 服务的功能；有关详细信息，请参阅 [Azure Stack HCI 上的 Azure Kubernetes 服务](../aks-hci/overview.md)。
+Azure Stack HCI，版本20H2 现 [可供下载](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)。 它适用于运行虚拟化工作负载且内置混合云连接的本地群集。 因此，Azure Stack HCI 作为 Azure 服务交付，并根据 Azure 订阅计费。 Azure Stack HCI 现在还具备托管 Azure Kubernetes 服务的功能；有关详细信息，请参阅 [Azure Stack HCI 上的 Azure Kubernetes 服务](../aks-hci/overview.md)。
 
 请花几分钟时间观看 Azure Stack HCI 的高级功能的视频：
 
@@ -62,7 +62,7 @@ Azure Stack HCI 针对混合基础结构进行了独特的定位，允许你利�
 在向 Azure 注册 Azure Stack HCI 群集后，可以首先将 Azure 门户用于：
 
 - **监视：** 在单个全局视图中查看所有 Azure Stack HCI 群集，你可以在其中按资源组对它们进行分组并对其进行标记。
-- **计费：** 通过 Azure 订阅为 Azure Stack HCI 付费（请注意，使用公共预览版时无需付费）。
+- **计费：** 通过 Azure 订阅为 Azure Stack HCI 付费。
 
 我们正在努力创建更多的功能，请继续关注以获得更多功能。
 
@@ -96,7 +96,7 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 
 - 包含 [Azure Stack HCI 目录](https://aka.ms/azurestackhcicatalog)中的两个或更多服务器的群集，从首选的 Microsoft 硬件合作伙伴处购买
 - [Azure 订阅](https://azure.microsoft.com/)
-- 群集中每个服务器的 Internet 连接，该服务器可以至少每 30 天通过 HTTPS 出站流量连接到以下终结点：*-azurestackhci-usage.azurewebsites.net
+- 为群集中的每个服务器建立 internet 连接，该连接可通过 HTTPS 出站流量连接到众所周知的 Azure 终结点，至少每30天
 - 对于跨站点延伸的群集，你需要在站点之间至少有 1 Gb 的连接（首选 25 Gb RDMA 连接），如果你想要在两个站点中同时进行写入的同步复制，则平均延迟为 5 毫秒往返
 - 如果打算使用软件定义的网络 (SDN) ，则需要 Azure Stack HCI 操作系统的虚拟硬盘 (VHD) 才能创建网络控制器 Vm (参阅 [计划部署网络控制器](concepts/network-controller.md)) 
 
@@ -110,7 +110,7 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 
 ## <a name="software-partners"></a>软件合作伙伴
 
-有多种 Microsoft 合作伙伴处理 Azure Stack HCI 功能的软件，同时允许 IT 管理员使用熟悉的工具。 例如，Altaro 是一家全球范围内的备份解决方案和 Microsoft 金牌合作伙伴，致力于在其 Altaro VM 备份解决方案中支持 Azure Stack HCI。 这样，客户和托管服务提供商在 2021 年 6 月底之前，都可以免费备份在 Azure Stack HCI 上运行的虚拟机。 [详细了解此公告](http://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)。
+有多种 Microsoft 合作伙伴处理 Azure Stack HCI 功能的软件，同时允许 IT 管理员使用熟悉的工具。 若要了解详细信息，请参阅 [适用于 AZURE STACK HCI 的实用工具应用程序](concepts/utility-applications.md)。
 
 ## <a name="licensing-billing-and-pricing"></a>许可、计费和定价
 
@@ -133,7 +133,6 @@ Azure Stack HCI 计费基于每个物理处理器核心（而不是永久许可�
 - [System Center](https://www.microsoft.com/cloud-platform/system-center)
 - [PowerShell](/powershell/)
 - 其他管理工具（例如[服务器管理器](/windows-server/administration/server-manager/server-manager)）和 MMC 管理单元
-- 非 Microsoft 工具（如 5Nine Manager）
 
 ## <a name="the-azure-stack-family"></a>Azure Stack 系列
 
@@ -202,20 +201,21 @@ Windows Admin Center 版本 2009 为 Azure Stack HCI 添加了许多功能，其
 
 - Azure Kubernetes 服务托管功能：现在可以安装 [Azure Stack HCI 上的 Azure Kubernetes 服务](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)预览版。
 - 群集创建向导中包含软件定义的网络：群集创建向导现在提供了用于在[群集创建](deploy/create-cluster.md#step-5-sdn-optional)过程中部署[软件定义的网络 (SDN)](concepts/software-defined-networking.md) 网络控制器功能的选项。
+- **群集创建向导中 (rdma) 增强的远程直接内存访问**：群集创建向导现在可以为 IWARP 和 RoCE 网络适配器配置 RDMA，包括数据中心桥接 (DCB) 。
 
 若要详细了解 Windows Admin Center 中的新功能，请参阅 [Windows Admin Center 博客](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog)。
 
 与基于 Windows Server 2019 的解决方案相比，运行 Azure Stack HCI 版本 20H2 的群集具有以下新功能：
 
 - **Windows Admin Center 中的新功能**：由于能够通过直观的 UI 创建和更新超融合群集，Azure Stack HCI 比以往任何时候都更容易使用。
-- **自动故障转移的延伸群集**：具有存储副本复制和自动 VM 故障转移功能的多站点群集为使用存储空间直通的群集提供了本机灾难恢复和业务连续性。
+- **自动故障转移的延伸群集**：具有存储副本复制和自动 VM 故障转移功能的多站点群集提供本机灾难恢复和业务连续性。
 - **相关性和消除相关性规则**：这些规则可以类似于 Azure 如何使用可用性区域将 vm 和存储与多个容错域一起或在群集中分离，如扩展群集。
 - **Azure 门户集成**：Azure Stack HCI 的 Azure 门户体验旨在查看全球范围内的所有 Azure Stack HCI 群集以及正在开发中的新功能。
 - **高性能工作负荷的 GPU 加速**：AI/ML 应用程序可以从使用 GPU 提高性能中获益。
 - **BitLocker 加密**：你现在可以使用 BitLocker 对 Azure Stack HCI 上的数据卷内容进行加密，帮助政府和其他客户遵守 FIPS 140-2 和 HIPAA 等标准。
 - **提高了存储空间直通卷的修复速度**：快速、无缝地修复卷。
 
-Windows Admin Center 版本 20H2 还为基于 Windows Server 的群集提供了新的群集更新 UI，包括原始的 Azure Stack HCI 解决方案。 虽然你可以在 Windows Server 上使用新群集创建向导，但它不能使用存储空间直通创建 Windows Server 群集；需要使用 Azure Stack HCI 操作系统。
+Windows Admin Center 版本 20H2 还为基于 Windows Server 的群集提供了新的群集更新 UI，包括原始的 Azure Stack HCI 解决方案。 虽然你可以将新建群集创建向导用于 Windows Server，但它不能使用存储空间直通创建 Windows Server 群集。需要 Azure Stack HCI 操作系统。
 
 ## <a name="roles-you-can-run-without-virtualizing"></a>无需虚拟化即可运行的角色
 
@@ -224,7 +224,7 @@ Windows Admin Center 版本 20H2 还为基于 Windows Server 的群集提供了�
 这意味着你可以运行以下服务器角色：
 
 - Hyper-V
-- 软件定义网络 (SDN) 所需的网络控制器和其他组件
+- 网络控制器和软件定义的网络所需的其他组件 (SDN) 
 
 但任何其他角色和应用都必须运行在 VM 中。 请注意，你可以运行用于管理托管 VM 和为了托管 VM 正常运行所需的实用程序、应用和服务。
 

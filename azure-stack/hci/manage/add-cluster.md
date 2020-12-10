@@ -5,17 +5,17 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 11/06/2020
-ms.openlocfilehash: 1caa5e6573137ec33680ea3a13e7beeda12de424
-ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
+ms.date: 12/10/2020
+ms.openlocfilehash: fc52f53a31b8d7cdcb91dd93e0fbe97c94b7e846
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94360184"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010902"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>添加或删除 Azure Stack HCI 群集的服务器
 
-> 适用于：Azure Stack HCI 版本 20H2
+> 适用于：Azure Stack HCI，版本 20H2
 
 可以在 Azure Stack HCI 的群集中轻松地添加或删除服务器。 请记住，在 CPU 类型、内存、驱动器数量以及驱动器的类型和大小方面，每个新的物理服务器必须与群集中的其他服务器严格匹配。
 
@@ -67,7 +67,11 @@ ms.locfileid: "94360184"
 
 延伸群集要求每个站点中有相同数量的服务器节点和相同数量的驱动器。 向延伸群集添加服务器对时，会立即将其驱动器添加到延伸群集中这两个站点的存储池中。 如果每个站点上的存储池的大小与添加时的大小不同，则会被拒绝。 这是因为存储池的大小必须在站点之间是相同的。
 
-与非拉伸群集不同，只能使用 Windows PowerShell 将服务器添加到延伸群集或从中删除服务器。 使用 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) 和 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) cmdlet，首先修改站点 (容错域) 信息，然后再添加服务器。
+向延伸群集添加服务器节点时，请花几分钟时间观看视频：
+
+> [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
+
+使用 Windows PowerShell 在延伸群集中添加或删除服务器。 使用 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) 和 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) cmdlet，首先修改站点 (容错域) 信息，然后再添加服务器。
 
 然后，可以使用 [start-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) cmdlet 同时添加每个站点的服务器对，允许同时添加每个新服务器的驱动器。
 

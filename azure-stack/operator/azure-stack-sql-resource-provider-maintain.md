@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: ec2eebc7aa8195c0560beb8c61f0f98ce1689b07
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96035328"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011342"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -108,7 +108,7 @@ SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护
 |参数|说明|注释|
 |-----|-----|-----|
 |AzureEnvironment|用于部署 Azure Stack Hub 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment** 或使用中国 Azure Active Directory、 **AzureChinaCloud**。|可选|
-|AzCredential|Azure Stack Hub 服务管理员帐户凭据。|必需|
+|AzCredential|Azure Stack Hub 服务管理员帐户凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。|必需|
 |CloudAdminCredential|Azure Stack Hub 云管理域帐户凭据。|必需|
 |PrivilegedEndpoint|用于访问 Get-AzureStackStampInformation 的特权终结点。|必需|
 |DiagnosticsUserPassword|诊断用户帐户密码。|可选|

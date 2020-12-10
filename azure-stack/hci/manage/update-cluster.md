@@ -5,23 +5,20 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: acb3b9c8c0db738d04bba44ccec799a5f9c0939b
-ms.sourcegitcommit: 75603007badd566f65d01ac2eacfe48ea4392e58
+ms.openlocfilehash: 001cf81721423aad770093c0fe5cf92ec6b66af8
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92688299"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010815"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>更新 Azure Stack HCI 群集
 
 > 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-更新 Azure Stack HCI 群集时，目标是通过一次仅更新群集中的一个服务器来保持可用性。 许多操作系统更新需要使服务器脱机，例如需要重新启动或更新软件（如网络堆栈）。 建议使用 Cluster-Aware 更新 (CAU) ，这是一项功能，可在群集中的每台服务器上轻松地安装更新，同时使应用程序保持运行。 如果需要，Cluster-Aware 更新会使服务器进入和退出维护模式，同时安装更新并重新启动服务器。 Cluster-Aware 更新是 Windows 管理中心使用的默认更新方法，还可以使用 PowerShell 来启动。
+更新 Azure Stack HCI 群集时，目标是通过一次仅更新群集中的一个服务器来保持可用性。 许多操作系统更新需要使服务器脱机，例如需要重新启动或更新软件（如网络堆栈）。 建议使用群集感知更新 (CAU)，这项功能使你可以在保持应用程序运行的同时，轻松地在群集中的每个服务器上安装更新。 群集感知更新可在安装更新并重启服务器（如有必要）时自动使服务器进入和退出维护模式。 群集感知更新是 Windows Admin Center 使用的默认更新方法，还可以使用 PowerShell 来启动。
 
-   > [!IMPORTANT]
-   > 2020年10月20日预览版更新 (KB4580388) 对于 Azure Stack HCI，如果预计任何虚拟机在 CAU 期间应执行实时迁移，则可能导致群集感知更新操作失败。 有关解决方法，请参阅 [发行说明](../release-notes.md#october-20-2020-preview-update-kb4580388) 。
-
-本主题重点介绍操作系统和软件更新。 如果需要使服务器脱机以对硬件执行维护，请参阅 [使服务器脱机以进行维护](maintain-servers.md)。
+本主题重点介绍操作系统更新和软件更新。 如果需要使服务器脱机以对硬件执行维护，请参阅[使服务器脱机以进行维护](maintain-servers.md)。
 
 ## <a name="update-a-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 更新群集
 
@@ -93,7 +90,7 @@ Install-WindowsFeature –Name RSAT-Clustering-PowerShell -ComputerName Server1
 -   远程更新模式：在此模式下，将使用“故障转移群集工具”配置与故障转移群集之间有网络连接但不是故障转移群集成员的远程管理计算机（通常是 Windows 10 PC）。 从该远程管理计算机（称为更新协调器）中，管理员使用默认或自定义更新运行配置文件触发按需更新运行。 远程更新模式对于监视更新运行期间的实时进度以及在服务器核心安装上运行的群集非常有用。  
 
    > [!NOTE]
-   > 从 Windows 10 的 2018 年 10 月版更新开始，RSAT 作为 Windows 10 中的一组“按需功能”提供。 只需转到“设置”>“应用”>“应用和功能”>“可选功能”>“添加功能”>“RSAT:  故障转移群集工具”并选择“安装”即可  。 若要查看安装进度，请单击“上一步”按钮以查看“管理可选功能”页上的状态。 安装的功能会保留在 Windows 10 升级版中。 若要为 2018 年 10 月更新版本之前的 Windows 10 安装 RSAT，请[下载 RSAT 程序包](https://www.microsoft.com/download/details.aspx?id=45520)。
+   > 从 Windows 10 的 2018 年 10 月版更新开始，RSAT 作为 Windows 10 中的一组“按需功能”提供。 只需转到“设置”>“应用”>“应用和功能”>“可选功能”>“添加功能”>“RSAT:故障转移群集工具”并选择“安装”即可。 若要查看安装进度，请单击“上一步”按钮以查看“管理可选功能”页上的状态。 安装的功能会保留在 Windows 10 升级版中。 若要为 2018 年 10 月更新版本之前的 Windows 10 安装 RSAT，请[下载 RSAT 程序包](https://www.microsoft.com/download/details.aspx?id=45520)。
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>将 CAU 群集角色添加到群集
 
@@ -182,28 +179,28 @@ InstallResults           : Microsoft.ClusterAwareUpdating.UpdateInstallResult[]
 
 ## <a name="perform-a-fast-offline-update-of-all-servers-in-a-cluster"></a>对群集中的所有服务器执行快速的脱机更新
 
-此方法允许同时关闭群集中的所有服务器并同时更新所有服务器。 这会在更新过程中节省时间，但托管资源会造成停机。
+此方法使你可以立即关闭群集中的所有服务器，并同时更新所有服务器。 这样可以节省更新过程中的时间，但是要权衡的是托管资源的停机时间。
 
-如果有需要快速应用的重要安全更新，或者需要确保更新在维护时段内完成，则可以使用此方法。 此过程会关闭 Azure Stack HCI 群集，更新服务器，并再次将其打开。
+如果有重要的安全更新程序需要快速应用，或者需要确保更新在维护时段内完成，则可以使用此方法。 此过程会关闭 Azure Stack HCI 群集，更新服务器，然后再次将其重启。
 
 1. 规划维护时段。
 2. 使虚拟磁盘脱机。
-3. 停止群集以使存储池脱机。 运行  **停止群集** cmdlet，或使用 Windows 管理中心停止群集。
-4. 将群集服务设置为在每个服务器上的 services.msc 中 **禁用** 。 这会阻止群集服务在更新后启动。
+3. 停止群集以使存储池脱机。 运行 **Stop-Cluster** cmdlet 或使用 Windows Admin Center 停止群集。
+4. 在每个服务器上的 Services.msc 中将群集服务设置为“禁用”。 这会阻止群集服务在更新时启动。
 5. 将 Windows Server 累积更新和任何所需的服务堆栈更新应用于所有服务器。 可以同时更新所有服务器，因为群集已关闭，无需等待。
-6. 重新启动服务器，确保一切正常。
-7. 在每个服务器上将群集服务重新设置为 **自动** 。
-8. 启动群集。 运行 **启动群集** cmdlet 或使用 Windows 管理中心。
+6. 重启服务器，并确保一切正常。
+7. 在每个服务器上将群集服务重新设置为“自动”。
+8. 启动群集。 运行 Start-Cluster cmdlet 或使用 Windows Admin Center。
 
-   请花几分钟时间。  请确保存储池处于正常状态。
+   稍等几分钟。  请确保存储池处于正常状态。
 
-9. 使虚拟磁盘恢复联机。
-10. 通过运行 **VirtualDisk** cmdlet 来监视虚拟磁盘的状态 **Get-Volume** 。
+9. 使虚拟磁盘恢复联机状态。
+10. 通过运行 Get-Volume 和 Get-VirtualDisk cmdlet 来监视虚拟磁盘的状态。
 
 ## <a name="next-steps"></a>后续步骤
 
 如需相关信息，另请参阅：
 
-- [群集感知更新 (CAU) ](/windows-server/failover-clustering/cluster-aware-updating)
+- [群集感知更新 (CAU)](/windows-server/failover-clustering/cluster-aware-updating)
 - [在存储空间直通中更新驱动器固件](/windows-server/storage/update-firmware)
 - [验证 Azure Stack HCI 群集](../deploy/validate.md)

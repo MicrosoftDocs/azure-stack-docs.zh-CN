@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2019
-ms.openlocfilehash: 7046eff5aa90504e2f02d7b7d24b1c2a74421270
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b232bf2efb690ddc0a351d762e6866a75ced4a81
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697172"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011359"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 
@@ -41,7 +41,7 @@ ms.locfileid: "77697172"
     * **PrivilegedEndpoint**：特权终结点的 IP 地址或 DNS 名称。
     * **AzureEnvironment**：用于部署 Azure Stack Hub 的 Azure 环境。 仅对于 Azure AD 部署是必需的。
     * **CloudAdminCredential**：访问特权终结点时所需的云管理员凭据。
-    * **AzCredential**：Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。
+    * **AzCredential**：Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。
 
 ## <a name="next-steps"></a>后续步骤
 
