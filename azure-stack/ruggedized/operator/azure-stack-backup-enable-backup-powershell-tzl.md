@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9f50a6096f0fb7881d37a67df34bdcd6f2487eb9
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: f0476f3ee331c014436e9ee2f879afcafb3320d7
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935043"
+ms.locfileid: "96939382"
 ---
 # <a name="configure-backup-for-azure-stack-with-powershell"></a>为 Azure Stack 配置 PowerShell
 
@@ -30,7 +30,7 @@ ms.locfileid: "96935043"
 
 ## <a name="prepare-powershell-environment"></a>准备 PowerShell 环境
 
-有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](../../operator/powershell-install-az-module.md)。 若要登录到 Azure Stack，请参阅[配置操作员环境并登录到 Azure Stack](../../operator/azure-stack-powershell-configure-admin.md)。
+有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](../../operator/azure-stack-powershell-install.md)。 若要登录到 Azure Stack，请参阅[配置操作员环境并登录到 Azure Stack](../../operator/azure-stack-powershell-configure-admin.md)。
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>提供备份共享、凭据和加密密钥以启用备份
 

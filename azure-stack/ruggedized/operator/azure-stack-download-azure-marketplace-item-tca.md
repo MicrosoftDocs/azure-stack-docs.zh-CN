@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 734c84c1226a9e1ed4a9f3e34b787f1677ab6902
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935026"
+ms.locfileid: "96939374"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub 
 
@@ -60,11 +60,11 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 4. 每个行项还显示当前可用版本。 如果某个市场项有多个可用版本，“版本”列会显示“多个”。  可以单击每个项查看其说明和附加信息，包括其下载大小：
 
-   ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
+   ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
 
 5. 如果某个项的版本显示为 **多个**，则可以选择该项目，然后从生成的版本选择器下拉列表中选择特定版本：
 
-   ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
+   ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure3.png)
 
 6. 选择所需的项，然后选择“下载”。 下载时间根据网络连接性能而异。 下载完成后，可以 Azure Stack 操作员或用户的身份部署新市场项。
 
@@ -90,10 +90,6 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 #### <a name="download-items"></a>下载项目
 
-
-
-### <a name="az-modules"></a>[Az 模块](#tab/az1)
-
 1. 打开 PowerShell 并中转到解压缩的文件夹。
 
 2. 运行 **Invoke-AzSMarketplaceDownload.ps1** PowerShell 脚本：
@@ -104,42 +100,18 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
        -TenantName mytenant.onmicrosoft.com -DownloadFolder 'F:\offlineSyndication'
     ```
 
-    或者，如果已通过 Azure PowerShell 登录，则可以传入 Azure 上下文：
-
-    ```powershell
-    Add-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
-    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
-    ```
-    如果未传入 Azure 上下文，则会要求你登录。
-
-3. 此时将显示一个窗口，您可以在其中选择要下载的产品。 可以按住 Ctrl 并单击来选择多个项。
-
-4. 选择“确定”  。 这会下载 marketplace 项及其依赖项（如果有）。
-### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
-
-1. 打开 PowerShell 并中转到解压缩的文件夹。
-
-2. 运行 **Invoke-AzSMarketplaceDownload.ps1** PowerShell 脚本：
-
-    ```powershell
-    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationSubscriptionId '<subscription ID>' ` 
-       -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' `
-       -TenantName mytenant.onmicrosoft.com -DownloadFolder 'F:\offlineSyndication'
-    ```
-
-    或者，如果已通过 Azure PowerShell 登录，则可以传入 Azure 上下文：
+    或者，如果已通过 Azure Powershell 登录，则可以传入 Azure 上下文：
 
     ```powershell
     Add-AzureRmAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
     .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
     ```
+
     如果未传入 Azure 上下文，则会要求你登录。
 
 3. 此时将显示一个窗口，您可以在其中选择要下载的产品。 可以按住 Ctrl 并单击来选择多个项。
 
 4. 选择“确定”  。 这会下载 marketplace 项及其依赖项（如果有）。
-
----
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>将 Marketplace 项上载到 Azure Stack 中心
 
@@ -151,8 +123,6 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 #### <a name="upload-items"></a>上传项目
 
-### <a name="az-modules"></a>[Az 模块](#tab/az2)
-
 1. 打开 PowerShell 并中转到解压缩的文件夹。
 
 2. 运行 **Invoke-AzSMarketplaceUpload.ps1** PowerShell 脚本：
@@ -161,29 +131,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
     .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
     ```
 
-    或者，你可以在 Azure PowerShell 中自行设置 Azure Stack 环境，对 admin 资源管理器终结点进行身份验证，并将上下文传递给脚本：
-
-    ```powershell
-    Add-AzEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
-
-    Add-AzAccount -Environment Redmond-Admin
-
-    .\Invoke-AzsMarketplaceUpload.ps1 -DownloadFolder F:\Downloads\offlining -AzureContext $(GetAzContext)
-    ```
-
-    此过程将 marketplace 项上载到指定的 Azure Stack 中心。
-
-### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
-
-1. 打开 PowerShell 并中转到解压缩的文件夹。
-
-2. 运行 **Invoke-AzSMarketplaceUpload.ps1** PowerShell 脚本：
-
-    ```powershell
-    .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
-    ```
-
-    或者，你可以在 Azure PowerShell 中自行设置 Azure Stack 环境，对 admin 资源管理器终结点进行身份验证，并将上下文传递给脚本：
+    或者，你可以在 Azure Powershell 中自行设置 Azure Stack 环境、向管理员资源管理器终结点进行身份验证，并将上下文传递给脚本：
 
     ```powershell
     Add-AzureRmEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
@@ -194,5 +142,3 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
     ```
 
     此过程将 marketplace 项上载到指定的 Azure Stack 中心。
-
----

@@ -3,16 +3,16 @@ title: 可用于 Azure Stack Hub 的 Azure 市场项
 description: 了解哪些 Azure 市场项可以在 Azure Stack Hub 中使用。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 12/9/2020
 ms.author: sethm
 ms.reviewer: gara
-ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: afb69e3060137cece30004ccf59c1c3a88833b91
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.lastreviewed: 12/9/2020
+ms.openlocfilehash: ccc190d13d78f3dbbfdca3b05a1868763637f55b
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557423"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935213"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>可用于 Azure Stack Hub 的 Azure 市场项
 

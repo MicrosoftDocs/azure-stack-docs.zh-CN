@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: chasat
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
+ms.lastreviewed: 12/17/2019
+ms.openlocfilehash: ed1809d44f54ec65c60c5a1e17ca472ee401b5ba
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934976"
+ms.locfileid: "96939378"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>在 Azure Stack 集线器中旋转容器注册表机密
 
@@ -29,7 +29,7 @@ Azure Stack 中心用户可以为容器注册表模板部署轮换 (证书、用
 
 ## <a name="prerequisites-for-the-user"></a>用户的先决条件
 
- - 用户需要安装 Azure Stack 中心 PowerShell 模块。 有关详细信息，请参阅[安装适用于 Azure Stack 的 PowerShell](../../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)。
+ - 用户需要安装 Azure Stack 中心 Powershell 模块。 有关详细信息，请参阅[安装适用于 Azure Stack 的 PowerShell](../../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)。
 
  - 获取容器注册表模板的更新密码。 可以使用新的 SSL 证书或新的用户名和密码组合来访问 Docker 注册表。
 
@@ -253,19 +253,19 @@ Azure Stack 中心用户可以为容器注册表模板部署轮换 (证书、用
 
 2.  导航到容器注册表模板 VM 所部署到的资源组。
 
-    ![资源组](./media/container-registry-template-rotating-secrets-tzl/resource-group.png)
+    ![容器注册表模板](./media/container-registry-template-rotating-secrets-tzl/image1.png)
 
 3. 选择 **部署下的部署。**
 
-    ![部署](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
+    ![容器注册表模板](./media/container-registry-template-rotating-secrets-tzl/image2.png)
 
 4.  如果是第一次轮换密钥，请选择原始部署。 如果这不是第一次轮换机密，请选择最新部署，然后选择 "重新 **部署**"。
 
-    ![重新部署](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
+    ![容器注册表模板](./media/container-registry-template-rotating-secrets-tzl/image3.png)
 
 5.  在 " **部署解决方案模板**" 中，选择 " **使用现有资源组** "，并选择最初用于部署容器注册表模板的资源组。 为了成功重新部署，必须使用相同的资源组。
 
-    ![部署解决方案模板](./media/container-registry-template-rotating-secrets-tzl/deploy-solution-template.png)
+    ![容器注册表模板](./media/container-registry-template-rotating-secrets-tzl/image4.png)
 
 6.  In **参数** 检查参数是否与原始部署匹配。 将需要添加服务主体客户端 ID 和服务主体机密。
 
@@ -273,7 +273,7 @@ Azure Stack 中心用户可以为容器注册表模板部署轮换 (证书、用
 
     - 如果要轮换此证书，则需要输入 PFXKeyVaultSecretURL 和 PFXThumbprint 的新值，这些值是通过设置新机密输出的。
 
-    ![参数](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
+    ![容器注册表模板](./media/container-registry-template-rotating-secrets-tzl/image5.png)
 
 7.  选择“确定”，然后选择“创建”。 重新部署将继续。 在重新部署过程中，注册表功能将继续工作。
 

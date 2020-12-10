@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 管理基础知识。
 author: justinha
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 06/16/2020
 ms.author: justinha
 ms.reviewer: thoroet
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9369f29d802350f71ac4a5a462009768dec5c2cb
+ms.lastreviewed: 06/16/2020
+ms.openlocfilehash: afbfbf5c1fe7149b4d12f1cd96af79b1116e4a3a
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934924"
+ms.locfileid: "96939403"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub 管理基础知识
 
@@ -151,7 +151,7 @@ Azure Stack Hub 使用 Azure 资源管理器作为其基础的部署、管理和
 
 用户需要知道如何[访问用户门户](../../user/azure-stack-use-portal.md)，或者如何通过 PowerShell 进行连接。 在集成系统环境中，用户门户地址随部署而变。 需向用户提供正确的 URL。
 
-如果使用 PowerShell，用户可能需要先注册资源提供程序，然后才能使用服务。 资源提供程序用于管理服务。 例如，网络资源提供程序用于管理虚拟网络、网络接口和负载均衡器之类的资源。 用户必须[安装](../../operator/powershell-install-az-module.md) PowerShell，[下载](../../operator/azure-stack-powershell-download.md)更多的模块，然后[配置](../../user/azure-stack-powershell-configure-user.md) PowerShell（包括资源提供程序注册）。
+如果使用 PowerShell，用户可能需要先注册资源提供程序，然后才能使用服务。 资源提供程序用于管理服务。 例如，网络资源提供程序用于管理虚拟网络、网络接口和负载均衡器之类的资源。 用户必须[安装](../../operator/azure-stack-powershell-install.md) PowerShell，[下载](../../operator/azure-stack-powershell-download.md)更多的模块，然后[配置](../../user/azure-stack-powershell-configure-user.md) PowerShell（包括资源提供程序注册）。
 
 ### <a name="subscribe-to-an-offer"></a>订阅产品
 

@@ -3,17 +3,17 @@ title: 从 Azure 下载市场项并发布到 Azure Stack Hub
 description: 了解如何从 Azure 下载市场项并发布到 Azure Stack Hub。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/9/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/18/2020
+ms.lastreviewed: 12/9/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: ce6e3b416731f07989e8a7c1d91e363059e11bbc
-ms.sourcegitcommit: 9bca59a53787a9884b4643eb760ad1b2c1feb57f
+ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96579764"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934958"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub
 
@@ -88,14 +88,23 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
   - 已建立 Internet 连接的计算机必须已安装 **Azure Stack Hub PowerShell 模块版本 1.2.11** 或更高版本。 如果未安装，请[安装 Azure Stack Hub 特定的 PowerShell 模块](powershell-install-az-module.md)。
 
   - 为了能够导入已下载的市场项，必须配置 [Azure Stack Hub 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md)。
+  - .NET Framework 4.7 或更高版本。
 
-- 使用以下命令从 PowerShell 库下载 Azs.Syndication.Admin 模块：
+使用以下命令从 PowerShell 库下载 Azs.Syndication.Admin 模块：
+
+### <a name="az-modules"></a>[Az 模块](#tab/az1)
+
+  ```powershell
+  Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+  ```
+
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
 
   ```powershell
   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
   ```
-  
-- .NET Framework 4.7 或更高版本。
+
+---
 
 注册 Azure Stack 后，可以忽略市场管理边栏选项卡上显示的以下消息，因为此消息与离线用例无关：
 
@@ -106,7 +115,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 > [!IMPORTANT]
 > 每当在离线场景中下载市场项时，都请确保下载市场联合工具。 此工具经常发生更改，每次下载都应使用最新版本。
 
-### <a name="az-modules"></a>[Az 模块](#tab/az)
+### <a name="az-modules"></a>[Az 模块](#tab/az2)
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
@@ -130,7 +139,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 4. 如果尚未在先决条件步骤中完成此操作，请下载最新版本的市场联合工具：
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
+   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
    ```
 
 5. 若要选择要下载的市场项（如 VM 映像、扩展或解决方案模板），请运行以下命令：
@@ -174,7 +183,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
@@ -198,7 +207,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 4. 如果尚未在先决条件步骤中完成此操作，请下载最新版本的市场联合工具：
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -PassThru
+   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
    ```
 
 5. 若要选择要下载的市场项（如 VM 映像、扩展或解决方案模板），请运行以下命令：

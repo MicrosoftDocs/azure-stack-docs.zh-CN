@@ -1,18 +1,26 @@
 ---
 title: Azure Stack Hub 中的缩放单元节点操作
 description: 了解缩放单元节点操作，包括开机、关机、禁用、恢复以及如何在 Azure Stack Hub 集成系统中查看节点状态。
-author: IngridAtMicrosoft
+services: azure-stack
+documentationcenter: ''
+author: sethmanheim
+manager: femila
+editor: ''
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2020
-ms.author: justinha
-ms.reviewer: thoroet
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
+ms.date: 12/20/2019
+ms.author: sethm
+ms.reviewer: alfredop
+ms.lastreviewed: 12/20/2020
+ms.openlocfilehash: 768d51257e1d70979c2ee0f43aad4db8430cf8cf
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934890"
+ms.locfileid: "96939387"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
 
@@ -34,15 +42,15 @@ ms.locfileid: "96934890"
 
    查看以下信息：
 
-   - 各个节点的列表
-   - 操作状态 (参阅下面的列表) 
-   - 电源状态 (运行或已停止) 
-   - 服务器模型
-   - 基板管理控制器 (BMC) 的 IP 地址
-   - 内核总数
-   - 总内存量
+   - 各个节点的列表。
+   - 操作状态（请参见以下列表）。
+   - 电源状态（“正在运行”或“已停止”）。
+   - 服务器模型。//
+   - 基板管理控制器 (BMC) 的 IP 地址。
+   - 核心总数。
+   - 总内存量。
 
-     ![缩放单元的状态](media/azure-stack-node-actions/multinode-actions.png)
+![缩放单元的状态](media/azure-stack-node-actions/multinodeactions.png)
 
 ### <a name="node-operational-states"></a>节点操作状态
 
@@ -66,13 +74,13 @@ ms.locfileid: "96934890"
 
 节点的工作状态确定了哪些选项可用。
 
-需要安装 Azure Stack Hub PowerShell 模块。 这些 cmdlet 位于 **Azs.Fabric.Admin** 模块中。 若要安装或验证适用于 Azure Stack Hub 的 PowerShell 的安装，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../../operator/powershell-install-az-module.md)。
+需要安装 Azure Stack Hub PowerShell 模块。 这些 cmdlet 位于 **Azs.Fabric.Admin** 模块中。 若要安装或验证适用于 Azure Stack Hub 的 PowerShell 的安装，请参阅[安装适用于 Azure Stack Hub 的 PowerShell](../../operator/azure-stack-powershell-install.md)。
 
 ## <a name="stop"></a>停止
 
 “停止”操作会关闭节点。 它的作用如同按下电源按钮。 它不会向操作系统发送关闭信号。 对于计划的停止操作，请始终先尝试关闭操作。
 
-此操作通常在节点处于无响应状态时使用。
+当节点处于挂起状态，不再响应请求时，通常使用此操作。
 
 若要运行停止操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
@@ -132,7 +140,7 @@ ms.locfileid: "96934890"
 “修复”操作可修复节点。 请只在出现以下情况时才使用此操作：
 
 - 更换整个节点（不管是否包含新数据磁盘）时。
-- 硬件组件发生故障并予以更换之后（如果现场可更换单元 (FRU) 文档中建议更换）。
+- 硬件组件发生故障并予以更换之后（如果现场可更换单元 [FRU] 文档中建议更换）。
 
 > [!Important]  
 > 需要更换节点或单个硬件组件时，请参阅 OEM 硬件供应商的 FRU 文档，以了解具体步骤。 FRU 文档将指定在更换硬件组件之后是否需要运行修复操作。

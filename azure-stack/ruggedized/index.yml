@@ -1,28 +1,27 @@
 ### YamlMime:Landing
-title: Azure Modular Data Center (MDC) 操作员和用户文档
-summary: 了解如何操作和使用 Azure Modular Data Center (MDC)。
+title: Azure Stack 中心耐用操作员和用户文档
+summary: 了解如何使用 Azure Stack 集线器耐用，这是一种混合云平台，可让你从一种多功能耐用云设备提供 Azure 服务。
 metadata:
-  title: Azure Modular Data Center (MDC) 操作员和用户文档 - 教程、概念、操作指南文章
-  description: Azure Modular Data Center (MDC) 是一个模块化数据中心，其中包含 Azure Stack Hub 解决方案和存储。 你可以提供 Azure 服务，并在本地或边缘（不管其是否与 Azure 连接）托管大规模计算和存储。 它已针对需要数据主权和本地控制的用例进行了优化。
+  title: Azure Stack 中心耐用文档-教程、API 参考
+  description: Microsoft Azure Stack 集线器耐用是一种混合云平台，可让你从数据中心提供 Azure 服务。 了解如何通过我们的快速入门和教程来管理 Azure Stack 中心耐用集成系统基础结构以及如何提供服务。
   ms.service: azure-stack
-  ms.subservice: asdk
   ms.topic: landing-page
   author: justinha
   ms.author: justinha
-  ms.date: 07/23/2020
-  ms.openlocfilehash: 567ea184c0b7ff1afe36022600ff61130455c2e4
+  ms.date: 10/14/2020
+  ms.openlocfilehash: 7e131f116ef28620cda1804782d38c14d5700bad
   ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
   ms.translationtype: MT
   ms.contentlocale: zh-CN
   ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96935076"
+  ms.locfileid: "96939399"
 landingContent:
-- title: 关于 Azure 模块化数据中心
+- title: 关于 Azure Stack 集线器耐用
   linkLists:
   - linkListType: overview
     links:
-    - text: 什么是模块化数据中心？
-      url: mdc-overview.md
+    - text: 什么是 Azure Stack 中心耐用？
+      url: ruggedized-overview.md
     - text: 模型规范
       url: azure-stack-capacity-planning-overview.md
   - linkListType: whats-new
@@ -31,7 +30,7 @@ landingContent:
       url: ../operator/release-notes-security-updates.md
     - text: 发行说明
       url: ../operator/release-notes.md
-- title: Azure 模块化数据中心入门
+- title: Azure Stack 中心耐用入门
   linkLists:
   - linkListType: learn
     links:
@@ -49,16 +48,6 @@ landingContent:
       url: ../operator/azure-stack-connected-deployment.md
     - text: 断开连接的部署
       url: ../operator/azure-stack-disconnected-deployment.md
-- title: 管理 Azure 模块化数据中心
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 监视运行状况和警报
-      url: operator/azure-stack-monitor-health-tzl.md
-    - text: 安装更新并监视进度
-      url: ../operator/azure-stack-apply-updates.md
-    - text: 备份和还原的最佳做法
-      url: operator/azure-stack-backup-best-practices-tzl.md
 - title: Azure Stack Hub 工具
   linkLists:
   - linkListType: download
@@ -71,6 +60,26 @@ landingContent:
       url: ../user/azure-stack-powershell-user-docker.md
     - text: 与 Azure Stack PowerShell 连接
       url: ../operator/azure-stack-powershell-configure-admin.md
+- title: 提供 Azure Stack 中心服务
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 为虚拟机创建产品/服务
+      url: ../operator/tutorial-offer-services.md
+    - text: 创建高度可用的 MySQL 数据库
+      url: ../operator/azure-stack-tutorial-mysql.md
+    - text: 创建面向任何平台的应用
+      url: ../operator/azure-stack-app-service-overview.md
+- title: 管理 Azure Stack 中心耐用
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 监视运行状况和警报
+      url: operator/azure-stack-monitor-health-tzl.md
+    - text: 安装更新并监视进度
+      url: ../operator/azure-stack-apply-updates.md
+    - text: 备份和还原的最佳做法
+      url: operator/azure-stack-backup-best-practices-tzl.md
 - title: Azure Stack Hub 上的基础结构即服务 (IaaS)
   linkLists:
   - linkListType: quickstart
@@ -87,15 +96,3 @@ landingContent:
       url: ../user/deploy-foundational-patterns.md
     - text: 托管用代码编写的应用
       url: ../user/azure-stack-dev-start-deploy-app.md
-- title: 提供 Azure Stack 中心服务
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 为虚拟机创建产品/服务
-      url: ../operator/tutorial-offer-services.md
-  - linkListType: how-to-guide
-    links:
-    - text: 创建高度可用的 MySQL 数据库
-      url: ../operator/azure-stack-tutorial-mysql.md
-    - text: 创建面向任何平台的应用
-      url: ../operator/azure-stack-app-service-overview.md
