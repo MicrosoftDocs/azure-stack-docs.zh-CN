@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 1439c4f7e5f4a48051f439712f633bb703f5d562
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 08ed2b7272fd8a4f9f28f2721b8aff6552131afc
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011580"
+ms.locfileid: "97051558"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>迁移到同一硬件上的 Azure Stack HCI
 
@@ -136,7 +136,7 @@ Get-VM –ComputerName (Get-ClusterNode) | Update-VMVersion -Force
 如果使用 PowerShell 创建 Azure Stack HCI 群集，则必须使用以下 cmdlet 在每个 Azure Stack HCI 群集节点上安装以下角色和功能：
 
 ```powershell
-Install-WindowsFeature -Name Hyper-V, Failover-Clustering, FS-Data-Deduplication, Bitlocker, Data-Center-Bridging -IncludeAllSubFeature -IncludeManagementTools -Verbose
+Install-WindowsFeature -Name Hyper-V, Failover-Clustering, FS-Data-Deduplication, Bitlocker, Data-Center-Bridging, RSAT-AD-PowerShell -IncludeAllSubFeature -IncludeManagementTools -Verbose
 ```
 
 有关如何使用 PowerShell 创建群集的详细信息，请参阅 [使用 Windows PowerShell 创建 AZURE STACK HCI 群集](create-cluster-powershell.md)。

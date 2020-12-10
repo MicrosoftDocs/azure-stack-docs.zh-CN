@@ -5,12 +5,12 @@ author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.openlocfilehash: bcba678c5f308d5c231bbdb25db6d38337005a7d
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: cfc60f53ba14821dd1eb4089d59a23cdde31d40d
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011586"
+ms.locfileid: "97051626"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>适用于 Azure Stack HCI 的实用工具应用程序
 
@@ -24,6 +24,13 @@ Azure Stack HCI 将超聚合基础结构 (HCI) 技术集成到 Azure Stack 系�
 
 ## <a name="partner-spotlight"></a>合作伙伴聚焦
 可从以下 Microsoft 合作伙伴获得支持操作系统的实用工具应用程序。
+
+:::image type="content" source="./media/utility-applications/altaro-logo.png" alt-text="Altaro 公司徽标" border="false":::
+
+Altaro VM 备份是一种备受好评的 VM 备份和复制解决方案，适用于 Hyper-v 和 VMware 环境。 解决方案专为 IT 部门、IT 分销商和顾问以及托管服务提供商 (Msp) 提供，解决方案提供了可靠、简化的企业级功能。
+
+- 应用程序列表： [用于 hyper-v 和 VMware 的虚拟机备份和复制](https://www.altaro.com/vm-backup/)
+- 应用程序支持： [Altaro 支持 AZURE STACK HCI](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
 
 :::image type="content" source="./media/utility-applications/veeam-logo.png" alt-text="Veeam 公司徽标" border="false":::
 
@@ -45,13 +52,6 @@ Veritas Backup Exec 是一种易于使用的备份和恢复解决方案，可帮
 
 - 应用程序列表： [备份 Exec](https://www.veritas.com/protection/backup-exec)
 - 应用程序支持： [通过备份 Exec 保护 AZURE STACK HCI](https://www.veritas.com/support/en_US/article.100048860)
-
-:::image type="content" source="./media/utility-applications/altaro-logo.png" alt-text="Altaro 公司徽标" border="false":::
-
-Altaro VM 备份是一种备受好评的 VM 备份和复制解决方案，适用于 Hyper-v 和 VMware 环境。 解决方案专为 IT 部门、IT 分销商和顾问以及托管服务提供商 (Msp) 提供，解决方案提供了可靠、简化的企业级功能。
-
-- 应用程序列表： [用于 hyper-v 和 VMware 的虚拟机备份和复制](https://www.altaro.com/vm-backup/)
-- 应用程序支持： [Altaro 支持 AZURE STACK HCI](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
 
 :::image type="content" source="./media/utility-applications/datadog-logo.png" alt-text="Datadag 公司徽标" border="false":::
 

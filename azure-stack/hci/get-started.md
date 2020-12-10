@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/09/2020
-ms.openlocfilehash: 19c04e7e7783403250c6e43de6912d1ca0780b56
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 12/10/2020
+ms.openlocfilehash: 3ae8cf313b0b89813bb32efb9fbb45d0fbf05c91
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572715"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051668"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Azure Stack HCI 和 Windows Admin Center 入门
 
 > 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-本主题提供有关连接到 Azure Stack HCI 群集以及监视群集和存储性能的说明。 如果尚未设置群集，请 [下载 AZURE STACK HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) ，并参阅 [部署概述](deploy/deployment-overview.md) 了解相关说明。
+本主题提供有关连接到 Azure Stack HCI 群集以及监视群集和存储性能的说明。 如果尚未设置群集，请 [下载 AZURE STACK HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) ，并参阅 [快速入门：创建 Azure Stack hci 群集并将其注册到 Azure](deploy/deployment-quickstart.md) 了解相关说明。
 
 ## <a name="install-windows-admin-center"></a>安装 Windows Admin Center
 
@@ -36,7 +36,7 @@ Windows Admin Center 是一个本地部署的基于浏览器的应用，用于�
 
 2. 选择添加 Windows Server 群集：
 
-    :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="[“添加群集”屏幕截图":::
+    :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="“选择连接类型”屏幕截图":::
 
 3. 键入要管理的群集的名称，然后单击“添加”。 群集将添加到“概述”页上的“连接”列表中。
 
@@ -46,7 +46,7 @@ Windows Admin Center 是一个本地部署的基于浏览器的应用，用于�
 
 Windows Admin Center 仪表板提供有关服务器、驱动器和卷的警报和运行状况信息，以及有关 CPU、内存和存储使用情况的详细信息。 仪表板底部按小时、日、周、月或年显示群集性能信息，如 IOPS 和延迟。
 
-:::image type="content" source="media/get-started/dashboard.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/dashboard.png" alt-text="Windows 管理中心面板屏幕截图":::
 
 ## <a name="monitor-performance-of-individual-components"></a>监视单个组件的性能
 
@@ -56,47 +56,47 @@ Windows Admin Center 仪表板提供有关服务器、驱动器和卷的警报�
 
 若要查看群集上运行的虚拟机的摘要，请从左侧的“工具”菜单中单击“虚拟机”。
 
-:::image type="content" source="media/get-started/vms-summary.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/vms-summary.png" alt-text="虚拟机摘要":::
 
 若要查看群集上运行的虚拟机及其状态、主机服务器、CPU 使用率、内存压力、内存需求、分配的内存和运行时间的完整清单，请单击页面顶部的“清单”。
 
-:::image type="content" source="media/get-started/vms-inventory.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/vms-inventory.png" alt-text="虚拟机清单":::
 
 ### <a name="servers"></a>服务器
 
 若要查看群集中服务器的摘要，请单击左侧“工具”菜单中的“服务器”。
 
-:::image type="content" source="media/get-started/servers-summary.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/servers-summary.png" alt-text="服务器摘要":::
 
 若要查看群集中的服务器（包括其状态、运行时间、制造商、型号和序列号）的完整清单，请单击页面顶部的“清单”。
 
-:::image type="content" source="media/get-started/servers-inventory.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/servers-inventory.png" alt-text="服务器清单":::
 
 ### <a name="volumes"></a>卷
 
 若要查看群集上的卷的摘要，请单击左侧“工具”菜单中的“卷”。
 
-:::image type="content" source="media/get-started/volumes-summary.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/volumes-summary.png" alt-text="卷摘要":::
 
 若要查看群集上的卷（包括其状态、文件系统、复原能力、大小、存储使用情况和 IOPS）的完整清单，请单击页面顶部的“清单”。
 
-:::image type="content" source="media/get-started/volumes-inventory.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/volumes-inventory.png" alt-text="卷清单":::
 
 ### <a name="drives"></a>驱动器
 
 若要查看群集中的驱动器的摘要，请单击左侧“工具”菜单中的“驱动器”。
 
-:::image type="content" source="media/get-started/drives-summary.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/drives-summary.png" alt-text="驱动器摘要":::
 
 若要查看群集中的驱动器及其序列号、状态、型号、大小、类型、使用情况、位置、服务器和容量的完整清单，请单击页面顶部的“清单”。
 
-:::image type="content" source="media/get-started/drives-inventory.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/drives-inventory.png" alt-text="驱动器清单":::
 
 ### <a name="virtual-switches"></a>虚拟交换机
 
 若要查看群集中虚拟交换机的设置，请单击左侧“工具”菜单中的“虚拟交换机”，然后单击要显示其设置的虚拟交换机的名称。 Windows Admin Center 将显示与虚拟交换机关联的网络适配器，包括其 IP 地址、连接状态、链接速度和 MAC 地址。
 
-:::image type="content" source="media/get-started/virtual-switch-settings.png" alt-text="[“添加群集”屏幕截图":::
+:::image type="content" source="media/get-started/virtual-switch-settings.png" alt-text="虚拟交换机设置":::
 
 ## <a name="add-counters-with-the-performance-monitor-tool"></a>使用性能监视器工具添加计数器
 
@@ -104,10 +104,10 @@ Windows Admin Center 仪表板提供有关服务器、驱动器和卷的警报�
 
 1. 从左侧的“工具”菜单中选择“性能监视器”。
 2. 单击“空白工作区”以启动新工作区，或者单击“还原以前的工作区”以还原以前的工作区。
-    :::image type="content" source="media/get-started/performance-monitor.png" alt-text="[“添加群集”屏幕截图":::
+    :::image type="content" source="media/get-started/performance-monitor.png" alt-text="性能监视器屏幕截图":::
 3. 如果要创建新的工作区，请单击“添加计数器”按钮，然后选择要监视的一个或多个源服务器，或选择整个群集。
 4. 选择要监视的对象和实例以及计数器和图形类型，以查看动态性能信息。
-    :::image type="content" source="media/get-started/example-counter.png" alt-text="[“添加群集”屏幕截图":::
+    :::image type="content" source="media/get-started/example-counter.png" alt-text="示例计数器屏幕截图":::
 5. 选择顶部菜单中的“保存”>“另存为”，保存工作区。
 
 ## <a name="use-azure-monitor-for-monitoring-and-alerts"></a>将 Azure Monitor 用于监视和警报

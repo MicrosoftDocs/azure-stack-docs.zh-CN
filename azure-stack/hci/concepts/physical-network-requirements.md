@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 7452437d7f760a688c2403cb4def735b2daaa105
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443297"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051609"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Azure Stack HCI 的物理网络要求
 
@@ -69,9 +69,9 @@ Microsoft 测试 Azure Stack HCI 到下面的 **网络交换机要求** 部分�
 
 ### <a name="standard-ieee-8021ab"></a>标准：IEEE 802.1AB
 
-以太网交换机必须符合定义链接层发现协议 (LLDP) 的 IEEE 802.1AB 规范。 Azure Stack HCI 需要 LLDP，并支持组合以发现交换机配置。
+以太网交换机必须符合定义链接层发现协议 (LLDP) 的 IEEE 802.1AB 规范。 Azure Stack HCI 需要 LLDP，并支持物理网络配置故障排除。
 
-必须动态启用 LLDP Type-Length-Value (TLV) 配置。 除了启用特定 TLV 以外，这些交换机不得要求额外配置。 例如，启用 802.1 子类型 3 应会自动播发交换机端口上所有可用的 VLAN。
+必须动态启用 LLDP Type-Length-Value (TLV) 配置。 除了启用特定 TLV 以外，交换机不得要求额外配置。 例如，启用 802.1 子类型 3 应会自动播发交换机端口上所有可用的 VLAN。
 
 ### <a name="custom-tlv-requirements"></a>自定义 TLV 要求
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 35c7fc98b88029d6ab130859b2c3d1c550233936
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 011fa558f0e74d0456d9347d63edb6a064dcdcf2
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011213"
+ms.locfileid: "97051643"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
@@ -240,7 +240,7 @@ ms.locfileid: "97011213"
 
 1. 在 **5.1 上定义网络控制器群集** 后，在 " **主机**" 下输入网络控制器的名称。 这是管理客户端使用的 DNS 名称 (例如 Windows 管理中心) 与网络控制器通信。
 1. 指定 Azure Stack HCI VHD 文件的路径。 使用“浏览”可更快地找到它。
-1. 指定要专用于网络控制器的 VM 数量。 建议至少使用三个 VM 以实现高可用性。
+1. 指定要专用于网络控制器的 VM 数量。 建议至少使用三个 Vm 以实现高可用性。
 1. 在 " **网络**" 下，输入管理网络的 VLAN ID。 网络控制器需要连接到与主机相同的管理网络，以便进行主机通信和配置。
 
     > [!NOTE]

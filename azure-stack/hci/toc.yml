@@ -4,20 +4,20 @@
   items:
     - name: 什么是 Azure Stack HCI？
       href: overview.md
-    - name: 已知问题
-      href: known-issues.md
+    - name: 发布信息
+      href: release-information.md
     - name: 发行说明
-      href: release-notes.md
-    - name: 常见问题解答
+      href: 'https://support.microsoft.com/help/4595086'
+    - name: 常见问题
       href: faq.md
-- name: 入门
+- name: 快速入门
   items:
     - name: 在 Windows 管理中心使用 Azure Stack HCI
       href: get-started.md
+    - name: 创建 Azure Stack HCI 群集
+      href: deploy/deployment-quickstart.md
 - name: 部署
   items:
-    - name: 部署快速入门
-      href: deploy/deployment-quickstart.md
     - name: 部署概述
       href: deploy/deployment-overview.md
     - name: 部署 Azure Stack HCI OS
@@ -162,6 +162,8 @@
           href: concepts/security.md
         - name: 实用工具应用程序
           href: concepts/utility-applications.md
+        - name: 数据收集
+          href: concepts/data-collection.md
 - name: 参考
   items:
     - name: Azure 注册 Azure CLI 命令
@@ -218,3 +220,5 @@
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
     - name: Azure Stack HCI 定价
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
+    - name: Azure Stack HCI 支持
+      href: manage/get-support.md
