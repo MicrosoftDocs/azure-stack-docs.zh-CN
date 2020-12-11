@@ -3,16 +3,16 @@ title: 安装适用于 Azure Stack Hub 的 PowerShell Az 模块
 description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/10/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 91ddbc5aeb9c10b49b21db331e6e7c71a8a15764
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: 9a5e00c873e348046c10e5a8e7dd5ccc9ea915f2
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935196"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97069829"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell Az 模块
 
@@ -184,6 +184,12 @@ Get-Module -Name "Azs*" -ListAvailable
 可以使用基于 Azure 资源管理器的 cmdlet 和代码示例。 但是，你需要更改模块和 cmdlet 的名称。 模块名称已更改，以便 `AzureRM` 和 Azure 变为 `Az`，对于 cmdlet 也是如此。 例如，`AzureRM.Compute` 模块已重命名为 `Az.Compute`.` New-AzureRMVM` 已变为 ` New-AzVM`，并且 `Get-AzureStorageBlob` 现在为 `Get-AzStorageBlob`。
 
 有关将 AzurRM 脚本移到 Az 中和 Azure Stack Hub 的 Az 模块中的中断性变更的更详尽讨论和指导，请参阅[从 AzureRM 迁移到 Azure PowerShell Az](migrate-azurerm-az.md)。
+
+## <a name="known-issues"></a>已知问题
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,18 +6,22 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 08ed2b7272fd8a4f9f28f2721b8aff6552131afc
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051558"
+ms.locfileid: "97069796"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>迁移到同一硬件上的 Azure Stack HCI
 
 > 适用于 Azure Stack HCI，版本 20H2;Windows Server 2019，Windows Server 2016，Windows Server 2012 R2，Windows Server 2008 R2
 
 本主题介绍如何使用现有服务器硬件将 Windows Server 2016 或 Windows Server 2019 群集迁移到 Azure Stack HCI。 此过程将安装新的 Azure Stack HCI 操作系统，并保留现有群集设置和存储，并导入 Vm。
+
+下图描述了如何使用相同的服务器硬件来就地迁移 Windows Server 群集。 关闭群集后，会安装 Azure Stack HCI，重新附加存储，并将 Vm 导入，并使其高度可用 (HA) 。
+
+:::image type="content" source="media/migrate/migrate-cluster-same-hardware.png" alt-text="将群集迁移到同一硬件上的 Azure Stack HCI" lightbox="media/migrate/migrate-cluster-same-hardware.png":::
 
 若要将 Vm 迁移到新的 Azure Stack HCI 硬件，请参阅 [在新硬件上迁移到 AZURE STACK HCI](migrate-cluster-new-hardware.md)。
 
