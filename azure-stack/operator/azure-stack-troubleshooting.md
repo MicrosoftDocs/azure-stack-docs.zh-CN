@@ -2,18 +2,18 @@
 title: 排查 Azure Stack Hub 问题
 titleSuffix: Azure Stack
 description: 了解如何排查 Azure Stack Hub 的问题，包括 VM、存储和应用服务的问题。
-author: myoungerman
+author: PatAltimore
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 12/10/2020
 ms.author: v-myoung
 ms.reviewer: prchint
-ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 290f6ba7a8f3c53aafe131dd5c8de5186b88d752
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: 583c0e933e823b1ac0fcf11fd378e81515656099
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899765"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343649"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -199,7 +199,7 @@ slmgr /ipk <AVMA_key>
 
 Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单的方式应用更新包。 虽然不常见，但在修补和更新过程中可能会出现问题。 如果在修补和更新过程中遇到问题，建议执行以下步骤：
 
-0. **先决条件**：请确保已遵循[更新活动清单](release-notes-checklist.md)，并[启用主动日志收集](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)。
+0. **先决条件**：请确保已遵循 [更新活动清单](release-notes-checklist.md)，并 [启用主动日志收集](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)。
 
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
 
@@ -219,12 +219,22 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 **发生率**：通用
 
+### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>更新过程中报告的警告和错误
+
+**适用于**：此问题适用于所有支持的版本。
+
+**原因**：当 Azure Stack 集线器更新正在 **进行** 时，门户中可能会报告警告和错误。 组件可能会在升级过程中等待其他组件超时，从而导致错误。 Azure Stack 中心有一种机制，可以重试或修正由于间歇错误引起的一些任务。
+
+**修正**：尽管 Azure Stack 中心更新处于 " **正在进行**" 状态，但在门户中报告的警告和错误可以被忽略。
+
+**发生率**：通用
+
 ::: moniker range="azs-2002"
 ### <a name="2002-update-failed"></a>2002更新失败
 
-**适用**：此问题仅适用于2002版本。
+**适用于**：此问题仅适用于 2002 版本。
 
-**原因**：尝试2002更新时，更新可能失败并提供以下消息： `The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace` 。
+**原因：** 尝试安装 2002 更新时，更新可能会失败并提供以下消息：`The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace`。
 
-**修正**： [设置专用内部网络](./azure-stack-network.md?view=azs-2002#private-network)。
+**补救措施**：[设置专用内部网络](./azure-stack-network.md?view=azs-2002#private-network)。
 ::: moniker-end

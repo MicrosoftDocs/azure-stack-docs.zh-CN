@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/7/2020
-ms.openlocfilehash: 51a4411e95207d2f7b544fdf507fe8bd8fc98f2e
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.openlocfilehash: 12fda23b2719526c45503a78ff670b595d41f074
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761705"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343366"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>部署 Azure Stack HCI 操作系统
 
@@ -21,7 +21,7 @@ ms.locfileid: "96761705"
 部署 Azure Stack HCI 的第一步是在要加入群集的每个服务器上[下载 Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) 并安装该操作系统。 本文介绍了部署该操作系统的各种方法，以及如何使用 Windows Admin Center 来连接到服务器。
 
 > [!NOTE]
-> 如果已从 [Azure Stack HCI 目录](https://aka.ms/azurestackhcicatalog)通过你喜欢的 Microsoft 硬件合作伙伴购买 Azure Stack HCI 集成系统解决方案硬件，则 Azure Stack HCI 操作系统应已预安装。 在这种情况下，可以跳过此步骤，并继续[创建 Azure Stack HCI 群集](create-cluster.md)。
+> 如果已从 [Azure Stack HCI 目录](https://hcicatalog.azurewebsites.net)通过你喜欢的 Microsoft 硬件合作伙伴购买 Azure Stack HCI 集成系统解决方案硬件，则 Azure Stack HCI 操作系统应已预安装。 在这种情况下，可以跳过此步骤，并继续[创建 Azure Stack HCI 群集](create-cluster.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -80,7 +80,7 @@ Windows Admin Center 是一个本地部署的基于浏览器的应用，用于�
 
 对于 Azure Stack HCI 操作系统的企业部署，建议使用首选硬件合作伙伴提供的 Azure Stack HCI 集成系统解决方案硬件。 该解决方案硬件预先安装了操作系统，并支持使用 Windows Admin Center 来部署和更新硬件制造商提供的驱动程序和固件。
 
-解决方案硬件范围为2到16个节点，由 Microsoft 和合作伙伴供应商进行测试和验证。 若要查找首选硬件合作伙伴提供的 Azure Stack HCI 解决方案硬件，请参阅 [Azure Stack HCI 目录](https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog)。
+解决方案硬件范围为2到16个节点，由 Microsoft 和合作伙伴供应商进行测试和验证。 若要查找首选硬件合作伙伴提供的 Azure Stack HCI 解决方案硬件，请参阅 [Azure Stack HCI 目录](https://hcicatalog.azurewebsites.net)。
 
 ### <a name="headless-deployment"></a>无外设部署
 

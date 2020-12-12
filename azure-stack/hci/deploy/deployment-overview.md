@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/7/2020
-ms.openlocfilehash: 11c82a35d17a61fee474123a658f91ea90790221
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.date: 12/11/2020
+ms.openlocfilehash: fd7f06e834026b2f35f2bce3830440f54b6dd26f
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778013"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343319"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Azure Stack HCI 的部署过程是什么？
 
@@ -42,7 +42,7 @@ Azure Stack HCI 使用带有本地附加的驱动器的行业标准服务器来�
 
 ### <a name="1-deploy-azure-stack-hci"></a>1.部署 Azure Stack HCI
 
-[下载 Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)，并在要加入群集的每个服务器上部署 Azure Stack HCI [操作系统](operating-system.md)。 如果已从 [Azure Stack HCI 目录](https://aka.ms/azurestackhcicatalog)通过你喜欢的 Microsoft 硬件合作伙伴购买 Azure Stack HCI 集成系统解决方案硬件，则 Azure Stack HCI 操作系统应已预安装。 在这种情况下，可以跳过此步骤，继续执行 #2。
+[下载 Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)，并在要加入群集的每个服务器上部署 Azure Stack HCI [操作系统](operating-system.md)。 如果已从 [Azure Stack HCI 目录](https://hcicatalog.azurewebsites.net)通过你喜欢的 Microsoft 硬件合作伙伴购买 Azure Stack HCI 集成系统解决方案硬件，则 Azure Stack HCI 操作系统应已预安装。 在这种情况下，可以跳过此步骤，继续执行 #2。
 
 ### <a name="2-create-the-cluster"></a>2.创建群集
 

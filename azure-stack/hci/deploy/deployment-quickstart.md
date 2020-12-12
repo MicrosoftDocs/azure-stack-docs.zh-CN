@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: a6e725eee638b0afd2dddbe2f382cade729f9873
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.date: 12/11/2020
+ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069778"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343170"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>快速入门：创建 Azure Stack HCI 群集并将其注册到 Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "97069778"
 
 创建群集之前，请执行以下操作：
 
-* 通过预装了 Azure Stack HCI 操作系统的首选 Microsoft 硬件合作伙伴，从 [AZURE STACK HCI 目录](https://azure.microsoft.com/products/azure-stack/hci/catalog/) 中购买两个服务器。 查看 [系统要求](../concepts/system-requirements.md) ，确保你选择的硬件支持你计划在群集上运行的工作负荷。 建议使用具有高速网络适配器的系统，该系统使用 iWARP 进行简单配置。
+* 通过预装了 Azure Stack HCI 操作系统的首选 Microsoft 硬件合作伙伴，从 [AZURE STACK HCI 目录](https://hcicatalog.azurewebsites.net) 中购买两个服务器。 查看 [系统要求](../concepts/system-requirements.md) ，确保你选择的硬件支持你计划在群集上运行的工作负荷。 建议使用具有高速网络适配器的系统，该系统使用 iWARP 进行简单配置。
 * 创建一个用户帐户，该帐户是每个服务器上的本地管理员组的成员。
 * [获取 Azure 订阅](https://azure.microsoft.com/)（如果还没有）。
 * 在管理 PC 上[安装 Windows 管理中心](/windows-server/manage/windows-admin-center/deploy/install)，并[向 Azure 注册 windows 管理中心](../manage/register-windows-admin-center.md)。 请注意，你的管理计算机必须加入到你要在其中创建群集的同一 Active Directory 域或完全受信任的域。
@@ -66,7 +66,7 @@ ms.locfileid: "97069778"
 1. 在右窗格中，选择“见证”。
 1. 对于 " **见证类型**"，请选择 " **文件共享见证**"。
 1. 指定文件共享路径，例如 **\\ servername. com\Witness $** ，并根据需要提供凭据。
-1. 单击“ **保存**”。
+1. 单击 **“保存”** 。
 
 ## <a name="register-with-azure"></a>注册到 Azure
 

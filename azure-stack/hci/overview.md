@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 918bc4fdee076cdfe5b158f9b276eff789c9ecf8
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/11/2020
+ms.openlocfilehash: 9e8c66207ad4601aa7a5ee84b4ee3eb8d7e32654
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011189"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343276"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI 解决方案概述
 
@@ -94,7 +94,7 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 
 若要开始使用，你需要具备以下条件：
 
-- 包含 [Azure Stack HCI 目录](https://aka.ms/azurestackhcicatalog)中的两个或更多服务器的群集，从首选的 Microsoft 硬件合作伙伴处购买
+- 包含 [Azure Stack HCI 目录](https://hcicatalog.azurewebsites.net)中的两个或更多服务器的群集，从首选的 Microsoft 硬件合作伙伴处购买
 - [Azure 订阅](https://azure.microsoft.com/)
 - 为群集中的每个服务器建立 internet 连接，该连接可通过 HTTPS 出站流量连接到众所周知的 Azure 终结点，至少每30天
 - 对于跨站点延伸的群集，你需要在站点之间至少有 1 Gb 的连接（首选 25 Gb RDMA 连接），如果你想要在两个站点中同时进行写入的同步复制，则平均延迟为 5 毫秒往返
@@ -106,7 +106,7 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 
 你可以从你首选的 Microsoft 合作伙伴购买经验证的 Azure Stack HCI 解决方案，使其在没有漫长的设计和构建时间的情况下正常运行。 Microsoft 合作伙伴还提供实现和支持服务的单一联系点。 你可以购买经过验证的节点或集成系统，其中包括预安装的 Azure Stack HCI 操作系统以及用于驱动程序和固件更新的合作伙伴扩展。
 
-请访问[Azure Stack HCI 解决方案](https://azure.microsoft.com/overview/azure-stack/hci)页或浏览 [Azure Stack HCI 目录](https://aka.ms/azurestackhcicatalog)，查看 Microsoft 合作伙伴（如 ASUS、Axellio、Blue Chip、DataON、Dell EMC、Fujitsu、HPE、Hitachi、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD 和 Supermicro）当前提供的 70 多种 Azure Stack HCI 解决方案。
+请访问[Azure Stack HCI 解决方案](https://azure.microsoft.com/overview/azure-stack/hci)页或浏览 [Azure Stack HCI 目录](https://hcicatalog.azurewebsites.net)，查看 Microsoft 合作伙伴（如 ASUS、Axellio、Blue Chip、DataON、Dell EMC、Fujitsu、HPE、Hitachi、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD 和 Supermicro）当前提供的 70 多种 Azure Stack HCI 解决方案。
 
 ## <a name="software-partners"></a>软件合作伙伴
 
@@ -203,7 +203,7 @@ Windows Admin Center 版本 2009 为 Azure Stack HCI 添加了许多功能，其
 - 群集创建向导中包含软件定义的网络：群集创建向导现在提供了用于在[群集创建](deploy/create-cluster.md#step-5-sdn-optional)过程中部署[软件定义的网络 (SDN)](concepts/software-defined-networking.md) 网络控制器功能的选项。
 - **群集创建向导中 (rdma) 增强的远程直接内存访问**：群集创建向导现在可以为 IWARP 和 RoCE 网络适配器配置 RDMA，包括数据中心桥接 (DCB) 。
 
-若要详细了解 Windows Admin Center 中的新功能，请参阅 [Windows Admin Center 博客](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog)。
+有关新功能的详细信息，请参阅 [在 Windows 管理中心中公布群集创建扩展的公开上市](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/announcing-general-availability-of-the-cluster-creation/ba-p/1978332)。
 
 与基于 Windows Server 2019 的解决方案相比，运行 Azure Stack HCI 版本 20H2 的群集具有以下新功能：
 

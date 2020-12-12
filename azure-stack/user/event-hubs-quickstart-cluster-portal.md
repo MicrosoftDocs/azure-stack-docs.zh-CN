@@ -7,17 +7,15 @@ ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 01/22/2020
 ms.reviewer: bryanla
-ms.lastreviewed: 01/22/2020
-ms.openlocfilehash: 7a2b8504a247048a4f90f7ec70772ff52b5ae9dc
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.lastreviewed: 08/15/2020
+ms.openlocfilehash: 7a5c801f85f7dc4ada1ec155078ba02d9feb26de
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "91107234"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343413"
 ---
 # <a name="quickstart-create-an-event-hubs-cluster-using-the-azure-stack-hub-portal"></a>快速入门：使用 Azure Stack Hub 门户创建事件中心群集
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 本快速入门介绍如何使用 Azure Stack Hub 用户门户创建事件中心群集。 
 
@@ -28,6 +26,8 @@ ms.locfileid: "91107234"
 完成本快速入门之前，必须确保你的订阅中可以使用事件中心服务。 如果不可用，请联系管理员[在 Azure Stack Hub 资源提供程序上安装事件中心](../operator/event-hubs-rp-overview.md)。 安装步骤还包括创建包含事件中心服务的产品/服务。 
 
 产品/服务可用后，管理员可以创建或更新订阅以包含事件中心。 或者，你可以[订阅新产品/服务并创建自己的订阅](azure-stack-subscribe-services.md)。
+
+必须在资源组作用域或更高级别为你的帐户分配至少 " [参与者" 权限](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) 才能创建新群集。
 
 ## <a name="overview"></a>概述
 
@@ -50,6 +50,9 @@ ms.locfileid: "91107234"
    - **群集名称**：输入名称。 系统会立即检查该名称是否可用。 如果可用，字段的右侧会显示一个勾号。 
    - **订阅**：选择要在其中创建群集的订阅。 
    - **资源组**：创建/选择要在其中创建群集的资源组。 
+   - **位置**：可以保留默认的当前位置，也可以更改为其他位置。
+   - **群集容量**：对于此快速入门，请保留默认值 1 CU。
+      [!INCLUDE [event-hubs-scale](../includes/event-hubs-scale.md)]
    - 选择页面底部的 **“下一步:** 标记 >”按钮以继续。 可能需要等待系统完全预配资源。 
 
    [![创建事件中心群集 - 基本](media/event-hubs-quickstart-cluster-portal/1-create-cluster-basics.png)](media/event-hubs-quickstart-cluster-portal/1-create-cluster-basics.png#lightbox)
@@ -116,7 +119,7 @@ ms.locfileid: "91107234"
 1. 再次从左侧导航窗格中选择 **“所有服务”** 。 在搜索栏中输入“事件中心群集”，然后从结果列表中选择 **“事件中心群集”** 项。
 2. 在 **“事件中心群集”** 页上，找到并选择先前创建的群集。
 
-   [![此屏幕截图显示了如何选择要删除的群集。](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
+   [![事件中心群集-查找要删除的群集](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
 
 3. 在 **“事件中心群集”** 的 **“概述”页上**：
    - 从顶部菜单中选择 **“删除”** 。  

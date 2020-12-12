@@ -8,12 +8,12 @@ ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 824463ccf48d6855fd2851e9c6f9116d61b8b818
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: d1d19d79a3a2242ada4e3f7972fa26f61ed600ce
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152805"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343200"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>解决 Azure Stack Hub PKI 证书的常见问题
 
@@ -57,19 +57,19 @@ ms.locfileid: "96152805"
 
 **问题** - 私钥缺失或者不包含本地计算机属性。  
 
-**修复** -从生成 CSR 的计算机上，使用 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤重新导出证书。 这些步骤包括从本地计算机证书存储进行导出。
+**修复** -从生成 CSR 的计算机上，使用 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤重新导出证书。 这些步骤包括从本地计算机证书存储进行导出。
 
 ## <a name="certificate-chain"></a>证书链
 
 **问题** - 证书链不完整。  
 
-**修复** - 证书应包含完整的证书链。 按照 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) 中的步骤操作，然后选择选项 " **包括证书路径中的所有证书（如果可能**）"。
+**修复** - 证书应包含完整的证书链。 按照 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md) 中的步骤操作，然后选择选项 " **包括证书路径中的所有证书（如果可能**）"。
 
 ## <a name="dns-names"></a>DNS 名称
 
 **问题** -证书上的 **DNSNameList** 不包含 Azure Stack 中心服务终结点名称或有效的通配符匹配项。 通配符匹配项仅适用于 DNS 名称最左侧的命名空间。 例如，`*.region.domain.com` 仅对 `portal.region.domain.com` 有效，而对 `*.table.region.domain.com` 无效。
 
-**修复** -使用 Azure Stack 中心证书签名请求生成中的步骤重新生成具有正确 DNS 名称的 CSR，以支持 Azure Stack 中心终结点。 将 CSR 重新提交到证书颁发机构。 然后，按照 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) 中的步骤从生成 CSR 的计算机中导出证书。  
+**修复** -使用 Azure Stack 中心证书签名请求生成中的步骤重新生成具有正确 DNS 名称的 CSR，以支持 Azure Stack 中心终结点。 将 CSR 重新提交到证书颁发机构。 然后，按照 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md) 中的步骤从生成 CSR 的计算机中导出证书。  
 
 ## <a name="key-usage"></a>密钥使用情况
 
@@ -87,13 +87,13 @@ ms.locfileid: "96152805"
 
 **问题** - 证书链的顺序不正确。  
 
-**修复** -按照 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) 中的步骤操作，然后选择选项 " **包括证书路径中的所有证书（如果可能**）"。 确保仅选择分支证书进行导出。
+**修复** -按照 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md) 中的步骤操作，然后选择选项 " **包括证书路径中的所有证书（如果可能**）"。 确保仅选择分支证书进行导出。
 
 ## <a name="other-certificates"></a>其他证书
 
 **问题** - PFX 包包含的证书不是分支证书，或者不是证书链的一部分。  
 
-**修复** -按照 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)中的步骤进行操作，然后选择选项 " **包括证书路径中的所有证书（如果可能**）"。 确保仅选择分支证书进行导出。
+**修复** -按照 [为部署准备 Azure Stack 中心 PKI 证书](azure-stack-prepare-pki-certs.md)中的步骤进行操作，然后选择选项 " **包括证书路径中的所有证书（如果可能**）"。 确保仅选择分支证书进行导出。
 
 ## <a name="fix-common-packaging-issues"></a>修复常见的打包问题
 

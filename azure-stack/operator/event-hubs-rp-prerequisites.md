@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 集线器上安装事件中心的先决条件
+title: 在 Azure Stack Hub 上安装事件中心的先决条件
 description: 在 Azure Stack Hub 上安装事件中心资源提供程序之前，先了解所需的先决条件。
 author: BryanLa
 ms.author: bryanla
@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 45267292e317088adcf9de4e5e34946cabe4d239
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 2b3fcfb0325689de08e77a9fbf599d023ba26a4c
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545879"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343507"
 ---
 # <a name="prerequisites-for-installing-event-hubs-on-azure-stack-hub"></a>在 Azure Stack Hub 上安装事件中心的先决条件
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 必须先完成以下先决条件，然后才能在 Azure Stack Hub 上安装事件中心。 可能需要几天或几周的提前期才能完成所有步骤。
 
@@ -25,7 +23,7 @@ ms.locfileid: "94545879"
 > 这些先决条件假定你至少已部署了 4 节点 Azure Stack Hub 集成系统。 Azure Stack 开发工具包 (ASDK) 不支持事件中心资源提供程序。
 
 > [!IMPORTANT]
-> 事件中心需要 Azure Stack Hub 2002 内部版本或更高版本。 请注意，Azure Stack Hub 的内部版本是递增的。 例如，如果已安装版本 1910，必须首先升级到 [2002](./release-notes.md?view=azs-2002#2002-build-reference)，然后再升级到 2005。 也就是说，不能跳过中间的内部版本。
+> 事件中心需要 Azure Stack Hub 2002 内部版本或更高版本。 请注意，Azure Stack Hub 的内部版本是递增的。 例如，如果已安装版本 1910，必须首先升级到 [2002](./release-notes.md?view=azs-2002&preserve-view=true#2002-build-reference)，然后再升级到 2005。 也就是说，不能跳过中间的内部版本。
 
 ## <a name="common-prerequisites"></a>常见的先决条件
 

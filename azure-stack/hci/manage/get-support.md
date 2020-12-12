@@ -4,13 +4,13 @@ description: 本主题提供有关如何获取 Azure Stack HCI 操作系统支�
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: a2e679329acca6bcc03363c499d08deb78890b3d
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 12/11/2020
+ms.openlocfilehash: 5b25fdcefd61cb8fa5a497a3477b1f33ab67ece5
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97053063"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343329"
 ---
 # <a name="get-support-for-azure-stack-hci"></a>获取 Azure Stack HCI 支持
 
@@ -32,7 +32,7 @@ ms.locfileid: "97053063"
 ## <a name="partner-support-resources-for-azure-stack-hci"></a>Azure Stack HCI 的合作伙伴支持资源
 从首选硬件合作伙伴 Azure Stack HCI 集成系统解决方案硬件，会收到预装的操作系统。 你需要硬件合作伙伴提供的硬件服务、支持和安全更新至少5年。 有关详细信息，请参阅 [更新和升级](../concepts/updates.md)。 
 
-若要详细了解集成的系统伙伴及其解决方案和支持产品/服务，请参阅 [AZURE STACK HCI 目录](https://azure.microsoft.com/products/azure-stack/hci/catalog/)。
+若要详细了解集成的系统伙伴及其解决方案和支持产品/服务，请参阅 [AZURE STACK HCI 目录](https://hcicatalog.azurewebsites.net)。
 
 ## <a name="next-steps"></a>后续步骤
 如需相关信息，另请参阅：

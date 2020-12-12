@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 上的事件中心概述
+title: Azure Stack 中心操作员概述的事件中心
 description: 了解 Azure Stack Hub 上的事件中心资源提供程序。
 author: BryanLa
 ms.author: bryanla
@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2c7574ef54176e4e4b91f5bee8af9e6953d13732
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: a37d4b69b3e5ecd34046e4876f522ccfbce3f919
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742635"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343666"
 ---
-# <a name="event-hubs-on-azure-stack-hub-overview"></a>Azure Stack Hub 上的事件中心概述
+# <a name="event-hubs-on-azure-stack-hub-operator-overview"></a>Azure Stack 中心操作员概述的事件中心
 
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
-
-使用 Azure Stack Hub 上的事件中心可以实现混合云方案。 支持使用基于流式处理和事件的解决方案进行本地处理和 Azure 云处理。 无论方案是混合（联网）还是离线的，解决方案都支持大规模的事件/流处理。 方案仅受群集大小的限制，可以根据需要进行设置。 
+使用 Azure Stack Hub 上的事件中心可以实现混合云方案。 支持使用基于流式处理和事件的解决方案进行本地处理和 Azure 云处理。 无论方案是混合（联网）还是离线的，解决方案都支持大规模的事件/流处理。 方案仅受群集大小的约束，但你可以根据需要预配群集大小。 
 
 ## <a name="features"></a>功能
 

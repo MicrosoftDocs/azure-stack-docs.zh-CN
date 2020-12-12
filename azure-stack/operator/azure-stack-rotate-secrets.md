@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 69e1aa757f0285cc39d8df16bbd3531af0d3ea51
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 800e6f2173f409283a04259f29b4835e66ced075
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152839"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343153"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack Hub 中轮换机密
 
@@ -89,13 +89,13 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
      |从 CA 旋转|旋转到 CA|Azure Stack 中心版本支持|
      |-----|-----|-----|-----|
-     |Self-Signed|企业| 1903 & 更高版本|
+     |Self-Signed|Enterprise| 1903 & 更高版本|
      |Self-Signed|Self-Signed|不支持|
      |Self-Signed|公布<sup>*</sup>|1803 & 更高版本|
      |Enterprise|Enterprise|1803 & 更高版本;如果在部署时使用相同的企业 CA，则为1803-1903|
-     |企业|Self-Signed|不支持|
-     |企业|公布<sup>*</sup>|1803 & 更高版本|
-     |公布<sup>*</sup>|企业|1903 & 更高版本|
+     |Enterprise|Self-Signed|不支持|
+     |Enterprise|公布<sup>*</sup>|1803 & 更高版本|
+     |公布<sup>*</sup>|Enterprise|1903 & 更高版本|
      |公布<sup>*</sup>|Self-Signed|不支持|
      |公布<sup>*</sup>|公布<sup>*</sup>|1803 & 更高版本|
 
@@ -106,9 +106,9 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
    - 请确保 PFX 加密为 **TripleDES-SHA1**。 如果遇到问题，请参阅[修复 Azure Stack Hub PKI 证书的常见问题](azure-stack-remediate-certs.md#pfx-encryption)。
 
 3. 将用于轮换的证书备份存储在安全的备份位置。 如果运行轮换时发生失败，请使用备份副本替换文件共享中的证书，然后重新运行轮换。 将备份副本保存在安全的备份位置。
-4. 创建可从 ERCS VM 访问的文件共享。 该文件共享必须可供 **CloudAdmin** 标识读取和写入。
+4. 创建可从 ERCS VM 访问的文件共享。 文件共享必须是可读且可写的 **CloudAdmin** 标识。
 5. 在可以访问该文件共享的计算机上打开 PowerShell ISE 控制台。 导航到你的文件共享，你将在其中创建目录来放置外部证书。
-6. 将 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 下载到在轮换期间可以访问的网络文件共享，并运行该脚本。 该脚本将创建一个文件夹结构，该结构遵循 **_.\Certificates\AAD_ *_ 或 _* _.\Certificates\ADFS_ *_ 格式，具体取决于标识提供者。你的文件夹结构必须以 _* \\Certificates** 文件夹开头，后面仅跟有一个 **\\AAD** 或 **\\ADFS** 文件夹。 所有其他子目录都包含在前面的结构中。 例如：
+6. 将 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 下载到您的网络文件共享中，然后运行该脚本。 该脚本将创建一个文件夹结构，该结构遵循 **_.\Certificates\AAD_ *_ 或 _* _.\Certificates\ADFS_ *_ 格式，具体取决于标识提供者。你的文件夹结构必须以 _* \\Certificates** 文件夹开头，后面仅跟有一个 **\\AAD** 或 **\\ADFS** 文件夹。 所有其他子目录都包含在前面的结构中。 例如：
     - 文件共享 = **\\\\\<IPAddress>\\\<ShareName>**
     - Azure AD 提供程序的证书根文件夹 = **\\Certificates\AAD**
     - 完整路径 = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
