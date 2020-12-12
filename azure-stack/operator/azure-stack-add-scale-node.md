@@ -7,16 +7,16 @@ ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/05/2020
-ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: fac60db9ad1f3ae8be248b4f61a3c16179763a7e
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544031"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364194"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>在 Azure Stack Hub 中添加更多的缩放单元节点
 
-可以通过添加额外的物理计算机来增加现有缩放单位的总容量。 物理计算机也称为缩放单元节点。 添加的每个新缩放单元节点在 CPU 类型、内存以及磁盘数目和大小方面必须与缩放单元中现有的节点相同。
+可以通过添加额外的物理计算机来增加现有缩放单位的总容量。 物理计算机也称为缩放单元节点。 添加的每个新缩放单元节点在 CPU 类型、内存以及磁盘数目和大小方面必须与缩放单元中现有的节点相同。 由于体系结构限制，Azure Stack 集线器不支持删除缩放单元节点以进行缩减。 仅可通过添加节点来扩展容量。
 
 若要添加缩放单位节点，请在 Azure Stack 集线器中登录，并 (OEM) 运行来自硬件设备制造商的工具。 OEM 工具在硬件生命周期主机 (HLH) 上运行，目的是确保新的物理计算机与现有节点的固件级别匹配。
 
@@ -137,7 +137,7 @@ ms.locfileid: "94544031"
 ## <a name="troubleshooting"></a>故障排除
 下面是添加节点时的常见问题。 
 
-**场景 1：** “添加缩放单元节点”操作失败，但一个或多个节点在列出时，其状态为“已停止”。  
+**场景 1：**“添加缩放单元节点”操作失败，但一个或多个节点在列出时，其状态为“已停止”。  
 - 修正：使用修复操作来修复一个或多个节点。 一次只能运行一个修复操作。
 
 **场景 2：** 添加了一个或多个缩放单元节点，但存储扩展失败。 在这种情况下，缩放单元节点对象报告的状态为“正在运行”，但“配置存储”任务未启动。  

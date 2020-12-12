@@ -3,15 +3,15 @@ title: 使用 Windows Admin Center 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows Admin Center 为 Azure Stack HCI 创建服务器群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 011fa558f0e74d0456d9347d63edb6a064dcdcf2
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: e33096b2667ad9d620e942b66934f341982e619b
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051643"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364211"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
@@ -52,7 +52,14 @@ ms.locfileid: "97051643"
 
 向导完成后，请设置群集见证，注册到 Azure，并创建卷（如果要创建延伸群集，则还需设置站点之间的复制）。
 
-好了，让我们开始：
+在启动向导之前，请确保已安装最新的 Windows 管理中心扩展，特别是群集创建扩展。 为此，请执行以下操作：
+
+1. 打开 Windows 管理中心，并单击右上角的 "设置" (齿轮图标) 。
+1. 在“设置”  下选择“扩展”  。
+1. 选择 " **群集创建** "，然后单击 " **安装**"。
+1. 选择 " **群集管理器** "，然后单击 " **安装** "。
+
+现在你已准备就绪，接下来让我们开始：
 
 1. 在 Windows Admin Center 中，在“所有连接”下单击“添加” 。
 1. 在 " **添加或创建资源** " 面板的 " **服务器群集**" 下，选择 " **新建**"。

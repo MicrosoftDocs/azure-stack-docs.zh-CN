@@ -5,15 +5,15 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/27/2019
+ms.date: 12/11/2020
 ms.reviewer: jfggdl
-ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: cb09f605f66e4950e0e483fbee920a1a4eba40e5
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.lastreviewed: 12/11/2020
+ms.openlocfilehash: c7b54121f826fb514590f39c92cde0e62972ce97
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343756"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364143"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Azure Stack Hub 上的事件中心的概述
 

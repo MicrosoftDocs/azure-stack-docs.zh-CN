@@ -8,7 +8,7 @@
       href: release-information.md
     - name: 发行说明
       href: 'https://support.microsoft.com/help/4595086'
-    - name: 常见问题
+    - name: 常见问题解答
       href: faq.md
 - name: 快速入门
   items:
@@ -116,6 +116,8 @@
       items:
         - name: 系统要求
           href: concepts/system-requirements.md
+        - name: 与 Windows Server 比较
+          href: concepts/compare-windows-server.md
         - name: 选择驱动器
           href: concepts/choose-drives.md
         - name: 驱动器对称注意事项

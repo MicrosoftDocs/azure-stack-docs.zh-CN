@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f47e3c48bf6a43276f9e4b11c2e3f0f43a224f18
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567342"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364109"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub 网络的差异和注意事项
 
@@ -30,7 +30,7 @@ Azure Stack Hub 网络具有许多由 Azure 网络提供的功能。 但是，�
 |  | 每个区域的 DNS 记录集数 | 5000（默认值）<br>可以请求增加。 | 5000 |
 |  | 用于区域委派的名称服务器 | Azure 为创建的每个用户（租户）区域提供四个名称服务器。 | Azure Stack Hub 为创建的每个用户（租户）区域提供两个名称服务器。 |
 | Azure 防火墙 | 网络安全服务 | Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚拟网络资源。 | 尚不支持。 |
-| 虚拟网络 | 虚拟网络对等互连 | 通过 Azure 主干网络连接同一区域中的两个虚拟网络。 | 尚不支持 |
+| 虚拟网络 | 虚拟网络对等互连 | 通过 Azure 主干网络连接同一区域中的两个虚拟网络。 | 自2008版[虚拟网络对等互连](virtual-network-peering.md)后受支持 |
 |  | IPv6 地址 | 可以分配 IPv6 地址作为[网络接口配置](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)的一部分。 | 仅支持 IPv4。 |
 |  | DDoS 防护计划 | 支持 | 尚不支持。 |
 |  | 规模集 IP 配置 | 支持 | 尚不支持。 |
