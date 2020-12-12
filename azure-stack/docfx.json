@@ -57,7 +57,7 @@
           "LICENSE-CODE",
           "ThirdPartyNotices"
         ]
-      },      
+      },
       {
         "group": "version-ash",
         "src" : "user",
@@ -188,6 +188,7 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
+      "bilingual_type": "hover over",
       "feedback_system": "GitHub",
       "feedback_github_repo": "MicrosoftDocs/azure-stack-docs.zh-cn",
       "feedback_product_url": "https://feedback.azure.com/forums/344565-azure-stack",
@@ -217,17 +218,16 @@
         "hybrid/**/*.md": "Azure Stack"
       },
       "ms.subservice": {
-        "aks-hci/**/*.md": "azure-stack-hci",
         "asdk/**/*.md": "azure-stack-hub-asdk",
         "hci/**/*.md": "azure-stack-hci",
         "mdc/**/*.md": "azure-stack-hub-mdc",
         "operator/**/*.md": "azure-stack-hub",
         "partner/**/*.md": "azure-stack-hub",
-        "reference/**/*.md": "azure-stack-hub", 
+        "reference/**/*.md": "azure-stack-hub",
         "user/**/*.md": "azure-stack-hub"
       }
     },
-     "template": [],
+    "template": [],
     "dest": "AzureStack",
     "markdownEngineName": "markdig",
     "groups": {
