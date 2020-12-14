@@ -114,7 +114,7 @@
           items:
             - name: 验证 Azure 注册
               href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 寄存器
+            - name: 注册
               href: operator/registration-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 增值资源提供程序
               items:
@@ -200,7 +200,7 @@
               href: ../operator/azure-stack-manage-basics.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 配置遥测数据的收集
               href: ../operator/azure-stack-telemetry.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 寄存器
+            - name: 注册
               href: operator/registration-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 区域管理
               href: ../operator/azure-stack-region-management.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -510,6 +510,60 @@
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 支持链接引用
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 战术性云设备客户可更换部件指南
+              items:
+                - name: 操作注意事项
+                  href: customer-replaceable-unit/handling-precautions.md
+                - name: 使用硬件生命周期主机所需的知识
+                  href: customer-replaceable-unit/required-knowledge-hardware-lifecycle-host.md
+                - name: 验证硬件生命周期主机访问和运行状况
+                  href: customer-replaceable-unit/verify-hardware-lifecycle-host-access-and-health.md
+                - name: 使用缩放单元节点所需的知识
+                  href: customer-replaceable-unit/required-knowledge-scale-unit-nodes.md
+                - name: 验证缩放单位节点访问和运行状况
+                  href: customer-replaceable-unit/verify-scale-unit-node-access-and-health.md
+                - name: 断电硬件生命周期主机
+                  href: customer-replaceable-unit/power-off-hlh.md
+                - name: 关机缩放单位节点
+                  href: customer-replaceable-unit/power-off-scu.md
+                - name: 更换 DIMM
+                  href: customer-replaceable-unit/replace-dimm.md
+                - name: 替换发生故障的外部存储磁盘
+                  href: customer-replaceable-unit/replace-failed-external-storage-disk.md
+                - name: 更换冷却风扇
+                  href: customer-replaceable-unit/replace-cooling-fan.md
+                - name: 替换网络子卡
+                  href: customer-replaceable-unit/replace-network-daughter-card.md
+                - name: 更换电源单元
+                  href: customer-replaceable-unit/replace-power-supply-unit.md
+                - name: 替换操作系统磁盘
+                  href: customer-replaceable-unit/replace-operating-system-disk.md
+                - name: 解压缩热水并计划热水安装
+                  href: customer-replaceable-unit/unpack-heater-and-plan-installation.md
+                - name: 替换热水
+                  href: customer-replaceable-unit/replace-heater.md
+                - name: 开机缩放单位节点
+                  href: customer-replaceable-unit/power-on-scale-unit-node.md
+                - name: 修复缩放单位节点
+                  href: customer-replaceable-unit/repair-scale-unit-node.md
+                - name: 验证硬件生命周期主机运行状况
+                  href: customer-replaceable-unit/verify-hardware-lifecycle-host-health.md
+                - name: 验证缩放单位节点的运行状况
+                  href: customer-replaceable-unit/verify-scale-unit-node-health.md
+                - name: 验证缩放单位节点磁盘运行状况
+                  href: customer-replaceable-unit/verify-scale-unit-node-disk-health.md
+                - name: Azure Stack 集线器硬件图示
+                  href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
+                - name: EMC PowerEdge 战术性 R640 服务器概述
+                  href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
+                - name: EMC PowerEdge 战术性指标和代码
+                  href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
+                - name: 通过直接 USB 连接访问 iDRAC 接口
+                  href: customer-replaceable-unit/access-idrac-over-usb-connection.md
+                - name: 通过 iDRAC 接口安装固件
+                  href: customer-replaceable-unit/install-firmware-using-idrac.md
+                - name: 特权访问工作站和特权终结点访问
+                  href: customer-replaceable-unit/privileged-access-workstation.md
     - name: 参考
       items:
         - name: Azure Stack 中心操作员

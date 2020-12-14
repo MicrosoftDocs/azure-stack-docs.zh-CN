@@ -1,0 +1,88 @@
+---
+title: 验证硬件生命周期主机访问和运行状况
+description: 了解如何验证硬件生命周期主机访问和运行状况
+author: myoungerman
+ms.topic: how-to
+ms.date: 11/13/2020
+ms.author: v-myoung
+ms.reviewer: ''
+ms.lastreviewed: ''
+ms.openlocfilehash: b14bff53b8c8d5545a00424a543656a190c06bf3
+ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97390713"
+---
+# <a name="verifying-hardware-lifecycle-host-access-and-health"></a>验证硬件生命周期主机访问和运行状况
+
+登录到 iDRAC 和硬件生命周期主机 (HLH) 操作系统，并验证系统运行状况。
+
+1.  连接到 iDRAC。
+
+    1.  使用 web 浏览器导航到 iDRAC web 界面，并使用客户提供的凭据登录。
+
+        ![](media/image-3.png) 
+    
+    1.  在顶部导航菜单中，选择 " **系统**"。
+
+        ![](media/image-4.png)
+        
+    1.  在 " **概述** " 选项卡上，验证系统是否完全正常，或者是否显示在此硬件更换期间应修正的问题。
+    
+        ![](media/image-5.png)
+    
+2.  使用 iDRAC 虚拟控制台连接到 HLH 操作系统。
+
+    > [!NOTE]
+    > 如果使用具有 VGA 和 USB 连接的故障车登录，则可以跳过此步骤。
+    
+    1.  在 iDRAC web 界面中，选择 " **仪表板**"。
+
+        ![](media/image-6.png)
+    
+    1.  在 **虚拟控制台** 窗格中，选择 " **设置**"。
+    
+        ![](media/image-7.png)
+        
+    1.  选中 " **插件类型** " 设置为 " **HTML 5**"。 如果不是，请更改此更改，选择 " **应用**"，然后在出现提示时单击 **"确定"** 。
+    
+        ![](media/image-8.png)
+        
+    1.  选择 " **启动虚拟控制台**"。
+
+        ![](media/image-9.png)
+    
+    1.  如果显示弹出警告，请将浏览器设置更改为 "始终允许"。 例如，在 Internet Explorer 中，选择 " **此站点的选项** "，并选择 " **始终允许**"。 如果需要，在更改浏览器设置后，重复上一步以启动虚拟控制台。
+    
+        ![](media/image-10.png)
+        
+    1.  虚拟控制台现在应存在。 若要登录到操作系统，请从顶部菜单中选择 " **控制台控件**"。
+    
+        ![](media/image-11.png)
+        
+    1.  选择 **键盘宏**，按 **Ctrl + Alt-Del** ，然后选择 " **应用** "，然后单击 " **关闭**"。
+    
+        ![](media/image-12.png)
+        
+    1.  选择 "基于客户提供的凭据的 **用户** "，输入密码并选择要登录的 **箭头** 。
+    
+        ![](media/image-13.png)
+        
+        你现在已登录到 HLH。
+        
+3.  验证运行状况。
+
+    1.  启动 **服务器管理器**。
+
+        ![](media/image-14.png)
+        
+    1.  对于 "**用户帐户控制**" 提示，请选择 **"是"** 。
+    
+        ![](media/image-15.png)
+        
+    1.  从 " **工具** " 菜单中，选择 " **hyper-v 管理器**"。
+    
+        ![](media/image-16.png)
+        
+    1.  在 " **Hyper-v 管理器**" 中，选择左侧菜单中的顶部节点，然后验证 vm （如 **特权访问工作站**，如果适用）是否处于 **运行** 状态。

@@ -1,0 +1,57 @@
+---
+title: 验证缩放单位节点访问和运行状况
+description: 了解如何验证缩放单位节点的访问和运行状况
+author: myoungerman
+ms.topic: how-to
+ms.date: 11/13/2020
+ms.author: v-myoung
+ms.reviewer: ''
+ms.lastreviewed: ''
+ms.openlocfilehash: cec29fed89fa02f6a5142f9eb179d8fc8437f37d
+ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97390870"
+---
+# <a name="verifying-scale-unit-node-access-and-health"></a>验证缩放单位节点的访问和运行状况
+
+
+
+登录到特权访问工作站，启动管理员门户，验证系统运行状况，获取特权终结点 IP 地址，并确定需要排出或恢复哪些节点。
+
+1.  使用远程桌面连接到特权访问工作站。
+
+2.  访问 Azure Stack 中心管理员门户。
+
+    用从客户获取的凭据登录到 Azure Stack 中心管理员门户。
+        
+3.  获取特权终结点 IP 地址。
+
+
+    选择 " **区域管理** " 磁贴，然后选择 " **属性**"。 滚动到窗格底部，找到 " **特权终结点 ip 地址** " 字段中的 ip 地址。 请记下这些操作，在此过程中，可能需要此过程，或在出现任何问题时提供支持。
+
+    [![](media/image-18-inline.png)](media/image-18-expanded.png)
+    
+4.  查看任何当前警报。
+
+    在 " **区域管理**" 中，选择 " **警报** " 并查看当前警报。 如果出现任何意外的警报，请与 Dell 技术支持部门验证是否可以清除或安全地忽略它们。
+    
+    [![](media/image-19-inline.png)](media/image-19-expanded.png)
+    
+5.  标识缩放单位节点。
+
+    如果只提供服务标记，并且无法识别哪个节点在 Azure Stack 中心管理门户中出现问题 (即节点电源状态已) 停止，则使用以下步骤将缩放单位节点关联到服务标记：
+    
+    1.  在 "**区域管理**" 中，选择 "**缩放单位**"，然后选择群集 **"群集"。** 选择“节点”。
+    
+    1.  若要获取节点服务标记，请选择 " **BMC** IP 地址" 链接，该链接将在新的选项卡或窗口中打开服务器的 iDRAC web 界面。
+
+        [![](media/image-20-inline.png)](media/image-20-expanded.png) 
+    
+    1.  登录到 iDRAC 接口，并验证 " **系统信息** " 窗格中的节点的服务标记。
+    
+    1.  为每个节点重复此过程，并将这些服务标记与计划的硬件更换相关联，以确定需要服务的节点。
+
+        [![](media/image-21-inline.png)](media/image-21-expanded.png)
+    

@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/11/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
-ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
+ms.openlocfilehash: fcc0df8281e2a3ccc48f2cf81c1bdfe3848fa134
+ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96869031"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97390433"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -48,15 +48,15 @@ ms.locfileid: "96869031"
 <!------------------- SUPPORTED VERSIONS ------------------->
 <!---------------------------------------------------------->
 ::: moniker range="azs-2008"
-## <a name="2008-build-reference"></a>2008生成引用
+## <a name="2008-build-reference"></a>2008 内部版本参考
 
-Azure Stack 中心2008更新内部版本号为 **1.2008.13.88**。
+Azure Stack Hub 2008 更新内部版本号为 1.2008.13.88。
 
 ### <a name="update-type"></a>更新类型
 
-Azure Stack 中心2008更新生成类型已 **满**。
+Azure Stack Hub 2008 更新内部版本类型为“完整”。
 
-与以前的更新相比，2008更新包的大小较大。 增加的大小会导致下载时间更长。 此更新将长时间保留为“正在准备”状态，操作员可预期此过程所需的时间长于以前的更新。 2008更新在我们的内部测试-4 节点中具有以下所需的运行时：13-20 小时、8个节点：16-26 小时、12个节点：19-32 小时、16个节点：22-38 个小时。 确切的更新运行时间通常取决于租户工作负荷在系统上使用的容量、系统网络连接（如果已连接到 Internet），以及系统的硬件规格。 运行时间短于或长于预期值并不常见。因此，除非更新失败，否则不需要 Azure Stack Hub 操作员执行操作。 此运行时近似值特定于2008更新，不应与其他 Azure Stack 中心更新进行比较。
+与以前的更新相比，2008 更新包更大。 增加的大小会导致下载时间更长。 此更新将长时间保留为“正在准备”状态，操作员可预期此过程所需的时间长于以前的更新。 在我们的内部测试中，2008 更新的预期运行时间如下 - 4 个节点：13-20 小时，8 个节点：16-26 小时，12 个节点：19-32 小时，16 个节点：22-38 小时。 确切的更新运行时间通常取决于租户工作负荷在系统上使用的容量、系统网络连接（如果已连接到 Internet），以及系统的硬件规格。 运行时间短于或长于预期值并不常见。因此，除非更新失败，否则不需要 Azure Stack Hub 操作员执行操作。 此运行时近似值特定于 2008 更新，不应与其他 Azure Stack Hub 更新进行比较。
 
 有关更新内部版本类型的详细信息，请参阅[在 Azure Stack Hub 中管理更新](azure-stack-updates.md)。
 
@@ -67,50 +67,50 @@ Azure Stack 中心2008更新生成类型已 **满**。
 ### <a name="whats-new"></a>新增功能
 
 <!-- What's new, also net new experiences and features. -->
-- Azure Stack 集线器现在支持 VNET 对等互连，它可以在没有网络虚拟设备 (NVA) 的情况下连接 Vnet。 有关详细信息，请参阅 [新的 VNET 对等互连文档](../user/virtual-network-peering.md)。
-- Azure Stack 集线器 blob 存储现在允许用户使用不可变的 blob。 通过在容器上设置不可变的策略，你可以将业务关键数据对象存储在蠕虫 (写入一次，读取许多) 状态。 在此版本中，不可变的策略只能通过 REST API 或客户端 Sdk 来设置。 在此版本中，也不可能追加 blob 写入。 有关不可变 blob 的详细信息，请参阅 [将业务关键 blob 数据存储在不可变的存储](/azure/storage/blobs/storage-blob-immutable-storage)中。
-- Azure Stack 中心存储现在支持 Azure 存储服务 Api 版本 **2019-07-07**。 对于与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack 中心存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。 对于 Azure 存储服务管理 Api， **2018-02-01** 添加了支持，其中包含全部可用功能的子集。
+- Azure Stack Hub 现在支持 VNET 对等互连，这样，你便可以在不使用网络虚拟设备 (NVA) 的情况下连接 VNET。 有关详细信息，请参阅[新 VNET 对等互连文档](../user/virtual-network-peering.md)。
+- Azure Stack Hub blob 存储现在允许用户使用不可变 blob。 通过在容器上设置不可变的策略，可将业务关键型数据对象以 WORM（写入一次，读取多次）状态进行存储。 在此版本中，不可变的策略只能通过 REST API 或客户端 SDK 来设置。 在此版本中，也不可能执行追加 blob 写入。 有关不可变 blob 的详细信息，请参阅[使用不可变存储来存储业务关键型 blob 数据](/azure/storage/blobs/storage-blob-immutable-storage)。
+- Azure Stack 中心存储现在支持 Azure 存储服务 Api 版本 **2019-07-07**。 有关与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack Hub 存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。 对于 Azure 存储服务管理 Api， **2018-02-01** 添加了支持，其中包含全部可用功能的子集。
 - Azure Stack 集线器计算现在支持 Azure 计算 Api 版本 **2020-06-01**，同时提供全部可用功能的子集。
-- Azure Stack 中心托管磁盘现在支持 Azure 磁盘 Api 版本 **2019-03-01**，其中包含可用功能的子集。
-- Windows 管理中心的预览，现在可以连接到 Azure Stack 集线器，在支持 (操作期间提供对基础结构的深入见解，) 需要中断玻璃。
-- 可以在部署时将登录标语添加到特权终结点 (PEP) 。
-- 发布了更 **互斥的操作** 横幅，这会提高系统上当前发生的操作的可见性，并禁止用户启动 (，并随后) 任何其他独占操作。
-- 在每个 Azure Stack 中心市场项的产品页中引入了两个新横幅。 如果 Marketplace 下载失败，操作员可以查看错误详细信息，并尝试执行建议的步骤来解决此问题。
-- 发布了一个分级工具供客户提供反馈。 这将允许 Azure Stack 中心衡量和优化客户体验。
-- 此版本的 Azure Stack 中心包含 Azure Kubernetes Service (AKS) 和 Azure 容器注册表 (ACR) 的个人预览版。 个人预览版的目的是收集有关 Azure Stack 集线器上的 AKS 和 ACR 的质量、功能和用户体验的反馈。
-- 此版本包含 Azure CNI 和 Windows 容器的公共预览版，使用 [AKS 引擎 v 0.55.4](../user/kubernetes-aks-engine-release-notes.md)。 有关如何在 API 模型中使用这些方法的示例， [请参阅 GitHub 上的此示例](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-windows.json)。
-- 现在支持[AKS Engine 0.55.4](../user/kubernetes-aks-engine-release-notes.md)部署的群集上的[Istio 1.3 部署](https://github.com/Azure/aks-engine/tree/master/examples/service-mesh)。 有关详细信息， [请参阅此处的说明](../user/kubernetes-aks-engine-service-account.md)。
-- 现在支持使用[AKS Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md)部署[专用群集](https://github.com/Azure/aks-engine/blob/master/docs/topics/features.md#private-cluster)。
-- 此版本包含对来自 Azure Azure Stack 中心 Key Vault 实例的 [源 Kubernetes 配置机密](https://github.com/Azure/aks-engine/blob/master/docs/topics/keyvault-secrets.md#use-key-vault-as-the-source-of-cluster-configuration-secrets) 的支持。
+- Azure Stack Hub 托管磁盘现在支持 Azure 计算 API 版本 2019-03-01，其中包含可用功能的子集。
+- Windows Admin Center 的预览版现在可以连接到 Azure Stack Hub，以便在支持操作期间提供有关基础结构的深入见解（需要不受限）。
+- 能够在部署时将登录横幅添加到特权终结点 (PEP)。
+- 发布了更多“独占操作”横幅，这可提高当前在系统上发生的操作的可见性，并禁止用户启动任何其他独占操作（并随后失败）。
+- 在每个 Azure Stack Hub 市场项的产品页中引入了两个新横幅。 如果从市场下载时失败，操作员可以查看错误详细信息，并尝试执行建议的步骤来解决此问题。
+- 发布了一个评级工具供客户提供反馈。 这将使 Azure Stack Hub 可以度量和优化客户体验。
+- 此版本的 Azure Stack Hub 包含 Azure Kubernetes 服务 (AKS) 和 Azure 容器注册表 (ACR) 的个人预览版。 该个人预览版的目的是收集有关 Azure Stack Hub 上 AKS 和 ACR 的质量、功能和用户体验的反馈。
+- 此版本包含使用 [AKS 引擎 0.55.4](../user/kubernetes-aks-engine-release-notes.md) 的 Azure CNI 和 Windows 容器的公共预览版。 有关如何在 API 模型中使用它们的示例，请[参阅 GitHub 上的此示例](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-windows.json)。
+- 通过 [AKS 引擎 0.55.4](../user/kubernetes-aks-engine-release-notes.md) 部署的群集上现在支持 [Istio 1.3 部署](https://github.com/Azure/aks-engine/tree/master/examples/service-mesh)。 有关详细信息，请[参阅此处的说明](../user/kubernetes-aks-engine-service-account.md)。
+- 现在已支持使用 [AKS 引擎 v 0.55.4](../user/kubernetes-aks-engine-release-notes.md) 部署[专用群集](https://github.com/Azure/aks-engine/blob/master/docs/topics/features.md#private-cluster)。
+- 此版本包括对从 Azure 和 Azure Stack Hub Key Vault 实例[获得 Kubernetes 配置机密来源](https://github.com/Azure/aks-engine/blob/master/docs/topics/keyvault-secrets.md#use-key-vault-as-the-source-of-cluster-configuration-secrets)的支持。
 
 ### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-- 实现了网络控制器和 SLB 主机代理的内部监视，因此，如果服务进入停止状态，则会自动修正。
-- Active Directory 联合身份验证服务 (AD FS) 现在会检索新的令牌签名证书，叫客户已在其自己的 AD FS 服务器上轮换了该证书。 若要充分利用已配置系统的这一新功能，必须重新配置 AD FS 集成。 有关详细信息，请参阅 [将 AD FS 标识与 Azure Stack 中心数据中心集成](azure-stack-integrate-identity.md)。
-- 对基础结构角色实例及其在缩放单元节点上的依赖项的启动和关闭过程的更改。 这会增加 Azure Stack 集线器启动和关闭的可靠性。
-- 已更新 **test-azurestack** 验证工具的 **AzSScenarios** 套件，使云服务提供商能够在对所有客户帐户实施多重身份验证后成功运行此套件。
-- 通过在生命周期操作期间为29个面向客户的警报添加抑制逻辑，提高了警报可靠性。
-- 你现在可以查看详细的日志集合 HTML 报告，其中提供了有关日志集合的角色、持续时间和状态的详细信息。 此报表的目的是帮助用户提供收集的日志摘要。 然后，Microsoft 客户支持服务可以快速评估报表以评估日志数据，并帮助排查和缓解系统问题。
-- 基础结构故障检测范围已扩展，增加了7个新监视器，包括 CPU 利用率和内存消耗等用户方案，有助于提高故障检测的可靠性。
+- 实现了网络控制器和 SLB 主机代理的内部监视，因此，如果服务进入停止状态，则会被自动修正。
+- 现在，当客户已在其自己的 AD FS 服务器上轮换了令牌签名证书后，Active Directory 联合身份验证服务 (AD FS) 会检索新的令牌签名证书。 若要为已配置的系统充分利用这一新功能，必须重新配置 AD FS 集成。 有关详细信息，请参阅[将 AD FS 标识与 Azure Stack Hub 数据中心集成](azure-stack-integrate-identity.md)。
+- 更改了基础结构角色实例及其在缩放单元节点上的依赖项的启动和关闭过程。 这会增加 Azure Stack Hub 启动和关闭的可靠性。
+- 已更新 Test-azurestack 验证工具的 AzSScenarios 套件，从而使云服务提供商能够在对所有客户帐户强制实施多重身份验证的情况下成功运行此套件。
+- 通过为生命周期操作期间 29 个面向客户的警报添加抑制逻辑，提高了警报可靠性。
+- 你现在可以查看详细的日志收集 HTML 报表，其中提供了有关日志收集的角色、持续时间和状态的详细信息。 此报表的用途是帮助用户提供已收集日志的摘要。 然后，Microsoft 客户支持服务可以快速评估报表以评估日志数据，并帮助排查和缓解系统问题。
+- 基础结构故障检测覆盖范围已扩展，用户方案中增加了 7 个新监视器（如 CPU 利用率和内存消耗），以帮助提高故障检测的可靠性。
 
 ### <a name="changes"></a>更改
 
-- SRP API 版本 **2016-01-01** 和 **2016-05-01** 中的 **supportHttpsTrafficOnly** 存储帐户资源类型属性已启用，但 Azure Stack 中心不支持此属性。
-- 引发的卷容量利用率警报阈值为 80% (警告) 和 90% (关键) 到 90% (warning) 和 95% (严重) 。 有关详细信息，请参阅 [存储空间警报](azure-stack-manage-storage-shares.md#storage-space-alerts)
-- 在此版本中，AD Graph 配置步骤会更改。 有关详细信息，请参阅 [将 AD FS 标识与 Azure Stack 中心数据中心集成](azure-stack-integrate-identity.md)。
-- 为了符合为 Windows Server 2019 定义的最新最佳实践，Azure Stack 集线器正在进行更改，以利用附加的流量类或优先级进一步将服务器与服务器通信进行隔离，以支持故障转移群集控制通信。 这些更改的结果可为故障转移群集通信提供更好的恢复能力。 此流量类和带宽预留配置是通过在 Azure Stack 中心解决方案的 (ToR) 交换机上以及 Azure Stack 集线器的主机或服务器上进行更改来完成的。
+- SRP API 版本 2016-01-01 和 2016-05-01 中的 supportHttpsTrafficOnly 存储帐户资源类型属性已启用，但 Azure Stack Hub 不支持此属性。
+- 已将卷容量利用率警报阈值从 80%（警告）和 90%（严重）提高到 90%（警告）和 95%（严重）。 有关详细信息，请参阅[存储空间警报](azure-stack-manage-storage-shares.md#storage-space-alerts)
+- 在此版本中，AD Graph 配置步骤已更改。 有关详细信息，请参阅[将 AD FS 标识与 Azure Stack Hub 数据中心集成](azure-stack-integrate-identity.md)。
+- 为了与为 Windows Server 2019 定义的当前最佳做法保持一致，Azure Stack Hub 正在更改为利用附加流量类或优先级来进一步分离服务器到服务器通信，以支持故障转移群集控制通信。 这些更改的结果为故障转移群集通信提供了更好的复原能力。 此流量类和带宽预留配置是通过对 Azure Stack Hub 解决方案的架顶式 (ToR) 交换机以及 Azure Stack Hub 的主机或服务器的更改实现的。
 
-  请注意，这些更改将添加到 Azure Stack 中心系统的主机级别。 请与 OEM 联系，以便在 (ToR) 网络交换机上进行所需的更改。 此 ToR 更改可在更新到2008版本之前执行，也可在更新到2008后执行。 有关详细信息，请参阅 [网络集成文档](azure-stack-network.md)。
+  请注意，这些更改是在 Azure Stack Hub 系统的主机级别添加的。 请与 OEM 联系，以便安排在架顶式 (ToR) 网络交换机上进行所需的更改。 此 ToR 更改可在更新到 2008 版本之前执行，也可在更新到 2008 版本后执行。 有关详细信息，请参阅[网络集成文档](azure-stack-network.md)。
 
-- 已在此版本中将 **(NVIDIA T4) NCas_v4** 的 GPU 支持的 vm 大小替换为 VM 大小 **NCasT4_v3**，以便与 Azure 保持一致。 请注意，这些在门户中不可见，只能通过 Azure 资源管理器模板使用。
+- 在此内部版本中，支持 GPU 的 VM 大小 NCas_v4 (NVIDIA T4) 已替换为 VM 大小 NCasT4_v3，以便与 Azure 保持一致。 请注意，这些在门户中不可见，只能通过 Azure 资源管理器模板使用。
 
 ### <a name="fixes"></a>修复项
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
-- 修复了删除未附加到正在运行的 VM 的 NIC 的 NSG 的问题。
-- 修复了修改关联到负载均衡器的公共 IP 的 **IdleTimeoutInMinutes** 值的问题，使公共 ip 进入 "失败" 状态。
-- 修复了 **AzsDisk** cmdlet，以返回附加的托管磁盘的正确 **附加** 状态，而不是 **OnlineMigration**。
+- 修复了删除未附加到正在运行的 VM 的 NIC 的 NSG 时失败的问题。
+- 修复了在修改关联到负载均衡器的公共 IP 的 **IdleTimeoutInMinutes** 值时导致公共 IP 进入失败状态的问题。
+- 修复了 **Get-AzsDisk** cmdlet，以便为已附加的托管磁盘返回正确的“Attached”状态，而不是“OnlineMigration”。
 
 ## <a name="security-updates"></a>安全更新
 
@@ -118,7 +118,7 @@ Azure Stack 中心2008更新生成类型已 **满**。
 
 ## <a name="hotfixes"></a>修补程序
 
-Azure Stack Hub 定期发布修补程序。 从2005版开始，在更新到新的主版本 (例如1.2005 到 1.2008) 时，最新的修补程序 (如果新主版本中的任何) 自动安装。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
+Azure Stack Hub 定期发布修补程序。 从 2005 版开始，更新到新的主版本（如 1.2005.x 到1.2008.x）时，新的主版本中最新的修补程序（如果有）会自动安装。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
 
 > [!NOTE]
 > Azure Stack Hub 修补程序版本是累积性的；你只需安装最新的修补程序即可获取该版本的任何以前修补程序版本中包含的所有修补程序。
@@ -127,17 +127,17 @@ Azure Stack Hub 定期发布修补程序。 从2005版开始，在更新到新�
 
 Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿尝试在 ASDK 上安装修补程序。
 
-### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>修补程序先决条件：在应用2008更新之前
+### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>修补程序先决条件：在应用 2008 更新之前
 
-Azure Stack 集线器2008版必须应用于带有以下修补程序的2005版本：
+必须在包含以下修补程序的版本 2005 上应用 Azure Stack Hub 版本 2008：
 
-- [Azure Stack 中心修补程序1.2005.24.90](https://support.microsoft.com/help/4595070)
+- [Azure Stack 中心修补程序1.2005.25.92](https://support.microsoft.com/help/4595074)
 
-### <a name="after-successfully-applying-the-2008-update"></a>成功应用2008更新后
+### <a name="after-successfully-applying-the-2008-update"></a>成功应用 2008 更新之后
 
-当你将更新到新的主版本 (例如，1.2005 到 1.2008) 时，如果新的主版本中的任何) 自动安装，则最新的修补程序会 (。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
+更新到新的主版本（如 1.2005.x 到 1.2008.x）时，会自动安装新的主版本中的最新修补程序（如果有）。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
 
-安装2008之后，如果以后发布了任何2008修补程序，则应该安装这些修补程序：
+安装 2008 之后，如果有任何 2008 修补程序被发布，应安装这些修补程序：
 
 - [Azure Stack 中心修补程序1.2008.19.100](https://support.microsoft.com/help/4595073)
 ::: moniker-end
@@ -192,7 +192,7 @@ Azure Stack Hub 2005 更新内部版本类型为“完整”。
 
 - 从管理员门户中删除了停止、关闭和重启基础结构角色实例的操作。 还在 Fabric 资源提供程序中删除了相应的 API。 Azure Stack Hub 的管理员 RM 模块和 AZ 预览版中的以下 PowerShell cmdlet 不再有效：Stop-AzsInfrastructureRoleInstance、Disable-InfrastructureRoleInstance 和 Restart-InfrastructureRoleInstance  。 将从 Azure Stack Hub 的下一个管理员 AZ 模块版本中删除这些 cmdlet。
 - Azure Stack Hub 2005 现在仅支持 [Azure Stack Hub 2020（版本 87.x）上的应用服务](app-service-release-notes-2020-Q2.md)。
-- 硬件监视所需的用户加密设置已从 DES 更改为 AES，以提高安全性。 请联系你的硬件合作伙伴，以了解如何在基本板管理控制器 (BMC) 中更改设置。 在 BMC 中进行更改后，可能需要使用特权终结点再次运行命令 **BmcCredential** 。 有关详细信息，请参阅 [在 Azure Stack 中心内轮换机密](azure-stack-rotate-secrets.md)
+- 执行硬件监视所需的用户加密设置已从 DES 更改为 AES，以提高安全性。 请联系你的硬件合作伙伴，了解如何更改基板管理控制器 (BMC) 中的设置。 在 BMC 中进行更改后，可能需要使用特权终结点再次运行命令 **Set-BmcCredential**。 有关详细信息，请参阅[在 Azure Stack Hub 中轮换机密](azure-stack-rotate-secrets.md)
 
 ### <a name="fixes"></a>修复项
 
@@ -239,7 +239,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2005 之后，如果以后发布了任何 2005 修补程序，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2005.24.90](https://support.microsoft.com/help/4595070)
+- [Azure Stack 中心修补程序1.2005.25.92](https://support.microsoft.com/help/4595074)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -361,7 +361,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 必须在包含以下修补程序的版本 1910 中应用 Azure Stack Hub 版本 2002：
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.1910.84.230](https://support.microsoft.com/help/4592243)
+- [Azure Stack Hub 修补程序 1.1910.84.230](https://support.microsoft.com/help/4592243)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>成功应用 2002 更新之后
 
