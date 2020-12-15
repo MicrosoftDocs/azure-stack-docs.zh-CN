@@ -6,19 +6,19 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: d8f8d1191d2e5531c377173f2a8a8c665c7355dc
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.date: 12/15/2020
+ms.openlocfilehash: 6eef8388367bb1bba3f419fba5b61c54fd729743
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364160"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515020"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI 解决方案概述
 
 > 适用于：Azure Stack HCI，版本 20H2
 
-Azure Stack HCI 是一种超聚合基础结构， (HCI) 群集解决方案，该解决方案在混合的本地环境中托管虚拟化 Windows 和 Linux 工作负荷及其存储。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。 你可以使用现有工具（包括 Windows Admin Center、System Center 和 PowerShell）管理群集。
+Azure Stack HCI 是一种超聚合基础结构， (HCI) 群集解决方案，该解决方案在混合的本地环境中托管虚拟化 Windows 和 Linux 工作负荷及其存储。 Azure 混合服务通过基于云的监视、站点恢复和 VM 备份等功能，以及 Azure 门户中所有 Azure Stack HCI 部署的中心视图增强群集。 可以通过现有工具（包括 Windows 管理中心和 PowerShell）来管理群集。
 
 Azure Stack HCI，版本20H2 现 [可供下载](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)。 它适用于运行虚拟化工作负载且内置混合云连接的本地群集。 因此，Azure Stack HCI 作为 Azure 服务交付，并根据 Azure 订阅计费。 Azure Stack HCI 现在还具备托管 Azure Kubernetes 服务的功能；有关详细信息，请参阅 [Azure Stack HCI 上的 Azure Kubernetes 服务](../aks-hci/overview.md)。
 
@@ -100,7 +100,7 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 - [Azure 订阅](https://azure.microsoft.com/)
 - 为群集中的每个服务器建立 internet 连接，该连接可通过 HTTPS 出站流量连接到众所周知的 Azure 终结点，至少每30天
 - 对于跨站点延伸的群集，你需要在站点之间至少有 1 Gb 的连接（首选 25 Gb RDMA 连接），如果你想要在两个站点中同时进行写入的同步复制，则平均延迟为 5 毫秒往返
-- 如果打算使用软件定义的网络 (SDN) ，则需要 Azure Stack HCI 操作系统的虚拟硬盘 (VHD) 才能创建网络控制器 Vm (参阅 [计划部署网络控制器](concepts/network-controller.md)) 
+- 如果你计划使用“软件定义的网络 (SDN)”，则需要一个用于 Azure Stack HCI 操作系统的虚拟硬盘 (VHD) 来创建网络控制器 VM（请参阅[计划部署网络控制器](concepts/network-controller.md)）
 
 有关详细信息，请参阅[系统需求](concepts/system-requirements.md)。 关于 Azure Stack HCI 上的 Azure Kubernetes 服务的要求，请参阅 [Azure Stack HCI 上的 AKS 要求](../aks-hci/overview.md#what-you-need-to-get-started)。
 
@@ -151,7 +151,7 @@ Windows Admin Center 版本 2009 为 Azure Stack HCI 添加了许多功能，其
 - **BitLocker 加密**：你现在可以使用 BitLocker 对 Azure Stack HCI 上的数据卷内容进行加密，帮助政府和其他客户遵守 FIPS 140-2 和 HIPAA 等标准。
 - **提高了存储空间直通卷的修复速度**：快速、无缝地修复卷。
 
-Windows Admin Center 版本 20H2 还为基于 Windows Server 的群集提供了新的群集更新 UI，包括原始的 Azure Stack HCI 解决方案。 虽然你可以将新建群集创建向导用于 Windows Server，但它不能使用存储空间直通创建 Windows Server 群集。需要 Azure Stack HCI 操作系统。
+若要详细了解 Azure Stack HCI 20H2 的新增功能，请 [观看](https://www.youtube.com/watch?v=DPG7wGhh3sAa) Microsoft 的视频。
 
 ## <a name="roles-you-can-run-without-virtualizing"></a>无需虚拟化即可运行的角色
 

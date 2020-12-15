@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 服务策略以及如何使集成系统保持受支持状态。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cff03367985558bd5b9b6786455cf626993836db
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 126504ce42ba4c7567e15a6c19378ef2bf2c628b
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545561"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515038"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub 服务策略
 
@@ -33,9 +33,9 @@ Microsoft 会发布完整的更新包和修补程序包来解决特定问题。
 
 集成系统有两种类型的更新包：
 
-- **Microsoft 软件更新** 。 Microsoft 会负责 Microsoft 软件更新包的端到端服务生命周期。 这些包可以包括最新的 Windows Server 安全更新、非安全更新和 Azure Stack Hub 功能更新。 可以直接从 Microsoft 下载这些更新包。
+- **Microsoft 软件更新**。 Microsoft 会负责 Microsoft 软件更新包的端到端服务生命周期。 这些包可以包括最新的 Windows Server 安全更新、非安全更新和 Azure Stack Hub 功能更新。 可以直接从 Microsoft 下载这些更新包。
 
-- **OEM 硬件供应商提供的更新** 。 Azure Stack Hub 硬件合作伙伴负责硬件相关固件和驱动程序更新包的端到端服务生命周期（包括指导）。 此外，对于硬件生命周期主机上的所有软件和硬件，Azure Stack Hub 硬件合作伙伴拥有并维护指导。 OEM 硬件供应商在自己的下载站点上托管这些更新包。
+- **OEM 硬件供应商提供的更新**。 Azure Stack Hub 硬件合作伙伴负责硬件相关固件和驱动程序更新包的端到端服务生命周期（包括指导）。 此外，对于硬件生命周期主机上的所有软件和硬件，Azure Stack Hub 硬件合作伙伴拥有并维护指导。 OEM 硬件供应商在自己的下载站点上托管这些更新包。
 
 ## <a name="update-package-release-cadence"></a>更新包发布频率
 
@@ -47,7 +47,7 @@ OEM 硬件供应商会根据需要发布更新。 请咨询 OEM 以获取硬件�
 
 有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明：
 
-- [Azure Stack 中心2008更新](/azure-stack/operator/release-notes?view=azs-2008)
+- [Azure Stack Hub 2008 更新](/azure-stack/operator/release-notes?view=azs-2008)
 - [Azure Stack Hub 2005 更新](/azure-stack/operator/release-notes?view=azs-2005)
 - [Azure Stack Hub 2002 更新](/azure-stack/operator/release-notes?view=azs-2002)
 
@@ -67,6 +67,8 @@ OEM 硬件供应商会根据需要发布更新。 请咨询 OEM 以获取硬件�
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
 
 为了使 Azure Stack Hub 实例保持受支持的状态，该实例必须运行最新发布的更新版本或运行之前的两个更新版本之一。
+
+还必须与制造系统的硬件合作伙伴签订活动的支持协议。 如果没有硬件支持协议，Microsoft 将无法提供支持。
 
 修补程序不被视为主要更新版本。 如果 Azure Stack Hub 实例落后于两个以上的更新，则认为它不符合。 必须至少更新到最低支持版本才能获得支持。
 
