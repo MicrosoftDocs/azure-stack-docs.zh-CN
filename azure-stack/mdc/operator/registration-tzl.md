@@ -1,20 +1,20 @@
 ---
-title: 将 Azure Stack Hub 注册到 Azure
-description: 了解如何向 Azure 注册 Azure Stack 集线器，以便下载 Azure Marketplace 项并设置数据报告。
+title: '向 Azure (MDC 注册 Azure Stack 集线器) '
+description: 了解如何向 Azure 注册 Azure Stack 集线器，以便可以下载 Azure Marketplace 项并为 MDC 设置数据报告。
 author: sethmanheim
 ms.topic: article
 ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 68a89c3f3f2a15a23a21d2a1d6c6052727982941
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934873"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598464"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
+# <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>向 Azure 模块化数据中心 (MDC 注册 Azure Stack 集线器) 
 
 若要设置 Marketplace 联合并使用 PaaS 服务，必须 Azure Stack 在部署完成后，在 (MDC) 或 Azure Stack 集线器上注册并激活模块化数据中心。 利用 Marketplace 供稿，管理员使用从 Azure Marketplace 下载的映像填充本地 Azure Stack 中心市场。
 
@@ -125,7 +125,7 @@ Get-AzureStackStampInformation
 
 1. 若要向 Azure 注册 Azure Stack 集线器资源提供程序，请以管理员身份启动 PowerShell ISE，并使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为适当的 Azure 订阅类型 (参阅按如下所述) 参数。
 
-2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **AzAccount** cmdlet。 系统将提示你输入 Azure 帐户凭据，并且可能需要根据帐户配置使用双因素身份验证。
+2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzAccount** cmdlet。 系统将提示你输入 Azure 帐户凭据，并且可能需要根据帐户配置使用双因素身份验证。
 
    ```powershell
    Add-AzAccount -EnvironmentName "<environment name>"

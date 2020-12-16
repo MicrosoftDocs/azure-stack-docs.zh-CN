@@ -1,20 +1,20 @@
 ---
-title: Azure Stack Hub 中的缩放单元节点操作
-description: 了解缩放单元节点操作，包括开机、关机、禁用、恢复以及如何在 Azure Stack Hub 集成系统中查看节点状态。
+title: 为 MDC Azure Stack 集线器中的缩放单位节点操作
+description: 了解如何缩放 Azure Stack 集线器集成系统中的单元节点操作，包括开机、关机、禁用、恢复和查看节点状态。
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 6413cec9b2464d5295feab0f3a3983083b9d04ea
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934890"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598515"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
+# <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Azure Stack 集线器中的缩放单位节点操作-模块化数据中心 (MDC) 
 
 本文介绍如何查看缩放单元的状态。 可以查看单元的节点。 可以运行开机、关机、关闭、清空、恢复和修复等节点操作。 通常，在现场更换组件期间或者在帮助恢复节点时，会使用这些节点操作。
 

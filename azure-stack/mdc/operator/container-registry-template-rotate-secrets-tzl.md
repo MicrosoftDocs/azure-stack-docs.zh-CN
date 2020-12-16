@@ -1,7 +1,7 @@
 ---
-title: 在 Azure Stack Hub 中旋转容器注册表机密 |Microsoft Docs
+title: 在 Azure Stack 集线器中旋转容器注册表机密-MDC
 titleSuffix: Azure Stack Hub
-description: 了解如何在 Azure Stack Hub 中旋转容器注册表机密。
+description: 了解如何在 Azure Stack Hub 中为模块化数据中心旋转容器注册表机密。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 932f63ef4b442578baf9f217ae0f25a6fe29290e
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934976"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598209"
 ---
-# <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>在 Azure Stack 集线器中旋转容器注册表机密
+# <a name="rotate-container-registry-secrets-in-azure-stack-hub---modular-data-center-mdc"></a>在 Azure Stack 集线器中旋转容器注册表机密-模块化数据中心 (MDC) 
 
 Azure Stack 中心用户可以为容器注册表模板部署轮换 (证书、用户名和密码) 的机密。 您可以运行脚本，以 Microsoft Azure Key Vault 中填充新的机密值，并重新 **部署** 现有的容器注册表模板实例。 轮换机密不需要新的部署。
 
@@ -257,11 +257,11 @@ Azure Stack 中心用户可以为容器注册表模板部署轮换 (证书、用
 
 3. 选择 **部署下的部署。**
 
-    ![部署](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
+    ![显示 "部署" 页的屏幕截图。](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
 
 4.  如果是第一次轮换密钥，请选择原始部署。 如果这不是第一次轮换机密，请选择最新部署，然后选择 "重新 **部署**"。
 
-    ![重新部署](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
+    ![显示 "概述" 页的屏幕截图，其中已选择 "重新部署" 操作。](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
 
 5.  在 " **部署解决方案模板**" 中，选择 " **使用现有资源组** "，并选择最初用于部署容器注册表模板的资源组。 为了成功重新部署，必须使用相同的资源组。
 
@@ -273,7 +273,7 @@ Azure Stack 中心用户可以为容器注册表模板部署轮换 (证书、用
 
     - 如果要轮换此证书，则需要输入 PFXKeyVaultSecretURL 和 PFXThumbprint 的新值，这些值是通过设置新机密输出的。
 
-    ![参数](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
+    ![显示 "参数" 窗口的屏幕截图。](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
 
 7.  选择“确定”，然后选择“创建”。 重新部署将继续。 在重新部署过程中，注册表功能将继续工作。
 

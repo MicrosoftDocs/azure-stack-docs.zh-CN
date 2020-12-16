@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 的基础结构备份服务最佳做法 | Microsoft Docs
-description: 在部署和管理 Azure Stack 时，请遵循这些最佳做法，以便在发生灾难性故障时帮助减少数据丢失。
+title: Azure Stack MDC 基础结构备份服务最佳实践 |Microsoft Docs
+description: 部署和管理 MDC 的 Azure Stack 时，请遵循以下最佳做法，以便在发生灾难性故障时帮助减轻数据丢失。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: d2775627f9834a6410fcf2888bbb4abca66d958b
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 0bbe41c26861d2a407641e06a2298ec5d3badf0f
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328997"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598549"
 ---
-# <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
+# <a name="infrastructure-backup-service-best-practices---modular-data-center-mdc"></a>基础结构备份服务最佳做法-模块化数据中心 (MDC) 
 
 *适用于：模块化数据中心、Azure Stack 中心耐用*
 
@@ -95,9 +95,9 @@ ms.locfileid: "93328997"
 
 基础结构备份服务包含以下组件：
 
-- **基础结构备份控制器** ：基础结构备份控制器的实例化，并驻留在每个 Azure Stack 云中。
+- **基础结构备份控制器**：基础结构备份控制器的实例化，并驻留在每个 Azure Stack 云中。
 
-- **备份资源提供程序** ：备份资源提供程序 (备份 RP) 由用户界面和 api 公开 Azure Stack 基础结构的基本备份功能组成。
+- **备份资源提供程序**：备份资源提供程序 (备份 RP) 由用户界面和 api 公开 Azure Stack 基础结构的基本备份功能组成。
 
 ### <a name="infrastructure-backup-controller"></a>基础结构备份控制器
 
@@ -119,8 +119,8 @@ ms.locfileid: "93328997"
 
 这些要求包括：
 
-- **软件要求** ：介绍支持的存储位置和大小调整指南。
-- **网络要求** ：描述不同存储位置的网络要求。
+- **软件要求**：介绍支持的存储位置和大小调整指南。
+- **网络要求**：描述不同存储位置的网络要求。
 
 ### <a name="software-requirements"></a>软件要求
 
@@ -190,7 +190,7 @@ ms.locfileid: "93328997"
 |网络交换机配置     | 不在范围内         | 管理员必须使用 OEM 工具备份网络交换机配置。 请参阅每个 OEM 供应商提供的 Azure Stack 文档。        |
 |硬件生命周期主机     | 不在范围内         | 管理员必须使用 OEM 工具备份硬件生命周期主机。 请参阅每个 OEM 供应商提供的 Azure Stack 文档。        |
 |最大文件共享数     | 1        | 只能使用一个文件共享来存储备份数据。        |
-|备份值-添加资源提供程序     | 范围内        | 基础结构备份包括事件中心 RP、IoT 中心 RP、Data Box Edge RP 的备份。        |
+|备份值-添加资源提供程序     | 范围内         | 基础结构备份包括事件中心 RP、IoT 中心 RP、Data Box Edge RP 的备份。        |
 
 ## <a name="next-steps"></a>后续步骤
 

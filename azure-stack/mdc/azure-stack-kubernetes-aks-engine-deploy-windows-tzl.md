@@ -1,20 +1,20 @@
 ---
-title: 在 Azure Stack Hub 中的 Windows 上部署 AKS 引擎
-description: 了解如何在 Azure Stack Hub 中使用 Windows 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
+title: '在 Azure Stack 中心 (Windows 中部署 AKS 引擎) '
+description: 了解如何使用 Azure Stack 集线器中的 Windows 计算机来托管 AKS 引擎，以便在 MDC 中部署和管理 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f8e4f4b10f51d5a6f8cc915c50d5899dd2bf4825
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 4479903f2d24cdd53ab6f27bbb20e5c1fa985225
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328875"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598616"
 ---
-# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>在 Azure Stack Hub 中的 Windows 上安装 AKS 引擎
+# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub---modular-data-center-mdc"></a>在 Azure Stack 集线器中的 Windows 上安装 AKS 引擎-模块化数据中心 (MDC) 
 
 可以在 Azure Stack Hub 中使用 Windows 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。 本文介绍如何准备客户端 VM，以管理群集以连接和断开连接 Azure Stack 集线器实例，并验证安装。
 <!-- TZLASDKFIX2 Line above was previously:

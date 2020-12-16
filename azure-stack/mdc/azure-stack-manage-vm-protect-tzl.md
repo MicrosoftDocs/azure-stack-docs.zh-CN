@@ -1,6 +1,6 @@
 ---
-title: 保护在 Azure Stack 上部署的 VM | Microsoft Docs
-description: 了解如何生成恢复计划来保护 Azure Stack 上部署的 VM，以防出现数据丢失和计划外停机。
+title: 保护在 Azure Stack MDC 上部署的 Vm |Microsoft Docs
+description: 了解如何构建恢复计划来保护 Azure Stack 上部署的 Vm 不受 MDC 的数据丢失和计划外停机。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: cfee01600d9db4017e56b7e53c9f90351b3bb323
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 4f4de6ee060d63d4a7f7769feba93f918911608d
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414038"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598294"
 ---
-# <a name="protect-vms-deployed-on-azure-stack-hub"></a>保护在 Azure Stack Hub 上部署的 VM
+# <a name="protect-vms-deployed-on-azure-stack-hub---modular-data-center-mdc"></a>保护部署在 Azure Stack 集线器上的 Vm-模块化数据中心 (MDC) 
 
 使用本文作为指南来制定一套保护 (Vm) 用户在 Azure Stack Hub 上部署的虚拟机的计划。
 
@@ -57,7 +57,7 @@ ms.locfileid: "94414038"
 - **分类**
   - 考虑用户选择加入 VM 备份的模型。
   - 根据应用程序优先级或对业务的影响来定义恢复服务级别协议 (SLA)。
-- **缩放**
+- **可伸缩**
   - 在载入大量新的 VM 时考虑进行交错式备份（如果必须备份）。
   - 评估可以有效地捕获和传输备份数据的备份产品，尽量减少解决方案上的资源内容。
   - 评估可以通过增量备份或差异备份有效存储备份数据的备份产品，尽量减少为环境中的所有 VM 创建完整备份的需求。

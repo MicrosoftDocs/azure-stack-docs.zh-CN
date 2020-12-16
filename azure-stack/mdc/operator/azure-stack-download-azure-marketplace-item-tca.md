@@ -1,6 +1,6 @@
 ---
-title: 从 Azure 下载市场项并发布到 Azure Stack | Microsoft Docs
-description: 了解如何从 Azure 下载市场项并发布到 Azure Stack。
+title: 从 Azure 下载 marketplace 项，并发布到 Azure Stack
+description: 了解如何从 Azure 下载 marketplace 项，并发布到针对模块化数据中心 (MDC) 的 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 2a3dec7699911988c4c9a958c31386c127f70694
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935026"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598226"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub 
+# <a name="download-marketplace-items-to-azure-stack-hub---modular-data-center-mdc"></a>将 Marketplace 项下载到 Azure Stack 集线器-模块化数据中心 (MDC)  
 
 云操作员可从市场将项下载 Azure Stack Hub，并使这些项可供所有使用 Azure Stack Hub 环境的用户使用。 可以选择的项来自 Azure 市场项的有序列表，这些项已预先经过测试，支持与 Azure Stack 配合使用。 其他项会不断地添加到此列表中，因此请不时地返回查看新内容。
 
@@ -60,11 +60,11 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 4. 每个行项还显示当前可用版本。 如果某个市场项有多个可用版本，“版本”列会显示“多个”。  可以单击每个项查看其说明和附加信息，包括其下载大小：
 
-   ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
+   ![显示 "从 Azure 添加" 页的屏幕截图。](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
 
 5. 如果某个项的版本显示为 **多个**，则可以选择该项目，然后从生成的版本选择器下拉列表中选择特定版本：
 
-   ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
+   ![显示 "管理" 页面并突出显示 "版本选择器" 下拉列表的 Screnshot。](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
 
 6. 选择所需的项，然后选择“下载”。 下载时间根据网络连接性能而异。 下载完成后，可以 Azure Stack 操作员或用户的身份部署新市场项。
 

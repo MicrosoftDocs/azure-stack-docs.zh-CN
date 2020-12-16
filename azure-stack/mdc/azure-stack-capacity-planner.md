@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中心 Capacity Planner |Microsoft Docs
-description: 了解 Azure Stack 中心部署的容量规划。
+title: Azure Stack Hub Capacity Planner | Microsoft Docs
+description: 了解如何使用 Azure Stack 集线器容量规划器来查看 Azure Stack 中心部署的计算资源分配。
 services: azure-stack
 documentationcenter: ''
 author: prchint
@@ -16,14 +16,14 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 85416a044da5f3f834011da52ba6023ee2456995
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 6928c301ae2c5985a9db52bff109c874024327cb
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182940"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598277"
 ---
-# <a name="azure-stack-hub-capacity-planner"></a>Azure Stack Hub Capacity Planner
+# <a name="azure-stack-hub-capacity-planner---modular-data-center-mdc"></a>Azure Stack 中心 Capacity Planner-模块化数据中心 (MDC) 
 
 Azure Stack Hub Capacity Planner 是显示不同计算资源分配如何配合硬件产品/服务选择的电子表格。 
 
@@ -56,33 +56,33 @@ Azure Stack Hub Capacity Planner 内的资源模型取决于各种不同的 Azur
 
 
 ## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint 说明
-若要使用各种大小和数量的 VM 的单个集合创建模型，请选择“DefineByVMFootprint”选项卡并执行以下步骤****：
+若要使用各种大小和数量的 VM 的单个集合创建模型，请选择“DefineByVMFootprint”选项卡并执行以下步骤：
 
 1. 在此工作表的右上角，使用提供的下拉列表框控件选择想要安装在每个硬件系统 (SKU) 中的服务器的初始数量（在 4 到 16 之间）。 在建模过程可以随时修改此服务器数量，以便查看此值如何影响资源分配模型的整体可用资源。
 2. 如果要针对一个特定的硬件配置为各种 VM 资源分配建模，请在页面的右上角找到“当前 SKU”选项卡正下方的蓝色下拉列表框  。 下拉此列表框，然后选择所需的硬件 SKU。
 3. 现在可以开始将各种大小的 VM 添加到模型。 若要包含特定 VM 类型，请将数量值输入到该 VM 条目左侧的蓝色空心框中。
 
    > [!NOTE]
-   > VM 存储总量是指 VM 的数据磁盘的总容量（受支持的磁盘的数目乘以单个磁盘的最大容量 [1 TB]）。 根据配置指示器，我们已填充可用的存储配置表，因此，你可以为每个 Azure Stack 中心 VM 选择所需的存储资源级别。 但是，请务必注意，你可以根据需要添加或更改“可用存储配置”表。<br><br>每个 VM 从最初分配的本地临时存储开始。 为反映临时存储的精简预配，local-temp 数量可以更改为包括最大可允许临时存储量的下拉菜单中的任何内容。
+   > VM 存储总量是指 VM 的数据磁盘的总容量（受支持的磁盘的数目乘以单个磁盘的最大容量 [1 TB]）。 我们已根据配置指示器填充了“可用存储配置”表，以便你可以为每个 Azure Stack Hub VM 选择所需级别的存储资源。 但是，请务必注意，你可以根据需要添加或更改“可用存储配置”表。<br><br>每个 VM 从最初分配的本地临时存储开始。 为反映临时存储的精简预配，local-temp 数量可以更改为包括最大可允许临时存储量的下拉菜单中的任何内容。
 
 4. 添加 VM 时，你将看到显示可用 SKU 资源更改的图表。 这样，就可以查看在建模过程中添加各种大小和数量的 VM 的效果。 查看更改效果的另一种方法是观察“可用 VM”列表正下方列出的“已使用”和“仍可用”数目   。 这些数字反映了基于当前所选硬件 SKU 估计的值。
-5. 创建 VM 集后，可以通过选择页面右上角的“建议的 SKU”按钮（位于“当前 SKU”标签正下方）来查找建议的硬件 SKU********。 使用此按钮，可以随后修改 VM 配置并查看哪一硬件支持每个配置。
+5. 创建 VM 集后，可以通过选择页面右上角的“建议的 SKU”按钮（位于“当前 SKU”标签正下方）来查找建议的硬件 SKU。 使用此按钮，可以随后修改 VM 配置并查看哪一硬件支持每个配置。
 
 
 ## <a name="definebyworkloadfootprint-instructions"></a>DefineByWorkloadFootprint 说明
-若要使用 Azure Stack 中心工作负载的集合创建模型，请选择 " **DefineByWorkloadFootprint** " 选项卡，然后按照此顺序执行此步骤。 使用可用 VM 资源创建 Azure Stack 集线器工作负荷。   
+若要使用 Azure Stack Hub 工作负载的集合创建模型，请选择“DefineByWorkloadFootprint”选项卡并执行这一序列的步骤。 使用可用 VM 资源创建 Azure Stack Hub 工作负荷。   
 
 > [!TIP]
-> 若要更改为 Azure Stack 中心 VM 提供的存储大小，请参阅上一节中步骤3中的注释。
+> 若要为 Azure Stack Hub VM 更改提供的存储大小，请参阅上一部分的步骤 3 中的说明。
 
 1. 在此工作表的右上角，使用提供的下拉列表框控件选择想要安装在每个硬件系统 (SKU) 中的服务器的初始数量（在 4 到 16 之间）。
-2. 如果要针对一个特定的硬件配置为各种 VM 资源分配建模，请在页面的右上角找到“当前 SKU”选项卡正下方的蓝色下拉列表框****。 下拉此列表框，然后选择所需的硬件 SKU。
-3. 在 **DefineByVMFootprint** 页上，为每个所需的 Azure Stack 中心 vm 选择适当的存储大小，如前一部分中的步骤3所述。 每个 VM 的存储大小在 DefineByVMFootprint 工作表中定义。
-4. 从“DefineByWorkloadFootprint”页的左上角开始，针对最多六个不同的工作负荷类型创建配置****。 为每个包含在该工作负荷中的 VM 类型输入数量。 为此，可将数值放入该工作负荷的名称正下方的列中。 可以修改工作负荷名称以反映此特定配置将支持的工作负荷类型。
-5. 可以包括每个工作负荷类型的特定数量，方法是在“数量”标签正下方该列的底部输入一个值****。
-6. 创建好工作负荷类型和数量后，选择页右上角“当前 SKU”标签正下面的“建议的 SKU”********。 此时会显示具有足够资源的最小 SKU 可支持此工作负荷的整体配置。
+2. 如果要针对一个特定的硬件配置为各种 VM 资源分配建模，请在页面的右上角找到“当前 SKU”选项卡正下方的蓝色下拉列表框。 下拉此列表框，然后选择所需的硬件 SKU。
+3. S在“DefineByVMFootprint”页上为每个所需的 Azure Stack Hub VM 选择适当的存储大小，如上面的步骤 3 中所述。 每个 VM 的存储大小在 DefineByVMFootprint 工作表中定义。
+4. 从“DefineByWorkloadFootprint”页的左上角开始，针对最多六个不同的工作负荷类型创建配置。 为每个包含在该工作负荷中的 VM 类型输入数量。 为此，可将数值放入该工作负荷的名称正下方的列中。 可以修改工作负荷名称以反映此特定配置将支持的工作负荷类型。
+5. 可以包括每个工作负荷类型的特定数量，方法是在“数量”标签正下方该列的底部输入一个值。
+6. 创建好工作负荷类型和数量后，选择页右上角“当前 SKU”标签正下面的“建议的 SKU”。 此时会显示具有足够资源的最小 SKU 可支持此工作负荷的整体配置。
 7. 进一步的建模可通过修改为硬件 SKU 选择的服务器数量或更改工作负荷配置中的 VM 分配或数量完成。 关联的图表将显示说明所做的更改如何影响总体资源消耗情况的即时反馈。
-8. 如果你对更改感到满意，请再次选择“建议的 SKU”，以显示新配置的建议 SKU。**** 也可以从下拉菜单中选择所需的 SKU。
+8. 如果你对更改感到满意，请再次选择“建议的 SKU”，以显示新配置的建议 SKU。 也可以从下拉菜单中选择所需的 SKU。
 
 ## <a name="next-steps"></a>后续步骤
-了解 [Azure Stack 集线器的数据中心集成注意事项](../operator/azure-stack-datacenter-integration.md)。
+了解 [Azure Stack Hub 的数据中心集成注意事项](../operator/azure-stack-datacenter-integration.md)。

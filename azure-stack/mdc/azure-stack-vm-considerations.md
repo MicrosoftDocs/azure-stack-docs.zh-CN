@@ -1,6 +1,6 @@
 ---
-title: Azure Stack VM 功能 | Microsoft Docs
-description: 了解使用 MDC 中的 VM 时可使用的不同功能和相关注意事项。
+title: VM) 功能 (Azure Stack 虚拟机 |Microsoft Docs
+description: 了解在 MDC 中使用虚拟机 (Vm) 时的不同功能和注意事项。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: b8a5d2a0f08ac36b4f4ebc20e0dc3c9eea67218a
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 8bd1231c0a3e9ef7dc55349fb05c872666d47585
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935094"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598328"
 ---
-# <a name="azure-stack-vm-features"></a>Azure Stack VM 功能
+# <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Azure Stack VM 功能-模块化数据中心 (MDC) 
 
 Azure Stack 虚拟机 (VM) 提供可按需缩放的计算资源。 在部署 Vm 之前，应了解 Azure Stack 和 Microsoft Azure 中可用的 VM 功能之间的差异。 本文将说明这些差异，并指明规划 VM 部署方面的重要注意事项。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](../user/azure-stack-considerations.md)一文。
 

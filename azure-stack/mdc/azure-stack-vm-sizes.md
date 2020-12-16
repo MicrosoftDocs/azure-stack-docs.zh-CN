@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 中支持的 VM 大小 | Microsoft Docs
+title: MDC Azure Stack 中支持的 VM 大小 |Microsoft Docs
 description: MDC 中支持的 VM 大小参考。
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 80132bec125e6e8a9730d8c1fddf12f1163a0fe6
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 79245ddf40d2ab39f4bb8ed7548023b3df6ec556
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182937"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598600"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的 VM 大小
+# <a name="vm-sizes-supported-in-azure-stack---modular-data-center-mdc"></a>Azure Stack 模块化数据中心 (MDC 支持的 VM 大小) 
 
-本文列出了 Azure Stack 中可用的虚拟机 (VM) 大小。 本文可帮助你选择 VM 来支持你的 Azure Stack 解决方案。
+本文列出了 Azure Stack 中可用的虚拟机 (VM) 大小。 可以根据本文来选择支持 Azure Stack 解决方案的 VM。
 
 Azure Stack 上的磁盘 IOPS（每秒输入/输出操作次数）是与 VM 大小相关的函数，与磁盘类型无关。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，单个额外的数据磁盘的 IOPS 限制都是 2300。 施加的 IOPS 限制是一种上限（最大可能值），目的是防止邻域干扰。 它不是你会在特定 VM 大小上获得的 IOPS 的保证。
 
@@ -182,7 +182,7 @@ Azure Stack 上的磁盘 IOPS（每秒输入/输出操作次数）是与 VM 大�
 
 ### <a name="nvv4-series"></a>NVv4 系列
 
-NVv4 系列虚拟机由 [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU 提供支持。 借助 NVv4 系列，Azure 引入了包含部分 Gpu 的虚拟机。 此大小可用于 GPU 加速的图形应用程序和虚拟桌面。 NVv4 虚拟机当前仅支持 Windows 来宾操作系统。
+NVv4 系列虚拟机由 [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU 提供支持。 Azure 通过 NVv4 系列引入使用部分 GPU 的虚拟机。 此大小可用于 GPU 加速的图形应用程序和虚拟桌面。 NVv4 虚拟机目前只支持 Windows 来宾操作系统。
 
 
 | 大小 | vCPU | 内存:GiB | 临时存储 (SSD) GiB | GPU | GPU 内存：GiB | 最大数据磁盘数 | 最大 NIC 数 |

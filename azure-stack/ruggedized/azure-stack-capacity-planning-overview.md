@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Hub 容量规划概述 | Microsoft Docs
-description: 了解适用于 Azure Stack Hub 部署的容量规划。
+description: 了解适用于 Azure Stack Hub 部署的容量规划。 请参阅 Azure Stack 中心耐用的高和低型号的规格。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 7ccaee0f134f2aa2a56f0fe14bab8fba72a84726
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: b300a787105b39f2d4fa87f61f67e4aee4530440
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939439"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598192"
 ---
 # <a name="overview-of-azure-stack-hub-capacity-planning"></a>Azure Stack Hub 容量规划概述
 

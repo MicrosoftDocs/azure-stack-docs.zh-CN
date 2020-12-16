@@ -1,21 +1,21 @@
 ---
-title: Azure Stack Hub 管理基础知识
+title: Azure Stack 集线器管理基础知识-MDC
 titleSuffix: Azure Stack Hub
-description: 了解 Azure Stack Hub 管理基础知识。
+description: 了解 Azure Stack 集线器管理的基础知识。 查看其他支持信息并查看后续步骤。
 author: justinha
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9369f29d802350f71ac4a5a462009768dec5c2cb
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 5124494511d1e9c28bddce5cb42ba8e253c53807
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934924"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598532"
 ---
-# <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub 管理基础知识
+# <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Azure Stack 集线器管理基础知识-模块化数据中心 (MDC) 
 
 如果你不熟悉 Azure Stack Hub 管理，则需要了解几项事情。 本文概述 Azure Stack Hub 操作员角色，以及需要告知用户哪些事情才能帮助他们提高工作效率。
 
