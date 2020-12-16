@@ -3,16 +3,16 @@ title: Azure Stack Hub 中的使用情况连接问题和错误
 description: 排查 Azure Stack Hub 使用情况问题和错误。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 50dda23de11c9da1913231da780c1005520706a7
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 8b5522cc15972018be4130bf7901444a9e4cdf05
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041581"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97577000"
 ---
 # <a name="usage-connectivity-errors"></a>使用情况连接错误
 
@@ -30,7 +30,7 @@ Azure Stack 集线器使用情况数据由 Azure Stack 集线器中的 [*Azure B
 
 - 验证网络配置是否允许 Azure Bridge 连接到远程服务。
 
-- 转到[“区域管理” > “属性”](azure-stack-registration.md#verify-azure-stack-hub-registration)边栏选项卡，找到用于注册的 Azure 订阅 ID、资源组和注册资源名称。  检查注册资源是否位于 Azure 门户中的正确 Azure 订阅 ID 下。 为此，请转到 Azure 订阅 ID 下创建的**所有资源**，并选中“显示隐藏的类型”框。 如果找不到注册资源，请按照[续订或更改注册](azure-stack-registration.md#renew-or-change-registration)中的步骤重新注册 Azure Stack Hub。
+- 转到[“区域管理” > “属性”](azure-stack-registration.md#verify-azure-stack-hub-registration)边栏选项卡，找到用于注册的 Azure 订阅 ID、资源组和注册资源名称。  检查注册资源是否位于 Azure 门户中的正确 Azure 订阅 ID 下。 为此，请转到 Azure 订阅 ID 下创建的 **所有资源**，并选中“显示隐藏的类型”框。 如果找不到注册资源，请按照[续订或更改注册](azure-stack-registration.md#renew-or-change-registration)中的步骤重新注册 Azure Stack Hub。
 
   ![门户](media/azure-stack-usage-issues/stackres.png)
 
