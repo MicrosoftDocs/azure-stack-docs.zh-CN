@@ -26,6 +26,8 @@
       href: deploy/create-cluster.md
     - name: 设置群集见证
       href: deploy/witness.md
+    - name: 部署 SDN 基础结构
+      href: deploy/sdn-express.md
     - name: 迁移到新硬件
       href: deploy/migrate-cluster-new-hardware.md
     - name: 在同一硬件上迁移
