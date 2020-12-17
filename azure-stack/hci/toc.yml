@@ -158,6 +158,8 @@
       items:
         - name: 计费
           href: concepts/billing.md
+        - name: 配置防火墙
+          href: concepts/configure-firewalls.md
         - name: 更新和升级
           href: concepts/updates.md
         - name: 安全注意事项
@@ -172,7 +174,7 @@
       href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
     - name: Azure 注册 PowerShell 命令
       href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
-    - name: ARM Azure Stack HCI 服务 API 的 "中转包"
+    - name: 适用于 ARM Azure Stack HCI 服务 API 的 Go 包
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/azurestackhci/mgmt/2020-10-01/azurestackhci'
     - name: Azure Stack HCI Java 服务类和接口
       href: /java/api/com.microsoft.azure.management.azurestackhci.v2020_10_01

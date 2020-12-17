@@ -1,18 +1,18 @@
 ---
 title: 将 Azure Stack HCI 连接到 Azure
-description: 如何使用 Azure 注册 Azure Stack HCI。
+description: 如何将 Azure Stack HCI 群集注册到 Azure。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: e56718e080638eb6349625f644c837798c001a1d
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/16/2020
+ms.openlocfilehash: 95e0ed6b87fb501b31c024c5d2d886b4e1bce8ac
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010849"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620630"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>将 Azure Stack HCI 连接到 Azure
 
@@ -27,9 +27,9 @@ ms.locfileid: "97010849"
 
 在创建 Azure Stack HCI 群集之前，将无法向 Azure 注册。 为了支持群集，群集节点必须是物理服务器。 虚拟机可用于测试，但必须支持 (UEFI) 统一可扩展固件接口，这意味着不能使用 Hyper-v 第1代虚拟机。 Azure Arc 注册是 Azure Stack HCI 操作系统的本机功能，因此无需注册代理。
 
-### <a name="internet-access"></a>Internet 访问
+### <a name="internet-access"></a>Internet 访问权限
 
-Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受到外部公司防火墙或代理服务器的限制，则必须将其配置为允许对端口443的出站访问， (HTTPS) 在有限数量的众所周知的 Azure Ip 上。 
+Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受到外部公司防火墙或代理服务器的限制，则必须将其配置为允许对端口443的出站访问， (HTTPS) 在有限数量的众所周知的 Azure Ip 上。 有关如何准备防火墙的信息，请参阅为 [AZURE STACK HCI 配置防火墙](../concepts/configure-firewalls.md)。
 
    > [!NOTE]
    > 注册过程将尝试与 PowerShell 库联系以验证你是否具有所需的最新版本的 PowerShell 模块，如 Az 和 AzureAD。 尽管 PowerShell 库在 Azure 上托管，但它当前没有服务标记。 如果无法从具有出站 internet 访问权限的管理计算机上运行上述 cmdlet，则我们建议下载这些模块，并手动将它们传输到要运行该命令的群集节点 `Register-AzStackHCI` 。 或者，你可以 [在断开连接的情况下安装模块](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system)。
@@ -97,7 +97,7 @@ Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受�
 
 使用以下过程通过管理 PC 将 Azure Stack HCI 群集注册到 Azure。
 
-1. 在管理 PC 上安装所需的 cmdlet。 如果要注册从公开发行版部署的群集 (GA) Azure Stack HCI 的映像，只需运行以下命令即可。 如果你的群集是从公共预览映像部署的，请确保在尝试注册之前，已将2020年11月23日预览版 (KB4586852) 应用到群集中的每个服务器。
+1. 在管理 PC 上安装所需的 cmdlet。 如果要注册从当前正式发行版部署的群集 (GA) Azure Stack HCI 的映像，只需运行以下命令即可。 如果你的群集是从公共预览映像部署的，请确保在尝试注册到 Azure 之前，已将2020年11月23日预览版 (KB4586852) 应用到了群集中的每个服务器。
 
    ```PowerShell
    Install-Module -Name Az.StackHCI
@@ -110,7 +110,7 @@ Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受�
 2. 使用群集中任何服务器的名称执行注册。 若要获取 Azure 订阅 ID，请访问 [portal.azure.com](https://portal.azure.com)，导航到 "订阅"，然后从列表中复制/粘贴你的 ID。
 
    ```PowerShell
-   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName]
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName] [-Region]
    ```
 
    此语法使用 Azure 资源和资源组的默认 Azure 区域和云环境，并为 Azure 资源和资源组使用智能默认名称来注册群集的 (，其中 Server1 为成员) ，当前用户为当前用户，但是，可以将参数添加到此命令以指定这些值。

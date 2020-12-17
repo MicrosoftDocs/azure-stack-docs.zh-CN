@@ -3,17 +3,17 @@ title: 从 Azure 下载市场项并发布到 Azure Stack Hub
 description: 了解如何从 Azure 下载市场项并发布到 Azure Stack Hub。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 12/9/2020
+ms.date: 12/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/9/2020
+ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f0aafd572aa50760a7b326d5ca699e3f1331b3e9
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934958"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620647"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub
 
@@ -119,7 +119,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
-2. 使用已用于注册 Azure Stack Hub 的 Azure 帐户登录到相应的 Azure 云和 AzureAD 目录租户。 若要添加该帐户，请在 PowerShell 中运行 `Add-AzureRmAccount`：
+2. 使用已用于注册 Azure Stack Hub 的 Azure 帐户登录到相应的 Azure 云和 AzureAD 目录租户。 若要添加该帐户，请在 PowerShell 中运行 `Login-AzAccount`：
 
    ```powershell  
    Login-AzAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'

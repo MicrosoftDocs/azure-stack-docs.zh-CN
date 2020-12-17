@@ -1,18 +1,18 @@
 ---
-title: 删除 Azure Stack 集线器上具有依赖关系的 VM
+title: 删除 Azure Stack Hub 上具有依赖项的 VM
 description: 如何删除 Azure Stack Hub 上具有依赖项的 VM（虚拟计算机）
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/7/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/7/2020
-ms.openlocfilehash: aaedac367ab9bd12a75e09917acfa6b02dc4930e
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 63a4ed0c6f1d63b21e221713befa84b0d10c1a95
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778183"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620698"
 ---
 # <a name="how-to-delete-a-vm-virtual-machine-with-dependencies-on-azure-stack-hub"></a>如何删除 Azure Stack Hub 上具有依赖项的 VM（虚拟计算机）
 
@@ -52,7 +52,7 @@ ms.locfileid: "96778183"
     2. 等待资源完全删除。
     3. 然后，你可以删除下一个依赖项。
 
-### <a name="with-powershell"></a>[使用 PowerShell](#tab/ps-az)
+### <a name="az-modules"></a>[Az 模块](#tab/ps-az)
 
 如果无法删除资源组，要么依赖项不在同一资源组中，要么存在其他资源，请按照以下步骤操作。
 
@@ -126,7 +126,7 @@ if ($machine.DataDiskNames.Count -gt 0)
 ```powershell
 $machine | Remove-AzVM -Force
 ```
-### <a name="with-powershell"></a>[使用 PowerShell](#tab/ps-azureRM)
+### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/ps-azureRM)
 
 如果无法删除资源组，要么依赖项不在同一资源组中，要么存在其他资源，请按照以下步骤操作。
 

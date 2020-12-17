@@ -3,16 +3,16 @@ title: 安装 Azure Stack Hub 更新
 description: 了解如何安装 Azure Stack Hub 更新。
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 12/16/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: d0222de6db809fcbb73d31ac1ef4298e18895643
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: a54e47ff5788ca100e45be103e4d3d5192766f3b
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106574"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620740"
 ---
 # <a name="install-azure-stack-hub-updates"></a>安装 Azure Stack Hub 更新
 
@@ -31,9 +31,9 @@ ms.locfileid: "91106574"
 
 1. 打开 Azure Stack Hub 管理员门户。
 
-2. 选择“仪表板”。  在“更新”边栏选项卡中会列出当前版本。  例如，此图像中的版本是 1.1903.0.35：
+2. 选择“仪表板”。  在 " **更新** " 窗格中，列出了当前版本：
 
-    ![默认仪表板上的“更新”磁贴](./media/azure-stack-update-apply/image1.png)
+    ![默认仪表板上的“更新”磁贴](./media/azure-stack-apply-updates/dashboard.png)
 
 ## <a name="install-updates-and-monitor-progress"></a>安装更新并监视进度
 
@@ -48,7 +48,7 @@ ms.locfileid: "91106574"
 
 4. 选择“立即更新”。 
 
-    ![显示如何开始 Azure Stack 集线器中的更新的屏幕截图。](./media/azure-stack-update-apply/image2.png)
+    ![此屏幕截图显示了如何在 Azure Stack Hub 中启动更新。](./media/azure-stack-apply-updates/image2.png)
 
 5. 可以查看当更新进程循环访问 Azure Stack Hub 中的各个子系统时的概要状态。 示例子系统包括物理主机、Service Fabric、基础结构虚拟机，以及提供管理员用户和用户门户的服务。 在整个更新过程中，“更新”资源提供程序会报告有关更新的其他详细信息，例如成功的步骤数，以及正在进行的步骤数。
 
@@ -56,11 +56,11 @@ ms.locfileid: "91106574"
 
     如果在监视更新时遇到问题，可以使用[特权终结点](./azure-stack-privileged-endpoint.md)来监视 Azure Stack Hub 更新运行的进度。 也可以使用特权终结点在 Azure Stack Hub 门户不可用时，从最后一个成功的步骤恢复失败的更新运行。 有关说明，请参阅[使用 PowerShell 在 Azure Stack Hub 中监视更新](azure-stack-update-monitor.md)。
 
-    ![Azure Stack Hub 更新运行详细信息](./media/azure-stack-update-apply/image3.png)
+    ![Azure Stack Hub 更新运行详细信息](./media/azure-stack-apply-updates/image3.png)
 
 7. 完成后，“更新”资源提供程序会显示“成功”确认，显示更新过程已完成，以及更新所花费的时间。 在此处，可以使用筛选器查看有关所有更新、可用更新或已安装更新的信息。
 
-    ![azure-stack-update-apply](./media/azure-stack-update-apply/image4.png)
+    ![azure-stack-update-apply](./media/azure-stack-apply-updates/image4.png)
 
     如果更新失败，“更新”边栏选项卡会报告“需要注意”。   使用“下载完整日志”选项来获取更新失败的位置的概要状态。  Azure Stack Hub 日志收集有助于诊断和故障排除。
 
@@ -72,7 +72,7 @@ ms.locfileid: "91106574"
 
 3. 选择“更新历史记录”。 
 
-    ![Azure Stack Hub 更新历史记录](./media/azure-stack-update-apply/image7.png)
+    ![Azure Stack Hub 更新历史记录](./media/azure-stack-apply-updates/image5.png)
 
 ## <a name="next-steps"></a>后续步骤
 
