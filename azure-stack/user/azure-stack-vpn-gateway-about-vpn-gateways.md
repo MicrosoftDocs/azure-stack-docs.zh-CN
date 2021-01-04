@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: e21839e5333a03b1a36322f0c632a2b278da9665
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813728"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802008"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>为 Azure Stack Hub 创建 VPN 网关
 
@@ -94,17 +94,17 @@ Azure Stack Hub 不支持专门搭配 Express Route 使用的超性能网关 SKU
 
 ## <a name="gateway-availability"></a>网关可用性
 
-高可用性方案只能在**高性能网关**连接 SKU 上配置。 与同时通过主动/主动和主动/被动配置提供可用性的 Azure 不同，Azure Stack Hub 仅支持主动/被动配置。
+高可用性方案只能在 **高性能网关** 连接 SKU 上配置。 与同时通过主动/主动和主动/被动配置提供可用性的 Azure 不同，Azure Stack Hub 仅支持主动/被动配置。
 
 ### <a name="failover"></a>故障转移
 
 Azure Stack Hub 中有三个多租户网关基础结构 VM。 其中两个 VM 处于活动模式，第三个 VM 处于冗余模式。 活动 VM 支持在其上创建 VPN 连接，而冗余 VM 只在发生故障转移时才接受 VPN 连接。 如果活动网关 VM 变得不可用，VPN 连接在短时间（几秒）的连接丢失之后就会故障转移到冗余 VM。
 
-## <a name="estimated-aggregate-throughput-by-sku"></a>按 SKU 列出的估计聚合吞吐量
+## <a name="estimated-aggregate-tunnel-throughput-by-sku"></a>按 SKU 估计的聚合隧道吞吐量
 
-下表显示网关类型和预计的网关 SKU 聚合吞吐量：
+下表显示了网关 SKU 的每个隧道/连接的网关类型和估计的聚合吞吐量：
 
-|| VPN 网关吞吐量 (1) | VPN 网关最大 IPsec 隧道数 (2) |
+|| 隧道吞吐量 (1)  | VPN 网关最大 IPsec 隧道数 (2) |
 |-------|-------|-------|
 |**基本 SKU** **(3)** | 100 Mbps | 20 |
 |**标准 SKU** | 100 Mbps | 20 |
@@ -112,7 +112,7 @@ Azure Stack Hub 中有三个多租户网关基础结构 VM。 其中两个 VM �
 
 ### <a name="table-notes"></a>表格注释
 
-**(1)** - VPN 吞吐量不是 Internet 上跨界连接的保证吞吐量。 它是可能的最大吞吐量。  
+**(1)** -对于跨 internet 的跨界连接，隧道吞吐量不是有保证的吞吐量。 它是可能的最大吞吐量。  
 **(2)** - 最大隧道数是所有订阅的每个 Azure Stack Hub 部署的总数。  
 **(3)** - 基本 SKU 不支持 BGP 路由。
 

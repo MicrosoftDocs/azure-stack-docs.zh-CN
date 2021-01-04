@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: 9a88620fa333bd55a99796f4de292555f6cfd159
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778166"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737855"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 SQL Server 资源提供程序
 
@@ -36,13 +36,13 @@ ms.locfileid: "96778166"
 
 - 将所需的 Windows Server VM 添加到 Azure Stack Hub 市场。
   - 对于 SQL RP 版本 <= 1.1.47.0，请下载“Windows Server 2016 Datacenter - Server Core”映像。
-  - 对于 SQL RP 版本 >= 1.1.93.0，请下载“Microsoft AzureStack Add-On RP Windows Server（仅限内部）”映像。 此 Windows Server 版本专用于 Azure Stack Add-On RP Infrastructure，对租户市场不可见。
+  - 对于 SQL RP 版本 >= 1.1.93.0，请下载 **Microsoft test-azurestack Add-On RP Windows Server** 映像。 此 Windows Server 版本专用于 Azure Stack Add-On RP Infrastructure，对租户市场不可见。
 
 - 根据下面的版本映射表，下载受支持版本的 SQL 资源提供程序二进制文件。 运行自解压程序，将下载的内容解压缩到临时目录。 
 
   |支持的 Azure Stack Hub 版本|SQL RP 版本|RP 服务正在其上运行的 Windows Server
   |-----|-----|-----|
-  |2008、2005|[SQL RP 版本 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack 加载项 RP Windows Server（仅限内部）
+  |2008、2005|[SQL RP 版本1.1.93。1](https://aka.ms/azshsqlrp11931)|Microsoft Test-azurestack 外接程序 RP Windows Server
   |2005、2002、1910|[SQL RP 版本 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[SQL RP 版本 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |
@@ -115,7 +115,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 若要部署 SQL 资源提供程序，请打开一个权限提升的 PowerShell（不是 PowerShell ISE）**新** 窗口，并切换到解压缩后的 SQL 资源提供程序二进制文件所在的目录。 
 
 > [!IMPORTANT]
-> 强烈建议在运行更新脚本之前，使用 **set-azurermcontext-Scope CurrentUser** 和 **set-azurermcontext 范围进程** 清除缓存。
+> 强烈建议在运行更新脚本之前，使用 Clear-AzureRmContext -Scope CurrentUser 和 Clear-AzureRmContext -Scope Process 清除缓存。
 
 运行 DeploySqlProvider.ps1 脚本，以完成以下任务：
 

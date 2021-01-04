@@ -1,5 +1,5 @@
 ---
-title: '通过特权终结点 (PEP 收集诊断日志) '
+title: 通过特权终结点 (PEP) 收集诊断日志
 description: 了解如何使用管理员门户或 PowerShell 脚本在 Azure Stack 集线器中收集诊断日志。
 author: justinha
 ms.custom: conteperfq4
@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 95e12f2f90cd7e33fb3a2cc3a5f016f35ac0e54f
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 48add21dfcbf5c83a525e1f0ebd6a9e2123f75e4
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623211"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794152"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>使用特权终结点 (PEP) 发送 Azure Stack Hub 诊断日志
 
@@ -86,6 +86,18 @@ if ($session) {
   Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
+  为 SQL RP 收集日志： 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider SQLAdapter
+  ```
+
+  收集 MySQL RP 的日志： 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider MySQLAdapter
+  ```
+
   收集 IoT 中心的日志： 
 
   ```powershell
@@ -129,12 +141,12 @@ if ($session) {
   1. 按照[本文中](/azure/storage/common/storage-quickstart-create-account)的步骤创建存储帐户。
   2. 打开 Azure 存储资源管理器的实例。
   3. 连接到在步骤 1 中创建的存储帐户。
-  4. 在**存储服务**中导航到 **Blob 容器**。
-  5. 选择“新建容器”****。
-  6. 右键单击新容器，然后单击“获取共享访问签名”。****
-  7. 根据需求，选择有效的**开始时间**和**结束时间**。
-  8. 根据所需的权限，选择“读取”****、“写入”**** 和“列表”****。
-  9. 选择“创建” ****。
+  4. 在 **存储服务** 中导航到 **Blob 容器**。
+  5. 选择“新建容器”。
+  6. 右键单击新容器，然后单击“获取共享访问签名”。
+  7. 根据需求，选择有效的 **开始时间** 和 **结束时间**。
+  8. 根据所需的权限，选择“读取”、“写入”和“列表”。
+  9. 选择“创建” 。
   10. 你将获得共享访问签名。 复制 URL 部分，并将其提供给 `-OutputSasUri` 参数。
 
 ### <a name="parameter-considerations"></a>参数注意事项
@@ -331,17 +343,17 @@ if ($session) {
 
 * 此命令需要一些时间来运行，具体取决于日志收集的角色。 影响因素还包括指定用于日志收集的时限，以及 Azure Stack Hub 环境中的节点数。
 * 当日志收集运行时，请查看在 **OutputSharePath** 参数（在命令中指定）中创建的新文件夹。
-* 每个角色的日志位于单个 zip 文件中。 根据所收集日志的大小，一个角色的日志可能会拆分成多个 zip 文件。 对于此类角色，如果需要将所有日志文件解压缩到单个文件夹中，请使用可以批量解压缩的工具。 选择角色的所有压缩文件，然后选择“解压缩到此处”。**** 该角色的所有日志文件会解压缩到单个合并的文件夹中。
+* 每个角色的日志位于单个 zip 文件中。 根据所收集日志的大小，一个角色的日志可能会拆分成多个 zip 文件。 对于此类角色，如果需要将所有日志文件解压缩到单个文件夹中，请使用可以批量解压缩的工具。 选择角色的所有压缩文件，然后选择“解压缩到此处”。 该角色的所有日志文件会解压缩到单个合并的文件夹中。
 * 在压缩的日志文件所在的文件夹中，还会创建名为 **Get-AzureStackLog_Output.log** 的文件。 此文件是一个命令输出日志，可以用来排查日志收集过程中的问题。 有时，日志文件包含 `PS>TerminatingError` 条目，除非运行日志收集后缺少预期的日志文件，否则可以放心忽略这些条目。
 * 调查某个特定的故障时，可能需要多个组件中的日志。
 
   * 所有基础结构 VM 的系统和事件日志收集在 **VirtualMachines** 角色中。
   * 所有主机的系统和事件日志收集在 **BareMetal** 角色中。
-  * 故障转移群集和 Hyper-V 事件日志收集在“存储”**** 角色中。
-  * ACS 日志收集在“存储”角色**** 和 **ACS** 角色中。
+  * 故障转移群集和 Hyper-V 事件日志收集在“存储”角色中。
+  * ACS 日志收集在“存储”角色和 **ACS** 角色中。
 
 > [!NOTE]
-> 会对收集的日志强制实施大小和保留时间限制，因为必须确保对存储空间进行有效的利用，以免该空间充斥着日志。 但是，在诊断问题时，有时可能需要某些日志，但这些日志因为这些限制而不再存在了。 因此，**强烈建议**每隔 8 到 12 小时就将日志卸载到外部存储空间（Azure 中的存储帐户、其他本地存储设备，等等）并在该处保留 1 - 3 月，具体取决于你的要求。 还应确保该存储位置已加密。
+> 会对收集的日志强制实施大小和保留时间限制，因为必须确保对存储空间进行有效的利用，以免该空间充斥着日志。 但是，在诊断问题时，有时可能需要某些日志，但这些日志因为这些限制而不再存在了。 因此，**强烈建议** 每隔 8 到 12 小时就将日志卸载到外部存储空间（Azure 中的存储帐户、其他本地存储设备，等等）并在该处保留 1 - 3 月，具体取决于你的要求。 还应确保该存储位置已加密。
 
 ### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 

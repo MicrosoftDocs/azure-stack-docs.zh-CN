@@ -4,13 +4,13 @@ description: 本主题介绍支持 Azure Stack HCI 操作系统的 Microsoft 合
 author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
-ms.date: 12/10/2020
-ms.openlocfilehash: cfc60f53ba14821dd1eb4089d59a23cdde31d40d
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 12/18/2020
+ms.openlocfilehash: 7f18a85b30dad52a10d2fc63d9966b05cf0331ff
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051626"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697716"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>适用于 Azure Stack HCI 的实用工具应用程序
 
@@ -58,7 +58,7 @@ Veritas Backup Exec 是一种易于使用的备份和恢复解决方案，可帮
 Datadog 是一个完全统一的平台，涵盖基础结构监视、应用程序性能监视、日志管理、用户体验监视等。
 
 - 应用程序列表： [新式监视 & 安全性](https://www.datadoghq.com/)
-- 应用程序支持： [支持的操作系统版本](https://docs.datadoghq.com/agent/basic_agent_usage/?tab=agentv6v7#supported-os-versions)
+- 应用程序支持： [通过 Datadog 监视 MICROSOFT AZURE STACK HCI](https://www.datadoghq.com/blog/monitor-azure-stack-hci-datadog)
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅：

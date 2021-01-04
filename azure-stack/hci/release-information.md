@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 79462b14602b915289e79fff358e643f8f5f0292
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 12/18/2020
+ms.openlocfilehash: 22f5ee148952046d78baf6fd44b52136fd81c902
+ms.sourcegitcommit: 5d292b43676a55c0acd635d5253b342de1feca1f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97053062"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97710272"
 ---
 # <a name="azure-stack-hci-release-information"></a>Azure Stack HCI 版本信息
 
@@ -33,3 +33,10 @@ Azure Stack HCI 的功能更新会定期发布以增强客户体验。 此页提
 | **操作系统内部版本** | **可用日期** | **知识库文章**                                           |
 |:------------ |:----------------------|:---------------------------------------------------------|
 | 17784.1408   | 2020-12-10            | [KB 4592441](https://support.microsoft.com/help/4592441) |
+
+## <a name="next-steps"></a>后续步骤
+
+有关详细信息，请参阅：
+
+- [Azure Stack HCI 的发行说明](https://support.microsoft.com/help/4595086/)
+- [Azure Stack HCI，版本20H2 预览版本的发行说明](preview-release-notes.md)

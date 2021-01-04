@@ -4,6 +4,8 @@
   items:
     - name: 什么是 Azure Stack HCI？
       href: overview.md
+    - name: 与 Windows Server 比较
+      href: concepts/compare-windows-server.md
     - name: 发布信息
       href: release-information.md
     - name: 发行说明
@@ -118,8 +120,6 @@
       items:
         - name: 系统要求
           href: concepts/system-requirements.md
-        - name: 与 Windows Server 比较
-          href: concepts/compare-windows-server.md
         - name: 选择驱动器
           href: concepts/choose-drives.md
         - name: 驱动器对称注意事项
@@ -228,3 +228,5 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
     - name: Azure Stack HCI 支持
       href: manage/get-support.md
+    - name: Azure Stack HCI 存档发行说明
+      href: preview-release-notes.md

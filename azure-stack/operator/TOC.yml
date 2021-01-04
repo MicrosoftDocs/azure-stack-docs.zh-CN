@@ -285,6 +285,8 @@
           href: azure-stack-delegated-provider.md
         - name: 配额类型
           href: azure-stack-quota-types.md
+        - name: 使用 PowerShell 管理计划和产品/服务
+          href: azure-stack-powershell-plan-offer.md
     - name: 提供网络解决方案
       href: azure-stack-network-solutions-enable.md
     - name: 管理增值资源提供程序
@@ -319,7 +321,7 @@
                   href: app-service-remove.md
             - name: 发行说明
               items:
-                - name: '2020年3季度发行说明 [九月 2020]'
+                - name: '2020 年第 3 季度发行说明 [2020 年 9 月]'
                   href: app-service-release-notes-2020-Q3.md
                 - name: '2020 Q2 发行说明 [May2020]'
                   href: app-service-release-notes-2020-Q2.md

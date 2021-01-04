@@ -6,15 +6,15 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/16/2020
-ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 12/21/2020
+ms.openlocfilehash: 20d42c6685bb1a2a2c8de36d04434d23a97f81e1
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157659"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737872"
 ---
-# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Azure Stack HCI 中 (SDN) 软件定义的网络
+# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Azure Stack HCI 中的软件定义的网络 (SDN)
 
 > 适用于 Azure Stack HCI 版本 20H2；Windows Server 2019
 
@@ -25,7 +25,7 @@ ms.locfileid: "92157659"
 Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组件：网络控制器、软件负载均衡器和网关。
 
    > [!NOTE]
-   > 延伸 (多站点) 群集不支持 SDN。
+   > 拉伸（多站点）群集不支持 SDN。
 
 ## <a name="network-controller"></a>网络控制器
 
@@ -38,11 +38,11 @@ Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组�
 - 将虚拟设备连接到虚拟网络。
 - 为连接到虚拟网络或基于 VLAN 的传统网络的 VM 配置服务质量 (QoS) 策略。
 
-建议 [在群集创建过程中部署网络控制器](../deploy/create-cluster.md#step-5-sdn-optional)。 或者，你可以在创建 Azure Stack HCI 群集后 [使用 PowerShell 部署网络控制器](../deploy/network-controller-powershell.md) 。
+建议[在创建群集期间部署网络控制器](../deploy/create-cluster.md#step-5-sdn-optional)。 或者，可以在创建 Azure Stack HCI 群集后，[使用 PowerShell 部署网络控制器](../deploy/network-controller-powershell.md)。
 
 ## <a name="software-load-balancing"></a>软件负载均衡 (SLB)
 
-[软件负载均衡](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn) (SLB) 可用于在多个 VM 之间均匀分布客户网络流量。 它使多台服务器可以托管相同的工作负载，从而提供高可用性和可伸缩性。 SLB 使用[边界网关协议](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp)向物理网络播发虚拟 IP 地址。
+[软件负载均衡器](software-load-balancer.md) (SLB) 可用于在多个 vm 之间平均分配客户网络流量。 它使多台服务器可以托管相同的工作负载，从而提供高可用性和可伸缩性。 SLB 使用[边界网关协议](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp)向物理网络播发虚拟 IP 地址。
 
 ## <a name="gateway"></a>网关
 

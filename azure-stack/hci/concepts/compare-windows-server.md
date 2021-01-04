@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: bd1798ddfcf0897eeaedaeaae0cfb02eac1aaa1e
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.date: 12/22/2020
+ms.openlocfilehash: a4429113088497fd6a7c887a65f524a7495c6b74
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97365133"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737804"
 ---
 # <a name="compare-azure-stack-hci-to-azure-stack-hub-and-windows-server"></a>将 Azure Stack HCI 与 Azure Stack 中心和 Windows Server 进行比较
 
@@ -41,7 +41,7 @@ Windows Server 和 Azure Stack HCI 都提供了新版本路线图的相同高质
 
 | Windows Server | Azure Stack HCI |
 | --------------- | --------------- |
-| Windows Server 可以在本地或云中运行，但它本身并不是完整的超融合产品/服务。| 使用 Azure Stack HCI 在本地运行 VM，可以选择跨两个站点进行延伸并连接到 Azure 混合服务。 通过这种方式可以轻松地现代化和保护数据中心与分支机构，实现业界卓越 SQL Server 数据库性能，并在本地运行虚拟桌面以实现低延迟和数据主权|
+| Windows Server 可在本地或在云中运行，但不会提供超聚合的最新功能。| Azure Stack HCI 是 Microsoft 的顶级超聚合基础结构平台，用于在本地运行 Vm，还可以选择在两个站点之间扩展，并与 Azure 混合服务建立连接。 这是一种使你的数据中心和分支机构实现现代化和保护的简单方法，实现 SQL Server 数据库的业界最佳性能，并在本地运行 Vm 或虚拟桌面，实现低延迟和数据主权。|
 | Windows Server 就像一把优质的多用途“瑞士军刀”，适用于所有 Windows Server 角色，无论是否虚拟化。 | 使用 Azure Stack HCI 虚拟化 Exchange、SharePoint 和 SQL Server 等经典企业应用，并虚拟化 Windows Server 角色（例如文件服务器、DNS、DHCP、IIS 和 AD）。 包括不受限制地访问所有 Hyper-V 功能，例如受防护的 VM。|
 | 许多 Windows Server 部署在过时硬件上运行。 | 借助 Azure Stack HCI 可以使用软件定义的基础结构来代替过时的存储设备阵列或网络设备，而无需进行重大的重新改造。 可以直接访问和管理内置的 Hyper-V、存储空间直通和软件定义的网络 (SDN)。 在 Windows 或 Linux VM 中运行应用。|
 

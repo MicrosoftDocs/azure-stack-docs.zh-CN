@@ -2,17 +2,17 @@
 title: 在 Azure Stack Hub 中配置 IPsec/IKE 站点到站点 VPN 连接
 description: 详细了解并配置 Azure Stack Hub 中站点到站点 VPN 或 VNet 到 VNet 连接的 IPsec/IKE 策略。
 author: sethmanheim
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.topic: article
 ms.date: 11/22/2020
 ms.author: sethm
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: cb835bba8bc35029fa7f0462cb68bb4e961e985c
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 27653bcb9cfee29abd4a4587ceee67eb698a93bb
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518239"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697633"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -309,7 +309,7 @@ New-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.显示连接的 IPsec/IKE 策略
 
-以下示例演示如何对连接配置 IPsec/IKE 策略。 脚本也会继续执行前面的练习。
+以下示例演示如何对连接配置 IPsec/IKE 策略。 脚本也沿用于前面的练习。
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az5)
 
