@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 7726e16e497693db04ef859fbda316568d069c2b
+ms.sourcegitcommit: aef251d6771400b21a314bbfbea4591ab263f8fb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598464"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97726163"
 ---
 # <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>向 Azure 模块化数据中心 (MDC 注册 Azure Stack 集线器) 
 
@@ -88,9 +88,9 @@ $ExecutionContext.SessionState.LanguageMode
 1. 打开提升的 PowerShell 命令提示符。
 2. 运行以下 cmdlet：
 
-    ```powershell  
-        Install-Module -Name Azs.Tools.Admin
-    ```
+   ```powershell  
+   Install-Module -Name Azs.Tools.Admin
+   ```
 
 ### <a name="determine-your-registration-scenario"></a>确定注册方案
 
@@ -120,41 +120,37 @@ Get-AzureStackStampInformation
 
 连接的环境可以访问 Internet 和 Azure。 对于这些环境，请将 Azure Stack 集线器资源提供程序注册到 Azure，然后配置你的计费模型。
 
-
 ### <a name="az-modules"></a>[Az 模块](#tab/az1)
 
 1. 若要向 Azure 注册 Azure Stack 集线器资源提供程序，请以管理员身份启动 PowerShell ISE，并使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为适当的 Azure 订阅类型 (参阅按如下所述) 参数。
 
-2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzAccount** cmdlet。 系统将提示你输入 Azure 帐户凭据，并且可能需要根据帐户配置使用双因素身份验证。
-
-   ```powershell
-   Add-AzAccount -EnvironmentName "<environment name>"
-   ```
-
-   | 参数 | 说明 |  
-   |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud** 或 **AzureUSGovernment**。  |
-
-   >[!NOTE]
-   > 如果会话过期，你的密码已更改，或你想要切换帐户，请在使用 **AzAccount**： **AzAccount 进程** 登录之前运行以下 cmdlet。
-
-3. 在同一 PowerShell 会话中，确保登录到正确的 Azure PowerShell 上下文。 此上下文是以前用于注册 Azure Stack 中心资源提供程序的 Azure 帐户：
+2. 在同一 PowerShell 会话中，确保登录到正确的 Azure PowerShell 上下文。 此上下文是以前用于注册 Azure Stack 中心资源提供程序的 Azure 帐户：
 
    ```powershell  
    Connect-AzAccount -Environment "<environment name>"
    ```
 
+   对于 **AzureUSSec**，必须先初始化 `CustomCloud` 环境，然后调用 **add-azurermaccount**：
+
+   ```powershell
+   Initialize-AzureRmEnvironment -Name 'CustomCloud' -CloudManifestFilePath $CloudManifestFilePath
+   Connect-AzureRmAccount -Environment 'CustomCloud'
+   ```
+
    | 参数 | 说明 |  
    |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud** 或 **AzureUSGovernment**。  |
+   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment** 或 **AzureUSSec**。   |
 
-4. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：
+   >[!NOTE]
+   > 如果会话过期，你的密码已更改，或你想要切换帐户，请在使用 **add-azurermaccount**： **add-azurermaccount 进程** 登录之前运行以下 cmdlet。
 
-   ```powershell  
+3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：
+
+   ```powershell
    Get-AzSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzSubscription
    ```
 
-5. 运行以下命令，将 Azure Stack 集线器资源提供程序注册到你的 Azure 订阅：
+4. 运行以下命令，将 Azure Stack 集线器资源提供程序注册到你的 Azure 订阅：
 
    ```powershell  
    Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -164,8 +160,7 @@ Get-AzureStackStampInformation
 
    ![注册 Azure Stack 集线器资源提供程序](./media/registration-tzl/register-azure-resource-provider-portal.png)
 
-
-6. 在同一 PowerShell 会话中，运行 **set-azsregistration** cmdlet：
+5. 在同一 PowerShell 会话中，运行 **set-azsregistration** cmdlet：
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -180,8 +175,9 @@ Get-AzureStackStampInformation
       -msAssetTag $msAssetTagName `
       -UsageReportingEnabled: $false
    ```
+
    `msAssetTag`对于自定义计费模式注册，MS 资产标记 () 是必需的，并在产品上打印。
-    
+
    该过程需要花费 10 到 15 分钟。 命令完成后，会看到消息。 “现已使用提供的参数注册并激活环境”。
 
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
@@ -189,18 +185,18 @@ Get-AzureStackStampInformation
 1. 若要向 Azure 注册 Azure Stack 集线器资源提供程序，请以管理员身份启动 PowerShell ISE，并使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为适当的 Azure 订阅类型 (参阅按如下所述) 参数。
   
 2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统将提示你输入 Azure 帐户凭据，并且可能需要根据帐户配置使用双因素身份验证。
-   
+
    ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
-   
+
    | 参数 | 说明 |  
    |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud** 或 **AzureUSGovernment**。  |
-   
+   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment** 或 **AzureUSSec**。 
+
    >[!NOTE]
    > 如果会话过期，你的密码已更改，或你想要切换帐户，请在使用 **add-azurermaccount**： **add-azurermaccount 进程** 登录之前运行以下 cmdlet。
-   
+
 3. 在同一 PowerShell 会话中，确保登录到正确的 Azure PowerShell 上下文。 此上下文是以前用于注册 Azure Stack 中心资源提供程序的 Azure 帐户：
 
    ```powershell

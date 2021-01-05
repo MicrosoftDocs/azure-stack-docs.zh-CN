@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 12/21/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 94de29942f49aa7151de201bfa00d99625a1fee8
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 8dd475ffb12d8aafb37f0c6fe3ec588e6cdf1456
+ms.sourcegitcommit: aef251d6771400b21a314bbfbea4591ab263f8fb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939413"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97726180"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
+# <a name="register-azure-stack-hub-with-azure---azure-stack-hub-ruggedized"></a>向 Azure Azure Stack 中心耐用注册 Azure Stack 集线器
 
-若要设置 Marketplace 联合，必须 Azure Stack 在部署完成后，在 (MDC) 或 Azure Stack 集线器上注册并激活模块化数据中心。 利用 Marketplace 供稿，管理员使用从 Azure Marketplace 下载的映像填充本地 Azure Stack 中心市场。
+若要设置 Marketplace 联合并使用 PaaS 服务，必须 Azure Stack 在部署完成后，在 (MDC) 或 Azure Stack 集线器上注册并激活模块化数据中心。 利用 Marketplace 供稿，管理员使用从 Azure Marketplace 下载的映像填充本地 Azure Stack 中心市场。
 
 对于将连接到 Azure 云的系统以及要断开连接的系统，需要注册。
 
@@ -58,10 +58,8 @@ ms.locfileid: "96939413"
 
 - Azure 订阅的订阅 ID。  
 
-    > [!Note]  
+    > [!NOTE]  
     > Azure 订阅与 azure 云、Azure 政府等 (的 azure 云环境相关联 ) 这将确定要连接到哪个云来访问 Marketplace 内容。
-    > 
-    > 必须为绝地大反击 services 批准用于注册的订阅。 这可确保你注册的设备有权无限制地使用资源，而不会报告 Azure 使用情况。 为了批准你的订阅，请向发送电子邮件，其中 azshregistration@microsoft.com 包含需要批准的订阅 ID，以及要注册) Azure Stack 中心耐用或模块化数据中心 (MDC。
 
 - 订阅所有者的帐户用户名和密码。 
 - 用户帐户必须有权访问 Azure 订阅并且有权在与该订阅关联的目录中创建标识应用和服务主体。 建议使用最低特权管理将 Azure Stack Hub 注册到 Azure。 有关如何创建将访问权限限制为注册订阅的自定义角色定义的详细信息，请参阅为 [Azure Stack 中心创建注册角色](../../operator/azure-stack-registration-role.md)。
@@ -98,9 +96,9 @@ $ExecutionContext.SessionState.LanguageMode
 1. 打开提升的 PowerShell 命令提示符。
 2. 运行以下 cmdlet：
 
-    ```powershell  
-        Install-Module -Name Azs.Tools.Admin
-    ```
+   ```powershell  
+   Install-Module -Name Azs.Tools.Admin
+   ```
 
 ### <a name="determine-your-registration-scenario"></a>确定注册方案
 
@@ -108,7 +106,7 @@ Azure Stack 中心部署可能 *已连接* 或已 *断开* 连接。
 
 - **已连接**：已连接意味着你已部署 Azure Stack 集线器，以便它能够连接到 Internet 和 Azure。 你可以为标识存储 Azure AD 或 Active Directory 联合身份验证服务 (AD FS) 。
 
-- **断开连接**：通过 Azure 部署选项断开连接，你可以在没有连接到 internet 的情况下部署和使用 Azure Stack 集线器。
+- **断开连接**：通过 Azure 部署选项断开连接，你可以在没有连接到 internet 的情况下部署和使用 Azure Stack 集线器。 由于断开连接的系统无法向 Azure 报告 PaaS 使用情况，因此必须将其注册为 **容量** 计费模型，才能使用 PaaS 服务。
 
 ### <a name="determine-a-unique-registration-name-to-use"></a>确定要使用的唯一注册名称
 
@@ -132,36 +130,33 @@ Get-AzureStackStampInformation
 
 1. 若要向 Azure 注册 Azure Stack 集线器资源提供程序，请以管理员身份启动 PowerShell ISE，并使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为适当的 Azure 订阅类型 (参阅按如下所述) 参数。
 
-2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统将提示你输入 Azure 帐户凭据，并且可能需要根据帐户配置使用双因素身份验证。
+2. 在同一 PowerShell 会话中，确保登录到正确的 Azure PowerShell 上下文。 此上下文是以前用于注册 Azure Stack 中心资源提供程序的 Azure 帐户：
 
    ```powershell
-   Add-AzureRmAccount -EnvironmentName "<environment name>"
-   ```
-
-   | 参数 | 说明 |  
-   |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud** 或 **AzureUSGovernment**。  |
-
-   >[!NOTE]
-   > 如果会话过期，你的密码已更改，或你想要切换帐户，请在使用 **add-azurermaccount**： **add-azurermaccount 进程** 登录之前运行以下 cmdlet。
-
-3. 在同一 PowerShell 会话中，确保登录到正确的 Azure PowerShell 上下文。 此上下文是以前用于注册 Azure Stack 中心资源提供程序的 Azure 帐户：
-
-   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
+   对于 **AzureUSSec**，必须先初始化 `CustomCloud` 环境，然后调用 **add-azurermaccount**：
+
+   ```powershell
+   Initialize-AzureRmEnvironment -Name 'CustomCloud' -CloudManifestFilePath $CloudManifestFilePath
+   Connect-AzureRmAccount -Environment 'CustomCloud'
+   ```
+
    | 参数 | 说明 |  
    |-----|-----|
-   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud** 或 **AzureUSGovernment**。  |
+   | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment** 或 **AzureUSSec**。   |
 
-4. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：
+   > [!NOTE]
+   > 如果会话过期，你的密码已更改，或你想要切换帐户，请在使用 **add-azurermaccount**： **add-azurermaccount 进程** 登录之前运行以下 cmdlet。
 
-   ```powershell  
+3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：
+
+   ```powershell
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-5. 运行以下命令，将 Azure Stack 集线器资源提供程序注册到你的 Azure 订阅：
+4. 运行以下命令，将 Azure Stack 集线器资源提供程序注册到你的 Azure 订阅：
 
    ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -171,8 +166,7 @@ Get-AzureStackStampInformation
 
    ![注册 Azure Stack 集线器资源提供程序](./media/registration-tzl/register-azure-resource-provider-portal.png)
 
-
-6. 在同一 PowerShell 会话中，运行 **set-azsregistration** cmdlet：
+5. 在同一 PowerShell 会话中，运行 **set-azsregistration** cmdlet：
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -182,13 +176,14 @@ Get-AzureStackStampInformation
    Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
-      -BillingModel Custom `
+      -BillingModel Ruggedized `
       -RegistrationName $RegistrationName `
       -msAssetTag $msAssetTagName `
       -UsageReportingEnabled: $false
    ```
-   `msAssetTag`对于自定义计费模式注册，MS 资产标记 () 是必需的，并在产品上打印。
-    
+
+   `msAssetTag`对于耐用计费模型注册，MS 资产标记 () 是必需的，并在产品上打印。
+
    该过程需要花费 10 到 15 分钟。 命令完成后，会看到消息。 “现已使用提供的参数注册并激活环境”。
 
 ## <a name="registration-and-activation-for-systems-not-connected-to-the-azure-cloud"></a>未连接到 Azure 云的系统的注册和激活 
@@ -216,7 +211,7 @@ Get-AzureStackStampInformation
       -PrivilegedEndpointCredential $YourCloudAdminCredential `
       -UsageReportingEnabled:$False `
       -PrivilegedEndpoint $YourPrivilegedEndpoint `
-      -BillingModel Custom -msAssetTag '<MS Asset tag>' `
+      -BillingModel Capacity -AgreementNumber '<EA agreement number>' -msAssetTag '<MS Asset tag>' `
       -TokenOutputFilePath $FilePathForRegistrationToken 
    ```
 
@@ -300,7 +295,7 @@ New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredentia
 
 可以使用“区域管理”磁贴验证 Azure Stack Hub 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。 状态可能是已注册，也可能是未注册。 如果是已注册，则还会显示用于注册 Azure Stack Hub 的 Azure 订阅 ID，以及注册资源组和名称。
 
-1. 登录到 Azure Stack Hub 管理员门户 (`https://adminportal.local.azurestack.external`)。
+1. 登录到 Azure Stack Hub 管理员门户。 URL 根据操作员的区域和外部域名而变化，格式为 `https://adminportal.<region>.<FQDN>` 。
 
 2. 在“仪表板”中，选择“区域管理”。
 
@@ -321,9 +316,6 @@ New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredentia
 
 > [!NOTE]
 > 完成注册后，将不再显示 "未注册的活动警告"。
-
-> [!NOTE]
-> **订阅不支持错误消息 [InvalidRegistrationToken]： BillingModel ' Custom '** ，这表明用于注册的订阅尚未获得 Azure Stack 集线器耐用或 MDC 使用的批准。 请联系 azshregistration@microsoft.com ，与要注册的产品 (Azure Stack 中心耐用或 MDC) 的类型一起批准订阅。
 
 ## <a name="next-steps"></a>后续步骤
 
