@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 排查 Azure Stack 中心服务的验证问题。
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06e9958d2311d456e977d72fe37eb88d18008092
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: f9a3b4b3ac61447a3dca567ad9ebcb636c8f9bc3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764794"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874619"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>验证作为服务的验证
 
@@ -29,14 +29,14 @@ ms.locfileid: "88764794"
 出现此问题的原因可能是由于网络连接不稳定，代理无法向服务发送检测信号。 检测信号每五分钟发送一次。 如果服务未收到15分钟的检测信号，则服务会将代理视为非活动状态，并且不会再对其计划测试。 请检查从中启动代理的目录中的 *Agenthost.log* 文件中的错误消息。
 
 > [!Note]
-> 已在代理上运行的任何测试将继续运行，但如果检测信号在测试结束之前未还原，则代理将无法更新测试状态或上载日志。 测试将始终显示为**正在运行**并且需要取消。
+> 已在代理上运行的任何测试将继续运行，但如果检测信号在测试结束之前未还原，则代理将无法更新测试状态或上载日志。 测试将始终显示为 **正在运行** 并且需要取消。
 
 ### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>在执行测试时，计算机上的代理进程已关闭。 要发生的情况
 
-如果代理进程已关闭意外，则在其上运行的测试将继续显示为 " **正在运行**"。 非常规关闭的一个示例是：重新启动计算机并终止进程 (在代理窗口上按 CTRL + C) 。 如果代理重启，则代理会将测试状态更新为**已取消**。 如果代理未重启，则测试将显示为 " **正在运行** "，必须手动取消测试。
+如果代理进程已关闭意外，则在其上运行的测试将继续显示为 " **正在运行**"。 非常规关闭的一个示例是：重新启动计算机并终止进程 (在代理窗口上按 CTRL + C) 。 如果代理重启，则代理会将测试状态更新为 **已取消**。 如果代理未重启，则测试将显示为 " **正在运行** "，必须手动取消测试。
 
 > [!Note]
-> 工作流中的测试安排为按顺序运行。 在同一工作流中**运行**状态的测试完成之前，不会执行**挂起**的测试。
+> 工作流中的测试安排为按顺序运行。 在同一工作流中 **运行** 状态的测试完成之前，不会执行 **挂起** 的测试。
 
 ## <a name="vm-images"></a>VM 映像
 
@@ -104,7 +104,7 @@ ms.locfileid: "88764794"
 
 1. 以服务管理员身份登录到管理门户。 你可以从 ECE 存储区或你的 stamp 信息文件中找到管理门户 URL。 有关说明，请参阅 [环境参数](azure-stack-vaas-parameters.md#environment-parameters)。
 
-2. 选择 "**更多服务**" "  >  **资源提供程序**"  >  **Compute**  >  **VM Images**。
+2. 选择 "**更多服务**" "  >  **资源提供程序**"  >    >  。
 
 3. 选择 " **VM 映像**" 边栏选项卡顶部的 " **+ 添加**" 按钮。
 
@@ -113,14 +113,14 @@ ms.locfileid: "88764794"
     > [!IMPORTANT]
     > 并非所有默认值对于现有 marketplace 项都是正确的。
 
-    | 字段  | 值  |
+    | 字段  | Value  |
     |---------|---------|
-    | Publisher | MicrosoftWindowsServer |
+    | 发布者 | MicrosoftWindowsServer |
     | 产品/服务 | WindowsServer |
     | OS 类型 | Windows |
     | SKU | 2012-R2-Datacenter |
     | 版本 | 1.0.0 |
-    | OS 磁盘 Blob URI | https://<*存储帐户* >/< *容器名称*>/windowsserver2012r2datacenterbyol.vhd |
+    | OS 磁盘 Blob URI | https://<*存储帐户* >/< *容器名称*>/WindowsServer2012R2DatacenterBYOL.vhd |
 
 
 5. 选择“创建”按钮。

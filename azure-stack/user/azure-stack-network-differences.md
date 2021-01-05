@@ -2,17 +2,17 @@
 title: Azure Stack Hub 网络差异
 description: 了解 Azure Stack Hub 中网络的差异和用法注意事项。
 author: mattbriggs
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.openlocfilehash: 349a2f5fb8cf44fb76467776b8275cdd8fd01278
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364109"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873990"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub 网络的差异和注意事项
 

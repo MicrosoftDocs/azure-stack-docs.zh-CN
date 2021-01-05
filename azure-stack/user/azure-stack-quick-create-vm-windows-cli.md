@@ -3,15 +3,15 @@ title: 通过 Azure CLI 在 Azure Stack 集线器上创建 Windows VM
 description: 使用 Azure CLI 在 Azure Stack Hub 中创建 Windows 虚拟机
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 81406ed38a31f07f201523b06e761165654d3333
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 157fc4e201325a6b482672373b183ceb26f14ad4
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573881"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873922"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>快速入门：使用 Azure CLI 在 Azure Stack Hub 中 创建 Windows Server 虚拟机
 

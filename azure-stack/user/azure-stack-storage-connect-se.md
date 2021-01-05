@@ -1,18 +1,18 @@
 ---
-title: 将存储资源管理器连接到 Azure Stack 中心订阅或存储帐户
+title: 将存储资源管理器连接到 Azure Stack Hub 订阅或存储帐户
 description: 了解如何将存储资源管理器连接到 Azure Stack Hub 订阅
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 773d80909c167f328e6e3eb0868cb99c7d52ffd7
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: b8718cf0a36640ab23137b5f89d5a60ad5ca34f7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107135"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873905"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack Hub 订阅或存储帐户
 
@@ -75,84 +75,84 @@ ms.locfileid: "91107135"
 
     ![添加 Azure Stack Hub 帐户](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. 在 "连接到 Azure 存储" 对话框中的 " **azure 环境**" 下，选择 " **Azure**、 **azure 中国世纪互联**、 **azure 德国**、 **azure 美国政府**" 或 " **添加新环境**"。 这取决于所使用的 Azure Stack 中心帐户。 选择 " **登录** " 以与至少一个活动 Azure Stack 中心订阅关联的 Azure Stack 中心帐户登录。
+3. 在 "连接到 Azure 存储" 对话框中的 " **azure 环境**" 下，选择 " **Azure**、 **azure 中国世纪互联**、 **azure 德国**、 **azure 美国政府**" 或 " **添加新环境**"。 这取决于所使用的 Azure Stack 中心帐户。 选择“登录”，以便使用与至少一个活动 Azure Stack Hub 订阅关联的 Azure Stack Hub 帐户进行登录。 
 
     ![连接到 Azure 存储](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
-4. 使用 Azure Stack 中心帐户成功登录后，左窗格将填充与该帐户关联的 Azure Stack 中心订阅。 选择要使用的 Azure Stack 中心订阅，并选择 " **应用**"。  (选中或清除 " **所有订阅** " 复选框，则会在所有列出的 Azure Stack 中心订阅中选择 "全部" 或 "无"。 ) 
+4. 使用 Azure Stack Hub 帐户成功登录后，左侧窗格将填充与该帐户关联的 Azure Stack Hub 订阅。 选择要使用的 Azure Stack Hub 订阅，并选择“应用”  。 （选择或清除“所有订阅”  复选框会选择所有列出的 Azure Stack Hub 订阅，或者一个都不选。）
 
-    ![填充 "自定义云环境" 对话框后，选择 "Azure Stack 中心订阅"](./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png)
+    ![填充“自定义云环境”对话框后，选择 Azure Stack Hub 订阅](./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png)
 
-    左窗格显示与所选 Azure Stack 中心订阅关联的存储帐户。
+    左侧窗格会显示与所选 Azure Stack Hub 订阅关联的存储帐户。
 
-    ![存储帐户列表，包括 Azure Stack 中心订阅帐户](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
+    ![存储帐户列表，其中包括 Azure Stack Hub 订阅帐户](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
 
-## <a name="connect-to-an-azure-stack-hub-subscription-with-ad-fs-account"></a>使用 AD FS 帐户连接到 Azure Stack 中心订阅
+## <a name="connect-to-an-azure-stack-hub-subscription-with-ad-fs-account"></a>使用 AD FS 帐户连接到 Azure Stack Hub 订阅
 
 > [!NOTE]  
-> Azure 联合服务 (AD FS) 登录体验支持 Azure Stack 中心1804或更新版本的存储资源管理器1.2.0 或更高版本。
+> Azure 联合身份验证服务 (AD FS) 登录体验支持存储资源管理器 1.2.0，或装有 Azure Stack Hub 1804 或更高更新版的更高存储资源管理器版本。
 
-使用以下步骤将存储资源管理器连接到属于 AD FS 帐户的 Azure Stack 中心订阅。
+使用以下步骤将存储资源管理器连接到属于 AD FS 帐户的 Azure Stack Hub 订阅。
 
-1. 选择 " **管理帐户**"。 资源管理器会列出你登录到的 Microsoft 订阅。
-2. 选择 " **添加帐户** " 以连接到 Azure Stack 中心订阅。
+1. 选择“管理帐户”。  资源管理器会列出你登录到的 Microsoft 订阅。
+2. 选择“添加帐户”以连接到 Azure Stack Hub 订阅  。
 
-    ![显示如何在存储资源管理器中添加帐户的屏幕截图。](media/azure-stack-storage-connect-se/add-an-account.png)
+    ![此屏幕截图显示了如何在存储资源管理器中添加帐户。](media/azure-stack-storage-connect-se/add-an-account.png)
 
-3. 选择“下一步”  。 在“连接到 Azure 存储”对话框中的“Azure 环境”下，选择“使用自定义环境”，然后单击“下一步”。************
+3. 选择“**下一页**”。 在“连接到 Azure 存储”对话框中的“Azure 环境”下，选择“使用自定义环境”，然后单击“下一步”。   
 
     ![连接到 Azure 存储](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
-4. 输入 Azure Stack 中心自定义环境所需的信息。 
+4. 输入 Azure Stack Hub 自定义环境的所需信息。 
 
-    | 字段 | 注释 |
+    | 字段 | 说明 |
     | ---   | ---   |
     | 环境名称 | 用户可以自定义此字段。 |
-    | Azure 资源管理器终结点 | Azure Stack 开发工具包的 Azure 资源管理器资源终结点示例。<br>对于运营商：`https://adminmanagement.local.azurestack.external` <br> 对于用户：`https://management.local.azurestack.external` |
+    | Azure 资源管理器终结点 | Azure Stack 开发工具包的 Azure 资源管理器资源终结点示例。<br>对于运营商： `https://adminmanagement.local.azurestack.external` <br> 对于用户： `https://management.local.azurestack.external` |
 
-    如果你正在 Azure Stack 集线器集成系统，但不知道管理终结点，请与你的操作员联系。
+    如果使用 Azure Stack Hub 集成系统且不知道管理终结点，请与运营商联系。
 
     ![添加帐户 - 自定义环境](./media/azure-stack-storage-connect-se/custom-environments.png)
 
-5. 选择 " **登录** " 以连接到与至少一个活动 Azure Stack 中心订阅关联的 Azure Stack 中心帐户。
+5. 选择“登录”，连接到至少与一个活动 Azure Stack Hub 订阅关联的 Azure Stack Hub 帐户。 
 
 
 
-6. 选择要使用的 Azure Stack 中心订阅，并选择 " **应用**"。
+6. 选择要使用的 Azure Stack Hub 订阅，然后选择“应用”  。
 
     ![帐户管理](./media/azure-stack-storage-connect-se/account-management.png)
 
-    左窗格显示与所选 Azure Stack 中心订阅关联的存储帐户。
+    左侧窗格会显示与所选 Azure Stack Hub 订阅关联的存储帐户。
 
     ![关联的订阅列表](./media/azure-stack-storage-connect-se/list-of-associated-subscriptions.png)
 
-## <a name="connect-to-an-azure-stack-hub-storage-account"></a>连接到 Azure Stack 中心存储帐户
+## <a name="connect-to-an-azure-stack-hub-storage-account"></a>连接到 Azure Stack Hub 存储帐户
 
-你还可以使用存储帐户名称和密钥对连接到 Azure Stack 中心存储帐户。
+还可以使用存储帐户名称和密钥对连接到 Azure Stack Hub 存储帐户。
 
 1. 在存储资源管理器的左窗格中，选择“管理帐户”。 将显示登录的所有 Microsoft 帐户。
 
     ![添加帐户 - 存储资源管理器](./media/azure-stack-storage-connect-se/azure-stack-sub-add-an-account.png)
 
-2. 若要连接到 Azure Stack 中心订阅，请选择 " **添加帐户**"。
+2. 若要连接到 Azure Stack Hub 订阅，请选择“添加帐户”  。
 
     ![添加帐户 - 连接到 Azure 存储](./media/azure-stack-storage-connect-se/azure-stack-use-a-storage-and-key.png)
 
-3. 在“连接到 Azure 存储”对话框中，选择“使用存储帐户名称和密钥”。****
+3. 在“连接到 Azure 存储”对话框中，选择“使用存储帐户名称和密钥”。 
 
-4. 在**帐户名称**中输入帐户名称，并将帐户密钥粘贴到“帐户密钥”**** 文本框中。 然后，选择 "其他 (在**存储终结点域** **) 下面输入**，并输入 Azure Stack 中心终结点。
+4. 在 **帐户名称** 中输入帐户名称，并将帐户密钥粘贴到“帐户密钥”  文本框中。 然后，在 **存储终结点域** 中选择“其他(在下面输入)”并输入 Azure Stack Hub 终结点。
 
     Azure Stack Hub 终结点包含两个部分：区域的名称和 Azure Stack Hub 域。 在 Azure Stack 开发工具包中，默认终结点是 **local.azurestack.external**。 如果不确定你的终结点，请与云管理员联系。
 
     ![附加名称和密钥](./media/azure-stack-storage-connect-se/azure-stack-attach-name-and-key.png)
 
-5. 选择“连接”。
-6. 成功附加存储帐户后，会显示该存储帐户，其名称后面追加了“(外部、其他)”**** 字样。
+5. 选择“连接”  。
+6. 成功附加存储帐户后，会显示该存储帐户，其名称后面追加了“(外部、其他)”  字样。
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)
 
 ## <a name="next-steps"></a>后续步骤
 
 * [存储资源管理器入门](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-* [Azure Stack 中心存储：差异和注意事项](azure-stack-acs-differences.md)
+* [Azure Stack Hub 存储：差异和注意事项](azure-stack-acs-differences.md)
 * 若要了解有关 Azure 存储的详细信息，请参阅 [Microsoft Azure 存储简介](/azure/storage/common/storage-introduction)

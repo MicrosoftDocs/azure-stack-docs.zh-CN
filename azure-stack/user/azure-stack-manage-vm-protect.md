@@ -3,16 +3,16 @@ title: 保护在 Azure Stack Hub 上部署的 VM
 description: 了解如何生成恢复计划来保护 Azure Stack Hub 上部署的 VM，以防出现数据丢失和计划外停机。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 5634cd783a010f5aa45de88ba923dfe6a8378c4c
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 8fe38a530477f080efafcf728e553a8194b74ec6
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742717"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874058"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>保护在 Azure Stack Hub 上部署的 VM
 
@@ -48,7 +48,7 @@ RTO 是指发生某个事件后，可接受应用不可用的最长时间。 例
  - **恢复点目标 (RPO)**  
 RPO 是指发生灾难期间，可接受数据丢失的最大持续时间。 例如，如果在单个数据库中存储数据并且未将数据复制到其他数据库，而是执行每小时备份，则最长可能会丢失一小时的数据。
 
-另一个指标是*平均恢复时间* (MTTR)，指的是发生故障后还原应用程序所需的平均时间。 MTTR 反映的是系统的经验值。 如果 MTTR 超过 RTO，则系统发生故障会导致不可接受的业务中断，因为无法在定义的 RTO 内将系统还原。
+另一个指标是 *平均恢复时间* (MTTR)，指的是发生故障后还原应用程序所需的平均时间。 MTTR 反映的是系统的经验值。 如果 MTTR 超过 RTO，则系统发生故障会导致不可接受的业务中断，因为无法在定义的 RTO 内将系统还原。
 
 ## <a name="protection-options"></a>保护选项 
 

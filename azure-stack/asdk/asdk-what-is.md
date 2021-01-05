@@ -1,23 +1,23 @@
 ---
 title: 什么是 Azure Stack 开发工具包 (ASDK)？ | Microsoft Docs
 description: 了解 Azure Stack 开发工具包以及如何使用它来评估 Azure Stack Hub。
-author: justinha
+author: PatAltimore
 ms.topic: overview
 ms.date: 11/27/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 38aaf52936d09c999765118e36bfcde909409cdd
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 9d5ee01b1f69d589acb73db522765e1acc0c3ddb
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489906"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872800"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>什么是 Azure Stack 开发工具包 (ASDK)？
 [Microsoft Azure Stack 集线器集成系统](../operator/azure-stack-overview.md) 的大小范围是4-16 个节点，由硬件合作伙伴和 Microsoft 共同支持。 使用 Azure Stack Hub 集成系统可为生产工作负荷启用新方案。 如果你是 Azure Stack Hub 操作员，想要管理集成系统基础结构并提供服务，请参阅我们的[操作员文档](../operator/index.yml)。
 
-ASDK 用于对 Azure Stack Hub 进行单节点部署，可以**免费**下载和使用。 所有 ASDK 组件都安装在单个主计算机上运行的虚拟机 (VM) 中，该计算机必须满足或超过[最低硬件要求](asdk-deploy-considerations.md#hardware)。 ASDK 旨在提供一个环境，你可以在其中评估 Azure Stack Hub，并在非生产环境中使用与 Azure 一致的 API 和工具开发新型应用。 
+ASDK 用于对 Azure Stack Hub 进行单节点部署，可以 **免费** 下载和使用。 所有 ASDK 组件都安装在单个主计算机上运行的虚拟机 (VM) 中，该计算机必须满足或超过[最低硬件要求](asdk-deploy-considerations.md#hardware)。 ASDK 旨在提供一个环境，你可以在其中评估 Azure Stack Hub，并在非生产环境中使用与 Azure 一致的 API 和工具开发新型应用。 
 
 > [!IMPORTANT]
 > 不应在生产环境中使用 ASDK 或为其提供支持。

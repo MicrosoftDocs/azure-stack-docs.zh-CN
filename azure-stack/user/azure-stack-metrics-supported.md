@@ -3,15 +3,15 @@ title: Azure Stack 中心 Azure Monitor 支持的指标
 description: 了解 Azure Stack Hub 上的 Azure Monitor 支持的指标。
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4a7847c7ff1b9fb56eab132412ab229b90b78b15
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 50064d480c1900fdd03fd08c182427b1a77399d5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571637"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874024"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上的 Azure Monitor 支持的指标
 

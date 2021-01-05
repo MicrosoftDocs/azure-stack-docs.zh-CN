@@ -1,18 +1,18 @@
 ---
 title: Azure Stack 遥测
 description: 了解如何使用 PowerShell 配置 Azure Stack 遥测设置。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 34995d8e1d5525e242a0b0919e7b3927c37507ca
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: a3bedcc62645dd518e694cca1052d6002bed5306
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415141"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872953"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -76,14 +76,14 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 **1（基本）** ：安全数据，以及基本运行状况和质量数据。 基本设备信息，包括：质量相关的数据、应用兼容性、应用用量数据，以及来自“安全”级别的数据。 将遥测级别设置为“基本”可启用 Azure Stack 遥测。 在此级别收集的数据包括：
 
-- **基本设备信息** ，帮助了解生态系统中本机和虚拟化 Windows Server 2016 实例的类型与配置，其中包括：
+- **基本设备信息**，帮助了解生态系统中本机和虚拟化 Windows Server 2016 实例的类型与配置，其中包括：
   - 计算机属性，例如 OEM 和型号。
   - 网络属性，例如网络适配器的数目和速度。
   - 处理器和内存属性，例如核心数、内存大小。
   - 存储属性，例如驱动器数目、类型和大小。
-- **遥测功能** ，包括已上传事件、已删除事件的百分比，以及上次上传时间。
+- **遥测功能**，包括已上传事件、已删除事件的百分比，以及上次上传时间。
 - **与质量相关的信息** ，可帮助 Microsoft 大致了解 Azure Stack 的执行方式。 示例是针对特定硬件配置发出的严重警报计数。
-- **兼容性数据** ，帮助了解系统和 VM 上已安装哪些资源提供程序，以及识别潜在的兼容性问题。
+- **兼容性数据**，帮助了解系统和 VM 上已安装哪些资源提供程序，以及识别潜在的兼容性问题。
 
 **2（增强）** ：其他见解，包括操作系统和其他 Azure Stack 服务的用法、运行状况、高级可靠性数据，以及来自“基本”和“安全”级别的数据。
 

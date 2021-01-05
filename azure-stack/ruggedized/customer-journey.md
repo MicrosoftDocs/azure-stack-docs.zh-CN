@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: f34a449490ab7b57beacc942584f9616fd6d543c
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 91fc5620a1dc8a592c176d3c97530d0fe00038b7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598311"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874568"
 ---
 # <a name="customer-journey"></a>客户旅程
 
@@ -54,14 +54,14 @@ ms.locfileid: "97598311"
 1. 启用订阅后，你应该能继续创建资源。 在“选择设备类型”边栏选项卡中，选择“选择” 。 
 1. 在“基本信息”选项卡上，输入或选择以下“项目详细信息”。  
     
-    |设置  |值  |
+    |设置  |Value  |
     |---------|---------|
     |订阅    |系统会根据前面所做的选择自动填充此字段。 订阅将链接到你的计费帐户。 |
     |资源组  |选择现有的组，或创建新组。   |
 
 1. 输入或选择以下“实例详细信息”。 
 
-    |设置  |值  |
+    |设置  |Value  |
     |---------|---------|
     |名称   | 用于标识资源的友好名称。<br>该名称的长度必须介于 2 和 50 个字符之间，只能包含字母、数字和连字符。<br> 名称以字母或数字开头和结尾。        |
     |区域     |有关 Azure Stack 中心资源可用的所有区域的列表，请参阅 [按区域提供的 Azure 产品](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)。 如果使用 Azure 政府版，则可选择 [Azure 区域](https://azure.microsoft.com/global-infrastructure/regions/)中显示的所有可用的政府区域。<br> 选择离要部署设备的地理区域最近的位置。|

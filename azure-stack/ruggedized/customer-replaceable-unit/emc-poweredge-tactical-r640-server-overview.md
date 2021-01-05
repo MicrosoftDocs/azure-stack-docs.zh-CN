@@ -1,18 +1,18 @@
 ---
 title: EMC PowerEdge 战术性 R640 服务器概述
 description: 了解 EMC PowerEdge 战术性 R640 服务器
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d1f0e141c4ca4966aab9735064287121718dee87
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: d035d82d8b41f9997a3632ee93d801469251d807
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390675"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874721"
 ---
 # <a name="dell-emc-poweredge-tactical-r640-server-overview"></a>Dell EMC PowerEdge 战术性 R640 服务器概述
 
@@ -50,14 +50,14 @@ ms.locfileid: "97390675"
 
 | 端口、面板和槽       | 图标                      | 说明                                                                                                                                                                                                                                                                 |
 |-------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 硬盘驱动器                   | 不可用                       | HLH 和 SU 服务器节点的操作系统和数据存储。                                                                                                                                                                                                                        |
-| 老板模块                   | 不可用                       | 启动优化存储解决方案 (老板) ，用于安装操作系统或虚拟机监控程序。                                                                                                                                                                                 |
-| 电源单位 (2)         | 不可用                       | 这些服务提供给服务器的电源，并为冗余提供。                                                                                                                                                                                                 |
+| 硬盘驱动器                   | 空值                       | HLH 和 SU 服务器节点的操作系统和数据存储。                                                                                                                                                                                                                        |
+| 老板模块                   | 空值                       | 启动优化存储解决方案 (老板) ，用于安装操作系统或虚拟机监控程序。                                                                                                                                                                                 |
+| 电源单位 (2)         | 空值                       | 这些服务提供给服务器的电源，并为冗余提供。                                                                                                                                                                                                 |
 | USB 3.0 端口                 |  ![](media/image-62.png)   | USB 端口为9针和3.0 兼容。 使用这些端口可以将 USB 设备连接到系统。                                                                                                                                                                     |
 | VGA 端口                      |   ![](media/image-63.png)  | 使您能够将显示设备连接到系统。                                                                                                                                                                                                                      |
 | 串行端口                   |   ![](media/image-64.png)  | 使你能够将串行设备连接到系统。                                                                                                                                                                                                                       |
 | iDRAC9 Enterprise 端口        |   ![](media/image-65.png)  | 允许您远程访问 iDRAC。                                                                                                                                                                                                                                       |
-| CMA 电源端口                | 不可用                       | 利用电缆管理 Arm (CMA) 电源端口，可以将状态指示器电缆连接到 CMA。                                                                                                                                                                     |
+| CMA 电源端口                | 空值                       | 利用电缆管理 Arm (CMA) 电源端口，可以将状态指示器电缆连接到 CMA。                                                                                                                                                                     |
 | 系统标识按钮  |   ![](media/image-66.png) | 服务器前端和背面都提供了系统标识 (ID) 按钮。 按按钮将导致系统 health\System ID 指示器闪烁。 还可以使用 "系统 ID" 按钮重置 iDRAC，并使用 "单步执行" 模式访问 BIOS。  |
 
 ## <a name="right-control-panel"></a>右侧控制面板
@@ -72,11 +72,11 @@ ms.locfileid: "97390675"
 
 表 3. PowerEdge 战术性 R640 权限控制面板控件和指示器
 
-| 项  | 指示器或按钮  | 图标                      | 说明                                                                                                                                                                                               |
+| Item  | 指示器或按钮  | 图标                      | 说明                                                                                                                                                                                               |
 |-------|----------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1     | 电源按钮         |   ![](media/image-68.png)  | 指示系统是打开还是关闭。 按下电源按钮，手动打开或关闭系统。  **注意：** 按下电源按钮，正常关闭符合 ACPI 标准的操作系统。  |
 | 2     | USB 端口             | ![](media/image-70.png)    | USB 端口是4针2.0 兼容。 此端口允许您将 USB 设备连接到系统。                                                                                                         |
-| 3     | iDRAC 直接 LED     | 不可用                       | IDRAC 直接 LED 指示灯亮起，指示 iDRAC 直接端口主动连接到设备。                                                                                        |
+| 3     | iDRAC 直接 LED     | 空值                       | IDRAC 直接 LED 指示灯亮起，指示 iDRAC 直接端口主动连接到设备。                                                                                        |
 | 4     | iDRAC 直接端口    |   ![](media/image-65.png) | IDRAC Direct 端口与兼容 USB 2.0 兼容。 此端口允许您访问 iDRAC 直接功能。                                                                                              |
 
 ## <a name="inside-the-poweredge-tactical-r640"></a>在 PowerEdge 战术性 R640

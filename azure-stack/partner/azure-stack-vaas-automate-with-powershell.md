@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何通过 PowerShell 自动化 Azure Stack 验证。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4d6cb5cdfe6cd294e54ae9f2fa5fc78e6d71548a
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 82edb40be312093b101040d8ec386569a00cd748
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764726"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874755"
 ---
 # <a name="automate-azure-stack-hub-validation-with-powershell"></a>利用 PowerShell 自动 Azure Stack 集线器验证
 

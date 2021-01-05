@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Stack Hub 中使用 iDNS
 description: 了解如何在 Azure Stack Hub 中使用 iDNS 的特性和功能。
-author: Justinha
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: Justinha
+ms.author: patricka
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 466e44156181e53a92181ecb462b8b4ff0074317
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 8860553f9b35b5a17d07edeb867ea5bad4c3fefa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566526"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873786"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用 iDNS 
 
@@ -36,7 +36,7 @@ iDNS 不允许针对可从虚拟网络外部解析的名称创建 DNS 记录。
 
 ![DNS 名称标签示例](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-如上图所示，Azure 将在 DNS 中为在区域 **westus.cloudapp.azure.com**下指定的 dns 名称标签创建 "A" 记录。 前缀和后缀将组合在一起，以构成可从公共 internet 上的任何位置解析 (FQDN) 的 [完全限定域名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 。
+如上图所示，Azure 将在 DNS 中为在区域 **westus.cloudapp.azure.com** 下指定的 dns 名称标签创建 "A" 记录。 前缀和后缀将组合在一起，以构成可从公共 internet 上的任何位置解析 (FQDN) 的 [完全限定域名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 。
 
 Azure Stack Hub 仅支持将 iDNS 用于内部名称注册，因此它无法执行以下操作：
 

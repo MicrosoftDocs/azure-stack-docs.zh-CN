@@ -3,16 +3,16 @@ title: 连接到 Azure Stack Hub
 description: 了解如何连接 Azure Stack Hub。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 8661666b4f953d07a96f1a2402782970e32c140b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 9369f0d11ba8c39ce27134a85c93328ce2389833
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545712"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874245"
 ---
 # <a name="connect-to-azure-stack-hub"></a>连接到 Azure Stack Hub
 

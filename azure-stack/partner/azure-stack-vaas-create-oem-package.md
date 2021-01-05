@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中创建 OEM 扩展包。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c38a2738fcdfcb61c032982ce4ae0d2ea88d6e3f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: dcc1bb0ce68b0c18363bc1caa196d084a54a6c0b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661472"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874687"
 ---
 # <a name="create-an-oem-package"></a>创建 OEM 包
 
@@ -24,15 +24,15 @@ Azure Stack 中心 OEM 扩展包是将 OEM 特定内容添加到 Azure Stack 中
 
 ## <a name="creating-the-package"></a>创建包
 
-创建并验证后，可以在 VaaS 中使用 OEM 扩展包。 在继续之前，请确保已完成[创建 OEM 包](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true)的步骤。 然后，将包提交给 Microsoft，并在包验证工作流中对 VaaS 测试结果进行签名。 以下步骤详细说明了如何将生成的文件捆绑到 VaaS 可使用的单个 zip 文件中。
+创建并验证后，可以在 VaaS 中使用 OEM 扩展包。 在继续之前，请确保已完成 [创建 OEM 包](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true)的步骤。 然后，将包提交给 Microsoft，并在包验证工作流中对 VaaS 测试结果进行签名。 以下步骤详细说明了如何将生成的文件捆绑到 VaaS 可使用的单个 zip 文件中。
 
 1. 标识包的以下内容：
     - 包含包内容的 zip 文件。
-    - 名为`oemMetadata.xml`的清单文件，在内容上应与包内容`metadata.xml`的根目录中的文件相同。
+    - 名为的清单文件 `oemMetadata.xml` ，在内容上应与 `metadata.xml` 包内容的根目录中的文件相同。
 
 2. 选择 "内容文件" 并创建一个 zip 文件：
 
-    ![创建 oem 扩展包](media/vaas-create-oem-package-1.png) ![时压缩文件内容在创建 oem 扩展包时压缩项内容](media/vaas-create-oem-package-2.png)
+    ![创建 oem 扩展包时压缩文件内容在 ](media/vaas-create-oem-package-1.png) ![ 创建 oem 扩展包时压缩项内容](media/vaas-create-oem-package-2.png)
 
 3. 重命名生成的文件，使其具有足够的描述性来识别它。
 

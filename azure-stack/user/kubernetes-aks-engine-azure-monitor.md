@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上使用用于容器的 Azure Monitor
 description: 了解如何在 Azure Stack Hub 上使用用于容器的 Azure Monitor。
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 3535a60a7689250e88b9839a071265d8f28eb92a
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 5b175c4d2c5f8512841dca5e984c05c13ad2951d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472769"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873650"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>在 Azure Stack Hub 上使用用于容器的 Azure Monitor
 
@@ -36,7 +36,7 @@ ms.locfileid: "89472769"
 
 ## <a name="method-two"></a>方法二
 
-你可以在 AKS 引擎群集规范 json 文件中指定一个加载项****。 该文件也称为“API 模型”。 此加载项中提供用于存储监视信息的 Azure Log Analytics 工作区的 WorkspaceGUID**** 和 WorkspaceKey**** 的 base64 编码版本。
+你可以在 AKS 引擎群集规范 json 文件中指定一个加载项。 该文件也称为“API 模型”。 此加载项中提供用于存储监视信息的 Azure Log Analytics 工作区的 WorkspaceGUID 和 WorkspaceKey 的 base64 编码版本。
 
 在此示例中可以找到 Azure Stack Hub 群集支持的 API 定义：[kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json)。 具体而言，请在 **kubernetesConfig** 中查找 **addons** 属性：
 

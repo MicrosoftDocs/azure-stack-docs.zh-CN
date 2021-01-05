@@ -1,18 +1,18 @@
 ---
 title: ASDK 的部署后配置
 description: 了解安装 Azure Stack 开发工具包 (ASDK) 后要进行的建议配置更改。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 12/03/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 12/03/2020
-ms.openlocfilehash: 3a9852cfa650df8d533b40508ceaf74b747e5c69
-ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
+ms.openlocfilehash: f2e039e2b0934e17a4335753e787c6cdf3808644
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97794169"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873310"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK 的部署后配置
 

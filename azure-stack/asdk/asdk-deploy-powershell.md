@@ -1,18 +1,18 @@
 ---
 title: 使用 Powershell 从命令行部署 ASDK
 description: 了解如何使用 PowerShell 从命令行部署 ASDK。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 10/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 1d6df818c76e564423511a927ee1279cbf3f5279
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: a42149fd878a56b306104e5f200b6b3a8eaf07a3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517372"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873242"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>使用 PowerShell 从命令行部署 ASDK
 

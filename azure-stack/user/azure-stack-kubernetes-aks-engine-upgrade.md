@@ -3,16 +3,16 @@ title: 升级 Azure Stack Hub 上的 Kubernetes 群集
 description: 了解如何升级 Azure Stack Hub 上的 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 7cfde51b5cfbdaf6d6ad752951ad4df3e4f95823
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: fd90bf877c66c05cc3939952ff0d50b8617f2d53
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473038"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874075"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>升级 Azure Stack Hub 上的 Kubernetes 群集
 
@@ -20,7 +20,7 @@ ms.locfileid: "89473038"
 
 使用 AKS 引擎可升级最初使用工具部署的群集。 可使用 AKS 引擎维护群集。 维护任务类似于任何 IaaS 系统。 需要注意新更新的可用性并使用 AKS 引擎应用这些更新。
 
-升级命令将更新 Kubernetes 版本和基本 OS 映像。 每次运行升级命令时，AKS 引擎会使用与所使用的 aks-engine 版本相关联的 AKS 基础映像，为群集的每个节点创建一个新 VM****。 可以使用 `aks-engine upgrade` 命令来维护群集中每个主节点和代理节点的货币。 
+升级命令将更新 Kubernetes 版本和基本 OS 映像。 每次运行升级命令时，AKS 引擎会使用与所使用的 aks-engine 版本相关联的 AKS 基础映像，为群集的每个节点创建一个新 VM。 可以使用 `aks-engine upgrade` 命令来维护群集中每个主节点和代理节点的货币。 
 
 Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工具和 VM 映像。 
 
@@ -52,8 +52,8 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 | 当前版本 | 可用升级 |
 | ------------------------- | ----------------------- |
 | 1.15.10 | 1.15.12 |
-| 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
-| 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
+| 1.15.12、1.16.8、1.16.9 | 1.16.14 |
+| 1.16.8、1.16.9、1.16.14 | 1.17.11 |
 
 有关 AKS 引擎、AKS 基础映像和 Kubernetes 版本的完整映射，请参阅[受支持的 AKS 引擎版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)。
 
@@ -90,14 +90,14 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 ## <a name="steps-to-only-upgrade-the-os-image"></a>仅升级 OS 映像的步骤
 
 1. 查看 [supported-kubernetes-versions 表](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)并确定是否有升级所需的 aks-engine 和 AKS 基础映像版本。 查看 aks-engine 运行的版本：`aks-engine version`。
-2. 相应地升级 AKS 引擎，在安装了 aks-engine 的计算机中运行：`./get-akse.sh --version vx.xx.x`，并将 x.xx.x 替换为目标版本****。
+2. 相应地升级 AKS 引擎，在安装了 aks-engine 的计算机中运行：`./get-akse.sh --version vx.xx.x`，并将 x.xx.x 替换为目标版本。
 3. 要求 Azure Stack Hub 操作员在 Azure Stack Hub 市场中添加所需的计划使用的 AKS 基础映像版本。
 4. 使用正在使用的 Kubernetes 版本运行 `aks-engine upgrade` 命令，但添加 `--force`。 可在[强制升级](#forcing-an-upgrade)中查看示例。
 
 
 ## <a name="forcing-an-upgrade"></a>强制升级
 
-在某些情况下，可能需要强制实施群集升级。 例如，在第一天，你使用最新 Kubernetes 版本在断开连接的环境中部署群集。 第二天，Ubuntu 发布了一个漏洞修补程序，Microsoft 为其生成了新的 AKS 基础映像****。 这时就可以使用已部署的 Kubernetes 版本强制进行升级来应用新映像。
+在某些情况下，可能需要强制实施群集升级。 例如，在第一天，你使用最新 Kubernetes 版本在断开连接的环境中部署群集。 第二天，Ubuntu 发布了一个漏洞修补程序，Microsoft 为其生成了新的 AKS 基础映像。 这时就可以使用已部署的 Kubernetes 版本强制进行升级来应用新映像。
 
 ```bash  
 aks-engine upgrade \

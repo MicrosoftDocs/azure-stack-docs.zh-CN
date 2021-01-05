@@ -1,18 +1,18 @@
 ---
 title: ASDK 管理基础知识
 description: 了解如何对 Azure Stack 开发工具包 (ASDK) 执行基本管理任务。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/19/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: c320b0fa20746da3e14a3cb4af2c8fcd1a9775ea
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 1f2830fa931f1ec02986fe45715e2fafed1a2aa0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489821"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873633"
 ---
 # <a name="asdk-admin-basics"></a>ASDK 管理基础知识
 如果你不熟悉 Azure Stack 开发工具包 (ASDK) 的管理，请参考本文。 本指南概述评估环境中 Azure Stack 操作员的角色。 熟悉此信息可确保测试用户能够尽快提高工作效率。

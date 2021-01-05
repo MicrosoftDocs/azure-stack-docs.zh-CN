@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 验证门户中管理测试。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 28791e9687dead6a571097e23258fb5b6aff1200
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 0d2b0625467fdc4998bee5626952c53feb4cff09
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764760"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874774"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>监视和管理 VaaS 门户中的测试
 
@@ -50,7 +50,7 @@ ms.locfileid: "88764760"
 在 **测试通过** 工作流中，" **添加测试** " 和 " **编辑** " 按钮都允许您计划工作流中的新测试。
 
 > [!TIP]
-> 如果要计划新的测试，而不需要编辑**测试通过**工作流的参数，请选择 "**添加测试**"。
+> 如果要计划新的测试，而不需要编辑 **测试通过** 工作流的参数，请选择 "**添加测试**"。
 
 ## <a name="manage-test-instances"></a>管理测试实例
 
@@ -73,7 +73,7 @@ ms.locfileid: "88764760"
 | 通过的操作数 | 测试过程中成功的操作的数目。 |
 |  失败的操作 | 测试过程中失败的操作的数目。 |
 
-### <a name="actions"></a>操作
+### <a name="actions"></a>Actions
 
 每个测试实例都列出了在测试实例表中选择其上下文菜单 **[...]** 时可以执行的操作。
 
@@ -85,7 +85,7 @@ ms.locfileid: "88764760"
 | -- | -- |
 | 测试名称 | 测试的名称。 |
 | 测试版本 | 测试的版本。 |
-| Publisher | 测试的发行者。 |
+| 发布者 | 测试的发行者。 |
 | Category |  测试的目的。 |
 | 目标服务 | 正在测试的 Azure Stack 中心服务。 |
 | 说明 | 对测试的说明。 |

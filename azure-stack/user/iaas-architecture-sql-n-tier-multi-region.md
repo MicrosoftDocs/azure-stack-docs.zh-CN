@@ -3,16 +3,16 @@ title: 在多个 Azure Stack 集线器区域中运行 N 层应用程序以实现
 description: 了解如何在多个 Azure Stack Hub 区域中运行 N 层应用程序以实现高可用性。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 0b379e776c64daf1f5d66bf8d1c24216523a889c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: df65f32abdc7c643c953f176ae8a4fd0b47309f5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572369"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873735"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>在多个 Azure Stack Hub 区域中运行 N 层应用程序以实现高可用性
 
@@ -121,7 +121,7 @@ az network traffic-manager endpoint update --resource-group <resource-group> --p
 
     -   将一个或多个次要副本放置在主要区域中。 对它们进行配置以将同步提交与自动故障转移一起使用。
 
-    -   将一个或多个次要副本放置在次要区域中。 出于性能方面的原因，请对它们进行配置以使用*异步*提交。 （否则，所有 T-SQL 事务必须等待通过网络到次要区域的往返旅程。）
+    -   将一个或多个次要副本放置在次要区域中。 出于性能方面的原因，请对它们进行配置以使用 *异步* 提交。 （否则，所有 T-SQL 事务必须等待通过网络到次要区域的往返旅程。）
 
 > [!NOTE]  
 > 异步提交副本不支持自动故障转移。
@@ -141,7 +141,7 @@ az network traffic-manager endpoint update --resource-group <resource-group> --p
 
 -   流量管理器故障转移到次要区域，但主要 SQL Server 数据库副本仍然可用。 例如，前端层可能会失败，但不会影响 SQL Server VM。 在这种情况下，Internet 流量将路由到次要区域中，并且该区域仍可以连接到主要副本。 但是，延迟将有所增加，因为 SQL Server 连接是跨区域的。 在此情况下，应当执行手动故障转移，如下所述：
 
-    1.  暂时将次要区域中的 SQL Server 数据库副本切换为*同步*提交。 这可确保在故障转移期间不会丢失数据。
+    1.  暂时将次要区域中的 SQL Server 数据库副本切换为 *同步* 提交。 这可确保在故障转移期间不会丢失数据。
 
     2.  故障转移到该副本。
 

@@ -3,16 +3,16 @@ title: 使用 Azure Stack Hub 用户门户
 description: 了解如何访问和使用 Azure Stack Hub 中的用户门户。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 26225b1b6ba55ed0f5934130e361f1dbab4b664e
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 24734f5e5696a66174287b151b05eb2a67a38ba7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631383"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873803"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>使用 Azure Stack Hub 用户门户
 
@@ -57,7 +57,7 @@ Azure Stack Hub 操作员（服务提供商或组织中的管理员）将会告�
     具体而言，我们建议查看以下入门文章：
 
     - [重要注意事项：使用 Azure Stack Hub 的服务或构建适用于 Azure Stack 的应用](azure-stack-considerations.md)。
-    - 在文档的**使用服务**部分中，有一篇针对每个服务的注意事项文章。 “注意事项”页面描述了 Azure 中提供的服务与 Azure Stack Hub 中提供的相同服务之间的差异。 有关示例，请参阅 [VM 注意事项](azure-stack-vm-considerations.md)。 “使用服务”部分中可能包含特定于 Azure Stack Hub 的其他信息。 
+    - 在文档的 **使用服务** 部分中，有一篇针对每个服务的注意事项文章。 “注意事项”页面描述了 Azure 中提供的服务与 Azure Stack Hub 中提供的相同服务之间的差异。 有关示例，请参阅 [VM 注意事项](azure-stack-vm-considerations.md)。 “使用服务”部分中可能包含特定于 Azure Stack Hub 的其他信息。 
 
       可以使用 Azure 文档来大致了解服务，但必须注意这些差异。 请注意，“快速入门教程”磁贴中的文档链接指向 Azure 文档。 
 

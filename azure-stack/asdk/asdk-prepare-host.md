@@ -1,18 +1,18 @@
 ---
 title: 准备 ASDK 主机
 description: 了解如何准备用于 ASDK 安装的 Azure Stack 开发工具包 (ASDK) 主计算机。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 08/28/2019
-ms.openlocfilehash: ba64a3bfbef9601d9cc8d8a28176a84a9403326a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5745d7efc5a953abaaa4e1d878677131c1c6e709
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696016"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873327"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>准备 ASDK 主机
 在主计算机上安装 Azure Stack 开发工具包 (ASDK) 之前，必须先准备好用于安装的 ASDK 主机。 准备好主机后，它将从 CloudBuilder.vhdx 虚拟机 (VM) 硬盘驱动器启动，以开始 ASDK 部署。
@@ -43,7 +43,7 @@ ms.locfileid: "77696016"
 
     ![在 ASDK 中准备环境](media/asdk-prepare-host/1.PNG) 
 
-5. 在安装程序的“选择 Cloudbuilder vhdx”页上浏览到 **cloudbuilder.vhdx** 文件并将其选中，该文件是在[前述步骤](asdk-download.md)中下载并提取的。  在此页上，如果需要向 ASDK 工具包主计算机添加其他驱动程序，还可以启用“添加驱动程序”  复选框。 单击“下一步”  。  
+5. 在安装程序的“选择 Cloudbuilder vhdx”页上浏览到 **cloudbuilder.vhdx** 文件并将其选中，该文件是在 [前述步骤](asdk-download.md)中下载并提取的。  在此页上，如果需要向 ASDK 工具包主计算机添加其他驱动程序，还可以启用“添加驱动程序”  复选框。 单击“下一步”  。  
 
     ![选择 cloudbuilder.vhdx 并将驱动程序添加到 ASDK](media/asdk-prepare-host/2.PNG)
 
@@ -60,7 +60,7 @@ ms.locfileid: "77696016"
 
             ![网络适配器设置的屏幕截图](media/asdk-prepare-host/step-four-network-adapter.png)
 
-        - 请确保显示的 **IP 地址**、**网关**和 **DNS** 值正确，提供有效的**时间服务器 IP** 地址，然后单击“下一步”  。
+        - 请确保显示的 **IP 地址**、**网关** 和 **DNS** 值正确，提供有效的 **时间服务器 IP** 地址，然后单击“下一步”  。
 
             >[!TIP]
             >若要查找时间服务器 IP 地址，请访问 [ntppool.org](https://www.ntppool.org/) 或 ping time.windows.com。 

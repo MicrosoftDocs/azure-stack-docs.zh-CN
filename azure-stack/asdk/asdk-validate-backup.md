@@ -1,18 +1,18 @@
 ---
 title: 使用 ASDK 验证 Azure Stack 备份
 description: 了解如何使用 ASDK 验证 Azure Stack 集成系统备份。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 03/11/2020
-ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0829174ab080ebc482e99490b7a5af5c2e0f2806
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512008"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873038"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 在部署 Azure Stack 并预配用户资源（例如套餐、计划、配额和订阅）以后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 计划并运行定期基础结构备份可确保在硬件或服务出现灾难性故障时基础结构管理数据不会丢失。
@@ -24,15 +24,15 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 
 以下方案支持在 ASDK 上验证备份：
 
-|场景|目的|
+|方案|目的|
 |-----|-----|
 |通过集成解决方案验证基础结构备份。|短暂验证，验证备份中的数据是否有效。|
 |了解端到端恢复工作流。|使用 ASDK 验证整个备份和还原体验。|
 |     |     |
 
-在 ASDK 上验证备份时，以下方案**不**受支持：
+在 ASDK 上验证备份时，以下方案 **不** 受支持：
 
-|场景|目的|
+|方案|目的|
 |-----|-----|
 |ASDK 内部版本到内部版本备份和还原。|将备份数据从旧版 ASDK 还原到新版。|
 |     |     |
@@ -100,31 +100,31 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 > 当前安装程序 UI 仅支持加密密钥。
 
 1. 在主计算机成功启动到 CloudBuilder.vhdx 映像之后，使用[准备用于 ASDK 安装的 ASDK 主计算机](asdk-prepare-host.md)时指定的管理员凭据登录。 这些凭据应与 ASDK 主机本地管理员凭据相同。
-2. 打开提升了权限的 powershell 控制台，并运行** &lt;驱动器号> \ AzureStack_Installer \asdk-installer.ps1** PowerShell 脚本。 该脚本现在可能位于与 CloudBuilder.vhdx 映像中的 C:\ 不同的驱动器上。 单击“恢复”****。
+2. 打开权限提升的 PowerShell 控制台并运行 **&lt;驱动器号>\AzureStack_Installer\asdk-installer.ps1** PowerShell 脚本。 该脚本现在可能位于与 CloudBuilder.vhdx 映像中的 C:\ 不同的驱动器上。 单击“**恢复**”。
 
     ![ASDK 安装程序脚本](media/asdk-validate-backup/1.PNG) 
 
-3. 在标识提供者和凭据页上，输入 Azure AD 目录信息（可选）和 ASDK 主计算机的本地管理员密码。 单击 **下一步**。
+3. 在标识提供者和凭据页上，输入 Azure AD 目录信息（可选）和 ASDK 主计算机的本地管理员密码。 单击“下一步”  。
 
     ![ASDK 标识和凭据页](media/asdk-validate-backup/2.PNG) 
 
-4. 选择 ASDK 主机使用的网络适配器，然后单击“下一步”。**** 在 ASDK 安装期间，将禁用其他所有网络接口。 
+4. 选择 ASDK 主机使用的网络适配器，然后单击“下一步”。  在 ASDK 安装期间，将禁用其他所有网络接口。 
 
     ![ASDK 网络适配器接口](media/asdk-validate-backup/3.PNG) 
 
-5. 在“网络配置”页上，提供有效的时间服务器和 DNS 转发站 IP 地址。 单击 **下一步**。
+5. 在“网络配置”页上，提供有效的时间服务器和 DNS 转发站 IP 地址。 单击“下一步”  。
 
     ![“ASDK 网络配置”页](media/asdk-validate-backup/4.PNG) 
 
-6. 检查网络接口卡的属性后，单击“下一步”。**** 
+6. 检查网络接口卡的属性后，单击“下一步”。  
 
     ![ASDK 网卡设置验证](media/asdk-validate-backup/5.PNG) 
 
-7. 在“备份设置”页上根据前面的[先决条件部分](#prereqs)所述提供所需的信息，以及用于访问共享的用户名和密码。 单击 "**下一步**"： 
+7. 在“备份设置”页上根据前面的[先决条件部分](#prereqs)所述提供所需的信息，以及用于访问共享的用户名和密码。 单击“下一步”：  
 
    ![“ASDK 备份设置”页](media/asdk-validate-backup/6.PNG) 
 
-8. 在“摘要”页上查看用于部署 ASDK 的部署脚本。 单击“部署”以开始部署。**** 
+8. 在“摘要”页上查看用于部署 ASDK 的部署脚本。 单击“部署”以开始部署。  
 
     ![“ASDK 摘要”页](media/asdk-validate-backup/7.PNG) 
 

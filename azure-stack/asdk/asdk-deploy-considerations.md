@@ -1,18 +1,18 @@
 ---
 title: ASDK 要求和注意事项
 description: 了解 Azure Stack 开发工具包 (ASDK) 的硬件、软件和环境要求。
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 09/23/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: dbd0398b7f6582c12288c2ae72137c4a673ddfcc
-ms.sourcegitcommit: 950dbc793b3498173923d0bc9fe56662a349abf1
+ms.openlocfilehash: 64b0209ad669c42b7a792498369ca0f48bfcca52
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082082"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873276"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK 要求和注意事项
 
@@ -66,7 +66,7 @@ ASDK 是一种单节点系统，设计用于验证 Azure Stack 集成系统的�
 
 - 需要系统中的 HDD 容量大于 2 TB。
 - 如果 ASDK 中没有 SSD，则需要至少 8 个 HDD 才能完成双向镜像配置。
-- 如果 ASDK 中有 SSD 和 HDD，则需要至少 5 个 HDD。 不过，建议使用 6 个 HHD。 如果使用 6 个 HDD，则建议在系统中使用至少 3 个相应的 SSD，让一个缓存磁盘 (SSD) 为两个容量磁盘 (HDD) 服务。
+- 如果 ASDK 中有 SSD 和 HDD，则需要至少 5 个 HDD。 但建议使用六个 Hdd。 如果使用 6 个 HDD，则建议在系统中使用至少 3 个相应的 SSD，让一个缓存磁盘 (SSD) 为两个容量磁盘 (HDD) 服务。
 
 双向镜像配置示例：
 
@@ -99,14 +99,14 @@ ASDK 是一种单节点系统，设计用于验证 Azure Stack 集成系统的�
    | --- | --- |
    | 具有有效全局 Azure 订阅的工作或学校帐户 |是 |
    | 具有有效全局 Azure 订阅的 Microsoft 帐户 |是 |
-   | 使用有效的中国 Azure 订阅的工作或学校帐户 |是 |
+   | 具有有效的中国区 Azure 订阅的工作或学校帐户 |是 |
    | 使用有效的美国政府版 Azure 订阅的工作或学校帐户 |是 |
 
-部署后，不需要 Azure AD 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 此类操作的示例包括资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
+部署后，不需要 Azure AD 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 此类操作的示例包括资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是 *默认提供程序订阅* 的所有者）。
 
 ## <a name="network"></a>网络
 ### <a name="switch"></a>Switch
-ASDK 计算机的交换机上有一个可用的端口。  
+交换机上的一个可用于 ASDK 计算机的端口。  
 
 ASDK 计算机支持连接到交换机访问端口或 Trunk 端口。 交换机上不要求使用专用功能。
 

@@ -1,18 +1,18 @@
 ---
 title: 关机缩放单位节点
 description: 了解如何关闭缩放单位节点
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: fde7496a54f0c2d3b28d98584295a761c683e17c
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 972c9e8f0b66470a6e1b7cbc81d40062ff34a950
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390630"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874704"
 ---
 # <a name="powering-off-scale-unit-nodes"></a>关闭缩放单位节点的电源
 

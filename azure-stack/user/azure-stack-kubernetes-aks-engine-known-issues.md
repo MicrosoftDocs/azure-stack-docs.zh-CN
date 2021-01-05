@@ -3,34 +3,34 @@ title: 在 Azure Stack Hub 上使用 AKS 引擎的已知问题
 description: 了解在 Azure Stack Hub 上使用 AKS 引擎的已知问题。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/11/2020
-ms.openlocfilehash: f12895e82cbe6e4c2370eec6fb33eb90383bb669
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.openlocfilehash: e1a7768eee19fb8a2246ec8c3934f5742d23534c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898597"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874160"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack Hub 上使用 AKS 引擎的已知问题
 
 本主题介绍 Azure Stack Hub 上的 AKS 引擎的已知问题。
 
-## <a name="unable-to-resize-cluster-vms-with-the-compute-service"></a>无法将群集 Vm 重设为计算服务
+## <a name="unable-to-resize-cluster-vms-with-the-compute-service"></a>无法使用计算服务调整群集 VM 的大小
 
-- **适用于** ： Azure Stack HUB、AKS engine (所有) 
-- **描述** ：通过计算服务调整群集 vm 的大小不能与 AKS 引擎一起使用。 AKS 引擎在 API 模型 json 文件中维护群集的状态。 若要确保所需的 VM 大小反映在通过 AKS 引擎完成的任何创建、更新或缩放操作中，您必须在执行任何这些操作之前更新 API 模型。 例如，如果使用计算服务将已部署的群集上的 VM 大小更改为不同的大小，则在执行时，状态将丢失 `aks-engine update` 。
-- **修正** ：若要执行此操作，请找到群集的 API 模型，将大小更改为，然后运行 `aks-engine update` 。
-- **发生次数** ：尝试使用计算服务调整大小。
+- 适用于：Azure Stack Hub，AKS 引擎（全部）
+- **说明**：通过计算服务调整群集 VM 大小不能与 AKS 引擎一起使用。 AKS 引擎维护 API 模型 json 文件中群集的状态。 若要确保所需的 VM 大小反映在使用 AKS 引擎完成的任何创建、更新或缩放操作中，必须在执行任何这些操作之前更新 API 模型。 例如，如果使用计算服务将已部署群集上的 VM 大小更改为不同的大小，则执行 `aks-engine update` 时状态将丢失。
+- **补救措施**：若要执行此操作，请找到群集的 API 模型，更改大小，然后运行 `aks-engine update`。
+- **发生率**：尝试使用计算服务调整大小时。
 
 ## <a name="disk-detach-operation-fails-in-aks-engine-0550"></a>在 AKS 引擎 0.55.0 中进行磁盘分离操作时失败
 
 - 适用于：Azure Stack Hub（更新 2005）、AKS 引擎 0.55.0
 - 说明：在尝试删除包含持久性卷的部署时，删除操作会触发一系列附加/分离错误。 这是由于 AKS 引擎 v0.55.0 云提供程序中的 bug 所致。 云提供程序使用了版本高于 Azure 资源管理器目前在 Azure Stack Hub（更新 2005）中支持的 API 版本的 API 来调用 Azure 资源管理器。
-- **补救措施** ：可以在 [AKS 引擎 GitHub 存储库（问题 3817）](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443)中找到详细信息和缓解步骤。 在 AKS 引擎的新版本和相应映像可用时立即升级。
-- **发生率** ：删除包含持久性卷的部署时。
+- **补救措施**：可以在 [AKS 引擎 GitHub 存储库（问题 3817）](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443)中找到详细信息和缓解步骤。 在 AKS 引擎的新版本和相应映像可用时立即升级。
+- **发生率**：删除包含持久性卷的部署时。
 
 
 

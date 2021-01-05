@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/28/2020
-ms.openlocfilehash: de2ad8fecc2d79e8c8ff56e3a53a0769698a6fc1
-ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
+ms.openlocfilehash: b2576bed615d6a65a5e0c61e5e3ccbc2c052132b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97801957"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872698"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>将 Azure Stack HCI 连接到 Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "97801957"
 根据 Azure 在线服务条款，Azure Stack HCI 作为 Azure 服务提供，需要在安装后 30 天内进行注册。 本主题介绍如何向 [Azure Arc](https://azure.microsoft.com/services/azure-arc/) 注册 Azure Stack HCI 群集，以实现监视、支持、计费和混合服务。 注册后，将创建一个 Azure 资源管理器资源来表示每个本地 Azure Stack HCI 群集，从而有效地将 Azure 管理平面扩展到 Azure Stack HCI。 信息会定期在 Azure 资源与本地群集之间同步 () 。
 
    > [!IMPORTANT]
-   > 需要向 Azure 注册，并且在注册处于活动状态之前不完全支持群集。 如果你在部署后的30天内未向 Azure 注册群集，或者你的群集已注册但尚未连接到 Azure 30 天以上，则系统将不允许创建或添加 (Vm) 的新虚拟机。 出现这种情况时，尝试创建 Vm 时，你会看到以下错误消息：
+   > 需要向 Azure 注册，并且在注册处于活动状态之前不完全支持群集。 如果未在部署时将群集注册到 Azure，或者群集已注册但尚未连接到 Azure 30 天以上，则系统将不允许创建或添加 (Vm) 的新虚拟机。 出现这种情况时，尝试创建 Vm 时，你会看到以下错误消息：
    >
    > *为 "vmname" 配置虚拟机角色时出现故障。作业失败。打开 "vmname" 群集角色时出错。要访问的服务获得特定数量的连接的许可。此时无法再连接到服务，因为该服务可以接受的连接数已达到。*
    >

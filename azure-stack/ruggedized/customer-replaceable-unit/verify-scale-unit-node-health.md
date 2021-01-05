@@ -1,18 +1,18 @@
 ---
 title: 验证缩放单位节点的运行状况
 description: 了解如何验证缩放单位节点的运行状况
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 9a369587cdbd14155526631bc6274c65985adbcd
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 0393d62f040499114a4d66383da1fd5c44a2eeb8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390708"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874415"
 ---
 # <a name="verifying-scale-unit-node-health"></a>正在验证缩放单位节点的运行状况
 

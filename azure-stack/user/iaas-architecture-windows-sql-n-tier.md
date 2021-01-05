@@ -3,16 +3,16 @@ title: Azure Stack Hub 上使用 SQL Server 的 Windows N 层应用程序
 description: 了解如何在 Azure Stack Hub 上运行使用 SQL Server 的 Windows N 层应用程序。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 310d9a198c7fb6c9212ff15ff9b838a74bd342d1
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 50b08f594b121601b8e049c4c4875cb31143cbaa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965290"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873667"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Azure Stack Hub 上使用 SQL Server 的 Windows N 层应用程序
 
@@ -22,13 +22,13 @@ ms.locfileid: "88965290"
 
 该体系结构具有以下组件。
 
-![此关系图显示了一个包含六个子网的虚拟网络：应用程序网关、管理、Web 层、业务层、数据层和 Active Directory。 数据层子网使用云见证。 有三种负载均衡器。](./media/iaas-architecture-windows-sql-n-tier/image1.png)
+![此关系图显示了一个虚拟网络，其中包含六个子网：“应用程序网关”、“管理”、“Web 层”、“业务层”、“数据层”和“Active Directory”。 “数据层”子网使用云见证。 有三个负载均衡器。](./media/iaas-architecture-windows-sql-n-tier/image1.png)
 
 ## <a name="general"></a>常规
 
 -   资源组。 [资源组](/azure/azure-resource-manager/resource-group-overview)用于对 Azure 资源进行分组，以便可以按生存期、所有者或其他条件对其进行管理。
 
--   **可用性集。** 可用性集是一种数据中心配置，用于提供 VM 冗余和可用性。 Azure Stack 集线器戳记中的此配置可确保在计划内或计划外维护事件期间，至少有一个虚拟机可用。 Vm 位于可用性集中，可跨多个容错域传播它们 (Azure Stack 中心主机) 
+-   **可用性集**。 可用性集是一种数据中心配置，用于提供 VM 冗余和可用性。 Azure Stack Hub 中的这种配置可以确保在发生计划内或计划外维护事件时，至少有一个虚拟机可用。 VM 放置在一个可用性集中，该可用性集将 VM 分散在多个容错域（Azure Stack Hub 主机）中
 
 ## <a name="networking-and-load-balancing"></a>网络和负载均衡
 
@@ -36,19 +36,19 @@ ms.locfileid: "88965290"
 
 -   **第 7 层负载均衡器**。 由于应用程序网关在 Azure Stack 集线器上尚不可用，因此[Azure Stack 中心市场位置](../operator/azure-stack-marketplace-azure-items.md?view=azs-1908)有一些替代项，例如： [KEMP LoadMaster 负载均衡器 ADC 内容开关](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [f5 大 IP 虚拟版](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)或[A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
--   **负载均衡**器。 使用 [Azure 负载均衡器 ](/azure/load-balancer/load-balancer-overview)将网络流量从 web 层分发到业务层，并从业务层分发到 SQL Server。
+-   **负载均衡器**。 使用 [Azure 负载均衡器](/azure/load-balancer/load-balancer-overview)可将网络流量从 Web 层分配到业务层，以及从业务层分配到 SQL Server。
 
--    (Nsg) 的**网络安全组**。 使用 NSG 限制虚拟网络中的网络流量。 例如，在此处显示的三层体系结构中，数据库层不接受来自 Web 前端的流量，仅接受来自业务层和管理子网的流量。
+-   **网络安全组** (NSG)。 使用 NSG 限制虚拟网络中的网络流量。 例如，在此处显示的三层体系结构中，数据库层不接受来自 Web 前端的流量，仅接受来自业务层和管理子网的流量。
 
--   **DNS**。 Azure Stack 中心未提供自己的 DNS 托管服务，因此请使用添加中的 DNS 服务器。
+-   **DNS**。 Azure Stack Hub 不提供自身的 DNS 托管服务，请在 ADDS 中使用 DNS 服务器。
 
 **虚拟机**
 
--   **Always On 可用性组 SQL Server**。 通过启用复制和故障转移，在数据层提供高可用性。 它使用 Windows Server 故障转移群集 (WSFC) 技术进行故障转移。
+-   **SQL Server Always On 可用性组**。 通过启用复制和故障转移，在数据层提供高可用性。 它使用 Windows Server 故障转移群集 (WSFC) 技术进行故障转移。
 
 -   **Active Directory 域服务 (AD DS) 服务器**。 故障转移群集及其关联的群集角色的计算机对象在 Active Directory 域服务 (AD DS) 中创建。 在同一虚拟网络中的 VM 上设置 AD DS 服务器是将其他 VM 加入 AD DS 的首选方法。 也可以使用 VPN 连接将虚拟网络连接到企业网络，将 VM 加入现有的企业 AD DS。 这两种方法需将虚拟网络 DNS 更改为 AD DS DNS 服务器（在虚拟网络或现有企业网络中），以解析 AD DS 域 FQDN。
 
--   **云见证**。 故障转移群集要求其节点的半数以上处于运行状态，这称为“建立仲裁”。 如果群集只有两个节点，则网络分区之后，每个节点都会认为自己是主节点。 在这种情况下，需要使用见证** 来打破“僵持”局面，建立仲裁。 见证是一种可以充当僵持局面打破者并建立仲裁的资源，例如共享磁盘。 云见证是一种使用 Azure Blob 存储的见证。 若要详细了解仲裁的概念，请参阅[了解群集和池仲裁](/windows-server/storage/storage-spaces/understand-quorum)。 有关云见证的详细信息，请参阅[部署故障转移群集的云见证](/windows-server/failover-clustering/deploy-cloud-witness)。 在 Azure Stack 中心，云见证终结点不同于全局 Azure。 
+-   **云见证**。 故障转移群集要求其节点的半数以上处于运行状态，这称为“建立仲裁”。 如果群集只有两个节点，则网络分区之后，每个节点都会认为自己是主节点。 在这种情况下，需要使用见证来打破“僵持”局面，建立仲裁。 见证是一种可以充当僵持局面打破者并建立仲裁的资源，例如共享磁盘。 云见证是一种使用 Azure Blob 存储的见证。 若要详细了解仲裁的概念，请参阅[了解群集和池仲裁](/windows-server/storage/storage-spaces/understand-quorum)。 有关云见证的详细信息，请参阅[部署故障转移群集的云见证](/windows-server/failover-clustering/deploy-cloud-witness)。 在 Azure Stack 中心，云见证终结点不同于全局 Azure。 
 
 其外观类似于：
 
@@ -66,7 +66,7 @@ ms.locfileid: "88965290"
 
 ### <a name="virtual-machines"></a>虚拟机
 
-有关配置 Vm 的建议，请参阅 [在 Azure Stack 集线器上运行 WINDOWS VM](iaas-architecture-vm-windows.md)。
+有关配置 VM 的建议，请参阅 [在 Azure Stack Hub 上运行 Windows VM](iaas-architecture-vm-windows.md)。
 
 ### <a name="virtual-network"></a>虚拟网络
 
@@ -112,7 +112,7 @@ ms.locfileid: "88965290"
 
 3.  创建一个可用性组侦听程序，并将该侦听程序的 DNS 名称映射到一个内部负载均衡器的 IP 地址。
 
-4.  为 SQL Server 侦听端口（默认情况下为 TCP 端口 1433）创建一个负载均衡器规则。 该负载均衡器规则必须启用*浮动 IP*，也称为“直接服务器返回”。 这将导致 VM 直接回复客户端，从而实现到主要副本的直接连接。
+4.  为 SQL Server 侦听端口（默认情况下为 TCP 端口 1433）创建一个负载均衡器规则。 该负载均衡器规则必须启用 *浮动 IP*，也称为“直接服务器返回”。 这将导致 VM 直接回复客户端，从而实现到主要副本的直接连接。
 
 > [!NOTE]
 > 当启用了浮动 IP 时，前端端口号必须与负载均衡器规则中的后端端口号相同。
@@ -125,7 +125,7 @@ ms.locfileid: "88965290"
 
 通过执行可用性组的[强制手动故障转移](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15)来测试部署。
 
-对于 SQL 性能优化，还可以参阅 [sql server 最佳实践一文，以优化 Azure Stack 集线器中的性能](./azure-stack-sql-server-vm-considerations.md)。
+有关 SQL 性能优化，另请参阅[在 Azure Stack Hub 中优化 SQL 服务器性能的最佳做法](./azure-stack-sql-server-vm-considerations.md)一文。
 
 **Jumpbox**
 
@@ -147,29 +147,29 @@ Jumpbox 的性能要求非常低，因此请选择一个较小的 VM 大小。 �
 
 -   使用自定义磁盘映像部署[托管磁盘](./azure-stack-managed-disk-considerations.md)。 此选项的部署速度可能更快。 但是，它要求将映像保持最新。
 
-有关详细信息，请参阅[规模集的设计注意事项](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview)。 对于 Azure Stack 中心，这一设计方面的考虑通常是如此，但有一些注意事项：
+有关详细信息，请参阅[规模集的设计注意事项](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview)。 对于 Azure Stack Hub，此设计注意事项基本上适用，但需要另外注意几点：
 
--   Azure Stack 集线器上的虚拟机规模集不支持过度预配或滚动升级。
+-   Azure Stack Hub 上的虚拟机规模集不支持过度预配或滚动升级。
 
--   无法在 Azure Stack 集线器上自动缩放虚拟机规模集。
+-   无法在 Azure Stack Hub 上自动缩放虚拟机规模集。
 
--   强烈建议在 Azure Stack 集线器上使用托管磁盘，而不是虚拟机规模集的非托管磁盘
+-   强烈建议在 Azure Stack Hub 上使用托管磁盘，而不是虚拟机规模集的非托管磁盘
 
--   目前 Azure Stack 集线器上存在 700 VM 限制，这是所有 Azure Stack 中心基础结构 Vm、单个 Vm 和规模集实例的帐户。
+-   目前，Azure Stack Hub 上的 VM 数限制为 700 个，这包括所有 Azure Stack Hub 基础结构 VM、单独的 VM 和规模集实例。
 
 ## <a name="subscription-limits"></a>订阅限制
 
-每个 Azure Stack 中心租户订阅都有默认限制，包括 Azure Stack 中心操作员配置的每个区域的最大 Vm 数。 有关详细信息，请参阅 [Azure Stack 中心服务、计划、产品/服务、订阅概述](../operator/service-plan-offer-subscription-overview.md)。 另请参阅 [Azure Stack 集线器中的配额类型](../operator/azure-stack-quota-types.md)。
+每个 Azure Stack Hub 租户订阅已有默认限制，包括 Azure Stack Hub 操作员为每个区域配置的 VM 最大数目。 有关详细信息，请参阅 [Azure Stack Hub 服务、计划、套餐和订阅概述](../operator/service-plan-offer-subscription-overview.md)。 另请参阅 [Azure Stack Hub 中的配额类型](../operator/azure-stack-quota-types.md)。
 
 ## <a name="security-considerations"></a>安全注意事项
 
 虚拟网络是 Azure 中的流量隔离边界。 默认情况下，一个虚拟网络中的 VM 无法与另一个虚拟网络中的 VM 直接通信。
 
-**Nsg**。 使用[网络安全组](/azure/virtual-network/virtual-networks-nsg) (NSG) 来限制 Internet 的传入和传出流量。 有关详细信息，请参阅 [Microsoft 云服务和网络安全性](/azure/best-practices-network-security)。
+**NSG**。 使用[网络安全组](/azure/virtual-network/virtual-networks-nsg) (NSG) 来限制 Internet 的传入和传出流量。 有关详细信息，请参阅 [Microsoft 云服务和网络安全性](/azure/best-practices-network-security)。
 
-**DMZ**。 请考虑添加一个网络虚拟设备 (NVA) 以在 Internet 与 Azure 虚拟网络之间创建一个外围网络。 NVA 是虚拟设备的一个通用术语，可以执行与网络相关的任务，例如防火墙、包检查、审核和自定义路由。
+**外围网络**。 请考虑添加一个网络虚拟设备 (NVA) 以在 Internet 与 Azure 虚拟网络之间创建一个外围网络。 NVA 是虚拟设备的一个通用术语，可以执行与网络相关的任务，例如防火墙、包检查、审核和自定义路由。
 
-**加密**。 加密静态的敏感数据，并使用 [Azure Stack 中心的 Key Vault](./azure-stack-key-vault-manage-portal.md) 来管理数据库加密密钥。 有关详细信息，请参阅 [为 Azure VM 上的 SQL Server 配置 Azure 密钥保管库集成](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure)。 另外，建议将应用程序机密（例如数据库连接字符串）也存储在 Key Vault 中。
+**加密**。 加密敏感的静态数据并使用 [Azure Stack Hub 中的 Key Vault](./azure-stack-key-vault-manage-portal.md) 管理数据库加密密钥。 有关详细信息，请参阅 [为 Azure VM 上的 SQL Server 配置 Azure 密钥保管库集成](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure)。 另外，建议将应用程序机密（例如数据库连接字符串）也存储在 Key Vault 中。
 
 ## <a name="next-steps"></a>后续步骤
 

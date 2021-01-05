@@ -1,18 +1,18 @@
 ---
 title: 连接到 ASDK
 description: 了解如何连接到 Azure Stack 开发工具包 (ASDK)。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: knithinc
 ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 7970bf0f4e90792f9fe28534eab1bfa53ce7f39b
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 0bf880cdbb181ae923a16932ba5522cfadc74be0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517474"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873514"
 ---
 # <a name="connect-to-the-asdk"></a>连接到 ASDK
 
@@ -58,7 +58,7 @@ Azure AD 部署和 Active Directory 联合身份验证服务 (AD FS) 部署都�
 
 ### <a name="set-up-vpn-connectivity"></a>设置 VPN 连接
 
-若要与 ASDK 建立 VPN 连接，请在基于 Windows 的本地计算机上，以管理员身份打开 PowerShell。 然后，运行以下脚本 (更新环境) 的 IP 地址和密码值。
+若要与 ASDK 建立 VPN 连接，请在基于 Windows 的本地计算机上，以管理员身份打开 PowerShell。 然后，运行以下脚本（更新环境的 IP 地址和密码值）。
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az)
 

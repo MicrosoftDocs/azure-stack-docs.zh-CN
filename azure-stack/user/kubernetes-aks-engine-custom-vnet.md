@@ -1,18 +1,18 @@
 ---
-title: 将 Kubernetes 群集部署到 Azure Stack 集线器上的自定义虚拟网络
+title: 将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络
 description: 了解如何将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络。
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 417d2cee37bc97f64de9b3d21f81ff60c075e74b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853204"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873684"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络 
 
@@ -49,9 +49,9 @@ Azure Stack Hub 实例中必须有一个自定义虚拟网络。 有关详细信
 
 ## <a name="considerations-for-selecting-an-address-space"></a>选择地址空间的注意事项
 
-创建自定义虚拟网络时，需要指定网络的 IP 地址空间和每个子网的 IP 地址范围。 选择要在 Kubernetes 群集中使用的地址空间和范围时，请考虑以下因素：
--  重叠的地址空间可能会导致 IP 地址冲突或通信错误。 若要降低重叠 IP 地址的风险，请为新虚拟网络选择唯一的地址空间。
--  和范围中的地址空间 `10.` `172.` 通常用于专用网络，并且可供现有的数据中心基础结构使用。 如果你的 Kubernetes 应用程序使用数据中心中的资源，请通过选择与你的数据中心地址空间不同的自定义虚拟网络的地址空间来降低冲突风险。
+创建自定义虚拟网络时，可以为每个子网指定网络的 IP 地址空间和 IP 地址范围。 选择要在 Kubernetes 群集中使用的地址空间和范围时，请考虑以下因素：
+-  地址空间重叠可能会导致 IP 地址冲突或通信错误。 若要降低 IP 地址重叠的风险，请为新的虚拟网络选择唯一的地址空间。
+-  `10.` 和 `172.` 范围内的地址空间通常用于专用网络，并且它们可能由现有数据中心基础结构使用。 如果 Kubernetes 应用程序使用数据中心中的资源，可通过为自定义虚拟网络选择不同于数据中心地址空间的地址空间来降低冲突风险。
 -  建议为 Kubernetes 群集使用专用子网。
 
 ## <a name="get-the-ip-address-block"></a>获取 IP 地址块

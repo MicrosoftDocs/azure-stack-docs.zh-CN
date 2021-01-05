@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上运行 Windows 虚拟机
 description: 了解如何在 Azure Stack Hub 上运行 Windows 虚拟机。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 7/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: 3419e701aede4864cac62ace216a574a6dcc1226
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 2c2ff4007e92f6263e6b59ac61cb15d303b347d0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920162"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873701"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>在 Azure Stack Hub 上运行 Windows 虚拟机
 
@@ -75,11 +75,11 @@ OS 磁盘是存储在 Azure Stack Hub blob 存储中的 VHD，因此即使主机
 | **容错域** | 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack Hub 节点）中。 如果发生硬件故障，出现故障的容错域中的 VM 将在其他容错域中重启。 它们保留在与其他 VM 不同的容错域中，但如果可能，则保留在相同的可用性集中。 当硬件重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。 |
 | **更新域**| 更新域是 Azure 在可用性集中提供高可用性的另一种方法。 更新域是可以同时维护的基础硬件逻辑组。 同一个更新域中的 VM 会在计划内维护期间一起重启。 当租户在可用性集内创建 VM 时，Azure 平台会自动将 VM 分布到这些更新域。 <br>在 Azure Stack Hub 中，VM 会先跨群集中的其他联机主机进行实时迁移，然后其基础主机才会进行更新。 由于在主机更新期间不会造成租户停机，因此 Azure Stack Hub 上存在更新域功能只是为了确保与 Azure 实现模板兼容。 可用性集中的 VM 将显示 0 作为其在门户上的更新域编号。 |
 
-**备份** 有关保护 Azure Stack Hub IaaS VM 的建议，请参阅[保护在 Azure Stack Hub 上部署的 VM](azure-stack-manage-vm-protect.md)。
+**备份** 有关保护 Azure Stack Hub IaaS VM 的建议，请参阅 [保护在 Azure Stack Hub 上部署的 VM](azure-stack-manage-vm-protect.md)。
 
 **停止 VM**。 Azure 对“已停止”和“已解除分配”状态做了区分。 当 VM 状态为已停止时（而不是当 VM 已解除分配时）将向你收费。 在 Azure Stack Hub 门户中，“停止”  按钮可解除分配 VM。 如果在已登录时通过 OS 关闭，VM 会停止，但  不会解除分配，因此仍会产生费用。
 
-**删除 VM**。 如果删除 VM，不会删除 VM 磁盘。 这意味着可以安全地删除 VM，而不会丢失数据。 但是，仍将向你收取存储费用。 若要删除 VM 磁盘，请删除托管磁盘对象。 若要防止意外删除，请使用*资源锁*锁定整个资源组或锁定单个资源（如 VM）。
+**删除 VM**。 如果删除 VM，不会删除 VM 磁盘。 这意味着可以安全地删除 VM，而不会丢失数据。 但是，仍将向你收取存储费用。 若要删除 VM 磁盘，请删除托管磁盘对象。 若要防止意外删除，请使用 *资源锁* 锁定整个资源组或锁定单个资源（如 VM）。
 
 ## <a name="security-considerations"></a>安全注意事项
 

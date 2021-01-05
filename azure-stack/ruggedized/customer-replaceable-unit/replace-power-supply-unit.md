@@ -1,18 +1,18 @@
 ---
 title: 更换电源单元
 description: 了解如何更换电源单元
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 392ad424bfe6eba87d611ca669ab1c1469fdece7
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 03f2f79a1d849edb65da0097eb4135146ae7a16e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390878"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874466"
 ---
 # <a name="replacing-a-power-supply-unit"></a>更换电源单元
 
@@ -24,7 +24,7 @@ ms.locfileid: "97390878"
 
 2.  查看处理预防措施。
 
-3.  审阅
+3.  检查
 
     -   如果使用缩放单位节点，则使用战术性云设备中的缩放单位节点所需的知识
 

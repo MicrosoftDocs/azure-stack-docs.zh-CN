@@ -3,16 +3,16 @@ title: Azure Stack Hub 上 AKS 引擎的支持策略
 description: 本主题包含 Azure Stack Hub 上 AKS 引擎的支持策略。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: 389dd7110bfc5b8b42d1594c947ad522f4fbab98
-ms.sourcegitcommit: f19aaf989d758f0712e1ef3cbc4abf90a1110554
+ms.openlocfilehash: aebc9506d99e52c5ace6400128c70c43e2ae5b64
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90026211"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874092"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上 AKS 引擎的支持策略
 
@@ -28,7 +28,7 @@ ms.locfileid: "90026211"
 
 ## <a name="version-support"></a>版本支持
 
-AKS 引擎版本支持遵循 Azure Stack 集线器支持策略的其余部分建立的相同模式，该模式支持 Azure Stack 中心上的 AKS 引擎版本基于 n-1 公式。 例如，如果最新版本的 AKS 引擎是 v 0.55.0，则支持的版本集为：0.48.0、0.51.0、0.55.0。 此外，请务必遵循 Azure Stack 中心更新版本，并将其映射到 AKS engine 支持的版本，这在 [AKS 引擎发行说明](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中进行维护。
+AKS 引擎版本支持遵循其余 Azure Stack Hub 支持策略所建立的模式，即 Azure Stack Hub 上对 AKS 引擎版本的支持基于 n-2 公式。 例如，如果最新的 AKS 引擎版本为 v0.55.0，则支持的版本集为：0.48.0、0.51.0、0.55.0。 同样重要的是要遵循 Azure Stack Hub 更新版本和相应的对 AKS 引擎支持版本的映射（保留在 [AKS 引擎发行说明](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中）。
 
 ## <a name="aks-engine-supported-areas"></a>AKS 引擎支持的区域
 

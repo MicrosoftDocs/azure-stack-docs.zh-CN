@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 管理 Azure Stack 集线器 |Microsoft Docs
-description: 了解如何使用跨平台命令行界面 (CLI) 在 Azure Stack Hub 上管理和部署资源。
+description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack Hub 上的资源。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/9/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 1/9/2020
-ms.openlocfilehash: dd3870c0cc0f678f478efb45dad0a617d31ddb50
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: c0de30c44d2938d17bbd4c48abbd1372bb7f6f79
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939712"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874279"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>借助 Azure CLI 管理资源并将其部署到 Azure Stack Hub
 
@@ -47,7 +47,7 @@ ms.locfileid: "96939712"
 
 ### <a name="install-or-upgrade-cli"></a>安装或升级 CLI
 
-登录到开发工作站并安装 CLI。 Azure Stack 中心需要 Azure CLI 版本2.0 或更高版本。 最新版本的 API 配置文件需要最新版本的 CLI。 使用[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 一文中所述的步骤安装 CLI。 
+登录到开发工作站并安装 CLI。 Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 最新版本的 API 配置文件需要最新版本的 CLI。 使用[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 一文中所述的步骤安装 CLI。 
 
 若要验证安装是否成功，请打开终端或命令提示符窗口，并运行以下命令：
 
@@ -57,7 +57,7 @@ az --version
 
 应会看到 Azure CLI 的版本，以及计算机上安装的其他依赖库。
     
-![Azure Stack 中心 Python 位置上的 Azure CLI](media/azure-stack-version-profiles-azure-cli-2/cli-python-location.png)
+![Azure Stack Hub Python 位置上的 Azure CLI](media/azure-stack-version-profiles-azure-cli-2/cli-python-location.png)
 
 
 ## <a name="windowslinux-azure-ad"></a>Windows/Linux (Azure AD) 
@@ -66,7 +66,7 @@ az --version
 
 ### <a name="connect-to-azure-stack-hub"></a>连接到 Azure Stack Hub
 
-1. 通过运行命令注册 Azure Stack 中心环境 `az cloud register` 。
+1. 运行 `az cloud register` 命令注册 Azure Stack Hub 环境。
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数：
 
@@ -94,9 +94,9 @@ az --version
     az cloud update --profile 2019-03-01-hybrid
    ```
  
-1. 使用命令登录到 Azure Stack 中心环境 `az login` 。 以用户或服务主体身份登录到 Azure Stack 中心环境。 
+1. 使用 `az login` 命令登录到 Azure Stack Hub 环境。 以用户身份或以服务主体的形式登录到 Azure Stack Hub 环境。 
 
-   - 以 *用户* 身份登录： 
+   - 以用户身份登录： 
 
      可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
 
@@ -107,7 +107,7 @@ az --version
      > [!NOTE]
      > 如果用户帐户已启用多重身份验证，请使用不带 `-u` 参数的 `az login` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
 
-   - 以 *服务主体* 身份登录： 
+   - 以服务主体身份登录： 
     
      在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](../../operator/azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
 
@@ -117,7 +117,7 @@ az --version
 
 ### <a name="test-the-connectivity"></a>测试连接
 
-完成所有设置后，使用 CLI 在 Azure Stack 中心内创建资源。 例如，可以创建应用的资源组并添加 VM。 使用以下命令创建名为“MyResourceGroup”的资源组：
+完成所有设置后，使用 CLI 在 Azure Stack Hub 中创建资源。 例如，可以创建应用的资源组并添加 VM。 使用以下命令创建名为“MyResourceGroup”的资源组：
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -134,7 +134,7 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="connect-to-azure-stack-hub"></a>连接到 Azure Stack Hub
 
-1. 通过运行命令注册 Azure Stack 中心环境 `az cloud register` 。
+1. 运行 `az cloud register` 命令注册 Azure Stack Hub 环境。
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数：
 
@@ -162,9 +162,9 @@ az group create -n MyResourceGroup -l local
     az cloud update --profile 2019-03-01-hybrid
    ```
 
-1. 使用命令登录到 Azure Stack 中心环境 `az login` 。 你可以作为用户或服务主体登录到 Azure Stack 中心环境。 
+1. 使用 `az login` 命令登录到 Azure Stack Hub 环境。 可以用户身份或以服务主体的形式登录到 Azure Stack Hub 环境。 
 
-   - 以 *用户* 身份登录：
+   - 以用户身份登录：
 
      可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
 
@@ -175,7 +175,7 @@ az group create -n MyResourceGroup -l local
      > [!NOTE]
      > 如果用户帐户已启用多重身份验证，请使用不带 `-u` 参数的 `az login` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
 
-   - 以 *服务主体* 身份登录： 
+   - 以服务主体身份登录： 
     
      准备要用于服务主体登录的 .pem 文件。
 
@@ -195,7 +195,7 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="test-the-connectivity"></a>测试连接
 
-完成所有设置后，使用 CLI 在 Azure Stack 中心内创建资源。 例如，可以创建应用的资源组并添加 VM。 使用以下命令创建名为“MyResourceGroup”的资源组：
+完成所有设置后，使用 CLI 在 Azure Stack Hub 中创建资源。 例如，可以创建应用的资源组并添加 VM。 使用以下命令创建名为“MyResourceGroup”的资源组：
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -208,14 +208,14 @@ az group create -n MyResourceGroup -l local
 
 ## <a name="known-issues"></a>已知问题
 
-在 Azure Stack 集线器中使用 CLI 时存在一些已知问题：
+在 Azure Stack Hub 中使用 CLI 时存在一些已知的问题：
 
- - CLI 交互模式。 例如， `az interactive` Azure Stack 集线器尚不支持该命令。
- - 若要获取 Azure Stack 中心可用的 VM 映像列表，请使用 `az vm image list --all` 命令，而不是 `az vm image list` 命令。 指定 `--all` 选项可确保响应仅返回 Azure Stack 中心环境中可用的映像。
- - Azure 中提供的 VM 映像别名可能不适用于 Azure Stack 中心。 使用 VM 映像时，必须使用整个 URN 参数 (Canonical:UbuntuServer:14.04.3-LTS:1.0.0)，而不是映像别名。 此 URN 必须与派生自 `az vm images list` 命令的映像规范相匹配。
+ - CLI 交互模式。 例如，`az interactive` 命令在 Azure Stack Hub 中尚不受支持。
+ - 若要获取 Azure Stack Hub 中可用的 VM 映像列表，请使用 `az vm image list --all` 命令，而不是 `az vm image list` 命令。 指定 `--all` 选项可确保响应只返回 Azure Stack Hub 环境中可用的映像。
+ - Azure 中可用的 VM 映像别名可能不适用于 Azure Stack Hub。 使用 VM 映像时，必须使用整个 URN 参数 (Canonical:UbuntuServer:14.04.3-LTS:1.0.0)，而不是映像别名。 此 URN 必须与派生自 `az vm images list` 命令的映像规范相匹配。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [使用 Azure CLI 部署模板](../../user/azure-stack-deploy-template-command-line.md)
-- [为 Azure Stack 中心用户 (操作员启用 Azure CLI) ](../../operator/azure-stack-cli-admin.md)
+- [为 Azure Stack Hub 用户启用 Azure CLI（操作员）](../../operator/azure-stack-cli-admin.md)
 - [管理用户权限](../../user/azure-stack-manage-permissions.md) 

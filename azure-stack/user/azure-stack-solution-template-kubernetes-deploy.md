@@ -3,16 +3,16 @@ title: 部署 Kubernetes 以使用 Azure Stack Hub 容器
 description: 了解如何部署 Kubernetes，以便将容器与 Azure Stack Hub 配合使用。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 38b73bb6237b8467f04ff21fd6769e26a49a8b63
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 916a053f656d1509df66f1206bb4073fe83ceee2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920128"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873854"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>部署 Kubernetes，将容器与 Azure Stack Hub 配合使用
 

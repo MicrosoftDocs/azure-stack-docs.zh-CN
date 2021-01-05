@@ -1,18 +1,18 @@
 ---
-title: 在 Azure Stack 集线器上通过 AKS 引擎部署 Kubernetes 群集
+title: 使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 description: 如何从运行 AKS 引擎的客户端 VM 中将 Kubernetes 群集部署到 Azure Stack Hub 上。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 213e7a0d3a0ad8e395729749e68466a3a4dbab42
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 6284e771a4b0e326ab5c6296b0a2c09dffe791d0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415260"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874194"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 
@@ -229,19 +229,19 @@ ms.locfileid: "93415260"
 
 ## <a name="rotate-your-service-principle-secret"></a>轮换服务主体机密
 
-使用 AKS 引擎部署 Kubernetes 群集后，服务主体 (SPN) 用于管理与 Azure Stack 中心实例上的 Azure 资源管理器的交互。 在某些时候，此服务主体的机密可能会过期。 如果你的机密过期，你可以通过以下方式刷新凭据：
+使用 AKS 引擎部署 Kubernetes 群集后，服务主体 (SPN) 会用于管理与 Azure Stack Hub 实例上的 Azure 资源管理器的交互。 在某些时候，此服务主体的机密可能会过期。 如果机密过期，可以通过以下方式刷新凭据：
 
-- 正在用新服务主体机密更新每个节点。
+- 使用新的服务主体机密更新每个节点。
 - 或更新 API 模型凭据并运行升级。
 
 ### <a name="update-each-node-manually"></a>手动更新每个节点
 
-1. 从云操作员获取服务主体的新机密。 有关 Azure Stack 中心的说明，请参阅 [使用应用标识访问 Azure Stack 中心资源](../operator/azure-stack-create-service-principals.md)。
-2. 使用云操作员提供的新凭据 `/etc/kubernetes/azure.json` 在每个节点上进行更新。 进行更新后，重新启动 **kubelet** 和 **kube** 。
+1. 从云运营商处获取服务主体的新机密。 有关 Azure Stack Hub 的说明，请参阅[使用应用标识访问 Azure Stack Hub 资源](../operator/azure-stack-create-service-principals.md)。
+2. 使用云运营商提供的新凭据更新每个节点上的 `/etc/kubernetes/azure.json`。 进行更新后，重启 kubelet 和 kube-controller-manager 。
 
-### <a name="update-the-cluster-with-aks-engine-update"></a>用 aks 更新更新群集
+### <a name="update-the-cluster-with-aks-engine-update"></a>使用 aks-engine update 更新群集
 
-或者，你可以替换中的凭据 `apimodel.json` ，并使用更新的 json 将升级运行到相同或较新的 Kubernetes 版本。 有关升级模型的说明，请参阅 [在 Azure Stack 集线器上升级 Kubernetes 群集](azure-stack-kubernetes-aks-engine-upgrade.md)
+此外，也可以替换 `apimodel.json` 中的凭据，并使用更新的 json 对相同或较新的 Kubernetes 版本运行升级。 有关升级模型的说明，请参阅[升级 Azure Stack Hub 上的 Kubernetes 群集](azure-stack-kubernetes-aks-engine-upgrade.md)
 
 ## <a name="next-steps"></a>后续步骤
 

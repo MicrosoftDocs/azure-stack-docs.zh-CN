@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: ed1809d44f54ec65c60c5a1e17ca472ee401b5ba
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 900be8cd88fdfbbb488bf07c4b37521551581590
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939378"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874313"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>在 Azure Stack 集线器中旋转容器注册表机密
 

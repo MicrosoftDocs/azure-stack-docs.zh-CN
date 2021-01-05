@@ -4,15 +4,15 @@ description: 了解如何排查向 Azure Stack Hub 部署 Kubernetes 的问题�
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 9a88b6ff0e759c38ad62e6455cbee25eaa9be9eb
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: d15b6d3cbd4cac10c3df0d8c215a869c1fa398b7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920757"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873871"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>排查向 Azure Stack Hub 部署 Kubernetes 的问题
 

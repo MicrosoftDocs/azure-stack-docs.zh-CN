@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: 1e42f830683a1faefd8e068da1e968f9332b7e0a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051609"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872715"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Azure Stack HCI 的物理网络要求
 
@@ -145,6 +145,6 @@ North-South 流量需要使用交换机。 除了使用支持 Azure Stack HCI �
 
 - 了解网络适配器和主机要求。 请参阅 [主机网络要求](host-network-requirements.md)。
 - 温习故障转移群集基础知识。 请参阅 [故障转移群集网络基础知识](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)。
-- 温习如何使用 SET。 请参阅 [ (RDMA 的远程直接内存访问) 和交换机嵌入组合 (设置) ](https://docs.microsoft.com/windows-server/virtualization/.hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
+- 温习如何使用 SET。 请参阅 [ (RDMA 的远程直接内存访问) 和交换机嵌入组合 (设置) ](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
 - 有关部署，请参阅 [使用 Windows 管理中心创建群集](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster)。
 - 有关部署，请参阅 [使用 Windows PowerShell 创建群集](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell)。

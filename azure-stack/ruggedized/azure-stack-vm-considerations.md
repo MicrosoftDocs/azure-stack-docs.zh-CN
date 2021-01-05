@@ -15,12 +15,12 @@ ms.date: 10/14/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 23e14de3afc3c29d843d7b6442c9b12890a60760
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: cec3095120a596429936bc3f85735d336d6cc134
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939401"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874585"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM 功能
 
@@ -31,7 +31,7 @@ Azure Stack 虚拟机 (VM) 提供可按需缩放的计算资源。 在部署 Vm 
 | 功能 | Azure（公有云） | Azure Stack |
 | --- | --- | --- |
 | 虚拟机映像 | Azure 市场包含可用于创建 VM 的映像。 若要查看 Azure 市场中的可用映像列表，请参阅 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1)页。 | Azure Stack 市场中默认不会提供任何映像。 Azure Stack 云管理员必须先将映像发布或下载到 Azure Stack 市场，然后用户才能使用这些映像。 |
-| 虚拟机大小 | Azure 支持各种不同的 VM 大小。 若要了解可用的大小和选项，请参阅 [Windows VM 大小](/azure/virtual-machines/virtual-machines-windows-sizes)和 [Linux VM 大小](/azure/virtual-machines/linux/sizes)主题。 | Azure Stack 支持一部分可在 Azure 中使用的 VM 大小。 若要查看支持的大小列表，请参阅本文的 [VM 大小](#vm-sizes)部分。 |
+| 虚拟机大小 | Azure 支持各种不同的 VM 大小。 若要了解可用的大小和选项，请参阅 [Windows VM 大小](/azure/virtual-machines/sizes)和 [Linux VM 大小](/azure/virtual-machines/linux/sizes)主题。 | Azure Stack 支持一部分可在 Azure 中使用的 VM 大小。 若要查看支持的大小列表，请参阅本文的 [VM 大小](#vm-sizes)部分。 |
 | 虚拟机配额 | [配额限制](/azure/azure-subscription-service-limits#service-specific-limits) 由 Microsoft 设置。 | Azure Stack 云管理员在提供 VM 给其用户之前，必须先分配配额。 |
 | 虚拟机扩展 |Azure 支持多种不同的 VM 扩展。 若要了解可用的扩展，请参阅 [VM 扩展和功能](/azure/virtual-machines/windows/extensions-features)一文。| Azure Stack 支持一部分可在 Azure 中使用的扩展，每个扩展有特定的版本。 Azure Stack 云管理员可以选择要将哪些扩展提供给其用户使用。 若要查看支持的扩展列表，请参阅本文的 [VM 扩展](#vm-extensions)部分。 |
 | 虚拟机网络 | 分配给租户 VM 的公共 IP 地址可通过 Internet 访问。<br><br><br>Azure VM 具有固定的 DNS 名称。 | <!-- TZLASDKFIX Public IP addresses assigned to a tenant VM are accessible within the Azure Stack Development Kit environment only. A user must have access to the Azure Stack Development Kit via [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) or [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) to connect to a VM that is created in Azure Stack.--><br><br>在特定 Azure Stack 实例中创建的 VM 的 DNS 名称基于云管理员配置的值。 |

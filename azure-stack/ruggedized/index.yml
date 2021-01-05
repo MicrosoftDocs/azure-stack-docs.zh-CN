@@ -6,15 +6,15 @@ metadata:
   description: Microsoft Azure Stack 集线器耐用是一种混合云平台，可让你从数据中心提供 Azure 服务。 了解如何通过我们的快速入门和教程来管理 Azure Stack 中心耐用集成系统基础结构以及如何提供服务。
   ms.service: azure-stack
   ms.topic: landing-page
-  author: justinha
-  ms.author: justinha
+  author: PatAltimore
+  ms.author: patricka
   ms.date: 10/14/2020
-  ms.openlocfilehash: 7e131f116ef28620cda1804782d38c14d5700bad
-  ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+  ms.openlocfilehash: 896bd56c3e040a1f2d949824037e68bbb5ecbc95
+  ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96939399"
+  ms.lasthandoff: 01/05/2021
+  ms.locfileid: "97874381"
 landingContent:
 - title: 关于 Azure Stack 集线器耐用
   linkLists:

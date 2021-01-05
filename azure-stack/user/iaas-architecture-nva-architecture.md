@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上部署高度可用的网络虚拟设备
 description: 了解如何在 Azure Stack Hub 上部署高度可用的网络虚拟设备。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 31635f6ecfefc0c513fddec5ec00da1006b44f44
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 7e928757447f47c9235690f38e62778a4594faf1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107001"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873769"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署高度可用的网络虚拟设备
 
@@ -32,7 +32,7 @@ ms.locfileid: "91107001"
 
 -   **网络安全组** (NSG)。 使用 NSG 限制虚拟网络中的网络流量。 例如，在此处显示的三层体系结构中，数据库层不接受来自 Web 前端的流量，仅接受来自业务层和管理子网的流量。
 
--   **UDR。** 使用[*用户定义的路由*](/azure/virtual-network/virtual-networks-udr-overview/) (UDR) 将流量路由到特定的负载均衡器。
+-   **UDR。** 使用 [*用户定义的路由*](/azure/virtual-network/virtual-networks-udr-overview/) (UDR) 将流量路由到特定的负载均衡器。
 
 本文假设读者基本了解 Azure Stack Hub 网络。
 
@@ -40,7 +40,7 @@ ms.locfileid: "91107001"
 
 NVA 可以采用许多不同的体系结构部署到外围网络中。 例如，下图演示了用于入口的单个 NVA 的使用。
 
-![显示用于入口的单个 NVA 的屏幕截图。](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
+![此屏幕截图显示了用于入口的单个 NVA 的使用。](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 在此体系结构中，NVA 会检查所有入站和出站网络流量并且仅会放行符合网络安全规则的流量，从而提供一个安全的网络边界。 因为所有网络流量都必须通过 NVA，这意味着 NVA 是网络中的单一故障点。 如果 NVA 发生故障，则网络流量没有其他路径可用，并且所有后端子网都不可用。
 

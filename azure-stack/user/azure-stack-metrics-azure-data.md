@@ -3,15 +3,15 @@ title: 使用 Azure Stack Hub 上的 Azure Monitor
 description: 了解如何使用 Azure Stack Hub 上的 Azure Monitor。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 7d0a11f8a559f1f40ae797392f27caa815129c69
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 7688ebd4aed8ee797cd940da5631e19e4c1ef8ff
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920773"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874109"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>使用 Azure Stack Hub 上的 Azure Monitor
 
@@ -31,10 +31,10 @@ Azure 监视器是一款平台服务，提供一个中心位置来让用户监�
 在你的订阅的套餐资源提供程序设置上注册 **Microsoft.insights** 资源提供程序。 你可以验证该资源提供程序在与你的订阅关联的套餐中是否可用：
 
 1. 打开 Azure Stack Hub 用户门户。
-2. 选择“订阅”。****
+2. 选择“订阅”。
 3. 选择要注册的订阅。
-4. 在“设置”下，选择“资源提供程序”。**** **** 
-5. 在列表中找到 **Microsoft.Insights**，并验证状态是否为“已注册”****。
+4. 在“设置”下，选择“资源提供程序”。  
+5. 在列表中找到 **Microsoft.Insights**，并验证状态是否为“已注册”。
 
 ## <a name="overview-of-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上的 Azure Monitor 概述
 
@@ -120,7 +120,7 @@ Azure Stack Hub 中的 **Microsoft.Compute** 资源提供程序包括：
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  
-> 如果在查看 VM 的性能图表时遇到“资源未找到”**** 错误，请确保已在与 VM 关联的订阅上注册了 Microsoft.insights。
+> 如果在查看 VM 的性能图表时遇到“资源未找到”错误，请确保已在与 VM 关联的订阅上注册了 Microsoft.insights。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,18 +1,18 @@
 ---
 title: 重新部署 ASDK
 description: 了解如何重新部署 Azure Stack 开发工具包 (ASDK)。
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 11/14/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 8b09386c748fe8263973b8812a049ab426585c42
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 0c28a088fcfe909c2ee88b2b37f1a73ce7890270
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517100"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873174"
 ---
 # <a name="redeploy-the-asdk"></a>重新部署 ASDK
 本文介绍如何在非生产环境中重新部署 Azure Stack 开发工具包 (ASDK)。 由于不支持 ASDK 升级，因此若要改用较新的版本，需彻底地进行重新部署。 还可以在希望从头开始的任何时候重新部署 ASDK。
@@ -23,7 +23,7 @@ ms.locfileid: "95517100"
 ## <a name="remove-azure-registration"></a>删除 Azure 注册 
 如果以前已将 ASDK 安装注册到 Azure，则应在重新部署 ASDK 之前删除注册资源。 重新部署 ASDK 时，请重新注册 ASDK 以使市场中可以提供项目。 如果以前未将 ASDK 注册到 Azure 订阅，则可跳过此部分。
 
-若要删除注册资源，请使用 **Remove-AzsRegistration** cmdlet 注销 Azure Stack。 然后，使用 **AzResourceGroup** Cmdlet 从 Azure 订阅中删除 Azure Stack 资源组。
+若要删除注册资源，请使用 **Remove-AzsRegistration** cmdlet 注销 Azure Stack。 然后，使用 Remove-AzResourceGroup cmdlet 从 Azure 订阅中删除 Azure Stack 资源组。
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az)
 
