@@ -1,17 +1,17 @@
 ---
 title: Azure Stack Hub 管理基础知识
 description: 了解 Azure Stack Hub 管理基础知识。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 06/16/2020
-ms.author: justinha
+ms.author: patricka
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 063809d47aff3d4e0840f4127f3749faccac7c9b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "94543504"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870267"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub 管理基础知识
 

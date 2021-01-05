@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub Capacity Planner
 description: 了解如何使用 Azure Stack Hub Capacity Planner 电子表格进行部署。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 51b9530fdd67826616f6117c3c95dbe48b45303f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d78d52bf28671527bd5f9dbfd80efef401888264
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701626"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871525"
 ---
 # <a name="azure-stack-hub-capacity-planner"></a>Azure Stack Hub Capacity Planner
 

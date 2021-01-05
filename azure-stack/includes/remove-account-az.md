@@ -1,18 +1,18 @@
 ---
-title: Remove-AzureRmAccount 包含
+title: Remove-AzureRmAccount 的 Include 文件
 description: 说明如何运行 Remove-AzureRmAccount 的包含文件。
-author: justinha
+author: PatAltimore
 ms.topic: include
 ms.date: 11/23/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: avishwan
 ms.lastreviewed: 11/23/2020
-ms.openlocfilehash: daa8281caed506f2d1b3abe6683a709f024ef729
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: 54bb259a8672428d7be579efbadd7d963cf45230
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96035264"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871272"
 ---
 >[!Note]
->如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 AzAccount 登录之前运行以下 cmdlet： `Remove-AzAccount -Scope Process`
+>如果会话过期、密码已更改，或者只是希望切换帐户，请在使用 Add-AzAccount 登录之前运行以下 cmdlet：`Remove-AzAccount -Scope Process`

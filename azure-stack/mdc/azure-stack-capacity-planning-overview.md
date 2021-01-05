@@ -3,7 +3,7 @@ title: 概述-Azure Stack 集线器的容量规划 |Microsoft Docs
 description: 了解 Azure Stack 中心部署的容量规划，包括计算和存储信息。
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 12862a71146606bfba81ea0de630a93181951c06
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 31ca2752dda6c9e45bdbee7b20f47bfb8da3f5e4
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598583"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872613"
 ---
 # <a name="overview-of-azure-stack-hub-capacity-planning---modular-data-center-mdc"></a>Azure Stack 集线器容量规划概述-模块化数据中心 (MDC) 
 

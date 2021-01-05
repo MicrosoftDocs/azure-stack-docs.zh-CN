@@ -1,18 +1,18 @@
 ---
 title: MDC 网络配置生命周期管理
 description: 了解 Azure 模块化数据中心的网络配置生命周期管理。
-author: justinha
-ms.author: justinha
+author: PatAltimore
+ms.author: patricka
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: b88511f47064f0ac55571c81924cca13eb65e9f6
-ms.sourcegitcommit: 25b234330df4e753ed2dd480c208ec88cd90234c
+ms.openlocfilehash: 5453738374f9377645a6ba594dda08b8668931fe
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94924344"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872324"
 ---
 # <a name="configuration-lifecycle-management"></a>配置生命周期管理
 

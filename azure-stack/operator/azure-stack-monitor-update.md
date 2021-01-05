@@ -1,18 +1,18 @@
 ---
 title: 使用特权终结点监视 Azure Stack Hub 中的更新
 description: 了解如何使用特权终结点监视 Azure Stack Hub 集成系统中的更新状态。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 21d7b22181283a0e634cb0bdd0cc5912f8dac84c
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: cc3b37e6ac230133254cbb6e9f5e5487b31a26c4
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848177"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870250"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack Hub 中的更新
 
@@ -27,11 +27,11 @@ Azure Stack Hub 集成系统 1710 更新版中包含以下用于更新管理的�
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>验证 cmdlet 是否可用
-由于 cmdlet 是适用于 Azure Stack Hub 1710 更新包中的新功能，因此 1710 更新过程需要运行到特定的步骤，才能使用监视功能。 一般而言，如果管理员门户中的状态指示 1710 更新正在执行“重启存储主机”步骤，则可以使用 cmdlet。  具体而言，cmdlet 更新在执行“步骤: 正在运行步骤 2.6 - 更新 PrivilegedEndpoint 允许列表”期间发生。 
+由于 cmdlet 是适用于 Azure Stack Hub 1710 更新包中的新功能，因此 1710 更新过程需要运行到特定的步骤，才能使用监视功能。 一般而言，如果管理员门户中的状态指示 1710 更新正在执行“重启存储主机”步骤，则可以使用 cmdlet。 具体来说，cmdlet 更新发生在 **步骤：正在运行步骤 2.6 - 更新 PrivilegedEndpoint 允许列表** 期间。
 
 也可以通过从特权终结点查询命令列表，来确定是否可以编程方式使用 cmdlet。 若要执行此查询，请从硬件生命周期主机或特权访问工作站运行以下命令。 此外，请确保特权终结点是受信任的主机。 有关详细信息，请参阅[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步骤 1。
 
-1. 在 Azure Stack Hub 环境中的任何 ERCS 虚拟机 (VM)（*Prefix*-ERCS01、*Prefix*-ERCS02 或 *Prefix*-ERCS03）上创建 PowerShell 会话。 将 Prefix  替换为环境特定的 VM 前缀字符串。
+1. 在 Azure Stack Hub 环境中的任何 ERCS 虚拟机 (VM)（*Prefix*-ERCS01、*Prefix*-ERCS02 或 *Prefix*-ERCS03）上创建 PowerShell 会话。 将 Prefix 替换为环境特定的 VM 前缀字符串。
 
    ```powershell
    $cred = Get-Credential
@@ -101,7 +101,7 @@ $statusString.Value
 
 - 正在运行
 - 已完成
-- 失败 
+- 已失败 
 - 已取消
 
 可以重复运行这些命令来查看最新状态。 无需重新建立连接即可再次检查状态。
@@ -159,12 +159,12 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>故障排除
 
-特权终结点适用于 Azure Stack Hub 环境中的所有 ERCS VM。 由于未与高度可用的终结点建立连接，因此可能会遇到偶发性中断、警告或错误消息。 这些消息可能指示会话已断开，或者与 ECE 服务通信时出错。 此行为是预期的行为。 可以在几分钟后重试此操作，或者在其他某个 ERCS VM 上新建特权终结点会话。
+特权终结点适用于 Azure Stack Hub 环境中的所有 ERCS VM。 由于未与高度可用的终结点建立连接，因此可能会遇到偶发性中断、警告或错误消息。 这些消息可能指示会话已断开，或者与 ECE 服务通信时出错。 这是预期的行为。 可以在几分钟后重试此操作，或者在其他某个 ERCS VM 上新建特权终结点会话。
 
-有关更新疑难解答的详细信息，请参阅[Azure Stack 疑难解答](azure-stack-troubleshooting.md)
+有关故障排除更新的详细信息，请参阅 [Azure Stack 故障排除](azure-stack-troubleshooting.md)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [管理 Azure Stack 集线器中的更新](azure-stack-updates.md)
+- [在 Azure Stack Hub 中管理更新](azure-stack-updates.md)
 
 

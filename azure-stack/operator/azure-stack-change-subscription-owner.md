@@ -1,18 +1,18 @@
 ---
 title: 更改 Azure Stack Hub 用户订阅的计费所有者
 description: 了解如何更改 Azure Stack Hub 用户订阅的计费所有者。
-author: justinha
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 11/16/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shnatara
 ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: 0a455f7f902e76e61f5a7451e26219abf10b7622
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: c5438aaf928efeee0b71470e0965c6b18b5a7c0a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96035262"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871274"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>更改 Azure Stack Hub 用户订阅的计费所有者
 

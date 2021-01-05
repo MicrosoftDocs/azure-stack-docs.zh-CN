@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: dafd9d485125d7c8da1524b71fddb75af7a4ebba
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 6cac7624a99ccd430f64243586c773238ec8c4c2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598566"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872069"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub---modular-data-center-mdc"></a>更新 Azure Stack 集线器中的容器注册表-模块化数据中心 (MDC) 
 

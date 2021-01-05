@@ -1,19 +1,19 @@
 ---
 title: MDC 的 Azure Stack 网络部署
 description: 了解 MDC 设备的 Azure Stack 网络部署。
-author: justinha
+author: PatAltimore
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 01/17/2020
-ms.openlocfilehash: 8744ddd518094026afdba678d524ca981b138610
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: a0de01ce240248767ebfd8e558a83408c84282be
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598651"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872205"
 ---
 # <a name="network-deployment"></a>网络部署
 

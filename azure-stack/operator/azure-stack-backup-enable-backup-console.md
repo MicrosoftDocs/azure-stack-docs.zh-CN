@@ -1,18 +1,18 @@
 ---
-title: 从管理员门户启用 Azure Stack 中心备份
+title: 从管理员门户启用 Azure Stack Hub 备份
 description: 了解如何通过管理员门户启用基础结构备份服务，以便出现故障时可以还原 Azure Stack Hub。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 08/21/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: ba942571d804ec221ee9c25d1b78ddfa1e3a52de
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 4ec0aebf0fcf46973a4f371d659aece8e51eb2c7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106623"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871848"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>从管理员门户为 Azure Stack Hub 启用备份
 
@@ -36,14 +36,14 @@ ms.locfileid: "91106623"
 
 1. 打开 [Azure Stack Hub 管理员门户](azure-stack-manage-portals.md)。
 2. 选择“所有服务”  ，然后在“管理”  类别下选择“基础结构备份”  。 在“基础结构备份”  边栏选项卡中选择“配置”  。
-3. 键入**备份存储位置**的路径。 使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 对于服务，可以使用 IP 地址。 若要确保备份数据在发生灾难后的可用性，设备应放置在单独的位置。
+3. 键入 **备份存储位置** 的路径。 使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 对于服务，可以使用 IP 地址。 若要确保备份数据在发生灾难后的可用性，设备应放置在单独的位置。
 
     > [!Note]  
     > 如果环境支持从 Azure Stack Hub 基础结构网络到企业环境的名称解析，则可以使用完全限定的域名 (FQDN) 而不是 IP。
 
-4. 使用具有足够访问权限的域和用户名输入**用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser`。
-5. 键入用户的**密码**。
-6. 再次键入密码以**确认密码**。
+4. 使用具有足够访问权限的域和用户名输入 **用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser`。
+5. 键入用户的 **密码**。
+6. 再次键入密码以 **确认密码**。
 7. “频率(小时)”  决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。 
 8. “保留期(天)”  决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。
 
@@ -77,7 +77,7 @@ ms.locfileid: "91106623"
 ## <a name="start-backup"></a>启动备份
 若要启动备份，请单击“立即备份”  以启动按需备份。 按需备份不会修改已计划的下次备份的时间。 任务完成后，可以在“概要”  中确认设置：
 
-![显示如何启动按需备份的屏幕截图。](media/azure-stack-backup/scheduled-backup.png)
+![此屏幕截图显示了如何启动按需备份。](media/azure-stack-backup/scheduled-backup.png)
 
 还可以在 Azure Stack Hub 管理计算机上运行 PowerShell cmdlet **Start-AzsBackup**。 有关详细信息，请参阅[备份 Azure Stack Hub](azure-stack-backup-back-up-azure-stack.md)。
 

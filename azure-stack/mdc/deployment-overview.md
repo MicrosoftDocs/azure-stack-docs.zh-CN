@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: d0bf712be8924cce59aa441161dfb39c090d1a2d
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 605ce80e2f88f5c798c955d5ba45a49856086f2e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612618"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872477"
 ---
 # <a name="mdc-requirements-overview"></a>MDC 要求概述
 

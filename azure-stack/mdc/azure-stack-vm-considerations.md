@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 8bd1231c0a3e9ef7dc55349fb05c872666d47585
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 054a3267d48f823ad6d0767f1946e94667c6e12d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598328"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872511"
 ---
 # <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Azure Stack VM 功能-模块化数据中心 (MDC) 
 

@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Stack Hub 中使用管理员门户
 description: 了解如何在 Azure Stack Hub 中使用管理员门户。
-author: justinha
+author: PatAltimore
 ms.topic: quickstart
 ms.date: 06/07/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 4c79d8a9c9aa5877dd2dfb264257f2a7cfaaa46f
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: 704830b481e7b40261b2b5079370b0a641690520
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363973"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870080"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>在 Azure Stack Hub 中使用管理员门户
 
@@ -25,7 +25,7 @@ Azure Stack Hub 中有两种门户：管理员门户和用户门户。 Azure Sta
 | 环境 | 管理员门户 URL |   
 | -- | -- | 
 | ASDK| `https://adminportal.local.azurestack.external`  |
-| 集成系统 | https://adminportal.&lt; *region*&gt;.&lt;*FQDN*&gt; | 
+| 集成系统 | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
 > [!TIP]
@@ -84,7 +84,7 @@ Azure Stack Hub 中有两种门户：管理员门户和用户门户。 Azure Sta
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>快速访问 Azure 路线图
 
-如果选择 " **帮助和支持** " (管理员门户右上角的问号) ，然后选择 " **Azure 路线图** "，则会打开一个新的浏览器选项卡，并转到 Azure 路线图。 通过在 " **产品** " 搜索框中键入 **Azure Stack Hub** ，你可以查看所有 Azure Stack 中心路线图更新。
+如果选择 " **帮助和支持** " (管理员门户右上角的问号) ，然后选择 " **Azure 路线图**"，则会打开一个新的浏览器选项卡，并转到 Azure 路线图。 通过在 "**产品**" 搜索框中键入 **Azure Stack Hub** ，你可以查看所有 Azure Stack 中心路线图更新。
 
 ## <a name="next-steps"></a>后续步骤
 

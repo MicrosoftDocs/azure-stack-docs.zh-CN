@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Stack Hub 中添加公共 IP 地址
 description: 了解如何向 Azure Stack Hub 添加公共 IP 地址。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 05/28/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 245817c62d2c5ddbd0856bdf4af869b7a66dbe18
-ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
+ms.openlocfilehash: 5f083e507689e7d24fa02060e63a9e6302ef3568
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97801991"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871933"
 ---
 # <a name="add-public-ip-addresses"></a>添加公共 IP 地址
 

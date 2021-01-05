@@ -4,15 +4,15 @@ description: 了解如何在数据中心发布 Azure Stack Hub 服务。
 author: myoung
 ms.topic: article
 ms.date: 09/24/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: ed9f2a8eeeeb2cfdfcc4e96c1672d7da8fff64b2
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 989a20216fd5613fa1269009e5c6dc7b918b8300
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495739"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870796"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>在数据中心发布 Azure Stack Hub 服务
 
@@ -79,7 +79,7 @@ SSL 流量拦截[不受支持](azure-stack-firewall.md#ssl-interception)，并�
 |目的|目标 URL|协议|端口|源网络|
 |---------|---------|---------|---------|---------|
 |标识|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https： \/ /management.core.windows.net<br>ARMUri = https： \/ /management.azure.com<br>https： \/ / \* . msftauth.net<br>https： \/ / \* . msauth.net<br>https： \/ / \* . msocdn.com<br>**Azure Government**<br>https： \/ /login.microsoftonline.us/<br>https： \/ /graph.windows.net/<br>**Azure 中国世纪互联**<br>https:\//login.chinacloudapi.cn/<br>https:\//graph.chinacloudapi.cn/<br>**Azure 德国**<br>https： \/ /login.microsoftonline.de/<br>https： \/ /graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
-|市场联合|**Azure**<br>https:\//management.azure.com<br>https://&#42;. blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https： \/ /management.usgovcloudapi.net/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
+|市场联合|**Azure**<br>https:\//management.azure.com<br>https://&#42;. blob.core.windows.net<br>https://&#42;.azureedge.net<br>**Azure Government**<br>https： \/ /management.usgovcloudapi.net/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn/<br>http://&#42;.blob.core.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
 |修补程序和更新|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP - /27|
 |注册|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https： \/ /management.usgovcloudapi.net/<br>**Azure 中国世纪互联**<br>https:\//management.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
 |使用情况|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure 中国世纪互联**<br>https://&#42;.trafficmanager.cn|HTTPS|443|公共 VIP - /27|

@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Stack Hub 中从灾难性数据丢失中恢复
 description: 了解如何在发生灾难性数据丢失后恢复和还原 Azure Stack Hub 中的基础结构数据。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 10/23/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 10/23/2020
-ms.openlocfilehash: 35d55eec6c1311c39014f94f94fb04d39c7acb3b
-ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
+ms.openlocfilehash: ba7710196b57050c636ac43301ed4434f13af063
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496408"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871695"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -63,7 +63,7 @@ Azure Stack Hub 支持称为云恢复模式的部署类型。 只有当灾难或
 
 ## <a name="validate-backups"></a>验证备份 
 
-可以使用 ASDK 测试备份，以确认数据有效且可用。 有关详细信息，请参阅 [使用 ASDK 来验证 Azure Stack 备份](../asdk/asdk-validate-backup.md)。
+可以使用 ASDK 来测试备份，以确认数据有效且可用。 有关详细信息，请参阅[使用 ASDK 验证 Azure Stack 备份](../asdk/asdk-validate-backup.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

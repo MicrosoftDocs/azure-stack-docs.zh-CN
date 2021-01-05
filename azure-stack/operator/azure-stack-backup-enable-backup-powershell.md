@@ -1,18 +1,18 @@
 ---
 title: 使用 PowerShell 为 Azure Stack Hub 启用备份
 description: 了解如何使用 PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack Hub。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: bc6ce6c36e3aca05015e6acbef3de0d5fd841eb6
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 0e1bdbf55556d8168e517a5d9cfb30d6747c02f3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543912"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871746"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>使用 PowerShell 为 Azure Stack Hub 启用备份
 
@@ -36,8 +36,8 @@ ms.locfileid: "94543912"
 
 | 变量        | 说明   |
 |---              |---                                        |
-| `$username`       | 使用共享驱动器位置具有足够访问权限的域和用户名输入 **用户名** ，以便读取和写入文件。 例如，`Contoso\backupshareuser` 。 |
-| `$password`       | 键入用户的 **密码** 。 |
+| `$username`       | 使用共享驱动器位置具有足够访问权限的域和用户名输入 **用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser` 。 |
+| `$password`       | 键入用户的 **密码**。 |
 | `$sharepath`      | 键入 **备份存储位置** 的路径。 必须使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（例如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应放置在单独的位置。 |
 | `$frequencyInHours` | “频率(小时)”决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。|
 | `$retentionPeriodInDays` | “保留期(天)”决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。|

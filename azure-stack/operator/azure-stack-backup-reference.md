@@ -1,18 +1,18 @@
 ---
 title: 基础结构备份服务参考
 description: Azure Stack Hub 中基础结构备份服务的参考资料。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 8fc10bd53bfcf9822f46eb977c02055db1a65cb7
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 7fc20dfa20c0088f81d386d2b371b6a17bf45d5f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939287"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871610"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务参考
 
@@ -126,7 +126,7 @@ Azure Stack Hub 由许多服务构成，其中包括门户、Azure 资源管理�
  
 出于安全原因，Azure Stack Hub 不会保留云恢复期间使用的包含私钥的证书 (.PFX)。 在云恢复期间，需要显式提供此文件。  
 
-**后向兼容性模式**从 1901 版本开始，加密密钥支持已弃用，将来的版本会将其删除。 如果已从 1811 版本更新，并且已使用加密密钥启用了备份，则 Azure Stack Hub 将继续使用加密密钥。 至少有三个版本会继续支持后向兼容性模式。 在此之后，需要使用证书。
+**后向兼容性模式** 从 1901 版本开始，加密密钥支持已弃用，将来的版本会将其删除。 如果已从 1811 版本更新，并且已使用加密密钥启用了备份，则 Azure Stack Hub 将继续使用加密密钥。 至少有三个版本会继续支持后向兼容性模式。 在此之后，需要使用证书。
 
  * 从加密密钥更新到证书是单向操作。  
  * 所有现有备份将使用加密密钥保持加密状态。 新备份将使用证书。 

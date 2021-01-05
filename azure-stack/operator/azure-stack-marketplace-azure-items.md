@@ -3,16 +3,16 @@ title: 可用于 Azure Stack Hub 的 Azure 市场项
 description: 了解哪些 Azure 市场项可以在 Azure Stack Hub 中使用。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/9/2020
+ms.date: 01/04/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 12/9/2020
-ms.openlocfilehash: ccc190d13d78f3dbbfdca3b05a1868763637f55b
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 475aa05c8274f36ea63763d648c69f2b3778da71
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935213"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871765"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>可用于 Azure Stack Hub 的 Azure 市场项
 
@@ -59,7 +59,7 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server 是全球流行的 Linux 云环境。 | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8“Jessie”](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux 是最流行的 Linux 分发版之一。 | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Oracle Linux 操作系统是针对开放云基础结构设计的。 它为企业 SaaS 和 PaaS 工作负荷以及传统的企业应用提供领先的性能、可伸缩性和可靠性。 | Oracle |
-| ![基于 CentOS 的7。6](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的7。6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos?tab=Overview) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |
+| ![基于 CentOS 的 7.6](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 7.6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos?tab=Overview) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |
 | ![基于 CentOS 的 7.5-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 7.5-LVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-lvm) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic） |
 | ![基于 CentO 的 HPC](media/azure-stack-marketplace-azure-items/roguewave.png) | [基于 CentOS 的 HPC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-hpc) | 此 Linux 发行版基于 CentOS ，由 Rogue Wave Software 提供。 | Rogue Wave Software（之前为 OpenLogic）  |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 11 SP4。 | SUSE |
@@ -219,7 +219,7 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![WordPress 多层](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress 多层](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multi-tier-wordpress) | WordPress 是世界上最受欢迎的博客和内容管理平台。 强大而又简单的一点，从学生到全球公司的所有人都可以使用它来构建漂亮的功能网站。 此解决方案使用两个虚拟机，一个用于应用程序前端，另一个用于数据库。 此解决方案模板还需要 **Debian 9** 和 **适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![WordPress with NGINX and SSL](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress with NGINX and SSL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpresspro) | WordPress with NGINX 和 SSL 将最流行的博客应用程序与 NGINX web 服务器的强大功能相结合。 它还简化了对证书进行加密以保护证书的配置。 | Bitnami |
 | :::image type="icon" source="media/azure-stack-marketplace-azure-items/xoops.png" border="false"::: | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS 和 Web 门户程序，适用于创建动态网站。 | Bitnami |
-| :::image type="icon" source="media/azure-stack-marketplace-azure-items/zurmo.png" border="false"::: | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 开源 CRM 系统：移动、社交和游戏化。 | Bitnami |
+| :::image type="icon" source="media/azure-stack-marketplace-azure-items/zurmo.png" border="false"::: | [Zurmo](https://sourceforge.net/projects/zurmo/) | 开源 CRM 系统：移动、社交和游戏化。 | Bitnami |
 | :::image type="icon" source="media/azure-stack-marketplace-azure-items/zookeeper.png" border="false"::: | [ZooKeeper](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeeper) | ZooKeeper 为分布式应用程序提供了一种可靠、集中的配置数据和服务注册。 | Bitnami |
 | ![ZooKeeper 群集](media/azure-stack-marketplace-azure-items/zookeeper.png) | [ZooKeeper 群集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeepermultitier) | ZooKeeper 为分布式应用程序提供了一种可靠、集中的配置数据和服务注册。 此解决方案为分布式应用程序提供可伸缩、可靠且集中的数据存储和协调服务。 它还预配了可配置的节点数量，它们共同构成了容错 ZooKeeper 群集。 它还可以与其他应用程序（如 Kafka）集成。 此解决方案模板还需要 **Debian 9** 和 **适用于 Linux 2.0 扩展的自定义脚本**。 | Bitnami |
 | ![Check Point CloudGuard IaaS 高可用性](media/azure-stack-marketplace-azure-items/checkpoint.png) | [CloudGuard IaaS 高可用性](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 此解决方案部署2个成员检查点 CloudGuard IaaS 群集。 每个成员有2个网络接口。 | 检查点 |
@@ -250,4 +250,5 @@ Microsoft Azure Stack 中心支持以下 Azure Marketplace Vm 和解决方案模
 | ![Teradici 云访问软件](media/azure-stack-marketplace-azure-items/teradici.png) | [Teradici 云访问软件](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.teradici_cas_azure_stack) | &reg;云访问软件由 PCoIP 技术提供支持，可 Azure Stack 在任何位置向任意设备提供远程桌面和工作站。 整合数据存储、增强协作、保护数据、简化桌面管理等。 | Teradici |
 | ![CipherTrust 云密钥管理器](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust 云密钥管理器](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | 利用 Microsoft Azure 和其他云提供商创建自己的密钥 (BYOK) Api，CipherTrust 云密钥管理器通过提供对加密密钥的集中管理和可见性的多云生命周期控制，降低了密钥管理复杂性和运营成本。 | Thales eSecurity |
 | ![Veeam Backup & Replication](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam Backup & Replication](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam &reg; 备份 & 复制 &trade; 有助于企业针对所有工作负荷（虚拟、物理和基于云）实现全面的数据保护。 可以通过单个控制台对所有应用和数据进行快速、灵活且可靠的备份、恢复和复制。 | Veeam Software |
+| ![相反，操作系统 (VOS) ](media/azure-stack-marketplace-azure-items/versa.png) | [相反，操作系统 (VOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/versanetworks.versa-operating-system?tab=Overview) | 相反的操作系统 (VOS) 是一个全面且高级的下一代虚拟设备，它将 SD 广域网、SD-Routing 和 SD-Security 的强大功能引入到 Microsoft Azure 云中。 | 反向网络 |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Business Continuity as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown &reg; 软件技术使企业能够通过业务连续性作为服务 (BCaaS) &trade; 体系结构、保护应用和事务，在通常会使企业瘫痪的网络中断的情况下，对其公司数据进行持续访问。 | ZeroDown Software |

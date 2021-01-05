@@ -1,18 +1,18 @@
 ---
 title: 规划 Azure Stack 集线器集成系统的数据中心集成
 description: 了解如何规划和准备数据中心与 Azure Stack Hub 集成式系统的集成。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 825db573a614d1a1dd9b54cd87d8894c981fce4b
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 89cb7fe7ee0f8e19c2774d5ebfef988ec0933e03
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573027"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871015"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>有关 Azure Stack Hub 集成系统的数据中心集成规划注意事项
 
@@ -185,7 +185,7 @@ Azure Stack Hub 解决方案随附的硬件生命周期主机是 Azure Stack Hub
 - 部署输入和标识符
 - 服务帐户
 - CA 根证书
-- 联合资源（在断开连接部署中）
+- 断开连接的部署中 (的联合资源) 
 - 计划、套餐、订阅和配额
 - RBAC 策略与角色分配
 - Key Vault 机密

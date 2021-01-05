@@ -7,15 +7,15 @@ metadata:
   ms.service: azure-stack
   ms.subservice: asdk
   ms.topic: landing-page
-  author: justinha
-  ms.author: justinha
+  author: PatAltimore
+  ms.author: patricka
   ms.date: 07/23/2020
-  ms.openlocfilehash: 567ea184c0b7ff1afe36022600ff61130455c2e4
-  ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+  ms.openlocfilehash: 5ef5ba2a176e6a74c406b8b529a59c49131ffc33
+  ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96935076"
+  ms.lasthandoff: 01/05/2021
+  ms.locfileid: "97872358"
 landingContent:
 - title: 关于 Azure 模块化数据中心
   linkLists:

@@ -1,18 +1,18 @@
 ---
-title: 基础结构备份服务最佳做法-Azure Stack 中心
+title: 基础结构备份服务最佳做法 - Azure Stack Hub
 description: 在部署和管理 Azure Stack Hub 时，请遵循这些最佳做法，这样有助于在发生灾难性故障时减少数据丢失。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/08/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: fe0fa50ca2dfd69475fe2726042332c6ce9f51ad
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: f1208b2a683923e4cf09951d9812e8cbcfcd475f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573116"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871814"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 

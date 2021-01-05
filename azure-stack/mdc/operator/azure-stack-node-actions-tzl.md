@@ -1,18 +1,18 @@
 ---
 title: 为 MDC Azure Stack 集线器中的缩放单位节点操作
 description: 了解如何缩放 Azure Stack 集线器集成系统中的单元节点操作，包括开机、关机、禁用、恢复和查看节点状态。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/26/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 6413cec9b2464d5295feab0f3a3983083b9d04ea
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 835b6a39e089bbe959c7c5cf5283d2b516b6d4f7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598515"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872052"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Azure Stack 集线器中的缩放单位节点操作-模块化数据中心 (MDC) 
 

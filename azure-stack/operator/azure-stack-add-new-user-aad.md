@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Active Directory 中添加新的 Azure Stack Hub 用户帐户
 description: 了解如何在 Azure Active Directory 中创建用户帐户，以便浏览用户门户。
-author: JustinHall
+author: PatAltimore
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 435b2bfdd2de9a232379190a0fe3db0dca642def
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9ada0a0c7731b92bc67f85545b5d9cd81e87cd36
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700555"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871967"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>在 Azure Active Directory (Azure AD) 中添加新的 Azure Stack Hub 用户帐户
 
@@ -34,7 +34,7 @@ ms.locfileid: "77700555"
 
    - **名称(必填)** ：新用户的名字和姓氏。 例如，Mary Parker。
    - **用户名(必填)** ：新用户的用户名。 例如，mary@contoso.com。
-       用户名的域名部分必须是初始默认域名“<yourdomain name>.onmicrosoft.com”，或自定义域名（例如“contoso.com”）__。 若要详细了解如何创建自定义域名，请参阅[如何向 Azure AD 添加自定义域名](/azure/active-directory/fundamentals/add-custom-domain)。
+       用户名的域名部分必须是初始默认域名“<yourdomain name>.onmicrosoft.com”，或自定义域名（例如“contoso.com”）。 若要详细了解如何创建自定义域名，请参阅[如何向 Azure AD 添加自定义域名](/azure/active-directory/fundamentals/add-custom-domain)。
    - **个人资料**：（可选）可以添加关于用户的详细信息。 也可以在以后添加用户信息。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal)。
    - **目录角色**：选择“用户”  。
 
@@ -54,7 +54,7 @@ ms.locfileid: "77700555"
 > [!NOTE]
 > 如果使用 Microsoft 帐户部署 ASDK，则不能使用 Azure AD PowerShell 创建租户帐户。
 
-1. 安装 **64 位**版本的[适用于 IT 专业人员的 Microsoft Online Services 登录助手 RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152)。
+1. 安装 **64 位** 版本的 [适用于 IT 专业人员的 Microsoft Online Services 登录助手 RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152)。
 
 2. 按照以下步骤安装用于 Windows PowerShell 的 Microsoft Azure AD 模块：
 

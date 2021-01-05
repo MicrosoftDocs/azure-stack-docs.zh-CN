@@ -1,22 +1,22 @@
 ---
 title: Azure Stack Hub 数据中心 DNS 集成
 description: 了解如何将 Azure Stack Hub DNS 与数据中心 DNS 集成。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: be6ea1e8dbf8b17e02a4117f5f2d20cb9cfbbcfe
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2edd6fb4c427f9b20edebbd09f3d28a4ac413ef8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488716"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870369"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack Hub 数据中心 DNS 集成
 
-若要能够从 Azure Stack Hub 外部访问 Azure Stack Hub 终结点（例如**门户**、**adminportal**、**管理**和 **adminmanagement**），需将 Azure Stack Hub DNS 服务与托管 DNS 区域（要在 Azure Stack Hub 中使用）的 DNS 服务器集成。
+若要能够从 Azure Stack Hub 外部访问 Azure Stack Hub 终结点（例如 **门户**、**adminportal**、**管理** 和 **adminmanagement**），需将 Azure Stack Hub DNS 服务与托管 DNS 区域（要在 Azure Stack Hub 中使用）的 DNS 服务器集成。
 
 ## <a name="azure-stack-hub-dns-namespace"></a>Azure Stack Hub DNS 命名空间
 

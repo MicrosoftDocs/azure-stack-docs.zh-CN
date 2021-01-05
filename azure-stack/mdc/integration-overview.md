@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: 2d65f96cb7e64b22949150a246326d620ea66f56
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: e69881e5f898b0c1f397a4a6d407da5995dd3049
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96615479"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872341"
 ---
 # <a name="modular-datacenter-integration-overview"></a>模块化数据中心集成概述
 

@@ -1,18 +1,18 @@
 ---
 title: 将外部监视解决方案与 Azure Stack Hub 集成
 description: 了解如何将 Azure Stack Hub 与数据中心内的外部监视解决方案集成。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 11/18/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/18/2020
-ms.openlocfilehash: 28da3cf886219eab10fff32d24b62cb7db101cb5
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 79fd494996c87aa513fc7aa4ab0554449c5770d5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517695"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870896"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>将外部监视解决方案与 Azure Stack Hub 集成
 
@@ -67,7 +67,7 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 该插件以 Python 编写，利用运行状况资源提供程序 REST API。 它提供在 Azure Stack Hub 中检索和关闭警报的基本功能。 与 System Center 管理包一样，它可以让你添加多个 Azure Stack Hub 部署以及发送通知。
 
-使用版本1.2，Azure Stack Nagios 插件利用 Microsoft ADAL 库，并支持使用包含机密或证书的服务主体进行身份验证。 此外，配置过程已通过单个配置文件与新的参数进行简化。 它现在支持使用 Azure AD 和 AD FS 作为标识系统来部署 Azure Stack Hub。
+在版本 1.2 中，Azure Stack Hub - Nagios 插件利用 Microsoft ADAL 库，支持使用服务主体通过机密或证书进行身份验证。 此外，配置过程已通过单个配置文件与新的参数进行简化。 它现在支持使用 Azure AD 和 AD FS 作为标识系统来部署 Azure Stack Hub。
 
 > [!IMPORTANT]
 > AD FS 仅支持交互式登录会话。 如果需要对自动化场景进行非交互式登录，则必须使用 SPN。
@@ -151,7 +151,7 @@ samples/etc/azurestack_services.cfg
 
 ### <a name="update-nagios-configuration"></a>更新 Nagios 配置
 
-需要更新 Nagios 配置，以确保加载 Azure Stack 集线器 Nagios 插件。
+需要更新 Nagios 配置才能确保加载 Azure Stack Hub - Nagios 插件。
 
 1. 打开以下文件：
 

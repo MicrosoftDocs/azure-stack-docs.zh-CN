@@ -1,18 +1,18 @@
 ---
 title: 备份 Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 上执行按需备份。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2019
-ms.openlocfilehash: 2090471cee6fa36a32b9e2147de7941cd4abed54
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 5df894d32d335b488ad51b09bb38c3011f754e15
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544269"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871831"
 ---
 # <a name="back-up-azure-stack-hub"></a>备份 Azure Stack Hub
 
@@ -36,7 +36,7 @@ ms.locfileid: "94544269"
 > 通过下面的代码可以更好地观察实际状态。
 
 > [!IMPORTANT]
-> 最初引入了 1 毫秒延迟是因为代码执行太快，无法正确注册作业，它返回时不带 **PSBeginTime** ，从而不带作业的 **状态** 。
+> 最初引入了 1 毫秒延迟是因为代码执行太快，无法正确注册作业，它返回时不带 **PSBeginTime**，从而不带作业的 **状态**。
 
 ```powershell
     $BackupJob = Start-AzsBackup -Force -AsJob
@@ -105,7 +105,7 @@ ms.locfileid: "94544269"
 
 1. 打开 [Azure Stack Hub 管理员门户](azure-stack-manage-portals.md)。
 2. 选择“所有服务”  ，然后在“管理”  类别下选择“基础结构备份”  。 在“基础结构备份”边栏选项卡中选择“配置”。
-3. 在“可用备份”列表中查找备份的 **名称** 和 **完成日期** 。
+3. 在“可用备份”列表中查找备份的 **名称** 和 **完成日期**。
 4. 验证 **状态** 是否为“成功”  。
 
 ## <a name="next-steps"></a>后续步骤

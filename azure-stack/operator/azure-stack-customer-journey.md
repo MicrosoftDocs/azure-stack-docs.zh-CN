@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 数据中心集成演练
 description: 了解在数据中心现场成功部署 Azure Stack Hub 后预期产生的效果（从规划到部署后）。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: d55176266fc169b344e7bb43389a46657174b88e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 307a24fdf42ce5e007f74a9cf0072b5124d247b2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368814"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871423"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack Hub 数据中心集成演练
 
@@ -91,14 +91,14 @@ Microsoft 或 Azure Stack 中心解决方案合作伙伴将有助于评估你的
 
 - **防火墙集成**。 建议[使用防火墙](azure-stack-firewall.md)来帮助保护 Azure Stack Hub。 防火墙有助于防止 DDOS 攻击，以及执行入侵检测和内容检查。 但应注意，它可能成为 Azure 存储服务的吞吐量瓶颈。
 
-- **证书要求**。 必须在现场工程师抵达数据中心进行部署之前准备好全部[所需的证书](azure-stack-pki-certs.md)。 
+- **证书要求**。 必须在现场工程师抵达数据中心进行部署之前准备好全部[所需的证书](azure-stack-pki-certs.md)。
 
 通过部署工作表收集所有必要信息后，解决方案提供商将会根据收集的数据开始工厂处理，确保将 Azure Stack Hub 成功集成到数据中心。
 
 ## <a name="hardware-delivery"></a>硬件交付 
 当解决方案抵达你的设施时，解决方案提供商将与你一起安排日程。 收到并安置好解决方案后，需要与解决方案提供商一起安排好时间，让工程师到现场执行 Azure Stack Hub 部署。
 
-在现场工程师抵达开始部署解决方案之前，将所有必要数据锁住并准备好，这一点**至关重要**。 
+在现场工程师抵达开始部署解决方案之前，将所有必要数据锁住并准备好，这一点 **至关重要**。
 
 -   必须购买并准备好所有证书。
 
@@ -160,9 +160,9 @@ OEM 合作伙伴应执行的操作包括：
 ![Azure Stack Hub 现场部署的大致时间线](./media/azure-stack-datacenter-integration-walkthrough/image1.png)
 
 ## <a name="support"></a>支持
-Azure Stack Hub 可以在整个系统生命周期内实现 Azure 一致的集成支持体验。 若要完全支持 Azure Stack 集线器集成系统，客户需要两个支持合同：一个适用于 Azure 服务支持的 Microsoft （或其云解决方案提供商），另一个用于系统支持的硬件提供程序。 集成的支持体验提供协调的升级和解决方法，使客户能够获得一致的支持体验，而不管他们首先拜访的是谁。 对于已拥有 Premier、Azure 标准/ProDirect 或与 Microsoft 的合作伙伴支持的客户，包括 Azure Stack 集线器软件支持。
+Azure Stack Hub 可以在整个系统生命周期内实现 Azure 一致的集成支持体验。 若要完全支持 Azure Stack 集线器集成系统，客户需要两个支持合同：一个适用于 Microsoft (或其云解决方案提供商) 提供 Azure 服务支持，另一个用于系统支持的硬件提供程序。 集成支持体验提供协调的升级和解决方法，因此，不管客户首先联系哪一家提供商，都能获得一致的支持体验。 对于已拥有 Premier、Azure 标准/ProDirect 或与 Microsoft 的合作伙伴支持的客户，包括 Azure Stack 集线器软件支持。
 
-集成支持体验利用了案例交换机制来双向传输支持案例和 Microsoft 与硬件合作伙伴之间的案例更新。 Microsoft Azure Stack 中心将遵循[新式生命周期策略](https://support.microsoft.com/help/30881)。
+集成支持体验利用了案例交换机制来双向传输支持案例和 Microsoft 与硬件合作伙伴之间的案例更新。 Microsoft Azure Stack 中心将遵循 [新式生命周期策略](https://support.microsoft.com/help/30881)。
 
 ## <a name="next-steps"></a>后续步骤
 详细了解[一般数据中心集成注意事项](azure-stack-datacenter-integration.md)。

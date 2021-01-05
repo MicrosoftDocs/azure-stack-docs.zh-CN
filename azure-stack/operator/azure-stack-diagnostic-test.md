@@ -1,26 +1,26 @@
 ---
-title: 通过 Azure Stack 集线器验证工具验证系统状态
+title: 使用 Azure Stack Hub 验证工具验证系统状态
 description: 了解如何使用 Azure Stack Hub 验证工具验证系统状态。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 4c91954e4a3a19640d519d16363c0d2742077d67
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: cd6eba86f75cffe3014ca954877ee4b39767bbf0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415158"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870828"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>验证 Azure Stack Hub 系统状态
 
-Azure Stack Hub 操作员必须能够按需确定系统的运行状况和状态，这一点至关重要。 Azure Stack Hub 验证工具 ( **Test-AzureStack** ) 是一个 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果有）。 通常，系统会要求你通过 [特权终结点（ (PEP) ](azure-stack-privileged-endpoint.md) 来运行此工具，当你联系 Microsoft 客户服务支持时， (Microsoft 支持部门) 问题。 使用系统范围内的运行状况和状态信息，Microsoft 支持部门可以收集和分析详细日志，重点关注错误发生的区域，并与你一起解决问题。
+Azure Stack Hub 操作员必须能够按需确定系统的运行状况和状态，这一点至关重要。 Azure Stack Hub 验证工具 (**Test-AzureStack**) 是一个 PowerShell cmdlet，可让你在系统上运行一系列测试来识别故障（如果有）。 通常，系统会要求你通过 [特权终结点（ (PEP) ](azure-stack-privileged-endpoint.md) 来运行此工具，当你联系 Microsoft 客户服务支持时， (Microsoft 支持部门) 问题。 使用系统范围内的运行状况和状态信息，Microsoft 支持部门可以收集和分析详细日志，重点关注错误发生的区域，并与你一起解决问题。
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>运行验证工具并访问结果
 
-如上所述，验证工具通过 PEP 运行。 每项测试在 PowerShell 窗口中返回 **PASS/FAIL** （通过/失败）状态。 下面概述了端到端的验证测试过程：
+如上所述，验证工具通过 PEP 运行。 每项测试在 PowerShell 窗口中返回 **PASS/FAIL**（通过/失败）状态。 下面概述了端到端的验证测试过程：
 
 1. 建立信任。 在集成系统中，从权限提升的 Windows PowerShell 会话运行以下命令，将 PEP 添加为硬件生命周期主机或特权访问工作站上运行的强化 VM 的受信任主机。
 
@@ -49,7 +49,7 @@ Azure Stack Hub 操作员必须能够按需确定系统的运行状况和状态�
 
 1. 如果有任何测试报告了“失败”，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[在 Azure Stack Hub 集成系统上运行 Get-AzureStackLog](azure-stack-get-azurestacklog.md)。
 
-   该 cmdlet 收集 Test-AzureStack 生成的日志。 建议你不要收集日志并联系 Microsoft 支持部门而不是 "测试 **报告"** 。
+   该 cmdlet 收集 Test-AzureStack 生成的日志。 建议你不要收集日志并联系 Microsoft 支持部门而不是 "测试 **报告"**。
 
 1. 如果指示你按 Microsoft 支持部门运行验证工具，则 Microsoft 支持部门代表会请求你收集的日志以继续排查你的问题。
 
@@ -125,9 +125,9 @@ Azure Stack Hub 操作员必须能够按需确定系统的运行状况和状态�
 
 - 如 [用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，需要提供 **ServiceAdminCredential** 参数才能运行云方案测试。
 
-- 如 [用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，在测试基础结构备份设置时，需使用 **BackupSharePath** 和 **BackupShareCredential** 。
+- 如 [用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，在测试基础结构备份设置时，需使用 **BackupSharePath** 和 **BackupShareCredential**。
 
-- **DetailedResults** 可用于获取每个测试以及整个运行的通过/失败/警告信息。 如果未指定此参数，未发生失败时， **Test-AzureStack** 将返回 **$true** ，否则返回 **$false** 。
+- **DetailedResults** 可用于获取每个测试以及整个运行的通过/失败/警告信息。 如果未指定此参数，未发生失败时，**Test-AzureStack** 将返回 **$true**，否则返回 **$false**。
 - **TimeoutSeconds** 可用于设置每个组完成的特定时间。
 
 - 验证工具还支持常用的 PowerShell 参数：Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer、PipelineVariable 和 OutVariable。 有关详细信息，请参阅[有关通用参数](/powershell/module/microsoft.powershell.core/about/about_commonparameters)。  
@@ -163,16 +163,16 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 ### <a name="groups"></a>组
 
-为了改善操作员体验，已启用 **Group** 参数以同时运行多个测试类别。 目前定义了三个组： **Default** 、 **UpdateReadiness** 和 **SecretRotationReadiness** 。
+为了改善操作员体验，已启用 **Group** 参数以同时运行多个测试类别。 目前定义了三个组：**Default**、**UpdateReadiness** 和 **SecretRotationReadiness**。
 
-- **默认** ：被视为 **Test-AzureStack** 的标准运行。 如果未选择其他组，则默认会运行此组。
-- **UpdateReadiness** ：检查是否可以更新 Azure Stack Hub 实例。 当 **UpdateReadiness** 组运行时，警告将作为错误显示在控制台输出中，应将其视为更新的阻碍。 从 Azure Stack Hub 1910 版开始，以下类别属于 **UpdateReadiness** 组：
+- **默认**：被视为 **Test-AzureStack** 的标准运行。 如果未选择其他组，则默认会运行此组。
+- **UpdateReadiness**：检查是否可以更新 Azure Stack Hub 实例。 当 **UpdateReadiness** 组运行时，警告将作为错误显示在控制台输出中，应将其视为更新的阻碍。 从 Azure Stack Hub 1910 版开始，以下类别属于 **UpdateReadiness** 组：
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness** ：检查 Azure Stack Hub 实例是否处于可以运行机密轮换的状态。 当 **SecretRotationReadiness** 组运行时，警告将作为错误显示在控制台输出中，应将其视为机密轮换的阻碍。 以下类别属于 SecretRotationReadiness 组：
+- **SecretRotationReadiness**：检查 Azure Stack Hub 实例是否处于可以运行机密轮换的状态。 当 **SecretRotationReadiness** 组运行时，警告将作为错误显示在控制台输出中，应将其视为机密轮换的阻碍。 以下类别属于 SecretRotationReadiness 组：
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -192,7 +192,7 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 Test-AzureStack -Group UpdateReadiness
 ```
 
-如果 Azure Stack Hub 运行 1811 之前的版本，请使用以下 PowerShell 命令来运行 **Test-AzureStack** ：
+如果 Azure Stack Hub 运行 1811 之前的版本，请使用以下 PowerShell 命令来运行 **Test-AzureStack**：
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
