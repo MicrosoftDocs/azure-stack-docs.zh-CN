@@ -1,18 +1,18 @@
 ---
 title: 替换操作系统磁盘
 description: 了解如何替换操作系统磁盘
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 529a81a8c63e2fe72da4618e7f359832b2267ea3
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 36050d42a012ffc40db98ab506b1ef81086e609a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390626"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867632"
 ---
 # <a name="replacing-an-operating-system-disk"></a>替换操作系统磁盘
 

@@ -1,18 +1,18 @@
 ---
 title: 操作注意事项
 description: 了解如何处理 FRU 和 CRU
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b4014c029a06d94fd6fbc0ec747f3a1b2b0056dc
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 1f5f2961e093f8cb53e1003ce7b745f2726cc0a5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390986"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867853"
 ---
 # <a name="handling-precautions"></a>操作注意事项
 

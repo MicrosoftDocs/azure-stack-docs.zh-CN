@@ -1,18 +1,18 @@
 ---
 title: 使用硬件生命周期主机所需的知识
 description: 了解使用硬件生命周期主机所需的知识
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: f4dc52cff6f04cdfdafedd845ccf40843687e7a3
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: d6b13e26a1df94958f2b91d7a587e6d7f7a9f4bf
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390625"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867581"
 ---
 # <a name="required-knowledge-for-working-with-the-hardware-lifecycle-host"></a>使用硬件生命周期主机所需的知识
 

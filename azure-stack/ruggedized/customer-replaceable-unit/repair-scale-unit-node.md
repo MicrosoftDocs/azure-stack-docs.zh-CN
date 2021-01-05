@@ -1,18 +1,18 @@
 ---
 title: 开机并修复缩放单位节点
 description: 了解如何开机并修复缩放单位节点
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 255a40bc2439ae1a6995d4ddf89df192d5e57551
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: e5ba7b7ea35484293cc0f93958e7ed9d66f62d51
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390926"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867870"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>打开和修复缩放单位节点
 

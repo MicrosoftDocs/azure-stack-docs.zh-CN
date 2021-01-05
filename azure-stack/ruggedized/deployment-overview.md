@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 0d788e1a41ed512a1d39c7a3e3680d193fdaecf2
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 0fd077f405256ff0a112dd9730cdc3e8fefb10f8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939385"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867530"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Azure Stack 中心耐用部署概述
 
@@ -40,7 +40,7 @@ ms.locfileid: "96939385"
 
 本指南重点介绍 Microsoft Azure Stack 集线器的核心组件的部署，以及 Azure Stack 中心耐用解决方案的具体信息。 本指南未介绍 Azure Stack Hub 的操作过程，并且未涵盖 Azure Stack Hub 提供的所有功能。 有关详细信息，请参阅 [Azure Stack 中心运营商指南](https://docs.microsoft.com/azure-stack/operator/)。
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 
 Azure Stack 集线器耐用是 Microsoft Azure Stack 中心的耐用和现场可部署产品。 核心组件（如服务器和交换机）包含在称为 pod 的传输事例中。
 

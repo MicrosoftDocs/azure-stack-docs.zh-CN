@@ -3,17 +3,17 @@ title: 在 Azure Stack 中心验证解决方案
 description: 了解如何使用解决方案验证工作流验证新的 Azure Stack 中心解决方案。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 65984da8615d9146db98800c710efee004f021c2
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 0218e1adc239e0f609e79a75e2fd62e364739fe9
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764879"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868220"
 ---
 # <a name="validate-a-solution-in-azure-stack-hub"></a>在 Azure Stack 中心验证解决方案
 
@@ -23,7 +23,7 @@ ms.locfileid: "88764879"
 
 Azure Stack 集线器解决方案是 (BoM) 的硬件清单，在满足 Windows Server 徽标认证要求后，会在 Microsoft 和合作伙伴之间联合达成共识。 当硬件 BoM 发生变化时，必须 recertified 解决方案。 有关何时重新验证解决方案的其他问题，请联系上的团队 [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) 。
 
-若要验证解决方案，请运行解决方案验证工作流两次。 针对受支持的“最低”** 配置运行一次。 再次运行 *最大化* 支持的配置。 如果这两个配置都通过了所有测试，Microsoft 将验证解决方案。
+若要验证解决方案，请运行解决方案验证工作流两次。 针对受支持的“最低”配置运行一次。 再次运行 *最大化* 支持的配置。 如果这两个配置都通过了所有测试，Microsoft 将验证解决方案。
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 

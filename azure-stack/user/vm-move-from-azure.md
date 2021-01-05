@@ -3,16 +3,16 @@ title: 将 VM 从 Azure 移动到 Azure Stack Hub
 description: 了解如何将 VM 从 Azure 移动到 Azure Stack Hub。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: cefc127efcdac2d1610803ef90b54c50e7280e97
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 0ca338c3a5698d55a54485c8eebe321992ad9842
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95516930"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867265"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>将 VM 从 Azure 移动到 Azure Stack Hub
 
@@ -33,9 +33,9 @@ ms.locfileid: "95516930"
 ::: moniker range="<=azs-1910"
 - 按照[从 Azure 下载 Windows VHD](/azure/virtual-machines/windows/download-vhd) 中的说明正确通用化并下载 VHD，然后将其移动到 Azure Stack Hub。
 - 在 Azure 上预配 VM 时，请使用 PowerShell。 在没有 `-ProvisionVMAgent` 标志的情况下进行准备。
-- 在 Azure 中通用化 VM 之前，请从 VM 中删除所有 VM 扩展。 可以转到 `Windows (C:) > WindowsAzure > Logs > Plugins` 查找已安装的 VM 扩展。
+- 通用化 Azure 中的 VM 之前，先在该 VM 中使用 cmdlet 删除所有 VM 扩展。 可以转到 `Windows (C:) > WindowsAzure > Logs > Plugins` 查找已安装的 VM 扩展。
 
-使用 Az PowerShell module：
+使用 Az PowerShell 模块：
 
 ```powershell  
 Remove-AzVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"

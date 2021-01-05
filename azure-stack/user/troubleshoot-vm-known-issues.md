@@ -1,18 +1,18 @@
 ---
-title: 排查 Azure Stack 集线器上的 VM 已知问题
-description: 了解如何排查 Azure Stack 集线器上的虚拟机已知问题
+title: 排查 Azure Stack Hub 上的 VM 已知问题
+description: 了解如何排查 Azure Stack Hub 上的虚拟机已知问题
 author: mattbriggs
 ms.topic: troubleshooting
-ms.date: 07/09/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/09/2020
-ms.openlocfilehash: 2f08ffe8e5b3bf89cf8b59991f36fd8b165e1800
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: d752b31ac5076255ae4368904145a50d5a3c09ff
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573711"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867156"
 ---
 # <a name="known-issues-vms-on-azure-stack-hub"></a>已知问题：Azure Stack Hub 上的 VM
 
@@ -30,9 +30,9 @@ ms.locfileid: "90573711"
 
 ## <a name="nvv4-vm-size-on-portal"></a>门户上的 NVv4 VM 大小
 - **适用于**  
-    此问题适用于 Azure Stack 集线器版本2002及更高版本。  
+    此问题适用于 Azure Stack Hub 版本 2002 及更高版本。  
 - **原因**  
-    完成 VM 创建时，会看到 VM 大小： NV4as_v4。 对于具有基于 AMD MI25 的 Azure Stack 集线器 GPU 预览所需硬件的客户，可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。  
+    完成 VM 创建体验后，你将看到 VM 大小：NV4as_v4。 拥有基于 AMD MI25 的 Azure Stack Hub GPU 预览版所需的硬件的客户可以成功部署 VM。 所有其他客户将无法使用此 VM 大小部署 VM。  
 - **修正**  
     无。  
 - **出现次数**  
@@ -60,10 +60,10 @@ ms.locfileid: "90573711"
 ## <a name="consumed-compute-quota"></a>已消耗的计算配额
 - **适用于**  
     此问题适用于所有支持的版本。  
-- **导致**   
-    创建新虚拟机时，可能会收到一则错误消息，例如“此订阅在此位置的区域 vCPU 总数已达到上限。 此订阅使用全部50个可用区域个 vcpu。 这表示可用的核心配额总计已达到上限。  
+- **原因**   
+    创建新虚拟机时，可能会收到一则错误消息，例如“此订阅在此位置的区域 vCPU 总数已达到上限。 此订阅使用了所有可用的 50 个区域 vCPU”。 这表示可用的核心配额总计已达到上限。  
 - **修正**  
-    请求操作员提供配额更高的附加计划。 更改当前计划的配额将不起作用或反映增加的配额。
+    请求操作员提供配额更高的附加计划。 更改当前计划的配额将不起作用，也不会反映提高的配额。
 - **出现次数**  
     极少  
 

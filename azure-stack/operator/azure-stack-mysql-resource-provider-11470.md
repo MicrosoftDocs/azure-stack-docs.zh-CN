@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub MySQL 资源提供程序 1.1.47.0 发行说明
 description: 查看发行说明以了解 Azure Stack Hub MySQL 资源提供程序 1.1.47.0 更新中的新增功能。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/26/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 5bc03134a859182909e62c60159049d639eb8ffe
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: d98a4d4c7de76d5a73cab3005893dd279a6e1025
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364671"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869842"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>MySQL 资源提供程序 1.1.47.0 发行说明
 
@@ -39,7 +39,7 @@ ms.locfileid: "89364671"
 
 ## <a name="known-issues"></a>已知问题
 
-旋转 Azure Stack 集线器集成系统的 [证书](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation) 时，KeyVaultPfxPassword 参数是 mendatory，即使没有意图更新 Key Vault 证书密码也是如此。
+为 Azure Stack Hub 集成系统[轮换证书](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)时，即使不打算更新 Key Vault 证书密码，也必须使用 KeyVaultPfxPassword 参数。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,18 +1,18 @@
 ---
 title: 验证缩放单位节点磁盘运行状况
 description: 了解如何验证规模单元节点的磁盘运行状况
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: bebff3ff8970a43d0893f057a94ec3dfbf0a7fc9
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: b0befa0b2dd2d2acd3ad9f0470722a7135e6e974
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390621"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867547"
 ---
 # <a name="verifying-scale-unit-node-disk-health"></a>正在验证缩放单位节点磁盘运行状况
 

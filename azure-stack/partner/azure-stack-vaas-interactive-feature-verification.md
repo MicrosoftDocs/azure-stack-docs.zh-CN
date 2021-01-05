@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何为具有验证即服务的 Azure Stack 集线器创建交互式功能验证测试。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e7e87073518ab5a040cc96ec1af5b7db5f808d9
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 8dc3759c050c208017f7963a4cb7844d6acb8cdc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107263"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868465"
 ---
 # <a name="interactive-feature-verification-testing"></a>交互式功能验证测试  
 
@@ -68,7 +68,7 @@ ms.locfileid: "91107263"
 
     ![磁盘标识测试中的文档和验证链接](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
-7. 选择“下一步”  。
+7. 选择“**下一页**”。
 
     ![选择下一步— Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "91107263"
 
     ![运行预检查脚本-Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-9. 成功完成预检查脚本后，请按照 "**信息**" 选项卡上的**文档**和**验证**链接中的说明，运行手动方案 (磁盘替换) 。
+9. 成功完成预检查脚本后，请按照 "**信息**" 选项卡上的 **文档** 和 **验证** 链接中的说明，运行手动方案 (磁盘替换) 。
 
     ![运行手动方案-Azure Stack 集线器中的交互式测试](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 

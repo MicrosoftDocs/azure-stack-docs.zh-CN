@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何设置 Azure AD 和存储资源，以便将 Azure Stack 中心验证作为一种服务。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1076dc69190b79728d28be99c7b84629e80b5709
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 19f1b9e33f0304d155dad070ef8cb10fc6a930fc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490161"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869043"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>教程：将验证的资源设置为服务
 
@@ -45,15 +45,15 @@ Azure AD 租户用于注册组织，并使用 VaaS 对用户进行身份验证�
     | 角色名称 | 说明 |
     |---------------------|------------------------------------------|
     | 所有者 | 具有对所有资源的完全访问权限。 |
-    | 读者 | 可以查看所有资源，但不能创建或管理。 |
+    | 读取器 | 可以查看所有资源，但不能创建或管理。 |
     | 测试参与者 | 可以创建和管理测试资源。 |
 
     在 **Azure Stack Hub 验证服务** 应用中分配角色：
 
    1. 登录 [Azure 门户](https://portal.azure.com)。
-   2. 选择**All Services**  >  "**标识**" 部分下的 "所有服务"**Azure Active Directory** 。
-   3. 选择 "**企业应用程序**  >  **Azure Stack 中心验证服务**应用程序"。
-   4. 选择“用户和组”。 " **Azure Stack 集线器验证服务-用户和组** " 边栏选项卡列出有权使用应用的用户。
+   2. 选择  >  "**标识**" 部分下的 "所有服务"**Azure Active Directory** 。
+   3. 选择 "**企业应用程序**  >  **Azure Stack 中心验证服务** 应用程序"。
+   4. 选择“用户和组”  。 " **Azure Stack 集线器验证服务-用户和组** " 边栏选项卡列出有权使用应用的用户。
    5. 选择 " **+ 添加用户** " 以从租户中添加用户并分配角色。
 
       若要在组织中的不同组之间隔离 VaaS 资源和操作，可创建多个 Azure AD 租户目录。
@@ -78,7 +78,7 @@ Azure AD 租户用于注册组织，并使用 VaaS 对用户进行身份验证�
 
 1. 使用租户的全局管理员凭据登录到 [Azure Stack 中心验证门户](https://azurestackvalidation.com/)。
 
-2. 选择“我的帐户”。****
+2. 选择“我的帐户”。
 
 3如果系统提示向 VaaS 列出的 Azure AD 权限，请接受条款以继续。
 
@@ -100,13 +100,13 @@ Azure 存储帐户托管在 Azure 公有云中，而不是托管在 Azure Stack 
 
     若要确保在存储日志时不会产生网络费用，可以将 Azure 存储帐户配置为仅使用 **美国西部** 区域。 数据复制和热存储层功能对于此数据不是必需的。 启用任一功能会大幅增加成本。
 
-6. 将设置保留为默认值（ **帐户类型**除外）：
+6. 将设置保留为默认值（ **帐户类型** 除外）：
 
     - 默认情况下，" **部署模型** " 字段设置为 **资源管理器** 。
-    - “性能”**** 字段默认设置为“标准”****。
+    - “性能”字段默认设置为“标准”。
     - 选择 " **帐户类型** " 字段作为 **Blob 存储**。
-    - 默认情况下， **复制字段** 设置为 **本地冗余存储 (LRS) ** 。
-    - “访问层”**** 默认设置为“热”****。
+    - 默认情况下， **复制字段** 设置为 **本地冗余存储 (LRS)** 。
+    - “访问层”默认设置为“热”。
 
 7. 选择“查看+创建”可查看存储帐户设置并创建帐户。
 

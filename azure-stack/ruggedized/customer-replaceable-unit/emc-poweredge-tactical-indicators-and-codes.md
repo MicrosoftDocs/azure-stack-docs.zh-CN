@@ -1,18 +1,18 @@
 ---
 title: EMC PowerEdge 战术性指标和代码
 description: 了解 EMC PowerEdge 战术性指标和代码
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 5b4920fb2ab174867092c44ca51a5193412a9a9a
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: b439bfdfcae82c6e80b29d678c18f434945684cc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390994"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867938"
 ---
 # <a name="dell-emc-poweredge-tactical-indicators-and-codes"></a>Dell EMC PowerEdge 战术性指标和代码
 
@@ -55,9 +55,9 @@ IDRAC 直接 LED LED 指示灯亮起，指示端口已连接并且正作为 iDRA
 
 表 5. PowerEdge left 控制面板状态和运行状况指示器
 
-|    <br>项       |    <br>指示器或按钮                       |    <br>图标                                |    <br>说明                                                                                                  |
+|    <br>Item       |    <br>指示器或按钮                       |    <br>图标                                |    <br>说明                                                                                                  |
 |-------------------|--------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-|    <br>1          |    <br>状态 LED 指示器                     |    <br>不可用                                 |    <br>指示系统的状态。 有关详细信息，请参阅页面61上的 PowerEdge 状态 LED 指示器。    |
+|    <br>1          |    <br>状态 LED 指示器                     |    <br>空值                                 |    <br>指示系统的状态。 有关详细信息，请参阅页面61上的 PowerEdge 状态 LED 指示器。    |
 |    <br>2和3    |    <br>系统运行状况和系统 ID 指示器    | ![](media/image-77.png) |    <br>指示系统运行状况。                                                                                 |
 
 下表列出了 PowerEdge 状态 LED 指示器。

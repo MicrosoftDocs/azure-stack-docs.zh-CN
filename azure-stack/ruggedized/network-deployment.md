@@ -1,19 +1,19 @@
 ---
 title: Azure Stack Azure Stack 中心的网络部署耐用
 description: 了解 Azure Stack Azure Stack Hub 耐用设备的网络部署。
-author: justinha
+author: PatAltimore
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: d41e7668533d4d67da329d0058f20a50a796555e
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: df20e3f9ad04959bf2c85d8912644819cae09ba1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939451"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867683"
 ---
 # <a name="azure-stack-hub-ruggedized-network-deployment"></a>Azure Stack 中心耐用网络部署
 

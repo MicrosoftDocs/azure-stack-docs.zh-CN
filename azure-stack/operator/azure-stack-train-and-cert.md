@@ -2,18 +2,18 @@
 title: 培训和认证
 titleSuffix: Azure Stack
 description: 了解 Azure Stack 集线器培训认证机会。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 11/11/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemm
-ms.openlocfilehash: 7693aeeba9a1cdf47cafffab212b904ae4afb6a3
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 3077c909c190a20406c2fa637a3a0b8595a40dd1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415056"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868958"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Azure Stack Hub 培训和认证
 
@@ -34,7 +34,7 @@ ms.locfileid: "93415056"
 
 ## <a name="certification"></a>认证
 
-*使用 Microsoft Azure Stack 集线器认证配置和操作混合云* ， [考试 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
+*使用 Microsoft Azure Stack 集线器认证配置和操作混合云*， [考试 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
 
 ## <a name="next-steps"></a>后续步骤
 

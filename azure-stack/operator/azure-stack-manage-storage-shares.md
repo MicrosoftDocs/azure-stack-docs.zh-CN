@@ -1,18 +1,18 @@
 ---
 title: 管理 Azure Stack Hub 中的存储容量
 description: 了解如何在 Azure Stack Hub 中监视和管理存储容量与可用性。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: bbced92ca9eb275ed1599ff7422bde1601be11c0
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 85f3aed4ebf5b57b1e77a5b58604eeb881204396
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545493"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870029"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 
@@ -20,9 +20,9 @@ ms.locfileid: "94545493"
 
 云操作员可以使用的存储量有限。 实施的解决方案定义了存储量。 使用多节点解决方案时，解决方案由 OEM 供应商提供，或由安装 Azure Stack 开发工具包 (ASDK) 的硬件提供。
 
-Azure Stack 集线器仅支持通过添加更多扩展单元节点来扩展存储容量。 有关详细信息，请参阅 [在 Azure Stack Hub 中添加更多扩展单元节点](azure-stack-add-scale-node.md)。 向节点添加物理磁盘不会扩展存储容量。
+Azure Stack Hub 仅支持通过添加更多的缩放单元节点来扩展存储容量。 有关详细信息，请参阅[在 Azure Stack Hub 中添加更多的缩放单元节点](azure-stack-add-scale-node.md)。 将物理磁盘添加到节点不会扩展存储容量。
 
-请务必 [监视](#monitor-shares) 可用的存储，以确保保持有效的操作。 当卷的剩余可用容量有限时，请规划[管理可用空间](#manage-available-space)以免共享的容量不足。
+请务必[监视](#monitor-shares)可用存储，以确保维护有效操作。 当卷的剩余可用容量有限时，请规划[管理可用空间](#manage-available-space)以免共享的容量不足。
 
 用于管理容量的选项包括：
 
@@ -69,7 +69,7 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 建议对 VM 使用托管磁盘，以便更轻松地进行管理和容量平衡。 不需在使用托管磁盘之前准备存储帐户和容器。 创建多个托管磁盘时，会将这些磁盘分配到多个卷中，这有助于平衡卷的容量。  
 
-非托管磁盘是指以页 blob 形式存储在 Azure 存储帐户中的 VHD 文件。 租户创建的页 blob 称为 VM 磁盘并且存储在存储帐户中的容器中。 建议仅将非托管磁盘用于需要与第三方工具兼容的 Vm 才能 Azure-Unmanaged 磁盘。
+非托管磁盘是指以页 blob 形式存储在 Azure 存储帐户中的 VHD 文件。 租户创建的页 blob 称为 VM 磁盘并且存储在存储帐户中的容器中。 建议仅将非托管磁盘用于需要与第三方工具兼容且仅支持 Azure 非托管磁盘的 VM。
 
 租户最好是将每个磁盘放入不同的容器，以改善 VM 性能。
 
@@ -92,8 +92,8 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 ![示例：返回共享的可用空间](media/azure-stack-manage-storage-shares/free-space.png)
 
-- **总容量** ：共享中可用的总空间（以字节为单位）。 此空间用于存储服务维护的数据和元数据。
-- **已用容量** ：存储租户数据和相关元数据的文件中所有盘区使用的数据量（以字节为单位）。
+- **总容量**：共享中可用的总空间（以字节为单位）。 此空间用于存储服务维护的数据和元数据。
+- **已用容量**：存储租户数据和相关元数据的文件中所有盘区使用的数据量（以字节为单位）。
 
 ### <a name="use-the-administrator-portal"></a>使用管理员门户
 
@@ -104,8 +104,8 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
     ![示例：Azure Stack Hub 管理员门户中的存储文件共享](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
-   - **Total** ：共享中可用的总空间（以字节为单位）。 此空间用于存储服务维护的数据和元数据。
-   - **已用** ：存储租户数据和相关元数据的文件中所有盘区使用的数据量（以字节为单位）。
+   - **Total**：共享中可用的总空间（以字节为单位）。 此空间用于存储服务维护的数据和元数据。
+   - **已用**：存储租户数据和相关元数据的文件中所有盘区使用的数据量（以字节为单位）。
 
 ::: moniker-end
 ::: moniker range=">=azs-2002"
@@ -120,8 +120,8 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 ![示例：返回卷的可用空间](media/azure-stack-manage-storage-shares/listvolumespowershell.png)
 
-- **总容量** ：共享中可用的总空间 (GB)。 此空间用于存储服务维护的数据和元数据。
-- **剩余容量** ：可用于存储租户数据和相关元数据的空间量 (GB)。
+- **总容量**：共享中可用的总空间 (GB)。 此空间用于存储服务维护的数据和元数据。
+- **剩余容量**：可用于存储租户数据和相关元数据的空间量 (GB)。
 
 ### <a name="use-the-administrator-portal"></a>使用管理员门户
 
@@ -132,8 +132,8 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
     ![示例：Azure Stack Hub 管理员门户中的存储卷](media/azure-stack-manage-storage-shares/listvolumes.png)
 
-   - **Total** ：卷上可用的空间总量。 此空间用于存储服务维护的数据和元数据。
-   - **已用** ：存储租户数据和相关元数据的文件中所有盘区使用的数据量。
+   - **Total**：卷上可用的空间总量。 此空间用于存储服务维护的数据和元数据。
+   - **已用**：存储租户数据和相关元数据的文件中所有盘区使用的数据量。
 
 ::: moniker-end
 
@@ -144,15 +144,15 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 > [!IMPORTANT]
 > 云操作员应该避免共享达到用完状态。 当共享利用率达到 100% 时，不再能够针对该共享运行存储服务。 若要在利用率为100% 的共享上恢复可用空间和还原操作，必须联系 Microsoft 支持部门。
 
-* **警告** ：当文件共享利用率超过 80% 时，管理员门户中会显示“警告”警报：
+* **警告**：当文件共享利用率超过 80% 时，管理员门户中会显示“警告”警报：
 
   ![示例：Azure Stack Hub 管理员门户中的警告性警报](media/azure-stack-manage-storage-shares/alert-warning.png)
 
-* **严重** ：当文件共享利用率超过 90% 时，管理员门户中会显示“严重”警报：
+* **严重**：当文件共享利用率超过 90% 时，管理员门户中会显示“严重”警报：
 
   ![示例：Azure Stack Hub 管理员门户中的严重警报](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-* **查看详细信息** ：在管理员门户中，可以打开警报的详细信息来查看缓解选项：
+* **查看详细信息**：在管理员门户中，可以打开警报的详细信息来查看缓解选项：
 
   ![示例：在 Azure Stack Hub 管理员门户中查看警报详细信息](media/azure-stack-manage-storage-shares/alert-details.png)
 
@@ -232,7 +232,7 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
    d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
    ```
 
-5. 使用作业 ID 检查迁移作业的状态。 容器迁移完成后， **MigrationStatus** 会设置为 *Complete* 。
+5. 使用作业 ID 检查迁移作业的状态。 容器迁移完成后，**MigrationStatus** 会设置为 *Complete*。
 
    ```powershell 
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
@@ -248,7 +248,7 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
    ![示例：回退状态](media/azure-stack-manage-storage-shares/rollback.png)
 
-7. 可以再次运行步骤 6 中的命令，直到迁移状态为 *Canceled* ：  
+7. 可以再次运行步骤 6 中的命令，直到迁移状态为 *Canceled*：  
 
     ![此屏幕截图显示了一个已取消迁移状态的示例。](media/azure-stack-manage-storage-shares/cancelled.png)
 
@@ -339,7 +339,7 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 此选项仅适用于 Azure Stack Hub 集成系统。
 
-用于管理空间的最极端方法涉及到移动非托管磁盘。 如果租户将数量的非托管磁盘添加到一个容器，则容器的总已用容量可能会超出容器进入 *溢出* 模式之前保留的容量。 为了避免单个容器用尽卷空间，租户可以将一个容器的现有非托管磁盘分布到其他容器。 由于将附加容器)  (包含 VM 磁盘的容器，因此请与 Microsoft 支持部门联系以完成此操作。
+用于管理空间的最极端方法涉及到移动非托管磁盘。 如果租户将多个非托管磁盘添加到一个容器，则在该容器进入溢出模式之前，该容器的总已用容量可能会超出其所在卷的可用容量。 为了避免单个容器用尽卷空间，租户可以将一个容器的现有非托管磁盘分布到其他容器。 由于将附加容器)  (包含 VM 磁盘的容器，因此请与 Microsoft 支持部门联系以完成此操作。
 
 ::: moniker-end
 

@@ -1,18 +1,18 @@
 ---
 title: 替换热水
 description: 了解如何替换热水
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 956d726d889cbd917a77322ce8bf46a8b3cb3c17
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 66bebd5d8b4f88a8abc90face23d3722d45159d6
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390635"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868414"
 ---
 # <a name="replacing-the-heater"></a>替换热水
 

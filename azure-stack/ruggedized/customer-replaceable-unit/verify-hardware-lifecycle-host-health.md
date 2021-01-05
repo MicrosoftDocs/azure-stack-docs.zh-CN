@@ -1,18 +1,18 @@
 ---
 title: 验证硬件生命周期主机运行状况
 description: 了解如何验证硬件生命周期主机运行状况
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d9db8f38ebfaef17f65b3be652cb6aa8deeb4fc9
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: d777c9623931585bcdfffd56cceeabfbc253b97f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390622"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867564"
 ---
 # <a name="verifying-hardware-lifecycle-host-health"></a>验证硬件生命周期主机运行状况
 

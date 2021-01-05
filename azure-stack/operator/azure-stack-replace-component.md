@@ -2,18 +2,18 @@
 title: 替换 Azure Stack 集线器缩放单位节点上的硬件组件
 titleSuffix: Azure Stack Hub
 description: 了解如何更换 Azure Stack Hub 集成系统上的硬件组件。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 2755daf33f1bd2bd4bc02858821ae0727df71042
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 5111857dbf154c3669e3971b16af686eb0facc44
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572590"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869400"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>更换 Azure Stack Hub 缩放单元节点上的硬件组件
 

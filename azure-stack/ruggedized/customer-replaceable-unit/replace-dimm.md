@@ -1,18 +1,18 @@
 ---
 title: 更换 DIMM
 description: 了解如何更换 DIMM
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: dbbeaa330e47fda4208ba0e44211fe41d01a982f
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 3665ac12c42cac7a87ae9c69f4fc450b4f76cf3d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390887"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867819"
 ---
 # <a name="replacing-a-dimm"></a>更换 DIMM
 
@@ -24,7 +24,7 @@ ms.locfileid: "97390887"
 
 2.  查看处理预防措施。
 
-3.  审阅
+3.  检查
 
     -   如果使用缩放单位节点，则使用战术性云设备中的缩放单位节点所需的知识
 

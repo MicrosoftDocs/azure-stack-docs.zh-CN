@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何以服务的形式部署 Azure Stack 集线器验证的本地代理。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7661177ec292d7c0b678f05d95c33d90f8e57c2c
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: ef131c1b7b54c05b6feee9336a0875f3507f5174
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764777"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868363"
 ---
 # <a name="deploy-the-local-agent"></a>部署本地代理
 
@@ -106,7 +106,7 @@ ms.locfileid: "88764777"
 
 3. 使用创建测试轮次时提供的 Azure AD 服务管理员用户名和密码值进行登录。
 
-4. 按照[Azure Stack 集线器的运行验证测试](../operator/azure-stack-diagnostic-test.md)中所述，运行**test-azurestack** PowerShell cmdlet 来检查系统的运行状况。 在启动测试之前，请解决任何警告和错误。
+4. 按照 [Azure Stack 集线器的运行验证测试](../operator/azure-stack-diagnostic-test.md)中所述，运行 **test-azurestack** PowerShell cmdlet 来检查系统的运行状况。 在启动测试之前，请解决任何警告和错误。
 
 ## <a name="run-the-local-agent"></a>运行本地代理
 

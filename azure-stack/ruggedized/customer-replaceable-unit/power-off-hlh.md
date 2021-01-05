@@ -1,18 +1,18 @@
 ---
 title: 关闭硬件生命周期主机
 description: 了解如何关闭硬件生命周期主机
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: bfef2c08d1dcd42d74a97a59f5ad59210228acc5
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 3d2dd563ca5336063613b08f827d8f102918c1da
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390954"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867887"
 ---
 # <a name="powering-off-the-hardware-lifecycle-host"></a>关闭硬件生命周期主机
 

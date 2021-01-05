@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack 中心验证即服务的发行说明。
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 780c6a2e0f3235e2681ba4cf6cc01ce2f13eb3dc
-ms.sourcegitcommit: 75a2e1a52d7582e26ce8eaf37a470c62f99b4da0
+ms.openlocfilehash: 82e7820b49578139bbfb140e98fd740e6c1be8fb
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94580804"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868193"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>验证即服务的发行说明
 

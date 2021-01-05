@@ -2,20 +2,20 @@
 title: 将 Azure Stack Hub 注册到 Azure
 titleSuffix: Azure Stack Hub
 description: 了解如何将 Azure Stack Hub 集成系统注册到 Azure，以便可以下载 Azure 市场项并设置数据报告。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: avishwan
 ms.lastreviewed: 11/19/2020
 ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 28c809f70c479c4037061bd7c1504c0954a3584c
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: 7888d23390706a098f814f4cc674d030662c9915
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697653"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869553"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
 

@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: d654f0489c0ec1987eb42197e4bfdeb0f01291ef
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 3a6312a81632bffbb128049088119b30de79a732
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939457"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867792"
 ---
 # <a name="azure-stack-hub-ruggedized-network-introduction"></a>Azure Stack 中心耐用网络简介
 
@@ -95,7 +95,7 @@ HLH 也托管部署 VM (DVM)。 DVM 在 Azure Stack Hub 耐用部署过程中使
 
 部署 Azure Stack Hub 耐用时，需要提供一些与 DNS 相关的重要信息。
 
-| 字段 | **说明** | **示例** |
+| **字段** | **说明** | **示例** |
 |-----------|-----------------|-------------|
 | 区域                   | Azure Stack 中心耐用部署的地理位置。 | 东               |
 | 外部域名     | 要用于 Azure Stack 中心耐用部署的区域的名称。 | cloud.fabrikam.com |
@@ -107,8 +107,8 @@ Azure Stack 中心耐用部署和终结点的完全限定域名 (FQDN) ，是 Re
 
 同样，此部署的部分终结点的示例将如以下 URL 所示：
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 若要为 Azure Stack 中心耐用部署使用此示例 DNS 命名空间，需要满足以下条件：
 

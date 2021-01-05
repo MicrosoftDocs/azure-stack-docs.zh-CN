@@ -3,16 +3,16 @@ title: Azure Stack Hub 市场中的新增内容
 description: 查看 Azure Stack Hub 市场中的新功能，包括新的、弃用的和更新的市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: ac442a5ad52c67fc23472dc54eac0cb52f1b1b50
-ms.sourcegitcommit: f4a1a7e9d0b64ca84105d48170a23e1f473e976c
+ms.openlocfilehash: bd738fab6a424c07bd33a41f80621121e93345c4
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743567"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869910"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -22,6 +22,7 @@ ms.locfileid: "97743567"
 
 ## <a name="new-marketplace-items"></a>新增市场项
 
+- 01/04/2021：相反，操作系统21.1.1 – version 21.1。1
 - 09/08/2020： Qualys Virtual 扫描器设备
 - 01/21/2020： Teradici Cloud Access 软件
 - 12/26/2019： CloudGuard IaaS 高可用性

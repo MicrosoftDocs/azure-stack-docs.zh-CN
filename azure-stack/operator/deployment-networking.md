@@ -2,18 +2,18 @@
 title: 部署网络流量
 titleSuffix: Azure Stack Hub
 description: 了解在部署 Azure Stack Hub 期间的网络流量流。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: a663544b21fee671e57483e13030639c7b5edd3b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 545a81b1bbc34f0e03425e30162ca3fb69270e91
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243759"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868669"
 ---
 # <a name="deployment-network-traffic"></a>部署网络流量
 

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何通过将 Azure Stack 集线器验证作为服务来验证 Microsoft 的软件更新。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: e0c9d3153da8030f828dc540f69a1d57b5e9d90a
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: b7be3818df330105e17898d5734c9091c5e89c2a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764845"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868109"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>验证来自 Microsoft 的软件更新
 

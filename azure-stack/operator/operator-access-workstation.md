@@ -4,15 +4,15 @@ description: 了解如何下载和配置 Azure Stack Hub 操作员访问工作�
 author: ashika789
 ms.topic: article
 ms.date: 11/04/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: 3c01f6f4e51adb9d91ee1b3098c11814a618ac1c
-ms.sourcegitcommit: ec00358a8780086dda217f93f2ef813a8b24dd3b
+ms.openlocfilehash: bd94503efe97eb30955b0fd9deb7a5c41e263e7b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95006814"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868584"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub 操作员访问工作站 
 
@@ -128,7 +128,7 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -DNS '192.168.0.10'
 ```
 
-从 "AzureStackStampInformation.js上的" 文件 "中检索 ERCS VM 的 IP 地址：
+若要从 AzureStackStampInformation.json 文件检索 ERCS VM 的 IP 地址，请执行以下代码：
 
 ```powershell
 $securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
@@ -216,7 +216,7 @@ New-OAW
 | VirtualProcessorCount      | 可选 | 要分配给虚拟机的虚拟处理器数量。 默认值为 8。        |
 | VirtualMachineDiffDiskPath | 可选 | 管理 VM 处于活动状态期间用于存储临时差异磁盘文件的路径。 默认值为此脚本的相同父文件夹下的 DiffDisks 子目录。 |
 | AzureStackCertificatePath  | 可选 | 要导入到虚拟机以进行 Azure Stack Hub 访问的证书的路径。 |
-| AzSStampInfoFilePath       | 可选 | 文件 AzureStackStampInformation.js的路径，在该文件中，脚本可以检索 ERCS VM 的 Ip。 |
+| AzSStampInfoFilePath       | 可选 | AzureStackStampInformation.json 文件的路径，脚本可以从该文件中检索 ERCS VM 的 IP。 |
 | CertificatePassword        | 可选 | 要导入到虚拟机以进行 Azure Stack Hub 访问的证书的密码。 |
 | ERCSVMIP                   | 可选 | 要添加到虚拟机的受信任主机列表的 Azure Stack Hub ERCS VM 的 IP。 如果设置了 -SkipNetworkConfiguration，则不会生效。 |
 SkipNetworkConfiguration     | 可选 | 跳过虚拟机的网络配置，使用户可以在以后配置。 |

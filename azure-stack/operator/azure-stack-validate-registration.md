@@ -2,22 +2,22 @@
 title: 验证 Azure 注册
 titleSuffix: Azure Stack Hub
 description: 了解如何使用 Azure Stack Hub 就绪性检查器工具来验证 Azure 注册。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 0034bd17e42aba8ddbbf55c86aaffea9c243a600
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: ffe992c4a2db39f5b2e29d80a002f1486099baaa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545701"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868788"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
 
-开始 Azure Stack Hub 部署之前，使用 Azure Stack Hub 就绪性检查器工具 ( **AzsReadinessChecker** ) 验证 Azure 订阅是否已准备好与 Azure Stack Hub 配合使用。 就绪性检查器会验证下列项：
+开始 Azure Stack Hub 部署之前，使用 Azure Stack Hub 就绪性检查器工具 (**AzsReadinessChecker**) 验证 Azure 订阅是否已准备好与 Azure Stack Hub 配合使用。 就绪性检查器会验证下列项：
 
 - 你使用的 Azure 订阅是受支持的类型。 订阅必须是云解决方案提供商 (CSP) 或企业协议 (EA)。
 - 用来向 Azure 注册订阅的帐户可以登录到 Azure 并且是订阅所有者。
@@ -26,7 +26,7 @@ ms.locfileid: "94545701"
 
 ## <a name="get-the-readiness-checker-tool"></a>获取就绪性检查器工具
 
-从 [PowerShell 库](https://aka.ms/AzsReadinessChecker)下载最新版本的 **AzsReadinessChecker** 。  
+从 [PowerShell 库](https://aka.ms/AzsReadinessChecker)下载最新版本的 **AzsReadinessChecker**。  
 
 ## <a name="install-and-configure"></a>安装和配置
 
@@ -47,7 +47,7 @@ ms.locfileid: "94545701"
 
 ### <a name="steps-to-validate-the-azure-registration"></a>验证 Azure 注册的步骤
 
-1. 打开一个提升的 PowerShell 提示符，然后运行以下命令来安装 **AzsReadinessChecker** ：
+1. 打开一个提升的 PowerShell 提示符，然后运行以下命令来安装 **AzsReadinessChecker**：
 
    ```powershell
    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
@@ -102,17 +102,17 @@ ms.locfileid: "94545701"
   $PSVersionTable.PSVersion
   ```
 - [为 Azure Stack Hub 配置的 PowerShell](powershell-install-az-module.md)。
-- 最新版本的 [Microsoft Azure Stack 集线器就绪检查](https://aka.ms/AzsReadinessChecker) 程序工具。  
+- 最新版本的 [Microsoft Azure Stack Hub 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。  
 
 #### <a name="azure-active-directory-azure-ad-environment"></a>Azure Active Directory (Azure AD) 环境
 
 - 标识将与 Azure Stack Hub 配合使用的帐户的用户名和密码，该帐户必须是 Azure 订阅所有者。  
 - 标识将使用的 Azure 订阅的订阅 ID。
-- 标识将使用的 **AzureEnvironment** 。 环境名称参数支持的值包括 **AzureCloud** 、 **AzureChinaCloud** 或 **AzureUSGovernment** ，具体取决于所使用的 Azure 订阅。
+- 标识将使用的 **AzureEnvironment**。 环境名称参数支持的值包括 **AzureCloud**、 **AzureChinaCloud** 或 **AzureUSGovernment**，具体取决于所使用的 Azure 订阅。
 
 ### <a name="steps-to-validate-the-azure-registration"></a>验证 Azure 注册的步骤
 
-1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 提示符，然后运行以下命令来安装 **AzsReadinessChecker** ：
+1. 在满足先决条件的计算机上，打开一个提升的 PowerShell 提示符，然后运行以下命令来安装 **AzsReadinessChecker**：
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
@@ -135,7 +135,7 @@ ms.locfileid: "94545701"
 
 4. 在 PowerShell 提示符下运行以下命令，开始验证订阅：
 
-   - 将的值指定 `AzureEnvironment` 为 **AzureCloud** 、 **AzureGermanCloud** 或 **AzureChinaCloud** 。  
+   - 将的值指定 `AzureEnvironment` 为 **AzureCloud**、 **AzureGermanCloud** 或 **AzureChinaCloud**。  
    - 提供 Azure AD 管理员和 Azure AD 租户名称。
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
@@ -228,7 +228,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**原因** - 帐户无法登录到指定的 Azure AD 环境。 在本例中，将 **AzureChinaCloud** 指定为了 **AzureEnvironment** 。  
+**原因** - 帐户无法登录到指定的 Azure AD 环境。 在本例中，将 **AzureChinaCloud** 指定为了 **AzureEnvironment**。  
 
 **解决方法** - 确认帐户对指定的 Azure 环境有效。 在 PowerShell 中运行以下命令，验证帐户对特定环境是否有效：
 

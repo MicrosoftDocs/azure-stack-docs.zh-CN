@@ -1,19 +1,19 @@
 ---
 title: Azure Stack Hub 概述
 description: Azure Stack Hub 的概述，以及如何使用它在数据中心运行 Azure 服务。
-author: justinha
+author: PatAltimore
 ms.topic: overview
 ms.date: 04/20/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 5acbe557c58d33785e0c227c2014264fbcd06a06
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 1d41130c77f0fc39760453bed29936db2b99901b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488410"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869808"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub 概述
 
@@ -43,7 +43,7 @@ Azure Stack Hub 体系结构允许在远程位置的边缘，或者在间歇性�
 
 Azure Stack 集线器集成系统通过 Microsoft 和硬件合作伙伴的合作关系提供，创建了一个解决方案，提供了云进度的创新和计算管理简易性。 由于 Azure Stack Hub 以集成式硬件和软件系统的形式提供，因此你可以获得所需的灵活性和控制度，以及云中的创新能力。
 
-Azure Stack Hub 集成系统的大小范围为 4-16 台服务器（称为“缩放单元”）**。 硬件合作伙伴和 Microsoft 共同支持集成系统。 下图显示了缩放单元示例。 
+Azure Stack Hub 集成系统的大小范围为 4-16 台服务器（称为“缩放单元”）。 硬件合作伙伴和 Microsoft 共同支持集成系统。 下图显示了缩放单元示例。 
 
 ![显示 Azure Stack Hub 集成系统的关系图](./media/azure-stack-overview/azure-stack-integrated-system.svg)上获取。 
 
@@ -51,7 +51,7 @@ Azure Stack Hub 集成系统的大小范围为 4-16 台服务器（称为“缩�
 
 ### <a name="connection-models"></a>连接模型
 
-可以选择在**已连接**到 Internet（和 Azure）时或者与之**断开连接**时部署 Azure Stack Hub。 
+可以选择在 **已连接** 到 Internet（和 Azure）时或者与之 **断开连接** 时部署 Azure Stack Hub。 
 
 > 有关详细信息，请参阅有关[联网](azure-stack-connected-deployment.md)和[离线](azure-stack-disconnected-deployment.md)部署模型的注意事项。
 
@@ -68,7 +68,7 @@ Azure Stack Hub 使用与 Azure 相同的操作模型。 Azure Stack Hub 操作�
 
 ![显示 Azure Stack Hub 作业角色的关系图](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
-可以通过管理员门户、用户门户或 [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 每个 Azure Stack Hub 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack Hub 操作员**可以使用管理员门户来管理 Azure Stack Hub，以及执行如下所述的操作：创建租户套餐，保持集成式系统的运行状况及监视其状态。 用户门户提供自助服务体验让用户使用云资源，例如虚拟机 (VM)、存储帐户和 Web 应用。
+可以通过管理员门户、用户门户或 [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 每个 Azure Stack Hub 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack Hub 操作员** 可以使用管理员门户来管理 Azure Stack Hub，以及执行如下所述的操作：创建租户套餐，保持集成式系统的运行状况及监视其状态。 用户门户提供自助服务体验让用户使用云资源，例如虚拟机 (VM)、存储帐户和 Web 应用。
 
 > 有关使用管理门户管理 Azure Stack Hub 的详细信息，请参阅 [Azure Stack Hub 管理员门户快速入门](azure-stack-manage-portals.md)。
 

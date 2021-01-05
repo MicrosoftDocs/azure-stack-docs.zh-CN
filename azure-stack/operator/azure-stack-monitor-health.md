@@ -1,17 +1,17 @@
 ---
 title: 在 Azure Stack Hub 中监视运行状况和警报
 description: 了解如何在 Azure Stack Hub 中监视运行状况和警报。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: f2b827510087a40ae011e506b5d1f467153e3fdb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368084"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869927"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>在 Azure Stack Hub 中监视运行状况和警报
 
@@ -25,7 +25,7 @@ Azure Stack Hub 包含基础结构监视功能，有助于查看 Azure Stack Hub
 
 ## <a name="alert-severity-definition"></a>警报严重性定义
 
-Azure Stack Hub 引发的警报只有两个严重级别：**警告**和**严重**。
+Azure Stack Hub 引发的警报只有两个严重级别：**警告** 和 **严重**。
 
 - **警告**  
   操作员可以按计划方式处理警告警报。 该警报通常不会影响用户工作负荷。
@@ -45,7 +45,7 @@ Azure Stack Hub 引发的警报只有两个严重级别：**警告**和**严重*
 可以单击资源提供程序或基础结构角色来查看更详细的信息。
 
 > [!WARNING]  
-> 如果单击基础结构角色，然后单击角色实例，则会看到“启动”、“重启”或“关机”选项。    对集成系统应用更新时，请勿使用这些操作。 此外，**请勿**在 Azure Stack 开发工具包 (ASDK) 环境中使用这些选项。 这些选项是针对每个基础结构角色具有多个角色实例的集成系统环境设计的。 在 ASDK 中重启角色实例（特别是 AzS-Xrp01）会导致系统不稳定。 如需故障排除方面的帮助，请在 [Azure Stack Hub 论坛](https://aka.ms/azurestackforum)中提问。
+> 如果单击基础结构角色，然后单击角色实例，则会看到“启动”、“重启”或“关机”选项。    对集成系统应用更新时，请勿使用这些操作。 此外，**请勿** 在 Azure Stack 开发工具包 (ASDK) 环境中使用这些选项。 这些选项是针对每个基础结构角色具有多个角色实例的集成系统环境设计的。 在 ASDK 中重启角色实例（特别是 AzS-Xrp01）会导致系统不稳定。 如需故障排除方面的帮助，请在 [Azure Stack Hub 论坛](https://aka.ms/azurestackforum)中提问。
 >
 
 ## <a name="view-alerts"></a>查看警报
@@ -77,7 +77,7 @@ Azure Stack Hub 引发的警报只有两个严重级别：**警告**和**严重*
 
 ![正在进行的“修复警报”操作](media/azure-stack-monitor-health/repair-in-progress.png)
 
-“修复”操作会在同一门户通知边栏选项卡中报告成功完成了操作或无法完成操作。   如果某项“修复”操作因出现警报而失败，则可在警报详细信息中重新运行“修复”操作。  如果“修复”操作成功完成，**请勿**重新运行“修复”操作。 
+“修复”操作会在同一门户通知边栏选项卡中报告成功完成了操作或无法完成操作。   如果某项“修复”操作因出现警报而失败，则可在警报详细信息中重新运行“修复”操作。  如果“修复”操作成功完成，**请勿** 重新运行“修复”操作。 
 
 ![“修复”操作成功完成](media/azure-stack-monitor-health/repair-completed.png)
 

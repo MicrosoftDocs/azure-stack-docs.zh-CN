@@ -1,18 +1,18 @@
 ---
 title: 解压缩热水并规划热水安装
 description: 了解如何解包热水并规划热水安装
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 4b7b43c54a0cd90b11ac2bcacb7bebd72305d92a
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 6fc9e5cb22f1153874090bd57d48cbbbcca63482
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390660"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867598"
 ---
 # <a name="unpack-the-heater-and-plan-the-heater-installation"></a>解压缩热水并规划热水安装
 

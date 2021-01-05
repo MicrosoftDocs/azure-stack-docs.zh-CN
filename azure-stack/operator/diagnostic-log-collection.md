@@ -1,18 +1,18 @@
 ---
 title: 诊断日志收集
 description: 了解诊断日志收集。
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 10/30/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: eaa265189769bf1f192ef6fce260a221935736cb
-ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
+ms.openlocfilehash: 1bf32b01035cff3557c2e801fe1fea87cc5ee472
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97794186"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868652"
 ---
 # <a name="diagnostic-log-collection"></a>诊断日志收集
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub SQL 资源提供程序 1.1.47.0 发行说明
 description: 查看最新的 Azure Stack Hub SQL 资源提供程序更新中的新增内容，包括新功能、修复和已知问题。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/26/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 9f86466ebacaebc74b7799ec1145cc405faf1b7d
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: d95be92f4cab37c41e1802fdcb18969e3276f459
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364688"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869213"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>SQL 资源提供程序 1.1.47.0 发行说明
 
@@ -40,7 +40,7 @@ Azure Stack Hub 升级到 1910 更新后，请按照资源提供程序更新过�
 
 ## <a name="known-issues"></a>已知问题
 
-旋转 Azure Stack 集线器集成系统的 [证书](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation) 时，KeyVaultPfxPassword 参数是 mendatory，即使没有意图更新 Key Vault 证书密码也是如此。
+为 Azure Stack Hub 集成系统[轮换证书](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)时，即使不打算更新 Key Vault 证书密码，也必须使用 KeyVaultPfxPassword 参数。
 
 ## <a name="next-steps"></a>后续步骤
 

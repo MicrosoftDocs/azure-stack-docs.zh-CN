@@ -2,20 +2,20 @@
 title: 全球 Azure、Azure Stack Hub 与 Azure Stack HCI 之间的差异
 titleSuffix: Azure Stack Hub
 description: 了解全球 Azure、Azure Stack Hub 与 Azure Stack HCI 之间的差异。
-author: justinha
+author: PatAltimore
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 4b6fe9434d7fbc0f62de4c22241300ad20170af2
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: 4fc890225801fe35ec4ab72e84777aa56d597035
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674484"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868703"
 ---
-# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>全局 Azure、Azure Stack 集线器和 Azure Stack HCI 之间的差异
+# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>全局 Azure、Azure Stack Hub 和 Azure Stack HCI 之间的差异
 
 Microsoft 在一个 Azure 生态系统中提供 Azure 和 Azure Stack Hub 系列的服务。 使用与 Azure 资源管理器相同的应用程序模型、自助服务门户和 Api，提供基于云的功能，无论你的企业使用的是全球 Azure 还是本地资源。
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 中的缩放单元节点操作
 description: 了解缩放单元节点操作，包括开机、关机、禁用、恢复以及如何在 Azure Stack Hub 集成系统中查看节点状态。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: ecca245124ce30597a535d8c2ca014821d471d67
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: dc98263b16a72e6b9809e7ef3bc0c286b627749d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517678"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869757"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
 
@@ -235,5 +235,5 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 ## <a name="next-steps"></a>后续步骤
 
 - [安装 Azure Stack PowerShell](./powershell-install-az-module.md)
-- [了解 Azure Stack 集线器 Fabric 操作员模块](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0&preserve-view=true)
+- [了解 Azure Stack Hub Fabric 操作员模块](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0&preserve-view=true)
 - [监视“添加节点”操作](./azure-stack-add-scale-node.md#monitor-add-node-operations)
