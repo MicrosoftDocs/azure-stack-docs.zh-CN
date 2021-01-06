@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: aba799122e4ccbd61258628b079061aa7a02e0ae
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: ac5880d319518ba93d4eb41497b289c3230fe69d
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869689"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918669"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公钥基础结构 (PKI) 证书要求
 
@@ -38,7 +38,6 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 ::: moniker-end
 - 不支持使用自签名证书。
 - 对于部署和轮换，可以使用单一证书覆盖证书的“使用者名称”和“使用者可选名称(SAN)”字段中的所有命名空间，也可以为下面你计划使用的 Azure Stack Hub 服务所需的每个命名空间使用单独的证书。 这两种方法都需要将通配符用于需要它们的终结点，例如 **KeyVault** 和 **KeyVaultInternal**。
-- 证书的 PFX 加密应当为 3DES。
 - 证书签名算法不能为 SHA1。
 - 证书格式必须是 PFX，因为安装 Azure Stack Hub 时需要公钥和私钥。 私钥必须设置本地计算机密钥属性。
 - PFX 加密必须是 3DES（从 Windows 10 客户端或 Windows Server 2016 证书存储进行导出时，此加密是默认设置）。

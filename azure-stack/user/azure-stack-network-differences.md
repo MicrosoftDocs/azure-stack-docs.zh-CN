@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 349a2f5fb8cf44fb76467776b8275cdd8fd01278
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e93197f1906aba53097d5d7123ccc2e85aec0622
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873990"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918689"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub 网络的差异和注意事项
 
@@ -53,7 +53,7 @@ Azure Stack Hub 网络具有许多由 Azure 网络提供的功能。 但是，�
 |  | 可用性配置 | 主动/主动 | 主动/被动 |
 |  | UsePolicyBasedTrafficSelectors | Azure 支持将基于策略的流量选择器与基于路由的网关连接配合使用。 | 尚不支持。 |
 |  | 监视和警报 | Azure 使用 Azure Monitor 提供 VPN 资源警报设置功能。 | 尚不支持。|
-| 负载均衡器 | SKU | 支持基本和标准负载均衡器。 | 仅支持基本负载均衡器。<br>不支持 SKU 属性。<br>基本 SKU 负载均衡器/路径/的前端 IP 配置不能超过 5 个。  |
+| 负载均衡器 | SKU | 支持基本和标准负载均衡器。 | 仅支持基本负载均衡器。<br>不支持 SKU 属性。<br>基本 SKU 负载均衡器支持10个前端 IP 配置，适用于版本1807-1906 和200前端 IP 配置，适用于每个负载均衡器的版本1907及更高版本。  |
 |  | 区域 | 支持可用性区域。 | 尚不支持 |
 |  | 服务终结点的入站 NAT 规则支持 | Azure 支持为入站 NAT 规则指定服务终结点。 | Azure Stack Hub 尚不支持服务终结点，因此无法指定这些设置。 |
 |  | 协议 | Azure 支持指定 GRE 或 ESP。 | Azure Stack Hub 不支持协议类。 |

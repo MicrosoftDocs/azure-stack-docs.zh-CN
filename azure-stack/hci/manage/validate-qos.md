@@ -3,21 +3,23 @@ title: 对群集验证报告进行故障排除
 description: 对群集验证报表进行故障排除，并验证 Azure Stack HCI 群集的 QoS 设置配置
 author: khdownie
 ms.topic: troubleshooting
-ms.date: 07/21/2020
+ms.date: 01/05/2021
 ms.author: v-kedow
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c4da92a6d88a3d2046ee6136f2481ac23e5bd476
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: a5b6ef03701daf1c1f4115f88a2a4e44bac1bd61
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867136"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918639"
 ---
 # <a name="troubleshoot-cluster-validation-reporting"></a>对群集验证报告进行故障排除
 
 > 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
 本主题可帮助你对 Azure Stack HCI 群集中所有服务器上的网络和存储 QoS（服务质量）设置的群集验证报表进行故障排除，并验证是否已定义重要规则。 为了获得最佳连接性和性能，群集验证过程会验证数据中心桥接 (DCB) QoS 配置是否一致，并包含适当的用于“故障转移群集”和 SMB/SMB Direct 流量类的规则（如果已定义）。
+
+DCB 是 RDMA over 聚合以太网 (RoCE) 网络所必需的，并且是可选的 (但建议) 适用于 Internet 广域 RDMA 协议 (iWARP) 网络。
 
 ## <a name="install-data-center-bridging"></a>安装数据中心桥接
 

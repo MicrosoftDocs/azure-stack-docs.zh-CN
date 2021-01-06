@@ -222,11 +222,13 @@
   items:
     - name: Azure Stack HCI 产品页
       href: 'https://azure.com/hci'
-    - name: Azure Stack HCI 评估指南
+    - name: 评估指南
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
-    - name: Azure Stack HCI 定价
+    - name: 定价
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
-    - name: Azure Stack HCI 支持
+    - name: 支持
       href: manage/get-support.md
-    - name: Azure Stack HCI 存档发行说明
+    - name: 培训
+      href: /learn/paths/azure-stack-hci-foundations/
+    - name: 已存档的发行说明
       href: preview-release-notes.md

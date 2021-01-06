@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 4211ec50ef0ea24ffb55f14791101c5d266ede2e
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 7e36deb4be03e7866371bba3039295fcce065ff7
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612550"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918710"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>快速入门：使用 PowerShell 设置 Azure Stack HCI 上的 Azure Kubernetes 服务主机
 
@@ -64,7 +64,7 @@ ms.locfileid: "96612550"
   
 运行上述命令后，请关闭所有 PowerShell 窗口，然后重新打开管理会话以验证 PowerShell 模块升级，如下所述，然后运行该 `Update-AksHci` 命令，如本文档后面所述。
 
-## <a name="step-13-validate-upgraded-powershell-module"></a>步骤1.3：验证升级的 PowerShell 模块
+### <a name="step-13-validate-upgraded-powershell-module"></a>步骤1.3：验证升级的 PowerShell 模块
 
 **关闭所有 powershell 窗口** ，然后重新打开新的管理会话，以检查是否安装了最新版本的 powershell 模块。  
 
@@ -130,11 +130,11 @@ Function        Update-AksHciCluster                               0.2.12     Ak
                     [-vipPoolEndIp <String>]
                     [-macPoolStart <String>]
                     [-macPoolEnd <String>]
-                    [-vlanID <int>]
+                    [-vlandID <int>]
                     [-kvaLoadBalancerType {unstacked_haproxy, stacked_kube_vip}]
                     [-kvaControlPlaneEndpoint <String>]
                     [-proxyServerHTTP <String>]
-                    [-proxyServerHTTP <String>]
+                    [-proxyServerHTTPS <String>]
                     [-proxyServerNoProxy <String>]
                     [-proxyServerCredential <PSCredential>]
                     [-cloudServiceCidr <String>]

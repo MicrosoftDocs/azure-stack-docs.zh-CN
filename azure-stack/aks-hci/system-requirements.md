@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 4eb685335d9cb4f3937c48656237b0d10c3a3594
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 3a4ad6203ba14188ff24629f07775285417c306b
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910544"
+ms.locfileid: "97918659"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的系统要求
 
@@ -30,9 +30,9 @@ Microsoft 建议从我们的合作伙伴购买经验证的 Azure Stack HCI 硬�
 
  - 请确保在 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集上添加更新并管理 Azure Kubernetes 服务的用户帐户 () 在 Active Directory 中具有正确的权限。 如果使用组织单位 (OU) 管理服务器和服务的组策略，则用户帐户需要针对 OU 中所有对象的列出、读取、修改和删除权限。 
 
- - 建议为服务器和服务使用一个单独的 OU，将 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集上的 Azure Kubernetes 服务添加到。 这样，你便可以更精细地控制访问和权限。
+ - 建议在 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集上将 Azure Kubernetes 服务添加到的服务器和服务使用单独的 OU。 使用单独的 OU 可以更细致地控制访问权限和权限。
 
- - 如果在 Active Directory 中的容器上使用 GPO 模板，请确保从该策略中豁免部署 AKS-HCI。 后续预览版本将提供服务器强化。
+ - 如果要在 Active Directory 中的容器上使用 GPO 模板，请确保从策略中免除部署 AKS。 后续预览版本将提供服务器强化。
 
 ## <a name="compute-requirements"></a>计算要求
 
@@ -52,20 +52,14 @@ Microsoft 建议从我们的合作伙伴购买经验证的 Azure Stack HCI 硬�
 
  - 验证是否在所有网络适配器上禁用了 IPv6。 
 
- - 网络必须具有可用的 DHCP 服务器，才能向 VM 和 VM 主机提供 TCP/IP 地址。 DHCP 服务器还应包含 NTP 和 DNS 主机信息。 
-
- - 还建议 DHCP 服务器具有 Azure Stack HCI 群集可访问的专用 IPv4 地址范围。 例如，你可以保留默认网关的10.0.1.1，在 vipPoolStartIp) 中使用-VipPoolEndIp 和-AksHciConfig 将10.0.1.2 预留到 (10.0.1.102，并将 10.0.1.103-10.0.1.254 用于 Kubernetes 群集 Vm。 
-
- - 对于成功的部署，Azure Stack HCI 群集节点和 Kubernetes 群集 Vm 必须具有外部 internet 连接。
-
- - DHCP 服务器提供的 IPv4 地址应可路由，并且具有30天的租约过期时间，以避免在 VM 更新或重新设置时丢失 IP 连接。  
+ - 对于成功的部署，Azure Stack HCI 群集节点和 Kubernetes 群集 Vm 必须具有外部 Internet 连接。 
 
  - 若要使所有节点都能够相互通信，需要 DNS 名称解析。 对于 Kubernetes 外部名称解析，请使用 DHCP 服务器在获取 IP 地址时提供的 DNS 服务器。 对于 Kubernetes 内部名称解析，请使用基于 DNS 的默认 Kubernetes 解决方案。 
- 
- - 对于此预览版，我们只为整个部署提供单一 VLAN 支持。
 
- - 对于此预览版，我们对通过 PowerShell 创建的 Kubernetes 群集提供了有限的代理支持。
+ - 对于此预览版，我们只为整个部署提供单一 VLAN 支持。 
 
+ - 对于此预览版，我们对通过 PowerShell 创建的 Kubernetes 群集提供了有限的代理支持。 
+  
 ### <a name="network-port-and-url-requirements"></a>网络端口和 URL 要求 
 
 在 Azure Stack HCI 上创建 Azure Kubernetes 群集时，会在群集中的每个服务器上自动打开以下防火墙端口。 
@@ -77,6 +71,7 @@ Microsoft 建议从我们的合作伙伴购买经验证的 Azure Stack HCI 硬�
 | 45001             | wssdagent GPRC 身份验证端口  | 
 | 55000           | wssdcloudagent GPRC   服务器端口           |
 | 65000             | wssdcloudagent GPRC 身份验证端口  | 
+
 
 
 Windows Admin Center 计算机和 Azure Stack HCI 群集中的所有节点都需要防火墙 URL 例外。 
@@ -97,7 +92,7 @@ git://:9418 | 9418 | TCP | 用于支持 Azure Arc 代理
 
 Azure Stack HCI 上的 Azure Kubernetes 服务支持以下存储实现： 
 
-|  名称                         | 存储类型 | 必需容量 |
+|  名称                         | 存储类型 | 所需容量 |
 | ---------------------------- | ------------ | ----------------- |
 | Azure Stack HCI 群集          | CSV          | 1 TB              |
 | Windows Server 2019 Datacenter 故障转移群集          | CSV          | 1 TB              |
