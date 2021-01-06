@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 681f02fa220331a93a59448cd1c15bc490ee4b24
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: e85d20755a92806177e7d5e7a9f1d425e4a18018
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011172"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950682"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub 中的 MySQL 资源提供程序维护操作
 
@@ -175,6 +175,14 @@ $session | Remove-PSSession
 使用 Get-AzsDBAdapterLogs cmdlet 收集所有资源提供程序日志，包括 C:\Logs 中保存的 AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log。
 
 ## <a name="collect-diagnostic-logs"></a>收集诊断日志
+
+::: moniker range=">= azs-2008"
+
+Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发送到 Microsoft 支持部门。 从版本1.1.93 开始，MySQL 资源提供程序支持从 Azure Stack 中心环境收集日志的标准方法。 有关详细信息，请参阅 [诊断日志收集](diagnostic-log-collection.md)。
+
+::: moniker-end
+
+从版本1.1.93 开始，MySQL 资源提供程序支持从 Azure Stack 中心环境收集日志的标准方法。 如果你使用的是较旧版本，则建议将 MySQL 资源提供程序更新到最新版本。
 
 若要从锁定的 VM 收集日志，请使用 PowerShell Just Enough Administration (JEA) 终结点 DBAdapterDiagnostics。 此终结点提供以下命令：
 

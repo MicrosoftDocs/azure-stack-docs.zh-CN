@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 1a7efd4a7be3af242f817d93f6ba80591d860fa0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 95ca8364e06176f1a96fae388e1d8047eb4a0403
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870760"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950716"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>使用特权终结点 (PEP) 发送 Azure Stack Hub 诊断日志
 
@@ -85,7 +85,9 @@ if ($session) {
   ```powershell
   Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
- 
+  
+  ::: moniker range=">= azs-2008"
+
   为 SQL RP 收集日志： 
 
   ```powershell
@@ -97,6 +99,8 @@ if ($session) {
   ```powershell
   Get-AzureStackLog -FilterByResourceProvider MySQLAdapter
   ```
+  
+  ::: moniker-end
 
   收集 IoT 中心的日志： 
 

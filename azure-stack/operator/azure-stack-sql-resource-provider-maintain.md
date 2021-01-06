@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: ec2eebc7aa8195c0560beb8c61f0f98ce1689b07
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 3472cf330efb250f20eb66a5df50239a66293307
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011342"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950699"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -186,6 +186,14 @@ $session | Remove-PSSession
 ```
 
 ## <a name="collect-diagnostic-logs"></a>收集诊断日志
+
+::: moniker range=">= azs-2008"
+
+Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发送到 Microsoft 支持部门。 从版本1.1.93 开始，SQL 资源提供程序支持从 Azure Stack 中心环境收集日志的标准方法。 有关详细信息，请参阅 [诊断日志收集](diagnostic-log-collection.md)。
+
+::: moniker-end
+
+从版本1.1.93 开始，SQL 资源提供程序支持从 Azure Stack 中心环境收集日志的标准方法。 如果使用的是较旧版本，建议将 SQL 资源提供程序更新到最新版本。
 
 若要从锁定的 VM 收集日志，请使用 PowerShell Just Enough Administration (JEA) 终结点 *DBAdapterDiagnostics*。 此终结点提供以下命令：
 
