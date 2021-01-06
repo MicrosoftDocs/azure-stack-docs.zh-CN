@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: c28d58d4416ab15885d687e9f0cbe7b6cdc8bdf8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 74addf295c35099e90e3a7fe4fd95aad34e47361
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874449"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910629"
 ---
 # <a name="verifying-scale-unit-node-access-and-health"></a>验证缩放单位节点的访问和运行状况
 
@@ -31,13 +31,13 @@ ms.locfileid: "97874449"
 
     选择 " **区域管理** " 磁贴，然后选择 " **属性**"。 滚动到窗格底部，找到 " **特权终结点 ip 地址** " 字段中的 ip 地址。 请记下这些操作，在此过程中，可能需要此过程，或在出现任何问题时提供支持。
 
-    [![](media/image-18-inline.png)](media/image-18-expanded.png)
+    [![显示 "管理" 页的屏幕截图，其中突出显示了 "特权终结点地址" 部分。](media/image-18-inline.png)](media/image-18-expanded.png)
     
 4.  查看任何当前警报。
 
     在 " **区域管理**" 中，选择 " **警报** " 并查看当前警报。 如果出现任何意外的警报，请与 Dell 技术支持部门验证是否可以清除或安全地忽略它们。
     
-    [![](media/image-19-inline.png)](media/image-19-expanded.png)
+    [ ![ 显示 "属性" 页的屏幕截图，其中突出显示了 "Name" 部分。](media/image-19-inline.png)](media/image-19-expanded.png)]
     
 5.  标识缩放单位节点。
 
@@ -47,11 +47,11 @@ ms.locfileid: "97874449"
     
     1.  若要获取节点服务标记，请选择 " **BMC** IP 地址" 链接，该链接将在新的选项卡或窗口中打开服务器的 iDRAC web 界面。
 
-        [![](media/image-20-inline.png)](media/image-20-expanded.png) 
+        [![显示 "节点" 页的屏幕截图，其中突出显示了 "BMC" 列。](media/image-20-inline.png)](media/image-20-expanded.png) 
     
     1.  登录到 iDRAC 接口，并验证 " **系统信息** " 窗格中的节点的服务标记。
     
     1.  为每个节点重复此过程，并将这些服务标记与计划的硬件更换相关联，以确定需要服务的节点。
 
-        [![](media/image-21-inline.png)](media/image-21-expanded.png)
+        [![屏幕截图显示 "仪表板"，其中突出显示了 "服务标记"。](media/image-21-inline.png)](media/image-21-expanded.png)
     

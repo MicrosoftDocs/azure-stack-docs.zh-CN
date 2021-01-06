@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 中的缩放单元节点操作
+title: Azure Stack 中心中的缩放单位节点操作-耐用
 description: 了解缩放单元节点操作，包括开机、关机、禁用、恢复以及如何在 Azure Stack Hub 集成系统中查看节点状态。
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 768d51257e1d70979c2ee0f43aad4db8430cf8cf
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 126f96069b2440b6a38887306a92409b75f5b682
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939387"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910595"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
+# <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Azure Stack 中心中的缩放单位节点操作-耐用
 
 本文介绍如何查看缩放单元的状态。 可以查看单元的节点。 可以运行开机、关机、关闭、清空、恢复和修复等节点操作。 通常，在现场更换组件期间或者在帮助恢复节点时，会使用这些节点操作。
 

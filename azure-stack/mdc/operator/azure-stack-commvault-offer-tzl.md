@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中提供 Commvault marketplace 项 |Microsoft Docs
-description: 从 Azure Stack Marketplace 部署 Commvault
+title: 在 Azure Stack 中提供 Commvault marketplace 项
+description: " (MDC) Azure Stack Marketplace 部署 Commvault 的模块化数据中心。"
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 6ece6792602d90fd43bc682d7547061180ea9289
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: c2f98725a93dbd471f257d8a038a989d9f892c68
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328989"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910833"
 ---
-# <a name="offer-commvault-marketplace-item-in-azure-stack"></a>在 Azure Stack 中提供 Commvault marketplace 项
+# <a name="offer-commvault-marketplace-item-in-azure-stack---modular-data-center-mdc"></a>在 Azure Stack-模块化数据中心 (MDC) 提供 Commvault marketplace 项
 
 *适用于：模块化数据中心、Azure Stack 中心耐用*
 

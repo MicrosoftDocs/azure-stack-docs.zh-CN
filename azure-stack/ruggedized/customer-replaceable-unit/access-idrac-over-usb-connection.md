@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: ba480afc0c94207b76df5c61b5a4f747636b4ece
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5c270de88d78bb8cb7ba1f7b9216c4a160a4aae8
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867904"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910049"
 ---
 # <a name="accessing-the-idrac-interface-over-a-direct-usb-connection"></a>通过直接 USB 连接访问 iDRAC 接口
 
@@ -29,7 +29,7 @@ ms.locfileid: "97867904"
 2.  将便携式计算机的微型 USB 电缆连接到位于服务器正面的 iDRAC 直接端口。
     请参阅关系图中的第4项。
 
-    ![](media/image-67.png)
+    ![显示电源按钮、U S B 和微 U S B 端口的关系图。](media/image-67.png)
 
 3.  等待笔记本电脑获取 IP 地址169.254.0.4。
 

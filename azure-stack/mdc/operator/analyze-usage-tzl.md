@@ -1,6 +1,6 @@
 ---
-title: 分析 Azure Stack 使用情况和资源使用情况 API |Microsoft Docs
-description: 分析资源使用情况 API Azure Stack 使用情况和参考，用于检索 Azure Stack 使用情况信息。
+title: 分析 Azure Stack 使用情况和资源使用情况 API-MDC
+description: 分析资源使用情况 API Azure Stack 使用情况和参考，用于检索 Azure Stack 使用情况信息。 对于模块化数据中心 (MDC) 。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9e7bb8b8174423a21c4f08e09cdb10d2a37bf556
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: efbbfbb76215cdd3322c57ca0c5def8575f5f023
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935060"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910902"
 ---
-# <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>使用本地用量计量分析 Azure Stack 使用情况
+# <a name="analyze-azure-stack-usage-with-local-usage-meters---modular-data-center-mdc"></a>使用本地使用量计量分析 Azure Stack 使用情况-模块化数据中心 (MDC) 
 
 有关哪些订阅使用哪些资源存储在本地使用情况数据库中的信息。 管理员可以检索此数据以分析哪些用户正在使用资源。
 

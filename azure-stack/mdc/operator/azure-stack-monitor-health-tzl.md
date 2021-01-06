@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中监视运行状况和警报 | Microsoft Docs
-description: 了解如何在 Azure Stack 中监视运行状况和警报。
+title: 监视 Azure Stack 中的运行状况和警报-MDC |Microsoft Docs
+description: 了解如何在 Azure Stack 中监视模块化数据中心 (MDC) 的运行状况和警报。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: bdc027e8c61053fddddd5ad365eff8069acb840d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885778"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910816"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中监视运行状况和警报
+# <a name="monitor-health-and-alerts-in-azure-stack---modular-data-center-mdc"></a>监视 Azure Stack 模块化数据中心 (MDC 中的运行状况和警报) 
 
 Azure Stack 包含基础结构监视功能，有助于查看 Azure Stack 区域的运行状况和警报。 “区域管理”磁贴列出了 Azure Stack 的所有已部署区域。 它默认固定在默认提供商订阅的管理员门户上。 该磁贴除了显示每个区域的活动严重警报和警告警报数目以外， 也是 Azure Stack 运行状况和警报功能的入口点。
 

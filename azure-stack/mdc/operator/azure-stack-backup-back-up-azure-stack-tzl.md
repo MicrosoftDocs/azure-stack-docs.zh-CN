@@ -1,6 +1,6 @@
 ---
-title: 备份 Azure Stack | Microsoft Docs
-description: 了解如何在 Azure Stack 上执行按需备份。
+title: 备份 Azure Stack-MDC |Microsoft Docs
+description: 了解如何在 Azure Stack 上为模块化数据中心 (MDC) 进行按需备份。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 0455c96449d0547d94d8d904fe59f268145da3a8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: f64b656b6a0a0d5310b6d6e2fbb8ff26d5206ad1
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329005"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910885"
 ---
-# <a name="back-up-azure-stack"></a>备份 Azure Stack
+# <a name="back-up-azure-stack---modular-data-center-mdc"></a>Azure Stack-模块化数据中心 (MDC) 
 
 *适用于：模块化数据中心、Azure Stack 中心耐用*
 
@@ -30,13 +30,13 @@ ms.locfileid: "93329005"
 
 ## <a name="start-backup"></a>启动备份
 
-备份自动进行计划。 仅当收到手动触发备份的警报时才需要启动按需备份。 若要启动按需备份，请选择 " **立即备份** "。 按需备份不会修改已计划的下次备份的时间。 任务完成后，可以在 " **概要" 边栏选项卡** 中确认设置：
+备份自动进行计划。 仅当收到手动触发备份的警报时才需要启动按需备份。 若要启动按需备份，请选择 " **立即备份**"。 按需备份不会修改已计划的下次备份的时间。 任务完成后，可以在 " **概要" 边栏选项卡** 中确认设置：
 
 ![备份设置](media/azure-stack-backup-back-up-azure-stack-tzl/on-demand-backup.png)
 
 ## <a name="start-azure-stack-backup"></a>启动 Azure Stack 备份
 
-还可以在 Azure Stack 管理计算机上运行 PowerShell cmdlet **Start-AzsBackup** 。
+还可以在 Azure Stack 管理计算机上运行 PowerShell cmdlet **Start-AzsBackup**。
 
 ### <a name="start-a-new-backup-without-job-progress-tracking"></a>启动新备份，而不进行作业进度跟踪
 
@@ -126,9 +126,9 @@ Tags              : {}
 
 1. 打开 [Azure Stack 管理员门户](../../operator/azure-stack-manage-portals.md)。
 
-2. 选择 " **所有服务** "，然后在 " **管理** " 类别下选择 " **基础结构备份** "。 在“基础结构备份”  边栏选项卡中选择“配置”  。
+2. 选择 " **所有服务**"，然后在 " **管理** " 类别下选择 " **基础结构备份**"。 在“基础结构备份”  边栏选项卡中选择“配置”  。
 
-3. 在“可用备份”列表中查找备份的 **名称** 和 **完成日期** 。
+3. 在“可用备份”列表中查找备份的 **名称** 和 **完成日期**。
 
 4. 验证 **状态** 是否为“成功”。
 

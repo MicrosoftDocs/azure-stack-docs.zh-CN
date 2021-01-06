@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 972c9e8f0b66470a6e1b7cbc81d40062ff34a950
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 2eb2c85bcdb350173923b3d8b5a3b463ce6a16ff
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874704"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910714"
 ---
 # <a name="powering-off-scale-unit-nodes"></a>关闭缩放单位节点的电源
 
@@ -26,15 +26,15 @@ ms.locfileid: "97874704"
 
     1.  从管理门户中，选择需要修复的节点，然后选择 " **排出**"。
 
-        ![](media/image-23.png)
+        ![显示 "管理" 页面并选中 "排出" 操作并突出显示节点的屏幕截图。](media/image-23.png)
         
     1.  出现提示时，输入要排出的节点的名称，然后选择 **"是"**。
 
-        ![](media/image-24.png)
+        ![显示 "管理节点" 页的屏幕截图。](media/image-24.png)
     
     1.  你将看到一条通知，指出排出正在进行。
     
-        ![](media/image-25.png)
+        ![显示带有排出通知的 "管理节点" 页的屏幕截图。](media/image-25.png)
         
     1.  登录到 iDRAC 接口，并验证 \' **系统信息** 中的节点 s 服务标记。
     
@@ -43,17 +43,17 @@ ms.locfileid: "97874704"
 
     1.  完成排出后，再次选择该节点，验证 **操作状态** 是否为 "正在 **维护** " 并选择 " **关闭**"。
 
-        ![](media/image-26.png)
+        ![屏幕截图，显示 "管理节点" 页，其中包含一个节点并选中 "关闭" 操作。](media/image-26.png)
         
     1.  出现提示时，请选择 **"是"** 确认关闭。
     
-        ![](media/image-27.png)
+        ![屏幕截图显示 "管理节点" 页，其中显示了 "关闭节点" 对话框。](media/image-27.png)
         
     1.  你将看到一条通知，指出关机正在进行。
 
-        ![](media/image-28.png)
+        ![显示 "管理节点" 页面并显示 "正在进行关闭" 对话框的屏幕截图。](media/image-28.png)
     
     1.  关闭完成后， **电源状态** 为 "已 **停止**"。
     
-        ![](media/image-29.png)
+        ![屏幕截图，显示 "管理节点" 页，其中的节点处于选中状态，"已停止" 将突出显示为 "电源状态"。](media/image-29.png)
         

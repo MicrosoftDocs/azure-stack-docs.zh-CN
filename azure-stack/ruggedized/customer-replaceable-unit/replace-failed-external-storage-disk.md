@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 476801acccecb463e97d42f38067b2463cfbd86c
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e53d81e7606c6440ce535726199af31a1dbfd950
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874636"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910646"
 ---
 # <a name="replacing-a-failed-external-storage-disk"></a>替换发生故障的外部存储磁盘
 
@@ -69,11 +69,11 @@ ms.locfileid: "97874636"
 
     1.  在顶部菜单中，选择 " **存储**"：
 
-        ![](media/image-30.png)
+        ![显示已选择 "存储" 操作的 iDRAC 页的屏幕截图。](media/image-30.png)
     
     1.  找到被替换的磁盘并展开该项目。 将磁盘 **修订** 与支持矩阵中的修订版本进行比较。 如果磁盘不在支持矩阵中，则请与支持部门联系以解决问题。
 
-        ![](media/image-31.png)
+        ![屏幕截图，其中突出显示了 "制造商"、"产品 ID" 和 "修订" 的 iDRAC "高级属性" 页。](media/image-31.png)
         
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,6 +1,6 @@
 ---
-title: 使用基础结构备份服务恢复 Azure Stack 中的数据 | Microsoft Docs
-description: 了解如何使用基础结构备份服务在 Azure Stack 中备份和还原配置和服务数据。
+title: 在 Azure Stack 中恢复基础结构备份服务的数据-MDC
+description: 了解如何使用基础结构备份服务在 Azure Stack 中备份和还原配置和服务数据。 对于模块化数据中心 (MDC) 。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,14 +14,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: c32065beeeb446d7d8e494634bc68318e280a693
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 5a9e8615168714b3346f735d9182c38b2c604cca
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328986"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910799"
 ---
-# <a name="recover-data-in-azure-stack-with-the-infrastructure-backup-service"></a>使用基础结构备份服务恢复 Azure Stack 中的数据
+# <a name="recover-data-in-azure-stack-with-the-infrastructure-backup-service---modular-data-center-mdc"></a>通过基础结构备份服务 () MDC Azure Stack 恢复数据
 
 *适用于：模块化数据中心和 Azure Stack 集线器耐用*
 

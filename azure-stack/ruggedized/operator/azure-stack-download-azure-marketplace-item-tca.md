@@ -15,14 +15,14 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 734c84c1226a9e1ed4a9f3e34b787f1677ab6902
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: a3d8fcc1c3ffa65539b233a8b89f55d57f61a5ef
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939374"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910612"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub 
+# <a name="download-marketplace-items-to-azure-stack-hub-ruggedized"></a>将 Marketplace 项下载到 Azure Stack 中心 (耐用) 
 
 云操作员可从市场将项下载 Azure Stack Hub，并使这些项可供所有使用 Azure Stack Hub 环境的用户使用。 可以选择的项来自 Azure 市场项的有序列表，这些项已预先经过测试，支持与 Azure Stack 配合使用。 其他项会不断地添加到此列表中，因此请不时地返回查看新内容。
 
@@ -60,7 +60,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 4. 每个行项还显示当前可用版本。 如果某个市场项有多个可用版本，“版本”列会显示“多个”。  可以单击每个项查看其说明和附加信息，包括其下载大小：
 
-   ![从 Azure 添加](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
+   ![显示 "从 Azure 添加" 页的屏幕截图，其中突出显示了 "多个" 版本项。](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
 
 5. 如果某个项的版本显示为 **多个**，则可以选择该项目，然后从生成的版本选择器下拉列表中选择特定版本：
 
@@ -111,7 +111,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 3. 此时将显示一个窗口，您可以在其中选择要下载的产品。 可以按住 Ctrl 并单击来选择多个项。
 
-4. 选择“确定”  。 这会下载 marketplace 项及其依赖项（如果有）。
+4. 选择“确定”。 这会下载 marketplace 项及其依赖项（如果有）。
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>将 Marketplace 项上载到 Azure Stack 中心
 

@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 5c534fb3e308d4566e07d2851204e1f621fbf5c1
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 3b6a257d5f5f42c951313c2220559306577de15d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874534"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910238"
 ---
 # <a name="installing-firmware-using-the-idrac-interface"></a>使用 iDRAC 接口安装固件
 
@@ -26,7 +26,7 @@ ms.locfileid: "97874534"
 
 1.  请参阅 **维护** \* * 系统更新 * *。 随即显示 " **固件更新** " 页。
 
-    ![](media/image-85.png)
+    ![显示 "集成 Dell 远程访问控制器 9" 的 "维护" 页的屏幕截图 |Enterprise "。](media/image-85.png)
 
 2.  在 " **更新** " 选项卡中，选择 " **本地** " 作为文件位置。
 

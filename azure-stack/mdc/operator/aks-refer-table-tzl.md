@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中心帮助链接交叉引用
-description: 查找 Azure Stack 中心的门户参考链接。
+title: Azure Stack 中心帮助链接交叉引用-MDC
+description: 从模块化数据中心 (MDC) 操作时，查找 Azure Stack 中心的门户参考链接。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,20 +15,20 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
 ms.reviewer: efemmano
-ms.openlocfilehash: dd52df36363e45868e586c0e980950b10b7c6836
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: bfc9c4aeb2e3dfb003d3cd1e1fc9dcc71b0caf82
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328872"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910919"
 ---
-# <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Azure Stack 集线器的警报 aka.ms 链接引用
+# <a name="alerts-akams-link-reference-for-azure-stack-hub---modular-data-center-mdc"></a>Azure Stack 中心 (MDC 的警报 aka.ms 链接参考) 
 
 本主题列出了在管理员门户中的警报内显示的链接的交叉引用。 
 
 ## <a name="link-cross-reference"></a>链接交叉引用
 
-| Aka.ms 链接 | 文章 |
+| Aka.ms 链接 | 项目 |
 | --- | --- |
 | `https://aka.ms/azsrotatebmcpassword` | [更新基板管理控制器 (BMC) 凭据](../../operator/azure-stack-rotate-secrets.md#update-the-bmc-credential) |
 | `https://aka.ms/azsrotatecertificates` | [在 Azure Stack 中轮换机密](../../operator/azure-stack-rotate-secrets.md) |
@@ -53,4 +53,4 @@ ms.locfileid: "93328872"
 
 ## <a name="next-steps"></a>后续步骤
 
-可在 [Microsoft Azure Stack 帮助和支持](../../operator/azure-stack-help-and-support-overview.md)文章中找到有关 " **帮助 + 支持** " 的详细信息。
+可在 [Microsoft Azure Stack 帮助和支持](../../operator/azure-stack-help-and-support-overview.md)文章中找到有关 "**帮助 + 支持**" 的详细信息。

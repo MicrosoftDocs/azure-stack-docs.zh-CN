@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Windows Server 相关的常见问题解答 | Microsoft Docs
-description: 列出有关 Windows Server 的 Azure Stack 市场常见问题解答
+title: Azure Stack Windows Server 相关常见问题解答-MDC |Microsoft Docs
+description: 在模块化数据中心 (MDC) 操作时，请阅读适用于 Windows Server 的 Azure Stack Marketplace 常见问题解答列表。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 3570eeb9edadd359081c429f821a09e3d9954439
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 64ccefb0a6644d2cd613a39d8beaaf1f82ee9fc0
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328886"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910782"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack 市场中的 Windows Server 常见问题解答
+# <a name="windows-server-in-azure-stack-marketplace-faq---modular-data-center-mdc"></a>Azure Stack marketplace 中的 Windows Server 常见问题-模块化数据中心 (MDC) 
 
 本文解答了有关 [Azure Stack 中心 marketplace](../../operator/azure-stack-marketplace.md)中的 Windows Server 映像的常见问题。
 
@@ -34,9 +34,9 @@ Azure Stack 中心耐用和 MDC 的用户有权免费使用 Windows Server 作�
 
 Microsoft 通过 Azure Stack marketplace 提供了两个版本的 Windows Server 映像。 在任何给定的 Azure Stack 环境中，只可使用此映像的一个版本。
 
-- 即 **用即付** ：这些映像不应在 Azure Stack 集线器耐用或 MDC 上使用。
+- 即 **用即付**：这些映像不应在 Azure Stack 集线器耐用或 MDC 上使用。
 
-- **自带许可证 (BYOL)** ：可在 Azure Stack Hub 耐用和 MDC 上使用这些映像。
+- **自带许可证 (BYOL)**：可在 Azure Stack Hub 耐用和 MDC 上使用这些映像。
 
 **使用 Windows Server 的其他 Vm （如 SQL Server）呢？**
 
@@ -44,7 +44,7 @@ Windows Server 软件许可证仅适用于 Windows 操作系统，而不适用�
 
 **如何更新到较新的 Windows 映像？**
 
-首先，请确定是否有任何 Azure 资源管理器模板引用了特定的版本。 如果有，请更新这些模板，或保留旧的映像版本。 最好是使用 **version: latest** 。
+首先，请确定是否有任何 Azure 资源管理器模板引用了特定的版本。 如果有，请更新这些模板，或保留旧的映像版本。 最好是使用 **version: latest**。
 
 接下来，如果任何虚拟机规模集引用特定版本，则应考虑是否会在以后对其进行缩放，并决定是否保留旧版本。 如果上述两个条件都不适用，请先在市场中删除旧映像，然后下载新映像。 如果原始映像是使用“市场管理”下载的，请使用“市场管理”将其删除。 然后下载新版本。
 

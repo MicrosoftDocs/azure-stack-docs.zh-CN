@@ -16,12 +16,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: e4890c075505ac5babbb5d614ae36472941d2b17
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f63f0d550a841902e1d7c27d9c7688a8b5373149
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874347"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910578"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub"></a>更新 Azure Stack 集线器中的容器注册表
 
@@ -33,13 +33,13 @@ Azure Stack 集线器用户可以使用下面的说明将其容器注册表部�
 
 1.  将最新的 AKS 基本映像与 Azure Stack Marketplace 联合。 AKS 基本映像会按月进行更新。
 
-> ![容器注册表模板](./media/container-registry-template-updating-tzl/image1.png)
+> ![显示 "从 Azure 添加" 页的屏幕截图，其中显示了 "AKS Base Ubu" 的搜索结果。](./media/container-registry-template-updating-tzl/image1.png)
 
 ### <a name="user"></a>用户
 
 1.  通过浏览到资源组中的部署记录并选择 " **输入**"，查看用于部署容器注册表模板的 AKS 基本映像的 SKU。
 
-    ![容器注册表模板](./media/container-registry-template-updating-tzl/image2.png)
+    ![显示 "输入" 页的屏幕截图。](./media/container-registry-template-updating-tzl/image2.png)
 
 2.  使用 **VMImageSku** 函数确定是否有更高版本的 AKS 基本映像可用，要求使用 `Import-Module .\pre-reqs.ps1` 容器注册表模板脚本。
 
@@ -75,29 +75,29 @@ Azure Stack 集线器用户可以使用下面的说明将其容器注册表部�
 
 1.  将容器注册表模板的新实例安装到新的资源组。
 
-    ![容器注册表模板](./media/container-registry-template-updating-tzl/image3.png)
+    ![屏幕截图，显示 "创建容器注册表模板-基础知识" 页。](./media/container-registry-template-updating-tzl/image3.png)
 
 2.  指定脚本中的最新 SKU 输出， `Get-VMImage` 并使用虚拟机配置中初始安装的唯一 **dnsname** 参数，并使用与初始安装相同的服务主体和密码。
 
-    ![容器注册表模板](./media/container-registry-template-updating-tzl/image4.png)
+    ![显示 "创建容器注册表模板-虚拟机配置" 页面的屏幕截图。](./media/container-registry-template-updating-tzl/image4.png)
 
 3.  使用与存储和 Key Vault 配置的初始安装相同的存储和 Key Vault 参数。
 
-    ![容器注册表模板](./media/container-registry-template-updating-tzl/image5.png)
+    ![显示 "创建容器注册表模板-存储和 Key Vault 配置" 页的屏幕截图。](./media/container-registry-template-updating-tzl/image5.png)
 
 1.  部署新容器注册表模板后，导航到初始资源组，并选择公共 IP 地址资源。
 
-    ![容器注册表模板](./media/container-registry-template-updating-tzl/image6.png)
+    ![屏幕截图，显示公共 I P 地址资源的列表。](./media/container-registry-template-updating-tzl/image6.png)
 
 1.  在公共 IP 地址资源中，导航到 "配置" 并修改 "DNS 名称" 标签，使其可用于新部署的资源。 请注意，在修改 DNS 名称标签并选择 " **将调用保存** 到容器后，将开始失败"。
 
-    ![容器注册表模板](./media/container-registry-template-updating-tzl/image7.png)
+    ![显示已选择 "静态" 的 "公共 I P 地址" 资源页的屏幕截图。](./media/container-registry-template-updating-tzl/image7.png)
     
-    ![容器注册表模板](./media/container-registry-template-updating-tzl/image8.png)
+    ![屏幕截图显示了 "公共 I P address" 资源页，该页面的名称为 N S (可选) "突出显示。](./media/container-registry-template-updating-tzl/image8.png)
 
 2.  导航到新资源组，该资源组用于部署容器注册表模板的新实例，选择公共 IP 资源，配置，并将 DNS 名称标签更新为在此示例中使用的正确名称， `myreg` 然后选择 " **保存**"。
 
-    ![容器注册表模板](./media/container-registry-template-updating-tzl/image9.png)
+    ![屏幕截图，显示 "公共 I P address" 资源页，并输入原始的 "D N S" 名称标签。](./media/container-registry-template-updating-tzl/image9.png)
     
     ![容器注册表模板](./media/container-registry-template-updating-tzl/image10.png)
 

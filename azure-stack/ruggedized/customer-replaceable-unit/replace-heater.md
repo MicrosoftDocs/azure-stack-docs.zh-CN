@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 66bebd5d8b4f88a8abc90face23d3722d45159d6
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 028ad9442961708820f905b73037eb55a11af72a
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868414"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910527"
 ---
 # <a name="replacing-the-heater"></a>替换热水
 
@@ -61,74 +61,74 @@ ms.locfileid: "97868414"
 
 1. 从前 pod 护盖开始，按逆时针旋转8个护盖闩锁，以从 pod 中释放封盖。 释放所有八个闩锁时，保留或保护该覆盖。 
 
-    ![](media/image-86.png)
+    ![其中突出显示了覆盖闩锁的前 pod 护盖的关系图。](media/image-86.png)
 
 1. 卸下 pod 盖。 
 
-    ![](media/image-87.png)
+    ![卸下前 pod 盖。](media/image-87.png)
 
 1. 重复步骤1和步骤2，卸下背面罩。 现在，你可以访问 pod 内的组件。 
 
 1. 完全拧松螺丝，然后将过滤器程序集拉离服务器，如下图所示。 
 
-    ![](media/image-88.png)
+    ![显示了滤镜组件上螺钉位置的关系图。](media/image-88.png)
 
-    ![](media/image-89.png)
+    ![丢弃筛选器程序集。](media/image-89.png)
 
 1. 从战术性1U 热水-V2 拔出释放选项卡，直到封盖发布，然后将封盖从盒中的机箱架向外移动。 
 
-    ![](media/image-90.png)
+    ![显示 "发布" 选项卡的关系图。](media/image-90.png)
 
 1. 当 plenum 的下半部分清除基准时，向外拉动约40度。 角度使你可以将 plenum 的顶部移到服务器或交换机上，然后在将 plenum 拉出 pod 之前向上和向外移动。 
 
-    ![](media/image-91.png)
+    ![显示要删除的 plenum 的关系图。](media/image-91.png)
 
 1. 在这种情况的前面，请从战术性1U 热水-V2 下删除 zip 绑定。 如有必要，请使用对角刀具。 
 
-    ![](media/image-92.png)
+    ![此图显示了 zip 连接的方括号和温度引入线传感器的微连接器。](media/image-92.png)
 
 1. 用拇指和食指挤压微连接器前选项卡，然后向下拉动，直到从热水底部自由连接。 将电缆移出热水的方式。 
 
-    ![](media/image-93.png)
+    ![显示连接了电缆的服务器入口温度传感器的关系图。](media/image-93.png)
 
 1. 在这种情况的正面，从管理服务器或底层单元节点服务器中删除4条10-32 螺钉、挂锁垫圈和平头垫圈。 
 
-    ![](media/image-94.png)
+    ![显示螺钉在机箱正面位置的关系图。](media/image-94.png)
 
-    ![](media/image-95.png)
+    ![显示从事例的每一侧删除的螺钉的两个图。](media/image-95.png)
 
 1. 在这种情况下，从热水中删除前四条10-32 螺钉、挂锁垫圈和平头垫圈。
 
-    ![](media/image-96.png)
+    ![显示热水前面四个螺钉的位置的关系图。](media/image-96.png)
 
-    ![](media/image-97.png)
+    ![显示热水的每一侧的螺钉的两个关系图。](media/image-97.png)
 
 1. 从后部 plenum 展开以太网电缆，并拔下连接到管理服务器或底部规模单元节点服务器的所有电缆。 
 
 1. 在这种情况下，拧松六个 Velcro 母线，并从 Velcro 拔出电缆。 
 
-    ![](media/image-98.png)
+    ![此图显示了机箱背面六个 Velcro 传送带的位置。](media/image-98.png)
 
 
 1. 在这种情况下，在 Velcro 后，拔出电缆 stowage 的电缆。 
 
 1. 允许所有电缆挂起，远离 plenum。 不会在下图中显示悬挂电缆。 
 
-    ![](media/image-99.png)
+    ![显示电源和以太网电缆的电缆的示意图。](media/image-99.png)
 
 
 1. 在这种情况下，使用 plenum 门的顶部唇快速将 plenum 门向下移动。 应将 plenum 门与链接断开连接，使门可以自由挂机。 
 
 1. 如果仍附加了链接，请将 plenum 拉向下。 
 
-    ![](media/image-100.png)
+    ![此图显示了向下移动的事例背面的 plenum。](media/image-100.png)
 
-    ![](media/image-101.png)
+    ![显示从左侧向下拉取的 plenum 的关系图。](media/image-101.png)
 
 
 1. 在这种情况下，从战术性1U 热水-V2 拔下服务器电源线，并允许它们自由挂机。 
 
-    ![](media/image-102.png)
+    ![显示服务器电源线在机箱背面的位置的关系图。](media/image-102.png)
 
 
 1. 从服务器拔下电源线，并允许它们自由挂机。 
@@ -147,26 +147,26 @@ ms.locfileid: "97868414"
     
     1. 双垫圈 
 
-    ![](media/image-103.png)
+    ![显示连接终端环的位置的关系图。](media/image-103.png)
 
-    ![](media/image-104.png)
+    ![显示连接终端环的单个硬件的关系图。](media/image-104.png)
 
 
 1. 将六角螺母和垫圈置于接地 post 上，或者放在安全的位置以进行重新安装。 
 
 1. 在这种情况下，完全拧松将右填充括号放在一起的两个固定螺钉。
 
-    ![](media/image-105.png)
+    ![此图显示了机箱背面，并突出显示了右侧的固定螺钉。](media/image-105.png)
 
-    ![](media/image-106.png)
+    ![显示要打开的固定螺钉的关系图。](media/image-106.png)
 
 1. 向左拉动右填充括号，以将其删除。 
 
 1. 在这种情况下，完全拧松将左 cableway 支架置于适当位置的两个固定螺钉。 
 
-    ![](media/image-107.png)
+    ![此图显示了机箱背面，并突出显示了左侧的固定螺钉。](media/image-107.png)
 
-    ![](media/image-108.png)
+    ![此图显示了已打开的固定螺钉以及要删除的 cableway 支架。](media/image-108.png)
 
 
 1. 向左拉动左 cableway 方括号以删除它。 
@@ -175,52 +175,52 @@ ms.locfileid: "97868414"
 
 1. 在这种情况下，从 "管理" 或 "底层" 单元节点服务器中删除一个 Cat 6 蓝和 2 25 Gbps 黑色以太网电缆。 
 
-    ![](media/image-109.png)
+    ![此图显示了机箱背面的 Cat 6 蓝和 25 Gbps 黑色以太网电缆位置的位置。](media/image-109.png)
 
 
 1. 将电缆置于安全位置以便重新安装。 
 
 1. 在这种情况下，完全拧松将左内 cableway 支架固定在一起的两个固定螺钉。 
 
-    ![](media/image-110.png)
+    ![显示机箱背面的关系图，左侧显示固定螺钉。](media/image-110.png)
 
-    ![](media/image-111.png)
+    ![显示要打开的固定螺钉以及要删除的 cableway 支架的关系图。](media/image-111.png)
 
 
 1. 向左的内部 cableway 括号拉取，以将其删除。 
 
 1. 在这种情况下，从热水的顶部拧松六个转轴螺钉，将门和转轴固定在一起，使其作为一个单元。 
 
-    ![](media/image-112.png)
+    ![显示要删除的六个转轴螺钉的关系图。](media/image-112.png)
 
 1. 将支架和螺钉放置在一个安全的位置，以便重新安装。 
 
 1. 在 pod 的背面，取下两条10-32 导轨螺钉、挂锁垫圈和用于将服务器导轨固定到 pod 机架的黑白垫圈。
 
-    ![](media/image-113.png)
+    ![显示固定服务器导轨的螺丝位置的关系图。](media/image-113.png)
 
-    ![](media/image-114.png)
+    ![该图显示了保护要删除的服务器导轨的情况的左侧和右侧的螺钉。](media/image-114.png)
 
 
 1. 在 pod 的背面，卸下4条10-32 螺钉、挂锁垫圈以及将热水固定到 pod 机架的平头垫圈。 
 
-    ![](media/image-115.png)
+    ![显示保护热水的四个螺钉的位置的关系图。](media/image-115.png)
 
-    ![](media/image-116.png)
+    ![此图显示了用于保护热水的四个螺钉。](media/image-116.png)
 
 
 1. 确保拔出所有电缆并自由悬挂。 
 
 1. 在 pod 的前方，小心地将服务器滑出。在向外移动时，请保持服务器的中心，以便进行均匀分配。 
 
-    ![](media/image-117.png)
+    ![显示要从 pod 中删除的服务器的关系图。](media/image-117.png)
 
 
 1. 将服务器置于静电放电安全位置。 
 
 1. 在 pod 的前方，从机架的底部拔出热水。 按住热水的中心，以实现甚至是在向外移动时进行的。 
 
-    ![](media/image-118.png)
+    ![显示要从 pod 中删除的热水的关系图。](media/image-118.png)
 
 
 ## <a name="installing-the-heater"></a>安装热水
@@ -237,41 +237,41 @@ ms.locfileid: "97868414"
 
 1. 在 pod 的前方，通过战术性1U 热水-V2 的底部的循环滑动新的 zip 绑定，但不要将该绑定分成不同的位置。 
 
-    ![](media/image-119.png)
+    ![显示热水底部的循环的关系图。](media/image-119.png)
 
 
 1. 在 pod 的前方，通过将其从前到后滑入，插入战术性1U 热水-V2。 确保 zip 绑定不会过时。 
 
 1. 在 pod 的前方，在机架和战术性1U 热水-V2 之间安装064英寸的填充码。 
 
-    ![](media/image-120.png)
+    ![显示填充程序在 pod 前方位置的关系图。](media/image-120.png)
 
 
 1. 在 pod 的背面，在机架和战术性1U 热水-V2 之间安装064英寸的填充码。 
 
-    ![](media/image-121.png)
+    ![显示在 pod 背面的填充程序位置的关系图。](media/image-121.png)
 
 
 1. 在 pod 的前方，重新连接四条10-32 螺钉、挂锁垫圈和平头垫圈。 将入门和低强度 threadlocker 应用到螺丝螺纹，并将螺钉扭矩为27英寸磅。 
 
-    ![](media/image-122.png)
+    ![显示要重新附加的螺钉的关系图。](media/image-122.png)
 
 
 1. 在 pod 的前方，安装管理服务器或小规模单元节点服务器，并将其从前端滑入后。 确保在服务器的方式中没有松动的电缆。 
 
 1. 在 pod 的前方，重新连接四条10-32 螺钉、挂锁垫圈和平头垫圈。 将入门和低强度 threadlocker 应用到螺丝螺纹，并将螺钉扭矩为27英寸磅。 
 
-    ![](media/image-123.png)
+    ![显示正在重新附加的服务器螺钉的关系图。](media/image-123.png)
 
 
 1. 在 pod 的背面，重新连接两台服务器背面10-32 螺钉、挂锁垫圈和平头垫圈。 将入门和低强度 threadlocker 应用于螺钉螺纹，并将扭矩测量为27英寸磅。 
 
-    ![](media/image-124.png)
+    ![显示重新附加的两个服务器背面装载螺钉的关系图。](media/image-124.png)
 
 
 1. 在 pod 的背面，安装战术性1U 热水-V2 四个背面挂载10-32 螺钉、挂锁垫圈和平头垫圈。 将入门和低强度 threadlocker 应用到螺丝螺纹，并将螺钉扭矩为27英寸磅。 
 
-    ![](media/image-125.png)
+    ![显示热水的四个螺钉的关系图。](media/image-125.png)
 
 
 1. 在 pod 的背面，从战术性1U 热水-V2 下删除两个填充码，并将其放置在热水工具包中，供将来使用。 
@@ -311,14 +311,14 @@ ms.locfileid: "97868414"
 
     调整球制动器后面的 arm 时，将 plenum 门保持稳定。 
     
-    ![](media/image-126.png)
+    ![显示制动器的球。](media/image-126.png)
     
-    ![](media/image-127.png)
+    ![制动器球。](media/image-127.png)
     
 
 1. 在 pod 的背面，按下两个位置中的一个或 (B，同时同时按左和右或上和下) ，直到 plenum 的链接可以听到咔嗒声。 
 
-    ![](media/image-128.png)
+    ![显示要按下并 plenum 的位置的关系图。](media/image-128.png)
 
 
 1. 在 pod 的背面，这六个以太网缆线 (两个蓝色 Cat 6 和四个黑色 25 Gbps 电缆) 围绕电缆 stowage 的后台 
@@ -327,12 +327,12 @@ ms.locfileid: "97868414"
 
 1. 在 pod 的前方，将电缆布线到该环下，将该线与电缆环绕，然后将其压缩到位。 剪裁多余的 zip 绑定。 
 
-    ![](media/image-129.png)
+    ![显示 zip 绑定循环和服务器入口温度传感器的关系图。](media/image-129.png)
 
 
 1. 在 pod 的前方，安装前端 plenum，方法是将 plenum 置于大约40度角 (最小) ，同时将索引抓手指置于正面的扁平平面部分。 将 plenum 的折叠金属引导到机箱架折金属。 
 
-    ![](media/image-130.png)
+    ![显示要安装的前端 plenum 的关系图。](media/image-130.png)
 
 
 1. 正确对齐后，请使用 release 选项卡将 plenum 放置到位置。 

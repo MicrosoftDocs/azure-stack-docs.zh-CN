@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 2bbd32a8117955a18c525a4a0483d152c5a3ed0c
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 4eb685335d9cb4f3937c48656237b0d10c3a3594
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612465"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910544"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的系统要求
 
@@ -76,7 +76,7 @@ Microsoft 建议从我们的合作伙伴购买经验证的 Azure Stack HCI 硬�
 | 45000           | wssdagent GPRC   服务器端口           |
 | 45001             | wssdagent GPRC 身份验证端口  | 
 | 55000           | wssdcloudagent GPRC   服务器端口           |
-| 55001             | wssdcloudagent GPRC 身份验证端口  | 
+| 65000             | wssdcloudagent GPRC 身份验证端口  | 
 
 
 Windows Admin Center 计算机和 Azure Stack HCI 群集中的所有节点都需要防火墙 URL 例外。 

@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b0befa0b2dd2d2acd3ad9f0470722a7135e6e974
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 35deff6c48c02c1deda13bb3cd8dec87e54f52ef
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867547"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909865"
 ---
 # <a name="verifying-scale-unit-node-disk-health"></a>正在验证缩放单位节点磁盘运行状况
 
@@ -28,7 +28,7 @@ ms.locfileid: "97867547"
 
         如果系统未返回 **"正常" 和 "** **正常**" **HealthStatus** 的 **OperationalStatus** ，请等待几分钟，然后再次运行该命令。
         
-        ![](media/image-57.png)
+        ![显示 Windows PowerShell 的屏幕截图，其中突出显示了 "OperationsStatus" 和 "HealthStatus" 列。](media/image-57.png)
         
     1.  运行 `Get-VirtualDisk -cimsession "S-Cluster" | Get-StorageJob` 验证所有正在运行的存储作业是否已完成。
     

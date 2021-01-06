@@ -16,12 +16,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 900be8cd88fdfbbb488bf07c4b37521551581590
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 60caf869fef5537aa6adc35bd2233a81a4fe749d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874313"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909814"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>在 Azure Stack 集线器中旋转容器注册表机密
 
@@ -253,19 +253,19 @@ Azure Stack 中心用户可以为容器注册表模板部署轮换 (证书、用
 
 2.  导航到容器注册表模板 VM 所部署到的资源组。
 
-    ![容器注册表模板](./media/container-registry-template-rotating-secrets-tzl/image1.png)
+    ![显示容器注册表模板 VM 所部署到的资源组的屏幕截图。](./media/container-registry-template-rotating-secrets-tzl/image1.png)
 
 3. 选择 **部署下的部署。**
 
-    ![容器注册表模板](./media/container-registry-template-rotating-secrets-tzl/image2.png)
+    ![显示在 "部署" 页上选择的部署的屏幕截图。](./media/container-registry-template-rotating-secrets-tzl/image2.png)
 
 4.  如果是第一次轮换密钥，请选择原始部署。 如果这不是第一次轮换机密，请选择最新部署，然后选择 "重新 **部署**"。
 
-    ![容器注册表模板](./media/container-registry-template-rotating-secrets-tzl/image3.png)
+    ![显示模板 "概述" 页面并突出显示 "重新部署" 操作的屏幕截图。](./media/container-registry-template-rotating-secrets-tzl/image3.png)
 
 5.  在 " **部署解决方案模板**" 中，选择 " **使用现有资源组** "，并选择最初用于部署容器注册表模板的资源组。 为了成功重新部署，必须使用相同的资源组。
 
-    ![容器注册表模板](./media/container-registry-template-rotating-secrets-tzl/image4.png)
+    ![显示 "部署解决方案模板" 和 "参数" 页的屏幕截图。](./media/container-registry-template-rotating-secrets-tzl/image4.png)
 
 6.  In **参数** 检查参数是否与原始部署匹配。 将需要添加服务主体客户端 ID 和服务主体机密。
 

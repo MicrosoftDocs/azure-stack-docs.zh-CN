@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何使用 Azure Stack 集线器验证作为服务来验证 OEM 包。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: e475b498895d2c1398ffddb13b1af7baa10d2e90
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 6194211b839cdeb2f12e1f88f1d1fe4617881680
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764862"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97910190"
 ---
 # <a name="validate-oem-packages"></a>验证 OEM 程序包
 
@@ -29,7 +29,7 @@ ms.locfileid: "88764862"
 
 ## <a name="managing-packages-for-validation"></a>管理用于验证的包
 
-使用 **包验证** 工作流验证包时，需要提供 **Azure 存储 blob**的 URL。 此 blob 是在更新过程中安装的测试签名 OEM 包。 使用在安装过程中创建的 Azure 存储帐户创建 blob (参阅 [将验证作为服务 [VaaS] 资源](azure-stack-vaas-set-up-resources.md)) 。
+使用 **包验证** 工作流验证包时，需要提供 **Azure 存储 blob** 的 URL。 此 blob 是在更新过程中安装的测试签名 OEM 包。 使用在安装过程中创建的 Azure 存储帐户创建 blob (参阅 [将验证作为服务 [VaaS] 资源](azure-stack-vaas-set-up-resources.md)) 。
 
 ### <a name="prerequisite-provision-a-storage-container"></a>必备组件：预配存储容器
 
@@ -40,7 +40,7 @@ ms.locfileid: "88764862"
 2. 在 " **Blob 服务**" 下的左侧边栏选项卡中，选择 " **容器**"。
 
 3. 从菜单栏中选择 " **+ 容器** "。
-    1. 提供容器的名称。 例如，`vaaspackages`。
+    1. 提供容器的名称。 例如，`vaaspackages` 。
     1. 为未经身份验证的客户端（如 VaaS）选择所需的访问级别。 有关如何在每个方案中授予对包的 VaaS 访问权限的详细信息，请参阅 [处理容器访问级别](#handling-container-access-level)。
 
 ### <a name="upload-package-to-storage-account"></a>将包上传到存储帐户
@@ -62,11 +62,11 @@ ms.locfileid: "88764862"
 
 VaaS 所需的最低访问级别取决于你是要创建包验证工作流还是计划 *交互* 测试。
 
-对于 **私有** 和 **Blob** 访问级别，必须通过向 VaaS 提供 [共享访问签名](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) 来暂时授予对包 Blob 的访问权限。 **容器**访问级别不要求你生成 SAS url，但允许对容器及其 blob 进行未经身份验证的访问。
+对于 **私有** 和 **Blob** 访问级别，必须通过向 VaaS 提供 [共享访问签名](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) 来暂时授予对包 Blob 的访问权限。 **容器** 访问级别不要求你生成 SAS url，但允许对容器及其 blob 进行未经身份验证的访问。
 
 |访问级别 | 工作流要求 | 测试要求 |
 |---|---------|---------|
-|Private |  ([选项 1](#option-1-generate-a-blob-sas-url)) 生成每个包 BLOB 的 SAS URL。 | 在帐户级别生成 SAS URL，并将包 blob 名称手动添加 ([选项 2](#option-2-construct-a-container-sas-url)) 。 |
+|专用 |  ([选项 1](#option-1-generate-a-blob-sas-url)) 生成每个包 BLOB 的 SAS URL。 | 在帐户级别生成 SAS URL，并将包 blob 名称手动添加 ([选项 2](#option-2-construct-a-container-sas-url)) 。 |
 |Blob |  ([选项 3](#option-3-grant-public-read-access)) 提供 "blob URL" 属性。 | 在帐户级别生成 SAS URL，并将包 blob 名称手动添加 ([选项 2](#option-2-construct-a-container-sas-url)) 。 |
 |容器 |  ([选项 3](#option-3-grant-public-read-access)) 提供 "blob URL" 属性。 |  ([选项 3](#option-3-grant-public-read-access)) 提供 "blob URL" 属性。
 
@@ -83,11 +83,11 @@ VaaS 所需的最低访问级别取决于你是要创建包验证工作流还是
 
 2. 从上下文菜单中选择 " **生成 SAS** "。
 
-3. 选择 "从**权限****读取**"。
+3. 选择 "从 **权限****读取**"。
 
-4. 将 **开始时间** 设置为当前时间，并将 **结束时间** 设置为从 **开始时间起**至少48小时。 如果要创建具有相同包的其他工作流，请考虑增加测试长度的 **结束时间** 。
+4. 将 **开始时间** 设置为当前时间，并将 **结束时间** 设置为从 **开始时间起** 至少48小时。 如果要创建具有相同包的其他工作流，请考虑增加测试长度的 **结束时间** 。
 
-5. 选择“生成 Blob SAS 令牌和 URL”。****
+5. 选择“生成 Blob SAS 令牌和 URL”。
 
 将包 Blob url 提供给门户时，请使用 **BLOB SAS url** 。
 
@@ -97,13 +97,13 @@ VaaS 所需的最低访问级别取决于你是要创建包验证工作流还是
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
-1. 从 "**允许的服务" 选项**中选择 " **Blob** "。 取消选择任何其他选项。
+1. 从 "**允许的服务" 选项** 中选择 " **Blob** "。 取消选择任何其他选项。
 
-1. 从**允许的资源类型**中选择**容器**和**对象**。
+1. 从 **允许的资源类型** 中选择 **容器** 和 **对象**。
 
-1. 从**允许的权限**中选择 "**读取**" 和 "**列表**"。 取消选择任何其他选项。
+1. 从 **允许的权限** 中选择 "**读取**" 和 "**列表**"。 取消选择任何其他选项。
 
-1. 从**开始**时间开始，选择 "**开始时间**" 作为 "当前时间" 和 "**结束时间**"。 如果要运行具有相同包的其他测试，请考虑增加测试长度的 **结束时间** 。 **结束时间**之后通过 VaaS 计划的所有测试都将失败，并将需要生成新的 SAS。
+1. 从 **开始** 时间开始，选择 "**开始时间**" 作为 "当前时间" 和 "**结束时间**"。 如果要运行具有相同包的其他测试，请考虑增加测试长度的 **结束时间** 。 **结束时间** 之后通过 VaaS 计划的所有测试都将失败，并将需要生成新的 SAS。
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
     格式应如下所示： `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`

@@ -1,6 +1,6 @@
 ---
-title: 从管理员门户为 Azure Stack 启用备份 | Microsoft Docs
-description: 了解如何通过管理员门户启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
+title: 从管理员门户启用 Azure Stack 的备份-MDC
+description: 了解如何从管理员门户启用基础结构备份服务，以便在发生故障时可以恢复 Azure Stack。 对于模块化数据中心。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 3864183ecda856500db1fcbfe38df84d70f3bae9
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: db0980511b2272a6c92c1644401ce1d577ddcf8d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329002"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910936"
 ---
-# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal"></a>从管理员门户配置 Azure Stack 集线器的备份
+# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal---modular-data-center-mdc"></a>从管理员门户配置 Azure Stack 集线器的备份-模块化数据中心 (MDC) 
 
 *适用于：模块化数据中心、Azure Stack 中心耐用*
 
@@ -32,18 +32,18 @@ ms.locfileid: "93329002"
 
 1. 打开 [Azure Stack 管理员门户](../../operator/azure-stack-manage-portals.md)。
 
-2. 选择 " **所有服务** "，然后在 " **管理** " 类别下选择 " **基础结构备份** "。 在“基础结构备份”  边栏选项卡中选择“配置”  。
+2. 选择 " **所有服务**"，然后在 " **管理** " 类别下选择 " **基础结构备份**"。 在“基础结构备份”  边栏选项卡中选择“配置”  。
 
 3. 键入 **备份存储位置** 的路径。 使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 对于服务，可以使用 IP 地址。 若要确保在发生灾难后备份数据的可用性，设备应位于不同的位置。
 
     > [!NOTE]  
     > 如果环境支持从 Azure Stack 基础结构网络到企业环境的名称解析，则可以使用完全限定的域名 (FQDN) 而不是 IP。
 
-4. 使用域和用户名键入用户名，该 **用户名** 具有对读取和写入文件的足够访问权限;例如， **Contoso\backupshareuser** 。
+4. 使用域和用户名键入用户名，该 **用户名** 具有对读取和写入文件的足够访问权限;例如， **Contoso\backupshareuser**。
 
-5. 键入用户的 **密码** 。
+5. 键入用户的 **密码**。
 
-6. 再次键入密码以 **确认密码** 。
+6. 再次键入密码以 **确认密码**。
 
 7. “频率(小时)”  决定了以何频率创建备份。 默认值为 12。 计划程序支持的最小值为4，最大值为12。
 
@@ -52,7 +52,7 @@ ms.locfileid: "93329002"
    > [!NOTE]
    > 如果希望对超过保留期的备份进行存档，请确保在计划程序删除备份之前对这些文件进行备份。 如果缩短备份保留期 (例如，从7天到5天) ，计划程序将删除早于新保留期的所有备份。 在更新此值之前，请确保删除备份没有问题。
 
-9. 在 " **加密设置** " 中，公共证书指纹适用于部署期间提供的证书。 无需更新现有证书。
+9. 在 " **加密设置**" 中，公共证书指纹适用于部署期间提供的证书。 无需更新现有证书。
 
 10. 选择“确定”  以保存备份控制器设置。
 
@@ -64,7 +64,7 @@ ms.locfileid: "93329002"
 
 ![Azure Stack - 按需备份](media/azure-stack-backup-enable-backup-console-tzl/on-demand-backup.png)
 
-如果需要禁用未来计划的备份，请选择 " **禁用自动备份** "。 禁用自动备份将保留所配置的备份设置，并将保留备份计划。 此操作指示计划程序跳过以后的备份。
+如果需要禁用未来计划的备份，请选择 " **禁用自动备份**"。 禁用自动备份将保留所配置的备份设置，并将保留备份计划。 此操作指示计划程序跳过以后的备份。
 
 ![Azure Stack - 禁用计划的备份](media/azure-stack-backup-enable-backup-console-tzl/disable-auto-backup.png)
 

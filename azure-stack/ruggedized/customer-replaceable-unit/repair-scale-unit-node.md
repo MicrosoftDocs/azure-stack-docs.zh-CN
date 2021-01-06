@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: e5ba7b7ea35484293cc0f93958e7ed9d66f62d51
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d05c696f62aad4d9305137edab777d69b6442814
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867870"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909916"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>打开和修复缩放单位节点
 
@@ -25,15 +25,15 @@ ms.locfileid: "97867870"
 
 1.  在 **管理门户** 中，选择节点，并选择 " **修复**"。
 
-    ![](media/image-52.png)
+    ![屏幕截图，显示具有节点并选中 "修复" 操作的 "管理节点" 页。](media/image-52.png)
 
 1.  提供与要修复的节点相对应的 **BMC IP 地址** ，然后选择 " **修复**"。
 
-    ![](media/image-53.png)
+    ![屏幕截图显示了一个选定节点的 "管理节点" 页面，已突出显示 I P 地址并显示 "修复节点" 对话框。](media/image-53.png)
 
 1.  在通知窗格中监视进度：
 
-    ![](media/image-54.png)
+    ![显示 "通知" 窗格和 "修复节点正在运行" 的屏幕截图。](media/image-54.png)
     
     
     > [!NOTE]

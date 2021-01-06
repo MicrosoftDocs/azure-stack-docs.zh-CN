@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 管理基础知识
+title: Azure Stack 集线器管理基础知识-耐用
 titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 管理基础知识。
 author: PatAltimore
@@ -8,14 +8,14 @@ ms.date: 06/16/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 6d278ba17965e78c2be875d048ed5cc12ba31f25
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f94a8ba25c595ac231beda9e235245d25541f334
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874330"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909678"
 ---
-# <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub 管理基础知识
+# <a name="azure-stack-hub-administration-basics---ruggedized"></a>Azure Stack 集线器管理基础知识-耐用
 
 如果你不熟悉 Azure Stack Hub 管理，则需要了解几项事情。 本文概述 Azure Stack Hub 操作员角色，以及需要告知用户哪些事情才能帮助他们提高工作效率。
 

@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: ddcfd86dff4164b876232986d60c4b2c4eba0d3a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b91e5825200f7a05a403bb90db3825377e042cf9
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874670"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910408"
 ---
 # <a name="azure-stack-hub-hardware-diagram"></a>Azure Stack 集线器硬件图示
 
@@ -20,9 +20,9 @@ ms.locfileid: "97874670"
 
 图 1. Front
 
-![](media/image-58.png)
+![显示完整堆栈正面的关系图。](media/image-58.png)
 
 图 2. Rear
 
-![](media/image-59.png)
+![显示完整堆栈背面的关系图。](media/image-59.png)
 

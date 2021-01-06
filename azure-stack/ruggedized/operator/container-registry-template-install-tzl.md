@@ -1,7 +1,7 @@
 ---
-title: 将容器注册表添加到 Azure Stack 中心 |Microsoft Docs
+title: 添加容器注册表-Azure Stack 集线器 |Microsoft Docs
 titleSuffix: Azure Stack
-description: 了解如何将容器注册表添加到 Azure Stack 中心市场。
+description: 了解如何将容器注册表添加到 Azure Stack 中心市场 (耐用) 。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 875eaf68324993be7029cfedd3d376ea38184a06
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a517fc2bef86584c6bdf5aff6f9b7907ac9c0b1e
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874364"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910561"
 ---
-# <a name="add-a-container-registry-to-azure-stack-hub"></a>将容器注册表添加到 Azure Stack 中心
+# <a name="add-a-container-registry-to-azure-stack-hub-ruggedized"></a>将容器注册表添加到 Azure Stack 中心 (耐用) 
 
 可以将容器注册表添加到 Azure Stack 中心 Marketplace，以便用户可以部署和维护其自己的容器注册表。 此解决方案模板将在 AKS 基 Ubuntu 16.04-LTS 映像上运行的用户订阅中安装并配置开源 Docker 容器注册表。 该模板支持 (气流) 部署的连接和断开连接，并支持 Azure Active Directory (AAD) 和 Active Directory (AD FS) 中心部署 Azure Stack 联合服务。
 
@@ -117,15 +117,15 @@ ms.locfileid: "97874364"
 
 2. 选择 "**创建**  >  **计算**  >  **容器注册表模板**"。
 
-    ![容器注册表模板](./media/container-registry-template-install-tzl/image1.png)
+    ![屏幕截图，显示 "仪表板 > 新" 页面，其中选择了 "计算" 并显示 "容器注册表模板" 选择。](./media/container-registry-template-install-tzl/image1.png)
 
 3. 选择订阅、资源组和部署容器注册表模板的位置。
 
-    ![容器注册表模板](./media/container-registry-template-install-tzl/image2.png)
+    ![屏幕截图，显示 "创建容器注册表模板-基础知识" 页。](./media/container-registry-template-install-tzl/image2.png)
 
 4. 完成虚拟机配置详细信息。 图像 SKU 默认为 **aks-1604-201909**;但是，该函数的输出 `Set-ContainerRegistryPrerequisites` 包含用于部署的可用 sku 的列表。 如果存在多个 SKU，请选择最新的用于部署的 SKU。
 
-    ![容器注册表模板](./media/container-registry-template-install-tzl/image3.png)
+    ![显示 "创建容器注册表模板-虚拟机配置" 页面的屏幕截图。](./media/container-registry-template-install-tzl/image3.png)
 
     | 参数 | 详细信息 |
     | --- | --- |
@@ -141,7 +141,7 @@ ms.locfileid: "97874364"
 
 1. 完成存储并 Key Vault 配置。
 
-    ![容器注册表模板](./media/container-registry-template-install-tzl/image4.png)
+    ![显示 "创建容器注册表模板-存储和 Key Vault 配置" 页的屏幕截图。](./media/container-registry-template-install-tzl/image4.png)
 
     | 参数 | 详细信息 |
     | --- | --- |

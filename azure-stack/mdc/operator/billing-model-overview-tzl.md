@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中的客户计费模式概述Microsoft Docs
-description: 了解如何对 Azure Stack 用户计费资源使用情况。
+title: Azure Stack 中的客户计费模型概述 |Microsoft Docs
+description: 了解 Azure Stack 用户如何针对模块化数据中心 (MDC) 中的资源使用情况进行计费。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 12/04/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: bd20dee177ac1f061b954eb0285b3103747675d1
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 15f894a668374be5380f322d368b76d88bb93cba
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934839"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910748"
 ---
-# <a name="billing-model-overview"></a>计费模型概述
+# <a name="billing-model-overview---modular-data-center-mdc"></a>计费模型概述-模块化数据中心 (MDC) 
 
 作为 MDC 或 Azure Stack 中心耐用的用户，Microsoft 根据每个设备的时间长度向你计费。 收费为每期，并包含使用基本计算、存储和网络服务的权利。 你需要根据应用服务、事件中心和任何其他 PaaS 服务的使用情况收费，以及在 Azure Stack Hub 耐用和 MDC 上运行的 Windows Server PAYG Vm。 如果你完全断开连接并且无法报告使用数据，则必须获取 PaaS 服务的容量许可证，并为 Windows Vm 自带许可证。
 

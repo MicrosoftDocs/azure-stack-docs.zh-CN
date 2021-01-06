@@ -2,15 +2,15 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 9a5ff44e6320548934bc5421de4143ff6295bbe9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 339f5526167823c795d2b2c7f8779b9b4012f96b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112046"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97910189"
 ---
-在 [Azure 门户](https://portal.azure.com/)中导航到存储帐户。 在 "**设置**" 下，选择 "**共享访问签名**"。
+在 Azure 门户中，导航到存储帐户。 在 " **设置**" 下，选择 " **共享访问签名**"。

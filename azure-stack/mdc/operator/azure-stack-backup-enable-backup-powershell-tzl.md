@@ -1,6 +1,6 @@
 ---
-title: 使用 PowerShell 为 Azure Stack 启用备份 | Microsoft Docs
-description: 了解如何使用 PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
+title: 使用 PowerShell 启用 Azure Stack 的备份-MDC
+description: 了解如何使用 PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。 对于模块化数据中心 (MDC) 。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9f50a6096f0fb7881d37a67df34bdcd6f2487eb9
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f3d28fa9f5610f91ab8b35ad017c836745f5117d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935043"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910868"
 ---
-# <a name="configure-backup-for-azure-stack-with-powershell"></a>为 Azure Stack 配置 PowerShell
+# <a name="configure-backup-for-azure-stack-with-powershell---modular-data-center-mdc"></a>为 Azure Stack 配置 PowerShell-模块化数据中心 (MDC) 
 
 *适用于：模块化数据中心、Azure Stack 中心耐用*
 

@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b439bfdfcae82c6e80b29d678c18f434945684cc
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8a820d02ef1832343ba5110a244793c70b73aed3
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867938"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910272"
 ---
 # <a name="dell-emc-poweredge-tactical-indicators-and-codes"></a>Dell EMC PowerEdge 战术性指标和代码
 
@@ -25,7 +25,7 @@ ms.locfileid: "97867938"
 
 图 10. LED 行为
 
-![](media/image-75.png)
+![LED 行为的 "系统信息" 标签。](media/image-75.png)
 
 ## <a name="idrac-direct-led-indicator-codes"></a>iDRAC 直接 LED 指示器代码
 
@@ -49,7 +49,7 @@ IDRAC 直接 LED LED 指示灯亮起，指示端口已连接并且正作为 iDRA
 
 图 11. 左侧控制面板
 
-![](media/image-76.png)
+![显示左侧控制面板状态和运行状况指示符的关系图。](media/image-76.png)
 
 下表描述了左侧面板中的功能。
 
@@ -57,8 +57,8 @@ IDRAC 直接 LED LED 指示灯亮起，指示端口已连接并且正作为 iDRA
 
 |    <br>Item       |    <br>指示器或按钮                       |    <br>图标                                |    <br>说明                                                                                                  |
 |-------------------|--------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-|    <br>1          |    <br>状态 LED 指示器                     |    <br>空值                                 |    <br>指示系统的状态。 有关详细信息，请参阅页面61上的 PowerEdge 状态 LED 指示器。    |
-|    <br>2和3    |    <br>系统运行状况和系统 ID 指示器    | ![](media/image-77.png) |    <br>指示系统运行状况。                                                                                 |
+|    <br>1          |    <br>状态 LED 指示器                     |    <br>不适用                                 |    <br>指示系统的状态。 有关详细信息，请参阅页面61上的 PowerEdge 状态 LED 指示器。    |
+|    <br>2和3    |    <br>系统运行状况和系统 ID 指示器    | ![系统运行状况图标](media/image-77.png) |    <br>指示系统运行状况。                                                                                 |
 
 下表列出了 PowerEdge 状态 LED 指示器。
 
@@ -83,7 +83,7 @@ AC 电源单元 (通电 psu) 的透明控点作为指示器。 DC 通电 psu 有
 
 图 12. AC PSU
 
-![](media/image-83.png)
+![显示 AC PSU 的关系图，指示了 LED。](media/image-83.png)
 
 下表定义了指标代码。
 

@@ -4,23 +4,23 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack 集线器验证作为服务的常见工作流参数。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f7932714642568c1d41a94d55a212af1bcc385ad
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 51821c70153f2b4f091b0e8ccb659dddf863bb5e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112047"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97910851"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Azure Stack 中心验证作为服务的工作流常见参数
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-常见参数包括环境变量等值和验证即服务中的所有测试所需的用户凭据（VaaS）。 这些值是在创建或更改工作流时在工作流级别定义的。 计划测试时，这些值作为参数传递给工作流下的每个测试。
+常见参数包括环境变量和验证为服务 (VaaS) 中的所有测试所需的用户凭据之类的值。 这些值是在创建或更改工作流时在工作流级别定义的。 计划测试时，这些值作为参数传递给工作流下的每个测试。
 
 > [!NOTE]
 > 每个测试都定义了其自己的一组参数。 在计划时间，测试可能要求你输入独立于通用参数的值，或可能允许你重写通用参数值。
@@ -47,7 +47,7 @@ ms.locfileid: "84112047"
 
 ### <a name="locate-values-in-the-ece-configuration-file"></a>在 ECE 配置文件中查找值
 
-还可以在位于 DVM 上的**ECE 配置文件**中手动找到环境参数值 `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` 。
+还可以在位于 DVM 上的 **ECE 配置文件** 中手动找到环境参数值 `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` 。
 
 ## <a name="test-parameters"></a>测试参数
 
@@ -55,33 +55,33 @@ ms.locfileid: "84112047"
 
 参数    | 说明
 -------------|-----------------
-租户管理员用户                            | Azure Active Directory （Azure AD）租户管理员在 AAD 目录中由服务管理员设置。 此用户执行租户级别的操作，例如部署模板来设置资源（Vm、存储帐户等）和执行工作负荷。 有关设置租户帐户的详细信息，请参阅[添加新的 Azure Stack 中心租户](../operator/azure-stack-add-new-user-aad.md)。
+租户管理员用户                            | Azure Active Directory Azure AD (在 AAD 目录中由服务管理员设置) 租户管理员。 此用户执行租户级别的操作，例如部署模板来设置资源 (Vm、存储帐户等。 ) 和执行工作负荷。 有关设置租户帐户的详细信息，请参阅 [添加新的 Azure Stack 中心租户](../operator/azure-stack-add-new-user-aad.md)。
 服务管理员用户             | Azure Stack 中心部署期间指定的 Azure AD directory 租户 Azure AD 管理员。 `AADTenant`在 ECE 配置文件中搜索，然后在元素中选择值 `UniqueName` 。
-云管理员用户               | Azure Stack 中心域管理员帐户（例如 `contoso\cloudadmin` ）。 `User Role="CloudAdmin"`在 ECE 配置文件中搜索，然后在元素中选择值 `UserName` 。
-诊断连接字符串          | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅[生成诊断连接字符串](#generate-the-diagnostics-connection-string)。 |
+云管理员用户               | Azure Stack 中心域管理员帐户 (例如， `contoso\cloudadmin`) 。 `User Role="CloudAdmin"`在 ECE 配置文件中搜索，然后在元素中选择值 `UserName` 。
+诊断连接字符串          | Azure 存储帐户的 SAS URL，在测试执行过程中将在该帐户中复制诊断日志。 有关生成 SAS URL 的说明，请参阅 [生成诊断连接字符串](#generate-the-diagnostics-connection-string)。 |
 
 > [!IMPORTANT]
-> **诊断连接字符串**必须有效，然后才能继续。
+> **诊断连接字符串** 必须有效，然后才能继续。
 
 ### <a name="generate-the-diagnostics-connection-string"></a>生成诊断连接字符串
 
-在测试执行过程中存储诊断日志需要诊断连接字符串。 使用在安装过程中创建的 Azure 存储帐户（请参阅[将验证设置为服务资源](azure-stack-vaas-set-up-resources.md)），创建共享访问签名（SAS） URL，以允许 VaaS 访问权限，以便将日志上传到存储帐户。
+在测试执行过程中存储诊断日志需要诊断连接字符串。 使用在安装过程中创建的 Azure 存储帐户 (参阅 [将验证设置为服务资源](azure-stack-vaas-set-up-resources.md)) 若要创建共享访问签名 (SAS) URL，以允许 VaaS 访问权限，以便将日志上传到存储帐户。
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
-1. 从 "**允许的服务" 选项**中选择 " **Blob** "。 取消选择任何其他选项。
+1. 从 "**允许的服务" 选项** 中选择 " **Blob** "。 取消选择任何其他选项。
 
-1. 从**允许的资源类型**中选择 "**服务**"、"**容器**" 和 "**对象**"。
+1. 从 **允许的资源类型** 中选择 "**服务**"、"**容器**" 和 "**对象**"。
 
 1. 选择 "**读取**"、"**写入**"、"**列出** **"、"从****允许的权限****创建**"。 取消选择任何其他选项。
 
-1. 将“开始时间”设置为当前时间，将“结束时间”设置为距当前时间三个月的未来时间。********
+1. 将“开始时间”设置为当前时间，将“结束时间”设置为距当前时间三个月的未来时间。
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
 
 > [!NOTE]  
-> SAS URL 在生成 URL 时指定的结束时间过期。 在计划测试时，请确保 URL 有效期至少为30天，并确保测试执行所需的时间（建议三个月）。
+> SAS URL 在生成 URL 时指定的结束时间过期。 计划测试时，请确保 URL 有效期至少为30天加上测试执行所需的时间，) 建议 (三个月。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)
+- 了解 [作为服务关键概念的验证](azure-stack-vaas-key-concepts.md)
