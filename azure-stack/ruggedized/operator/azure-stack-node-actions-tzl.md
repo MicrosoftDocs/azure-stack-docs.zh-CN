@@ -15,12 +15,12 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 126f96069b2440b6a38887306a92409b75f5b682
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 48cb9d6e659f8b6f3507f5c0b4d6b7e60622f025
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910595"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965471"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Azure Stack 中心中的缩放单位节点操作-耐用
 
@@ -80,7 +80,7 @@ ms.locfileid: "97910595"
 
 “停止”操作会关闭节点。 它的作用如同按下电源按钮。 它不会向操作系统发送关闭信号。 对于计划的停止操作，请始终先尝试关闭操作。
 
-当节点处于挂起状态，不再响应请求时，通常使用此操作。
+当节点不再响应请求时，通常使用此操作。
 
 若要运行停止操作，请打开权限提升的 PowerShell 提示符，并运行以下 cmdlet：
 
@@ -169,4 +169,4 @@ ms.locfileid: "97910595"
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解 Azure Stack Hub Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。
+[了解 Azure Stack Hub Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/)。

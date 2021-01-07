@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: ac5880d319518ba93d4eb41497b289c3230fe69d
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918669"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965522"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公钥基础结构 (PKI) 证书要求
 
@@ -108,8 +108,8 @@ Azure Stack Hub 有一个公共基础结构网络，该网络使用分配给少�
 |应用服务|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |应用服务|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |应用服务|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|事件中心|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub.&lt;region>.&lt;fqdn> |
-|IoT 中心|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
+|事件中心|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|eventhub.&lt;region>.&lt;fqdn> |
+|IoT 中心|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|mgmtiothub. *&lt;region>.&lt;fqdn>* |
 |SQL、MySQL|SQL 和 MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> 需要一个包含多个通配符使用者可选名称的证书。 并非所有公共证书颁发机构都支持在单个证书中包含多个通配符 SAN。
