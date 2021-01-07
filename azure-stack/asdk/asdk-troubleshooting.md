@@ -3,22 +3,21 @@ title: 排查 ASDK 问题
 description: 了解如何排查 Azure Stack 开发工具包 (ASDK) 问题。
 author: PatAltimore
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/06/2021
 ms.author: patricka
 ms.reviewer: misainat
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b5b0310aa778cf470c436f0770c9b5ca0d46fd8f
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 01/06/2021
+ms.openlocfilehash: d041a4b30c4f95c5b476e8fd00b9231368706466
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872936"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973531"
 ---
 # <a name="troubleshoot-the-asdk"></a>排查 ASDK 问题
 本文提供了 Azure Stack 开发工具包 (ASDK) 的常见故障排除信息。 有关 Azure Stack 集成系统的帮助，请参阅 [Microsoft Azure Stack 故障排除](../operator/azure-stack-troubleshooting.md)。 
 
-由于 ASDK 是一个评估环境，因此 Microsoft 支持部门不提供支持。 如果遇到了文档未记录的问题，可以在 [Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)上获得专家的帮助。 
-
+由于 ASDK 是一个评估环境，因此 Microsoft 支持部门不提供支持。 如果遇到未记录的问题，你可以从 [Microsoft Q&](https://docs.microsoft.com/answers/questions/topics/single/25482.html)上的专家那里获取帮助。
 
 ## <a name="deployment"></a>部署
 ### <a name="deployment-failure"></a>部署失败

@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
-ms.openlocfilehash: b06ab0601616f8c089d7bcf90526dae97a8c6e5f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 518062e13e06dead8564aa649796621dfb93db7a
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489532"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974347"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>Azure Stack Hub 上的应用服务 Update 2 发行说明
 
@@ -29,7 +29,7 @@ Azure Stack Hub 上的应用服务 Update 2 的内部版本号为 **72.0.13698.1
 ## <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
-> 基于 Azure Stack Hub 的 Azure 应用服务的新部署现在要求提供三使用者通配型证书，因为在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。 新主题为：\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>****
+> 基于 Azure Stack Hub 的 Azure 应用服务的新部署现在要求提供三使用者通配型证书，因为在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。 新主题为：\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>
 
 在开始部署之前，请参阅[在 Azure Stack Hub 上部署应用服务的先决条件](azure-stack-app-service-before-you-get-started.md)。
 
@@ -37,9 +37,9 @@ Azure Stack Hub 上的应用服务 Update 2 的内部版本号为 **72.0.13698.1
 
 Azure Stack Hub 上的 Azure 应用服务 Update 2 包含以下改进和修复：
 
-- 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
+- 针对 **应用服务租户、管理员、函数门户和 Kudu 工具** 的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
 
-- 将 **Azure Functions 运行时**更新到 **v1.0.11612**。
+- 将 **Azure Functions 运行时** 更新到 **v1.0.11612**。
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
@@ -85,7 +85,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 2 包含以下改进和修复�
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>云管理员在操作基于 Azure Stack Hub 的 Azure 应用服务时的已知问题
 
-请参阅 [Azure Stack Hub 1804 发行说明](./release-notes.md?view=azs-2002)中的文档
+请参阅 [Azure Stack Hub 1804 发行说明](./release-notes.md?view=azs-1804&preserve-view=true)中的文档
 
 ## <a name="next-steps"></a>后续步骤
 

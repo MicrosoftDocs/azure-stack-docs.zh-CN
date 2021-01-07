@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 008c49c4db50be2ac7c7544211c0f0a82f3b2e2b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3a4b2ae49e052731e372f4bfdaf8ff30c9b5490e
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489685"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974398"
 ---
 # <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>Azure Stack Hub 上的应用服务 Update 5 发行说明
 
@@ -46,17 +46,17 @@ Azure Stack Hub 上的应用服务 Update 5 的内部版本号为 **80.0.2.15**�
   > [!Important]
   > 云操作员负责文件服务器和 SQL Server 的维护和操作。  资源提供程序不管理这些资源。  云操作员负责备份应用服务数据库和租户内容文件共享。
 
-- 同步发布 Azure 市场的**自定义脚本扩展**版本 **1.9.1**。
+- 同步发布 Azure 市场的 **自定义脚本扩展** 版本 **1.9.1**。
 
 ## <a name="new-features-and-fixes"></a>新功能和修复
 
 Azure Stack Hub 上的 Azure 应用服务 Update 5 包含以下改进和修复：
 
-- 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
+- 针对 **应用服务租户、管理员、函数门户和 Kudu 工具** 的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
 
-- 将 **Azure Functions 运行时**更新到 **v1.0.12205**。
+- 将 **Azure Functions 运行时** 更新到 **v1.0.12205**。
 
-- 更新到 **Kudu 工具**即可解决操作**断开连接的** Azure Stack Hub 的客户的样式设置和功能方面的问题。 
+- 更新到 **Kudu 工具** 即可解决操作 **断开连接的** Azure Stack Hub 的客户的样式设置和功能方面的问题。 
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
@@ -72,7 +72,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 5 包含以下改进和修复�
 ## <a name="post-deployment-steps"></a>部署后步骤
 
 > [!IMPORTANT]  
-> 如果已经为应用服务资源提供程序提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](/sql/database-engine/availability-groups/windows/availability-group-add-a-database)并同步数据库，以免在进行数据库故障转移时丢失服务。**
+> 如果已经为应用服务资源提供程序提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](/sql/database-engine/availability-groups/windows/availability-group-add-a-database)并同步数据库，以免在进行数据库故障转移时丢失服务。
 
 ## <a name="post-update-steps"></a>更新后步骤
 
@@ -221,7 +221,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 5 包含以下改进和修复�
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>云管理员在操作基于 Azure Stack Hub 的 Azure 应用服务时的已知问题
 
-请参阅 [Azure Stack Hub 1809 发行说明](./release-notes.md?view=azs-2002)中的文档。
+请参阅 [Azure Stack Hub 1809 发行说明](./release-notes.md)中的文档。
 
 ## <a name="next-steps"></a>后续步骤
 

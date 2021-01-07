@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: e9f6c41097085a0342b2c0a2fc5b5b995c2d9186
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 0d5b48c04e546d3b8776f436e5562786b8e77f33
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96524786"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974126"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>使用 Commvault 在 Azure Stack Hub 上备份 VM
 
@@ -111,12 +111,12 @@ ms.locfileid: "96524786"
 
 | 元素 | 说明 | Source |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure 资源管理器 URL | Azure Stack Hub 资源管理器终结点。 | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
+| Azure 资源管理器 URL | Azure Stack Hub 资源管理器终结点。 | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint |
 | 应用程序名称 |  |  |
-| 应用程序 ID | 在本文上一部分创建服务主体时保存的服务主体应用 ID。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
-| 订阅 ID | 使用订阅 ID 访问 Azure Stack Hub 中的套餐。 | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
-| 租户 ID（目录 ID） | Azure Stack Hub 租户 ID。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
-| 应用程序密码 | 创建服务主体时保存的服务主体应用机密。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
+| 应用程序 ID | 在本文上一部分创建服务主体时保存的服务主体应用 ID。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals |
+| 订阅 ID | 使用订阅 ID 访问 Azure Stack Hub 中的套餐。 | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions |
+| 租户 ID（目录 ID） | Azure Stack Hub 租户 ID。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview |
+| 应用程序密码 | 创建服务主体时保存的服务主体应用机密。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals |
 
 ## <a name="configure-backup-using-the-commvault-console"></a>使用 Commvault 控制台配置备份
 

@@ -7,12 +7,12 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: ba57de42f882ce62d433768f4fd2a265b862459c
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3a445fde3d11d42699caf96ff45167871513a2f5
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489753"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973362"
 ---
 # <a name="app-service-recovery-on-azure-stack-hub"></a>Azure Stack Hub 上的应用服务恢复
 
@@ -39,7 +39,7 @@ ms.locfileid: "86489753"
 3. 验证两个应用服务数据库是否都已成功还原，然后退出 SQL Server Management Studio。
 
 > [!NOTE]
-> 若要从故障转移群集实例故障中恢复，请参阅[从故障转移群集实例故障中恢复](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017)。 
+> 若要从故障转移群集实例故障中恢复，请参阅[从故障转移群集实例故障中恢复](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017&preserve-view=true)。 
 
 ## <a name="restore-the-app-service-file-share-content"></a>还原应用服务文件共享内容
 [准备](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server)好用于托管应用服务文件共享的文件服务器之后，需要从备份还原租户文件共享内容。 可以通过任何可用方法将文件复制到新建的应用服务文件共享位置。 在文件服务器上运行此示例会使用 PowerShell 和 Robocopy 连接到远程共享，并将文件复制到共享：

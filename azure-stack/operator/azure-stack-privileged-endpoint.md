@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 81a27e841565e00c60183de0228896d56b9eede9
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 18c1935c1e683fab1a2cda8886a45648ee69fbf4
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869502"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974279"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>使用 Azure Stack Hub 中的特权终结点
 
@@ -251,5 +251,5 @@ PEP 支持授权响应令牌由两个对象组成：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Stack Hub 诊断工具](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)
+- [Azure Stack Hub 诊断工具](./azure-stack-diagnostic-log-collection-overview.md)
 - [Azure Stack Hub 特权终结点参考](../reference/pep-2002/index.md)

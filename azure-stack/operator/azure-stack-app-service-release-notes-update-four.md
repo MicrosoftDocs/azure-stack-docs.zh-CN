@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 636d4834b391055911ffc37a005fe40d253ec1d6
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: da5fc9162eacb1c9d6d5e91d79871d8fb7be63c8
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489668"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974228"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>Azure Stack Hub 上的应用服务 Update 4 发行说明
 
@@ -46,7 +46,7 @@ Azure Stack Hub 上的应用服务 Update 4 的内部版本号为 **78.0.13698.5
   > [!Important]
   > 云操作员负责文件服务器和 SQL Server 的维护和操作。  资源提供程序不管理这些资源。  云操作员负责备份应用服务数据库和租户内容文件共享。
 
-- 同步发布 Azure 市场的**自定义脚本扩展**版本 **1.9**。
+- 同步发布 Azure 市场的 **自定义脚本扩展** 版本 **1.9**。
 
 ## <a name="new-features-and-fixes"></a>新功能和修复
 
@@ -56,9 +56,9 @@ Azure Stack Hub 上的 Azure 应用服务 Update 4 包含以下改进和修复�
 
 - 添加了对应用服务2018-02-01 API 版本的支持。
 
-- 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
+- 针对 **应用服务租户、管理员、函数门户和 Kudu 工具** 的更新。 与 Azure Stack Hub 门户 SDK 版本一致。
 
-- 将 **Azure Functions 运行时**更新到 **v1.0.11959**。
+- 将 **Azure Functions 运行时** 更新到 **v1.0.11959**。
 
 - 针对核心服务的更新，用于提高可靠性和错误消息传递，以便更轻松地诊断常见问题。
 
@@ -243,7 +243,7 @@ Azure Stack Hub 上的 Azure 应用服务 Update 4 包含以下改进和修复�
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>云管理员在操作基于 Azure Stack Hub 的 Azure 应用服务时的已知问题
 
-请参阅 [Azure Stack Hub 1809 发行说明](./release-notes.md?view=azs-2002)中的文档
+请参阅 [Azure Stack Hub 1809 发行说明](./release-notes.md?view=azs-1809&preserve-view=true)中的文档
 
 ## <a name="next-steps"></a>后续步骤
 

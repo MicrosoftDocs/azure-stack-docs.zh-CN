@@ -8,12 +8,12 @@ ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 1d41130c77f0fc39760453bed29936db2b99901b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 88ece6a5d29e56caf0752fd8c7b71989237d70c1
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869808"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974296"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub 概述
 
@@ -72,7 +72,7 @@ Azure Stack Hub 使用与 Azure 相同的操作模型。 Azure Stack Hub 操作�
 
 > 有关使用管理门户管理 Azure Stack Hub 的详细信息，请参阅 [Azure Stack Hub 管理员门户快速入门](azure-stack-manage-portals.md)。
 
-作为 Azure Stack 中心操作员，你可以提供 [vm](./tutorial-offer-services.md?view=azs-2002)、 [web 应用](azure-stack-app-service-overview.md)、高可用性 [SQL Server](azure-stack-tutorial-sql.md)和 [MySQL Server](azure-stack-tutorial-mysql.md) 数据库。 他们还可以使用 [Azure Stack Hub 快速入门 Azure 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来部署 SharePoint、Exchange 等。
+作为 Azure Stack 中心操作员，你可以提供 [vm](./tutorial-offer-services.md)、 [web 应用](azure-stack-app-service-overview.md)、高可用性 [SQL Server](azure-stack-tutorial-sql.md)和 [MySQL Server](azure-stack-tutorial-mysql.md) 数据库。 他们还可以使用 [Azure Stack Hub 快速入门 Azure 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来部署 SharePoint、Exchange 等。
 
 操作员可以通过[管理员门户](azure-stack-manage-portals.md)或 [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack Hub。 可以使用计划、配额、套餐和订阅来配置 Azure Stack Hub，以向租户[提供服务](service-plan-offer-subscription-overview.md)。 租户用户可以订阅多个套餐。 套餐可以包含一个或多个计划，计划可以包含一个或多个服务。 操作员还可以管理容量以及对警报做出响应。
 

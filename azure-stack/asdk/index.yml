@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 07/02/2020
-  ms.openlocfilehash: 6337532cd97b3833e244c29824dd452af66831e3
-  ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+  ms.openlocfilehash: 6a44bcb6d17ff42669799dcd1c4907bd569fc2b5
+  ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 01/05/2021
-  ms.locfileid: "97872749"
+  ms.lasthandoff: 01/07/2021
+  ms.locfileid: "97973395"
 landingContent:
 - title: 部署 ASDK
   linkLists:
@@ -36,7 +36,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: 提供 IaaS 服务
-      url: ../operator/tutorial-offer-services.md?view=azs-2002
+      url: ../operator/tutorial-offer-services.md
 - title: 如何使用
   linkLists:
   - linkListType: how-to-guide

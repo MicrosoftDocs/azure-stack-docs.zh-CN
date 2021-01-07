@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 0d8425fa11f6de0e909a697527074c779acd27da
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 02a3fdb862f3a4c04a63d5e5694487b62435ee16
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525789"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974092"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>将存储扩展到 Azure Stack Hub
 
@@ -50,7 +50,7 @@ ms.locfileid: "96525789"
 
 2.  如果在 Azure Stack Hub 环境中拥有 Windows Server 2019 映像，即可登录到 Azure Stack Hub 用户门户。
 
-3.  登录到 Azure Stack Hub 用户门户后，确保自己拥有[某个套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md?view=azs-1908)，可用于预配 IaaS 资源（计算、存储和网络）。
+3.  登录到 Azure Stack Hub 用户门户后，确保自己拥有[某个套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)，可用于预配 IaaS 资源（计算、存储和网络）。
 
 4.  获得可用的订阅后，回到 Azure Stack Hub 用户门户中的“仪表板”，并依次选择“创建资源”、“计算”、“Windows Server 2019 Datacenter 库项”   。
 

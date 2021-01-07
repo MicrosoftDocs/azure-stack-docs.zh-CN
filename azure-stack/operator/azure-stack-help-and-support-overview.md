@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 7c4bb5f75118552d7f8379edac7083f8830082a5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: cb2fb8ce9ad1b24430cf545eba3f31ac9e754c43
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870709"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974313"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub 帮助和支持
 
@@ -105,6 +105,6 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[诊断日志收集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)。
+- 了解[诊断日志收集](./azure-stack-diagnostic-log-collection-overview.md)。
 - 了解如何[查找云 ID](azure-stack-find-cloud-id.md)。
 - 了解如何[排查 Azure Stack Hub 问题](azure-stack-troubleshooting.md)。

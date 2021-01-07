@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: df65f32abdc7c643c953f176ae8a4fd0b47309f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6978e6c86df577fc3d0446a8ecc8ce13a57781b7
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873735"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973566"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>在多个 Azure Stack Hub 区域中运行 N 层应用程序以实现高可用性
 
@@ -35,9 +35,9 @@ ms.locfileid: "97873735"
 
 -   **虚拟网络**。 为每个区域创建一个单独的虚拟网络。 请确保地址空间不重叠。
 
--   **SQL Server Always On 可用性组**。 如果使用的是 SQL Server，建议使用 [SQL Always On 可用性组](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15)以实现高可用性。 创建同时包含两个区域中的 SQL Server 实例的单个可用性组。
+-   **SQL Server Always On 可用性组**。 如果使用的是 SQL Server，建议使用 [SQL Always On 可用性组](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true)以实现高可用性。 创建同时包含两个区域中的 SQL Server 实例的单个可用性组。
 
--   **VNET 到 VNET VPN 连接**。 由于 VNET 对等互连尚不可在 Azure Stack Hub 上使用，因此请使用 VNET 到 VNET VPN 连接来连接两个 VNET。 有关详细信息，请参阅 [Azure Stack Hub 中的 VNET 到 VNET](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908)。
+-   **VNET 到 VNET VPN 连接**。 由于 VNET 对等互连尚不可在 Azure Stack Hub 上使用，因此请使用 VNET 到 VNET VPN 连接来连接两个 VNET。 有关详细信息，请参阅 [Azure Stack Hub 中的 VNET 到 VNET](./azure-stack-network-howto-vnet-to-vnet.md)。
 
 ## <a name="recommendations"></a>建议
 
@@ -113,7 +113,7 @@ az network traffic-manager endpoint update --resource-group <resource-group> --p
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
--   创建一个 [Windows Server 故障转移群集](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15) (WSFC) 群集，使其包括两个区域中的 SQL Server 实例。
+-   创建一个 [Windows Server 故障转移群集](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15&preserve-view=true) (WSFC) 群集，使其包括两个区域中的 SQL Server 实例。
 
 -   创建一个 SQL Server Always On 可用性组，使其包括主要区域和次要区域中的 SQL Server 实例。 有关步骤，请参阅[将 Always On 可用性组扩展到远程 Azure 数据中心 (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217)。
 
@@ -134,10 +134,10 @@ az network traffic-manager endpoint update --resource-group <resource-group> --p
 
 对于 SQL Server 群集，有两个故障转移方案需要考虑：
 
--   主要区域中的所有 SQL Server 数据库副本都失败。 例如，在发生区域性中断期间可能会出现此情况。 在这种情况下，必须手动故障转移可用性组，尽管流量管理器在前端会自动进行故障转移。 请按照[执行可用性组的强制手动故障转移 (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) 一文中的步骤进行操作，该文章介绍了如何在 SQL Server 2016 中使用 SQL Server Management Studio、Transact-SQL 或 PowerShell 执行强制故障转移。
+-   主要区域中的所有 SQL Server 数据库副本都失败。 例如，在发生区域性中断期间可能会出现此情况。 在这种情况下，必须手动故障转移可用性组，尽管流量管理器在前端会自动进行故障转移。 请按照[执行可用性组的强制手动故障转移 (SQL Server)](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true) 一文中的步骤进行操作，该文章介绍了如何在 SQL Server 2016 中使用 SQL Server Management Studio、Transact-SQL 或 PowerShell 执行强制故障转移。
 
     > [!Warning]  
-    > 使用强制故障转移时存在数据丢失风险。 在主要区域恢复联机状态后，创建数据库快照并使用 [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15) 查明差异。
+    > 使用强制故障转移时存在数据丢失风险。 在主要区域恢复联机状态后，创建数据库快照并使用 [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15&preserve-view=true) 查明差异。
 
 -   流量管理器故障转移到次要区域，但主要 SQL Server 数据库副本仍然可用。 例如，前端层可能会失败，但不会影响 SQL Server VM。 在这种情况下，Internet 流量将路由到次要区域中，并且该区域仍可以连接到主要副本。 但是，延迟将有所增加，因为 SQL Server 连接是跨区域的。 在此情况下，应当执行手动故障转移，如下所述：
 

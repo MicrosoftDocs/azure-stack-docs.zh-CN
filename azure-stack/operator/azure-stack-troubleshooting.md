@@ -8,12 +8,12 @@ ms.date: 12/10/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: ef2bbc0fe85b0d6a1db605af440eab2d0e80a805
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4c5117469e1a568252e23f2794996f8d367942af
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868975"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974245"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -203,7 +203,7 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
 
-2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md?view=azs-2002)。 请确保已针对发生问题的时间跨度[收集日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)。
+2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md)。 请确保已针对发生问题的时间跨度[收集日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>常见 Azure Stack Hub 修补程序和更新问题
 
@@ -236,5 +236,5 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 **原因：** 尝试安装 2002 更新时，更新可能会失败并提供以下消息：`The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace`。
 
-**补救措施**：[设置专用内部网络](./azure-stack-network.md?view=azs-2002#private-network)。
+**补救措施**：[设置专用内部网络](./azure-stack-network.md?view=azs-2002&preserve-view=true#private-network)。
 ::: moniker-end

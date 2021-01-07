@@ -7,12 +7,12 @@ ms.date: 10/16/2020
 ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 85f3aed4ebf5b57b1e77a5b58604eeb881204396
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4f451e5e3202c301e39295ec99953d3fc62a7570
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870029"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974330"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 
@@ -345,4 +345,4 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解如何向用户提供 VM，请参阅[管理 Azure Stack Hub 的存储容量](./tutorial-offer-services.md?view=azs-2002)。
+若要详细了解如何向用户提供 VM，请参阅[管理 Azure Stack Hub 的存储容量](./tutorial-offer-services.md)。

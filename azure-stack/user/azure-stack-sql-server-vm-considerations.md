@@ -7,12 +7,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f222334bcc6535b82b105494d907c8a69a463073
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b1aae77d4247c80ace7a94e2b034f29f10220b55
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573762"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974024"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>有关优化 Azure Stack Hub 性能的 SQL Server 最佳做法
 
@@ -123,14 +123,14 @@ Azure Stack Hub VM 上有三种主要磁盘类型：
 
 ## <a name="io-guidance"></a>I/O 指导原则
 
-- 请考虑启用即时文件初始化以减少初始文件分配所需的时间。 若要利用即时文件初始化，请将 **SE_MANAGE_VOLUME_NAME** 授予 SQL Server (MSSQLSERVER) 服务帐户并将其添加到“执行卷维护任务”  安全策略。 如果使用的是用于 Azure 的 SQL Server 平台映像，默认服务帐户 (**NT Service\MSSQLSERVER**) 不会添加到“执行卷维护任务”安全策略。  换而言之，SQL Server Azure 平台映像中不会启用即时文件初始化。 将 SQL Server 服务帐户添加到“执行卷维护任务”安全策略后，请重启 SQL Server 服务。  使用此功能可能有一些安全注意事项。 有关详细信息，请参阅[数据库文件初始化](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15)。
-- **自动增长**是非预期增长的偶发情况。 请勿使用自动增长来管理数据和日志每天的增长。 如果使用自动增长，请使用“大小”开关预先增长文件。 
+- 请考虑启用即时文件初始化以减少初始文件分配所需的时间。 若要利用即时文件初始化，请将 **SE_MANAGE_VOLUME_NAME** 授予 SQL Server (MSSQLSERVER) 服务帐户并将其添加到“执行卷维护任务”  安全策略。 如果使用的是用于 Azure 的 SQL Server 平台映像，默认服务帐户 (**NT Service\MSSQLSERVER**) 不会添加到“执行卷维护任务”安全策略。  换而言之，SQL Server Azure 平台映像中不会启用即时文件初始化。 将 SQL Server 服务帐户添加到“执行卷维护任务”安全策略后，请重启 SQL Server 服务。  使用此功能可能有一些安全注意事项。 有关详细信息，请参阅[数据库文件初始化](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15&preserve-view=true)。
+- **自动增长** 是非预期增长的偶发情况。 请勿使用自动增长来管理数据和日志每天的增长。 如果使用自动增长，请使用“大小”开关预先增长文件。 
 - 请确保禁用 **自动收缩** 以避免可能对性能产生负面影响的不必要开销。
-- 设置默认的备份和数据库文件位置。 使用本文中的建议，并在“服务器属性”窗口中进行更改。 有关说明，请参阅 [View or Change the Default Locations for Data and Log Files (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15)（查看或更改数据和日志文件的默认位置 (SQL Server Management Studio)）。 以下屏幕截图显示了在哪些位置进行这些更改：
+- 设置默认的备份和数据库文件位置。 使用本文中的建议，并在“服务器属性”窗口中进行更改。 有关说明，请参阅 [View or Change the Default Locations for Data and Log Files (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15&preserve-view=true)（查看或更改数据和日志文件的默认位置 (SQL Server Management Studio)）。 以下屏幕截图显示了在哪些位置进行这些更改：
 
     > ![查看或更改默认配置](./media/sql-server-vm-considerations/image1.png)
 
-- 建立锁定的页以减少 IO 和任何分页活动。 有关详细信息，请参阅 [Enable the Lock Pages in Memory Option (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15)（启用在内存中锁定页面的选项 (Windows)）。
+- 建立锁定的页以减少 IO 和任何分页活动。 有关详细信息，请参阅 [Enable the Lock Pages in Memory Option (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15&preserve-view=true)（启用在内存中锁定页面的选项 (Windows)）。
 
 - 请考虑在传入/传出 Azure Stack Hub 时压缩所有数据文件，包括备份。
 
@@ -140,7 +140,7 @@ Azure Stack Hub VM 上有三种主要磁盘类型：
 
 - **备份到 Azure** **存储。** 为在 Azure Stack Hub VM 中运行的 SQL Server 执行备份时，可以使用“SQL Server 备份到 URL”。 此功能从 SQL Server 2012 SP1 CU2 开始提供，建议在备份到附加数据磁盘时使用。
 
-    使用 Azure 存储进行备份或还原时，请按照 [SQL Server 备份到 URL 最佳做法和故障排除](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15) 以及 [从 Microsoft Azure 中存储的备份还原](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017)中提供的建议操作。 此外还可以使用 [Azure VM 中 SQL Server 的自动备份](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)自动执行这些备份。
+    使用 Azure 存储进行备份或还原时，请按照 [SQL Server 备份到 URL 最佳做法和故障排除](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15&preserve-view=true) 以及 [从 Microsoft Azure 中存储的备份还原](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017&preserve-view=true)中提供的建议操作。 此外还可以使用 [Azure VM 中 SQL Server 的自动备份](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)自动执行这些备份。
 
 -   **备份到 Azure Stack Hub 存储。** 可以备份到 Azure Stack Hub 存储，所用方式类似于备份到 Azure 存储。 在 SQL Server Management Studio (SSMS) 中创建备份时，需手动输入配置信息。 不能使用 SSMS 创建存储容器或共享访问签名。 SSMS 仅连接到 Azure 订阅，不连接到 Azure Stack Hub 订阅。 只需通过 Azure Stack Hub 门户或 PowerShell 创建存储帐户、容器和共享访问签名。
 

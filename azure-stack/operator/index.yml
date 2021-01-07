@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 04/13/2020
-  ms.openlocfilehash: e0a1695cbc5df9454671cd87f187ee71aee83c19
-  ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+  ms.openlocfilehash: b815aa8a669c59acdd40e7847f26dd66335fdea3
+  ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 01/05/2021
-  ms.locfileid: "97868618"
+  ms.lasthandoff: 01/07/2021
+  ms.locfileid: "97974177"
 landingContent:
 - title: 关于 Azure Stack Hub
   linkLists:
@@ -28,9 +28,9 @@ landingContent:
   - linkListType: whats-new
     links:
     - text: 安全更新
-      url: ./release-notes-security-updates.md?view=azs-2002
+      url: ./release-notes-security-updates.md
     - text: 发行说明
-      url: ./release-notes.md?view=azs-2002
+      url: ./release-notes.md
     - text: Azure Stack Hub Capacity Planner
       url: azure-stack-capacity-planning-overview.md
 - title: 入门
@@ -78,7 +78,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: 为虚拟机创建产品/服务
-      url: ./tutorial-offer-services.md?view=azs-2002
+      url: ./tutorial-offer-services.md
     - text: 创建高度可用的 MySQL 数据库
       url: azure-stack-tutorial-mysql.md
     - text: 创建面向任何平台的应用

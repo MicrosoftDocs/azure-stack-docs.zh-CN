@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: a1307ca10a2655e166b41d43da4ac83cbe601dc5
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 2e3c25e282a84a0e41d6c69d0af6e2f352bbfba5
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620715"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974007"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>在 Azure Stack Hub 上安装 Azure CLI
 
@@ -99,7 +99,7 @@ ms.locfileid: "97620715"
 
    - 以服务主体身份登录： 
     
-        在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](../operator/azure-stack-create-service-principals.md?view=azs-2002)，并为其分配角色。 接下来，使用以下命令登录：
+        在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](../operator/azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
     
         ```azurecli  
         az login `
@@ -282,7 +282,7 @@ az group create -n MyResourceGroup -l local
    
    * 以服务主体身份登录
     
-     在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](../operator/azure-stack-create-service-principals.md?view=azs-2002)，并为其分配角色。 接下来，使用以下命令登录：
+     在登录之前，请[通过 Azure 门户或 CLI 创建一个服务主体](../operator/azure-stack-create-service-principals.md)，并为其分配角色。 接下来，使用以下命令登录：
 
      ```azurecli  
      az login \

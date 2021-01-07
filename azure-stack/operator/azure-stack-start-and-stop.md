@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 529cbfe4aff3c84cf732e58ff92b1bd920cd64b3
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a79fcab4bb96eb7e32121095c521e4db0a3b02f9
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869128"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973259"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>启动和停止 Azure Stack Hub
 
@@ -84,4 +84,4 @@ ms.locfileid: "97869128"
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解 [Azure Stack Hub 诊断工具](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)
+详细了解 [Azure Stack Hub 诊断工具](./azure-stack-diagnostic-log-collection-overview.md)

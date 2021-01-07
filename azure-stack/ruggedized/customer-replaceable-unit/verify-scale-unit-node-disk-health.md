@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 35deff6c48c02c1deda13bb3cd8dec87e54f52ef
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 7928ab8ba09ed834f00c05e6c606e993fc2f3ebe
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909865"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974160"
 ---
 # <a name="verifying-scale-unit-node-disk-health"></a>正在验证缩放单位节点磁盘运行状况
 
@@ -34,5 +34,5 @@ ms.locfileid: "97909865"
     
     1.  验证是否未返回任何结果。 如果作业仍在运行，如 **JobState** 所示，或所有作业标记为已完成，则等待另外10分钟，然后再次运行相同的命令。 最终状态应为 "未列出任何作业"。
     
-    1.  如果需要，可以在 [使用 Azure Stack 中心 PowerShell 检查虚拟磁盘修复的状态](https://docs.microsoft.com/azure-stack/operator/azure-stack-replace-disk?view=azs-2002&check-the-status-of-virtual-disk-repair-using-azure-stack-hub-powershell)中找到其他存储健康验证步骤。
+    1.  如果需要，可以在 [使用 Azure Stack 中心 PowerShell 检查虚拟磁盘修复的状态](../../operator/azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-azure-stack-hub-powershell)中找到其他存储健康验证步骤。
         

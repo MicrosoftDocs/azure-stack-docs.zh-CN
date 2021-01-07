@@ -7,16 +7,16 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 4b39ce2782f8b99740da5a2fea383892c2de5351
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 1e762ab25250a6414087c1b22e911bb7a8d151ed
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525976"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974103"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>获取 Azure Stack Hub 的身份验证信息
 
-若要对 Azure Stack Hub 进行身份验证，需要提供订阅 ID、租户 ID 和位置以及 Azure Stack Hub 资源管理器终结点。 可以从 [Azure Stack Hub 资源管理器终结点](./azure-stack-version-profiles-ruby.md?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint)为 Azure Stack Hub 获取这些值。 或者，可以使用本文中的步骤获取它们。
+若要对 Azure Stack Hub 进行身份验证，需要提供订阅 ID、租户 ID 和位置以及 Azure Stack Hub 资源管理器终结点。 可以从 [Azure Stack Hub 资源管理器终结点](./azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint)为 Azure Stack Hub 获取这些值。 或者，可以使用本文中的步骤获取它们。
 
 ## <a name="values-needed-to-authenticate"></a>进行身份验证所需的值
 
@@ -74,4 +74,4 @@ Azure 资源管理器终结点是用于 Azure Stack Hub 的部署和管理服务
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解如何在 Azure Stack Hub 中使用 [Azure Stack Hub 资源管理器](./azure-stack-version-profiles.md?view=azs-1910)。
+详细了解如何在 Azure Stack Hub 中使用 [Azure Stack Hub 资源管理器](./azure-stack-version-profiles.md)。

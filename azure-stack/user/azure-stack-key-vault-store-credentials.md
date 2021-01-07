@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: c17ba69fedfd51681c5038efde591115ce54bddf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: e1409105c0682552875a524aab9a222f6ab0c459
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567512"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974075"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>在 Azure Stack Hub Key Vault 中存储服务主体凭据
 
@@ -36,7 +36,7 @@ Azure Stack Hub 中的 Key Vault 可帮助保护云应用和服务使用的加�
 
    ![创建 Key Vault](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
-3. 在“创建密钥保管库”  窗格中，为保管库分配**名称**。 保管库名称只能包含字母数字字符和连字符 (-)， 它们不得以数字开头。
+3. 在“创建密钥保管库”  窗格中，为保管库分配 **名称**。 保管库名称只能包含字母数字字符和连字符 (-)， 它们不得以数字开头。
 
 4. 从可用订阅列表中选择订阅。
 
@@ -68,7 +68,7 @@ Azure Stack Hub 中的 Key Vault 可帮助保护云应用和服务使用的加�
 
 8. 选择“保存”。 
 
-9. 复制单击“保存”后显示的**密钥**。 
+9. 复制单击“保存”后显示的 **密钥**。 
 
 ## <a name="store-the-service-principal-inside-key-vault"></a>在 Key Vault 中存储服务主体
 
@@ -92,6 +92,6 @@ Azure Stack Hub 中的 Key Vault 可帮助保护云应用和服务使用的加�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用服务主体](../operator/azure-stack-create-service-principals.md?view=azs-2002)
+- [使用服务主体](../operator/azure-stack-create-service-principals.md)
 - [通过门户管理 Azure Stack Hub 中的 Key Vault](azure-stack-key-vault-manage-portal.md)  
 - [使用 PowerShell 管理 Azure Stack Hub 中的 Key Vault](azure-stack-key-vault-manage-powershell.md)

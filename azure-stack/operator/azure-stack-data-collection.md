@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 02/24/2020
-ms.openlocfilehash: 2f6c46194328dd8335c2cf39ca4deca13664df63
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: fd383d25f34bcd8342b8e37468fb34f455cb790f
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870981"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974194"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack Hub 日志和客户数据处理 
 
@@ -21,7 +21,7 @@ Microsoft 在与 Azure Stack 中心连接时，microsoft 是一个处理器或 s
 - [联机服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)的“数据保护条款”部分中的“个人数据的处理；GDPR”条款。
 - [联机服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)附件 4 中的“欧盟一般数据保护条例条款”。
 
-随着 Azure Stack 中心位于客户数据中心，Microsoft 是数据控制器，只是通过 [诊断](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)、 [遥测](azure-stack-telemetry.md)和 [计费](azure-stack-usage-reporting.md)与 Microsoft 共享的数据。  
+随着 Azure Stack 中心位于客户数据中心，Microsoft 是数据控制器，只是通过 [诊断](./azure-stack-diagnostic-log-collection-overview.md)、 [遥测](azure-stack-telemetry.md)和 [计费](azure-stack-usage-reporting.md)与 Microsoft 共享的数据。  
 
 ## <a name="data-access-controls"></a>数据访问控制 
 被分配了调查特定支持案例的 Microsoft 员工将获得对加密数据的只读访问权限。 如果需要，Microsoft 员工还可以访问用于删除数据的工具。 对客户数据的所有访问都会受到审核和记录。  
@@ -41,7 +41,7 @@ Microsoft 支持按客户请求删除按需数据。 客户可以请求我们的
 对于按需数据删除操作，Microsoft 支持工程师有权访问该工具，使其可以按需删除数据。 他们可以在完成删除后通过电话向客户提供确认。
 
 ## <a name="diagnostic-data"></a>诊断数据
-在支持过程中，Azure Stack Hub 操作员可与 Azure Stack Hub 支持和工程团队[共享诊断日志](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)，以方便进行故障排除。
+在支持过程中，Azure Stack Hub 操作员可与 Azure Stack Hub 支持和工程团队[共享诊断日志](./azure-stack-diagnostic-log-collection-overview.md)，以方便进行故障排除。
 
 Microsoft 为客户提供了一个工具和脚本来收集和上载请求的诊断日志文件。 收集后，日志文件将通过与 Microsoft 的 HTTPS 受保护的加密连接进行传输。 由于 HTTPS 提供在线加密，因此传输中加密无需密码。 Azure 收到日志后，会加密并存储日志，在关闭支持案例 90 天后自动将其删除。
 

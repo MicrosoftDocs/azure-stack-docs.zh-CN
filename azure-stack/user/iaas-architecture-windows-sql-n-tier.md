@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 50b08f594b121601b8e049c4c4875cb31143cbaa
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b543a94c75ac50c7b0e75f5635956093340b970d
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873667"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973567"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Azure Stack Hub 上使用 SQL Server 的 Windows N 层应用程序
 
@@ -34,7 +34,7 @@ ms.locfileid: "97873667"
 
 -   **虚拟网络和子网**。 每个 Azure VM 都会部署到可细分为子网的虚拟网络中。 为每个层创建一个单独的子网。
 
--   **第 7 层负载均衡器**。 由于应用程序网关在 Azure Stack 集线器上尚不可用，因此[Azure Stack 中心市场位置](../operator/azure-stack-marketplace-azure-items.md?view=azs-1908)有一些替代项，例如： [KEMP LoadMaster 负载均衡器 ADC 内容开关](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [f5 大 IP 虚拟版](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)或[A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **第 7 层负载均衡器**。 由于应用程序网关在 Azure Stack 集线器上尚不可用，因此[Azure Stack 中心市场位置](../operator/azure-stack-marketplace-azure-items.md)有一些替代项，例如： [KEMP LoadMaster 负载均衡器 ADC 内容开关](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [f5 大 IP 虚拟版](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)或[A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
 -   **负载均衡器**。 使用 [Azure 负载均衡器](/azure/load-balancer/load-balancer-overview)可将网络流量从 Web 层分配到业务层，以及从业务层分配到 SQL Server。
 
@@ -98,15 +98,15 @@ ms.locfileid: "97873667"
 
 ## <a name="sql-server-always-on-availability-groups"></a>SQL Server Always On 可用性组
 
-建议使用 [Always On 可用性组](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15)以实现高可用性。 在 Windows Server 2016 之前，Always On 可用性组需要一个域控制器，并且可用性组中的所有节点必须在同一 AD 域中。
+建议使用 [Always On 可用性组](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true)以实现高可用性。 在 Windows Server 2016 之前，Always On 可用性组需要一个域控制器，并且可用性组中的所有节点必须在同一 AD 域中。
 
 为实现 VM 层高可用性，所有 SQL VM 应位于可用性集中。
 
-其他层通过[可用性组侦听程序](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15)连接到数据库。 该侦听程序使得 SQL 客户端能够在不知道 SQL Server 物理实例名称的情况下进行连接。 访问数据库的 VM 必须加入域。 客户端（在本例中为另一个层）使用 DNS 将该侦听程序的虚拟网络名称解析为 IP 地址。
+其他层通过[可用性组侦听程序](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true)连接到数据库。 该侦听程序使得 SQL 客户端能够在不知道 SQL Server 物理实例名称的情况下进行连接。 访问数据库的 VM 必须加入域。 客户端（在本例中为另一个层）使用 DNS 将该侦听程序的虚拟网络名称解析为 IP 地址。
 
 如下所述配置 SQL Server Always On 可用性组：
 
-1.  创建一个 Windows Server 故障转移群集 (WSFC) 群集、一个 SQL Server Always On 可用性组和一个主要副本。 有关详细信息，请参阅 [Always On 可用性组入门 (SQL Server)](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15)。
+1.  创建一个 Windows Server 故障转移群集 (WSFC) 群集、一个 SQL Server Always On 可用性组和一个主要副本。 有关详细信息，请参阅 [Always On 可用性组入门 (SQL Server)](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true)。
 
 2.  创建一个具有静态专用 IP 地址的内部负载均衡器。
 
@@ -121,9 +121,9 @@ ms.locfileid: "97873667"
 
 在故障转移期间，现有的客户端连接将关闭。 在故障转移完成后，新连接将被路由到新的主要副本。
 
-如果应用程序执行的读取操作多于写入操作，则可以将一些只读查询转移到次要副本。 请参阅[Using a Listener to Connect to a Read-Only Secondary Replica (Read-Only Routing)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15#ConnectToSecondary)（使用侦听程序连接到只读次要副本（只读路由））。
+如果应用程序执行的读取操作多于写入操作，则可以将一些只读查询转移到次要副本。 请参阅[Using a Listener to Connect to a Read-Only Secondary Replica (Read-Only Routing)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true#ConnectToSecondary)（使用侦听程序连接到只读次要副本（只读路由））。
 
-通过执行可用性组的[强制手动故障转移](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15)来测试部署。
+通过执行可用性组的[强制手动故障转移](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true)来测试部署。
 
 有关 SQL 性能优化，另请参阅[在 Azure Stack Hub 中优化 SQL 服务器性能的最佳做法](./azure-stack-sql-server-vm-considerations.md)一文。
 

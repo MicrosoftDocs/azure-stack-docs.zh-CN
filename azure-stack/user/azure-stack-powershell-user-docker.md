@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: 798b3d9e94f6263b02c291d2f5725768f1a8522a
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: d187058561f166084b672d941262c7979f7deec2
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620681"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974041"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell
 
@@ -34,7 +34,7 @@ ms.locfileid: "97620681"
 
 若要使用 PowerShell 访问 Azure Stack Hub 中的资源，需要在 Azure Active Directory (Azure AD) 租户中有一个服务主体。 通过基于角色的访问控制 (RBAC) 来委派权限。 可能需要向云运营商请求服务主体。
 
-1. 若要设置服务主体，请按[通过创建服务主体向应用程序授予对 Azure Stack Hub 资源的访问权限](../operator/azure-stack-create-service-principals.md?view=azs-2002)中的说明操作。
+1. 若要设置服务主体，请按[通过创建服务主体向应用程序授予对 Azure Stack Hub 资源的访问权限](../operator/azure-stack-create-service-principals.md)中的说明操作。
 
 2. 记下应用程序 ID、机密、租户 ID 和对象 ID 供以后使用。
 

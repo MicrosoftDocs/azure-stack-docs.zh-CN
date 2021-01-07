@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 1f2830fa931f1ec02986fe45715e2fafed1a2aa0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 205df69311e2543f245af7bdb8c8ddd98f2511be
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873633"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973344"
 ---
 # <a name="asdk-admin-basics"></a>ASDK 管理基础知识
 如果你不熟悉 Azure Stack 开发工具包 (ASDK) 的管理，请参考本文。 本指南概述评估环境中 Azure Stack 操作员的角色。 熟悉此信息可确保测试用户能够尽快提高工作效率。
@@ -38,7 +38,7 @@ ms.locfileid: "97873633"
 Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组织机制。 若要管理 Azure Stack 并帮助支持用户，应了解 Azure 资源管理器。 有关详细信息，请参阅 [Azure 资源管理器入门白皮书](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)。
 
 ## <a name="your-typical-responsibilities"></a>典型责任
-用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 可以使用 ASDK 来了解需要提供哪些服务，以及如何通过[创建计划、套餐和配额](../operator/tutorial-offer-services.md?view=azs-2002)来提供这些服务。 此外还需向市场添加项，例如虚拟机 (VM) 映像。 最简单的方法是[将市场项从 Azure 下载到 Azure Stack](../operator/azure-stack-create-and-publish-marketplace-item.md)。
+用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 可以使用 ASDK 来了解需要提供哪些服务，以及如何通过[创建计划、套餐和配额](../operator/tutorial-offer-services.md)来提供这些服务。 此外还需向市场添加项，例如虚拟机 (VM) 映像。 最简单的方法是[将市场项从 Azure 下载到 Azure Stack](../operator/azure-stack-create-and-publish-marketplace-item.md)。
 
 > [!NOTE]
 > 如需测试计划、套餐和服务，应使用用户门户 `https://portal.local.azurestack.external` 而不是管理员门户 `https://adminportal.local.azurestack.external`。
