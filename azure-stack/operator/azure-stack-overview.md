@@ -3,17 +3,17 @@ title: Azure Stack Hub 概述
 description: Azure Stack Hub 的概述，以及如何使用它在数据中心运行 Azure 服务。
 author: PatAltimore
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 01/08/2021
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 88ece6a5d29e56caf0752fd8c7b71989237d70c1
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 2083e0a8a5e51fbc9606d82a95dfdd1a9ad595bc
+ms.sourcegitcommit: 330d04d39e0cf3e8965e2ccbc181c968cb71d9ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974296"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052283"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub 概述
 
@@ -26,6 +26,9 @@ Azure 为开发人员提供多功能的平台用于生成新型应用。 但是�
 - **边缘解决方案和断开连接的解决方案**。 在 Azure Stack Hub 本地处理数据，然后在 Azure 中聚合以作进一步分析，并在两者之间使用共同的应用逻辑，以此满足延迟和连接要求。 甚至可以在断开 Internet 连接且不与 Azure 建立连接的情况下部署 Azure Stack Hub。 示例环境包括工厂车间、游轮和矿井。
 
 - **满足各种法规要求的云应用**。 可在 Azure 中开发和部署应用，并能够完全灵活地在 Azure Stack Hub 本地进行部署，以满足法规或政策要求。 无需更改任何代码。 应用示例包括全球审计、财务报告、外汇交易、在线游戏和费用报告。
+
+   > [!IMPORTANT]
+   > Azure Stack 中心是客户完全拥有和控制的本地设备。 客户访问和控制其在 Azure Stack 中心存储的数据。 Microsoft 不会访问 Azure Stack 中心环境中存储的任何客户数据。
 
 - **本地云应用模型**。 使用 Azure 服务、容器、无服务器体系结构和微服务体系结构来更新和扩展现有应用或生成新的应用。 在云中 Azure 和本地 Azure Stack Hub 之间使用一致的 DevOps 流程，以加速任务关键型核心应用的现代化。
 
@@ -45,7 +48,7 @@ Azure Stack 集线器集成系统通过 Microsoft 和硬件合作伙伴的合作
 
 Azure Stack Hub 集成系统的大小范围为 4-16 台服务器（称为“缩放单元”）。 硬件合作伙伴和 Microsoft 共同支持集成系统。 下图显示了缩放单元示例。 
 
-![显示 Azure Stack Hub 集成系统的关系图](./media/azure-stack-overview/azure-stack-integrated-system.svg)上获取。 
+![显示 Azure Stack Hub 集成系统的关系图](./media/azure-stack-overview/azure-stack-integrated-system.svg). 
 
 <!---add info and image on regions, etc--->
 

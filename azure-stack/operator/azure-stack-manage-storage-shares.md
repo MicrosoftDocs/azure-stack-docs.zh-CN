@@ -7,12 +7,12 @@ ms.date: 10/16/2020
 ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 4f451e5e3202c301e39295ec99953d3fc62a7570
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: c6f58a2364378180641a7b3ea2e3a38e4bb4f183
+ms.sourcegitcommit: 330d04d39e0cf3e8965e2ccbc181c968cb71d9ad
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974330"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052300"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>管理 Azure Stack Hub 的存储容量
 
@@ -69,7 +69,7 @@ Azure Stack Hub 支持在 VM 上使用托管磁盘和非托管磁盘，作为操
 
 建议对 VM 使用托管磁盘，以便更轻松地进行管理和容量平衡。 不需在使用托管磁盘之前准备存储帐户和容器。 创建多个托管磁盘时，会将这些磁盘分配到多个卷中，这有助于平衡卷的容量。  
 
-非托管磁盘是指以页 blob 形式存储在 Azure 存储帐户中的 VHD 文件。 租户创建的页 blob 称为 VM 磁盘并且存储在存储帐户中的容器中。 建议仅将非托管磁盘用于需要与第三方工具兼容且仅支持 Azure 非托管磁盘的 VM。
+非托管磁盘是指以页 blob 形式存储在 Azure 存储帐户中的 VHD 文件。 租户创建的页 blob 称为 VM 磁盘并且存储在存储帐户中的容器中。 建议仅对那些需要与仅支持 Azure-Unmanaged 磁盘的第三方工具兼容的 Vm 使用非托管磁盘。
 
 租户最好是将每个磁盘放入不同的容器，以改善 VM 性能。
 
