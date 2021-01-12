@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 12/10/2020
-ms.openlocfilehash: fc52f53a31b8d7cdcb91dd93e0fbe97c94b7e846
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 01/06/2021
+ms.openlocfilehash: 8b27859b7afab0a6e279774e43d0269f6d58065a
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010902"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103116"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>添加或删除 Azure Stack HCI 群集的服务器
 
@@ -19,7 +19,7 @@ ms.locfileid: "97010902"
 
 可以在 Azure Stack HCI 的群集中轻松地添加或删除服务器。 请记住，在 CPU 类型、内存、驱动器数量以及驱动器的类型和大小方面，每个新的物理服务器必须与群集中的其他服务器严格匹配。
 
-无论何时添加或删除服务器，都还必须在之后执行群集验证，以确保群集正常运行。 这同时适用于非拉伸和拉伸的群集。
+无论何时添加或删除服务器，都还必须在之后执行群集验证，以确保群集正常运行。 这同时适用于非拉伸和拉伸群集。
 
 ## <a name="obtain-oem-hardware"></a>获取 OEM 硬件
 
@@ -61,26 +61,26 @@ ms.locfileid: "97010902"
 1. 若要同时从存储池中删除任何服务器驱动器，请启用该复选框。
 1. 验证服务器是否已成功从群集中删除。
 
-无论何时在群集中添加或删除服务器，请确保以后再运行一次群集验证测试。
+每当在群集中添加或删除服务器时，请确保随后运行群集验证测试。
 
-## <a name="add-server-pairs-to-a-stretched-cluster"></a>向延伸群集添加服务器对
+## <a name="add-server-pairs-to-a-stretched-cluster"></a>向拉伸群集添加服务器对
 
-延伸群集要求每个站点中有相同数量的服务器节点和相同数量的驱动器。 向延伸群集添加服务器对时，会立即将其驱动器添加到延伸群集中这两个站点的存储池中。 如果每个站点上的存储池的大小与添加时的大小不同，则会被拒绝。 这是因为存储池的大小必须在站点之间是相同的。
+拉伸群集要求每个站点中有相同数量的服务器节点和相同数量的驱动器。 向拉伸群集添加服务器对时，会立即将其驱动器添加到拉伸群集中两个站点的存储池中。 如果每个站点上的存储池的大小与添加时的大小不同，系统会将其拒绝。 这是因为存储池的大小在两个站点中必须相同。
 
 向延伸群集添加服务器节点时，请花几分钟时间观看视频：
 
 > [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
 
-使用 Windows PowerShell 在延伸群集中添加或删除服务器。 使用 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) 和 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) cmdlet，首先修改站点 (容错域) 信息，然后再添加服务器。
+使用 Windows PowerShell 在延伸群集中添加或删除服务器。 使用 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) 和 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) cmdlet 时，你首先修改站点（容错域）信息，然后再添加服务器。
 
-然后，可以使用 [start-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) cmdlet 同时添加每个站点的服务器对，允许同时添加每个新服务器的驱动器。
+然后，你可以使用 [Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) cmdlet 同时向每个站点添加服务器对，还可以同时添加每台新服务器的驱动器。
 
 通常，你可以从远程计算机（而不是群集中的服务器）管理群集。 此远程计算机称为管理计算机。
 
 > [!NOTE]
-> 在管理计算机上运行 PowerShell 命令时，请将参数包含在所 `-Cluster` 管理的群集的名称中。
+> 从某一管理计算机运行 PowerShell 命令时，请将 `-Cluster` 参数与你管理的群集的名称配合使用。
 
-好了，让我们开始：
+好了，让我们开始吧：
 
 1. 使用以下 PowerShell cmdlet 确定群集的状态：
 
@@ -96,13 +96,13 @@ ms.locfileid: "97010902"
     Get-StoragePool pool*
     ```
 
-    列出哪些服务器 (容错域) ：
+    列出哪些服务器位于哪个站点（容错域）：
 
     ```powershell
     Get-ClusterFaultDomain
     ```
 
-1. `Sites.xml`在记事本或其他文本编辑器中打开该文件：
+1. 在记事本或其他文本编辑器中打开 `Sites.xml` 文件：
 
     ```powershell
     Get-ClusterFaultDomainXML | out-file sites.xml
@@ -112,7 +112,7 @@ ms.locfileid: "97010902"
     notepad
     ```
 
-1. 在 `Sites.xml` 管理 PC 上的本地位置导航到文件所在的位置，并打开文件。 该 `Sites.xml` 文件将如下所示：
+1. 在你的管理电脑本地导航到 `Sites.xml` 文件所在的位置，打开该文件。 `Sites.xml` 文件类似于以下内容：
 
     ```
     <Topology>
@@ -127,7 +127,7 @@ ms.locfileid: "97010902"
     <Topology>
     ```
 
-1. 使用此示例，你可以将服务器添加到每个站点 `Server5` (`Server6`) ，如下所示：
+1. 使用此示例，你可以向每个站点添加服务器（`Server5`、`Server6`），如下所示：
 
     ```
     <Topology>
@@ -144,30 +144,30 @@ ms.locfileid: "97010902"
     <Topology>
     ```
 
-1. 修改当前站点 (容错域) 信息。  第一个命令设置变量以获取文件的内容 `Sites.xml` 并输出该文件。 第二个命令根据变量设置修改 `$XML` 。
+1. 修改当前站点（容错域）信息。  第一个命令设置一个变量来获取 `Sites.xml` 文件的内容并输出该内容。 第二个命令根据变量 `$XML` 来设置修改。
 
     ```
     $XML = Get-Content .\sites.xml | out-string
     Set-ClusterFaultDomainXML -xml $XML
     ```
 
-1. 验证所做的修改是否正确：
+1. 验证你所做的修改是否正确：
 
     ```
     Get-ClusterFaultDomain
     ```
 
-1. 使用 cmdlet 将服务器配对添加到群集 `Add-ClusterNode` ：
+1. 使用 `Add-ClusterNode` cmdlet 向群集添加服务器对：
 
     ```
     Add-ClusterNode -Name Server5,Server6
     ```
 
-成功添加服务器后，关联的驱动器将自动添加到每个站点的存储池。 最后，运行状况服务会创建一个存储作业来包括新的驱动器。
+成功添加服务器后，关联的驱动器会自动添加到每个站点的存储池。 最后，运行状况服务会创建一个存储作业来包括新的驱动器。
 
-## <a name="remove-server-pairs-from-a-stretched-cluster"></a>从延伸群集中删除服务器对
+## <a name="remove-server-pairs-from-a-stretched-cluster"></a>从拉伸群集中删除服务器对
 
-从拉伸群集中删除服务器对类似于添加服务器对，而是改为使用 [start-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode) cmdlet。
+从拉伸群集中删除服务器对类似于添加服务器对的过程，但使用的是 [Remove-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode) cmdlet。
 
 1. 使用以下 PowerShell cmdlet 确定群集的状态：
 
@@ -183,13 +183,13 @@ ms.locfileid: "97010902"
     Get-StoragePool pool*
     ```
 
-    列出哪些服务器 (容错域) ：
+    列出哪些服务器位于哪个站点（容错域）：
 
     ```powershell
     Get-ClusterFaultDomain
     ```
 
-1. `Sites.xml`在记事本或其他文本编辑器中打开该文件：
+1. 在记事本或其他文本编辑器中打开 `Sites.xml` 文件：
 
     ```powershell
     Get-ClusterFaultDomainXML | out-file sites.xml
@@ -199,27 +199,27 @@ ms.locfileid: "97010902"
     notepad
     ```
 
-1. 使用前面的示例，在 `Sites.xml` 文件中，删除 `<Node Name="Server5" Description="" Location="">`  `<Node Name="Server6" Description="" Location="">` 每个站点的和 XML 条目。
-1. 使用以下两个 cmdlet 修改当前站点 (容错域) 信息：
+1. 使用前面的示例，在 `Sites.xml` 文件中删除每个站点的 `<Node Name="Server5" Description="" Location="">` 和 `<Node Name="Server6" Description="" Location="">` XML 条目。
+1. 使用以下两个 cmdlet 修改当前站点（容错域）信息：
 
     ```
     $XML = Get-Content .\sites.xml | out-string
     Set-ClusterFaultDomainXML -xml $XML
     ```
 
-1. 验证所做的修改是否正确：
+1. 验证你所做的修改是否正确：
 
     ```
     Get-ClusterFaultDomain
     ```
-1. 使用 cmdlet 从群集中删除服务器对 `Remove-ClusterNode` ：
+1. 使用 `Remove-ClusterNode` cmdlet 从群集中删除服务器对：
 
     ```
     Remove-ClusterNode -Name Server5,Server6
     ```
 
-成功删除服务器后，将从站点池中自动删除关联的驱动器。 最后，运行状况服务创建用于删除这些驱动器的存储作业。
+成功删除服务器后，关联的驱动器会自动从站点池中删除。 最后，运行状况服务会创建一个存储作业来删除这些驱动器。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 添加或删除服务器后，应验证群集。 有关详细信息，请参阅 [验证群集](../deploy/validate.md) 。
+- 添加或删除服务器后，应当验证群集。 有关详细信息，请参阅[验证群集](../deploy/validate.md)。

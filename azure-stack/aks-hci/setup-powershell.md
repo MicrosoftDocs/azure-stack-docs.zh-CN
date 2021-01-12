@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 7e36deb4be03e7866371bba3039295fcce065ff7
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: b4150372a6b5660b65cf6ed2c99bec6970260edf
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918710"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103046"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>快速入门：使用 PowerShell 设置 Azure Stack HCI 上的 Azure Kubernetes 服务主机
 
@@ -130,7 +130,7 @@ Function        Update-AksHciCluster                               0.2.12     Ak
                     [-vipPoolEndIp <String>]
                     [-macPoolStart <String>]
                     [-macPoolEnd <String>]
-                    [-vlandID <int>]
+                    [-vlanID <int>]
                     [-kvaLoadBalancerType {unstacked_haproxy, stacked_kube_vip}]
                     [-kvaControlPlaneEndpoint <String>]
                     [-proxyServerHTTP <String>]
@@ -224,7 +224,7 @@ SSH 公钥文件的路径。 使用此公钥，你将能够登录到 Azure Stack
 
 这用于指定你希望用于 Azure Kubernetes 服务主机 VM 的 MAC 池的 MAC 地址结尾。 MAC 地址的语法要求第一个字节的最小有效位应始终为0，第一个字节应始终为偶数 (，即00，02，04，06 ... ) 。作为传递的地址的第一个字节 `-macPoolEnd` 应与作为传递的地址的第一个字节相同 `-macPoolStart` 。 将 MAC 池用于长期部署，以便分配的 MAC 地址保持一致。 如果要求 Vm 具有特定的 MAC 地址，这会很有用。 默认为无。
 
-`-vlandID`
+`-vlanID`
 
 这可以用来指定网络 VLAN ID。 Azure Kubernetes 服务主机和 Kubernetes 群集 VM 网络适配器将用提供的 VLAN ID 进行标记。 如果有需要标记为获得正确连接的特定 VLAN ID，则应使用此 ID。 默认为无。
 

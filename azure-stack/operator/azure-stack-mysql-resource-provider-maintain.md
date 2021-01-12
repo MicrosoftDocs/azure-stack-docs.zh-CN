@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: e85d20755a92806177e7d5e7a9f1d425e4a18018
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.openlocfilehash: 7372cea4544a2cdb4b0d0e6ed54d07253d6d782c
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950682"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103080"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub 中的 MySQL 资源提供程序维护操作
 
@@ -182,6 +182,8 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 
 ::: moniker-end
 
+::: moniker range="< azs-2008"
+
 从版本1.1.93 开始，MySQL 资源提供程序支持从 Azure Stack 中心环境收集日志的标准方法。 如果你使用的是较旧版本，则建议将 MySQL 资源提供程序更新到最新版本。
 
 若要从锁定的 VM 收集日志，请使用 PowerShell Just Enough Administration (JEA) 终结点 DBAdapterDiagnostics。 此终结点提供以下命令：
@@ -235,6 +237,8 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 $session | Remove-PSSession
 
 ```
+
+::: moniker-end
 
 ## <a name="configure-azure-diagnostics-extension-for-mysql-resource-provider"></a>为 MySQL 资源提供程序配置 Azure 诊断扩展
 
