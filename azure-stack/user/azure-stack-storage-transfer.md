@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: d35ee0999dfa25e5cee12ff3df3c91b945733430
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: cde8b474a27b577beca757a806a6411d934465c0
+ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518018"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98123708"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>在 Azure Stack Hub 存储中使用数据传输工具
 
@@ -167,17 +167,17 @@ New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccount
 Set-AzCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
 
 # Create a new container.
-New-AzureStorageContainer -Name $ContainerName -Permission Off
+New-AzStorageContainer -Name $ContainerName -Permission Off
 
 # Upload a blob into a container.
-Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+Set-AzStorageBlobContent -Container $ContainerName -File $ImageToUpload
 
 # List all blobs in a container.
-Get-AzureStorageBlob -Container $ContainerName
+Get-AzStorageBlob -Container $ContainerName
 
 # Download blobs from the container:
 # Get a reference to a list of all blobs in a container.
-$blobs = Get-AzureStorageBlob -Container $ContainerName
+$blobs = Get-AzStorageBlob -Container $ContainerName
 
 # Create the destination directory.
 New-Item -Path $DestinationFolder -ItemType Directory -Force  
@@ -283,7 +283,7 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 -AccountName "MyStorageAccount").Key1
 ```
 
-有关详细信息，请参阅 [get-azurermstorageaccountkey](/powershell/module/Az.storage/Get-AzStorageAccountKey)。
+有关详细信息，请参阅 [Get-AzureRMStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey)。
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -291,7 +291,7 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以将�
 
 Azure CLI 经过优化，可用于从命令行管理 Azure 资源，以及生成可以针对 Azure 资源管理器运行的自动化脚本。 它提供 Azure Stack Hub 门户所提供的许多功能，包括各种数据访问功能。
 
-Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 若要详细了解如何通过 Azure Stack Hub 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack Hub CLI](azure-stack-version-profiles-azurecli2.md)。 有关如何使用 Azure CLI 来执行多个任务（使用 Azure Stack 中心存储帐户中的资源）的详细信息，请参阅 [将 Azure CLI 与 Azure 存储配合使用](/azure/storage/storage-azure-cli)。
+Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 若要详细了解如何通过 Azure Stack Hub 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack Hub CLI](azure-stack-version-profiles-azurecli2.md)。 若要详细了解如何使用 Azure CLI 执行多个可利用 Azure Stack Hub 存储帐户中的资源的任务，请参阅[将 Azure CLI 与 Azure 存储配合使用](/azure/storage/storage-azure-cli)。
 
 ### <a name="azure-cli-sample-script-for-azure-stack-hub"></a>适用于 Azure Stack Hub 的 Azure CLI 示例脚本
 

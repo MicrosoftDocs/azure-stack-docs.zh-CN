@@ -4,40 +4,49 @@ titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中轮换机密。
 author: BryanLa
 ms.topic: how-to
-ms.date: 06/29/2020
-ms.reviewer: ppacent
+ms.date: 01/07/2021
+ms.reviewer: fiseraci
 ms.author: bryanla
-ms.lastreviewed: 08/15/2020
+ms.lastreviewed: 01/07/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 800e6f2173f409283a04259f29b4835e66ced075
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: ec65268a76a8616d5fea213d6c4f0551a5b5ba38
+ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343153"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98123691"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack Hub 中轮换机密
 
-本文提供了有关执行机密旋转的指南，以帮助维护与 Azure Stack 中心基础结构资源和服务的安全通信。
+本文提供了用于执行机密轮换的指南，以帮助维护与 Azure Stack Hub 基础结构资源和服务的安全通信。
 
 ## <a name="overview"></a>概述
 
 Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安全通信。 为维护 Azure Stack Hub 基础结构的完整性，操作员需要能够轮换机密，轮换频率应与其组织的安全要求一致。
 
-当机密处于有效期30天内时，管理员门户中会生成以下警报。 完成机密旋转将解决以下警报：
+当机密即将过期时，管理员门户中会生成以下警报。 完成机密轮换可解决以下警报：
 
 - 挂起的服务帐户密码过期
 - 挂起的内部证书过期
 - 挂起的外部证书过期
 
+> [!WARNING]
+> 在管理员门户中过期之前，会触发2个警报阶段：
+> - 90天之前，将生成警告警报。
+> - 30天之前，会生成严重警报。 
+>
+> **如果收到这些通知，必须完成机密旋转，这一点非常 *重要* 。如果不这样做，可能会导致工作负荷丢失，并可能会自行进行 Azure Stack 集线器重新部署！**
+
+有关警报监视和修正的详细信息，请参阅 [监视 Azure Stack 集线器中的运行状况和警报](azure-stack-monitor-health.md)。
+
 ::: moniker range="<azs-1811"  
-> [!Note]
+> [!NOTE]
 > 在 1811 之前版本的 Azure Stack Hub 环境中，可能会看到内部证书挂起或机密过期的警报。 这些警报并不正确，应将其忽略，且不运行内部机密轮换。 不正确的内部机密过期警报是已知问题，已在 1811 中得到解决。 除非环境处于活动状态的时间已达两年，否则内部机密不会过期。
 ::: moniker-end
 
 ## <a name="prerequisites"></a>先决条件
 
-1. 强烈建议先将 Azure Stack 中心实例更新到 [最新版本](release-notes.md)。
+1. 强烈建议你首先将 Azure Stack Hub 实例更新到[最新版本](release-notes.md)。
 
     ::: moniker range="<azs-1811"  
     >[!IMPORTANT]
@@ -48,22 +57,22 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
 2. 向用户通知计划内维护操作。 将普通的维护时间段尽量安排在非营业时间。 维护操作可能会同时影响用户工作负荷和门户操作。
 
-3. 在机密轮换期间，操作员可能会注意到警报在打开后又自动关闭。 此行为是预期行为，可以忽略警报。 操作员可以使用 [Test-AzureStack PowerShell cmdlet](azure-stack-diagnostic-test.md) 来验证这些警报的有效性。 对于使用 System Center Operations Manager 监视 Azure Stack Hub 系统的操作人员来说，将系统置于维护模式将阻止这些警报到达其 ITSM 系统，但如果 Azure Stack Hub 系统无法访问，则将继续发出警报。
+3. 在机密轮换期间，操作员可能会注意到警报在打开后又自动关闭。 此行为是预期行为，可以忽略警报。 操作员可以使用 [Test-AzureStack PowerShell cmdlet](azure-stack-diagnostic-test.md) 来验证这些警报的有效性。 对于使用 System Center Operations Manager 监视 Azure Stack 集线器系统的操作员，将系统置于维护模式时，将会阻止这些警报到达其 ITSM 系统，但如果 Azure Stack 集线器系统变得无法访问，则会继续发出警报。
 
 ::: moniker range=">=azs-1811"
 ## <a name="rotate-external-secrets"></a>轮换外部机密
 
 > [!Important]
-> 外部机密旋转：
-> - **非证书机密（如安全密钥和字符串** ）必须由管理员手动完成。 这包括用户和管理员帐户密码，以及 [网络交换机密码](azure-stack-customer-defined.md)。
-> - **值添加资源提供程序 (RP) 机密** 包含在单独的指导范围内：
+> 以下项的外部机密轮换：
+> - 非证书机密（如安全密钥和字符串）：必须由管理员手动完成。 这包括用户和管理员帐户密码，以及[网络交换机密码](azure-stack-customer-defined.md)。
+> - 增值资源提供程序 (RP) 机密：在单独的指南中介绍：
 >    - [Azure Stack Hub 上的应用服务](app-service-rotate-certificates.md)
 >    - [Azure Stack Hub 上的 IoT 中心](iot-hub-rp-rotate-secrets.md)
 >    - [Azure Stack Hub 上的 MySQL](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
 >    - [Azure Stack Hub 上的 SQL](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
-> - **基板管理控制器 (BMC) 凭据** 也是一个手动过程， [本文稍后](#update-the-bmc-credential)将对此进行介绍。 
+> - 基板管理控制器 (BMC) 凭据：也是一个手动过程，[在本文后面部分介绍](#update-the-bmc-credential)。 
 
-本部分介绍用于保护面向外部服务的证书的旋转。 这些证书由 Azure Stack 中心操作员提供，用于以下服务：
+本部分介绍用于保护对外服务的证书的轮换。 这些证书由 Azure Stack Hub 操作员提供，用于以下服务：
 
 - 管理员门户
 - 公共门户
@@ -74,9 +83,9 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 - 管理扩展主机
 - ACS（包括 Blob、表和队列存储）
 - ADFS<sup>*</sup>
-- 图形<sup>*</sup>
+- Graph<sup>*</sup>
 
-<sup>*</sup>当使用 Active Directory 联合服务 (AD FS) 时适用。
+<sup>*</sup>使用 Active Directory 联合身份验证服务 (AD FS) 时适用。
 
 ### <a name="preparation"></a>准备工作
 
@@ -85,21 +94,21 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 1. 在轮换机密之前使用 `-group SecretRotationReadiness` 参数运行 **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** PowerShell cmdlet，以确认所有测试输出正常。
 2. 准备新的替换性的外部证书集：
    - 新集必须与 [Azure Stack Hub PKI 证书要求](azure-stack-pki-certs.md)中所述的证书规范匹配。 
-   - 使用 "[准备 PKI 证书](azure-stack-prepare-pki-certs.md)" 中的步骤，使用 "[生成证书签名请求](azure-stack-get-pki-certs.md)并准备用于 Azure Stack 中心环境" 中所述的步骤，)  (CSR 生成证书签名请求以提交给证书颁发机构 () CA。 Azure Stack 中心支持在以下上下文中通过新证书颁发机构 (CA) 的外部证书的机密旋转：
+   - )  (CA) 向证书颁发机构提交 (CSR 生成证书签名请求。 使用[准备 PKI 证书](azure-stack-prepare-pki-certs.md)中所述的步骤，使用[生成证书签名请求](azure-stack-get-pki-certs.md)并准备要在 Azure Stack 中心环境中使用的步骤。 在以下上下文中，Azure Stack Hub 支持对新证书颁发机构 (CA) 颁发的外部证书进行机密轮换：
 
-     |从 CA 旋转|旋转到 CA|Azure Stack 中心版本支持|
+     |从 CA 轮换|轮换到 CA|Azure Stack Hub 版本支持|
      |-----|-----|-----|-----|
-     |Self-Signed|Enterprise| 1903 & 更高版本|
-     |Self-Signed|Self-Signed|不支持|
-     |Self-Signed|公布<sup>*</sup>|1803 & 更高版本|
-     |Enterprise|Enterprise|1803 & 更高版本;如果在部署时使用相同的企业 CA，则为1803-1903|
-     |Enterprise|Self-Signed|不支持|
-     |Enterprise|公布<sup>*</sup>|1803 & 更高版本|
-     |公布<sup>*</sup>|Enterprise|1903 & 更高版本|
-     |公布<sup>*</sup>|Self-Signed|不支持|
-     |公布<sup>*</sup>|公布<sup>*</sup>|1803 & 更高版本|
+     |自签名|企业| 1903 及更高版本|
+     |自签名|自签名|不支持|
+     |自签名|公共<sup>*</sup>|1803 及更高版本|
+     |企业|Enterprise|1803 及更高版本；如果企业 CA 与部署时使用的相同，则为 1803-1903|
+     |企业|自签名|不支持|
+     |企业|公共<sup>*</sup>|1803 及更高版本|
+     |公共<sup>*</sup>|企业|1903 及更高版本|
+     |公共<sup>*</sup>|自签名|不支持|
+     |公共<sup>*</sup>|公共<sup>*</sup>|1803 及更高版本|
 
-     <sup>*</sup>[Windows 受信任的根程序](/security/trusted-root/participants-list)的一部分。
+     <sup>*</sup>[Windows 受信任根计划](/security/trusted-root/participants-list)的一部分。
 
    - 请务必使用[验证 PKI 证书](azure-stack-validate-pki-certs.md)中概述的步骤来验证准备的证书
    - 请确保密码中没有特殊字符，例如 `*` 或 `)`。
@@ -108,7 +117,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 3. 将用于轮换的证书备份存储在安全的备份位置。 如果运行轮换时发生失败，请使用备份副本替换文件共享中的证书，然后重新运行轮换。 将备份副本保存在安全的备份位置。
 4. 创建可从 ERCS VM 访问的文件共享。 文件共享必须是可读且可写的 **CloudAdmin** 标识。
 5. 在可以访问该文件共享的计算机上打开 PowerShell ISE 控制台。 导航到你的文件共享，你将在其中创建目录来放置外部证书。
-6. 将 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 下载到您的网络文件共享中，然后运行该脚本。 该脚本将创建一个文件夹结构，该结构遵循 **_.\Certificates\AAD_ *_ 或 _* _.\Certificates\ADFS_ *_ 格式，具体取决于标识提供者。你的文件夹结构必须以 _* \\Certificates** 文件夹开头，后面仅跟有一个 **\\AAD** 或 **\\ADFS** 文件夹。 所有其他子目录都包含在前面的结构中。 例如：
+6. 将 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 下载到您的网络文件共享中，然后运行该脚本。 该脚本将创建一个文件夹结构，该结构遵循 **_.\Certificates\AAD_ *_ 或 _* _.\Certificates\ADFS_ *_ 格式，具体取决于标识提供者。你的文件夹结构必须以 _* \\Certificates** 文件夹开头，后面仅跟有一个 **\\AAD** 或 **\\ADFS** 文件夹。 所有剩余的子目录都包含在前一结构中。 例如：
     - 文件共享 = **\\\\\<IPAddress>\\\<ShareName>**
     - Azure AD 提供程序的证书根文件夹 = **\\Certificates\AAD**
     - 完整路径 = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
@@ -199,7 +208,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
         - `-PathAccessCredential`：针对共享的凭据的 PSCredential 对象。
         - `-CertificatePassword`：创建的所有 pfx 证书文件使用的密码安全字符串。
 
-2. 外部机密轮换需要大约一小时。 成功完成后，控制台将显示一 `ActionPlanInstanceID ... CurrentStatus: Completed` 条消息，后跟 `DONE` 。 从 "准备" 部分中创建的共享中删除证书，并将其存储在安全的备份位置。
+2. 外部机密轮换需要大约一小时。 成功完成后，控制台会显示“`ActionPlanInstanceID ... CurrentStatus: Completed`”消息，后跟“`DONE`”。 从共享（在“准备”部分创建）中删除证书，将其存储在安全的备份位置。
 
     > [!Note]
     > 如果机密轮换失败，请按照错误消息中的说明操作，结合 `-ReRun` 参数重新运行 `Start-SecretRotation`。
@@ -213,14 +222,14 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 
 ## <a name="rotate-internal-secrets"></a>轮换内部机密
 
-内部机密包括 Azure Stack 中心基础结构使用的证书、密码、安全字符串和密钥，而不会干预 Azure Stack 中心运营商。 仅当你怀疑某个机密已泄露或收到机密过期的警报时，才需要轮换内部机密。 除非环境处于活动状态的时间已达两年，否则内部机密不会过期。
+内部机密包括由 Azure Stack Hub 基础结构使用的证书、密码、安全字符串和密钥，无需 Azure Stack Hub 操作员的介入。 仅当你怀疑某个机密已泄露或收到机密过期的警报时，才需要轮换内部机密。 
 ::: moniker range="<azs-1811"  
-1811之前的部署可能会看到挂起的内部证书或密钥过期的警报。 这些警报不准确，应该将其忽略，这是 1811 中已解决的已知问题。
+在 1811 之前的部署中，你可能会看到内部证书挂起或机密过期的警报。 这些警报不准确，应该将其忽略，这是 1811 中已解决的已知问题。
 ::: moniker-end
 
-完成以下步骤来旋转内部机密：
+完成以下步骤来轮换内部机密：
 
-1. 运行下面的 PowerShell 脚本。 请注意，对于内部机密旋转，"运行机密旋转" 部分仅使用 `-Internal` [start-secretrotation cmdlet](../reference/pep-2002/start-secretrotation.md)的参数：
+1. 运行下面的 PowerShell 脚本。 请注意，对于内部机密轮换，“运行机密轮换”部分仅对 [Start-SecretRotation cmdlet](../reference/pep-2002/start-secretrotation.md) 使用 `-Internal` 参数：
 
     ```powershell
     # Create a PEP Session
@@ -244,7 +253,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
     ::: moniker-end
 
 
-2. 成功完成后，控制台将显示一 `ActionPlanInstanceID ... CurrentStatus: Completed` 条消息，后跟 `DONE` 。
+2. 成功完成后，控制台会显示“`ActionPlanInstanceID ... CurrentStatus: Completed`”消息，后跟“`DONE`”。
 
     > [!Note]
     > 如果机密轮换失败，请按照错误消息中的说明操作，并使用 `-Internal` 和 `-ReRun` 参数重新运行 `Start-SecretRotation`。  

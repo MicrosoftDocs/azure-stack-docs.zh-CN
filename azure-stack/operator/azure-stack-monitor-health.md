@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 00357a7b16ee1ec6b158ea881d9f4a2c77d69e72
+ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869927"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98123726"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>在 Azure Stack Hub 中监视运行状况和警报
 
@@ -69,19 +69,27 @@ Azure Stack Hub 引发的警报只有两个严重级别：**警告** 和 **严�
 
 ![Azure Stack Hub 管理员门户中的“警报详细信息”边栏选项卡](media/azure-stack-monitor-health/alert-detail.png)
 
-## <a name="repair-alerts"></a>修复警报
+## <a name="alert-remediation"></a>警报修正
 
-可以在某些警报中选择“修复”。 
+### <a name="automated-remediation"></a>自动修正
 
-选中以后，“修复”操作会执行特定于警报的步骤来尝试解决问题。  选中以后，“修复”操作的状态会以门户通知的形式提供。 
+某些警报支持 **修复** 选项，如上图所示。 选中以后，“修复”操作会执行特定于警报的步骤来尝试解决问题。 选中以后，“修复”操作的状态会以门户通知的形式提供。
 
 ![正在进行的“修复警报”操作](media/azure-stack-monitor-health/repair-in-progress.png)
 
-“修复”操作会在同一门户通知边栏选项卡中报告成功完成了操作或无法完成操作。   如果某项“修复”操作因出现警报而失败，则可在警报详细信息中重新运行“修复”操作。  如果“修复”操作成功完成，**请勿** 重新运行“修复”操作。 
+“修复”操作会在同一门户通知边栏选项卡中报告成功完成了操作或无法完成操作。  如果某项“修复”操作因出现警报而失败，则可在警报详细信息中重新运行“修复”操作。 如果“修复”操作成功完成，**请勿** 重新运行“修复”操作。 基础结构角色实例重新联机后，会自动关闭此警报。
 
 ![“修复”操作成功完成](media/azure-stack-monitor-health/repair-completed.png)
 
-基础结构角色实例重新联机后，会自动关闭此警报。 在根本问题得到解决后，许多（但并非所有）警报会自动关闭。 如果 Azure Stack Hub 解决了问题，提供“修复”操作按钮的警报会自动关闭。 对于所有其他警报，请在执行补救步骤之后选择“关闭警报”。  如果问题仍然存在，Azure Stack Hub 会生成新警报。 如果解决了问题，警报将保持关闭，无需采取其他步骤。
+### <a name="manual-remediation"></a>手动修正
+
+如果不支持 " **修复** " 选项，请确保遵循警报中提供的一组完整的修正说明。 例如，内部证书过期修正步骤将指导你完成秘密旋转过程：
+
+![证书过期修正](media/azure-stack-monitor-health/certificate-expiration.png)
+
+### <a name="alert-closure"></a>警报关闭
+
+当问题解决时，许多（但不是每个警报）将自动关闭。 如果 Azure Stack 集线器解决该问题，则 "提供修复操作" 按钮的警报将自动关闭。 对于所有其他警报，请在执行补救步骤之后选择“关闭警报”。 如果问题仍然存在，Azure Stack 集线器会生成新的警报。 如果解决了问题，警报将保持关闭，无需采取其他步骤。
 
 ## <a name="next-steps"></a>后续步骤
 
