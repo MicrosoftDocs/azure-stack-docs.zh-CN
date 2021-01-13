@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/11/2021
-ms.openlocfilehash: a2c07e171468aad411bed1b752834939827be971
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.date: 01/12/2021
+ms.openlocfilehash: 7f77855945ecfb31e223db46be8b2e2e3a012c16
+ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103186"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98130267"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>使用 Windows Admin Center 管理 Azure Stack HCI 群集
 
@@ -38,14 +38,6 @@ Windows Admin Center 可用于管理 Azure Stack HCI 群集。 具体而言，�
 - 群集总输入/输出操作数/秒 (IOPS)
 - 群集平均延迟(以毫秒计)
 
-## <a name="view-cluster-resources"></a>查看群集资源
-
-群集概述页显示有关群集资源（例如服务器、基础结构和仲裁见证服务器）的信息。
-
-:::image type="content" source="media/manage-cluster/cluster-overview.png" alt-text="群集概述屏幕" lightbox="media/manage-cluster/cluster-overview.png":::
-
-若要查看此信息，请在 " **所有连接**" 下选择群集名称，然后在左侧的 " **工具** " 下，选择 " **概述**"。
-
 ## <a name="change-storage-settings"></a>更改存储设置
 
 您可以选择使用服务器内存来缓存频繁读取，并指定每个服务器将使用的最大内存。 有关详细信息，请参阅 [了解 AZURE STACK HCI 中的缓存](../concepts/cache.md)。
@@ -56,9 +48,17 @@ Windows Admin Center 可用于管理 Azure Stack HCI 群集。 具体而言，�
 
     :::image type="content" source="media/manage-cluster/cluster-settings-memory.png" alt-text="群集内存中缓存屏幕" lightbox="media/manage-cluster/cluster-settings-memory.png":::
 
-1. 可以更改存储空间直通使用的存储池的名称。 选择 " **存储池** "，然后输入新名称。
+1. 可以更改存储空间直通使用的存储池的名称。 选择 " **存储池** "，然后输入新名称。 这适用于扩展群集。
 
-    :::image type="content" source="media/manage-cluster/cluster-settings-ssd.png" alt-text="群集存储池屏幕" lightbox="media/manage-cluster/cluster-settings-ssd.png":::
+    :::image type="content" source="media/manage-cluster/cluster-settings-storage-pools.png" alt-text="群集存储池屏幕" lightbox="media/manage-cluster/cluster-settings-storage-pools.png":::
+
+1. 可以更改存储空间直通设置。 选择 **存储空间直通** 并根据需要更改以下设置：
+
+    - **永久性缓存** -启用或禁用永久性缓存
+    - **Hdd 缓存模式** -更改 hdd 驱动器的缓存模式
+    - **Ssd 的缓存模式** -更改 ssd 驱动器的缓存
+
+    :::image type="content" source="media/manage-cluster/cluster-settings-storage-spaces-direct.png" alt-text="群集存储空间直通屏幕" lightbox="media/manage-cluster/cluster-settings-storage-spaces-direct.png":::
 
 ## <a name="change-cluster-settings"></a>更改群集设置
 
@@ -78,7 +78,7 @@ Windows Admin Center 可用于管理 Azure Stack HCI 群集。 具体而言，�
 
    - **核心流量** - 对在端口 3343 上通过 NetFT（群集虚拟适配器）发送的流量进行加密
 
-   - **服务器流量** - 对群集共享卷 (CSV) 和存储总线层 (SBL) 流量进行加密
+   - **存储流量** -加密群集共享卷 (CSV) 和存储总线层 (SBL) 流量
 
         :::image type="content" source="media/manage-cluster/cluster-settings-encryption.png" alt-text="群集群集流量加密屏幕" lightbox="media/manage-cluster/cluster-settings-encryption.png":::
 
@@ -125,8 +125,6 @@ Windows Admin Center 可用于管理 Azure Stack HCI 群集。 具体而言，�
 
    - **虚拟机路径** - 指定用于存储虚拟机配置文件的默认文件夹。
 
-   - **虚拟机监控程序计划程序类型** - 选择“核心计划程序”或“经典计划程序” 。 这会决定虚拟机监控程序如何安排虚拟进程在使用“同时多线程”（也称为 SMT 或超线程）的物理处理器上运行。 建议使用核心计划。
-
         :::image type="content" source="media/manage-cluster/cluster-settings-hyperv.png" alt-text="群集 Hyper-V 常规设置屏幕" lightbox="media/manage-cluster/cluster-settings-hyperv.png":::
 
 1. 若要允许从虚拟机重定向本地设备和资源，请选择“增强会话模式”。 请注意，增强会话模式的连接需要使用受支持的来宾操作系统。
@@ -141,37 +139,15 @@ Windows Admin Center 可用于管理 Azure Stack HCI 群集。 具体而言，�
 
    - 对于“身份验证协议”，选择 CredSSP 或 Kerberos  。
 
-   - 对于“性能选项”，请选择“压缩”或 SMB  。 压缩数据通过 TCP/IP 连接发送。
+   - 对于 " **性能选项**"，请选择 " **压缩** " 或 " **SMB**"。 压缩数据通过 TCP/IP 连接发送。
 
    - 勾选“使用任意网络”复选框即可使用节点上的任意可用网络执行迁移
 
-        :::image type="content" source="media/manage-cluster/cluster-settings-liv-migration.png" alt-text="群集实时迁移屏幕" lightbox="media/manage-cluster/cluster-settings-liv-migration.png":::
+        :::image type="content" source="media/manage-cluster/cluster-settings-live-migration.png" alt-text="群集实时迁移屏幕" lightbox="media/manage-cluster/cluster-settings-live-migration.png":::
 
 1. 若要指定可同时执行的存储迁移数，请选择“存储迁移”，然后选择一个数字。
 
-    :::image type="content" source="media/manage-cluster/cluster-settings-sto-migration.png" alt-text="群集存储迁移屏幕" lightbox="media/manage-cluster/cluster-settings-sto-migration.png":::
-
-## <a name="manage-cluster-resources"></a>管理群集资源
-
-若要启动、停止、删除或模拟群集资源的故障，请执行以下操作：
-
-1. 选择 " **概述**"，然后在 " **群集资源**" 下选择资源，然后选择 " **启动**"、" **停止**" 或 " **删除**"。
-
-    :::image type="content" source="media/manage-cluster/cluster-overview.png" alt-text="管理群集资源屏幕" lightbox="media/manage-cluster/cluster-overview.png":::
-
-1. 选择 " **模拟无法** 模拟群集故障"：
-
-    :::image type="content" source="media/manage-cluster/cluster-simulate-failure.png" alt-text="模拟资源故障屏幕" lightbox="media/manage-cluster/cluster-simulate-failure.png":::
-
-## <a name="validate-the-cluster"></a>验证群集
-
-若要验证群集，请选择 " **概述**"，然后选择 " **验证群集**"。 有关群集验证的详细信息，请参阅 [将 AZURE STACK HCI 连接到 Azure](../deploy/validate.md)。
-
-:::image type="content" source="media/manage-cluster/validate-cluster.png" alt-text="验证群集屏幕" lightbox="media/manage-cluster/validate-cluster.png":::
-
-若要查看和下载群集验证报告，请选择 " **验证报告**"，然后选择 " **下载报告**"。
-
-:::image type="content" source="media/manage-cluster/validation-reports.png" alt-text="验证报表屏幕" lightbox="media/manage-cluster/validation-reports.png":::
+    :::image type="content" source="media/manage-cluster/cluster-settings-storage-migration.png" alt-text="群集存储迁移屏幕" lightbox="media/manage-cluster/cluster-settings-storage-migration.png":::
 
 ## <a name="register-the-cluster-with-azure"></a>将群集注册到 Azure
 
@@ -179,14 +155,6 @@ Windows Admin Center 可用于管理 Azure Stack HCI 群集。 具体而言，�
 
 :::image type="content" source="media/manage-cluster/cluster-registration.png" alt-text="群集 Azure 注册屏幕" lightbox="media/manage-cluster/cluster-registration.png":::
 
-## <a name="remove-the-cluster"></a>删除群集
-
-若要删除群集)  (销毁，请选择 " **概述**"，然后选择 " **删除群集**"。
-
-:::image type="content" source="media/manage-cluster/remove-cluster.png" alt-text="删除群集屏幕" lightbox="media/manage-cluster/remove-cluster.png":::
-
 ## <a name="next-steps"></a>后续步骤
 
-- 若要监视群集，请参阅[使用 Azure Monitor 监视 Azure Stack HCI](azure-monitor.md)。
-
-- 若要排查群集验证报告问题，请参阅 [群集验证报告故障排除](validate-qos.md)。
+若要监视群集，请参阅[使用 Azure Monitor 监视 Azure Stack HCI](azure-monitor.md)。
