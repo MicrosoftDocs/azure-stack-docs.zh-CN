@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 3d8be2b6b1e3251875ca014e221c9bf4de35671e
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: 25c9163bfaecfd595d56369312d149716c6748fe
+ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918732"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98175747"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>快速入门：使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
 
@@ -71,9 +71,6 @@ ms.locfileid: "97918732"
 5. 查看 " **查看 + 创建** " 步骤中的所有选择。 如果你对选择满意，请选择 " **下一步** " 以开始安装主机。 
 6. 在“设置进度”页上，可以查看主机设置的进度。 此时，欢迎你在新选项卡中打开 Windows Admin Center 并继续执行管理任务。 
 7. 如果部署成功，请选择 " *完成*"，此时会显示一个管理仪表板，可在其中创建和管理 Kubernetes 群集。 此仪表板（如 Azure Stack HCI 上的 Azure Kubernetes 服务的其余部分）处于预览版本中，并将在将来的版本中使用其他功能进行更新。
-
-
-1. 如果部署成功，你将看到一个管理仪表板，你可以在其中创建和管理你的 Kubernetes 群集。 此仪表板（如 Azure Stack HCI 上的 Azure Kubernetes 服务的其余部分）处于预览版本中，并将在将来的版本中使用其他功能进行更新。 
  
   ![演示 Azure Stack HCI 管理仪表板上的 Azure Kubernetes 服务。](.\media\setup\dashboard.png)
  

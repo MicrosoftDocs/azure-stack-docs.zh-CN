@@ -37,11 +37,11 @@
       href: adapt-apps-mixed-os-clusters.md
     - name: 使用 Windows Server 容器
       items:
-        - name: 在 Azure Stack HCI 上的 AKS 中部署 .NET 应用程序
+        - name: 部署 .NET 应用程序
           href: deploy-windows-application.md
         - name: 为组托管服务帐户支持准备 Windows 节点
           href: prepare-windows-nodes-gmsa.md
-        - name: 在 Azure Stack HCI 群集上的 AKS 中使用永久卷
+        - name: 使用持久卷
           href: persistent-volume.md
     - name: 故障排除
       href: troubleshoot.md
