@@ -58,6 +58,8 @@
           href: manage/vm-powershell.md
         - name: 创建 VM 相关性规则
           href: manage/vm-affinity.md
+        - name: VM 负载均衡
+          href: manage/vm-load-balancing.md
         - name: 将 GPU 连接到 Linux VM
           href: manage/attach-gpu-to-linux-vm.md
     - name: 管理存储

@@ -9,12 +9,12 @@ ms.reviewer: fiseraci
 ms.author: bryanla
 ms.lastreviewed: 01/07/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: ec65268a76a8616d5fea213d6c4f0551a5b5ba38
-ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
+ms.openlocfilehash: 229b7b3995340298b7162de7ae051d0f742e86cf
+ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98123691"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210948"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack Hub 中轮换机密
 
@@ -238,9 +238,6 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
     $PEPSession = New-PSSession -ComputerName <IP_address_of_ERCS_Machine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
     # Run Secret Rotation
-    $CertPassword = ConvertTo-SecureString "<Cert_Password>" -AsPlainText -Force
-    $CertShareCreds = Get-Credential
-    $CertSharePath = "<Network_Path_Of_CertShare>"
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Start-SecretRotation -Internal
     }

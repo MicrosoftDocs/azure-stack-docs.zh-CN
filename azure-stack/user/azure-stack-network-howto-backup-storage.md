@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 6bbca7a38e23a0dfadcd0e7654430430d55da3f2
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 5067c873b2313f76c9213d89674ce00926efadc1
+ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974058"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210965"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>在 Azure Stack Hub 上备份存储帐户
 
@@ -86,7 +86,7 @@ AzCopy 是一个极佳的工具，可用于复制本地文件系统、Azure 云�
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  输入 **存储帐户**、**SAS 密钥**和**本地目录路径。  稍后将使用此信息以增量方式将数据复制到 **目标** 存储帐户
+5.  输入 **存储帐户**、**SAS 密钥** 和 **本地目录路径**。  稍后将使用此信息以增量方式将数据复制到 **目标** 存储帐户
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true
