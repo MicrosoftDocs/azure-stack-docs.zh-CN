@@ -15,12 +15,12 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 48cb9d6e659f8b6f3507f5c0b4d6b7e60622f025
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: d0aa0ce6680d45fb6c8a760ab72908e306efe0a1
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965471"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243538"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Azure Stack 中心中的缩放单位节点操作-耐用
 
@@ -90,7 +90,7 @@ ms.locfileid: "97965471"
 
 在停止操作不起作用的情况下（这种情况很少见），请重试操作，如果仍然失败，请改用 BMC Web 界面。
 
-有关详细信息，请参阅 [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)。
+有关详细信息，请参阅 [Stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)。
 
 ## <a name="start"></a>开始
 
@@ -104,7 +104,7 @@ ms.locfileid: "97965471"
 
 万一启动操作不起作用，则重试该操作。 如果它再次失败，请改用 BMC Web 界面。
 
-有关详细信息，请参阅 [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode)。
+有关详细信息，请参阅 [Start-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/start-azsscaleunitnode)。
 
 ## <a name="drain"></a>清空
 
@@ -121,7 +121,7 @@ ms.locfileid: "97965471"
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-有关详细信息，请参阅 [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)。
+有关详细信息，请参阅 [Disable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)。
 
 ## <a name="resume"></a>恢复
 
@@ -133,7 +133,7 @@ ms.locfileid: "97965471"
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-有关详细信息，请参阅 [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode)。
+有关详细信息，请参阅 [Enable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/enable-azsscaleunitnode)。
 
 ## <a name="repair"></a>修复
 
@@ -169,4 +169,4 @@ ms.locfileid: "97965471"
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解 Azure Stack Hub Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/)。
+[了解 Azure Stack Hub Fabric 操作员模块](/powershell/module/azs.fabric.admin/)。

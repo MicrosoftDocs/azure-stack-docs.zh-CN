@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/29/2020
-ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.date: 01/14/2021
+ms.openlocfilehash: 3b29dfb35bad91ef02feebc22255b89116da1505
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354150"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243453"
 ---
 # <a name="system-requirements-for-azure-stack-hci"></a>Azure Stack HCI 的系统需求
 
@@ -61,20 +61,6 @@ Azure Stack HCI 群集要求在各个服务器节点之间具有可靠的高带�
 
 - 验证是否至少有一个网络适配器可用且专用于群集管理。
 - 验证网络中的物理交换机是否已配置为允许你要使用的任何 VLAN 上的流量。
-
-服务器节点之间存在多种类型的通信：
-
-- 群集通信（节点加入、群集更新、注册表更新）
-- 群集检测信号
-- 群集共享卷 (CSV) 重定向流量
-- 虚拟机的实时迁移流量
-
-使用存储空间直通时，需要考虑额外的网络流量：
-
-- 存储总线层 (SBL) – 在节点间分散的盘区或数据
-- 运行状况 – 监视和管理对象（节点、驱动器、网卡、群集服务）
-
-对于延伸群集，还会有在站点之间流动的额外存储副本流量。 存储总线层 (SBL) 和群集共享卷 (CSV) 流量不会在站点之间传输，只能在每个站点中的服务器节点之间传输。
 
 有关主机网络注意事项和要求，请参阅 [主机网络要求](host-network-requirements.md)。
 

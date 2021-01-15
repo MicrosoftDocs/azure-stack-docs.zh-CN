@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: 2e3c25e282a84a0e41d6c69d0af6e2f352bbfba5
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: fe68722e2cabea2cc863bbd6fb6d8414eb91031c
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974007"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243572"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>在 Azure Stack Hub 上安装 Azure CLI
 
@@ -36,7 +36,7 @@ ms.locfileid: "97974007"
 
 2. 记下 CLI 的 Python 位置。 如果正在运行 ASDK，则需要使用此位置来添加证书。 有关如何设置证书以在 ASDK 上安装 CLI 的说明，请参阅[在 Azure Stack 开发工具包中为 Azure CLI 设置证书](../asdk/asdk-cli.md)。
 
-## <a name="connect-with-azure-cli"></a>连接 Azure CLI
+## <a name="connect-with-azure-cli"></a>使用 Azure CLI 进行连接
 
 ### <a name="azure-ad-on-windows"></a>[Windows 上的 Azure AD](#tab/ad-win)
 
@@ -67,7 +67,7 @@ ms.locfileid: "97974007"
           --endpoint-active-directory-graph-resource-id "https://graph.windows.net/"
       ```
 
-    您可以在 "Azure CLI 参考" 文档中找到 [register 命令](https://docs.microsoft.com/cli/azure/cloud?view=azure-cli-latest#az_cloud_register) 的引用。
+    可以在 Azure CLI 参考文档中找到 [register 命令](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register)的参考。
 
 
 4. 使用以下命令设置活动环境。
@@ -84,7 +84,7 @@ ms.locfileid: "97974007"
  
 6. 使用 `az login` 命令登录到 Azure Stack Hub 环境。
 
-    你可以使用用户凭据登录到 Azure Stack 中心环境，或者使用云操作员提供给你的 [服务主体](/azure/active-directory/develop/app-objects-and-service-principals) (SPN) 登录。 
+    可以使用用户凭据或云运营商提供的[服务主体](/azure/active-directory/develop/app-objects-and-service-principals) (SPN) 登录到 Azure Stack Hub 环境。 
 
    - 以用户身份登录： 
 
@@ -110,13 +110,13 @@ ms.locfileid: "97974007"
           -p <Key generated for the Service Principal>
         ```
     
-7. 验证你的环境是否设置正确，以及你的环境是否为活动的云。
+7. 验证环境是否设置正确，以及环境是否为活动云。
 
       ```azurecli
           az cloud list --output table
       ```
 
-你应会看到你的环境已列出并且 **IsActive** 为 `true` 。 例如：
+应当看到环境被列出，并且“IsActive”为 `true`。 例如：
 
 ```azurecli  
 IsActive    Name               Profile
@@ -402,4 +402,4 @@ az group create -n MyResourceGroup -l local
 
 - [使用 Azure CLI 部署模板](azure-stack-deploy-template-command-line.md)
 - [为 Azure Stack Hub 用户启用 Azure CLI（操作员）](../operator/azure-stack-cli-admin.md)
-- [管理用户权限](azure-stack-manage-permissions.md) 
+- [管理用户权限](azure-stack-manage-permissions.md)

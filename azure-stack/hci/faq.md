@@ -6,85 +6,87 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/24/2020
-ms.openlocfilehash: f4c6b9585f41388281c6618fabd21932f6d48c38
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 1/15/2021
+ms.openlocfilehash: 97979a9fb96840337e89a4a3db3e3307cdb70eac
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051592"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243385"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI 常见问题解答
-Azure Stack HCI 常见问题包含有关 Azure Stack HCI 连接的部分和一般常见问题解答部分。
+Azure Stack HCI 常见问题解答包含一个有关 Azure Stack HCI 连接的部分和一个常规常见问题解答部分。
 
 ## <a name="azure-stack-hci-connectivity"></a>Azure Stack HCI 连接
-Azure Stack HCI 是作为 Azure 混合服务提供的本地超聚合基础结构堆栈。 将 Azure Stack HCI 软件安装在你在本地控制的物理服务器上。 然后，将连接到 Azure 以实现基于云的监视、支持、计费，以及可选的管理和安全功能。 本 FAQ 部分说明 Azure Stack HCI 如何通过解决有关连接要求和行为的常见问题来使用云。
+Azure Stack HCI 是一个作为 Azure 混合服务提供的本地超融合基础设施堆栈。 可在本地控制的物理服务器上安装 Azure Stack HCI 软件。 然后连接到 Azure 以实现基于云的监视、支持、计费，并使用可选的管理和安全功能。 本常见问题解答部分通过解决有关连接要求和行为的常见问题，说明 Azure Stack HCI 如何使用云。
 
 ### <a name="your-data-stays-on-premises"></a>你的数据保留在本地
 
-**Azure Stack HCI 上存储的数据是否已发送到云？**
+**我在 Azure Stack HCI 上存储的数据是否会发送到云？**
 
-错误。 不会将本地虚拟机 (Vm) 的名称、元数据、配置和内容发送到云，除非你为此目的明确启用其他服务，如 Azure 备份或 Azure Site Recovery。 除非将这些 Vm 单独注册到云管理服务（如 Azure Arc）中。
+不是。 你的数据（包括本地虚拟机的名称、元数据、配置和内容） (Vm) 永远不会发送到云，除非你为此目的（如 Azure 备份或 Azure Site Recovery）明确地启用其他服务，否则，除非你将这些 Vm 单独注册到云管理服务（如 Azure Arc）中。
+
+若要详细了解我们收集的诊断数据以保持 Azure Stack HCI 安全、最新且按预期方式工作，请参阅[在 Azure 中](https://azure.microsoft.com/global-infrastructure/data-residency/) [Azure Stack HCI 数据收集](concepts/data-collection.md)和数据驻留。
 
 ### <a name="edge-local-management-and-control"></a>边缘-本地管理和控制
 
-**Azure Stack HCI 的控制平面是否经过云中？**
+**Azure Stack HCI 的控制平面是否通过云？**
 
-错误。 即使云的网络连接已关闭或受到严格限制，你也可以使用边缘本地工具（如 Windows 管理中心、PowerShell 或 System Center）直接管理主机基础结构和 Vm。 常见的日常操作（例如，在主机之间移动 VM、更换发生故障的驱动器或配置 IP 地址）不依赖于云。 但是，需要云连接才能获取无线软件更新、更改 Azure 注册，或使用直接依赖于云服务进行备份、监视等功能。
+不是。 即使与云的网络连接已关闭或严重受限，你也可使用边缘-本地工具（如 Windows Admin Center、PowerShell 或 System Center）直接管理主机基础结构和 VM。 常见的日常操作（例如，在主机之间移动 VM、更换发生故障的驱动器或配置 IP 地址）不依赖于云。 但需要连接云才能获取无线软件更新、更改 Azure 注册，或使用直接依赖于云服务的功能进行备份和监视等。
 
 **Azure Stack HCI 与云之间是否存在带宽或延迟要求？**
 
-错误。 有限带宽连接（如乡村 T1 线路或卫星/蜂窝连接）足以满足 Azure Stack HCI 同步的需要。每日所需的最小连接数仅为几 kb。 其他服务可能需要额外的带宽，特别是复制或备份整个 Vm，下载大型软件更新，或上传详细日志以便在云中进行分析和监视。
+不是。 有限带宽连接（如乡村 T1 线路或卫星/蜂窝连接）足以完成 Azure Stack HCI 同步。每日所需的最小连接量仅为几千字节。 额外的服务可能需要额外的带宽，特别是复制或备份整个 VM、下载大型软件更新或上传详细日志以在云中进行分析和监视。
 
-### <a name="designed-for-intermittent-and-limited-connectivity"></a>为间歇连接和有限连接而设计
+### <a name="designed-for-intermittent-and-limited-connectivity"></a>专为间歇性连接和受限连接设计
 
 **Azure Stack HCI 是否需要持续连接到云？**
 
-错误。 Azure Stack HCI 用于处理有限或零的连接时间段。
+不是。 Azure Stack HCI 旨在处理连接受限或没有连接的情况。
 
-**如果到云的网络连接暂时中断，会发生什么情况？**
+**如果与云的网络连接暂时断开，会发生什么情况？**
 
-连接关闭时，所有主机基础结构和 Vm 都将继续正常运行，并且你可以使用用于管理的边缘本地工具。 你将无法使用直接依赖于云服务的功能。 直到 Azure Stack HCI 能够再次同步之前，Azure 门户中的信息也会过期。
+连接断开时，所有主机基础结构和 VM 都会继续正常运行，并且你可使用边缘-本地工具进行管理。 你将无法使用直接依赖于云服务的功能。 在 Azure Stack HCI 能够再次同步之前，Azure 门户中的信息也会过期。
 
-**连接关闭后，Azure Stack HCI 运行的时间有多长？**
+**连接断开后，Azure Stack HCI 可以运行多长时间？**
 
-Azure Stack HCI 至少需要在每30天的时间内通过 Azure 成功同步。
+每连续 30 天，Azure Stack HCI 至少需要与 Azure 成功同步一次。
 
-**超过30天限制会发生什么情况？**
+**如果超出 30 天的限制，会发生什么情况？**
 
-如果 Azure Stack HCI 连续30天内未与 Azure 同步，则群集的连接状态将显示在 Azure 门户和其他工具的 **策略之外** ，并且群集将进入缩减功能模式。 在此模式下，主机基础结构将保持运行状态，并且所有当前 Vm 都将继续正常运行。 但是，在 Azure Stack HCI 能够再次同步之前，无法创建新的 Vm。 内部技术原因是，群集的云生成的许可证已过期，需要通过与 Azure 同步来续订。
+如果 Azure Stack HCI 连续30天内未与 Azure 同步，则群集的连接状态将显示在 Azure 门户和其他工具的 **策略之外** ，并且群集将进入缩减功能模式。 在此模式下，主机基础结构保持正常运行，并且所有当前 VM 都继续正常运行。 但是，在 Azure Stack HCI 能够再次同步之前，无法创建新的 Vm。 内部技术原因是，群集的云生成的许可证已过期，需要通过与 Azure 同步来续订。
 
 ### <a name="understanding-sync"></a>了解同步
 
-**与云 Azure Stack HCI 同步的内容有哪些？**
+**Azure Stack HCI 与云同步哪些内容？**
 
-这取决于所使用的功能。 Azure Stack HCI 至少会同步基本群集信息以显示在 Azure 门户中 (如群集节点、硬件型号和软件版本) 的列表）;汇总自上次同步以来的累计内核天数的计费信息;最少的所需诊断信息可帮助 Microsoft 保持 Azure Stack HCI 安全、最新且工作正常。 总大小为小–几 kb。 如果启用其他服务，它们可能会上传更多：例如，Azure Log Analytics 会上传日志和性能计数器进行监视。
+这取决于所使用的功能。 Azure Stack HCI 至少会同步基本群集信息以显示在 Azure 门户中 (如群集节点、硬件型号和软件版本) 的列表）;汇总自上次同步以来的累计内核天数的计费信息;最少的所需诊断信息可帮助 Microsoft 保持 Azure Stack HCI 安全、最新且工作正常。 总大小很小 - 几千字节。 如果启用额外的服务，它们可能会上传更多内容：例如，Azure Log Analytics 会上传日志和性能计数器以用于监视。
 
 **Azure Stack HCI 与云同步的频率如何？**
 
-这取决于所使用的功能。 Azure Stack HCI 至少会尝试每12小时同步一次。 如果同步不成功，则会在本地保留内容并在下一次成功同步时发送。除了此常规计时器，还可以使用 `Sync-AzureStackHCI` PowerShell cmdlet 或从 Windows 管理中心手动同步。 如果打开其他服务，则可能会更频繁地上传：例如，Azure Log Analytics 每5分钟上载一次进行监视。
+这取决于所使用的功能。 Azure Stack HCI 至少会每 12 小时尝试一次同步。 如果同步不成功，则会在本地保留内容并在下一次成功同步时发送。除了此常规计时器，还可以使用 `Sync-AzureStackHCI` PowerShell cmdlet 或从 Windows 管理中心手动同步。 如果启用额外的服务，它们可能会更加频繁地上传内容：例如，Azure Log Analytics 会每 5 分钟上传一次以便进行监视。
 
 ### <a name="data-residency"></a>数据驻留
 
 **已同步的信息实际上会在何处？**
 
-Azure Stack HCI 与 Azure 同步，并将数据存储在安全的、由 Microsoft 运营的数据中心。 若要了解详细信息，请参阅[在 Azure 中](https://azure.microsoft.com/global-infrastructure/data-residency/) [Azure Stack HCI 数据收集](concepts/data-collection.md)和数据驻留。
+Azure Stack HCI 与 Azure 同步，并将数据存储在安全的、由 Microsoft 运营的数据中心。 若要详细了解我们收集的诊断数据以保持 Azure Stack HCI 安全、最新且按预期方式工作，请参阅[在 Azure 中](https://azure.microsoft.com/global-infrastructure/data-residency/) [Azure Stack HCI 数据收集](concepts/data-collection.md)和数据驻留。
 
 ### <a name="disconnected-or-air-gapped"></a>断开连接或 "有气流"
 
-**能否使用 Azure Stack HCI 并从不连接到 Azure？**
+**能否使用 Azure Stack HCI 而永不连接到 Azure？**
 
-错误。 Azure Stack HCI 需要连续每30天成功与 Azure 同步。
+不是。 每连续 30 天，Azure Stack HCI 需要与 Azure 成功同步一次。
 
-**能否在 "气流" Azure Stack HCI 和 Azure 之间脱机传输数据？**
+**能否在“气隙”Azure Stack HCI 和 Azure 之间脱机传输数据？**
 
-错误。 目前没有任何机制可以在没有网络连接的情况下在本地与 Azure 之间注册和同步。 例如，不能使用可移动存储来传输证书或计费数据。 如果有足够的客户需求，我们将在将来浏览此类功能。 请在 [AZURE STACK HCI 反馈论坛](https://feedback.azure.com/forums/929833-azure-stack-hci)中告知我们。
+不是。 目前没有任何机制可以在不连接网络的情况下在本地与 Azure 之间注册和同步。 例如，不能使用可移动存储来传输证书或计费数据。 如果客户需求足够多，我们愿意在将来探索此类功能。 请在 [Azure Stack HCI 反馈论坛](https://feedback.azure.com/forums/929833-azure-stack-hci)中告诉我们。
 
-## <a name="azure-stack-hci-general-faqs"></a>Azure Stack HCI 一般 Faq
+## <a name="azure-stack-hci-general-faqs"></a>Azure Stack HCI 常规常见问题解答
 
 **Azure Stack HCI 与 Windows Server 有何关系？**
 
-Windows Server 是几乎每个 Azure 产品的基础，并且你需要的所有功能将继续在 Windows Server 中提供支持。 Azure Stack HCI 的初始产品/服务基于 Windows Server 2019，使用了传统的 Windows Server 许可模式。 目前，Azure Stack HCI 拥有自己的操作系统和基于订阅的许可模式。 Azure Stack HCI 是在本地部署 HCI 的建议方式，可以使用我们的合作伙伴提供的经过 Microsoft 验证的硬件。
+Windows Server 是几乎所有 Azure 产品的基础，并且你重视的所有功能都将继续在 Windows Server 的支持下发布。 Azure Stack HCI 的初始产品/服务基于 Windows Server 2019，使用了传统的 Windows Server 许可模式。 目前，Azure Stack HCI 拥有自己的操作系统和基于订阅的许可模式。 Azure Stack HCI 是在本地部署 HCI 的建议方式，可以使用我们的合作伙伴提供的经过 Microsoft 验证的硬件。
 
 **是否可以从 Windows Server 2019 升级到 Azure Stack HCI？**
 

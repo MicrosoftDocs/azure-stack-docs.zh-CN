@@ -15,12 +15,12 @@ ms.date: 12/21/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 3d24ba3a714c8ea8f17189a7c63a134dab0f8d12
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 34dbff445ed06291712223b17f8443b384b8cac8
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909797"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243521"
 ---
 # <a name="register-azure-stack-hub-with-azure---azure-stack-hub-ruggedized"></a>向 Azure Azure Stack 中心耐用注册 Azure Stack 集线器
 
@@ -310,7 +310,7 @@ New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredentia
 
 4. 可以使用 Azure 门户查看 Azure Stack Hub 注册资源，然后验证注册是否成功。 使用与用于注册 Azure Stack 中心的订阅关联的帐户登录到 [Azure 门户](https://portal.azure.com/) 。 选择 " **所有资源**"，启用 " **显示隐藏的类型** " 复选框，然后选择注册名称。
 
-5. 如果注册未成功，则必须通过 [更改用于](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#change-the-subscription-you-use) 解决问题的订阅重新注册。
+5. 如果注册未成功，则必须通过 [更改用于](../../operator/azure-stack-registration.md#change-the-subscription-you-use) 解决问题的订阅重新注册。
 
 或者，可以使用“市场管理”功能来验证注册是否成功。 如果在 **marketplace 管理** 边栏选项卡中看到 marketplace 项列表，则注册成功。 但在断开连接的环境中，无法在 Marketplace 管理中看到 Marketplace 项。
 
@@ -319,4 +319,4 @@ New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredentia
 
 ## <a name="next-steps"></a>后续步骤
 
-[Azure Stack Hub 管理基础知识](../../operator/azure-stack-manage-basics.md)  
+[Azure Stack Hub 管理基础知识](../../operator/azure-stack-manage-basics.md)

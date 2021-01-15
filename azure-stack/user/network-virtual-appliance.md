@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: bb5d62b4e5302762b4feddfd7afd7b7a39002187
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517142"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243317"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>排查网络虚拟设备问题
 
@@ -55,7 +55,7 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 
 ### <a name="check-whether-ip-forwarding-is-enabled-on-the-nva"></a>检查是否在 NVA 上启用了 IP 转发
 
-### <a name="portal"></a>[Portal](#tab/portal)
+### <a name="portal"></a>[门户](#tab/portal)
 
 1. 在 Azure Stack Hub 门户中找到 NVA 资源，选择“网络”，然后选择网络接口。
 2. 在“网络接口”页上，选择“IP 配置”。 
@@ -187,4 +187,4 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 
 ### <a name="create-a-support-ticket"></a>创建支持票证
 
-如果前面的步骤无法解决问题，请创建[支持票证](../operator/azure-stack-manage-basics.md#where-to-get-support)并使用[按需日志收集工具](../operator/azure-stack-diagnostic-log-collection-overview.md)来提供日志。
+如果前面的步骤无法解决问题，请创建[支持票证](../operator/azure-stack-manage-basics.md#where-to-get-support)并使用[按需日志收集工具](../operator/diagnostic-log-collection.md)来提供日志。
