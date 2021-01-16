@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 2a3dec7699911988c4c9a958c31386c127f70694
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 7a296065696200d83e30e33f973ed16e62e789b5
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598226"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255395"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub---modular-data-center-mdc"></a>将 Marketplace 项下载到 Azure Stack 集线器-模块化数据中心 (MDC)  
 
@@ -74,7 +74,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 在断开连接的环境中，不能从 Azure 下载 marketplace 项。 必须使用脱机联合工具将 marketplace 项下载到本地驱动器，然后将这些项上传到 Azure Stack 中心。
 
-可在 [此处下载脱机联合工具](https://aka.ms/azsSyndicationtool)。
+可在 [此处下载脱机联合工具](../../operator/azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)。
 
 ### <a name="download-marketplace-items-from-azure"></a>从 Azure 下载 Marketplace 项
 
@@ -114,7 +114,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 3. 此时将显示一个窗口，您可以在其中选择要下载的产品。 可以按住 Ctrl 并单击来选择多个项。
 
-4. 选择“确定”  。 这会下载 marketplace 项及其依赖项（如果有）。
+4. 选择“确定”。 这会下载 marketplace 项及其依赖项（如果有）。
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
 
 1. 打开 PowerShell 并中转到解压缩的文件夹。
@@ -137,7 +137,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 3. 此时将显示一个窗口，您可以在其中选择要下载的产品。 可以按住 Ctrl 并单击来选择多个项。
 
-4. 选择“确定”  。 这会下载 marketplace 项及其依赖项（如果有）。
+4. 选择“确定”。 这会下载 marketplace 项及其依赖项（如果有）。
 
 ---
 

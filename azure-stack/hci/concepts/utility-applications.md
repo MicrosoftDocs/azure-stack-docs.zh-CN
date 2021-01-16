@@ -5,12 +5,12 @@ author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 7f18a85b30dad52a10d2fc63d9966b05cf0331ff
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: ec7623243c09ffc93036ada1927cbe62acad0b9d
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697716"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254953"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>适用于 Azure Stack HCI 的实用工具应用程序
 
@@ -63,4 +63,4 @@ Datadog 是一个完全统一的平台，涵盖基础结构监视、应用程序
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅：
 - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
-- [Microsoft Defender 防病毒](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-in-windows-10)
+- [Microsoft Defender 防病毒](/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-in-windows-10)

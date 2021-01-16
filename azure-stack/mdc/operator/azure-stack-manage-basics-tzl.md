@@ -8,12 +8,12 @@ ms.date: 10/26/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: ab28418b30c2e17cdd48471b30206397ed476ed8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b5221162dd4a75fd9ffbd5fb382ab05560d622f6
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872120"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255310"
 ---
 # <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Azure Stack 集线器管理基础知识-模块化数据中心 (MDC) 
 
@@ -49,7 +49,7 @@ ms.locfileid: "97872120"
 - IoT 中心
 - 事件中心
 
-这些服务在提供给用户之前，需要进行额外的配置。 有关详细信息，请参阅 [Azure Stack Hub 操作员文档](https://docs.microsoft.com/azure-stack/operator/)中的“教程”和“操作指南” > “套餐服务”。  
+这些服务在提供给用户之前，需要进行额外的配置。 有关详细信息，请参阅 [Azure Stack Hub 操作员文档](../../operator/index.yml)中的“教程”和“操作指南” > “套餐服务”。  
 
 ### <a name="service-roadmap"></a>服务路线图
 
@@ -88,11 +88,11 @@ Azure Stack Hub 使用 Azure 资源管理器作为其基础的部署、管理和
 - 管理[网络](../../operator/azure-stack-viewing-public-ip-address-consumption.md)和[存储](../../operator/azure-stack-manage-storage-accounts.md)资源。
 - [启动和停止 Azure Stack Hub](../../operator/azure-stack-start-and-stop.md)。
 - [运行扩展的存储](../../user/azure-stack-network-howto-extend-datacenter.md)。
-- [管理 IoT 中心](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)。
-- [管理事件中心](https://docs.microsoft.com/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
-- [管理应用服务](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
+- [管理 IoT 中心](/azure/iot-hub/about-iot-hub)。
+- [管理事件中心](../../operator/event-hubs-rp-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002)。
+- [管理应用服务](../../operator/azure-stack-app-service-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002)。
 - 更换损坏的硬件。 下面是[可替换部件](../../operator/azure-stack-replace-component.md)的列表。
-- [获取支持](https://docs.microsoft.com/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
+- [获取支持](../../operator/azure-stack-help-and-support-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002)。
 
 ## <a name="operator-tasks"></a>操作员任务
 
@@ -135,7 +135,7 @@ Azure Stack Hub 使用 Azure 资源管理器作为其基础的部署、管理和
 
 ## <a name="what-to-tell-your-users"></a>需要告知用户的内容
 
-需要让用户知道如何使用 Azure Stack Hub 中的服务、如何连接到环境，以及如何订阅套餐。 除了根据需要提供用户自定义文档，还可以引导用户访问 [Azure Stack Hub 用户文档](https://docs.microsoft.com/azure-stack/user/)。
+需要让用户知道如何使用 Azure Stack Hub 中的服务、如何连接到环境，以及如何订阅套餐。 除了根据需要提供用户自定义文档，还可以引导用户访问 [Azure Stack Hub 用户文档](../../user/index.yml)。
 
 ### <a name="understand-how-to-work-with-services-in-azure-stack-hub"></a>了解如何使用 Azure Stack Hub 中的服务
 

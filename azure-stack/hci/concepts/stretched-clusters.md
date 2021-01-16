@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2a09d459a44171a864729fd4163197de35995f2e
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 8e544ff72338149c4d7ffe7a49c9ea47490a5316
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737923"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254919"
 ---
 # <a name="stretched-clusters-overview"></a>延伸群集概述
 
@@ -25,7 +25,7 @@ ms.locfileid: "97737923"
 - 异步复制通过较高延迟网络链接映射都市范围外的站点之间的数据，但不保证在出现故障时两个站点具有完全相同的数据副本。
 
 >[!NOTE]
-> 对于异步复制，需要在故障转移后，手动将目标卷置于另一个站点中。 有关详细信息，请参阅 [异步复制](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication)。
+> 对于异步复制，需要在故障转移后，手动将目标卷置于另一个站点中。 有关详细信息，请参阅 [异步复制](/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication)。
 
 有两种类型的延伸群集：主动-被动和主动-主动。 可设置主动-被动站点复制，其中有一个首选站点和复制方向。 主动-主动复制是指可从任一站点进行双向复制。 本文仅介绍主动/被动配置。
 
@@ -50,8 +50,8 @@ ms.locfileid: "97737923"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解存储副本。 请参阅 [存储副本概述](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview)。
-- 了解更多有关使用存储副本的信息。 [有关一般使用群集，请参阅配置 Hyper-v 故障转移群集或文件服务器](https://docs.microsoft.com/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#configure-a-hyper-v-failover-cluster-or-a-file-server-for-a-general-use-cluster)。
+- 详细了解存储副本。 请参阅 [存储副本概述](/windows-server/storage/storage-replica/storage-replica-overview)。
+- 了解更多有关使用存储副本的信息。 [有关一般使用群集，请参阅配置 Hyper-v 故障转移群集或文件服务器](/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#configure-a-hyper-v-failover-cluster-or-a-file-server-for-a-general-use-cluster)。
 - 了解有关延伸群集的硬件和其他要求。 请参阅[系统要求](system-requirements.md)。
 - 了解如何使用 Windows Admin Center 部署延伸群集。 请参阅[使用 Windows Admin Center 创建群集](../deploy/create-cluster.md)。
 - 了解如何使用 PowerShell 部署延伸群集。 请参阅[使用 PowerShell 创建群集](../deploy/create-cluster-powershell.md)。

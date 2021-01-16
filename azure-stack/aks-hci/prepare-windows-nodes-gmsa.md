@@ -5,12 +5,12 @@ author: v-susbo
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-susbo
-ms.openlocfilehash: 754ebc1a365efb7efa0e96eef438ae2347a069ab
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: fd08f288d816468610dadf7e5c063c08b63c0cf2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612567"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254698"
 ---
 # <a name="prepare-windows-nodes-for-group-managed-service-account-support"></a>为组托管服务帐户支持准备 Windows 节点
 
@@ -43,7 +43,7 @@ netdom.exe join %computername% /domain:DomainName /UserD:DomainName\UserName /Pa
 
 将所有 Windows 辅助角色节点加入到域后，请按照 [配置 gMSA](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)中的详细步骤进行操作。 这些步骤将帮助你在 Kubernetes 群集上应用 Kubernetes gMSA 自定义资源定义和 webhook。
 
-有关具有 gMSA 的 Windows 容器的详细信息，请参阅 [windows 容器和 gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts)。 
+有关具有 gMSA 的 Windows 容器的详细信息，请参阅 [windows 容器和 gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts)。 
 
 ## <a name="next-steps"></a>后续步骤
 

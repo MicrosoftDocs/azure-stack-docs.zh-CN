@@ -7,18 +7,18 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: 6eb124193f477eb4418909f6b8e79781e948d135
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: 416b00b66b62788c49554e8dbc358a871a681dab
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885744"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254715"
 ---
 # <a name="asdk-release-notes"></a>ASDK 发行说明
 
 本文介绍了 Azure Stack 开发工具包 (ASDK) 中的更改、修复和已知问题。 如果不确定所运行的版本，请[使用门户进行查看](../operator/azure-stack-updates.md)。
 
-请订阅 ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS 源](https://aka.ms/asdkrss)，随时了解 ASDK 的新增功能。
+请订阅 ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS 源](/api/search/rss?locale=en-us&search=ASDK+release+notes)，随时了解 ASDK 的新增功能。
 
 ::: moniker range="azs-2008"
 ## <a name="build-12008059"></a>生成1.2008.0.59

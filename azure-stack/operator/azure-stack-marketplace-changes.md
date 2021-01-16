@@ -3,16 +3,16 @@ title: Azure Stack Hub 市场中的新增内容
 description: 查看 Azure Stack Hub 市场中的新功能，包括新的、弃用的和更新的市场项。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/04/2021
+ms.date: 01/15/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: bd738fab6a424c07bd33a41f80621121e93345c4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6a1825577f216ad16b0150ef4adecb237e9e1f1c
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869910"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256007"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub 市场更改
 
@@ -167,6 +167,29 @@ ms.locfileid: "97869910"
 
 ## <a name="updated-marketplace-items"></a>更新弃用市场项
 
+- 01/06/2021： SQL Server 2017 企业版 Windows Server 2016-自带许可证-版本14.0.20201111
+- 01/06/2021： Windows Server 2016 上的 SQL Server 2017 标准版-即用即付-版本14.0.20201111
+- 01/06/2021： Windows Server 2016 上的 SQL Server 2017 标准版-自带许可证-版本14.0.20201111
+- 01/06/2021：在 Windows Server 2019 上 SQL Server 2019 企业版-即用即付-版本15.0.20201111
+- 01/06/2021：在 Windows Server 2019 上 SQL Server 2019 企业版-自带许可证-版本15.0.20201111
+- 01/06/2021：免费 SQL Server 许可证： Windows Server 上的 SQL 2019 开发人员 2019-即用即付-版本15.0.20201111
+- 01/06/2021：免费 SQL Server 许可证： Windows Server 上的 SQL 2019 开发人员 2019-自带许可证-版本15.0.20201111
+- 01/06/2021： Windows Server 2019 上的 SQL Server 2019 标准版-即用即付-版本15.0.20201111
+- 01/06/2021： Windows Server 2019 上的 SQL Server 2019 标准版-自带许可证-版本15.0.20201111
+- 01/06/2021：免费许可证： Windows Server 上的 SQL Server 2016 SP2 开发人员 2016-即用即付-版本13.2.20201111
+- 01/06/2021：免费许可证： Windows Server 上的 SQL Server 2016 SP2 开发人员 2016-自带许可证-版本13.2.20201111
+- 01/06/2021：免费许可证： Windows Server 上 SQL Server 2016 SP2 Express 2016-即用即付-版本13.2.20201111
+- 01/06/2021：免费许可证： Windows Server 上 SQL Server 2016 SP2 Express 2016-自带许可证-版本13.2.20201111
+- 01/06/2021：免费 SQL Server 许可证： Windows Server 上的 SQL Server 2017 开发人员 2016-即用即付-版本14.0.20201111
+- 01/06/2021：免费 SQL Server 许可证： Windows Server 上的 SQL Server 2017 开发人员 2016-自带许可证-版本14.0.20201111
+- 01/06/2021：免费 SQL Server 许可证： Windows Server 2016 上的 2017 Express SQL Server-即用即付-版本14.0.20201111
+- 01/06/2021：免费 SQL Server 许可证： Windows Server 2016 上的 2017 Express SQL Server-自带许可证-版本14.0.20201111
+- 01/06/2021：在 Windows Server 2016 上 SQL Server 2016 SP2 Enterprise-即用即付-版本13.2.20201111
+- 01/06/2021：在 Windows Server 2016 上 SQL Server 2016 SP2 Enterprise-自带许可证-版本13.2.20201111
+- 01/06/2021： Windows Server 2016 上 SQL Server 2016 SP2 标准版-即用即付-版本13.2.20201111
+- 01/06/2021： Windows Server 2016 上 SQL Server 2016 SP2 标准版-自带许可证-版本13.2.20201111
+- 01/06/2021： SQL Server 2017 企业版 Windows Server 2016-即用即付-版本14.0.20201111
+- 01/06/2021： SqlIaaSExtension 1.3.20560
 - 12/22/2020：流氓 Wave Software Centos 7.8-version 7.8.2020062400
 - 12/07/2020： Bitnami Elasticsearch 群集-版本1.0。2
 - 12/07/2020： Bitnami Cassandra 群集-版本1.0.21

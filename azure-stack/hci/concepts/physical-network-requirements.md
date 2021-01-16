@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 1e42f830683a1faefd8e068da1e968f9332b7e0a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e26299a53583fa7d4e4b4b61fc46be7d2faa9eba
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872715"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255004"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Azure Stack HCI 的物理网络要求
 
@@ -26,7 +26,7 @@ ms.locfileid: "97872715"
 
 Microsoft 测试 Azure Stack HCI 到下面的 **网络交换机要求** 部分中标识的标准和协议。 虽然 Microsoft 不验证网络交换机，但我们确实会与供应商合作来识别支持 Azure Stack HCI 要求的设备。
 
-这些要求也在 [Windows 硬件兼容性计划规范和策略](https://docs.microsoft.com/windows-hardware/design/compatibility/whcp-specifications-policies)中发布。  选择 " **下载规范和策略，版本 1809**"，打开 ZIP 文件，打开 **WHCP-Components-Peripherals-Specification-1809.pdf**，然后查看 " **设备** "。
+这些要求也在 [Windows 硬件兼容性计划规范和策略](/windows-hardware/design/compatibility/whcp-specifications-policies)中发布。  选择 " **下载规范和策略，版本 1809**"，打开 ZIP 文件，打开 **WHCP-Components-Peripherals-Specification-1809.pdf**，然后查看 " **设备** "。
 
 > [!IMPORTANT]
 > 尽管使用此处未列出的技术和协议的其他网络交换机可能有效，但 Microsoft 无法保证它们将与 Azure Stack HCI 一起使用，并且可能无法帮助排查发生的问题。
@@ -145,6 +145,6 @@ North-South 流量需要使用交换机。 除了使用支持 Azure Stack HCI �
 
 - 了解网络适配器和主机要求。 请参阅 [主机网络要求](host-network-requirements.md)。
 - 温习故障转移群集基础知识。 请参阅 [故障转移群集网络基础知识](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)。
-- 温习如何使用 SET。 请参阅 [ (RDMA 的远程直接内存访问) 和交换机嵌入组合 (设置) ](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
-- 有关部署，请参阅 [使用 Windows 管理中心创建群集](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster)。
-- 有关部署，请参阅 [使用 Windows PowerShell 创建群集](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell)。
+- 温习如何使用 SET。 请参阅 [ (RDMA 的远程直接内存访问) 和交换机嵌入组合 (设置) ](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)。
+- 有关部署，请参阅 [使用 Windows 管理中心创建群集](../deploy/create-cluster.md)。
+- 有关部署，请参阅 [使用 Windows PowerShell 创建群集](../deploy/create-cluster-powershell.md)。

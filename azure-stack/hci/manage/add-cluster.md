@@ -6,12 +6,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 01/06/2021
-ms.openlocfilehash: 8b27859b7afab0a6e279774e43d0269f6d58065a
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103116"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254732"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>添加或删除 Azure Stack HCI 群集的服务器
 
@@ -71,9 +71,9 @@ ms.locfileid: "98103116"
 
 > [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
 
-使用 Windows PowerShell 在延伸群集中添加或删除服务器。 使用 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) 和 [ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) cmdlet 时，你首先修改站点（容错域）信息，然后再添加服务器。
+使用 Windows PowerShell 在延伸群集中添加或删除服务器。 使用 [ClusterFaultDomainXML](/powershell/module/failoverclusters/get-clusterfaultdomainxml) 和 [ClusterFaultDomainXML](/powershell/module/failoverclusters/set-clusterfaultdomainxml) cmdlet 时，你首先修改站点（容错域）信息，然后再添加服务器。
 
-然后，你可以使用 [Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) cmdlet 同时向每个站点添加服务器对，还可以同时添加每台新服务器的驱动器。
+然后，你可以使用 [Add-ClusterNode](/powershell/module/failoverclusters/add-clusternode) cmdlet 同时向每个站点添加服务器对，还可以同时添加每台新服务器的驱动器。
 
 通常，你可以从远程计算机（而不是群集中的服务器）管理群集。 此远程计算机称为管理计算机。
 
@@ -167,7 +167,7 @@ ms.locfileid: "98103116"
 
 ## <a name="remove-server-pairs-from-a-stretched-cluster"></a>从拉伸群集中删除服务器对
 
-从拉伸群集中删除服务器对类似于添加服务器对的过程，但使用的是 [Remove-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode) cmdlet。
+从拉伸群集中删除服务器对类似于添加服务器对的过程，但使用的是 [Remove-ClusterNode](/powershell/module/failoverclusters/remove-clusternode) cmdlet。
 
 1. 使用以下 PowerShell cmdlet 确定群集的状态：
 

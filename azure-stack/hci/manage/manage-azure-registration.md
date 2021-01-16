@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 12/10/2020
-ms.openlocfilehash: 9acbb273ea67d989f3ec1e1e88c51a96dd440256
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: a81a1973d7324371cb42b23ca7905d39492401cf
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010866"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254426"
 ---
 # <a name="manage-azure-registration"></a>管理 Azure 注册
 
@@ -108,7 +108,7 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
       New-AzureADMSPermissionGrantPolicy -Id "AzSHCI-registration-consent-policy" -DisplayName "Azure Stack HCI registration admin app consent policy" -Description "Azure Stack HCI registration admin app consent policy"
       ```
 
-   3. 添加一个条件，其中包括应用 ID 为1322e676-dee7-41ee-a874-ac923822781c 的 Azure Stack HCI 服务所需的应用权限。 请注意，以下权限适用于 Azure Stack HCI 的 GA 版本，除非你已将 [2020 年11月23日) 的 (预览版 ](../release-notes.md) 应用到群集中的每个服务器，并且下载了 StackHCI 模块版本0.4.1 或更高版本，否则不能使用公共预览版。
+   3. 添加一个条件，其中包括应用 ID 为1322e676-dee7-41ee-a874-ac923822781c 的 Azure Stack HCI 服务所需的应用权限。 请注意，以下权限适用于 Azure Stack HCI 的 GA 版本，除非你已将 [2020 年11月23日) 的 (预览版 ](https://support.microsoft.com/help/4595086/azure-stack-hci-release-notes-overview) 应用到群集中的每个服务器，并且下载了 StackHCI 模块版本0.4.1 或更高版本，否则不能使用公共预览版。
    
       ```powershell
       New-AzureADMSPermissionGrantConditionSet -PolicyId "AzSHCI-registration-consent-policy" -ConditionSetType "includes" -PermissionType "application" -ResourceApplication "1322e676-dee7-41ee-a874-ac923822781c" -Permissions "bbe8afc9-f3ba-4955-bb5f-1cfb6960b242","8fa5445e-80fb-4c71-a3b1-9a16a81a1966","493bd689-9082-40db-a506-11f40b68128f","2344a320-6a09-4530-bed7-c90485b5e5e2"

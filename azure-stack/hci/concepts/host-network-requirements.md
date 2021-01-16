@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/25/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2d31294b2b3a402efcfd4376988d1de6c3dbabd1
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.openlocfilehash: 3e31852e554c85ffab18aacaa336a007a97874f2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355520"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255293"
 ---
 # <a name="host-network-requirements-for-azure-stack-hci"></a>Azure Stack HCI 的主机网络要求
 
@@ -156,7 +156,7 @@ SET 是 Azure Stack HCI 唯一支持的组合技术。 负载平衡/故障转移
 - 速度 (吞吐量) 
 - 配置
 
-确定适配器是否对称的最简单方法是：速度相同，并且接口说明匹配。 它们只能用说明中列出的数字进行描述。 使用 [`Get-NetAdapterAdvancedProperty`](https://docs.microsoft.com/powershell/module/netadapter/get-netadapteradvancedproperty) cmdlet 确保报告的配置列出相同的属性值。
+确定适配器是否对称的最简单方法是：速度相同，并且接口说明匹配。 它们只能用说明中列出的数字进行描述。 使用 [`Get-NetAdapterAdvancedProperty`](/powershell/module/netadapter/get-netadapteradvancedproperty) cmdlet 确保报告的配置列出相同的属性值。
 
 请参阅下表，了解仅 ( # ) 的接口说明与偏差：
 
@@ -298,6 +298,6 @@ SMB 提供了许多好处，作为 Azure Stack HCI 的存储协议（包括 SMB 
 
 - 了解网络交换机和物理网络需求。 请参阅 [物理网络要求](physical-network-requirements.md)。
 - 温习故障转移群集基础知识。 请参阅[故障转移群集网络基础知识](https://techcommunity.microsoft.com/t5/failover-clustering/failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)
-- 温习如何使用 SET。 请参阅[远程直接内存访问 (RDMA) 和交换机嵌入式组合 (SET)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)
-- 有关部署，请参阅[使用 Windows Admin Center 创建群集](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster)
-- 有关部署，请参阅[使用 Windows PowerShell 创建群集](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell)
+- 温习如何使用 SET。 请参阅[远程直接内存访问 (RDMA) 和交换机嵌入式组合 (SET)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)
+- 有关部署，请参阅[使用 Windows Admin Center 创建群集](../deploy/create-cluster.md)
+- 有关部署，请参阅[使用 Windows PowerShell 创建群集](../deploy/create-cluster-powershell.md)

@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: patricka
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: cd6eba86f75cffe3014ca954877ee4b39767bbf0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b76275ba3f4a89196271ae899bd8a30e5819ee6c
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870828"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255939"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>验证 Azure Stack Hub 系统状态
 
@@ -234,6 +234,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack Hub 诊断工具和问题日志记录，请参阅 [Azure Stack Hub 诊断工具](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)。
+若要详细了解 Azure Stack Hub 诊断工具和问题日志记录，请参阅 [Azure Stack Hub 诊断工具](./diagnostic-log-collection.md?view=azs-2002)。
 
 若要了解有关故障排除的详细信息，请参阅 [Microsoft Azure Stack 集线器故障排除](azure-stack-troubleshooting.md)。

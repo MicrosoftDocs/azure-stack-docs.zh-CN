@@ -5,18 +5,18 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 12/11/2020
-ms.openlocfilehash: 5b25fdcefd61cb8fa5a497a3477b1f33ab67ece5
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: f5dc475cde9baeb053fbaec1144d1ff65cc4e2ba
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343329"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254375"
 ---
 # <a name="get-support-for-azure-stack-hci"></a>获取 Azure Stack HCI 支持
 
 >适用于：Azure Stack HCI，版本 20H2
 
-本主题提供有关如何获取 Azure Stack HCI 操作系统支持的指导。 Azure Stack HCI 遵循与 Azure 相同的支持过程。 企业客户可以遵循 [创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)中所述的过程。 如果你是云解决方案提供商 (CSP) 的客户，请联系 CSP 获得支持。
+本主题提供有关如何获取 Azure Stack HCI 操作系统支持的指导。 Azure Stack HCI 遵循与 Azure 相同的支持过程。 企业客户可以遵循 [创建 Azure 支持请求](/azure/azure-portal/supportability/how-to-create-azure-support-request)中所述的过程。 如果你是云解决方案提供商 (CSP) 的客户，请联系 CSP 获得支持。
 
 若要创建 Azure Stack HCI 支持请求需要标准或专业直接的 Azure 支持计划。 不能使用基本和开发人员计划。
 

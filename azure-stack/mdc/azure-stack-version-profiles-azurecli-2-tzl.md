@@ -14,12 +14,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 2296d1228819d32f77ccc0dd35e4f2228908e969
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: eaf9431e3ca93f5f99c24154a96ad1e343bb2bf8
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910255"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255632"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli---modular-data-center-mdc"></a>通过 Azure CLI 模块化数据中心 (MDC 来管理和部署 Azure Stack 集线器的资源) 
 
@@ -47,7 +47,7 @@ ms.locfileid: "97910255"
 
 ### <a name="install-or-upgrade-cli"></a>安装或升级 CLI
 
-登录到开发工作站并安装 CLI。 Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 最新版本的 API 配置文件需要最新版本的 CLI。 使用[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 一文中所述的步骤安装 CLI。 
+登录到开发工作站并安装 CLI。 Azure Stack Hub 需要 Azure CLI 2.0 版或更高版本。 最新版本的 API 配置文件需要最新版本的 CLI。 使用[安装 Azure CLI](/cli/azure/install-azure-cli) 一文中所述的步骤安装 CLI。 
 
 若要验证安装是否成功，请打开终端或命令提示符窗口，并运行以下命令：
 
@@ -218,4 +218,4 @@ az group create -n MyResourceGroup -l local
 
 - [使用 Azure CLI 部署模板](../user/azure-stack-deploy-template-command-line.md)
 - [为 Azure Stack Hub 用户启用 Azure CLI（操作员）](../operator/azure-stack-cli-admin.md)
-- [管理用户权限](../operator/azure-stack-manage-permissions.md) 
+- [管理用户权限](../operator/azure-stack-manage-permissions.md)

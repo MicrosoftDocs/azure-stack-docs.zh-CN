@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 3798345a7e7c5180f13c1ae94bc7407de3252e24
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 09f24384710ddee8b987944a713c62112aef0264
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872171"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255446"
 ---
 # <a name="network-integration"></a>网络集成
 
@@ -214,6 +214,5 @@ SSL 流量截获不受支持，并且可能导致在访问终结点时出现服�
 |  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
 |  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300（Azure 资源管理器）|
 |  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP、UDP|21、1021、10001-10100 (FTP)<br>990 (FTPS)|
-|Azure VPN 网关|     |     |[请参阅 VPN 网关常见问题](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability)|
+|Azure VPN 网关|     |     |[请参阅 VPN 网关常见问题](/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability)|
 |     |     |     |     |
-

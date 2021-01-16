@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 9eef242f6e422cdba3b64927d6bfda93fab530b3
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 96a4e944b6b86c8b5db314141fd3473a8512d518
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874517"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256194"
 ---
 # <a name="privileged-access-workstation-and-privileged-endpoint-access"></a>特权访问工作站和特权终结点访问
 
@@ -44,5 +44,5 @@ ms.locfileid: "97874517"
 
 ## <a name="further-reading"></a>延伸阅读
 
-若要详细了解如何连接到特权终结点并使用这些终结点，请参阅[使用 Azure Stack 中心中的特权终结点](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) 
- [](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)。
+若要详细了解如何连接到特权终结点并使用这些终结点，请参阅[使用 Azure Stack 中心中的特权终结点](../../operator/azure-stack-privileged-endpoint.md) 
+ [](../../operator/azure-stack-privileged-endpoint.md)。

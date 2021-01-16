@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.openlocfilehash: d1e033ed2b8bbae2968be8125c7d0dccb3e9f3cf
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069796"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254630"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>迁移到同一硬件上的 Azure Stack HCI
 
@@ -28,7 +28,7 @@ ms.locfileid: "97069796"
 > [!NOTE]
 > 本文未介绍迁移延伸的群集。
 
-## <a name="before-you-begin"></a>在开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在开始迁移之前，需要考虑几个要求和事项：
 
@@ -36,7 +36,7 @@ ms.locfileid: "97069796"
 
 - 对于 Azure Stack HCI，你必须拥有具有管理员权限的域凭据。
 
-- 备份源群集上的所有 Vm。 完成所有应用程序和数据的崩溃一致性备份，以及所有数据库的应用程序一致性备份。  若要备份到 Azure，请参阅 [使用 Azure 备份](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup)。
+- 备份源群集上的所有 Vm。 完成所有应用程序和数据的崩溃一致性备份，以及所有数据库的应用程序一致性备份。  若要备份到 Azure，请参阅 [使用 Azure 备份](../manage/use-azure-backup.md)。
 
 - 收集所有群集节点和群集命名、网络配置、群集共享卷 (CSV) 复原和容量以及仲裁见证的清单和配置。
 
@@ -181,7 +181,7 @@ Install-WindowsFeature -Name Hyper-V, Failover-Clustering, FS-Data-Deduplication
     Get-StoragePool | ? IsPrimordial -eq $false | ft FriendlyName,Version
     ```
 
-1. 创建仲裁见证。 有关如何操作的详细信息，请参阅 [设置分类见证](https://docs.microsoft.com/azure-stack/hci/deploy/witness)。
+1. 创建仲裁见证。 有关如何操作的详细信息，请参阅 [设置分类见证](./witness.md)。
 
 1. 使用以下各项验证存储修复作业是否已完成：
 

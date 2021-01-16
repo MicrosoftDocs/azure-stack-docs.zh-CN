@@ -15,12 +15,12 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: a3d8fcc1c3ffa65539b233a8b89f55d57f61a5ef
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 8b173f26fdd731de1d7eb21ee7a5c6947da78b55
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910612"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256143"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub-ruggedized"></a>将 Marketplace 项下载到 Azure Stack 中心 (耐用) 
 
@@ -74,7 +74,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 在断开连接的环境中，不能从 Azure 下载 marketplace 项。 必须使用脱机联合工具将 marketplace 项下载到本地驱动器，然后将这些项上传到 Azure Stack 中心。
 
-可在 [此处下载脱机联合工具](https://aka.ms/azsSyndicationtool)。
+可在 [此处下载脱机联合工具](../../operator/azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)。
 
 ### <a name="download-marketplace-items-from-azure"></a>从 Azure 下载 Marketplace 项
 

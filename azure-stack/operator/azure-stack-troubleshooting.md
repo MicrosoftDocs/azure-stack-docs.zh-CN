@@ -8,12 +8,12 @@ ms.date: 12/10/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 4c5117469e1a568252e23f2794996f8d367942af
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: ff3164e16262ecfd4cdf84bbdb5fbb24942fc6ab
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974245"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255701"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -30,7 +30,7 @@ ms.locfileid: "97974245"
 
 ### <a name="updates-and-diagnostics"></a>更新和诊断
 
-* [如何在 Azure Stack Hub 中使用诊断工具](./azure-stack-diagnostic-log-collection-overview.md)
+* [如何在 Azure Stack Hub 中使用诊断工具](./diagnostic-log-collection.md)
 * [如何验证 Azure Stack Hub 系统状态](azure-stack-diagnostic-test.md)
 * [更新包发布频率](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [对节点状态进行验证和故障排除](azure-stack-node-actions.md)
@@ -199,11 +199,11 @@ slmgr /ipk <AVMA_key>
 
 Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单的方式应用更新包。 虽然不常见，但在修补和更新过程中可能会出现问题。 如果在修补和更新过程中遇到问题，建议执行以下步骤：
 
-0. **先决条件**：请确保已遵循 [更新活动清单](release-notes-checklist.md)，并 [启用主动日志收集](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)。
+0. **先决条件**：请确保已遵循 [更新活动清单](release-notes-checklist.md)，并 [启用主动日志收集](./diagnostic-log-collection.md#send-logs-proactively)。
 
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
 
-2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md)。 请确保已针对发生问题的时间跨度[收集日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)。
+2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md)。 请确保已针对发生问题的时间跨度[收集日志](./diagnostic-log-collection.md#send-logs-now)。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>常见 Azure Stack Hub 修补程序和更新问题
 

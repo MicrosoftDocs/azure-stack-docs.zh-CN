@@ -7,12 +7,12 @@ ms.date: 12/23/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3c10ea13f3780a7c7e1e0f999d8203d4d03f4e49
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 9276cff891cd4f69c35c0890a2bf02108407bbe0
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974143"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256058"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -282,8 +282,8 @@ Azure Stack Hub 2002 更新内部版本类型为“完整”。
 - Azure Stack Hub 就绪性检查器工具现在使用分配给 AD Graph 的所有 TCP IP 端口来验证 AD Graph 集成。
 - 脱机联合工具已更新，改进了可靠性。 该工具在 GitHub 上不再可用，已[移到 PowerShell 库](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/)中。 有关详细信息，请参阅[将市场项下载到 Azure Stack Hub](azure-stack-download-azure-marketplace-item.md)。
 - 将引入一项新的监视功能。 针对物理主机和基础结构 VM 的磁盘空间不足警报将由平台自动修正。仅当此操作失败时，该警报才会显示在 Azure Stack Hub 管理员门户中，供操作员执行操作。
-- 对[诊断日志收集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true)的改进。 新的体验优化和简化了诊断日志收集，它不需要预先配置 blob 存储帐户。 存储环境已预先配置，因此你可以在创建支持案例之前发送日志，并减少支持人员通话时间。
-- [主动日志收集和按需日志收集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true)所花费的时间已缩短 80%。 日志收集时间可能会比此预期值长，但不需要 Azure Stack Hub 操作员执行操作，除非日志收集失败。
+- 对[诊断日志收集](./diagnostic-log-collection.md?preserve-view=true&view=azs-2002)的改进。 新的体验优化和简化了诊断日志收集，它不需要预先配置 blob 存储帐户。 存储环境已预先配置，因此你可以在创建支持案例之前发送日志，并减少支持人员通话时间。
+- [主动日志收集和按需日志收集](./diagnostic-log-collection.md?preserve-view=true&view=azs-2002)所花费的时间已缩短 80%。 日志收集时间可能会比此预期值长，但不需要 Azure Stack Hub 操作员执行操作，除非日志收集失败。
 - 启动更新后，“更新”边栏选项卡中会显示 Azure Stack Hub 更新程序包的下载进度。 这仅适用于那些选择[通过自动下载功能准备更新程序包](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)且已连接的 Azure Stack Hub 系统。
 - 改进了网络控制器主机代理的可靠性。
 - 引入了一个名为 DNS Orchestrator 的新微服务，它改进了在修补和更新期间内部 DNS 服务的复原逻辑。

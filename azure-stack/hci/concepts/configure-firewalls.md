@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 01/06/2020
-ms.openlocfilehash: 73e58c69295afc1a1bb106ea078e753647daa08d
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: a67881f2dd4be5e4dce5fb967c88484c27025624
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965488"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255225"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>为 Azure Stack HCI 配置防火墙
 
@@ -29,7 +29,7 @@ Azure Stack HCI 需要定期连接到 Azure。 访问仅限于：
 本主题介绍如何选择使用高度锁定的防火墙配置来阻止所有目标流量（包括在允许列表中的流量除外）。
 
    >[!IMPORTANT]
-   > 如果外部企业防火墙或代理服务器限制了出站连接，请确保不阻止下表中列出的 Url。 相关信息，请参阅 [支持 Azure Arc 的服务器代理概述](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#networking-configuration)中的 "网络配置" 部分。
+   > 如果外部企业防火墙或代理服务器限制了出站连接，请确保不阻止下表中列出的 Url。 相关信息，请参阅 [支持 Azure Arc 的服务器代理概述](/azure/azure-arc/servers/agent-overview#networking-configuration)中的 "网络配置" 部分。
 
 
 如下所示，Azure Stack HCI 可能会使用多个防火墙访问 Azure。
@@ -37,7 +37,7 @@ Azure Stack HCI 需要定期连接到 Azure。 访问仅限于：
 :::image type="content" source="./media/configure-firewalls/firewalls-diagram.png" alt-text="关系图显示 Azure Stack HCI 通过端口 443 (HTTPS) 防火墙访问服务标记终结点。" lightbox="./media/configure-firewalls/firewalls-diagram.png":::
 
 ## <a name="working-with-service-tags"></a>使用服务标记
-*服务标记* 代表来自给定 Azure 服务的一组 IP 地址。 Microsoft 管理服务标记中包含的 IP 地址，并在 IP 地址更改时自动更新服务标记以保持最小更新。 若要了解详细信息，请参阅 [虚拟网络服务标记](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)。
+*服务标记* 代表来自给定 Azure 服务的一组 IP 地址。 Microsoft 管理服务标记中包含的 IP 地址，并在 IP 地址更改时自动更新服务标记以保持最小更新。 若要了解详细信息，请参阅 [虚拟网络服务标记](/azure/virtual-network/service-tags-overview)。
 
 ## <a name="required-endpoint-daily-access-after-azure-registration"></a>Azure 注册后 (每日所需的终结点访问权限) 
 Azure 为使用服务标记组织的 Azure 服务维护众所周知的 IP 地址。 Azure 发布每个服务的所有 IP 地址的每周一个 JSON 文件。 IP 地址不会经常更改，但是每年更改几次。 下表显示了操作系统需要访问的服务标记终结点。

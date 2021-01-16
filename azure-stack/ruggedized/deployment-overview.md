@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 0fd077f405256ff0a112dd9730cdc3e8fefb10f8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867530"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256177"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Azure Stack 中心耐用部署概述
 
@@ -38,7 +38,7 @@ ms.locfileid: "97867530"
 
 若要充分理解本指南的内容，需要具备虚拟化、服务器、操作系统、网络和存储解决方案方面的技术经验。 部署工程师必须了解 Microsoft Windows Server 2019 with Hyper-V、Azure Stack Hub、Azure 和 Microsoft PowerShell。
 
-本指南重点介绍 Microsoft Azure Stack 集线器的核心组件的部署，以及 Azure Stack 中心耐用解决方案的具体信息。 本指南未介绍 Azure Stack Hub 的操作过程，并且未涵盖 Azure Stack Hub 提供的所有功能。 有关详细信息，请参阅 [Azure Stack 中心运营商指南](https://docs.microsoft.com/azure-stack/operator/)。
+本指南重点介绍 Microsoft Azure Stack 集线器的核心组件的部署，以及 Azure Stack 中心耐用解决方案的具体信息。 本指南未介绍 Azure Stack Hub 的操作过程，并且未涵盖 Azure Stack Hub 提供的所有功能。 有关详细信息，请参阅 [Azure Stack 中心运营商指南](../operator/index.yml)。
 
 ## <a name="introduction"></a>简介
 

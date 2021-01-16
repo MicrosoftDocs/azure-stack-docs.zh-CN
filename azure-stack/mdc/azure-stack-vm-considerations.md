@@ -15,12 +15,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 054a3267d48f823ad6d0767f1946e94667c6e12d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 924819805bd0626e68d9e4cb5bcaa7735b44fa90
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872511"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255565"
 ---
 # <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Azure Stack VM 功能-模块化数据中心 (MDC) 
 
@@ -41,7 +41,7 @@ Azure Stack 虚拟机 (VM) 提供可按需缩放的计算资源。 在部署 Vm 
 | Azure 实例元数据服务 | Azure 实例元数据服务提供有关可用于管理和设置 VM 的正在运行的 VM 实例的信息。  | Azure Stack 不支持 Azure 实例元数据服务。 |
 | 虚拟机可用性集|多个容错域（每个区域 2 个或 3 个）。<br>多个更新域。|多个容错域（每个区域 2 个或 3 个）。<br>单个更新域，具有实时迁移功能，可在更新期间保护工作负荷。 支持 20 个更新域以实现模板兼容性。<br>VM 和可用性集应位于相同的位置和资源组中。|
 | 虚拟机规模集|支持自动缩放。|不支持自动缩放。<br><br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。 |
-| 云见证 | 从 Azure Stack 中提供的存储帐户属性中选择终结点。 | [Cloud 见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) 是一种故障转移群集仲裁见证，使用 Microsoft Azure 在群集仲裁上提供投票。<br>与 Azure Stack 相比，全局 Azure 中的终结点如下所示：<br>对于全球 Azure：<br>`https://mywitness.blob.core.windows.net/`<br>对于 Azure Stack：<br>`https://mywitness.blob.<region>.<FQDN>/`|
+| 云见证 | 从 Azure Stack 中提供的存储帐户属性中选择终结点。 | [Cloud 见证](/windows-server/failover-clustering/deploy-cloud-witness) 是一种故障转移群集仲裁见证，使用 Microsoft Azure 在群集仲裁上提供投票。<br>与 Azure Stack 相比，全局 Azure 中的终结点如下所示：<br>对于全球 Azure：<br>`https://mywitness.blob.core.windows.net/`<br>对于 Azure Stack：<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | 虚拟机诊断 | 支持 Linux VM 诊断。 | Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。 |
 
 ## <a name="vm-sizes"></a>VM 大小
@@ -136,12 +136,12 @@ Get-AzureRmResourceProvider | `
 
 ## <a name="windows-activation"></a>Windows 激活
 
-必须根据产品使用权利和 Microsoft 许可条款使用 Windows 产品。 Azure Stack 使用[自动 VM 激活](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) 来激活 Windows Server VM。
+必须根据产品使用权利和 Microsoft 许可条款使用 Windows 产品。 Azure Stack 使用[自动 VM 激活](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) 来激活 Windows Server VM。
 
 - Azure Stack 主机使用 Windows Server 2016 的 AVMA 密钥激活 Windows。 运行 Windows Server 2012 R2 或更高版本的所有 VM 都将自动激活。
-- 运行 Windows Server 2012 或更早版本的 VM 不会自动激活，必须使用 [MAK 激活](https://technet.microsoft.com/library/ff793438.aspx)进行激活。 若要使用 MAK 激活，必须提供自己的产品密钥。
+- 运行 Windows Server 2012 或更早版本的 VM 不会自动激活，必须使用 [MAK 激活](/previous-versions/tn-archive/ff793438(v=technet.10))进行激活。 若要使用 MAK 激活，必须提供自己的产品密钥。
 
-Microsoft Azure 使用 KMS 激活来激活 Windows Vm。 如果将 VM 从 Azure Stack 移动到 Azure 并且遇到了激活问题，请参阅[排查 Azure Windows VM 激活问题](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems)。 可以在 Azure 支持团队博客文章 [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/)（排查 Azure VM 上的 Windows 激活故障）中找到其他信息。
+Microsoft Azure 使用 KMS 激活来激活 Windows Vm。 如果将 VM 从 Azure Stack 移动到 Azure 并且遇到了激活问题，请参阅[排查 Azure Windows VM 激活问题](/azure/virtual-machines/windows/troubleshoot-activation-problems)。 可以在 Azure 支持团队博客文章 [Troubleshooting Windows activation failures on Azure VMs](/archive/blogs/mast/troubleshooting-windows-activation-failures-on-azure-vms)（排查 Azure VM 上的 Windows 激活故障）中找到其他信息。
 
 ## <a name="next-steps"></a>后续步骤
 

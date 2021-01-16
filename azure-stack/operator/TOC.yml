@@ -370,7 +370,7 @@
                 - name: 备份和还原
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: 收集日志
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: ./diagnostic-log-collection.md
                 - name: 运行状况和警报
                   href: azure-stack-monitor-health.md
                 - name: 管理

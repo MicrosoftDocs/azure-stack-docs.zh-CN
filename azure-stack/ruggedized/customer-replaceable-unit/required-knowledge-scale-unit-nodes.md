@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: a46ae218cbf4b041b836ad2f204093daa449c785
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4df7cfa84ff9b4a08d6751aa19ffdb1430a80605
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874551"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256126"
 ---
 # <a name="required-knowledge-for-working-with-scale-unit-nodes-in-a-tactical-cloud-appliance"></a>使用战术性云设备中的缩放单位节点时所需的知识
 
@@ -30,8 +30,8 @@ ms.locfileid: "97874551"
 ## <a name="azure-stack-hub-administrator-portal"></a>Azure Stack 中心管理员门户
 
 获取客户的管理员门户凭据和 URL。
-有关详细信息， [](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)请参阅 
- [在 Azure Stack Hub 中](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)使用管理员门户。
+有关详细信息， [](../../operator/azure-stack-manage-portals.md)请参阅 
+ [在 Azure Stack Hub 中](../../operator/azure-stack-manage-portals.md)使用管理员门户。
 
 ## <a name="dell-emc-poweredge-r640-installation-and-service-manual"></a>Dell EMC PowerEdge R640 安装和服务手册
 
@@ -46,4 +46,3 @@ Microsoft Azure Stack 中心战术性云设备服务手册包含用于从 Tracew
 ## <a name="dell-emc-poweredge-idrac"></a>Dell EMC PowerEdge iDRAC
 
 你必须了解如何导航并使用 Dell EMC PowerEdge iDRAC web 界面。 有关使用 iDRAC 的详细信息，请参阅 [集成 Dell 远程访问控制器9用户 \' 指南](https://www.dell.com/support/manuals/us/en/04/poweredge-r840/idrac9_4.00.00.00_ug_new/overview-of-idrac?guid=guid-a03c2558-4f39-40c8-88b8-38835d0e9003)。
-

@@ -7,12 +7,12 @@ ms.date: 10/26/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 835b6a39e089bbe959c7c5cf5283d2b516b6d4f7
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e07e06d2dbe90c846fc8ea96f18e74b0be3caf49
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872052"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255344"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Azure Stack 集线器中的缩放单位节点操作-模块化数据中心 (MDC) 
 
@@ -82,7 +82,7 @@ ms.locfileid: "97872052"
 
 在停止操作不起作用的情况下（这种情况很少见），请重试操作，如果仍然失败，请改用 BMC Web 界面。
 
-有关详细信息，请参阅 [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)。
+有关详细信息，请参阅 [Stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)。
 
 ## <a name="start"></a>开始
 
@@ -96,7 +96,7 @@ ms.locfileid: "97872052"
 
 万一启动操作不起作用，则重试该操作。 如果它再次失败，请改用 BMC Web 界面。
 
-有关详细信息，请参阅 [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode)。
+有关详细信息，请参阅 [Start-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/start-azsscaleunitnode)。
 
 ## <a name="drain"></a>清空
 
@@ -113,7 +113,7 @@ ms.locfileid: "97872052"
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-有关详细信息，请参阅 [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)。
+有关详细信息，请参阅 [Disable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)。
 
 ## <a name="resume"></a>恢复
 
@@ -125,7 +125,7 @@ ms.locfileid: "97872052"
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-有关详细信息，请参阅 [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode)。
+有关详细信息，请参阅 [Enable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/enable-azsscaleunitnode)。
 
 ## <a name="repair"></a>修复
 
@@ -161,4 +161,4 @@ ms.locfileid: "97872052"
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解 Azure Stack Hub Fabric 操作员模块](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。
+[了解 Azure Stack Hub Fabric 操作员模块](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。

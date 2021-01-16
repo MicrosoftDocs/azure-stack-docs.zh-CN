@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 605ce80e2f88f5c798c955d5ba45a49856086f2e
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5d59532308239f9eda95ba9f81599235a8c8f61c
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872477"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255548"
 ---
 # <a name="mdc-requirements-overview"></a>MDC 要求概述
 
@@ -65,9 +65,9 @@ MDC 是用于 Azure Stack Hub 的集成产品，包装在标准的 40 英尺金�
 ### <a name="planning-phase"></a>规划阶段
 1. 规划数据中心电源。
 1. 规划 Azure Stack Hub 的逻辑网络配置。
-1. 规划 [数据中心网络集成](https://docs.microsoft.com/azure-stack/operator/azure-stack-network)。
-1. 规划 [标识和安全集成](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)。
-1. 规划 [PKI 证书](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs)。
+1. 规划 [数据中心网络集成](../operator/azure-stack-network.md)。
+1. 规划 [标识和安全集成](/azure/security/fundamentals/identity-management-best-practices)。
+1. 规划 [PKI 证书](../operator/azure-stack-pki-certs.md)。
 
 ### <a name="preparation-phase"></a>准备阶段
 1. 收集清单。

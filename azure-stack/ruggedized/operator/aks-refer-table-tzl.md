@@ -15,12 +15,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/05/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: 780a8d7bfde9afca01a0e2c60dd6e8f772e06735
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f4506ac5eb606d4def07fcc741ed5ad1c4900783
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867343"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256092"
 ---
 # <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Azure Stack 集线器的警报 aka.ms 链接引用
 
@@ -28,7 +28,7 @@ ms.locfileid: "97867343"
 
 ## <a name="link-cross-reference"></a>链接交叉引用
 
-| Aka.ms 链接 | 项目 |
+| Aka.ms 链接 | 文章 |
 | --- | --- |
 | `https://aka.ms/azsrotatebmcpassword` | [更新基板管理控制器 (BMC) 凭据](../../operator/azure-stack-rotate-secrets.md#update-the-bmc-credential) |
 | `https://aka.ms/azsrotatecertificates` | [在 Azure Stack 中轮换机密](../../operator/azure-stack-rotate-secrets.md) |
@@ -37,7 +37,7 @@ ms.locfileid: "97867343"
 | `https://aka.ms/azurestackaddcapacity` | [在 Azure Stack 中添加更多缩放单元节点](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackaddnode` | [在 Azure Stack 中添加更多缩放单元节点](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackhealthreport` | [https://github.com/Azure/AzureStack-Tools/blob/master/Identity/README.md#retrieve-azure-stack-identity-health-report](https://aka.ms/aa708dy) |
-| `https://aka.ms/azurestacklogfiles` | [按需收集 Azure Stack 诊断日志](../../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md) |
+| `https://aka.ms/azurestacklogfiles` | [按需收集 Azure Stack 诊断日志](../../operator/diagnostic-log-collection.md) |
 | `https://aka.ms/azurestackpep` | [使用 Azure Stack 中的特权终结点](../../operator/azure-stack-privileged-endpoint.md) |
 | `https://aka.ms/azurestackreplacenode` | [替换 Azure Stack 集成系统上的缩放单位节点](../../operator/azure-stack-replace-node.md) |
 | `https://aka.ms/azurestackupdatedirectory` | [https://github.com/Azure/AzureStack-Tools/tree/master/Identity#updating-the-azure-stack-aad-home-directory-after-installing-updates-or-new-resource-providers](https://aka.ms/aa700j2) |

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: aaadabe207146f200d6090c2e59bcc563831c6d4
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: 1d83ef1d43dbe974ead7a5d80bb42939a311af7a
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343580"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255786"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>如何管理 Azure Stack Hub 上的事件中心
 
@@ -72,7 +72,7 @@ ms.locfileid: "97343580"
 
 [![管理事件中心 - 警报详细信息](media/event-hubs-rp-manage/2-alerts-detail.png)](media/event-hubs-rp-manage/2-alerts-detail.png#lightbox)
 
-有关 Azure Stack Hub 监视功能（包括警报）的详细信息，请参阅[监视运行状况和警报](azure-stack-monitor-health.md)。 有关收集日志的详细信息，请参阅 [Azure Stack 诊断日志收集概述](azure-stack-diagnostic-log-collection-overview.md)。
+有关 Azure Stack Hub 监视功能（包括警报）的详细信息，请参阅[监视运行状况和警报](azure-stack-monitor-health.md)。 有关收集日志的详细信息，请参阅 [Azure Stack 诊断日志收集概述](./diagnostic-log-collection.md)。
 
 ## <a name="event-hubs-clusters"></a>事件中心群集
 
@@ -101,17 +101,4 @@ ms.locfileid: "97343580"
 
 - 为事件中心定义的配额类型，请参阅[配额类型](azure-stack-quota-types.md#event-hubs-quota-types)。
 - Azure Stack Hub 监视功能（包括警报），请参阅[监视运行状况和警报](azure-stack-monitor-health.md)。 
-- Azure Stack Hub 日志收集，请参阅 [Azure Stack 诊断日志收集概述](azure-stack-diagnostic-log-collection-overview.md)。
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Azure Stack Hub 日志收集，请参阅 [Azure Stack 诊断日志收集概述](./diagnostic-log-collection.md)。

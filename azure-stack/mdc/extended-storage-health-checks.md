@@ -15,18 +15,18 @@ ms.date: 10/01/2020
 ms.author: patricka
 ms.reviewer: karlt
 ms.lastreviewed: 10/01/2020
-ms.openlocfilehash: ebb39f3eab90b0f976e5fee2896cbe85d0d023f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8dea13880e2703290e1528fca47b777f98fca7b2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872392"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255514"
 ---
 # <a name="extended-storage-health-checks"></a>扩展存储运行状况检查
 
 本文提供有关如何检查数据中心扩展存储硬件和 Azure Stack Hub 部署的运行状况的指南。
 
-在开始之前，请查看[更新固件以获取扩展存储](extended-storage-firmware-updates.md)并按照其中的步骤进行操作。
+在开始之前，请查看[更新固件以获取扩展存储]()并按照其中的步骤进行操作。
 
 推出系统前的最后一步是将其关闭。 按照快速入门指南中的步骤操作。
 
@@ -110,4 +110,4 @@ $AzScred = Get-Credential -Credential 'DOMAIN\cloudadmin'
 
 ## <a name="next-steps"></a>后续步骤
 
-- [更新固件](extended-storage-firmware-updates.md)
+- [更新固件]()

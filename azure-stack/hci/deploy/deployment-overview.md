@@ -7,12 +7,12 @@ ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/11/2020
-ms.openlocfilehash: fd7f06e834026b2f35f2bce3830440f54b6dd26f
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: 641615aafd8531cf31e326a2f829b0bf5f5c7a12
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343319"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254749"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Azure Stack HCI 的部署过程是什么？
 
@@ -68,7 +68,7 @@ Azure Stack HCI 需要连接到 Azure。 若要将群集连接到 Azure，请参
 
 你现在已准备好使用 Windows 管理中心在 Azure Stack HCI 上部署工作负荷。
 
-有关如何开始在 Azure Stack HCI 上部署 Azure Kubernetes 服务工作负荷的详细信息，请参阅以下概述： [AZURE STACK HCI 上的什么是 Azure Kubernetes 服务？](https://docs.microsoft.com/azure-stack/aks-hci/overview)
+有关如何开始在 Azure Stack HCI 上部署 Azure Kubernetes 服务工作负荷的详细信息，请参阅以下概述： [AZURE STACK HCI 上的什么是 Azure Kubernetes 服务？](../../aks-hci/overview.md)
 
 ## <a name="next-steps"></a>后续步骤
 

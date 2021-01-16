@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ba28d5904e58d84a913777fe80c5aa05a8ecdffe
-ms.sourcegitcommit: 6a99a188bbad491e7d2817de0b9500a27797107e
+ms.openlocfilehash: 968782c4fd5ac0f4e057815c526fbde8f90164af
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97658271"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254834"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>使用 SDN Express 部署 SDN 基础结构
 
@@ -21,9 +21,9 @@ ms.locfileid: "97658271"
 
 脚本支持分阶段部署，在此部署中，你只需部署网络控制器即可实现核心功能集，同时提供最低程度的网络要求。 还可以使用 Windows Admin Center 中的“创建群集”向导部署网络控制器。 若要部署其他 SDN 组件（例如 SLB 和网关），必须使用 SDN Express 脚本。
 
-你还可以使用 System Center Virtual Machine Manager (VMM) 部署 SDN 基础结构。 有关详细信息，请参阅 [在 VMM 构造中管理 SDN 资源](https://docs.microsoft.com/system-center/vmm/network-sdn)。
+你还可以使用 System Center Virtual Machine Manager (VMM) 部署 SDN 基础结构。 有关详细信息，请参阅 [在 VMM 构造中管理 SDN 资源](/system-center/vmm/network-sdn)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在开始 SDN 部署之前，请规划并配置物理和主机网络基础结构。 参考以下文章：
 
@@ -62,7 +62,7 @@ ms.locfileid: "97658271"
     SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile MultiNodeSampleConfig.psd1 -Verbose
     ```
 
-1. 创建网络控制器 Vm 后，请在 DNS 服务器上为网络控制器群集名称配置动态 DNS 更新。 有关详细信息，请参阅 [部署网络控制器的要求](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)的步骤3。
+1. 创建网络控制器 Vm 后，请在 DNS 服务器上为网络控制器群集名称配置动态 DNS 更新。 有关详细信息，请参阅 [部署网络控制器的要求](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)的步骤3。
 
 ## <a name="next-steps"></a>后续步骤
 

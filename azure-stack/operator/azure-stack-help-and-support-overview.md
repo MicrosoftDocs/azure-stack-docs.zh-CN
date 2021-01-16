@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: cb2fb8ce9ad1b24430cf545eba3f31ac9e754c43
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: b29bade546862c783d0ba8e10f242b4e8a828fcb
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974313"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255922"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub 帮助和支持
 
@@ -66,8 +66,8 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 可以通过两种方式将诊断日志发送到 Microsoft：
 
-- [主动发送日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)：如果启用，日志收集将由特定的运行状况警报触发。
-- [立即发送日志](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)：可以手动选择特定滑动窗口作为日志收集的时间范围。
+- [主动发送日志](./diagnostic-log-collection.md#send-logs-proactively)：如果启用，日志收集将由特定的运行状况警报触发。
+- [立即发送日志](./diagnostic-log-collection.md#send-logs-now)：可以手动选择特定滑动窗口作为日志收集的时间范围。
 
 ![此屏幕截图显示了如何开始收集诊断日志。](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -83,7 +83,7 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 ![诊断日志收集选项](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-集成系统可以与 Microsoft 支持部门共享诊断日志。 由于 Azure Stack 开发工具包 (ASDK) 是一个评估环境，因此不支持 Microsoft 支持部门。 有关详细信息，请参阅 [Azure Stack 诊断日志收集概述](azure-stack-diagnostic-log-collection-overview.md)。
+集成系统可以与 Microsoft 支持部门共享诊断日志。 由于 Azure Stack 开发工具包 (ASDK) 是一个评估环境，因此不支持 Microsoft 支持部门。 有关详细信息，请参阅 [Azure Stack 诊断日志收集概述](./diagnostic-log-collection.md)。
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>旧版 Azure Stack Hub（1905 之前）的帮助和支持
 
@@ -105,6 +105,6 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解[诊断日志收集](./azure-stack-diagnostic-log-collection-overview.md)。
+- 了解[诊断日志收集](./diagnostic-log-collection.md)。
 - 了解如何[查找云 ID](azure-stack-find-cloud-id.md)。
 - 了解如何[排查 Azure Stack Hub 问题](azure-stack-troubleshooting.md)。

@@ -6,18 +6,18 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 16fb7544fb223a1038b3f27d0416f0eda04012b6
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 7a0c0ca7a99b3554b74cc80911acbee92793aa52
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011592"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254817"
 ---
 # <a name="migrate-to-azure-stack-hci-on-new-hardware"></a>迁移到新硬件上的 Azure Stack HCI
 
 > 适用于 Azure Stack HCI，版本 20H2;Windows Server 2019，Windows Server 2016，Windows Server 2012 R2，Windows Server 2008 R2
 
-本主题介绍如何使用 Windows PowerShell 和 Robocopy 将 Windows Server 2012 R2、Windows Server 2016 或 Windows Server 2019 上的虚拟机 (VM) 文件迁移到新的 Azure Stack HCI 服务器硬件。 Robocopy 是一种用于将文件从一台服务器复制到另一台服务器的强大方法。 如果断开连接并继续从其最后已知状态运行，则会恢复。 Robocopy 还支持通过服务器消息块 (SMB) 进行多线程文件复制。 有关详细信息，请参阅 [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy)。
+本主题介绍如何使用 Windows PowerShell 和 Robocopy 将 Windows Server 2012 R2、Windows Server 2016 或 Windows Server 2019 上的虚拟机 (VM) 文件迁移到新的 Azure Stack HCI 服务器硬件。 Robocopy 是一种用于将文件从一台服务器复制到另一台服务器的强大方法。 如果断开连接并继续从其最后已知状态运行，则会恢复。 Robocopy 还支持通过服务器消息块 (SMB) 进行多线程文件复制。 有关详细信息，请参阅 [Robocopy](/windows-server/administration/windows-commands/robocopy)。
 
 > [!NOTE]
 > 不支持从 Windows Server 到 Azure Stack HCI 的 hyper-v 实时迁移和 Hyper-v 副本。
@@ -35,7 +35,7 @@ ms.locfileid: "97011592"
 > [!NOTE]
 > 本文未介绍迁移延伸群集的 Vm 的情况。
 
-## <a name="before-you-begin"></a>在开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在开始迁移之前，需要考虑几个要求和事项：
 
@@ -57,7 +57,7 @@ ms.locfileid: "97011592"
 
 - 检查 Azure Stack HCI 是否支持你的 Vm 版本，以根据需要导入和更新 Vm。 请参阅 [VM 版本支持和更新](#vm-version-support-and-update) 部分，了解如何执行此操作。
 
-- 备份源群集上的所有 Vm。 完成所有应用程序和数据的崩溃一致性备份，以及所有数据库的应用程序一致性备份。 若要备份到 Azure，请参阅 [使用 Azure 备份](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup)。
+- 备份源群集上的所有 Vm。 完成所有应用程序和数据的崩溃一致性备份，以及所有数据库的应用程序一致性备份。 若要备份到 Azure，请参阅 [使用 Azure 备份](../manage/use-azure-backup.md)。
 
 - 为源群集 Vm 和域控制器创建检查点，以防必须回滚到之前的状态。 这不适用于物理服务器。
 
@@ -336,9 +336,9 @@ Windows Server 2012 R2 和更早版本的 Hyper-v 主机使用 XML 文件格式�
 
     `Robocopy \\2012R2-Clus01\c$\clusterstorage\volume01\Hyper-V\ \\20H2-Clus01\c$\clusterstorage\volume01\Hyper-V\ /E /MT:32 /R:0 /w:1 /NFL /NDL /copyall /log:c:\log.txt /xf`
 
-1. 创建新的第1代 Vm。 有关如何执行此操作的详细信息，请参阅 [管理 vm](https://docs.microsoft.com/azure-stack/hci/manage/vm)。
+1. 创建新的第1代 Vm。 有关如何执行此操作的详细信息，请参阅 [管理 vm](../manage/vm.md)。
 
-1. 将复制的 VHD 文件附加到新的 Vm。 有关详细信息，请参阅 [管理虚拟硬盘 (VHD) ](https://docs.microsoft.com/windows-server/storage/disk-management/manage-virtual-hard-disks)
+1. 将复制的 VHD 文件附加到新的 Vm。 有关详细信息，请参阅 [管理虚拟硬盘 (VHD) ](/windows-server/storage/disk-management/manage-virtual-hard-disks)
 
 作为一个仅供参考，以下 Windows Server 来宾操作系统支持第2代 Vm：
 
@@ -349,7 +349,7 @@ Windows Server 2012 R2 和更早版本的 Hyper-v 主机使用 XML 文件格式�
 - Windows 10
 - 64位版本的 Windows 8.1 (64) 
 - 64位版本的 Windows 8 (64) 
-- Linux (请参阅 [支持的 linux 和 FreeBSD vm](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows)) 
+- Linux (请参阅 [支持的 linux 和 FreeBSD vm](/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows)) 
 
 ## <a name="next-steps"></a>后续步骤
 

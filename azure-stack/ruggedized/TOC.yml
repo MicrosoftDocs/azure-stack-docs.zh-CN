@@ -125,9 +125,9 @@
                     - name: 部署应用服务
                       href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 部署应用服务以实现高可用性
-                      href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: 脱机部署应用服务
-                      href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: 事件中心
                   items:
                     - name: 容量计划
@@ -165,7 +165,7 @@
                     - name: 部署高度可用的 SQL 数据库
                       href: ../operator/azure-stack-tutorial-sql.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Start-AzsReadiness cmdlet 参考
-              href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: ../operator/azure-stack-validate-identity.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
             - name: 查看准备情况报告
               href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 数据中心集成
@@ -233,7 +233,7 @@
                 - name: 更新应用服务
                   href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 脱机更新应用服务
-                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-update.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: 更新事件中心
                   href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 更新 MySQL 服务器
@@ -353,13 +353,13 @@
                 - name: 部署应用服务
                   href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 部署应用服务以实现高可用性
-                  href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: 脱机部署应用服务
-                  href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: 更新应用服务
                   href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 脱机更新应用服务
-                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-update.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: 添加应用服务基础结构角色
                   href: ../operator/azure-stack-app-service-add-worker-roles.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 配置部署源
@@ -391,7 +391,7 @@
                     - name: 备份和还原
                       href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 收集日志
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: 运行状况和警报
                       href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 管理
@@ -417,7 +417,7 @@
                     - name: 备份和还原
                       href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 收集日志
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: 运行状况和警报
                       href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 管理
@@ -499,11 +499,11 @@
                 - name: 诊断日志收集
                   items:
                     - name: 概述
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: 主动收集
-                      href: ../operator/azure-stack-configure-automatic-diagnostic-log-collection.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: 按需收集
-                      href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
             - name: 获取 Azure Stack Hub 状态
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 疑难解答
@@ -564,7 +564,7 @@
                   href: customer-replaceable-unit/install-firmware-using-idrac.md
                 - name: 特权访问工作站和特权终结点访问
                   href: customer-replaceable-unit/privileged-access-workstation.md
-    - name: 参考
+    - name: 引用
       items:
         - name: Azure Stack 中心操作员
           href: ../operator/index.yml
@@ -627,7 +627,7 @@
                     - name: Azure Stack PowerShell 概述
                       href: ../user/azure-stack-powershell-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 安装 Azure Stack PowerShell
-                      href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-powershell-install.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
                       maintainContext: true
                     - name: 使用 PowerShell 连接
                       href: ../user/azure-stack-powershell-configure-user.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -692,7 +692,7 @@
                 - name: 使用基于角色的访问控制
                   href: ../user/azure-stack-manage-permissions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 使用应用标识访问资源
-                  href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-create-service-principals.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
             - name: 使用服务
               items:
                 - name: 计算
