@@ -3,16 +3,16 @@ title: 使用 ASDK 验证 Azure Stack 备份
 description: 了解如何使用 ASDK 验证 Azure Stack 集成系统备份。
 author: PatAltimore
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 1/15/2020
 ms.author: patricka
 ms.reviewer: hectorl
-ms.lastreviewed: 03/11/2020
-ms.openlocfilehash: 0829174ab080ebc482e99490b7a5af5c2e0f2806
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 1/15/2020
+ms.openlocfilehash: d04116cb3eeb74eda7241c35c377d34df97dde28
+ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873038"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98561972"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 在部署 Azure Stack 并预配用户资源（例如套餐、计划、配额和订阅）以后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 计划并运行定期基础结构备份可确保在硬件或服务出现灾难性故障时基础结构管理数据不会丢失。
@@ -162,7 +162,7 @@ $decryptioncertpassword  = Read-Host -AsSecureString -Prompt "Password for the d
 
 ```powershell
 $decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
-Restore-AzsBackup -ResourceId "<BackupID>" `
+Restore-AzsBackup -Name "<BackupID>" `
  -DecryptionCertPath "<path to decryption certificate with file name (.pfx)>" `
  -DecryptionCertPassword $decryptioncertpassword
 ```

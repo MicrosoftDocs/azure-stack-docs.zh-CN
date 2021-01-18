@@ -44,6 +44,8 @@
           href: deploy/create-cluster-powershell.md
     - name: 部署工作负载
       items:
+        - name: 部署 VDI
+          href: deploy/deploy-vdi.md
         - name: 部署 SQL Server
           href: deploy/deploy-sql-server-workload.md
         - name: 部署可信企业虚拟化
