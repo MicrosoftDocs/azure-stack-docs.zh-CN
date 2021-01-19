@@ -44,12 +44,12 @@
           href: deploy/create-cluster-powershell.md
     - name: 部署工作负载
       items:
-        - name: 部署 VDI
-          href: deploy/deploy-vdi.md
-        - name: 部署 SQL Server
-          href: deploy/deploy-sql-server-workload.md
-        - name: 部署可信企业虚拟化
-          href: deploy/deploy-trusted-enterprise-virtualization.md
+        - name: 虚拟桌面基础结构
+          href: deploy/virtual-desktop-infrastructure.md
+        - name: SQL Server
+          href: deploy/sql-server.md
+        - name: 受信任的企业虚拟化
+          href: deploy/trusted-enterprise-virtualization.md
 - name: 管理
   items:
     - name: 管理 VM

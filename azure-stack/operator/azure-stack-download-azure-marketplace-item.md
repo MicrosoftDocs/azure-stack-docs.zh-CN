@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: dec5c65f39bec2f459abba9adba25c4c097aff04
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: 9560e9e2fcf5d7b01ca44b409d14a7827cac4060
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208074"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571393"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>将市场项下载到 Azure Stack Hub
 
@@ -128,7 +128,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
    系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
    > [!NOTE]
-   > 如果会话过期、密码已更改或你需要切换帐户，请在使用 `Add-AzRmAccount` 登录之前先运行以下 cmdlet：`RemoveAzAccount -Scope Process`。
+   > 如果会话过期、密码已更改或你需要切换帐户，请在使用 `Add-AzAccount` 登录之前先运行以下 cmdlet：`Remove-AzAccount -Scope Process`。
 
 3. 如果有多个订阅，请运行以下命令，以选择已用于注册的订阅：
 
@@ -187,7 +187,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
 
 1. 在已建立 Internet 连接的计算机上，以管理员身份打开 PowerShell 控制台。
 
-2. 使用已用于注册 Azure Stack Hub 的 Azure 帐户登录到相应的 Azure 云和 AzureAD 目录租户。 若要添加该帐户，请在 PowerShell 中运行 `Add-AzureRMureRmAccount`：
+2. 使用已用于注册 Azure Stack Hub 的 Azure 帐户登录到相应的 Azure 云和 AzureAD 目录租户。 若要添加该帐户，请在 PowerShell 中运行 `Add-AzureRMAccount`：
 
    ```powershell  
    Login-AzureRMAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
@@ -196,7 +196,7 @@ Azure Stack Hub 受限或未建立 Internet 连接时，可以使用 PowerShell 
    系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
    > [!NOTE]
-   > 如果会话过期、密码已更改或你需要切换帐户，请在使用 `Add-AzureRMRmAccount` 登录之前先运行以下 cmdlet：`Remove-AzureRMAccount -Scope Process`。
+   > 如果会话过期、密码已更改或你需要切换帐户，请在使用 `Add-AzureRMAccount` 登录之前先运行以下 cmdlet：`Remove-AzureRMAccount -Scope Process`。
 
 3. 如果有多个订阅，请运行以下命令，以选择已用于注册的订阅：
 

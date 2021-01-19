@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: 了解如何在 Azure Stack Hub 中轮换机密。
 author: BryanLa
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 01/19/2021
 ms.reviewer: fiseraci
 ms.author: bryanla
-ms.lastreviewed: 01/07/2021
+ms.lastreviewed: 01/19/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 229b7b3995340298b7162de7ae051d0f742e86cf
-ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
+ms.openlocfilehash: d7c75bc9864e564736b03477a3c37140e752d850
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210948"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571342"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>在 Azure Stack Hub 中轮换机密
 
@@ -67,6 +67,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
 > - 非证书机密（如安全密钥和字符串）：必须由管理员手动完成。 这包括用户和管理员帐户密码，以及[网络交换机密码](azure-stack-customer-defined.md)。
 > - 增值资源提供程序 (RP) 机密：在单独的指南中介绍：
 >    - [Azure Stack Hub 上的应用服务](app-service-rotate-certificates.md)
+>    - [Azure Stack Hub 上的事件中心](event-hubs-rp-rotate-secrets.md)
 >    - [Azure Stack Hub 上的 IoT 中心](iot-hub-rp-rotate-secrets.md)
 >    - [Azure Stack Hub 上的 MySQL](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
 >    - [Azure Stack Hub 上的 SQL](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
@@ -101,7 +102,7 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
      |自签名|企业| 1903 及更高版本|
      |自签名|自签名|不支持|
      |自签名|公共<sup>*</sup>|1803 及更高版本|
-     |企业|Enterprise|1803 及更高版本；如果企业 CA 与部署时使用的相同，则为 1803-1903|
+     |Enterprise|Enterprise|1803 及更高版本；如果企业 CA 与部署时使用的相同，则为 1803-1903|
      |企业|自签名|不支持|
      |企业|公共<sup>*</sup>|1803 及更高版本|
      |公共<sup>*</sup>|企业|1903 及更高版本|
@@ -115,9 +116,9 @@ Azure Stack Hub 使用机密来维护与基础结构资源和服务之间的安�
    - 请确保 PFX 加密为 **TripleDES-SHA1**。 如果遇到问题，请参阅[修复 Azure Stack Hub PKI 证书的常见问题](azure-stack-remediate-certs.md#pfx-encryption)。
 
 3. 将用于轮换的证书备份存储在安全的备份位置。 如果运行轮换时发生失败，请使用备份副本替换文件共享中的证书，然后重新运行轮换。 将备份副本保存在安全的备份位置。
-4. 创建可从 ERCS VM 访问的文件共享。 文件共享必须是可读且可写的 **CloudAdmin** 标识。
+4. 创建可从 ERCS VM 访问的文件共享。 该文件共享必须可供 CloudAdmin 标识读取和写入。
 5. 在可以访问该文件共享的计算机上打开 PowerShell ISE 控制台。 导航到你的文件共享，你将在其中创建目录来放置外部证书。
-6. 将 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 下载到您的网络文件共享中，然后运行该脚本。 该脚本将创建一个文件夹结构，该结构遵循 **_.\Certificates\AAD_ *_ 或 _* _.\Certificates\ADFS_ *_ 格式，具体取决于标识提供者。你的文件夹结构必须以 _* \\Certificates** 文件夹开头，后面仅跟有一个 **\\AAD** 或 **\\ADFS** 文件夹。 所有剩余的子目录都包含在前一结构中。 例如：
+6. 将 [CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper) 下载到网络文件共享，然后运行该脚本。 该脚本将创建一个文件夹结构，该结构遵循 **_.\Certificates\AAD_ *_ 或 _* _.\Certificates\ADFS_ *_ 格式，具体取决于标识提供者。你的文件夹结构必须以 _* \\Certificates** 文件夹开头，后面仅跟有一个 **\\AAD** 或 **\\ADFS** 文件夹。 所有剩余的子目录都包含在前一结构中。 例如：
     - 文件共享 = **\\\\\<IPAddress>\\\<ShareName>**
     - Azure AD 提供程序的证书根文件夹 = **\\Certificates\AAD**
     - 完整路径 = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**

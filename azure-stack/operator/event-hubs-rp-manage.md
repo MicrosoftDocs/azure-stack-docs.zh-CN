@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 1d83ef1d43dbe974ead7a5d80bb42939a311af7a
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 9cf3339398516688865f7aab3a696562f4974699
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255786"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571325"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>如何管理 Azure Stack Hub 上的事件中心
 
@@ -50,8 +50,8 @@ ms.locfileid: "98255786"
 |----------|-------|------|-----------|
 | 性能 | | | |
 | | EventHub-CpuUsage | 警告 | 过去 6 小时内，事件中心群集的平均 CPU 使用率百分比大于 50%。 |
-| | EventHub-MemoryUsage | 警告 | 过去 6 小时内，事件中心群集的平均数据磁盘(E:) 使用率百分比大于 50%。 |
-| | EventHub-DiskUsage | 警告 | 过去 6 小时内，事件中心群集的平均可用内存空间百分比小于 50%。 |
+| | EventHub-MemoryUsage | 警告 | 过去 6 小时内，事件中心群集的平均可用内存空间百分比小于 50%。 |
+| | EventHub-DiskUsage | 警告 | 过去 6 小时内，事件中心群集的平均数据磁盘(E:) 使用率百分比大于 50%。 |
 | 使用情况/配额 | | | |
 | | EventHub-QuotaExceeded | 警告 | 过去 6 小时内发生了超出配额错误。 |
 | | EventHub-NamespaceCreditUsage | 警告 | 过去 6 小时内，命名空间的额度使用量总和大于 10000.0。 |
