@@ -3,16 +3,16 @@ title: Azure Stack Hub 帮助和支持
 description: 获取 Microsoft Azure Stack Hub 的支持。
 author: PatAltimore
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 01/19/2021
 ms.author: patricka
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: b29bade546862c783d0ba8e10f242b4e8a828fcb
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 01/19/2021
+ms.openlocfilehash: 88414f6e4198c7db04307eb4d508ee5acd9dfbe9
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255922"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584329"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub 帮助和支持
 
@@ -32,7 +32,7 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 
 ![Azure Stack Hub 中的自助服务支持](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **文档** [Azure Stack Hub 操作员文档](index.yml)包含介绍如何提供 Azure Stack Hub 服务的概念、操作指南主题和教程。 这些服务包括虚拟机、SQL 数据库、Web 应用等。
+- **文档** [Azure Stack 中心操作员文档](index.yml) 包含了说明如何提供 Azure Stack 中心服务的概念、操作说明和教程。 这些服务包括虚拟机、SQL 数据库、Web 应用等。
 
 - **了解计费**。 获取有关[用量和计费](azure-stack-billing-and-chargeback.md)的提示。
 
@@ -55,6 +55,22 @@ Azure Stack Hub 操作员可以使用“帮助 + 支持”收集诊断日志并�
 还可以转到 MSDN 论坛来探讨问题，或参加在线培训以提升自己的技能。
 
 ![获取有关 Azure Stack Hub 的专家帮助](media/azure-stack-help-and-support/get-support-cards.png)
+
+### <a name="information-for-a-support-request"></a>支持请求的信息
+
+若要加快支持体验，请提供以下信息：
+
+ - 你是否是 Azure Stack 集线器硬件合作伙伴？
+ - 系统中有多少个 Azure Stack 中心节点？
+ - 你的系统的最新修补程序级别是什么？
+ - 你的系统当前正在运行哪个生成号？
+ - 云区域的名称是什么？
+ - 连接或断开连接的系统是吗？
+ - 何时开始出现问题？
+ - 能否提供上次备份失败的确切时间？
+ - 备份失败的角色是什么？
+ - 你是否执行了任何最近的更改？ 例如，你是执行更新、进行硬件更改还是应用 OEM 更新？
+ - 是否能够提供日志来调查问题？
 
 ### <a name="get-up-to-speed-with-azure-stack-hub"></a>快速熟悉 Azure Stack Hub
 

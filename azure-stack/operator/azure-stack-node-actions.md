@@ -3,16 +3,16 @@ title: Azure Stack Hub 中的缩放单元节点操作
 description: 了解缩放单元节点操作，包括开机、关机、禁用、恢复以及如何在 Azure Stack Hub 集成系统中查看节点状态。
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 1/19/2021
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: dc98263b16a72e6b9809e7ef3bc0c286b627749d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 1/19/2021
+ms.openlocfilehash: 5bececf48222c9dc7401df7cb84d83f375c93d75
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869757"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584287"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
 
@@ -41,6 +41,8 @@ ms.locfileid: "97869757"
    - 基板管理控制器 (BMC) 的 IP 地址。
    - 核心总数。
    - 总内存量。
+   
+    节点操作也可以在管理员门户中引发预期的警报。 
 
 ![缩放单元的状态](media/azure-stack-node-actions/multinodeactions.png)
 
@@ -61,8 +63,6 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 如果 Fabric 资源提供程序角色缓存在操作之后未刷新，可能会发生这种情况。 
 
 在应用以下步骤之前，请确保当前没有正在进行的操作。 更新终结点，使之与环境匹配。
-
-
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az1)
 
