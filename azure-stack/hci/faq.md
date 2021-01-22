@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 1/15/2021
-ms.openlocfilehash: 97979a9fb96840337e89a4a3db3e3307cdb70eac
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.date: 1/21/2021
+ms.openlocfilehash: 6c84bad0de72235c6ccde1b8c23016afeb956cba
+ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243385"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659351"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI 常见问题解答
 Azure Stack HCI 常见问题解答包含一个有关 Azure Stack HCI 连接的部分和一个常规常见问题解答部分。
@@ -24,7 +24,7 @@ Azure Stack HCI 是一个作为 Azure 混合服务提供的本地超融合基础
 
 **我在 Azure Stack HCI 上存储的数据是否会发送到云？**
 
-不是。 你的数据（包括本地虚拟机的名称、元数据、配置和内容） (Vm) 永远不会发送到云，除非你为此目的（如 Azure 备份或 Azure Site Recovery）明确地启用其他服务，否则，除非你将这些 Vm 单独注册到云管理服务（如 Azure Arc）中。
+不是。 客户数据（包括本地虚拟机的名称、元数据、配置和内容） (Vm) 永远不会发送到云，除非你以明确的方式为此目的（如 Azure 备份或 Azure Site Recovery）或将这些 Vm 分别注册到云管理服务（如 Azure Arc）中。
 
 若要详细了解我们收集的诊断数据以保持 Azure Stack HCI 安全、最新且按预期方式工作，请参阅[在 Azure 中](https://azure.microsoft.com/global-infrastructure/data-residency/) [Azure Stack HCI 数据收集](concepts/data-collection.md)和数据驻留。
 

@@ -3,15 +3,15 @@ title: 使用 Windows PowerShell 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows PowerShell 为 Azure Stack HCI 创建群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: fa020531067f74fba2609296672e347d6804cb6b
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 4228b025eaa0067b0819bd84eee522d013d69475
+ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010883"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659368"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>使用 Windows PowerShell 创建 Azure Stack HCI 群集
 
@@ -459,5 +459,3 @@ Get-StoragePool -CimSession $session
 
 - 将群集注册到 Azure。 请参阅[管理 Azure 注册](../manage/manage-azure-registration.md)。
 - 执行群集的最终验证。 请参阅[验证 Azure Stack HCI 群集](validate.md)
-- 预配 VM。 请参阅[使用 PowerShell 管理 Azure Stack HCI 上的 VM](../manage/vm-powershell.md)。
-- 你还可以使用 Windows Admin Center 创建群集。 请参阅[使用 Windows Admin Center 创建 Azure Stack HCI 群集](create-cluster.md)。

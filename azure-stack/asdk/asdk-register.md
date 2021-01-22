@@ -3,26 +3,26 @@ title: 将 ASDK 注册到 Azure
 description: 了解如何将 Azure Stack 开发工具包 (ASDK) 注册到 Azure，以实现市场联合并报告使用情况。
 author: PatAltimore
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 1/20/2021
 ms.author: patricka
 ms.reviewer: misainat
-ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 4448c3bd20c352699fe260ab891c2e8c7fdc57af
-ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
+ms.lastreviewed: 1/20/2021
+ms.openlocfilehash: d5ef14d0e5674c8eefac6b4b4b0877aed8541207
+ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98130235"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659385"
 ---
 # <a name="register-the-asdk-with-azure"></a>将 ASDK 注册到 Azure
 
-可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Microsoft 报告商务数据的功能。 需要注册才能支持完整的 Azure Stack 功能，包括市场联合。 需要注册才能测试重要的 Azure Stack 功能，如市场联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
+可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Microsoft 报告商务数据的功能。 需要注册才能支持完整 Azure Stack 集线器功能，包括 marketplace 供稿。 需要注册才能测试重要的 Azure Stack 集线器功能，例如 marketplace 联合和使用情况报告。 注册 Azure Stack 集线器后，将向 Azure commerce 报告使用情况。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
 
 如果未注册 ASDK，你可能会看到“需要激活”警告警报，其中建议注册 ASDK。 这是预期的行为。
 
 ## <a name="prerequisites"></a>先决条件
 
-在按这些说明将 ASDK 注册到 Azure 之前，请确保已安装 Azure Stack PowerShell，并已下载[部署后配置](asdk-post-deploy.md)一文中所述的 Azure Stack 工具。
+在使用这些说明将 ASDK 注册到 Azure 之前，请确保已安装 Azure Stack 中心 PowerShell 并按照 [部署后配置](asdk-post-deploy.md) 一文中的说明下载了 Azure Stack 中心工具。
 
 此外，在用于向 Azure 注册 ASDK 的计算机上，PowerShell 语言模式必须设置为 **FullLanguage**。 若要验证当前的语言模式是否设置为 Full，请打开权限提升的 PowerShell 窗口，并运行以下 PowerShell 命令：
 
@@ -32,7 +32,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 确保输出返回的是 **FullLanguage**。 如果返回了其他任何语言模式，则需要在另一台计算机上运行注册，或者将语言模式设置为 **FullLanguage**，然后继续。
 
-用于注册的 Azure AD 帐户需要有权访问 Azure 订阅，并且有权在与该订阅关联的目录中创建标识应用和服务主体。 我们建议通过[创建用于注册的服务帐户](../operator/azure-stack-registration-role.md)将 Azure Stack 注册到 Azure，而不要使用全局管理员凭据。
+用于注册的 Azure AD 帐户需要有权访问 Azure 订阅，并且有权在与该订阅关联的目录中创建标识应用和服务主体。 建议通过 [创建用于注册的服务帐户](../operator/azure-stack-registration-role.md) （而不是使用全局管理员凭据），将 Azure Stack 集线器注册到 Azure。
 
 ## <a name="register-the-asdk"></a>注册 ASDK
 
@@ -45,16 +45,16 @@ $ExecutionContext.SessionState.LanguageMode
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az1)
 
-1. 以管理员身份打开 PowerShell 控制台。  
+1. 打开提升的 PowerShell 命令提示符。  
 
-2. 运行以下 PowerShell 命令，将 ASDK 安装注册到 Azure。 同时登录到 Azure 计费订阅 ID 和本地 ASDK 安装。 如果还没有 Azure 计费订阅 ID，可以在 [此处创建一个免费的 azure 帐户](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。<br><br>在运行 **Set-AzsRegistration** cmdlet 时设置适用于注册的唯一名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，该脚本会失败。
+2. 运行以下 PowerShell cmdlet，将 ASDK 安装注册到 Azure。 同时登录到 Azure 计费订阅 ID 和本地 ASDK 安装。 如果还没有 Azure 计费订阅 ID，可以在 [此处创建一个免费的 azure 帐户](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack Hub 不会对 Azure 订阅收取任何费用。<br><br>在运行 **Set-AzsRegistration** cmdlet 时设置适用于注册的唯一名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在 Azure Stack 中心的多个实例上使用相同的名称，则脚本将失败。
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
     Add-AzAccount -EnvironmentName "<environment name>"
     
-    # Register the Azure Stack resource provider in your Azure subscription
+    # Register the Azure Stack Hub resource provider in your Azure subscription
     Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
     
     # Import the registration module that was downloaded with the GitHub tools
@@ -63,7 +63,7 @@ $ExecutionContext.SessionState.LanguageMode
     # If you have multiple subscriptions, run the following command to select the one you want to use:
     # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
     
-    # Register Azure Stack
+    # Register Azure Stack Hub
     $AzureContext = Get-AzContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
@@ -79,29 +79,29 @@ $ExecutionContext.SessionState.LanguageMode
 
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
 
-1. 以管理员身份打开 PowerShell 控制台。  
+1. 打开提升的 PowerShell 命令提示符。  
 
-2. 运行以下 PowerShell 命令，将 ASDK 安装注册到 Azure。 同时登录到 Azure 计费订阅 ID 和本地 ASDK 安装。 如果还没有 Azure 计费订阅 ID，可以在 [此处创建一个免费的 azure 帐户](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。<br><br>在运行 **Set-AzsRegistration** cmdlet 时设置适用于注册的唯一名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，该脚本会失败。
+2. 运行以下 PowerShell 命令，将 ASDK 安装注册到 Azure。 同时登录到 Azure 计费订阅 ID 和本地 ASDK 安装。 如果还没有 Azure 计费订阅 ID，可以在 [此处创建一个免费的 azure 帐户](https://azure.microsoft.com/free/?b=17.06)。 注册 Azure Stack Hub 不会对 Azure 订阅收取任何费用。<br><br>在运行 **Set-AzsRegistration** cmdlet 时设置适用于注册的唯一名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在 Azure Stack 中心的多个实例上使用相同的名称，则脚本将失败。
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
-    Add-AzureRMAccount -EnvironmentName "<environment name>"
+    Add-AzureRmAccount -EnvironmentName "<environment name>"
     
-    # Register the Azure Stack resource provider in your Azure subscription
-    Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
+    # Register the Azure Stack Hub resource provider in your Azure subscription
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
     
     # Import the registration module that was downloaded with the GitHub tools
-    Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
     
     # If you have multiple subscriptions, run the following command to select the one you want to use:
-    # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
+    # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
     
-    # Register Azure Stack
-    $AzureContext = Get-AzureRMContext
+    # Register Azure Stack Hub
+    $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
-    Set-AzureRMsRegistration `
+    Set-AzsRegistration  `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
@@ -113,20 +113,18 @@ $ExecutionContext.SessionState.LanguageMode
 
 ---
 
-
-
 ![环境现已注册](media/asdk-register/1.PNG)
 
 ## <a name="register-in-disconnected-environments"></a>在离线环境中注册
 
-若要在离线环境（未建立 Internet 连接）中注册 Azure Stack，需要从 Azure Stack 环境获取注册令牌，然后在可连接到 Azure 的计算机上使用该令牌，并为 ASDK 环境创建激活资源。
+如果在断开连接的环境中注册 Azure Stack 集线器 (不使用 internet 连接) ，则需要从 Azure Stack 中心环境中获取注册令牌，然后在可连接到 Azure 的计算机上使用该令牌来注册和创建 ASDK 环境的激活资源。
 
  > [!IMPORTANT]
- > 在按这些说明注册 Azure Stack 之前，请确保根据[部署后的配置](asdk-post-deploy.md)一文中所述，在 ASDK 主机以及可访问 Internet 的、用于连接到 Azure 和注册的计算机上，安装适用于 Azure Stack 的 PowerShell 并下载 Azure Stack 工具。
+ > 在使用这些说明注册 Azure Stack 集线器之前，请确保已安装适用于 Azure Stack 中心的 PowerShell 并已下载 Azure Stack 中心工具，如 ASDK 主计算机上的 [部署后配置](asdk-post-deploy.md) 文章和用于连接到 Azure 并注册的 internet 访问的计算机上所述。
 
-### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>从 Azure Stack 环境获取注册令牌
+### <a name="get-a-registration-token-from-the-azure-stack-hub-environment"></a>从 Azure Stack Hub 环境获取注册令牌
 
-在 ASDK 主机上，以管理员身份启动 PowerShell，并导航到下载 Azure Stack 工具时创建的 AzureStack-Tools-az 目录中的 Registration 文件夹。 使用以下 PowerShell 命令导入 **RegisterWithAzure.psm1** 模块，然后使用 **Get-AzsRegistrationToken** cmdlet 获取注册令牌：  
+在 ASDK 主计算机上，以管理员身份启动 PowerShell，并导航到下载 Azure Stack 中心工具时创建的 **test-azurestack-az** 目录中的 **注册** 文件夹。 使用以下 PowerShell 命令导入 **RegisterWithAzure.psm1** 模块，然后使用 **Get-AzsRegistrationToken** cmdlet 获取注册令牌：  
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az2)
 
@@ -150,15 +148,15 @@ $ExecutionContext.SessionState.LanguageMode
 
   ```powershell  
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Create registration token
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   # File path to save the token. This example saves the file as C:\RegistrationToken.txt.
   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
-  $RegistrationToken = Get-AzureRMsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
+  $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
   -UsageReportingEnabled:$false `
-  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  -PrivilegedEndpoint AzS-ERCS01 `
   -BillingModel Development `
   -MarketplaceSyndicationEnabled:$false `
   -TokenOutputFilePath $FilePathForRegistrationToken
@@ -182,7 +180,7 @@ $ExecutionContext.SessionState.LanguageMode
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
 
-  # Register the Azure Stack resource provider in your Azure subscription
+  # Register the Azure Stack Hub resource provider in your Azure subscription
   Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
@@ -207,17 +205,17 @@ $ExecutionContext.SessionState.LanguageMode
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
 
-  # Register the Azure Stack resource provider in your Azure subscription
+  # Register the Azure Stack Hub resource provider in your Azure subscription
   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Register with Azure
   # This example uses the C:\RegistrationToken.txt file.
   $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
   $RegistrationName = "<unique-registration-name>"
-  Register-AzureRMsEnvironment -RegistrationToken $registrationToken `
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
   -RegistrationName $RegistrationName
   ```
 
@@ -235,7 +233,7 @@ $ExecutionContext.SessionState.LanguageMode
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
 
-  # Register the Azure Stack resource provider in your Azure subscription
+  # Register the Azure Stack Hub resource provider in your Azure subscription
   Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
@@ -258,22 +256,22 @@ $ExecutionContext.SessionState.LanguageMode
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
 
-  # Register the Azure Stack resource provider in your Azure subscription
+  # Register the Azure Stack Hub resource provider in your Azure subscription
   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Register with Azure 
   # This example uses the C:\RegistrationToken.txt file.
   $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
-  Register-AzureRMsEnvironment -RegistrationToken $registrationToken `
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
   -RegistrationName $RegistrationName
   ```
 
 ---
 
-注册完成后，应会看到如下所示的消息：“你的 Azure Stack 环境现已注册到 Azure”。
+注册完成后，应会看到类似于以下内容的消息： **你的 Azure Stack 中心环境现在已注册到 Azure。**
 
 > [!IMPORTANT]
 > 请 **不要** 关闭 PowerShell 窗口。
@@ -304,16 +302,16 @@ $ExecutionContext.SessionState.LanguageMode
   $RegistrationResourceName = "<unique-registration-name>"
   # File path to save the activation key. This example saves the file as C:\ActivationKey.txt.
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
-  $ActivationKey = Get-AzureRMsActivationKey -RegistrationName $RegistrationResourceName `
+  $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
   -KeyOutputFilePath $KeyOutputFilePath
   ```
 
 ---
 
 
-### <a name="create-an-activation-resource-in-azure-stack"></a>在 Azure Stack 中创建激活资源
+### <a name="create-an-activation-resource-in-azure-stack-hub"></a>在 Azure Stack 集线器中创建激活资源
 
-使用 **Get-AzsActivationKey** 从创建的激活密钥中获取文件或文本后，返回到 Azure Stack 环境。 运行以下 PowerShell 命令，使用该激活密钥在 Azure Stack 中创建激活资源：   
+返回到 Azure Stack 中心环境，其中包含从 **AzsActivationKey** 创建的激活密钥中的文件或文本。 运行以下 PowerShell 命令，以使用该激活密钥在 Azure Stack 集线器中创建激活资源：   
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az6)
 
@@ -334,12 +332,12 @@ $ExecutionContext.SessionState.LanguageMode
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-Master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
   
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   $ActivationKey = "<activation key>"
-  New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
-  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
   -ActivationKey $ActivationKey
   ```
 
@@ -368,13 +366,13 @@ $ExecutionContext.SessionState.LanguageMode
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   # This example uses the C:\ActivationKey.txt file.
   $ActivationKey = Get-Content -Path "$env:SystemDrive\Activationkey.txt"
-  New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
-  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
   -ActivationKey $ActivationKey
   ```
 
@@ -385,15 +383,15 @@ $ExecutionContext.SessionState.LanguageMode
 
 ## <a name="verify-the-registration-was-successful"></a>验证注册是否成功
 
-可以使用“区域管理”磁贴，验证 Azure Stack 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。
+可以使用“区域管理”磁贴验证 Azure Stack Hub 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。
 
-1. 登录到 Azure Stack 管理员门户 `https://adminportal.local.azurestack.external`。
+1. 登录到 Azure Stack Hub 管理员门户 `https://adminportal.local.azurestack.external`。
 
 2. 在“仪表板”中，选择“区域管理”。
 
-    [![Azure Stack 管理员门户中的“区域管理”磁贴](media/asdk-register/admin1sm.png "“区域管理”磁贴")](media/asdk-register/admin1.png#lightbox)
+    [![Azure Stack Hub 管理员门户中的“区域管理”磁贴](media/asdk-register/admin1sm.png "“区域管理”磁贴")](media/asdk-register/admin1.png#lightbox)
 
-3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。  如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
+3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。  如果是已注册，则还会显示用于注册 Azure Stack Hub 的 Azure 订阅 ID，以及注册资源组和名称。
 
 ## <a name="move-a-registration-resource"></a>移动注册资源
 支持在同一订阅下的资源组之间移动注册资源。 有关将资源移到新资源组的详细信息，请参阅[将资源移到新的资源组或订阅](/azure/azure-resource-manager/resource-group-move-resources)。
