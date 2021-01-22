@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: 了解如何排查 Azure Stack Hub 的问题，包括 VM、存储和应用服务的问题。
 author: PatAltimore
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: ff3164e16262ecfd4cdf84bbdb5fbb24942fc6ab
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 1706f028aff293f85ea5a0c1fb882a5d332d7196
+ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255701"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98672867"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -203,7 +203,7 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
 
-2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md)。 请确保已针对发生问题的时间跨度[收集日志](./diagnostic-log-collection.md#send-logs-now)。
+2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md)。 请确保已针对发生问题的时间跨度[收集日志](./diagnostic-log-collection.md#send-logs-now)。 如果更新失败，无论是关键警报还是警告，都必须查看故障，并与 Microsoft 客户支持服务部门联系，以通知你，使缩放单位不会长时间处于失败状态。 在较长一段时间内使缩放单位处于失败的更新状态可能会导致以后更难解决的其他问题。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>常见 Azure Stack Hub 修补程序和更新问题
 
@@ -223,14 +223,14 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 **适用于**：此问题适用于所有支持的版本。
 
-**原因**：当 Azure Stack 集线器更新正在 **进行** 时，门户中可能会报告警告和错误。 组件可能会在升级过程中等待其他组件超时，从而导致错误。 Azure Stack 中心有一种机制，可以重试或修正由于间歇错误引起的一些任务。
+**原因：** 当 Azure Stack Hub 更新处于“正在进行”状态时，可能会在门户中报告警告和错误。 组件在升级期间等待其他组件时可能会超时，从而导致错误。 Azure Stack Hub 有一种机制，可以重试或修正由于间歇性错误导致的一些任务。
 
-**修正**：尽管 Azure Stack 中心更新处于 " **正在进行**" 状态，但在门户中报告的警告和错误可以被忽略。
+**补救措施**：当 Azure Stack Hub 更新处于“正在进行”状态时，可能会忽略门户中报告的警告和错误。
 
 **发生率**：通用
 
 ::: moniker range="azs-2002"
-### <a name="2002-update-failed"></a>2002更新失败
+### <a name="2002-update-failed"></a>2002 更新失败
 
 **适用于**：此问题仅适用于 2002 版本。
 
