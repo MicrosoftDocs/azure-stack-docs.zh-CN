@@ -3,15 +3,15 @@ title: 使用 Windows PowerShell 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows PowerShell 为 Azure Stack HCI 创建群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 4228b025eaa0067b0819bd84eee522d013d69475
-ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
+ms.openlocfilehash: f45a77b43178b38d659d9e51b1abf2cbaeae87f8
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98659368"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98717975"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>使用 Windows PowerShell 创建 Azure Stack HCI 群集
 
@@ -24,7 +24,7 @@ ms.locfileid: "98659368"
 - 包含至少两个服务器节点的标准群集，节点全部位于单个站点中。
 - 包含至少四个跨两个站点的服务器节点的延伸群集，每个站点有两个节点。
 
-在本文中，将创建一个名为 Cluster1 的示例群集，该群集由名为 Server1、Server2、Server3 和 Server4 的四个服务器节点组成。
+在本文中，我们将创建一个名为 Cluster1 的示例群集，该群集由四个名为 Server1、Server2、Server3 和服务器4的服务器节点组成。
 
 对于延伸群集方案，我们将使用 ClusterS1 作为名称，并使用跨站点 Site1 和 Site2 的四个相同服务器节点。
 
@@ -57,7 +57,9 @@ ms.locfileid: "98659368"
 
 若要连接到服务器，首先必须具有网络连接，加入到同一个域或完全受信任的域中，并具有对服务器的本地管理权限。
 
-打开 PowerShell，使用完全限定的域名或要连接到的服务器的 IP 地址。 在每个服务器（Server1、Server2、Server3、Server4）上运行以下命令后，系统将提示你输入密码：
+打开 PowerShell，使用完全限定的域名或要连接到的服务器的 IP 地址。 在每个服务器上运行以下命令后，系统会提示输入密码。 
+
+在此示例中，我们假定服务器已命名为 Server1、Server2、Server3 和服务器4：
 
    ```powershell
    Enter-PSSession -ComputerName "Server1" -Credential "Server1\Administrator"
@@ -134,7 +136,7 @@ Invoke-Command ($ServerList) {
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-Restart-Computer -ComputerName $ServerList
+Restart-Computer -ComputerName $ServerList -WSManAuthentication Kerberos
 ```
 
 ## <a name="step-2-configure-networking"></a>步骤 2：配置网络
@@ -146,32 +148,13 @@ Restart-Computer -ComputerName $ServerList
 必须禁用所有断开连接的，或不用于管理、存储或工作负载流量的网络（如 VM）。 下面介绍如何识别未使用的网络：
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-NetAdapter -CimSession $ServerList | Where-Object Status -eq Disconnected
 ```
 下面介绍如何禁用它们：
 
 ```powershell
-Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected | Disable-NetAdapter -Confirm:$False
-```
-
-### <a name="assign-virtual-network-adapters"></a>分配虚拟网络适配器
-
-接下来，你将分配用于管理的和其余流量的虚拟网络适配器 (vNIC)，如以下示例中所示。 需要为群集管理配置至少一个网络适配器。
-
-```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-$vSwitchName="vSwitch"
-Rename-VMNetworkAdapter -ManagementOS -Name $vSwitchName -NewName Management -ComputerName $Servers
-Add-VMNetworkAdapter -ManagementOS -Name SMB01 -SwitchName $vSwitchName -CimSession $Servers
-Add-VMNetworkAdapter -ManagementOS -Name SMB02 -SwitchName $vSwitchName -Cimsession $Servers
-```
-
-并验证是否已成功添加和分配网络适配器：
-
-```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-VMNetworkAdapter -CimSession $Servers -ManagementOS
+Get-NetAdapter -CimSession $ServerList | Where-Object Status -eq Disconnected | Disable-NetAdapter -Confirm:$False
 ```
 
 ### <a name="create-virtual-switches"></a>创建虚拟交换机
@@ -181,29 +164,51 @@ Get-VMNetworkAdapter -CimSession $Servers -ManagementOS
 所有网络适配器都必须相同才能将 NIC 组合在一起。
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $vSwitchName="vSwitch"
 ```
 
 创建虚拟交换机，方法如下：
 
 ```powershell
-Invoke-Command -ComputerName $Servers -ScriptBlock {New-VMSwitch -Name $using:vSwitchName -EnableEmbeddedTeaming $TRUE -EnableIov $true -NetAdapterName (Get-NetAdapter | Where-Object Status -eq Up ).InterfaceAlias}
+Invoke-Command -ComputerName $ServerList -ScriptBlock {New-VMSwitch -Name $using:vSwitchName -EnableEmbeddedTeaming $TRUE -EnableIov $true -NetAdapterName (Get-NetAdapter | Where-Object Status -eq Up ).InterfaceAlias}
 ```
 
 现在，请验证是否已成功创建交换机：
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-VMSwitch -CimSession $Servers | Select-Object Name, IOVEnabled, IOVS*
-Get-VMSwitchTeam -CimSession $Servers
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-VMSwitch -CimSession $ServerList | Select-Object Name, IOVEnabled, IOVS*
+Get-VMSwitchTeam -CimSession $ServerList
+```
+
+### <a name="assign-virtual-network-adapters"></a>分配虚拟网络适配器
+
+接下来，你将分配用于管理的和其余流量的虚拟网络适配器 (vNIC)，如以下示例中所示。 需要为群集管理配置至少一个网络适配器。
+
+```powershell
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+$vSwitchName="vSwitch"
+Rename-VMNetworkAdapter -ManagementOS -Name $vSwitchName -NewName Management -ComputerName $ServerList
+Add-VMNetworkAdapter -ManagementOS -Name SMB01 -SwitchName $vSwitchName -CimSession $ServerList
+Add-VMNetworkAdapter -ManagementOS -Name SMB02 -SwitchName $vSwitchName -Cimsession $ServerList
+```
+
+并验证是否已成功添加和分配网络适配器：
+
+```powershell
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-VMNetworkAdapter -CimSession $ServerList -ManagementOS
 ```
 
 ### <a name="configure-ip-addresses-and-vlans"></a>配置 IP 地址和 VLAN
 
 你可以配置一个或两个子网。 如果要防止交换机互连重载，则首选使用两个子网。 例如，SMB 存储流量将保留在专用于一个物理交换机的子网中。
 
-### <a name="obtain-network-interface-information"></a>获取网络接口信息
+> [!NOTE]
+> 配置 IP 地址时，连接可能会中断几分钟，因为在获取新 IP 地址时，可能会连接到其中一个虚拟适配器。
+
+#### <a name="obtain-network-interface-information"></a>获取网络接口信息
 
 在为网络接口卡设置 IP 地址之前，首先需要了解一些信息，例如接口索引 (`ifIndex`)、`Interface Alias` 和 `Address Family`。 为每个服务器节点写下这些内容，以备日后使用。
 
@@ -211,19 +216,19 @@ Get-VMSwitchTeam -CimSession $Servers
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-Get-NetIPInterface -ComputerName $ServerList
+Get-NetIPInterface -CimSession $ServerList
 ```
 
 #### <a name="configure-one-subnet"></a>配置一个子网
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $StorNet="172.16.1."
 $StorVLAN=1
 $IP=1 #starting IP Address
 
 #Configure IP Addresses
-foreach ($Server in $Servers){
+foreach ($Server in $ServerList){
     New-NetIPAddress -IPAddress ($StorNet+$IP.ToString()) -InterfaceAlias "vEthernet (SMB01)" -CimSession $Server -PrefixLength 24
     $IP++
     New-NetIPAddress -IPAddress ($StorNet+$IP.ToString()) -InterfaceAlias "vEthernet (SMB02)" -CimSession $Server -PrefixLength 24
@@ -231,17 +236,16 @@ foreach ($Server in $Servers){
 }
 
 #Configure VLANs
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN -Access -ManagementOS -CimSession $Servers
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN -Access -ManagementOS -CimSession $Servers
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN -Access -ManagementOS -CimSession $ServerList
 #Restart each host vNIC adapter so that the Vlan is active.
-Restart-NetAdapter "vEthernet (SMB01)" -CimSession $Servers
-Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
+Restart-NetAdapter "vEthernet (SMB01)" -CimSession $ServerList
+Restart-NetAdapter "vEthernet (SMB02)" -CimSession $ServerList
 ```
 
 #### <a name="configure-two-subnets"></a>配置两个子网
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $StorNet1="172.16.1."
 $StorNet2="172.16.2."
 $StorVLAN1=1
@@ -249,15 +253,15 @@ $StorVLAN2=2
 $IP=1 #starting IP Address
 
 #Configure IP Addresses
-foreach ($Server in $Servers){
+foreach ($Server in $ServerList){
     New-NetIPAddress -IPAddress ($StorNet1+$IP.ToString()) -InterfaceAlias "vEthernet (SMB01)" -CimSession $Server -PrefixLength 24
     New-NetIPAddress -IPAddress ($StorNet2+$IP.ToString()) -InterfaceAlias "vEthernet (SMB02)" -CimSession $Server -PrefixLength 24
     $IP++
 }
 
 #Configure VLANs
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN1 -Access -ManagementOS -CimSession $Servers
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN2 -Access -ManagementOS -CimSession $Servers
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN1 -Access -ManagementOS -CimSession $ServerList
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN2 -Access -ManagementOS -CimSession $ServerList
 #Restart each host vNIC adapter so that the Vlan is active.
 Restart-NetAdapter "vEthernet (SMB01)" -CimSession $Servers
 Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
@@ -266,12 +270,12 @@ Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
 #### <a name="verify-vlan-ids-and-subnets"></a>验证 VLAN ID 和子网
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 #verify ip config
-Get-NetIPAddress -CimSession $servers -InterfaceAlias vEthernet* -AddressFamily IPv4 | Sort-Object -Property PSComputername | ft pscomputername,interfacealias,ipaddress -AutoSize -GroupBy PSComputerName
+Get-NetIPAddress -CimSession $ServerList -InterfaceAlias vEthernet* -AddressFamily IPv4 | Sort-Object -Property PSComputername | ft pscomputername,interfacealias,ipaddress -AutoSize -GroupBy PSComputerName
 
 #Verify that the VlanID is set
-Get-VMNetworkAdapterVlan -ManagementOS -CimSession $servers | Sort-Object -Property Computername | Format-Table ComputerName,AccessVlanID,ParentAdapter -AutoSize -GroupBy ComputerName
+Get-VMNetworkAdapterVlan -ManagementOS -CimSession $ServerList | Sort-Object -Property Computername | Format-Table ComputerName,AccessVlanID,ParentAdapter -AutoSize -GroupBy ComputerName
 ```
 
 ## <a name="step-3-prep-for-cluster-setup"></a>步骤 3：准备群集设置
@@ -300,9 +304,6 @@ Get-ClusterNetwork
 
 启用存储空间直通之前，请确保驱动器为空。 运行以下脚本以删除所有旧分区或其他数据。
 
-> [!WARNING]
-> 此脚本将永久删除除 Azure Stack HCI 系统启动驱动器以外的任何驱动器上的所有数据。
-
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
@@ -329,7 +330,7 @@ Invoke-Command ($ServerList) {
 在此步骤中，你需确保服务器节点已正确配置以创建群集。 `Test-Cluster` cmdlet 用于运行测试，以验证你的配置是否适合用作超融合群集。 下面的示例使用 `-Include` 参数，并指定了特定类别的测试。 这可确保验证中包含正确的测试。
 
 ```powershell
-Test-Cluster -Cluster –Node "Server1", "Server2", "Server3", "Server4" –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+Test-Cluster –Node $ServerList –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
 ```
 
 ## <a name="step-4-create-the-cluster"></a>步骤 4：创建群集
@@ -342,18 +343,27 @@ Test-Cluster -Cluster –Node "Server1", "Server2", "Server3", "Server4" –Incl
 > 如果服务器使用的是静态 IP 地址，请通过添加以下参数并指定 IP 地址来修改以下命令以反映静态 IP 地址：`–StaticAddress <X.X.X.X>;`。
 
 ```powershell
- New-Cluster –Name "Cluster1" –Node "Server1", "Server2", "Server3", "Server4" –NoStorage
+$ClusterName="cluster1" New-Cluster -Name $ClusterName –Node $ServerList –nostorage
 ```
 
 恭喜，你的群集现已成功创建。
 
-创建群集后，在整个域中复制群集名称可能要花费一些时间，尤其是在工作组服务器新添加到 Active Directory 中的情况下。 虽然群集可能显示在 Windows Admin Center 中，但它可能尚不能用于进行连接。
+创建群集后，群集名称可能需要一些时间才能通过 DNS 跨域复制，尤其是在新添加到 Active Directory 的情况下。 虽然群集可能显示在 Windows Admin Center 中，但可能尚不能连接到它。
+
+确保所有群集资源处于联机状态的一个好的检查：
+
+```powershell
+Get-Cluster -Name $ClusterName | Get-ClusterResource
+```
 
 如果一段时间后解析群集未成功，则在大多数情况下，你可以使用其中一个群集服务器的名称代替群集名称进行连接。
 
 ## <a name="step-5-set-up-sites-stretched-cluster"></a>步骤 5：设置站点（延伸群集）
 
-此任务仅适用于在两个站点之间创建延伸群集的情况。
+此任务仅适用于在两个站点之间创建延伸群集的情况。 
+
+> [!NOTE]
+> 如果你预先设置了 Active Directory 站点和服务，则无需手动创建站点，如下所述。
 
 ### <a name="step-51-create-sites"></a>步骤 5.1：创建站点
 
@@ -436,7 +446,7 @@ Get-ClusterFaultDomain -CimSession "ClusterS1"
 以下命令可启用存储空间直通。 你还可以指定存储池的易记名称，如下所示：
 
 ```powershell
-$session = New-CimSession -Cluster "Cluster1" | Enable-ClusterStorageSpacesDirect -PoolFriendlyName "Cluster1 Storage Pool"
+Enable-ClusterStorageSpacesDirect -PoolFriendlyName "$ClusterName Storage Pool" -CimSession $ClusterName
 ```
 
 若要查看存储池，请使用：
@@ -445,7 +455,7 @@ $session = New-CimSession -Cluster "Cluster1" | Enable-ClusterStorageSpacesDirec
 Get-StoragePool -CimSession $session
 ```
 
-恭喜，现已创建了一个基本的群集。
+恭喜，现已创建了一个群集。
 
 ## <a name="after-you-create-the-cluster"></a>创建群集后
 
@@ -453,9 +463,9 @@ Get-StoragePool -CimSession $session
 
 - 设置群集见证。 请参阅[设置群集见证](witness.md)。
 - 创建卷。 请参阅[创建卷](../manage/create-volumes.md)。
-- 对于延伸群集，请使用存储副本创建卷和设置复制。 请参阅[为延伸群集创建卷和设置复制](../manage/create-stretched-volumes.md)。
+- 对于延伸群集，请使用存储副本创建卷并设置复制。 请参阅[为延伸群集创建卷和设置复制](../manage/create-stretched-volumes.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 将群集注册到 Azure。 请参阅[管理 Azure 注册](../manage/manage-azure-registration.md)。
-- 执行群集的最终验证。 请参阅[验证 Azure Stack HCI 群集](validate.md)
+- 对群集进行最终验证。 请参阅[验证 Azure Stack HCI 群集](validate.md)

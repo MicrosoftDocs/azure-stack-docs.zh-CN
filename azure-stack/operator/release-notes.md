@@ -7,12 +7,12 @@ ms.date: 01/22/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 08877d386e2b890f3b3bdca043e716ae644f60a7
-ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
+ms.openlocfilehash: 8bcc605632b47ec2bfa384b9a0fe174902ad9b20
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98705226"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98718009"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -133,7 +133,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2008 之后，如果有任何 2008 修补程序被发布，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2008.20.102](https://support.microsoft.com/help/4595075)
+- [Azure Stack 中心修补程序1.2008.23.108](https://support.microsoft.com/topic/c0d203fd-7585-4c8d-8ea5-ae13897e352e)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
