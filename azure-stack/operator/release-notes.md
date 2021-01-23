@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/23/2020
+ms.date: 01/22/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 9276cff891cd4f69c35c0890a2bf02108407bbe0
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 08877d386e2b890f3b3bdca043e716ae644f60a7
+ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256058"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98705226"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -69,8 +69,8 @@ Azure Stack Hub 2008 更新内部版本类型为“完整”。
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack Hub 现在支持 VNET 对等互连，这样，你便可以在不使用网络虚拟设备 (NVA) 的情况下连接 VNET。 有关详细信息，请参阅[新 VNET 对等互连文档](../user/virtual-network-peering.md)。
 - Azure Stack Hub blob 存储现在允许用户使用不可变 blob。 通过在容器上设置不可变的策略，可将业务关键型数据对象以 WORM（写入一次，读取多次）状态进行存储。 在此版本中，不可变的策略只能通过 REST API 或客户端 SDK 来设置。 在此版本中，也不可能执行追加 blob 写入。 有关不可变 blob 的详细信息，请参阅[使用不可变存储来存储业务关键型 blob 数据](/azure/storage/blobs/storage-blob-immutable-storage)。
-- Azure Stack 中心存储现在支持 Azure 存储服务 Api 版本 **2019-07-07**。 有关与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack Hub 存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。 对于 Azure 存储服务管理 Api， **2018-02-01** 添加了支持，其中包含全部可用功能的子集。
-- Azure Stack 集线器计算现在支持 Azure 计算 Api 版本 **2020-06-01**，同时提供全部可用功能的子集。
+- Azure Stack Hub 存储现在支持 Azure 存储服务 API 版本 2019-07-07。 有关与新 REST API 版本兼容的 Azure 客户端库，请参阅 [Azure Stack Hub 存储开发工具](../user/azure-stack-storage-dev.md#azure-client-libraries)。 对于 Azure 存储服务管理 API，已添加对 2018-02-01 的支持，其中包含全部可用功能的子集。
+- Azure Stack Hub 计算现在支持 Azure 计算 API 版本 2020-06-01，其中包含全部可用功能的子集。
 - Azure Stack Hub 托管磁盘现在支持 Azure 计算 API 版本 2019-03-01，其中包含可用功能的子集。
 - Windows Admin Center 的预览版现在可以连接到 Azure Stack Hub，以便在支持操作期间提供有关基础结构的深入见解（需要不受限）。
 - 能够在部署时将登录横幅添加到特权终结点 (PEP)。
@@ -127,15 +127,9 @@ Azure Stack Hub 定期发布修补程序。 从 2005 版开始，更新到新的
 
 Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿尝试在 ASDK 上安装修补程序。
 
-### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>修补程序先决条件：在应用 2008 更新之前
-
-必须在包含以下修补程序的版本 2005 上应用 Azure Stack Hub 版本 2008：
-
-- [Azure Stack 中心修补程序1.2005.25.92](https://support.microsoft.com/help/4595074)
-
 ### <a name="after-successfully-applying-the-2008-update"></a>成功应用 2008 更新之后
 
-更新到新的主版本（如 1.2005.x 到 1.2008.x）时，会自动安装新的主版本中的最新修补程序（如果有）。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
+由于 Azure Stack 集线器修补程序是累积的，因此，作为最佳做法，应安装为生成发布的所有修补程序，以确保主要版本之间的最佳更新体验。 更新到新的主版本（如 1.2005.x 到 1.2008.x）时，会自动安装新的主版本中的最新修补程序（如果有）。
 
 安装 2008 之后，如果有任何 2008 修补程序被发布，应安装这些修补程序：
 
@@ -231,7 +225,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 必须在包含以下修补程序的版本 2002 中应用 Azure Stack Hub 版本 2005：
 
-- [Azure Stack 中心修补程序1.2002.63.167](https://support.microsoft.com/help/4595072)
+- [Azure Stack Hub 修补程序 1.2002.63.167](https://support.microsoft.com/help/4595072)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>成功应用 2005 更新之后
 
@@ -368,7 +362,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 安装此更新之后，请安装所有适用的修补程序。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.2002.63.167](https://support.microsoft.com/help/4595072)
+- [Azure Stack Hub 修补程序 1.2002.63.167](https://support.microsoft.com/help/4595072)
 ::: moniker-end
 
 <!------------------------------------------------------------>

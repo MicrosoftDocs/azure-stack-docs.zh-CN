@@ -6,6 +6,8 @@
       href: overview.md
     - name: 与 Windows Server 比较
       href: concepts/compare-windows-server.md
+    - name: 与 Azure Stack 中心比较
+      href: concepts/compare-azure-stack-hub.md
     - name: 发布信息
       href: release-information.md
     - name: 发行说明

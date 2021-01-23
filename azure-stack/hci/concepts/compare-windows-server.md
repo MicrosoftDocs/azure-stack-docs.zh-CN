@@ -1,75 +1,111 @@
 ---
-title: 将 Azure Stack HCI 与 Azure Stack 中心和 Windows Server 进行比较
-description: 本主题将帮助你确定 Azure Stack HCI、Azure Stack 集线器或 Windows Server 是否适合你的组织。
+title: 将 Azure Stack HCI 与 Windows Server 进行比较
+description: 本主题将帮助你确定 Azure Stack HCI 或 Windows Server 是否适合你的组织。
 ms.topic: conceptual
 author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/22/2020
-ms.openlocfilehash: a4429113088497fd6a7c887a65f524a7495c6b74
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.date: 01/21/2021
+ms.openlocfilehash: c691424251d096794315880106c131ecaaea1f57
+ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737804"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98705177"
 ---
-# <a name="compare-azure-stack-hci-to-azure-stack-hub-and-windows-server"></a>将 Azure Stack HCI 与 Azure Stack 中心和 Windows Server 进行比较
+# <a name="compare-azure-stack-hci-to-windows-server-2019"></a>将 Azure Stack HCI 与 Windows Server 2019 进行比较
 
-> 适用于： Azure Stack HCI，版本 20H2;Windows Server 2019;Azure Stack 中心
+> 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-许多客户都想知道 Windows Server、Azure Stack HCI 或 Azure Stack 中心是否更适合其需求。 本主题将帮助你确定哪一种适合你的组织。 
+本主题介绍 Azure Stack HCI 和 Windows Server 2019 之间的主要区别，并提供有关何时使用每个的指导。 Microsoft 同时支持和维护两个产品。 许多组织可以选择同时部署这两个组织，因为它们适用于不同和互补的目的。
 
-## <a name="compare-azure-stack-hci-to-windows-server"></a>将 Azure Stack HCI 与 Windows Server 进行比较
+## <a name="when-to-use-azure-stack-hci"></a>何时使用 Azure Stack HCI
 
-Windows Server 和 Azure Stack HCI 都提供了新版本路线图的相同高质量用户体验。
+Azure Stack HCI 是 Microsoft 的顶级超聚合基础结构平台，用于在本地运行 Vm 或虚拟桌面，并连接到 Azure 混合服务。 这是一种使你的数据中心和分支机构实现现代化和保护的简单方法，还能实现低延迟和数据主权的业界最佳性能。
 
-| Windows Server | Azure Stack HCI |
-| --------------- | --------------- |
-| 最佳来宾和传统服务器 | 软件定义数据中心的最佳虚拟化主机，包括存储空间直通 |
-| 使用传统的软件许可模式在任何位置运行 | 在首选供应商的硬件上运行，但作为 Azure 服务交付并向 Azure 帐户收费 |
-| 两个安装选项：带桌面体验的服务器或服务器核心 | 基于轻度自定义的服务器核心 |
 
-### <a name="when-to-use-windows-server"></a>何时使用 Windows Server
+:::image type="content" source="media/compare-windows-server/hci-scenarios.png" alt-text="何时在 Windows Server 2019 上使用 Azure Stack HCI" border="false" lightbox="media/compare-windows-server/hci-scenarios.png":::
 
-| Windows Server | Azure Stack HCI |
-| --------------- | --------------- |
-| Windows Server 是一种通用性高的多用途操作系统，具有几十个角色和数百个功能，包括来宾权限。 | Azure Stack HCI 不包括来宾权限，旨在用于超融合的新式体系结构。 |
-| 使用 Windows Server 可运行 VM 或进行涉及所有传统服务器角色的裸机安装，包括 Active Directory、文件服务、DNS、DHCP、Internet Information Services (IIS)、容器主机/来宾、SQL Server、Exchange Server、主机保护者服务 (HGS) 等。 | Azure Stack HCI 旨在作为 Hyper-V 虚拟化主机，仅许可用于运行少量服务器角色；任何其他角色都必须在 VM 内运行。 |
 
-### <a name="when-to-use-azure-stack-hci"></a>何时使用 Azure Stack HCI
+将 Azure Stack HCI 用于：
 
-| Windows Server | Azure Stack HCI |
-| --------------- | --------------- |
-| Windows Server 可在本地或在云中运行，但不会提供超聚合的最新功能。| Azure Stack HCI 是 Microsoft 的顶级超聚合基础结构平台，用于在本地运行 Vm，还可以选择在两个站点之间扩展，并与 Azure 混合服务建立连接。 这是一种使你的数据中心和分支机构实现现代化和保护的简单方法，实现 SQL Server 数据库的业界最佳性能，并在本地运行 Vm 或虚拟桌面，实现低延迟和数据主权。|
-| Windows Server 就像一把优质的多用途“瑞士军刀”，适用于所有 Windows Server 角色，无论是否虚拟化。 | 使用 Azure Stack HCI 虚拟化 Exchange、SharePoint 和 SQL Server 等经典企业应用，并虚拟化 Windows Server 角色（例如文件服务器、DNS、DHCP、IIS 和 AD）。 包括不受限制地访问所有 Hyper-V 功能，例如受防护的 VM。|
-| 许多 Windows Server 部署在过时硬件上运行。 | 借助 Azure Stack HCI 可以使用软件定义的基础结构来代替过时的存储设备阵列或网络设备，而无需进行重大的重新改造。 可以直接访问和管理内置的 Hyper-V、存储空间直通和软件定义的网络 (SDN)。 在 Windows 或 Linux VM 中运行应用。|
+- 用于实现基础结构现代化的最佳虚拟化主机，适用于核心数据中心的现有工作负荷或针对分支机构和边缘位置的新兴要求
+- 使用 Azure 订阅中的定期创新流和一组一致的工具和体验，轻松实现云的扩展性
+- 超聚合基础结构的所有优点：更简单、更整合的数据中心体系结构，具有高速存储和网络
 
-## <a name="compare-azure-stack-hci-to-azure-stack-hub"></a>将 Azure Stack HCI 与 Azure Stack 中心进行比较
+  >[!NOTE]
+  >由于 Azure Stack HCI 旨在用作新式超聚合体系结构的 Hyper-v 虚拟化主机，因此不包括来宾权限。 因此，Azure Stack HCI 只获得直接运行少量服务器角色的许可，任何其他角色都必须在 Vm 内部运行。
 
-当你的组织进行数字化变革时，你可能会发现，使用公有云服务以新式体系结构作为构建基础来更新旧式应用可以加快变革的速度。 但是，出于技术和法规障碍等原因，许多工作负荷必须保留在本地。 使用此表可帮助确定哪种 Microsoft 混合云策略可随时随地提供所需的服务，并为任何位置的工作负荷提供云创新。
+## <a name="when-to-use-windows-server-2019"></a>何时使用 Windows Server 2019
 
-| Azure Stack Hub | Azure Stack HCI |
-| --------------- | --------------- |
-| 新的技能，创新的流程 | 相同的技能，熟悉的流程 |
-| 数据中心内的 Azure 服务 | 将数据中心连接到 Azure 服务 |
+Windows Server 2019 是一个高度多样的多用途操作系统，具有数十个角色和数百个功能，包括来宾权限。 Windows Server 计算机可以在云中或本地，包括虚拟化在 Azure Stack HCI 之上。
 
-### <a name="when-to-use-azure-stack-hub"></a>何时使用 Azure Stack Hub
 
-| Azure Stack Hub | Azure Stack HCI |
-| --------------- | --------------- |
-| 针对自助式基础结构即服务 (IaaS) 使用 Azure Stack Hub，因为其具有强式隔离，并且可对位于相同位置的多个租户精确地跟踪使用情况和进行费用分摊。 非常适合用于服务提供商和企业私有云。 来自 Azure 市场的模板。 | Azure Stack HCI 原生不会实施或提供多租户。 |
-| 在本地使用 Azure Stack Hub 开发和运行依赖于 Web 应用、Functions 或事件中心等平台即服务 (PaaS) 的应用。 在 Azure Stack Hub 上运行的这些服务完全与在 Azure 中运行一样，从而提供一致的混合开发和运行时环境。 | Azure Stack HCI 不会在本地运行 PaaS 服务。 |
-| 使用 Azure Stack Hub 现代化应用部署和配合 DevOps 做法的操作，这些做法包括基础结构即代码、持续集成和持续部署 (CI/CD)，以及 Azure 一致性 VM 扩展等便利功能。 非常适合用于开发和 DevOps 团队。 | Azure Stack HCI 原生不包括任何 DevOps 工具。 |
+:::image type="content" source="media/compare-windows-server/windows-server-scenarios.png" alt-text="何时通过 Azure Stack HCI 使用 Windows Server 2019" border="false" lightbox="media/compare-windows-server/windows-server-scenarios.png":::
 
-### <a name="when-to-use-azure-stack-hci"></a>何时使用 Azure Stack HCI
 
-| Azure Stack Hub | Azure Stack HCI |
-| --------------- | --------------- |
-| Azure Stack Hub 至少需要 4 个节点，并需要自身的网络交换机。 | 使用 Azure Stack HCI 可以尽量减少远程办公室和分公司的占用空间。 一开始可以仅使用 2 个服务器节点和无交换机的后端到后端网络，以实现最高简便度和负担能力。 硬件产品的入门配置为 4 个驱动器和 64 GB 内存，费用不超过 10000 美元/节点。 |
-| 为了与 Azure 保持一致，Azure Stack Hub 将限制 Hyper V 可配置性和功能。 | 使用 Azure Stack HCI 可为经典企业应用（例如 Exchange、SharePoint 和 SQL Server）实现单纯有用的 Hyper-V 虚拟化，以及虚拟化 Windows Server 角色，例如文件服务器、DNS、DHCP、IIS 和 AD。 不受限制地访问所有 Hyper-V 功能，例如受防护的 VM。|
-| Azure Stack Hub 不会公开这些基础结构技术。 | 借助 Azure Stack HCI 可以使用软件定义的基础结构来代替过时的存储设备阵列或网络设备，而无需进行重大的重新改造。 可以直接访问和管理内置的 Hyper-V、存储空间直通和软件定义的网络 (SDN)。 |
+将 Windows Server 2019 用于：
+
+- 虚拟机中的来宾操作系统 (Vm) 或容器
+- 作为 Windows 应用程序的运行时
+- 使用一个或多个内置服务器角色，如 Active Directory、文件服务、DNS、DHCP 或 Internet Information Services (IIS) 
+- 作为传统服务器（例如裸机域控制器或 SQL Server 安装）
+- 对于传统基础结构（例如连接到光纤通道 SAN 存储的 Vm）
+
+## <a name="compare-product-positioning"></a>比较产品定位
+
+下表显示 Azure Stack HCI 和 Windows Server 2019 的高级产品打包。
+
+| **Attribute**    | **Azure Stack HCI** | **Windows Server 2019** |
+| ---------------- | ------------------- | ----------------------- |
+| 产品类型     | 云服务，其中包含一个或多个操作系统 | 操作系统 |
+| Legal            | 涵盖 Microsoft 客户协议或联机订阅协议 | 具有其自己的最终用户许可协议 |
+| 许可        | 向你的 Azure 订阅计费 | 有自己的付费许可证 |
+| 支持          | 受 Azure 支持 | 可由不同的支持协议（包括 Microsoft 顶级支持）涵盖 |
+| 从何处获取  | 从 [Azure.com/HCI](https://azure.com/hci)下载，或在集成系统上预安装 | Microsoft 批量许可服务中心或评估中心 |
+| 在 Vm 中运行      | 仅适用于评估;用于主机操作系统 | 是，在云中或本地 |
+| 硬件         | 在来自[AZURE STACK HCI 目录](https://hcicatalog.azurewebsites.net)的任何超过200的预验证解决方案上运行 | 在具有 "经 Windows Server 2019 认证" 徽标的任何硬件上运行 |
+| 生命周期策略 | 始终保持最新功能 | 在 [Windows Server 服务通道](/windows-server/get-started-19/servicing-channels-19)之间进行选择： Long-Term 服务通道 (LTSC) 和 Semi-Annual 通道 (SAC)  |
+
+## <a name="compare-technical-features"></a>比较技术功能
+
+下表对 Azure Stack HCI 和 Windows Server 2019 的技术功能进行了比较。
+
+| **Attribute** | **Azure Stack HCI** | **Windows Server 2019** |
+| ------------- | ------------------- | ----------------------- |
+| 核心 Hyper-v | 是 | 是 |
+| 核心存储空间直通 | 是 | 是 |
+| 核心 SDN | 是 | 是 |
+| 用于灾难恢复的 Stretch 群集 | 是 | - |
+| 存储空间修复速度提高4倍 | 是 | - |
+| 集成驱动程序和固件更新 | 是 (集成系统仅)  | - |
+| 引导式部署 | 是 | - |
+
+## <a name="compare-management-options"></a>比较管理选项
+
+下表比较了 Azure Stack HCI 和 Windows Server 2019 的管理选项。 这两种产品都设计用于远程管理，并且可以通过许多相同的工具进行管理。
+
+| **Attribute** | **Azure Stack HCI** | **Windows Server 2019** |
+| ------------- | ------------------- | ----------------------- |
+| 桌面体验 | - | 是 |
+| Windows Admin Center | 是 | 是 |
+| Microsoft System Center | 是 (单独销售)  | 是 (单独销售)  |
+| Azure 门户 | 是 (本机)  | 需要 Arc 代理 |
+| 第三方工具 | 是 | 是 |
+
+## <a name="compare-product-pricing"></a>比较产品定价
+
+下表比较了 Azure Stack HCI 和 Windows Server 2019 的产品定价。 有关详细信息，请参阅 [AZURE STACK HCI 定价](https://azure.microsoft.com/pricing/details/azure-stack/hci/)。
+
+| **Attribute** | **Azure Stack HCI** | **Windows Server 2019** |
+| ------------- | ------------------- | ----------------------- |
+| 价格类型 | 订阅服务 | 变化：最常使用一次性许可证 |
+| 价格结构 | 每个内核，每月 | 变化：通常每个核心 |
+| 价格 | 每月 $10 美元，每月 | 请参阅 [Windows Server 2019 的定价和许可](https://www.microsoft.com/windows-server/pricing) |
+| 评估/试用期 | 注册30天免费试用版 | 180天评估版 |
+| 信道 | 企业协议、云服务提供商或直接 | 企业协议/批量许可、OEM、服务提供商许可协议 (SPLA)  |
 
 ## <a name="next-steps"></a>后续步骤
 
-- [什么是 Azure Stack HCI？](../overview.md)
+- [将 Azure Stack HCI 与 Azure Stack 中心进行比较](compare-azure-stack-hub.md)
