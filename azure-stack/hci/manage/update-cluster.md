@@ -4,13 +4,13 @@ description: 如何使用 Windows Admin Center 和 PowerShell 将操作系统和
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: 001cf81721423aad770093c0fe5cf92ec6b66af8
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 01/25/2020
+ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010815"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98771989"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>更新 Azure Stack HCI 群集
 
@@ -24,14 +24,32 @@ ms.locfileid: "97010815"
 
 Windows Admin Center 利用简单的用户界面，简化了更新群集和应用操作系统和解决方案更新的过程。 如果你已从 Microsoft 硬件合作伙伴处购买了集成系统，则通过安装合适的合作伙伴更新扩展插件，可直接从 Windows Admin Center 轻松获取最新的驱动程序、固件和其他更新。 如果你的硬件不是作为集成系统购买的，则可能需要按照硬件供应商的建议单独更新固件和驱动程序。
 
-Windows 管理中心将检查群集是否已正确配置为 Cluster-Aware 更新运行，如果需要，将询问你是否希望 Windows 管理中心为你配置 CAU，包括安装 CAU 群集角色和启用所需的防火墙规则。
+请按照以下步骤安装更新：
 
 1. 在连接到群集时，如果一个或多个服务器已准备好安装更新，Windows Admin Center 仪表板会向你发出提醒，并提供立即更新的链接。 或者，你可以从左侧的“工具”菜单中选择“更新” 。
-1. 若要在 Windows Admin Center 中使用群集感知更新工具，必须启用凭据安全服务提供程序 (CredSSP) 并提供显式凭据。 当系统询问是否启用 CredSSP 时，单击“是”。
-1. 指定用户名和密码，单击“继续”。
-1. 将显示所有可用的更新；单击“检查可用更新”刷新列表。
-1. 选择要安装的更新，然后单击“应用所有更新”。 这将在群集中的每个服务器上安装更新。 如果需要重新启动，会先将群集角色（如虚拟机）转移到另一个服务器，以防止出现中断。
-1. 若要提高安全性，请在安装完更新后立即禁用 CredSSP：
+
+2. 如果是首次更新群集，Windows 管理中心会检查群集是否已正确配置为 Cluster-Aware 更新运行，如果需要，将询问你是否希望 Windows 管理中心为你配置 CAU，包括安装 CAU 群集角色和启用所需的防火墙规则。 若要开始更新过程，请单击 " **开始**"。
+
+   :::image type="content" source="media/update-cluster/add-cau-role.png" alt-text="Windows 管理中心会自动将群集配置为运行 Cluster-Aware 更新" lightbox="media/update-cluster/add-cau-role.png":::
+
+   > [!NOTE]
+   > 若要在 Windows Admin Center 中使用群集感知更新工具，必须启用凭据安全服务提供程序 (CredSSP) 并提供显式凭据。 如果系统询问是否应启用 CredSSP，请单击 **"是"**。 指定用户名和密码，单击“继续”。
+
+3. 将显示群集的更新状态;单击 " **检查更新** " 以获取可用于群集中每个服务器的操作系统更新的列表。 你可能需要提供管理员凭据。 如果没有可用的操作系统更新，请单击 " **下一步：硬件更新** "，然后继续执行步骤7。
+
+4. 选择 " **下一步：安装** " 以继续安装操作系统更新，或者单击 " **跳过** " 以排除它们。 
+
+   :::image type="content" source="media/update-cluster/operating-system-updates.png" alt-text="单击 &quot;下一步：安装&quot; 以继续安装操作系统更新，或者单击 &quot;跳过&quot; 以排除它们" lightbox="media/update-cluster/operating-system-updates.png":::
+
+5. 选择 " **安装** " 以在群集中的每个服务器上安装操作系统更新。 你将看到 "正在安装更新" 的更新状态更改。 如果有任何更新需要重新启动，则服务器将一次重新启动，以在服务器之间移动群集角色（如虚拟机），以防止停机。
+
+   :::image type="content" source="media/update-cluster/install-os-updates.png" alt-text="单击 &quot;安装&quot; 以在群集中的每个服务器上安装操作系统更新" lightbox="media/update-cluster/install-os-updates.png":::
+
+6. 操作系统更新完成后，更新状态将更改为 "succeeded"。 单击 " **下一步"：硬件更新** 以转到硬件更新屏幕。
+
+7. Windows 管理中心会检查群集中是否有支持特定服务器硬件的已安装扩展。 单击 " **下一步"：安装** 以在群集中的每个服务器上安装硬件更新。 如果找不到扩展或更新，请单击 " **退出**"。
+
+8. 若要提高安全性，请在安装完更新后立即禁用 CredSSP：
     - 在 Windows Admin Center 中的“所有连接”下，选择群集中的第一个服务器，然后选择“连接” 。
     - 在“概述”页上，选择“禁用 CredSSP”，然后在“禁用 CredSSP”弹出窗口中，选择“是”   。
 

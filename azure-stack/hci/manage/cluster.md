@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/12/2021
-ms.openlocfilehash: 7f77855945ecfb31e223db46be8b2e2e3a012c16
-ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
+ms.date: 01/22/2021
+ms.openlocfilehash: 4b6e7537a1111ed2e38d1783acf7197a4249b2ac
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98130267"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772100"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>使用 Windows Admin Center 管理 Azure Stack HCI 群集
 
@@ -97,7 +97,7 @@ Windows Admin Center 可用于管理 Azure Stack HCI 群集。 具体而言，�
    - **磁盘见证** - 使用磁盘资源作为见证（不用于延伸群集）
    - **文件共享见证** - 使用文件共享作为见证
 
-        有关如何设置见证服务器的详细信息，请参阅 [设置分类见证](../deploy/witness.md)。 另请参阅 [了解 AZURE STACK HCI 上的群集和池仲裁](../concepts/quorum.md)。
+        有关如何设置见证服务器的详细信息，请参阅 [设置分类见证](witness.md)。 另请参阅 [了解 AZURE STACK HCI 上的群集和池仲裁](../concepts/quorum.md)。
 
         :::image type="content" source="media/manage-cluster/cluster-settings-witness.png" alt-text="群集见证屏幕" lightbox="media/manage-cluster/cluster-settings-witness.png":::
 

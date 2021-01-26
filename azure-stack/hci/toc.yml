@@ -28,10 +28,6 @@
       href: deploy/operating-system.md
     - name: 创建群集
       href: deploy/create-cluster.md
-    - name: 设置群集见证
-      href: deploy/witness.md
-    - name: 部署 SDN 基础结构
-      href: deploy/sdn-express.md
     - name: 迁移到新硬件
       href: deploy/migrate-cluster-new-hardware.md
     - name: 在同一硬件上迁移
@@ -96,6 +92,8 @@
           href: manage/update-cluster.md
         - name: 监视群集
           href: manage/monitor-cluster.md
+        - name: 设置群集见证
+          href: manage/witness.md
         - name: 使用数据中心防火墙
           href: manage/use-datacenter-firewall.md
         - name: 使用 DISKSPD 测试工作负荷
@@ -114,6 +112,10 @@
           href: manage/validate-qos.md
         - name: 对 CredSSP 进行故障排除
           href: manage/troubleshoot-credssp.md
+    - name: 管理 SDN
+      items:
+        - name: 部署 SDN 基础结构
+          href: manage/sdn-express.md
     - name: 管理 Azure 服务
       items:
         - name: 将 Windows Admin Center 注册到 Azure
