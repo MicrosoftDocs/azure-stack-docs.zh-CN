@@ -4,13 +4,13 @@ description: 了解 Azure Stack HCI 存储空间直通中的群集和池仲裁�
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 0503e9a97a2ca2b15447dbd837eeac9162b84654
-ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
+ms.date: 01/22/2021
+ms.openlocfilehash: cd352017027b7e122b39e1d16c867d5b2e3576fc
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98561989"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772228"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>了解 Azure Stack HCI 上的群集和池仲裁
 
@@ -227,4 +227,4 @@ Windows Server 2019 中有两个系统组件具有自身的仲裁机制：
 有关详细信息，请参阅以下部分：
 
 - [配置和管理仲裁](/windows-server/failover-clustering/manage-cluster-quorum)
-- [设置群集见证](../deploy/witness.md)
+- [设置群集见证](../manage/witness.md)

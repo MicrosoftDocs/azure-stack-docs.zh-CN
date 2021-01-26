@@ -3,15 +3,15 @@ title: 迁移到同一硬件上的 Azure Stack HCI
 description: 了解如何在同一硬件上迁移群集以 Azure Stack HCI
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: d1e033ed2b8bbae2968be8125c7d0dccb3e9f3cf
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 35c1de7da10fbecbf6b861a23cdebb752502ca44
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254630"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772276"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>迁移到同一硬件上的 Azure Stack HCI
 
@@ -28,7 +28,7 @@ ms.locfileid: "98254630"
 > [!NOTE]
 > 本文未介绍迁移延伸的群集。
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="before-you-begin"></a>在开始之前
 
 在开始迁移之前，需要考虑几个要求和事项：
 
@@ -181,7 +181,7 @@ Install-WindowsFeature -Name Hyper-V, Failover-Clustering, FS-Data-Deduplication
     Get-StoragePool | ? IsPrimordial -eq $false | ft FriendlyName,Version
     ```
 
-1. 创建仲裁见证。 有关如何操作的详细信息，请参阅 [设置分类见证](./witness.md)。
+1. 创建仲裁见证。 有关如何操作的详细信息，请参阅 [设置分类见证](../manage/witness.md)。
 
 1. 使用以下各项验证存储修复作业是否已完成：
 

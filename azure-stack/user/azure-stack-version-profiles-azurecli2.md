@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: fe68722e2cabea2cc863bbd6fb6d8414eb91031c
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: 8ffab5fa1ffff5012edfbce3da69f35a753ff72e
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243572"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772294"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>在 Azure Stack Hub 上安装 Azure CLI
 
@@ -53,7 +53,7 @@ ms.locfileid: "98243572"
       | 值 | 示例 | 说明 |
       | --- | --- | --- |
       | 环境名称 | AzureStackUser | 对于用户环境，请使用 `AzureStackUser`。 如果你是操作员，请指定 `AzureStackAdmin`。 |
-      | 资源管理器终结点 | `https://management.contoso.onmicrosoft.com` | ASDK 中的 **ResourceManagerUrl** 为：`https://management.contoso.onmicrosoft.com/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
+      | 资源管理器终结点 | `https://management.contoso.onmicrosoft.com` | ASDK 中的 **ResourceManagerUrl** 为：`https://management.local.azurestack.external/`集成系统中的 **ResourceManagerUrl** 为：`https://management.<region>.<fqdn>/` 如果对集成系统终结点有疑问，请与云操作员联系。 |
       | 存储终结点 | local.contoso.onmicrosoft.com | `local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
       | KeyVault 后缀 | 。 vault.contoso.onmicrosoft.com | `.vault.local.azurestack.external` 适用于 ASDK。 对于集成系统，请使用适用于系统的终结点。  |
       | 终结点 active directory graph 资源 ID | https://graph.windows.net/ | Active Directory 资源 ID。 |

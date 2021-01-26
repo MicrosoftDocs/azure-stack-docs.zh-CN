@@ -3,15 +3,15 @@ title: 使用 Windows Admin Center 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows Admin Center 为 Azure Stack HCI 创建服务器群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 0d92840b8a98d612c971895cd3cc9f39815eed75
-ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
+ms.openlocfilehash: 7b745ec5f521be3ed520b41a4eb5d788799ad20b
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98659402"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772303"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
@@ -231,4 +231,5 @@ ms.locfileid: "98659402"
 ## <a name="next-steps"></a>后续步骤
 
 - 将群集注册到 Azure。 请参阅[管理 Azure 注册](../manage/manage-azure-registration.md)。
+- 设置见证服务器。 请参阅[设置群集见证](../manage/witness.md)。
 - 对群集进行最终验证。 请参阅[验证 Azure Stack HCI 群集](validate.md)

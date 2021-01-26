@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/13/2021
-ms.openlocfilehash: 579ccb529ff2ac00a864a165fa5086244f0c0870
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.date: 01/22/2021
+ms.openlocfilehash: ee4046837b012f5ea55a85db418e2af35f84a7ee
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208006"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772251"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Azure Stack HCI 中的软件定义的网络 (SDN)
 
@@ -38,7 +38,7 @@ Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组�
 - 将虚拟设备连接到虚拟网络。
 - 为连接到虚拟网络或基于 VLAN 的传统网络的 VM 配置服务质量 (QoS) 策略。
 
-建议在创建 Azure Stack HCI 群集后， [使用 SDN Express 部署网络控制器](../deploy/sdn-express.md) 。
+建议在创建 Azure Stack HCI 群集后， [使用 SDN Express 部署网络控制器](../manage/sdn-express.md) 。
 
 ## <a name="software-load-balancing"></a>软件负载均衡 (SLB)
 
@@ -60,4 +60,4 @@ Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组�
 
 - [规划软件定义的网络基础结构](plan-software-defined-networking-infrastructure.md)
 - [Windows Server 中的 SDN 概述](/windows-server/networking/sdn/software-defined-networking)
-- [使用 SDN Express 部署 SDN 基础结构](../deploy/sdn-express.md)
+- [使用 SDN Express 部署 SDN 基础结构](../manage/sdn-express.md)

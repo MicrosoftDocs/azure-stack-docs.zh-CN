@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.date: 01/22/2021
+ms.openlocfilehash: 6527623ba5b42f40eb24cd6269f5d45bbccb0d25
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343170"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772231"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>快速入门：创建 Azure Stack HCI 群集并将其注册到 Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "97343170"
 
 在本快速入门中，你将了解如何部署两个服务器的单站点 Azure Stack HCI 群集并将其注册到 Azure。 有关多站点部署，请参阅 [延伸群集概述](../concepts/stretched-clusters.md)。
 
-## <a name="before-you-start"></a>准备工作
+## <a name="before-you-start"></a>开始之前
 
 创建群集之前，请执行以下操作：
 
@@ -58,7 +58,7 @@ ms.locfileid: "97343170"
 
 ## <a name="set-up-a-cluster-witness"></a>设置群集见证
 
-设置见证资源是必需的，因此，如果群集中的某个服务器进入脱机状态，则不会导致其他节点也无法使用。 对于本快速入门，我们将使用另一台服务器上的 SMB 文件共享作为见证服务器。 如果群集中的所有服务器节点都具有可靠的 internet 连接，则你可能更愿意使用 Azure 云见证。 有关见证选项的详细信息，请参阅 [设置分类见证](witness.md)。
+设置见证资源是必需的，因此，如果群集中的某个服务器进入脱机状态，则不会导致其他节点也无法使用。 对于本快速入门，我们将使用另一台服务器上的 SMB 文件共享作为见证服务器。 如果群集中的所有服务器节点都具有可靠的 internet 连接，则你可能更愿意使用 Azure 云见证。 有关见证选项的详细信息，请参阅 [设置分类见证](../manage/witness.md)。
 
 1. 在 Windows Admin Center 中，从顶部下拉箭头中选择“群集管理器”。
 1. 在“群集连接”下，选择该群集。
@@ -66,7 +66,7 @@ ms.locfileid: "97343170"
 1. 在右窗格中，选择“见证”。
 1. 对于 " **见证类型**"，请选择 " **文件共享见证**"。
 1. 指定文件共享路径，例如 **\\ servername. com\Witness $** ，并根据需要提供凭据。
-1. 单击 **“保存”** 。
+1. 单击“保存” 。
 
 ## <a name="register-with-azure"></a>注册到 Azure
 

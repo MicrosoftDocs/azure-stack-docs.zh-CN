@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: f45a77b43178b38d659d9e51b1abf2cbaeae87f8
-ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
+ms.openlocfilehash: 2099d7e9dcd2d01f949d54ad5bd59ce06ecaccbc
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98717975"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772207"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>使用 Windows PowerShell 创建 Azure Stack HCI 群集
 
@@ -37,9 +37,11 @@ ms.locfileid: "98717975"
 在开始之前，请确保：
 
 - 已阅读 [Azure Stack HCI 系统需求](../concepts/system-requirements.md)。
-- 在群集中的每个服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
+- 请阅读 [物理网络要求](../concepts/physical-network-requirements.md) 并 Azure Stack HCI 的 [主机网络要求](../concepts/host-network-requirements.md) 。
+- 在群集中的每台服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
 - 拥有一个帐户，该帐户是每个服务器上的本地管理员组的成员。
 - 具有在 Active Directory 中创建对象的权限。
+- 对于延伸群集，请在 Active Directory 中预先设置两个站点。
 
 ## <a name="using-windows-powershell"></a>使用 Windows PowerShell
 
@@ -141,7 +143,9 @@ Restart-Computer -ComputerName $ServerList -WSManAuthentication Kerberos
 
 ## <a name="step-2-configure-networking"></a>步骤 2：配置网络
 
-此步骤将配置环境中的各种网络元素。
+此步骤在环境中配置各种网络元素，如虚拟交换机和网络适配器。 RDMA (支持 iWARP 和 RoCE) 网络适配器。
+
+有关 RDMA 和 Hyper-v 主机联网 Azure Stack HCI 的详细信息，请参阅 [主机网络要求](../concepts/host-network-requirements.md)。
 
 ### <a name="disable-unused-networks"></a>禁用未使用的网络
 
@@ -461,7 +465,7 @@ Get-StoragePool -CimSession $session
 
 创建完成后，仍需要完成一些重要任务：
 
-- 设置群集见证。 请参阅[设置群集见证](witness.md)。
+- 设置群集见证。 请参阅[设置群集见证](../manage/witness.md)。
 - 创建卷。 请参阅[创建卷](../manage/create-volumes.md)。
 - 对于延伸群集，请使用存储副本创建卷并设置复制。 请参阅[为延伸群集创建卷和设置复制](../manage/create-stretched-volumes.md)。
 
