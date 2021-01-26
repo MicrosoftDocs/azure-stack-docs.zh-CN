@@ -1,18 +1,18 @@
 ---
 title: Set-Telemetry
-description: PowerShell Azure Stack 特权终结点 - Close-PrivilegedEndpoint 参考
+description: 适用于 PowerShell Azure Stack 特权终结点的参考-Set-Telemetry
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: ad20bb8ab278e1cb6f46d4fb245ea31b3e00f61a
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 89e9182dd5ebb7a7ab9da6e9d4e7b21da6d4ce9e
+ms.sourcegitcommit: 2ac64ac431411b673e655465939d3c95cc94c55d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742668"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98810915"
 ---
 # <a name="set-telemetry"></a>Set-Telemetry
 

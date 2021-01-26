@@ -1,18 +1,18 @@
 ---
 title: Set-SyslogServer
-description: PowerShell Azure Stack 特权终结点 - Close-PrivilegedEndpoint 参考
+description: 适用于 PowerShell Azure Stack 特权终结点的参考-Set-SyslogServer
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 328862a4d6d598781a88597ea1d03fbaf50a4885
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 3d6cb57660485d715a1136bdffa94682bc4dee2c
+ms.sourcegitcommit: 2ac64ac431411b673e655465939d3c95cc94c55d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742690"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98810936"
 ---
 # <a name="set-syslogserver"></a>Set-SyslogServer
 
