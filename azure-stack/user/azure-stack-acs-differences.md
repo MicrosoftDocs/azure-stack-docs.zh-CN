@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: e49092e87f8e6801343ae0550aff4c71dd40408b
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: d242658388e97512f3130a381b2793e57832f397
+ms.sourcegitcommit: 0765de47f4a73e09192d34739e40c750b6e7abaf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103063"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915200"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub 存储：差异和注意事项
 
@@ -44,6 +44,7 @@ Azure Stack 中心存储是 Microsoft Azure Stack 中心中的存储云服务集
 |Blob 快照|一个 blob 的最大快照数不受限制。|一个 blob 的最大快照数为 1,000。
 |用于存储的 Azure AD 身份验证|处于预览状态。 |尚不支持。
 |不可变 Blob|正式发布版。 |当使用版本2008或更高版本时支持。
+|Blob 存储的批处理 API|处于预览状态。 |尚不支持。
 |针对存储的防火墙和虚拟网络规则|正式发布版。 |尚不支持。|
 
 存储指标也有一些差异：
@@ -59,7 +60,7 @@ Azure 存储服务 API：
 
 ::: moniker range=">=azs-2008"
 
-2008更新或更新版本：
+2008 更新或更高版本：
 - [2019-07-07](/rest/api/storageservices/version-2019-07-07)
 - [2019-02-02](/rest/api/storageservices/version-2019-02-02)
 - [2018-11-09](/rest/api/storageservices/version-2018-11-09)
@@ -74,7 +75,7 @@ Azure 存储服务 API：
 
 ::: moniker-end
 
-2005更新：
+2005 更新：
 
 - [2019-02-02](/rest/api/storageservices/version-2019-02-02)
 - [2018-11-09](/rest/api/storageservices/version-2018-11-09)
@@ -101,7 +102,7 @@ Azure 存储服务管理 API：
 
 ::: moniker range=">=azs-2008"
 
-2008更新或更新版本：
+2008 更新或更高版本：
 - [2018-02-01](/rest/api/storagerp/)
 - [2017-10-01](/rest/api/storagerp/)
 - [2017-06-01](/rest/api/storagerp/)
@@ -113,7 +114,7 @@ Azure 存储服务管理 API：
 
 ::: moniker-end
 
-1811更新到2005更新：
+1811 更新到 2005 更新：
 
 - [2017-10-01](/rest/api/storagerp/)
 - [2017-06-01](/rest/api/storagerp/)
