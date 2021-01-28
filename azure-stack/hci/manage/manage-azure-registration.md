@@ -1,16 +1,16 @@
 ---
 title: 管理 Azure Stack HCI 的 Azure 注册
-description: 如何使用 PowerShell 管理 Azure Stack HCI 的 Azure 注册并了解注册状态。
+description: 如何管理 Azure 注册以进行 Azure Stack HCI、了解注册状态，以及在你准备好解除群集时注销群集。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: a81a1973d7324371cb42b23ca7905d39492401cf
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/27/2021
+ms.openlocfilehash: c16216a52b0955277bc6d30725f88d0555908685
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254426"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981168"
 ---
 # <a name="manage-azure-registration"></a>管理 Azure 注册
 
@@ -18,9 +18,19 @@ ms.locfileid: "98254426"
 
 创建 Azure Stack HCI 群集后，必须[向 Azure Arc 注册该群集](../deploy/register-with-azure.md)。群集注册后，会定期在本地群集和云之间同步信息。 本主题说明如何了解你的注册状态，如何授予 Azure Active Directory 权限，并在你准备好解除群集的授权时注销群集。
 
-## <a name="understanding-registration-status"></a>了解注册状态
+## <a name="understanding-registration-status-using-windows-admin-center"></a>了解使用 Windows 管理中心的注册状态
 
-若要了解注册状态，请使用 `Get-AzureStackHCI` PowerShell cmdlet 和 `ClusterStatus`、`RegistrationStatus` 和 `ConnectionStatus` 属性。 例如，在安装 Azure Stack HCI 操作系统之后、创建或加入群集之前，`ClusterStatus` 属性显示为“尚未”状态：
+使用 Windows 管理中心连接到群集时，你将看到 "仪表板"，其中显示了 Azure 连接状态。 "**已连接**" 是指群集已注册到 Azure 并已成功同步到过去一天中的云。
+
+   :::image type="content" source="media/manage-azure-registration/registration-status.png" alt-text="Windows 管理中心仪表板将始终显示群集连接状态" lightbox="media/manage-azure-registration/registration-status.png":::
+
+可以通过选择左侧 "**工具**" 菜单底部的 "**设置**"，然后选择 " **Azure Stack HCI 注册**" 来获取详细信息。
+
+   :::image type="content" source="media/manage-azure-registration/azure-stack-hci-registration.png" alt-text="有关详细信息，请选择 &quot;设置&quot; > 工具 > Azure Stack HCI 注册" lightbox="media/manage-azure-registration/azure-stack-hci-registration.png":::
+
+## <a name="understanding-registration-status-using-powershell"></a>使用 PowerShell 了解注册状态
+
+若要了解使用 Windows PowerShell 的注册状态，请使用 `Get-AzureStackHCI` PowerShell cmdlet 和 `ClusterStatus` 、 `RegistrationStatus` 和 `ConnectionStatus` 属性。 例如，在安装 Azure Stack HCI 操作系统之后、创建或加入群集之前，`ClusterStatus` 属性显示为“尚未”状态：
 
 :::image type="content" source="media/manage-azure-registration/1-get-azurestackhci.png" alt-text="创建群集前的 Azure 注册状态":::
 
@@ -30,7 +40,7 @@ ms.locfileid: "98254426"
 
 根据 Azure 在线服务条款，Azure Stack HCI 需要在安装后 30 天内进行注册。 如果在 30 天后未群集化，则 `ClusterStatus` 将显示 `OutOfPolicy`，如果 30 天后未注册，则 `RegistrationStatus` 将显示 `OutOfPolicy`。
 
-注册群集后，可以查看 `ConnectionStatus` 和 `LastConnected` 时间（通常在最后一天内），除非群集暂时与 Internet 断开连接。 Azure Stack HCI 群集最多可以连续 30 天完全脱机运行。
+注册群集后，你可以查看 `ConnectionStatus` 和 `LastConnected` 时间（通常在最后一天内，除非群集暂时从 internet 断开连接）。 Azure Stack HCI 群集最多可以连续 30 天完全脱机运行。
 
 :::image type="content" source="media/manage-azure-registration/3-get-azurestackhci.png" alt-text="注册后的 Azure 注册状态":::
 
@@ -40,7 +50,7 @@ ms.locfileid: "98254426"
 
 除了在订阅中创建 Azure 资源外，注册 Azure Stack HCI 还可以在 Azure Active Directory 租户中创建一个概念类似于用户的应用标识。 应用标识会继承群集名称。 此标识代表订阅中的 Azure Stack HCI 云服务（如果适用）执行操作。
 
-如果运行 `Register-AzureStackHCI` 的用户是 Azure Active Directory 管理员或已被委派了足够的权限，则这一切都会自动发生，无需执行其他操作。 否则，可能需要 Azure Active Director 管理员的批准才能完成注册。 你的管理员可以向应用显式授予同意，也可以委派权限，使你可以向应用授予同意：
+如果注册群集的用户是 Azure Active Directory 管理员或被委派了足够的权限，则这一切都将自动发生，无需执行其他操作。 否则，可能需要 Azure Active Director 管理员的批准才能完成注册。 你的管理员可以向应用显式授予同意，也可以委派权限，使你可以向应用授予同意：
 
 :::image type="content" source="media/manage-azure-registration/aad-permissions.png" alt-text="Azure Active Directory 权限和标识图" border="false":::
 
@@ -66,7 +76,7 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Census.Sync
 https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 ```
 
-向 Azure Active Directory 管理员寻求批准可能需要一些时间，因此 `Register-AzureStackHCI` cmdlet 会退出，并将注册状态保持为“待管理员同意”，即完成部分注册。 授予同意后，只需重新运行 `Register-AzureStackHCI` 即可完成注册。
+向 Azure Active Directory 管理员寻求批准可能需要一些时间，因此 `Register-AzStackHCI` cmdlet 会退出，并将注册状态保持为“待管理员同意”，即完成部分注册。 授予同意后，只需重新运行 `Register-AzStackHCI` 即可完成注册。
 
 ## <a name="azure-active-directory-user-permissions"></a>Azure Active Directory 用户权限
 
@@ -87,7 +97,7 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 
 ### <a name="option-2-assign-cloud-application-administration-role"></a>选项2：分配云应用程序管理角色
 
-向用户分配内置的 "云应用程序管理" Azure AD 角色。 这将允许用户注册群集，而无需额外的 AD 管理员许可。
+向用户分配内置的 "云应用程序管理" Azure AD 角色。 这将允许用户注册和注销群集，而无需额外的 AD 管理员许可。
 
 ### <a name="option-3-create-a-custom-ad-role-and-consent-policy"></a>选项3：创建自定义 AD 角色和许可策略
 
@@ -147,17 +157,34 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 
    6. 按照以下 [说明](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=/azure/active-directory/roles/context/ugr-context)将新的自定义 AD 角色分配给将向 Azure 注册 Azure Stack HCI 群集的用户。
 
-## <a name="unregister-azure-stack-hci-with-azure"></a>使用 Azure 注销 Azure Stack HCI
+## <a name="unregister-azure-stack-hci-using-windows-admin-center"></a>使用 Windows 管理中心取消注册 Azure Stack HCI
 
-准备好解除 Azure Stack HCI 群集的授权后，请使用 `Unregister-AzStackHCI` cmdlet 进行注销。 这将停止通过 Azure Arc 进行的所有监视、支持和计费功能。将删除代表群集的 Azure 资源和 Azure Active Directory 应用标识，但不会删除该资源组，因为它可能包含其他不相关的资源。
+准备好解除 Azure Stack HCI 群集的授权后，只需使用 Windows 管理中心连接到群集，并选择左侧 "**工具**" 菜单底部的 "**设置**"。 然后选择 **AZURE STACK HCI 注册**，并单击 " **取消注册** " 按钮。 如果组是在注册期间创建的，并且不包含任何其他资源) 和 Azure AD 应用标识，则注销过程会自动清除表示群集的 Azure 资源，Azure 资源组 (。 这会通过 Azure Arc 停止所有监视、支持和计费功能。
 
-如果在群集节点上运行 `Unregister-AzStackHCI` cmdlet，请使用以下语法并指定你的 Azure 订阅 ID 以及要注销的 Azure Stack HCI 群集的资源名称：
+   > [!NOTE]
+   > 取消注册 Azure Stack HCI 群集需要 Azure Active Directory 管理员或已被委派足够权限的其他用户。 请参阅 [Azure Active Directory 用户权限](#azure-active-directory-user-permissions)。
+
+## <a name="unregister-azure-stack-hci-using-powershell"></a>使用 PowerShell 注销 Azure Stack HCI
+
+你还可以使用 `Unregister-AzStackHCI` cmdlet 取消注册 AZURE STACK HCI 群集。 可以在群集节点上或从管理 PC 上运行 cmdlet。
+
+可能需要安装最新版本的 `Az.StackHCI` 模块。 系统可能会提示你 "是否确实要安装 ' PSGallery ' 中的模块？"，你应该 (Y) 中回答 "是"。
+
+```PowerShell
+Install-Module -Name Az.StackHCI
+```
+
+### <a name="unregister-from-a-cluster-node"></a>从群集节点注销
+
+如果在 `Unregister-AzStackHCI` 群集中的服务器上运行此 cmdlet，请使用此语法并指定你的 Azure 订阅 ID 以及要取消注册 AZURE STACK HCI 群集的资源名称：
 
 ```PowerShell
 Unregister-AzStackHCI -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ResourceName HCI001
 ```
 
 系统将提示你在另一台设备 (例如你的电脑或手机) 上访问 microsoft.com/devicelogin，输入代码，并登录到此处，以通过 Azure 进行身份验证。
+
+### <a name="unregister-from-a-management-pc"></a>从管理 PC 中注销
 
 如果从管理电脑运行 cmdlet，则还需要指定群集中服务器的名称：
 
@@ -167,9 +194,14 @@ Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-
 
 将弹出一个交互式 Azure 登录窗口。 显示的确切提示将因安全设置（例如双重身份验证）而异。 按照提示进行登录。
 
+## <a name="cleaning-up-after-a-cluster-that-was-not-properly-unregistered"></a>在未正确注销群集后进行清理
+
+如果用户在不取消注册的情况下销毁 Azure Stack HCI 群集，例如通过重新映像主机服务器或删除虚拟群集节点，则项目将保留在 Azure 中。 这些都是无害的，不会产生计费或使用资源，但会打乱 Azure 门户。 若要清理它们，可以手动将其删除。
+
+若要删除 Azure Stack HCI 资源，请导航到 Azure 门户中的页面，然后从顶部的操作栏中选择 " **删除** "。 键入资源名称以确认删除，然后选择“删除”  。 若要删除 Azure AD 应用标识，请导航到 **Azure AD**，然后导航到 " **应用注册**"，你会在 " **所有应用程序**" 下找到它。 选择 " **删除** 并确认"。
+
 ## <a name="next-steps"></a>后续步骤
 
 如需相关信息，另请参阅：
 
 - [将 Azure Stack HCI 连接到 Azure](../deploy/register-with-azure.md)
-- [使用 Azure Monitor 监视 Azure Stack HCI](azure-monitor.md)

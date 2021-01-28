@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 6284e771a4b0e326ab5c6296b0a2c09dffe791d0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: af366bbb7ae12dfc71451f4faa477dbd6d185e60
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874194"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981217"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 
@@ -75,7 +75,7 @@ ms.locfileid: "97874194"
 
     | 字段 | 说明 |
     | --- | --- |
-    | count | 输入要用于部署的代理数。 每个订阅使用的节点的最大数目为 50 个。 如果要为每个订阅部署多个群集，请确保代理总数不超过 50 个。 请确保使用[示例 API 模型 JSON 文件](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)中指定的配置项目。  |
+    | count | 输入要用于部署的代理数。 每个订阅使用的节点的最大数目为 50 个。 如果要为每个订阅部署多个群集，请确保代理总数不超过 50 个。 请确保使用[示例 API 模型 JSON 文件](https://aka.ms/aksengine-json-example)中指定的配置项目。  |
     | vmSize | 输入 [Azure Stack Hub 支持的大小](./azure-stack-vm-sizes.md)，例如 `Standard_D2_v2`。 |
     | distro | 输入 `aks-ubuntu-16.04`。 |
 

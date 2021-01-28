@@ -510,7 +510,7 @@
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 支持链接引用
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 战术性云设备客户可更换部件指南
+            - name: 客户可更换单元
               items:
                 - name: 操作注意事项
                   href: customer-replaceable-unit/handling-precautions.md
@@ -554,9 +554,9 @@
                   href: customer-replaceable-unit/verify-scale-unit-node-disk-health.md
                 - name: Azure Stack 集线器硬件图示
                   href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
-                - name: EMC PowerEdge 战术性 R640 服务器概述
+                - name: 服务器概述
                   href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
-                - name: EMC PowerEdge 战术性指标和代码
+                - name: 指示器和代码
                   href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
                 - name: 通过直接 USB 连接访问 iDRAC 接口
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
@@ -564,7 +564,7 @@
                   href: customer-replaceable-unit/install-firmware-using-idrac.md
                 - name: 特权访问工作站和特权终结点访问
                   href: customer-replaceable-unit/privileged-access-workstation.md
-    - name: 引用
+    - name: 参考
       items:
         - name: Azure Stack 中心操作员
           href: ../operator/index.yml
