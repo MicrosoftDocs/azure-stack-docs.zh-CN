@@ -3,15 +3,15 @@ title: 使用 Windows Admin Center 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows Admin Center 为 Azure Stack HCI 创建服务器群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 01/27/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 7b745ec5f521be3ed520b41a4eb5d788799ad20b
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 12f2152099c935977fd42c4b63989854ca0faf88
+ms.sourcegitcommit: 27ffc5f41de3de17ff2395e44c6c5debef50bcc2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772303"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98925854"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>使用 Windows Admin Center 创建 Azure Stack HCI 群集
 
@@ -37,6 +37,7 @@ ms.locfileid: "98772303"
 - 在群集中的每台服务器上安装 Azure Stack HCI OS。 请参阅[部署 Azure Stack HCI 操作系统](operating-system.md)。
 - 在每台服务器上拥有一个是本地管理员组成员的帐户。
 - 在用于管理的 PC 或服务器上安装 Windows Admin Center。 请参阅[安装 Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)。
+- 如果你使用的是 Microsoft 硬件合作伙伴提供的集成系统，请确保在 Windows 管理中心上安装了最新版本的供应商扩展，以利用集成的硬件和固件更新。
 - 对于延伸群集，请在 Active Directory 中预先设置两个站点。 但不要担心，向导也可以替你设置它们。
 
 如果是在服务器（而不是 PC）上运行 Windows Admin Center，请使用是“网关管理员”组成员的帐户，或者使用 Windows Admin Center 服务器上的本地管理员组。
@@ -52,12 +53,13 @@ ms.locfileid: "98772303"
 
 向导完成后，请设置群集见证，注册到 Azure，并创建卷（如果要创建延伸群集，则还需设置站点之间的复制）。
 
-在启动向导之前，请确保已安装最新的 Windows 管理中心扩展，特别是群集创建扩展。 为此，请执行以下操作：
+在启动向导之前，请确保安装了最新的扩展，尤其是 Windows 管理中心的群集创建扩展和任何合作伙伴扩展。 为此，请执行以下操作：
 
 1. 打开 Windows 管理中心，并单击右上角的 "设置" (齿轮图标) 。
 1. 在“设置”  下选择“扩展”  。
 1. 选择 " **群集创建** "，然后单击 " **安装**"。
 1. 选择 " **群集管理器** "，然后单击 " **安装** "。
+1. 选择任何适用的硬件供应商扩展，并安装它们。
 
 现在你已准备就绪，接下来让我们开始：
 
@@ -84,7 +86,7 @@ ms.locfileid: "98772303"
 1. 在 **1.2 添加服务器** 上，输入你的帐户用户名和密码，然后单击 " **下一步**"。 该帐户必须是每台服务器上本地管理员组的成员。
 1. 输入要添加的第一台服务器的名称，然后单击“添加”。
 1. 对于将成为群集一部分的每台服务器，重复步骤 3。 完成后，单击 **“下一步”** 。
-1. 如果需要，在 **1.3 上加入域** 时，请指定要将服务器加入到的域以及要使用的帐户。 如果需要，可以根据需要重命名服务器。 然后单击“下一步”  。
+1. 如果需要，在 **1.3 上加入域** 时，请指定要将服务器加入到的域以及要使用的帐户。 如果需要，可以根据需要重命名服务器。 然后单击“下一步”。
 1. 在 **1.4 安装功能** 中，根据需要查看并添加功能。 完成后，单击 **“下一步”** 。
 
     向导将为你安装以下必需的功能：
