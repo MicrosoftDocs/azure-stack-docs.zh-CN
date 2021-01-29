@@ -4,13 +4,13 @@ description: 如何管理 Azure 注册以进行 Azure Stack HCI、了解注册�
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/27/2021
-ms.openlocfilehash: c16216a52b0955277bc6d30725f88d0555908685
-ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
+ms.date: 01/28/2021
+ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98981168"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050087"
 ---
 # <a name="manage-azure-registration"></a>管理 Azure 注册
 
@@ -168,7 +168,7 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 
 你还可以使用 `Unregister-AzStackHCI` cmdlet 取消注册 AZURE STACK HCI 群集。 可以在群集节点上或从管理 PC 上运行 cmdlet。
 
-可能需要安装最新版本的 `Az.StackHCI` 模块。 系统可能会提示你 "是否确实要安装 ' PSGallery ' 中的模块？"，你应该 (Y) 中回答 "是"。
+可能需要安装最新版本的 `Az.StackHCI` 模块。 系统可能会提示你 **是否确实要从 "PSGallery" 安装模块？** 为此，您应该回答 **是** (Y) 。
 
 ```PowerShell
 Install-Module -Name Az.StackHCI

@@ -102,8 +102,6 @@
           href: manage/add-cluster.md
         - name: 使服务器脱机以进行维护
           href: manage/maintain-servers.md
-        - name: 管理 Azure 注册
-          href: manage/manage-azure-registration.md
         - name: 更改语言
           href: manage/languages.md
         - name: 更改隐私设置
@@ -120,6 +118,8 @@
       items:
         - name: 将 Windows Admin Center 注册到 Azure
           href: manage/register-windows-admin-center.md
+        - name: 通过 Azure 管理群集注册
+          href: manage/manage-azure-registration.md
         - name: 使用 Azure 门户
           href: manage/azure-portal.md
         - name: 使用 Azure Monitor 进行监视

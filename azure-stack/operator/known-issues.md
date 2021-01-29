@@ -7,16 +7,16 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 46eb22c06a6c4a0c6b23a49ff8f3bfb7d16ca96a
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935130"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050104"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
-本文列出了 Azure Stack 集线器版本中的已知问题。 每当发现新的问题，此列表就会更新。
+本文列出了 Azure Stack Hub 版本中的已知问题。 每当发现新的问题，此列表就会更新。
 
 若要访问不同版本的已知问题，请使用左侧目录上方的版本选择器下拉列表。
 
@@ -38,11 +38,11 @@ ms.locfileid: "96935130"
 
 有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates)。
 
-### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>更新未能将包 Test-azurestack 安装到 CA VM
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>更新无法将包 Microsoft.AzureStack.Compute.Installer 安装到 CA VM
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：在更新过程中，进程会锁定需要复制到 CA VM 的新内容。 当更新失败时，将释放锁定。
-- 修正：继续更新。
+- 原因：在更新过程中，进程会锁定需要复制到 CA VM 的新内容。 更新失败时，会释放锁。
+- 补救措施：继续更新。
 - 发生次数：罕见
 
 ## <a name="portal"></a>门户
@@ -61,7 +61,7 @@ ms.locfileid: "96935130"
 #### <a name="denyalloutbound-rule-cannot-be-created"></a>无法创建 DenyAllOutbound 规则
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：VM 创建期间无法在 NSG 中创建到 Internet 的显式 DenyAllOutbound 规则，因为这会使 VM 部署所需的通信无法完成。 它还将拒绝部署 Vm 所需的两个基本 Ip： DHCP IP：169.254.169.254 和 DNS IP：168.63.129.16。
+- 原因：VM 创建期间无法在 NSG 中创建到 Internet 的显式 DenyAllOutbound 规则，因为这会使 VM 部署所需的通信无法完成。 它还会拒绝两个部署 VM 所需的基本 IP：DHCP IP：169.254.169.254 和 DNS IP：168.63.129.16。
 
 - 补救措施：VM 创建期间允许出站流量流向 Internet，并在 VM 创建完成后修改 NSG 以阻止所需的流量。
 - 发生次数：通用
@@ -87,6 +87,12 @@ ms.locfileid: "96935130"
 - 原因：在负载均衡器上启用“会话相关性”时，2 元组哈希使用 PA IP（物理地址 IP）而不是分配给 VM 的专用 IP。 如果定向到负载均衡器的流量通过 VPN 到达，或者，如果所有客户端 VM（源 IP）位于同一节点上并且启用了会话相关性，则所有流量都将定向到一个后端 VM。
 - 发生次数：通用
 
+#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>在前端 IP 配置中显示的 IPv6 按钮 
+
+- 适用：此问题适用于2008版本。 
+- 原因：在创建公共负载均衡器的前端 IP 配置时，IPv6 按钮可见且已启用。 这是门户上的一个表面问题。 Azure Stack 集线器上 **不** 支持 IPv6。 
+- 发生次数：通用
+
 <!-- ## Compute -->
 
 <!-- ## Storage -->
@@ -102,11 +108,11 @@ ms.locfileid: "96935130"
 
 有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates)。
 
-### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>更新未能将包 Test-azurestack 安装到 CA VM
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>更新无法将包 Microsoft.AzureStack.Compute.Installer 安装到 CA VM
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：在更新过程中，进程会锁定需要复制到 CA VM 的新内容。 当更新失败时，将释放锁定。
-- 修正：继续更新。
+- 原因：在更新过程中，进程会锁定需要复制到 CA VM 的新内容。 更新失败时，会释放锁。
+- 补救措施：继续更新。
 - 发生次数：罕见
 
 ## <a name="portal"></a>门户
@@ -248,11 +254,11 @@ ms.locfileid: "96935130"
 
 有关已知的 Azure Stack Hub 更新问题，请参阅[排查 Azure Stack Hub 中的更新问题](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates)。
 
-### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>更新未能将包 Test-azurestack 安装到 CA VM
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>更新无法将包 Microsoft.AzureStack.Compute.Installer 安装到 CA VM
 
 - 适用于：此问题适用于所有支持的版本。
-- 原因：在更新过程中，进程会锁定需要复制到 CA VM 的新内容。 当更新失败时，将释放锁定。
-- 修正：继续更新。
+- 原因：在更新过程中，进程会锁定需要复制到 CA VM 的新内容。 更新失败时，会释放锁。
+- 补救措施：继续更新。
 - 发生次数：罕见
 
 ## <a name="portal"></a>门户
@@ -358,8 +364,8 @@ ms.locfileid: "96935130"
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>无法在门户中使用 Standard_DS2_v2 VM 大小创建规模集
 
 - 适用于：此问题适用于 2002 版本。
-- 原因：存在一个门户 bug，它阻止使用Standard_DS2_v2 VM 大小创建规模集。 创建即会产生错误：“{"code":"DeploymentFailed","message":":"至少一项资源部署操作失败。 请列出部署操作以获取详细信息。 https://aka.ms/arm-debug有关使用情况详细信息，请参阅。 "，" 详细信息 "： [{" 代码 "：" BadRequest "，" 消息 "：" {\r\n \" 错误 \" ： {\R\n \" code \" ： \" NetworkProfileValidationError \" ，\r\n \" message \" ： \" 虚拟机大小 Standard_DS2_v2 不在虚拟机规模集的索引0的 vm 上启用加速网络的允许列表/subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss。 允许的大小：.\"\r\n }\r\n}"}]}"
-- 修正：使用 PowerShell 或资源管理器模板创建虚拟机规模集。
+- 原因：存在一个门户 bug，它阻止使用Standard_DS2_v2 VM 大小创建规模集。 创建即会产生错误：“{"code":"DeploymentFailed","message":":"至少一项资源部署操作失败。 请列出部署操作以获取详细信息。 请参阅 https://aka.ms/arm-debug 了解使用情况详细信息。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 虚拟机大小 Standard_DS2_v2 不在 VM 大小的允许列表中，不能在虚拟机规模集 /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss 的索引 0 处的 VM 上启用加速网络。 允许的大小：.\"\r\n }\r\n}"}]}"
+- 补救措施：使用 PowerShell 或资源管理器模板创建虚拟机规模集。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM 概述边栏选项卡未显示正确的计算机名称
 
@@ -421,7 +427,7 @@ ms.locfileid: "96935130"
 ### <a name="retention-period-revert-to-0"></a>保留期恢复为 0
 
 - 适用于：此问题适用于版本 2002 和 2005。
-- 原因：如果以前在保留期设置中指定了非 0 的时间段，则它将在 2002 或 2005 更新期间恢复回 0（此设置的默认值）。 "0 天" 设置将在更新完成后立即生效，这会导致所有现有已删除的存储帐户和任何即将发布的新存储帐户立即退出，并标记为定期垃圾回收 (每小时运行一次) 。 
+- 原因：如果以前在保留期设置中指定了非 0 的时间段，则它将在 2002 或 2005 更新期间恢复回 0（此设置的默认值）。 这个 0 天的设置会在更新完成后立即生效，导致所有现有的已删除存储帐户和任何新删除的存储帐户被系统立即清除，并会被标记为需要进行定期垃圾回收（每小时运行一次）。 
 - 补救措施：将保留期手动指定为正确的时间段。 但是，在指定新的保留期之前已进行垃圾回收的任何存储帐户都不可恢复。  
 
 ## <a name="resource-providers"></a>资源提供程序

@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/28/2020
-ms.openlocfilehash: b2576bed615d6a65a5e0c61e5e3ccbc2c052132b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.date: 01/28/2020
+ms.openlocfilehash: 17e8758dfea300f6bc3e02609877dfed8f780383
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872698"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050019"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>将 Azure Stack HCI 连接到 Azure
 
 > 适用于：Azure Stack HCI v20H2
 
-根据 Azure 在线服务条款，Azure Stack HCI 作为 Azure 服务提供，需要在安装后 30 天内进行注册。 本主题介绍如何向 [Azure Arc](https://azure.microsoft.com/services/azure-arc/) 注册 Azure Stack HCI 群集，以实现监视、支持、计费和混合服务。 注册后，将创建一个 Azure 资源管理器资源来表示每个本地 Azure Stack HCI 群集，从而有效地将 Azure 管理平面扩展到 Azure Stack HCI。 信息会定期在 Azure 资源与本地群集之间同步 () 。
+根据 Azure 在线服务条款，Azure Stack HCI 作为 Azure 服务提供，需要在安装后 30 天内进行注册。 本主题介绍如何向 [Azure Arc](https://azure.microsoft.com/services/azure-arc/) 注册 Azure Stack HCI 群集，以实现监视、支持、计费和混合服务。 注册后，将创建一个 Azure 资源管理器资源来表示每个本地 Azure Stack HCI 群集，从而有效地将 Azure 管理平面扩展到 Azure Stack HCI。 信息会定期在 Azure 资源与本地群集之间同步 () 。 Azure Arc 注册是 Azure Stack HCI 操作系统的本机功能，因此无需注册代理。
 
    > [!IMPORTANT]
    > 需要向 Azure 注册，并且在注册处于活动状态之前不完全支持群集。 如果未在部署时将群集注册到 Azure，或者群集已注册但尚未连接到 Azure 30 天以上，则系统将不允许创建或添加 (Vm) 的新虚拟机。 出现这种情况时，尝试创建 Vm 时，你会看到以下错误消息：
@@ -29,9 +29,14 @@ ms.locfileid: "97872698"
 
 ## <a name="prerequisites-for-registration"></a>注册的先决条件
 
-在创建 Azure Stack HCI 群集之前，将无法向 Azure 注册。 为了支持群集，群集节点必须是物理服务器。 虚拟机可用于测试，但必须支持 (UEFI) 统一可扩展固件接口，这意味着不能使用 Hyper-v 第1代虚拟机。 Azure Arc 注册是 Azure Stack HCI 操作系统的本机功能，因此无需注册代理。
+在创建 Azure Stack HCI 群集之前，将无法向 Azure 注册。 为了支持群集，群集节点必须是物理服务器。 虚拟机可用于测试，但必须支持 (UEFI) 统一可扩展固件接口，这意味着不能使用 Hyper-v 第1代虚拟机。
 
-### <a name="internet-access"></a>Internet 访问权限
+为获得最简单的注册体验，请 Azure AD 管理员使用 Windows 管理中心或 PowerShell 完成注册。
+
+   > [!IMPORTANT]
+   > 如果打算使用 Windows 管理中心注册群集，必须首先使用 Azure 订阅 ID 和你计划用于群集注册的租户 ID [向 Azure 注册 Windows 管理中心网关](../manage/register-windows-admin-center.md) 。
+
+### <a name="internet-access"></a>Internet 访问
 
 Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受到外部公司防火墙或代理服务器的限制，则必须将其配置为允许对端口443的出站访问， (HTTPS) 在有限数量的众所周知的 Azure Ip 上。 有关如何准备防火墙的信息，请参阅为 [AZURE STACK HCI 配置防火墙](../concepts/configure-firewalls.md)。
 
@@ -97,35 +102,46 @@ Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受�
 
 还需要适当的 Azure Active Directory 权限才能完成注册过程。 如果尚未安装，请要求 Azure AD 管理员授予许可或委托给你的权限。 有关详细信息，请参阅[管理 Azure 注册](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)。
 
-## <a name="register-using-powershell"></a>使用 PowerShell 注册
+## <a name="register-a-cluster-using-windows-admin-center"></a>使用 Windows 管理中心注册群集
+
+注册 Azure Stack HCI 群集的最简单方法是使用 Windows 管理中心。 请记住，用户必须具有 [Azure Active Directory 权限](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)，否则注册过程将不会完成;相反，它将退出并退出注册等待管理员批准。
+
+1. 开始注册过程之前，必须先将 [Windows 管理中心网关注册到](../manage/register-windows-admin-center.md) Azure （如果尚未这样做）。
+
+   > [!IMPORTANT]
+   > 将 Windows 管理中心注册到 Azure 时，请务必使用你计划用于实际群集注册的相同 Azure 订阅 ID 和租户 ID。 Azure AD 租户 ID 表示包含帐户和组的 Azure AD 的特定实例，而 Azure 订阅 ID 表示使用 Azure 资源的协议，该协议会产生费用。 若要查找租户 ID，请访问 [portal.azure.com](https://portal.azure.com) 并选择 **Azure Active Directory**。 租户 ID 将显示在 " **租户信息**" 下。 若要获取 Azure 订阅 ID，请导航到 " **订阅** "，然后从列表中复制/粘贴你的 ID。
+
+2. 打开 Windows 管理中心，并从左侧 "**工具**" 菜单的最底部选择 "**设置**"。 然后选择 "**设置**" 菜单底部的 " **Azure Stack HCI 注册**"。 如果你的群集尚未注册到 Azure，则 **注册状态** 将显示 " **未注册**"。 单击 " **注册** " 按钮以继续。
+
+3. 若要完成注册过程，需要使用 Azure 帐户进行身份验证（登录）。 你的帐户需要具有访问注册 Windows 管理中心网关时指定的 Azure 订阅的访问权限才能继续。 复制所提供的代码，在另一台设备（如电脑或手机）上导航到 microsoft.com/devicelogin，输入该代码，然后在那里登录。 注册工作流将检测到你的登录并继续完成注册。 然后，你应该能够在 Azure 门户中看到你的群集。
+
+## <a name="register-a-cluster-using-powershell"></a>使用 PowerShell 注册群集
 
 使用以下过程通过管理 PC 将 Azure Stack HCI 群集注册到 Azure。
 
-1. 在管理 PC 上安装所需的 cmdlet。 如果要注册从当前正式发行版部署的群集 (GA) Azure Stack HCI 的映像，只需运行以下命令即可。 如果你的群集是从公共预览映像部署的，请确保在尝试注册到 Azure 之前，已将2020年11月23日预览版 (KB4586852) 应用到了群集中的每个服务器。
+1. 在管理 PC 上安装所需的 cmdlet。 如果要注册从 Azure Stack HCI 的最新正式版 (GA) 映像部署的群集，只需运行以下命令。 如果你的群集是从公共预览映像部署的，请确保在尝试注册到 Azure 之前，已将2020年11月23日预览版 (KB4586852) 应用到了群集中的每个服务器。
 
    ```PowerShell
    Install-Module -Name Az.StackHCI
    ```
 
    > [!NOTE]
-   > - 你可能会看到一条提示，例如“是否希望 PowerShellGet 立即安装并导入 NuGet 提供程序?”， 你应该回答“是(Y)”。
-   > - 系统可能还会提示“是否确定要从 'PSGallery' 安装模块?”，你应该回答“是(Y)”。
+   > - 你可能会看到如下所示的提示 **：是否希望使用 PowerShellGet 立即安装和导入 NuGet 提供程序？** 你应将其回答为 **"是"** (Y) 。
+   > - 系统可能会提示你 **是否确定要从 "PSGallery" 安装模块？** 为此，您应该回答 **是** (Y) 。
 
-2. 使用群集中任何服务器的名称执行注册。 若要获取 Azure 订阅 ID，请访问 [portal.azure.com](https://portal.azure.com)，导航到 "订阅"，然后从列表中复制/粘贴你的 ID。
+2. 使用群集中任何服务器的名称执行注册。 若要获取 Azure 订阅 ID，请访问 [portal.azure.com](https://portal.azure.com)，导航到 " **订阅** "，然后从列表中复制/粘贴你的 ID。
 
    ```PowerShell
-   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName] [-Region]
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1
    ```
 
-   此语法使用 Azure 资源和资源组的默认 Azure 区域和云环境，并为 Azure 资源和资源组使用智能默认名称来注册群集的 (，其中 Server1 为成员) ，当前用户为当前用户，但是，可以将参数添加到此命令以指定这些值。
+   此语法使用 Azure 资源和资源组的默认 Azure 区域和云环境为当前用户、默认的 Azure 区域和云环境注册群集 (，其中 Server1 为成员) 。 你还可以将可选的 `-Region` 、 `-ResourceName` 和 `-ResourceGroupName` 参数添加到此命令，以指定这些值。
 
-   请记住，运行 `Register-AzStackHCI` cmdlet 的用户必须具有 [Azure Active Directory 权限](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)，否则注册过程将不会完成；相反，它将退出并使注册挂起以等待管理员同意。 授权后，只需重新运行 `Register-AzStackHCI` 即可完成注册。
+   请记住，运行 cmdlet 的用户 `Register-AzStackHCI` 必须具有 [Azure Active Directory 权限](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)，否则注册过程将不会完成; 相反，它将退出并使注册挂起管理员批准。 授权后，只需重新运行 `Register-AzStackHCI` 即可完成注册。
 
 3. 使用 Azure 进行身份验证
 
-   若要完成注册过程，需要使用 Azure 帐户进行身份验证（登录）。 帐户需要有权访问在上述第 4 步中指定的 Azure 订阅才能继续进行注册。 复制所提供的代码，在另一台设备（如电脑或手机）上导航到 microsoft.com/devicelogin，输入该代码，然后在那里登录。 这与 Microsoft 用于输入方式受限的其他设备（例如 Xbox）的体验是相同的。
-
-注册工作流将检测到你的登录并继续完成注册。 然后，你应该能够在 Azure 门户中看到你的群集。
+   若要完成注册过程，需要使用 Azure 帐户进行身份验证（登录）。 你的帐户需要有权访问上述步骤2中指定的 Azure 订阅才能继续进行注册。 复制所提供的代码，在另一台设备（如电脑或手机）上导航到 microsoft.com/devicelogin，输入该代码，然后在那里登录。 注册工作流将检测到你的登录并继续完成注册。 然后，你应该能够在 Azure 门户中看到你的群集。
 
 ## <a name="next-steps"></a>后续步骤
 
