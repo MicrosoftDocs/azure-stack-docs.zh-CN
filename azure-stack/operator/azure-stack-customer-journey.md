@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 307a24fdf42ce5e007f74a9cf0072b5124d247b2
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 22327cfb7761513eb18337e1e45e9c6d34482235
+ms.sourcegitcommit: 899c219b8fd433c852d816d6c50293e8195d9895
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871423"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99099261"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack Hub 数据中心集成演练
 
@@ -66,7 +66,7 @@ Microsoft 或 Azure Stack 中心解决方案合作伙伴将有助于评估你的
 -   需要哪种规模的解决方案？
 -   电源和散热要求是什么？
 
-使用 [Azure Stack Hub Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) 来调查和分析最佳硬件容量和配置以满足你的需求。 
+使用 [Azure Stack Hub Capacity Planner](https://download.microsoft.com/download/4/a/2/4a2bd10c-58a0-4ee7-8c3f-55b526ce7e75/AzureStackHubCapacityPlanner_v2005.01.xlsm) 来调查和分析最佳硬件容量和配置以满足你的需求。 
 
 ## <a name="ordering"></a>排序
 你的组织承诺购买 Azure Stack Hub、签署合同和采购订单，并向解决方案提供商提供集成要求数据。
