@@ -3,16 +3,16 @@ title: Azure Stack Hub 已知问题
 description: 了解 Azure Stack Hub 发行版中的已知问题。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 01/28/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 46eb22c06a6c4a0c6b23a49ff8f3bfb7d16ca96a
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.openlocfilehash: af4187ecf610543c693aff742b1e74b8d5bef84c
+ms.sourcegitcommit: 659114a3fb90c962316eb4cddab53d2d2da35b03
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050104"
+ms.locfileid: "99065516"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -87,10 +87,16 @@ ms.locfileid: "99050104"
 - 原因：在负载均衡器上启用“会话相关性”时，2 元组哈希使用 PA IP（物理地址 IP）而不是分配给 VM 的专用 IP。 如果定向到负载均衡器的流量通过 VPN 到达，或者，如果所有客户端 VM（源 IP）位于同一节点上并且启用了会话相关性，则所有流量都将定向到一个后端 VM。
 - 发生次数：通用
 
-#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>在前端 IP 配置中显示的 IPv6 按钮 
+#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>在前端 IP 配置中显示的 IPv6 按钮
 
-- 适用：此问题适用于2008版本。 
-- 原因：在创建公共负载均衡器的前端 IP 配置时，IPv6 按钮可见且已启用。 这是门户上的一个表面问题。 Azure Stack 集线器上 **不** 支持 IPv6。 
+- 适用：此问题适用于2008版本。
+- 原因：在创建公共负载均衡器的前端 IP 配置时，IPv6 按钮是可见的，并已启用。 这是门户上的一个表面问题。 Azure Stack 集线器上不支持 IPv6。
+- 发生次数：通用
+
+#### <a name="backend-port-and-frontend-port-need-to-be-the-same-when-floating-ip-is-enabled"></a>启用浮动 IP 后，后端端口和前端端口必须相同
+
+- 适用于：此问题适用于所有版本。 
+- 原因：启用浮动 IP 时，前端端口和后端端口都需要与负载均衡规则中的相同。 这是设计的结果。
 - 发生次数：通用
 
 <!-- ## Compute -->
