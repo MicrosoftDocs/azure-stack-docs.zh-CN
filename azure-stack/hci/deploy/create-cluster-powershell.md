@@ -3,15 +3,15 @@ title: 使用 Windows PowerShell 创建 Azure Stack HCI 群集
 description: 了解如何使用 Windows PowerShell 为 Azure Stack HCI 创建群集
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2099d7e9dcd2d01f949d54ad5bd59ce06ecaccbc
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: ca2a9448b787a93e297d4bc666a37d81e4d02b28
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772207"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227355"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>使用 Windows PowerShell 创建 Azure Stack HCI 群集
 
@@ -147,9 +147,11 @@ Restart-Computer -ComputerName $ServerList -WSManAuthentication Kerberos
 
 有关 RDMA 和 Hyper-v 主机联网 Azure Stack HCI 的详细信息，请参阅 [主机网络要求](../concepts/host-network-requirements.md)。
 
-### <a name="disable-unused-networks"></a>禁用未使用的网络
+### <a name="disable-unused-network-adapters"></a>禁用未使用的网络适配器
 
-必须禁用所有断开连接的，或不用于管理、存储或工作负载流量的网络（如 VM）。 下面介绍如何识别未使用的网络：
+必须禁用未用于管理、存储或工作负荷流量（如 Vm）的任何断开连接的网络和适配器。 其中包括用于无外设管理的网络适配器，例如基板管理控制器 (Bmc) 。
+
+下面介绍如何识别未使用的网络：
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"

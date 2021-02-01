@@ -1,17 +1,17 @@
 ---
-title: 在 Azure Stack Hub 中通过 PowerShell 创建 Linux VM
+title: 在 Azure Stack Hub 中使用 PowerShell 创建 Linux VM
 description: 在 Azure Stack Hub 中使用 PowerShell 创建 Linux VM。
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 8b12dafed031c8f69ddb4ef6d9f475487da4b1b2
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 6e2f6728b2c27c7571ac34bdf01499c1300c0675
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518103"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227372"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>快速入门：在 Azure Stack Hub 中使用 PowerShell 创建 Linux 服务器 VM
 
@@ -572,7 +572,7 @@ Set-AzureRMCurrentStorageAccount `
 
 # Create a storage container to store the VM image
 $containerName = 'osdisks'
-$container = New-AzureRMureStorageContainer `
+$container = New-AzureStorageContainer `
   -Name $containerName `
   -Permission Blob
 
@@ -691,7 +691,7 @@ New-AzureRMVM `
 
 ## <a name="connect-to-the-vm"></a>连接到 VM
 
-部署 VM 后，为其配置一个 SSH 连接。 若要获取 VM 的公共 IP 地址，请使用 [AzPublicIpAddress](/powershell/module/Az.network/get-Azpublicipaddress) 命令：
+部署 VM 后，为其配置一个 SSH 连接。 若要获取 VM 的公共 IP 地址，请使用 [Get-AzPublicIpAddress](/powershell/module/Az.network/get-Azpublicipaddress) 命令：
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az7)
 
@@ -738,7 +738,7 @@ apt-get -y install nginx
 
 ## <a name="clean-up-resources"></a>清理资源
 
-你可以通过使用 [AzResourceGroup](/powershell/module/Az.resources/remove-Azresourcegroup) 命令来清除不再需要的资源。 若要删除资源组及其所有资源，请运行以下命令：
+可以使用 [Remove-AzResourceGroup](/powershell/module/Az.resources/remove-Azresourcegroup) 命令清理不再需要的资源。 若要删除资源组及其所有资源，请运行以下命令：
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az8)
 
@@ -754,4 +754,4 @@ Remove-AzureRMResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已部署了一台基本的 Linux 服务器 VM。 若要详细了解 Azure Stack 集线器 Vm，请参阅 [Azure Stack 中心 vm 的注意事项](azure-stack-vm-considerations.md)。
+在本快速入门中，你已部署了一台基本的 Linux 服务器 VM。 若要了解 Azure Stack Hub VM 的详细信息，请访问 [Azure Stack Hub 中 VM 的注意事项](azure-stack-vm-considerations.md)。

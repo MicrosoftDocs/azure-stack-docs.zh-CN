@@ -3,16 +3,16 @@ title: 更改 Azure Stack Hub 用户订阅的计费所有者
 description: 了解如何更改 Azure Stack Hub 用户订阅的计费所有者。
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 1/29/2021
 ms.author: patricka
 ms.reviewer: shnatara
-ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: 3fff35c139a8527cdc502156227cf7715d07a9ad
-ms.sourcegitcommit: 899c219b8fd433c852d816d6c50293e8195d9895
+ms.lastreviewed: 1/29/2021
+ms.openlocfilehash: 1a61b2c8c4a8abf6087aea629486260d0e114f89
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99099244"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227393"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>更改 Azure Stack Hub 用户订阅的计费所有者
 
@@ -65,9 +65,9 @@ Set-AzsUserSubscription -InputObject $subscription
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm)
 
 ```powershell
-# Set up AzureRMure Stack Hub admin environment
-Add-AzureRMEnvironment -ARMEndpoint $ArmEndpoint -Name AzureRMureStack-admin
-Add-AzureRMAccount -Environment AzureRMureStack-admin -TenantId $TenantId
+# Set up Azure Stack Hub admin environment
+Add-AzureRmEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
+Add-AzureRmAccount  -Environment AzureStack-admin -TenantId $TenantId
 
 # Select admin subscription
 $providerSubscriptionId = (Get-AzureRMSubscription -SubscriptionName "Default Provider Subscription").Id

@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/06/2021
-ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/29/2021
+ms.openlocfilehash: 0d8aa3cc6418c8e64b7a8dc97290757c8be41856
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254732"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227401"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>添加或删除 Azure Stack HCI 群集的服务器
 
@@ -21,7 +21,7 @@ ms.locfileid: "98254732"
 
 无论何时添加或删除服务器，都还必须在之后执行群集验证，以确保群集正常运行。 这同时适用于非拉伸和拉伸群集。
 
-## <a name="obtain-oem-hardware"></a>获取 OEM 硬件
+## <a name="before-you-begin"></a>在开始之前
 
 第一步是从原始 OEM 获取新的 HCI 硬件。 添加要在群集中使用的新服务器硬件时，请始终参考 OEM 提供的文档。
 
@@ -29,11 +29,13 @@ ms.locfileid: "98254732"
 1. 启用物理交换机端口，并根据情况调整访问控制列表 (ACL) 和 VLAN ID。
 1. 按照 OEM 说明在基板管理控制器 (BMC) 中配置正确的 IP 地址，并应用所有 BIOS 设置。
 1. 使用 OEM 提供的工具，将当前的固件基线应用于所有组件。
-1. 运行 OEM 验证测试，以确保与现有群集服务器的同质性。
+1. 运行 OEM 验证测试，以确保硬件同质化现有的群集服务器。
+1. 在新服务器上安装 Azure Stack HCI 操作系统。 有关详细信息，请参阅 [部署 AZURE STACK HCI](../deploy/operating-system.md)。
+1. 将服务器加入群集域。
 
 ## <a name="add-a-server-to-a-cluster"></a>将服务器添加到群集
 
-服务器正确启动后，请使用 Windows 管理中心将服务器加入群集。
+使用 Windows 管理中心将服务器加入群集。
 
 :::image type="content" source="media/manage-cluster/add-server.png" alt-text="“添加服务器”屏幕" lightbox="media/manage-cluster/add-server.png":::
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub 提供程序资源使用情况 API
 description: 资源使用情况 API（用于检索 Azure Stack Hub 使用情况信息）的参考。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b327d7e194de672787c3a7e120857d6c2775a1a1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 13eb197cee1da34f5e4e2b934ed05e26446b4970
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544932"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227390"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 
@@ -40,7 +40,7 @@ ms.locfileid: "94544932"
 | `subId` |进行调用的用户的订阅 ID。 |
 | `reportedStartTime` |查询的开始时间。 `DateTime` 的值应为以协调世界时 (UTC) 和小时开始时的时间呈现，例如 13:00。 对于每日聚合，请将此值设置为 UTC 午夜。 格式是转义的 ISO 8601，例如 `2015-06-16T18%3a53%3a11%2b00%3a00Z`，其中冒号转义为 `%3a`，而加号转义为 `%2b`，使其符合 URI 规范。 |
 | `reportedEndTime` |查询的结束时间。 适用于 `reportedStartTime` 的约束也适用于此参数。 `reportedEndTime` 的值不得为未来或当前的日期。 如果是，结果会设为“处理未完成”。 |
-| `aggregationGranularity` |这是可选参数，它有两个截然不同的可能值： **daily** 和 **hourly** 。 如同以上两个值所暗示，一个会每日返回数据，另一个则会每小时返回数据。 默认值为 **daily** 选项。 |
+| `aggregationGranularity` |这是可选参数，它有两个截然不同的可能值：**daily** 和 **hourly**。 如同以上两个值所暗示，一个会每日返回数据，另一个则会每小时返回数据。 默认值为 **daily** 选项。 |
 | `subscriberId` |订阅 ID。 若要获取筛选的数据，需要提供者直接租户的订阅 ID。 如果未指定订阅 ID 参数，调用会返回所有提供者直接租户的使用情况数据。 |
 | `api-version` |用于发出此请求的协议版本。 此值设置为 `2015-06-01-preview`。 |
 | `continuationToken` |从上次调用使用情况 API 提供者取回的标记。 响应大于 1,000 行时，需要此标记， 可作为进度的书签。 如果此标记不存在，则根据传入的粒度从一天或一小时的开始检索数据。 |
@@ -114,13 +114,13 @@ meterID1",
 
 | 方法 | 请求 URI |
 | --- | --- |
-| GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
+| GET | `https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>返回已删除或活动租户的使用情况
 
 | 方法 | 请求 URI |
 | --- | --- |
-| GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
+| GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
 ## <a name="next-steps"></a>后续步骤
 
