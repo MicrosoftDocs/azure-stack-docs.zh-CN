@@ -305,8 +305,9 @@
         - name: 部署 GPU IoT 模块
           href: gpu-deploy-sample-module.md
     - name: 部署基础模式
-      href: deploy-foundational-patterns.md
       items:
+        - name: 部署基础模式
+          href: deploy-foundational-patterns.md
         - name: 网络模式
           items:
             - name: 使用第三方 NVA (Fortinet Fortigate NVA)

@@ -838,6 +838,8 @@
                   href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 部署基础模式
           items:
+            - name: 部署基础模式
+              href: ../user/deploy-foundational-patterns.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 网络模式
               items:
                 - name: 使用第三方 NVA (Fortinet Fortigate NVA)
@@ -848,15 +850,15 @@
                       href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Azure Stack Hub 实例之间的 VNet 到 VNet 连接
                       href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 使用 RRAS
-              items:
-                - name: 使用 RRAS 的 VNet 到 VNet 连接
-                  href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: 设置多个站点到站点 VPN 隧道
-                  href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: 创建 VPN 隧道 (GRE)
-                  href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: 创建 VPN 隧道 (IPSEC)
+                - name: 使用 RRAS
+                  items:
+                    - name: 使用 RRAS 的 VNet 到 VNet 连接
+                      href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 设置多个站点到站点 VPN 隧道
+                      href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 创建 VPN 隧道 (GRE)
+                      href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 创建 VPN 隧道 (IPSEC)
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: F5 负载均衡器
               href: ../user/network-howto-f5.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
