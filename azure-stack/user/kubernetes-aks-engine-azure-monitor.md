@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上使用用于容器的 Azure Monitor
 description: 了解如何在 Azure Stack Hub 上使用用于容器的 Azure Monitor。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 5b175c4d2c5f8512841dca5e984c05c13ad2951d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: bab70c6c083ef7d046fb5f967eb22e947df0c9d0
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873650"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247415"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>在 Azure Stack Hub 上使用用于容器的 Azure Monitor
 

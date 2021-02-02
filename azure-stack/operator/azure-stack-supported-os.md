@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: 了解在 Azure Stack Hub 上可以使用哪些来宾操作系统。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 336a4d27adf5f0ab52fffc6b624ce84f7fd0b53c
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620579"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245902"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack Hub 支持的来宾操作系统
 
@@ -33,7 +33,7 @@ Azure Stack Hub 支持下表中列出的 Windows 来宾操作系统：
 | Windows 10 *（请参见注释 1）* | 64 位，Pro 和 Enterprise | 自带映像 |
 
 > [!NOTE]
-> 若要在 Azure Stack Hub 上部署 Windows 10 客户端操作系统，必须拥有 [windows 每用户许可](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) 或通过合格的多 [租户宿主 (QMTH) ](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)购买。
+> 若要在 Azure Stack Hub 上部署 Windows 10 客户端操作系统，必须具备 [Windows 每用户授权](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)，或者通过[合格多租户托管商 (QMTH)](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) 购买它。
 
 Marketplace 映像适用于即用即付或 BYOL (EA/SPLA) 许可。 不支持在单个 Azure Stack 集线器实例上同时使用这两者。 在部署期间，Azure Stack Hub 会将适当版本的来宾代理注入到映像中。
 
@@ -50,9 +50,17 @@ Azure Stack Hub 市场中列为可用的 Linux 发行版包括必要的 Windows 
 
 | 分发 | 说明 | 发布者 | Azure Stack Hub 市场 |
 | --- | --- | --- | --- |
-| 基于 CentOS 的 6.9 | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的8。0 | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的7。8 | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的 7.7 LVM | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的7。7 | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的 7.6 | 64 位 | Rogue Wave | 是 |
 | 基于 CentOS 的 7.5 | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的 7.5 LVM | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的 7.4 | 64 位 | Rogue Wave | 是 |
 | 基于 CentOS 的 7.3 | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的 6.9 | 64 位 | Rogue Wave | 是 |
+| 基于 CentOS 的 6.10 | 64 位 | Rogue Wave | 是 |
 | ClearLinux | 64 位 | ClearLinux.org | 是 |
 | CoreOS Linux (Stable) |  64 位 | CoreOS | 是 |
 | Debian 8 "Jessie" | 64 位 | credativ |  是 |
@@ -64,6 +72,7 @@ Azure Stack Hub 市场中列为可用的 Linux 发行版包括必要的 Windows 
 | Ubuntu 14.04-LTS | 64 位 | Canonical | 是 |
 | Ubuntu 16.04-LTS | 64 位 | Canonical | 是 |
 | Ubuntu 18.04-LTS | 64 位 | Canonical | 是 |
+| Ubuntu Server 20.04 LTS | 64 位 | Canonical | 是 |
 
 有关 Red Hat Enterprise Linux 支持信息，请参阅 [Red Hat 和 Azure Stack Hub：常见问题解答](https://access.redhat.com/articles/3413531)。
 

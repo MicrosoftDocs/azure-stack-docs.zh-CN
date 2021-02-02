@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 769de4eb2c86c1fa17dd4a575611816b3ef0e9d9
-ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
+ms.openlocfilehash: fd7c1740d96ecea92bd4414ae1b4481e38594202
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98981234"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245970"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack Hub 中的更新
 
@@ -27,7 +27,7 @@ Azure Stack Hub 集成系统 1710 更新版中包含以下用于更新管理的�
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>验证 cmdlet 是否可用
-由于 cmdlet 是适用于 Azure Stack Hub 1710 更新包中的新功能，因此 1710 更新过程需要运行到特定的步骤，才能使用监视功能。 一般而言，如果管理员门户中的状态指示 1710 更新正在执行“重启存储主机”步骤，则可以使用 cmdlet。 具体而言，cmdlet 会在 **步骤：运行步骤 2.6-Update PrivilegedEndpoint 允许列表** 中进行更新。
+由于 cmdlet 是适用于 Azure Stack Hub 1710 更新包中的新功能，因此 1710 更新过程需要运行到特定的步骤，才能使用监视功能。 一般而言，如果管理员门户中的状态指示 1710 更新正在执行“重启存储主机”步骤，则可以使用 cmdlet。 具体而言，cmdlet 将在步骤中发生 **：运行步骤 2.6-Update PrivilegedEndpoint 允许列表**。
 
 也可以通过从特权终结点查询命令列表，来确定是否可以编程方式使用 cmdlet。 若要执行此查询，请从硬件生命周期主机或特权访问工作站运行以下命令。 此外，请确保特权终结点是受信任的主机。 有关详细信息，请参阅[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步骤 1。
 

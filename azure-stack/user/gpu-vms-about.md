@@ -5,21 +5,21 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 10/20/2020
+ms.date: 2/1/2021
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 0379b435a1f8b71766540865f358ca5da71d63e6
-ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
+ms.openlocfilehash: 84c218c36b370c5b0be2cbe415ae3f3f10a6397f
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630747"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247092"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上的图形处理单元 (GPU) 虚拟机 (VM)
 
 *适用于：Azure Stack 集成系统*
 
-本文介绍 Azure Stack Hub 多节点系统 (GPU) 型号的图形处理单元。 还可以找到有关安装与 GPU 配合使用的驱动程序的说明。 Azure Stack Hub 中的 GPU 支持实现了诸如人工智能、训练、推理和数据可视化之类的解决方案。 可以使用 AMD Radeon Instinct MI25 来支持图形密集型应用程序，如 Autodesk AutoCAD。
+本文介绍了 Azure Stack Hub 多节点系统上支持哪些图形处理单元 (GPU) 模型。 还可以找到有关安装与 GPU 配合使用的驱动程序的说明。 Azure Stack Hub 中的 GPU 支持实现了诸如人工智能、训练、推理和数据可视化之类的解决方案。 可以使用 AMD Radeon Instinct MI25 来支持图形密集型应用程序，如 Autodesk AutoCAD。
 
 可以在公共预览期间从三个 GPU 模型中进行选择。 它们分别为 NVIDIA V100 GPU、NVIDIA T4 GPU 和 AMD Mi25 GPU。 这些物理 GPU 支持以下 Azure N 系列虚拟机 (VM) 类型，如下所示：
 - [NCv3](/azure/virtual-machines/ncv3-series)
@@ -75,11 +75,11 @@ GPU VM 将在执行 Azure Stack Hub 的修补升级 (PnU) 以及硬件更换 (FR
 
 ### <a name="nvidia"></a>NVIDIA
 
-必须在虚拟机内安装 NVIDIA 驱动程序，才能使用 GPU 进行 CUDA 或网格工作负荷。
+对于使用 GPU 的 CUDA 或 GRID 工作负荷，必须在虚拟机内安装 NVIDIA 驱动程序。
 
-#### <a name="use-case-graphicsvisualization"></a>用例：图形/可视化
+#### <a name="use-case-graphicsvisualization"></a>用例：图形/可视化效果
 
-此方案需要使用网格驱动程序。 可以通过 NVIDIA 应用程序中心下载 GRID 驱动程序，前提是具有所需的许可证。 网格驱动程序还需要具有相应网格许可证的网格许可证服务器，然后才能在 VM 上使用网格驱动程序。 可参阅此文档，了解如何设置许可证服务器。
+此方案需要使用 GRID 驱动程序。 可以通过 NVIDIA 应用程序中心下载 GRID 驱动程序，前提是具有所需的许可证。 在 VM 上使用 GRID 驱动程序之前，GRID 驱动程序还需要一个带有相应 GRID 许可证的 GRID 许可证服务器。 可参阅此文档，了解如何设置许可证服务器。
 
 #### <a name="use-case-computecuda"></a>用例：计算/CUDA
 
@@ -88,4 +88,4 @@ GPU VM 将在执行 Azure Stack Hub 的修补升级 (PnU) 以及硬件更换 (FR
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Stack VM 功能](azure-stack-vm-considerations.md)  
-- [在 Azure Stack 集线器上部署支持 GPU 的 IoT 模块](gpu-deploy-sample-module.md)
+- [在 Azure Stack Hub 上部署支持 GPU 的 IoT 模块](gpu-deploy-sample-module.md)

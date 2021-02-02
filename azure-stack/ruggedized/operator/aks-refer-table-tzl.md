@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.lastreviewed: 12/05/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: f4506ac5eb606d4def07fcc741ed5ad1c4900783
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: dfd0c6a649bf7411b791b443f307f1ccc8a778d6
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256092"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247364"
 ---
 # <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Azure Stack 集线器的警报 aka.ms 链接引用
 

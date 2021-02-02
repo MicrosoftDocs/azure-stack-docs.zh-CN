@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 1/9/2020
-ms.openlocfilehash: 34dafb113d2e87dddd0d744878c8be5e406751d0
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: 77e42d1e97839be296f2aaf80aefddbef25ce989
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243555"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245800"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>借助 Azure CLI 管理资源并将其部署到 Azure Stack Hub
 

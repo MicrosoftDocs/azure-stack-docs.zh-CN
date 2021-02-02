@@ -3,16 +3,16 @@ title: 使用 Active Directory 联合身份验证服务 (AD FS) 将 Kubernetes �
 description: 了解如何使用 Active Directory 联合身份验证服务 (AD FS) 将 Kubernetes 部署到 Azure Stack Hub。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 268157d491b1605ecce442cc4cb348e76657fec2
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: c04d877009e7deaffa20c9e629062ec3fec517c1
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873939"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247772"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>使用 Active Directory 联合身份验证服务将 Kubernetes 部署到 Azure Stack Hub
 

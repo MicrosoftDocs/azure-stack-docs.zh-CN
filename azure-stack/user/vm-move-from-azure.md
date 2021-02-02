@@ -3,16 +3,16 @@ title: 将 VM 从 Azure 移动到 Azure Stack Hub
 description: 了解如何将 VM 从 Azure 移动到 Azure Stack Hub。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 0ca338c3a5698d55a54485c8eebe321992ad9842
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 89dc2d9dc55dcfe74565ad6c998880bd1c991126
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867265"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245723"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>将 VM 从 Azure 移动到 Azure Stack Hub
 

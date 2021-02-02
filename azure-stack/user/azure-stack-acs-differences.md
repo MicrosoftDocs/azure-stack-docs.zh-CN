@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 存储与 Azure 存储之间的差异，以及 Azure Stack Hub 部署注意事项。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: d242658388e97512f3130a381b2793e57832f397
-ms.sourcegitcommit: 0765de47f4a73e09192d34739e40c750b6e7abaf
+ms.openlocfilehash: e0b32212642158c25a7dd4a797ca6c70db54ced2
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915200"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245865"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub 存储：差异和注意事项
 

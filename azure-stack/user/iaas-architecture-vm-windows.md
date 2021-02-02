@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上运行 Windows 虚拟机
 description: 了解如何在 Azure Stack Hub 上运行 Windows 虚拟机。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: 2c2ff4007e92f6263e6b59ac61cb15d303b347d0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5bbad22a6a0998cd56fd3fefc309c14f665b2faa
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873701"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247534"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>在 Azure Stack Hub 上运行 Windows 虚拟机
 

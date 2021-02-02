@@ -3,16 +3,16 @@ title: 升级 Azure Stack Hub 上的 Kubernetes 群集
 description: 了解如何升级 Azure Stack Hub 上的 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: fd90bf877c66c05cc3939952ff0d50b8617f2d53
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5c360b4196a128073817b1b9525787e2be0d1310
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874075"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247245"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>升级 Azure Stack Hub 上的 Kubernetes 群集
 

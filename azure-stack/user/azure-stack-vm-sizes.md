@@ -3,16 +3,16 @@ title: Azure Stack Hub 中支持的 VM 大小
 description: Azure Stack Hub 中支持的 VM 大小参考。
 author: mattbriggs
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 03/23/2020
-ms.openlocfilehash: 01299f2ddd04e66145d781785097c74e5d129e48
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 984a214f1533237905cbc6fca23dd3cf399acd66
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873752"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247687"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack Hub 中支持的 VM 大小
 

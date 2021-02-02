@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 13b38a80e782db1a81cccfe5f5e2e5e11b2d59f8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d2bd3b3ce7b5a096ea013b0f80a9aece6c426acb
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872494"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246225"
 ---
 # <a name="vm-sizes-supported-in-azure-stack---modular-data-center-mdc"></a>Azure Stack 模块化数据中心 (MDC 支持的 VM 大小) 
 

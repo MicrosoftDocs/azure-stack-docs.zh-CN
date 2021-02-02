@@ -739,6 +739,8 @@
                           href: ../user/azure-stack-vpn-gateway-about-vpn-gateways.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: 配置 IPsec/IKE 连接策略
                           href: ../user/azure-stack-vpn-s2s.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 虚拟网络对等互连
+                      href: ../user/virtual-network-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: 使用 ExpressRoute 连接到 Azure
                       href: ../operator/azure-stack-connect-expressroute.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: VPN 网关设置
@@ -836,30 +838,34 @@
                   href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 部署基础模式
           items:
-            - name: VNET 对等互连
+            - name: 网络模式
               items:
-                - name: VNet 与 FortiGate 对等互连
-                  href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: VNet 与 VM 对等互连
+                - name: 使用第三方 NVA (Fortinet Fortigate NVA)
+                  items:
+                    - name: VNet 到 vnet 与 FortiGate 的连接
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: 将 VPN 设置到本地
+                      href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Azure Stack Hub 实例之间的 VNet 到 VNet 连接
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 使用 RRAS
+              items:
+                - name: 使用 RRAS 的 VNet 到 VNet 连接
                   href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 将 VPN 设置到本地
-              href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: VNET 到 VNET 连接
-              href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 扩展数据中心
-              href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: F5 负载均衡器
-              href: ../user/network-howto-f5.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 连接到 iSCSI 存储
-              href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: 设置隧道
-              items:
-                - name: 设置多个站点到站点 VPN
+                - name: 设置多个站点到站点 VPN 隧道
                   href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 创建 VPN 隧道 (GRE)
                   href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: 创建 VPN 隧道 (IPSEC)
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: F5 负载均衡器
+              href: ../user/network-howto-f5.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: 连接到外部存储
+              items:
+                - name: 连接到 iSCSI 存储
+                  href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: 扩展数据中心
+                  href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 备份和恢复
               items:
                 - name: 通过 Commvault 在 Azure Stack Hub 上备份 VM 耐用

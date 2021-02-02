@@ -3,16 +3,16 @@ title: 使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 description: 如何从运行 AKS 引擎的客户端 VM 中将 Kubernetes 群集部署到 Azure Stack Hub 上。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: af366bbb7ae12dfc71451f4faa477dbd6d185e60
-ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
+ms.openlocfilehash: 9da037a08aaa7394306c518211fc045453530a71
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98981217"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246956"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 

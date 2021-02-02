@@ -1,25 +1,25 @@
 ---
-title: 将 Azure Kubernetes Services (AKS) 引擎必备组件添加到 Azure Stack 中心市场
+title: 将 Azure Kubernetes 服务 (AKS) 引擎必备组件添加到 Azure Stack Hub 市场
 description: 了解如何将 AKS 引擎必备组件添加到 Azure Stack Hub 市场。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 4cbb253b88f86f18c69c7528b6beabb58d277d14
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 12532ba9e38c37bdf3253a5e33576ca63116f1e0
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899442"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246157"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>将 Azure Kubernetes 服务 (AKS) 引擎必备组件添加到 Azure Stack Hub 市场
 
 可以为用户设置 Azure Kubernetes 服务 (AKS) 引擎。 将本文中所述的项添加到 Azure Stack Hub。 之后，用户通过一次协调的操作即可部署 Kubernetes 群集。 本文指导你完成让用户在联网和离线环境中都能使用 AKS 引擎所需的步骤。 AKS 引擎依赖于服务主体标识，以及市场中的自定义脚本扩展和 AKS 基础映像。 AKS 引擎要求运行 [Azure Stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) 或更高版本。
 
 > [!NOTE]  
-> 可以在 [AKS 引擎发行说明](../user/kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中找到 Azure Stack 集线器到 AKS 引擎版本号的映射。
+> 可以在 [AKS 引擎发行说明](../user/kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中找到 Azure Stack Hub 到 AKS 引擎版本号的映射。
 
 ## <a name="check-your-users-service-offering"></a>检查用户的服务产品
 
@@ -58,7 +58,7 @@ Kubernetes 群集将需要 Azure Stack Hub 中的服务主体 (SPN) 和基于角
     在该列表中，选择：
     - **发布者**：Azure Kubernetes 服务
     - **套餐**：aks
-    - **名称**： AKS Base Ubuntu 16.04-LTS Image 发行版，8月 2020 (2020.09.14 或映射到 AKS engine) 
+    - **名称**：AKS Ubuntu 16.04-LTS 基础映像发行版，2020 年 8 月（2020.09.14 或映射到 AKS 引擎的版本）
     - **版本**：2020.09.14
 
 1. 选择“下载”。

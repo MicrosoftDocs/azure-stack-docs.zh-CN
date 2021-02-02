@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中的 Windows 上部署 AKS 引擎
 description: 了解如何在 Azure Stack Hub 中使用 Windows 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 29255d706edcb052711b2ed42e65fd3dc0b6412b
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.openlocfilehash: ed9f54ee2089baecc852b10a35df5719247d24b2
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291232"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246905"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>在 Azure Stack Hub 中的 Windows 上安装 AKS 引擎
 

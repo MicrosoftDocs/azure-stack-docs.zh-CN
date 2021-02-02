@@ -3,16 +3,16 @@ title: Azure Stack Hub 网络简介
 description: 了解 Azure Stack Hub 网络
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 2cb8ede31a91ba05102c55591a4942f512bce0c8
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: ca8c93e983290e925d3af38bef0799d11c4a745a
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674466"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247602"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Azure Stack Hub 网络简介
 
@@ -31,9 +31,9 @@ Azure Stack Hub 提供可结合使用或单独使用的各种网络功能：
 - **安全性**  
     筛选网络子网或单个 VM 之间的网络流量。
 - **路由**  
-    在 Azure Stack 中心和本地资源之间使用默认路由或完全控制路由。
+    使用默认路由，或者完全控制 Azure Stack Hub 与本地资源之间的路由。
 - **可管理性**  
-    监视和管理 Azure Stack 集线器网络资源。
+    监视和管理 Azure Stack Hub 网络资源。
 - **部署和配置工具**  
     使用基于 Web 的门户或跨平台命令行工具来部署和配置网络资源。
 

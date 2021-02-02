@@ -3,16 +3,16 @@ title: 将 Marketplace 项群集移到 Azure Stack 集线器上的 AKS 引擎
 description: 了解如何在 Azure Stack Hub 上将市场项群集移动到 AKS 引擎。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 112862f5e73806d2e73d809b70e4bd7fd2e315b5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: db9d1657760b558bf592bcf84a407855aeb5adcd
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874177"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246922"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack Hub 上将市场项群集移动到 AKS 引擎
 

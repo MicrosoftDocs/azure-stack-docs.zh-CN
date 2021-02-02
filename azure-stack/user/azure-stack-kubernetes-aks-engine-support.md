@@ -3,16 +3,16 @@ title: Azure Stack Hub 上 AKS 引擎的支持策略
 description: 本主题包含 Azure Stack Hub 上 AKS 引擎的支持策略。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: aebc9506d99e52c5ace6400128c70c43e2ae5b64
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 0322d72f3cd28a8e499b2a900d57e4e9d2e9bce4
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874092"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246718"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上 AKS 引擎的支持策略
 

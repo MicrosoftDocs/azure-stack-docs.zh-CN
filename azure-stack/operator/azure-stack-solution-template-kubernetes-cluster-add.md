@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解如何将 Kubernetes 添加到 Azure Stack Hub 市场。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: b96b8a2bed340201b9450b37b1aad166ebbdf26d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a8b29a59de27ed8fd65357249e336d0532b63f6d
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869230"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246004"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>将 Kubernetes 添加到 Azure Stack Hub 市场
 

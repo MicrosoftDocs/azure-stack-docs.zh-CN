@@ -3,16 +3,16 @@ title: Azure Stack Hub 上使用 SQL Server 的 Windows N 层应用程序
 description: 了解如何在 Azure Stack Hub 上运行使用 SQL Server 的 Windows N 层应用程序。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: b543a94c75ac50c7b0e75f5635956093340b970d
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 5af32be701617f7ff357d4776557b2edbbdee729
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97973567"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247483"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Azure Stack Hub 上使用 SQL Server 的 Windows N 层应用程序
 

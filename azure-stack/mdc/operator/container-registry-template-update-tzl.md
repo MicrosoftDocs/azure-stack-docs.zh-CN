@@ -12,22 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 6cac7624a99ccd430f64243586c773238ec8c4c2
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8bc77528bec5fdb22e2ea83b45cc4eedc3b7984c
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872069"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246365"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub---modular-data-center-mdc"></a>更新 Azure Stack 集线器中的容器注册表-模块化数据中心 (MDC) 
 
 Azure Stack 集线器用户可以使用下面的说明将其容器注册表部署更新为较新的 AKS 基本映像 SKU。 容器注册表模板 VM 和服务无状态，因为所有状态和容器映像都存储在 blob 存储中。 更新简单，只是使用最新版本的 AKS 基本映像 VHD 和重构 DNS 将容器注册表模板部署到新 VM。 为新的和新的容器注册表模板 Vm 更新 DNS 值的操作将导致在值传播时出现间歇性的注册表连接。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 ### <a name="operator"></a>运算符
 

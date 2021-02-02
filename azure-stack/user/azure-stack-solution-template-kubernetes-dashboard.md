@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中访问 Kubernetes 仪表板
 description: 了解如何在 Azure Stack Hub 中访问 Kubernetes 仪表板
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 1c68908a64fdff7c743563b6148e6636d24e276c
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5787fb0df74d0abbf2c05c76d0c1cd3fd06eb04b
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873888"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247721"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>在 Azure Stack Hub 中访问 Kubernetes 仪表板 
 

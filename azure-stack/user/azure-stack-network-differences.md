@@ -2,17 +2,17 @@
 title: Azure Stack Hub 网络差异
 description: 了解 Azure Stack Hub 中网络的差异和用法注意事项。
 author: mattbriggs
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: e93197f1906aba53097d5d7123ccc2e85aec0622
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: b16c65554be272d4aacc89959fe2e0d71561c363
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918689"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247908"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub 网络的差异和注意事项
 
@@ -30,7 +30,7 @@ Azure Stack Hub 网络具有许多由 Azure 网络提供的功能。 但是，�
 |  | 每个区域的 DNS 记录集数 | 5000（默认值）<br>可以请求增加。 | 5000 |
 |  | 用于区域委派的名称服务器 | Azure 为创建的每个用户（租户）区域提供四个名称服务器。 | Azure Stack Hub 为创建的每个用户（租户）区域提供两个名称服务器。 |
 | Azure 防火墙 | 网络安全服务 | Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚拟网络资源。 | 尚不支持。 |
-| 虚拟网络 | 虚拟网络对等互连 | 通过 Azure 主干网络连接同一区域中的两个虚拟网络。 | 自2008版[虚拟网络对等互连](virtual-network-peering.md)后受支持 |
+| 虚拟网络 | 虚拟网络对等互连 | 通过 Azure 主干网络连接同一区域中的两个虚拟网络。 | 从版本 2008 开始支持[虚拟网络对等互连](virtual-network-peering.md) |
 |  | IPv6 地址 | 可以分配 IPv6 地址作为[网络接口配置](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)的一部分。 | 仅支持 IPv4。 |
 |  | DDoS 防护计划 | 支持 | 尚不支持。 |
 |  | 规模集 IP 配置 | 支持 | 尚不支持。 |
@@ -53,7 +53,7 @@ Azure Stack Hub 网络具有许多由 Azure 网络提供的功能。 但是，�
 |  | 可用性配置 | 主动/主动 | 主动/被动 |
 |  | UsePolicyBasedTrafficSelectors | Azure 支持将基于策略的流量选择器与基于路由的网关连接配合使用。 | 尚不支持。 |
 |  | 监视和警报 | Azure 使用 Azure Monitor 提供 VPN 资源警报设置功能。 | 尚不支持。|
-| 负载均衡器 | SKU | 支持基本和标准负载均衡器。 | 仅支持基本负载均衡器。<br>不支持 SKU 属性。<br>基本 SKU 负载均衡器支持10个前端 IP 配置，适用于版本1807-1906 和200前端 IP 配置，适用于每个负载均衡器的版本1907及更高版本。  |
+| 负载均衡器 | SKU | 支持基本和标准负载均衡器。 | 仅支持基本负载均衡器。<br>不支持 SKU 属性。<br>对于版本 1807-1906，基本 SKU 负载均衡器支持每个负载均衡器 10 个前端 IP 配置；对于版本 1907 和更高版本，则支持每个负载均衡器 200 个前端 IP 配置。  |
 |  | 区域 | 支持可用性区域。 | 尚不支持 |
 |  | 服务终结点的入站 NAT 规则支持 | Azure 支持为入站 NAT 规则指定服务终结点。 | Azure Stack Hub 尚不支持服务终结点，因此无法指定这些设置。 |
 |  | 协议 | Azure 支持指定 GRE 或 ESP。 | Azure Stack Hub 不支持协议类。 |

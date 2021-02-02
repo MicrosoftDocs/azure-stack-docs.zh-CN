@@ -114,6 +114,8 @@
       items:
         - name: 部署 SDN 基础结构
           href: manage/sdn-express.md
+        - name: 管理租户虚拟网络
+          href: manage/tenant-virtual-networks.md
     - name: 管理 Azure 服务
       items:
         - name: 将 Windows Admin Center 注册到 Azure

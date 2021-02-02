@@ -3,16 +3,16 @@ title: 将存储资源管理器连接到 Azure Stack Hub 订阅或存储帐户
 description: 了解如何将存储资源管理器连接到 Azure Stack Hub 订阅
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b8718cf0a36640ab23137b5f89d5a60ad5ca34f7
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d4fac8bd262260802c386446190557b1333a14ed
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873905"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247228"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack Hub 订阅或存储帐户
 

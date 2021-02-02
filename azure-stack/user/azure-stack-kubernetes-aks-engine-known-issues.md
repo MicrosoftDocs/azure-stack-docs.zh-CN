@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上使用 AKS 引擎的已知问题
 description: 了解在 Azure Stack Hub 上使用 AKS 引擎的已知问题。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/11/2020
-ms.openlocfilehash: e1a7768eee19fb8a2246ec8c3934f5742d23534c
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b65fb410cd18e058f4e0ed7299eeff2d9daeb7f6
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874160"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246871"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack Hub 上使用 AKS 引擎的已知问题
 

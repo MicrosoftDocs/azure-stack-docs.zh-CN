@@ -3,15 +3,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: include
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: b8c5c7f439c4526b44299e6e3b33b343b11b61ed
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 2bbc2048886aea567fe8a4d2e41c2f549031a9c6
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867264"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245721"
 ---
 可以使用门户上传 VHD，或是对于在门户中创建的容器使用 AzCopy。
 

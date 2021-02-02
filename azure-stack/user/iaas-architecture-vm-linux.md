@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上运行 Linux 虚拟机
 description: 了解如何在 Azure Stack Hub 上运行 Linux 虚拟机。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 7ad8f412ca4dd984f2d16217efd1a84d632ef829
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: c53dbd594db5bc522311b97af45d85f014147362
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97973735"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247024"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>在 Azure Stack Hub 上运行 Linux 虚拟机
 

@@ -3,22 +3,22 @@ title: 保护在 Azure Stack Hub 上部署的 VM
 description: 了解如何生成恢复计划来保护 Azure Stack Hub 上部署的 VM，以防出现数据丢失和计划外停机。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 8fe38a530477f080efafcf728e553a8194b74ec6
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a783c4b0c30b5326220faf8655eb4f8c7a39bb29
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874058"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247636"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>保护在 Azure Stack Hub 上部署的 VM
 
 使用本文作为指南，为部署在 Azure Stack Hub 上的用户部署型 IaaS 虚拟机 (VM) 制定数据保护和灾难恢复策略。
 
-为了防止数据丢失和停机时间过长，请为用户应用程序及其数据实施备份恢复或灾难恢复计划。 每个应用程序都必须作为组织全面的业务连续性和灾难恢复的一部分进行评估 (BC/DR) 策略。 可以从 [Azure Stack Hub：业务连续性和灾难恢复的注意事项](https://aka.ms/azurestackbcdrconsiderationswp)着手。
+为了防止数据丢失和停机时间过长，请为用户应用程序及其数据实施备份恢复或灾难恢复计划。 必须按照组织的综合性业务连续性和灾难恢复 (BC/DR) 策略来评估每个应用程序。 可以从 [Azure Stack Hub：业务连续性和灾难恢复的注意事项](https://aka.ms/azurestackbcdrconsiderationswp)着手。
 
 ## <a name="considerations-for-protecting-iaas-vms"></a>有关 IaaS VM 保护的注意事项
 

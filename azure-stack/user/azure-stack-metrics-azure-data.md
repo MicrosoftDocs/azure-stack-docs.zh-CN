@@ -3,15 +3,15 @@ title: 使用 Azure Stack Hub 上的 Azure Monitor
 description: 了解如何使用 Azure Stack Hub 上的 Azure Monitor。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 7688ebd4aed8ee797cd940da5631e19e4c1ef8ff
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 9ba37820acd43e9a6ea50716bfa5d901dd02a4a9
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874109"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247262"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>使用 Azure Stack Hub 上的 Azure Monitor
 

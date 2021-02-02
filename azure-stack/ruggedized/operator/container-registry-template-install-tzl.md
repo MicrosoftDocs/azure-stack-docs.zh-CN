@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: a517fc2bef86584c6bdf5aff6f9b7907ac9c0b1e
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: b94ae36daf6cd0ed69ded630a1cc1a7c96be80b2
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910561"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247517"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub-ruggedized"></a>将容器注册表添加到 Azure Stack 中心 (耐用) 
 
@@ -33,11 +33,11 @@ ms.locfileid: "97910561"
 
 还可以使用 AzureStackDockerContainerRegistry 将项 (端负载) 添加到 Marketplace。 可以通过以下方式访问本文中的脚本：将 git 存储库下载为 (zip) 包 https://github.com/msazurestackworkloads/azurestack-gallery/archive/master.zip ，并提取文件。 你可以在文件夹中找到该脚本 `azurestack-gallery-master\registry\scripts` 。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 在 Azure Stack Hub 上添加容器注册表 Marketplace 项之前，你将需要具有以下各项。
 
-| Item | 类型 | 详细信息 |
+| 项目 | 类型 | 详细信息 |
 | --- | --- | --- |
 | Azure Stack 中心 PowerShell 模块 (Azs)  | PowerShell 模块 | 仅当边加载容器注册表模板库项时才需要，Azure Stack 中心 PowerShell 模块用于添加和删除库项。<br>[安装 Azure Stack PowerShell 模块](../../operator/azure-stack-powershell-install.md) |
 | 容器注册表模板 | 市场项 | 若要以 Azure Stack 中心用户的身份部署容器注册表，则必须在订阅中提供容器注册表模板 Marketplace 项，或手动将 (端加载) 添加到 Azure Stack 中心市场。 如果边载，请按照中的说明将包加载到 `readme.md` [GitHub 存储库](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/registry-v1.0.1)中的。 |
@@ -47,7 +47,7 @@ ms.locfileid: "97910561"
 | 服务主体 (SPN)  | 应用注册 | 若要部署和配置容器注册表，必须创建应用程序注册（也称为服务主体 (SPN) ）。 此 SPN 用于在 VM 和注册表的配置过程中访问部署 Marketplace 项之前创建 Microsoft Azure Key Vault 和存储帐户资源。<br>SPN 应在要登录到 Azure Stack 中心的用户门户的租户中的 AAD 中创建。 如果使用 AD FS，则将在本地目录中创建它。<br>有关如何为 AAD 和 AD FS 身份验证方法创建 SPN 的详细信息，请参阅 [以下指南](../../operator/azure-stack-create-service-principals.md)。<br> **重要提示**：需要保存 SPN 应用 ID 和机密，才能部署任何更新。<br> |
 | 注册表用户名和密码 | 凭据 | 开源 docker 容器注册表已部署并配置为启用基本身份验证。 若要使用 docker 命令来推送和拉取映像，需要使用用户名和密码。 用户名和密码安全地存储在 Key Vault 存储区中。<br>**重要提示**：需要保存注册表用户名和密码才能登录到注册表和推送/提取映像。 |
 | SSH 公钥/私钥 | 凭据 | 若要解决 VM 的部署或运行时问题的问题，需要为部署提供 SSH 公钥，并可访问相应的私钥。 建议使用 openssh 格式 ssh-keygen 生成私钥/公钥对，作为收集日志的诊断脚本需要此格式。<br>**重要提示**：需要访问公钥和私钥才能访问已部署的 VM 进行故障排除。 |
-| 对管理员和用户门户和管理终结点的访问权限 | 连接 | 本指南假设你要从连接到 Azure Stack 集线器系统的系统部署和配置注册表。 |
+| 对管理员和用户门户和管理终结点的访问权限 | 连接性 | 本指南假设你要从连接到 Azure Stack 集线器系统的系统部署和配置注册表。 |
 
 此脚本将 `Pre-reqs` 创建部署 Marketplace 项所需的其他输入。
 
