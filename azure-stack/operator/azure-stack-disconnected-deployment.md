@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 98633108390ee24416c9383ed8171439a4ee1459
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 53f46732b799e7a638ce7fb61e236ba4a55f2437
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870845"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495443"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 集成系统的 Azure 非联网部署计划决策
 在决定[如何将 Azure Stack Hub 集成到混合云环境](azure-stack-connection-models.md)后，即可完成 Azure Stack Hub 部署决策。
@@ -50,7 +50,7 @@ Azure Stack Hub 设计为在连接到 Azure 的情况下功能最佳，因此请
 
 ## <a name="learn-more"></a>了解详细信息
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack/) 产品页。
-- 有关 Azure Stack Hub 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack Hub：Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
+- 有关 Azure Stack Hub 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack Hub：Azure 的扩展](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/)。 
 - 若要了解有关 Microsoft Azure Stack 中心打包和定价的详细信息，请 [下载 .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。 
 
 ## <a name="next-steps"></a>后续步骤

@@ -1,5 +1,5 @@
 ---
-title: 规划 Azure Stack 集线器集成系统的数据中心集成
+title: 规划 Azure Stack Hub 集成系统的数据中心集成
 description: 了解如何规划和准备数据中心与 Azure Stack Hub 集成式系统的集成。
 author: PatAltimore
 ms.topic: conceptual
@@ -7,12 +7,12 @@ ms.date: 04/02/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 89cb7fe7ee0f8e19c2774d5ebfef988ec0933e03
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 56b0025de1eee074eb0d6fbcdff8228cdbb9ac4e
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871015"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495544"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>有关 Azure Stack Hub 集成系统的数据中心集成规划注意事项
 
@@ -185,7 +185,7 @@ Azure Stack Hub 解决方案随附的硬件生命周期主机是 Azure Stack Hub
 - 部署输入和标识符
 - 服务帐户
 - CA 根证书
-- 断开连接的部署中 (的联合资源) 
+- 联合资源（在断开连接部署中）
 - 计划、套餐、订阅和配额
 - RBAC 策略与角色分配
 - Key Vault 机密
@@ -201,7 +201,7 @@ Azure Stack Hub 不会备份租户应用和数据。 必须针对 Azure Stack Hu
 ## <a name="learn-more"></a>了解详细信息
 
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack Hub](https://azure.microsoft.com/overview/azure-stack/) 产品页。
-- 有关 Azure Stack Hub 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack Hub：Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
+- 有关 Azure Stack Hub 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack Hub：Azure 的扩展](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/)。 
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack Hub 部署连接模型](azure-stack-connection-models.md)

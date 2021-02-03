@@ -8,12 +8,12 @@ ms.date: 06/16/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 6ee19c12e1a80e8c41c5c33d9c2b613d86fbc104
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: 3fdd8701fa61476caa3a6db3e3c5ce8789d1fd09
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243487"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495476"
 ---
 # <a name="azure-stack-hub-administration-basics---ruggedized"></a>Azure Stack 集线器管理基础知识-耐用
 
@@ -53,7 +53,7 @@ ms.locfileid: "98243487"
 
 ### <a name="service-roadmap"></a>服务路线图
 
-Azure Stack Hub 会持续增加对 Azure 服务的支持。 有关计划的路线图，请参阅 [Azure Stack Hub：Azure 的扩展](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)白皮书。 也可留意 [Azure Stack Hub 博客文章](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)中的新公告。
+Azure Stack Hub 会持续增加对 Azure 服务的支持。 有关计划的路线图，请参阅 [Azure Stack Hub：Azure 的扩展](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/)白皮书。 也可留意 [Azure Stack Hub 博客文章](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)中的新公告。
 
 ## <a name="what-account-should-i-use"></a>我应使用什么帐户?
 

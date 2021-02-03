@@ -132,6 +132,10 @@
           href: manage/use-azure-backup.md
         - name: 使用 Azure 网络适配器
           href: manage/use-azure-network-adapter.md
+    - name: 管理 SDN
+      items:
+        - name: 租户逻辑网络
+          href: manage/tenant-logical-networks.md
 - name: 概念
   items:
     - name: 存储和群集

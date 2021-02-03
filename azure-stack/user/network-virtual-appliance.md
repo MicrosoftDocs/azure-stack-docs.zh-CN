@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: bb5d62b4e5302762b4feddfd7afd7b7a39002187
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: f247e8c604b9b1060f4cc011acdbd9786b487ab1
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243317"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495493"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>排查网络虚拟设备问题
 
@@ -23,7 +23,7 @@ ms.locfileid: "98243317"
 NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支持。
 
 > [!NOTE]
-> 如果遇到涉及 NVA 的连接或路由问题，则应直接[联系 NVA 供应商](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
+> 如果遇到涉及 NVA 的连接或路由问题，则应直接[联系 NVA 供应商](https://mskb.pkisolutions.com/kb/2984655)。
 
 如果本文未解决你在 Azure Stack Hub 中遇到的 NVA 问题，请创建 [Azure Stack Hub 支持票证](../operator/azure-stack-manage-basics.md#where-to-get-support)。
 
@@ -44,7 +44,7 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>检查 Azure 上 NVA 的最低配置要求
 
-每个 NVA 都必须满足基本配置要求才能在 Azure Stack Hub 上正常运行。 此部分展示了验证这些基本配置的步骤。 有关详细信息，请[联系 NVA 供应商](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
+每个 NVA 都必须满足基本配置要求才能在 Azure Stack Hub 上正常运行。 此部分展示了验证这些基本配置的步骤。 有关详细信息，请[联系 NVA 供应商](https://mskb.pkisolutions.com/kb/2984655)。
 
 > [!IMPORTANT]
 > 当数据包使用 S2S 隧道时，它们会与其他标头一起进一步进行封装。 此封装会增加每个数据包的总大小。
@@ -135,7 +135,7 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
    netstat -an | grep -i listen
    ```
 
-1. 查找结果中列出的 NVA 软件所使用的 TCP 端口。 如果未看到它们，请在 NVA 和 VM 上配置应用程序，以侦听并响应到达这些端口的流量。 [联系 NVA 供应商以获取帮助](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
+1. 查找结果中列出的 NVA 软件所使用的 TCP 端口。 如果未看到它们，请在 NVA 和 VM 上配置应用程序，以侦听并响应到达这些端口的流量。 [联系 NVA 供应商以获取帮助](https://mskb.pkisolutions.com/kb/2984655)。
 
 ## <a name="check-nva-performance"></a>检查 NVA 性能
 
@@ -147,7 +147,7 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 
 可能还需将 VM 大小重设为更大的 SKU 大小；或者，对于虚拟机规模集，增加实例计数。
 
-如需帮助，请[联系 NVA 供应商](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
+如需帮助，请[联系 NVA 供应商](https://mskb.pkisolutions.com/kb/2984655)。
 
 ### <a name="validate-vm-network-statistics"></a>验证 VM 网络统计信息
 
@@ -183,7 +183,7 @@ NVA 的供应商为 NVA 及其与 Azure Stack Hub 平台的集成提供技术支
 
 如果看到数据包传入但没有响应，则可能需要解决 VM 应用程序或防火墙问题。
 
-如需帮助，请[联系 NVA 供应商](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)。
+如需帮助，请[联系 NVA 供应商](https://mskb.pkisolutions.com/kb/2984655)。
 
 ### <a name="create-a-support-ticket"></a>创建支持票证
 

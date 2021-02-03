@@ -7,12 +7,12 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 9ada0a0c7731b92bc67f85545b5d9cd81e87cd36
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: dcd2779bf1166b6418a0ecbec3b025e889ca048a
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871967"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495561"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>在 Azure Active Directory (Azure AD) 中添加新的 Azure Stack Hub 用户帐户
 
@@ -54,7 +54,7 @@ ms.locfileid: "97871967"
 > [!NOTE]
 > 如果使用 Microsoft 帐户部署 ASDK，则不能使用 Azure AD PowerShell 创建租户帐户。
 
-1. 安装 **64 位** 版本的 [适用于 IT 专业人员的 Microsoft Online Services 登录助手 RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152)。
+1. 安装 **64 位** 版本的 [适用于 IT 专业人员的 Microsoft Online Services 登录助手 RTW](https://www.microsoft.com/download/details.aspx?id=28177)。
 
 2. 按照以下步骤安装用于 Windows PowerShell 的 Microsoft Azure AD 模块：
 
