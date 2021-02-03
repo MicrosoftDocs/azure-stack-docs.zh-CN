@@ -1,44 +1,44 @@
 ---
-title: 在 Azure Stack HCI 中将数据中心防火墙用于 SDN
-description: 使用本主题来开始使用数据中心防火墙 Azure Stack HCI 中的 Software-Defined 网络。
+title: 将数据中心防火墙用于 Azure Stack HCI 和 Windows Server 中的 SDN
+description: 使用本主题来开始使用数据中心防火墙 Azure Stack HCI、Windows Server 2019 和 Windows Server 2016 中的 Software-Defined 网络。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 833780947bd698a0e39709668715372bd8508e90
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.date: 02/02/2021
+ms.openlocfilehash: 8c150de090bd1f863a29109ddae9d6e4bb104dfc
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94881209"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510697"
 ---
-# <a name="use-datacenter-firewall-for-software-defined-networking-in-azure-stack-hci"></a>使用数据中心防火墙 Azure Stack HCI 中的 Software-Defined 网络
+# <a name="use-datacenter-firewall-for-software-defined-networking-in-azure-stack-hci-and-windows-server"></a>使用数据中心防火墙 Azure Stack HCI 和 Windows Server 中的 Software-Defined 网络
 
-> 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
+> 适用于： Azure Stack HCI，版本 20H2;Windows Server 2019;Windows Server 2016
 
-本主题提供了有关如何配置访问控制列表 (Acl) 使用 Windows PowerShell 在 Azure Stack HCI 中为软件 [定义的网络](../concepts/datacenter-firewall-overview.md) (SDN) 管理数据流量流的说明。 通过创建应用于子网或网络接口的 Acl，启用并配置数据中心防火墙。 本主题中的示例脚本使用从 **NetworkController** 模块导出的 Windows PowerShell 命令。 你还可以使用 Windows 管理中心来配置和管理 Acl。
+本主题介绍了如何通过 Windows PowerShell 将[数据中心防火墙](../concepts/datacenter-firewall-overview.md)用于 Azure Stack HCI 中软件定义的网络 (SDN)，以便配置访问控制列表 (ACL) 来管理数据通信流。 可以通过创建应用于子网或网络接口的 ACL 来启用和配置数据中心防火墙。 本主题中的示例脚本使用从 NetworkController 模块导出的 Windows PowerShell 命令。 你还可以使用 Windows 管理中心来配置和管理 ACL。
 
-## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>配置 Datacenter 防火墙以允许所有流量
+## <a name="configure-datacenter-firewall-to-allow-all-traffic"></a>配置数据中心防火墙以允许所有流量
 
-部署 SDN 后，应在新环境中测试基本网络连接。 为实现此目的，为数据中心防火墙创建一个规则，该规则允许所有网络流量，而无需限制。
+部署 SDN 后，应在新环境中针对基本网络连接性进行测试。 为实现此目的，请为数据中心防火墙创建一个规则，以允许所有网络流量，不设限制。
 
-使用下表中的条目创建一组允许所有入站和出站网络流量的规则。
+使用下表中的条目创建一组规则，以允许所有入站和出站网络流量。
 
 | 源 IP | 目标 IP | 协议 | Source Port | Destination Port | 方向 | 操作 | 优先级 |
 |:---------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
-|    \*     |       \*       |   全部    |     \*      |        \*        |  入站  | Allow  |   100    |
-|    \*     |       \*       |   全部    |     \*      |        \*        | 出站  | Allow  |   110    |
+|    \*     |       \*       |   All    |     \*      |        \*        |  入站  | Allow  |   100    |
+|    \*     |       \*       |   All    |     \*      |        \*        | 出站  | Allow  |   110    |
 
 ---
 
-在此示例中，你将创建一个包含两个规则的 ACL：
+在此示例中，你将创建具有两个规则的 ACL：
 
-1. **AllowAll_Inbound** -允许所有网络流量传递到配置了此 ACL 的网络接口。
-2. **AllowAllOutbound** -允许所有流量通过网络接口。 现已准备好在虚拟子网和网络接口中使用由资源 ID "AllowAll-1" 标识的 ACL。
+1. AllowAll_Inbound - 允许所有网络流量进入配置了此 ACL 的网络接口。
+2. AllowAllOutbound - 允许所有流量从网络接口传出。 由资源 ID“AllowAll-1”标识的此 ACL 现在已就绪，可在虚拟子网和网络接口中使用。
 
-首先，通过打开 PowerShell 会话连接到其中一个群集节点：
+首先，通过打开 PowerShell 会话连接到群集节点之一：
 
 ```PowerShell
 Enter-PSSession <server-name>
@@ -79,25 +79,25 @@ New-NetworkControllerAccessControlList -ResourceId "AllowAll" -Properties $aclli
 ```
 
 >[!NOTE]
->网络控制器的 Windows PowerShell 命令参考位于主题 [网络控制器 cmdlet](/powershell/module/networkcontroller/)中。
+>适用于网络控制器的 Windows PowerShell 命令参考位于[网络控制器 cmdlet](/powershell/module/networkcontroller/) 主题中。
 
-## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>使用 Acl 限制子网上的流量
-在此示例中，将创建一个 ACL，以防止 192.168.0.0/24 子网中的虚拟机 () 相互通信。 这种类型的 ACL 适用于限制攻击者在子网内传播横向的能力，同时仍允许 Vm 从子网外部接收请求，以及与其他子网上的其他服务通信。
+## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>使用 ACL 限制子网上的流量
+在此示例中，你将创建一个 ACL，用于阻止 192.168.0.0/24 子网中的虚拟机 (VM) 相互通信。 此类型的 ACL 可用于限制攻击者在子网内横向攻击的能力，同时仍允许 VM 接收来自子网外部的请求，以及与其他子网上的其他服务进行通信。
 
 |   源 IP    | 目标 IP | 协议 | Source Port | Destination Port | 方向 | 操作 | 优先级 |
 |:--------------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
-|  192.168.0.1   |       \*       |   全部    |     \*      |        \*        |  入站  | Allow  |   100    |
-|       \*       |  192.168.0.1   |   全部    |     \*      |        \*        | 出站  | Allow  |   101    |
-| 192.168.0.0/24 |       \*       |   全部    |     \*      |        \*        |  入站  | 阻止  |   102    |
-|       \*       | 192.168.0.0/24 |   全部    |     \*      |        \*        | 出站  | 阻止  |   103    |
-|       \*       |       \*       |   全部    |     \*      |        \*        |  入站  | Allow  |   104    |
-|       \*       |       \*       |   全部    |     \*      |        \*        | 出站  | Allow  |   105    |
+|  192.168.0.1   |       \*       |   All    |     \*      |        \*        |  入站  | Allow  |   100    |
+|       \*       |  192.168.0.1   |   All    |     \*      |        \*        | 出站  | Allow  |   101    |
+| 192.168.0.0/24 |       \*       |   All    |     \*      |        \*        |  入站  | 阻止  |   102    |
+|       \*       | 192.168.0.0/24 |   All    |     \*      |        \*        | 出站  | 阻止  |   103    |
+|       \*       |       \*       |   All    |     \*      |        \*        |  入站  | Allow  |   104    |
+|       \*       |       \*       |   All    |     \*      |        \*        | 出站  | Allow  |   105    |
 
 ---
 
-以下示例脚本创建的 ACL 由资源 ID **子网-192-168-0-0** 标识，现在可以应用于使用 "192.168.0.0/24" 子网地址的虚拟网络子网。 附加到该虚拟网络子网的任何网络接口会自动获取上述 ACL 规则。
+由下面的示例脚本创建的 ACL（由资源 ID Subnet-192-168-0-0 标识）现在可以应用于使用“192.168.0.0/24”子网地址的虚拟网络子网。 附加到该虚拟网络子网的任何网络接口都会自动应用上述 ACL 规则。
 
-下面是一个示例脚本，用于使用网络控制器 REST API 创建此 ACL：
+下面是一个示例脚本，用于通过网络控制器 REST API 创建此 ACL：
 
 ```PowerShell
 import-module networkcontroller
@@ -205,28 +205,28 @@ $acllistproperties.AclRules = $aclrules
 New-NetworkControllerAccessControlList -ResourceId "Subnet-192-168-0-0" -Properties $acllistproperties -ConnectionUri $ncURI
 ```
 
-## <a name="add-an-acl-to-a-network-interface"></a>向网络接口添加 ACL
+## <a name="add-an-acl-to-a-network-interface"></a>将 ACL 添加到网络接口
 
-创建 ACL 并将其分配给虚拟子网后，你可能需要使用单个网络接口的特定 ACL 替代虚拟子网上的默认 ACL。 在这种情况下，你可以将特定 Acl 直接应用到连接到 Vlan 的网络接口，而不是虚拟网络。 如果在连接到网络接口的虚拟子网上设置了 Acl，则这两个 Acl 将应用并排定虚拟子网 Acl 以上的网络接口 Acl 的优先级。
+创建 ACL 并将其分配给虚拟子网后，你可能希望将虚拟子网上的默认 ACL 替代为单个网络接口的特定 ACL。 从 Windows Server 2019 Datacenter 开始，除了 SDN 虚拟网络外，还可以将特定 Acl 直接应用于附加到 SDN 逻辑网络的网络接口。 如果在连接到网络接口的虚拟子网上设置了 Acl，则会应用这两个 Acl，并且网络接口 Acl 优先于虚拟子网 Acl。
 
-在此示例中，我们将演示如何将 ACL 添加到虚拟网络。
+在此示例中，我们演示如何将 ACL 添加到虚拟网络。
 
 >[!TIP]
 >还可以在创建网络接口的同时添加 ACL。
 
-1. 获取或创建要将 ACL 添加到的网络接口。
+1. 获取或创建要将 ACL 添加到其中的网络接口。
 
    ```PowerShell
    $nic = get-networkcontrollernetworkinterface -ConnectionUri $uri -ResourceId "MyVM_Ethernet1"
    ```
 
-2. 获取或创建将添加到网络接口中的 ACL。
+2. 获取或创建将添加到网络接口的 ACL。
 
    ```PowerShell
    $acl = get-networkcontrolleraccesscontrollist -ConnectionUri $uri -ResourceId "AllowAllACL"
    ```
 
-3. 将 ACL 分配到网络接口的 AccessControlList 属性。
+3. 将 ACL 分配到该网络接口的 AccessControlList 属性。
 
    ```PowerShell
     $nic.properties.ipconfigurations[0].properties.AccessControlList = $acl
@@ -240,7 +240,7 @@ New-NetworkControllerAccessControlList -ResourceId "Subnet-192-168-0-0" -Propert
 
 ## <a name="remove-an-acl-from-a-network-interface"></a>从网络接口中删除 ACL
 
-在此示例中，我们将向你展示如何从网络接口中删除 ACL。 删除 ACL 会将默认的规则集应用于网络接口。 默认规则集允许所有出站流量，但会阻止所有入站流量。 如果要允许所有入站流量，则必须按照前面的 [示例](#add-an-acl-to-a-network-interface) 添加允许所有入站和所有出站流量的 ACL。
+在此示例中，我们展示如何从网络接口中删除 ACL。 删除 ACL 会将默认的规则集应用于网络接口。 默认规则集允许所有出站流量，但阻止所有入站流量。 如果要允许所有入站流量，则必须按照前面的[示例](#add-an-acl-to-a-network-interface)添加允许所有入站和出站流量的 ACL。
 
 1. 获取将从中删除 ACL 的网络接口。
    ```PowerShell
@@ -259,9 +259,9 @@ New-NetworkControllerAccessControlList -ResourceId "Subnet-192-168-0-0" -Propert
 
 ## <a name="firewall-auditing"></a>防火墙审核
 
-防火墙审核是数据中心防火墙的一种新功能，用于记录 SDN 防火墙规则处理的任何流。 记录已启用日志记录的所有 Acl。 日志文件必须是与 [Azure 网络观察程序流日志](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)一致的语法。 这些日志可用于诊断或存档，以便以后进行分析。
+防火墙审核是在 Windows Server 2019 中引入的，它是数据中心防火墙的一项新功能，用于记录 SDN 防火墙规则处理的任何流。 将记录已启用日志记录的所有 ACL。 日志文件必须采用与 [Azure 网络观察程序流日志](/azure/network-watcher/network-watcher-nsg-flow-logging-overview)一致的语法。 可以使用这些日志进行诊断，也可以将其存档供以后分析。
 
-下面是一个示例脚本，用于在主机服务器上启用防火墙审核。 更新开头的变量，并在部署了 [网络控制器](../concepts/network-controller-overview.md) 的 Azure Stack HCI 群集上运行此操作：
+下面是一个示例脚本，用于在主机服务器上启用防火墙审核。 请更新开头的变量，并在部署了[网络控制器](../concepts/network-controller-overview.md)的 Azure Stack HCI 群集上运行此操作：
 
 ```PowerShell
 $logpath = "C:\test\log1"
@@ -289,7 +289,7 @@ foreach ($s in $servers) {
 }
 ```
 
-启用后，每个主机上的指定目录中会出现一个新文件，大约每小时一次。  应定期处理这些文件并将它们从主机中删除。  当前文件的长度为零，并被锁定，直到在下一个小时标记处刷新：
+启用后，每台主机上的指定目录中大约一小时会出现一个新文件。  应定期处理这些文件并将它们从主机中删除。  当前文件的长度为零。该文件处于锁定状态，一直锁定到在下一个小时标记处进行刷新为止：
 
 ```syntax
 PS C:\test\log1> dir
@@ -305,7 +305,7 @@ Mode                LastWriteTime         Length Name
 -a----        7/19/2018   9:28 AM              0 SdnFirewallAuditing.d8b3b697-5355-40e2-84d2-1bf2f0e0dc4a.20180719TL162803464.json
 ```
 
-这些文件包含一系列流事件，例如：
+这些文件包含一个流事件序列，例如：
 
 ```syntax
 {
@@ -334,7 +334,7 @@ Mode                LastWriteTime         Length Name
             },
 ```
 
-请注意，仅 **将日志记录设置为** " **已启用**" 的规则发生日志记录，例如：
+请注意，只有“日志记录”设置为“启用”的规则才会进行日志记录 ，例如：
 
 ```syntax
 {
@@ -412,4 +412,4 @@ Mode                LastWriteTime         Length Name
 
 - [数据中心防火墙概述](../concepts/datacenter-firewall-overview.md)
 - [网络控制器概述](../concepts/network-controller-overview.md)
-- [Azure Stack HCI 中的 SDN](../concepts/software-defined-networking.md)
+- [Azure Stack HCI 和 Windows Server 中的 SDN](../concepts/software-defined-networking.md)

@@ -1,24 +1,24 @@
 ---
-title: Azure Stack HCI 中用于 SDN 的软件负载均衡器 (SLB)
-description: 使用本主题了解 Azure Stack HCI 中用于软件定义的网络的软件负载均衡器。
+title: 'Azure Stack HCI 和 Windows Server 中 SDN 的软件负载均衡器 (SLB) '
+description: 使用本主题来了解 Azure Stack HCI 和 Windows Server 中软件定义的网络的软件负载均衡器。
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: 35cf6d997a7200b762b8da052e5e30038f288bdc
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: cabd243daa8ea427ca7a1684f1db9be4770c214f
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254987"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510765"
 ---
 # <a name="what-is-software-load-balancer-slb-for-sdn"></a>什么是用于 SDN 的软件负载均衡器 \(SLB\)？
 
-> 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
+> 适用于： Azure Stack HCI，版本 20H2;Windows Server 2019;Windows Server 2016
 
-部署 [Azure Stack HCI 中的软件定义的网络 (SDN)](software-defined-networking.md) 的云服务提供商 (CSP) 和企业可以使用软件负载均衡器 (SLB) 在虚拟网络资源之间平均分配租户和租户客户网络流量。 SLB 允许多台服务器承载相同的工作负载，具有较高的可用性和可扩展性。
+云服务提供商 (Csp) 以及部署 [软件定义的网络 (SDN ](software-defined-networking.md) 的企业) 可以使用软件负载平衡器 (SLB) 在虚拟网络资源之间均匀分配租户和租户客户网络流量。 SLB 允许多台服务器承载相同的工作负载，具有较高的可用性和可扩展性。
 
 软件负载均衡器提供以下功能：
 
@@ -206,4 +206,4 @@ BGP 路由器为软件负载均衡器执行以下操作：
 
 - [网络控制器概述](network-controller-overview.md)
 - [使用 Windows PowerShell 部署网络控制器](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
-- [Azure Stack HCI 中的 SDN](software-defined-networking.md)
+- [Azure Stack HCI 和 Windows Server 中的 SDN](software-defined-networking.md)

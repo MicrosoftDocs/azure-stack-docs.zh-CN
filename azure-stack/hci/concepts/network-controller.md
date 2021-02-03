@@ -1,22 +1,22 @@
 ---
 title: 规划部署网络控制器
-description: 本主题介绍如何规划通过 Windows Admin Center 在运行 Azure Stack HCI 操作系统的一组虚拟机 (VM) 上部署网络控制器。
+description: 本主题介绍了如何计划通过 Windows 管理中心将网络控制器部署 (Vm) 的一组虚拟机上。
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 10/7/2020
-ms.openlocfilehash: 3ac17ca9cd54c2ec387ceb39cbda76f7cb539305
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: bfea9216cefdc64c7749f8b49d5ecc3a422e5130
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255072"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510782"
 ---
 # <a name="plan-to-deploy-network-controller"></a>规划部署网络控制器
 
->适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
+>适用于： Azure Stack HCI，版本 20H2;Windows Server 2019;Windows Server 2016
 
-规划通过 Windows Admin Center 部署网络控制器需要运行 Azure Stack HCI 操作系统的一组虚拟机 (VM)。 网络控制器是高度可用且可缩放的服务器角色，需要至少三个 VM 才能在网络上提供高可用性。
+通过 Windows 管理中心规划部署网络控制器需要 (Vm) 运行 Azure Stack HCI 或 Windows Server 操作系统的虚拟机。 网络控制器是高度可用且可缩放的服务器角色，需要至少三个 VM 才能在网络上提供高可用性。
 
    >[!NOTE]
    > 我们建议将网络控制器部署在其自己的专用 VM 上。
@@ -56,12 +56,10 @@ ms.locfileid: "98255072"
 若要了解详细信息，请参阅[为网络控制器配置动态 DNS 注册](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)。
 
 ## <a name="next-steps"></a>后续步骤
-现在，你已准备好在运行操作系统的 Vm 上部署网络控制器。
-
-若要了解更多信息，请参阅以下文章：
-- [创建 Azure Stack HCI 群集](../deploy/create-cluster.md)
-- [使用 Windows PowerShell 部署网络控制器](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
+现在，你已准备好在 Vm 上部署网络控制器。
 
 ## <a name="see-also"></a>另请参阅
-- [网络控制器](/windows-server/networking/sdn/technologies/network-controller/network-controller)
+- [创建 Azure Stack HCI 群集](../deploy/create-cluster.md)
+- [使用 SDN Express 部署 SDN 基础结构](../manage/sdn-express.md)
+- [网络控制器概述](network-controller-overview.md)
 - [网络控制器高可用性](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability)

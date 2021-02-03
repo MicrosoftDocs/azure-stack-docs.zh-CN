@@ -94,8 +94,6 @@
           href: manage/monitor-cluster.md
         - name: 设置群集见证
           href: manage/witness.md
-        - name: 使用数据中心防火墙
-          href: manage/use-datacenter-firewall.md
         - name: 使用 DISKSPD 测试工作负荷
           href: manage/diskspd-overview.md
         - name: 添加或删除服务器
@@ -114,6 +112,8 @@
       items:
         - name: 部署 SDN 基础结构
           href: manage/sdn-express.md
+        - name: 使用数据中心防火墙
+          href: manage/use-datacenter-firewall.md
         - name: 管理租户虚拟网络
           href: manage/tenant-virtual-networks.md
     - name: 管理 Azure 服务

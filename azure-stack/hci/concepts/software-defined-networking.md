@@ -1,28 +1,28 @@
 ---
-title: Azure Stack HCI 中的软件定义的网络 (SDN)
+title: Azure Stack HCI 和 Windows Server 中 (SDN) 软件定义的网络
 description: 软件定义的网络 (SDN) 提供了一种方法，用于在数据中心中集中配置和管理网络和网络服务，如交换、路由和负载均衡。
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/22/2021
-ms.openlocfilehash: ee4046837b012f5ea55a85db418e2af35f84a7ee
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/02/2021
+ms.openlocfilehash: d67f16b65e13c700360bd85096dd1454745772c0
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772251"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510714"
 ---
-# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Azure Stack HCI 中的软件定义的网络 (SDN)
+# <a name="software-defined-networking-sdn-in-azure-stack-hci-and-windows-server"></a>Azure Stack HCI 和 Windows Server 中 (SDN) 软件定义的网络
 
-> 适用于 Azure Stack HCI 版本 20H2；Windows Server 2019
+> 适用于 Azure Stack HCI，版本 20H2;Windows Server 2019;Windows Server 2016
 
 软件定义的网络 (SDN) 提供了一种方法，用于在数据中心中集中配置和管理网络和网络服务，如交换、路由和负载均衡。 可以使用 SDN 动态创建、保护和连接网络，以满足不断演变的应用需求。 运营全球规模的数据中心网络，适用于 Microsoft Azure 的服务，这些服务每天有效地执行数十个网络更改，只是因为 SDN。
 
 虚拟网络元素（例如 [Hyper-V 虚拟交换机](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch)、[Hyper-V 网络虚拟化](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization)、[软件负载均衡](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)和 [RAS 网关](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn)）的作用是充当 SDN 基础结构的构成部分。 还可以使用现有 SDN 兼容设备，在虚拟网络中运行的工作负载与物理网络之间实现更深入的集成。
 
-Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组件：网络控制器、软件负载均衡器和网关。
+有三个主要 SDN 组件，你可以选择要部署的组件：网络控制器、软件负载平衡器和网关。
 
    > [!NOTE]
    > 拉伸（多站点）群集不支持 SDN。
@@ -38,7 +38,7 @@ Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组�
 - 将虚拟设备连接到虚拟网络。
 - 为连接到虚拟网络或基于 VLAN 的传统网络的 VM 配置服务质量 (QoS) 策略。
 
-建议在创建 Azure Stack HCI 群集后， [使用 SDN Express 部署网络控制器](../manage/sdn-express.md) 。
+建议 [使用 SDN Express 部署网络控制器](../manage/sdn-express.md)。
 
 ## <a name="software-load-balancing"></a>软件负载均衡 (SLB)
 
@@ -59,5 +59,4 @@ Azure Stack HCI 上有三个主要 SDN 组件，你可以选择要部署的组�
 如需相关信息，另请参阅：
 
 - [规划软件定义的网络基础结构](plan-software-defined-networking-infrastructure.md)
-- [Windows Server 中的 SDN 概述](/windows-server/networking/sdn/software-defined-networking)
 - [使用 SDN Express 部署 SDN 基础结构](../manage/sdn-express.md)

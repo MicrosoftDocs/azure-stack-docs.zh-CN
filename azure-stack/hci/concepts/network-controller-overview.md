@@ -1,22 +1,22 @@
 ---
-title: Azure Stack HCI 中的网络控制器概述
-description: 使用本主题了解 Azure Stack HCI 中用于软件定义的网络的网络控制器。
+title: Azure Stack HCI 和 Windows Server 中的网络控制器概述
+description: 使用本主题来了解 Azure Stack HCI 和 Windows Server 中用于软件定义的网络的网络控制器。
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: f8c559ff409cb6344f20ffa85a60983724ae5b17
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: e73d76657ec8f92ced5397f1b5d251cffbe59b9d
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255038"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510867"
 ---
 # <a name="what-is-network-controller"></a>什么是网络控制器？
 
-> 适用于 Azure Stack HCI 版本 20H2；Windows Server 2019
+> 适用于 Azure Stack HCI，版本 20H2;Windows Server 2019;Windows Server 2016
 
 网络控制器是软件定义的网络 (SDN) 管理的基础。 这是一种高度可缩放的服务器角色，提供了一种集中的可编程自动操作点，用于对虚拟网络基础结构进行管理、配置、监视和故障排除。
 
@@ -76,11 +76,10 @@ ms.locfileid: "98255038"
 
 - 为了实现高可用性和可伸缩性，网络控制器依赖于 Service Fabric。 Service Fabric 提供一种分布式系统平台，用于生成可缩放、可靠且易于管理的应用程序。 [了解有关网络控制器作为 Service Fabric 应用程序的详细信息](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability#network-controller-as-a-service-fabric-application)。
 
-
 ## <a name="next-steps"></a>后续步骤
 
 如需相关信息，另请参阅：
 
 - [规划部署网络控制器](network-controller.md)
 - [使用 Windows PowerShell 部署网络控制器](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
-- [Azure Stack HCI 中的 SDN](software-defined-networking.md)
+- [Azure Stack HCI 和 Windows Server 中的 SDN](software-defined-networking.md)
