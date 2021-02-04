@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: sethm
 ms.lastreviewed: 11/20/2020
-ms.openlocfilehash: b30a99182f1c8c1392ae73ec0e70bc06b35a343f
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: e503bb3124e0b85ceb2816c6cd18af8580eaa61c
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518290"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533988"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>允许应用访问 Azure Stack Hub Key Vault 机密
 
@@ -73,7 +73,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -EnvironmentName AzureStackUser
 
 # Sign in to the user portal.
-Add-AzAccount `
+Connect-AzAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
 

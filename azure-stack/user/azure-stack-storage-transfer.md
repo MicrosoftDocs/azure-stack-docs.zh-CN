@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 7593d650846d745f99a48bb82a74096ff78cab72
-ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
+ms.openlocfilehash: 209f42ce605f4c3a5abd5fc1ee7ee9df01a6bca9
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227338"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534192"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>在 Azure Stack Hub 存储中使用数据传输工具
 
@@ -152,7 +152,7 @@ Add-AzEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Add-AzAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Connect-AzAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
 Select-AzSubscription -SubscriptionName $SubscriptionName

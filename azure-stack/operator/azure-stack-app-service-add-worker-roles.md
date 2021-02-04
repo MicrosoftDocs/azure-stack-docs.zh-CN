@@ -7,12 +7,12 @@ ms.date: 1/29/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 1/29/2020
-ms.openlocfilehash: fe13c43859a3eaabb64b327953159ae67a5f2cee
-ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
+ms.openlocfilehash: 442831a05950342718c0ee0fc0ced2395627eca6
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227436"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534022"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>在 Azure Stack Hub 上的 Azure 应用服务中添加辅助角色和基础结构
 
@@ -42,7 +42,7 @@ Azure Stack Hub 上的 Azure 应用服务默认支持免费的和共享的辅助
     ##### Scale out the AppService Role instances ######
     
     # Set context to AzureStack admin.
-    Login-AzAccount -EnvironmentName AzureStackAdmin
+    Connect-AzAccount -EnvironmentName AzureStackAdmin
                                                     
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"

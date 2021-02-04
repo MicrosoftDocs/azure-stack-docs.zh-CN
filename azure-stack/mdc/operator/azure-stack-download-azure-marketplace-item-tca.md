@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 7a296065696200d83e30e33f973ed16e62e789b5
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 564c1feb8735a8141ccc3c010d566454d62b29a2
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255395"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534056"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub---modular-data-center-mdc"></a>将 Marketplace 项下载到 Azure Stack 集线器-模块化数据中心 (MDC)  
 
@@ -78,7 +78,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 ### <a name="download-marketplace-items-from-azure"></a>从 Azure 下载 Marketplace 项
 
-#### <a name="prerequisites"></a>先决条件
+#### <a name="prerequisites"></a>必备条件
 
 - 计算机上安装 Azure PowerShell。
 
@@ -107,7 +107,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
     或者，如果已通过 Azure PowerShell 登录，则可以传入 Azure 上下文：
 
     ```powershell
-    Add-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
+    Connect-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
     .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
     ```
     如果未传入 Azure 上下文，则会要求你登录。
@@ -143,7 +143,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>将 Marketplace 项上载到 Azure Stack 中心
 
-#### <a name="prerequisites"></a>先决条件
+#### <a name="prerequisites"></a>必备条件
 
 - Azure Stack 管理员资源管理器终结点和目录租户。
 
@@ -166,7 +166,7 @@ Azure Stack 中心部署必须具有 internet 连接并 [已注册到 Azure](reg
     ```powershell
     Add-AzEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
 
-    Add-AzAccount -Environment Redmond-Admin
+    Connect-AzAccount -Environment Redmond-Admin
 
     .\Invoke-AzsMarketplaceUpload.ps1 -DownloadFolder F:\Downloads\offlining -AzureContext $(GetAzContext)
     ```

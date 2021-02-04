@@ -7,12 +7,12 @@ ms.date: 1/29/2021
 ms.author: patricka
 ms.reviewer: shnatara
 ms.lastreviewed: 1/29/2021
-ms.openlocfilehash: 1a61b2c8c4a8abf6087aea629486260d0e114f89
-ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
+ms.openlocfilehash: 40e4fbff8a04db2a6f2218d60d548df3c75236ba
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227393"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533872"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>更改 Azure Stack Hub 用户订阅的计费所有者
 
@@ -47,7 +47,7 @@ Azure Stack Hub 操作员可以使用 PowerShell 更改用户订阅的计费所�
 ```powershell
 # Set up Azure Stack Hub admin environment
 Add-AzEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
-Add-AzAccount -Environment AzureStack-admin -TenantId $TenantId
+Connect-AzAccount -Environment AzureStack-admin -TenantId $TenantId
 
 # Select admin subscription
 $providerSubscriptionId = (Get-AzSubscription -SubscriptionName "Default Provider Subscription").Id

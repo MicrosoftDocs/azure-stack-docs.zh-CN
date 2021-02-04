@@ -7,12 +7,12 @@ ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 11/17/2020
-ms.openlocfilehash: 81cefb08d6fd0d1fc773221d52393c8a3ae6fddf
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 7db231e1bca513bf3755f8e9c078fb40d00cfa09
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517882"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533835"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>将租户添加到 Azure Stack Hub 以获取用量和计费信息
 
@@ -54,7 +54,7 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
 1. 在权限提升的提示符窗口中打开 Windows PowerShell 并运行：  
 
    ```powershell
-   Add-AzAccount
+   Connect-AzAccount
    ```
 
    >[!NOTE]
@@ -67,9 +67,9 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
    New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-**AzResource PowerShell 参数**
+New-AzResource PowerShell 参数
 
-以下部分介绍了 **AzResource** cmdlet 的参数：
+以下部分描述 New-AzResource cmdlet 的参数：
 
 | 参数 | 说明 |
 | --- | --- |
@@ -96,9 +96,9 @@ CSP 通常向其 Azure Stack Hub 部署中的多个最终客户（租户）提�
    New-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-**Move-azurermresource PowerShell 参数**
+New-AzureRMResource PowerShell 参数
 
-以下部分介绍了 **move-azurermresource** cmdlet 的参数：
+以下部分描述 New-AzureRMResource cmdlet 的参数：
 
 | 参数 | 说明 |
 | --- | --- |

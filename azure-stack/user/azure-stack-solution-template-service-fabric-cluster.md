@@ -7,12 +7,12 @@ ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 11/20/2020
-ms.openlocfilehash: cf8d4d7ea8e1a88bb8d162bb2c5fc5e4bc41d21a
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 8196ac3bd4a945a3f620e83c9cdf44b189add3f4
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518307"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534209"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>在 Azure Stack Hub 中部署 Service Fabric 群集
 
@@ -100,7 +100,7 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
    #==============================================================================
    
    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-   Login-AzAccount -Environment AzureStack -TenantId $tenantId
+   Connect-AzAccount -Environment AzureStack -TenantId $tenantId
    
    $rgName = "sfvaultrg"
    Write-Host "Creating Resource Group..." -ForegroundColor Yellow
@@ -176,23 +176,23 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
  
 
 
-有关详细信息，请参阅 [通过 PowerShell 管理 Azure Stack 中心的 Key Vault](azure-stack-key-vault-manage-powershell.md)。
+有关详细信息，请参阅[使用 PowerShell 管理 Azure Stack Hub 上的 Key Vault](azure-stack-key-vault-manage-powershell.md)。
 
 ## <a name="deploy-the-marketplace-item"></a>部署市场项
 
-1. 在用户门户中，请参阅 " **+ 创建资源**  >  **计算**  >  **Service Fabric 群集**"。 
+1. 在用户门户中，转到“+ 创建资源” > “计算” > “Service Fabric 群集”。   
 
    ![选择“Service Fabric 群集”](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
 2. 填写每个页（例如“基本信息”）中的部署窗体。 如果不确定要指定哪个值，请使用默认值。
 
-    若要部署到断开连接的 Azure Stack 中心或部署 Service Fabric 的另一版本，请下载 Service Fabric 部署包及其相应的运行时包，并将其托管在 Azure Stack 中心 blob 上。 向“Service Fabric 部署包 URL”和“Service Fabric 运行时包 URL”字段提供这些值。
+    若要部署到断开连接的 Azure Stack Hub 或部署另一个版本的 Service Fabric，请下载 Service Fabric 部署包及其相应的运行时包，并将其托管在 Azure Stack Hub blob 上。 向“Service Fabric 部署包 URL”和“Service Fabric 运行时包 URL”字段提供这些值。
     > [!NOTE]  
     > 最新版本的 Service Fabric 及其相应的 SDK 之间存在兼容性问题。 在解决该问题之前，请向部署包 URL 和运行时包 URL 提供以下参数。 否则，部署将失败。
     > - Service Fabric 部署包 URL：<https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
     > - Service Fabric 运行时包 URL：<https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
     >
-    > 对于断开连接的部署，请从指定位置下载这些包，并将其在本地 Azure Stack 中心 Blob 上托管。
+    > 对于断开连接的部署，请从指定位置下载这些包并将其托管在本地 Azure Stack Hub Blob 上。
 
    ![基础](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
@@ -205,12 +205,12 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
 
    对于“管理客户端证书指纹”，请输入管理客户端证书的指纹。 （请参阅[先决条件](#prerequisites)。）
    
-   - 源 Key Vault：指定 `keyVault id` 脚本结果中的整个字符串。 
-   - 群集证书 URL：从脚本结果中的中指定整个 URL `Secret Id` 。 
+   - 源 Key Vault：指定脚本结果中的完整 `keyVault id` 字符串。 
+   - 群集证书 URL：指定脚本结果中的 `Secret Id` 中的完整 URL。 
    - 群集证书指纹：指定脚本结果中的 *Cluster Certificate Thumbprint*（群集证书指纹）。
-   - 服务器证书 URL：如果想要使用群集证书中的单独证书，请将证书上传到 keyvault，并提供机密的完整 URL。 
+   - 服务器证书 URL：如果要使用群集证书中的单独证书，请将证书上传到密钥保管库，并提供机密的完整 URL。 
    - 服务器证书指纹：指定服务器证书的指纹
-   - 管理员客户端证书指纹：指定在先决条件中创建的 *管理员客户端证书指纹* 。 
+   - 管理客户端证书指纹：指定在先决条件中创建的 *管理客户端证书指纹*。 
 
    ![脚本输出](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -227,7 +227,7 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
 ### <a name="use-service-fabric-explorer"></a>使用 Service Fabric Explorer
 1.  确保浏览器是否能够访问你的管理客户端证书，以及是否可在 Service Fabric 群集中进行身份验证。  
 
-    a. 打开 internet Explorer 并中转到 " **internet 选项**" "  >  **内容**  >  **证书**"。
+    a. 打开 Internet Explorer 并转到“Internet 选项” > “内容” > “证书”。  
   
     b. 在“证书”中，选择“导入”启动“证书导入向导”，然后单击“下一步”。 在“要导入的文件”页上单击“浏览”，然后选择提供给 Azure 资源管理器模板的 **管理客户端证书**。
         
@@ -257,7 +257,7 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
 
 1. 若要在站点中进行身份验证，必须选择要使用的证书。 选择“更多选项”，选择适当的证书，然后单击“确定”连接到 Service Fabric Explorer。 
 
-   ![Authenticate](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
+   ![身份验证](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
 
 
@@ -267,7 +267,7 @@ Azure Stack Hub 中的 Service Fabric 群集不使用资源提供程序 Microsof
 
 1. 安装完成后，配置系统环境变量，确保可从 PowerShell 访问 Service Fabric cmdlet。  
     
-    a. 中转到 **"控制面板" "**  >  **系统和安全**" "系统  >  **System**"，然后选择 "**高级系统设置**"。  
+    a. 转到“控制面板” > “系统和安全” > “系统”并选择“高级系统设置”。     
     
       ![控制面板](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 

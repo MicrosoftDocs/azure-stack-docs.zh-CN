@@ -1,18 +1,18 @@
 ---
 title: 以用户身份使用 PowerShell 连接到 Azure Stack Hub
-description: 了解如何使用 PowerShell 连接到 Azure Stack 集线器以使用交互式提示符或编写脚本。
+description: 了解如何使用 PowerShell 连接到 Azure Stack Hub 以使用交互式提示或编写脚本。
 author: mattbriggs
 ms.topic: article
 ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: bc0eb1beeec831dee64f300aba4d977546a00058
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: f89fa7e7e4e8e35b209f0b22a5994c45ede6a17c
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518256"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533971"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>以用户身份使用 PowerShell 连接到 Azure Stack Hub
 
@@ -51,7 +51,7 @@ ms.locfileid: "95518256"
 
     # After signing in to your environment, Azure Stack Hub cmdlets
     # can be easily targeted at your Azure Stack Hub instance.
-    Add-AzAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
+    Connect-AzAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
  
@@ -79,7 +79,7 @@ ms.locfileid: "95518256"
   Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   # Sign in to your environment
-  Login-AzAccount -EnvironmentName "AzureStackUser"
+  Connect-AzAccount -EnvironmentName "AzureStackUser"
   ```
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
  
@@ -124,7 +124,7 @@ Get-AzureRMResourceProvider -ListAvailable | Register-AzureRMResourceProvider
 
 ## <a name="test-the-connectivity"></a>测试连接
 
-完成所有设置后，通过使用 PowerShell 在 Azure Stack Hub 中创建资源来测试连接性。 作为测试，为应用程序创建资源组并添加 VM。 运行以下命令创建名为“MyResourceGroup”的资源组：
+完成所有设置后，请通过使用 PowerShell 在 Azure Stack Hub 中创建资源来测试连接。 作为测试，为应用程序创建资源组并添加 VM。 运行以下命令创建名为“MyResourceGroup”的资源组：
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az4)
 ```powershell  
@@ -144,5 +144,5 @@ New-AzureRMResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [为 Azure Stack Hub 开发模板](azure-stack-develop-templates.md)
 - [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
-- [Azure Stack 中心 PowerShell 模块参考](/powershell/azure/azure-stack/overview)
-- 若要为云运营商环境设置 PowerShell，请参阅 [配置 Azure Stack 集线器操作员的 powershell 环境](../operator/azure-stack-powershell-configure-admin.md) 一文。
+- [Azure Stack Hub PowerShell 模块参考](/powershell/azure/azure-stack/overview)
+- 若要为云操作员环境设置 PowerShell，请参阅[配置 Azure Stack Hub 操作员的 PowerShell 环境](../operator/azure-stack-powershell-configure-admin.md)一文。

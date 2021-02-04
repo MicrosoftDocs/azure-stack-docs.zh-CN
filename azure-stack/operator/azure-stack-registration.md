@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 11/19/2020
 ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 8710e70a961519c772f3242c275406253c6bb5ce
-ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
+ms.openlocfilehash: 97a730d61d5ba67124771185deb3fd51c269938a
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227438"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534141"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>将 Azure Stack Hub 注册到 Azure
 
@@ -123,10 +123,10 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 1. 若要向 Azure 注册 Azure Stack Hub 资源提供程序，请以管理员身份启动 PowerShell ISE，然后使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为相应的 Azure 订阅类型（请参阅下面的“参数”）。
 
-2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
+2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **AzAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
    ```powershell
-   Add-AzAccount -EnvironmentName "<environment name>"
+   Connect-AzAccount -EnvironmentName "<environment name>"
    ```
 
    | 参数 | 说明 |  
@@ -134,7 +134,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
    | EnvironmentName | Azure 云订阅环境名称。 支持的环境名称为 **AzureCloud**、 **AzureUSGovernment** 或使用中国 Azure 订阅 **AzureChinaCloud**。  |
 
    >[!Note]
-   > 如果会话过期、密码已更改，或者只是希望切换帐户，请在使用 Add-AzAccount 登录之前运行以下 cmdlet：`Remove-AzAccount-Scope Process`
+   > 如果会话过期，你的密码已更改，或者你只是想要切换帐户，请在使用 AzAccount 登录之前运行以下 cmdlet： `Remove-AzAccount-Scope Process`
 
 3. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：  
 
@@ -252,7 +252,7 @@ Azure Stack Hub 工具 GitHub 存储库包含支持 Azure Stack Hub 功能（包
 
 1. 若要向 Azure 注册 Azure Stack Hub 资源提供程序，请以管理员身份启动 PowerShell ISE，然后使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为相应的 Azure 订阅类型（请参阅下面的“参数”）。
 
-2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
+2. 添加用于注册 Azure Stack Hub 的 Azure 帐户。 若要添加该帐户，请运行 **AzAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。根据帐户的配置，可能需要使用双因素身份验证。
 
    ```powershell  
    Connect-AzAccount -Environment "<environment name>"

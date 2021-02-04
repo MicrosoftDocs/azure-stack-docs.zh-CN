@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: db85757fd898d0b75ace50c8fe78ecaa31722bc2
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 1ca64f3d6084ca4f28967070c344b286e858cb9d
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518035"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534073"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>创建并发布自定义 Azure Stack Hub 市场项
 
@@ -161,7 +161,7 @@ ms.locfileid: "95518035"
     ```powershell
     $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
     Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
-    Add-AzAccount -EnvironmentName "AzureStackAdmin"
+    Connect-AzAccount -EnvironmentName "AzureStackAdmin"
     ```
 
 4. 运行以下脚本，将资源导入库中：
@@ -184,7 +184,7 @@ ms.locfileid: "95518035"
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. 可以使用 **AzGalleryItem** Cmdlet 删除 Marketplace 项。 例如：
+6. 可以使用 Remove-AzGalleryItem cmdlet 删除市场项。 例如：
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -227,7 +227,7 @@ ms.locfileid: "95518035"
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. 可以使用 **AzGalleryItem** Cmdlet 删除 Marketplace 项。 例如：
+6. 可以使用 Remove-AzGalleryItem cmdlet 删除市场项。 例如：
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -242,7 +242,7 @@ ms.locfileid: "95518035"
 
 ### <a name="identity-information"></a>标识信息
 
-| 名称 | 必须 | 类型 | 约束 | 说明 |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | 名称 |X |String |[A-Za-z0-9]+ | |
 | 发布者 |X |String |[A-Za-z0-9]+ | |
@@ -250,7 +250,7 @@ ms.locfileid: "95518035"
 
 ### <a name="metadata"></a>Metadata
 
-| 名称 | 必须 | 类型 | 约束 | 说明 |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法正确地显示项名称。 |
 | PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法正确地显示发布者名称。 |
@@ -279,7 +279,7 @@ ms.locfileid: "95518035"
 
 每个市场项可以包括指向其他内容的各种链接。 链接以名称和 URI 的列表形式进行指定：
 
-| 名称 | 必须 | 类型 | 约束 | 说明 |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最多 64 个字符。 | |
 | Uri |X |URI | | |
@@ -288,7 +288,7 @@ ms.locfileid: "95518035"
 
 除了前面的元数据之外，市场作者可以采用以下形式提供自定义键/值对数据：
 
-| 名称 | 必须 | 类型 | 约束 | 说明 |
+| 名称 | 必选 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最多 25 个字符。 | |
 | Value |X |String |最多 30 个字符。 | |

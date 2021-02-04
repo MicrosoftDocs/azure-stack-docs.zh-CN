@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/29/2021
+ms.date: 02/03/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 63a7a8104c772a23a349d9e1888818b4c59aa298
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: ea286718f2f4c0fcd2bdf935d5e12d462d07856f
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247653"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533920"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -133,7 +133,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2008 之后，如果有任何 2008 修补程序被发布，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2008.23.108](https://support.microsoft.com/topic/c0d203fd-7585-4c8d-8ea5-ae13897e352e)
+- [Azure Stack 中心修补程序1.2008.25.114](https://support.microsoft.com/topic/87ee234e-7f33-4342-bc0a-5779dbb33263)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -233,7 +233,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2005 之后，如果以后发布了任何 2005 修补程序，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2005.28.98](https://support.microsoft.com/topic/ecf727b1-3dc1-4070-ace8-1291cc437389)
+- [Azure Stack 中心修补程序1.2005.29.100](https://support.microsoft.com/topic/10c1b6e2-7bf7-4f71-8204-f1b12e2f744a)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

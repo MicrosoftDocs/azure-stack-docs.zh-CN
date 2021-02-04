@@ -114,6 +114,8 @@
           href: manage/sdn-express.md
         - name: 使用数据中心防火墙
           href: manage/use-datacenter-firewall.md
+        - name: 管理租户逻辑网络
+          href: manage/tenant-logical-networks.md
         - name: 管理租户虚拟网络
           href: manage/tenant-virtual-networks.md
     - name: 管理 Azure 服务
@@ -132,10 +134,6 @@
           href: manage/use-azure-backup.md
         - name: 使用 Azure 网络适配器
           href: manage/use-azure-network-adapter.md
-    - name: 管理 SDN
-      items:
-        - name: 租户逻辑网络
-          href: manage/tenant-logical-networks.md
 - name: 概念
   items:
     - name: 存储和群集

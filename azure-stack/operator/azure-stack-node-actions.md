@@ -7,12 +7,12 @@ ms.date: 1/19/2021
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 1/19/2021
-ms.openlocfilehash: 5bececf48222c9dc7401df7cb84d83f375c93d75
-ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
+ms.openlocfilehash: 67f381a50d1b98361207a00a300921a636679326
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98584287"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534158"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub 中的缩放单元节点操作
 
@@ -70,7 +70,7 @@ Azure Stack Hub 在执行排出、恢复、修复、关闭或启动之类的操�
 
     ```powershell
     Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-    Add-AzAccount -Environment AzureStack
+    Connect-AzAccount -Environment AzureStack
     ```
 
 2. 运行以下命令以重启 Fabric 资源提供程序角色。

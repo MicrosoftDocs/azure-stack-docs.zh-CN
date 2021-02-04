@@ -3,16 +3,16 @@ title: 使用 PowerShell 连接到 Azure Stack Hub
 description: 了解如何使用 PowerShell 连接到 Azure Stack Hub。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: 791923d3b2deacdc886dfcc0167736bd7214f9b8
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.lastreviewed: 2/1/2021
+ms.openlocfilehash: ab38cc4b00da140a529df43ac49789d7eab80327
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697625"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534175"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>使用 PowerShell 连接到 Azure Stack Hub
 
@@ -46,7 +46,7 @@ ms.locfileid: "97697625"
 
     # After signing in to your environment, Azure Stack Hub cmdlets
     # can be easily targeted at your Azure Stack Hub instance.
-    Add-AzAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
+    Connect-AzAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm1)
 
@@ -84,7 +84,7 @@ ms.locfileid: "97697625"
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
   # Sign in to your environment.
-  Login-AzAccount -EnvironmentName "AzureStackAdmin"
+  Connect-AzAccount -EnvironmentName "AzureStackAdmin"
   ```
 
 ### <a name="azurerm-modules"></a>[AzureRM 模块](#tab/azurerm2)
@@ -123,7 +123,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用 PowerShell 管理 Azure Stack 中心的订阅、计划和产品/服务](azure-stack-powershell-plan-offer.md)
+- [使用 PowerShell 管理 Azure Stack Hub 中的订阅、计划和套餐](azure-stack-powershell-plan-offer.md)
 - [为 Azure Stack Hub 开发模板](../user/azure-stack-develop-templates.md)。
 - [使用 PowerShell 部署模板](../user/azure-stack-deploy-template-powershell.md)。
 - [Azure Stack Hub 模块参考](/powershell/azure/azure-stack/overview)。
