@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 9da037a08aaa7394306c518211fc045453530a71
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 38628b6fba6136149cb6ef7e7ce818e2e2039d11
+ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246956"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99554131"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 
@@ -26,10 +26,10 @@ ms.locfileid: "99246956"
 
 本部分介绍如何为群集创建 API 模型。
 
-1.  首先使用 Azure Stack Hub [示例](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) API 模型文件，为部署创建本地副本。 在安装 AKS 引擎的计算机上运行：
+1.  首先使用适用于 [Linux](https://aka.ms/aksengine-json-example-raw) 的 AZURE STACK 中心 API 模型文件或适用于 [Windows](https://aka.ms/aksengine-json-example-raw-win) 的，并为部署创建本地副本。 在安装 AKS 引擎的计算机上运行：
 
     ```bash
-    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
+    curl -o kubernetes-azurestack.json https://aka.ms/aksengine-json-example-raw
     ```
 
     > [!NOTE]  
@@ -75,7 +75,7 @@ ms.locfileid: "99246956"
 
     | 字段 | 说明 |
     | --- | --- |
-    | count | 输入要用于部署的代理数。 每个订阅使用的节点的最大数目为 50 个。 如果要为每个订阅部署多个群集，请确保代理总数不超过 50 个。 请确保使用[示例 API 模型 JSON 文件](https://aka.ms/aksengine-json-example)中指定的配置项目。  |
+    | count | 输入要用于部署的代理数。 每个订阅使用的节点的最大数目为 50 个。 如果要为每个订阅部署多个群集，请确保代理总数不超过 50 个。 请确保使用[示例 API 模型 JSON 文件](https://aka.ms/aksengine-json-example-raw)中指定的配置项目。  |
     | vmSize | 输入 [Azure Stack Hub 支持的大小](./azure-stack-vm-sizes.md)，例如 `Standard_D2_v2`。 |
     | distro | 输入 `aks-ubuntu-16.04`。 |
 

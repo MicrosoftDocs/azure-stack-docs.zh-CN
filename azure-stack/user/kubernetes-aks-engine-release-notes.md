@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 9bc1e73213743f1457a16bcce3a9ff4e69d370ef
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 35fbcf51430d063110f4f14ae1203f79df6cf739
+ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247670"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99554111"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上的 AKS 引擎发行说明
 ::: moniker range=">=azs-2002"
@@ -94,7 +94,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 | 1.15.12、1.16.8、1.16.9 | 1.16.14 |
 | 1.16.8、1.16.9、1.16.14 | 1.17.11 |
 
-在 API 模型 json 文件中，请在 `orchestratorProfile` 部分下指定发行版和版本值，例如，如果计划部署 Kubernetes 1.16.14，则必须设置以下两个值（请参阅示例 [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json)）：
+在 API 模型 json 文件中，请在 `orchestratorProfile` 部分下指定发行版和版本值，例如，如果计划部署 Kubernetes 1.16.14，则必须设置以下两个值（请参阅示例 [kubernetes-azurestack.json](https://aka.ms/aksengine-json-example-raw)）：
 
 ```json  
     -   "orchestratorRelease": "1.16",
@@ -205,7 +205,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 
 ## <a name="whats-new"></a>新增功能 
 
--   支持 Kubernetes 版本 1.15.10 ([\#2834](https://github.com/Azure/aks-engine/issues/2834))。 部署新群集时，请确保在你的 API 模型 json 文件（即 群集定义文件）中指定发行版本号和次版本号。 你可以找到示例：[kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json)：
+-   支持 Kubernetes 版本 1.15.10 ([\#2834](https://github.com/Azure/aks-engine/issues/2834))。 部署新群集时，请确保在你的 API 模型 json 文件（即 群集定义文件）中指定发行版本号和次版本号。 你可以找到示例：[kubernetes-azurestack.json](https://aka.ms/aksengine-json-example-raw)：
 
     - `"orchestratorRelease": "1.15`,
 
