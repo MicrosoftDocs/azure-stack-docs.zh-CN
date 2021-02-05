@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 02/03/2021
-ms.openlocfilehash: e82980a5dca347549672dd519132c1f1754c3929
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.date: 02/04/2021
+ms.openlocfilehash: 7c501650d5c9a4d2d6df66269f689d80ffd3f8e0
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554069"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570678"
 ---
 # <a name="compare-azure-stack-hci-to-azure-stack-hub"></a>将 Azure Stack HCI 与 Azure Stack 中心进行比较
 
@@ -42,7 +42,7 @@ ms.locfileid: "99554069"
 | Azure Stack HCI                                                                 | Azure Stack Hub                                                                          |
 | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | Azure Stack HCI 原生不会实施或提供多租户。 | 针对自助式基础结构即服务 (IaaS) 使用 Azure Stack Hub，因为其具有强式隔离，并且可对位于相同位置的多个租户精确地跟踪使用情况和进行费用分摊。 非常适合用于服务提供商和企业私有云。 来自 Azure 市场的模板。 | 
-| Azure Stack HCI 不打算在本地运行平台即服务 (PaaS) 服务，尽管它确实包括托管 [Azure Kubernetes 服务](/azure-stack/aks-hci/overview.md)的功能。 | 使用 Azure Stack 集线器开发和运行依赖于 PaaS 服务（如 Web 应用、函数或本地事件中心）的应用。 在 Azure Stack Hub 上运行的这些服务完全与在 Azure 中运行一样，从而提供一致的混合开发和运行时环境。 |
+| Azure Stack HCI 不打算在本地运行平台即服务 (PaaS) 服务，尽管它确实包括托管 [Azure Kubernetes 服务](../../aks-hci/overview.md)的功能。 | 使用 Azure Stack 集线器开发和运行依赖于 PaaS 服务（如 Web 应用、函数或本地事件中心）的应用。 在 Azure Stack Hub 上运行的这些服务完全与在 Azure 中运行一样，从而提供一致的混合开发和运行时环境。 |
 | Azure Stack HCI 原生不包括任何 DevOps 工具。 | 使用 Azure Stack Hub 现代化应用部署和配合 DevOps 做法的操作，这些做法包括基础结构即代码、持续集成和持续部署 (CI/CD)，以及 Azure 一致性 VM 扩展等便利功能。 非常适合用于开发和 DevOps 团队。 |
 
 ## <a name="next-steps"></a>后续步骤

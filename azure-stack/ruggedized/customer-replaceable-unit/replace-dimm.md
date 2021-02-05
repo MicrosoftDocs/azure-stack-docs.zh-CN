@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 3665ac12c42cac7a87ae9c69f4fc450b4f76cf3d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 66b2bc606aefd07d693d8fc86b042f321550271b
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867819"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571276"
 ---
 # <a name="replacing-a-dimm"></a>更换 DIMM
 
@@ -24,9 +24,9 @@ ms.locfileid: "97867819"
 
 2.  查看处理预防措施。
 
-3.  检查
+3.  审阅
 
-    -   如果使用缩放单位节点，则使用战术性云设备中的缩放单位节点所需的知识
+    -   如果使用缩放单位节点，则在耐用 Cloud 设备中使用缩放单元节点所需的知识
 
     -   如果使用的是硬件生命周期主机，则使用硬件生命周期主机所需的知识
 

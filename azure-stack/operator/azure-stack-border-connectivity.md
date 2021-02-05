@@ -3,16 +3,16 @@ title: Azure Stack Hub 集成系统的边界连接和网络集成
 description: 了解如何在 Azure Stack Hub 集成系统中规划数据中心边界网络连接。
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 01/14/2021
 ms.author: patricka
 ms.reviewer: wamota
-ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 1377f04a9c746a41ed1965a2798a1dbfd3b0db21
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 01/14/2021
+ms.openlocfilehash: 091b6e5d1ac4c097c39e425cb6b15da4db96a7a1
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871542"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570644"
 ---
 # <a name="border-connectivity"></a>边界连接 
 网络集成规划是成功进行 Azure Stack Hub 集成系统部署、操作和管理的重要先决条件。 边界连接规划从选择是否要将动态路由与边界网关协议 (BGP) 一起使用开始。 这需要分配一个 16 位自治系统编号 (ASN)（公共或专用），或使用静态路由。
@@ -50,17 +50,7 @@ TOR 设备配置有将所有流量发送到边界设备的静态默认路由。 
 
 <sup>\*\*\*</sup> 交换机管理网络是必需的，可以与交换机基础结构网络分开添加。
 
-## <a name="transparent-proxy"></a>透明代理
-如果数据中心要求所有流量都使用代理，则必须配置“透明代理”以便根据策略处理来自机架的所有流量，并分离网络上不同区域之间的流量。
-
-> [!IMPORTANT]
-> Azure Stack Hub 解决方案不支持普通 Web 代理。  
-
-透明代理（也称为截获、内联或强制代理）将截获网络层的正常通信，而无需任何特殊的客户端配置。 客户端不需要知道代理是否存在。
-
-![透明代理](media/azure-stack-border-connectivity/transparent-proxy.svg)
-
-SSL 流量拦截[不受支持](azure-stack-firewall.md#ssl-interception)，并且在访问终结点时可能会导致服务故障。 与标识所需的终结点进行通信时，支持的最大超时值为 60 秒，并可以进行 3 次重试尝试。
-
 ## <a name="next-steps"></a>后续步骤
-[DNS 集成](azure-stack-integrate-dns.md)
+
+- [DNS 集成](azure-stack-integrate-dns.md)
+- [Azure Stack 中心的透明代理](azure-stack-transparent-proxy.md)

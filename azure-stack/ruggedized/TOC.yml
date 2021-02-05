@@ -555,16 +555,16 @@
                 - name: Azure Stack 集线器硬件图示
                   href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
                 - name: 服务器概述
-                  href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
+                  href: customer-replaceable-unit/r640-server-overview.md
                 - name: 指示器和代码
-                  href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
+                  href: customer-replaceable-unit/indicators-and-codes.md
                 - name: 通过直接 USB 连接访问 iDRAC 接口
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
                 - name: 通过 iDRAC 接口安装固件
                   href: customer-replaceable-unit/install-firmware-using-idrac.md
                 - name: 特权访问工作站和特权终结点访问
                   href: customer-replaceable-unit/privileged-access-workstation.md
-    - name: 参考
+    - name: 引用
       items:
         - name: Azure Stack 中心操作员
           href: ../operator/index.yml

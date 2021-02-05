@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 418501e5ee6e2f14536ace5ea61f172d2736a31a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: c04f4af7b19fd02c3c41acaed45e70acb0131e1a
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874500"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571274"
 ---
 # <a name="replacing-a-cooling-fan"></a>更换冷却风扇
 
@@ -24,9 +24,9 @@ ms.locfileid: "97874500"
 
 2.  查看处理预防措施。
 
-3.  检查
+3.  审阅
 
-    -   使用战术性云设备中的缩放单位节点时所需的知识
+    -   在耐用 Cloud 设备中使用缩放单元节点所需的知识
 
     -   如果使用的是硬件生命周期主机，则使用第5页上的硬件生命周期主机所需的知识
 

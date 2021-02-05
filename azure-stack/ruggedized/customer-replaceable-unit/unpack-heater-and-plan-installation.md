@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 6fc9e5cb22f1153874090bd57d48cbbbcca63482
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d8dd3d2b3cd2bc63f1f15a1cf5c44b82c0ede44e
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867598"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571205"
 ---
 # <a name="unpack-the-heater-and-plan-the-heater-installation"></a>解压缩热水并规划热水安装
 
@@ -20,7 +20,7 @@ ms.locfileid: "97867598"
 
 ## <a name="unpacking-and-taking-inventory-of-the-heater"></a>解包和清点热水
 
-战术1U 热水--V2 (热水) 通常作为战术性云设备系统的预安装子组件提供。
+耐用1U 热水--V2 (热水) 通常作为耐用云设备系统的预安装子组件提供。
 当单独发货时，热水随附于带有保护包装材料的标准商业发运箱。
 
 请小心地从发货箱中删除热水。 在发货箱中打包后，热水会在机箱中安装所有关键组件。 热水通常是传输案例的一部分，并在传输案例中与一组完整的设备集成。 请保留发运箱和包装材料，以备将来再次交付热水。 尽管热水是稳定的，但请确保已将该设备正确打包以便发货。

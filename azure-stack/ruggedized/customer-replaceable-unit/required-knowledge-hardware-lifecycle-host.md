@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d6b13e26a1df94958f2b91d7a587e6d7f7a9f4bf
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a53d2410c9b4ff7494877a39ec6e4c5405261f19
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867581"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571154"
 ---
 # <a name="required-knowledge-for-working-with-the-hardware-lifecycle-host"></a>使用硬件生命周期主机所需的知识
 
@@ -53,9 +53,9 @@ ms.locfileid: "97867581"
  [EMC PowerEdge R640 安装和服务手册](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4)中的 PowerEdge R640 FRU 更换过程。
 浏览到 " [安装和删除系统组件](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/installing-and-removing-system-components?guid=guid-5a5943c4-fe26-4faa-a10c-2afa4c1993ff&lang=en-us) " 部分。
 
-## <a name="microsoft-azure-stack-hub-tactical-cloud-appliance-service-manual"></a>Microsoft Azure Stack 中心战术性云设备服务手册
+## <a name="microsoft-azure-stack-hub-ruggedized-cloud-appliance-service-manual"></a>Microsoft Azure Stack 中心耐用云设备服务手册
 
-Microsoft Azure Stack 中心战术性云设备服务手册包含用于从 Tracewell 战术性箱中删除硬件生命周期主机的说明。
+Microsoft Azure Stack 集线器耐用 Cloud 设备 Service 手册包含用于删除硬件生命周期主机的说明。
 
 ## <a name="dell-emc-poweredge-idrac"></a>Dell EMC PowerEdge iDRAC
 

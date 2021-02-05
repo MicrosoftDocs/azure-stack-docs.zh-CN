@@ -67,9 +67,12 @@
               href: azure-stack-configure-dns.md
             - name: 配置时间服务器
               href: azure-stack-configure-time.md
-            - name: 防火墙集成
-              href: azure-stack-firewall.md
+            - name: 防火墙/代理
               items:
+                - name: 防火墙集成
+                  href: azure-stack-firewall.md
+                - name: 透明代理
+                  href: azure-stack-transparent-proxy.md
                 - name: 发布终结点
                   href: azure-stack-integrate-endpoints.md
                 - name: 扩展主机

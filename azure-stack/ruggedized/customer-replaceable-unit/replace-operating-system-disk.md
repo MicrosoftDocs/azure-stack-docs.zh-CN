@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 36050d42a012ffc40db98ab506b1ef81086e609a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8ab8cd77a9ce3641a65eeb60460305830d524462
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867632"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571171"
 ---
 # <a name="replacing-an-operating-system-disk"></a>替换操作系统磁盘
 
@@ -24,7 +24,7 @@ ms.locfileid: "97867632"
 
 2.  查看处理预防措施。
 
-3.  如果使用缩放单位节点，则使用战术性云设备中的缩放单位节点所需的知识。
+3.  如果使用的是缩放单位节点，则在耐用 Cloud 设备中使用缩放单元节点所需的知识。
 
 4.  完成验证缩放单位节点的访问和运行状况。
 

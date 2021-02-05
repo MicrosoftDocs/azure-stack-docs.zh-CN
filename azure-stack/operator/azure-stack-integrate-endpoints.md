@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 989a20216fd5613fa1269009e5c6dc7b918b8300
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 23e97f1e91b9ee9a6a76ee6037514bb9c17636b4
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870796"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570610"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>在数据中心发布 Azure Stack Hub 服务
 
@@ -69,7 +69,7 @@ SSL 流量拦截[不受支持](azure-stack-firewall.md#ssl-interception)，并�
 
 ## <a name="ports-and-urls-outbound"></a>端口和 URL（出站）
 
-Azure Stack Hub 仅支持透明代理服务器。 在使用到传统代理服务器的透明代理上行链路的部署中，必须允许下表中的端口和 URL，以便进行出站通信。
+Azure Stack Hub 仅支持透明代理服务器。 在使用到传统代理服务器的透明代理上行链路的部署中，必须允许下表中的端口和 URL，以便进行出站通信。 有关配置透明代理服务器的详细信息，请参阅 [Azure Stack 中心的透明代理](azure-stack-transparent-proxy.md)。
 
 SSL 流量拦截[不受支持](azure-stack-firewall.md#ssl-interception)，并且在访问终结点时可能会导致服务故障。 与标识所需的终结点进行通信时，支持的最大超时值为 60 秒。
 

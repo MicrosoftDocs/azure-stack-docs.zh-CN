@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: e53d81e7606c6440ce535726199af31a1dbfd950
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 26f3343da26adc541c87eacb046ca078a6a32c31
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910646"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571224"
 ---
 # <a name="replacing-a-failed-external-storage-disk"></a>替换发生故障的外部存储磁盘
 
@@ -24,9 +24,9 @@ ms.locfileid: "97910646"
 
 2.  查看处理预防措施。
 
-3.  检查
+3.  审阅
 
-    -   如果使用缩放单位节点，则使用战术性云设备中的缩放单位节点所需的知识
+    -   如果使用缩放单位节点，则在耐用 Cloud 设备中使用缩放单元节点所需的知识
 
     -   如果使用的是硬件生命周期主机，则使用硬件生命周期主机所需的知识
 
