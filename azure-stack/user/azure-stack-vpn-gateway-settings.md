@@ -3,21 +3,21 @@ title: 配置 Azure Stack Hub 的 VPN 网关设置
 description: 了解并配置 Azure Stack Hub 的 VPN 网关设置。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 178164148e9d7de069c4ab12dc3042899b83d16d
-ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
+ms.openlocfilehash: 465c07d1f943a0a3abad8a8fc2d900444b366112
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97801940"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975922"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>配置 Azure Stack Hub 的 VPN 网关设置
 
 VPN 网关是一种虚拟网络网关，可在 Azure Stack Hub 中的虚拟网络与远程 VPN 网关之间发送加密流量。 远程 VPN 网关可位于 Azure 中、数据中心的设备中，或另一个站点上的设备中。 如果两个终结点之间有网络连接，可以在这两个网络之间建立安全的站点到站点 (S2S) VPN 连接。
 
-VPN 网关连接依赖于多个资源的配置，每个资源都包含可配置的设置。 本文介绍与资源管理器部署模型中创建的虚拟网络的 VPN 网关相关的资源和设置。 可在[关于 Azure Stack Hub 的 VPN 网关](azure-stack-vpn-gateway-about-vpn-gateways.md)中找到每个连接解决方案的说明和拓扑图。
+VPN 网关连接依赖于多个资源的配置，每个资源都包含可配置的设置。 本文介绍与资源管理器部署模型中创建的虚拟网络的 VPN 网关相关的资源和设置。 可以在 [为 Azure Stack 中心创建 VPN 网关](azure-stack-vpn-gateway-about-vpn-gateways.md)中找到每种连接解决方案的描述和拓扑图。
 
 ## <a name="vpn-gateway-settings"></a>VPN 网关设置
 
@@ -29,8 +29,8 @@ VPN 网关连接依赖于多个资源的配置，每个资源都包含可配置�
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
--VpnType RouteBased
+   -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+   -VpnType RouteBased
 ```
 
 ### <a name="gateway-skus"></a>网关 SKU
@@ -63,8 +63,8 @@ Azure Stack Hub 不支持在所支持的旧式 SKU 之间调整 SKU 大小。
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
--GatewayType Vpn -VpnType RouteBased
+   -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
+   -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="connection-types"></a>连接类型
@@ -75,8 +75,8 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ```powershell
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
--Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
--ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
 
 ### <a name="vpn-types"></a>VPN 类型
@@ -99,8 +99,8 @@ New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig `
--GatewayType Vpn -VpnType RouteBased
+   -Location 'West US' -IpConfigurations $gwipconfig `
+   -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="gateway-requirements"></a>网关要求
@@ -144,7 +144,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ```powershell
 New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
--Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+   -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
 有时，我们需要修改本地网络网关设置；例如，在添加或修改地址范围时，或 VPN 设备的 IP 地址发生变化时。 有关详细信息，请参阅[使用 PowerShell 修改本地网络网关设置](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway)。

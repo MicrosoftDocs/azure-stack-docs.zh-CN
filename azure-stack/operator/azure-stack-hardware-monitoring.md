@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中监视硬件运行状况
 description: 了解如何监视 Azure Stack Hub 硬件组件的运行状况。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 6eb455dbcf30b1d77818b13d1fc7db6b6b11c6f9
-ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
+ms.openlocfilehash: 0b1d107d33cb19223018f6d6ac26f11f65d6cc15
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93239557"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975905"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>监视 Azure Stack Hub 硬件组件
 
@@ -26,7 +26,7 @@ Azure Stack Hub 运行状况和监视系统监视存储子系统的状态，并�
 - 启动驱动器
 
 > [!NOTE]
-> 在启用此功能之前，必须向硬件合作伙伴确认它们已就绪。 硬件合作伙伴还会提供在基板管理控制器 (BMC) 中启用此功能的详细步骤。 对于版本2005及更高版本，必须将基本板管理控制器中的用户加密设置为 AES。 
+> 在启用此功能之前，必须向硬件合作伙伴确认它们已就绪。 硬件合作伙伴还会提供在基板管理控制器 (BMC) 中启用此功能的详细步骤。 对于 2005 及更高的内部版本，必须将基板管理控制器中的用户加密设置为 AES。
 
 ## <a name="snmp-listener-scenario"></a>SNMP 侦听器场景
 

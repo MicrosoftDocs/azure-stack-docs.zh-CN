@@ -3,16 +3,16 @@ title: 使用 ExpressRoute 将 Azure Stack Hub 连接到 Azure
 description: 了解如何使用 ExpressRoute 将 Azure Stack Hub 中的虚拟网络连接到 Azure 中的虚拟网络。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: f736f95105b12bdb51fe452c2749e6331c390065
-ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
+ms.openlocfilehash: ef84604b46f2968be4c8d3b84f190a22e270cb21
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92297924"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975956"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack Hub 连接到 Azure
 
@@ -104,7 +104,7 @@ ms.locfileid: "92297924"
 
     * 在“资源组”下，选择“新建”以创建新资源组；如果已有一个资源组，请选择“使用现有项”。  
     * 确认默认“位置”。
-    * 单击**创建**。
+    * 单击 **创建**。
     * （可选）单击“固定到仪表板”。
 
 #### <a name="create-the-gateway-subnet"></a>创建网关子网
@@ -127,7 +127,7 @@ ms.locfileid: "92297924"
 1. 依次选择“公共 IP 地址”、“选择公共 IP 地址”，然后单击“新建”。  
 1. 在“名称”字段中键入 **GW1-PiP**，然后单击“确定”。 
 1. 默认情况下，应已选择“基于路由”作为“VPN 类型”。  保留该设置。
-1. 验证“订阅”和“位置”是否正确。  单击**创建**。
+1. 验证“订阅”和“位置”是否正确。  单击 **创建**。
 
 #### <a name="create-the-local-network-gateway"></a>创建本地网关
 
@@ -163,7 +163,7 @@ ms.locfileid: "92297924"
 
 #### <a name="get-the-virtual-network-gateway-public-ip-address"></a>获取虚拟网络网关的公共 IP 地址
 
-创建虚拟网络网关后，可以获取该网关的公共 IP 地址。 请记下此地址，因为稍后需要在部署中使用。 根据部署，此地址将用作**内部 IP 地址**。
+创建虚拟网络网关后，可以获取该网关的公共 IP 地址。 请记下此地址，因为稍后需要在部署中使用。 根据部署，此地址将用作 **内部 IP 地址**。
 
 1. 在 Azure Stack Hub 用户门户中，选择“所有资源”。
 1. 在“所有资源”下选择虚拟网络网关（在本示例中为 **GW1**）。
@@ -181,7 +181,7 @@ ms.locfileid: "92297924"
    >[!NOTE]
    >如果用于本文的映像不可用，请让 Azure Stack Hub 运营商提供不同的 Windows Server 映像。
 
-1. 在“创建虚拟机”中选择“基本信息”，然后键入 **VM01** 作为**名称**。 
+1. 在“创建虚拟机”中选择“基本信息”，然后键入 **VM01** 作为 **名称**。 
 1. 输入有效的用户名和密码。 创建 VM 后，将使用此帐户登录到该 VM。
 1. 提供“订阅”、“资源组”和“位置”  。 选择“确定” 。
 1. 在“选择大小”下，为此实例选择一种 VM 大小，然后选择“选择”。 
@@ -217,7 +217,7 @@ ASDK 是自主性的，与部署物理主机的网络相隔离。 网关连接�
 #### <a name="configure-the-nat"></a>配置 NAT
 
 1. 使用管理员帐户登录到 Azure Stack Hub 主机。
-1. 在提升的 PowerShell ISE 中运行脚本。 此脚本返回**外部 BGPNAT 地址**。
+1. 在提升的 PowerShell ISE 中运行脚本。 此脚本返回 **外部 BGPNAT 地址**。
 
    ```powershell
    Get-NetNatExternalAddress
@@ -332,7 +332,7 @@ ASDK 是自主性的，与部署物理主机的网络相隔离。 网关连接�
 
 可以使用任何支持 IKEv2 VPN 和 BGP 的路由器，来终止 Azure Stack Hub 的站点到站点 VPN 连接。 同一路由器用于通过 ExpressRoute 线路连接到 Azure。
 
-以下 Cisco ASR 1000 系列聚合服务路由器配置示例支持  *ExpressRoute 路由器配置*图中所示的网络基础结构。
+以下 Cisco ASR 1000 系列聚合服务路由器配置示例支持  *ExpressRoute 路由器配置* 图中所示的网络基础结构。
 
 ```shell
 ip vrf Tenant 1
