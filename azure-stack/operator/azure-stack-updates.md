@@ -3,16 +3,16 @@ title: 管理更新
 description: 了解如何在 Azure Stack Hub 中管理更新
 author: sethmanheim
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: 163485eddb18f0fdc1400aa61fee6b944c397cbf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367217"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850859"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>在 Azure Stack Hub 中管理更新
 
@@ -29,11 +29,11 @@ ms.locfileid: "91367217"
 
     每个更新包都有对应的类型：“完整”或“快速”。 
 
-    **完整**更新包更新缩放单元中的物理主机操作系统，需要的维护时段更长。
+    **完整** 更新包更新缩放单元中的物理主机操作系统，需要的维护时段更长。
 
-    **快速**更新包有范围限制，不更新基础的物理主机操作系统。
+    **快速** 更新包有范围限制，不更新基础的物理主机操作系统。
 
-- **Azure Stack Hub 修补程序**。 Microsoft 提供 [Azure Stack Hub 的修补程序](azure-stack-servicing-policy.md#hotfixes)（通常是预防性或时效性的程序）来解决特定问题。 发布的每个修补程序都附带相应的 Microsoft 知识库文章，其中详细描述了问题、原因和解决方法。 可以像下载和安装普通的 Azure Stack Hub 完整更新包一样下载和安装修补程序。 修补程序是累积性的，在几分钟内即可完成安装。
+- **Azure Stack Hub 修补程序**。 Microsoft 提供 [Azure Stack Hub 的修补程序](azure-stack-servicing-policy.md#hotfixes)（通常是预防性或时效性的程序）来解决特定问题。 每个修补程序都附带了相应的 Microsoft 知识库文章，其中详细说明了该程序包中的修补程序。 可以像下载和安装普通的 Azure Stack Hub 完整更新包一样下载和安装修补程序。 修补程序是累积性的，在几分钟内即可完成安装。
 
    从版本 2005 开始，更新到新的主版本（如 1.2002.x 到 1.2005.x）时，会自动安装新的主版本中的最新修补程序（如果有）。 在此之后，如果发布了适用于你的内部版本的修补程序，则应安装它。
 
@@ -43,9 +43,9 @@ ms.locfileid: "91367217"
 
 这三种类型的更新按以下频率发布：
 
-- **Azure Stack Hub 软件更新**。 Microsoft 每年都会发布多个完整和 express 软件更新包。
+- **Azure Stack Hub 软件更新**。 Microsoft 每年都会发布多个完整的快速软件更新包。
 
-- **Azure Stack Hub 修补程序**。 修补程序是随时可发布的时效性版本。 如果要从某个主版本升级到另一个主版本（例如 1.2002.x 到 1.2005.x），新的主版本中最新的修补程序（如果有）会自动安装。
+- **Azure Stack Hub 修补程序**。 修补程序是随时可发布的时效性版本。 如果要从一个主版本升级到另一个版本 (例如，1.2002 到 1.2005) ，则会自动安装最新的修补程序（如果已为该新主版本发布的修补程序）。
 
 - **OEM 硬件供应商提供的更新**。 OEM 硬件供应商会根据需要发布更新。
 
@@ -59,11 +59,11 @@ ms.locfileid: "91367217"
 
     Microsoft 软件更新和修补程序的更新警报会显示在已连接到 Internet 的 Azure Stack Hub 实例的“更新”边栏选项卡中。 如果未显示“更新”边栏选项卡，请重启基础结构管理控制器 VM。
 
-    如果在实例未连接的情况下希望获得每个修补程序版本的通知，请订阅 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) 源。
+    如果你的实例未连接，并且你希望收到有关每个修补程序版本的通知，请订阅 [RSS 源](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss)。
 
 - **OEM 硬件供应商提供的更新**
 
-    OEM 更新取决于制造商。 需要与 OEM 建立信道，以便了解需要应用的来自 OEM 的更新。 有关 OEM 和 OEM 更新过程的详细信息，请参阅[应用 Azure Stack Hub 原始设备制造商 (OEM) 更新](azure-stack-update-oem.md)。
+    OEM 更新取决于制造商。 您必须与 OEM 建立通信通道，以便您可以了解 OEM 中需要应用的更新。 有关 OEM 和 OEM 更新过程的详细信息，请参阅[应用 Azure Stack Hub 原始设备制造商 (OEM) 更新](azure-stack-update-oem.md)。
 
 ### <a name="major-version-to-major-version"></a>主版本到主版本
 

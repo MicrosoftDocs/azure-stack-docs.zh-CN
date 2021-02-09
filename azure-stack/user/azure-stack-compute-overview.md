@@ -3,16 +3,16 @@ title: Azure Stack Hub VM 简介
 description: 了解 Azure Stack Hub VM。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: ff462a8fbdb2de67e58f15248aaffa79f0abb695
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 70bbb35b8433e8542fc58303f1e8cc56c28c84d7
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545736"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850799"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack Hub VM 简介
 
@@ -22,11 +22,11 @@ Azure Stack Hub VM 可提供虚拟化的灵活性，而无需管理群集或单�
 
 可通过多种方式使用 Azure Stack Hub VM。 例如：
 
-- **开发和测试** ：Azure Stack Hub VM 可让你使用编写和测试应用程序所需的特定配置创建计算机。
+- **开发和测试**：Azure Stack Hub VM 可让你使用编写和测试应用程序所需的特定配置创建计算机。
 
-- **云中的应用程序** ：由于应用程序的需求会不断变化，在 Azure Stack Hub 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
+- **云中的应用程序**：由于应用程序的需求会不断变化，在 Azure Stack Hub 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
 
-- **扩展的数据中心** ：Azure Stack Hub 虚拟网络中的 VM 可以连接到组织的网络或 Azure。
+- **扩展的数据中心**：Azure Stack Hub 虚拟网络中的 VM 可以连接到组织的网络或 Azure。
 
 可以根据需要，将应用程序使用的 VM 纵向或横向扩展为任意数目。
 
@@ -57,7 +57,7 @@ VM 会被指定名称，也具有在操作系统中所配置的计算机名称�
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 
-Azure Stack Hub 中的 VM 限制为第 1 代虚拟硬盘 (VHD/VHDX) 格式。 VHD 可用来存储计算机操作系统 (OS) 和数据。 VHD 还可用于存储安装 OS 时使用的映像。 Azure Stack Hub 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、套餐、SKU 和版本（通常将最新版本指定为 **最新** ）标识。
+Azure Stack Hub 中的 VM 限制为第 1 代虚拟硬盘 (VHD/VHDX) 格式。 VHD 可用来存储计算机操作系统 (OS) 和数据。 VHD 还可用于存储安装 OS 时使用的映像。 Azure Stack Hub 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、套餐、SKU 和版本（通常将最新版本指定为 **最新**）标识。
 
 下表显示了如何查找映像的信息：
 
@@ -73,11 +73,11 @@ Azure Stack Hub 中的 VM 限制为第 1 代虚拟硬盘 (VHD/VHDX) 格式。 VH
 
 VM 扩展通过部署后配置和自动化任务来增加 VM 功能。 可以使用扩展完成以下常见任务：
 
-- **运行自定义脚本** ：预配 VM 时，自定义脚本扩展可以通过运行脚本，帮助在 VM 上配置工作负荷。
+- **运行自定义脚本**：预配 VM 时，自定义脚本扩展可以通过运行脚本，帮助在 VM 上配置工作负荷。
 
-- **部署和管理配置** ：可以借助 PowerShell Desired State Configuration (DSC) 扩展在 VM 上设置用于管理配置和环境的 DSC。
+- **部署和管理配置**：可以借助 PowerShell Desired State Configuration (DSC) 扩展在 VM 上设置用于管理配置和环境的 DSC。
 
-- **收集诊断数据** ：Azure 诊断扩展可帮助你配置 VM 来收集诊断数据，用于监视应用程序的运行状况。
+- **收集诊断数据**：Azure 诊断扩展可帮助你配置 VM 来收集诊断数据，用于监视应用程序的运行状况。
 
 ### <a name="related-resources"></a>相关资源
 
@@ -120,7 +120,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 功能。 可以使
 |---------|---------|
 |Azure Stack Hub 门户|在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。 在 VM 的页面上，可以访问概述信息、设置值以及监视指标。|
 |Azure PowerShell|在 Azure 和 Azure Stack Hub 中，管理 VM 的方法很相似。 若要详细了解如何使用 PowerShell，请参阅 Azure 主题：[使用 Azure PowerShell 模块创建和管理 Windows VM](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)。|
-|客户端 SDK|在 Azure 和 Azure Stack Hub 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅 [使用 c # 在 Azure 中创建和管理 Windows vm](/azure/virtual-machines/windows/csharp)。|
+|客户端 SDK|在 Azure 和 Azure Stack Hub 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅[在 Azure 中使用 C# 创建和管理 Windows VM](/azure/virtual-machines/windows/csharp)。|
 
 ### <a name="connect-to-your-vm"></a>连接到 VM
 

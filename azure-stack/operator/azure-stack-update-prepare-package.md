@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中准备更新包
 description: 了解如何在 Azure Stack Hub 中准备更新包。
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: e0ad221764e116bb2b5f73601da3ac6917681ff0
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: b3d1f3d76d988be3647a1d26fec0a763a681d4cf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564779"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850915"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>准备 Azure Stack Hub 更新包
 
@@ -56,7 +56,7 @@ Azure Stack Hub 更新和修补程序的更新包可通过门户中的更新边�
 
 ### <a name="where-to-download-azure-stack-hub-hotfix-packages"></a>Azure Stack Hub 修补程序包的下载位置
 
-[Azure Stack Hub 修补程序](./azure-stack-updates.md#update-package-types)的包托管于 Azure Stack Hub 更新所在的安全 Azure 终结点中。 使用已连接的实例的 Azure Stack Hub 操作员会看到 [Azure Stack Hub 更新自动出现在管理员门户中](#automatic-download-and-preparation-for-update-packages)（当更新可用时）。 可以使用每篇相应的修补程序知识库文章（例如，[Azure Stack Hub 修补程序 1.1906.11.52](https://support.microsoft.com/help/4515650)）中的嵌入式链接下载它们。 也可在与 Azure Stack Hub 版本对应的发行说明中找到修补程序的链接。
+[Azure Stack Hub 修补程序](./azure-stack-updates.md#update-package-types)的包托管于 Azure Stack Hub 更新所在的安全 Azure 终结点中。 使用已连接的实例的 Azure Stack Hub 操作员会看到 [Azure Stack Hub 更新自动出现在管理员门户中](#automatic-download-and-preparation-for-update-packages)（当更新可用时）。 可以使用各个修补程序知识库文章中的嵌入式链接下载它们。 你还可以在与 Azure Stack 中心版本对应的发行说明中找到修补程序知识库文章的链接。
 
 ### <a name="where-to-download-oem-update-packages"></a>OEM 更新包的下载位置
 

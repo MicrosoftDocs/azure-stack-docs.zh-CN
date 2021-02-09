@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中提供虚拟机规模集
 description: 了解云操作员如何向 Azure Stack Hub 市场中添加虚拟机规模集。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/07/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: a69f29a168853a2cb2bc1c757f90185e0b56636e
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 08655238a3f0cb1212bde455a0f601211e6edc16
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814954"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850949"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>在 Azure Stack Hub 中提供虚拟机规模集
 
@@ -41,7 +41,7 @@ Azure Stack 集线器上的虚拟机规模集类似于 Azure 上的虚拟机规�
 
    ![创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
-3. 填写空字段，对于“操作系统磁盘映像”、“订阅”和“实例大小”，请从下拉列表中进行选择。   对于“使用托管磁盘”，请选择“是”。  然后选择“创建”。
+3. 填写空字段，对于“操作系统磁盘映像”、“订阅”和“实例大小”，请从下拉列表中进行选择。   对于“使用托管磁盘”，请选择“是”。  然后选择“创建”  。
     [![配置和创建虚拟机规模集](media/azure-stack-compute-add-scalesets/create-small.png)](media/azure-stack-compute-add-scalesets/create.png#lightbox)
 
 4. 若要查看新的虚拟机规模集，请转到“所有资源”，搜索该虚拟机规模集名称，然后在搜索结果中单击其名称。

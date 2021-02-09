@@ -3,16 +3,16 @@ title: 使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 description: 如何从运行 AKS 引擎的客户端 VM 中将 Kubernetes 群集部署到 Azure Stack Hub 上。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/5/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 38628b6fba6136149cb6ef7e7ce818e2e2039d11
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.lastreviewed: 2/5/2021
+ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554131"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850842"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 
@@ -29,7 +29,7 @@ ms.locfileid: "99554131"
 1.  首先使用适用于 [Linux](https://aka.ms/aksengine-json-example-raw) 的 AZURE STACK 中心 API 模型文件或适用于 [Windows](https://aka.ms/aksengine-json-example-raw-win) 的，并为部署创建本地副本。 在安装 AKS 引擎的计算机上运行：
 
     ```bash
-    curl -o kubernetes-azurestack.json https://aka.ms/aksengine-json-example-raw
+    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
     ```
 
     > [!NOTE]  
