@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: b1cadf68de1c072b7dcc8b2f0f5f7c02736eebd7
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: fd1f827ec9108d1412df544c94044aabf600224a
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518222"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975871"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack Hub 托管磁盘：差异与注意事项
 
@@ -70,7 +70,7 @@ Azure Stack Hub 托管磁盘支持以下 API 版本：
 ## <a name="convert-to-managed-disks"></a>转换为托管磁盘
 
 > [!NOTE]  
-> 不能使用 Azure PowerShell cmdlet **Convertto-html AzVMManagedDisk** 将非托管磁盘转换为 Azure Stack 集线器中的托管磁盘。 Azure Stack Hub 目前不支持此 cmdlet。
+> 不能在 Azure Stack Hub 中使用 Azure PowerShell cmdlet ConvertTo-AzVMManagedDisk 将非托管磁盘转换为托管磁盘。 Azure Stack Hub 目前不支持此 cmdlet。
 
 可以使用以下脚本将当前预配的 VM 从非托管磁盘转换为托管磁盘。 将占位符替换为自己的值。
 
@@ -358,7 +358,7 @@ New-AzureRMVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmC
 - 如果订阅是在应用 1808 更新之前创建的，请遵循以下步骤来更新订阅。 否则，在此订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器发生内部错误。”
    1. 在 Azure Stack Hub 用户门户中，转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
    2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack Hub - 托管磁盘”是否已列出。 
-- 如果使用多租户环境，请让云操作员（可以是组织内部或来自服务提供商的操作员）根据[此文](../operator/azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory)中的步骤重新配置每个来宾目录。 否则，在与该来宾目录关联的订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器中出现内部错误。”
+- 如果你使用多租户环境，请询问你的云操作员 (谁可能在你的组织中，或从服务提供商处) ，按照在 [Azure Stack Hub 中配置多租户中](../operator/azure-stack-enable-multitenancy.md#configure-guest-directory)的步骤来重新配置每个来宾目录。 否则，在与该来宾目录关联的订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器中出现内部错误。”
 
 ## <a name="next-steps"></a>后续步骤
 

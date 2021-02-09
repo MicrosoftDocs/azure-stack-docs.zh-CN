@@ -7,12 +7,12 @@ ms.date: 12/03/2020
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 12/03/2020
-ms.openlocfilehash: f2e039e2b0934e17a4335753e787c6cdf3808644
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 11e79a4d998f012a58c7f3b0ab8ecb928c861851
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873310"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975854"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK 的部署后配置
 
@@ -30,10 +30,10 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 使用 API 版本配置文件来指定与 Azure Stack 兼容的 Az 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本的 Az PowerShell 模块。 可通过 PowerShell 库获得的 Az.BootStrapper 模块会提供使用 API 版本配置文件所需的 PowerShell cmdlet。
 
-可以安装最新的 Azure Stack PowerShell 模块，无论是否通过 internet 连接到 ASDK 主计算机。
+无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新的 Azure Stack PowerShell 模块。
 
-1.  验证你在 Windows 计算机上的先决条件。 有关说明，请参阅 [Windows 必备组件](../operator/powershell-install-az-module.md#prerequisites-for-windows)。
-2. 在安装所需的 PowerShell 版本之前，请确保 [卸载现有 Azure PowerShell 模块](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)。 
+1.  在 Windows 计算机上验证先决条件。 有关说明，请参阅 [Windows 先决条件](../operator/powershell-install-az-module.md#prerequisites-for-windows)。
+2. 在安装所需 PowerShell 版本之前，请务必[卸载任何现有的 Azure PowerShell 模块](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)。 
 
 - 已从 ASDK 主计算机 **建立 Internet 连接**：运行以下 PowerShell 脚本，以在 ASDK 安装中安装以下模块：
 
@@ -197,7 +197,7 @@ cd AzureStack-Tools-master
 
 ## <a name="enable-multi-tenancy"></a>启用多租户
 
-对于使用 Azure AD 的部署，需要为 ASDK 安装[启用多租户](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
+对于使用 Azure AD 的部署，需要为 ASDK 安装[启用多租户](../operator/azure-stack-enable-multitenancy.md)。
 
 > [!NOTE]
 > 当使用非用于注册 Azure Stack 的域的管理员或用户帐户登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果已向 fabrikam.onmicrosoft.com 注册了 Azure Stack，并且登录的用户帐户为，则用于 admin@contoso.com 登录用户门户的 URL 应为： https \: //portal.local.azurestack.external/fabrikam.onmicrosoft.com。

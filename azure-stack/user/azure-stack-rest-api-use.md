@@ -3,22 +3,22 @@ title: 向 Azure Stack Hub 发出 API 请求
 description: 了解如何从 Azure 检索身份验证令牌，以向 Azure Stack Hub 发出 API 请求。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 70a1a6e1d2fb4eb6766948a4e02d5072f4e04281
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: c48eb869ded6be5f2c05171edf4d0cc6a88945ca
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623313"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975837"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="make-api-requests-to-azure-stack-hub"></a>向 Azure Stack Hub 发出 API 请求
 
-可以使用 Azure Stack Hub REST API 自动执行操作，例如将虚拟机 (VM) 添加到 Azure Stack Hub 云。
+可以使用 Azure Stack 集线器 REST Api 自动执行操作，例如将虚拟机 (VM) 添加到 Azure Stack 中心云。
 
 Api 要求客户端向 Microsoft Azure 登录终结点进行身份验证。 该终结点将返回一个要在发送到 Azure Stack Hub API 的每个请求的标头中使用的令牌。 Microsoft Azure 使用 Oauth 2.0。
 
@@ -61,7 +61,7 @@ grant_type=password
    要使用的身份验证方案类型。 在此示例中，值为 `password`。
 
 - **资源**：  
-   令牌访问的资源。 可以通过查询 Azure Stack Hub 管理元数据终结点找到该资源。 查看“受众”**** 部分。
+   令牌访问的资源。 可以通过查询 Azure Stack Hub 管理元数据终结点找到该资源。 查看“受众”部分。
 
 - **Azure Stack Hub 管理终结点**：
 
@@ -98,7 +98,7 @@ grant_type=password
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
   ```
 
-- client_id****
+- client_id
 
   此值已硬编码为默认值：
 
@@ -159,7 +159,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 ## <a name="api-queries"></a>API 查询
 
-获取访问令牌后，请将其作为标头添加到每个 API 请求。 若要将其添加为标头，请创建值为 `Bearer <access token>` 的**授权**标头。 例如：
+获取访问令牌后，请将其作为标头添加到每个 API 请求。 若要将其添加为标头，请创建值为 `Bearer <access token>` 的 **授权** 标头。 例如：
 
 请求：
 
@@ -212,4 +212,4 @@ https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-40
 
 ## <a name="next-steps"></a>后续步骤
 
-有关使用 Azure REST 终结点的详细信息，请参阅 [Azure REST API 参考](/rest/api/)。
+有关使用 Azure REST 终结点的详细信息，请参阅 [azure REST API 参考](/rest/api/)。
