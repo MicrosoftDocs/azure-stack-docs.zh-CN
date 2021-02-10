@@ -113,7 +113,7 @@
         - name: 部署 SDN 基础结构
           href: manage/sdn-express.md
         - name: 将数据中心防火墙与 PowerShell 配合使用
-          href: manage/use-datacenter-firewall.md
+          href: manage/use-datacenter-firewall-powershell.md
         - name: 管理租户逻辑网络
           href: manage/tenant-logical-networks.md
         - name: 管理租户虚拟网络
