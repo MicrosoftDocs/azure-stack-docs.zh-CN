@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: fe321ff69f3ef17f590dd026886e29ed3100d107
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: d3225284c8352771042742f8c8d94e4ae01abe2c
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248012"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009241"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -85,7 +85,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
          Bug 修复 - `Import-AzureRmContext` 可正确反序列化已保存的令牌。  
    * **AzureRm**  
          Bug 修复 - `Get-AzureRmResource` 可按资源类型进行不区分大小写的查询。  
-   * **Azure.存储**  
+   * **Azure。存储**  
          AzureRm 汇总模块现在包含已发布的 4.5.0 版，支持 **api-version 2017-07-29**。  
    * **AzureRm**  
          AzureRm 汇总模块现在包含已发布的 5.0.4 版，支持 **api-version 2017-10-01**。  
@@ -276,7 +276,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
    - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
       1. 在租户门户中转到“订阅”，找到相应订阅。 依次选择“资源提供程序”、“Microsoft.Compute”、“重新注册”。
       2. 在同一订阅下，转到“访问控制(IAM)”，检查“AzureStack-DiskRP-Client”是否已列出。
-   - 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](../azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
+   - 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](../azure-stack-enable-multitenancy.md#register-a-guest-directory)中的步骤来重新配置每个来宾目录。
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
 

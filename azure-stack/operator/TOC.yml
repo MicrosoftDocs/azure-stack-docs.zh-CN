@@ -12,6 +12,12 @@
           href: release-notes-security-updates.md
         - name: 发行说明
           href: release-notes.md
+        - name: 修补程序
+          items:
+            - name: 修补程序1.2005.29.100
+              href: hotfix-1-2005-29-100.md
+            - name: 修补程序1.2008.25.114
+              href: hotfix-1-2008-25-114.md
         - name: 已知问题
           href: known-issues.md
 - name: 快速入门

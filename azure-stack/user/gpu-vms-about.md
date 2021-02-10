@@ -5,15 +5,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 2/1/2021
+ms.date: 2/8/2021
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 84c218c36b370c5b0be2cbe415ae3f3f10a6397f
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: /8/2021
+ms.openlocfilehash: 7091ebff9fae07b1e5eb97f54a33889bc73eda7b
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247092"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009224"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上的图形处理单元 (GPU) 虚拟机 (VM)
 
@@ -26,11 +26,17 @@ ms.locfileid: "99247092"
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
+::: moniker range=">=azs-2005"
 > [!IMPORTANT]  
-> 公共预览版目前支持 Azure Stack Hub GPU。 若要参与预览，请完成 [aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview) 上的表单。
+> 对于2005和 2008 Azure Stack 中心版本，Azure Stack 集线器 GPU 支持公共预览版。  
 > 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
 > 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+::: moniker-end
 
+::: moniker range="<=azs-2002"
+> [!WARNING]  
+> 在此版本中不支持 GPU Vm。 需要升级到 Azure Stack 集线器2005或更高版本。 此外，Azure Stack 集线器硬件必须具有物理 Gpu。
+::: moniker-end
 ## <a name="ncv3"></a>NCv3
 
 NCv3 系列 VM 采用 NVIDIA Tesla V100 GPU。 客户可将这些更新的 GPU 用于传统的 HPC 工作负荷，例如油藏模拟、DNA 测序、蛋白质分析、Monte Carlo 模拟和其他工作负荷。 
@@ -50,6 +56,11 @@ NVv4 系列虚拟机由 [AMD Radeon Instinct MI25](https://www.amd.com/en/produc
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
 ## <a name="ncast4_v3"></a>NCasT4_v3
+
+::: moniker range=">=azs-2005"
+> [!IMPORTANT]
+> 不能使用门户用户界面 (UI) 来部署这些 VM 大小。 可以使用 PowerShell、Azure CLI 或 Azure 资源管理器模板。
+::: moniker-end
 
 | 大小 | vCPU | 内存:GiB | GPU | GPU 内存：GiB | 最大数据磁盘数 | 最大 NIC 数 | 
 | --- | --- | --- | --- | --- | --- | --- |

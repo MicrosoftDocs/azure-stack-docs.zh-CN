@@ -16,12 +16,12 @@ ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d7ba1e7e3b6686002d24df2e286af81ddda5ce7
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 3574c55568db86c96d22d43fdf1bb08ac79c061e
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247955"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009190"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -244,7 +244,7 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
       2. 在同一订阅下，请参阅 **访问控制 (IAM)**，并验证是否列出了 **Azure Stack 托管磁盘** 。
    2. 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决该错误，请执行以下步骤：
       1. 应用 [1808 Azure Stack 修补程序](https://support.microsoft.com/help/4465859)。
-      2. 执行[此文](../azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory)中的步骤，重新配置每个来宾目录。
+      2. 执行[此文](../azure-stack-enable-multitenancy.md#register-a-guest-directory)中的步骤，重新配置每个来宾目录。
 
 <!-- 2869209 IS, ASDK --> 
 - 使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则 cmdlet 会失败，并出现以下错误： *长时间运行操作失败，状态为 "失败*"。 

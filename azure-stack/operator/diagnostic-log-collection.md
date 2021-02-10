@@ -3,32 +3,31 @@ title: 诊断日志收集
 description: 了解诊断日志收集。
 author: PatAltimore
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 02/03/2021
 ms.author: patricka
 ms.reviewer: shisab
-ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: c8913bd91b7d931baf47f249dd214dd6eea71e4a
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.lastreviewed: 02/03/2021
+ms.openlocfilehash: ad5f0a7f6028249dba3d63490cdc3c91d7a45e72
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950733"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013211"
 ---
 # <a name="diagnostic-log-collection"></a>诊断日志收集
 
-Azure Stack Hub 是一个集合，同时包含可以彼此交互的 Windows 组件和本地 Azure 服务。 所有这些组件和服务都会生成自己的日志集。 由于 Microsoft 支持部门使用这些日志来识别和修复问题，因此我们提供诊断日志收集。 诊断日志收集可帮助您快速收集和共享 Microsoft 支持部门的诊断日志。
+可以共享 Azure Stack 集线器创建的诊断日志。 这些日志由 Windows 组件和本地 Azure 服务创建。 Microsoft 支持部门可以使用日志来修复或确定 Azure Stack 中心实例的问题。
 
-> [!IMPORTANT]
-> 必须注册 Azure Stack Hub 才能使用诊断日志收集。 如果尚未注册 Azure Stack Hub，请使用[特权终结点 (PEP)](azure-stack-get-azurestacklog.md) 来共享日志。 
+若要开始使用 Azure Stack 集线器诊断日志集合，你必须注册你的实例。 如果尚未注册 Azure Stack Hub，请使用[特权终结点 (PEP)](azure-stack-get-azurestacklog.md) 来共享日志。 
 
 ::: moniker range=">= azs-2005"
 
-Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发送到 Microsoft 支持部门。 根据与 Azure 的连接情况，用于收集和发送日志的选项包括：
+可以通过多种方式将诊断日志发送到 Microsoft 支持部门。 根据与 Azure 的连接，选项包括：
 * [主动发送日志（建议）](#send-logs-proactively)
 * [立即发送日志](#send-logs-now)
 * [在本地保存日志](#save-logs-locally)
 
-以下流程图显示了各种情况下用于发送诊断日志的选项。 如果 Azure Stack 集线器可以连接到 Azure，我们建议启用 **主动日志收集**，这会在引发关键警报时，自动将诊断日志上传到 Azure 中由 Microsoft 控制的存储 blob。 还可使用“立即发送日志”按需收集日志。 如果 Azure Stack Hub 与 Azure 断开连接，可以“在本地保存日志”。 
+流程图显示了用于发送诊断日志的选项。 如果 Azure Stack 中心连接到 Azure，请启用 **主动日志收集**。 当引发关键警报时，主动日志收集会自动将诊断日志上传到 Microsoft 控制的存储 blob。 还可以通过使用 " **立即发送日志**" 按需收集日志。 对于在断开连接的环境中运行的 Azure Stack 集线器，或者如果遇到连接问题，请选择 **将日志保存在本地**。
 
 ![流程图，显示如何将日志立即发送到 Microsoft](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -36,11 +35,24 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 
 ## <a name="send-logs-proactively"></a>主动发送日志
 
-在你提出支持案例之前，主动日志收集会自动收集 Azure Stack 集线器中的诊断日志并将其发送给 Microsoft。 仅当出现 [系统运行状况警报](#proactive-diagnostic-log-collection-alerts) 时才收集这些日志，并且仅在支持案例的上下文中 Microsoft 支持部门才会对其进行访问。
+在你提出支持案例之前，主动日志收集会自动收集 Azure Stack 集线器中的诊断日志并将其发送给 Microsoft。 仅当出现系统运行状况警报时才收集这些日志，并且仅在支持案例的上下文中 Microsoft 支持部门才会对其进行访问。
 
 ::: moniker range=">= azs-2008"
 
-从 Azure Stack 中心版本2008开始，主动日志收集使用改进的算法，该算法即使在对操作员不可见的错误情况下也能捕获日志。 这可以确保在适当的时间收集正确的诊断信息，而无需任何操作员交互。 在某些情况下，Microsoft 支持人员可以更快地开始进行故障排除并解决问题。 初始算法改进侧重于修补程序和更新操作。 建议启用主动日志收集，因为更多的操作经过优化，优点会提高。
+从 Azure Stack Hub 版本 2008 开始，主动收集日志的功能使用改进的算法，即使在操作员看不到的错误情况下也可以捕获日志。 这样可以确保在适当的时间收集正确的诊断信息，无需操作员进行任何交互。 在某些情况下，Microsoft 支持人员可以更快地开始进行故障排除并解决问题。 初始算法改进侧重于修补升级操作。
+
+Azure Stack 中心收集警报和其他隐藏失败事件的日志，这些事件对你不可见。
+
+Azure Stack 中心为以下内容主动收集日志：
+
+- 更新失败。
+- 更新需要注意。
+
+当事件触发这些警报时，Azure Stack 集线器会主动将日志发送给 Microsoft。
+
+此外，Azure Stack 集线器会将日志发送给 Microsoft，由其他失败事件触发。 这些事件对你不可见。
+
+建议启用主动收集日志的功能，因为更多的操作已经过优化，好处更多。
 
 ::: moniker-end
 
@@ -63,50 +75,18 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 
 使用 **前瞻性日志** 收集收集的日志将上传到由 Microsoft 管理和控制的 Azure 存储帐户。 Microsoft 可能会在支持案例的上下文中访问这些日志，并改善 Azure Stack 集线器的运行状况。
 
-### <a name="proactive-diagnostic-log-collection-alerts"></a>主动收集诊断日志时的警报
-
-如果已启用，则当引发以下事件之一时，主动日志收集将上载日志。
-
-例如，“更新失败”是一个警报，会触发主动收集诊断日志的操作。 如果已启用，则会在更新失败时主动捕获诊断日志，以帮助 Microsoft 支持部门解决该问题。 仅在引发 **更新失败** 的警报时才收集诊断日志。
-
-| 警报标题 | FaultIdType |
-|---|---|
-|无法连接到远程服务 | UsageBridge.NetworkError|
-|更新失败 | Urp.UpdateFailure |
-|存储资源提供程序基础结构/依赖项不可用 |    StorageResourceProviderDependencyUnavailable |
-|节点未连接到控制器| ServerHostNotConnectedToController |  
-|路由发布失败 | SlbMuxRoutePublicationFailure |
-|存储资源提供程序内部数据存储不可用 |    StorageResourceProvider。 DataStoreConnectionFail |
-|存储设备发生故障 | Microsoft.Health.FaultType.VirtualDisks.Detached |
-|运行状况控制器无法访问存储帐户 | Microsoft.Health.FaultType.StorageError |
-|与物理磁盘的连接已丢失 | Microsoft.Health.FaultType.PhysicalDisk.LostCommunication |
-|Blob 服务未在节点上运行 | StorageService.The.blob.service.is.not.running.on.a.node-Critical |
-|基础结构角色不正常 | Microsoft.Health.FaultType.GenericExceptionFault |
-|表服务错误 | StorageService.Table.service.errors-Critical |
-|文件共享已利用超过 80% | Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |
-|缩放单元节点已脱机 | FRP.Heartbeat.PhysicalNode |
-|基础结构角色实例不可用 | FRP.Heartbeat.InfraVM |
-|基础结构角色实例不可用  | FRP.Heartbeat.NonHaVm |
-|基础结构角色“目录管理”报告了时间同步错误 | DirectoryServiceTimeSynchronizationError |
-|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Warning |
-|挂起的外部证书过期 | CertificateExpiration.ExternalCert.Critical |
-|由于内存容量不足，无法针对特定类别和大小预配虚拟机 | AzureStack.ComputeController.VmCreationFailure.LowMemory |
-|无法访问节点以供虚拟机放置 | AzureStack.ComputeController.HostUnresponsive |
-|备份失败  | AzureStack.BackupController.BackupFailedGeneralFault |
-|由于与失败的操作发生冲突，已跳过计划的备份    | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |
-
 ## <a name="send-logs-now"></a>立即发送日志
 
 > [!TIP]
 > 通过使用[主动发送日志](#send-logs-proactively)而不是“立即发送日志”来节省时间。
 
-“立即发送日志”是一个选项，通常用于在建立支持案例之前从 Azure Stack Hub 手动收集并上传诊断日志。
+"立即发送日志" 是一种选项，在这种情况下，你可以从 Azure Stack 中心手动收集和上载诊断日志（通常是在打开支持案例之前）。
 
 可以通过两种方式将诊断日志手动发送到 Microsoft 支持部门：
 * [管理员门户（建议）](#send-logs-now-with-the-administrator-portal)
 * [PowerShell](#send-logs-now-with-powershell)
 
-如果 Azure Stack 中心连接到 Azure，我们建议使用管理员门户，因为它是直接将日志发送到 Microsoft 的最简单方法。 如果该门户不可用，则应改为使用 PowerShell 发送日志。
+如果 Azure Stack 中心连接到 Azure，我们建议使用管理员门户，因为它是直接将日志发送到 Microsoft 的最简单方法。 如果该门户不可用，则应使用 PowerShell 发送日志。
 
 ### <a name="send-logs-now-with-the-administrator-portal"></a>通过管理员门户立即发送日志
 
@@ -117,7 +97,7 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 1. 选择本地时区。
 1. 选择“收集并上传”。
 
-如果已断开与 Internet 的连接，或者只想在本地保存日志，请使用 [Get-AzureStackLog](azure-stack-get-azurestacklog.md) 方法发送日志。
+如果你从 internet 断开连接或只想要在本地保存日志，请使用 [get-azurestacklog](azure-stack-get-azurestacklog.md) 方法发送日志。
 
 ### <a name="send-logs-now-with-powershell"></a>通过 PowerShell 立即发送日志
 
@@ -150,7 +130,7 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider SQLAdapter
   ```
-  发送 MySQL RP 的诊断日志： 
+  为 MySQL RP 发送诊断日志： 
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider MySQLAdapter
@@ -205,7 +185,9 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 
 ## <a name="save-logs-locally"></a>在本地保存日志
 
-当 Azure Stack Hub 与 Azure 断开连接时，可以将日志保存到本地服务器消息块 (SMB) 共享。 在“设置”边栏选项卡中，输入具有共享写入权限的路径、用户名和密码。 在支持案例中，Microsoft 支持部门将提供有关如何传输这些本地日志的详细步骤。 如果管理员门户不可用，则可以使用 [Get-AzureStackLog](azure-stack-get-azurestacklog.md) 在本地保存日志。
+当 Azure Stack Hub 与 Azure 断开连接时，可以将日志保存到本地服务器消息块 (SMB) 共享。 例如，你可以运行断开连接的环境。 如果正常连接，但遇到连接问题，则可以在本地保存日志以帮助进行故障排除。
+
+ 在“设置”边栏选项卡中，输入具有共享写入权限的路径、用户名和密码。 在支持案例中，Microsoft 支持部门将提供有关如何传输这些本地日志的详细步骤。 如果管理员门户不可用，则可以使用 [Get-AzureStackLog](azure-stack-get-azurestacklog.md) 在本地保存日志。
 
 ![诊断日志收集选项的屏幕截图](media/azure-stack-help-and-support/save-logs-locally.png)
 
@@ -221,7 +203,7 @@ Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发�
 |----|---|
 | 低带宽/高延迟连接 | 完成日志上传的时间会延长。 |
 | 共享连接 | 上传也可能影响共享网络连接的其他应用/用户。 |
-| 计量连接 | ISP 可能会针对你额外使用网络的情况收取额外费用。 |
+| 计量连接 | 您的 ISP 可能还会收取额外的网络使用量。 |
 
 ## <a name="view-log-collection"></a>查看日志集合
 

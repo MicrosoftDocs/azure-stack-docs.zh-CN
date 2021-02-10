@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/22/2020
 ms.author: sethm
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 27653bcb9cfee29abd4a4587ceee67eb698a93bb
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: fe0ff0d81ebf863ff2096675ba113a5416136e8f
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697633"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009071"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -75,7 +75,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 | IKEv2 完整性                                      | SHA384、SHA256、SHA1、MD5                                                |
 | DH 组                                             | ECP384、DHGroup14、DHGroup2、DHGroup1、ECP256、DHGroup24             |
 | IPsec 加密                                     | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、无 |
-| IPsec 完整性                                      | GCMAES256、GCMAES192、GCMAES128                                          |
+| IPsec 完整性                                      | GCMAES256、GCMAES192、GCMAES128、SHA256                                         |
 | PFS 组                                            | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、PFSMM、无                  |
 | QM SA 生存期                                       | （可选：如果未指定，则使用默认值）<br />                         秒（整数；至少为 300 秒/默认为 27000 秒）<br />                         KB（整数；至少为 1024 KB/默认为 102400000 KB） |
 | 流量选择器                                     | Azure Stack Hub 不支持基于策略的流量选择器。         |

@@ -1,22 +1,22 @@
 ---
-title: 管理 Azure Stack HCI 的 Azure 注册
-description: 如何管理 Azure 注册以进行 Azure Stack HCI、了解注册状态，以及在你准备好解除群集时注销群集。
+title: 通过 Azure 管理 Azure Stack HCI 群集注册
+description: 如何管理 Azure registration for Azure Stack HCI 群集、了解注册状态，以及在准备好取消群集时注销群集。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/09/2021
+ms.openlocfilehash: 9156e5b67a679a93561bfc6449016178c04a1019
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050087"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013228"
 ---
-# <a name="manage-azure-registration"></a>管理 Azure 注册
+# <a name="manage-cluster-registration-with-azure"></a>通过 Azure 管理群集注册
 
 > 适用于 Azure Stack HCI v20H2
 
-创建 Azure Stack HCI 群集后，必须[向 Azure Arc 注册该群集](../deploy/register-with-azure.md)。群集注册后，会定期在本地群集和云之间同步信息。 本主题说明如何了解你的注册状态，如何授予 Azure Active Directory 权限，并在你准备好解除群集的授权时注销群集。
+创建 Azure Stack HCI 群集后，必须将 [Windows 管理中心注册到 azure](register-windows-admin-center.md) ，然后将 [该群集注册到 azure](../deploy/register-with-azure.md)。 群集注册后，会定期在本地群集和云之间同步信息。 本主题说明如何了解你的注册状态，如何授予 Azure Active Directory 权限，并在你准备好解除群集的授权时注销群集。
 
 ## <a name="understanding-registration-status-using-windows-admin-center"></a>了解使用 Windows 管理中心的注册状态
 
@@ -162,7 +162,7 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 准备好解除 Azure Stack HCI 群集的授权后，只需使用 Windows 管理中心连接到群集，并选择左侧 "**工具**" 菜单底部的 "**设置**"。 然后选择 **AZURE STACK HCI 注册**，并单击 " **取消注册** " 按钮。 如果组是在注册期间创建的，并且不包含任何其他资源) 和 Azure AD 应用标识，则注销过程会自动清除表示群集的 Azure 资源，Azure 资源组 (。 这会通过 Azure Arc 停止所有监视、支持和计费功能。
 
    > [!NOTE]
-   > 取消注册 Azure Stack HCI 群集需要 Azure Active Directory 管理员或已被委派足够权限的其他用户。 请参阅 [Azure Active Directory 用户权限](#azure-active-directory-user-permissions)。
+   > 取消注册 Azure Stack HCI 群集需要 Azure Active Directory 管理员或已被委派足够权限的其他用户。 请参阅 [Azure Active Directory 用户权限](#azure-active-directory-user-permissions)。 如果你的 Windows 管理中心注册到不同 Azure Active Directory (租户) ID 和应用程序 ID，而不是用于初始注册群集，则在尝试使用 Windows 管理中心注销群集时可能会遇到问题。 如果出现这种情况，请遵循下面的 PowerShell 说明。
 
 ## <a name="unregister-azure-stack-hci-using-powershell"></a>使用 PowerShell 注销 Azure Stack HCI
 
@@ -204,4 +204,5 @@ Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-
 
 如需相关信息，另请参阅：
 
+- [将 Windows Admin Center 注册到 Azure](register-windows-admin-center.md)
 - [将 Azure Stack HCI 连接到 Azure](../deploy/register-with-azure.md)
