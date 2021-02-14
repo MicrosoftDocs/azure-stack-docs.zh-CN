@@ -528,7 +528,7 @@
                   href: customer-replaceable-unit/power-off-scu.md
                 - name: 更换 DIMM
                   href: customer-replaceable-unit/replace-dimm.md
-                - name: 替换发生故障的外部存储磁盘
+                - name: 替换失败的数据驱动器
                   href: customer-replaceable-unit/replace-failed-external-storage-disk.md
                 - name: 更换冷却风扇
                   href: customer-replaceable-unit/replace-cooling-fan.md
@@ -544,7 +544,7 @@
                   href: customer-replaceable-unit/replace-heater.md
                 - name: 开机缩放单位节点
                   href: customer-replaceable-unit/power-on-scale-unit-node.md
-                - name: 修复缩放单位节点
+                - name: 修复缩放单元节点
                   href: customer-replaceable-unit/repair-scale-unit-node.md
                 - name: 验证硬件生命周期主机运行状况
                   href: customer-replaceable-unit/verify-hardware-lifecycle-host-health.md
@@ -560,11 +560,9 @@
                   href: customer-replaceable-unit/indicators-and-codes.md
                 - name: 通过直接 USB 连接访问 iDRAC 接口
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
-                - name: 通过 iDRAC 接口安装固件
-                  href: customer-replaceable-unit/install-firmware-using-idrac.md
                 - name: 特权访问工作站和特权终结点访问
                   href: customer-replaceable-unit/privileged-access-workstation.md
-    - name: 引用
+    - name: 参考
       items:
         - name: Azure Stack 中心操作员
           href: ../operator/index.yml

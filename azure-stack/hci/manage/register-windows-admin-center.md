@@ -4,21 +4,24 @@ description: 如何将 Windows 管理中心网关注册到 Azure。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: d98cb4f0531903d27d97d9fb055c7ae2db35a65e
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2021
+ms.openlocfilehash: 0b80a1e607823385d06a5255244373ca3be1af98
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050053"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487878"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>将 Windows Admin Center 注册到 Azure
 
 > 适用于 Azure Stack HCI v20H2；Windows Server 2019
 
-若要在 Windows 管理中心使用 Azure 服务，必须首先在管理 PC 上安装 Windows 管理中心并完成 Windows 管理中心网关的一次性注册。 这是将群集注册到 Azure 的先决条件，应在计划用于完成 [群集注册](../deploy/register-with-azure.md) 过程的相同管理 PC 上，使用相同的 AZURE 订阅 id 和租户 id。
+若要在 Windows 管理中心使用 Azure 服务，必须首先在管理 PC 上 [安装 Windows 管理中心](/windows-server/manage/windows-admin-center/deploy/install) 并完成 windows 管理中心网关的一次性注册。 这是将 [群集注册](../deploy/register-with-azure.md) 到 Azure 的先决条件。
 
-## <a name="complete-the-gateway-registration-process-using-windows-admin-center"></a>使用 Windows 管理中心完成网关注册过程
+   > [!IMPORTANT]
+   > 在计划用于注册群集的同一台管理 PC 上注册 Windows 管理中心，使用同一个 Azure Active Directory (租户) ID。
+
+## <a name="complete-the-registration-process"></a>完成注册过程
 
 1. 启动 Windows Admin Center，单击右上角的“设置”齿轮图标，随即会转到“帐户”页。 然后，在左侧的“网关”菜单中，选择“Azure”，然后单击“注册”  。
 

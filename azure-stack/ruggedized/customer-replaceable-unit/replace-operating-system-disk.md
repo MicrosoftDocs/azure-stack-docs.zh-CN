@@ -3,16 +3,16 @@ title: 替换操作系统磁盘
 description: 了解如何替换操作系统磁盘
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 8ab8cd77a9ce3641a65eeb60460305830d524462
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: 24447611a4b3c775b92f4d163bb250060e29417e
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571171"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487827"
 ---
 # <a name="replacing-an-operating-system-disk"></a>替换操作系统磁盘
 
@@ -24,13 +24,13 @@ ms.locfileid: "99571171"
 
 2.  查看处理预防措施。
 
-3.  如果使用的是缩放单位节点，则在耐用 Cloud 设备中使用缩放单元节点所需的知识。
+3.  如果使用缩放单位节点，则在 Azure Stack Hub 耐用中使用缩放单元节点所需的知识。
 
 4.  完成验证缩放单位节点的访问和运行状况。
 
 5.  完成关闭扩展单元节点的功能。
 
-    对于 Azure Stack 集线器缩放单位节点，操作系统将从驻留在戴尔 PowerEdge Boot 优化存储解决方案 (老板) 卡的镜像对的 2 SSD 模块上运行。 系统必须关闭电源，才能更换操作系统磁盘。
+    对于 Azure Stack 集线器缩放单位节点，操作系统将从驻留在启动优化存储解决方案 (老板) 卡的启动优化存储解决方案的镜像对中运行。 系统必须关闭电源，才能更换操作系统磁盘。
     
 ## <a name="steps"></a>步骤
 
@@ -43,7 +43,7 @@ ms.locfileid: "99571171"
     
 3.  替换失败的 2 SSD 模块。
 
-    遵循适用于扩展单元节点的 [DELL EMC PowerEdge R640 安装和服务手册](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) 中的第2个 SSD 模块更换过程。
+    对于缩放单位节点，请遵循 [M. 2 SSD 模块更换过程](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) 。
     
 4.  在节点上通电。
 

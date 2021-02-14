@@ -3,16 +3,16 @@ title: 开机并修复缩放单位节点
 description: 了解如何开机并修复缩放单位节点
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d05c696f62aad4d9305137edab777d69b6442814
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 0a2aa54234b5dccc8f1ce3425906425064463910
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909916"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488116"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>打开和修复缩放单位节点
 
@@ -37,7 +37,7 @@ ms.locfileid: "97909916"
     
     
     > [!NOTE]
-    > 如果修复过程在三个小时内未完成，或者出现问题，请与支持 Microsoft 支持部门的戴尔技术支持人员联系，以便进行进一步的故障排除。
+    > 如果修复过程在三个小时内未完成，或者出现问题，请使用 Microsoft 支持部门打开一个事例进行进一步的故障排除。
     
     完成修复过程后，该节点返回到 **正在运行的操作状态**。
     

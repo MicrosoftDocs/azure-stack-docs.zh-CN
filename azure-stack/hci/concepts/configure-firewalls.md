@@ -4,13 +4,13 @@ description: 本主题提供有关如何为 Azure Stack HCI 操作系统配置�
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 01/06/2020
-ms.openlocfilehash: a67881f2dd4be5e4dce5fb967c88484c27025624
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/12/2021
+ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255225"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487385"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>为 Azure Stack HCI 配置防火墙
 
@@ -75,7 +75,50 @@ Azure 为使用服务标记组织的 Azure 服务维护众所周知的 IP 地址
     ```
 
 ## <a name="additional-endpoint-for-one-time-azure-registration"></a>用于一次性 Azure 注册的其他终结点
-在 Azure 注册过程中，当你运行 `Register-AzStackHCI` 或使用 Windows 管理中心时，该 cmdlet 将尝试与 PowerShell 库联系以验证你是否具有所需的最新版本的 PowerShell 模块，如 Az 和 AzureAD。 尽管 PowerShell 库在 Azure 上托管，但目前没有服务标记。 如果无法 `Register-AzStackHCI` 从服务器节点运行该 cmdlet，原因是没有 internet 访问权限，我们建议将这些模块下载到管理计算机，然后手动将它们传输到要运行 cmdlet 的服务器节点。
+在 Azure 注册过程中，当你运行 `Register-AzStackHCI` 或使用 Windows 管理中心时，该 cmdlet 将尝试与 PowerShell 库联系以验证你是否具有所需的最新版本的 PowerShell 模块，如 Az 和 AzureAD。
+
+尽管 PowerShell 库在 Azure 上托管，但目前没有服务标记。 如果无法 `Register-AzStackHCI` 从服务器节点运行该 cmdlet，原因是没有 internet 访问权限，我们建议将这些模块下载到管理计算机，然后手动将它们传输到要运行 cmdlet 的服务器节点。
+
+## <a name="set-up-a-proxy-server"></a>设置代理服务器
+若要为 Azure Stack HCI 设置代理服务器，请以管理员身份运行以下 PowerShell 命令：
+
+```powershell
+Set-WinInetProxy -ProxySettingsPerUser 0 -ProxyServer webproxy1.com:9090
+```
+
+使用 `ProxySettingsPerUser 0` 标志使代理配置服务器范围而不是每个用户（默认值）。 
+
+在以下位置下载 WinInetProxy hbase-runner.psm1 脚本： [PowerShell 库 |WinInetProxy. hbase-runner.psm1 0.1.0](https://www.powershellgallery.com/packages/WinInetProxy/0.1.0/Content/WinInetProxy.psm1)。
+
+## <a name="network-port-requirements"></a>网络端口要求
+请确保站点内和站点间的所有服务器节点之间的相应网络端口处于打开状态（对于延伸群集）。 你需要适当的防火墙和路由器规则，以允许在群集中的所有服务器之间进行 ICMP、SMB（端口 445，以及适用于 SMB Direct 的端口 5445）和 WS-MAN（端口 5985）双向通信。
+
+使用 Windows Admin Center 中的群集创建向导来创建群集时，向导会针对故障转移群集、Hyper-V 和存储副本自动打开群集中每台服务器上的相应防火墙端口。 如果要在每个服务器上使用不同的防火墙，请打开以下端口：
+
+### <a name="failover-clustering-ports"></a>故障转移群集端口
+- ICMPv4 和 ICMPv6
+- TCP 端口 445
+- RPC 动态端口
+- TCP 端口 135
+- TCP 端口 137
+- TCP 端口 3343
+- UDP 端口 3343
+
+### <a name="hyper-v-ports"></a>Hyper-V 端口
+- TCP 端口 135
+- TCP 端口 80（HTTP 连接）
+- TCP 端口 443（HTTPS 连接）
+- TCP 端口 6600
+- TCP 端口 2179
+- RPC 动态端口
+- RPC 终结点映射程序
+- TCP 端口 445
+
+### <a name="storage-replica-ports-stretched-cluster"></a>存储副本端口（延伸群集）
+- TCP 端口 445
+- TCP 5445（如果使用 iWarp RDMA）
+- TCP 端口 5985
+- ICMPv4 和 ICMPv6（如果使用 `Test-SRTopology` PowerShell cmdlet）
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅：

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/28/2020
-ms.openlocfilehash: 17e8758dfea300f6bc3e02609877dfed8f780383
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2020
+ms.openlocfilehash: 3711a0e11bac59f00ce51027ea9544f6858dd297
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050019"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487317"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>将 Azure Stack HCI 连接到 Azure
 
@@ -34,11 +34,11 @@ ms.locfileid: "99050019"
 为获得最简单的注册体验，请 Azure AD 管理员使用 Windows 管理中心或 PowerShell 完成注册。
 
    > [!IMPORTANT]
-   > 如果打算使用 Windows 管理中心注册群集，必须首先使用 Azure 订阅 ID 和你计划用于群集注册的租户 ID [向 Azure 注册 Windows 管理中心网关](../manage/register-windows-admin-center.md) 。
+   > 若要使用 Windows 管理中心注册 Azure Stack HCI 群集，你必须首先使用你计划用于群集注册 (租户) ID 的同一 Azure Active Directory，将 [Windows 管理中心注册到 Azure](../manage/register-windows-admin-center.md) 。
 
 ### <a name="internet-access"></a>Internet 访问
 
-Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受到外部公司防火墙或代理服务器的限制，则必须将其配置为允许对端口443的出站访问， (HTTPS) 在有限数量的众所周知的 Azure Ip 上。 有关如何准备防火墙的信息，请参阅为 [AZURE STACK HCI 配置防火墙](../concepts/configure-firewalls.md)。
+Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受到外部公司防火墙或代理服务器的限制，则必须将其配置为允许对端口443的出站访问， (HTTPS) 在有限数量的众所周知的 Azure Ip 上。 有关如何准备防火墙和设置代理服务器的信息，请参阅为 [AZURE STACK HCI 配置防火墙](../concepts/configure-firewalls.md)。
 
    > [!NOTE]
    > 注册过程将尝试与 PowerShell 库联系以验证你是否具有所需的最新版本的 PowerShell 模块，如 Az 和 AzureAD。 尽管 PowerShell 库在 Azure 上托管，但它当前没有服务标记。 如果无法从具有出站 internet 访问权限的管理计算机上运行上述 cmdlet，则我们建议下载这些模块，并手动将它们传输到要运行该命令的群集节点 `Register-AzStackHCI` 。 或者，你可以 [在断开连接的情况下安装模块](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system)。
@@ -106,10 +106,10 @@ Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受�
 
 注册 Azure Stack HCI 群集的最简单方法是使用 Windows 管理中心。 请记住，用户必须具有 [Azure Active Directory 权限](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)，否则注册过程将不会完成;相反，它将退出并退出注册等待管理员批准。
 
-1. 开始注册过程之前，必须先将 [Windows 管理中心网关注册到](../manage/register-windows-admin-center.md) Azure （如果尚未这样做）。
+1. 开始注册过程之前，必须先将 [Windows 管理中心注册到 Azure](../manage/register-windows-admin-center.md)（如果尚未这样做）。
 
    > [!IMPORTANT]
-   > 将 Windows 管理中心注册到 Azure 时，请务必使用你计划用于实际群集注册的相同 Azure 订阅 ID 和租户 ID。 Azure AD 租户 ID 表示包含帐户和组的 Azure AD 的特定实例，而 Azure 订阅 ID 表示使用 Azure 资源的协议，该协议会产生费用。 若要查找租户 ID，请访问 [portal.azure.com](https://portal.azure.com) 并选择 **Azure Active Directory**。 租户 ID 将显示在 " **租户信息**" 下。 若要获取 Azure 订阅 ID，请导航到 " **订阅** "，然后从列表中复制/粘贴你的 ID。
+   > 向 Azure 注册 Windows 管理中心时，必须使用你计划用于实际群集注册的相同 Azure Active Directory (租户) ID。 Azure AD 租户 ID 表示包含帐户和组的 Azure AD 的特定实例，而 Azure 订阅 ID 表示使用 Azure 资源的协议，该协议会产生费用。 若要查找租户 ID，请访问 [portal.azure.com](https://portal.azure.com) 并选择 **Azure Active Directory**。 租户 ID 将显示在 " **租户信息**" 下。 若要获取 Azure 订阅 ID，请导航到 " **订阅** "，然后从列表中复制/粘贴你的 ID。
 
 2. 打开 Windows 管理中心，并从左侧 "**工具**" 菜单的最底部选择 "**设置**"。 然后选择 "**设置**" 菜单底部的 " **Azure Stack HCI 注册**"。 如果你的群集尚未注册到 Azure，则 **注册状态** 将显示 " **未注册**"。 单击 " **注册** " 按钮以继续。
 

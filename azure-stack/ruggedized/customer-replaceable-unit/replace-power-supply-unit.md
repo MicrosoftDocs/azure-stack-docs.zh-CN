@@ -3,16 +3,16 @@ title: 更换电源单元
 description: 了解如何更换电源单元
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 09e417e0ab42dc0add297cf774fa4052579c5e13
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: 149a49d920f56594b9871bbfcd29c7592ecb87ad
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571137"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487755"
 ---
 # <a name="replacing-a-power-supply-unit"></a>更换电源单元
 
@@ -26,7 +26,7 @@ ms.locfileid: "99571137"
 
 3.  审阅
 
-    -   如果使用缩放单位节点，则在耐用 Cloud 设备中使用缩放单元节点所需的知识
+    -   如果使用缩放单位节点，则在 Azure Stack Hub 中使用缩放单元节点所需的知识耐用
 
     -   如果使用的是硬件生命周期主机，则使用硬件生命周期主机所需的知识
 
@@ -42,7 +42,7 @@ ms.locfileid: "99571137"
 
 2.  更换 PSU。
 
-遵循适用于缩放单元节点或硬件生命周期主机的 [DELL EMC PowerEdge R640 安装和服务手册](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) 中的 PSU 更换过程。
+遵循扩展单元节点或硬件生命周期主机的 [PSU 更换过程](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) 。
 
 ## <a name="next-steps"></a>后续步骤
 

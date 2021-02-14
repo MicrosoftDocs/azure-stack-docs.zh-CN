@@ -7,12 +7,12 @@ ms.date: 01/28/2021
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: ''
-ms.openlocfilehash: 7aff7f648bb74a428a9f21ae61ece770f0ad841b
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: af4b9e3cbbff2c9d2c06f3c3966a2f67b1b7c037
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577267"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488065"
 ---
 # <a name="indicators-and-codes"></a>指示器和代码
 
@@ -53,7 +53,7 @@ IDRAC 直接 LED LED 指示灯亮起，指示端口已连接并且正作为 iDRA
 
 |    <br>项       |    <br>指示器或按钮                       |    <br>图标                                |    <br>说明                                                                                                  |
 |-------------------|--------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-|    <br>1          |    <br>状态 LED 指示器                     |    <br>不适用                                 |    <br>指示系统的状态。     |
+|    <br>1          |    <br>状态 LED 指示器                     |    <br>不可用                                 |    <br>指示系统的状态。     |
 |    <br>2和3    |    <br>系统运行状况和系统 ID 指示器    | ![系统运行状况图标](media/image-77.png) |    <br>指示系统运行状况。                                                                                 |
 
 下表列出了状态 LED 指示器。

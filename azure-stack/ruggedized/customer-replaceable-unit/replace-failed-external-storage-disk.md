@@ -1,22 +1,22 @@
 ---
-title: 替换发生故障的外部存储磁盘
-description: 了解如何更换发生故障的外部存储磁盘
+title: 替换发生故障的数据驱动器
+description: 了解如何更换发生故障的数据驱动器
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 26f3343da26adc541c87eacb046ca078a6a32c31
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: a5b7796794a0444a434fdb9a628ff04b93adcc03
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571224"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488099"
 ---
-# <a name="replacing-a-failed-external-storage-disk"></a>替换发生故障的外部存储磁盘
+# <a name="replacing-a-failed-data-drive"></a>替换发生故障的数据驱动器
 
-使用以下过程来替换失败的外部磁盘。
+使用以下过程来替换失败的数据驱动器。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -48,8 +48,7 @@ ms.locfileid: "99571224"
 
 2.  验证磁盘型号。
 
-    验证新磁盘型号是否在[Microsoft Azure Stack Hub 的集成系统14G 支持](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D) 
-     [矩阵](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D)* 中列出为受支持。
+    验证新磁盘型号是否在 [支持矩阵](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D)中列出为受支持。
     如果磁盘不在支持矩阵中，则必须请求其他替换项。
     
     > [!CAUTION]
@@ -57,9 +56,9 @@ ms.locfileid: "99571224"
         
     若要检查模型，请找到标签，并验证组件是否在支持矩阵中。
     
-3.  替换发生故障的外部存储磁盘。
+3.  替换发生故障的数据驱动器。
 
-    按照适用于规模单元节点或硬件生命周期主机的 [DELL EMC PowerEdge R640 安装和服务手册](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) 中的磁盘驱动器托架更换过程进行操作。
+    按照规模单元节点或硬件生命周期主机的 [磁盘驱动器托架更换过程](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) 进行操作。
     
     还必须参阅删除磁盘驱动器的相关部分，并将磁盘驱动器安装到磁盘驱动器托架或磁盘驱动器适配器。
     

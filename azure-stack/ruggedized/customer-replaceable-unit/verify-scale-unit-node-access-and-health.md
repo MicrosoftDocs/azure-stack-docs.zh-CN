@@ -7,16 +7,14 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 299b7da3ad514092c86f1855b9261fda0d76ac5d
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: d636b5ebb0d07c2711a17b2b2f10651480c38068
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99570977"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488014"
 ---
 # <a name="verifying-scale-unit-node-access-and-health"></a>验证缩放单位节点的访问和运行状况
-
-
 
 登录到特权访问工作站，启动管理员门户，验证系统运行状况，获取特权终结点 IP 地址，并确定需要排出或恢复哪些节点。
 
@@ -35,7 +33,7 @@ ms.locfileid: "99570977"
     
 4.  查看任何当前警报。
 
-    在 " **区域管理**" 中，选择 " **警报** " 并查看当前警报。 如果出现任何意外的警报，请与 Dell 技术支持部门验证是否可以清除或安全地忽略它们。
+    在 " **区域管理**" 中，选择 " **警报** " 并查看当前警报。 如果出现任何意外警报，请验证 Microsoft 支持部门是否可以清除或安全地忽略它们。
     
     [![显示 "属性" 页的屏幕截图，其中突出显示了 "Name" 部分。](media/image-19-inline.png)](media/image-19-expanded.png#lightbox)
     

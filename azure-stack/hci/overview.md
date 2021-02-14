@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/13/2021
-ms.openlocfilehash: c4280a9b120530b84bbaac9f7f963a695c0eaf99
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.date: 02/10/2021
+ms.openlocfilehash: 66156b01796c483f509b5b0787ca947f85fa6a1a
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208023"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487861"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI 解决方案概述
 
@@ -103,6 +103,15 @@ Azure Stack HCI 是世界一流的集成虚拟化堆栈，基于已经大规模�
 - 如果你计划使用“软件定义的网络 (SDN)”，则需要一个用于 Azure Stack HCI 操作系统的虚拟硬盘 (VHD) 来创建网络控制器 VM（请参阅[计划部署网络控制器](concepts/network-controller.md)）
 
 有关详细信息，请参阅[系统需求](concepts/system-requirements.md)。 关于 Azure Stack HCI 上的 Azure Kubernetes 服务的要求，请参阅 [Azure Stack HCI 上的 AKS 要求](../aks-hci/overview.md#what-you-need-to-get-started)。
+
+## <a name="availability"></a>可用性
+
+|方面|详细信息|
+|----|:----|
+|发布状态：|正式发布版 (GA)|
+|定价：|[向 Azure 订阅计费](concepts/billing.md)|
+|所需角色和权限：|**Azure Active Directory 管理员** 或委派的权限|
+|||
 
 ## <a name="hardware-partners"></a>硬件合作伙伴
 

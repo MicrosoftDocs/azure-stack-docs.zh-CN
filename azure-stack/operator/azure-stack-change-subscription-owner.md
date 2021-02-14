@@ -3,16 +3,16 @@ title: 更改 Azure Stack Hub 用户订阅的计费所有者
 description: 了解如何更改 Azure Stack Hub 用户订阅的计费所有者。
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 1/29/2021
+ms.date: 02/11/2021
 ms.author: patricka
 ms.reviewer: shnatara
-ms.lastreviewed: 1/29/2021
-ms.openlocfilehash: 40e4fbff8a04db2a6f2218d60d548df3c75236ba
-ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
+ms.lastreviewed: 02/11/2021
+ms.openlocfilehash: 547a42cdc2ea6f0655c2431b059ea49a4ddbf732
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99533872"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487844"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>更改 Azure Stack Hub 用户订阅的计费所有者
 
@@ -75,15 +75,12 @@ Write-Output "Setting context to the Default Provider Subscription: $providerSub
 Set-AzureRMContext -Subscription $providerSubscriptionId
 
 # Change user subscription owner
-$subscription = Get-AzureRMsUserSubscription -SubscriptionId $SubscriptionId
+$subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
 $Subscription.Owner = $OwnerUpn
-Set-AzureRMsUserSubscription -InputObject $subscription
+Set-AzsUserSubscription -InputObject $subscription
 ```
 [!include[Remove Account](../includes/remove-account-azurerm.md)]
 ---
-
-
-
 
 ## <a name="next-steps"></a>后续步骤
 

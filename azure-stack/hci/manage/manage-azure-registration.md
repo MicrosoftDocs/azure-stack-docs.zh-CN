@@ -4,13 +4,13 @@ description: 如何管理 Azure registration for Azure Stack HCI 群集、了解
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/09/2021
-ms.openlocfilehash: 9156e5b67a679a93561bfc6449016178c04a1019
-ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
+ms.date: 02/10/2021
+ms.openlocfilehash: 7128ddae1a1b67e0085806ecd988f475c9bf8708
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100013228"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487453"
 ---
 # <a name="manage-cluster-registration-with-azure"></a>通过 Azure 管理群集注册
 
@@ -162,7 +162,7 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 准备好解除 Azure Stack HCI 群集的授权后，只需使用 Windows 管理中心连接到群集，并选择左侧 "**工具**" 菜单底部的 "**设置**"。 然后选择 **AZURE STACK HCI 注册**，并单击 " **取消注册** " 按钮。 如果组是在注册期间创建的，并且不包含任何其他资源) 和 Azure AD 应用标识，则注销过程会自动清除表示群集的 Azure 资源，Azure 资源组 (。 这会通过 Azure Arc 停止所有监视、支持和计费功能。
 
    > [!NOTE]
-   > 取消注册 Azure Stack HCI 群集需要 Azure Active Directory 管理员或已被委派足够权限的其他用户。 请参阅 [Azure Active Directory 用户权限](#azure-active-directory-user-permissions)。 如果你的 Windows 管理中心注册到不同 Azure Active Directory (租户) ID 和应用程序 ID，而不是用于初始注册群集，则在尝试使用 Windows 管理中心注销群集时可能会遇到问题。 如果出现这种情况，请遵循下面的 PowerShell 说明。
+   > 取消注册 Azure Stack HCI 群集需要 Azure Active Directory 管理员或已被委派足够权限的其他用户。 请参阅 [Azure Active Directory 用户权限](#azure-active-directory-user-permissions)。 如果你的 Windows 管理中心网关注册到了不同于最初注册群集时所用 (租户) ID 的 Azure Active Directory，则在尝试使用 Windows 管理中心取消注册群集时可能会遇到问题。 如果出现这种情况，请按照下面的 PowerShell 说明进行操作。
 
 ## <a name="unregister-azure-stack-hci-using-powershell"></a>使用 PowerShell 注销 Azure Stack HCI
 
@@ -199,6 +199,24 @@ Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-
 如果用户在不取消注册的情况下销毁 Azure Stack HCI 群集，例如通过重新映像主机服务器或删除虚拟群集节点，则项目将保留在 Azure 中。 这些都是无害的，不会产生计费或使用资源，但会打乱 Azure 门户。 若要清理它们，可以手动将其删除。
 
 若要删除 Azure Stack HCI 资源，请导航到 Azure 门户中的页面，然后从顶部的操作栏中选择 " **删除** "。 键入资源名称以确认删除，然后选择“删除”  。 若要删除 Azure AD 应用标识，请导航到 **Azure AD**，然后导航到 " **应用注册**"，你会在 " **所有应用程序**" 下找到它。 选择 " **删除** 并确认"。
+
+还可以使用 PowerShell 删除 Azure Stack HCI 资源：
+
+```PowerShell
+Remove-AzResource -ResourceId "HCI001"
+```
+
+可能需要安装该 `Az.Resources` 模块：
+
+```PowerShell
+Install-Module -Name Az.Resources
+```
+
+如果资源组是在注册期间创建的，并且不包含任何其他资源，则也可以将其删除：
+
+```PowerShell
+Remove-AzResourceGroup -Name "HCI001-rg"
+```
 
 ## <a name="next-steps"></a>后续步骤
 

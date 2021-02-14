@@ -3,16 +3,16 @@ title: Azure Stack Hub 上 Azure Kubernetes 服务 (AKS) 引擎的发行说明
 description: 了解更新 Azure Stack Hub 上的 AKS 引擎需要采取的步骤。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/11/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 35fbcf51430d063110f4f14ae1203f79df6cf739
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.lastreviewed: 2/11/2021
+ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554111"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488031"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上的 AKS 引擎发行说明
 ::: moniker range=">=azs-2002"
@@ -76,6 +76,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 
 -   Kubernetes 群集管理员将需要下载新的 aks-engine 版本 0.51.0。 请参阅下面的文章[在 Linux 上的 Azure Stack Hub 中安装 AKS 引擎](./azure-stack-kubernetes-aks-engine-deploy-linux.md)中的说明。 你可以遵循用于首次安装群集的过程。 此更新将覆盖以前的二进制文件。 例如，如果你使用了 get-akse.sh 脚本，请按照[在联网环境中安装](./azure-stack-kubernetes-aks-engine-deploy-linux.md#install-in-a-connected-environment)部分中所述的步骤进行操作。 如果你是在 Windows 系统上安装，则此过程同样适用，请参阅[在 Windows 上的 Azure Stack Hub 中安装 AKS 引擎](./azure-stack-kubernetes-aks-engine-deploy-windows.md)一文。
 
+
 ## <a name="aks-engine-and-azure-stack-version-mapping"></a>AKS 引擎和 Azure Stack 版本映射
 
 | Azure Stack Hub 版本 | AKS 引擎版本 |
@@ -100,6 +101,16 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
     -   "orchestratorRelease": "1.16",
     -   "orchestratorVersion": "1.16.14"
 ```
+
+## <a name="aks-engine-and-corresponding-image-mapping"></a>AKS 引擎和相应的图像映射
+
+| AKS 引擎 | AKS 基础映像 | Kubernetes 版本 | 说明 |
+|---|---|---|---|
+| v 0.43。1 | AKS 基本 Ubuntu 16.04-LTS Image 发行版，十月 2019 (2019.10.24)  | 1.15.5, 1.15.4, 1.14.8, 1.14.7 |  |
+| v 0.48。0 | AKS 基本 Ubuntu 16.04-LTS Image 发行版，三月 2020 (2020.03.19)  | 1.15.10, 1.14.7 |  |
+| v 0.51。0 | AKS 基本 Ubuntu 16.04-LTS Image 发行版，2020 (2020.05.13) ，AKS 基本 Windows 映像 (17763.1217.200513)  | 1.15.12、1.16.8、1.16.9 |  ([Linux](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-azurestack.json)、 [WINDOWS](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-windows.json)) 的 API 模型示例 |
+| v 0.55。0 | AKS 基本 Ubuntu 16.04-LTS Image 发行版，8月 2020 (2020.08.24) ，AKS 基本 Windows 映像 (17763.1397.200820)  | 1.15.12, 1.16.14, 1.17.11 |  ([Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json)、 [WINDOWS](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)) 的 API 模型示例 |
+| v 0.55。4 | AKS 基本 Ubuntu 16.04-LTS Image 发行版，9月 2020 (2020.09.14) ，AKS 基本 Windows 映像 (17763.1397.200820)  | 1.15.12, 1.16.14, 1.17.11 |  ([Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json)、 [Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)的 API 模型示例 |
 
 ## <a name="whats-new"></a>新增功能
 

@@ -3,16 +3,16 @@ title: 更换冷却风扇
 description: 了解如何更换冷却风扇
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: c04f4af7b19fd02c3c41acaed45e70acb0131e1a
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: 34437eea94b328d729f838aaf5050c7efee16e7f
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571274"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488082"
 ---
 # <a name="replacing-a-cooling-fan"></a>更换冷却风扇
 
@@ -26,7 +26,7 @@ ms.locfileid: "99571274"
 
 3.  审阅
 
-    -   在耐用 Cloud 设备中使用缩放单元节点所需的知识
+    -   在 Azure Stack Hub 中使用缩放单元节点所需的知识耐用
 
     -   如果使用的是硬件生命周期主机，则使用第5页上的硬件生命周期主机所需的知识
 
@@ -53,7 +53,7 @@ ms.locfileid: "99571274"
     
 3.  更换风扇。
 
-    遵循适用于缩放单元节点或硬件生命周期主机的 [DELL EMC PowerEdge R640 安装和服务手册](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) 中的风扇更换过程。
+    遵循规模单元节点或硬件生命周期主机的 [风扇更换过程](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) 。
     
 4.  在节点上通电。
 
