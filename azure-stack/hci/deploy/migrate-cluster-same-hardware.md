@@ -3,15 +3,15 @@ title: 迁移到同一硬件上的 Azure Stack HCI
 description: 了解如何在同一硬件上迁移群集以 Azure Stack HCI
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/12/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 35c1de7da10fbecbf6b861a23cdebb752502ca44
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 593be52321230f3fc1ae4329f8f2284cf964298a
+ms.sourcegitcommit: 5a8b6dfdf75df1aa9474e062ec3a91ca1b8e58bb
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772276"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524936"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>迁移到同一硬件上的 Azure Stack HCI
 
@@ -28,7 +28,7 @@ ms.locfileid: "98772276"
 > [!NOTE]
 > 本文未介绍迁移延伸的群集。
 
-## <a name="before-you-begin"></a>在开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在开始迁移之前，需要考虑几个要求和事项：
 
@@ -215,15 +215,9 @@ Install-WindowsFeature -Name Hyper-V, Failover-Clustering, FS-Data-Deduplication
 
 ## <a name="refs-volumes"></a>ReFS 卷
 
-如果从 Windows Server 2016 迁移，则支持复原文件系统 (ReFS) 卷，但此类卷不会从 Azure Stack HCI 的以下性能增强功能中受益：
+如果从 Windows Server 2016 迁移，则支持复原文件系统 (ReFS) 卷，但是，Azure Stack HCI 中的性能增强功能不会从使用镜像加速奇偶校验 (映射) 卷中获益。 此增强功能需要使用 PowerShell cmdlet 创建新的 ReFS 卷 `New-Volume` 。
 
-- 镜像加速奇偶校验
-- 映射绕过日志
-
-这些增强功能需要使用 cmdlet 创建新的 ReFS 卷 `New-Volume` 。
-
-> [!NOTE]
-> 对于 Windows Server 2016 镜像加速奇偶校验卷，ReFS 压缩功能不可用，因此重新连接这些卷是正常的，但与在 Azure Stack HCI 群集上创建新的映射卷相比，其性能较低。
+对于 Windows Server 2016 映射卷，ReFS 压缩功能不可用，因此重新连接这些卷是正常的，但与在 Azure Stack HCI 群集中创建新的映射卷相比，其性能较低。
 
 ## <a name="import-the-vms"></a>导入 Vm
 
