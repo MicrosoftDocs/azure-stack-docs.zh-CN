@@ -5,16 +5,16 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: how-to
 ms.date: 02/01/2021
-ms.openlocfilehash: 6af08615a25ed93f62f526d92ead7511699c8439
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: fb90a8f9df28ed8fd67330c42ae1e3d2f3aa445c
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247996"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562928"
 ---
 # <a name="manage-tenant-virtual-networks"></a>管理租户虚拟网络
 
->适用于： Azure Stack HCI，版本 20H2;Windows Server 2019;Windows Server 2016
+>适用于：Azure Stack HCI 版本 20H2；Windows Server 2019、Windows Server 2016
 
 本主题提供了有关在部署软件定义的网络 (SDN) 后，如何使用 Windows 管理中心来创建、更新和删除 Hyper-v 网络虚拟化 (HNV) 虚拟网络的分步说明。
 
@@ -45,7 +45,7 @@ HNV 可帮助你隔离租户网络，使每个租户网络为单独的实体。 
 
 1. 在 Windows 管理中心主屏幕上的 " **所有连接**" 下，选择要在其上查看虚拟网络的群集。
 1. 在 " **工具**" 下，向下滚动到 " **网络** " 区域，然后选择 " **虚拟网络**"。
-1. " **清单** " 选项卡列出了群集上所有可用的虚拟网络，并提供用于管理单个虚拟网络的命令。 可以执行以下操作：
+1. " **清单** " 选项卡列出了群集上所有可用的虚拟网络，并提供用于管理单个虚拟网络的命令。 方法：
     - 查看虚拟网络的列表。
     - 查看虚拟网络设置、每个虚拟网络的状态，以及连接到每个虚拟网络)  (Vm 的虚拟机数。
     - 更改虚拟网络的设置。

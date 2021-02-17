@@ -3,16 +3,16 @@ title: 让云解决方案提供商管理 Azure Stack Hub 订阅
 description: 了解如何让云解决方案提供商 (CSP) 为你管理 Azure Stack Hub 订阅。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: d54b73595b3f8f79cfa606a1fb41ad945f40157d
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: b6a37ad0db4dfb88a64e641dbb21f2869084c3b5
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414106"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100563055"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>让云解决方案提供商管理 Azure Stack Hub 订阅
 

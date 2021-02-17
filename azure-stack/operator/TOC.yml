@@ -362,6 +362,10 @@
                   href: event-hubs-rp-rotate-secrets.md
                 - name: 服务更新公告
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: 发行说明
+              items:
+                - name: '1.2012.1.0 发行说明 [二月 2021]'
+                  href: event-hubs-rp-release-1-2012-10.md
             - name: 删除
               href: event-hubs-rp-remove.md
         - name: Azure Stack Hub 上的 IoT 中心

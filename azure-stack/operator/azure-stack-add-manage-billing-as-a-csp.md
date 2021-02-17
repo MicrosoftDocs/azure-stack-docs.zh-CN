@@ -3,16 +3,16 @@ title: 以云解决方案提供商的身份管理 Azure Stack 集线器使用情
 description: 了解如何将 Azure Stack Hub 注册为云解决方案提供商 (CSP) 并添加客户以便计费。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 0c3e82753835adfb70be13f43a14c20701881885
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 5d7a6dc3f0087f50fa97a0e6f61eee30037f54cc
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414072"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562544"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>管理充当云解决方案提供商的 Azure Stack Hub 的使用情况和计费
 
@@ -59,7 +59,7 @@ APSS 订阅与共享服务租户相关联。 注册 Azure Stack 中心时，将�
 
 ## <a name="charge-the-right-subscriptions"></a>对正确的订阅收费
 
-Azure Stack 集线器使用称为 " *注册* " 的功能。 注册是一个存储在 Azure 中的对象。 注册对象记录哪个 Azure 订阅 () 用于为给定的 Azure Stack 中心收取费用。 本部分讲述注册的重要性。
+Azure Stack 集线器使用称为 " *注册*" 的功能。 注册是一个存储在 Azure 中的对象。 注册对象记录哪个 Azure 订阅 () 用于为给定的 Azure Stack 中心收取费用。 本部分讲述注册的重要性。
 
 使用注册，Azure Stack 中心可以：
 

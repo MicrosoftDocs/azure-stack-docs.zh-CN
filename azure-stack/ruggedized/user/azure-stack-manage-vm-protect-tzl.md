@@ -11,22 +11,22 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: c57e421140dfea9eac949b5dcf97cc90745ab861
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a31b5b4498911b008ec471beca24905466efee4b
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910953"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562971"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub---ruggedized"></a>保护 Azure Stack 集线器上部署的 Vm-耐用
 
 使用本文作为指南来制定一套保护 (Vm) 用户在 Azure Stack Hub 上部署的虚拟机的计划。
 
-若要防止数据丢失和计划外停机，请在 Azure Stack 中心为基于 VM 的应用程序实施数据保护和灾难恢复计划。 实现的保护计划将取决于应用程序的业务要求和设计。 此计划应遵循组织通过 \' 全面的业务连续性和灾难恢复 (BC/DR) 策略建立的框架。 有关 Azure Stack 中心的 BC/DR 注意事项的详细概述，请参阅 Azure Stack：业务连续性和灾难恢复的注意事项。
+若要防止数据丢失和计划外停机，请在 Azure Stack 中心为基于 VM 的应用程序实施数据保护和灾难恢复计划。 实现的保护计划将取决于应用程序的业务要求和设计。 此计划应遵循组织通过 \' 全面的业务连续性和灾难恢复 (BC/DR) 策略建立的框架。 有关 Azure Stack 中心的 BC/DR 注意事项的详细概述，请参阅 [Azure Stack：业务连续性和灾难恢复的注意事项](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/)。
 
 ## <a name="application-recovery-objectives"></a>应用程序恢复目标
 
@@ -57,7 +57,7 @@ ms.locfileid: "97910953"
 - **分类**
   - 考虑用户选择加入 VM 备份的模型。
   - 根据应用程序优先级或对业务的影响来定义恢复服务级别协议 (SLA)。
-- **可伸缩**
+- 缩放 
   - 在载入大量新的 VM 时考虑进行交错式备份（如果必须备份）。
   - 评估可以有效地捕获和传输备份数据的备份产品，尽量减少解决方案上的资源内容。
   - 评估可以通过增量备份或差异备份有效存储备份数据的备份产品，尽量减少为环境中的所有 VM 创建完整备份的需求。
@@ -84,9 +84,9 @@ Important considerations for your Azure Stack deployment: -->
 
 本文提供了用于保护 Azure Stack 上部署的用户 VM 的一般准则。 有关使用 Azure 服务保护用户 VM 的信息，请参阅：
 
-- [业务连续性和灾难恢复的注意事项](https://aka.ms/azurestackbcdrconsiderationswp)
+- [业务连续性和灾难恢复的注意事项](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/)
 
 ### <a name="partner-products"></a>合作伙伴产品
 
-- [Azure Stack Datacenter 集成合作伙伴生态系统数据表](https://aka.ms/azurestackbcdrpartners)
+- [Azure Stack Datacenter 集成合作伙伴生态系统数据表](https://azure.microsoft.com/resources/azure-stack-datacenter-integration-partners/)
 - 若要详细了解在 Azure Stack 上提供 VM 保护的合作伙伴产品，请参阅 [在 Azure Stack 上保护应用和数据](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)。

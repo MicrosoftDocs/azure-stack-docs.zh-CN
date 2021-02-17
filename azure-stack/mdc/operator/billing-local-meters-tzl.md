@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: cebdb59e48112b0fc564be7a118fdedb71b8b4ab
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: e47ba23f0beeadf4117e9172cb0d835ae3a22a6c
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910765"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562573"
 ---
 # <a name="local-azure-stack-billing-meters---modular-data-center-mdc"></a>本地 Azure Stack 计费计量-模块化数据中心 (MDC) 
 

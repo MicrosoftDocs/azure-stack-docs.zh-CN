@@ -5,16 +5,16 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: how-to
 ms.date: 02/02/2021
-ms.openlocfilehash: e45ca61a09bd989645998a2e8993f29176d1b9cf
-ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
+ms.openlocfilehash: 5cf88e5befd551eb7789388807c9c1e4df671dc9
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500964"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562947"
 ---
 # <a name="manage-tenant-logical-networks"></a>管理租户逻辑网络
 
->适用于： Azure Stack HCI，版本 20H2;Windows Server 2019;Windows Server 2016
+>适用于：Azure Stack HCI 版本 20H2；Windows Server 2019、Windows Server 2016
 
 本主题提供有关如何在部署网络控制器后使用 Windows 管理中心创建、更新和删除逻辑网络的分步说明。 软件定义的网络 (SDN) 逻辑网络是基于 VLAN 的传统网络。
 

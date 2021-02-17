@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: e11eedc6cade8b3546182d2abf66a0dbb7e1c91a
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: de13461f9ba2b5985b6c6500d59b047fdfc2d2b0
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414208"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562519"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 集线器使用情况数据
 
@@ -73,7 +73,7 @@ ASDK 可以免费使用资源。 Azure Stack 中心多节点系统、工作负�
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>使用基础结构 VM 是否需要付费？
 
-不是。 某些 Azure Stack 中心资源提供程序 Vm 的使用情况数据会报告给 Azure，但对于这些 Vm，或在部署期间创建的 Vm，不收取任何费用来启用 Azure Stack 中心基础结构。  
+否。 某些 Azure Stack 中心资源提供程序 Vm 的使用情况数据会报告给 Azure，但对于这些 Vm，或在部署期间创建的 Vm，不收取任何费用来启用 Azure Stack 中心基础结构。  
 
 用户只需为租户订阅下运行的 VM 付费。 所有工作负载都必须在租户订阅下部署，才能符合 Azure Stack 中心的许可条款。
 

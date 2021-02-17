@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 02/09/2021
-ms.openlocfilehash: 11bc8911b48a9ca3f84b1640a7d75460168b4bf1
-ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
+ms.openlocfilehash: 38f7511d4ccc11c4801abde82ec8ab1c7091eb69
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100082639"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562649"
 ---
 # <a name="use-datacenter-firewall-to-configure-acls-with-powershell"></a>使用数据中心防火墙通过 PowerShell 配置 Acl
 
-> 适用于： Azure Stack HCI，版本 20H2;Windows Server 2019;Windows Server 2016
+> 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019、Windows Server 2016
 
 本主题介绍了如何通过 Windows PowerShell 将[数据中心防火墙](../concepts/datacenter-firewall-overview.md)用于 Azure Stack HCI 中软件定义的网络 (SDN)，以便配置访问控制列表 (ACL) 来管理数据通信流。 可以通过创建应用于子网或网络接口的 ACL 来启用和配置数据中心防火墙。 本主题中的示例脚本使用从 NetworkController 模块导出的 Windows PowerShell 命令。 你还可以使用 Windows 管理中心来配置和管理 ACL。
 
