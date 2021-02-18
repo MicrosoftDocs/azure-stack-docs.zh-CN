@@ -267,7 +267,7 @@
             - name: 更换硬件
               items:
                 - name: 节点操作
-                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: operator/azure-stack-node-actions-tzl.md
         - name: 安全性和遵从性
           items:
             - name: 配置安全性

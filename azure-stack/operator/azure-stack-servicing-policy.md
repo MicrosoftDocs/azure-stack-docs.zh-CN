@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 服务策略以及如何使集成系统保持受支持状态。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/17/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: baa622bf9d80d0896dfb3431e1363e4a8a780567
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 95686f1fc9ae56cefe2063c03e8e80d0e156af83
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255747"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648025"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub 服务策略
 
@@ -27,7 +27,7 @@ Microsoft 会发布完整的更新包和修补程序包来解决特定问题。
 
 修补程序更新包托管在同一个安全的 Azure 终结点中。 可以使用每篇相应的修补程序知识库文章（例如，[Azure Stack Hub 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)）中的嵌入式链接下载它们。 Azure Stack Hub 操作员可以按照[在 Azure Stack Hub 中应用更新](azure-stack-apply-updates.md)中的过程下载 .xml 和 .zip 文件并将其导入，这与操作完整的每月更新包类似。 使用已连接缩放单元的 Azure Stack Hub 操作员会看到修补程序自动出现在管理员门户中，并会看到消息“有可用更新”。
 
-如果缩放单元未连接，并且希望收到有关每个修补程序版本的通知，请订阅每个版本中记录的 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) 源。
+如果缩放单位未连接，并且你希望收到有关每个修补程序版本的通知，请订阅 [RSS 源](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss) ，通知每个修补程序版本。
 
 ## <a name="update-package-types"></a>更新包类型
 
@@ -68,7 +68,7 @@ OEM 硬件供应商会根据需要发布更新。 请咨询 OEM 以获取硬件�
 
 为了使 Azure Stack Hub 实例保持受支持的状态，该实例必须运行最新发布的更新版本或运行之前的两个更新版本之一。
 
-还必须与制造系统的硬件合作伙伴签订活动的支持协议。 如果没有硬件支持协议，Microsoft 将无法提供支持。
+你还必须与制造系统的硬件合作伙伴签订有效的支持协议。 如果没有硬件支持协议，Microsoft 将无法提供支持。
 
 修补程序不被视为主要更新版本。 如果 Azure Stack Hub 实例落后于两个以上的更新，则认为它不符合。 必须至少更新到最低支持版本才能获得支持。
 

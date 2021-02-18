@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: 4d61fc75cd7db67f113369981fe0fa4742178dd5
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256177"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648059"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Azure Stack 中心耐用部署概述
 
@@ -63,31 +63,36 @@ Pod 是一种4U 机架容器，其尺寸比常规4U 机架小。 有一个管理
 |Pod    |在 Azure Stack Hub 耐用的上下文中，pod 是一种物理耐用的容器，其设计目的是包含机架安装支架和电击 absorbers，以保护 Azure Stack 集线器耐用硬件免受环境物理压力。 包括前端和后传输案例，其中包括可以安装和密封以传输硬件的情况。 最小配置中的完整解决方案包含三个 pod。|
 
 
-## <a name="deployment-overflow"></a>部署溢出
+## <a name="deployment-workflow"></a>部署工作流
 
-在高级别中，Azure Stack 集线器耐用部署过程包含以下步骤。
+在高级别上，MDC 部署过程包括以下各节中所述的几个阶段。
 
-1. 规划阶段：
-   1. 规划数据中心电源和冷却。
-   1. 规划 Azure Stack Hub 的逻辑网络配置。
-   1. 规划数据中心网络集成。
-   1. 规划标识和安全集成。
-   1. 规划 PKI 证书。
-1. 准备阶段：
-   1. 取消装箱和收集清单。
-   1. 连接电源并为解决方案接通电源。
-   1. 验证物理硬件运行状况。
-1. 执行阶段：
-   1. 配置硬件生命周期主机。
-   1. 配置网络交换机。
-   1. 数据中心网络集成。
-   1. 配置物理硬件设置。
-   1. 部署 Azure Stack Hub 构造基础结构。
-   1. 数据中心标识集成。
-   1. 安装附加产品以实现扩展功能。
-1. 验证阶段：
-   1. 部署后运行状况验证。
-   1. 将 Azure Stack Hub 注册到 Microsoft。
-   1. Azure Stack Hub 操作员移交。
-   
-本指南将进一步详细介绍上述每个主题。
+### <a name="planning-phase"></a>规划阶段
+1. 规划数据中心电源。
+1. 规划 Azure Stack Hub 的逻辑网络配置。
+1. 规划 [数据中心网络集成](../operator/azure-stack-network.md)。
+1. 规划 [标识](../operator/azure-stack-identity-overview.md) 集成。
+1. 规划 [安全](../operator/azure-stack-security-foundations.md) 集成。
+1. 规划 [PKI 证书](../operator/azure-stack-pki-certs.md)。
+
+### <a name="preparation-phase"></a>准备阶段
+1. 收集清单。
+1. 连接电源并为解决方案接通电源。
+1. 验证 HVAC 系统运行状况。
+1. 验证火灾监视和警报系统运行状况。
+1. 验证物理硬件运行状况。
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>执行阶段–为三个盒中的每个 pod 单独执行
+1. 配置硬件生命周期主机。
+1. 配置网络交换机。
+1. 数据中心网络集成。
+1. 配置物理硬件设置。
+1. 配置 Isilon 存储。
+1. 部署 Azure Stack Hub 构造基础结构。
+1. 数据中心标识集成。
+1. 安装附加产品以实现扩展功能。
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>验证阶段–为三个盒中的每个 pod 单独提供
+1. 部署后运行状况验证。
+1. 将 Azure Stack Hub 注册到 Microsoft。
+1. Azure Stack 中心客户 "。

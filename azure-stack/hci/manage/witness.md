@@ -3,100 +3,129 @@ title: 设置群集见证
 description: 了解如何设置群集见证
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 02/17/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: cb964bafae7dd9252b386c30a12251e89fc8ead5
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 32d0f717e987d757f5315cfe048c75300ae9c776
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98781940"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100647881"
 ---
 # <a name="set-up-a-cluster-witness"></a>设置群集见证
 
 > 适用于 Azure Stack HCI 版本 20H2；Windows Server 2019
 
-所有群集都必须设置见证资源，并且应在创建群集后立即设置。 双节点群集需要见证，这样其中任一服务器脱机就不会导致另一个节点不可用。 三个及更多节点的群集需要见证，才能承受两台服务器故障或脱机。  
+强烈建议为所有群集设置见证资源，并应在创建群集后立即设置见证资源。 双节点群集需要见证，这样其中任一服务器脱机就不会导致另一个节点不可用。 三个及更多节点的群集需要见证，才能承受两台服务器故障或脱机。  
 
-可以使用 SMB 文件共享作为见证或使用 Azure 云见证。 建议使用 Azure 云见证，前提是群集中的所有服务器节点都具有可靠的 Internet 连接。 有关详细信息，请参阅[部署故障转移群集的云见证](/windows-server/failover-clustering/deploy-cloud-witness)。
+你可以使用 SMB 文件共享作为见证服务器或 Azure 云见证服务器。 建议使用 Azure 云见证，前提是群集中的所有服务器节点都具有可靠的 Internet 连接。 本文介绍如何创建云见证。
 
-文件共享见证对文件服务器有要求。 有关详细信息，请参阅[系统需求](../concepts/system-requirements.md)。
+## <a name="before-you-begin"></a>在开始之前
 
-## <a name="set-up-a-witness-using-windows-admin-center"></a>使用 Windows Admin Center 设置见证
+你必须具有 Azure 帐户和订阅，并将 Azure Stack HCI 群集注册到 Azure，然后才能创建云见证。 有关详细信息，请参阅以下文章：
+
+- [创建 Azure 帐户](https://docs.microsoft.com/dotnet/azure/create-azure-account)
+- 如果适用，请 [创建其他 Azure 订阅](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
+- [将 Azure Stack HCI 连接到 Azure](../deploy/register-with-azure.md)
+
+对于文件共享见证服务器，有文件服务器要求。 有关详细信息，请参阅[系统需求](../concepts/system-requirements.md)。
+
+## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
+
+本部分介绍如何创建 Azure 存储帐户。 此帐户用于存储用于特定群集的仲裁的 Azure blob 文件。 可以使用相同的 Azure 存储帐户来配置多个群集的云见证。
+
+1. 登录 [Azure 门户](https://portal.azure.com)。
+1. 在 "Azure 门户主菜单上的" **Azure 服务**"下，选择" **存储帐户**"。 如果缺少此图标，请选择 " **创建资源** " 以首先创建 *存储帐户* 资源。
+
+    :::image type="content" source="media/witness/cloud-witness-home.png" alt-text="Azure 门户主屏幕" lightbox="media/witness/cloud-witness-home.png":::
+
+1. 在 " **存储帐户** " 页上，选择 " **新建**"。
+
+    :::image type="content" source="media/witness/cloud-witness-create.png" alt-text="Azure 新存储帐户" lightbox="media/witness/cloud-witness-create.png":::
+
+1. 在 " **创建存储帐户** " 页上，完成以下操作：
+    1. 选择要将存储帐户应用到的 Azure **订阅** 。
+    1. 选择要将存储帐户应用到的 Azure **资源组** 。
+    1. 输入“存储帐户名称”。
+    <br>存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 此名称在 Azure 中也必须是唯一的。
+    1. 选择最靠近你的 **位置** 。
+    1. 对于“性能”，请选择“标准”。
+    1. 对于 " **帐户类型**"，请选择 " **存储常规用途**"。
+    1. 对于 **复制**，请选择 " **本地冗余存储 (LRS)**"。
+    1. 完成后，单击 " **审核 + 创建**"。
+
+    :::image type="content" source="media/witness/cloud-witness-create-storage-account.png" alt-text="Azure 创建存储帐户" lightbox="media/witness/cloud-witness-create-storage-account.png":::
+
+1. 请确保存储帐户通过验证，然后查看帐户设置。 完成后，单击“创建”。
+
+    :::image type="content" source="media/witness/cloud-witness-validation.png" alt-text="Azure 存储帐户验证" lightbox="media/witness/cloud-witness-validation.png":::
+
+1. 在 Azure 中执行帐户部署可能需要几秒钟时间。 部署完成后，单击 " **前往资源**"。
+
+    :::image type="content" source="media/witness/cloud-witness-deployment.png" alt-text="Azure 存储帐户部署" lightbox="media/witness/cloud-witness-deployment.png":::
+
+## <a name="copy-the-access-key-and-endpoint-url"></a>复制访问密钥和终结点 URL
+
+创建 Azure 存储帐户时，该过程会自动生成两个访问密钥，主键 (key1) ，辅助密钥 (key2) 。 首次创建云见证时，将使用 **key1** 。 还会自动生成终结点 URL。
+
+Azure 云见证使用 blob 文件进行存储，其终结点生成的端点为形式 *storage_account_name* 作为终结点。 
+
+> [!NOTE]  
+> Azure 云见证使用 HTTPS (默认端口 443) 来建立与 Azure blob 服务的通信。 确保可以访问 HTTPS 端口。
+
+### <a name="copy-the-account-name-and-access-key"></a>复制帐户名称和访问密钥
+
+1. 在 Azure 门户的 " **设置**" 下，选择 " **访问密钥**"。
+1. 选择 " **显示密钥** " 以显示关键信息。
+1. 单击 **存储帐户名称** 和 **key1** 字段右侧的 "复制并粘贴" 图标，将每个文本字符串粘贴到记事本或其他文本编辑器。
+
+    :::image type="content" source="media/witness/cloud-witness-access-keys.png" alt-text="Azure 存储帐户访问密钥" lightbox="media/witness/cloud-witness-access-keys.png":::
+
+### <a name="copy-the-endpoint-url-optional"></a>将终结点 URL 复制 (可选) 
+
+此终结点 URL 是可选的，云见证可能不需要该 URL。
+
+1. 在 Azure 门户中，选择 " **属性**"。
+1. 选择 " **显示密钥** " 以显示终结点信息。
+1. 在 " **blob 服务**" 下，单击 " **blob 服务** " 字段右侧的 "复制并粘贴" 图标，然后将文本字符串粘贴到记事本或其他文本编辑器。
+
+    :::image type="content" source="media/witness/cloud-witness-blob-service.png" alt-text="Azure blob 终结点" lightbox="media/witness/cloud-witness-blob-service.png":::
+
+## <a name="create-a-cloud-witness-using-windows-admin-center"></a>使用 Windows 管理中心创建云见证
+
+现在，你已准备好使用 Windows 管理中心为群集创建见证服务器实例。
 
 1. 在 Windows Admin Center 中，从顶部下拉箭头中选择“群集管理器”。
 1. 在“群集连接”下，选择该群集。
 1. 在“工具”下，选择“设置” 。
 1. 在右窗格中，选择“见证”。
 1. 对于“见证类型”，请选择以下选项之一：
-      - **云见证** - 输入 Azure 存储帐户名称、访问密钥和终结点 URL，如下所述
+      - **云见证** -按前面所述输入 Azure 存储帐户名称、访问密钥和终结点 URL
       - **文件共享见证** - 输入文件共享路径“(//server/share)”
+1. 对于云见证，为以下字段粘贴前面复制的文本字符串：
+    1. **Azure 存储帐户名称**
+    1. **Azure 存储访问密钥**
+    1. **Azure 服务终结点**
+
+    :::image type="content" source="media/witness/cloud-witness-1.png" alt-text="云见证访问密钥" lightbox="media/witness/cloud-witness-1.png":::
+
+1. 完成后，单击“保存”。 信息可能需要一些时间才能传播到 Azure。
 
 > [!NOTE]
 > 第三个选项 **磁盘见证** 不适用于延伸群集。
 
-## <a name="create-an-azure-storage-account-to-use-as-a-cloud-witness"></a>创建要用作云见证的 Azure 存储帐户
+## <a name="create-a-cloud-witness-using-windows-powershell"></a>使用 Windows PowerShell 创建云见证
 
-本部分介绍如何创建存储帐户并查看和复制该帐户的终结点 URL 和访问密钥。
+或者，可以使用 PowerShell 为群集创建见证服务器实例。
 
-若要配置云见证，你必须有一个有效的 Azure 存储帐户，该帐户可用于存储 blob 文件（用于仲裁）。 Cloud 见证在 Microsoft 存储帐户下创建一个众所周知的容器 **msft-见证** 服务器。 云见证写入一个 blob 文件，其中包含对应群集的唯一 ID，该 ID 用作此 msft-cloud-witness 容器下 blob 文件的文件名。 这意味着，你可以使用同一个 Microsoft Azure 存储帐户为多个不同的群集配置云见证。
-
-使用相同的 Azure 存储帐户为多个不同的群集配置云见证时，会自动创建一个 msft-cloud-witness 容器。 此容器将为每个群集包含一个 blob 文件。
-
-> [!NOTE]  
-> 云见证使用 HTTPS（默认端口 443）来与 Azure blob 服务建立通信。 确保可通过网络代理访问 HTTPS 端口。
-
-### <a name="to-create-an-azure-storage-account"></a>创建 Azure 存储帐户
-
-1. 登录 [Azure 门户](https://portal.azure.com)。
-1. 在“中心”菜单上，选择“新建”->“数据 + 存储”->“存储帐户”。
-1. 在“创建存储帐户”页中执行以下操作：
-    1. 为存储帐户输入名称。
-    <br>存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 存储帐户名称在 Azure 中也必须是唯一的。
-    1. 对于“帐户类型”，选择“常规用途” 。
-    <br>不能将 Blob 存储帐户用于云见证。
-    1. 对于“性能”，请选择“标准”。
-    <br>不能将 Azure 高级存储用于云见证。
-    1. 对于“复制”，选择“本地冗余存储(LRS)” 。
-    <br>故障转移群集使用 blob 文件作为仲裁点，这在读取数据时需要一些一致性保证。 因此“副本”类型必须选择“本地冗余存储” 。
-
-### <a name="view-and-copy-storage-access-keys-for-your-azure-storage-account"></a>查看和复制 Azure 存储帐户的存储访问密钥
-
-创建 Microsoft Azure 存储帐户时，它会与自动生成的两个访问密钥关联-主访问密钥和辅助访问密钥。 首次创建云见证时，请使用主访问密钥。 对于要用于云见证的密钥没有任何限制。  
-
-#### <a name="to-view-and-copy-storage-access-keys"></a>查看和复制存储访问密钥
-
-在 Azure 门户中，导航到你的存储帐户，单击“所有设置”，然后单击“配置”以查看、复制和再生成帐户访问密钥 。 “访问密钥”边栏选项卡还包含使用主密钥和辅助密钥预配置的连接字符串，可复制到应用程序中使用。
-
-:::image type="content" source="media/witness/cloud-witness-1.png" alt-text="云见证访问密钥" lightbox="media/witness/cloud-witness-1.png":::
-
-### <a name="view-and-copy-endpoint-url-links"></a>查看和复制终结点 URL 链接
-
-创建存储帐户时，将使用此格式生成以下 URL：`https://<Storage Account Name>.<Storage Type>.<Endpoint>`  
-
-云见证始终使用 Blob 作为存储类型。 Azure 使用 **core.windows.net** 作为终结点。 配置云见证时，可以根据方案使用不同的终结点进行配置， (例如，中国的 Microsoft Azure 数据中心具有不同的终结点) 。  
-
-> [!NOTE]  
-> 此终结点 URL 由云见证资源自动生成，并且该 URL 无需额外的配置步骤。  
-
-#### <a name="to-view-and-copy-endpoint-url-links"></a>查看和复制终结点 URL 链接
-
-在 Azure 门户中，导航到你的存储帐户，单击“所有设置”，然后单击“属性”以查看和复制终结点 URL 。  
-
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="云见证终结点 URL" lightbox="media/witness/cloud-witness-2.png":::  
-
-## <a name="set-up-a-witness-using-windows-powershell"></a>使用 Windows PowerShell 设置见证
-
-若要使用 PowerShell 设置群集见证，请运行以下 cmdlet 之一。
-
-使用以下 cmdlet 创建 Azure 云见证：
+使用以下 cmdlet 创建 Azure 云见证。 如前文所述，输入 Azure 存储帐户名称和访问密钥信息：
 
 ```powershell
 Set-ClusterQuorum –Cluster "Cluster1" -CloudWitness -AccountName "AzureStorageAccountName" -AccessKey "AzureStorageAccountAccessKey"
 ```
 
-使用以下 cmdlet 创建文件共享见证：
+使用以下 cmdlet 创建文件共享见证。 输入文件服务器共享的路径：
 
 ```powershell
 Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Credential)
@@ -106,4 +135,4 @@ Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Creden
 
 - 有关群集仲裁的详细信息，请参阅[了解 Azure Stack HCI 上的群集和池仲裁](../concepts/quorum.md)。
 
-- 有关创建和管理 Azure 存储帐户的详细信息，请参阅[关于 Azure 存储帐户](/azure/storage/common/storage-account-create)。
+- 有关创建和管理 Azure 存储帐户的详细信息，请参阅 [创建存储帐户](https://docs.microsoft.com/azure/storage/common/storage-account-create)。
