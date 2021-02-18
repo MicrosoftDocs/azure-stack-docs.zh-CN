@@ -3,16 +3,16 @@ title: Azure Stack Hub 操作员访问工作站
 description: 了解如何下载和配置 Azure Stack Hub 操作员访问工作站。
 author: ashika789
 ms.topic: article
-ms.date: 1/15/2021
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 1/15/2021
-ms.openlocfilehash: 011a75dcdbe8818af568eb5cc6bb6123a4f11c4e
-ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: 91ed23e40743de4236623322f9f830032d1793ac
+ms.sourcegitcommit: dfce5d143318150d2cab563dc0ee328c777bf5f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98561955"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636639"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub 操作员访问工作站 
 
@@ -48,7 +48,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = '73E16995B79433E79F9EFA9A292443296D112B24B4D86A060FCB4C9403B8D014'
+$expectedHash = '6E412551C7921A6FA4E9D64812A4D3770EB1B1257E2BE55B8426E5EFBCB2C001'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
