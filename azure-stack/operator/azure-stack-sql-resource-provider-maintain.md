@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 212d6c89bedc6f46eb6db2cbf735fa61ea0ad909
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 05ff121ccba8076276c8dd7106d56992500b57d8
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103087"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840280"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -157,7 +157,7 @@ SQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维护
 
 ```powershell
 # Set credentials for local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -189,13 +189,13 @@ $session | Remove-PSSession
 
 ::: moniker range=">= azs-2008"
 
-Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发送到 Microsoft 支持部门。 从版本1.1.93 开始，SQL 资源提供程序支持从 Azure Stack 中心环境收集日志的标准方法。 有关详细信息，请参阅 [诊断日志收集](diagnostic-log-collection.md)。
+Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发送到 Microsoft 支持部门。 从版本 1.1.93 开始，SQL 资源提供程序支持从 Azure Stack Hub 环境收集日志的标准方式。 有关详细信息，请参阅[诊断日志收集](diagnostic-log-collection.md)。
 
 ::: moniker-end
 
 ::: moniker range="< azs-2008"
 
-从版本1.1.93 开始，SQL 资源提供程序支持从 Azure Stack 中心环境收集日志的标准方法。 如果使用的是较旧版本，建议将 SQL 资源提供程序更新到最新版本。
+从版本 1.1.93 开始，SQL 资源提供程序支持从 Azure Stack Hub 环境收集日志的标准方式。 如果使用的是较旧版本，则建议将 SQL 资源提供程序更新到最新版本。
 
 若要从锁定的 VM 收集日志，请使用 PowerShell Just Enough Administration (JEA) 终结点 *DBAdapterDiagnostics*。 此终结点提供以下命令：
 
@@ -260,7 +260,7 @@ $session | Remove-PSSession
 3. 在 VM 的“诊断设置”中，转到“日志”选项卡，然后选择“自定义”，以自定义要收集的事件日志。
 ![转到诊断设置](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. 添加 Microsoft-AzureStack-DatabaseAdapter/Operational!\* 用于收集 SQL 资源提供程序操作事件日志。
+4. 添加 **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** 用于收集 SQL 资源提供程序操作事件日志。
 ![添加事件日志](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
 5. 若要启用 IIS 日志收集，请选中“IIS 日志”和“失败请求日志”。

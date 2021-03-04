@@ -3,16 +3,16 @@ title: Azure Stack 中心集成系统的透明代理
 description: Azure Stack 集线器集成系统中透明属性的概述。
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 02/24/2021
 ms.author: patricka
 ms.reviewer: sranthar
 ms.lastreviewed: 01/25/2021
-ms.openlocfilehash: 974f40364b4eed13bd7440b35596597312c98624
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: a7fc47edf63a83e1ee05c46b03d8533787b1983c
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577270"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840688"
 ---
 # <a name="transparent-proxy-for-azure-stack-hub"></a>Azure Stack 中心的透明代理
 
@@ -42,10 +42,11 @@ Microsoft 已与业界领先的代理供应商合作，以使用透明代理配�
 
 有关边框配置的示例，请参阅本文中的 [示例边框配置](#example-border-configuration) 部分。
 
-请查看以下文档，了解 Azure Stack 中心验证的透明代理配置： 
+查看以下文档，了解 Azure Stack 中心验证的透明代理配置：
 
 - [配置检查点安全网关透明代理](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk171559)
 - [配置 Sophos XG 防火墙透明代理](https://community.sophos.com/xg-firewall/f/recommended-reads/124106/xg-firewall-integration-with-azure-stack-hub)
+- [将 Citrix ADC、Citrix 安全 Web 网关与 Azure Stack 中心集成](https://www.citrix.com/blogs/2021/02/19/integrating-citrix-adc-citrix-secure-web-gateway-with-azure-stack-hub/)
 
 在需要来自 Azure Stack 集线器的出站流量通过显式代理的情况下，Sophos 和检查点设备提供一种双重模式功能，该功能允许通过透明模式使用特定范围的流量，而其他范围可以配置为通过显式模式。 使用此功能可以配置这些代理设备，以便仅通过透明代理发送基础结构流量，并通过显式模式发送所有租户通信。
 
@@ -56,7 +57,7 @@ Microsoft 已与业界领先的代理供应商合作，以使用透明代理配�
 
 此解决方案基于基于策略的路由 (.PBR) ，它使用由访问控制列表 (ACL) 实现的管理员定义的条件集。 ACL 将定向到路由映射中实现的代理设备的下一跃点 IP 的流量分类，而不是仅基于目标 IP 地址的普通路由。 端口80和443的特定基础结构网络流量从边框设备路由到透明代理部署。 透明代理进行 URL 筛选，但不 *允许丢弃任何允许* 的流量。
 
-以下配置示例适用于 Cisco 结点9508机箱。 
+以下配置示例适用于 Cisco 结点9508机箱。
 
 在此方案中，需要访问 internet 的源基础结构网络如下所示：
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub VM 功能
 description: 了解使用 Azure Stack Hub 中的 VM 时的不同功能和注意事项。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/22/2020
+ms.date: 03/02/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 0eb0c763b8ebd144576ac9ac773d17f191e30dc9
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: be51e93a54ed39ca53edd6d776100f5ca512e060
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778132"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840841"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM 功能
 
@@ -36,7 +36,7 @@ Azure Stack Hub 虚拟机 (VM) 提供可按需缩放的计算资源。 在部署
 | 虚拟机规模集|支持自动缩放。|不支持自动缩放。<br><br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。 |
 | 云见证 | 从 Azure Stack Hub 中提供的存储帐户属性中选择终结点。 | [Cloud 见证](/windows-server/failover-clustering/deploy-cloud-witness) 是一种故障转移群集仲裁见证，使用 Microsoft Azure 在群集仲裁上提供投票。<br>与 Azure Stack 中心相比，全球 Azure 中的终结点可能如下所示：<br>对于全球 Azure：<br>`https://mywitness.blob.core.windows.net/`<br>对于 Azure Stack Hub：<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | 虚拟机诊断 | 支持 Linux VM 诊断。 | Azure Stack Hub 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。 |
-| 嵌套虚拟化 VM 大小 | 支持 | 不支持 |
+| 嵌套虚拟化 VM 大小 | 支持 | 在版本2102及更高版本中受支持。 |
 
 ## <a name="vm-sizes"></a>VM 大小
 
@@ -45,7 +45,7 @@ Azure Stack Hub 施加了一些资源限制，以避免资源（服务器本地�
 - VM 的网络出口有带宽上限。 Azure Stack Hub 中的上限与 Azure 中的上限相同。
 - 对于存储资源，Azure Stack Hub 实施存储 IOPS（每秒输入/输出操作次数）限制，以避免租户因使用存储而造成资源过度消耗。
 - 对于 VM 磁盘，Azure Stack Hub 上的磁盘 IOPS 取决于 VM 大小而不是磁盘类型。 这意味着，对于 Standard_Fs 系列 VM，不管你选择 SSD 还是 HDD 作为磁盘类型，第二个数据磁盘的 IOPS 限制都是 2300 IOPS。
-- 附加到 VM 的临时磁盘并不是永久性的，并且可能会在控制面操作（如调整大小或停止解除分配）时丢失。
+- 附加到 VM 的临时磁盘不是永久性的，可能会在执行控制平面操作（如重设大小或停止-解除分配）时丢失。
 
 下表列出了 Azure Stack Hub 支持的 VM 及其配置：
 
@@ -70,9 +70,9 @@ VM 大小及其关联的资源数量在 Azure Stack Hub 与 Azure 之间是一�
 
 ## <a name="vm-extensions"></a>VM 扩展
 
-Azure Stack Hub 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。 不支持将自定义扩展插件引入 Azure Stack 集线器;必须先将扩展载入到 Azure，才能 Azure Stack 集线器中使用。
+Azure Stack Hub 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。 不支持将自定义扩展引入 Azure Stack Hub；扩展必须先加入到 Azure 中，然后才可在 Azure Stack Hub 中提供。
 
-使用以下 PowerShell 脚本获取 Azure Stack 中心环境中可用的 VM 扩展的列表。
+使用以下 PowerShell 脚本可获取 Azure Stack Hub 环境中可用的 VM 扩展的列表。
 
 ### <a name="az-modules"></a>[Az 模块](#tab/az1)
 
@@ -148,6 +148,10 @@ Microsoft Azure 使用 KMS 激活来激活 Windows Vm。 如果将 VM 从 Azure 
 |-------------------|-------------|
 | **容错域** | 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack Hub 节点）中。 如果发生硬件故障，出现故障的容错域中的 VM 将在其他容错域中重启。 它们保留在与其他 VM 不同的容错域中，但如果可能，则保留在相同的可用性集中。 当硬件重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。 |
 | **更新域**| 更新域是 Azure 在可用性集中提供高可用性的另一种方法。 更新域是可以同时维护的基础硬件逻辑组。 同一个更新域中的 VM 会在计划内维护期间一起重启。 当租户在可用性集内创建 VM 时，Azure 平台会自动将 VM 分布到这些更新域。 <br>在 Azure Stack Hub 中，VM 会先跨群集中的其他联机主机进行实时迁移，然后其基础主机才会进行更新。 由于在主机更新期间不会造成租户停机，因此 Azure Stack Hub 上存在更新域功能只是为了确保与 Azure 实现模板兼容。 可用性集中的 VM 将显示 0 作为其在门户上的更新域编号。 |
+
+## <a name="arc-on-azure-stack-hub-vms"></a>Azure Stack 中心 Vm 上的弧线
+
+启用 Arc 的服务器不支持在 Azure 中运行的虚拟机上安装连接的计算机代理，也不支持在 Azure Stack 集线器或 Azure Stack 边缘上运行的虚拟机上安装连接的计算机代理，因为这些虚拟机已作为 Azure Vm 建模。
 
 ## <a name="next-steps"></a>后续步骤
 

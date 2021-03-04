@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 5865c7cfea0231c811199ff4abbc05011e4d0a66
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96556998"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840042"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Azure Stack HCI 上的 Azure Kubernetes 服务公共预览版的已知问题
 本文介绍 Azure Stack HCI 上的 Azure Kubernetes 服务公共预览版的已知问题。
@@ -85,3 +85,6 @@ az connectedk8s delete
 
 ## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>使用 Windows 管理中心设置 Azure Kubernetes 服务主机时，如果文件资源管理器处于打开状态，安装程序可能会失败
 如果文件资源管理器是打开的，并且在到达 "检查和创建" 步骤时在 **C:\Program Files\AksHci** 目录中，则您的创建可能会失败，并出现错误 "进程无法访问文件 ' C:\Program Files\AksHci\wssdcloudagent.exe"。 这是因为它正被另一个进程使用。 若要避免此错误，请关闭文件资源管理器或导航到不同的目录，然后再执行此步骤。 
+
+## <a name="cannot-connect-windows-admin-center-to-azure-as-create-new-azure-app-id-fails"></a>无法将 Windows 管理中心连接到 Azure，因为新建 Azure 应用 ID 失败
+如果无法将 Windows 管理中心连接到 Azure，因为无法在网关上自动创建和使用 Azure 应用 ID，请创建 Azure 应用 ID，并为其分配对门户的正确权限。 然后，选择 **"在网关上使用现有的"**。 有关详细信息，请访问[将你的网关连接到 Azure。](/windows-server/manage/windows-admin-center/azure/azure-integration)

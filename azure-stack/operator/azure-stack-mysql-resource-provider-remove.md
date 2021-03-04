@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 7c3c33371e50df0dabb7db9fc8c0204fc3caaa83
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 03a4f928c5759f72d78ca09816593d70b1dcc76f
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011138"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840008"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>在 Azure Stack Hub 中删除 MySQL 资源提供程序
 
@@ -32,6 +32,10 @@ ms.locfileid: "97011138"
   
 2. 获取 MySQL 资源提供程序安装包的副本，然后运行自解压程序，将内容解压缩到一个临时目录。
 3. 打开一个权限提升的 PowerShell 控制台新窗口，并切换到解压缩后的 MySQL 资源提供程序安装文件所在的目录。
+
+> [!IMPORTANT]
+> 强烈建议在运行脚本之前，使用 **set-azurermcontext-Scope CurrentUser** 和 **set-azurermcontext 范围进程** 清除缓存。
+
 4. 使用以下参数运行 DeployMySqlProvider.ps1 脚本：
     - **Uninstall**：删除资源提供程序和所有关联的资源。
     - **PrivilegedEndpoint**：特权终结点的 IP 地址或 DNS 名称。

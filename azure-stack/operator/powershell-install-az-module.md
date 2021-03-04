@@ -3,16 +3,16 @@ title: 安装适用于 Azure Stack Hub 的 PowerShell Az 模块
 description: 了解如何安装适用于 Azure Stack Hub 的 PowerShell。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 02/18/2021
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 9a5e00c873e348046c10e5a8e7dd5ccc9ea915f2
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.lastreviewed: 02/18/2021
+ms.openlocfilehash: 031a1695f8ba11db5a8787ef1b38c40763614b88
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069829"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840858"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>安装适用于 Azure Stack Hub 的 PowerShell Az 模块
 
@@ -20,10 +20,10 @@ ms.locfileid: "97069829"
 
 还可以在 Docker 容器中运行 Azure Stack Hub 的 Az 模块。 有关说明，请参阅[使用 Docker 运行适用于 Azure Stack Hub 的 PowerShell](../user/azure-stack-powershell-user-docker.md)。
 
-若要安装 PowerShell 资源模块 (AzureRM) module for Azure Stack Hub，请参阅 [安装适用于 Azure Stack 集线器的 Powershell AzureRM 模块](azure-stack-powershell-install.md)。
+如果要安装适用于 Azure Stack Hub 的 PowerShell 资源模块 (AzureRM) 模块，请参阅[安装适用于 Azure Stack Hub 的 PowerShell AzureRM 模块](azure-stack-powershell-install.md)。
 
 > [!IMPORTANT]
-> 可能不会有新的 Azure 资源模块模块版本。 Azure 资源模块模块仅支持关键修复程序。 今后 Azure Stack 中心将只有 Az 版本。
+> 可能不会有新的 Azure 资源模块模块版本。 “Azure 资源模块”模块仅支持关键修补程序。 今后，Azure Stack Hub 将只有 Az 版本。
 
 可以使用 API 配置文件为 Azure Stack Hub 资源提供程序指定兼容的终结点。
 
@@ -33,9 +33,9 @@ API 配置文件提供一种管理 Azure 与 Azure Stack Hub 之间版本差异�
 
 ## <a name="1-verify-your-prerequisites"></a>1.验证先决条件
 
-在更新2002或更高版本以及安装了当前修补程序的 Azure Stack 集线器上支持 Az 模块。 有关详细信息，请参阅 [Azure Stack 集线器发行说明](release-notes.md) 。
+安装了 Update 2002 或更高版本以及最新修补程序的 Azure Stack Hub 支持 Az 模块。 有关详细信息，请参阅 [Azure Stack 集线器发行说明](release-notes.md) 。
 
-Azure PowerShell Az 模块适用于 Windows 上的 PowerShell 5.1 或更高版本，或者适用于所有平台的 PowerShell Core 1.x 和更高版本。 你应该安装适用于你的操作系统的[最新版本的 PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)。 在 PowerShell Core 上运行时，Azure PowerShell 没有额外要求。
+Azure PowerShell Az 模块适用于 Windows 上的 PowerShell 5.1 或更高版本，或者所有平台上的 PowerShell Core 6.x 及更高版本。 你应该安装适用于你的操作系统的[最新版本的 PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)。 在 PowerShell Core 上运行时，Azure PowerShell 没有其他要求。
 
 若要检查 PowerShell 版本，请运行以下命令：
 
@@ -55,7 +55,7 @@ $PSVersionTable.PSVersion
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3.卸载 Azure Stack Hub PowerShell 模块的现有版本
 
-在安装所需的版本之前，请确保卸载任何以前安装的 Azure Stack 中心 Azure 资源管理器或 Az PowerShell 模块。 使用以下两种方法之一卸载模块：
+在安装所需版本之前，请确保卸载以前安装的任何 Azure Stack Hub Azure 资源管理器或 Az PowerShell 模块。 使用以下两种方法之一卸载模块：
 
 1. 若要卸载现有的 Azure 资源管理器和 Az PowerShell 模块，请关闭所有活动的 PowerShell 会话，并运行以下 cmdlet：
 
@@ -72,21 +72,29 @@ $PSVersionTable.PSVersion
 
 Azure Stack Az 模块将在 Azure Stack Hub 2002 或更高版本上运行。 此外，Azure Stack Az 模块将在 Windows 计算机上与 PowerShell 5.1 或更高版本配合使用，在 Linux 或 macOS 平台上与 PowerShell 6.x 或更高版本配合使用。 使用 PowerShellGet cmdlet 是首选的安装方法。 此方法在受支持平台上的工作原理相同。
 
-从 PowerShell 会话运行以下命令：
+1. 从 PowerShell 会话运行以下命令，以将 PowerShellGet 更新到最小版本2.2。3
 
-```powershell  
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ```powershell  
+    Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force
+    ```
 
-Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
-Install-AzProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
-```
+2. 关闭 PowerShell 会话，并打开新的 PowerShell 会话，以使更新生效。
+
+3. 从 PowerShell 会话运行以下命令：
+
+    ```powershell  
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    
+    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+    Install-AzProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
+    ```
 
 > [!Note]  
 > Azure Stack Hub 模块版本 2.0.0 是一项中断性变更。 有关详细信息，请参阅[在 Azure Stack Hub 中从 AzureRM 迁移到 Azure PowerShell Az](migrate-azurerm-az.md)。
 
 > [!WARNING]
-> 不能同时为适用于 Windows 的 PowerShell 5.1 安装 Azure 资源管理器 (AzureRM) 和 Az 模块。 如果需要在系统上保持 Azure 资源管理器可用，请安装适用于 PowerShell Core 1.x 或更高版本的 Az 模块。 为此，请[安装 PowerShell Core 6.x 或更高版本](/powershell/scripting/install/installing-powershell-core-on-windows)，然后在 PowerShell Core 终端中按照这些说明操作。
+> 对于适用于 Windows 的 PowerShell 5.1，不能同时安装 Azure 资源管理器 (AzureRM) 和 Az 模块。 如果需要确保 Azure 资源管理器在系统上始终可用，请为 PowerShell Core 6.x 或更高版本安装 Az 模块。 为此，请[安装 PowerShell Core 6.x 或更高版本](/powershell/scripting/install/installing-powershell-core-on-windows)，然后在 PowerShell Core 终端中按照这些说明操作。
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5.离线：不通过 Internet 连接安装
 
@@ -107,7 +115,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 或更高版本。
 
-可以使用 Azure 资源管理器或 Az 模块。 有关 Azure 资源管理器，请参阅 [安装 PowerShell AzureRM 模块](powershell-install-az-module.md)中的说明。 以下代码保存可信联机存储库 https://www.powershellgallery.com/ 中的模块。
+可以使用 Azure 资源管理器或 Az 模块。 对于 Azure 资源管理器，请参阅[安装 PowerShell AzureRM 模块](powershell-install-az-module.md)中的说明。 以下代码保存可信联机存储库 https://www.powershellgallery.com/ 中的模块。
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -135,7 +143,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. 在断开连接的工作站上手动启动 NuGet 提供程序。 有关说明，请参阅[在未连接到 Internet 的计算机上手动启动 NuGet 提供程序](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)。
 
-4. 将此位置注册为默认存储库，并 `AzureRM` `AzureStack` 从此存储库安装和模块：
+4. 将此位置注册为默认存储库，并从此存储库安装 `AzureRM` 和 `AzureStack` 模块：
 
    ```powershell
    # requires -Version 5

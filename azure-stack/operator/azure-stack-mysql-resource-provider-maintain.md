@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 7372cea4544a2cdb4b0d0e6ed54d07253d6d782c
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 593ea0ca882b5aa7d57ff5a3267d35519be3b6f2
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103080"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840059"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub 中的 MySQL 资源提供程序维护操作
 
@@ -51,7 +51,7 @@ MySQL 资源提供程序在锁定的虚拟机 (VM) 上运行。 若要启用维�
 
 ```powershell
 # Set credentials for the local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -178,13 +178,13 @@ $session | Remove-PSSession
 
 ::: moniker range=">= azs-2008"
 
-Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发送到 Microsoft 支持部门。 从版本1.1.93 开始，MySQL 资源提供程序支持从 Azure Stack 中心环境收集日志的标准方法。 有关详细信息，请参阅 [诊断日志收集](diagnostic-log-collection.md)。
+Azure Stack 中心提供多种方法来收集、保存诊断日志并将其发送到 Microsoft 支持部门。 从版本 1.1.93 开始，MySQL 资源提供程序支持从 Azure Stack Hub 环境收集日志的标准方式。 有关详细信息，请参阅[诊断日志收集](diagnostic-log-collection.md)。
 
 ::: moniker-end
 
 ::: moniker range="< azs-2008"
 
-从版本1.1.93 开始，MySQL 资源提供程序支持从 Azure Stack 中心环境收集日志的标准方法。 如果你使用的是较旧版本，则建议将 MySQL 资源提供程序更新到最新版本。
+从版本 1.1.93 开始，MySQL 资源提供程序支持从 Azure Stack Hub 环境收集日志的标准方式。 如果使用的是较旧版本，则建议将 MySQL 资源提供程序更新到最新版本。
 
 若要从锁定的 VM 收集日志，请使用 PowerShell Just Enough Administration (JEA) 终结点 DBAdapterDiagnostics。 此终结点提供以下命令：
 
@@ -252,7 +252,7 @@ $session | Remove-PSSession
    
    ![转到诊断设置](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. 添加 **Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ 以收集 MySQL 资源提供程序操作事件日志。
+4. 添加 **Microsoft-AzureStack-DatabaseAdapter/Operational!\*** 用于收集 MySQL 资源提供程序操作事件日志。
 
    ![添加事件日志](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 

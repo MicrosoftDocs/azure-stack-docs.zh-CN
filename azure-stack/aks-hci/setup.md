@@ -3,14 +3,14 @@ title: 使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernete
 description: 了解如何使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
 author: davannaw-msft
 ms.topic: quickstart
-ms.date: 12/02/2020
+ms.date: 01/22/2021
 ms.author: dawhite
-ms.openlocfilehash: 25c9163bfaecfd595d56369312d149716c6748fe
-ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
+ms.openlocfilehash: de54cf3f93462cfc63b6f7f2074343feacd25479
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98175747"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840452"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>快速入门：使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
 
@@ -33,7 +33,7 @@ ms.locfileid: "98175747"
 
 ## <a name="setting-up-windows-admin-center"></a>设置 Windows Admin Center
 
-如果尚未安装 Windows Admin Center，请参阅[安装 Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)。 对于 Azure Stack HCI 上的 Azure Kubernetes 服务的公共预览版，必须在 Windows 10 计算机上下载并运行 Windows Admin Center。 Azure Stack HCI 上的 Azure Kubernetes 服务功能仅适用于 Windows Admin Center 版本2009 或更高版本。
+如果尚未安装 Windows Admin Center，请参阅[安装 Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)。 您可以在 Windows 10 计算机或服务器上运行 Windows 管理中心。 Azure Stack HCI 上的 Azure Kubernetes 服务功能仅适用于 Windows Admin Center 版本2009 或更高版本。
 
 ## <a name="installing-the-azure-kubernetes-service-extension"></a>安装 Azure Kubernetes 服务扩展
 
@@ -47,30 +47,45 @@ ms.locfileid: "98175747"
 
 ## <a name="setting-up-an-azure-kubernetes-service-host"></a>设置 Azure Kubernetes 服务主机
 
-创建 Kubernetes 群集之前，应完成最后一个步骤。 需要在要将 Kubernetes 群集部署到的系统上设置 Azure Kubernetes 服务主机。 此系统可以是 Windows Server 2019 Datacenter 群集、单节点 Windows Server 2019 Datacenter 或2-4 节点 Azure Stack HCI 群集。 
+创建 Kubernetes 群集之前，应完成最后一个步骤。 需要在要将 Kubernetes 群集部署到的系统上设置 Azure Kubernetes 服务主机。 这也称为 "设置平台服务或管理群集"。  
+
+[![突出显示平台服务部分的体系结构关系图的图片。](.\media\setup\aks-hci-architecture-focused.png)](.\media\setup\aks-hci-architecture-focused.png) 
+
+此系统可以是 Windows Server 2019 Datacenter 群集、单节点 Windows Server 2019 Datacenter 或2-4 节点 Azure Stack HCI 群集。 
 
 > [!NOTE] 
 > 不支持为了在 Kubernetes 群集创建过程中进行合并，而在两个独立系统上设置 Azure Kubernetes 服务主机。 
 
 可以使用新 Azure Kubernetes 服务工具完成此设置。 
 
-此工具会安装和下载所需包，以及创建提供核心 Kubernetes 服务并协调应用程序工作负载的管理群集。 
-
+此工具将安装和下载所需的包，并创建提供 core Kubernetes 服务并协调应用程序工作负载的 AKS 主机群集。 
 
 现在我们已验证了系统设置，接下来让我们开始使用吧： 
 1. 选择“设置”以启动设置向导。
 2. 查看正在运行 Windows 管理中心的计算机、所连接到的群集以及网络的先决条件。 此外，请确保已登录到 Windows Admin Center 上的 Azure 帐户，并且你计划使用的 Azure 订阅未过期。 完成后，选择“下一步”。
-3. 在向导的“系统检查”页上，执行所有所需操作，例如将 Windows Admin Center 网关连接到 Azure。 此步骤检查 Windows 管理中心和将托管 Azure Kubernetes 服务的系统是否具有适当的配置以继续。 操作执行完成后，选择“下一步”。
-4. 在“主机配置”步骤中，配置将托管 Azure Kubernetes 服务的计算机。 建议在此部分中选择自动下载更新。 完成后，选择“下一步”。 向导的此步骤要求配置以下详细信息：
-    * 主机详细信息，如管理群集的名称和用于存储 VM 映像的文件夹
-    * VM 网络，将应用于为运行容器和协调容器管理而所创建的所有 Linux 和 Windows VM（节点）。 
-    * 负载均衡器设置，定义用于外部服务的地址池
+
+> [!WARNING]
+> 如果使用2-4 节点 Azure Stack HCI 群集，请确保至少已配置一个外部虚拟交换机，然后再继续执行此步骤，否则将无法成功设置 Azure Kubernetes 服务主机。
+
+3. 在向导的 " **系统检查** " 页上，执行所需的任何操作，例如将 [Windows 管理中心网关连接到 Azure](/windows-server/manage/windows-admin-center/azure/azure-integration)。 此步骤检查 Windows 管理中心和将托管 Azure Kubernetes 服务的系统是否具有适当的配置以继续。 操作执行完成后，选择“下一步”。
+4. 在“主机配置”步骤中，配置将托管 Azure Kubernetes 服务的计算机。 建议在此部分中选择自动下载更新。 向导的此步骤要求配置以下详细信息：
+    * **主机详细信息**，如 AKS 主机群集的名称，以及将存储 VM 映像的映像文件。 映像目录必须指向共享存储路径或主机可访问的 SMB 共享。
+    * **VM 网络**，将应用于所有 Linux 和 Windows vm (节点) 为运行容器和安排容器管理创建。 这包括连接到 internet 的虚拟交换机、虚拟 LAN 标识启用、IP 地址分配方法和 Cloudagent IP 的字段。 Cloudagent IP 可用于向 CloudAgent 服务提供静态 IP 地址。 无论选择哪个 IP 地址，都适用这种情况。 如果选择了静态 IP 地址分配方法，则必须指定其他一些字段：
+      - **子网前缀**，不与其他地址冲突的 IP 地址范围
+      - **网关**，用于在计算机之外路由数据包的网关
+      - **Dns 服务器**，网络中 dns 服务器的 IP 地址
+      - **Kubernetes 节点 ip 池开始**，Kubernetes 群集使用的 IP 地址的池开始范围
+      - **Kubernetes 节点 ip 池结束**，Kubernetes 群集使用的 IP 地址的池结束范围
+    * **负载均衡器设置**，用于定义用于外部服务的地址池。 如果在 "VM 网络" 部分中选择了静态配置，则地址池的开始和结束必须在该部分中指定的子网范围内。 
 
     ![说明 Azure Kubernetes 服务主机向导的主机配置步骤。](.\media\setup\host-configuration.png)
+    
+    完成后，选择“下一步”。
 
-5. 查看 " **查看 + 创建** " 步骤中的所有选择。 如果你对选择满意，请选择 " **下一步** " 以开始安装主机。 
-6. 在“设置进度”页上，可以查看主机设置的进度。 此时，欢迎你在新选项卡中打开 Windows Admin Center 并继续执行管理任务。 
-7. 如果部署成功，请选择 " *完成*"，此时会显示一个管理仪表板，可在其中创建和管理 Kubernetes 群集。 此仪表板（如 Azure Stack HCI 上的 Azure Kubernetes 服务的其余部分）处于预览版本中，并将在将来的版本中使用其他功能进行更新。
+5. 在向导的 " **Azure 注册** " 页上，提供有关要用于此服务的订阅和资源组的详细信息。 虽然 Azure Kubernetes 服务处于预览阶段，但不会向你收费。 完成后，选择“下一步”。
+6. 查看 " **查看 + 创建** " 步骤中的所有选择。 如果你对选择满意，请选择 " **下一步** " 以开始安装主机。 
+7. 在“设置进度”页上，可以查看主机设置的进度。 此时，欢迎你在新选项卡中打开 Windows Admin Center 并继续执行管理任务。 
+8. 如果部署成功，请选择 " *完成*"，此时会显示一个管理仪表板，可在其中创建和管理 Kubernetes 群集。 此仪表板（如 Azure Stack HCI 上的 Azure Kubernetes 服务的其余部分）处于预览版本中，并将在将来的版本中使用其他功能进行更新。
  
   ![演示 Azure Stack HCI 管理仪表板上的 Azure Kubernetes 服务。](.\media\setup\dashboard.png)
  

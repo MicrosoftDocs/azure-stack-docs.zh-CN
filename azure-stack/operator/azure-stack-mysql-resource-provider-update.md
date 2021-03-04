@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 33c7d66b7a8b0d352bbf9227cec11adf7cd001fe
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: a61ff3bc477e1019f1a8d21a9ab4aec6fb42aa2b
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737736"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839991"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>在 Azure Stack Hub 中更新 MySQL 资源提供程序
 
@@ -23,7 +23,7 @@ ms.locfileid: "97737736"
 
   |支持的 Azure Stack Hub 版本|MySQL RP 版本|RP 服务正在其上运行的 Windows Server
   |-----|-----|-----|
-  |2008、2005|[MySQL RP 版本1.1.93。1](https://aka.ms/azshmysqlrp11931)|Microsoft Test-azurestack 外接程序 RP Windows Server
+  |2008、2005|[MySQL RP 版本 1.1.93.1](https://aka.ms/azshmysqlrp11931)|Microsoft AzureStack 附加 RP Windows Server
   |2005、2002、1910|[MySQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[MySQL RP 版本 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |
@@ -46,6 +46,9 @@ UpdateMySQLProvider.ps1 脚本在创建新的 VM 后，会从旧的资源提供�
 * 数据库信息
 * 宿主服务器信息
 * 必要的 DNS 记录
+
+> [!IMPORTANT]
+> 强烈建议在运行部署或更新脚本之前，使用 **set-azurermcontext-Scope CurrentUser** 和 **set-azurermcontext 范围进程** 清除缓存。
 
 ## <a name="update-script-parameters"></a>更新脚本参数 
 运行 **UpdateMySQLProvider.ps1** PowerShell 脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
@@ -103,19 +106,19 @@ $tempDir = 'C:\TEMP\MYSQLRP'
 
 # The service admin account (can be Azure Active Directory or Active Directory Federation Services).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com" 
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$AdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force 
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass) 
  
 # Set credentials for the new resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$vmLocalAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force 
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass) 
  
 # And the cloudadmin credential required for privileged endpoint access.
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$CloudAdminPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force 
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass) 
 
 # Change the following as appropriate.
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force 
 
 # For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.

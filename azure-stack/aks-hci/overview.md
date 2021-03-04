@@ -5,12 +5,12 @@ ms.topic: overview
 author: v-susbo
 ms.author: v-susbo
 ms.date: 12/02/2020
-ms.openlocfilehash: a7d97d2454e9d77c1760180b46be9ce219d6af68
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: c27e81380514f6b27605f00884d41943146059c7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612652"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840025"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>什么是 Azure Stack HCI 上的 Azure Kubernetes 服务？
 > 适用于 Azure Stack HCI 上的 AKS、Windows Server 2019 Datacenter 上的 AKS 运行时
@@ -103,12 +103,10 @@ Azure Kubernetes 服务在以下平台上提供：
 
 ### <a name="on-your-windows-admin-center-system"></a>在 Windows Admin Center 系统上
 
-运行 Windows 管理中心网关的计算机具有以下要求：
+运行 Windows 管理中心网关的计算机具有以下要求：  
 
-- Windows 10 计算机 (我们目前不支持在 Azure Stack HCI 或 Windows Server 2019 Datacenter 上运行 Windows 管理中心。 ) 
-- 60 GB 可用空间
-- 已向 Azure 注册
-- 在 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集所在的同一域中
+ - 已向 Azure 注册
+ - 在 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集所在的同一域中
 
 ### <a name="on-the-azure-stack-hci-cluster-or-windows-server-2019-datacenter-failover-cluster-that-hosts-azure-kubernetes-service"></a>在托管 Azure Kubernetes 服务的 Azure Stack HCI 群集或 Windows Server 2019 Datacenter 故障转移群集上
 
@@ -123,11 +121,13 @@ Azure Stack HCI 群集或 Windows Server 2019 Datacenter 故障转移群集具�
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Azure Stack HCI 的网络配置
 
-连接到 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集上的 Vm 的网络需要可用于 Azure Kubernetes 服务的 DHCP IPv4 地址的专用作用域，并可通过 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集上的 Vm 访问。
+连接到 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集上的 Vm 的网络需要可用于 Azure Kubernetes 服务的专用 IPv4 地址范围，并可通过 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集上的 Vm 访问。 有关网络要求的详细信息，请访问 [AZURE STACK HCI 系统要求上的 AKS](system-requirements.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
 若要开始使用 Azure Stack HCI 上的 Azure Kubernetes 服务，请参阅以下文章：
 
 - [审查要求](system-requirements.md)
-- [设置 Azure Stack HCI 上的 Azure Kubernetes 服务](create-kubernetes-cluster.md)
+- [使用 PowerShell 在 Azure Stack HCI 上设置 Azure Kubernetes 服务](setup-powershell.md)
+- [使用 Windows 管理中心在 Azure Stack HCI 上设置 Azure Kubernetes 服务](create-kubernetes-cluster.md)
+

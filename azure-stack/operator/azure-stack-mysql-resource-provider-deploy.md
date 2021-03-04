@@ -7,41 +7,41 @@ ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 12/07/2020
-ms.openlocfilehash: 0d123679c0394d740876df2fcc78f7347049c61c
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: e66bdd376a5055e78c261bed5980ee4772f078fb
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737822"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840331"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>在 Azure Stack Hub 上部署 MySQL 资源提供程序
 
-可以使用 MySQL Server 资源提供程序将 MySQL 数据库公开为 Azure Stack Hub 服务。 MySQL 资源提供程序在 Windows Server 2016 Server Core 虚拟机 (上作为服务运行，适用于适配器版本 <= 1.1.47.0>) 或专用附加 RP Windows Server (用于适配器版本 >= 1.1.93.0) 。
+可以使用 MySQL Server 资源提供程序将 MySQL 数据库公开为 Azure Stack Hub 服务。 MySQL 资源提供程序作为服务在 Windows Server 2016 Server Core 虚拟机（适用于 <= 1.1.47.0 的适配器版本）或特殊的附加 RP Windows Server（适用于 >= 1.1.93.0 的适配器版本）上运行。
 
 > [!IMPORTANT]
-> 只有资源提供程序应在托管 SQL 或 MySQL 的服务器上创建项。 不支持在不是由资源提供程序创建的主机服务器上创建的项目，并且可能会导致状态不匹配。
+> 只有资源提供程序才应在托管 SQL 或 MySQL 的服务器上创建项目。 在主机服务器上创建但不是由资源提供程序创建的项不受支持，可能导致状态不匹配。
 
 ## <a name="prerequisites"></a>必备条件
 
-部署 Azure Stack 中心 MySQL 资源提供程序之前，需要准备好几个先决条件：
+需要先实施几个先决条件，然后才能部署 Azure Stack Hub MySQL 资源提供程序：
 
-- 需要一个可访问的计算机和帐户：
-   - [Azure Stack 中心管理员门户](azure-stack-manage-portals.md)。
+- 需要可访问以下项的计算机和帐户：
+   - [Azure Stack Hub 管理员门户](azure-stack-manage-portals.md)。
    - [特权终结点](azure-stack-privileged-endpoint.md)。
-   - Azure 资源管理器管理终结点， `https://management.region.<fqdn>` 其中 `<fqdn>` 是完全限定的域名 (或 `https://management.local.azurestack.external` 使用 ASDK) 
-   - 如果 Azure Stack 中心部署为使用 Azure Active Directory (AD) 作为标识提供者，则使用 Internet。
+   - Azure 资源管理器管理终结点 `https://management.region.<fqdn>`，其中的 `<fqdn>` 是完全限定的域名（如果使用 ASDK，则为 `https://management.local.azurestack.external`）
+   - Internet（如果 Azure Stack Hub 已部署为使用 Azure Active Directory (AD) 作为标识提供者）。
 
 - 向 Azure [注册 Azure Stack Hub](azure-stack-registration.md)（如果尚未这样做），以便可以下载 Azure 市场项。
 
 - 将所需的 Windows Server VM 添加到 Azure Stack Hub 市场。
   - 对于 MySQL RP 版本 <= 1.1.47.0，请下载“Windows Server 2016 Datacenter - Server Core”映像。
-  - 对于 MySQL RP 版本 >= 1.1.93.0，请下载 **Microsoft test-azurestack Add-On RP Windows Server** 映像。 此 Windows Server 版本专用于 Azure Stack Add-On RP Infrastructure，对租户市场不可见。
+  - 对于 >= 1.1.93.0 的 MySQL RP 版本，请下载“Microsoft AzureStack 附加 RP Windows Server”映像。 此 Windows Server 版本专用于 Azure Stack Add-On RP Infrastructure，对租户市场不可见。
 
 - 根据下面的版本映射表，下载受支持版本的 MySQL 资源提供程序二进制文件。 运行自解压程序，将下载的内容解压缩到临时目录。 
 
   |支持的 Azure Stack Hub 版本|MySQL RP 版本|RP 服务正在其上运行的 Windows Server
   |-----|-----|-----|
-  |2008、2005|[MySQL RP 版本1.1.93。1](https://aka.ms/azshmysqlrp11931)|Microsoft Test-azurestack 外接程序 RP Windows Server
+  |2008、2005|[MySQL RP 版本 1.1.93.1](https://aka.ms/azshmysqlrp11931)|Microsoft AzureStack 附加 RP Windows Server
   |2005、2002、1910|[MySQL RP 版本 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[MySQL RP 版本 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |
@@ -110,7 +110,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 
 ## <a name="deploy-the-resource-provider"></a>部署资源提供程序
 
-完成所有先决条件后，可以从可同时访问 Azure Stack 中心 Azure 资源管理器管理终结点和特权终结点的计算机上运行 **DeployMySqlProvider.ps1** 脚本，以部署 MySQL 资源提供程序。 DeployMySqlProvider.ps1 脚本是从针对 Azure Stack Hub 版本下载的 MySQL 资源提供程序安装文件中提取的。
+完成所有先决条件后，可以在可访问 Azure Stack Hub Azure 资源管理器管理终结点和特权终结点的计算机中运行 DeployMySqlProvider.ps1 脚本，以部署 MySQL 资源提供程序。 DeployMySqlProvider.ps1 脚本是从针对 Azure Stack Hub 版本下载的 MySQL 资源提供程序安装文件中提取的。
 
  > [!IMPORTANT]
  > 在部署资源提供程序之前，请查看发行说明，了解新功能、修补程序以及任何可能影响部署的已知问题。
@@ -118,7 +118,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack Hub 部署 PKI 要
 若要部署 MySQL 资源提供程序，请打开一个权限提升的 PowerShell（不是 PowerShell ISE）新窗口，并切换到解压缩后的 MySQL 资源提供程序二进制文件所在的目录。 
 
 > [!IMPORTANT]
-> 强烈建议在运行更新脚本之前，使用 Clear-AzureRmContext -Scope CurrentUser 和 Clear-AzureRmContext -Scope Process 清除缓存。
+> 强烈建议在运行部署或更新脚本之前，使用 **set-azurermcontext-Scope CurrentUser** 和 **set-azurermcontext 范围进程** 清除缓存。
 
 运行 **DeployMySqlProvider.ps1** 脚本，以完成以下任务：
 

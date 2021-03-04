@@ -3,16 +3,16 @@ title: Azure Stack Hub 上 Azure Kubernetes 服务 (AKS) 引擎的发行说明
 description: 了解更新 Azure Stack Hub 上的 AKS 引擎需要采取的步骤。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/11/2021
+ms.date: 02/23/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/11/2021
-ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.lastreviewed: 02/23/2021
+ms.openlocfilehash: a9f1217777fbdf5a6efd752388a15b4573d2d851
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100488031"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840807"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上的 AKS 引擎发行说明
 ::: moniker range=">=azs-2002"
@@ -132,7 +132,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 -   因为 aks-engine 工具是一个跨 Azure 和 Azure Stack Hub 的共享源代码存储库， 查看许多发行说明和拉取请求会使你相信该工具支持上面所列版本之外的其他版本的 Kubernetes 和 OS 平台，请忽略它们并使用上面的版本表作为此更新的官方指南。
 
 > [!NOTE]  
-> 个人预览版提供 Windows 容器和 Azure CNI 支持。 若要加入预览版，可以请求访问： [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
+> Windows 容器和 Azure CNI 支持在公共预览版中提供。 若要加入预览版，可以请求访问： [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
 
 ## <a name="reference"></a>参考
 

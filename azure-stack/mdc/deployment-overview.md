@@ -16,12 +16,12 @@ ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 02/17/2021
-ms.openlocfilehash: ad0a80f28b26e3c7da71860670feefd7efc15a0f
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 60ff62282f9fadf3b2475cffe057f10a8bbe8b3b
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100647787"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839651"
 ---
 # <a name="mdc-requirements-overview"></a>MDC 要求概述
 
@@ -39,9 +39,7 @@ ms.locfileid: "100647787"
 
 ## <a name="introduction"></a>介绍
 
-MDC 是用于 Azure Stack Hub 的集成产品，包装在标准的 40 英尺金属运输集装箱中。 集装箱包括气候控制单元、照明和报警系统。 核心 Azure Stack 集线器组件安装为三个独立的 Pod： Pod 1、机架1和机架2、Pod 2、机架1和机架2以及 Pod 3、机架1和机架2。
-
-每个 Pod 都包含两个 42U 机架。 Pod 包括架顶 (ToR) 交换机、边缘交换机和基板管理控制器 (BMC) 交换机。 此外，每个 Pod 都包括硬件生命周期主机 (HLH) 和串行端口集中器。 核心计算和存储容量由 Azure Stack Hub 缩放单元 (SU) 提供，包含 8 台 Rugged Edge Appliance (REA) R840 服务器。 48 个 Isilon 存储节点提供额外的存储容量。 所有 Pod 的物理配置都是相同的。
+MDC 是用于 Azure Stack Hub 的集成产品，包装在标准的 40 英尺金属运输集装箱中。 集装箱包括气候控制单元、照明和报警系统。 核心 Azure Stack 集线器组件安装为 pod。
 
 ## <a name="terminology"></a>术语
 
@@ -54,9 +52,9 @@ MDC 是用于 Azure Stack Hub 的集成产品，包装在标准的 40 英尺金�
 |Azure Stack Hub 合作伙伴工具包|    一个软件工具集合，用来捕获 Azure Stack Hub 的特定于客户的输入参数并启动其安装和配置。 它包括部署工作表，该工作表是一个图形用户界面 (GUI) 工具，用于捕获和存储 Azure Stack Hub 安装的可配置参数。 它还包括网络配置生成器工具，该工具使用部署工作表输入为解决方案中的所有物理网络设备生成网络配置文件。|
 |OEM 扩展包    |一个包含固件、设备驱动程序和硬件管理工具的包，它采用专用格式，在初始部署和更新过程中由 Azure Stack Hub 使用。|
 |串行端口集中器    |一个安装在每个 Pod 中的物理设备，它提供对网络交换机串行端口的网络访问权限，方便用户进行部署和管理。|
-|缩放单元    |Azure Stack Hub 的一个核心组件，为 Azure Stack Hub 构造基础结构和工作负荷提供计算和存储资源。 每个 Pod 都包含八台 MDC R840 服务器（也称为节点）。|
-|Isilon 存储 |    一个特定于 MDC 解决方案的 Azure Stack Hub 组件。 Isilon 为 Azure Stack Hub 工作负荷提供额外的 blob 和文件存储。 每个 Pod 都包括 48 个 Isilon 存储节点。|
-|Pod    |在 MDC 的上下文中，Pod 是一个独立的逻辑单元，它由两个互连的物理机架组成。 完整的解决方案包括安装在单个容器中的三个 Pod。|
+|缩放单元    |Azure Stack Hub 的一个核心组件，为 Azure Stack Hub 构造基础结构和工作负荷提供计算和存储资源。|
+|Isilon 存储 |    一个特定于 MDC 解决方案的 Azure Stack Hub 组件。 Isilon 为 Azure Stack Hub 工作负荷提供额外的 blob 和文件存储。 |
+|Pod    |在 MDC 的上下文中，Pod 是一个独立的逻辑单元，它由两个互连的物理机架组成。|
 
 ## <a name="deployment-workflow"></a>部署工作流
 

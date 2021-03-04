@@ -3,16 +3,16 @@ title: Azure Stack Hub 发行说明
 description: Azure Stack Hub 集成系统的发行说明，包括更新和 bug 修复。
 author: sethmanheim
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 441e764231e9ce85de69d7cd4020325883fde7ec
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 0d1b3f65f36e3aae5095fc3535f5df6290cb51f7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100648076"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840824"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub 发行说明
 
@@ -103,7 +103,7 @@ Azure Stack Hub 2008 更新内部版本类型为“完整”。
 
   请注意，这些更改是在 Azure Stack Hub 系统的主机级别添加的。 请与 OEM 联系，以便安排在架顶式 (ToR) 网络交换机上进行所需的更改。 此 ToR 更改可在更新到 2008 版本之前执行，也可在更新到 2008 版本后执行。 有关详细信息，请参阅[网络集成文档](azure-stack-network.md)。
 
-- 在此内部版本中，支持 GPU 的 VM 大小 NCas_v4 (NVIDIA T4) 已替换为 VM 大小 NCasT4_v3，以便与 Azure 保持一致。 请注意，这些在门户中不可见，只能通过 Azure 资源管理器模板使用。
+- 在此内部版本中，支持 GPU 的 VM 大小 NCas_v4 (NVIDIA T4) 已替换为 VM 大小 NCasT4_v3，以便与 Azure 保持一致。 请注意，这些在门户中不可见，并且只能通过 Azure 资源管理器模板使用。
 
 ### <a name="fixes"></a>修复项
 
@@ -136,7 +136,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2008 之后，如果有任何 2008 修补程序被发布，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2008.25.114](hotfix-1-2008-25-114.md)
+- [Azure Stack 中心修补程序1.2008.26.116](hotfix-1-2008-26-116.md)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -189,7 +189,7 @@ Azure Stack Hub 2005 更新内部版本类型为“完整”。
 
 - 从管理员门户中删除了停止、关闭和重启基础结构角色实例的操作。 还在 Fabric 资源提供程序中删除了相应的 API。 Azure Stack Hub 的管理员 RM 模块和 AZ 预览版中的以下 PowerShell cmdlet 不再有效：Stop-AzsInfrastructureRoleInstance、Disable-InfrastructureRoleInstance 和 Restart-InfrastructureRoleInstance  。 将从 Azure Stack Hub 的下一个管理员 AZ 模块版本中删除这些 cmdlet。
 - Azure Stack Hub 2005 现在仅支持 [Azure Stack Hub 2020（版本 87.x）上的应用服务](app-service-release-notes-2020-Q2.md)。
-- 执行硬件监视所需的用户加密设置已从 DES 更改为 AES，以提高安全性。 请联系你的硬件合作伙伴，了解如何更改基板管理控制器 (BMC) 中的设置。 在 BMC 中进行更改后，可能需要使用特权终结点再次运行命令 **Set-BmcCredential**。 有关详细信息，请参阅[在 Azure Stack Hub 中轮换机密](azure-stack-rotate-secrets.md)
+- 执行硬件监视所需的用户加密设置已从 DES 更改为 AES，以提高安全性。 请联系你的硬件合作伙伴，了解如何更改基板管理控制器 (BMC) 中的设置。 在 BMC 中进行更改后，可能需要使用特权终结点再次运行命令 Set-BmcCredential。 有关详细信息，请参阅[在 Azure Stack Hub 中轮换机密](azure-stack-rotate-secrets.md)
 
 ### <a name="fixes"></a>修复项
 
@@ -228,7 +228,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 必须在包含以下修补程序的版本 2002 中应用 Azure Stack Hub 版本 2005：
 
-- [Azure Stack 中心修补程序1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Azure Stack 中心修补程序1.2002.66.173](hotfix-1-2002-66-173.md)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>成功应用 2005 更新之后
 
@@ -236,7 +236,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 
 安装 2005 之后，如果以后发布了任何 2005 修补程序，应安装这些修补程序：
 
-- [Azure Stack 中心修补程序1.2005.29.100](hotfix-1-2005-29-100.md)
+- [Azure Stack 中心修补程序1.2005.30.102](hotfix-1-2005-30-102.md)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -336,7 +336,7 @@ Azure Stack Hub 2002 更新内部版本类型为“完整”。
 - 修复了来自零售渠道的 Windows VM 映像无法通过 AVMA 激活其许可证的问题。
 - 修复了当 VM 所请求的虚拟核心数等于节点的物理核心数时无法创建 VM 的问题。 我们现在允许 VM 的虚拟核心数等于或少于节点的物理核心数。
 - 修复了不允许将许可证类型设置为“null”以将即用即付映像切换到 BYOL 的问题。
-- 修复了一个问题，现在允许向 VM 规模集添加扩展。
+- 修复了一个问题，允许将扩展添加到虚拟机规模集。
 
 ## <a name="security-updates"></a>安全更新
 
@@ -365,7 +365,7 @@ Azure Stack Hub 修补程序仅适用于 Azure Stack Hub 集成系统；请勿�
 安装此更新之后，请安装所有适用的修补程序。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 中心修补程序1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Azure Stack 中心修补程序1.2002.66.173](hotfix-1-2002-66-173.md)
 ::: moniker-end
 
 <!------------------------------------------------------------>

@@ -21,6 +21,8 @@
           href: create-kubernetes-cluster-powershell.md
 - name: 教程
   items:
+    - name: 部署 .NET 应用程序
+      href: deploy-windows-application.md
     - name: 使用 Linux 容器
       href: deploy-linux-application.md
 - name: 概念
@@ -29,16 +31,30 @@
       href: kubernetes-concepts.md
     - name: 系统要求
       href: system-requirements.md
+    - name: 网络
+      href: concepts-networking.md
 - name: 操作指南
   items:
+    - name: 在 Azure VM 上评估
+      href: 'https://github.com/Azure/aks-hci/blob/main/eval/readme.md'
     - name: 连接到用于 Kubernetes 的 Azure Arc
       href: connect-to-arc.md
     - name: 针对混合 OS Kubernetes 群集调整应用
       href: adapt-apps-mixed-os-clusters.md
+    - name: 配置网络
+      items:
+        - name: 配置代理设置
+          href: proxy.md
+    - name: 安全性和身份验证
+      items:
+        - name: 使用 Active Directory 单一登录
+          href: ad-sso.md
+        - name: 加密 etcd 机密
+          href: encrypt-secrets.md
+    - name: 监视 Azure Stack HCI 群集上的 AKS
+      href: monitor-logging.md
     - name: 使用 Windows Server 容器
       items:
-        - name: 部署 .NET 应用程序
-          href: deploy-windows-application.md
         - name: 为组托管服务帐户支持准备 Windows 节点
           href: prepare-windows-nodes-gmsa.md
         - name: 使用持久卷
@@ -59,6 +75,8 @@
   items:
     - name: 发行说明
       href: 'https://aka.ms/aks-hci-relnotes/'
+    - name: PowerShell
+      href: AksHci.md
     - name: 已知问题
       href: known-issues.md
     - name: Azure 路线图

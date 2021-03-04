@@ -4,13 +4,13 @@ description: 开始使用 Azure Stack HCI 上的 Azure Kubernetes 服务之前
 ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
-ms.date: 12/02/2020
-ms.openlocfilehash: 71c842cf44963988da7926003646b246bf80f802
-ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
+ms.date: 02/02/2021
+ms.openlocfilehash: 16d4e7b1de239ee1b08aa696696796fa6f12dff7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98175730"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839736"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的系统要求
 
@@ -44,7 +44,7 @@ Microsoft 建议从我们的合作伙伴购买经验证的 Azure Stack HCI 硬�
 
  - 此预览版本需要使用 EN-US 区域和语言选择在群集中的每台服务器上安装 Azure Stack HCI 操作系统；目前在安装之后更改它们还不充分。
 
-## <a name="network-requirements"></a>网络要求 
+## <a name="general-network-requirements"></a>常规网络要求 
 
 以下要求适用于 Azure Stack HCI 群集以及 Windows Server 2019 Datacenter 群集： 
 
@@ -52,53 +52,45 @@ Microsoft 建议从我们的合作伙伴购买经验证的 Azure Stack HCI 硬�
 
  - 验证是否在所有网络适配器上禁用了 IPv6。 
 
- - 对于成功的部署，Azure Stack HCI 群集节点和 Kubernetes 群集 Vm 必须具有外部 Internet 连接。
+ - 对于成功的部署，Azure Stack HCI 群集节点和 Kubernetes 群集 Vm 必须具有外部 internet 连接。
+ 
+ - 确保为群集定义的所有子网都可路由到彼此之间和 internet。
   
  - 请确保 Azure Stack HCI 主机和租户 Vm 之间存在网络连接。
 
- - 若要使所有节点都能够相互通信，需要 DNS 名称解析。 对于 Kubernetes 外部名称解析，请使用 DHCP 服务器在获取 IP 地址时提供的 DNS 服务器。 对于 Kubernetes 内部名称解析，请使用基于 DNS 的默认 Kubernetes 解决方案。 
+ - 若要使所有节点都能够相互通信，需要 DNS 名称解析。 
 
- - 对于此预览版，我们只为整个部署提供单一 VLAN 支持。 
+## <a name="ip-address-assignment"></a>IP 地址分配  
 
- - 对于此预览版，我们对通过 PowerShell 创建的 Kubernetes 群集提供了有限的代理支持。 
- 
-### <a name="ip-address-assignment"></a>IP 地址分配  
- 
-作为 Azure Stack HCI 部署的成功 AKS 的一部分，我们建议你将虚拟 IP 池范围配置为 DHCP 服务器。 还建议为所有工作负荷群集配置三到五个高度可用的控制平面节点。 
+在 Azure Stack HCI 上的 AKS 中，使用虚拟网络将 IP 地址分配到需要它们的 Kubernetes 资源，如上文所述。 根据 Azure Stack HCI 网络体系结构上所需的 AKS，可选择两种网络模型。 
 
 > [!NOTE]
-> 不支持单独使用静态 IP 地址分配。 在此预览版本中，你必须配置 DHCP 服务器。
+ > 此处为 AKS 定义的用于 Azure Stack HCI 部署的虚拟网络体系结构不同于数据中心的基础物理网络体系结构。
 
-#### <a name="dhcp"></a>DHCP
-在整个群集中使用 DHCP 分配 IP 地址时，请遵循以下要求：  
+- 静态 IP 网络-虚拟网络将静态 IP 地址分配给 Kubernetes 群集 API 服务器、Kubernetes 节点、底层 Vm、负载均衡器以及在群集之上运行的任何 Kubernetes 服务。
 
- - 网络必须具有可用的 DHCP 服务器，以便为 Vm 和 VM 主机提供 TCP/IP 地址。 DHCP 服务器还应包含网络时间协议 (NTP) 和 DNS 主机信息。
- 
- - 具有专用 IPv4 地址范围的 DHCP 服务器 Azure Stack HCI 群集可访问该服务器。
- 
- - DHCP 服务器提供的 IPv4 地址应可路由，并且具有30天的租约过期时间，以避免在 VM 更新或重新设置时丢失 IP 连接。  
+- DHCP 网络-虚拟网络使用 DHCP 服务器将动态 IP 地址分配给 Kubernetes 节点、底层 Vm 和负载均衡器。 在群集顶层运行的 Kubernetes 群集 API 服务器和任何 Kubernetes 服务仍分配有静态 IP 地址。
 
-至少应保留以下数量的 DHCP 地址：
+### <a name="minimum-ip-address-reservation"></a>最小 IP 地址保留
 
-| 群集类型  | 控制平面节点 | 工作器节点 | 更新 | 负载均衡器  |
+你至少应为你的部署保留以下数量的 IP 地址：
+
+| 群集类型  | 控制平面节点 | 工作器节点 | 对于更新操作 | 负载均衡器  |
 | ------------- | ------------------ | ---------- | ----------| -------------|
-| AKS 主机 |  1  |  0  |  2  |  0  |
-| 工作负荷群集  |  每个节点1个  | 每个节点1个 |  5  |  1  |
+| AKS 主机 |  1 IP |  NA  |  2 IP |  NA  |
+| 工作负荷群集  |  每个节点1个 IP  | 每个节点1个 IP |  5 IP  |  1 IP |
 
-你可以根据环境中的工作负荷群集和控制面和辅助角色节点的数量，查看所需 IP 地址的数量如何变化。 建议在 DHCP IP 池中保留256个 (/24 子网) 的 IP 地址。
-  
-    
-#### <a name="vip-pool-range"></a>VIP 池范围
+此外，还应为 VIP 池保留以下数量的 IP 地址：
 
-对于 Azure Stack HCI 部署上的 AKS，强烈建议使用虚拟 IP (VIP) 池。 VIP 池是一系列保留的静态 IP 地址，用于长期部署，以确保始终能够访问你的部署和应用程序工作负荷。 目前，我们仅支持 IPv4 地址，因此必须验证是否已在所有网络适配器上禁用了 IPv6。 此外，请确保虚拟 IP 地址不是 DHCP IP 预留的一部分。
+| 资源类型  | IP 地址数 
+| ------------- | ------------------
+| 群集 API 服务器 |  每个群集1个 
+| Kubernetes 服务  |  每个服务1个  
 
-至少应为每个群集保留一个 IP 地址 (工作负荷和 AKS 主机) ，并为每个 Kubernetes 服务保留一个 IP 地址。 VIP 池范围中所需的 IP 地址数因环境中的工作负荷群集和 Kubernetes 服务的数量而异。 建议为 AKS 部署保留16个静态 IP 地址。 
+正如您所看到的，所需的 IP 地址数是可变的，具体取决于 Azure Stack HCI 体系结构上的 AKS 和 Kubernetes 群集上运行的服务数量。 建议为你的部署保留256个 (/24 子网) 的 IP 地址。
 
-设置 AKS 主机时，请使用中的 `-vipPoolStartIp` 和 `-vipPoolEndIp` 参数 `Set-AksHciConfig` 创建 VIP 池。
+有关网络要求的详细信息，请访问 [AZURE STACK HCI 上的 AKS 中的网络概念](./concepts-networking.md)。
 
-#### <a name="mac-pool-range"></a>MAC 池范围
-建议在范围中至少有16个 MAC 地址，以允许每个群集中有多个控制平面节点。 设置 AKS 主机时，请使用中的 `-macPoolStart` 和 `-macPoolEnd` 参数 `Set-AksHciConfig` 来保留用于 KUBERNETES 服务的 DHCP MAC 池的 mac 地址。
-  
 ### <a name="network-port-and-url-requirements"></a>网络端口和 URL 要求 
 
 在 Azure Stack HCI 上创建 Azure Kubernetes 群集时，会在群集中的每个服务器上自动打开以下防火墙端口。 
@@ -153,9 +145,8 @@ Windows Admin Center 是用于创建和管理 Azure Stack HCI 上的 Azure Kuber
 
 下面是运行 Windows 管理中心网关的计算机的要求： 
 
- - Windows 10 或 Windows Server 计算机 (我们目前不支持在 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集上运行 Windows 管理中心) 
- - 60 GB 可用空间
- - 已向 Azure 注册
+ - Windows 10 或 Windows Server 计算机
+ - [已向 Azure 注册](/windows-server/manage/windows-admin-center/azure/azure-integration)
  - 在 Azure Stack HCI 或 Windows Server 2019 Datacenter 群集所在的同一域中
 
 ## <a name="next-steps"></a>后续步骤 

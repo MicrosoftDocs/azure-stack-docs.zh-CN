@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 8d1d6c6da0e11278b2b7ce796ca3dffd77385e81
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: bfe8dfae9cd0190b998167a27a95254ee7bc8cbb
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871495"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840348"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub 计算容量
 
@@ -43,7 +43,7 @@ Azure Stack Hub 不会过度提交内存。 但是，允许过度提交物理核
 
 ## <a name="consideration-for-batch-deployment-of-vms"></a>VM 的批量部署注意事项
 
-在 2002 版本以及之前的版本中，每批部署 2-5 个 VM，各批次之间间隔 5 分钟，就可以提供可靠的 VM 部署，以达到 700 个 VM 的规模。 使用 2005 版本的 Azure Stack Hub，我们能够通过每批部署 40 个 VM，各批部署之间间隔 5 分钟，可靠地预配 VM。
+在 2002 版本以及之前的版本中，每批部署 2-5 个 VM，各批次之间间隔 5 分钟，就可以提供可靠的 VM 部署，以达到 700 个 VM 的规模。 使用 2005 版本的 Azure Stack Hub，我们能够通过每批部署 40 个 VM，各批部署之间间隔 5 分钟，可靠地预配 VM。 "启动"、"停止" 和 "更新" 操作应以批处理大小30来完成，在每个批处理之间留出5分钟。
 
 ## <a name="azure-stack-hub-memory"></a>Azure Stack Hub 内存
 

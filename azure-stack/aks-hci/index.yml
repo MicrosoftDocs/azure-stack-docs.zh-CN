@@ -8,12 +8,12 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 808debaa0953bc19939bc1ffbf02c96688496bca
-  ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+  ms.openlocfilehash: 8e000bd1fe847c9d35b2ed680102a33424c86d6a
+  ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
   ms.translationtype: MT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96612278"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "101840093"
 landingContent:
 - title: 关于 Azure Kubernetes 服务
   linkLists:
@@ -47,12 +47,16 @@ landingContent:
     links:
     - text: 使用 Linux 容器
       url: deploy-linux-application.md
+    - text: 部署 .NET 应用程序
+      url: deploy-windows-application.md
   - linkListType: how-to-guide
     links:
     - text: 针对混合 OS Kubernetes 群集调整应用
       url: adapt-apps-mixed-os-clusters.md
-    - text: 部署 Windows 应用程序
-      url: deploy-windows-application.md
+    - text: 使用 Active Directory 单一登录凭据
+      url: ad-sso.md
+    - text: 配置代理设置
+      url: proxy.md
     - text: 为 gMSA 支持准备 Windows 节点
       url: prepare-windows-nodes-gmsa.md
     - text: 使用永久卷
@@ -63,3 +67,5 @@ landingContent:
     links:
     - text: 连接到用于 Kubernetes 的 Azure Arc
       url: connect-to-arc.md
+    - text: 监视 Azure Stack HCI 群集上的 AKS
+      url: monitor-logging.md

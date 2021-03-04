@@ -1,19 +1,19 @@
 ---
 title: 删除 SQL 资源提供程序
 titleSuffix: Azure Stack Hub
-description: 了解如何从 Azure Stack Hub 部署中删除 SQL 资源提供程序。
+description: 了解如何从 Azure Stack 中心部署中删除 SQL 资源提供程序。
 author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2019
-ms.openlocfilehash: b232bf2efb690ddc0a351d762e6866a75ced4a81
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 67c6331111e18ec04f3084b4c34a971120733569
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011359"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839974"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 
@@ -22,7 +22,7 @@ ms.locfileid: "97011359"
 > [!NOTE]
 > 可以在[部署资源提供程序先决条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中找到资源提供程序安装程序的下载链接。
 
-删除 SQL 资源提供程序会删除操作员管理的关联计划和配额。 但它不会从宿主服务器中删除租户数据库。
+删除 SQL 资源提供程序将删除操作员管理的关联计划和配额。 但它不会从宿主服务器中删除租户数据库。
 
 ## <a name="to-remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 
@@ -35,12 +35,16 @@ ms.locfileid: "97011359"
 
 3. 打开一个权限提升的 PowerShell 控制台新窗口，并切换到解压缩后的 SQL 资源提供程序安装文件所在的目录。
 
+> [!IMPORTANT]
+> 强烈建议在运行脚本之前，使用 **set-azurermcontext-Scope CurrentUser** 和 **set-azurermcontext 范围进程** 清除缓存。
+
+
 4. 使用以下参数运行 DeploySqlProvider.ps1 脚本：
 
     * **Uninstall**：删除资源提供程序和所有关联的资源。
     * **PrivilegedEndpoint**：特权终结点的 IP 地址或 DNS 名称。
     * **AzureEnvironment**：用于部署 Azure Stack Hub 的 Azure 环境。 仅对于 Azure AD 部署是必需的。
-    * **CloudAdminCredential**：访问特权终结点时所需的云管理员凭据。
+    * **CloudAdminCredential**：访问特权终结点所需的云管理员凭据。
     * **AzCredential**：Azure Stack Hub 服务管理员帐户的凭据。 使用部署 Azure Stack Hub 时所用的相同凭据。 如果用于 AzCredential 的帐户需要多重身份验证 (MFA)，则脚本将失败。
 
 ## <a name="next-steps"></a>后续步骤

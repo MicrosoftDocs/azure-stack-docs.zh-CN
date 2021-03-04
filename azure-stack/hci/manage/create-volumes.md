@@ -1,42 +1,45 @@
 ---
-title: 在 Azure Stack HCI 中创建卷
-description: 如何使用 Windows Admin Center 和 PowerShell 在 Azure Stack HCI 中创建卷。
+title: 在 Azure Stack HCI 和 Windows Server 群集中创建卷
+description: 如何使用 Windows 管理中心和 PowerShell 在 Azure Stack HCI 和 Windows Server 群集中创建卷。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 9bb0ff34863f8262d5919e5eae6f735709097bf5
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.date: 02/17/2021
+ms.openlocfilehash: f5c585bd612cb25b32df22c342988bbad17d08ee
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99570729"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839771"
 ---
-# <a name="create-volumes-in-azure-stack-hci"></a>在 Azure Stack HCI 中创建卷
+# <a name="create-volumes-in-azure-stack-hci-and-windows-server-clusters"></a>在 Azure Stack HCI 和 Windows Server 群集中创建卷
 
-> 适用于：Azure Stack HCI，版本 20H2
+> 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019、Windows Server 2016
 
-本主题介绍如何使用 Windows Admin Center 和 Windows PowerShell 在 Azure Stack HCI 群集中创建卷、如何处理卷中的文件，以及如何在卷中启用重复数据删除和压缩。 若要了解如何为延伸群集创建卷并设置复制，请参阅[创建延伸卷](create-stretched-volumes.md)。
+本主题介绍如何使用 Windows 管理中心和 Windows PowerShell 在群集上创建卷，如何处理卷上的文件，以及如何在卷上启用重复数据删除和压缩、完整性校验和的 BitLocker 加密。 若要了解如何为延伸群集创建卷并设置复制，请参阅[创建延伸卷](create-stretched-volumes.md)。
 
-## <a name="create-a-three-way-mirror-volume"></a>创建三向镜像卷
+> [!TIP]
+> 如果尚未这样做，请先查看 [规划量](../concepts/plan-volumes.md) 。
 
-若要使用 Windows Admin Center 创建三向镜像卷：
+## <a name="create-a-two-way-or-three-way-mirror-volume"></a>创建双向和三向镜像卷
+
+使用 Windows 管理中心创建双向和三向镜像卷：
 
 1. 在 Windows 管理中心，连接到群集，然后从 "**工具**" 窗格中选择 "**卷**"。
-2. 在“卷”页上选择“库存”选项卡，然后选择“创建卷”。  
-3. 在“创建卷”窗格中输入卷的名称，并将“复原”保留为“三向镜像”。  
-4. 在“HDD 上的大小”中指定卷的大小。 例如 5 TB。
-5. 选择“创建”。
+1. 在 " **卷** " 页上，选择 " **清单** " 选项卡，然后选择 " **创建**"。
+1. 在“创建卷”窗格中输入卷的名称。
+1. 在 **复原能力** 中，选择 " **双向镜像** " 或 " **三向镜像** " （具体取决于群集中的服务器数）。
+1. 在“HDD 上的大小”中指定卷的大小。 例如 5 TB。
+1. 在 " **更多选项** " 下，你可以使用此复选框来启用重复数据删除和压缩、完整性校验和，或 BitLocker 加密。
+1. 选择“创建”  。
 
-创建卷可能需要几分钟时间，具体取决于大小。 卷创建好之后，右上方会显示通知。 新卷将显示在“库存”列表中。
+   :::image type="content" source="media/create-volumes/create-mirror-volume.png" alt-text="您可以使用 Windows 管理中心创建双向或三向镜像卷" lightbox="media/create-volumes/create-mirror-volume.png":::
 
-观看有关如何创建三向镜像卷的快速视频。
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
+创建卷可能需要几分钟时间，具体取决于大小。 卷创建好之后，右上方会显示通知。 新卷将显示在清单列表中。
 
 ## <a name="create-a-mirror-accelerated-parity-volume"></a>创建镜像加速奇偶校验卷
 
-镜像加速奇偶校验 (MAP) 降低硬盘驱动器上卷的占用量。 例如，三向镜像卷意味着每 10 TB 的卷大小需要 30 TB 的占用空间。 为了减少占用空间开销，请创建使用镜像加速奇偶校验的卷。 这样，即使只有 4 台服务器，也可以镜像最活跃的 20% 数据，然后使用空间效率更高的奇偶校验来存储剩余数据，从而将占用空间从 30 TB 减到 22 TB。 可以调整奇偶校验和镜像之比，在性能与容量方面做出最适合工作负荷的取舍。 例如，使用 90% 的奇偶校验和 10% 的镜像所带来的性能效果不太理想，但可以进一步优化占用空间。
+镜像加速奇偶校验 (MAP) 降低硬盘驱动器上卷的占用量。 例如，三向镜像卷意味着每 10 tb 大小的大小都需要 30 tb 的空间。 为了减少占用空间开销，请创建使用镜像加速奇偶校验的卷。 这会将内存占用量从 30 tb 减少到 22 tb，甚至只使用4个服务器，只需镜像最活跃的20% 的数据，并使用奇偶校验（更节省空间）来存储其余数据。 可以调整奇偶校验和镜像之比，在性能与容量方面做出最适合工作负荷的取舍。 例如，使用 90% 的奇偶校验和 10% 的镜像所带来的性能效果不太理想，但可以进一步优化占用空间。
 
   >[!NOTE]
   >镜像加速奇偶校验卷需要复原文件系统 (ReFS) 。
@@ -44,15 +47,12 @@ ms.locfileid: "99570729"
 若要在 Windows Admin Center 创建使用镜像加速奇偶校验的卷：
 
 1. 在 Windows 管理中心，连接到群集，然后从 "**工具**" 窗格中选择 "**卷**"。
-2. 在“卷”页上选择“库存”选项卡，然后选择“创建卷”。 
-3. 在“创建卷”窗格中输入卷的名称。
-4. 在“复原”中选择“镜像加速奇偶校验”。 
-5. 在“奇偶校验百分比”中选择奇偶校验的百分比。
-6. 选择“创建”。
-
-观看有关如何创建镜像加速奇偶校验卷的快速视频。
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
+1. 在 "卷" 页上，选择 " **清单** " 选项卡，然后选择 " **创建**"。
+1. 在“创建卷”窗格中输入卷的名称。
+1. 在“复原”中选择“镜像加速奇偶校验”。 
+1. 在“奇偶校验百分比”中选择奇偶校验的百分比。
+1. 在 " **更多选项** " 下，你可以使用此复选框来启用重复数据删除和压缩、完整性校验和，或 BitLocker 加密。
+1. 选择“创建”。
 
 ## <a name="open-volume-and-add-files"></a>打开卷并添加文件
 
@@ -68,10 +68,6 @@ ms.locfileid: "99570729"
 5. 导航到卷的路径。 可在此处浏览卷中的文件。
 6. 选择“上传”，然后选择要上传的文件。
 7. 使用浏览器中的“后退”按钮返回到 Windows Admin Center 中的“工具”窗格。 
-
-观看有关如何打开卷和添加文件的快速视频。
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
 
 ## <a name="turn-on-deduplication-and-compression"></a>启用重复数据删除和压缩
 
@@ -118,9 +114,12 @@ New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 在涉及三种驱动器类型的部署中，一个卷可以跨越 SSD 和 HDD 层以在每类驱动器上驻留一部分。 同样，在涉及四个或更多个服务器的部署中，一个卷可以混合镜像和双奇偶校验以在每个服务器上驻留一部分。
 
-为帮助你创建此类卷，Azure Stack HCI 为性能) 提供了名为 **MirrorOn * 媒体** 名称 * 和 **NestedMirrorOn * 媒体** 名称 (* 的默认层级模板，并为容量) 提供 **ParityOn * 媒体** 名称 * 和 **NestedParityOn * 媒体** 名称 * (，其中 *媒体* 空间为 HDD 或 SSD。 这些模板代表基于介质类型的存储层，并封装更快容量驱动器上的三向镜像的定义， (如果适用) ，以及在慢速容量驱动器上 (双重奇偶校验（如果适用）) 。
+为帮助你创建此类卷，Azure Stack HCI 和 Windows Server 2019 提供了名为 **MirrorOn * 媒体** 名称 * 的默认层模板和 **NestedMirrorOn * 媒体** 名称 (*) ，并为容量) 提供 **ParityOn * 媒体** 名称 * 和 **NestedParityOn * 媒体** 名称 * (，其中 *媒体* 空间为 HDD 或 SSD。 这些模板代表基于介质类型的存储层，并封装更快容量驱动器上的三向镜像的定义， (如果适用) ，以及在慢速容量驱动器上 (双重奇偶校验（如果适用）) 。
 
-可以通过在群集中的任何服务器上运行 **StorageTier** cmdlet 来查看它们。
+   > [!NOTE]
+   > 在运行存储空间直通的 Windows Server 2016 群集上，默认层模板只是称为 **性能** 和 **容量**。
+
+可以通过在群集中的任何服务器上运行 **StorageTier** cmdlet 来查看存储层。
 
 ```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
@@ -147,7 +146,7 @@ New-Volume -FriendlyName "Volume1" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 ### <a name="nested-resiliency-volumes"></a>嵌套复原卷
 
-嵌套复原仅适用于两个服务器的群集;如果群集有三个或更多服务器，则无法使用嵌套复原功能。 嵌套复原允许两个服务器的群集同时承受多个硬件故障，而不会丢失存储可用性，从而允许用户、应用和虚拟机在不中断的情况下继续运行。 若要了解详细信息，请参阅 [计划卷：选择复原类型](../concepts/plan-volumes.md#choosing-the-resiliency-type)。
+嵌套复原仅适用于运行 Azure Stack HCI 或 Windows Server 2019 的双服务器群集;如果群集有三台或更多服务器，或者如果群集运行 Windows Server 2016，则不能使用嵌套复原功能。 嵌套复原允许两个服务器的群集同时承受多个硬件故障，而不会丢失存储可用性，从而允许用户、应用和虚拟机在不中断的情况下继续运行。 若要了解详细信息，请参阅 [计划卷：选择复原类型](../concepts/plan-volumes.md#choosing-the-resiliency-type)。
 
 #### <a name="create-nested-storage-tiers"></a>创建嵌套存储层
 
@@ -179,11 +178,11 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 
 ### <a name="storage-tier-summary-table"></a>存储层摘要表
 
-下表汇总了可在 Azure Stack HCI 中创建/的存储层。
+下表汇总了可在 Azure Stack HCI 和 Windows Server 2019 中创建的存储层。
 
 **NumberOfNodes：2**
 
-| FriendlyName      | MediaType | ResiliencySettingName | NumberOfDataCopies | PhysicalDiskRedundancy | NumberOfGroups | FaultDomainAwareness | ColumnIsolation | 备注         |
+| FriendlyName      | MediaType | ResiliencySettingName | NumberOfDataCopies | PhysicalDiskRedundancy | NumberOfGroups | FaultDomainAwareness | ColumnIsolation | 注意         |
 | ----------------- | :-------: | :-------------------: | :----------------: | :--------------------: |:--------------:| :------------------: | :-------------: | :----------: |
 | MirrorOnHDD       | HDD       | 镜像                | 2                  | 1                      | 1              | StorageScaleUnit     | 物理磁盘    | 自动创建 |
 | MirrorOnSSD       | SSD       | 镜像                | 2                  | 1                      | 1              | StorageScaleUnit     | 物理磁盘    | 自动创建 |
@@ -197,7 +196,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 
 **NumberOfNodes：3**
 
-| FriendlyName      | MediaType | ResiliencySettingName | NumberOfDataCopies | PhysicalDiskRedundancy | NumberOfGroups | FaultDomainAwareness | ColumnIsolation | 备注         |
+| FriendlyName      | MediaType | ResiliencySettingName | NumberOfDataCopies | PhysicalDiskRedundancy | NumberOfGroups | FaultDomainAwareness | ColumnIsolation | 注意         |
 | ----------------- | :-------: | :-------------------: | :----------------: | :--------------------: |:--------------:| :------------------: | :-------------: | :----------: |
 | MirrorOnHDD       | HDD       | 镜像                | 3                  | 2                      | 1              | StorageScaleUnit     | 物理磁盘    | 自动创建 |
 | MirrorOnSSD       | SSD       | 镜像                | 3                  | 2                      | 1              | StorageScaleUnit     | 物理磁盘    | 自动创建 |
@@ -205,7 +204,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 
 **NumberOfNodes： 4 +**
 
-| FriendlyName      | MediaType | ResiliencySettingName | NumberOfDataCopies | PhysicalDiskRedundancy | NumberOfGroups | FaultDomainAwareness | ColumnIsolation | 备注         |
+| FriendlyName      | MediaType | ResiliencySettingName | NumberOfDataCopies | PhysicalDiskRedundancy | NumberOfGroups | FaultDomainAwareness | ColumnIsolation | 注意         |
 | ----------------- | :-------: | :-------------------: | :----------------: | :--------------------: |:--------------:| :------------------: | :-------------: | :----------: |
 | MirrorOnHDD       | HDD       | 镜像                | 3                  | 2                      | 1              | StorageScaleUnit     | 物理磁盘    | 自动创建 |
 | MirrorOnSSD       | SSD       | 镜像                | 3                  | 2                      | 1              | StorageScaleUnit     | 物理磁盘    | 自动创建 |
@@ -219,6 +218,5 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 有关相关主题和其他存储管理任务，另请参阅：
 
 - [存储空间直通概述](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [规划卷](../concepts/plan-volumes.md)
 - [扩展卷](extend-volumes.md)
 - [删除卷](delete-volumes.md)

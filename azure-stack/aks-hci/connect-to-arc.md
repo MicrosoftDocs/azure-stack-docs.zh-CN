@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 96e1996cbf22e354b960b1a46a8848543942b0cc
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612346"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839855"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>将 Azure Stack HCI 群集上的 Azure Kubernetes 服务连接到 Kubernetes 的 Azure Arc
 
@@ -25,7 +25,7 @@ Azure Stack HCI 群集上的 Azure Kubernetes 服务附加到 Azure Arc 时，�
 
 以下步骤提供了有关在 Azure Stack HCI 群集到 Azure Arc 上载入 Azure Kubernetes 服务的演练。 **如果已通过 Windows 管理中心将 Kubernetes 群集载入到 Azure Arc，则可以跳过这些步骤。**
 
-## <a name="before-you-begin"></a>在开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 验证是否已准备好以下要求：
 
@@ -33,7 +33,7 @@ Azure Stack HCI 群集上的 Azure Kubernetes 服务附加到 Azure Arc 时，�
 
 * 需要一个 kubeconfig 文件来访问群集上的群集和群集管理角色，以便部署启用了 Arc 的 Kubernetes 代理。
 * 安装了 Azure Stack HCI 上的 Azure Kubernetes 服务 PowerShell 模块。
-* 安装支持 Azure Arc 的 Kubernetes CLI 扩展需要 Azure CLI 版本 2.3 +。 [安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。 还可以更新到最新版本，以确保具有 Azure CLI 版本 2.3 +。
+* 安装支持支持 Arc 的 Kubernetes CLI 扩展需要 Azure CLI 版本 2.3 +。 [安装 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。 还可以更新到最新版本，以确保具有 Azure CLI 版本 2.3 +。
 * 作为所有者或参与者的 Azure 订阅。 
 * 在 PowerShell 管理窗口中运行本文档中的命令。
 
@@ -66,7 +66,7 @@ az account set --subscription "00000000-aaaa-bbbb-cccc-000000000000"
 
 ## <a name="step-2-register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>步骤2：注册启用了 Azure Arc Kubernetes 的两个提供程序：
 
-如果已为订阅注册了两个启用了 Azure Arc 的 Kubernetes 服务的提供程序，则可以跳过此步骤。 注册是一个异步过程，需要为每个订阅一次。 注册可能需要大约 10 分钟。 
+如果已在订阅上为启用了 Azure Arc 的 Kubernetes 服务注册了两个提供程序，则可以跳过此步骤。 注册是一个异步过程，需要为每个订阅一次。 注册可能需要大约 10 分钟。 
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
@@ -141,33 +141,33 @@ echo $tenant
 引用新创建的服务主体，并运行 `Install-AksHciArcOnboarding` Aks-Hci PowerShell 模块中提供的命令。
 
 ```PowerShell
-Install-AksHciArcOnboarding -clusterName $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
+Install-AksHciArcOnboarding -name $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
 ```
 ## <a name="verify-connected-cluster"></a>验证已连接的群集
 
 可以在 [Azure 门户](https://portal.azure.com/)上查看 Kubernetes 群集资源。 在浏览器中打开门户后，请导航到资源组和启用了 Azure Arc 的 Kubernetes 资源，该资源基于之前在 PowerShell 命令中使用的资源名称和资源组名称输入 `Install-AksHciArcOnboarding` 。
 
 > [!NOTE]
-> 载入群集后，在 Azure 门户中启用了 Azure Arc Kubernetes 资源的 "概述" 页上，大约需要5到10分钟的群集元数据 (群集版本、代理版本、) 的节点数。
+> 载入群集后，在 Azure 门户中启用了 Azure Arc 的 Kubernetes 资源的 "概述" 页上，大约需要5到10分钟的群集元数据 (群集版本、代理版本、) 的节点数。
 
 若要删除群集，或在群集位于出站代理服务器后面时连接群集，请访问 [连接启用了 Azure Arc 的 Kubernetes 群集](/azure/azure-arc/kubernetes/connect-cluster)。
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>适用于 Kubernetes 的 Azure Arc 代理
 
-已启用 Azure Arc 的 Kubernetes 会将几个运算符部署到 `azure-arc` 命名空间中。 可在此处查看这些部署和 Pod：
+启用了 Azure Arc 的 Kubernetes 将几个运算符部署到 `azure-arc` 命名空间中。 可以通过以下方式查看这些部署和 pod `kubectl` 。 
 
 ```console
 kubectl -n azure-arc get deployments,pods
 ```
 
-启用了 Azure Arc 的 Kubernetes 由几个在部署到 `azure-arc` 命名空间的群集中运行的代理（运算符）组成。
+启用了 Azure Arc 的 Kubernetes 包括在部署到命名空间的群集中运行的几个 (操作员) 代理 `azure-arc` 。
 
 * `deployment.apps/config-agent`：监视群集上应用的源代码管理配置资源的已连接群集并更新符合性状态
 * `deployment.apps/controller-manager`：是运算符的运算符，用于协调 Azure Arc 组件之间的交互
 * `deployment.apps/metrics-agent`：收集其他 Arc 代理的指标，以确保这些代理表现出最佳性能
 * `deployment.apps/cluster-metadata-operator`：收集分类元数据-群集版本、节点计数和 Azure Arc 代理版本
 * `deployment.apps/resource-sync-agent`：将上面提到的群集元数据同步到 Azure
-* `deployment.apps/clusteridentityoperator`：启用了 Azure Arc 的 Kubernetes 目前支持系统分配的标识。 clusteridentityoperator 维护其他代理用于与 Azure 进行通信的托管服务标识 (MSI) 证书。
+* `deployment.apps/clusteridentityoperator`：启用了 Azure Arc 的 Kubernetes 当前支持系统分配的标识。 clusteridentityoperator 维护其他代理用于与 Azure 进行通信的托管服务标识 (MSI) 证书。
 * `deployment.apps/flux-logs-agent`：从源代码管理配置中部署的 flux 运算符收集日志
 
 ## <a name="next-steps"></a>后续步骤
