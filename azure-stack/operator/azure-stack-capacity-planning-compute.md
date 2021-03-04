@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: bfe8dfae9cd0190b998167a27a95254ee7bc8cbb
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: ee3ecd2bd9d513386f1f5546237204552eb0fc34
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840348"
+ms.locfileid: "102116863"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub 计算容量
 
@@ -58,7 +58,7 @@ Azure Stack Hub 旨在让已成功预配的 VM 持续运行。 例如，如果�
 已用内存由多个部分组成。 以下组件消耗饼了图中的已用内存部分：  
 
 - **主机 OS 的用量或预留量：** 主机上的操作系统 (OS)、虚拟内存页面表、主机 OS 上运行的程序以及空间直通内存缓存使用的内存。 此值依赖于主机上运行中的不同 Hyper-V 进程使用的内存，因此可能有浮动。
-- **基础结构服务：** 构成 Azure Stack Hub 的基础结构 VM。 自 Azure Stack Hub 发行版 1904 开始，这需要将近 31 个最多使用 242 GB + (4 GB x 节点数) 的 VM。 我们一直在努力让基础结构服务变得更具可伸缩性和弹性，因此基础结构服务组件的内存用量可能会有变化。
+- **基础结构服务：** 构成 Azure Stack Hub 的基础结构 VM。 从 Azure Stack 集线器的2008版发行版起，这需要大约 31 31 个 Vm，它们占用 258 GB + (4 GB x #) 内存。 我们一直在努力让基础结构服务变得更具可伸缩性和弹性，因此基础结构服务组件的内存用量可能会有变化。
 - **复原功能的预留量：** Azure Stack Hub 预留一部分内存，用于在单个主机故障期间保持租户可用性，以及在修补和更新期间让 VM 成功进行实时迁移。
 - **租户 VM：** Azure Stack Hub 用户创建的租户 VM。 除了运行 VM 以外，任何在结构上登陆的 VM 也消耗内存。 这些 VM 指处于“正在创建”或“失败”状态的 VM，或者从来宾关闭的 VM。 但是，已从门户/PowerShell/CLI 使用“停止解除分配”选项来解除分配的 VM 不会消耗 Azure Stack Hub 中的内存。
 - **增值资源提供程序 (RP)：** 为 SQL、MySQL、应用服务等增值 RP 部署的 VM。
@@ -77,7 +77,7 @@ VM 放置的可用内存 = 主机总内存 - 复原保留 - 运行租户 VM 所�
 > -    R = 用于 OS 开销的操作系统预留量，在此公式中为 .15<sup>2</sup>
 > -    V = 缩放单元中的最大 VM
 
-<sup>1</sup> Azure Stack Hub 基础结构开销 = 242 GB + (4 GB x 节点数)。 大约使用 31 个 VM 来托管 Azure Stack Hub 基础结构，总共消耗约 242 GB + (4 GB x 节点数) 的内存和 146 个虚拟核心。 使用这个数目的 VM 是为了进行必要的服务隔离，使之符合安全性、可伸缩性、服务和修补方面的要求。 这种内部服务结构允许在将来引入新开发的基础结构服务。
+<sup>1</sup> Azure Stack 集线器基础结构开销 = 258 gb + (4 gb x #) 节点。 大约 32 Vm 用于承载 Azure Stack 集线器的基础结构，并且总消耗大约 242 GB + (4 GB x # 的节点，) 内存和146虚拟核心。 使用这个数目的 VM 是为了进行必要的服务隔离，使之符合安全性、可伸缩性、服务和修补方面的要求。 这种内部服务结构允许在将来引入新开发的基础结构服务。
 
 <sup>2</sup> 操作系统针对开销的保留 = 15% (.15) 的节点内存。 操作系统保留值是一个估计值，具体取决于服务器的物理内存容量和常规的操作系统开销。
 

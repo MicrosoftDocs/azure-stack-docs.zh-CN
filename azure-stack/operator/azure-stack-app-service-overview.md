@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: f30a8b82a07aafed80fc75329516bd3b3d91df04
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 78573a16d9fc376d7903badfd28bda9366ca1ddb
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009037"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116982"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Azure Stack Hub 上的 Azure 应用服务和 Azure Functions 概述
 
@@ -33,7 +33,7 @@ Azure Stack 集线器上的 Azure App Service 是一种平台即服务 (PaaS) �
 应用服务提供多种应用类型，每种类型负责托管特定的工作负荷：
 
 - 用于托管网站、web 应用和 REST Api 的[Web 应用](/azure/app-service/overview)。
-- [Azure Functions v1](/azure/azure-functions) 用于托管事件驱动的无服务器工作负荷。
+- [Azure Functions v1](/azure/azure-functions/functions-versions) 用于托管事件驱动的无服务器工作负荷。
 
 “应用”一词是指专用于运行工作负荷的托管资源。 以 Web 应用为例，你可能习惯于将 Web 应用视为计算资源和应用代码，二者共同向浏览器提供功能。 在 Azure 应用服务中，Web 应用是 Azure Stack Hub 提供的用于托管应用代码的计算资源。
 

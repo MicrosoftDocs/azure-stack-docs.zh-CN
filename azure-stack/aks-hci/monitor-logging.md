@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: v-susbo
 ms.reviewer: ''
-ms.openlocfilehash: 728f23954d99f6e8cd9373467ed8d104a457e636
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 7bed9a767728525ae1e40ce4f0e607cc6f034055
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101873595"
+ms.locfileid: "102116795"
 ---
 # <a name="monitor-aks-on-azure-stack-hci-clusters"></a>监视 Azure Stack HCI 群集上的 AKS
 
@@ -19,16 +19,12 @@ Azure Stack HCI 上有两种类型的监视和日志记录解决方案可用于 
 
 | 解决方案  | Azure 连接  | 支持和服务  | 成本 | 部署 |
 | ------- |  ------------  | ---------  | --------------  | ---------------- |
-| Azure Monitor | 需要使用用于 Kubernetes 的 Azure Arc 将 Azure Stack HCI 群集上的 AKS 连接到 Azure | 完全支持并由 Microsoft 提供服务 | 需要注册 Azure Monitor 服务 |  使用 Azure Arc [监视群集](#monitor-clusters-using-azure-monitor) |
-| 本地监视和日志记录 | 不需要 Azure 连接 | Microsoft (支持的开放源代码软件不支持协议或 Sla) 、社区和/或外部供应商  | 依赖于供应商 | 客户驱动的，请参阅 [使用本地监视监视群集](#monitor-clusters-using-on-premises-monitoring) |
+| Azure Monitor | 需要使用用于 Kubernetes 的 Azure Arc 将 Azure Stack HCI 群集上的 AKS 连接到 Azure | 完全支持并由 Microsoft 提供服务 | 需要注册 Azure Monitor 服务 |  使用 Azure Arc [监视群集](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview) |
+| 本地监视和日志记录 | 不需要 Azure 连接 | Microsoft (支持的开放源代码软件不支持协议或 Sla) 、社区和/或外部供应商  | 依赖于供应商 | 客户驱动的，请参阅 [使用本地监视监视群集](#use-on-premises-monitoring) |
 
-## <a name="monitor-clusters-using-azure-monitor"></a>使用 Azure Monitor 监视群集
-若要在 Azure Stack HCI 群集上使用 AKS Azure Monitor，请按照以下两个主题中的步骤操作： 
+若要在 Azure Stack HCI 群集上使用 AKS Azure Monitor，请参阅 [Azure Monitor 概述](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview)。 
 
-- [使用用于 Kubernetes 的 Azure Arc 将群集连接到 Azure](./connect-to-arc.md)  
-- [启用启用了 Azure Arc Kubernetes 群集的 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters) 
-
-## <a name="monitor-clusters-using-on-premises-monitoring"></a>使用本地监视监视群集
+## <a name="use-on-premises-monitoring"></a>使用本地监视
 
 在生产环境中运行应用时，监视群集上的控制平面节点和工作负荷的运行状况、性能和资源使用情况非常重要。 若要了解如何设置本地监视解决方案，请参阅 [安装 Prometheus 和 Grafana](https://github.com/microsoft/AKS-HCI-Apps/tree/main/Monitoring)。 此监视解决方案包含以下两个工具： 
 

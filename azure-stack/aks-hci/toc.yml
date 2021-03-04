@@ -27,9 +27,9 @@
       href: deploy-linux-application.md
 - name: 概念
   items:
-    - name: Azure Stack HCI 上的 Azure Kubernetes 概念
+    - name: 群集和工作负荷
       href: kubernetes-concepts.md
-    - name: 系统要求
+    - name: 系统需求
       href: system-requirements.md
     - name: 网络
       href: concepts-networking.md
@@ -51,8 +51,12 @@
           href: ad-sso.md
         - name: 加密 etcd 机密
           href: encrypt-secrets.md
-    - name: 监视 Azure Stack HCI 群集上的 AKS
-      href: monitor-logging.md
+    - name: 监视和日志记录
+      items:
+        - name: 对容器使用 Azure Monitor
+          href: 'https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview'
+        - name: 本地监视
+          href: monitor-logging.md
     - name: 使用 Windows Server 容器
       items:
         - name: 为组托管服务帐户支持准备 Windows 节点

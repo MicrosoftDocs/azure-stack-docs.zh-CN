@@ -5,14 +5,14 @@ author: daschott
 ms.author: daschott
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 9870f2921be561a8fef66f1bfc530b5c18f494b4
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 93c0103cc13fdffbee7ba0d16aea9c33474565ba
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612635"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116761"
 ---
-# <a name="kubernetes-core-concepts-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的 Kubernetes 核心概念
+# <a name="clusters-and-workloads-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上的 Azure Kubernetes 服务的群集和工作负荷
 
 > 适用于 Azure Stack HCI 上的 AKS、Windows Server 2019 Datacenter 上的 AKS 运行时
 

@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 02/12/2021
 ms.author: jeguan
-ms.openlocfilehash: f14f3550e7a6d51ffd51a521bc6f155186b4c0c0
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 291dd37ec08b6fe724dfdecd064454b8d96fd5f3
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101839719"
+ms.locfileid: "102116693"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>快速入门：使用 PowerShell 设置 Azure Stack HCI 上的 Azure Kubernetes 服务主机
 
@@ -186,7 +186,7 @@ Get-AksHciCredential -name clustergroup-management
 
 ## <a name="get-logs"></a>获取日志
 
-若要从你的所有 pod 获取日志，请运行 [akshcilogs](./get-akshcilogs) 命令。 此命令将在路径中创建一个名为的输出文件夹 `akshcilogs` `c:\%workingdirectory%\%AKS HCI release number%\%filename%` (例如 `c:\AksHci\0.9.6.0\akshcilogs.zip`) 。
+若要从你的所有 pod 获取日志，请运行 [akshcilogs](./get-akshcilogs.md) 命令。 此命令将在路径中创建一个名为的输出文件夹 `akshcilogs` `c:\%workingdirectory%\%AKS HCI release number%\%filename%` (例如 `c:\AksHci\0.9.6.0\akshcilogs.zip`) 。
 
 ```powershell
 Get-AksHciLogs

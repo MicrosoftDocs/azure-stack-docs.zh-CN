@@ -4,22 +4,22 @@ description: 如何将 Windows 管理中心网关注册到 Azure。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: 0b80a1e607823385d06a5255244373ca3be1af98
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.date: 03/04/2021
+ms.openlocfilehash: 93bba2336ab482e1a2bf0fc8e7545f537211382d
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487878"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116778"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>将 Windows Admin Center 注册到 Azure
 
 > 适用于 Azure Stack HCI v20H2；Windows Server 2019
 
-若要在 Windows 管理中心使用 Azure 服务，必须首先在管理 PC 上 [安装 Windows 管理中心](/windows-server/manage/windows-admin-center/deploy/install) 并完成 windows 管理中心网关的一次性注册。 这是将 [群集注册](../deploy/register-with-azure.md) 到 Azure 的先决条件。
+若要在 Windows 管理中心使用 Azure 服务，必须首先在管理 PC 上 [安装 Windows 管理中心](/windows-server/manage/windows-admin-center/deploy/install) 并注册 windows 管理中心网关。 这是将 [群集注册](../deploy/register-with-azure.md) 到 Azure 的先决条件。
 
    > [!IMPORTANT]
-   > 在计划用于注册群集的同一台管理 PC 上注册 Windows 管理中心，使用同一个 Azure Active Directory (租户) ID。
+   > 使用相同的 Azure Active Directory (租户) ID 和应用程序 ID，在计划用于注册群集 () 的相同管理 PC 上注册 Windows 管理中心。
 
 ## <a name="complete-the-registration-process"></a>完成注册过程
 
@@ -37,13 +37,13 @@ ms.locfileid: "100487878"
 
    应会看到以下消息：“你已登录到你设备上的 Windows Admin Center 应用程序。” 关闭浏览器窗口以返回原始注册页。
 
-4. 通过提供 Azure Active Directory（租户）ID 连接到 Azure Active Directory。 如果你已有一个 Azure 租户 ID 并执行了前面的步骤，则可能会预填充 ID 字段。 如果你的组织未向你提供现有 ID，请将“Azure Active Directory 应用程序”设置为“新建” 。 如果你已有 ID，请单击“使用现有项”，系统将显示一个空字段，供你输入管理员提供的 ID。输入 ID 后，Windows Admin Center 将确认找到具有该 ID 的帐户。 如果你有现有 ID 但不知道它是什么，请按照[这些步骤](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 检索此 ID。
+4. 通过提供 Azure Active Directory (租户) ID 和应用程序 ID 来连接到 Azure Active Directory。 如果你已有一个 Azure 租户 ID 并执行了前面的步骤，则 "租户 ID" 字段可能会预先填充，并且可能包含多个选项。 选择正确的租户 ID。 如果 Azure AD 管理员为你提供了应用程序 ID，请单击 " **使用现有**"，将显示一个空字段，供你输入管理员提供的 ID。输入 ID 后，Windows 管理中心将确认找到具有该 ID 的帐户。 如果你有现有 ID 但不知道它是什么，请按照[这些步骤](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 检索此 ID。 如果你的组织未提供现有 ID，请将 **Azure Active Directory 应用程序** 设置为 " **新建**"。
 
    :::image type="content" source="media/register-wac/connect-to-aad.png" alt-text="通过提供现有 Azure Active Directory (租户) ID 或创建一个新的来连接到 Azure Active Directory" lightbox="media/register-wac/connect-to-aad.png":::
 
-5. 单击“连接”按钮连接到 Azure。 应会看到一条确认消息，指示现在已经连接到 Azure AD。
+5. 单击“连接”按钮连接到 Azure。 如果你是 Azure AD 管理员或使用了现有的应用程序 ID，你应该会看到一条确认，指出你现在已连接到 Azure AD。 否则，你可能会看到一条需要管理员批准的消息。 如果是这种情况，请选择 **"返回到应用程序而不授予许可**"，并与 Azure AD 管理员联系，以根据步骤6中的说明，向根据注册创建的新应用程序 ID 授予权限。
 
-6. 转到 Azure 门户中的“应用权限”，在 Azure 中授予权限。 在“授予许可”下，选择“授予管理员许可”。 
+6. 如果你是 Azure AD 管理员，请导航到 **Azure Active Directory**，然后 **应用注册**，在 Azure 中授予权限。 选择要注册的网关后的名为的应用标识，并导航到 " **API 权限**"。 在“授予许可”下，选择“授予管理员许可”。 
 
 7. 关闭窗口，并通过 Azure 帐户登录到 Windows Admin Center。
 

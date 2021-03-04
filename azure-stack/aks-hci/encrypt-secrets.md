@@ -4,14 +4,14 @@ description: 了解如何加密 Azure Stack HCI 上的 AKS 上的 etcd 机密
 author: aabhathipsay
 ms.topic: how-to
 ms.date: 02/02/2021
-ms.author: aaabhathipsay
+ms.author: aabha
 ms.reviewer: ''
-ms.openlocfilehash: d79d6657197237b5806e419d94fbfb75a31a986c
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 82d40c2f97171196b90171e3dda850990bf2fbab
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101873583"
+ms.locfileid: "102116710"
 ---
 # <a name="encrypt-etcd-secrets-on-aks-on-azure-stack-hci-clusters"></a>加密 Azure Stack HCI 群集上的 AKS 上的 etcd 机密
 
@@ -22,7 +22,7 @@ Kubernetes 中的机密是包含少量敏感数据的对象，例如密码和 SS
 
 ## <a name="enable-encryption-of-etcd-secrets"></a>启用 etcd 机密加密
 
-使用 `-enableSecretsEncryption` [AksHciCluster](./new-akshcicluster) 命令的参数启用 etcd 密钥加密，并自动执行加密密钥轮替，如下所示： 
+使用 `-enableSecretsEncryption` [AksHciCluster](./new-akshcicluster.md) 命令的参数启用 etcd 密钥加密，并自动执行加密密钥轮替，如下所示： 
 
 ```powershell
 New-AksHciCluster -name mynewcluster -enableSecretsEncryption

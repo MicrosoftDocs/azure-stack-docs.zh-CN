@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 2/10/2021
 ms.author: jeguan
-ms.openlocfilehash: 42d9318b40dc19e77858641364a246209275e5cd
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 68539a77907bb0c5eef4809882c562525b93e983
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101839838"
+ms.locfileid: "102116727"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>快速入门：使用 Windows PowerShell 在 Azure Stack HCI 上创建 Kubernetes 群集
 
@@ -27,7 +27,7 @@ ms.locfileid: "101839838"
 
 安装 Azure Kubernetes 服务主机之后，便准备好部署 Kubernetes 群集。
 
-以管理员身份打开 PowerShell 并运行以下 [AksHciCluster](./new-akshcicluster) 命令。
+以管理员身份打开 PowerShell 并运行以下 [AksHciCluster](./new-akshcicluster.md) 命令。
 
 ```powershell
 New-AksHciCluster -name mycluster
@@ -43,7 +43,7 @@ Get-AksHciCluster
 
 ## <a name="step-2-scale-a-kubernetes-cluster"></a>步骤 2：缩放 Kubernetes 群集
 
-如果需要向上或向下缩放群集，可以使用 [AksHciClusterNodeCount](./set-akshciclusternodecount) 命令更改控制平面节点、Linux 工作节点或 Windows 辅助角色节点的数量。
+如果需要向上或向下缩放群集，可以使用 [AksHciClusterNodeCount](./set-akshciclusternodecount.md) 命令更改控制平面节点、Linux 工作节点或 Windows 辅助角色节点的数量。
 
 若要缩放控制平面节点，请运行以下命令。
 
@@ -73,11 +73,11 @@ Get-AksHciClusterUpgrades -name mycluster
 Update-AksHciCluster -name mycluster -kubernetesVersion <k8s version>
 ```
 
-如果不指定 Kubernetes 版本就运行此命令，则会将群集升级到最新版本。 如果要升级到不是最新版本的其他版本，请使用带有参数的 [AksHciCluster](./update-akshcicluster) `-kubernetesVersion` 和所需的版本作为值 (即，v 1.18.8) 。
+如果不指定 Kubernetes 版本就运行此命令，则会将群集升级到最新版本。 如果要升级到不是最新版本的其他版本，请使用带有参数的 [AksHciCluster](./update-akshcicluster.md) `-kubernetesVersion` 和所需的版本作为值 (即，v 1.18.8) 。
 
 ## <a name="step-4-access-your-clusters-using-kubectl"></a>步骤 4：使用 kubectl 访问群集
 
-若要使用 kubectl 访问 Kubernetes 群集，请运行 [AksHciCredential](./get-akshcicredential) 命令。 这将使用指定群集的 kubeconfig 文件作为 kubectl 的默认 kubeconfig 文件。
+若要使用 kubectl 访问 Kubernetes 群集，请运行 [AksHciCredential](./get-akshcicredential.md) 命令。 这将使用指定群集的 kubeconfig 文件作为 kubectl 的默认 kubeconfig 文件。
 
 ```powershell
 Get-AksHciCredential -name mycluster
@@ -93,7 +93,7 @@ Remove-AksHciCluster -name mycluster
 
 ## <a name="get-logs"></a>获取日志
 
-若要从你的所有 pod 获取日志，请运行 [AksHciLogs](./get-akshcilogs) 命令。 此命令将 `akshcilogs.zip` 在工作目录中创建一个名为的输出文件夹。 `akshcilogs.zip`运行以下命令后，该文件夹的完整路径将为输出。
+若要从你的所有 pod 获取日志，请运行 [AksHciLogs](./get-akshcilogs.md) 命令。 此命令将 `akshcilogs.zip` 在工作目录中创建一个名为的输出文件夹。 `akshcilogs.zip`运行以下命令后，该文件夹的完整路径将为输出。
 
 ```powershell
 Get-AksHciLogs

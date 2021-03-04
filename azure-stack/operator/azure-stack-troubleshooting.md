@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: 了解如何排查 Azure Stack Hub 的问题，包括 VM、存储和应用服务的问题。
 author: PatAltimore
 ms.topic: article
-ms.date: 01/20/2021
+ms.date: 02/12/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 1706f028aff293f85ea5a0c1fb882a5d332d7196
-ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
+ms.openlocfilehash: b84efb235478a3c3543bf5f1d1ada338f44de442
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98672867"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116948"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -203,7 +203,7 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 1. 按照在更新失败时创建的失败警报中的补救步骤进行操作。
 
-2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md)。 请确保已针对发生问题的时间跨度[收集日志](./diagnostic-log-collection.md#send-logs-now)。 如果更新失败，无论是关键警报还是警告，都必须查看故障，并与 Microsoft 客户支持服务部门联系，以通知你，使缩放单位不会长时间处于失败状态。 在较长一段时间内使缩放单位处于失败的更新状态可能会导致以后更难解决的其他问题。
+2. 如果无法解决问题，请创建 [Azure Stack Hub 支持票证](./azure-stack-help-and-support-overview.md)。 请确保已针对发生问题的时间跨度[收集日志](./diagnostic-log-collection.md#send-logs-now)。 如果更新失败，无论是关键警报还是警告，都必须查看故障，并与 Microsoft 客户支持服务部门联系，以通知你，使缩放单位不会长时间处于失败状态。 使缩放单元长时间处于失败的更新状态可能会导致以后更难解决的其他问题。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>常见 Azure Stack Hub 修补程序和更新问题
 
@@ -218,6 +218,14 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 **补救措施**：可以通过再次单击“立即安装”来解决此问题。 如果此问题仍然存在，建议按照[安装更新](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)部分的说明手动上传更新包。
 
 **发生率**：通用
+
+### <a name="update-failed-check-and-enforce-external-key-protectors-on-csvs"></a>更新失败：在 Csv 上检查并强制实施外部密钥保护程序
+
+**适用于**：此问题适用于所有支持的版本。
+
+**原因**：基板管理控制器 (BMC) 密码设置不正确。
+
+**修正**： [更新 BMC 凭据](/azure-stack/operator/azure-stack-rotate-secrets.md#update-the-bmc-credential) 并继续更新。
 
 ### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>更新过程中报告的警告和错误
 

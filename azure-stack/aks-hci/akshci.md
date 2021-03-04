@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: reference
 ms.date: 2/12/2021
 ms.author: jeguan
-ms.openlocfilehash: 8d6b3410fb6fe6a00d602eeda97e172f1bac4062
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 511b3ad0dcf791550f40136a73f47114e9784bbe
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101873586"
+ms.locfileid: "102116744"
 ---
 # <a name="akshci"></a>AksHci 
 
@@ -39,7 +39,7 @@ ms.locfileid: "101873586"
 | [akshcicluster](remove-akshcicluster.md) | 删除托管的 Kubernetes 群集。 |
 | [重新启动-akshci](restart-akshci.md) | 在 Azure Stack HCI 上重新启动 Azure Kubernetes 服务，并删除所有已部署的 Kubernetes 群集。 |
 | [akshciclusternodecount](set-akshciclusternodecount.md) | 缩放群集中控制平面节点或辅助节点的数目。 |
-| [akshciconfig](Sset-akshciconfig.md) | 设置或更新 Azure Kubernetes 服务主机的配置设置。 |
+| [akshciconfig](set-akshciconfig.md) | 设置或更新 Azure Kubernetes 服务主机的配置设置。 |
 | [卸载-akshci](uninstall-akshci.md) | Azure Stack HCI 上删除 Azure Kubernetes 服务。 |
 | [卸载-akshciadauth](uninstall-akshciadauth.md) | 删除 Active Directory 身份验证。 |
 | [更新-akshci](update-akshci.md) | 将 Azure Kubernetes 服务主机更新到最新的 Kubernetes 版本。 |
