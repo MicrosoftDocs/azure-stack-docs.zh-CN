@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9334a3079a767f723240946af8091508204b8ae
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 63a42e4b3cab1273c84c52367178c00442bf2cf2
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248020"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187225"
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -36,12 +36,12 @@ ms.locfileid: "99248020"
 Azure Stack 1802 更新内部版本号为 **20180302.1**。  
 
 
-## <a name="before-you-begin"></a>在开始之前    
+## <a name="before-you-begin"></a>准备阶段    
 > [!IMPORTANT]    
 > 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](../azure-stack-updates.md)。
 
 
-### <a name="prerequisites"></a>必备条件
+### <a name="prerequisites"></a>先决条件
 - 在应用 Azure Stack 1802 更新之前，请安装 Azure Stack 1712 更新。    
 
 - 在应用 Azure Stack 1802 更新之前，请安装 **AzS 修补程序 1.0.180312.1-Build 20180222.2** 。 此修补程序更新了 Windows Defender，在下载 Azure Stack 的更新后即可使用。
@@ -129,7 +129,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
     可以放心地忽略此警报。 
 
 <!-- 2253274 --> 
--  在管理员和用户门户中，vNet 子网的“设置”边栏选项卡无法加载。 解决方法是使用 PowerShell 和 [new-azurermvirtualnetworksubnetconfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) cmdlet 来查看和管理此信息。
+-  在管理员和用户门户中，vNet 子网的“设置”边栏选项卡无法加载。 解决方法是使用 PowerShell 和 [new-azurermvirtualnetworksubnetconfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) cmdlet 来查看和管理此信息。
 
 - 在管理员门户和用户门户中，如果选择通过旧版 API（例如 2015-06-15）创建的存储帐户的“概述”边栏选项卡，则“概述”边栏选项卡无法加载。 这包括系统存储帐户，例如修补和更新过程中使用的 **updateadminaccount**。 
 
@@ -161,7 +161,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 - 用户无需订阅就能浏览整个市场，并且能看到计划和套餐等管理项。 对用户而言，这些项是非功能性的。
 
 #### <a name="compute"></a>计算
-- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
+- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
 
 <!-- 2290877  --> 
 -  不能纵向扩展使用 1802 之前的 Azure Stack 版本时创建的虚拟机规模集 (VMSS)。 这是由于将可用性集与虚拟机规模集配合使用时的支持发生了变化。 此支持是通过版本 1802 添加的。  对于在添加此支持之前创建的 VMSS，若要尝试通过添加更多的实例对其进行缩放，则操作会失败，并出现消息“预配状态为‘已失败’”。 
@@ -311,10 +311,10 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 可从[此处](https://aka.ms/azurestackupdatedownload)下载 Azure Stack 1802 更新包。
 
 
-## <a name="more-information"></a>更多信息
+## <a name="more-information"></a>详细信息
 Microsoft 已提供某种方式让用户使用装有 1710 更新的特权终结点 (PEP) 来监视和恢复更新。
 
-- 请参阅文档[使用特权终结点监视 Azure Stack 中的更新](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update)。
+- 请参阅文档[使用特权终结点监视 Azure Stack 中的更新](/azure/azure-stack/azure-stack-monitor-update)。
 
 ## <a name="see-also"></a>另请参阅
 

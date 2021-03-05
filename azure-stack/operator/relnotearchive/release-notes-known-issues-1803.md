@@ -16,12 +16,12 @@ ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f15453ce20988929728a9d326ab5f7bf901beca
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 69af9b142f4fb198075dd751274caa3a10a96744
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248013"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187123"
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 更新
 
@@ -36,12 +36,12 @@ ms.locfileid: "99248013"
 Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
 
-## <a name="before-you-begin"></a>在开始之前    
+## <a name="before-you-begin"></a>准备阶段    
 > [!IMPORTANT]    
 > 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](../azure-stack-updates.md)。
 
 
-### <a name="prerequisites"></a>必备条件
+### <a name="prerequisites"></a>先决条件
 - 在应用 Azure Stack 1803 更新之前，请安装 Azure Stack 1802 更新。   
 
 - 在应用 Azure Stack 1803 更新之前，请安装 **AzS 修补程序 1.0.180312.1-Build 20180222.2** 。 此修补程序更新了 Windows Defender，在下载 Azure Stack 的更新后即可使用。
@@ -69,14 +69,14 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 - **访问 marketplace** 你现在可以使用 "管理" 和 "用户" 门户中的 " [+ 新建](https://ms.portal.azure.com/#create/hub) " 选项来打开 Azure Stack marketplace，就像在 Azure 门户中一样。
  
 <!-- 2202621 --> 
-- **Azure Monitor** - Azure Stack 向管理员和用户门户添加了 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)。 这包括用于指标和活动日志的新资源管理器。 若要从外部网络访问此 Azure Monitor，必须在防火墙配置中打开端口 **13012**。 有关 Azure Stack 所需端口的详细信息，请参阅 [Azure Stack 数据中心集成 - 发布终结点](../azure-stack-integrate-endpoints.md)。
+- **Azure Monitor** - Azure Stack 向管理员和用户门户添加了 [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)。 这包括用于指标和活动日志的新资源管理器。 若要从外部网络访问此 Azure Monitor，必须在防火墙配置中打开端口 **13012**。 有关 Azure Stack 所需端口的详细信息，请参阅 [Azure Stack 数据中心集成 - 发布终结点](../azure-stack-integrate-endpoints.md)。
 
    另外，“更多服务”下的“审核日志”现在显示为“活动日志”，这也是此次更改的内容。 此功能现在与 Azure 门户一致。 
 
 <!-- 1664791 --> 
 - **稀疏文件** - 向 Azure Stack 添加新映像时，或者通过市场联合添加映像时，映像会转换为稀疏文件。 在使用 Azure Stack 版本 1803 之前添加的映像不能进行转换， 而只能使用市场联合重新提交这些映像，以便利用此功能。 
  
-   稀疏文件是一种文件格式，在减少存储空间占用并提高 I/O 方面很有效。 ?有关详细信息，请参阅 [Fsutil sparse](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) For Windows Server。 
+   稀疏文件是一种文件格式，在减少存储空间占用并提高 I/O 方面很有效。 ?有关详细信息，请参阅 [Fsutil sparse](/windows-server/administration/windows-commands/fsutil-sparse) For Windows Server。 
 
 ### <a name="fixed-issues"></a>已修复的问题
 
@@ -99,7 +99,7 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 -  虚拟机的使用情况数据现在按“小时”时间间隔进行划分。 这与 Azure 一致。 
 
 <!--  2253274 --> 
--  管理员和用户门户中 vNet 子网的“设置”边栏选项卡无法加载的问题。 解决方法是使用 PowerShell 和 [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) cmdlet 来查看和管理此信息。
+-  管理员和用户门户中 vNet 子网的“设置”边栏选项卡无法加载的问题。 解决方法是使用 PowerShell 和 [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) cmdlet 来查看和管理此信息。
 
 - 在创建虚拟机时，“无法显示定价”消息不再在选择某个大小作为 VM 大小时显示。
 
@@ -178,7 +178,7 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
 
 #### <a name="compute"></a>计算
-- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
+- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
 
 -  通过转到“新建” > **“计算”** > “可用性集”在门户中创建可用性集时，只能创建 1 个包含 1 个容错域和 1 个更新域的可用性集。 解决方法是在创建新的虚拟机时，通过 PowerShell、CLI 或门户来创建可用性集。
 

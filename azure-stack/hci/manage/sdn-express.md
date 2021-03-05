@@ -3,15 +3,15 @@ title: 使用 SDN Express 部署 SDN 基础结构
 description: 了解如何使用 SDN Express 部署 SDN 基础结构
 author: v-dasis
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 03/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e367602252207a673316caf3482d7805bff02ba8
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: d42647faa9b45b696323ca4f3157ce6dea709272
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100647804"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186783"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>使用 SDN Express 部署 SDN 基础结构
 
@@ -21,7 +21,7 @@ ms.locfileid: "100647804"
 
 你还可以使用 System Center Virtual Machine Manager (VMM) 部署 SDN 基础结构。 有关详细信息，请参阅 [在 VMM 构造中管理 SDN 资源](/system-center/vmm/network-sdn)。
 
-## <a name="before-you-begin"></a>在开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在开始 SDN 部署之前，请规划并配置物理和主机网络基础结构。 参考以下文章：
 
@@ -84,7 +84,7 @@ PowerShell `MultiNodeSampleConfig.psd1` 配置数据文件包含 SDN Express 脚
 
 ### <a name="general-settings-and-parameters"></a>常规设置和参数
 
-对于所有部署，这些设置和参数通常由 SDN 使用：
+对于所有部署，SDN 通常使用这些设置和参数。 有关具体建议，请参阅 [SDN 基础结构 VM 角色要求](../concepts/plan-software-defined-networking-infrastructure.md#sdn-infrastructure-vm-role-requirements)。
 
 - **VHDPath** -所有 SDN 基础结构 vm 使用的 VHD 文件路径 (NC，SLB，GW) 
 - **VHDFile** -所有 SDN 基础结构 vm 使用的 VHD 文件名
@@ -119,6 +119,8 @@ PowerShell `MultiNodeSampleConfig.psd1` 配置数据文件包含 SDN Express 脚
 
 ### <a name="network-controller-vm-section"></a>网络控制器 VM 部分
 
+对于 SDN，建议至少使用三个网络控制器 Vm。
+
 `NCs = @()`部分用于网络控制器 vm。 请确保每个 NC VM 的 MAC 地址超出了 `SDNMACPool` "常规设置" 中所列的范围：
 
 - **ComputerName** -NC VM 的名称
@@ -127,6 +129,8 @@ PowerShell `MultiNodeSampleConfig.psd1` 配置数据文件包含 SDN Express 脚
 - **MACAddress** -NC VM 的 MAC 地址
 
 ### <a name="software-load-balancer-vm-section"></a>软件负载平衡器 VM 部分
+
+对于 SDN，建议至少使用三个软件负载平衡器 Vm。
 
 `Muxes = @()`部分用于 SLB vm。 请确保每个 SLB VM 的 MAC 地址超出了 `SDNMACPool` "常规设置" 中所列的范围。 如果不部署 SLB 组件，请将本部分留空 (`Muxes = @()`) ：
 
@@ -138,6 +142,8 @@ PowerShell `MultiNodeSampleConfig.psd1` 配置数据文件包含 SDN Express 脚
 - 用于 SLB VM 的 **PAMACAddress** 提供程序网络 IP 地址 (PA) 
 
 ### <a name="gateway-vm-section"></a>网关 VM 部分
+
+对于 SDN，建议至少使用三个网关 Vm (两个活动和一个冗余) 。
 
 `Gateways = @()`部分用于网关 vm。 请确保每个网关 VM 的 MAC 地址超出了 `SDNMACPool` "常规设置" 中所列的范围。 `Gateways = @()`如果不部署网关组件，请将本部分留空 () ：
 

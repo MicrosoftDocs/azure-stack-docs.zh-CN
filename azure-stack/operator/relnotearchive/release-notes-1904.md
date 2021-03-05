@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9222315f9a055ddc2b49ed470b0f22b653197473
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 77a9bab5e9b501aa54115a7e61d1b9a639c59ec5
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248025"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187293"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 
@@ -71,7 +71,7 @@ Azure Stack 1904 更新生成类型为“Express”。 有关更新内部版本�
 - 改进了 syslog 消息量，方法是筛选掉不必要的事件，并提供配置参数以针对转发的消息选择所需的严重性级别。 有关如何配置严重性级别的详细信息，请参阅 [Azure Stack 数据中心集成 - syslog 转发](../azure-stack-integrate-security.md)。
 
 <!--this applied to Bug 1473487 -->
-- 已通过整合附加参数 `-OutputSASUri`，将一个新的功能添加到 **Get-AzureStackLog** cmdlet。 现在，可以从环境中收集 Azure Stack 日志，并将其存储在指定的 Azure 存储 Blob 容器中。 有关详细信息，请参阅 [Azure Stack 诊断](../azure-stack-configure-on-demand-diagnostic-log-collection.md#examples)。
+- 已通过整合附加参数 `-OutputSASUri`，将一个新的功能添加到 **Get-AzureStackLog** cmdlet。 现在，可以从环境中收集 Azure Stack 日志，并将其存储在指定的 Azure 存储 Blob 容器中。 有关详细信息，请参阅 [Azure Stack 诊断](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#examples)。
 
 - 已在 **Test-AzureStack** `UpdateReadiness` 组中添加了新的内存检查，用于检查堆栈上是否有足够的内存，使更新能够成功完成。
 
@@ -88,7 +88,7 @@ Azure Stack 1904 更新生成类型为“Express”。 有关更新内部版本�
 - 改进了基础结构备份操作计划的幂等性。
 
 <!--Bug/Task 3139609 -->
-- 改进了 Azure Stack 日志收集。 这些改进缩减了检索日志集所需的时间。 此外，[Get-AzureStackLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) cmdlet 不再为 OEM 角色生成默认日志。 必须执行 [Invoke-AzureStackOnDemandLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog) cmdlet，并指定要检索其 OEM 日志的角色。 有关详细信息，请参阅 [Azure Stack 诊断](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
+- 改进了 Azure Stack 日志收集。 这些改进缩减了检索日志集所需的时间。 此外，[Get-AzureStackLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) cmdlet 不再为 OEM 角色生成默认日志。 必须执行 [Invoke-AzureStackOnDemandLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#invoke-azurestackondemandlog) cmdlet，并指定要检索其 OEM 日志的角色。 有关详细信息，请参阅 [Azure Stack 诊断](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
 
 - Azure Stack 现在会监视为数据中心与 ADFS 集成而提供的联合数据 URL。 这可提高客户 ADFS 实例或场在机密轮换期间的可靠性。
 
@@ -205,5 +205,4 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](../azure-stack-updates.md)。  
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](../azure-stack-apply-updates.md)。
 - 若要查看 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态，请参阅 [Azure Stack 服务策略](../azure-stack-servicing-policy.md)。  
-- 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](../azure-stack-monitor-update.md)。  
-
+- 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](../azure-stack-monitor-update.md)。

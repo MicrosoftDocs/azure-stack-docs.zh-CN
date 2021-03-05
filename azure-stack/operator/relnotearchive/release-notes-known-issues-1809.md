@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1548ee295eddd2b386f637301abef208918c21ad
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: f98f0f28037cfc1de648f36cce20dd1c5334f93b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009207"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186936"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -51,7 +51,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 - 现在可以在 Azure 上的资源组之间[移动注册资源](../azure-stack-registration.md#move-a-registration-resource)，而无需重新注册。 只要新旧订阅都映射到相同的 CSP 合作伙伴 ID，云解决方案商 (CSP) 也可以在订阅之间移动注册资源。 这不影响现有的客户租户映射。 
 
-- 增加了为每个网络接口分配多个 IP 地址的支持。  如需更多详细信息，请参阅[使用 PowerShell 将多个 IP 地址分配到虚拟机](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell)。
+- 增加了为每个网络接口分配多个 IP 地址的支持。  如需更多详细信息，请参阅[使用 PowerShell 将多个 IP 地址分配到虚拟机](/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell)。
 
 ### <a name="fixed-issues"></a>已修复的问题
 
@@ -78,7 +78,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 ### <a name="changes"></a>更改
 
 <!-- 2635202 - IS, ASDK -->
-- 基础结构备份服务已从[公共基础结构网络](https://docs.microsoft.com/azure/azure-stack/azure-stack-network)转移到[公共 VIP 网络](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network)。 客户需确保该服务有权访问公共 VIP 网络中的备份存储位置。  
+- 基础结构备份服务已从[公共基础结构网络](/azure/azure-stack/azure-stack-network)转移到[公共 VIP 网络](/azure/azure-stack/azure-stack-network#public-vip-network)。 客户需确保该服务有权访问公共 VIP 网络中的备份存储位置。  
 
 > [!IMPORTANT]  
 > 如果防火墙不允许从公共 VIP 网络连接到文件服务器，此项更改会导致基础结构备份因“错误 53: 找不到网络路径”而失败。 这是一项中断性更改，没有合理的解决方法。 根据客户反馈，Microsoft 将在修补程序中还原此更改。 请查看[更新后的步骤部分](#post-update-steps)，以获取有关 1809 可用的修补程序的详细信息。 发布修补程序后，请确保只在网络策略不允许公共 VIP 网络访问基础结构资源的情况下，才在更新到 1809 之后应用该修补程序。 在 1811 中，此项更改将应用到所有系统。 如果在 1809 中应用该修补程序，则无需采取进一步的措施。  
@@ -134,7 +134,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 
 有关这些漏洞的详细信息，请单击上述链接，或者查看 Microsoft 知识库文章 [4457131](https://support.microsoft.com/help/4457131) 和 [4462917](https://support.microsoft.com/help/4462917)。
 
-### <a name="prerequisites"></a>必备条件
+### <a name="prerequisites"></a>先决条件
 
 - 在应用 1809 之前，请安装 1808 的最新 Azure Stack 修补程序。 有关详细信息，请参阅 [KB 4481066-Azure Stack 修补程序 Azure Stack 修补程序 1.1808.9.117](https://support.microsoft.com/help/4481066/)。 虽然 Microsoft 建议使用最新的修补程序，但安装1809所需的最低版本为1.1808.5.110。
 
@@ -265,7 +265,7 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 - 使用 Azure Stack 门户创建新的虚拟机 (VM) 并选择 VM 大小时，“美元/月”列在显示时会出现“不可用”消息。 此列不应显示；Azure Stack 不支持显示 VM 定价列。
 
 <!-- 2869209 - IS, ASDK --> 
-- 使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则 cmdlet 会失败，并出现以下错误： *长时间运行操作失败，状态为 "失败*"。 
+- 使用 [**Add-AzsPlatformImage** cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则 cmdlet 会失败，并出现以下错误： *长时间运行操作失败，状态为 "失败*"。 
 
 <!--  2795678 - IS, ASDK --> 
 - 通过门户创建“高级”VM 大小（DS、Ds_v2、FS、FSv2）的虚拟机 (VM) 时，该 VM 在标准存储帐户中创建。 在标准存储帐户中创建不影响功能、IOPS 或计费。 
@@ -352,4 +352,4 @@ Azure Stack 1809 更新内部版本号为 **1.1809.0.90**。
 - 若要查看 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态，请参阅 [Azure Stack 服务策略](../azure-stack-servicing-policy.md)。  
 - 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](../azure-stack-monitor-update.md)。  
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](../azure-stack-updates.md)。  
-- 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](../azure-stack-apply-updates.md)。  
+- 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](../azure-stack-apply-updates.md)。

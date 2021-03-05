@@ -72,7 +72,7 @@
           href: manage/create-stretched-volumes.md
         - name: 保护卷
           href: manage/volume-encryption-deduplication.md
-        - name: 扩展卷
+        - name: 展开卷
           href: manage/extend-volumes.md
         - name: 删除卷
           href: manage/delete-volumes.md
@@ -112,6 +112,8 @@
       items:
         - name: 部署 SDN 基础结构
           href: manage/sdn-express.md
+        - name: 使用数据中心防火墙
+          href: manage/use-datacenter-firewall-windows-admin-center.md
         - name: 将数据中心防火墙与 PowerShell 配合使用
           href: manage/use-datacenter-firewall-powershell.md
         - name: 管理租户逻辑网络

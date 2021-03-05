@@ -4,13 +4,13 @@ description: 如何使用 Windows Admin Center 和 PowerShell 将操作系统和
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/05/2021
-ms.openlocfilehash: 2ed1a6c2443f7222a873c412e991b4a39b253309
-ms.sourcegitcommit: ec19e8455b5cb90a071afb03ec1446b0a9aafb99
+ms.date: 03/04/2021
+ms.openlocfilehash: 971ca61e27a97f04319a1c6500f743ad8207954f
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99588642"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186885"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>更新 Azure Stack HCI 群集
 
@@ -47,7 +47,7 @@ Windows Admin Center 利用简单的用户界面，简化了更新群集和应�
 
    :::image type="content" source="media/update-cluster/operating-system-updates.png" alt-text="单击 &quot;下一步：安装&quot; 以继续安装操作系统更新，或者单击 &quot;跳过&quot; 以排除它们" lightbox="media/update-cluster/operating-system-updates.png":::
 
-5. 选择 " **安装** " 以在群集中的每个服务器上安装操作系统更新。 你将看到 "正在安装更新" 的更新状态更改。 如果有任何更新需要重新启动，则服务器将一次重新启动，以在服务器之间移动群集角色（如虚拟机），以防止停机。
+5. 选择 " **安装** " 以安装操作系统更新。 每台服务器将下载并应用更新。 你将看到 "正在安装更新" 的更新状态更改。 如果有任何更新需要重新启动，则服务器将一次重新启动，以在服务器之间移动群集角色（如虚拟机），以防止停机。 根据所安装的更新，整个更新运行可能需要几分钟到几个小时的时间。
 
    :::image type="content" source="media/update-cluster/install-os-updates.png" alt-text="单击 &quot;安装&quot; 以在群集中的每个服务器上安装操作系统更新" lightbox="media/update-cluster/install-os-updates.png":::
 

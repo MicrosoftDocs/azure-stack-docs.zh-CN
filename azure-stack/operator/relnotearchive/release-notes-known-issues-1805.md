@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16e11fcbc46065f512cc6b887b9c7159f6b0ac65
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9f68e3f1dc3c789ec0b3b4f247037d49e43f8a42
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247954"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187089"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 更新
 
@@ -105,12 +105,12 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 <!-- 2551834 - IS, ASDK --> 
 - 在管理员门户或用户门户中选择存储帐户的“概述”时，“概要”窗格中的信息不会显示。  “概要”窗格显示有关帐户的信息，例如其资源组、位置和订阅 ID。  可以访问“概述”中的其他选项，例如“服务”和“监视”，以及“在资源管理器中打开”或“删除存储帐户”。 
 
-  若要查看未显示的信息，请使用 [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0&preserve-view=true) PowerShell cmdlet。 
+  若要查看未显示的信息，请使用 [Get-azureRMstorageaccount](/powershell/module/azurerm.storage/get-azurermstorageaccount?preserve-view=true&view=azurermps-6.2.0) PowerShell cmdlet。 
 
 <!-- 2551834 - IS, ASDK --> 
 - 在管理员门户或用户门户中选择存储帐户的“标记”时，信息无法加载且不显示。  
 
-  若要查看未显示的信息，请使用 [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0&preserve-view=true) PowerShell cmdlet。
+  若要查看未显示的信息，请使用 [Get-AzureRmTag](/powershell/module/azurerm.tags/get-azurermtag?preserve-view=true&view=azurermps-6.2.0) PowerShell cmdlet。
 
 
 <!-- 2332636 - IS -->  
@@ -183,13 +183,13 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI：** 可以使用 [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) 命令并将 VM 大小指定为参数，类似于 `--size "Standard_F32s_v2"`。
+  - **Azure CLI：** 可以使用 [az vm create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) 命令并将 VM 大小指定为参数，类似于 `--size "Standard_F32s_v2"`。
 
-  - **PowerShell：** 通过 PowerShell，可以将 [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) 与指定了 VM 大小的参数一起使用，类似于 `-VMSize "Standard_F32s_v2"`。
+  - **PowerShell：** 通过 PowerShell，可以将 [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) 与指定了 VM 大小的参数一起使用，类似于 `-VMSize "Standard_F32s_v2"`。
 
 
 <!-- TBD - IS ASDK --> 
-- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
+- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
 
 <!-- TBD - IS --> 
 -  通过转到“新建” > **“计算”** > “可用性集”在门户中创建可用性集时，只能创建 1 个包含 1 个容错域和 1 个更新域的可用性集。 解决方法是在创建新的虚拟机时，通过 PowerShell、CLI 或门户来创建可用性集。
@@ -213,7 +213,7 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 
 ### <a name="networking"></a>网络
 <!-- TBD - IS ASDK --> 
-- 无法在管理员或用户门户中创建用户定义的路由。 解决方法是使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell)。
+- 无法在管理员或用户门户中创建用户定义的路由。 解决方法是使用 [Azure PowerShell](/azure/virtual-network/tutorial-create-route-table-powershell)。
 
 <!-- 1766332 - IS ASDK --> 
 - 如果在“网络”下单击“创建 VPN 网关”来设置 VPN 连接，则会将“基于策略”列为 VPN 类型。 请不要选择此选项。 Azure Stack 仅支持“基于路由”选项。

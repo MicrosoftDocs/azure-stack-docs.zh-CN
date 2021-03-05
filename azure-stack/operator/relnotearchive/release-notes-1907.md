@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9d5aeb68190f8e2b13ec2a49c3237b59ee33bfff
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 5ac273ef07747ffa0f5f32e681afd25ecc60bad6
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248021"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187208"
 ---
 # <a name="azure-stack-updates-1907-release-notes"></a>Azure Stack 更新：1907发行说明
 
@@ -44,7 +44,7 @@ ms.locfileid: "99248021"
 - [安全更新](../release-notes-security-updates.md)
 - [应用更新之前和之后的活动清单](../release-notes-checklist.md)
 
-有关对更新和更新过程进行故障排除的帮助，请参阅[对 Azure Stack 的修补和更新问题进行故障排除](../azure-stack-updates-troubleshoot.md)。
+有关对更新和更新过程进行故障排除的帮助，请参阅[对 Azure Stack 的修补和更新问题进行故障排除](../azure-stack-troubleshooting.md)。
 
 ## <a name="1907-build-reference"></a>1907 内部版本参考
 
@@ -66,7 +66,7 @@ Azure Stack 1907 更新内部版本类型为“快速”。 有关更新内部�
 
 <!-- What's new, also net new experiences and features. -->
 
-- 正式推出 Azure Stack 诊断日志收集服务，以加速和改善诊断日志的收集。 Azure Stack 诊断日志收集服务提供了一种简单的方法来收集和共享与 Microsoft 客户支持服务 (CSS) 的诊断日志。 此诊断日志收集服务可在 Azure Stack 管理员门户中提供新的用户体验，让操作员设置在引发特定的关键警报时自动将诊断日志上传到存储 Blob，或按需执行相同的操作。 有关详细信息，请参阅[诊断日志收集](../azure-stack-diagnostic-log-collection-overview.md)一文。
+- 正式推出 Azure Stack 诊断日志收集服务，以加速和改善诊断日志的收集。 Azure Stack 诊断日志收集服务提供了一种简单的方法来收集和共享与 Microsoft 客户支持服务 (CSS) 的诊断日志。 此诊断日志收集服务可在 Azure Stack 管理员门户中提供新的用户体验，让操作员设置在引发特定的关键警报时自动将诊断日志上传到存储 Blob，或按需执行相同的操作。 有关详细信息，请参阅[诊断日志收集](../diagnostic-log-collection.md)一文。
 
 - 正式推出 Azure Stack 网络基础结构验证作为 Azure Stack 验证工具 **Test-AzureStack** 的一部分。 Azure Stack 网络基础结构将成为 **Test-AzureStack** 的一部分，可识别 Azure Stack 的网络基础结构是否发生故障。 此测试绕过 Azure Stack 软件定义的网络来检查网络基础结构的连接。 它会演示如何从公共 VIP 连接到配置的 DNS 转发器、NTP 服务器和标识终结点。 此外，在使用 Azure AD 作为标识提供者时，它会检查与 Azure 的连接；使用 ADFS 时，它会检查与联合服务器的连接。 有关详细信息，请参阅 [Azure Stack 验证工具](../azure-stack-diagnostic-test.md)一文。
 

@@ -16,12 +16,12 @@ ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3574c55568db86c96d22d43fdf1bb08ac79c061e
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 16606cd9155f4b0225e07462172fe6b132fe2a68
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009190"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187038"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -127,7 +127,7 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 
 此更新还包含推理执行旁道漏洞的缓解措施，该漏洞称为 L1 终端故障 (L1TF)，详见 [Microsoft 安全公告 ADV180018](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018)。  
 
-### <a name="prerequisites"></a>必备条件
+### <a name="prerequisites"></a>先决条件
 
 - 在应用 Azure Stack 1808 更新之前安装 Azure Stack 1807 更新。 
 - 在开始安装此更新之前，请使用以下参数运行 [Test-AzureStack](../azure-stack-diagnostic-test.md)，以验证 Azure Stack 的状态并解决发现的所有操作问题，包括所有警告和故障。 另外，请查看活动警报，并解决所有需要采取措施的警报。  
@@ -247,7 +247,7 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
       2. 执行[此文](../azure-stack-enable-multitenancy.md#register-a-guest-directory)中的步骤，重新配置每个来宾目录。
 
 <!-- 2869209 IS, ASDK --> 
-- 使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则 cmdlet 会失败，并出现以下错误： *长时间运行操作失败，状态为 "失败*"。 
+- 使用 [**Add-AzsPlatformImage** cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则 cmdlet 会失败，并出现以下错误： *长时间运行操作失败，状态为 "失败*"。 
 
 <!--  2966665 IS, ASDK --> 
 - 将 SSD 数据磁盘附加到高级大小托管磁盘虚拟机 (DS、DSv2、Fs、Fs_V2) 失败并出现错误：  *未能更新虚拟机的磁盘 Vmname 错误：无法执行请求的操作，因为 VM 大小不支持存储帐户类型 Premium_LRS Standard_DS/Ds_V2/fs/Fs_v2)*
@@ -332,4 +332,4 @@ Azure Stack 1808 更新内部版本号为 **1.1808.0.97**。
 - 若要查看 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态，请参阅 [Azure Stack 服务策略](../azure-stack-servicing-policy.md)。  
 - 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](../azure-stack-monitor-update.md)。  
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](../azure-stack-updates.md)。  
-- 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](../azure-stack-apply-updates.md)。  
+- 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](../azure-stack-apply-updates.md)。

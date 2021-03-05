@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: d3225284c8352771042742f8c8d94e4ae01abe2c
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: a062fa6f2d4242f1831233f672e0a8dc3dff20f7
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009241"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186919"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -61,7 +61,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - **1811**：没有当前可用的修补程序。
 - **1901**： [KB 4500636-Azure Stack 修补程序 1.1901.5.109](https://support.microsoft.com/help/4500636)
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
 > 在更新到 1901 之前，请先安装 1811 的[最新 Azure Stack 修补程序](#azure-stack-hotfixes)（如果有）。 如果已经有 1901 但尚未安装任何修补程序，则可直接安装 1902，不需先安装 1901 修补程序。
@@ -85,7 +85,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
          Bug 修复 - `Import-AzureRmContext` 可正确反序列化已保存的令牌。  
    * **AzureRm**  
          Bug 修复 - `Get-AzureRmResource` 可按资源类型进行不区分大小写的查询。  
-   * **Azure。存储**  
+   * **Azure.Storage**  
          AzureRm 汇总模块现在包含已发布的 4.5.0 版，支持 **api-version 2017-07-29**。  
    * **AzureRm**  
          AzureRm 汇总模块现在包含已发布的 5.0.4 版，支持 **api-version 2017-10-01**。  
@@ -107,7 +107,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
    * **Azs.Storage.Admin 模块**  
          Bug 修复 - 在不提供值的情况下，新的存储配额使用默认值。
 
-若要查看已更新模块的参考，请参阅 [Azure Stack 模块参考](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0&preserve-view=true)。
+若要查看已更新模块的参考，请参阅 [Azure Stack 模块参考](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0)。
 
 ## <a name="fixed-issues"></a>已修复的问题
 
@@ -334,4 +334,4 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](../azure-stack-updates.md)。  
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](../azure-stack-apply-updates.md)。
 - 若要查看 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态，请参阅 [Azure Stack 服务策略](../azure-stack-servicing-policy.md)。  
-- 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](../azure-stack-monitor-update.md)。  
+- 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](../azure-stack-monitor-update.md)。

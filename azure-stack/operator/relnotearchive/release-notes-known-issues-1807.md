@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9dd3647f607dc743c6eff5907ae4a47fa097e764
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: f7434b468f9a3c259e178b91ca9e24bd49def76c
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247957"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187055"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
@@ -53,9 +53,9 @@ Azure Stack 1807 更新内部版本号为 **1.1807.0.76**。
 - **扩展容量**，方法是 [添加更多的缩放单元节点](../azure-stack-add-scale-node.md)。
 
 <!-- 2753130 |  IS, ASDK   -->  
-- **Azure 资源管理器模板现在支持 condition 元素** - 现在可以使用条件在 Azure 资源管理器模板中部署资源。 可以将模板设计为根据某个条件（例如评估是否存在某个参数值）来部署资源。 若要了解如何使用模板作为条件，请参阅 Azure 文档中的[按条件部署资源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy)和 [Azure 资源管理器模板的 Variables 节](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables)。 
+- **Azure 资源管理器模板现在支持 condition 元素** - 现在可以使用条件在 Azure 资源管理器模板中部署资源。 可以将模板设计为根据某个条件（例如评估是否存在某个参数值）来部署资源。 若要了解如何使用模板作为条件，请参阅 Azure 文档中的[按条件部署资源](/azure/architecture/building-blocks/extending-templates/conditional-deploy)和 [Azure 资源管理器模板的 Variables 节](/azure/azure-resource-manager/resource-manager-templates-variables)。 
 
-   也可使用模板[将资源部署到多个订阅或资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment)。  
+   也可使用模板[将资源部署到多个订阅或资源组](/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment)。  
 
 <!--2753073 | IS, ASDK -->  
 - **Microsoft.Network API 资源版本支持已更新**，增加了对 Azure Stack 网络资源 API 版本 2017-10-01（基于 2015-06-15）的支持。  此发行版中未包括对 2015-06-15 和 2017-10-01 之间的资源版本的支持。  有关功能差异，请参阅 [Azure Stack 网络注意事项](../../user/azure-stack-network-differences.md)。
@@ -64,7 +64,7 @@ Azure Stack 1807 更新内部版本号为 **1.1807.0.76**。
 - **Azure Stack 增加了对反向 DNS 查找的支持，适用于面向外部的 Azure Stack 基础结构终结点**（即适用于 portal、adminportal、management 和 adminmanagement 终结点）。 这样就可以根据 IP 地址解析 Azure Stack 外部终结点名称。
 
 <!-- 2780899 |  IS, ASDK   --> 
-- **Azure Stack 现在支持向现有 VM 添加其他网络接口。**  可以通过门户、PowerShell 和 CLI 使用此功能。 有关详细信息，请参阅 Azure 文档中的[添加或删除网络接口](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-vm)。 
+- **Azure Stack 现在支持向现有 VM 添加其他网络接口。**  可以通过门户、PowerShell 和 CLI 使用此功能。 有关详细信息，请参阅 Azure 文档中的[添加或删除网络接口](/azure/virtual-network/virtual-network-network-interface-vm)。 
 
 <!-- 2222444 | IS, ASDK   -->  
 - **提高了网络使用情况计量的准确性和复原能力**。  网络使用情况计量现在更准确，考虑到了暂停的订阅、中断期间和争用条件等因素。
@@ -86,7 +86,7 @@ Azure Stack 1807 更新内部版本号为 **1.1807.0.76**。
   有关详细信息，请参阅 [Azure Stack Syslog 转发](../azure-stack-integrate-security.md)。
 
 <!-- ####### | IS, ASDK | --> 
-- **Azure 资源管理器包括区域名称。** 使用此版本时，通过 Azure 资源管理器检索的对象现在将包括区域名称属性。 如果现有 PowerShell 脚本直接将对象传递给另一个 cmdlet，则脚本可能会产生错误并失败。 这是 Azure 资源管理器符合行为，并且要求调用方客户端去除区域属性。 有关 Azure 资源管理器的详细信息，请参阅 [Azure 资源管理器文档](https://docs.microsoft.com/azure/azure-resource-manager/)。 验证 8-10 mdb -->
+- **Azure 资源管理器包括区域名称。** 使用此版本时，通过 Azure 资源管理器检索的对象现在将包括区域名称属性。 如果现有 PowerShell 脚本直接将对象传递给另一个 cmdlet，则脚本可能会产生错误并失败。 这是 Azure 资源管理器符合行为，并且要求调用方客户端去除区域属性。 有关 Azure 资源管理器的详细信息，请参阅 [Azure 资源管理器文档](/azure/azure-resource-manager/)。 验证 8-10 mdb -->
 
 <!-- TBD | IS, ASDK -->  
 - **更改了委托提供商功能。** 从 1807 开始，我们对委托提供商模型进行了简化，使之能够更好地匹配 Azure 经销商模型。委托提供商将不再能够创建其他委托提供商，这实质上平展了模型，使委托提供商功能在单一级别可用。 为了方便用户过渡到新模型和管理订阅，现在允许在属于同一 Active Directory 租户的新的或现有的委托提供商订阅之间移动用户订阅。 属于默认提供商订阅的用户订阅也可移到同一 Active Directory 租户中的委托提供商订阅。  有关详细信息，请参阅[在 Azure Stack 中委托套餐](../azure-stack-delegated-provider.md)。
@@ -275,13 +275,13 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI：** 可以使用 [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) 命令并将 VM 大小指定为参数，类似于 `--size "Standard_F32s_v2"`。
+  - **Azure CLI：** 可以使用 [az vm create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) 命令并将 VM 大小指定为参数，类似于 `--size "Standard_F32s_v2"`。
 
-  - **PowerShell：** 通过 PowerShell，可以将 [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) 与指定了 VM 大小的参数一起使用，类似于 `-VMSize "Standard_F32s_v2"`。
+  - **PowerShell：** 通过 PowerShell，可以将 [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) 与指定了 VM 大小的参数一起使用，类似于 `-VMSize "Standard_F32s_v2"`。
 
 
 <!-- TBD - IS ASDK --> 
-- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
+- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
 
 <!-- TBD - IS --> 
 -  通过转到“新建” > **“计算”** > “可用性集”在门户中创建可用性集时，只能创建 1 个包含 1 个容错域和 1 个更新域的可用性集。 解决方法是在创建新的虚拟机时，通过 PowerShell、CLI 或门户来创建可用性集。
@@ -367,4 +367,4 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 - 若要查看 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态，请参阅 [Azure Stack 服务策略](../azure-stack-servicing-policy.md)。  
 - 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](../azure-stack-monitor-update.md)。  
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](../azure-stack-updates.md)。  
-- 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](../azure-stack-apply-updates.md)。  
+- 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](../azure-stack-apply-updates.md)。
