@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中的 Linux 上安装 AKS 引擎
 description: 了解如何在 Azure Stack Hub 中使用 Linux 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/1/2020
-ms.openlocfilehash: f11264d54c7a391ee493cdc88bf3a39243e9b268
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: 949a1ede3d2fc217217219c59f055b5311322576
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99245698"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231517"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>在 Azure Stack Hub 中的 Linux 上安装 AKS 引擎
 
@@ -20,38 +20,43 @@ ms.locfileid: "99245698"
 
 ## <a name="prepare-the-client-vm"></a>准备客户端 VM
 
-AKS 引擎是一种用于部署和管理 Kubernetes 群集的命令行工具。 可以在 Azure Stack Hub 中的计算机上运行该引擎。 从这台计算机中，你将执行 AKS 引擎来部署运行群集所需的 IaaS 资源和软件。 然后，可以使用运行该引擎的计算机在群集上执行管理任务。
+AKS 引擎是一种命令行工具，用于部署和管理 Kubernetes 群集。 可以在 Azure Stack Hub 中的计算机上运行引擎。 从此计算机中，你将执行 AKS 引擎来部署运行群集所需的 IaaS 资源和软件。 然后，可以使用运行引擎的计算机在群集上执行管理任务。
 
-在选择客户端计算机时，请考虑：
+选择客户端计算机时，请考虑：
 
-1. 当发生灾难时该客户端计算机是否应为可恢复的。
-2. 如何连接到该客户端计算机以及该计算机如何与群集交互。
+1. 发生灾难时是否应恢复客户端计算机。
+2. 如何连接到客户端计算机以及计算机将如何与群集交互。
 
-## <a name="install-in-a-connected-environment"></a>在联网环境中安装
+## <a name="install-in-a-connected-environment"></a>安装在连接的环境中
 
 可以安装客户端 VM，以便在连接到 Internet 的 Azure Stack Hub 上管理 Kubernetes 群集。
 
 1. 在 Azure Stack Hub 中创建 Linux VM。 有关说明，请参阅[快速入门：通过使用 Azure Stack Hub 门户创建 Linux 服务器 VM](./azure-stack-quick-linux-portal.md)。
 2. 连接到 VM。
-3. 在[受支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)表中查找 AKS 引擎的版本。 AKS 基础映像必须已在 Azure Stack Hub 市场中提供。 运行该命令时，必须指定版本 `--version v0.55.4`。 如果不指定版本，该命令将安装最新版，这样可能就会需要市场中未提供的 VHD 映像。
-4. 运行以下命令：
+3. 在 [AKS 引擎和 Azure Stack 版本映射表](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping) 中找到 AKS 引擎的版本。 AKS 基础映像必须已在 Azure Stack Hub 市场中提供。 运行该命令时，必须指定版本 `--version v0.xx.x`。 如果不指定版本，该命令将安装最新版，这样可能就会需要市场中未提供的 VHD 映像。
+    > [!NOTE]  
+    > 可以在 [AKS 引擎发行说明](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中找到 Azure Stack Hub 到 AKS 引擎版本号的映射。
+1. 运行以下命令：
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.55.4
+        ./get-akse.sh --version v0.xx.x
     ```
+
+    > [!NOTE]  
+    > 可以在 [AKS 引擎发行说明](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中找到 Azure Stack Hub 到 AKS 引擎版本号的映射。
 
     > [!NOTE]  
     > 如果此安装方法失败，可以尝试[离线环境](#install-in-a-disconnected-environment)中的步骤，或者[尝试 GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish)（一个备用包管理器）。
 
 ## <a name="install-in-a-disconnected-environment"></a>在离线环境中安装
 
-可以安装客户端 VM，以便在与 Internet 断开连接的 Azure Stack Hub 上管理 Kubernetes 群集。
+可以安装客户端 VM 以在与 Internet 断开连接的 Azure Stack Hub 上管理 Kubernetes 群集。
 
-1.  在可访问 Internet 的计算机上，转到 GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest)。 下载用于 Linux 计算机的存档 (*.tar.gz)，例如 `aks-engine-v0.xx.x-linux-amd64.tar.gz`。
+1.  在可访问 Internet 的计算机上，转到 GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest)。 下载用于 Linux 计算机的存档 (*.tar.gz)，例如 `aks-engine-v0.xx.x-linux-amd64.tar.gz`。 在 [支持的 Kubernetes 版本表](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中查找 AKS 引擎的版本。
 
-2.  在 Azure Stack Hub 实例中创建存储帐户，以上传包含 AKS 引擎二进制文件的存档文件 (*.tar.gz)。 有关使用 Azure 存储资源管理器的说明，请参阅 [Azure 存储资源管理器与 Azure Stack Hub](./azure-stack-storage-connect-se.md)。
+2.  在 Azure Stack Hub 实例中创建存储帐户，以便使用 AKS 引擎二进制文件上传存档文件 (*.tar.gz)。 有关使用 Azure 存储资源管理器的说明，请参阅 [Azure 存储资源管理器与 Azure Stack Hub](./azure-stack-storage-connect-se.md)。
 
 3. 在 Azure Stack Hub 中创建 Linux VM。 有关说明，请参阅[快速入门：通过使用 Azure Stack Hub 门户创建 Linux 服务器 VM](./azure-stack-quick-linux-portal.md)。
 
@@ -68,7 +73,7 @@ AKS 引擎是一种用于部署和管理 Kubernetes 群集的命令行工具。 
 
 ## <a name="verify-the-installation"></a>验证安装
 
-设置客户端 VM 后，请检查是否已安装了 AKS 引擎。
+设置客户端 VM 后，请检查是否安装了 AKS 引擎。
 
 1. 连接到客户端 VM。
 2. 运行以下命令：

@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: 了解如何使用 Azure Stack Hub 就绪性检查器工具验证 Azure Stack Hub 集成系统的 PKI 证书。
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: BryanLa
 ms.topic: how-to
 ms.date: 10/19/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 30a0c94f52a46ae92b1d76e111fae64d5599aba7
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b03bd67f774c8034ad68490393a29fc99c118b54
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868823"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231143"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>验证 Azure Stack Hub PKI 证书
 
@@ -239,11 +239,11 @@ ms.locfileid: "97868823"
 
 **解决方法**：遵循针对每个证书的每组测试下的详细信息部分中的工具指导。
 
-**症状**：尽管将 http CDP 写入 x509 扩展，Http CRL 检查失败。
+**症状**：尽管已将 HTTP CDP 写入 x509 扩展，HTTP CRL 检查仍失败。
 
-**原因**：目前，AzsReadinessChecker 无法检查某些语言的 HTTP CDP。
+**原因：** 目前，AzsReadinessChecker 无法以某些语言检查 HTTP CDP。
 
-**解决方法**：运行验证并将 OS 语言设置为 en-us。
+**解决方法**：将 OS 语言设置为 EN-US，然后运行验证。
 
 ## <a name="certificates"></a>证书
 

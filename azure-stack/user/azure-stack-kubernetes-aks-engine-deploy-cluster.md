@@ -3,16 +3,16 @@ title: 使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 description: 如何从运行 AKS 引擎的客户端 VM 中将 Kubernetes 群集部署到 Azure Stack Hub 上。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/5/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/5/2021
-ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
-ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: fac8ea63e3a8359fa6d1455a9ffe5eb86725530f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99850842"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231568"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>使用 AKS 引擎在 Azure Stack Hub 上部署 Kubernetes 群集
 
@@ -26,12 +26,16 @@ ms.locfileid: "99850842"
 
 本部分介绍如何为群集创建 API 模型。
 
-1.  首先使用适用于 [Linux](https://aka.ms/aksengine-json-example-raw) 的 AZURE STACK 中心 API 模型文件或适用于 [Windows](https://aka.ms/aksengine-json-example-raw-win) 的，并为部署创建本地副本。 在安装 AKS 引擎的计算机上运行：
+1.  首先使用适用于 Linux 或 Windows 的 Azure Stack 集线器 API 模型文件。
 
-    ```bash
-    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
-    ```
-
+    1. 对于 [ **Linux**，请](https://aka.ms/aksengine-json-example-raw)从计算机下载，然后从计算机安装 AKS 引擎，运行：
+        ```bash
+        curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json
+        ```
+    1. 对于 [ **Windows**，请下载](https://aka.ms/aksengine-json-example-raw-win)并制作部署的本地副本。 然后，在计算机上安装了 AKS 引擎，运行：
+        ```bash
+        curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json
+        ```
     > [!NOTE]  
     > 如果已断开连接，可以下载该文件，并将其手动复制到计划在其上编辑文件的已断开连接的计算机。 可以使用 [PuTTY 或 WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html) 等工具将文件复制到 Linux 计算机。
 
@@ -44,7 +48,7 @@ ms.locfileid: "99850842"
     > [!NOTE]  
     > 如果尚未安装 nano，可在 Ubuntu 上安装 nano：`sudo apt-get install nano`。
 
-3.  在 kubernetes-azurestack.json 文件中找到 orchestratorRelease 和 orchestratorVersion。 选择一个受支持的 Kubernetes 版本。 例如，对 `orchestratorRelease` 使用 1.14 或 1.15，对 `orchestratorVersion` 使用 1.14.7 或 1.15.10。 将 `orchestratorRelease` 指定为 x.xx，将 orchestratorVersion 指定为 x.xx.x。 有关当前版本的列表，请参阅[受支持的 AKS 引擎版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)
+3.  在 kubernetes-azurestack.json 文件中找到 orchestratorRelease 和 orchestratorVersion。 选择一个受支持的 Kubernetes 版本; [您可以在发行说明中找到版本表](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)。 将 `orchestratorRelease` 指定为 x.xx，将 orchestratorVersion 指定为 x.xx.x。 有关当前版本的列表，请参阅[受支持的 AKS 引擎版本](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)
 
 4.  找到 `customCloudProfile` 并提供租户门户的 URL。 例如，`https://portal.local.azurestack.external`。 
 
@@ -69,7 +73,7 @@ ms.locfileid: "99850842"
     | dnsPrefix | 输入用于标识 VM 主机名的唯一字符串。 例如基于资源组名称的名称。 |
     | count |  输入要用于部署的主机数。 HA 部署的最小使用数为 3，非 HA 部署的最小使用数可为 1。 |
     | vmSize |  输入 [Azure Stack Hub 支持的大小](./azure-stack-vm-sizes.md)，例如 `Standard_D2_v2`。 |
-    | distro | 输入 `aks-ubuntu-16.04`。 |
+    | distro | 输入 `aks-ubuntu-16.04` 或 `aks-ubuntu-18.04` 。 |
 
 8.  在 `agentPoolProfiles` 更新中：
 
@@ -77,10 +81,7 @@ ms.locfileid: "99850842"
     | --- | --- |
     | count | 输入要用于部署的代理数。 每个订阅使用的节点的最大数目为 50 个。 如果要为每个订阅部署多个群集，请确保代理总数不超过 50 个。 请确保使用[示例 API 模型 JSON 文件](https://aka.ms/aksengine-json-example-raw)中指定的配置项目。  |
     | vmSize | 输入 [Azure Stack Hub 支持的大小](./azure-stack-vm-sizes.md)，例如 `Standard_D2_v2`。 |
-    | distro | 输入 `aks-ubuntu-16.04`。 |
-
-
-
+    | distro | 输入 `aks-ubuntu-16.04` `aks-ubuntu-18.04` 或 `Windows` 。<br>`Windows`将用于在 Windows 上运行的代理。 例如，请参阅 [ 上的kubernetes-windows.js](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json) |
 
 9.  在 `linuxProfile` 更新中：
 
@@ -89,10 +90,20 @@ ms.locfileid: "99850842"
     | adminUsername | 输入 VM 管理员用户名。 |
     | ssh | 输入将用于 VM 的 SSH 身份验证的公钥。 依次使用 `ssh-rsa` 和密钥。 有关创建公钥的说明，请参阅[为 Linux 创建 SSH 密钥](create-ssh-key-on-windows.md)。 |
 
-    如果要部署到自定义虚拟网络，可在[将 Kubernetes 群集部署到自定义虚拟网络](kubernetes-aks-engine-custom-vnet.md)中找到有关查找必需的密钥和值并将其添加到 API 模型中适当数组中的说明。
+    如果要部署到自定义虚拟网络，可以在将 [Kubernetes 群集部署到自定义虚拟网络](kubernetes-aks-engine-custom-vnet.md)中的 API 模型中找到有关查找和添加所需的密钥和值的说明。
 
     > [!NOTE]  
     > Azure Stack Hub 的 AKS 引擎不允许你提供自己的证书来创建群集。
+
+10. 如果使用的是 Windows，请在 `windowsProfile` 更新和的值中 `adminUsername:` `adminPassword` ：
+
+    ```json
+    "windowsProfile": {
+    "adminUsername": "azureuser",
+    "adminPassword": "",
+    "sshEnabled": true
+    }
+    ```
 
 ### <a name="more-information-about-the-api-model"></a>有关 API 模型的详细信息
 

@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 上设置 AKS 引擎的先决条件
 description: 确定在 Azure Stack Hub 上运行 ASK 引擎所需的要求。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: c703d9cd9c20e48dec6172e3e0e3c12fcc3a7e2a
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: be20bb06ce5b8b87bc6099e823ec1a1eb9aec01c
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543521"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231602"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>在 Azure Stack Hub 上设置 AKS 引擎的先决条件
 
@@ -29,10 +29,10 @@ ms.locfileid: "94543521"
 云操作员需准备好以下各项。
 
 | 先决条件 | 说明 | 必须 | 说明 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Azure Stack Hub 1910 或更高版本 | AKS 引擎需要 Azure Stack Hub 1910 或更高版本。 | 必须 | 如果不确定你的 Azure Stack Hub 版本是否为最新版本，请联系云操作员。 |
 | Linux 自定义脚本扩展 | Linux 自定义脚本扩展 2.0<br>产品/服务：适用于 Linux 的自定义脚本 2.0<br>版本：2.0.6（或最新版本）<br>发布者：Microsoft Corp | 必须 | 如果订阅中没有此项，请联系云操作员。 |
-| AKS Ubuntu 基础映像 | AKS Ubuntu 16.04-LTS 基础映像<br>有关版本依赖项的详细信息，请参阅[将引擎与基础映像版本相匹配](#matching-engine-to-base-image-version) | 必须 | 如果订阅中没有此项，请联系云操作员。<br> 如果你是 Azure Stack Hub 的云操作员，并且想要提供 AKS 引擎，请按照[将 AKS 引擎添加到 Azure Stack Hub 市场](../operator/azure-stack-aks-engine.md)中的说明进行操作。 |
+| AKS 基础映像 | AKS 基 Ubuntu 和 Windows 映像<br>有关版本依赖项的详细信息，请参阅[将引擎与基础映像版本相匹配](#matching-engine-to-base-image-version) | 必须 | 如果订阅中没有此项，请联系云操作员。<br> 如果你是 Azure Stack Hub 的云操作员，并且想要提供 AKS 引擎，请按照[将 AKS 引擎添加到 Azure Stack Hub 市场](../operator/azure-stack-aks-engine.md)中的说明进行操作。 |
 | 服务主体标识 (SPN) |  需要通过 Azure 资源管理器部署或配置资源的应用程序必须以服务主体来表示。 | 必须 | 对于此项，可能需要联系 Azure Stack Hub 操作员。<br>如果使用 Azure Active Directory (Azure AD) 服务主体标识，则需要从 Kubernetes 群集中的 VM 访问 Internet，以便使用 Azure AD 对服务主体进行身份验证。 如果无法访问 Internet，则 Kubernetes 群集将无法正常运行。<br>有关说明，请参阅[使用应用标识访问资源](../operator/azure-stack-create-service-principals.md) |
 | 分配了 (SPN) 的参与者角色 | 若要允许应用程序使用其服务主体访问订阅中的资源，必须将该服务主体分配到特定资源的某个角色。 | 必须 | 有关说明，请参阅[分配角色](../operator/azure-stack-create-service-principals.md#assign-a-role) |
 
@@ -51,9 +51,9 @@ ms.locfileid: "94543521"
 
 ## <a name="matching-engine-to-base-image-version"></a>将引擎与基础映像版本相匹配
 
-AKS 引擎将自定义 Ubuntu Server OS 部署到每个群集节点映像，即“AKS Ubuntu 16.04-LTS 基础映像发行版”。 任何 AKS 引擎版本都依赖于 Azure Stack Hub 操作员在 Azure Stack Hub 中提供的特定映像版本。 可以在[支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)中找到列出了 AKS 引擎版本和相应的受支持 Kubernetes 版本的表。 例如，AKS 引擎版本 `v0.55.0` 依赖于 AKS Ubuntu 16.04-LTS 基础映像分发版版本 `2020.08.24`。 请求 Azure Stack Hub 操作员将特定的映像版本从 Azure 市场下载到 Azure Stack Hub 市场。
+AKS 引擎将自定义的 Ubuntu 服务器操作系统部署到每个群集节点映像， **AKS Base Ubuntu 和 Windows 映像发行版**。 任何 AKS 引擎版本都依赖于 Azure Stack Hub 操作员在 Azure Stack Hub 中提供的特定映像版本。 可以在[支持的 Kubernetes 版本](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中找到列出了 AKS 引擎版本和相应的受支持 Kubernetes 版本的表。 例如，AKS 引擎版本 `v0.55.0` 依赖于 `2020.08.24` AKS 基 Ubuntu 和 Windows Image 发行版版本。 请求 Azure Stack Hub 操作员将特定的映像版本从 Azure 市场下载到 Azure Stack Hub 市场。
 
-如果映像在 Azure Stack Hub 市场中不可用，则会触发错误。 例如，如果当前使用的是 AKS 引擎 v0.55.0 版，并且 AKS Ubuntu 16.04-LTS 基础映像发行版 `2020.08.24` 不可用，则运行 AKS 引擎时会显示以下错误： 
+如果映像在 Azure Stack Hub 市场中不可用，则会触发错误。 例如，如果你当前使用的是 AKS engine 版本 v 0.55.0，而 AKS Base Ubuntu 和 Windows 映像发行版版本 `2020.08.24` 不可用，则在运行 AKS 引擎时，你将看到以下错误： 
 
 ```Text  
 The platform image 'microsoft-aks:aks:aks-ubuntu-1604-202003:2020.08.24' is not available. 

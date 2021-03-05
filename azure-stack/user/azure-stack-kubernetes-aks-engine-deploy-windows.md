@@ -3,16 +3,16 @@ title: 在 Azure Stack Hub 中的 Windows 上部署 AKS 引擎
 description: 了解如何在 Azure Stack Hub 中使用 Windows 计算机托管 AKS 引擎，以便部署和管理 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: ed9f54ee2089baecc852b10a35df5719247d24b2
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: a8525cb770bb833d338887e010a365bb411e8721
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246905"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231466"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>在 Azure Stack Hub 中的 Windows 上安装 AKS 引擎
 
@@ -36,11 +36,13 @@ AKS 引擎是一种命令行工具，用于部署和管理 Kubernetes 群集。 
 3. [使用 PowerShell 说明安装 Chocolatey](https://chocolatey.org/install#install-with-powershellexe)。 
 
     根据 Chocolatey 网站：Chocolatey 是 Windows 的包管理器，类似于 apt-get 或 yum，但适用于 Windows。 它设计为一个分散的框架，用于快速安装所需的应用程序和工具。 它建立在 NuGet 基础结构上，目前使用 PowerShell 作为将包从发行版传送到门、错误、计算机的重点。
-4. 在[受支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)表中找到 AKS 引擎的版本。 必须在 Azure Stack Hub 市场中提供 AKS 基础引擎。 运行该命令时，必须指定版本 `--version v0.48.0`。 如果不指定版本，该命令将安装最新版本，这可能需要一个市场中不提供的 VHD 映像。
+4. 在 [AKS 引擎和 Azure Stack 版本映射表](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping) 中找到 AKS 引擎的版本。 必须在 Azure Stack Hub 市场中提供 AKS 基础引擎。 运行该命令时，必须指定版本 `--version v0.xx.x`。 如果不指定版本，该命令将安装最新版本，这可能需要一个市场中不提供的 VHD 映像。
+    > [!NOTE]  
+    > 可以在 [AKS 引擎发行说明](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中找到 Azure Stack Hub 到 AKS 引擎版本号的映射。
 5. 从提升的提示符运行以下命令，并添加版本号：
 
     ```PowerShell  
-        choco install aks-engine --version 0.55.4 -y
+        choco install aks-engine --version 0.xx.x -y
     ```
 
 > [!NOTE]  
@@ -50,7 +52,7 @@ AKS 引擎是一种命令行工具，用于部署和管理 Kubernetes 群集。 
 
 可以安装客户端 VM 以在与 Internet 断开连接的 Azure Stack Hub 上管理 Kubernetes 群集。
 
-1.  从可访问 Internet 的计算机，转到 GitHub [Azure/aks-engine ](https://github.com/Azure/aks-engine/releases/latest)。 下载 Windows 计算机的存档 (*.tar.gz)，例如 `aks-engine-v0.38.8-windows-amd64.tar.gz`。
+1.  从可访问 Internet 的计算机，转到 GitHub [Azure/aks-engine ](https://github.com/Azure/aks-engine/releases/latest)。 下载 Windows 计算机的存档 (*.tar.gz)，例如 `aks-engine-v0.xx.x-windows-amd64.tar.gz`。 在 [支持的 Kubernetes 版本表](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中查找 AKS 引擎的版本。
 
 2.  在 Azure Stack Hub 实例中创建存储帐户，以便使用 AKS 引擎二进制文件上传存档文件 (*.tar.gz)。 有关使用 Azure 存储资源管理器的说明，请参阅 [Azure 存储资源管理器与 Azure Stack Hub](./azure-stack-storage-connect-se.md)。
 
@@ -65,7 +67,7 @@ AKS 引擎是一种命令行工具，用于部署和管理 Kubernetes 群集。 
 7.  在提升的提示符下运行以下命令。 包括正确的版本号：
 
     ```PowerShell  
-        choco install aks-engine --version 0.55.4 -y
+        choco install aks-engine --version 0.xx.x -y
     ```
 
 ## <a name="verify-the-installation"></a>验证安装

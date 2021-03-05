@@ -2,18 +2,18 @@
 title: Azure Stack Hub 安全控制
 titleSuffix: Azure Stack Hub
 description: 了解应用于 Azure Stack Hub 的安全态势和控制。
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: e3bda80857a4c7026bac58f9e1d866b1d21168d5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 7706b453ba9666664e6269a2ba90f4fd0f6e3ab4
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869196"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231160"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub 基础结构安全控制
 

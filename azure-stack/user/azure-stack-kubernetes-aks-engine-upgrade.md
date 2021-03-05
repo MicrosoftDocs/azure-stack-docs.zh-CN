@@ -3,22 +3,21 @@ title: 升级 Azure Stack Hub 上的 Kubernetes 群集
 description: 了解如何升级 Azure Stack Hub 上的 Kubernetes 群集。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 5c360b4196a128073817b1b9525787e2be0d1310
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: 0db454750b56e9c4dbb765092c48643b1df15470
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247245"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231551"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>升级 Azure Stack Hub 上的 Kubernetes 群集
 
-## <a name="upgrade-a-cluster"></a>升级群集
-
 使用 AKS 引擎可升级最初使用工具部署的群集。 可使用 AKS 引擎维护群集。 维护任务类似于任何 IaaS 系统。 需要注意新更新的可用性并使用 AKS 引擎应用这些更新。
+## <a name="upgrade-a-cluster"></a>升级群集
 
 升级命令将更新 Kubernetes 版本和基本 OS 映像。 每次运行升级命令时，AKS 引擎会使用与所使用的 aks-engine 版本相关联的 AKS 基础映像，为群集的每个节点创建一个新 VM。 可以使用 `aks-engine upgrade` 命令来维护群集中每个主节点和代理节点的货币。 
 
@@ -45,17 +44,15 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 > [!NOTE]  
 > 如果使用的是较新版本的 aks-engine 且应用市场提供映像，也将升级 AKS 基础映像。
 
-下面的说明使用最少的步骤来执行升级。 有关详细信息，请参阅[升级 Kubernetes 群集](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md)一文。
+下面的说明使用最少的步骤来执行升级。 如需更多详细信息，请参阅 [升级 Kubernetes 群集](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)一文。
 
-1. 需要首先确定可用于升级的版本。 此版本取决于当前拥有的版本，然后使用该版本值执行升级。 最新更新支持的 Kubernetes 版本为 1.14.7 和 1.15.10。 按此表查看可用的升级：
-
-| 当前版本 | 可用升级 |
-| ------------------------- | ----------------------- |
-| 1.15.10 | 1.15.12 |
-| 1.15.12、1.16.8、1.16.9 | 1.16.14 |
-| 1.16.8、1.16.9、1.16.14 | 1.17.11 |
-
-有关 AKS 引擎、AKS 基础映像和 Kubernetes 版本的完整映射，请参阅[受支持的 AKS 引擎版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)。
+1. 需要首先确定可用于升级的版本。 此版本取决于当前拥有的版本，然后使用该版本值执行升级。 可以通过运行以下命令列出 AKS 引擎支持的 Kubernetes 版本：
+    
+    ```bash
+    aks-engine get-versions --azure-env AzureStackCloud
+    ```
+    
+    有关 AKS 引擎、AKS 基础映像和 Kubernetes 版本的完整映射，请参阅[受支持的 AKS 引擎版本](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)。
 
 2. 收集运行 `upgrade` 命令所需的信息。 该升级使用以下参数：
 
@@ -79,7 +76,7 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
     --resource-group kube-rg \
     --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --api-model kube-rg/apimodel.json \
-    --upgrade-version 1.13.5 \
+    --upgrade-version 1.18.15 \
     --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --identity-system adfs # required if using AD FS
@@ -89,11 +86,19 @@ Microsoft 不管理群集。 但 Microsoft 提供了可用于管理群集的工�
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>仅升级 OS 映像的步骤
 
-1. 查看 [supported-kubernetes-versions 表](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)并确定是否有升级所需的 aks-engine 和 AKS 基础映像版本。 查看 aks-engine 运行的版本：`aks-engine version`。
+1. 查看 [supported-kubernetes-versions 表](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)并确定是否有升级所需的 aks-engine 和 AKS 基础映像版本。 查看 aks-engine 运行的版本：`aks-engine version`。
 2. 相应地升级 AKS 引擎，在安装了 aks-engine 的计算机中运行：`./get-akse.sh --version vx.xx.x`，并将 x.xx.x 替换为目标版本。
 3. 要求 Azure Stack Hub 操作员在 Azure Stack Hub 市场中添加所需的计划使用的 AKS 基础映像版本。
 4. 使用正在使用的 Kubernetes 版本运行 `aks-engine upgrade` 命令，但添加 `--force`。 可在[强制升级](#forcing-an-upgrade)中查看示例。
 
+
+## <a name="steps-to-update-cluster-to-os-version-ubuntu-1804"></a>将群集更新到操作系统版本 Ubuntu 18.04 的步骤
+
+借助 AKS 引擎版本0.60.1 和更高版本，你可以将群集 Vm 从 Ubuntu 16.04 升级到18.04。 执行以下步骤:
+
+1. 查找并编辑 `api-model.json` 部署过程中生成的文件。 这应该是用于进行任何升级或缩放操作的同一文件 `aks-engine` 。
+2. 找到和的各个 `masterProfile` 部分 `agentPoolProfiles` ，在这些部分中，将的值更改 `distro` 为 `aks-ubuntu-18.04` 。
+2. 保存该 `api-model.json` 文件并在命令中使用该文件，就 `api-model.json` ` aks-engin upgrade` 像[升级到较新的 Kubernetes 版本的步骤](#steps-to-upgrade-to-a-newer-kubernetes-version)所述。
 
 ## <a name="forcing-an-upgrade"></a>强制升级
 
@@ -106,7 +111,7 @@ aks-engine upgrade \
 --resource-group kube-rg \
 --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 --api-model kube-rg/apimodel.json \
---upgrade-version 1.13.5 \
+--upgrade-version 1.18.15 \
 --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 --force

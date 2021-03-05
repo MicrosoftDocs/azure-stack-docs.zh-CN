@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: bc1aee737743656d200bc51c431bfac64af5edf3
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 2b958dad58b04d27037f7110e2350e73ad6cd880
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247041"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231500"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>将 Kubernetes 群集部署到 Azure Stack Hub 上的自定义虚拟网络 
 
@@ -101,7 +101,7 @@ AKS 引擎支持部署到现有虚拟网络中。 部署到现有子网中时，
 
 | 字段 | 示例 | 描述 |
 | --- | --- | --- |
-| clusterSubnet | `172.16.244.0/24` | 群集子网（POD 网络）的 IP 范围必须是你定义的自定义 VNET IP 范围空间内的 IP 范围。 |
+| clusterSubnet | `10.244.0.0/16` | 用于为 pod 网络接口分配 IP 地址的 IP 子网。 子网必须位于 VNET 地址空间中。 启用 Azure CNI 后，默认值为 10.240.0.0/12。 如果没有 Azure CNI，则默认值为 10.244.0.0/16。  群集子网 (POD 网络) 网络不应使用与 VNET 相同的 IP 空间。 使用/16 替代子网。 如果使用/24，此子网将仅分配给一个节点。 其他节点将不会分配 POD 网络，因为你将用完了 IP 空间，因此群集中未准备好它们。 |
 
 例如：
 
@@ -123,7 +123,7 @@ AKS 引擎支持部署到现有虚拟网络中。 部署到现有子网中时，
 "kubernetesConfig": [
   {
     ...
-    "clusterSubnet": "172.16.244.0/24",
+    "clusterSubnet": "172.16.244.0/16",
     ...
   },
 

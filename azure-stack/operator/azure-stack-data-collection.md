@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 日志和客户数据处理
-description: 了解 Azure Stack Hub 如何收集客户数据和信息。
-author: PatAltimore
+description: 了解 Azure Stack 中心如何收集客户数据和信息。
+author: BryanLa
 ms.topic: article
 ms.date: 02/24/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: chengwei
 ms.lastreviewed: 02/24/2020
-ms.openlocfilehash: 60301776ae496a33622005bed3011e773ea321f2
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 2b0194ba2955ee0c04c574571cbf16ec27edeef7
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255973"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231738"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack Hub 日志和客户数据处理 
 
@@ -41,12 +41,12 @@ Microsoft 支持按客户请求删除按需数据。 客户可以请求我们的
 对于按需数据删除操作，Microsoft 支持工程师有权访问该工具，使其可以按需删除数据。 他们可以在完成删除后通过电话向客户提供确认。
 
 ## <a name="diagnostic-data"></a>诊断数据
-在支持过程中，Azure Stack Hub 操作员可与 Azure Stack Hub 支持和工程团队[共享诊断日志](./diagnostic-log-collection.md)，以方便进行故障排除。
+作为支持过程的一部分，Azure Stack 中心操作员可以与 Azure Stack 中心支持和工程团队 [共享诊断日志](./diagnostic-log-collection.md) ，以帮助进行故障排除。
 
 Microsoft 为客户提供了一个工具和脚本来收集和上载请求的诊断日志文件。 收集后，日志文件将通过与 Microsoft 的 HTTPS 受保护的加密连接进行传输。 由于 HTTPS 提供在线加密，因此传输中加密无需密码。 Azure 收到日志后，会加密并存储日志，在关闭支持案例 90 天后自动将其删除。
 
 ## <a name="telemetry-data"></a>遥测数据
-[Azure Stack 集线器遥测](azure-stack-telemetry.md) 会自动通过连接的用户体验将系统数据上传到 Microsoft。 Azure Stack Hub 操作员可以随时控制自定义遥测功能和隐私设置。
+[Azure Stack 集线器遥测](azure-stack-telemetry.md) 会自动通过连接的用户体验将系统数据上传到 Microsoft。 Azure Stack 中心操作员可随时使用控件自定义遥测功能和隐私设置。
 
 Microsoft 不打算收集敏感数据，如信用卡号、用户名和密码、电子邮件地址等。 如果我们确定敏感信息是无意中收集到的，我们会予以删除。
 

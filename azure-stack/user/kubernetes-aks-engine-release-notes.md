@@ -3,19 +3,142 @@ title: Azure Stack Hub 上 Azure Kubernetes 服务 (AKS) 引擎的发行说明
 description: 了解更新 Azure Stack Hub 上的 AKS 引擎需要采取的步骤。
 author: mattbriggs
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 03/01/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 02/23/2021
-ms.openlocfilehash: a9f1217777fbdf5a6efd752388a15b4573d2d851
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.lastreviewed: 03/01/2021
+ms.openlocfilehash: 9cccf83444e79aede3f88751dbcb77b77bd5ea4a
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840807"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231721"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上的 AKS 引擎发行说明
-::: moniker range=">=azs-2002"
+::: moniker range=">=azs-2005"
+*适用于 AKS 引擎的版本 v 0.60.1。*
+
+本文介绍了 Azure Stack Hub 上的 Azure Kubernetes 服务 (AKS) 引擎更新的内容。 此更新包括对面向 Azure Stack Hub 平台的最新版 AKS 引擎的改进和修复。 请注意，本文的用途并非记录适用于全球 Azure 的 AKS 引擎的发布信息。
+
+## <a name="update-planning"></a>更新规划
+
+AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理虚拟机 (VM)、网络、存储、Kubernetes 和业务流程任务。 应用该更新之前，请务必查看发行说明信息。
+
+### <a name="upgrade-considerations"></a>升级注意事项
+
+-   你使用的是正确的 marketplace 项，AKS 基 Ubuntu 16.04-LTS 或18.04 映像发行版，还是 AKS Base Windows Server （适用于你的 AKS 引擎版本）？ 可以在 "下载新图像和 AKS 引擎" 一节中找到相应版本。
+-   是否为目标群集使用了正确的群集规范 (apimodel.json) 和资源组？ 最初部署群集时，已在输出目录中生成此文件。 请参阅部署命令参数 [部署 Kubernetes 群集](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-cluster?view=azs-2008#deploy-a-kubernetes-cluster)。
+-   是否使用了可靠的计算机来运行 AKS 引擎并从中执行升级操作？
+-   如果要使用活动工作负荷更新操作群集，则可以在不影响它们的情况下应用升级，假设群集处于正常负载。 但是，你应该有一个备份群集，以防需要将用户重定向到它。 强烈建议使用备份群集。
+-   如果可能，请从 Azure Stack Hub 环境中的 VM 运行命令，以减少网络跃点和潜在的连接故障。
+-   请确保订阅有足够的配额来完成整个过程。 进程将在此过程中分配新的 VM。 生成的 VM 的数量将与原始数量相同，但要对在该过程中创建更多的 VM 做好计划。
+-   未规划系统更新或计划的任务。
+-   在已使用与生产群集相同的值配置的群集上设置分阶段升级，并在其上测试升级，然后再在生产群集中执行此操作。
+
+### <a name="use-the-upgrade-command"></a>使用升级命令
+
+你将需要使用 AKS 引擎升级命令，如以下文章 [Azure Stack 集线器上的 Kubernetes 群集升级一](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade?view=azs-2008)文中所述。
+
+### <a name="upgrade-interruptions"></a>升级中断
+
+有时，意外的因素会中断群集的升级。 当 AKS 引擎报告了某个错误或在 AKS 引擎执行过程中发生某些事情时，可能会发生中断。 请检查中断的原因，解决问题，然后再次提交相同的升级命令以继续执行升级过程。 **upgrade** 命令是幂等的，在重新提交命令后应该会恢复群集的升级。 通常，中断会增加完成更新所需的时间，但不会影响它的完成。
+
+### <a name="estimated-upgrade-time"></a>估计的升级时间
+
+群集中每个 VM 的估计时间为 12 到 15 分钟。 例如，一个 20 节点的群集可能需要大约五 (5) 小时才能完成升级。
+
+## <a name="download-new-image-and-aks-engine"></a>下载新映像和 AKS 引擎
+
+下载 AKS 基础 Ubuntu 映像和 AKS 引擎的新版本。
+
+如 Azure Stack 中心的 AKS 引擎文档中所述，部署 Kubernetes 群集需要：
+
+-   需要 aks 二进制 () 
+-   AKS 基本 Ubuntu 16.04-LTS Image 发行版 (必需) 
+-   AKS 基本 Ubuntu 18.04-LTS Image 发行版 (可选) 
+-   AKS 基本 Windows Server Image 发行版 (可选) 
+
+此更新提供了这些组件的新版本：
+
+-   Azure Stack 中心操作员需要将新的 AKS 基本映像下载到 stamp marketplace：
+    -   AKS 基本 Ubuntu 16.04-LTS Image 发行版，1月 2021 (2021.01.28) 
+    -   AKS 基本 Ubuntu 18.04-LTS Image 发行版、2021 Q1 (2021.01.28) 
+    -   AKS 基本 Windows Image (17763.1697.210129) 
+
+        按照[将 Azure Kubernetes 服务 (AKS) 引擎必备组件添加到 Azure Stack Hub 市场](https://docs.microsoft.com/azure-stack/operator/azure-stack-aks-engine?view=azs-2008)一文中的说明进行操作
+
+-   Kubernetes 群集管理员通常 (Azure Stack 中心的租户用户) 将需要下载新的 aks 版本0.60.1。 请参阅以下文章中的说明：在 Azure Stack Hub (或等效 Windows 文章) [中的 Linux 上安装 AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux?view=azs-2008) 。 你可以遵循用于首次安装群集的相同过程。 此更新将覆盖以前的二进制文件。 例如，如果你使用了 get-akse.sh 脚本，请按照[在联网环境中安装](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux?view=azs-2008#install-in-a-connected-environment)部分中所述的步骤进行操作。 如果你是在 Windows 系统上安装，则此过程同样适用，请参阅[在 Windows 上的 Azure Stack Hub 中安装 AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows?view=azs-2008)一文。
+
+## <a name="aks-engine-and-azure-stack-version-mapping"></a>AKS 引擎和 Azure Stack 版本映射
+
+| Azure Stack Hub 版本                    | AKS 引擎版本         |
+|------------------------------------------------|--------------------------------|
+| 1910                                           | 0.43.0、0.43.1                 |
+| 2002                                           | 0.48.0、0.51.0                 |
+| 2005                                           | 0.48.0、0.51.0、0.55.0、0.55.4 |
+| 2008                                           | 0.55.4, 0.60.1                 |
+
+## <a name="kubernetes-version-upgrade-path-in-aks-engine-v0601"></a>AKS 引擎 v 0.60.1 中的 Kubernetes 版本升级路径
+
+可以在下表中找到 Azure Stack Hub 的当前版本和升级版本。 不要遵循 aks-engine get-versions 命令，因为该命令还包括全球 Azure 中支持的版本。 以下版本和升级表适用于 Azure Stack Hub 中的 AKS 引擎群集。
+
+| 当前版本                                       | 可用升级 |
+|-----------------------------------------------------------|-----------------------|
+| 1.15.12                                                   | 1.16.14, 1.16.15      |
+| 1.16.14                                                   | 1.16.15, 1.17.17      |
+| 1.17.11                                                   | 1.17.17, 1.18.15      |
+| 1.17.17                                                   | 1.18.15               |
+
+在 API 模型 json 文件中，请在 "orchestratorProfile" 部分下指定 "版本" 和 "版本" 值。例如，如果计划部署 Kubernetes 1.17.17，则必须设置以下两个值， (参阅) 上的示例 [kubernetes-azurestack.js](https://aka.ms/aksengine-json-example-raw) ：
+
+```json  
+    -   "orchestratorRelease": "1.17",
+    -   "orchestratorVersion": "1.17.17"
+```
+
+## <a name="aks-engine-and-corresponding-image-mapping"></a>AKS 引擎和相应的图像映射
+
+|      AKS 引擎     |      AKS 基础映像     |      Kubernetes 版本     |      API 模型示例     |
+|-|-|-|-|
+|     v 0.43。1    |     AKS 基本 Ubuntu 16.04-LTS Image 发行版，十月 2019 (2019.10.24)     |     1.15.5, 1.15.4, 1.14.8, 1.14.7    |  |
+|     v 0.48。0    |     AKS 基本 Ubuntu 16.04-LTS Image 发行版，三月 2020 (2020.03.19)     |     1.15.10, 1.14.7    |  |
+|     v 0.51。0    |     AKS 基本 Ubuntu 16.04-LTS Image 发行版，2020 (2020.05.13) ，AKS 基本 Windows 映像 (17763.1217.200513)     |     1.15.12、1.16.8、1.16.9    |     [Linux](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-azurestack.json)、 [Windows](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-windows.json)    |
+|     v 0.55。0    |     AKS 基本 Ubuntu 16.04-LTS Image 发行版，8月 2020 (2020.08.24) ，AKS 基本 Windows 映像 (17763.1397.200820)     |     1.15.12, 1.16.14, 1.17.11    |     [Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json)、 [Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)    |
+|     v 0.55。4    |     AKS 基本 Ubuntu 16.04-LTS Image 发行版，9月 2020 (2020.09.14) ，AKS 基本 Windows 映像 (17763.1397.200820)     |     1.15.12, 1.16.14, 1.17.11    |     [Linux](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json)、 [Windows](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json)    |
+|     V 0.60。1    |     AKS 基本 Ubuntu 16.04-LTS Image 发行版，1月 2021 (2021.01.28)    <br>AKS 基本 Ubuntu 18.04-LTS Image 发行版、2021 Q1 (2021.01.28)  <br>AKS 基本 Windows Image (17763.1697.210129)     |     1.16.14, 1.16.15, 1.17.17, 1.18.15    |     [Linux](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json)、 [Windows](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json)    |
+
+## <a name="whats-new"></a>新增功能
+
+如果你有兴趣参加个人预览版，可以 [请求预览版访问权限](https://forms.office.com/r/yqxXyiDcGG)。
+
+新的功能包括：
+-   Ubuntu 18.04 的公开上市
+-   证书轮换公共预览版[ \# 4214](https://github.com/Azure/aks-engine/pull/4214)
+-   T4 Nvidia GPU Private Preview [ \# 4259](https://github.com/Azure/aks-engine/pull/4259)
+-   Azure Active Directory 集成私有预览版
+-   适用于 Azure Blob 专用预览[ \# 712](https://github.com/kubernetes-sigs/azuredisk-csi-driver/pull/712)的 CSI 驱动程序
+-   CSI 驱动程序 Azure 磁盘公共预览版[ \# 712](https://github.com/kubernetes-sigs/azuredisk-csi-driver/pull/712)
+-   CSI 驱动程序 NFS 公共预览版[ \# 712](https://github.com/kubernetes-sigs/azuredisk-csi-driver/pull/712)
+-   支持 Kubernetes 1。 17.17 [ \# 4188](https://github.com/Azure/aks-engine/issues/4188)和 1.18.15 [ \# 4187](https://github.com/Azure/aks-engine/issues/4187)
+
+## <a name="known-issues"></a>已知问题
+
+-   在单个群集内并行部署多个 Kubernetes 服务可能会导致基本负载均衡器配置错误。 建议在一次部署一个服务。
+-   由于 aks 工具是 Azure 和 Azure Stack 集线器上的共享源代码存储库。 查看许多发行说明和拉取请求会使你相信该工具支持上面所列版本之外的其他版本的 Kubernetes 和 OS 平台，请忽略它们并使用上面的版本表作为此更新的官方指南。
+
+> [!NOTE]  
+> Windows 容器和 Azure CNI 支持在公共预览版中提供。
+
+## <a name="reference"></a>参考
+
+这是组合了 Azure 和 Azure Stack Hub 的发行说明的完整集合：
+
+-   https://github.com/Azure/aks-engine/releases/tag/v0.56.0
+-   https://github.com/Azure/aks-engine/releases/tag/v0.56.1
+-   https://github.com/Azure/aks-engine/releases/tag/v0.60.0
+-   https://github.com/Azure/aks-engine/releases/tag/v0.60.1
+::: moniker-end
+::: moniker range=">azs-1910 <=azs-2005"
 适用于 AKS 引擎的版本 v0.55.4。
 
 本文介绍了 Azure Stack Hub 上的 Azure Kubernetes 服务 (AKS) 引擎更新的内容。 此更新包括对面向 Azure Stack Hub 平台的最新版 AKS 引擎的改进和修复。 请注意，本文的用途并非记录适用于全球 Azure 的 AKS 引擎的发布信息。
@@ -104,7 +227,7 @@ AKS 引擎升级命令完全自动执行群集的升级过程，它负责处理�
 
 ## <a name="aks-engine-and-corresponding-image-mapping"></a>AKS 引擎和相应的图像映射
 
-| AKS 引擎 | AKS 基础映像 | Kubernetes 版本 | 说明 |
+| AKS 引擎 | AKS 基础映像 | Kubernetes 版本 | 注意 |
 |---|---|---|---|
 | v 0.43。1 | AKS 基本 Ubuntu 16.04-LTS Image 发行版，十月 2019 (2019.10.24)  | 1.15.5, 1.15.4, 1.14.8, 1.14.7 |  |
 | v 0.48。0 | AKS 基本 Ubuntu 16.04-LTS Image 发行版，三月 2020 (2020.03.19)  | 1.15.10, 1.14.7 |  |

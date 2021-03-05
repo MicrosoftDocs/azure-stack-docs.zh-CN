@@ -3,16 +3,16 @@ title: 将 Azure Kubernetes 服务 (AKS) 引擎必备组件添加到 Azure Stack
 description: 了解如何将 AKS 引擎必备组件添加到 Azure Stack Hub 市场。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 12532ba9e38c37bdf3253a5e33576ca63116f1e0
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/1/2021
+ms.openlocfilehash: ceb51221d03f9c037ac3af2304b55d691f17f021
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246157"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231228"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>将 Azure Kubernetes 服务 (AKS) 引擎必备组件添加到 Azure Stack Hub 市场
 
@@ -39,9 +39,9 @@ Kubernetes 群集将需要 Azure Stack Hub 中的服务主体 (SPN) 和基于角
 
 如果将 Active Directory 联合身份验证服务 (AD FS) 用于标识管理服务，则需要为部署 Kubernetes 群集的用户创建服务主体。 使用客户端密码创建服务主体。 有关说明，请参阅[使用客户端密码创建服务主体](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)。
 
-## <a name="add-the-aks-base-image"></a>添加 AKS 基础映像
+## <a name="add-an-aks-base-image"></a>添加 AKS 基础映像
 
-可通过从 Azure 获取 AKS 基础映像将该项添加到市场。 但是，如果 Azure Stack Hub 处于离线状态，请按照[从 Azure 下载市场项](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)中的说明来添加该项。 添加第 5 步中指定的项。
+可以通过从 Azure 获取项，将 AKS 基本映像添加到 marketplace。 但是，如果 Azure Stack Hub 处于离线状态，请按照[从 Azure 下载市场项](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)中的说明来添加该项。 添加第 5 步中指定的项。
 
 将以下项添加到市场：
 
@@ -53,13 +53,7 @@ Kubernetes 群集将需要 Azure Stack Hub 中的服务主体 (SPN) 和基于角
 
 1. 输入 `AKS Base`。
 
-1. 选择与 AKS 引擎版本匹配的映像版本。 可在[受支持的 Kubernetes 版本](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)中找到与 AKS 引擎版本对应的 AKS 基础映像的列表。 
-
-    在该列表中，选择：
-    - **发布者**：Azure Kubernetes 服务
-    - **套餐**：aks
-    - **名称**：AKS Ubuntu 16.04-LTS 基础映像发行版，2020 年 8 月（2020.09.14 或映射到 AKS 引擎的版本）
-    - **版本**：2020.09.14
+1. 选择与 AKS 引擎版本匹配的映像版本。 可在[受支持的 Kubernetes 版本](..\user\kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)中找到与 AKS 引擎版本对应的 AKS 基础映像的列表。 
 
 1. 选择“下载”。
 

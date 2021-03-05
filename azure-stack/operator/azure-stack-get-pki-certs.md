@@ -1,18 +1,18 @@
 ---
 title: 为 Azure Stack Hub 生成证书签名请求
 description: 了解如何在 Azure Stack Hub 集成系统中为 Azure Stack Hub PKI 证书生成证书签名请求。
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: b03766efe531683310b81dbf2d03de8e990deec0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4303e2894deaaa05aa5ff1954cf34f12375c6693
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870437"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231704"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>为 Azure Stack Hub 生成证书签名请求
 

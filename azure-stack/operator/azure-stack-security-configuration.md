@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Stack Hub 中配置安全控制
 description: 了解如何在 Azure Stack Hub 中配置安全控制。
-author: PatAltimore
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 2ba13915c572c4b71cd5261ddb08cb876dd137a5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 300584eba787cf90e459c4faccf5dddf97d37ceb
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869247"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231177"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>配置 Azure Stack Hub 安全控制
 
@@ -53,7 +53,7 @@ Set-TLSPolicy -Version <String>
 
 *Set-TLSPolicy* cmdlet 的参数：
 
-| 参数 | 说明 | 类型 | 必须 |
+| 参数 | 描述 | 类型 | 必须 |
 |-----|-----|-----|-----|
 | *版本* | Azure Stack Hub 中允许的 TLS 版本 | String | 是 |
 

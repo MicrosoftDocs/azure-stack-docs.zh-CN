@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: 0322d72f3cd28a8e499b2a900d57e4e9d2e9bce4
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9969447ab737c6913576c73b2e53453a6cb8e1f6
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246718"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231755"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上 AKS 引擎的支持策略
 
@@ -85,7 +85,6 @@ Microsoft 不为以下各项提供技术支持：
 -  Kubernetes 配置更改保存在 Kubernetes 配置存储 etcd 以外的位置。 例如，在群集节点中运行的静态 Pod。
 -  有关 Kubernetes 用法的问题。 例如，对于如何创建自定义入口控制器、如何使用应用程序工作负荷，或者如何应用第三方的或开源的软件包或工具，Microsoft 支持部门不提供建议。
 -  不是作为 AKS 引擎部署的 Kubernetes 群集的一部分提供的第三方开源项目。 这些项目可能包括 Kubeadm、Kubespray、Native、Istio、Helm、Envoy 等。
--  在[支持使用 AKS 引擎的方案](azure-stack-kubernetes-aks-engine-overview.md#supported-scenarios-with-the-aks-engine)中指定的用例方案之外的其他用例中使用 AKS 引擎。
 -  第三方软件。 此类软件可能包括安全扫描工具以及网络设备或软件。
 -  有关多云或多供应商扩建的问题。 例如，Microsoft 不为与运行联合多公有云供应商解决方案相关的问题提供支持。
 -  [AKS 引擎支持的区域](#aks-engine-supported-areas)部分中未列出的网络自定义。

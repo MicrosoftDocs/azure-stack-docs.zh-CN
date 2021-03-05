@@ -260,6 +260,10 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: 启用服务帐户令牌卷投影
                       href: kubernetes-aks-engine-service-account.md
+                    - name: 添加容器存储
+                      href: kubernetes-aks-engine-container-storage-interface.md
+                    - name: 旋转证书
+                      href: kubernetes-aks-engine-rotate-certs.md
                     - name: AKS 引擎疑难解答
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: 对容器使用 Azure Monitor

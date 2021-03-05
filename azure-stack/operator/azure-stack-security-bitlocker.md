@@ -2,18 +2,18 @@
 title: 静态数据加密
 titleSuffix: Azure Stack Hub
 description: 了解 Azure Stack Hub 如何使用静态加密来保护数据。
-author: PatAltimore
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 08/06/2020
-ms.openlocfilehash: 891c544c27be43834ebd1a1785da76282a0fbf59
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 147da85fc75ffbe76c1216c402fcec10ba0eb60f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869315"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231194"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Azure Stack Hub 中的静态数据加密
 
@@ -40,7 +40,7 @@ Get-AzsRecoveryKeys -raw
 
 Get-AzsRecoveryKeys cmdlet 的参数：
 
-| 参数 | 说明 | 类型 | 必选 |
+| 参数 | 描述 | 类型 | 必选 |
 |---------|---------|---------|---------|
 |*raw* | 返回每个加密卷的恢复密钥、计算机名和密码 ID 之间映射的数据。  | 开关 | 否，但建议使用 |
 

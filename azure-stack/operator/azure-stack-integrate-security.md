@@ -1,18 +1,18 @@
 ---
-title: 通过 syslog 转发将 Azure Stack 集线器与监视解决方案集成
+title: 通过 Syslog 转发将 Azure Stack Hub 与监视解决方案集成
 description: 了解如何通过 Syslog 转发将 Azure Stack Hub 与监视解决方案集成。
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/15/2020
-ms.openlocfilehash: 9a6da457b32bf9a224a906bc24ec65c7adcf1fab
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6b1b4a206813178686b924b1de71ad957b4feb18
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870403"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231279"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>通过 Syslog 转发将 Azure Stack Hub 与监视解决方案集成
 
@@ -57,7 +57,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *Set-SyslogServer* cmdlet 的参数：
 
-| 参数 | 说明 | 类型 | 必须 |
+| 参数 | 描述 | 类型 | 必须 |
 |---------|---------|---------|---------|
 |*ServerName* | Syslog 服务器的 FQDN 或 IP 地址。 | String | 是|
 |*ServerPort* | syslog 服务器侦听的端口号。 | UInt16 | 是|
@@ -69,7 +69,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *Set-SyslogClient* cmdlet 的参数：
 
-| 参数 | 说明 | 类型 |
+| 参数 | 描述 | 类型 |
 |---------|---------| ---------|
 | *pfxBinary* | pfx 文件的内容，通过管道传输到 Byte[]，其中包含的证书可供客户端用作对 Syslog 服务器进行身份验证的标识。  | Byte[] |
 | *CertPassword* |  密码，用于导入与 pfx 文件关联的私钥。 | SecureString |
@@ -245,14 +245,14 @@ Prefix fields
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
 |SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
-|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10 个|
-|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10 个|
+|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
+|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
 |PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10 个|
-|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10 个|
+|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10|
+|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
 |SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
-|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10 个|
-|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10 个|
+|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
+|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
 |PrivilegedEndpointSessionTimedOut |1017|PrivilegedEndpointSessionTimedOutEvent|5|
 
 PEP 严重性表：
@@ -260,7 +260,7 @@ PEP 严重性表：
 | severity | Level | 数字值 |
 |----------|-------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
-|10 个|关键|值：1. 指示严重警报的日志|
+|10|关键|值：1. 指示严重警报的日志|
 |8|错误| 值：2. 指示错误的日志|
 |5|警告|值：3. 指示警告的日志|
 |2|信息|值：4. 指示信息性消息的日志|
@@ -284,8 +284,8 @@ Prefix fields
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
 |RecoverySessionDevelopmentTokenRequested |1013|RecoverySessionDevelopmentTokenRequestedEvent|5|
-|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10 个|
-|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10 个|
+|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10|
+|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10|
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 REP 严重性表：
@@ -293,7 +293,7 @@ REP 严重性表：
 | severity | Level | 数字值 |
 |----------|-------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
-|10 个|关键|值：1. 指示严重警报的日志|
+|10|关键|值：1. 指示严重警报的日志|
 |8|错误| 值：2. 指示错误的日志|
 |5|警告|值：3. 指示警告的日志|
 |2|信息|值：4. 指示信息性消息的日志|
@@ -313,7 +313,7 @@ Windows 事件的严重性表：
 | CEF 严重性值 | Windows 事件级别 | 数字值 |
 |--------------------|---------------------| ----------------|
 |0|Undefined|值：0. 指示所有级别的日志|
-|10 个|关键|值：1. 指示严重警报的日志|
+|10|关键|值：1. 指示严重警报的日志|
 |8|错误| 值：2. 指示错误的日志|
 |5|警告|值：3. 指示警告的日志|
 |2|信息|值：4. 指示信息性消息的日志|
@@ -385,19 +385,19 @@ Azure Stack Hub 中已创建警报的自定义扩展表：
 
 ## <a name="syslog-event-types"></a>Syslog 事件类型  
 
-该表列出了通过 syslog 通道发送的所有事件类型、事件、消息架构或属性。 仅当 SIEM 集成需要 Windows 信息事件时才应使用安装程序详细信息开关。 
+该表列出了通过 Syslog 通道发送的所有事件类型、事件、消息架构或属性。 只有在 SIEM 集成需要 Windows 信息性事件时才应使用设置详细开关。 
 
-| 事件类型                                 | 事件或消息架构                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 需要详细设置         | 事件说明 (可选)                                                                                                                                    |
+| 事件类型                                 | 事件或消息架构                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 需要详细设置         | 事件描述（可选）                                                                                                                                   |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Stack Hub 警报                     | 对于警报消息架构，请参阅 [CEF 映射以查找已关闭的警报](#cef-mapping-for-alerts-closed)。 <br> <br>在单独的文档中共享的所有警报的列表。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 否                               | 系统运行状况警报                                                                                                                                           |
-| 特权终结点事件                 | 有关特权终结点消息架构，请参阅 [CEF 映射获取特权终结点事件](#cef-mapping-for-privileged-endpoint-events)。<br> <br>PrivilegedEndpointAccessed <br>SupportSessionTokenRequested <br>SupportSessionDevelopmentTokenRequested <br>SupportSessionUnlocked <br>SupportSessionFailedToUnlock <br>PrivilegedEndpointClosed <br>NewCloudAdminUser <br>RemoveCloudAdminUser <br>SetCloudAdminUserPassword <br>GetCloudAdminPasswordRecoveryToken <br>ResetCloudAdminPassword <br>PrivilegedEndpointSessionTimedOut                                                                                                                                                                                                                                                                                                      | 否                               |                                                                                                                                                                |
-| 恢复终结点事件                   | 对于恢复终结点消息架构，请参阅 [CEF 映射获取恢复终结点事件](#cef-mapping-for-recovery-endpoint-events)。 <br>RecoveryEndpointAccessed <br>RecoverySessionTokenRequested <br>RecoverySessionDevelopmentTokenRequested <br>RecoverySessionUnlocked <br>RecoverySessionFailedToUnlock <br>Recovand RecoveryEndpointClosed                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 否                               |                                                                                                                                                                |
-| Windows 安全事件                    |   <br>有关 Windows 事件消息架构，请参阅 [windows 事件的 CEF 映射](#cef-mapping-for-windows-events)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 是 (获取信息事件)   | 类型： <br>-信息 <br>- Warning（警告） <br>- Error（错误） <br>- 关键                                                                                               |
+| Azure Stack Hub 警报                     | 有关警报消息架构，请参阅[已关闭警报的 CEF 映射](#cef-mapping-for-alerts-closed)。 <br> <br>另外单独有一篇文档共享了所有警报的列表。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 否                               | 系统运行状况警报                                                                                                                                           |
+| 特权终结点事件                 | 有关特权终结点消息架构，请参阅[特权终结点事件的 CEF 映射](#cef-mapping-for-privileged-endpoint-events)。<br> <br>PrivilegedEndpointAccessed <br>SupportSessionTokenRequested <br>SupportSessionDevelopmentTokenRequested <br>SupportSessionUnlocked <br>SupportSessionFailedToUnlock <br>PrivilegedEndpointClosed <br>NewCloudAdminUser <br>RemoveCloudAdminUser <br>SetCloudAdminUserPassword <br>GetCloudAdminPasswordRecoveryToken <br>ResetCloudAdminPassword <br>PrivilegedEndpointSessionTimedOut                                                                                                                                                                                                                                                                                                      | 否                               |                                                                                                                                                                |
+| 恢复终结点事件                   | 有关恢复终结点消息架构，请参阅[恢复终结点事件的 CEF 映射](#cef-mapping-for-recovery-endpoint-events)。 <br>RecoveryEndpointAccessed <br>RecoverySessionTokenRequested <br>RecoverySessionDevelopmentTokenRequested <br>RecoverySessionUnlocked <br>RecoverySessionFailedToUnlock <br>Recovand RecoveryEndpointClosed                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 否                               |                                                                                                                                                                |
+| Windows 安全事件                    |   <br>有关 Windows 事件消息架构，请参阅 [Windows 事件的 CEF 映射](#cef-mapping-for-windows-events)。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 是（用于获取信息事件）  | 类型： <br>- 信息 <br>- Warning（警告） <br>- Error（错误） <br>- 关键                                                                                               |
 | ARM 事件                                 | 消息属性： <br> <br>AzsSubscriptionId <br>AzsCorrelationId <br>AzsPrincipalOid <br>AzsPrincipalPuid <br>AzsTenantId <br>AzsOperationName <br>AzsOperationId <br>AzsEventSource <br>AzsDescription <br>AzsResourceProvider <br>AzsResourceUri <br>AzsEventName <br>AzsEventInstanceId <br>AzsChannels <br>AzsEventLevel <br>AzsStatus <br>AzsSubStatus <br>AzsClaims <br>AzsAuthorization <br>AzsHttpRequest <br>AzsProperties <br>AzsEventTimestamp <br>AzsAudience <br>AzsIssuer <br>AzsIssuedAt <br>AzsApplicationId <br>AzsUniqueTokenId <br>AzsArmServiceRequestId <br>AzsEventCategory <br> <br>                                                                                                                                                                                                                                | 否 <br>                          | 每个已注册的 ARM 资源都可以引发事件。                                                                                                               |
-| BCDR 事件                                | 消息架构： <br> <br>AuditingManualBackup { <br>} <br>AuditingConfig <br>{ <br>时间间隔 <br>保留 <br>IsSchedulerEnabled <br>BackupPath <br>} <br>AuditingPruneBackupStore { <br>IsInternalStore <br>} <br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 否                               | 这些事件跟踪客户手动完成的基础备份管理操作，包括触发器备份、更改备份配置和修剪备份数据。       |
-| 排除故障创建和关闭事件    | 消息架构： <br> <br>InfrastructureFaultOpen { <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsComponentType, <br>AzsComponentName, <br>AzsFaultHash, <br>AzsCreatedTimeUtc, <br>AzsSource <br>} <br>  <br>InfrastructureFaultClose {  <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsComponentType, <br>AzsComponentName, <br>AzsFaultHash, <br>AzsLastUpdatedTimeUtc, <br>AzsSource <br>}                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 否                               | 故障触发工作流，尝试更正可能导致警报的错误。 如果错误没有修正，则会直接导致警报。            |
-| 服务故障创建和关闭事件  | 消息架构： <br> <br>ServiceFaultOpen { <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsSubscriptionId, <br>AzsResourceGroup, <br>AzsServiceName, <br>AzsResourceId <br>AzsFaultHash, <br>AzsCreatedTimeUtc, <br>AzsSource <br>} <br>  <br>ServiceFaultClose { <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsSubscriptionId, <br>AzsResourceGroup, <br>AzsServiceName, <br>AzsResourceId <br>AzsFaultHash, <br>AzsLastUpdatedTimeUtc, <br>AzsSource <br>}                                                                                                                                                                                                                                                                                                                                                                                     | 否                               | 故障触发工作流，尝试更正可能导致警报的错误。  <br>如果错误没有修正，则会直接导致警报。 <br>  |
-| PEP WAC 事件                             | 消息架构： <br> <br>前缀字段  <br>* 签名 ID： Test-azurestack-PrivilegedEndpoint： <PEP Event ID>  <br>路径名 <PEP Task Name>  <br>* 严重性：从 PEP 级别映射 (详细信息，请参阅下面的 PEP 严重性表)   <br>* 谁：用于连接到 PEP 的帐户  <br>* WhichIP：用于连接到 PEP 的设备的 IP 地址 <br><br>WACServiceStartFailedEvent <br>WACConnectedUserNotRetrievedEvent <br>WACEnableExceptionEvent  <br>WACUserAddedEvent <br>WACAddUserToLocalGroupFailedEvent <br>WACIsUserInLocalGroupFailedEvent  <br>WACServiceStartTimeoutEvent  <br>WACServiceStartInvalidOperationEvent <br>WACGetSidFromUserFailedEvent <br>WACDisableFirewallFailedEvent <br>WACCreateLocalGroupIfNotExistFailedEvent <br>WACEnableFlagIsTrueEvent <br>WACEnableFlagIsFalseEvent <br>WACServiceStartedEvent | 否                               |                                                                                                                                                                |
+| BCDR 事件                                | 消息架构： <br> <br>AuditingManualBackup { <br>} <br>AuditingConfig <br>{ <br>时间间隔 <br>保留 <br>IsSchedulerEnabled <br>BackupPath <br>} <br>AuditingPruneBackupStore { <br>IsInternalStore <br>} <br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 否                               | 这些事件跟踪由客户手动完成的基础结构备份管理操作，包括触发备份、更改备份配置和删除备份数据。       |
+| 基础结构故障创建和关闭事件    | 消息架构： <br> <br>InfrastructureFaultOpen { <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsComponentType, <br>AzsComponentName, <br>AzsFaultHash, <br>AzsCreatedTimeUtc, <br>AzsSource <br>} <br>  <br>InfrastructureFaultClose {  <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsComponentType, <br>AzsComponentName, <br>AzsFaultHash, <br>AzsLastUpdatedTimeUtc, <br>AzsSource <br>}                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 否                               | 故障会触发尝试修正可能导致警报的错误的工作流。 如果某个故障没有修正措施，它就会直接导致警报。            |
+| 服务故障创建和关闭事件  | 消息架构： <br> <br>ServiceFaultOpen { <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsSubscriptionId, <br>AzsResourceGroup, <br>AzsServiceName, <br>AzsResourceId <br>AzsFaultHash, <br>AzsCreatedTimeUtc, <br>AzsSource <br>} <br>  <br>ServiceFaultClose { <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsSubscriptionId, <br>AzsResourceGroup, <br>AzsServiceName, <br>AzsResourceId <br>AzsFaultHash, <br>AzsLastUpdatedTimeUtc, <br>AzsSource <br>}                                                                                                                                                                                                                                                                                                                                                                                     | 否                               | 故障会触发尝试修正可能导致警报的错误的工作流。  <br>如果某个故障没有修正措施，它就会直接导致警报。 <br>  |
+| PEP WAC 事件                             | 消息架构： <br> <br>前缀字段  <br>* Signature ID：Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>  <br>* Name：<PEP Task Name>  <br>* Severity：从 PEP 级别映射（有关详细信息，请参阅下面的 PEP 严重性表）  <br>* Who：用于连接到 PEP 的帐户  <br>* WhichIP：用于连接到 PEP 的设备的 IP 地址 <br><br>WACServiceStartFailedEvent <br>WACConnectedUserNotRetrievedEvent <br>WACEnableExceptionEvent  <br>WACUserAddedEvent <br>WACAddUserToLocalGroupFailedEvent <br>WACIsUserInLocalGroupFailedEvent  <br>WACServiceStartTimeoutEvent  <br>WACServiceStartInvalidOperationEvent <br>WACGetSidFromUserFailedEvent <br>WACDisableFirewallFailedEvent <br>WACCreateLocalGroupIfNotExistFailedEvent <br>WACEnableFlagIsTrueEvent <br>WACEnableFlagIsFalseEvent <br>WACServiceStartedEvent | 否                               |                                                                                                                                                                |
 
 ## <a name="next-steps"></a>后续步骤
 
