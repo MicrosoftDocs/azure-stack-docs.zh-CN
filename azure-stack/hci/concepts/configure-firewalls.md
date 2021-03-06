@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 28fd04d9fb84f612dca6b241b8935b8f9cbfe049
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487385"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250303"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>为 Azure Stack HCI 配置防火墙
 
@@ -24,7 +24,7 @@ Azure Stack HCI 需要定期连接到 Azure。 访问仅限于：
 - 出站方向
 - 端口 443 (HTTPS) 
 
-有关详细信息，请参阅[AZURE STACK HCI 常见问题](../faq.md)中的 "Azure Stack HCI 连接性" 部分
+有关详细信息，请参阅[AZURE STACK HCI 常见问题](../faq.yml)中的 "Azure Stack HCI 连接性" 部分
 
 本主题介绍如何选择使用高度锁定的防火墙配置来阻止所有目标流量（包括在允许列表中的流量除外）。
 
@@ -42,7 +42,7 @@ Azure Stack HCI 需要定期连接到 Azure。 访问仅限于：
 ## <a name="required-endpoint-daily-access-after-azure-registration"></a>Azure 注册后 (每日所需的终结点访问权限) 
 Azure 为使用服务标记组织的 Azure 服务维护众所周知的 IP 地址。 Azure 发布每个服务的所有 IP 地址的每周一个 JSON 文件。 IP 地址不会经常更改，但是每年更改几次。 下表显示了操作系统需要访问的服务标记终结点。
 
-| 说明                   | IP 范围的服务标记  | URL                                                                                 |
+| 描述                   | IP 范围的服务标记  | 代码                                                                                 |
 | :-----------------------------| :-----------------------  | :---------------------------------------------------------------------------------- |
 | Azure Active Directory        | AzureActiveDirectory      | `https://login.microsoftonline.com`<br> `https://graph.microsoft.com`               |
 | Azure 资源管理器        | AzureResourceManager      | `https://management.azure.com`                        |
@@ -122,4 +122,4 @@ Set-WinInetProxy -ProxySettingsPerUser 0 -ProxyServer webproxy1.com:9090
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅：
-- [AZURE STACK HCI 常见问题](../faq.md)的 "连接" 部分
+- [AZURE STACK HCI 常见问题](../faq.yml)的 "连接" 部分

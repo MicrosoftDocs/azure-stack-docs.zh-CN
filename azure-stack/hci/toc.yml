@@ -13,7 +13,7 @@
     - name: 发行说明
       href: 'https://support.microsoft.com/help/4595086'
     - name: 常见问题解答
-      href: faq.md
+      href: faq.yml
 - name: 快速入门
   items:
     - name: 在 Windows 管理中心使用 Azure Stack HCI

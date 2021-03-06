@@ -3,16 +3,16 @@ title: Azure Stack Hub 已知问题
 description: 了解 Azure Stack Hub 发行版中的已知问题。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/28/2021
+ms.date: 03/05/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 220569fd3763654f69809cc8316aca2a54e3f7ef
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.openlocfilehash: f094fbba546821378a804e081ace7460ba651f73
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554147"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250341"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub 已知问题
 
@@ -99,6 +99,12 @@ ms.locfileid: "99554147"
 - 原因：启用浮动 IP 时，前端端口和后端端口都需要与负载均衡规则中的相同。 这是设计的结果。
 - 发生次数：通用
 
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>Stop-Deallocate VM 导致 MTU 配置
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：对 VM 执行 **停止解除分配** 会导致删除 vm 上的 MTU 配置。 此行为在 Azure 中不一致。
+- 发生次数：通用
+
 <!-- ## Compute -->
 
 <!-- ## Storage -->
@@ -174,6 +180,12 @@ ms.locfileid: "99554147"
 - 适用于：此问题适用于所有支持的版本。
 - 原因：无法更改与负载均衡器关联的公共 IP 的 IdleTimeoutInMinutes 值。 该操作会将公共 IP 置于失败状态。
 - 补救措施：若要使公共 IP 恢复成功状态，请将引用公共 IP 的负载均衡器规则上的 IdleTimeoutInMinutes 值更改回原始值（默认值为 4 分钟）。
+- 发生次数：通用
+
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>Stop-Deallocate VM 导致 MTU 配置
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：对 VM 执行 **停止解除分配** 会导致删除 vm 上的 MTU 配置。 此行为在 Azure 中不一致。
 - 发生次数：通用
 
 ## <a name="compute"></a>计算
@@ -364,6 +376,12 @@ ms.locfileid: "99554147"
   - [在 Azure Stack Hub 上配置 BGP](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute 线路](azure-stack-connect-expressroute.md)
   - [指定自定义的 IPsec/IKE 策略](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+  
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>Stop-Deallocate VM 导致 MTU 配置
+
+- 适用于：此问题适用于所有支持的版本。
+- 原因：对 VM 执行 **停止解除分配** 会导致删除 vm 上的 MTU 配置。 此行为在 Azure 中不一致。
+- 发生次数：通用
 
 ## <a name="compute"></a>计算
 
