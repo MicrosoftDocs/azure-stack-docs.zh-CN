@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: dawhite
-ms.openlocfilehash: de54cf3f93462cfc63b6f7f2074343feacd25479
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 4f4b06c671df668f3dd99b15a95dc29aae446c55
+ms.sourcegitcommit: 192701cd691d0f13ae65f19627bb8ae7fc81bbc9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840452"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451296"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>快速入门：使用 Windows Admin Center 设置 Azure Stack HCI 上的 Azure Kubernetes 服务
 
@@ -29,11 +29,11 @@ ms.locfileid: "101840452"
 
 ## <a name="download-azure-kubernetes-service-on-azure-stack-hci"></a>下载 Azure Stack HCI 上的 Azure Kubernetes 服务
 
-如果尚未下载预览版软件，请参阅[评估 Azure Stack HCI 上的 AKS](https://aka.ms/AKS-HCI-Evaluate)。 系统会要求你在 Azure Stack HCI 和 Windows 管理中心上下载 AKS。
+如果尚未下载预览版软件，请参阅[评估 Azure Stack HCI 上的 AKS](https://aka.ms/AKS-HCI-Evaluate)。 系统会要求你在 Azure Stack HCI 上下载 AKS。 请确保不要在此页上安装 Windows 管理中心版本，因为它指向2103版本，如果为你的部署选择了 Windows 管理中心版本2103，则某些 AKS 的功能可能无法按预期方式工作。 
 
 ## <a name="setting-up-windows-admin-center"></a>设置 Windows Admin Center
 
-如果尚未安装 Windows Admin Center，请参阅[安装 Windows Admin Center](/windows-server/manage/windows-admin-center/deploy/install)。 您可以在 Windows 10 计算机或服务器上运行 Windows 管理中心。 Azure Stack HCI 上的 Azure Kubernetes 服务功能仅适用于 Windows Admin Center 版本2009 或更高版本。
+如果尚未安装 Windows Admin Center，请参阅[安装 Windows Admin Center](http://aka.ms/aks-hci-wac-2009)。 您可以在 Windows 10 计算机或服务器上运行 Windows 管理中心。 **Azure Stack HCI 功能上的 Azure Kubernetes 服务最适用于 Windows 管理中心版本2009。请确保下载并安装版本2009，以便在 Azure Stack HCI 上部署 AKS 群集。** 我们正在致力于将 AKS-HCI 与 Windows 管理中心版本2103集成，如果你选择对部署使用版本2103，则某些功能可能无法按预期工作。
 
 ## <a name="installing-the-azure-kubernetes-service-extension"></a>安装 Azure Kubernetes 服务扩展
 

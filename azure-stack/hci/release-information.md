@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 02/17/2021
-ms.openlocfilehash: 519d3150d626427b2e803061874c57f93812d9c8
-ms.sourcegitcommit: dfce5d143318150d2cab563dc0ee328c777bf5f3
+ms.date: 03/08/2021
+ms.openlocfilehash: 1c559d7835a40fb87fa7f0f2019b240526856524
+ms.sourcegitcommit: 192701cd691d0f13ae65f19627bb8ae7fc81bbc9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636622"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451313"
 ---
 # <a name="azure-stack-hci-release-information"></a>Azure Stack HCI 版本信息
 
