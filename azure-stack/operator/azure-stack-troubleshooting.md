@@ -8,12 +8,12 @@ ms.date: 02/12/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: b84efb235478a3c3543bf5f1d1ada338f44de442
-ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
+ms.openlocfilehash: b16582d6f4dad324d1c748034dad902907e669b4
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102116948"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515713"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>排查 Azure Stack Hub 中的问题
 
@@ -225,7 +225,7 @@ Azure Stack Hub 修补程序和更新过程旨在让操作员以一致且简单�
 
 **原因**：基板管理控制器 (BMC) 密码设置不正确。
 
-**修正**： [更新 BMC 凭据](/azure-stack/operator/azure-stack-rotate-secrets.md#update-the-bmc-credential) 并继续更新。
+**修正**： [更新 BMC 凭据](/azure-stack/operator/azure-stack-rotate-secrets#update-the-bmc-credential) 并继续更新。
 
 ### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>更新过程中报告的警告和错误
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 02/10/2020
-ms.openlocfilehash: 3711a0e11bac59f00ce51027ea9544f6858dd297
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 56311d959ff0927c49844184da90681f44958478
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487317"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515560"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>将 Azure Stack HCI 连接到 Azure
 
@@ -100,11 +100,11 @@ Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受�
 
 ### <a name="azure-active-directory-permissions"></a>Azure Active Directory 权限
 
-还需要适当的 Azure Active Directory 权限才能完成注册过程。 如果尚未安装，请要求 Azure AD 管理员授予许可或委托给你的权限。 有关详细信息，请参阅[管理 Azure 注册](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)。
+还需要适当的 Azure Active Directory 权限才能完成注册过程。 如果尚未安装，请要求 Azure AD 管理员授予许可或委托给你的权限。 有关详细信息，请参阅[管理 Azure 注册](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)。
 
 ## <a name="register-a-cluster-using-windows-admin-center"></a>使用 Windows 管理中心注册群集
 
-注册 Azure Stack HCI 群集的最简单方法是使用 Windows 管理中心。 请记住，用户必须具有 [Azure Active Directory 权限](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)，否则注册过程将不会完成;相反，它将退出并退出注册等待管理员批准。
+注册 Azure Stack HCI 群集的最简单方法是使用 Windows 管理中心。 请记住，用户必须具有 [Azure Active Directory 权限](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)，否则注册过程将不会完成;相反，它将退出并退出注册等待管理员批准。
 
 1. 开始注册过程之前，必须先将 [Windows 管理中心注册到 Azure](../manage/register-windows-admin-center.md)（如果尚未这样做）。
 
@@ -137,7 +137,7 @@ Azure Stack HCI 需要定期连接到 Azure 公有云。 如果出站连接受�
 
    此语法使用 Azure 资源和资源组的默认 Azure 区域和云环境为当前用户、默认的 Azure 区域和云环境注册群集 (，其中 Server1 为成员) 。 你还可以将可选的 `-Region` 、 `-ResourceName` 和 `-ResourceGroupName` 参数添加到此命令，以指定这些值。
 
-   请记住，运行 cmdlet 的用户 `Register-AzStackHCI` 必须具有 [Azure Active Directory 权限](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)，否则注册过程将不会完成; 相反，它将退出并使注册挂起管理员批准。 授权后，只需重新运行 `Register-AzStackHCI` 即可完成注册。
+   请记住，运行 cmdlet 的用户 `Register-AzStackHCI` 必须具有 [Azure Active Directory 权限](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)，否则注册过程将不会完成; 相反，它将退出并使注册挂起管理员批准。 授权后，只需重新运行 `Register-AzStackHCI` 即可完成注册。
 
 3. 使用 Azure 进行身份验证
 

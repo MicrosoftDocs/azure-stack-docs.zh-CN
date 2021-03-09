@@ -7,12 +7,12 @@ ms.date: 03/05/2021
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 03/05/2021
-ms.openlocfilehash: 957b5860853b12040bfc13c4380290ad27e53a42
-ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+ms.openlocfilehash: f4fc9ec002312432bd9f839026eb3ed4254991ea
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102250287"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515611"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub 操作员访问工作站
 
@@ -46,14 +46,13 @@ OAW VM 是一个可选虚拟机，Azure Stack 集线器运行不是必需的虚�
 | [Microsoft Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)                     | [SystemDrive] \\程序文件 (x86) \\ Microsoft Azure 存储资源管理器 |
 | [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)                         | [SystemDrive] \\VMSoftware \\ azcopy_windows_amd64_10 3。4               |
 | [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools/tree/az)                                          | [SystemDrive] \\VMSoftware \\ test-azurestack-工具                          |
-
 ## <a name="download-files"></a>下载文件
-
 若要获取文件以创建 OAW VM，请在此处下载。 下载之前，请务必查看 [Microsoft 隐私声明](https://privacy.microsoft.com/privacystatement) 和 [法律条款](https://docs.microsoft.com/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms) 。
 
 由于解决方案的无状态特性，OAW VM 没有任何更新。 对于每个里程碑，都会发布一个新版本的 VM 映像文件。 使用最新版本创建新 OAW VM。 映像文件基于最新 Windows Server 2019 版本。 安装之后，可以使用 Windows 更新来应用更新（包括所有关键更新）。
 
-验证下载的 OAW.zip 文件的哈希，以确保在使用它创建 OAW VM 之前未对其进行修改。 运行下面的 PowerShell 脚本。 如果返回值为 `True` ，则可以使用下载的 OAW.zip：
+验证下载的 OAW.zip 文件的哈希，以确保在使用它创建 OAW VM 之前未对其进行修改。 运行下面的 PowerShell 脚本。 如果返回值为 True，则可以使用下载的 OAW.zip：
+
 
 > [!NOTE]  
 > 提取下载内容后取消阻止脚本文件。
@@ -75,7 +74,7 @@ if ($expectedHash -eq $actualHash)
 } 
 else 
 { 
-    Write-Error 'ERROR: OAW.zip file hash does not match! It isn't safe to use it, please download it again.' 
+    Write-Error "ERROR: OAW.zip file hash does not match! It isn't safe to use it, please download it again." 
     Write-Error "Actual hash: $actualHash" 
 } 
 ```
@@ -97,7 +96,7 @@ else
     ![用于检查 OAW VM 版本的 PowerShell cmdlet 的屏幕截图。](media/operator-access-workstation/check-operator-access-workstation-vm-version.png)
 
 > [!NOTE]  
-> 此 PowerShell cmdlet 可能不存在于使用 OEM 映像部署的 HLH 上。
+> 此 PowerShell cmdlet 在使用 OEM 映像部署的 HLH 上不存在。
 
 ## <a name="create-the-oaw-vm-using-a-script"></a>使用脚本创建 OAW VM
 
@@ -125,13 +124,10 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword
 
 ```powershell  
 $securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString 
-New-OAW.ps1 -LocalAdministratorPassword $securePassword `
-   -AzureStackCertificatePath 'F:\certroot.cer' `
-   -DeploymentDataFilePath 'F:\DeploymentData.json' `
-   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
+New-OAW.ps1 -LocalAdministratorPassword $securePassword -AzureStackCertificatePath 'F:\certroot.cer' -DeploymentDataFilePath 'F:\DeploymentData.json' -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
 ```
 
-如果文件中的 DeploymentData.js包含 OAW VM 的命名前缀，则该值将用于 `VirtualMachineName` 参数。 否则，默认名称为 `AzSOAW` 或指定的任何名称由用户指定。
+如果 ` DeploymentData.json` 文件包括 OAW VM 的命名前缀，则此值将用于 `VirtualMachineName` 参数。 否则，默认名称为 `AzSOAW` 或指定的任何名称由用户指定。 `DeploymentData.json`在 HLH 上不存在时，可以使用[特权终结点](https://docs.microsoft.com/azure-stack/reference/pep-2002/get-azurestackstampinformation)重新创建。 
 
 > [!NOTE]  
 > `AzureStackCertificatePath`仅当使用企业证书颁发机构颁发的证书部署 Azure Stack 集线器时，才应使用参数。
@@ -142,10 +138,7 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
 
 ```powershell  
 $securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString 
-New-OAW.ps1 -LocalAdministratorPassword $securePassword ` 
--AzureStackCertificatePath 'F:\certroot.cer' ` 
--SkipNetworkConfiguration ` 
--VirtualSwitchName Example  
+New-OAW.ps1 -LocalAdministratorPassword $securePassword -AzureStackCertificatePath 'F:\certroot.cer' `-SkipNetworkConfiguration -VirtualSwitchName Example  
 ```
 
 > [!NOTE]  

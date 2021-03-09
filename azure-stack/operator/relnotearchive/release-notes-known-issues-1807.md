@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: f7434b468f9a3c259e178b91ca9e24bd49def76c
-ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
+ms.openlocfilehash: 6c40a3be7bddf49166979458e755058b5aba47c9
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102187055"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515934"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
@@ -53,7 +53,7 @@ Azure Stack 1807 更新内部版本号为 **1.1807.0.76**。
 - **扩展容量**，方法是 [添加更多的缩放单元节点](../azure-stack-add-scale-node.md)。
 
 <!-- 2753130 |  IS, ASDK   -->  
-- **Azure 资源管理器模板现在支持 condition 元素** - 现在可以使用条件在 Azure 资源管理器模板中部署资源。 可以将模板设计为根据某个条件（例如评估是否存在某个参数值）来部署资源。 若要了解如何使用模板作为条件，请参阅 Azure 文档中的[按条件部署资源](/azure/architecture/building-blocks/extending-templates/conditional-deploy)和 [Azure 资源管理器模板的 Variables 节](/azure/azure-resource-manager/resource-manager-templates-variables)。 
+- **Azure 资源管理器模板现在支持 condition 元素** - 现在可以使用条件在 Azure 资源管理器模板中部署资源。 可以将模板设计为根据某个条件（例如评估是否存在某个参数值）来部署资源。 若要了解如何使用模板作为条件，请参阅 Azure 文档中的[按条件部署资源](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy)和 [Azure 资源管理器模板的 Variables 节](/azure/azure-resource-manager/resource-manager-templates-variables)。 
 
    也可使用模板[将资源部署到多个订阅或资源组](/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment)。  
 
