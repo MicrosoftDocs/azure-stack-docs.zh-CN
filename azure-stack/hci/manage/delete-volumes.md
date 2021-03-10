@@ -1,42 +1,40 @@
 ---
-title: 在 Azure Stack HCI 中删除卷
-description: 如何使用 Windows 管理中心和 PowerShell 删除 Azure Stack HCI 中的卷。
+title: 删除 Azure Stack HCI 和 Windows Server 中的卷
+description: 如何使用 Windows 管理中心和 PowerShell 删除 Azure Stack HCI 和 Windows Server 中的卷。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: 7a90948cccb75bb8bb1578101d530c46852e99d6
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 03/09/2021
+ms.openlocfilehash: fdc7fd4ae102871d534d846dd653af077a75d49a
+ms.sourcegitcommit: 02a4c34fb829e053016912a4fffcc51e32685425
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866516"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102532472"
 ---
-# <a name="deleting-volumes-in-azure-stack-hci"></a>在 Azure Stack HCI 中删除卷
+# <a name="deleting-volumes-in-azure-stack-hci-and-windows-server"></a>删除 Azure Stack HCI 和 Windows Server 中的卷
 
 > 适用于：Azure Stack HCI 版本 20H2；Windows Server 2019
 
-本主题说明如何使用 Windows Admin Center 在 Azure Stack HCI 群集上删除卷。
+本主题提供使用 Windows 管理中心或 PowerShell 删除卷的说明。
 
-观看有关如何使用 Windows 管理中心删除卷的快速视频。
+## <a name="delete-volumes-with-windows-admin-center"></a>删除包含 Windows 管理中心的卷
 
-> [!VIDEO https://www.youtube-nocookie.com/embed/DbjF8r2F6Jo]
-
-## <a name="use-windows-admin-center-to-delete-a-volume"></a>使用 Windows Admin Center 删除卷
-
-1. 在 Windows Admin Center 中连接到存储空间直通群集，然后在“工具”窗格中选择“卷”。 
+1. 在 Windows 管理中心，连接到群集，然后从左侧的 "**工具**" 窗格中选择 "**卷**"。
 2. 在“卷”页上选择“清单”选项卡，然后选择要删除的卷。
 3. 在卷详细信息页的顶部，选择“删除”。
 4. 在“确认”对话框中，选中复选框以确认要删除该卷，然后选择“删除”。
 
-## <a name="delete-volumes-using-powershell"></a>使用 PowerShell 删除卷
+   :::image type="content" source="media/delete-volumes/delete-volume.png" alt-text="选择要删除的卷，选择 &quot;删除&quot;，然后确认是否要清除该卷上的所有数据。" lightbox="media/delete-volumes/delete-volume.png":::
 
-使用 Remove-VirtualDisk cmdlet 删除存储空间直通中的卷。 此 cmdlet 用于删除 VirtualDisk 对象，并将其使用的空间返回给公开了 VirtualDisk 对象的存储池。
+## <a name="delete-volumes-with-powershell"></a>通过 PowerShell 删除卷
 
-首先，在管理电脑上启动 PowerShell，并运行带有 CimSession 参数（即存储空间直通群集或服务器节点的名称，例如 clustername.microsoft.com）的 Get-VirtualDisk cmdlet：
+使用 **VirtualDisk** Cmdlet 删除 **VirtualDisk** 对象，并将其所使用的空间返回给公开 **VirtualDisk** 对象的存储池。
+
+首先，在管理 PC 上启动 PowerShell，并使用 **CimSession** 参数运行 **VirtualDisk** cmdlet，它是群集或服务器节点的名称，例如 *clustername.contoso.com*：
 
 ```PowerShell
-Get-VirtualDisk -CimSession clustername.microsoft.com
+Get-VirtualDisk -CimSession clustername.contoso.com
 ```
 
 这将返回 -FriendlyName 参数的可能值列表，这些值对应于群集上的卷名。
